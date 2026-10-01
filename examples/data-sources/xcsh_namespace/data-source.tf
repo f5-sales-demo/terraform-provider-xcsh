@@ -11,10 +11,12 @@ terraform {
   }
 }
 
+# Credentials are supplied externally.
+provider "xcsh" {}
+
 # Look up an existing Namespace by name
 data "xcsh_namespace" "example" {
-  name      = "example-namespace"
-  namespace = "staging"
+  name = "example-namespace"
 }
 
 output "namespace_id" {

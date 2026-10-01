@@ -2,7 +2,7 @@
 page_title: "xcsh_namespace"
 subcategory: ""
 description: "xcsh_namespace for xcsh_namespace."
-xcsh_docs: {"aliases": [], "body_bytes": 1458, "body_sha256": "sha256:8865f0421b97c0cae9ce3cca80db2eafa65ed706ebea41fd23c360f3ffb24448", "child_ids": ["xcsh-docs:resources:namespace:reference", "xcsh-docs:resources:namespace:examples", "xcsh-docs:resources:namespace:import", "xcsh-docs:resources:namespace:timeouts"], "collection_id": "xcsh-docs:resources:namespace:collection", "completeness": "complete", "id": "xcsh-docs:resources:namespace:fundamentals", "parent_id": null, "path": "documentation/resources/namespace/index.md", "provider_name": "namespace", "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6", "provider_type": "resources", "role": "fundamentals", "schema_path": [], "schema_version": 1, "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/namespace/index.txt", "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774", "summary": "xcsh_namespace for xcsh_namespace.", "upstream_identity": {"release_tag": "v9.0.0", "schema_components": ["namespaceCreateRequest"], "target_commit": "f95183046197e6547a3ea123e324f53126eae440"}}
+xcsh_docs: {"aliases": [], "body_bytes": 1485, "body_sha256": "sha256:099de36bbfe09bd6b9f96ad5d2ef829a169c968aeeadad9573458c8f9e66b877", "child_ids": ["xcsh-docs:resources:namespace:reference", "xcsh-docs:resources:namespace:examples", "xcsh-docs:resources:namespace:import", "xcsh-docs:resources:namespace:timeouts"], "collection_id": "xcsh-docs:resources:namespace:collection", "completeness": "complete", "id": "xcsh-docs:resources:namespace:fundamentals", "parent_id": null, "path": "documentation/resources/namespace/index.md", "provider_name": "namespace", "provider_schema_digest": "sha256:e63a07e98b4893c041a6f79be7e19c64babfe543fc6847c17641037e084e1c7c", "provider_type": "resources", "role": "fundamentals", "schema_path": [], "schema_version": 1, "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/namespace/index.txt", "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774", "summary": "xcsh_namespace for xcsh_namespace.", "upstream_identity": {"release_tag": "v9.0.0", "schema_components": ["namespaceCreateRequest"], "target_commit": "f95183046197e6547a3ea123e324f53126eae440"}}
 ---
 
 <!-- Exact provider and upstream contract identifiers. -->
@@ -40,10 +40,12 @@ terraform {
   }
 }
 
+# Credentials are supplied externally.
+provider "xcsh" {}
+
 # Basic Namespace configuration
-resource "xcsh_namespace" "example" {
-  name      = "example-namespace"
-  namespace = "staging"
+resource "xcsh_namespace" "this" {
+  name = "example-namespace"
 }
 ```
 

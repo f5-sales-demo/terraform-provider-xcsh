@@ -2,7 +2,7 @@
 page_title: "Import"
 subcategory: ""
 description: "Import for xcsh_application_profiles."
-xcsh_docs: {"aliases": [], "body_bytes": 548, "body_sha256": "sha256:5722b3a19f4e22d3551e231e165a4ad072fa337095544a826cb91fd1f24a784e", "child_ids": [], "collection_id": "xcsh-docs:resources:application_profiles:collection", "completeness": "complete", "id": "xcsh-docs:resources:application_profiles:import", "parent_id": "xcsh-docs:resources:application_profiles:fundamentals", "path": "documentation/resources/application_profiles/lifecycle/import/index.md", "provider_name": "application_profiles", "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6", "provider_type": "resources", "role": "import", "schema_path": [], "schema_version": 1, "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/application_profiles/lifecycle/import/index.txt", "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774", "summary": "Import for xcsh_application_profiles.", "upstream_identity": {"release_tag": "v9.0.0", "schema_components": ["application_profilesCreateRequest"], "target_commit": "f95183046197e6547a3ea123e324f53126eae440"}}
+xcsh_docs: {"aliases": [], "body_bytes": 520, "body_sha256": "sha256:45c9389455b2cbce02fcd7a725714608d3f408366e72c018765fed1c6fd7a4ee", "child_ids": [], "collection_id": "xcsh-docs:resources:application_profiles:collection", "completeness": "complete", "id": "xcsh-docs:resources:application_profiles:import", "import_guidance": "Import using the `namespace/name` identifier format.", "parent_id": "xcsh-docs:resources:application_profiles:fundamentals", "path": "documentation/resources/application_profiles/lifecycle/import/index.md", "provider_name": "application_profiles", "provider_schema_digest": "sha256:e63a07e98b4893c041a6f79be7e19c64babfe543fc6847c17641037e084e1c7c", "provider_type": "resources", "role": "import", "schema_path": [], "schema_version": 1, "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/application_profiles/lifecycle/import/index.txt", "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774", "summary": "Import for xcsh_application_profiles.", "upstream_identity": {"release_tag": "v9.0.0", "schema_components": ["application_profilesCreateRequest"], "target_commit": "f95183046197e6547a3ea123e324f53126eae440"}}
 ---
 
 <!-- Exact provider and upstream contract identifiers. -->
@@ -16,7 +16,7 @@ Breadcrumbs:
 - [xcsh_application_profiles](https://f5-sales-demo.github.io/terraform-provider-xcsh/resources/application_profiles/)
 - Import
 
-Import an existing object with the identifier syntax supported by this resource.
+Import using the `namespace/name` identifier format.
 
 ```shell
 terraform import xcsh_application_profiles.example system/example

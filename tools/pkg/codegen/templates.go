@@ -1236,12 +1236,17 @@ func (d *{{.TitleCase}}DataSource) Schema(ctx context.Context, req datasource.Sc
 				Required:            true,
 			},
 			"namespace": schema.StringAttribute{
+{{- if eq .Name "namespace"}}
+				MarkdownDescription: "Namespaces are tenant-level objects. Omit this argument.",
+				Optional:            true,
+{{- else}}
 				MarkdownDescription: "Namespace where the {{.TitleCase}} exists.",
 {{- if dataSourceNamespaceDefault .Attributes}}
 				Optional:            true,
 				Computed:            true,
 {{- else}}
 				Required:            true,
+{{- end}}
 {{- end}}
 			},
 			"description": schema.StringAttribute{

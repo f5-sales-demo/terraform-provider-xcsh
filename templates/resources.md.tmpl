@@ -34,11 +34,8 @@ resource "{{ .Name }}" "example" {
 
 {{ .SchemaMarkdown | trimspace }}
 
+{{ if .HasImport }}
 ## Import
 
-Import is supported using the following syntax:
-
-```bash
-# Import using namespace/name format
-terraform import {{ .Name }}.example system/example
-```
+{{ codefile "shell" .ImportFile }}
+{{ end }}

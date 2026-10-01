@@ -21,6 +21,9 @@ import textwrap
 from pathlib import Path, PurePosixPath
 from urllib.parse import quote
 
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+from import_contract import resolve_import_contract
+
 PROVIDER = "registry.terraform.io/f5-sales-demo/xcsh"
 SITE = "https://f5-sales-demo.github.io/terraform-provider-xcsh"
 REGISTRY_FILENAME_BUDGET = 240
@@ -370,28 +373,13 @@ class Collection:
         if self.kind == "resources":
             source = self.root / "internal/provider" / f"{self.name}_resource.go"
             text = source.read_text() if source.exists() else ""
-            if " ImportState(" in text:
-                signature = re.search(r"// Import ID format: ([^\n]+)", text)
-                if not signature:
-                    raise ValueError(
-                        f"import supported without documented source syntax: {self.name}"
-                    )
-                syntax = signature.group(1).strip()
-                segments = syntax.split(" ", 1)[0].split("/")
-                import_id = "/".join(
-                    "system" if segment == "namespace" else "example"
-                    for segment in segments
-                )
-                if import_id is None:
-                    raise ValueError(
-                        f"unrecognized import syntax: {self.name}: {syntax}"
-                    )
+            contract = resolve_import_contract(text, self.name)
+            if contract:
                 page = self.add(
                     "import", (), "lifecycle/import/index.md", "Import", "fundamentals"
                 )
-                page["import"] = (
-                    f"terraform import xcsh_{self.name}.example {import_id}\n"
-                )
+                page["import"] = contract["command"]
+                page["import_guidance"] = contract["guidance"]
         if "timeouts" in schema_root(self.schema).get("block_types", {}):
             self.add(
                 "timeouts",
@@ -655,7 +643,7 @@ class Collection:
             ]
         elif role == "import":
             lines += [
-                "Import an existing object with the identifier syntax supported by this resource.\n",
+                page["import_guidance"] + "\n",
                 "```shell\n" + page["import"].rstrip() + "\n```\n",
             ]
         elif role == "timeouts":

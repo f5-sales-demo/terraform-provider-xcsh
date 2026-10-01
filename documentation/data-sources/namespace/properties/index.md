@@ -2,7 +2,7 @@
 page_title: "Property reference"
 subcategory: ""
 description: "Property reference for xcsh_namespace."
-xcsh_docs: {"aliases": [], "body_bytes": 6826, "body_sha256": "sha256:659e7b192fbf596cb8dbc3d9441de65aa114e1ae9a5b683f17b694ba0054f9e7", "child_ids": [], "collection_id": "xcsh-docs:data-sources:namespace:collection", "completeness": "complete", "id": "xcsh-docs:data-sources:namespace:reference", "parent_id": "xcsh-docs:data-sources:namespace:fundamentals", "path": "documentation/data-sources/namespace/properties/index.md", "provider_name": "namespace", "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6", "provider_type": "data-sources", "role": "reference", "schema_path": [], "schema_version": 1, "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/namespace/properties/index.txt", "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774", "summary": "Property reference for xcsh_namespace.", "upstream_identity": {"release_tag": "v9.0.0", "schema_components": ["namespaceCreateRequest"], "target_commit": "f95183046197e6547a3ea123e324f53126eae440"}}
+xcsh_docs: {"aliases": [], "body_bytes": 6845, "body_sha256": "sha256:11f77fd7580782b0182734c29fb7a0759d6279ab2ad25fedaa68009ca55c335e", "child_ids": [], "collection_id": "xcsh-docs:data-sources:namespace:collection", "completeness": "complete", "id": "xcsh-docs:data-sources:namespace:reference", "parent_id": "xcsh-docs:data-sources:namespace:fundamentals", "path": "documentation/data-sources/namespace/properties/index.md", "provider_name": "namespace", "provider_schema_digest": "sha256:e63a07e98b4893c041a6f79be7e19c64babfe543fc6847c17641037e084e1c7c", "provider_type": "data-sources", "role": "reference", "schema_path": [], "schema_version": 1, "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/namespace/properties/index.txt", "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774", "summary": "Property reference for xcsh_namespace.", "upstream_identity": {"release_tag": "v9.0.0", "schema_components": ["namespaceCreateRequest"], "target_commit": "f95183046197e6547a3ea123e324f53126eae440"}}
 ---
 
 <!-- Exact provider and upstream contract identifiers. -->
@@ -203,9 +203,9 @@ Receipt-pinned upstream constraints:
 
 ### namespace property
 
-Type: `"string"`. Required.
+Type: `"string"`. Optional.
 
-Namespace where the Namespace exists.
+Namespaces are tenant-level objects. Omit this argument.
 
 Upstream description:
 
