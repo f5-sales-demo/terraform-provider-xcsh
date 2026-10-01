@@ -29,7 +29,7 @@ PROVIDER = "registry.terraform.io/f5-sales-demo/xcsh"
 SITE = "https://f5-sales-demo.github.io/terraform-provider-xcsh"
 REGISTRY_FILENAME_BUDGET = 240
 REGISTRY_LIMIT = 500_000  # HashiCorp documents 500KB, including frontmatter.
-PROJECTION_RECEIPT_BUDGET = 800_000
+PROJECTION_RECEIPT_BUDGET = 500_000
 TYPES = {
     "resources": ("resource_schemas", "resources", "resource.tf", "resource"),
     "data-sources": (
@@ -1133,9 +1133,7 @@ def generate(root, schema_path, constraints_path):
         if version not in ("Version: 2.5.6", "2.5.6"):
             raise ValueError("documentation formatter must be Biome 2.5.6")
     for relative, text in list(outputs.items()):
-        if relative.endswith(".json") and not relative.startswith(
-            "documentation/registry-projection/"
-        ):
+        if relative.endswith(".json"):
             formatted = subprocess.run(  # noqa: S603 - generated path and verified formatter
                 [
                     *formatter,
