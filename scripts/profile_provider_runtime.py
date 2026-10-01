@@ -128,6 +128,7 @@ def main() -> int:
             )
         }
     )
+    os.sync()
     monitor = DiskMonitor(paths)
     started = time.monotonic()
     exit_code = run_profile(command, monitor)
