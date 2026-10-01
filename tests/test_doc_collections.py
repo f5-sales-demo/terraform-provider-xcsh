@@ -9,8 +9,6 @@ from itertools import pairwise
 from pathlib import Path
 from typing import ClassVar
 
-import pytest
-
 ROOT = Path(__file__).resolve().parents[1]
 SPEC = importlib.util.spec_from_file_location(
     "doc_collections", ROOT / "tools/generate-doc-collections.py"
@@ -216,7 +214,7 @@ class CollectionTests(unittest.TestCase):
             self.assertIn("[xcsh_fixture](fixture.md)", page)
             self.assertNotIn("functions", page)
         del outputs["docs/resources/fixture.md"]
-        with pytest.raises(ValueError, match="missing navigation target"):
+        with self.assertRaisesRegex(ValueError, "missing navigation target"):  # noqa: PT027 - standard-library CI runner
             DOCS.registry_navigation(surface, outputs)
 
     def test_generated_manifest_and_progressive_http_navigation(self):

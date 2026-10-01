@@ -7,8 +7,6 @@ import tempfile
 import unittest
 from pathlib import Path
 
-import pytest
-
 ROOT = Path(__file__).resolve().parents[1]
 SPEC = importlib.util.spec_from_file_location(
     "snapshot", ROOT / "scripts/terraform_docs_snapshot.py"
@@ -53,9 +51,9 @@ class SnapshotTests(unittest.TestCase):
             "body_bytes": 3,
         }
         data = ("---\nxcsh_docs: " + json.dumps(bad) + "\n---\n\nBad").encode()
-        with pytest.raises(ValueError, match="metadata body mismatch"):
+        with self.assertRaisesRegex(ValueError, "metadata body mismatch"):  # noqa: PT027 - standard-library CI runner
             SNAPSHOT.metadata("docs/bad.md", data)
-        with pytest.raises(ValueError, match="only stable"):
+        with self.assertRaisesRegex(ValueError, "only stable"):  # noqa: PT027 - standard-library CI runner
             SNAPSHOT.snapshot("docs-v12.0.4", Path("unused"))
 
 
