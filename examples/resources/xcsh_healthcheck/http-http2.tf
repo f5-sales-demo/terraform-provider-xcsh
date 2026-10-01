@@ -1,6 +1,6 @@
-# HttpHttp2 — Verified Configuration Example
-# This configuration is extracted from acceptance tests
-# and verified against the live F5 XC API.
+# HttpHttp2 — Acceptance-test-derived Configuration
+# Extracted from an acceptance test helper.
+# No new live API validation is claimed.
 
 terraform {
   required_providers {

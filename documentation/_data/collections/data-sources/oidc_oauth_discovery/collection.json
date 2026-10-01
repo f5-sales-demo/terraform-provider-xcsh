@@ -1,0 +1,259 @@
+{
+  "collection": {
+    "fundamentals_id": "xcsh-docs:data-sources:oidc_oauth_discovery:fundamentals",
+    "id": "xcsh-docs:data-sources:oidc_oauth_discovery:collection",
+    "properties": {
+      "authentication_uri": {
+        "anchor": "schema-authentication_uri",
+        "document_id": "xcsh-docs:data-sources:oidc_oauth_discovery:reference",
+        "schema_path": ["authentication_uri"]
+      },
+      "auto_jwt_config_name": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:data-sources:oidc_oauth_discovery:properties:auto_jwt_config_name",
+        "schema_path": ["auto_jwt_config_name"]
+      },
+      "auto_jwt_config_name.name": {
+        "anchor": "schema-auto_jwt_config_name--name",
+        "document_id": "xcsh-docs:data-sources:oidc_oauth_discovery:properties:auto_jwt_config_name",
+        "schema_path": ["auto_jwt_config_name", "name"]
+      },
+      "auto_jwt_config_name.namespace": {
+        "anchor": "schema-auto_jwt_config_name--namespace",
+        "document_id": "xcsh-docs:data-sources:oidc_oauth_discovery:properties:auto_jwt_config_name",
+        "schema_path": ["auto_jwt_config_name", "namespace"]
+      },
+      "auto_jwt_config_name.tenant": {
+        "anchor": "schema-auto_jwt_config_name--tenant",
+        "document_id": "xcsh-docs:data-sources:oidc_oauth_discovery:properties:auto_jwt_config_name",
+        "schema_path": ["auto_jwt_config_name", "tenant"]
+      },
+      "introspect_uri": {
+        "anchor": "schema-introspect_uri",
+        "document_id": "xcsh-docs:data-sources:oidc_oauth_discovery:reference",
+        "schema_path": ["introspect_uri"]
+      },
+      "namespace": {
+        "anchor": "schema-namespace",
+        "document_id": "xcsh-docs:data-sources:oidc_oauth_discovery:reference",
+        "schema_path": ["namespace"]
+      },
+      "openid_cfg_uri": {
+        "anchor": "schema-openid_cfg_uri",
+        "document_id": "xcsh-docs:data-sources:oidc_oauth_discovery:reference",
+        "schema_path": ["openid_cfg_uri"]
+      },
+      "token_uri": {
+        "anchor": "schema-token_uri",
+        "document_id": "xcsh-docs:data-sources:oidc_oauth_discovery:reference",
+        "schema_path": ["token_uri"]
+      },
+      "token_validation_scope_uri": {
+        "anchor": "schema-token_validation_scope_uri",
+        "document_id": "xcsh-docs:data-sources:oidc_oauth_discovery:reference",
+        "schema_path": ["token_validation_scope_uri"]
+      },
+      "trusted_ca": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:data-sources:oidc_oauth_discovery:properties:trusted_ca",
+        "schema_path": ["trusted_ca"]
+      },
+      "trusted_ca.name": {
+        "anchor": "schema-trusted_ca--name",
+        "document_id": "xcsh-docs:data-sources:oidc_oauth_discovery:properties:trusted_ca",
+        "schema_path": ["trusted_ca", "name"]
+      },
+      "trusted_ca.namespace": {
+        "anchor": "schema-trusted_ca--namespace",
+        "document_id": "xcsh-docs:data-sources:oidc_oauth_discovery:properties:trusted_ca",
+        "schema_path": ["trusted_ca", "namespace"]
+      },
+      "trusted_ca.tenant": {
+        "anchor": "schema-trusted_ca--tenant",
+        "document_id": "xcsh-docs:data-sources:oidc_oauth_discovery:properties:trusted_ca",
+        "schema_path": ["trusted_ca", "tenant"]
+      },
+      "userinfo_request_uri": {
+        "anchor": "schema-userinfo_request_uri",
+        "document_id": "xcsh-docs:data-sources:oidc_oauth_discovery:reference",
+        "schema_path": ["userinfo_request_uri"]
+      }
+    },
+    "provider_name": "oidc_oauth_discovery",
+    "provider_type": "data-sources",
+    "reference_id": "xcsh-docs:data-sources:oidc_oauth_discovery:reference"
+  },
+  "pages": [
+    {
+      "aliases": [],
+      "body_bytes": 1258,
+      "body_sha256": "sha256:2c12f9c01e6830c54b73692d547f8eda177f2cf87b195b850d66d033cf1a6e4e",
+      "child_ids": [
+        "xcsh-docs:data-sources:oidc_oauth_discovery:reference",
+        "xcsh-docs:data-sources:oidc_oauth_discovery:examples"
+      ],
+      "collection_id": "xcsh-docs:data-sources:oidc_oauth_discovery:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:oidc_oauth_discovery:fundamentals",
+      "parent_id": null,
+      "path": "documentation/data-sources/oidc_oauth_discovery/index.md",
+      "provider_name": "oidc_oauth_discovery",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/data-sources/oidc_oauth_discovery.md",
+      "role": "fundamentals",
+      "schema_path": [],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/oidc_oauth_discovery/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "xcsh_oidc_oauth_discovery for xcsh_oidc_oauth_discovery.",
+      "title": "xcsh_oidc_oauth_discovery",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": [],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 5235,
+      "body_sha256": "sha256:862f032c2089995750ee02040080a5b97a0f23920a5f0a5405105125dea74925",
+      "child_ids": [
+        "xcsh-docs:data-sources:oidc_oauth_discovery:properties:auto_jwt_config_name",
+        "xcsh-docs:data-sources:oidc_oauth_discovery:properties:trusted_ca"
+      ],
+      "collection_id": "xcsh-docs:data-sources:oidc_oauth_discovery:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:oidc_oauth_discovery:reference",
+      "parent_id": "xcsh-docs:data-sources:oidc_oauth_discovery:fundamentals",
+      "path": "documentation/data-sources/oidc_oauth_discovery/properties/index.md",
+      "provider_name": "oidc_oauth_discovery",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--oidc_oauth_discovery--reference.md",
+      "role": "reference",
+      "schema_path": [],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/oidc_oauth_discovery/properties/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "Property reference for xcsh_oidc_oauth_discovery.",
+      "title": "Property reference",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": [],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 2048,
+      "body_sha256": "sha256:32eb9646a21576f837b7bcc0729ce5c7f0479f6a497c3c22a81b3a971721328a",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:data-sources:oidc_oauth_discovery:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:oidc_oauth_discovery:properties:auto_jwt_config_name",
+      "parent_id": "xcsh-docs:data-sources:oidc_oauth_discovery:reference",
+      "path": "documentation/data-sources/oidc_oauth_discovery/properties/auto_jwt_config_name/index.md",
+      "provider_name": "oidc_oauth_discovery",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--oidc_oauth_discovery--properties--auto_jwt_config_name.md",
+      "role": "properties",
+      "schema_path": ["auto_jwt_config_name"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/oidc_oauth_discovery/properties/auto_jwt_config_name/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "auto_jwt_config_name for xcsh_oidc_oauth_discovery.",
+      "title": "auto_jwt_config_name",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": [],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 2008,
+      "body_sha256": "sha256:55039565aa3019739d3541672193758955f7f6f05d154a1c33bb4a33e6a6b79b",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:data-sources:oidc_oauth_discovery:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:oidc_oauth_discovery:properties:trusted_ca",
+      "parent_id": "xcsh-docs:data-sources:oidc_oauth_discovery:reference",
+      "path": "documentation/data-sources/oidc_oauth_discovery/properties/trusted_ca/index.md",
+      "provider_name": "oidc_oauth_discovery",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--oidc_oauth_discovery--properties--trusted_ca.md",
+      "role": "properties",
+      "schema_path": ["trusted_ca"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/oidc_oauth_discovery/properties/trusted_ca/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "trusted_ca for xcsh_oidc_oauth_discovery.",
+      "title": "trusted_ca",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": [],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 705,
+      "body_sha256": "sha256:dfd47c105d0cac5a356ce780b9153f155f7714fd09e4fe09845f9f9a364e530d",
+      "child_ids": ["xcsh-docs:data-sources:oidc_oauth_discovery:example:data-source"],
+      "collection_id": "xcsh-docs:data-sources:oidc_oauth_discovery:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:oidc_oauth_discovery:examples",
+      "parent_id": "xcsh-docs:data-sources:oidc_oauth_discovery:fundamentals",
+      "path": "documentation/data-sources/oidc_oauth_discovery/examples/index.md",
+      "provider_name": "oidc_oauth_discovery",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--oidc_oauth_discovery--examples.md",
+      "role": "examples",
+      "schema_path": [],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/oidc_oauth_discovery/examples/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "Examples for xcsh_oidc_oauth_discovery.",
+      "title": "Examples",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": [],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 1294,
+      "body_sha256": "sha256:ca70428cb96249e71846fe2bd6221d2d0668cf4a07c7f6def48308fb8837dfd2",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:data-sources:oidc_oauth_discovery:collection",
+      "completeness": "complete",
+      "evidence": {
+        "attribution": "Schema-derived minimal configuration validated with the checked-out provider.",
+        "outcome": "valid configuration",
+        "sha256": "sha256:fc43fdc88285748c686ea5a405a7c988251f6e6a9d61c4635ba5b40db4b85e6a",
+        "source_path": "examples/data-sources/xcsh_oidc_oauth_discovery/data-source.tf",
+        "validation": "terraform validate"
+      },
+      "id": "xcsh-docs:data-sources:oidc_oauth_discovery:example:data-source",
+      "parent_id": "xcsh-docs:data-sources:oidc_oauth_discovery:examples",
+      "path": "documentation/data-sources/oidc_oauth_discovery/examples/data-source/index.md",
+      "provider_name": "oidc_oauth_discovery",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--oidc_oauth_discovery--example--data-source.md",
+      "role": "example",
+      "schema_path": ["data-source"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/oidc_oauth_discovery/examples/data-source/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "Data source for xcsh_oidc_oauth_discovery.",
+      "title": "Data source",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": [],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    }
+  ],
+  "provider": "registry.terraform.io/f5-sales-demo/xcsh",
+  "schema_version": 1
+}

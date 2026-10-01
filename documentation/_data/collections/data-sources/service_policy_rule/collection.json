@@ -1,0 +1,3136 @@
+{
+  "collection": {
+    "fundamentals_id": "xcsh-docs:data-sources:service_policy_rule:fundamentals",
+    "id": "xcsh-docs:data-sources:service_policy_rule:collection",
+    "properties": {
+      "action": {
+        "anchor": "schema-action",
+        "document_id": "xcsh-docs:data-sources:service_policy_rule:reference",
+        "schema_path": ["action"]
+      },
+      "annotations": {
+        "anchor": "schema-annotations",
+        "document_id": "xcsh-docs:data-sources:service_policy_rule:reference",
+        "schema_path": ["annotations"]
+      },
+      "any_asn": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:data-sources:service_policy_rule:properties:any_asn",
+        "schema_path": ["any_asn"]
+      },
+      "any_client": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:data-sources:service_policy_rule:properties:any_client",
+        "schema_path": ["any_client"]
+      },
+      "any_ip": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:data-sources:service_policy_rule:properties:any_ip",
+        "schema_path": ["any_ip"]
+      },
+      "api_group_matcher": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:data-sources:service_policy_rule:properties:api_group_matcher",
+        "schema_path": ["api_group_matcher"]
+      },
+      "api_group_matcher.invert_matcher": {
+        "anchor": "schema-api_group_matcher--invert_matcher",
+        "document_id": "xcsh-docs:data-sources:service_policy_rule:properties:api_group_matcher",
+        "schema_path": ["api_group_matcher", "invert_matcher"]
+      },
+      "api_group_matcher.match": {
+        "anchor": "schema-api_group_matcher--match",
+        "document_id": "xcsh-docs:data-sources:service_policy_rule:properties:api_group_matcher",
+        "schema_path": ["api_group_matcher", "match"]
+      },
+      "arg_matchers": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:data-sources:service_policy_rule:properties:arg_matchers",
+        "schema_path": ["arg_matchers"]
+      },
+      "arg_matchers.check_not_present": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:data-sources:service_policy_rule:properties:arg_matchers:check_not_present",
+        "schema_path": ["arg_matchers", "check_not_present"]
+      },
+      "arg_matchers.check_present": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:data-sources:service_policy_rule:properties:arg_matchers:check_present",
+        "schema_path": ["arg_matchers", "check_present"]
+      },
+      "arg_matchers.invert_matcher": {
+        "anchor": "schema-arg_matchers--invert_matcher",
+        "document_id": "xcsh-docs:data-sources:service_policy_rule:properties:arg_matchers",
+        "schema_path": ["arg_matchers", "invert_matcher"]
+      },
+      "arg_matchers.item": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:data-sources:service_policy_rule:properties:arg_matchers:item",
+        "schema_path": ["arg_matchers", "item"]
+      },
+      "arg_matchers.item.exact_values": {
+        "anchor": "schema-arg_matchers--item--exact_values",
+        "document_id": "xcsh-docs:data-sources:service_policy_rule:properties:arg_matchers:item",
+        "schema_path": ["arg_matchers", "item", "exact_values"]
+      },
+      "arg_matchers.item.regex_values": {
+        "anchor": "schema-arg_matchers--item--regex_values",
+        "document_id": "xcsh-docs:data-sources:service_policy_rule:properties:arg_matchers:item",
+        "schema_path": ["arg_matchers", "item", "regex_values"]
+      },
+      "arg_matchers.item.transformers": {
+        "anchor": "schema-arg_matchers--item--transformers",
+        "document_id": "xcsh-docs:data-sources:service_policy_rule:properties:arg_matchers:item",
+        "schema_path": ["arg_matchers", "item", "transformers"]
+      },
+      "arg_matchers.name": {
+        "anchor": "schema-arg_matchers--name",
+        "document_id": "xcsh-docs:data-sources:service_policy_rule:properties:arg_matchers",
+        "schema_path": ["arg_matchers", "name"]
+      },
+      "asn_list": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:data-sources:service_policy_rule:properties:asn_list",
+        "schema_path": ["asn_list"]
+      },
+      "asn_list.as_numbers": {
+        "anchor": "schema-asn_list--as_numbers",
+        "document_id": "xcsh-docs:data-sources:service_policy_rule:properties:asn_list",
+        "schema_path": ["asn_list", "as_numbers"]
+      },
+      "asn_matcher": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:data-sources:service_policy_rule:properties:asn_matcher",
+        "schema_path": ["asn_matcher"]
+      },
+      "asn_matcher.asn_sets": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:data-sources:service_policy_rule:properties:asn_matcher:asn_sets",
+        "schema_path": ["asn_matcher", "asn_sets"]
+      },
+      "asn_matcher.asn_sets.kind": {
+        "anchor": "schema-asn_matcher--asn_sets--kind",
+        "document_id": "xcsh-docs:data-sources:service_policy_rule:properties:asn_matcher:asn_sets",
+        "schema_path": ["asn_matcher", "asn_sets", "kind"]
+      },
+      "asn_matcher.asn_sets.name": {
+        "anchor": "schema-asn_matcher--asn_sets--name",
+        "document_id": "xcsh-docs:data-sources:service_policy_rule:properties:asn_matcher:asn_sets",
+        "schema_path": ["asn_matcher", "asn_sets", "name"]
+      },
+      "asn_matcher.asn_sets.namespace": {
+        "anchor": "schema-asn_matcher--asn_sets--namespace",
+        "document_id": "xcsh-docs:data-sources:service_policy_rule:properties:asn_matcher:asn_sets",
+        "schema_path": ["asn_matcher", "asn_sets", "namespace"]
+      },
+      "asn_matcher.asn_sets.tenant": {
+        "anchor": "schema-asn_matcher--asn_sets--tenant",
+        "document_id": "xcsh-docs:data-sources:service_policy_rule:properties:asn_matcher:asn_sets",
+        "schema_path": ["asn_matcher", "asn_sets", "tenant"]
+      },
+      "asn_matcher.asn_sets.uid": {
+        "anchor": "schema-asn_matcher--asn_sets--uid",
+        "document_id": "xcsh-docs:data-sources:service_policy_rule:properties:asn_matcher:asn_sets",
+        "schema_path": ["asn_matcher", "asn_sets", "uid"]
+      },
+      "body_matcher": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:data-sources:service_policy_rule:properties:body_matcher",
+        "schema_path": ["body_matcher"]
+      },
+      "body_matcher.exact_values": {
+        "anchor": "schema-body_matcher--exact_values",
+        "document_id": "xcsh-docs:data-sources:service_policy_rule:properties:body_matcher",
+        "schema_path": ["body_matcher", "exact_values"]
+      },
+      "body_matcher.regex_values": {
+        "anchor": "schema-body_matcher--regex_values",
+        "document_id": "xcsh-docs:data-sources:service_policy_rule:properties:body_matcher",
+        "schema_path": ["body_matcher", "regex_values"]
+      },
+      "body_matcher.transformers": {
+        "anchor": "schema-body_matcher--transformers",
+        "document_id": "xcsh-docs:data-sources:service_policy_rule:properties:body_matcher",
+        "schema_path": ["body_matcher", "transformers"]
+      },
+      "bot_action": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:data-sources:service_policy_rule:properties:bot_action",
+        "schema_path": ["bot_action"]
+      },
+      "bot_action.bot_skip_processing": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:data-sources:service_policy_rule:properties:bot_action:bot_skip_processing",
+        "schema_path": ["bot_action", "bot_skip_processing"]
+      },
+      "bot_action.none": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:data-sources:service_policy_rule:properties:bot_action:none",
+        "schema_path": ["bot_action", "none"]
+      },
+      "client_name": {
+        "anchor": "schema-client_name",
+        "document_id": "xcsh-docs:data-sources:service_policy_rule:reference",
+        "schema_path": ["client_name"]
+      },
+      "client_name_matcher": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:data-sources:service_policy_rule:properties:client_name_matcher",
+        "schema_path": ["client_name_matcher"]
+      },
+      "client_name_matcher.exact_values": {
+        "anchor": "schema-client_name_matcher--exact_values",
+        "document_id": "xcsh-docs:data-sources:service_policy_rule:properties:client_name_matcher",
+        "schema_path": ["client_name_matcher", "exact_values"]
+      },
+      "client_name_matcher.regex_values": {
+        "anchor": "schema-client_name_matcher--regex_values",
+        "document_id": "xcsh-docs:data-sources:service_policy_rule:properties:client_name_matcher",
+        "schema_path": ["client_name_matcher", "regex_values"]
+      },
+      "client_selector": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:data-sources:service_policy_rule:properties:client_selector",
+        "schema_path": ["client_selector"]
+      },
+      "client_selector.expressions": {
+        "anchor": "schema-client_selector--expressions",
+        "document_id": "xcsh-docs:data-sources:service_policy_rule:properties:client_selector",
+        "schema_path": ["client_selector", "expressions"]
+      },
+      "cookie_matchers": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:data-sources:service_policy_rule:properties:cookie_matchers",
+        "schema_path": ["cookie_matchers"]
+      },
+      "cookie_matchers.check_not_present": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:data-sources:service_policy_rule:properties:cookie_matchers:check_not_present",
+        "schema_path": ["cookie_matchers", "check_not_present"]
+      },
+      "cookie_matchers.check_present": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:data-sources:service_policy_rule:properties:cookie_matchers:check_present",
+        "schema_path": ["cookie_matchers", "check_present"]
+      },
+      "cookie_matchers.invert_matcher": {
+        "anchor": "schema-cookie_matchers--invert_matcher",
+        "document_id": "xcsh-docs:data-sources:service_policy_rule:properties:cookie_matchers",
+        "schema_path": ["cookie_matchers", "invert_matcher"]
+      },
+      "cookie_matchers.item": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:data-sources:service_policy_rule:properties:cookie_matchers:item",
+        "schema_path": ["cookie_matchers", "item"]
+      },
+      "cookie_matchers.item.exact_values": {
+        "anchor": "schema-cookie_matchers--item--exact_values",
+        "document_id": "xcsh-docs:data-sources:service_policy_rule:properties:cookie_matchers:item",
+        "schema_path": ["cookie_matchers", "item", "exact_values"]
+      },
+      "cookie_matchers.item.regex_values": {
+        "anchor": "schema-cookie_matchers--item--regex_values",
+        "document_id": "xcsh-docs:data-sources:service_policy_rule:properties:cookie_matchers:item",
+        "schema_path": ["cookie_matchers", "item", "regex_values"]
+      },
+      "cookie_matchers.item.transformers": {
+        "anchor": "schema-cookie_matchers--item--transformers",
+        "document_id": "xcsh-docs:data-sources:service_policy_rule:properties:cookie_matchers:item",
+        "schema_path": ["cookie_matchers", "item", "transformers"]
+      },
+      "cookie_matchers.name": {
+        "anchor": "schema-cookie_matchers--name",
+        "document_id": "xcsh-docs:data-sources:service_policy_rule:properties:cookie_matchers",
+        "schema_path": ["cookie_matchers", "name"]
+      },
+      "description": {
+        "anchor": "schema-description",
+        "document_id": "xcsh-docs:data-sources:service_policy_rule:reference",
+        "schema_path": ["description"]
+      },
+      "domain_matcher": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:data-sources:service_policy_rule:properties:domain_matcher",
+        "schema_path": ["domain_matcher"]
+      },
+      "domain_matcher.exact_values": {
+        "anchor": "schema-domain_matcher--exact_values",
+        "document_id": "xcsh-docs:data-sources:service_policy_rule:properties:domain_matcher",
+        "schema_path": ["domain_matcher", "exact_values"]
+      },
+      "domain_matcher.regex_values": {
+        "anchor": "schema-domain_matcher--regex_values",
+        "document_id": "xcsh-docs:data-sources:service_policy_rule:properties:domain_matcher",
+        "schema_path": ["domain_matcher", "regex_values"]
+      },
+      "expiration_timestamp": {
+        "anchor": "schema-expiration_timestamp",
+        "document_id": "xcsh-docs:data-sources:service_policy_rule:reference",
+        "schema_path": ["expiration_timestamp"]
+      },
+      "headers": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:data-sources:service_policy_rule:properties:headers",
+        "schema_path": ["headers"]
+      },
+      "headers.check_not_present": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:data-sources:service_policy_rule:properties:headers:check_not_present",
+        "schema_path": ["headers", "check_not_present"]
+      },
+      "headers.check_present": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:data-sources:service_policy_rule:properties:headers:check_present",
+        "schema_path": ["headers", "check_present"]
+      },
+      "headers.invert_matcher": {
+        "anchor": "schema-headers--invert_matcher",
+        "document_id": "xcsh-docs:data-sources:service_policy_rule:properties:headers",
+        "schema_path": ["headers", "invert_matcher"]
+      },
+      "headers.item": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:data-sources:service_policy_rule:properties:headers:item",
+        "schema_path": ["headers", "item"]
+      },
+      "headers.item.exact_values": {
+        "anchor": "schema-headers--item--exact_values",
+        "document_id": "xcsh-docs:data-sources:service_policy_rule:properties:headers:item",
+        "schema_path": ["headers", "item", "exact_values"]
+      },
+      "headers.item.regex_values": {
+        "anchor": "schema-headers--item--regex_values",
+        "document_id": "xcsh-docs:data-sources:service_policy_rule:properties:headers:item",
+        "schema_path": ["headers", "item", "regex_values"]
+      },
+      "headers.item.transformers": {
+        "anchor": "schema-headers--item--transformers",
+        "document_id": "xcsh-docs:data-sources:service_policy_rule:properties:headers:item",
+        "schema_path": ["headers", "item", "transformers"]
+      },
+      "headers.name": {
+        "anchor": "schema-headers--name",
+        "document_id": "xcsh-docs:data-sources:service_policy_rule:properties:headers",
+        "schema_path": ["headers", "name"]
+      },
+      "http_method": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:data-sources:service_policy_rule:properties:http_method",
+        "schema_path": ["http_method"]
+      },
+      "http_method.invert_matcher": {
+        "anchor": "schema-http_method--invert_matcher",
+        "document_id": "xcsh-docs:data-sources:service_policy_rule:properties:http_method",
+        "schema_path": ["http_method", "invert_matcher"]
+      },
+      "http_method.methods": {
+        "anchor": "schema-http_method--methods",
+        "document_id": "xcsh-docs:data-sources:service_policy_rule:properties:http_method",
+        "schema_path": ["http_method", "methods"]
+      },
+      "id": {
+        "anchor": "schema-id",
+        "document_id": "xcsh-docs:data-sources:service_policy_rule:reference",
+        "schema_path": ["id"]
+      },
+      "ip_matcher": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:data-sources:service_policy_rule:properties:ip_matcher",
+        "schema_path": ["ip_matcher"]
+      },
+      "ip_matcher.invert_matcher": {
+        "anchor": "schema-ip_matcher--invert_matcher",
+        "document_id": "xcsh-docs:data-sources:service_policy_rule:properties:ip_matcher",
+        "schema_path": ["ip_matcher", "invert_matcher"]
+      },
+      "ip_matcher.prefix_sets": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:data-sources:service_policy_rule:properties:ip_matcher:prefix_sets",
+        "schema_path": ["ip_matcher", "prefix_sets"]
+      },
+      "ip_matcher.prefix_sets.kind": {
+        "anchor": "schema-ip_matcher--prefix_sets--kind",
+        "document_id": "xcsh-docs:data-sources:service_policy_rule:properties:ip_matcher:prefix_sets",
+        "schema_path": ["ip_matcher", "prefix_sets", "kind"]
+      },
+      "ip_matcher.prefix_sets.name": {
+        "anchor": "schema-ip_matcher--prefix_sets--name",
+        "document_id": "xcsh-docs:data-sources:service_policy_rule:properties:ip_matcher:prefix_sets",
+        "schema_path": ["ip_matcher", "prefix_sets", "name"]
+      },
+      "ip_matcher.prefix_sets.namespace": {
+        "anchor": "schema-ip_matcher--prefix_sets--namespace",
+        "document_id": "xcsh-docs:data-sources:service_policy_rule:properties:ip_matcher:prefix_sets",
+        "schema_path": ["ip_matcher", "prefix_sets", "namespace"]
+      },
+      "ip_matcher.prefix_sets.tenant": {
+        "anchor": "schema-ip_matcher--prefix_sets--tenant",
+        "document_id": "xcsh-docs:data-sources:service_policy_rule:properties:ip_matcher:prefix_sets",
+        "schema_path": ["ip_matcher", "prefix_sets", "tenant"]
+      },
+      "ip_matcher.prefix_sets.uid": {
+        "anchor": "schema-ip_matcher--prefix_sets--uid",
+        "document_id": "xcsh-docs:data-sources:service_policy_rule:properties:ip_matcher:prefix_sets",
+        "schema_path": ["ip_matcher", "prefix_sets", "uid"]
+      },
+      "ip_prefix_list": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:data-sources:service_policy_rule:properties:ip_prefix_list",
+        "schema_path": ["ip_prefix_list"]
+      },
+      "ip_prefix_list.invert_match": {
+        "anchor": "schema-ip_prefix_list--invert_match",
+        "document_id": "xcsh-docs:data-sources:service_policy_rule:properties:ip_prefix_list",
+        "schema_path": ["ip_prefix_list", "invert_match"]
+      },
+      "ip_prefix_list.ip_prefixes": {
+        "anchor": "schema-ip_prefix_list--ip_prefixes",
+        "document_id": "xcsh-docs:data-sources:service_policy_rule:properties:ip_prefix_list",
+        "schema_path": ["ip_prefix_list", "ip_prefixes"]
+      },
+      "ip_threat_category_list": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:data-sources:service_policy_rule:properties:ip_threat_category_list",
+        "schema_path": ["ip_threat_category_list"]
+      },
+      "ip_threat_category_list.ip_threat_categories": {
+        "anchor": "schema-ip_threat_category_list--ip_threat_categories",
+        "document_id": "xcsh-docs:data-sources:service_policy_rule:properties:ip_threat_category_list",
+        "schema_path": ["ip_threat_category_list", "ip_threat_categories"]
+      },
+      "ja4_tls_fingerprint": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:data-sources:service_policy_rule:properties:ja4_tls_fingerprint",
+        "schema_path": ["ja4_tls_fingerprint"]
+      },
+      "ja4_tls_fingerprint.exact_values": {
+        "anchor": "schema-ja4_tls_fingerprint--exact_values",
+        "document_id": "xcsh-docs:data-sources:service_policy_rule:properties:ja4_tls_fingerprint",
+        "schema_path": ["ja4_tls_fingerprint", "exact_values"]
+      },
+      "jwt_claims": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:data-sources:service_policy_rule:properties:jwt_claims",
+        "schema_path": ["jwt_claims"]
+      },
+      "jwt_claims.check_not_present": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:data-sources:service_policy_rule:properties:jwt_claims:check_not_present",
+        "schema_path": ["jwt_claims", "check_not_present"]
+      },
+      "jwt_claims.check_present": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:data-sources:service_policy_rule:properties:jwt_claims:check_present",
+        "schema_path": ["jwt_claims", "check_present"]
+      },
+      "jwt_claims.invert_matcher": {
+        "anchor": "schema-jwt_claims--invert_matcher",
+        "document_id": "xcsh-docs:data-sources:service_policy_rule:properties:jwt_claims",
+        "schema_path": ["jwt_claims", "invert_matcher"]
+      },
+      "jwt_claims.item": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:data-sources:service_policy_rule:properties:jwt_claims:item",
+        "schema_path": ["jwt_claims", "item"]
+      },
+      "jwt_claims.item.exact_values": {
+        "anchor": "schema-jwt_claims--item--exact_values",
+        "document_id": "xcsh-docs:data-sources:service_policy_rule:properties:jwt_claims:item",
+        "schema_path": ["jwt_claims", "item", "exact_values"]
+      },
+      "jwt_claims.item.regex_values": {
+        "anchor": "schema-jwt_claims--item--regex_values",
+        "document_id": "xcsh-docs:data-sources:service_policy_rule:properties:jwt_claims:item",
+        "schema_path": ["jwt_claims", "item", "regex_values"]
+      },
+      "jwt_claims.item.transformers": {
+        "anchor": "schema-jwt_claims--item--transformers",
+        "document_id": "xcsh-docs:data-sources:service_policy_rule:properties:jwt_claims:item",
+        "schema_path": ["jwt_claims", "item", "transformers"]
+      },
+      "jwt_claims.name": {
+        "anchor": "schema-jwt_claims--name",
+        "document_id": "xcsh-docs:data-sources:service_policy_rule:properties:jwt_claims",
+        "schema_path": ["jwt_claims", "name"]
+      },
+      "label_matcher": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:data-sources:service_policy_rule:properties:label_matcher",
+        "schema_path": ["label_matcher"]
+      },
+      "label_matcher.keys": {
+        "anchor": "schema-label_matcher--keys",
+        "document_id": "xcsh-docs:data-sources:service_policy_rule:properties:label_matcher",
+        "schema_path": ["label_matcher", "keys"]
+      },
+      "labels": {
+        "anchor": "schema-labels",
+        "document_id": "xcsh-docs:data-sources:service_policy_rule:reference",
+        "schema_path": ["labels"]
+      },
+      "log_rule_evaluation": {
+        "anchor": "schema-log_rule_evaluation",
+        "document_id": "xcsh-docs:data-sources:service_policy_rule:reference",
+        "schema_path": ["log_rule_evaluation"]
+      },
+      "mum_action": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:data-sources:service_policy_rule:properties:mum_action",
+        "schema_path": ["mum_action"]
+      },
+      "mum_action.default": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:data-sources:service_policy_rule:properties:mum_action:default",
+        "schema_path": ["mum_action", "default"]
+      },
+      "mum_action.skip_processing": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:data-sources:service_policy_rule:properties:mum_action:skip_processing",
+        "schema_path": ["mum_action", "skip_processing"]
+      },
+      "name": {
+        "anchor": "schema-name",
+        "document_id": "xcsh-docs:data-sources:service_policy_rule:reference",
+        "schema_path": ["name"]
+      },
+      "namespace": {
+        "anchor": "schema-namespace",
+        "document_id": "xcsh-docs:data-sources:service_policy_rule:reference",
+        "schema_path": ["namespace"]
+      },
+      "path": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:data-sources:service_policy_rule:properties:path",
+        "schema_path": ["path"]
+      },
+      "path.encoded_path_matcher": {
+        "anchor": "schema-path--encoded_path_matcher",
+        "document_id": "xcsh-docs:data-sources:service_policy_rule:properties:path",
+        "schema_path": ["path", "encoded_path_matcher"]
+      },
+      "path.exact_values": {
+        "anchor": "schema-path--exact_values",
+        "document_id": "xcsh-docs:data-sources:service_policy_rule:properties:path",
+        "schema_path": ["path", "exact_values"]
+      },
+      "path.invert_matcher": {
+        "anchor": "schema-path--invert_matcher",
+        "document_id": "xcsh-docs:data-sources:service_policy_rule:properties:path",
+        "schema_path": ["path", "invert_matcher"]
+      },
+      "path.prefix_values": {
+        "anchor": "schema-path--prefix_values",
+        "document_id": "xcsh-docs:data-sources:service_policy_rule:properties:path",
+        "schema_path": ["path", "prefix_values"]
+      },
+      "path.regex_values": {
+        "anchor": "schema-path--regex_values",
+        "document_id": "xcsh-docs:data-sources:service_policy_rule:properties:path",
+        "schema_path": ["path", "regex_values"]
+      },
+      "path.suffix_values": {
+        "anchor": "schema-path--suffix_values",
+        "document_id": "xcsh-docs:data-sources:service_policy_rule:properties:path",
+        "schema_path": ["path", "suffix_values"]
+      },
+      "path.transformers": {
+        "anchor": "schema-path--transformers",
+        "document_id": "xcsh-docs:data-sources:service_policy_rule:properties:path",
+        "schema_path": ["path", "transformers"]
+      },
+      "port_matcher": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:data-sources:service_policy_rule:properties:port_matcher",
+        "schema_path": ["port_matcher"]
+      },
+      "port_matcher.invert_matcher": {
+        "anchor": "schema-port_matcher--invert_matcher",
+        "document_id": "xcsh-docs:data-sources:service_policy_rule:properties:port_matcher",
+        "schema_path": ["port_matcher", "invert_matcher"]
+      },
+      "port_matcher.ports": {
+        "anchor": "schema-port_matcher--ports",
+        "document_id": "xcsh-docs:data-sources:service_policy_rule:properties:port_matcher",
+        "schema_path": ["port_matcher", "ports"]
+      },
+      "query_params": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:data-sources:service_policy_rule:properties:query_params",
+        "schema_path": ["query_params"]
+      },
+      "query_params.check_not_present": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:data-sources:service_policy_rule:properties:query_params:check_not_present",
+        "schema_path": ["query_params", "check_not_present"]
+      },
+      "query_params.check_present": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:data-sources:service_policy_rule:properties:query_params:check_present",
+        "schema_path": ["query_params", "check_present"]
+      },
+      "query_params.invert_matcher": {
+        "anchor": "schema-query_params--invert_matcher",
+        "document_id": "xcsh-docs:data-sources:service_policy_rule:properties:query_params",
+        "schema_path": ["query_params", "invert_matcher"]
+      },
+      "query_params.item": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:data-sources:service_policy_rule:properties:query_params:item",
+        "schema_path": ["query_params", "item"]
+      },
+      "query_params.item.exact_values": {
+        "anchor": "schema-query_params--item--exact_values",
+        "document_id": "xcsh-docs:data-sources:service_policy_rule:properties:query_params:item",
+        "schema_path": ["query_params", "item", "exact_values"]
+      },
+      "query_params.item.regex_values": {
+        "anchor": "schema-query_params--item--regex_values",
+        "document_id": "xcsh-docs:data-sources:service_policy_rule:properties:query_params:item",
+        "schema_path": ["query_params", "item", "regex_values"]
+      },
+      "query_params.item.transformers": {
+        "anchor": "schema-query_params--item--transformers",
+        "document_id": "xcsh-docs:data-sources:service_policy_rule:properties:query_params:item",
+        "schema_path": ["query_params", "item", "transformers"]
+      },
+      "query_params.key": {
+        "anchor": "schema-query_params--key",
+        "document_id": "xcsh-docs:data-sources:service_policy_rule:properties:query_params",
+        "schema_path": ["query_params", "key"]
+      },
+      "request_constraints": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:data-sources:service_policy_rule:properties:request_constraints",
+        "schema_path": ["request_constraints"]
+      },
+      "request_constraints.max_cookie_count_exceeds": {
+        "anchor": "schema-request_constraints--max_cookie_count_exceeds",
+        "document_id": "xcsh-docs:data-sources:service_policy_rule:properties:request_constraints",
+        "schema_path": ["request_constraints", "max_cookie_count_exceeds"]
+      },
+      "request_constraints.max_cookie_count_none": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:data-sources:service_policy_rule:properties:request_constraints:max_cookie_count_none",
+        "schema_path": ["request_constraints", "max_cookie_count_none"]
+      },
+      "request_constraints.max_cookie_key_size_exceeds": {
+        "anchor": "schema-request_constraints--max_cookie_key_size_exceeds",
+        "document_id": "xcsh-docs:data-sources:service_policy_rule:properties:request_constraints",
+        "schema_path": ["request_constraints", "max_cookie_key_size_exceeds"]
+      },
+      "request_constraints.max_cookie_key_size_none": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:data-sources:service_policy_rule:properties:request_constraints:max_cookie_key_size_none",
+        "schema_path": ["request_constraints", "max_cookie_key_size_none"]
+      },
+      "request_constraints.max_cookie_value_size_exceeds": {
+        "anchor": "schema-request_constraints--max_cookie_value_size_exceeds",
+        "document_id": "xcsh-docs:data-sources:service_policy_rule:properties:request_constraints",
+        "schema_path": ["request_constraints", "max_cookie_value_size_exceeds"]
+      },
+      "request_constraints.max_cookie_value_size_none": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:data-sources:service_policy_rule:properties:request_constraints:max_cookie_value_size_none",
+        "schema_path": ["request_constraints", "max_cookie_value_size_none"]
+      },
+      "request_constraints.max_header_count_exceeds": {
+        "anchor": "schema-request_constraints--max_header_count_exceeds",
+        "document_id": "xcsh-docs:data-sources:service_policy_rule:properties:request_constraints",
+        "schema_path": ["request_constraints", "max_header_count_exceeds"]
+      },
+      "request_constraints.max_header_count_none": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:data-sources:service_policy_rule:properties:request_constraints:max_header_count_none",
+        "schema_path": ["request_constraints", "max_header_count_none"]
+      },
+      "request_constraints.max_header_key_size_exceeds": {
+        "anchor": "schema-request_constraints--max_header_key_size_exceeds",
+        "document_id": "xcsh-docs:data-sources:service_policy_rule:properties:request_constraints",
+        "schema_path": ["request_constraints", "max_header_key_size_exceeds"]
+      },
+      "request_constraints.max_header_key_size_none": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:data-sources:service_policy_rule:properties:request_constraints:max_header_key_size_none",
+        "schema_path": ["request_constraints", "max_header_key_size_none"]
+      },
+      "request_constraints.max_header_value_size_exceeds": {
+        "anchor": "schema-request_constraints--max_header_value_size_exceeds",
+        "document_id": "xcsh-docs:data-sources:service_policy_rule:properties:request_constraints",
+        "schema_path": ["request_constraints", "max_header_value_size_exceeds"]
+      },
+      "request_constraints.max_header_value_size_none": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:data-sources:service_policy_rule:properties:request_constraints:max_header_value_size_none",
+        "schema_path": ["request_constraints", "max_header_value_size_none"]
+      },
+      "request_constraints.max_parameter_count_exceeds": {
+        "anchor": "schema-request_constraints--max_parameter_count_exceeds",
+        "document_id": "xcsh-docs:data-sources:service_policy_rule:properties:request_constraints",
+        "schema_path": ["request_constraints", "max_parameter_count_exceeds"]
+      },
+      "request_constraints.max_parameter_count_none": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:data-sources:service_policy_rule:properties:request_constraints:max_parameter_count_none",
+        "schema_path": ["request_constraints", "max_parameter_count_none"]
+      },
+      "request_constraints.max_parameter_name_size_exceeds": {
+        "anchor": "schema-request_constraints--max_parameter_name_size_exceeds",
+        "document_id": "xcsh-docs:data-sources:service_policy_rule:properties:request_constraints",
+        "schema_path": ["request_constraints", "max_parameter_name_size_exceeds"]
+      },
+      "request_constraints.max_parameter_name_size_none": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:data-sources:service_policy_rule:properties:request_constraints:max_parameter_name_size_none",
+        "schema_path": ["request_constraints", "max_parameter_name_size_none"]
+      },
+      "request_constraints.max_parameter_value_size_exceeds": {
+        "anchor": "schema-request_constraints--max_parameter_value_size_exceeds",
+        "document_id": "xcsh-docs:data-sources:service_policy_rule:properties:request_constraints",
+        "schema_path": ["request_constraints", "max_parameter_value_size_exceeds"]
+      },
+      "request_constraints.max_parameter_value_size_none": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:data-sources:service_policy_rule:properties:request_constraints:max_parameter_value_size_none",
+        "schema_path": ["request_constraints", "max_parameter_value_size_none"]
+      },
+      "request_constraints.max_query_size_exceeds": {
+        "anchor": "schema-request_constraints--max_query_size_exceeds",
+        "document_id": "xcsh-docs:data-sources:service_policy_rule:properties:request_constraints",
+        "schema_path": ["request_constraints", "max_query_size_exceeds"]
+      },
+      "request_constraints.max_query_size_none": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:data-sources:service_policy_rule:properties:request_constraints:max_query_size_none",
+        "schema_path": ["request_constraints", "max_query_size_none"]
+      },
+      "request_constraints.max_request_line_size_exceeds": {
+        "anchor": "schema-request_constraints--max_request_line_size_exceeds",
+        "document_id": "xcsh-docs:data-sources:service_policy_rule:properties:request_constraints",
+        "schema_path": ["request_constraints", "max_request_line_size_exceeds"]
+      },
+      "request_constraints.max_request_line_size_none": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:data-sources:service_policy_rule:properties:request_constraints:max_request_line_size_none",
+        "schema_path": ["request_constraints", "max_request_line_size_none"]
+      },
+      "request_constraints.max_request_size_exceeds": {
+        "anchor": "schema-request_constraints--max_request_size_exceeds",
+        "document_id": "xcsh-docs:data-sources:service_policy_rule:properties:request_constraints",
+        "schema_path": ["request_constraints", "max_request_size_exceeds"]
+      },
+      "request_constraints.max_request_size_none": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:data-sources:service_policy_rule:properties:request_constraints:max_request_size_none",
+        "schema_path": ["request_constraints", "max_request_size_none"]
+      },
+      "request_constraints.max_url_size_exceeds": {
+        "anchor": "schema-request_constraints--max_url_size_exceeds",
+        "document_id": "xcsh-docs:data-sources:service_policy_rule:properties:request_constraints",
+        "schema_path": ["request_constraints", "max_url_size_exceeds"]
+      },
+      "request_constraints.max_url_size_none": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:data-sources:service_policy_rule:properties:request_constraints:max_url_size_none",
+        "schema_path": ["request_constraints", "max_url_size_none"]
+      },
+      "segment_policy": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:data-sources:service_policy_rule:properties:segment_policy",
+        "schema_path": ["segment_policy"]
+      },
+      "segment_policy.dst_any": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:data-sources:service_policy_rule:properties:segment_policy:dst_any",
+        "schema_path": ["segment_policy", "dst_any"]
+      },
+      "segment_policy.dst_segments": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:data-sources:service_policy_rule:properties:segment_policy:dst_segments",
+        "schema_path": ["segment_policy", "dst_segments"]
+      },
+      "segment_policy.dst_segments.segments": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:data-sources:service_policy_rule:properties:segment_policy:dst_segments:segments",
+        "schema_path": ["segment_policy", "dst_segments", "segments"]
+      },
+      "segment_policy.dst_segments.segments.name": {
+        "anchor": "schema-segment_policy--dst_segments--segments--name",
+        "document_id": "xcsh-docs:data-sources:service_policy_rule:properties:segment_policy:dst_segments:segments",
+        "schema_path": ["segment_policy", "dst_segments", "segments", "name"]
+      },
+      "segment_policy.dst_segments.segments.namespace": {
+        "anchor": "schema-segment_policy--dst_segments--segments--namespace",
+        "document_id": "xcsh-docs:data-sources:service_policy_rule:properties:segment_policy:dst_segments:segments",
+        "schema_path": ["segment_policy", "dst_segments", "segments", "namespace"]
+      },
+      "segment_policy.dst_segments.segments.tenant": {
+        "anchor": "schema-segment_policy--dst_segments--segments--tenant",
+        "document_id": "xcsh-docs:data-sources:service_policy_rule:properties:segment_policy:dst_segments:segments",
+        "schema_path": ["segment_policy", "dst_segments", "segments", "tenant"]
+      },
+      "segment_policy.intra_segment": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:data-sources:service_policy_rule:properties:segment_policy:intra_segment",
+        "schema_path": ["segment_policy", "intra_segment"]
+      },
+      "segment_policy.src_any": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:data-sources:service_policy_rule:properties:segment_policy:src_any",
+        "schema_path": ["segment_policy", "src_any"]
+      },
+      "segment_policy.src_segments": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:data-sources:service_policy_rule:properties:segment_policy:src_segments",
+        "schema_path": ["segment_policy", "src_segments"]
+      },
+      "segment_policy.src_segments.segments": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:data-sources:service_policy_rule:properties:segment_policy:src_segments:segments",
+        "schema_path": ["segment_policy", "src_segments", "segments"]
+      },
+      "segment_policy.src_segments.segments.name": {
+        "anchor": "schema-segment_policy--src_segments--segments--name",
+        "document_id": "xcsh-docs:data-sources:service_policy_rule:properties:segment_policy:src_segments:segments",
+        "schema_path": ["segment_policy", "src_segments", "segments", "name"]
+      },
+      "segment_policy.src_segments.segments.namespace": {
+        "anchor": "schema-segment_policy--src_segments--segments--namespace",
+        "document_id": "xcsh-docs:data-sources:service_policy_rule:properties:segment_policy:src_segments:segments",
+        "schema_path": ["segment_policy", "src_segments", "segments", "namespace"]
+      },
+      "segment_policy.src_segments.segments.tenant": {
+        "anchor": "schema-segment_policy--src_segments--segments--tenant",
+        "document_id": "xcsh-docs:data-sources:service_policy_rule:properties:segment_policy:src_segments:segments",
+        "schema_path": ["segment_policy", "src_segments", "segments", "tenant"]
+      },
+      "tls_fingerprint_matcher": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:data-sources:service_policy_rule:properties:tls_fingerprint_matcher",
+        "schema_path": ["tls_fingerprint_matcher"]
+      },
+      "tls_fingerprint_matcher.classes": {
+        "anchor": "schema-tls_fingerprint_matcher--classes",
+        "document_id": "xcsh-docs:data-sources:service_policy_rule:properties:tls_fingerprint_matcher",
+        "schema_path": ["tls_fingerprint_matcher", "classes"]
+      },
+      "tls_fingerprint_matcher.exact_values": {
+        "anchor": "schema-tls_fingerprint_matcher--exact_values",
+        "document_id": "xcsh-docs:data-sources:service_policy_rule:properties:tls_fingerprint_matcher",
+        "schema_path": ["tls_fingerprint_matcher", "exact_values"]
+      },
+      "tls_fingerprint_matcher.excluded_values": {
+        "anchor": "schema-tls_fingerprint_matcher--excluded_values",
+        "document_id": "xcsh-docs:data-sources:service_policy_rule:properties:tls_fingerprint_matcher",
+        "schema_path": ["tls_fingerprint_matcher", "excluded_values"]
+      },
+      "waf_action": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:data-sources:service_policy_rule:properties:waf_action",
+        "schema_path": ["waf_action"]
+      },
+      "waf_action.app_firewall_detection_control": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:data-sources:service_policy_rule:properties:waf_action:app_firewall_detection_control",
+        "schema_path": ["waf_action", "app_firewall_detection_control"]
+      },
+      "waf_action.app_firewall_detection_control.exclude_attack_type_contexts": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:data-sources:service_policy_rule:properties:waf_action:app_firewall_detection_control:exclude_attack_type_contexts",
+        "schema_path": ["waf_action", "app_firewall_detection_control", "exclude_attack_type_contexts"]
+      },
+      "waf_action.app_firewall_detection_control.exclude_attack_type_contexts.context": {
+        "anchor": "schema-waf_action--app_firewall_detection_control--exclude_attack_type_contexts--context",
+        "document_id": "xcsh-docs:data-sources:service_policy_rule:properties:waf_action:app_firewall_detection_control:exclude_attack_type_contexts",
+        "schema_path": ["waf_action", "app_firewall_detection_control", "exclude_attack_type_contexts", "context"]
+      },
+      "waf_action.app_firewall_detection_control.exclude_attack_type_contexts.context_name": {
+        "anchor": "schema-waf_action--app_firewall_detection_control--exclude_attack_type_contexts--context_name",
+        "document_id": "xcsh-docs:data-sources:service_policy_rule:properties:waf_action:app_firewall_detection_control:exclude_attack_type_contexts",
+        "schema_path": ["waf_action", "app_firewall_detection_control", "exclude_attack_type_contexts", "context_name"]
+      },
+      "waf_action.app_firewall_detection_control.exclude_attack_type_contexts.exclude_attack_type": {
+        "anchor": "schema-waf_action--app_firewall_detection_control--exclude_attack_type_contexts--exclude_attack_type",
+        "document_id": "xcsh-docs:data-sources:service_policy_rule:properties:waf_action:app_firewall_detection_control:exclude_attack_type_contexts",
+        "schema_path": [
+          "waf_action",
+          "app_firewall_detection_control",
+          "exclude_attack_type_contexts",
+          "exclude_attack_type"
+        ]
+      },
+      "waf_action.app_firewall_detection_control.exclude_bot_name_contexts": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:data-sources:service_policy_rule:properties:waf_action:app_firewall_detection_control:exclude_bot_name_contexts",
+        "schema_path": ["waf_action", "app_firewall_detection_control", "exclude_bot_name_contexts"]
+      },
+      "waf_action.app_firewall_detection_control.exclude_bot_name_contexts.bot_name": {
+        "anchor": "schema-waf_action--app_firewall_detection_control--exclude_bot_name_contexts--bot_name",
+        "document_id": "xcsh-docs:data-sources:service_policy_rule:properties:waf_action:app_firewall_detection_control:exclude_bot_name_contexts",
+        "schema_path": ["waf_action", "app_firewall_detection_control", "exclude_bot_name_contexts", "bot_name"]
+      },
+      "waf_action.app_firewall_detection_control.exclude_signature_contexts": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:data-sources:service_policy_rule:properties:waf_action:app_firewall_detection_control:exclude_signature_contexts",
+        "schema_path": ["waf_action", "app_firewall_detection_control", "exclude_signature_contexts"]
+      },
+      "waf_action.app_firewall_detection_control.exclude_signature_contexts.context": {
+        "anchor": "schema-waf_action--app_firewall_detection_control--exclude_signature_contexts--context",
+        "document_id": "xcsh-docs:data-sources:service_policy_rule:properties:waf_action:app_firewall_detection_control:exclude_signature_contexts",
+        "schema_path": ["waf_action", "app_firewall_detection_control", "exclude_signature_contexts", "context"]
+      },
+      "waf_action.app_firewall_detection_control.exclude_signature_contexts.context_name": {
+        "anchor": "schema-waf_action--app_firewall_detection_control--exclude_signature_contexts--context_name",
+        "document_id": "xcsh-docs:data-sources:service_policy_rule:properties:waf_action:app_firewall_detection_control:exclude_signature_contexts",
+        "schema_path": ["waf_action", "app_firewall_detection_control", "exclude_signature_contexts", "context_name"]
+      },
+      "waf_action.app_firewall_detection_control.exclude_signature_contexts.signature_id": {
+        "anchor": "schema-waf_action--app_firewall_detection_control--exclude_signature_contexts--signature_id",
+        "document_id": "xcsh-docs:data-sources:service_policy_rule:properties:waf_action:app_firewall_detection_control:exclude_signature_contexts",
+        "schema_path": ["waf_action", "app_firewall_detection_control", "exclude_signature_contexts", "signature_id"]
+      },
+      "waf_action.app_firewall_detection_control.exclude_violation_contexts": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:data-sources:service_policy_rule:properties:waf_action:app_firewall_detection_control:exclude_violation_contexts",
+        "schema_path": ["waf_action", "app_firewall_detection_control", "exclude_violation_contexts"]
+      },
+      "waf_action.app_firewall_detection_control.exclude_violation_contexts.context": {
+        "anchor": "schema-waf_action--app_firewall_detection_control--exclude_violation_contexts--context",
+        "document_id": "xcsh-docs:data-sources:service_policy_rule:properties:waf_action:app_firewall_detection_control:exclude_violation_contexts",
+        "schema_path": ["waf_action", "app_firewall_detection_control", "exclude_violation_contexts", "context"]
+      },
+      "waf_action.app_firewall_detection_control.exclude_violation_contexts.context_name": {
+        "anchor": "schema-waf_action--app_firewall_detection_control--exclude_violation_contexts--context_name",
+        "document_id": "xcsh-docs:data-sources:service_policy_rule:properties:waf_action:app_firewall_detection_control:exclude_violation_contexts",
+        "schema_path": ["waf_action", "app_firewall_detection_control", "exclude_violation_contexts", "context_name"]
+      },
+      "waf_action.app_firewall_detection_control.exclude_violation_contexts.exclude_violation": {
+        "anchor": "schema-waf_action--app_firewall_detection_control--exclude_violation_contexts--exclude_violation",
+        "document_id": "xcsh-docs:data-sources:service_policy_rule:properties:waf_action:app_firewall_detection_control:exclude_violation_contexts",
+        "schema_path": [
+          "waf_action",
+          "app_firewall_detection_control",
+          "exclude_violation_contexts",
+          "exclude_violation"
+        ]
+      },
+      "waf_action.none": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:data-sources:service_policy_rule:properties:waf_action:none",
+        "schema_path": ["waf_action", "none"]
+      },
+      "waf_action.waf_skip_processing": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:data-sources:service_policy_rule:properties:waf_action:waf_skip_processing",
+        "schema_path": ["waf_action", "waf_skip_processing"]
+      }
+    },
+    "provider_name": "service_policy_rule",
+    "provider_type": "data-sources",
+    "reference_id": "xcsh-docs:data-sources:service_policy_rule:reference"
+  },
+  "pages": [
+    {
+      "aliases": [],
+      "body_bytes": 1436,
+      "body_sha256": "sha256:4dfce2932265f0fc814c78660c68efc6d8282361edec8289870bd0c8dbb78dea",
+      "child_ids": [
+        "xcsh-docs:data-sources:service_policy_rule:reference",
+        "xcsh-docs:data-sources:service_policy_rule:examples"
+      ],
+      "collection_id": "xcsh-docs:data-sources:service_policy_rule:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:service_policy_rule:fundamentals",
+      "parent_id": null,
+      "path": "documentation/data-sources/service_policy_rule/index.md",
+      "provider_name": "service_policy_rule",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/data-sources/service_policy_rule.md",
+      "role": "fundamentals",
+      "schema_path": [],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/service_policy_rule/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "xcsh_service_policy_rule for xcsh_service_policy_rule.",
+      "title": "xcsh_service_policy_rule",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["service_policy_ruleCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 60718,
+      "body_sha256": "sha256:3c9665e72d45911921cc6287108726c1efc65a3fffb867e04a9bcc86568a0e4c",
+      "child_ids": [
+        "xcsh-docs:data-sources:service_policy_rule:properties:any_asn",
+        "xcsh-docs:data-sources:service_policy_rule:properties:any_client",
+        "xcsh-docs:data-sources:service_policy_rule:properties:any_ip",
+        "xcsh-docs:data-sources:service_policy_rule:properties:api_group_matcher",
+        "xcsh-docs:data-sources:service_policy_rule:properties:arg_matchers",
+        "xcsh-docs:data-sources:service_policy_rule:properties:asn_list",
+        "xcsh-docs:data-sources:service_policy_rule:properties:asn_matcher",
+        "xcsh-docs:data-sources:service_policy_rule:properties:body_matcher",
+        "xcsh-docs:data-sources:service_policy_rule:properties:bot_action",
+        "xcsh-docs:data-sources:service_policy_rule:properties:client_name_matcher",
+        "xcsh-docs:data-sources:service_policy_rule:properties:client_selector",
+        "xcsh-docs:data-sources:service_policy_rule:properties:cookie_matchers",
+        "xcsh-docs:data-sources:service_policy_rule:properties:domain_matcher",
+        "xcsh-docs:data-sources:service_policy_rule:properties:headers",
+        "xcsh-docs:data-sources:service_policy_rule:properties:http_method",
+        "xcsh-docs:data-sources:service_policy_rule:properties:ip_matcher",
+        "xcsh-docs:data-sources:service_policy_rule:properties:ip_prefix_list",
+        "xcsh-docs:data-sources:service_policy_rule:properties:ip_threat_category_list",
+        "xcsh-docs:data-sources:service_policy_rule:properties:ja4_tls_fingerprint",
+        "xcsh-docs:data-sources:service_policy_rule:properties:jwt_claims",
+        "xcsh-docs:data-sources:service_policy_rule:properties:label_matcher",
+        "xcsh-docs:data-sources:service_policy_rule:properties:mum_action",
+        "xcsh-docs:data-sources:service_policy_rule:properties:path",
+        "xcsh-docs:data-sources:service_policy_rule:properties:port_matcher",
+        "xcsh-docs:data-sources:service_policy_rule:properties:query_params",
+        "xcsh-docs:data-sources:service_policy_rule:properties:request_constraints",
+        "xcsh-docs:data-sources:service_policy_rule:properties:segment_policy",
+        "xcsh-docs:data-sources:service_policy_rule:properties:tls_fingerprint_matcher",
+        "xcsh-docs:data-sources:service_policy_rule:properties:waf_action"
+      ],
+      "collection_id": "xcsh-docs:data-sources:service_policy_rule:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:service_policy_rule:reference",
+      "parent_id": "xcsh-docs:data-sources:service_policy_rule:fundamentals",
+      "path": "documentation/data-sources/service_policy_rule/properties/index.md",
+      "provider_name": "service_policy_rule",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--service_policy_rule--reference.md",
+      "role": "reference",
+      "schema_path": [],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/service_policy_rule/properties/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "Property reference for xcsh_service_policy_rule.",
+      "title": "Property reference",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["service_policy_ruleCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 1619,
+      "body_sha256": "sha256:2b8992d165d92629e8c9e69b4d83c0730a15dec8c04372a5791bd4cce3e22624",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:data-sources:service_policy_rule:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:service_policy_rule:properties:any_asn",
+      "parent_id": "xcsh-docs:data-sources:service_policy_rule:reference",
+      "path": "documentation/data-sources/service_policy_rule/properties/any_asn/index.md",
+      "provider_name": "service_policy_rule",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--service_policy_rule--properties--any_asn.md",
+      "role": "properties",
+      "schema_path": ["any_asn"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/service_policy_rule/properties/any_asn/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "any_asn for xcsh_service_policy_rule.",
+      "title": "any_asn",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["service_policy_ruleCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 2021,
+      "body_sha256": "sha256:edf77207f654554f376bceda9976b45cbe9c0d8f2fe3577c4fd3a78976ba3285",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:data-sources:service_policy_rule:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:service_policy_rule:properties:any_client",
+      "parent_id": "xcsh-docs:data-sources:service_policy_rule:reference",
+      "path": "documentation/data-sources/service_policy_rule/properties/any_client/index.md",
+      "provider_name": "service_policy_rule",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--service_policy_rule--properties--any_client.md",
+      "role": "properties",
+      "schema_path": ["any_client"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/service_policy_rule/properties/any_client/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "any_client for xcsh_service_policy_rule.",
+      "title": "any_client",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["service_policy_ruleCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 1630,
+      "body_sha256": "sha256:9760e68953b93a29d88387d357205ceda04cfc8bfeddcbd5e28d8af671856371",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:data-sources:service_policy_rule:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:service_policy_rule:properties:any_ip",
+      "parent_id": "xcsh-docs:data-sources:service_policy_rule:reference",
+      "path": "documentation/data-sources/service_policy_rule/properties/any_ip/index.md",
+      "provider_name": "service_policy_rule",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--service_policy_rule--properties--any_ip.md",
+      "role": "properties",
+      "schema_path": ["any_ip"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/service_policy_rule/properties/any_ip/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "any_ip for xcsh_service_policy_rule.",
+      "title": "any_ip",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["service_policy_ruleCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 2949,
+      "body_sha256": "sha256:f33fee17492a9ffae788c409e10ef3821e17eb0819c83234c04da8430295a3c2",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:data-sources:service_policy_rule:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:service_policy_rule:properties:api_group_matcher",
+      "parent_id": "xcsh-docs:data-sources:service_policy_rule:reference",
+      "path": "documentation/data-sources/service_policy_rule/properties/api_group_matcher/index.md",
+      "provider_name": "service_policy_rule",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--service_policy_rule--properties--api_group_matcher.md",
+      "role": "properties",
+      "schema_path": ["api_group_matcher"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/service_policy_rule/properties/api_group_matcher/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "api_group_matcher for xcsh_service_policy_rule.",
+      "title": "api_group_matcher",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["service_policy_ruleCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 5083,
+      "body_sha256": "sha256:87528bb11ab6bd525b39357a07f2b539d9b4be7fe89a82178b8de842e72fcda5",
+      "child_ids": [
+        "xcsh-docs:data-sources:service_policy_rule:properties:arg_matchers:check_not_present",
+        "xcsh-docs:data-sources:service_policy_rule:properties:arg_matchers:check_present",
+        "xcsh-docs:data-sources:service_policy_rule:properties:arg_matchers:item"
+      ],
+      "collection_id": "xcsh-docs:data-sources:service_policy_rule:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:service_policy_rule:properties:arg_matchers",
+      "parent_id": "xcsh-docs:data-sources:service_policy_rule:reference",
+      "path": "documentation/data-sources/service_policy_rule/properties/arg_matchers/index.md",
+      "provider_name": "service_policy_rule",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--service_policy_rule--properties--arg_matchers.md",
+      "role": "properties",
+      "schema_path": ["arg_matchers"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/service_policy_rule/properties/arg_matchers/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "arg_matchers for xcsh_service_policy_rule.",
+      "title": "arg_matchers",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["service_policy_ruleCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 1281,
+      "body_sha256": "sha256:1ca6e45a3dea990ed6d4096014cb8d3a9b8ddd190039bc2acdd38c8e4b7f0740",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:data-sources:service_policy_rule:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:service_policy_rule:properties:arg_matchers:check_not_present",
+      "parent_id": "xcsh-docs:data-sources:service_policy_rule:properties:arg_matchers",
+      "path": "documentation/data-sources/service_policy_rule/properties/arg_matchers/check_not_present/index.md",
+      "provider_name": "service_policy_rule",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--service_policy_rule--properties--arg_matchers--check_not_present.md",
+      "role": "properties",
+      "schema_path": ["arg_matchers", "check_not_present"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/service_policy_rule/properties/arg_matchers/check_not_present/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "arg_matchers.check_not_present for xcsh_service_policy_rule.",
+      "title": "arg_matchers.check_not_present",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["service_policy_ruleCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 1269,
+      "body_sha256": "sha256:5ad5c7fdfa26efca31038484d5c626b9aa46091921a3ea2068121ae1513e69e2",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:data-sources:service_policy_rule:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:service_policy_rule:properties:arg_matchers:check_present",
+      "parent_id": "xcsh-docs:data-sources:service_policy_rule:properties:arg_matchers",
+      "path": "documentation/data-sources/service_policy_rule/properties/arg_matchers/check_present/index.md",
+      "provider_name": "service_policy_rule",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--service_policy_rule--properties--arg_matchers--check_present.md",
+      "role": "properties",
+      "schema_path": ["arg_matchers", "check_present"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/service_policy_rule/properties/arg_matchers/check_present/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "arg_matchers.check_present for xcsh_service_policy_rule.",
+      "title": "arg_matchers.check_present",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["service_policy_ruleCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 5621,
+      "body_sha256": "sha256:773debd32dc772cecc3a92092aa5b0ce1bcbddc61fadc4b26e79aaacd73623ac",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:data-sources:service_policy_rule:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:service_policy_rule:properties:arg_matchers:item",
+      "parent_id": "xcsh-docs:data-sources:service_policy_rule:properties:arg_matchers",
+      "path": "documentation/data-sources/service_policy_rule/properties/arg_matchers/item/index.md",
+      "provider_name": "service_policy_rule",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--service_policy_rule--properties--arg_matchers--item.md",
+      "role": "properties",
+      "schema_path": ["arg_matchers", "item"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/service_policy_rule/properties/arg_matchers/item/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "arg_matchers.item for xcsh_service_policy_rule.",
+      "title": "arg_matchers.item",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["service_policy_ruleCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 2894,
+      "body_sha256": "sha256:592813a174b142cc7d72814179af9175e3705a8cb59c2e78436ec265e59d663d",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:data-sources:service_policy_rule:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:service_policy_rule:properties:asn_list",
+      "parent_id": "xcsh-docs:data-sources:service_policy_rule:reference",
+      "path": "documentation/data-sources/service_policy_rule/properties/asn_list/index.md",
+      "provider_name": "service_policy_rule",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--service_policy_rule--properties--asn_list.md",
+      "role": "properties",
+      "schema_path": ["asn_list"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/service_policy_rule/properties/asn_list/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "asn_list for xcsh_service_policy_rule.",
+      "title": "asn_list",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["service_policy_ruleCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 1275,
+      "body_sha256": "sha256:7e7556e3ba3612f23ee76e4cbc0e7ca2cba213a1ea00179b7d2f8e1ea4f738c9",
+      "child_ids": ["xcsh-docs:data-sources:service_policy_rule:properties:asn_matcher:asn_sets"],
+      "collection_id": "xcsh-docs:data-sources:service_policy_rule:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:service_policy_rule:properties:asn_matcher",
+      "parent_id": "xcsh-docs:data-sources:service_policy_rule:reference",
+      "path": "documentation/data-sources/service_policy_rule/properties/asn_matcher/index.md",
+      "provider_name": "service_policy_rule",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--service_policy_rule--properties--asn_matcher.md",
+      "role": "properties",
+      "schema_path": ["asn_matcher"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/service_policy_rule/properties/asn_matcher/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "asn_matcher for xcsh_service_policy_rule.",
+      "title": "asn_matcher",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["service_policy_ruleCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 6338,
+      "body_sha256": "sha256:626e5100ca5f980db4ed248347b38fad2e0c2355d9e8485803608a202a5b765d",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:data-sources:service_policy_rule:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:service_policy_rule:properties:asn_matcher:asn_sets",
+      "parent_id": "xcsh-docs:data-sources:service_policy_rule:properties:asn_matcher",
+      "path": "documentation/data-sources/service_policy_rule/properties/asn_matcher/asn_sets/index.md",
+      "provider_name": "service_policy_rule",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--service_policy_rule--properties--asn_matcher--asn_sets.md",
+      "role": "properties",
+      "schema_path": ["asn_matcher", "asn_sets"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/service_policy_rule/properties/asn_matcher/asn_sets/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "asn_matcher.asn_sets for xcsh_service_policy_rule.",
+      "title": "asn_matcher.asn_sets",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["service_policy_ruleCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 5454,
+      "body_sha256": "sha256:6e79c55307d8af83bcbf9270f8951e5e845a7066c4b598008cf43ffebb1a081a",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:data-sources:service_policy_rule:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:service_policy_rule:properties:body_matcher",
+      "parent_id": "xcsh-docs:data-sources:service_policy_rule:reference",
+      "path": "documentation/data-sources/service_policy_rule/properties/body_matcher/index.md",
+      "provider_name": "service_policy_rule",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--service_policy_rule--properties--body_matcher.md",
+      "role": "properties",
+      "schema_path": ["body_matcher"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/service_policy_rule/properties/body_matcher/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "body_matcher for xcsh_service_policy_rule.",
+      "title": "body_matcher",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["service_policy_ruleCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 1738,
+      "body_sha256": "sha256:b4e6ae012acc441c9a128d402c2843ff77cef381e1ca71b41542a49a341fa795",
+      "child_ids": [
+        "xcsh-docs:data-sources:service_policy_rule:properties:bot_action:bot_skip_processing",
+        "xcsh-docs:data-sources:service_policy_rule:properties:bot_action:none"
+      ],
+      "collection_id": "xcsh-docs:data-sources:service_policy_rule:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:service_policy_rule:properties:bot_action",
+      "parent_id": "xcsh-docs:data-sources:service_policy_rule:reference",
+      "path": "documentation/data-sources/service_policy_rule/properties/bot_action/index.md",
+      "provider_name": "service_policy_rule",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--service_policy_rule--properties--bot_action.md",
+      "role": "properties",
+      "schema_path": ["bot_action"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/service_policy_rule/properties/bot_action/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "bot_action for xcsh_service_policy_rule.",
+      "title": "bot_action",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["service_policy_ruleCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 1245,
+      "body_sha256": "sha256:afa82a683eb91af3ae7c64e58ae3f4dff12133662e9abbaf83d9b901435d2090",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:data-sources:service_policy_rule:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:service_policy_rule:properties:bot_action:bot_skip_processing",
+      "parent_id": "xcsh-docs:data-sources:service_policy_rule:properties:bot_action",
+      "path": "documentation/data-sources/service_policy_rule/properties/bot_action/bot_skip_processing/index.md",
+      "provider_name": "service_policy_rule",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--service_policy_rule--properties--bot_action--bot_skip_processing.md",
+      "role": "properties",
+      "schema_path": ["bot_action", "bot_skip_processing"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/service_policy_rule/properties/bot_action/bot_skip_processing/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "bot_action.bot_skip_processing for xcsh_service_policy_rule.",
+      "title": "bot_action.bot_skip_processing",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["service_policy_ruleCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 1215,
+      "body_sha256": "sha256:160cf9ebe5781acd396e7833e319120ca92da8632b4ffc945e1404e6d6e52092",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:data-sources:service_policy_rule:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:service_policy_rule:properties:bot_action:none",
+      "parent_id": "xcsh-docs:data-sources:service_policy_rule:properties:bot_action",
+      "path": "documentation/data-sources/service_policy_rule/properties/bot_action/none/index.md",
+      "provider_name": "service_policy_rule",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--service_policy_rule--properties--bot_action--none.md",
+      "role": "properties",
+      "schema_path": ["bot_action", "none"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/service_policy_rule/properties/bot_action/none/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "bot_action.none for xcsh_service_policy_rule.",
+      "title": "bot_action.none",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["service_policy_ruleCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 4095,
+      "body_sha256": "sha256:c4d4d2c30e3e057170a78115f12702a0506da1171a5e11f8663e5c5d690130b5",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:data-sources:service_policy_rule:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:service_policy_rule:properties:client_name_matcher",
+      "parent_id": "xcsh-docs:data-sources:service_policy_rule:reference",
+      "path": "documentation/data-sources/service_policy_rule/properties/client_name_matcher/index.md",
+      "provider_name": "service_policy_rule",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--service_policy_rule--properties--client_name_matcher.md",
+      "role": "properties",
+      "schema_path": ["client_name_matcher"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/service_policy_rule/properties/client_name_matcher/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "client_name_matcher for xcsh_service_policy_rule.",
+      "title": "client_name_matcher",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["service_policy_ruleCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 3616,
+      "body_sha256": "sha256:4470eea5f94780694fa7f675801a5f7ca5a29a78fc4403fb5ee5523fa0c03517",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:data-sources:service_policy_rule:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:service_policy_rule:properties:client_selector",
+      "parent_id": "xcsh-docs:data-sources:service_policy_rule:reference",
+      "path": "documentation/data-sources/service_policy_rule/properties/client_selector/index.md",
+      "provider_name": "service_policy_rule",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--service_policy_rule--properties--client_selector.md",
+      "role": "properties",
+      "schema_path": ["client_selector"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/service_policy_rule/properties/client_selector/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "client_selector for xcsh_service_policy_rule.",
+      "title": "client_selector",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["service_policy_ruleCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 4934,
+      "body_sha256": "sha256:d9aa30b6b9b2861749141ec6e239760f945637e6f37e5c091b23c2dd2225f220",
+      "child_ids": [
+        "xcsh-docs:data-sources:service_policy_rule:properties:cookie_matchers:check_not_present",
+        "xcsh-docs:data-sources:service_policy_rule:properties:cookie_matchers:check_present",
+        "xcsh-docs:data-sources:service_policy_rule:properties:cookie_matchers:item"
+      ],
+      "collection_id": "xcsh-docs:data-sources:service_policy_rule:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:service_policy_rule:properties:cookie_matchers",
+      "parent_id": "xcsh-docs:data-sources:service_policy_rule:reference",
+      "path": "documentation/data-sources/service_policy_rule/properties/cookie_matchers/index.md",
+      "provider_name": "service_policy_rule",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--service_policy_rule--properties--cookie_matchers.md",
+      "role": "properties",
+      "schema_path": ["cookie_matchers"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/service_policy_rule/properties/cookie_matchers/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "cookie_matchers for xcsh_service_policy_rule.",
+      "title": "cookie_matchers",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["service_policy_ruleCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 1299,
+      "body_sha256": "sha256:a33a984e153f2fac4255114a6da71aef38911b9ebc964ed83492f8512e8f76c5",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:data-sources:service_policy_rule:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:service_policy_rule:properties:cookie_matchers:check_not_present",
+      "parent_id": "xcsh-docs:data-sources:service_policy_rule:properties:cookie_matchers",
+      "path": "documentation/data-sources/service_policy_rule/properties/cookie_matchers/check_not_present/index.md",
+      "provider_name": "service_policy_rule",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--service_policy_rule--properties--cookie_matchers--check_not_present.md",
+      "role": "properties",
+      "schema_path": ["cookie_matchers", "check_not_present"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/service_policy_rule/properties/cookie_matchers/check_not_present/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "cookie_matchers.check_not_present for xcsh_service_policy_rule.",
+      "title": "cookie_matchers.check_not_present",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["service_policy_ruleCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 1287,
+      "body_sha256": "sha256:0713975b9df51201786bf68c8b8147550c94b4a0e41b7ba553510918bd7082dd",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:data-sources:service_policy_rule:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:service_policy_rule:properties:cookie_matchers:check_present",
+      "parent_id": "xcsh-docs:data-sources:service_policy_rule:properties:cookie_matchers",
+      "path": "documentation/data-sources/service_policy_rule/properties/cookie_matchers/check_present/index.md",
+      "provider_name": "service_policy_rule",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--service_policy_rule--properties--cookie_matchers--check_present.md",
+      "role": "properties",
+      "schema_path": ["cookie_matchers", "check_present"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/service_policy_rule/properties/cookie_matchers/check_present/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "cookie_matchers.check_present for xcsh_service_policy_rule.",
+      "title": "cookie_matchers.check_present",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["service_policy_ruleCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 5648,
+      "body_sha256": "sha256:595d92bbbef10d3f3bb7bec2f9943785bd336508a0a307b7eb60d39c46534a3c",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:data-sources:service_policy_rule:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:service_policy_rule:properties:cookie_matchers:item",
+      "parent_id": "xcsh-docs:data-sources:service_policy_rule:properties:cookie_matchers",
+      "path": "documentation/data-sources/service_policy_rule/properties/cookie_matchers/item/index.md",
+      "provider_name": "service_policy_rule",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--service_policy_rule--properties--cookie_matchers--item.md",
+      "role": "properties",
+      "schema_path": ["cookie_matchers", "item"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/service_policy_rule/properties/cookie_matchers/item/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "cookie_matchers.item for xcsh_service_policy_rule.",
+      "title": "cookie_matchers.item",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["service_policy_ruleCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 4075,
+      "body_sha256": "sha256:f8f80c59ed7bb07f88affa0f26aa8a984204903aeaa75674d75a2b939ac2f822",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:data-sources:service_policy_rule:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:service_policy_rule:properties:domain_matcher",
+      "parent_id": "xcsh-docs:data-sources:service_policy_rule:reference",
+      "path": "documentation/data-sources/service_policy_rule/properties/domain_matcher/index.md",
+      "provider_name": "service_policy_rule",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--service_policy_rule--properties--domain_matcher.md",
+      "role": "properties",
+      "schema_path": ["domain_matcher"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/service_policy_rule/properties/domain_matcher/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "domain_matcher for xcsh_service_policy_rule.",
+      "title": "domain_matcher",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["service_policy_ruleCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 5012,
+      "body_sha256": "sha256:2d8b67bf881d7c705e81a85230a8ce43eaea31e04793758a9e9fdbbc768f8e5e",
+      "child_ids": [
+        "xcsh-docs:data-sources:service_policy_rule:properties:headers:check_not_present",
+        "xcsh-docs:data-sources:service_policy_rule:properties:headers:check_present",
+        "xcsh-docs:data-sources:service_policy_rule:properties:headers:item"
+      ],
+      "collection_id": "xcsh-docs:data-sources:service_policy_rule:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:service_policy_rule:properties:headers",
+      "parent_id": "xcsh-docs:data-sources:service_policy_rule:reference",
+      "path": "documentation/data-sources/service_policy_rule/properties/headers/index.md",
+      "provider_name": "service_policy_rule",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--service_policy_rule--properties--headers.md",
+      "role": "properties",
+      "schema_path": ["headers"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/service_policy_rule/properties/headers/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "headers for xcsh_service_policy_rule.",
+      "title": "headers",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["service_policy_ruleCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 1251,
+      "body_sha256": "sha256:304e9e2cc6fd18a77072dfd208131f64500f6c43ae55b4d796f68be766e909e0",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:data-sources:service_policy_rule:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:service_policy_rule:properties:headers:check_not_present",
+      "parent_id": "xcsh-docs:data-sources:service_policy_rule:properties:headers",
+      "path": "documentation/data-sources/service_policy_rule/properties/headers/check_not_present/index.md",
+      "provider_name": "service_policy_rule",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--service_policy_rule--properties--headers--check_not_present.md",
+      "role": "properties",
+      "schema_path": ["headers", "check_not_present"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/service_policy_rule/properties/headers/check_not_present/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "headers.check_not_present for xcsh_service_policy_rule.",
+      "title": "headers.check_not_present",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["service_policy_ruleCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 1239,
+      "body_sha256": "sha256:0cb726a17054b5e104496303cc28fcde479b6058b0abb4dacf41feed259a4df1",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:data-sources:service_policy_rule:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:service_policy_rule:properties:headers:check_present",
+      "parent_id": "xcsh-docs:data-sources:service_policy_rule:properties:headers",
+      "path": "documentation/data-sources/service_policy_rule/properties/headers/check_present/index.md",
+      "provider_name": "service_policy_rule",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--service_policy_rule--properties--headers--check_present.md",
+      "role": "properties",
+      "schema_path": ["headers", "check_present"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/service_policy_rule/properties/headers/check_present/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "headers.check_present for xcsh_service_policy_rule.",
+      "title": "headers.check_present",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["service_policy_ruleCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 5576,
+      "body_sha256": "sha256:e8d75d1846d19469df76bf078198ac05bf1a4b0f21edb935461a555ee6e70f16",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:data-sources:service_policy_rule:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:service_policy_rule:properties:headers:item",
+      "parent_id": "xcsh-docs:data-sources:service_policy_rule:properties:headers",
+      "path": "documentation/data-sources/service_policy_rule/properties/headers/item/index.md",
+      "provider_name": "service_policy_rule",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--service_policy_rule--properties--headers--item.md",
+      "role": "properties",
+      "schema_path": ["headers", "item"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/service_policy_rule/properties/headers/item/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "headers.item for xcsh_service_policy_rule.",
+      "title": "headers.item",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["service_policy_ruleCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 3127,
+      "body_sha256": "sha256:5293d5904d4fed238406158b0bbf74deab25851d34f0b67c9aa55c75aef7bd3c",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:data-sources:service_policy_rule:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:service_policy_rule:properties:http_method",
+      "parent_id": "xcsh-docs:data-sources:service_policy_rule:reference",
+      "path": "documentation/data-sources/service_policy_rule/properties/http_method/index.md",
+      "provider_name": "service_policy_rule",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--service_policy_rule--properties--http_method.md",
+      "role": "properties",
+      "schema_path": ["http_method"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/service_policy_rule/properties/http_method/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "http_method for xcsh_service_policy_rule.",
+      "title": "http_method",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["service_policy_ruleCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 1872,
+      "body_sha256": "sha256:556c49a285d94a8244ac0321373feb943b2303b50310e64cfee4451b57ed48d4",
+      "child_ids": ["xcsh-docs:data-sources:service_policy_rule:properties:ip_matcher:prefix_sets"],
+      "collection_id": "xcsh-docs:data-sources:service_policy_rule:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:service_policy_rule:properties:ip_matcher",
+      "parent_id": "xcsh-docs:data-sources:service_policy_rule:reference",
+      "path": "documentation/data-sources/service_policy_rule/properties/ip_matcher/index.md",
+      "provider_name": "service_policy_rule",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--service_policy_rule--properties--ip_matcher.md",
+      "role": "properties",
+      "schema_path": ["ip_matcher"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/service_policy_rule/properties/ip_matcher/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "ip_matcher for xcsh_service_policy_rule.",
+      "title": "ip_matcher",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["service_policy_ruleCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 6352,
+      "body_sha256": "sha256:87051e795d369368ed5d9e9e5d321266053567e1decba5785ef44c6ea1324da5",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:data-sources:service_policy_rule:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:service_policy_rule:properties:ip_matcher:prefix_sets",
+      "parent_id": "xcsh-docs:data-sources:service_policy_rule:properties:ip_matcher",
+      "path": "documentation/data-sources/service_policy_rule/properties/ip_matcher/prefix_sets/index.md",
+      "provider_name": "service_policy_rule",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--service_policy_rule--properties--ip_matcher--prefix_sets.md",
+      "role": "properties",
+      "schema_path": ["ip_matcher", "prefix_sets"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/service_policy_rule/properties/ip_matcher/prefix_sets/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "ip_matcher.prefix_sets for xcsh_service_policy_rule.",
+      "title": "ip_matcher.prefix_sets",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["service_policy_ruleCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 2567,
+      "body_sha256": "sha256:9d74995ba6121c35860dc8668e59d034010edec0901b52af80b3cf982bade92c",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:data-sources:service_policy_rule:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:service_policy_rule:properties:ip_prefix_list",
+      "parent_id": "xcsh-docs:data-sources:service_policy_rule:reference",
+      "path": "documentation/data-sources/service_policy_rule/properties/ip_prefix_list/index.md",
+      "provider_name": "service_policy_rule",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--service_policy_rule--properties--ip_prefix_list.md",
+      "role": "properties",
+      "schema_path": ["ip_prefix_list"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/service_policy_rule/properties/ip_prefix_list/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "ip_prefix_list for xcsh_service_policy_rule.",
+      "title": "ip_prefix_list",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["service_policy_ruleCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 2704,
+      "body_sha256": "sha256:44a4062c5005e057f2eaa7666bee5ddbd9a33b4a5fb9fd3e55e4d1f7f4f3be6b",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:data-sources:service_policy_rule:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:service_policy_rule:properties:ip_threat_category_list",
+      "parent_id": "xcsh-docs:data-sources:service_policy_rule:reference",
+      "path": "documentation/data-sources/service_policy_rule/properties/ip_threat_category_list/index.md",
+      "provider_name": "service_policy_rule",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--service_policy_rule--properties--ip_threat_category_list.md",
+      "role": "properties",
+      "schema_path": ["ip_threat_category_list"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/service_policy_rule/properties/ip_threat_category_list/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "ip_threat_category_list for xcsh_service_policy_rule.",
+      "title": "ip_threat_category_list",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["service_policy_ruleCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 2940,
+      "body_sha256": "sha256:63f099dc2c980646541fb5da4bd0b993749bde34ba6c613019cc8ad60ee84c11",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:data-sources:service_policy_rule:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:service_policy_rule:properties:ja4_tls_fingerprint",
+      "parent_id": "xcsh-docs:data-sources:service_policy_rule:reference",
+      "path": "documentation/data-sources/service_policy_rule/properties/ja4_tls_fingerprint/index.md",
+      "provider_name": "service_policy_rule",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--service_policy_rule--properties--ja4_tls_fingerprint.md",
+      "role": "properties",
+      "schema_path": ["ja4_tls_fingerprint"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/service_policy_rule/properties/ja4_tls_fingerprint/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "ja4_tls_fingerprint for xcsh_service_policy_rule.",
+      "title": "ja4_tls_fingerprint",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["service_policy_ruleCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 4785,
+      "body_sha256": "sha256:87911dce0354d59e3bd254044d31896d40a29647d4b0e0f01c16bed02194da1f",
+      "child_ids": [
+        "xcsh-docs:data-sources:service_policy_rule:properties:jwt_claims:check_not_present",
+        "xcsh-docs:data-sources:service_policy_rule:properties:jwt_claims:check_present",
+        "xcsh-docs:data-sources:service_policy_rule:properties:jwt_claims:item"
+      ],
+      "collection_id": "xcsh-docs:data-sources:service_policy_rule:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:service_policy_rule:properties:jwt_claims",
+      "parent_id": "xcsh-docs:data-sources:service_policy_rule:reference",
+      "path": "documentation/data-sources/service_policy_rule/properties/jwt_claims/index.md",
+      "provider_name": "service_policy_rule",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--service_policy_rule--properties--jwt_claims.md",
+      "role": "properties",
+      "schema_path": ["jwt_claims"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/service_policy_rule/properties/jwt_claims/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "jwt_claims for xcsh_service_policy_rule.",
+      "title": "jwt_claims",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["service_policy_ruleCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 1269,
+      "body_sha256": "sha256:bc5d8cad305127cfd32ebac3572288109ef3ee9ace1eed675af3ed8979994d3d",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:data-sources:service_policy_rule:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:service_policy_rule:properties:jwt_claims:check_not_present",
+      "parent_id": "xcsh-docs:data-sources:service_policy_rule:properties:jwt_claims",
+      "path": "documentation/data-sources/service_policy_rule/properties/jwt_claims/check_not_present/index.md",
+      "provider_name": "service_policy_rule",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--service_policy_rule--properties--jwt_claims--check_not_present.md",
+      "role": "properties",
+      "schema_path": ["jwt_claims", "check_not_present"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/service_policy_rule/properties/jwt_claims/check_not_present/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "jwt_claims.check_not_present for xcsh_service_policy_rule.",
+      "title": "jwt_claims.check_not_present",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["service_policy_ruleCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 1257,
+      "body_sha256": "sha256:835ac2c8c7b0cc9770d4b8a158c90982e2cbe35b4f630633eee690a1590eb914",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:data-sources:service_policy_rule:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:service_policy_rule:properties:jwt_claims:check_present",
+      "parent_id": "xcsh-docs:data-sources:service_policy_rule:properties:jwt_claims",
+      "path": "documentation/data-sources/service_policy_rule/properties/jwt_claims/check_present/index.md",
+      "provider_name": "service_policy_rule",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--service_policy_rule--properties--jwt_claims--check_present.md",
+      "role": "properties",
+      "schema_path": ["jwt_claims", "check_present"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/service_policy_rule/properties/jwt_claims/check_present/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "jwt_claims.check_present for xcsh_service_policy_rule.",
+      "title": "jwt_claims.check_present",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["service_policy_ruleCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 5603,
+      "body_sha256": "sha256:5b17b3faeaa55352655731f53265133477cd0baaca38b434dfa49175443cc1be",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:data-sources:service_policy_rule:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:service_policy_rule:properties:jwt_claims:item",
+      "parent_id": "xcsh-docs:data-sources:service_policy_rule:properties:jwt_claims",
+      "path": "documentation/data-sources/service_policy_rule/properties/jwt_claims/item/index.md",
+      "provider_name": "service_policy_rule",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--service_policy_rule--properties--jwt_claims--item.md",
+      "role": "properties",
+      "schema_path": ["jwt_claims", "item"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/service_policy_rule/properties/jwt_claims/item/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "jwt_claims.item for xcsh_service_policy_rule.",
+      "title": "jwt_claims.item",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["service_policy_ruleCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 2577,
+      "body_sha256": "sha256:796933c0b5e73ae3b35f0ab0e007215b2045c9340016a7e55f5469ce4bda0b73",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:data-sources:service_policy_rule:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:service_policy_rule:properties:label_matcher",
+      "parent_id": "xcsh-docs:data-sources:service_policy_rule:reference",
+      "path": "documentation/data-sources/service_policy_rule/properties/label_matcher/index.md",
+      "provider_name": "service_policy_rule",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--service_policy_rule--properties--label_matcher.md",
+      "role": "properties",
+      "schema_path": ["label_matcher"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/service_policy_rule/properties/label_matcher/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "label_matcher for xcsh_service_policy_rule.",
+      "title": "label_matcher",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["service_policy_ruleCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 1714,
+      "body_sha256": "sha256:89f7a9480830975ed81210eaa70aeb1ae030b39edef7a00122c94c558488b5de",
+      "child_ids": [
+        "xcsh-docs:data-sources:service_policy_rule:properties:mum_action:default",
+        "xcsh-docs:data-sources:service_policy_rule:properties:mum_action:skip_processing"
+      ],
+      "collection_id": "xcsh-docs:data-sources:service_policy_rule:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:service_policy_rule:properties:mum_action",
+      "parent_id": "xcsh-docs:data-sources:service_policy_rule:reference",
+      "path": "documentation/data-sources/service_policy_rule/properties/mum_action/index.md",
+      "provider_name": "service_policy_rule",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--service_policy_rule--properties--mum_action.md",
+      "role": "properties",
+      "schema_path": ["mum_action"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/service_policy_rule/properties/mum_action/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "mum_action for xcsh_service_policy_rule.",
+      "title": "mum_action",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["service_policy_ruleCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 1221,
+      "body_sha256": "sha256:a4a7a9ad71d2782935dfe26d626e3238697a23e0050e0aa7a45d511e4f264419",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:data-sources:service_policy_rule:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:service_policy_rule:properties:mum_action:default",
+      "parent_id": "xcsh-docs:data-sources:service_policy_rule:properties:mum_action",
+      "path": "documentation/data-sources/service_policy_rule/properties/mum_action/default/index.md",
+      "provider_name": "service_policy_rule",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--service_policy_rule--properties--mum_action--default.md",
+      "role": "properties",
+      "schema_path": ["mum_action", "default"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/service_policy_rule/properties/mum_action/default/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "mum_action.default for xcsh_service_policy_rule.",
+      "title": "mum_action.default",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["service_policy_ruleCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 1237,
+      "body_sha256": "sha256:0a2aed200cfaaefe1b11491a40fae7301e25f56d50238ddcf2d72c5bfad671aa",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:data-sources:service_policy_rule:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:service_policy_rule:properties:mum_action:skip_processing",
+      "parent_id": "xcsh-docs:data-sources:service_policy_rule:properties:mum_action",
+      "path": "documentation/data-sources/service_policy_rule/properties/mum_action/skip_processing/index.md",
+      "provider_name": "service_policy_rule",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--service_policy_rule--properties--mum_action--skip_processing.md",
+      "role": "properties",
+      "schema_path": ["mum_action", "skip_processing"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/service_policy_rule/properties/mum_action/skip_processing/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "mum_action.skip_processing for xcsh_service_policy_rule.",
+      "title": "mum_action.skip_processing",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["service_policy_ruleCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 9074,
+      "body_sha256": "sha256:7b82a7557f4c313ae40d475a395e29f009820a60f53f0d57fab4366d24b10279",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:data-sources:service_policy_rule:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:service_policy_rule:properties:path",
+      "parent_id": "xcsh-docs:data-sources:service_policy_rule:reference",
+      "path": "documentation/data-sources/service_policy_rule/properties/path/index.md",
+      "provider_name": "service_policy_rule",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--service_policy_rule--properties--path.md",
+      "role": "properties",
+      "schema_path": ["path"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/service_policy_rule/properties/path/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "path for xcsh_service_policy_rule.",
+      "title": "path",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["service_policy_ruleCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 3248,
+      "body_sha256": "sha256:26bbaad4a308d6e1fc314ca8f4e51f332bcb66cbd7bfb0488e51678c2a977fff",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:data-sources:service_policy_rule:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:service_policy_rule:properties:port_matcher",
+      "parent_id": "xcsh-docs:data-sources:service_policy_rule:reference",
+      "path": "documentation/data-sources/service_policy_rule/properties/port_matcher/index.md",
+      "provider_name": "service_policy_rule",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--service_policy_rule--properties--port_matcher.md",
+      "role": "properties",
+      "schema_path": ["port_matcher"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/service_policy_rule/properties/port_matcher/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "port_matcher for xcsh_service_policy_rule.",
+      "title": "port_matcher",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["service_policy_ruleCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 4406,
+      "body_sha256": "sha256:fcfd0cdae4e2b1b86f5d881fcec40d0bf83fc98a9da9b437a6f94d37b8680867",
+      "child_ids": [
+        "xcsh-docs:data-sources:service_policy_rule:properties:query_params:check_not_present",
+        "xcsh-docs:data-sources:service_policy_rule:properties:query_params:check_present",
+        "xcsh-docs:data-sources:service_policy_rule:properties:query_params:item"
+      ],
+      "collection_id": "xcsh-docs:data-sources:service_policy_rule:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:service_policy_rule:properties:query_params",
+      "parent_id": "xcsh-docs:data-sources:service_policy_rule:reference",
+      "path": "documentation/data-sources/service_policy_rule/properties/query_params/index.md",
+      "provider_name": "service_policy_rule",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--service_policy_rule--properties--query_params.md",
+      "role": "properties",
+      "schema_path": ["query_params"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/service_policy_rule/properties/query_params/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "query_params for xcsh_service_policy_rule.",
+      "title": "query_params",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["service_policy_ruleCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 1281,
+      "body_sha256": "sha256:b613716657421bfefe1b459fa5e89fdfa0981572390a10597e5d7c3bf4427241",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:data-sources:service_policy_rule:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:service_policy_rule:properties:query_params:check_not_present",
+      "parent_id": "xcsh-docs:data-sources:service_policy_rule:properties:query_params",
+      "path": "documentation/data-sources/service_policy_rule/properties/query_params/check_not_present/index.md",
+      "provider_name": "service_policy_rule",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--service_policy_rule--properties--query_params--check_not_present.md",
+      "role": "properties",
+      "schema_path": ["query_params", "check_not_present"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/service_policy_rule/properties/query_params/check_not_present/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "query_params.check_not_present for xcsh_service_policy_rule.",
+      "title": "query_params.check_not_present",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["service_policy_ruleCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 1269,
+      "body_sha256": "sha256:f277178de8e0b29d304412a6e720eb6c52c26e75e7749b6651a689869ff70713",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:data-sources:service_policy_rule:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:service_policy_rule:properties:query_params:check_present",
+      "parent_id": "xcsh-docs:data-sources:service_policy_rule:properties:query_params",
+      "path": "documentation/data-sources/service_policy_rule/properties/query_params/check_present/index.md",
+      "provider_name": "service_policy_rule",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--service_policy_rule--properties--query_params--check_present.md",
+      "role": "properties",
+      "schema_path": ["query_params", "check_present"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/service_policy_rule/properties/query_params/check_present/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "query_params.check_present for xcsh_service_policy_rule.",
+      "title": "query_params.check_present",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["service_policy_ruleCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 5621,
+      "body_sha256": "sha256:7875313fa5e24e1eeae49926903eefa06978d188faf216c046ca9faff9e0decd",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:data-sources:service_policy_rule:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:service_policy_rule:properties:query_params:item",
+      "parent_id": "xcsh-docs:data-sources:service_policy_rule:properties:query_params",
+      "path": "documentation/data-sources/service_policy_rule/properties/query_params/item/index.md",
+      "provider_name": "service_policy_rule",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--service_policy_rule--properties--query_params--item.md",
+      "role": "properties",
+      "schema_path": ["query_params", "item"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/service_policy_rule/properties/query_params/item/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "query_params.item for xcsh_service_policy_rule.",
+      "title": "query_params.item",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["service_policy_ruleCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 20522,
+      "body_sha256": "sha256:0176f6cf65ca383f67fbdc52e6b0c7170a73d74abdc93d065016ab84ef290dd1",
+      "child_ids": [
+        "xcsh-docs:data-sources:service_policy_rule:properties:request_constraints:max_cookie_count_none",
+        "xcsh-docs:data-sources:service_policy_rule:properties:request_constraints:max_cookie_key_size_none",
+        "xcsh-docs:data-sources:service_policy_rule:properties:request_constraints:max_cookie_value_size_none",
+        "xcsh-docs:data-sources:service_policy_rule:properties:request_constraints:max_header_count_none",
+        "xcsh-docs:data-sources:service_policy_rule:properties:request_constraints:max_header_key_size_none",
+        "xcsh-docs:data-sources:service_policy_rule:properties:request_constraints:max_header_value_size_none",
+        "xcsh-docs:data-sources:service_policy_rule:properties:request_constraints:max_parameter_count_none",
+        "xcsh-docs:data-sources:service_policy_rule:properties:request_constraints:max_parameter_name_size_none",
+        "xcsh-docs:data-sources:service_policy_rule:properties:request_constraints:max_parameter_value_size_none",
+        "xcsh-docs:data-sources:service_policy_rule:properties:request_constraints:max_query_size_none",
+        "xcsh-docs:data-sources:service_policy_rule:properties:request_constraints:max_request_line_size_none",
+        "xcsh-docs:data-sources:service_policy_rule:properties:request_constraints:max_request_size_none",
+        "xcsh-docs:data-sources:service_policy_rule:properties:request_constraints:max_url_size_none"
+      ],
+      "collection_id": "xcsh-docs:data-sources:service_policy_rule:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:service_policy_rule:properties:request_constraints",
+      "parent_id": "xcsh-docs:data-sources:service_policy_rule:reference",
+      "path": "documentation/data-sources/service_policy_rule/properties/request_constraints/index.md",
+      "provider_name": "service_policy_rule",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--service_policy_rule--properties--request_constraints.md",
+      "role": "properties",
+      "schema_path": ["request_constraints"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/service_policy_rule/properties/request_constraints/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "request_constraints for xcsh_service_policy_rule.",
+      "title": "request_constraints",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["service_policy_ruleCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 1335,
+      "body_sha256": "sha256:c3f763c0933510f887dda9738e7fe6abfb51e17e8499733cbb464585783b3b25",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:data-sources:service_policy_rule:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:service_policy_rule:properties:request_constraints:max_cookie_count_none",
+      "parent_id": "xcsh-docs:data-sources:service_policy_rule:properties:request_constraints",
+      "path": "documentation/data-sources/service_policy_rule/properties/request_constraints/max_cookie_count_none/index.md",
+      "provider_name": "service_policy_rule",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--service_policy_rule--properties--request_constraints--max_cookie_count_none.md",
+      "role": "properties",
+      "schema_path": ["request_constraints", "max_cookie_count_none"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/service_policy_rule/properties/request_constraints/max_cookie_count_none/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "request_constraints.max_cookie_count_none for xcsh_service_policy_rule.",
+      "title": "request_constraints.max_cookie_count_none",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["service_policy_ruleCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 1344,
+      "body_sha256": "sha256:07b035d48f2235b3a7f10190329532335c6a0098e72bba6410fc3a6b366470e6",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:data-sources:service_policy_rule:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:service_policy_rule:properties:request_constraints:max_cookie_key_size_none",
+      "parent_id": "xcsh-docs:data-sources:service_policy_rule:properties:request_constraints",
+      "path": "documentation/data-sources/service_policy_rule/properties/request_constraints/max_cookie_key_size_none/index.md",
+      "provider_name": "service_policy_rule",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--service_policy_rule--properties--request_constraints--max_cookie_key_size_none.md",
+      "role": "properties",
+      "schema_path": ["request_constraints", "max_cookie_key_size_none"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/service_policy_rule/properties/request_constraints/max_cookie_key_size_none/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "request_constraints.max_cookie_key_size_none for xcsh_service_policy_rule.",
+      "title": "request_constraints.max_cookie_key_size_none",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["service_policy_ruleCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 1350,
+      "body_sha256": "sha256:4ae4250288d15503d57580bc8da9823d824af06a181d43064cdc18e60070faf4",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:data-sources:service_policy_rule:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:service_policy_rule:properties:request_constraints:max_cookie_value_size_none",
+      "parent_id": "xcsh-docs:data-sources:service_policy_rule:properties:request_constraints",
+      "path": "documentation/data-sources/service_policy_rule/properties/request_constraints/max_cookie_value_size_none/index.md",
+      "provider_name": "service_policy_rule",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--service_policy_rule--properties--request_constraints--max_cookie_value_size_none.md",
+      "role": "properties",
+      "schema_path": ["request_constraints", "max_cookie_value_size_none"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/service_policy_rule/properties/request_constraints/max_cookie_value_size_none/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "request_constraints.max_cookie_value_size_none for xcsh_service_policy_rule.",
+      "title": "request_constraints.max_cookie_value_size_none",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["service_policy_ruleCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 1335,
+      "body_sha256": "sha256:cf92d2523e77d6ad4b2505836106b16e92a31967d56212d27af77db2cdcc197b",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:data-sources:service_policy_rule:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:service_policy_rule:properties:request_constraints:max_header_count_none",
+      "parent_id": "xcsh-docs:data-sources:service_policy_rule:properties:request_constraints",
+      "path": "documentation/data-sources/service_policy_rule/properties/request_constraints/max_header_count_none/index.md",
+      "provider_name": "service_policy_rule",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--service_policy_rule--properties--request_constraints--max_header_count_none.md",
+      "role": "properties",
+      "schema_path": ["request_constraints", "max_header_count_none"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/service_policy_rule/properties/request_constraints/max_header_count_none/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "request_constraints.max_header_count_none for xcsh_service_policy_rule.",
+      "title": "request_constraints.max_header_count_none",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["service_policy_ruleCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 1344,
+      "body_sha256": "sha256:185c8ff108ebc66762bf4bbd4e02329821f9ceae7121a931d63cab49a71dafe8",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:data-sources:service_policy_rule:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:service_policy_rule:properties:request_constraints:max_header_key_size_none",
+      "parent_id": "xcsh-docs:data-sources:service_policy_rule:properties:request_constraints",
+      "path": "documentation/data-sources/service_policy_rule/properties/request_constraints/max_header_key_size_none/index.md",
+      "provider_name": "service_policy_rule",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--service_policy_rule--properties--request_constraints--max_header_key_size_none.md",
+      "role": "properties",
+      "schema_path": ["request_constraints", "max_header_key_size_none"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/service_policy_rule/properties/request_constraints/max_header_key_size_none/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "request_constraints.max_header_key_size_none for xcsh_service_policy_rule.",
+      "title": "request_constraints.max_header_key_size_none",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["service_policy_ruleCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 1350,
+      "body_sha256": "sha256:76bc31c2c72f7d7034fb55f58cd1054b628c54db6911d667beac097e63f760e0",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:data-sources:service_policy_rule:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:service_policy_rule:properties:request_constraints:max_header_value_size_none",
+      "parent_id": "xcsh-docs:data-sources:service_policy_rule:properties:request_constraints",
+      "path": "documentation/data-sources/service_policy_rule/properties/request_constraints/max_header_value_size_none/index.md",
+      "provider_name": "service_policy_rule",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--service_policy_rule--properties--request_constraints--max_header_value_size_none.md",
+      "role": "properties",
+      "schema_path": ["request_constraints", "max_header_value_size_none"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/service_policy_rule/properties/request_constraints/max_header_value_size_none/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "request_constraints.max_header_value_size_none for xcsh_service_policy_rule.",
+      "title": "request_constraints.max_header_value_size_none",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["service_policy_ruleCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 1344,
+      "body_sha256": "sha256:6250a120381696a2a9f2e7d3aadaeafc544f22916a909430fff121771fce40ba",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:data-sources:service_policy_rule:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:service_policy_rule:properties:request_constraints:max_parameter_count_none",
+      "parent_id": "xcsh-docs:data-sources:service_policy_rule:properties:request_constraints",
+      "path": "documentation/data-sources/service_policy_rule/properties/request_constraints/max_parameter_count_none/index.md",
+      "provider_name": "service_policy_rule",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--service_policy_rule--properties--request_constraints--max_parameter_count_none.md",
+      "role": "properties",
+      "schema_path": ["request_constraints", "max_parameter_count_none"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/service_policy_rule/properties/request_constraints/max_parameter_count_none/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "request_constraints.max_parameter_count_none for xcsh_service_policy_rule.",
+      "title": "request_constraints.max_parameter_count_none",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["service_policy_ruleCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 1317,
+      "body_sha256": "sha256:1f9eb25b72095a7bb28aa3a77c3c7b28387cdbb858356e90bbea8a06de70b347",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:data-sources:service_policy_rule:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:service_policy_rule:properties:request_constraints:max_parameter_name_size_none",
+      "parent_id": "xcsh-docs:data-sources:service_policy_rule:properties:request_constraints",
+      "path": "documentation/data-sources/service_policy_rule/properties/request_constraints/max_parameter_name_size_none/index.md",
+      "provider_name": "service_policy_rule",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--service_policy_rule--properties--request_constraints--max_parameter_name_size_none.md",
+      "role": "properties",
+      "schema_path": ["request_constraints", "max_parameter_name_size_none"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/service_policy_rule/properties/request_constraints/max_parameter_name_size_none/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "request_constraints.max_parameter_name_size_none for xcsh_service_policy_rule.",
+      "title": "request_constraints.max_parameter_name_size_none",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["service_policy_ruleCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 1359,
+      "body_sha256": "sha256:3d29a81a0244e66e04c652f712417235b29671e985177a4ba268559c9ea2ffcd",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:data-sources:service_policy_rule:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:service_policy_rule:properties:request_constraints:max_parameter_value_size_none",
+      "parent_id": "xcsh-docs:data-sources:service_policy_rule:properties:request_constraints",
+      "path": "documentation/data-sources/service_policy_rule/properties/request_constraints/max_parameter_value_size_none/index.md",
+      "provider_name": "service_policy_rule",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--service_policy_rule--properties--request_constraints--max_parameter_value_size_none.md",
+      "role": "properties",
+      "schema_path": ["request_constraints", "max_parameter_value_size_none"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/service_policy_rule/properties/request_constraints/max_parameter_value_size_none/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "request_constraints.max_parameter_value_size_none for xcsh_service_policy_rule.",
+      "title": "request_constraints.max_parameter_value_size_none",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["service_policy_ruleCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 1329,
+      "body_sha256": "sha256:2d06fcbc973720fb2fc57658c8a9b0f9c92055764097e65deaaea800beff57f8",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:data-sources:service_policy_rule:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:service_policy_rule:properties:request_constraints:max_query_size_none",
+      "parent_id": "xcsh-docs:data-sources:service_policy_rule:properties:request_constraints",
+      "path": "documentation/data-sources/service_policy_rule/properties/request_constraints/max_query_size_none/index.md",
+      "provider_name": "service_policy_rule",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--service_policy_rule--properties--request_constraints--max_query_size_none.md",
+      "role": "properties",
+      "schema_path": ["request_constraints", "max_query_size_none"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/service_policy_rule/properties/request_constraints/max_query_size_none/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "request_constraints.max_query_size_none for xcsh_service_policy_rule.",
+      "title": "request_constraints.max_query_size_none",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["service_policy_ruleCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 1350,
+      "body_sha256": "sha256:cff0985c116589a22bc0a53a9f9f6056104d0eb52ad5804a02fed0bacdff6e75",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:data-sources:service_policy_rule:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:service_policy_rule:properties:request_constraints:max_request_line_size_none",
+      "parent_id": "xcsh-docs:data-sources:service_policy_rule:properties:request_constraints",
+      "path": "documentation/data-sources/service_policy_rule/properties/request_constraints/max_request_line_size_none/index.md",
+      "provider_name": "service_policy_rule",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--service_policy_rule--properties--request_constraints--max_request_line_size_none.md",
+      "role": "properties",
+      "schema_path": ["request_constraints", "max_request_line_size_none"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/service_policy_rule/properties/request_constraints/max_request_line_size_none/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "request_constraints.max_request_line_size_none for xcsh_service_policy_rule.",
+      "title": "request_constraints.max_request_line_size_none",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["service_policy_ruleCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 1335,
+      "body_sha256": "sha256:6be1e26b9cb3c9b7556fd3bbb2adbbcdb77e2b9835e5b8728a100faf3b537c88",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:data-sources:service_policy_rule:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:service_policy_rule:properties:request_constraints:max_request_size_none",
+      "parent_id": "xcsh-docs:data-sources:service_policy_rule:properties:request_constraints",
+      "path": "documentation/data-sources/service_policy_rule/properties/request_constraints/max_request_size_none/index.md",
+      "provider_name": "service_policy_rule",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--service_policy_rule--properties--request_constraints--max_request_size_none.md",
+      "role": "properties",
+      "schema_path": ["request_constraints", "max_request_size_none"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/service_policy_rule/properties/request_constraints/max_request_size_none/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "request_constraints.max_request_size_none for xcsh_service_policy_rule.",
+      "title": "request_constraints.max_request_size_none",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["service_policy_ruleCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 1295,
+      "body_sha256": "sha256:68eded76467c14e6904920c260e16e7960fe52c8ce126396f153bb470308a1c9",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:data-sources:service_policy_rule:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:service_policy_rule:properties:request_constraints:max_url_size_none",
+      "parent_id": "xcsh-docs:data-sources:service_policy_rule:properties:request_constraints",
+      "path": "documentation/data-sources/service_policy_rule/properties/request_constraints/max_url_size_none/index.md",
+      "provider_name": "service_policy_rule",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--service_policy_rule--properties--request_constraints--max_url_size_none.md",
+      "role": "properties",
+      "schema_path": ["request_constraints", "max_url_size_none"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/service_policy_rule/properties/request_constraints/max_url_size_none/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "request_constraints.max_url_size_none for xcsh_service_policy_rule.",
+      "title": "request_constraints.max_url_size_none",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["service_policy_ruleCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 2800,
+      "body_sha256": "sha256:82ca5702a382d759037f955dfce4ee43b27ed6154e9c68c30c6feda0c100163f",
+      "child_ids": [
+        "xcsh-docs:data-sources:service_policy_rule:properties:segment_policy:dst_any",
+        "xcsh-docs:data-sources:service_policy_rule:properties:segment_policy:dst_segments",
+        "xcsh-docs:data-sources:service_policy_rule:properties:segment_policy:intra_segment",
+        "xcsh-docs:data-sources:service_policy_rule:properties:segment_policy:src_any",
+        "xcsh-docs:data-sources:service_policy_rule:properties:segment_policy:src_segments"
+      ],
+      "collection_id": "xcsh-docs:data-sources:service_policy_rule:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:service_policy_rule:properties:segment_policy",
+      "parent_id": "xcsh-docs:data-sources:service_policy_rule:reference",
+      "path": "documentation/data-sources/service_policy_rule/properties/segment_policy/index.md",
+      "provider_name": "service_policy_rule",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--service_policy_rule--properties--segment_policy.md",
+      "role": "properties",
+      "schema_path": ["segment_policy"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/service_policy_rule/properties/segment_policy/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "segment_policy for xcsh_service_policy_rule.",
+      "title": "segment_policy",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["service_policy_ruleCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 1245,
+      "body_sha256": "sha256:1cd185f2a2199f9158a809572ee55878b9b7b7b7ce53305fcf81a1939e39f76f",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:data-sources:service_policy_rule:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:service_policy_rule:properties:segment_policy:dst_any",
+      "parent_id": "xcsh-docs:data-sources:service_policy_rule:properties:segment_policy",
+      "path": "documentation/data-sources/service_policy_rule/properties/segment_policy/dst_any/index.md",
+      "provider_name": "service_policy_rule",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--service_policy_rule--properties--segment_policy--dst_any.md",
+      "role": "properties",
+      "schema_path": ["segment_policy", "dst_any"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/service_policy_rule/properties/segment_policy/dst_any/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "segment_policy.dst_any for xcsh_service_policy_rule.",
+      "title": "segment_policy.dst_any",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["service_policy_ruleCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 1539,
+      "body_sha256": "sha256:e9c945c194247f76e731f144b72f6b114a17af973dc8057efb40a6bc8ed49b86",
+      "child_ids": ["xcsh-docs:data-sources:service_policy_rule:properties:segment_policy:dst_segments:segments"],
+      "collection_id": "xcsh-docs:data-sources:service_policy_rule:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:service_policy_rule:properties:segment_policy:dst_segments",
+      "parent_id": "xcsh-docs:data-sources:service_policy_rule:properties:segment_policy",
+      "path": "documentation/data-sources/service_policy_rule/properties/segment_policy/dst_segments/index.md",
+      "provider_name": "service_policy_rule",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--service_policy_rule--properties--segment_policy--dst_segments.md",
+      "role": "properties",
+      "schema_path": ["segment_policy", "dst_segments"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/service_policy_rule/properties/segment_policy/dst_segments/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "segment_policy.dst_segments for xcsh_service_policy_rule.",
+      "title": "segment_policy.dst_segments",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["service_policy_ruleCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 5577,
+      "body_sha256": "sha256:c7197fe8eaced1b2a891a185dc0dedc2e754233ba5051388c0a402eaaff78a41",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:data-sources:service_policy_rule:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:service_policy_rule:properties:segment_policy:dst_segments:segments",
+      "parent_id": "xcsh-docs:data-sources:service_policy_rule:properties:segment_policy:dst_segments",
+      "path": "documentation/data-sources/service_policy_rule/properties/segment_policy/dst_segments/segments/index.md",
+      "provider_name": "service_policy_rule",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--service_policy_rule--properties--segment_policy--dst_segments--segments.md",
+      "role": "properties",
+      "schema_path": ["segment_policy", "dst_segments", "segments"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/service_policy_rule/properties/segment_policy/dst_segments/segments/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "segment_policy.dst_segments.segments for xcsh_service_policy_rule.",
+      "title": "segment_policy.dst_segments.segments",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["service_policy_ruleCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 1281,
+      "body_sha256": "sha256:e9dea5b6152e270934703c7e121cedd6ec19484fdfb733fbac5abf2238f83403",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:data-sources:service_policy_rule:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:service_policy_rule:properties:segment_policy:intra_segment",
+      "parent_id": "xcsh-docs:data-sources:service_policy_rule:properties:segment_policy",
+      "path": "documentation/data-sources/service_policy_rule/properties/segment_policy/intra_segment/index.md",
+      "provider_name": "service_policy_rule",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--service_policy_rule--properties--segment_policy--intra_segment.md",
+      "role": "properties",
+      "schema_path": ["segment_policy", "intra_segment"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/service_policy_rule/properties/segment_policy/intra_segment/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "segment_policy.intra_segment for xcsh_service_policy_rule.",
+      "title": "segment_policy.intra_segment",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["service_policy_ruleCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 1245,
+      "body_sha256": "sha256:34cfb08ea5ea7d61c8b16be719432630d52311e75da6eede64ee97604360d9e1",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:data-sources:service_policy_rule:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:service_policy_rule:properties:segment_policy:src_any",
+      "parent_id": "xcsh-docs:data-sources:service_policy_rule:properties:segment_policy",
+      "path": "documentation/data-sources/service_policy_rule/properties/segment_policy/src_any/index.md",
+      "provider_name": "service_policy_rule",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--service_policy_rule--properties--segment_policy--src_any.md",
+      "role": "properties",
+      "schema_path": ["segment_policy", "src_any"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/service_policy_rule/properties/segment_policy/src_any/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "segment_policy.src_any for xcsh_service_policy_rule.",
+      "title": "segment_policy.src_any",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["service_policy_ruleCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 1539,
+      "body_sha256": "sha256:9a91b793173440e58d9147b35abe1b5e8b28de1649c4a6167721652aba1810c7",
+      "child_ids": ["xcsh-docs:data-sources:service_policy_rule:properties:segment_policy:src_segments:segments"],
+      "collection_id": "xcsh-docs:data-sources:service_policy_rule:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:service_policy_rule:properties:segment_policy:src_segments",
+      "parent_id": "xcsh-docs:data-sources:service_policy_rule:properties:segment_policy",
+      "path": "documentation/data-sources/service_policy_rule/properties/segment_policy/src_segments/index.md",
+      "provider_name": "service_policy_rule",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--service_policy_rule--properties--segment_policy--src_segments.md",
+      "role": "properties",
+      "schema_path": ["segment_policy", "src_segments"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/service_policy_rule/properties/segment_policy/src_segments/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "segment_policy.src_segments for xcsh_service_policy_rule.",
+      "title": "segment_policy.src_segments",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["service_policy_ruleCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 5577,
+      "body_sha256": "sha256:8293910519051f50774aae23dff32d4b5c44f15594099c12eba5855047851992",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:data-sources:service_policy_rule:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:service_policy_rule:properties:segment_policy:src_segments:segments",
+      "parent_id": "xcsh-docs:data-sources:service_policy_rule:properties:segment_policy:src_segments",
+      "path": "documentation/data-sources/service_policy_rule/properties/segment_policy/src_segments/segments/index.md",
+      "provider_name": "service_policy_rule",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--service_policy_rule--properties--segment_policy--src_segments--segments.md",
+      "role": "properties",
+      "schema_path": ["segment_policy", "src_segments", "segments"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/service_policy_rule/properties/segment_policy/src_segments/segments/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "segment_policy.src_segments.segments for xcsh_service_policy_rule.",
+      "title": "segment_policy.src_segments.segments",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["service_policy_ruleCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 5772,
+      "body_sha256": "sha256:3a25efff9acd9ea7efe803c5a616f725a291da86b04941b1cb7f77930082ee43",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:data-sources:service_policy_rule:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:service_policy_rule:properties:tls_fingerprint_matcher",
+      "parent_id": "xcsh-docs:data-sources:service_policy_rule:reference",
+      "path": "documentation/data-sources/service_policy_rule/properties/tls_fingerprint_matcher/index.md",
+      "provider_name": "service_policy_rule",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--service_policy_rule--properties--tls_fingerprint_matcher.md",
+      "role": "properties",
+      "schema_path": ["tls_fingerprint_matcher"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/service_policy_rule/properties/tls_fingerprint_matcher/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "tls_fingerprint_matcher for xcsh_service_policy_rule.",
+      "title": "tls_fingerprint_matcher",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["service_policy_ruleCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 2527,
+      "body_sha256": "sha256:05eade53bee49c7836e620877592a38919f4b0d6bc67e8dd54d3d88cd2819ee7",
+      "child_ids": [
+        "xcsh-docs:data-sources:service_policy_rule:properties:waf_action:app_firewall_detection_control",
+        "xcsh-docs:data-sources:service_policy_rule:properties:waf_action:none",
+        "xcsh-docs:data-sources:service_policy_rule:properties:waf_action:waf_skip_processing"
+      ],
+      "collection_id": "xcsh-docs:data-sources:service_policy_rule:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:service_policy_rule:properties:waf_action",
+      "parent_id": "xcsh-docs:data-sources:service_policy_rule:reference",
+      "path": "documentation/data-sources/service_policy_rule/properties/waf_action/index.md",
+      "provider_name": "service_policy_rule",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--service_policy_rule--properties--waf_action.md",
+      "role": "properties",
+      "schema_path": ["waf_action"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/service_policy_rule/properties/waf_action/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "waf_action for xcsh_service_policy_rule.",
+      "title": "waf_action",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["service_policy_ruleCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 3152,
+      "body_sha256": "sha256:1cc51451f2c6f89b6bc01035042ae2d0e9a5df68d910e8d37248d6e48a164385",
+      "child_ids": [
+        "xcsh-docs:data-sources:service_policy_rule:properties:waf_action:app_firewall_detection_control:exclude_attack_type_contexts",
+        "xcsh-docs:data-sources:service_policy_rule:properties:waf_action:app_firewall_detection_control:exclude_bot_name_contexts",
+        "xcsh-docs:data-sources:service_policy_rule:properties:waf_action:app_firewall_detection_control:exclude_signature_contexts",
+        "xcsh-docs:data-sources:service_policy_rule:properties:waf_action:app_firewall_detection_control:exclude_violation_contexts"
+      ],
+      "collection_id": "xcsh-docs:data-sources:service_policy_rule:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:service_policy_rule:properties:waf_action:app_firewall_detection_control",
+      "parent_id": "xcsh-docs:data-sources:service_policy_rule:properties:waf_action",
+      "path": "documentation/data-sources/service_policy_rule/properties/waf_action/app_firewall_detection_control/index.md",
+      "provider_name": "service_policy_rule",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--service_policy_rule--properties--waf_action--app_firewall_detection_control.md",
+      "role": "properties",
+      "schema_path": ["waf_action", "app_firewall_detection_control"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/service_policy_rule/properties/waf_action/app_firewall_detection_control/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "waf_action.app_firewall_detection_control for xcsh_service_policy_rule.",
+      "title": "waf_action.app_firewall_detection_control",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["service_policy_ruleCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 8464,
+      "body_sha256": "sha256:7163429b8977d5e2599d078aa21a2fc653e358b178ed9d3f2fa4f5a680059696",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:data-sources:service_policy_rule:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:service_policy_rule:properties:waf_action:app_firewall_detection_control:exclude_attack_type_contexts",
+      "parent_id": "xcsh-docs:data-sources:service_policy_rule:properties:waf_action:app_firewall_detection_control",
+      "path": "documentation/data-sources/service_policy_rule/properties/waf_action/app_firewall_detection_control/exclude_attack_type_contexts/index.md",
+      "provider_name": "service_policy_rule",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--service_policy_rule--properties--waf_action--app_firewall_detection_control--exclude_attack_type_contexts.md",
+      "role": "properties",
+      "schema_path": ["waf_action", "app_firewall_detection_control", "exclude_attack_type_contexts"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/service_policy_rule/properties/waf_action/app_firewall_detection_control/exclude_attack_type_contexts/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "waf_action.app_firewall_detection_control.exclude_attack_type_contexts for xcsh_service_policy_rule.",
+      "title": "waf_action.app_firewall_detection_control.exclude_attack_type_contexts",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["service_policy_ruleCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 2869,
+      "body_sha256": "sha256:fded682ae1b420887ef44d3d9430ad3b9ce1d0d57b06c8c64a23c40b379caa53",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:data-sources:service_policy_rule:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:service_policy_rule:properties:waf_action:app_firewall_detection_control:exclude_bot_name_contexts",
+      "parent_id": "xcsh-docs:data-sources:service_policy_rule:properties:waf_action:app_firewall_detection_control",
+      "path": "documentation/data-sources/service_policy_rule/properties/waf_action/app_firewall_detection_control/exclude_bot_name_contexts/index.md",
+      "provider_name": "service_policy_rule",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--service_policy_rule--properties--waf_action--app_firewall_detection_control--exclude_bot_name_contexts.md",
+      "role": "properties",
+      "schema_path": ["waf_action", "app_firewall_detection_control", "exclude_bot_name_contexts"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/service_policy_rule/properties/waf_action/app_firewall_detection_control/exclude_bot_name_contexts/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "waf_action.app_firewall_detection_control.exclude_bot_name_contexts for xcsh_service_policy_rule.",
+      "title": "waf_action.app_firewall_detection_control.exclude_bot_name_contexts",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["service_policy_ruleCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 7038,
+      "body_sha256": "sha256:02e61469b92c015ba29c4609e2c116f0761345e1980a483ae6a6da8ff731e18e",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:data-sources:service_policy_rule:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:service_policy_rule:properties:waf_action:app_firewall_detection_control:exclude_signature_contexts",
+      "parent_id": "xcsh-docs:data-sources:service_policy_rule:properties:waf_action:app_firewall_detection_control",
+      "path": "documentation/data-sources/service_policy_rule/properties/waf_action/app_firewall_detection_control/exclude_signature_contexts/index.md",
+      "provider_name": "service_policy_rule",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--service_policy_rule--properties--waf_action--app_firewall_detection_control--exclude_signature_contexts.md",
+      "role": "properties",
+      "schema_path": ["waf_action", "app_firewall_detection_control", "exclude_signature_contexts"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/service_policy_rule/properties/waf_action/app_firewall_detection_control/exclude_signature_contexts/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "waf_action.app_firewall_detection_control.exclude_signature_contexts for xcsh_service_policy_rule.",
+      "title": "waf_action.app_firewall_detection_control.exclude_signature_contexts",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["service_policy_ruleCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 11758,
+      "body_sha256": "sha256:3f56edc797f6783e4b4cd742710b3974903337723dcbc3876202613cd6da55d1",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:data-sources:service_policy_rule:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:service_policy_rule:properties:waf_action:app_firewall_detection_control:exclude_violation_contexts",
+      "parent_id": "xcsh-docs:data-sources:service_policy_rule:properties:waf_action:app_firewall_detection_control",
+      "path": "documentation/data-sources/service_policy_rule/properties/waf_action/app_firewall_detection_control/exclude_violation_contexts/index.md",
+      "provider_name": "service_policy_rule",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--service_policy_rule--properties--waf_action--app_firewall_detection_control--exclude_violation_contexts.md",
+      "role": "properties",
+      "schema_path": ["waf_action", "app_firewall_detection_control", "exclude_violation_contexts"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/service_policy_rule/properties/waf_action/app_firewall_detection_control/exclude_violation_contexts/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "waf_action.app_firewall_detection_control.exclude_violation_contexts for xcsh_service_policy_rule.",
+      "title": "waf_action.app_firewall_detection_control.exclude_violation_contexts",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["service_policy_ruleCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 1215,
+      "body_sha256": "sha256:725a3786665ffe79eb12247c87bd1a6009bb0622daff437b0db7d114381e4d4f",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:data-sources:service_policy_rule:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:service_policy_rule:properties:waf_action:none",
+      "parent_id": "xcsh-docs:data-sources:service_policy_rule:properties:waf_action",
+      "path": "documentation/data-sources/service_policy_rule/properties/waf_action/none/index.md",
+      "provider_name": "service_policy_rule",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--service_policy_rule--properties--waf_action--none.md",
+      "role": "properties",
+      "schema_path": ["waf_action", "none"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/service_policy_rule/properties/waf_action/none/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "waf_action.none for xcsh_service_policy_rule.",
+      "title": "waf_action.none",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["service_policy_ruleCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 1245,
+      "body_sha256": "sha256:955e25f4a26fe59af7fb27f7e8941ad4347bcd34ea79723d6726af8c2a3c89bc",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:data-sources:service_policy_rule:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:service_policy_rule:properties:waf_action:waf_skip_processing",
+      "parent_id": "xcsh-docs:data-sources:service_policy_rule:properties:waf_action",
+      "path": "documentation/data-sources/service_policy_rule/properties/waf_action/waf_skip_processing/index.md",
+      "provider_name": "service_policy_rule",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--service_policy_rule--properties--waf_action--waf_skip_processing.md",
+      "role": "properties",
+      "schema_path": ["waf_action", "waf_skip_processing"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/service_policy_rule/properties/waf_action/waf_skip_processing/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "waf_action.waf_skip_processing for xcsh_service_policy_rule.",
+      "title": "waf_action.waf_skip_processing",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["service_policy_ruleCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 699,
+      "body_sha256": "sha256:5060e2e874a628e55d1568d3a47dcebd18386b1ed192ab543cafdb87e9c95d87",
+      "child_ids": ["xcsh-docs:data-sources:service_policy_rule:example:data-source"],
+      "collection_id": "xcsh-docs:data-sources:service_policy_rule:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:service_policy_rule:examples",
+      "parent_id": "xcsh-docs:data-sources:service_policy_rule:fundamentals",
+      "path": "documentation/data-sources/service_policy_rule/examples/index.md",
+      "provider_name": "service_policy_rule",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--service_policy_rule--examples.md",
+      "role": "examples",
+      "schema_path": [],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/service_policy_rule/examples/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "Examples for xcsh_service_policy_rule.",
+      "title": "Examples",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["service_policy_ruleCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 1368,
+      "body_sha256": "sha256:e294d521e01754bb363c86cfcd9abf58ff43e41720b7487c4e74f2686e6bf882",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:data-sources:service_policy_rule:collection",
+      "completeness": "complete",
+      "evidence": {
+        "attribution": "Schema-derived minimal configuration validated with the checked-out provider.",
+        "outcome": "valid configuration",
+        "sha256": "sha256:ae57799b0f1696fd5e6a11587ed3b1a1bc30f50fe8953264b9b955e84a34c726",
+        "source_path": "examples/data-sources/xcsh_service_policy_rule/data-source.tf",
+        "validation": "terraform validate"
+      },
+      "id": "xcsh-docs:data-sources:service_policy_rule:example:data-source",
+      "parent_id": "xcsh-docs:data-sources:service_policy_rule:examples",
+      "path": "documentation/data-sources/service_policy_rule/examples/data-source/index.md",
+      "provider_name": "service_policy_rule",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--service_policy_rule--example--data-source.md",
+      "role": "example",
+      "schema_path": ["data-source"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/service_policy_rule/examples/data-source/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "Data source for xcsh_service_policy_rule.",
+      "title": "Data source",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["service_policy_ruleCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    }
+  ],
+  "provider": "registry.terraform.io/f5-sales-demo/xcsh",
+  "schema_version": 1
+}

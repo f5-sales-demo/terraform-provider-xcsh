@@ -1,0 +1,386 @@
+{
+  "collection": {
+    "fundamentals_id": "xcsh-docs:data-sources:healthcheck:fundamentals",
+    "id": "xcsh-docs:data-sources:healthcheck:collection",
+    "properties": {
+      "annotations": {
+        "anchor": "schema-annotations",
+        "document_id": "xcsh-docs:data-sources:healthcheck:reference",
+        "schema_path": ["annotations"]
+      },
+      "default_jitter": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:data-sources:healthcheck:properties:default_jitter",
+        "schema_path": ["default_jitter"]
+      },
+      "description": {
+        "anchor": "schema-description",
+        "document_id": "xcsh-docs:data-sources:healthcheck:reference",
+        "schema_path": ["description"]
+      },
+      "healthy_threshold": {
+        "anchor": "schema-healthy_threshold",
+        "document_id": "xcsh-docs:data-sources:healthcheck:reference",
+        "schema_path": ["healthy_threshold"]
+      },
+      "http_health_check": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:data-sources:healthcheck:properties:http_health_check",
+        "schema_path": ["http_health_check"]
+      },
+      "http_health_check.expected_response": {
+        "anchor": "schema-http_health_check--expected_response",
+        "document_id": "xcsh-docs:data-sources:healthcheck:properties:http_health_check",
+        "schema_path": ["http_health_check", "expected_response"]
+      },
+      "http_health_check.expected_status_codes": {
+        "anchor": "schema-http_health_check--expected_status_codes",
+        "document_id": "xcsh-docs:data-sources:healthcheck:properties:http_health_check",
+        "schema_path": ["http_health_check", "expected_status_codes"]
+      },
+      "http_health_check.headers": {
+        "anchor": "schema-http_health_check--headers",
+        "document_id": "xcsh-docs:data-sources:healthcheck:properties:http_health_check",
+        "schema_path": ["http_health_check", "headers"]
+      },
+      "http_health_check.host_header": {
+        "anchor": "schema-http_health_check--host_header",
+        "document_id": "xcsh-docs:data-sources:healthcheck:properties:http_health_check",
+        "schema_path": ["http_health_check", "host_header"]
+      },
+      "http_health_check.path": {
+        "anchor": "schema-http_health_check--path",
+        "document_id": "xcsh-docs:data-sources:healthcheck:properties:http_health_check",
+        "schema_path": ["http_health_check", "path"]
+      },
+      "http_health_check.request_headers_to_remove": {
+        "anchor": "schema-http_health_check--request_headers_to_remove",
+        "document_id": "xcsh-docs:data-sources:healthcheck:properties:http_health_check",
+        "schema_path": ["http_health_check", "request_headers_to_remove"]
+      },
+      "http_health_check.use_http2": {
+        "anchor": "schema-http_health_check--use_http2",
+        "document_id": "xcsh-docs:data-sources:healthcheck:properties:http_health_check",
+        "schema_path": ["http_health_check", "use_http2"]
+      },
+      "http_health_check.use_origin_server_name": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:data-sources:healthcheck:properties:http_health_check:use_origin_server_name",
+        "schema_path": ["http_health_check", "use_origin_server_name"]
+      },
+      "id": {
+        "anchor": "schema-id",
+        "document_id": "xcsh-docs:data-sources:healthcheck:reference",
+        "schema_path": ["id"]
+      },
+      "interval": {
+        "anchor": "schema-interval",
+        "document_id": "xcsh-docs:data-sources:healthcheck:reference",
+        "schema_path": ["interval"]
+      },
+      "jitter_percent": {
+        "anchor": "schema-jitter_percent",
+        "document_id": "xcsh-docs:data-sources:healthcheck:reference",
+        "schema_path": ["jitter_percent"]
+      },
+      "labels": {
+        "anchor": "schema-labels",
+        "document_id": "xcsh-docs:data-sources:healthcheck:reference",
+        "schema_path": ["labels"]
+      },
+      "name": {
+        "anchor": "schema-name",
+        "document_id": "xcsh-docs:data-sources:healthcheck:reference",
+        "schema_path": ["name"]
+      },
+      "namespace": {
+        "anchor": "schema-namespace",
+        "document_id": "xcsh-docs:data-sources:healthcheck:reference",
+        "schema_path": ["namespace"]
+      },
+      "tcp_health_check": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:data-sources:healthcheck:properties:tcp_health_check",
+        "schema_path": ["tcp_health_check"]
+      },
+      "tcp_health_check.expected_response": {
+        "anchor": "schema-tcp_health_check--expected_response",
+        "document_id": "xcsh-docs:data-sources:healthcheck:properties:tcp_health_check",
+        "schema_path": ["tcp_health_check", "expected_response"]
+      },
+      "tcp_health_check.send_payload": {
+        "anchor": "schema-tcp_health_check--send_payload",
+        "document_id": "xcsh-docs:data-sources:healthcheck:properties:tcp_health_check",
+        "schema_path": ["tcp_health_check", "send_payload"]
+      },
+      "timeout": {
+        "anchor": "schema-timeout",
+        "document_id": "xcsh-docs:data-sources:healthcheck:reference",
+        "schema_path": ["timeout"]
+      },
+      "udp_icmp_health_check": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:data-sources:healthcheck:properties:udp_icmp_health_check",
+        "schema_path": ["udp_icmp_health_check"]
+      },
+      "unhealthy_threshold": {
+        "anchor": "schema-unhealthy_threshold",
+        "document_id": "xcsh-docs:data-sources:healthcheck:reference",
+        "schema_path": ["unhealthy_threshold"]
+      }
+    },
+    "provider_name": "healthcheck",
+    "provider_type": "data-sources",
+    "reference_id": "xcsh-docs:data-sources:healthcheck:reference"
+  },
+  "pages": [
+    {
+      "aliases": [],
+      "body_bytes": 1504,
+      "body_sha256": "sha256:74e7849ed24b58158bb47df341a2837f1910d45f027bfa5b4ae8e3478ee78e91",
+      "child_ids": ["xcsh-docs:data-sources:healthcheck:reference", "xcsh-docs:data-sources:healthcheck:examples"],
+      "collection_id": "xcsh-docs:data-sources:healthcheck:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:healthcheck:fundamentals",
+      "parent_id": null,
+      "path": "documentation/data-sources/healthcheck/index.md",
+      "provider_name": "healthcheck",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/data-sources/healthcheck.md",
+      "role": "fundamentals",
+      "schema_path": [],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/healthcheck/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "xcsh_healthcheck for xcsh_healthcheck.",
+      "title": "xcsh_healthcheck",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["healthcheckCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 18782,
+      "body_sha256": "sha256:841d02ad464478613110865f9ad8583c921f0773b1532a48d9f6f784a8b6ab25",
+      "child_ids": [
+        "xcsh-docs:data-sources:healthcheck:properties:default_jitter",
+        "xcsh-docs:data-sources:healthcheck:properties:http_health_check",
+        "xcsh-docs:data-sources:healthcheck:properties:tcp_health_check",
+        "xcsh-docs:data-sources:healthcheck:properties:udp_icmp_health_check"
+      ],
+      "collection_id": "xcsh-docs:data-sources:healthcheck:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:healthcheck:reference",
+      "parent_id": "xcsh-docs:data-sources:healthcheck:fundamentals",
+      "path": "documentation/data-sources/healthcheck/properties/index.md",
+      "provider_name": "healthcheck",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--healthcheck--reference.md",
+      "role": "reference",
+      "schema_path": [],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/healthcheck/properties/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "Property reference for xcsh_healthcheck.",
+      "title": "Property reference",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["healthcheckCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 1506,
+      "body_sha256": "sha256:f8452c186fa38077a9b4bb88fbcfe76569780c6269f0d2970fe1f76398173dce",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:data-sources:healthcheck:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:healthcheck:properties:default_jitter",
+      "parent_id": "xcsh-docs:data-sources:healthcheck:reference",
+      "path": "documentation/data-sources/healthcheck/properties/default_jitter/index.md",
+      "provider_name": "healthcheck",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--healthcheck--properties--default_jitter.md",
+      "role": "properties",
+      "schema_path": ["default_jitter"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/healthcheck/properties/default_jitter/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "default_jitter for xcsh_healthcheck.",
+      "title": "default_jitter",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["healthcheckCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 10858,
+      "body_sha256": "sha256:452f7f4e1b5544d8cad18c2820eb605ededd8978605053b7e5a9e9516211c670",
+      "child_ids": ["xcsh-docs:data-sources:healthcheck:properties:http_health_check:use_origin_server_name"],
+      "collection_id": "xcsh-docs:data-sources:healthcheck:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:healthcheck:properties:http_health_check",
+      "parent_id": "xcsh-docs:data-sources:healthcheck:reference",
+      "path": "documentation/data-sources/healthcheck/properties/http_health_check/index.md",
+      "provider_name": "healthcheck",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--healthcheck--properties--http_health_check.md",
+      "role": "properties",
+      "schema_path": ["http_health_check"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/healthcheck/properties/http_health_check/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "http_health_check for xcsh_healthcheck.",
+      "title": "http_health_check",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["healthcheckCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 1300,
+      "body_sha256": "sha256:9d52c80d989d16cedd5876912ddcdde785a2e886b39e55873b6025d5268c7c93",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:data-sources:healthcheck:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:healthcheck:properties:http_health_check:use_origin_server_name",
+      "parent_id": "xcsh-docs:data-sources:healthcheck:properties:http_health_check",
+      "path": "documentation/data-sources/healthcheck/properties/http_health_check/use_origin_server_name/index.md",
+      "provider_name": "healthcheck",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--healthcheck--properties--http_health_check--use_origin_server_name.md",
+      "role": "properties",
+      "schema_path": ["http_health_check", "use_origin_server_name"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/healthcheck/properties/http_health_check/use_origin_server_name/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "http_health_check.use_origin_server_name for xcsh_healthcheck.",
+      "title": "http_health_check.use_origin_server_name",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["healthcheckCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 3394,
+      "body_sha256": "sha256:e8fe1fede8df13d4b03c7c4cabcf374553a7f405ed564418ce089b8da6f86d24",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:data-sources:healthcheck:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:healthcheck:properties:tcp_health_check",
+      "parent_id": "xcsh-docs:data-sources:healthcheck:reference",
+      "path": "documentation/data-sources/healthcheck/properties/tcp_health_check/index.md",
+      "provider_name": "healthcheck",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--healthcheck--properties--tcp_health_check.md",
+      "role": "properties",
+      "schema_path": ["tcp_health_check"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/healthcheck/properties/tcp_health_check/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "tcp_health_check for xcsh_healthcheck.",
+      "title": "tcp_health_check",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["healthcheckCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 1080,
+      "body_sha256": "sha256:90b59f99c93accd43a3b7a7093a9eb5ce35acd1d79a8f474519543e7a03d8040",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:data-sources:healthcheck:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:healthcheck:properties:udp_icmp_health_check",
+      "parent_id": "xcsh-docs:data-sources:healthcheck:reference",
+      "path": "documentation/data-sources/healthcheck/properties/udp_icmp_health_check/index.md",
+      "provider_name": "healthcheck",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--healthcheck--properties--udp_icmp_health_check.md",
+      "role": "properties",
+      "schema_path": ["udp_icmp_health_check"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/healthcheck/properties/udp_icmp_health_check/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "udp_icmp_health_check for xcsh_healthcheck.",
+      "title": "udp_icmp_health_check",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["healthcheckCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 651,
+      "body_sha256": "sha256:0d6788eacb826f6d748b924334ff8dcb1ddd599920aaa109c2d7f2149cbec6d2",
+      "child_ids": ["xcsh-docs:data-sources:healthcheck:example:data-source"],
+      "collection_id": "xcsh-docs:data-sources:healthcheck:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:healthcheck:examples",
+      "parent_id": "xcsh-docs:data-sources:healthcheck:fundamentals",
+      "path": "documentation/data-sources/healthcheck/examples/index.md",
+      "provider_name": "healthcheck",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--healthcheck--examples.md",
+      "role": "examples",
+      "schema_path": [],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/healthcheck/examples/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "Examples for xcsh_healthcheck.",
+      "title": "Examples",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["healthcheckCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 1268,
+      "body_sha256": "sha256:f7bba23aba8b1a123f891cf8adf8b32c5d128f4cdbb7ca3157ff9c5d9f13f61a",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:data-sources:healthcheck:collection",
+      "completeness": "complete",
+      "evidence": {
+        "attribution": "Schema-derived minimal configuration validated with the checked-out provider.",
+        "outcome": "valid configuration",
+        "sha256": "sha256:35072c285c20d3995104b4e1308ca686f5cc2a63a3a1e8c4cc3c6d11f32af3c6",
+        "source_path": "examples/data-sources/xcsh_healthcheck/data-source.tf",
+        "validation": "terraform validate"
+      },
+      "id": "xcsh-docs:data-sources:healthcheck:example:data-source",
+      "parent_id": "xcsh-docs:data-sources:healthcheck:examples",
+      "path": "documentation/data-sources/healthcheck/examples/data-source/index.md",
+      "provider_name": "healthcheck",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--healthcheck--example--data-source.md",
+      "role": "example",
+      "schema_path": ["data-source"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/healthcheck/examples/data-source/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "Data source for xcsh_healthcheck.",
+      "title": "Data source",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["healthcheckCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    }
+  ],
+  "provider": "registry.terraform.io/f5-sales-demo/xcsh",
+  "schema_version": 1
+}

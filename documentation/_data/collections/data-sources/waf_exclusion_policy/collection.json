@@ -1,0 +1,620 @@
+{
+  "collection": {
+    "fundamentals_id": "xcsh-docs:data-sources:waf_exclusion_policy:fundamentals",
+    "id": "xcsh-docs:data-sources:waf_exclusion_policy:collection",
+    "properties": {
+      "annotations": {
+        "anchor": "schema-annotations",
+        "document_id": "xcsh-docs:data-sources:waf_exclusion_policy:reference",
+        "schema_path": ["annotations"]
+      },
+      "description": {
+        "anchor": "schema-description",
+        "document_id": "xcsh-docs:data-sources:waf_exclusion_policy:reference",
+        "schema_path": ["description"]
+      },
+      "id": {
+        "anchor": "schema-id",
+        "document_id": "xcsh-docs:data-sources:waf_exclusion_policy:reference",
+        "schema_path": ["id"]
+      },
+      "labels": {
+        "anchor": "schema-labels",
+        "document_id": "xcsh-docs:data-sources:waf_exclusion_policy:reference",
+        "schema_path": ["labels"]
+      },
+      "name": {
+        "anchor": "schema-name",
+        "document_id": "xcsh-docs:data-sources:waf_exclusion_policy:reference",
+        "schema_path": ["name"]
+      },
+      "namespace": {
+        "anchor": "schema-namespace",
+        "document_id": "xcsh-docs:data-sources:waf_exclusion_policy:reference",
+        "schema_path": ["namespace"]
+      },
+      "waf_exclusion_rules": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:data-sources:waf_exclusion_policy:properties:waf_exclusion_rules",
+        "schema_path": ["waf_exclusion_rules"]
+      },
+      "waf_exclusion_rules.any_domain": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:data-sources:waf_exclusion_policy:properties:waf_exclusion_rules:any_domain",
+        "schema_path": ["waf_exclusion_rules", "any_domain"]
+      },
+      "waf_exclusion_rules.any_path": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:data-sources:waf_exclusion_policy:properties:waf_exclusion_rules:any_path",
+        "schema_path": ["waf_exclusion_rules", "any_path"]
+      },
+      "waf_exclusion_rules.app_firewall_detection_control": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:data-sources:waf_exclusion_policy:properties:waf_exclusion_rules:app_firewall_detection_control",
+        "schema_path": ["waf_exclusion_rules", "app_firewall_detection_control"]
+      },
+      "waf_exclusion_rules.app_firewall_detection_control.exclude_attack_type_contexts": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:data-sources:waf_exclusion_policy:properties:waf_exclusion_rules:app_firewall_detection_control:exclude_attack_type_contexts",
+        "schema_path": ["waf_exclusion_rules", "app_firewall_detection_control", "exclude_attack_type_contexts"]
+      },
+      "waf_exclusion_rules.app_firewall_detection_control.exclude_attack_type_contexts.context": {
+        "anchor": "schema-waf_exclusion_rules--app_firewall_detection_control--exclude_attack_type_contexts--context",
+        "document_id": "xcsh-docs:data-sources:waf_exclusion_policy:properties:waf_exclusion_rules:app_firewall_detection_control:exclude_attack_type_contexts",
+        "schema_path": [
+          "waf_exclusion_rules",
+          "app_firewall_detection_control",
+          "exclude_attack_type_contexts",
+          "context"
+        ]
+      },
+      "waf_exclusion_rules.app_firewall_detection_control.exclude_attack_type_contexts.context_name": {
+        "anchor": "schema-waf_exclusion_rules--app_firewall_detection_control--exclude_attack_type_contexts--context_name",
+        "document_id": "xcsh-docs:data-sources:waf_exclusion_policy:properties:waf_exclusion_rules:app_firewall_detection_control:exclude_attack_type_contexts",
+        "schema_path": [
+          "waf_exclusion_rules",
+          "app_firewall_detection_control",
+          "exclude_attack_type_contexts",
+          "context_name"
+        ]
+      },
+      "waf_exclusion_rules.app_firewall_detection_control.exclude_attack_type_contexts.exclude_attack_type": {
+        "anchor": "schema-waf_exclusion_rules--app_firewall_detection_control--exclude_attack_type_contexts--exclude_attack_type",
+        "document_id": "xcsh-docs:data-sources:waf_exclusion_policy:properties:waf_exclusion_rules:app_firewall_detection_control:exclude_attack_type_contexts",
+        "schema_path": [
+          "waf_exclusion_rules",
+          "app_firewall_detection_control",
+          "exclude_attack_type_contexts",
+          "exclude_attack_type"
+        ]
+      },
+      "waf_exclusion_rules.app_firewall_detection_control.exclude_bot_name_contexts": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:data-sources:waf_exclusion_policy:properties:waf_exclusion_rules:app_firewall_detection_control:exclude_bot_name_contexts",
+        "schema_path": ["waf_exclusion_rules", "app_firewall_detection_control", "exclude_bot_name_contexts"]
+      },
+      "waf_exclusion_rules.app_firewall_detection_control.exclude_bot_name_contexts.bot_name": {
+        "anchor": "schema-waf_exclusion_rules--app_firewall_detection_control--exclude_bot_name_contexts--bot_name",
+        "document_id": "xcsh-docs:data-sources:waf_exclusion_policy:properties:waf_exclusion_rules:app_firewall_detection_control:exclude_bot_name_contexts",
+        "schema_path": [
+          "waf_exclusion_rules",
+          "app_firewall_detection_control",
+          "exclude_bot_name_contexts",
+          "bot_name"
+        ]
+      },
+      "waf_exclusion_rules.app_firewall_detection_control.exclude_signature_contexts": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:data-sources:waf_exclusion_policy:properties:waf_exclusion_rules:app_firewall_detection_control:exclude_signature_contexts",
+        "schema_path": ["waf_exclusion_rules", "app_firewall_detection_control", "exclude_signature_contexts"]
+      },
+      "waf_exclusion_rules.app_firewall_detection_control.exclude_signature_contexts.context": {
+        "anchor": "schema-waf_exclusion_rules--app_firewall_detection_control--exclude_signature_contexts--context",
+        "document_id": "xcsh-docs:data-sources:waf_exclusion_policy:properties:waf_exclusion_rules:app_firewall_detection_control:exclude_signature_contexts",
+        "schema_path": [
+          "waf_exclusion_rules",
+          "app_firewall_detection_control",
+          "exclude_signature_contexts",
+          "context"
+        ]
+      },
+      "waf_exclusion_rules.app_firewall_detection_control.exclude_signature_contexts.context_name": {
+        "anchor": "schema-waf_exclusion_rules--app_firewall_detection_control--exclude_signature_contexts--context_name",
+        "document_id": "xcsh-docs:data-sources:waf_exclusion_policy:properties:waf_exclusion_rules:app_firewall_detection_control:exclude_signature_contexts",
+        "schema_path": [
+          "waf_exclusion_rules",
+          "app_firewall_detection_control",
+          "exclude_signature_contexts",
+          "context_name"
+        ]
+      },
+      "waf_exclusion_rules.app_firewall_detection_control.exclude_signature_contexts.signature_id": {
+        "anchor": "schema-waf_exclusion_rules--app_firewall_detection_control--exclude_signature_contexts--signature_id",
+        "document_id": "xcsh-docs:data-sources:waf_exclusion_policy:properties:waf_exclusion_rules:app_firewall_detection_control:exclude_signature_contexts",
+        "schema_path": [
+          "waf_exclusion_rules",
+          "app_firewall_detection_control",
+          "exclude_signature_contexts",
+          "signature_id"
+        ]
+      },
+      "waf_exclusion_rules.app_firewall_detection_control.exclude_violation_contexts": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:data-sources:waf_exclusion_policy:properties:waf_exclusion_rules:app_firewall_detection_control:exclude_violation_contexts",
+        "schema_path": ["waf_exclusion_rules", "app_firewall_detection_control", "exclude_violation_contexts"]
+      },
+      "waf_exclusion_rules.app_firewall_detection_control.exclude_violation_contexts.context": {
+        "anchor": "schema-waf_exclusion_rules--app_firewall_detection_control--exclude_violation_contexts--context",
+        "document_id": "xcsh-docs:data-sources:waf_exclusion_policy:properties:waf_exclusion_rules:app_firewall_detection_control:exclude_violation_contexts",
+        "schema_path": [
+          "waf_exclusion_rules",
+          "app_firewall_detection_control",
+          "exclude_violation_contexts",
+          "context"
+        ]
+      },
+      "waf_exclusion_rules.app_firewall_detection_control.exclude_violation_contexts.context_name": {
+        "anchor": "schema-waf_exclusion_rules--app_firewall_detection_control--exclude_violation_contexts--context_name",
+        "document_id": "xcsh-docs:data-sources:waf_exclusion_policy:properties:waf_exclusion_rules:app_firewall_detection_control:exclude_violation_contexts",
+        "schema_path": [
+          "waf_exclusion_rules",
+          "app_firewall_detection_control",
+          "exclude_violation_contexts",
+          "context_name"
+        ]
+      },
+      "waf_exclusion_rules.app_firewall_detection_control.exclude_violation_contexts.exclude_violation": {
+        "anchor": "schema-waf_exclusion_rules--app_firewall_detection_control--exclude_violation_contexts--exclude_violation",
+        "document_id": "xcsh-docs:data-sources:waf_exclusion_policy:properties:waf_exclusion_rules:app_firewall_detection_control:exclude_violation_contexts",
+        "schema_path": [
+          "waf_exclusion_rules",
+          "app_firewall_detection_control",
+          "exclude_violation_contexts",
+          "exclude_violation"
+        ]
+      },
+      "waf_exclusion_rules.exact_value": {
+        "anchor": "schema-waf_exclusion_rules--exact_value",
+        "document_id": "xcsh-docs:data-sources:waf_exclusion_policy:properties:waf_exclusion_rules",
+        "schema_path": ["waf_exclusion_rules", "exact_value"]
+      },
+      "waf_exclusion_rules.expiration_timestamp": {
+        "anchor": "schema-waf_exclusion_rules--expiration_timestamp",
+        "document_id": "xcsh-docs:data-sources:waf_exclusion_policy:properties:waf_exclusion_rules",
+        "schema_path": ["waf_exclusion_rules", "expiration_timestamp"]
+      },
+      "waf_exclusion_rules.metadata": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:data-sources:waf_exclusion_policy:properties:waf_exclusion_rules:metadata",
+        "schema_path": ["waf_exclusion_rules", "metadata"]
+      },
+      "waf_exclusion_rules.metadata.description_spec": {
+        "anchor": "schema-waf_exclusion_rules--metadata--description_spec",
+        "document_id": "xcsh-docs:data-sources:waf_exclusion_policy:properties:waf_exclusion_rules:metadata",
+        "schema_path": ["waf_exclusion_rules", "metadata", "description_spec"]
+      },
+      "waf_exclusion_rules.metadata.name": {
+        "anchor": "schema-waf_exclusion_rules--metadata--name",
+        "document_id": "xcsh-docs:data-sources:waf_exclusion_policy:properties:waf_exclusion_rules:metadata",
+        "schema_path": ["waf_exclusion_rules", "metadata", "name"]
+      },
+      "waf_exclusion_rules.methods": {
+        "anchor": "schema-waf_exclusion_rules--methods",
+        "document_id": "xcsh-docs:data-sources:waf_exclusion_policy:properties:waf_exclusion_rules",
+        "schema_path": ["waf_exclusion_rules", "methods"]
+      },
+      "waf_exclusion_rules.path_prefix": {
+        "anchor": "schema-waf_exclusion_rules--path_prefix",
+        "document_id": "xcsh-docs:data-sources:waf_exclusion_policy:properties:waf_exclusion_rules",
+        "schema_path": ["waf_exclusion_rules", "path_prefix"]
+      },
+      "waf_exclusion_rules.path_regex": {
+        "anchor": "schema-waf_exclusion_rules--path_regex",
+        "document_id": "xcsh-docs:data-sources:waf_exclusion_policy:properties:waf_exclusion_rules",
+        "schema_path": ["waf_exclusion_rules", "path_regex"]
+      },
+      "waf_exclusion_rules.suffix_value": {
+        "anchor": "schema-waf_exclusion_rules--suffix_value",
+        "document_id": "xcsh-docs:data-sources:waf_exclusion_policy:properties:waf_exclusion_rules",
+        "schema_path": ["waf_exclusion_rules", "suffix_value"]
+      },
+      "waf_exclusion_rules.waf_skip_processing": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:data-sources:waf_exclusion_policy:properties:waf_exclusion_rules:waf_skip_processing",
+        "schema_path": ["waf_exclusion_rules", "waf_skip_processing"]
+      }
+    },
+    "provider_name": "waf_exclusion_policy",
+    "provider_type": "data-sources",
+    "reference_id": "xcsh-docs:data-sources:waf_exclusion_policy:reference"
+  },
+  "pages": [
+    {
+      "aliases": [],
+      "body_bytes": 1378,
+      "body_sha256": "sha256:ba068929b07debe196711eb23b3f06fe1a48c130f6bdec7e664916e40a4b60af",
+      "child_ids": [
+        "xcsh-docs:data-sources:waf_exclusion_policy:reference",
+        "xcsh-docs:data-sources:waf_exclusion_policy:examples"
+      ],
+      "collection_id": "xcsh-docs:data-sources:waf_exclusion_policy:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:waf_exclusion_policy:fundamentals",
+      "parent_id": null,
+      "path": "documentation/data-sources/waf_exclusion_policy/index.md",
+      "provider_name": "waf_exclusion_policy",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/data-sources/waf_exclusion_policy.md",
+      "role": "fundamentals",
+      "schema_path": [],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/waf_exclusion_policy/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "xcsh_waf_exclusion_policy for xcsh_waf_exclusion_policy.",
+      "title": "xcsh_waf_exclusion_policy",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["waf_exclusion_policyCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 16757,
+      "body_sha256": "sha256:f4de1178902404b3cc4e2cda0b3fe7f8cb3dac0817b175fe8eef1cdcb45f4fa6",
+      "child_ids": ["xcsh-docs:data-sources:waf_exclusion_policy:properties:waf_exclusion_rules"],
+      "collection_id": "xcsh-docs:data-sources:waf_exclusion_policy:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:waf_exclusion_policy:reference",
+      "parent_id": "xcsh-docs:data-sources:waf_exclusion_policy:fundamentals",
+      "path": "documentation/data-sources/waf_exclusion_policy/properties/index.md",
+      "provider_name": "waf_exclusion_policy",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--waf_exclusion_policy--reference.md",
+      "role": "reference",
+      "schema_path": [],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/waf_exclusion_policy/properties/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "Property reference for xcsh_waf_exclusion_policy.",
+      "title": "Property reference",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["waf_exclusion_policyCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 10513,
+      "body_sha256": "sha256:6a2373b34c74703b6b9045054a3e53ae45045f1a7334b023decae08e91865762",
+      "child_ids": [
+        "xcsh-docs:data-sources:waf_exclusion_policy:properties:waf_exclusion_rules:any_domain",
+        "xcsh-docs:data-sources:waf_exclusion_policy:properties:waf_exclusion_rules:any_path",
+        "xcsh-docs:data-sources:waf_exclusion_policy:properties:waf_exclusion_rules:app_firewall_detection_control",
+        "xcsh-docs:data-sources:waf_exclusion_policy:properties:waf_exclusion_rules:metadata",
+        "xcsh-docs:data-sources:waf_exclusion_policy:properties:waf_exclusion_rules:waf_skip_processing"
+      ],
+      "collection_id": "xcsh-docs:data-sources:waf_exclusion_policy:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:waf_exclusion_policy:properties:waf_exclusion_rules",
+      "parent_id": "xcsh-docs:data-sources:waf_exclusion_policy:reference",
+      "path": "documentation/data-sources/waf_exclusion_policy/properties/waf_exclusion_rules/index.md",
+      "provider_name": "waf_exclusion_policy",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--waf_exclusion_policy--properties--waf_exclusion_rules.md",
+      "role": "properties",
+      "schema_path": ["waf_exclusion_rules"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/waf_exclusion_policy/properties/waf_exclusion_rules/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "waf_exclusion_rules for xcsh_waf_exclusion_policy.",
+      "title": "waf_exclusion_rules",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["waf_exclusion_policyCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 1288,
+      "body_sha256": "sha256:306c33ebb97b76dea3b87034fad992e98c444be5b60f7eaecb50a5d2272055dc",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:data-sources:waf_exclusion_policy:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:waf_exclusion_policy:properties:waf_exclusion_rules:any_domain",
+      "parent_id": "xcsh-docs:data-sources:waf_exclusion_policy:properties:waf_exclusion_rules",
+      "path": "documentation/data-sources/waf_exclusion_policy/properties/waf_exclusion_rules/any_domain/index.md",
+      "provider_name": "waf_exclusion_policy",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--waf_exclusion_policy--properties--waf_exclusion_rules--any_domain.md",
+      "role": "properties",
+      "schema_path": ["waf_exclusion_rules", "any_domain"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/waf_exclusion_policy/properties/waf_exclusion_rules/any_domain/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "waf_exclusion_rules.any_domain for xcsh_waf_exclusion_policy.",
+      "title": "waf_exclusion_rules.any_domain",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["waf_exclusion_policyCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 1284,
+      "body_sha256": "sha256:0628e73cbb892f5c85929e756b88c408b54684b88c83bd86523cadb5fcdfc198",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:data-sources:waf_exclusion_policy:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:waf_exclusion_policy:properties:waf_exclusion_rules:any_path",
+      "parent_id": "xcsh-docs:data-sources:waf_exclusion_policy:properties:waf_exclusion_rules",
+      "path": "documentation/data-sources/waf_exclusion_policy/properties/waf_exclusion_rules/any_path/index.md",
+      "provider_name": "waf_exclusion_policy",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--waf_exclusion_policy--properties--waf_exclusion_rules--any_path.md",
+      "role": "properties",
+      "schema_path": ["waf_exclusion_rules", "any_path"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/waf_exclusion_policy/properties/waf_exclusion_rules/any_path/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "waf_exclusion_rules.any_path for xcsh_waf_exclusion_policy.",
+      "title": "waf_exclusion_rules.any_path",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["waf_exclusion_policyCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 3329,
+      "body_sha256": "sha256:e41eb2d1adcfca3ad0860cc595848a1147247ba57aab8c9f35940670bbe121cd",
+      "child_ids": [
+        "xcsh-docs:data-sources:waf_exclusion_policy:properties:waf_exclusion_rules:app_firewall_detection_control:exclude_attack_type_contexts",
+        "xcsh-docs:data-sources:waf_exclusion_policy:properties:waf_exclusion_rules:app_firewall_detection_control:exclude_bot_name_contexts",
+        "xcsh-docs:data-sources:waf_exclusion_policy:properties:waf_exclusion_rules:app_firewall_detection_control:exclude_signature_contexts",
+        "xcsh-docs:data-sources:waf_exclusion_policy:properties:waf_exclusion_rules:app_firewall_detection_control:exclude_violation_contexts"
+      ],
+      "collection_id": "xcsh-docs:data-sources:waf_exclusion_policy:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:waf_exclusion_policy:properties:waf_exclusion_rules:app_firewall_detection_control",
+      "parent_id": "xcsh-docs:data-sources:waf_exclusion_policy:properties:waf_exclusion_rules",
+      "path": "documentation/data-sources/waf_exclusion_policy/properties/waf_exclusion_rules/app_firewall_detection_control/index.md",
+      "provider_name": "waf_exclusion_policy",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--waf_exclusion_policy--properties--waf_exclusion_rules--app_firewall_detection_control.md",
+      "role": "properties",
+      "schema_path": ["waf_exclusion_rules", "app_firewall_detection_control"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/waf_exclusion_policy/properties/waf_exclusion_rules/app_firewall_detection_control/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "waf_exclusion_rules.app_firewall_detection_control for xcsh_waf_exclusion_policy.",
+      "title": "waf_exclusion_rules.app_firewall_detection_control",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["waf_exclusion_policyCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 8571,
+      "body_sha256": "sha256:50aa9d668a5d794e2639ef17491fb9b7557a3f5973d97c6f9dbfc847c1b97bfb",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:data-sources:waf_exclusion_policy:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:waf_exclusion_policy:properties:waf_exclusion_rules:app_firewall_detection_control:exclude_attack_type_contexts",
+      "parent_id": "xcsh-docs:data-sources:waf_exclusion_policy:properties:waf_exclusion_rules:app_firewall_detection_control",
+      "path": "documentation/data-sources/waf_exclusion_policy/properties/waf_exclusion_rules/app_firewall_detection_control/exclude_attack_type_contexts/index.md",
+      "provider_name": "waf_exclusion_policy",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--waf_exclusion_policy--properties--waf_exclusion_rules--app_firewall_detection_control--exclude_attack_type_contexts.md",
+      "role": "properties",
+      "schema_path": ["waf_exclusion_rules", "app_firewall_detection_control", "exclude_attack_type_contexts"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/waf_exclusion_policy/properties/waf_exclusion_rules/app_firewall_detection_control/exclude_attack_type_contexts/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "waf_exclusion_rules.app_firewall_detection_control.exclude_attack_type_contexts for xcsh_waf_exclusion_policy.",
+      "title": "waf_exclusion_rules.app_firewall_detection_control.exclude_attack_type_contexts",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["waf_exclusion_policyCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 2958,
+      "body_sha256": "sha256:f943fceadfc97971ad679a960b2fc8b0d0244c4ed3a69a581d0a58f68fe5943a",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:data-sources:waf_exclusion_policy:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:waf_exclusion_policy:properties:waf_exclusion_rules:app_firewall_detection_control:exclude_bot_name_contexts",
+      "parent_id": "xcsh-docs:data-sources:waf_exclusion_policy:properties:waf_exclusion_rules:app_firewall_detection_control",
+      "path": "documentation/data-sources/waf_exclusion_policy/properties/waf_exclusion_rules/app_firewall_detection_control/exclude_bot_name_contexts/index.md",
+      "provider_name": "waf_exclusion_policy",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--waf_exclusion_policy--properties--waf_exclusion_rules--app_firewall_detection_control--exclude_bot_name_contexts.md",
+      "role": "properties",
+      "schema_path": ["waf_exclusion_rules", "app_firewall_detection_control", "exclude_bot_name_contexts"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/waf_exclusion_policy/properties/waf_exclusion_rules/app_firewall_detection_control/exclude_bot_name_contexts/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "waf_exclusion_rules.app_firewall_detection_control.exclude_bot_name_contexts for xcsh_waf_exclusion_policy.",
+      "title": "waf_exclusion_rules.app_firewall_detection_control.exclude_bot_name_contexts",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["waf_exclusion_policyCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 7145,
+      "body_sha256": "sha256:61b187bf33b119089d882575643864ea22ee5cc0f5890f592c68026d938e9b88",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:data-sources:waf_exclusion_policy:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:waf_exclusion_policy:properties:waf_exclusion_rules:app_firewall_detection_control:exclude_signature_contexts",
+      "parent_id": "xcsh-docs:data-sources:waf_exclusion_policy:properties:waf_exclusion_rules:app_firewall_detection_control",
+      "path": "documentation/data-sources/waf_exclusion_policy/properties/waf_exclusion_rules/app_firewall_detection_control/exclude_signature_contexts/index.md",
+      "provider_name": "waf_exclusion_policy",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--waf_exclusion_policy--properties--waf_exclusion_rules--app_firewall_detection_control--exclude_signature_contexts.md",
+      "role": "properties",
+      "schema_path": ["waf_exclusion_rules", "app_firewall_detection_control", "exclude_signature_contexts"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/waf_exclusion_policy/properties/waf_exclusion_rules/app_firewall_detection_control/exclude_signature_contexts/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "waf_exclusion_rules.app_firewall_detection_control.exclude_signature_contexts for xcsh_waf_exclusion_policy.",
+      "title": "waf_exclusion_rules.app_firewall_detection_control.exclude_signature_contexts",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["waf_exclusion_policyCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 11865,
+      "body_sha256": "sha256:76a9d71ae3388b0685d743050b17686d5d4f0ce7e771ea4596b3323a5867d753",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:data-sources:waf_exclusion_policy:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:waf_exclusion_policy:properties:waf_exclusion_rules:app_firewall_detection_control:exclude_violation_contexts",
+      "parent_id": "xcsh-docs:data-sources:waf_exclusion_policy:properties:waf_exclusion_rules:app_firewall_detection_control",
+      "path": "documentation/data-sources/waf_exclusion_policy/properties/waf_exclusion_rules/app_firewall_detection_control/exclude_violation_contexts/index.md",
+      "provider_name": "waf_exclusion_policy",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--waf_exclusion_policy--properties--waf_exclusion_rules--app_firewall_detection_control--exclude_violation_contexts.md",
+      "role": "properties",
+      "schema_path": ["waf_exclusion_rules", "app_firewall_detection_control", "exclude_violation_contexts"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/waf_exclusion_policy/properties/waf_exclusion_rules/app_firewall_detection_control/exclude_violation_contexts/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "waf_exclusion_rules.app_firewall_detection_control.exclude_violation_contexts for xcsh_waf_exclusion_policy.",
+      "title": "waf_exclusion_rules.app_firewall_detection_control.exclude_violation_contexts",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["waf_exclusion_policyCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 3597,
+      "body_sha256": "sha256:8b3766aa77093441fcffcf3d22245f1a9d2d6d9d9619905e1366f62b9b13e686",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:data-sources:waf_exclusion_policy:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:waf_exclusion_policy:properties:waf_exclusion_rules:metadata",
+      "parent_id": "xcsh-docs:data-sources:waf_exclusion_policy:properties:waf_exclusion_rules",
+      "path": "documentation/data-sources/waf_exclusion_policy/properties/waf_exclusion_rules/metadata/index.md",
+      "provider_name": "waf_exclusion_policy",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--waf_exclusion_policy--properties--waf_exclusion_rules--metadata.md",
+      "role": "properties",
+      "schema_path": ["waf_exclusion_rules", "metadata"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/waf_exclusion_policy/properties/waf_exclusion_rules/metadata/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "waf_exclusion_rules.metadata for xcsh_waf_exclusion_policy.",
+      "title": "waf_exclusion_rules.metadata",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["waf_exclusion_policyCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 1306,
+      "body_sha256": "sha256:a2159d9702095e3fd07a7d5a44fee58178cb3af8bd63e798a5e00ffaa0ed7607",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:data-sources:waf_exclusion_policy:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:waf_exclusion_policy:properties:waf_exclusion_rules:waf_skip_processing",
+      "parent_id": "xcsh-docs:data-sources:waf_exclusion_policy:properties:waf_exclusion_rules",
+      "path": "documentation/data-sources/waf_exclusion_policy/properties/waf_exclusion_rules/waf_skip_processing/index.md",
+      "provider_name": "waf_exclusion_policy",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--waf_exclusion_policy--properties--waf_exclusion_rules--waf_skip_processing.md",
+      "role": "properties",
+      "schema_path": ["waf_exclusion_rules", "waf_skip_processing"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/waf_exclusion_policy/properties/waf_exclusion_rules/waf_skip_processing/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "waf_exclusion_rules.waf_skip_processing for xcsh_waf_exclusion_policy.",
+      "title": "waf_exclusion_rules.waf_skip_processing",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["waf_exclusion_policyCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 705,
+      "body_sha256": "sha256:738756d5930d3fe70c828d7b4df9e45aab7242d7124ed16e71fffd6918fcb433",
+      "child_ids": ["xcsh-docs:data-sources:waf_exclusion_policy:example:data-source"],
+      "collection_id": "xcsh-docs:data-sources:waf_exclusion_policy:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:waf_exclusion_policy:examples",
+      "parent_id": "xcsh-docs:data-sources:waf_exclusion_policy:fundamentals",
+      "path": "documentation/data-sources/waf_exclusion_policy/examples/index.md",
+      "provider_name": "waf_exclusion_policy",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--waf_exclusion_policy--examples.md",
+      "role": "examples",
+      "schema_path": [],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/waf_exclusion_policy/examples/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "Examples for xcsh_waf_exclusion_policy.",
+      "title": "Examples",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["waf_exclusion_policyCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 1381,
+      "body_sha256": "sha256:c06d47d34b16ebe2e3f59603c2b11e0c063e8fbfaac9a772bb85cf02f459b5d7",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:data-sources:waf_exclusion_policy:collection",
+      "completeness": "complete",
+      "evidence": {
+        "attribution": "Schema-derived minimal configuration validated with the checked-out provider.",
+        "outcome": "valid configuration",
+        "sha256": "sha256:e7c1c87b69af9a5626274b0968e5e1ac1658731a6d77764810ad0bd8f60e1d5e",
+        "source_path": "examples/data-sources/xcsh_waf_exclusion_policy/data-source.tf",
+        "validation": "terraform validate"
+      },
+      "id": "xcsh-docs:data-sources:waf_exclusion_policy:example:data-source",
+      "parent_id": "xcsh-docs:data-sources:waf_exclusion_policy:examples",
+      "path": "documentation/data-sources/waf_exclusion_policy/examples/data-source/index.md",
+      "provider_name": "waf_exclusion_policy",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--waf_exclusion_policy--example--data-source.md",
+      "role": "example",
+      "schema_path": ["data-source"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/waf_exclusion_policy/examples/data-source/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "Data source for xcsh_waf_exclusion_policy.",
+      "title": "Data source",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["waf_exclusion_policyCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    }
+  ],
+  "provider": "registry.terraform.io/f5-sales-demo/xcsh",
+  "schema_version": 1
+}

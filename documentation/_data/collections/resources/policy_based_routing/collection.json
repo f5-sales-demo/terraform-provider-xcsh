@@ -1,0 +1,1464 @@
+{
+  "collection": {
+    "fundamentals_id": "xcsh-docs:resources:policy_based_routing:fundamentals",
+    "id": "xcsh-docs:resources:policy_based_routing:collection",
+    "properties": {
+      "annotations": {
+        "anchor": "schema-annotations",
+        "document_id": "xcsh-docs:resources:policy_based_routing:reference",
+        "schema_path": ["annotations"]
+      },
+      "description": {
+        "anchor": "schema-description",
+        "document_id": "xcsh-docs:resources:policy_based_routing:reference",
+        "schema_path": ["description"]
+      },
+      "disable": {
+        "anchor": "schema-disable",
+        "document_id": "xcsh-docs:resources:policy_based_routing:reference",
+        "schema_path": ["disable"]
+      },
+      "forward_proxy_pbr": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:resources:policy_based_routing:properties:forward_proxy_pbr",
+        "schema_path": ["forward_proxy_pbr"]
+      },
+      "forward_proxy_pbr.forward_proxy_pbr_rules": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:resources:policy_based_routing:properties:forward_proxy_pbr:forward_proxy_pbr_rules",
+        "schema_path": ["forward_proxy_pbr", "forward_proxy_pbr_rules"]
+      },
+      "forward_proxy_pbr.forward_proxy_pbr_rules.all_destinations": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:resources:policy_based_routing:properties:forward_proxy_pbr:forward_proxy_pbr_rules:all_destinations",
+        "schema_path": ["forward_proxy_pbr", "forward_proxy_pbr_rules", "all_destinations"]
+      },
+      "forward_proxy_pbr.forward_proxy_pbr_rules.all_sources": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:resources:policy_based_routing:properties:forward_proxy_pbr:forward_proxy_pbr_rules:all_sources",
+        "schema_path": ["forward_proxy_pbr", "forward_proxy_pbr_rules", "all_sources"]
+      },
+      "forward_proxy_pbr.forward_proxy_pbr_rules.forwarding_class_list": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:resources:policy_based_routing:properties:forward_proxy_pbr:forward_proxy_pbr_rules:forwarding_class_list",
+        "schema_path": ["forward_proxy_pbr", "forward_proxy_pbr_rules", "forwarding_class_list"]
+      },
+      "forward_proxy_pbr.forward_proxy_pbr_rules.forwarding_class_list.name": {
+        "anchor": "schema-forward_proxy_pbr--forward_proxy_pbr_rules--forwarding_class_list--name",
+        "document_id": "xcsh-docs:resources:policy_based_routing:properties:forward_proxy_pbr:forward_proxy_pbr_rules:forwarding_class_list",
+        "schema_path": ["forward_proxy_pbr", "forward_proxy_pbr_rules", "forwarding_class_list", "name"]
+      },
+      "forward_proxy_pbr.forward_proxy_pbr_rules.forwarding_class_list.namespace": {
+        "anchor": "schema-forward_proxy_pbr--forward_proxy_pbr_rules--forwarding_class_list--namespace",
+        "document_id": "xcsh-docs:resources:policy_based_routing:properties:forward_proxy_pbr:forward_proxy_pbr_rules:forwarding_class_list",
+        "schema_path": ["forward_proxy_pbr", "forward_proxy_pbr_rules", "forwarding_class_list", "namespace"]
+      },
+      "forward_proxy_pbr.forward_proxy_pbr_rules.forwarding_class_list.tenant": {
+        "anchor": "schema-forward_proxy_pbr--forward_proxy_pbr_rules--forwarding_class_list--tenant",
+        "document_id": "xcsh-docs:resources:policy_based_routing:properties:forward_proxy_pbr:forward_proxy_pbr_rules:forwarding_class_list",
+        "schema_path": ["forward_proxy_pbr", "forward_proxy_pbr_rules", "forwarding_class_list", "tenant"]
+      },
+      "forward_proxy_pbr.forward_proxy_pbr_rules.http_list": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:resources:policy_based_routing:properties:forward_proxy_pbr:forward_proxy_pbr_rules:http_list",
+        "schema_path": ["forward_proxy_pbr", "forward_proxy_pbr_rules", "http_list"]
+      },
+      "forward_proxy_pbr.forward_proxy_pbr_rules.http_list.http_list": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:resources:policy_based_routing:properties:forward_proxy_pbr:forward_proxy_pbr_rules:http_list:http_list",
+        "schema_path": ["forward_proxy_pbr", "forward_proxy_pbr_rules", "http_list", "http_list"]
+      },
+      "forward_proxy_pbr.forward_proxy_pbr_rules.http_list.http_list.any_path": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:resources:policy_based_routing:properties:forward_proxy_pbr:forward_proxy_pbr_rules:http_list:http_list:any_path",
+        "schema_path": ["forward_proxy_pbr", "forward_proxy_pbr_rules", "http_list", "http_list", "any_path"]
+      },
+      "forward_proxy_pbr.forward_proxy_pbr_rules.http_list.http_list.exact_value": {
+        "anchor": "schema-forward_proxy_pbr--forward_proxy_pbr_rules--http_list--http_list--exact_value",
+        "document_id": "xcsh-docs:resources:policy_based_routing:properties:forward_proxy_pbr:forward_proxy_pbr_rules:http_list:http_list",
+        "schema_path": ["forward_proxy_pbr", "forward_proxy_pbr_rules", "http_list", "http_list", "exact_value"]
+      },
+      "forward_proxy_pbr.forward_proxy_pbr_rules.http_list.http_list.path_exact_value": {
+        "anchor": "schema-forward_proxy_pbr--forward_proxy_pbr_rules--http_list--http_list--path_exact_value",
+        "document_id": "xcsh-docs:resources:policy_based_routing:properties:forward_proxy_pbr:forward_proxy_pbr_rules:http_list:http_list",
+        "schema_path": ["forward_proxy_pbr", "forward_proxy_pbr_rules", "http_list", "http_list", "path_exact_value"]
+      },
+      "forward_proxy_pbr.forward_proxy_pbr_rules.http_list.http_list.path_prefix_value": {
+        "anchor": "schema-forward_proxy_pbr--forward_proxy_pbr_rules--http_list--http_list--path_prefix_value",
+        "document_id": "xcsh-docs:resources:policy_based_routing:properties:forward_proxy_pbr:forward_proxy_pbr_rules:http_list:http_list",
+        "schema_path": ["forward_proxy_pbr", "forward_proxy_pbr_rules", "http_list", "http_list", "path_prefix_value"]
+      },
+      "forward_proxy_pbr.forward_proxy_pbr_rules.http_list.http_list.path_regex_value": {
+        "anchor": "schema-forward_proxy_pbr--forward_proxy_pbr_rules--http_list--http_list--path_regex_value",
+        "document_id": "xcsh-docs:resources:policy_based_routing:properties:forward_proxy_pbr:forward_proxy_pbr_rules:http_list:http_list",
+        "schema_path": ["forward_proxy_pbr", "forward_proxy_pbr_rules", "http_list", "http_list", "path_regex_value"]
+      },
+      "forward_proxy_pbr.forward_proxy_pbr_rules.http_list.http_list.regex_value": {
+        "anchor": "schema-forward_proxy_pbr--forward_proxy_pbr_rules--http_list--http_list--regex_value",
+        "document_id": "xcsh-docs:resources:policy_based_routing:properties:forward_proxy_pbr:forward_proxy_pbr_rules:http_list:http_list",
+        "schema_path": ["forward_proxy_pbr", "forward_proxy_pbr_rules", "http_list", "http_list", "regex_value"]
+      },
+      "forward_proxy_pbr.forward_proxy_pbr_rules.http_list.http_list.suffix_value": {
+        "anchor": "schema-forward_proxy_pbr--forward_proxy_pbr_rules--http_list--http_list--suffix_value",
+        "document_id": "xcsh-docs:resources:policy_based_routing:properties:forward_proxy_pbr:forward_proxy_pbr_rules:http_list:http_list",
+        "schema_path": ["forward_proxy_pbr", "forward_proxy_pbr_rules", "http_list", "http_list", "suffix_value"]
+      },
+      "forward_proxy_pbr.forward_proxy_pbr_rules.ip_prefix_set": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:resources:policy_based_routing:properties:forward_proxy_pbr:forward_proxy_pbr_rules:ip_prefix_set",
+        "schema_path": ["forward_proxy_pbr", "forward_proxy_pbr_rules", "ip_prefix_set"]
+      },
+      "forward_proxy_pbr.forward_proxy_pbr_rules.ip_prefix_set.name": {
+        "anchor": "schema-forward_proxy_pbr--forward_proxy_pbr_rules--ip_prefix_set--name",
+        "document_id": "xcsh-docs:resources:policy_based_routing:properties:forward_proxy_pbr:forward_proxy_pbr_rules:ip_prefix_set",
+        "schema_path": ["forward_proxy_pbr", "forward_proxy_pbr_rules", "ip_prefix_set", "name"]
+      },
+      "forward_proxy_pbr.forward_proxy_pbr_rules.ip_prefix_set.namespace": {
+        "anchor": "schema-forward_proxy_pbr--forward_proxy_pbr_rules--ip_prefix_set--namespace",
+        "document_id": "xcsh-docs:resources:policy_based_routing:properties:forward_proxy_pbr:forward_proxy_pbr_rules:ip_prefix_set",
+        "schema_path": ["forward_proxy_pbr", "forward_proxy_pbr_rules", "ip_prefix_set", "namespace"]
+      },
+      "forward_proxy_pbr.forward_proxy_pbr_rules.ip_prefix_set.tenant": {
+        "anchor": "schema-forward_proxy_pbr--forward_proxy_pbr_rules--ip_prefix_set--tenant",
+        "document_id": "xcsh-docs:resources:policy_based_routing:properties:forward_proxy_pbr:forward_proxy_pbr_rules:ip_prefix_set",
+        "schema_path": ["forward_proxy_pbr", "forward_proxy_pbr_rules", "ip_prefix_set", "tenant"]
+      },
+      "forward_proxy_pbr.forward_proxy_pbr_rules.label_selector": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:resources:policy_based_routing:properties:forward_proxy_pbr:forward_proxy_pbr_rules:label_selector",
+        "schema_path": ["forward_proxy_pbr", "forward_proxy_pbr_rules", "label_selector"]
+      },
+      "forward_proxy_pbr.forward_proxy_pbr_rules.label_selector.expressions": {
+        "anchor": "schema-forward_proxy_pbr--forward_proxy_pbr_rules--label_selector--expressions",
+        "document_id": "xcsh-docs:resources:policy_based_routing:properties:forward_proxy_pbr:forward_proxy_pbr_rules:label_selector",
+        "schema_path": ["forward_proxy_pbr", "forward_proxy_pbr_rules", "label_selector", "expressions"]
+      },
+      "forward_proxy_pbr.forward_proxy_pbr_rules.metadata": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:resources:policy_based_routing:properties:forward_proxy_pbr:forward_proxy_pbr_rules:metadata",
+        "schema_path": ["forward_proxy_pbr", "forward_proxy_pbr_rules", "metadata"]
+      },
+      "forward_proxy_pbr.forward_proxy_pbr_rules.metadata.description_spec": {
+        "anchor": "schema-forward_proxy_pbr--forward_proxy_pbr_rules--metadata--description_spec",
+        "document_id": "xcsh-docs:resources:policy_based_routing:properties:forward_proxy_pbr:forward_proxy_pbr_rules:metadata",
+        "schema_path": ["forward_proxy_pbr", "forward_proxy_pbr_rules", "metadata", "description_spec"]
+      },
+      "forward_proxy_pbr.forward_proxy_pbr_rules.metadata.name": {
+        "anchor": "schema-forward_proxy_pbr--forward_proxy_pbr_rules--metadata--name",
+        "document_id": "xcsh-docs:resources:policy_based_routing:properties:forward_proxy_pbr:forward_proxy_pbr_rules:metadata",
+        "schema_path": ["forward_proxy_pbr", "forward_proxy_pbr_rules", "metadata", "name"]
+      },
+      "forward_proxy_pbr.forward_proxy_pbr_rules.prefix_list": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:resources:policy_based_routing:properties:forward_proxy_pbr:forward_proxy_pbr_rules:prefix_list",
+        "schema_path": ["forward_proxy_pbr", "forward_proxy_pbr_rules", "prefix_list"]
+      },
+      "forward_proxy_pbr.forward_proxy_pbr_rules.prefix_list.prefixes": {
+        "anchor": "schema-forward_proxy_pbr--forward_proxy_pbr_rules--prefix_list--prefixes",
+        "document_id": "xcsh-docs:resources:policy_based_routing:properties:forward_proxy_pbr:forward_proxy_pbr_rules:prefix_list",
+        "schema_path": ["forward_proxy_pbr", "forward_proxy_pbr_rules", "prefix_list", "prefixes"]
+      },
+      "forward_proxy_pbr.forward_proxy_pbr_rules.tls_list": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:resources:policy_based_routing:properties:forward_proxy_pbr:forward_proxy_pbr_rules:tls_list",
+        "schema_path": ["forward_proxy_pbr", "forward_proxy_pbr_rules", "tls_list"]
+      },
+      "forward_proxy_pbr.forward_proxy_pbr_rules.tls_list.tls_list": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:resources:policy_based_routing:properties:forward_proxy_pbr:forward_proxy_pbr_rules:tls_list:tls_list",
+        "schema_path": ["forward_proxy_pbr", "forward_proxy_pbr_rules", "tls_list", "tls_list"]
+      },
+      "forward_proxy_pbr.forward_proxy_pbr_rules.tls_list.tls_list.exact_value": {
+        "anchor": "schema-forward_proxy_pbr--forward_proxy_pbr_rules--tls_list--tls_list--exact_value",
+        "document_id": "xcsh-docs:resources:policy_based_routing:properties:forward_proxy_pbr:forward_proxy_pbr_rules:tls_list:tls_list",
+        "schema_path": ["forward_proxy_pbr", "forward_proxy_pbr_rules", "tls_list", "tls_list", "exact_value"]
+      },
+      "forward_proxy_pbr.forward_proxy_pbr_rules.tls_list.tls_list.regex_value": {
+        "anchor": "schema-forward_proxy_pbr--forward_proxy_pbr_rules--tls_list--tls_list--regex_value",
+        "document_id": "xcsh-docs:resources:policy_based_routing:properties:forward_proxy_pbr:forward_proxy_pbr_rules:tls_list:tls_list",
+        "schema_path": ["forward_proxy_pbr", "forward_proxy_pbr_rules", "tls_list", "tls_list", "regex_value"]
+      },
+      "forward_proxy_pbr.forward_proxy_pbr_rules.tls_list.tls_list.suffix_value": {
+        "anchor": "schema-forward_proxy_pbr--forward_proxy_pbr_rules--tls_list--tls_list--suffix_value",
+        "document_id": "xcsh-docs:resources:policy_based_routing:properties:forward_proxy_pbr:forward_proxy_pbr_rules:tls_list:tls_list",
+        "schema_path": ["forward_proxy_pbr", "forward_proxy_pbr_rules", "tls_list", "tls_list", "suffix_value"]
+      },
+      "forwarding_class_list": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:resources:policy_based_routing:properties:forwarding_class_list",
+        "schema_path": ["forwarding_class_list"]
+      },
+      "forwarding_class_list.name": {
+        "anchor": "schema-forwarding_class_list--name",
+        "document_id": "xcsh-docs:resources:policy_based_routing:properties:forwarding_class_list",
+        "schema_path": ["forwarding_class_list", "name"]
+      },
+      "forwarding_class_list.namespace": {
+        "anchor": "schema-forwarding_class_list--namespace",
+        "document_id": "xcsh-docs:resources:policy_based_routing:properties:forwarding_class_list",
+        "schema_path": ["forwarding_class_list", "namespace"]
+      },
+      "forwarding_class_list.tenant": {
+        "anchor": "schema-forwarding_class_list--tenant",
+        "document_id": "xcsh-docs:resources:policy_based_routing:properties:forwarding_class_list",
+        "schema_path": ["forwarding_class_list", "tenant"]
+      },
+      "id": {
+        "anchor": "schema-id",
+        "document_id": "xcsh-docs:resources:policy_based_routing:reference",
+        "schema_path": ["id"]
+      },
+      "labels": {
+        "anchor": "schema-labels",
+        "document_id": "xcsh-docs:resources:policy_based_routing:reference",
+        "schema_path": ["labels"]
+      },
+      "name": {
+        "anchor": "schema-name",
+        "document_id": "xcsh-docs:resources:policy_based_routing:reference",
+        "schema_path": ["name"]
+      },
+      "namespace": {
+        "anchor": "schema-namespace",
+        "document_id": "xcsh-docs:resources:policy_based_routing:reference",
+        "schema_path": ["namespace"]
+      },
+      "network_pbr": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:resources:policy_based_routing:properties:network_pbr",
+        "schema_path": ["network_pbr"]
+      },
+      "network_pbr.any": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:resources:policy_based_routing:properties:network_pbr:any",
+        "schema_path": ["network_pbr", "any"]
+      },
+      "network_pbr.label_selector": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:resources:policy_based_routing:properties:network_pbr:label_selector",
+        "schema_path": ["network_pbr", "label_selector"]
+      },
+      "network_pbr.label_selector.expressions": {
+        "anchor": "schema-network_pbr--label_selector--expressions",
+        "document_id": "xcsh-docs:resources:policy_based_routing:properties:network_pbr:label_selector",
+        "schema_path": ["network_pbr", "label_selector", "expressions"]
+      },
+      "network_pbr.network_pbr_rules": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:resources:policy_based_routing:properties:network_pbr:network_pbr_rules",
+        "schema_path": ["network_pbr", "network_pbr_rules"]
+      },
+      "network_pbr.network_pbr_rules.all_tcp_traffic": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:resources:policy_based_routing:properties:network_pbr:network_pbr_rules:all_tcp_traffic",
+        "schema_path": ["network_pbr", "network_pbr_rules", "all_tcp_traffic"]
+      },
+      "network_pbr.network_pbr_rules.all_traffic": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:resources:policy_based_routing:properties:network_pbr:network_pbr_rules:all_traffic",
+        "schema_path": ["network_pbr", "network_pbr_rules", "all_traffic"]
+      },
+      "network_pbr.network_pbr_rules.all_udp_traffic": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:resources:policy_based_routing:properties:network_pbr:network_pbr_rules:all_udp_traffic",
+        "schema_path": ["network_pbr", "network_pbr_rules", "all_udp_traffic"]
+      },
+      "network_pbr.network_pbr_rules.any": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:resources:policy_based_routing:properties:network_pbr:network_pbr_rules:any",
+        "schema_path": ["network_pbr", "network_pbr_rules", "any"]
+      },
+      "network_pbr.network_pbr_rules.applications": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:resources:policy_based_routing:properties:network_pbr:network_pbr_rules:applications",
+        "schema_path": ["network_pbr", "network_pbr_rules", "applications"]
+      },
+      "network_pbr.network_pbr_rules.applications.applications": {
+        "anchor": "schema-network_pbr--network_pbr_rules--applications--applications",
+        "document_id": "xcsh-docs:resources:policy_based_routing:properties:network_pbr:network_pbr_rules:applications",
+        "schema_path": ["network_pbr", "network_pbr_rules", "applications", "applications"]
+      },
+      "network_pbr.network_pbr_rules.dns_name": {
+        "anchor": "schema-network_pbr--network_pbr_rules--dns_name",
+        "document_id": "xcsh-docs:resources:policy_based_routing:properties:network_pbr:network_pbr_rules",
+        "schema_path": ["network_pbr", "network_pbr_rules", "dns_name"]
+      },
+      "network_pbr.network_pbr_rules.forwarding_class_list": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:resources:policy_based_routing:properties:network_pbr:network_pbr_rules:forwarding_class_list",
+        "schema_path": ["network_pbr", "network_pbr_rules", "forwarding_class_list"]
+      },
+      "network_pbr.network_pbr_rules.forwarding_class_list.name": {
+        "anchor": "schema-network_pbr--network_pbr_rules--forwarding_class_list--name",
+        "document_id": "xcsh-docs:resources:policy_based_routing:properties:network_pbr:network_pbr_rules:forwarding_class_list",
+        "schema_path": ["network_pbr", "network_pbr_rules", "forwarding_class_list", "name"]
+      },
+      "network_pbr.network_pbr_rules.forwarding_class_list.namespace": {
+        "anchor": "schema-network_pbr--network_pbr_rules--forwarding_class_list--namespace",
+        "document_id": "xcsh-docs:resources:policy_based_routing:properties:network_pbr:network_pbr_rules:forwarding_class_list",
+        "schema_path": ["network_pbr", "network_pbr_rules", "forwarding_class_list", "namespace"]
+      },
+      "network_pbr.network_pbr_rules.forwarding_class_list.tenant": {
+        "anchor": "schema-network_pbr--network_pbr_rules--forwarding_class_list--tenant",
+        "document_id": "xcsh-docs:resources:policy_based_routing:properties:network_pbr:network_pbr_rules:forwarding_class_list",
+        "schema_path": ["network_pbr", "network_pbr_rules", "forwarding_class_list", "tenant"]
+      },
+      "network_pbr.network_pbr_rules.ip_prefix_set": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:resources:policy_based_routing:properties:network_pbr:network_pbr_rules:ip_prefix_set",
+        "schema_path": ["network_pbr", "network_pbr_rules", "ip_prefix_set"]
+      },
+      "network_pbr.network_pbr_rules.ip_prefix_set.ref": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:resources:policy_based_routing:properties:network_pbr:network_pbr_rules:ip_prefix_set:ref",
+        "schema_path": ["network_pbr", "network_pbr_rules", "ip_prefix_set", "ref"]
+      },
+      "network_pbr.network_pbr_rules.ip_prefix_set.ref.kind": {
+        "anchor": "schema-network_pbr--network_pbr_rules--ip_prefix_set--ref--kind",
+        "document_id": "xcsh-docs:resources:policy_based_routing:properties:network_pbr:network_pbr_rules:ip_prefix_set:ref",
+        "schema_path": ["network_pbr", "network_pbr_rules", "ip_prefix_set", "ref", "kind"]
+      },
+      "network_pbr.network_pbr_rules.ip_prefix_set.ref.name": {
+        "anchor": "schema-network_pbr--network_pbr_rules--ip_prefix_set--ref--name",
+        "document_id": "xcsh-docs:resources:policy_based_routing:properties:network_pbr:network_pbr_rules:ip_prefix_set:ref",
+        "schema_path": ["network_pbr", "network_pbr_rules", "ip_prefix_set", "ref", "name"]
+      },
+      "network_pbr.network_pbr_rules.ip_prefix_set.ref.namespace": {
+        "anchor": "schema-network_pbr--network_pbr_rules--ip_prefix_set--ref--namespace",
+        "document_id": "xcsh-docs:resources:policy_based_routing:properties:network_pbr:network_pbr_rules:ip_prefix_set:ref",
+        "schema_path": ["network_pbr", "network_pbr_rules", "ip_prefix_set", "ref", "namespace"]
+      },
+      "network_pbr.network_pbr_rules.ip_prefix_set.ref.tenant": {
+        "anchor": "schema-network_pbr--network_pbr_rules--ip_prefix_set--ref--tenant",
+        "document_id": "xcsh-docs:resources:policy_based_routing:properties:network_pbr:network_pbr_rules:ip_prefix_set:ref",
+        "schema_path": ["network_pbr", "network_pbr_rules", "ip_prefix_set", "ref", "tenant"]
+      },
+      "network_pbr.network_pbr_rules.ip_prefix_set.ref.uid": {
+        "anchor": "schema-network_pbr--network_pbr_rules--ip_prefix_set--ref--uid",
+        "document_id": "xcsh-docs:resources:policy_based_routing:properties:network_pbr:network_pbr_rules:ip_prefix_set:ref",
+        "schema_path": ["network_pbr", "network_pbr_rules", "ip_prefix_set", "ref", "uid"]
+      },
+      "network_pbr.network_pbr_rules.metadata": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:resources:policy_based_routing:properties:network_pbr:network_pbr_rules:metadata",
+        "schema_path": ["network_pbr", "network_pbr_rules", "metadata"]
+      },
+      "network_pbr.network_pbr_rules.metadata.description_spec": {
+        "anchor": "schema-network_pbr--network_pbr_rules--metadata--description_spec",
+        "document_id": "xcsh-docs:resources:policy_based_routing:properties:network_pbr:network_pbr_rules:metadata",
+        "schema_path": ["network_pbr", "network_pbr_rules", "metadata", "description_spec"]
+      },
+      "network_pbr.network_pbr_rules.metadata.name": {
+        "anchor": "schema-network_pbr--network_pbr_rules--metadata--name",
+        "document_id": "xcsh-docs:resources:policy_based_routing:properties:network_pbr:network_pbr_rules:metadata",
+        "schema_path": ["network_pbr", "network_pbr_rules", "metadata", "name"]
+      },
+      "network_pbr.network_pbr_rules.prefix_list": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:resources:policy_based_routing:properties:network_pbr:network_pbr_rules:prefix_list",
+        "schema_path": ["network_pbr", "network_pbr_rules", "prefix_list"]
+      },
+      "network_pbr.network_pbr_rules.prefix_list.prefixes": {
+        "anchor": "schema-network_pbr--network_pbr_rules--prefix_list--prefixes",
+        "document_id": "xcsh-docs:resources:policy_based_routing:properties:network_pbr:network_pbr_rules:prefix_list",
+        "schema_path": ["network_pbr", "network_pbr_rules", "prefix_list", "prefixes"]
+      },
+      "network_pbr.network_pbr_rules.protocol_port_range": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:resources:policy_based_routing:properties:network_pbr:network_pbr_rules:protocol_port_range",
+        "schema_path": ["network_pbr", "network_pbr_rules", "protocol_port_range"]
+      },
+      "network_pbr.network_pbr_rules.protocol_port_range.port_ranges": {
+        "anchor": "schema-network_pbr--network_pbr_rules--protocol_port_range--port_ranges",
+        "document_id": "xcsh-docs:resources:policy_based_routing:properties:network_pbr:network_pbr_rules:protocol_port_range",
+        "schema_path": ["network_pbr", "network_pbr_rules", "protocol_port_range", "port_ranges"]
+      },
+      "network_pbr.network_pbr_rules.protocol_port_range.protocol": {
+        "anchor": "schema-network_pbr--network_pbr_rules--protocol_port_range--protocol",
+        "document_id": "xcsh-docs:resources:policy_based_routing:properties:network_pbr:network_pbr_rules:protocol_port_range",
+        "schema_path": ["network_pbr", "network_pbr_rules", "protocol_port_range", "protocol"]
+      },
+      "network_pbr.prefix_list": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:resources:policy_based_routing:properties:network_pbr:prefix_list",
+        "schema_path": ["network_pbr", "prefix_list"]
+      },
+      "network_pbr.prefix_list.prefixes": {
+        "anchor": "schema-network_pbr--prefix_list--prefixes",
+        "document_id": "xcsh-docs:resources:policy_based_routing:properties:network_pbr:prefix_list",
+        "schema_path": ["network_pbr", "prefix_list", "prefixes"]
+      },
+      "timeouts": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:resources:policy_based_routing:properties:timeouts",
+        "schema_path": ["timeouts"]
+      },
+      "timeouts.create": {
+        "anchor": "schema-timeouts--create",
+        "document_id": "xcsh-docs:resources:policy_based_routing:properties:timeouts",
+        "schema_path": ["timeouts", "create"]
+      },
+      "timeouts.delete": {
+        "anchor": "schema-timeouts--delete",
+        "document_id": "xcsh-docs:resources:policy_based_routing:properties:timeouts",
+        "schema_path": ["timeouts", "delete"]
+      },
+      "timeouts.read": {
+        "anchor": "schema-timeouts--read",
+        "document_id": "xcsh-docs:resources:policy_based_routing:properties:timeouts",
+        "schema_path": ["timeouts", "read"]
+      },
+      "timeouts.update": {
+        "anchor": "schema-timeouts--update",
+        "document_id": "xcsh-docs:resources:policy_based_routing:properties:timeouts",
+        "schema_path": ["timeouts", "update"]
+      }
+    },
+    "provider_name": "policy_based_routing",
+    "provider_type": "resources",
+    "reference_id": "xcsh-docs:resources:policy_based_routing:reference"
+  },
+  "pages": [
+    {
+      "aliases": [],
+      "body_bytes": 1714,
+      "body_sha256": "sha256:05f8a7873c58494e82f52872842dc136906b754e4d4c17e52c5a12fbc14e5b66",
+      "child_ids": [
+        "xcsh-docs:resources:policy_based_routing:reference",
+        "xcsh-docs:resources:policy_based_routing:examples",
+        "xcsh-docs:resources:policy_based_routing:import",
+        "xcsh-docs:resources:policy_based_routing:timeouts"
+      ],
+      "collection_id": "xcsh-docs:resources:policy_based_routing:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:resources:policy_based_routing:fundamentals",
+      "parent_id": null,
+      "path": "documentation/resources/policy_based_routing/index.md",
+      "provider_name": "policy_based_routing",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "resources",
+      "registry_path": "docs/resources/policy_based_routing.md",
+      "role": "fundamentals",
+      "schema_path": [],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/policy_based_routing/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "xcsh_policy_based_routing for xcsh_policy_based_routing.",
+      "title": "xcsh_policy_based_routing",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["policy_based_routingCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 31264,
+      "body_sha256": "sha256:1db883f1fe9beeb3925b6cf25cf7bad5d4cf979ccf47c4c561ba444a0879d5e7",
+      "child_ids": [
+        "xcsh-docs:resources:policy_based_routing:properties:forward_proxy_pbr",
+        "xcsh-docs:resources:policy_based_routing:properties:forwarding_class_list",
+        "xcsh-docs:resources:policy_based_routing:properties:network_pbr",
+        "xcsh-docs:resources:policy_based_routing:properties:timeouts"
+      ],
+      "collection_id": "xcsh-docs:resources:policy_based_routing:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:resources:policy_based_routing:reference",
+      "parent_id": "xcsh-docs:resources:policy_based_routing:fundamentals",
+      "path": "documentation/resources/policy_based_routing/properties/index.md",
+      "provider_name": "policy_based_routing",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "resources",
+      "registry_path": "docs/guides/resources--policy_based_routing--reference.md",
+      "role": "reference",
+      "schema_path": [],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/policy_based_routing/properties/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "Property reference for xcsh_policy_based_routing.",
+      "title": "Property reference",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["policy_based_routingCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 1962,
+      "body_sha256": "sha256:fa9023f244a6f0ec5429645dffe62aec05466937a8127924a65b6a2003b56e4c",
+      "child_ids": ["xcsh-docs:resources:policy_based_routing:properties:forward_proxy_pbr:forward_proxy_pbr_rules"],
+      "collection_id": "xcsh-docs:resources:policy_based_routing:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:resources:policy_based_routing:properties:forward_proxy_pbr",
+      "parent_id": "xcsh-docs:resources:policy_based_routing:reference",
+      "path": "documentation/resources/policy_based_routing/properties/forward_proxy_pbr/index.md",
+      "provider_name": "policy_based_routing",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "resources",
+      "registry_path": "docs/guides/resources--policy_based_routing--properties--forward_proxy_pbr.md",
+      "role": "properties",
+      "schema_path": ["forward_proxy_pbr"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/policy_based_routing/properties/forward_proxy_pbr/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "forward_proxy_pbr for xcsh_policy_based_routing.",
+      "title": "forward_proxy_pbr",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["policy_based_routingCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 6623,
+      "body_sha256": "sha256:921cf30677e8c4296548bd6fc69e7687aa8269519e53768f689fd208c79a7130",
+      "child_ids": [
+        "xcsh-docs:resources:policy_based_routing:properties:forward_proxy_pbr:forward_proxy_pbr_rules:all_destinations",
+        "xcsh-docs:resources:policy_based_routing:properties:forward_proxy_pbr:forward_proxy_pbr_rules:all_sources",
+        "xcsh-docs:resources:policy_based_routing:properties:forward_proxy_pbr:forward_proxy_pbr_rules:forwarding_class_list",
+        "xcsh-docs:resources:policy_based_routing:properties:forward_proxy_pbr:forward_proxy_pbr_rules:http_list",
+        "xcsh-docs:resources:policy_based_routing:properties:forward_proxy_pbr:forward_proxy_pbr_rules:ip_prefix_set",
+        "xcsh-docs:resources:policy_based_routing:properties:forward_proxy_pbr:forward_proxy_pbr_rules:label_selector",
+        "xcsh-docs:resources:policy_based_routing:properties:forward_proxy_pbr:forward_proxy_pbr_rules:metadata",
+        "xcsh-docs:resources:policy_based_routing:properties:forward_proxy_pbr:forward_proxy_pbr_rules:prefix_list",
+        "xcsh-docs:resources:policy_based_routing:properties:forward_proxy_pbr:forward_proxy_pbr_rules:tls_list"
+      ],
+      "collection_id": "xcsh-docs:resources:policy_based_routing:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:resources:policy_based_routing:properties:forward_proxy_pbr:forward_proxy_pbr_rules",
+      "parent_id": "xcsh-docs:resources:policy_based_routing:properties:forward_proxy_pbr",
+      "path": "documentation/resources/policy_based_routing/properties/forward_proxy_pbr/forward_proxy_pbr_rules/index.md",
+      "provider_name": "policy_based_routing",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "resources",
+      "registry_path": "docs/guides/resources--policy_based_routing--properties--forward_proxy_pbr--forward_proxy_pbr_rules.md",
+      "role": "properties",
+      "schema_path": ["forward_proxy_pbr", "forward_proxy_pbr_rules"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/policy_based_routing/properties/forward_proxy_pbr/forward_proxy_pbr_rules/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "forward_proxy_pbr.forward_proxy_pbr_rules for xcsh_policy_based_routing.",
+      "title": "forward_proxy_pbr.forward_proxy_pbr_rules",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["policy_based_routingCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 1643,
+      "body_sha256": "sha256:a2a8108572fc58f0aa22f77b4eb8c285b45f27c343c77fbc47d46d01bdf737e7",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:resources:policy_based_routing:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:resources:policy_based_routing:properties:forward_proxy_pbr:forward_proxy_pbr_rules:all_destinations",
+      "parent_id": "xcsh-docs:resources:policy_based_routing:properties:forward_proxy_pbr:forward_proxy_pbr_rules",
+      "path": "documentation/resources/policy_based_routing/properties/forward_proxy_pbr/forward_proxy_pbr_rules/all_destinations/index.md",
+      "provider_name": "policy_based_routing",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "resources",
+      "registry_path": "docs/guides/resources--policy_based_routing--properties--forward_proxy_pbr--forward_proxy_pbr_rules--all_destinations.md",
+      "role": "properties",
+      "schema_path": ["forward_proxy_pbr", "forward_proxy_pbr_rules", "all_destinations"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/policy_based_routing/properties/forward_proxy_pbr/forward_proxy_pbr_rules/all_destinations/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "forward_proxy_pbr.forward_proxy_pbr_rules.all_destinations for xcsh_policy_based_routing.",
+      "title": "forward_proxy_pbr.forward_proxy_pbr_rules.all_destinations",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["policy_based_routingCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 1623,
+      "body_sha256": "sha256:44db18f4e38180bb5bb9e444a931ab63142ece0a98a103636154f1340291e87e",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:resources:policy_based_routing:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:resources:policy_based_routing:properties:forward_proxy_pbr:forward_proxy_pbr_rules:all_sources",
+      "parent_id": "xcsh-docs:resources:policy_based_routing:properties:forward_proxy_pbr:forward_proxy_pbr_rules",
+      "path": "documentation/resources/policy_based_routing/properties/forward_proxy_pbr/forward_proxy_pbr_rules/all_sources/index.md",
+      "provider_name": "policy_based_routing",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "resources",
+      "registry_path": "docs/guides/resources--policy_based_routing--properties--forward_proxy_pbr--forward_proxy_pbr_rules--all_sources.md",
+      "role": "properties",
+      "schema_path": ["forward_proxy_pbr", "forward_proxy_pbr_rules", "all_sources"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/policy_based_routing/properties/forward_proxy_pbr/forward_proxy_pbr_rules/all_sources/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "forward_proxy_pbr.forward_proxy_pbr_rules.all_sources for xcsh_policy_based_routing.",
+      "title": "forward_proxy_pbr.forward_proxy_pbr_rules.all_sources",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["policy_based_routingCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 6969,
+      "body_sha256": "sha256:afab2b1dc1d5513ac511db3833fe192d5efae6d7dbf5ff18fec035011a2786e1",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:resources:policy_based_routing:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:resources:policy_based_routing:properties:forward_proxy_pbr:forward_proxy_pbr_rules:forwarding_class_list",
+      "parent_id": "xcsh-docs:resources:policy_based_routing:properties:forward_proxy_pbr:forward_proxy_pbr_rules",
+      "path": "documentation/resources/policy_based_routing/properties/forward_proxy_pbr/forward_proxy_pbr_rules/forwarding_class_list/index.md",
+      "provider_name": "policy_based_routing",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "resources",
+      "registry_path": "docs/guides/resources--policy_based_routing--properties--forward_proxy_pbr--forward_proxy_pbr_rules--forwarding_class_list.md",
+      "role": "properties",
+      "schema_path": ["forward_proxy_pbr", "forward_proxy_pbr_rules", "forwarding_class_list"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/policy_based_routing/properties/forward_proxy_pbr/forward_proxy_pbr_rules/forwarding_class_list/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "forward_proxy_pbr.forward_proxy_pbr_rules.forwarding_class_list for xcsh_policy_based_routing.",
+      "title": "forward_proxy_pbr.forward_proxy_pbr_rules.forwarding_class_list",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["policy_based_routingCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 1932,
+      "body_sha256": "sha256:d40fdc5fbeadc1924f5bb7a8abaf041a17de7d189918bed388b59f86969a5736",
+      "child_ids": [
+        "xcsh-docs:resources:policy_based_routing:properties:forward_proxy_pbr:forward_proxy_pbr_rules:http_list:http_list"
+      ],
+      "collection_id": "xcsh-docs:resources:policy_based_routing:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:resources:policy_based_routing:properties:forward_proxy_pbr:forward_proxy_pbr_rules:http_list",
+      "parent_id": "xcsh-docs:resources:policy_based_routing:properties:forward_proxy_pbr:forward_proxy_pbr_rules",
+      "path": "documentation/resources/policy_based_routing/properties/forward_proxy_pbr/forward_proxy_pbr_rules/http_list/index.md",
+      "provider_name": "policy_based_routing",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "resources",
+      "registry_path": "docs/guides/resources--policy_based_routing--properties--forward_proxy_pbr--forward_proxy_pbr_rules--http_list.md",
+      "role": "properties",
+      "schema_path": ["forward_proxy_pbr", "forward_proxy_pbr_rules", "http_list"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/policy_based_routing/properties/forward_proxy_pbr/forward_proxy_pbr_rules/http_list/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "forward_proxy_pbr.forward_proxy_pbr_rules.http_list for xcsh_policy_based_routing.",
+      "title": "forward_proxy_pbr.forward_proxy_pbr_rules.http_list",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["policy_based_routingCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 12062,
+      "body_sha256": "sha256:182f07c733ccf956670238166ca87479ca2beea97fa28d3e666b618bf84e0eff",
+      "child_ids": [
+        "xcsh-docs:resources:policy_based_routing:properties:forward_proxy_pbr:forward_proxy_pbr_rules:http_list:http_list:any_path"
+      ],
+      "collection_id": "xcsh-docs:resources:policy_based_routing:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:resources:policy_based_routing:properties:forward_proxy_pbr:forward_proxy_pbr_rules:http_list:http_list",
+      "parent_id": "xcsh-docs:resources:policy_based_routing:properties:forward_proxy_pbr:forward_proxy_pbr_rules:http_list",
+      "path": "documentation/resources/policy_based_routing/properties/forward_proxy_pbr/forward_proxy_pbr_rules/http_list/http_list/index.md",
+      "provider_name": "policy_based_routing",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "resources",
+      "registry_path": "docs/guides/resources--policy_based_routing--properties--forward_proxy_pbr--forward_proxy_pbr_rules--http_list--http_list.md",
+      "role": "properties",
+      "schema_path": ["forward_proxy_pbr", "forward_proxy_pbr_rules", "http_list", "http_list"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/policy_based_routing/properties/forward_proxy_pbr/forward_proxy_pbr_rules/http_list/http_list/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "forward_proxy_pbr.forward_proxy_pbr_rules.http_list.http_list for xcsh_policy_based_routing.",
+      "title": "forward_proxy_pbr.forward_proxy_pbr_rules.http_list.http_list",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["policy_based_routingCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 2108,
+      "body_sha256": "sha256:a88eaa37bb115bc616afb2312ef48b10868be10eb0bebbe53ffcf6f4a3fd92d3",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:resources:policy_based_routing:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:resources:policy_based_routing:properties:forward_proxy_pbr:forward_proxy_pbr_rules:http_list:http_list:any_path",
+      "parent_id": "xcsh-docs:resources:policy_based_routing:properties:forward_proxy_pbr:forward_proxy_pbr_rules:http_list:http_list",
+      "path": "documentation/resources/policy_based_routing/properties/forward_proxy_pbr/forward_proxy_pbr_rules/http_list/http_list/any_path/index.md",
+      "provider_name": "policy_based_routing",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "resources",
+      "registry_path": "docs/guides/resources--policy_based_routing--properties--forward_proxy_pbr--forward_proxy_pbr_rules--http_list--http_list--any_path.md",
+      "role": "properties",
+      "schema_path": ["forward_proxy_pbr", "forward_proxy_pbr_rules", "http_list", "http_list", "any_path"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/policy_based_routing/properties/forward_proxy_pbr/forward_proxy_pbr_rules/http_list/http_list/any_path/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "forward_proxy_pbr.forward_proxy_pbr_rules.http_list.http_list.any_path for xcsh_policy_based_routing.",
+      "title": "forward_proxy_pbr.forward_proxy_pbr_rules.http_list.http_list.any_path",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["policy_based_routingCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 6492,
+      "body_sha256": "sha256:37744a5e1096ba09a4db07d2e795d66a5c1c807b2d46b8328ef1be2b1901456e",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:resources:policy_based_routing:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:resources:policy_based_routing:properties:forward_proxy_pbr:forward_proxy_pbr_rules:ip_prefix_set",
+      "parent_id": "xcsh-docs:resources:policy_based_routing:properties:forward_proxy_pbr:forward_proxy_pbr_rules",
+      "path": "documentation/resources/policy_based_routing/properties/forward_proxy_pbr/forward_proxy_pbr_rules/ip_prefix_set/index.md",
+      "provider_name": "policy_based_routing",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "resources",
+      "registry_path": "docs/guides/resources--policy_based_routing--properties--forward_proxy_pbr--forward_proxy_pbr_rules--ip_prefix_set.md",
+      "role": "properties",
+      "schema_path": ["forward_proxy_pbr", "forward_proxy_pbr_rules", "ip_prefix_set"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/policy_based_routing/properties/forward_proxy_pbr/forward_proxy_pbr_rules/ip_prefix_set/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "forward_proxy_pbr.forward_proxy_pbr_rules.ip_prefix_set for xcsh_policy_based_routing.",
+      "title": "forward_proxy_pbr.forward_proxy_pbr_rules.ip_prefix_set",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["policy_based_routingCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 4531,
+      "body_sha256": "sha256:330b4cf18b6b281252e3e3a80c5a76d951347fac334c084b2defd793b4c6416c",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:resources:policy_based_routing:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:resources:policy_based_routing:properties:forward_proxy_pbr:forward_proxy_pbr_rules:label_selector",
+      "parent_id": "xcsh-docs:resources:policy_based_routing:properties:forward_proxy_pbr:forward_proxy_pbr_rules",
+      "path": "documentation/resources/policy_based_routing/properties/forward_proxy_pbr/forward_proxy_pbr_rules/label_selector/index.md",
+      "provider_name": "policy_based_routing",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "resources",
+      "registry_path": "docs/guides/resources--policy_based_routing--properties--forward_proxy_pbr--forward_proxy_pbr_rules--label_selector.md",
+      "role": "properties",
+      "schema_path": ["forward_proxy_pbr", "forward_proxy_pbr_rules", "label_selector"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/policy_based_routing/properties/forward_proxy_pbr/forward_proxy_pbr_rules/label_selector/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "forward_proxy_pbr.forward_proxy_pbr_rules.label_selector for xcsh_policy_based_routing.",
+      "title": "forward_proxy_pbr.forward_proxy_pbr_rules.label_selector",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["policy_based_routingCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 4439,
+      "body_sha256": "sha256:23307211ac611968e17add7e95327214a7bdade550c1e41124b2f34b4c149046",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:resources:policy_based_routing:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:resources:policy_based_routing:properties:forward_proxy_pbr:forward_proxy_pbr_rules:metadata",
+      "parent_id": "xcsh-docs:resources:policy_based_routing:properties:forward_proxy_pbr:forward_proxy_pbr_rules",
+      "path": "documentation/resources/policy_based_routing/properties/forward_proxy_pbr/forward_proxy_pbr_rules/metadata/index.md",
+      "provider_name": "policy_based_routing",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "resources",
+      "registry_path": "docs/guides/resources--policy_based_routing--properties--forward_proxy_pbr--forward_proxy_pbr_rules--metadata.md",
+      "role": "properties",
+      "schema_path": ["forward_proxy_pbr", "forward_proxy_pbr_rules", "metadata"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/policy_based_routing/properties/forward_proxy_pbr/forward_proxy_pbr_rules/metadata/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "forward_proxy_pbr.forward_proxy_pbr_rules.metadata for xcsh_policy_based_routing.",
+      "title": "forward_proxy_pbr.forward_proxy_pbr_rules.metadata",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["policy_based_routingCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 2766,
+      "body_sha256": "sha256:3a6f11199c548b5b1eb5117a659699c0ba785765bb41ea791f0a4d5468c39a8a",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:resources:policy_based_routing:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:resources:policy_based_routing:properties:forward_proxy_pbr:forward_proxy_pbr_rules:prefix_list",
+      "parent_id": "xcsh-docs:resources:policy_based_routing:properties:forward_proxy_pbr:forward_proxy_pbr_rules",
+      "path": "documentation/resources/policy_based_routing/properties/forward_proxy_pbr/forward_proxy_pbr_rules/prefix_list/index.md",
+      "provider_name": "policy_based_routing",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "resources",
+      "registry_path": "docs/guides/resources--policy_based_routing--properties--forward_proxy_pbr--forward_proxy_pbr_rules--prefix_list.md",
+      "role": "properties",
+      "schema_path": ["forward_proxy_pbr", "forward_proxy_pbr_rules", "prefix_list"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/policy_based_routing/properties/forward_proxy_pbr/forward_proxy_pbr_rules/prefix_list/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "forward_proxy_pbr.forward_proxy_pbr_rules.prefix_list for xcsh_policy_based_routing.",
+      "title": "forward_proxy_pbr.forward_proxy_pbr_rules.prefix_list",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["policy_based_routingCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 1925,
+      "body_sha256": "sha256:1e35dc7df314aab4a0927e89179b7393ec64c5d1b08b69b65f8b929ae03d8846",
+      "child_ids": [
+        "xcsh-docs:resources:policy_based_routing:properties:forward_proxy_pbr:forward_proxy_pbr_rules:tls_list:tls_list"
+      ],
+      "collection_id": "xcsh-docs:resources:policy_based_routing:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:resources:policy_based_routing:properties:forward_proxy_pbr:forward_proxy_pbr_rules:tls_list",
+      "parent_id": "xcsh-docs:resources:policy_based_routing:properties:forward_proxy_pbr:forward_proxy_pbr_rules",
+      "path": "documentation/resources/policy_based_routing/properties/forward_proxy_pbr/forward_proxy_pbr_rules/tls_list/index.md",
+      "provider_name": "policy_based_routing",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "resources",
+      "registry_path": "docs/guides/resources--policy_based_routing--properties--forward_proxy_pbr--forward_proxy_pbr_rules--tls_list.md",
+      "role": "properties",
+      "schema_path": ["forward_proxy_pbr", "forward_proxy_pbr_rules", "tls_list"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/policy_based_routing/properties/forward_proxy_pbr/forward_proxy_pbr_rules/tls_list/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "forward_proxy_pbr.forward_proxy_pbr_rules.tls_list for xcsh_policy_based_routing.",
+      "title": "forward_proxy_pbr.forward_proxy_pbr_rules.tls_list",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["policy_based_routingCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 6881,
+      "body_sha256": "sha256:30904ea2afef157588a1b096ad38ae18915f572101dad418144ccece15e7b654",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:resources:policy_based_routing:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:resources:policy_based_routing:properties:forward_proxy_pbr:forward_proxy_pbr_rules:tls_list:tls_list",
+      "parent_id": "xcsh-docs:resources:policy_based_routing:properties:forward_proxy_pbr:forward_proxy_pbr_rules:tls_list",
+      "path": "documentation/resources/policy_based_routing/properties/forward_proxy_pbr/forward_proxy_pbr_rules/tls_list/tls_list/index.md",
+      "provider_name": "policy_based_routing",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "resources",
+      "registry_path": "docs/guides/resources--policy_based_routing--properties--forward_proxy_pbr--forward_proxy_pbr_rules--tls_list--tls_list.md",
+      "role": "properties",
+      "schema_path": ["forward_proxy_pbr", "forward_proxy_pbr_rules", "tls_list", "tls_list"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/policy_based_routing/properties/forward_proxy_pbr/forward_proxy_pbr_rules/tls_list/tls_list/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "forward_proxy_pbr.forward_proxy_pbr_rules.tls_list.tls_list for xcsh_policy_based_routing.",
+      "title": "forward_proxy_pbr.forward_proxy_pbr_rules.tls_list.tls_list",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["policy_based_routingCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 6389,
+      "body_sha256": "sha256:5bd9c105cf632b83ab84c23cf0e33bf1a330cff6f60349f613355511375a40a0",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:resources:policy_based_routing:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:resources:policy_based_routing:properties:forwarding_class_list",
+      "parent_id": "xcsh-docs:resources:policy_based_routing:reference",
+      "path": "documentation/resources/policy_based_routing/properties/forwarding_class_list/index.md",
+      "provider_name": "policy_based_routing",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "resources",
+      "registry_path": "docs/guides/resources--policy_based_routing--properties--forwarding_class_list.md",
+      "role": "properties",
+      "schema_path": ["forwarding_class_list"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/policy_based_routing/properties/forwarding_class_list/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "forwarding_class_list for xcsh_policy_based_routing.",
+      "title": "forwarding_class_list",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["policy_based_routingCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 2815,
+      "body_sha256": "sha256:ddb8ec12993d72c660adfa6ba12b9bf8d8468e4a4edd3543dfc90a965b0e0454",
+      "child_ids": [
+        "xcsh-docs:resources:policy_based_routing:properties:network_pbr:any",
+        "xcsh-docs:resources:policy_based_routing:properties:network_pbr:label_selector",
+        "xcsh-docs:resources:policy_based_routing:properties:network_pbr:network_pbr_rules",
+        "xcsh-docs:resources:policy_based_routing:properties:network_pbr:prefix_list"
+      ],
+      "collection_id": "xcsh-docs:resources:policy_based_routing:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:resources:policy_based_routing:properties:network_pbr",
+      "parent_id": "xcsh-docs:resources:policy_based_routing:reference",
+      "path": "documentation/resources/policy_based_routing/properties/network_pbr/index.md",
+      "provider_name": "policy_based_routing",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "resources",
+      "registry_path": "docs/guides/resources--policy_based_routing--properties--network_pbr.md",
+      "role": "properties",
+      "schema_path": ["network_pbr"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/policy_based_routing/properties/network_pbr/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "network_pbr for xcsh_policy_based_routing.",
+      "title": "network_pbr",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["policy_based_routingCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 1257,
+      "body_sha256": "sha256:1bcae0fbebe3321c3624380504e3bf83843b18671f1f41d39e68d727bf1d0f19",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:resources:policy_based_routing:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:resources:policy_based_routing:properties:network_pbr:any",
+      "parent_id": "xcsh-docs:resources:policy_based_routing:properties:network_pbr",
+      "path": "documentation/resources/policy_based_routing/properties/network_pbr/any/index.md",
+      "provider_name": "policy_based_routing",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "resources",
+      "registry_path": "docs/guides/resources--policy_based_routing--properties--network_pbr--any.md",
+      "role": "properties",
+      "schema_path": ["network_pbr", "any"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/policy_based_routing/properties/network_pbr/any/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "network_pbr.any for xcsh_policy_based_routing.",
+      "title": "network_pbr.any",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["policy_based_routingCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 4180,
+      "body_sha256": "sha256:6451024c8bb9f0caacac5d059febbd8f47c2d7b8c93d2b359c12238d112a0149",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:resources:policy_based_routing:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:resources:policy_based_routing:properties:network_pbr:label_selector",
+      "parent_id": "xcsh-docs:resources:policy_based_routing:properties:network_pbr",
+      "path": "documentation/resources/policy_based_routing/properties/network_pbr/label_selector/index.md",
+      "provider_name": "policy_based_routing",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "resources",
+      "registry_path": "docs/guides/resources--policy_based_routing--properties--network_pbr--label_selector.md",
+      "role": "properties",
+      "schema_path": ["network_pbr", "label_selector"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/policy_based_routing/properties/network_pbr/label_selector/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "network_pbr.label_selector for xcsh_policy_based_routing.",
+      "title": "network_pbr.label_selector",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["policy_based_routingCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 8701,
+      "body_sha256": "sha256:6537a3eb79cfc7139912b2ce978b7b523d3b23dfc7c74b2d4021c20d963e51b5",
+      "child_ids": [
+        "xcsh-docs:resources:policy_based_routing:properties:network_pbr:network_pbr_rules:all_tcp_traffic",
+        "xcsh-docs:resources:policy_based_routing:properties:network_pbr:network_pbr_rules:all_traffic",
+        "xcsh-docs:resources:policy_based_routing:properties:network_pbr:network_pbr_rules:all_udp_traffic",
+        "xcsh-docs:resources:policy_based_routing:properties:network_pbr:network_pbr_rules:any",
+        "xcsh-docs:resources:policy_based_routing:properties:network_pbr:network_pbr_rules:applications",
+        "xcsh-docs:resources:policy_based_routing:properties:network_pbr:network_pbr_rules:forwarding_class_list",
+        "xcsh-docs:resources:policy_based_routing:properties:network_pbr:network_pbr_rules:ip_prefix_set",
+        "xcsh-docs:resources:policy_based_routing:properties:network_pbr:network_pbr_rules:metadata",
+        "xcsh-docs:resources:policy_based_routing:properties:network_pbr:network_pbr_rules:prefix_list",
+        "xcsh-docs:resources:policy_based_routing:properties:network_pbr:network_pbr_rules:protocol_port_range"
+      ],
+      "collection_id": "xcsh-docs:resources:policy_based_routing:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:resources:policy_based_routing:properties:network_pbr:network_pbr_rules",
+      "parent_id": "xcsh-docs:resources:policy_based_routing:properties:network_pbr",
+      "path": "documentation/resources/policy_based_routing/properties/network_pbr/network_pbr_rules/index.md",
+      "provider_name": "policy_based_routing",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "resources",
+      "registry_path": "docs/guides/resources--policy_based_routing--properties--network_pbr--network_pbr_rules.md",
+      "role": "properties",
+      "schema_path": ["network_pbr", "network_pbr_rules"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/policy_based_routing/properties/network_pbr/network_pbr_rules/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "network_pbr.network_pbr_rules for xcsh_policy_based_routing.",
+      "title": "network_pbr.network_pbr_rules",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["policy_based_routingCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 1555,
+      "body_sha256": "sha256:dd16e29fe6119a384df3f98b8b239a927c6e6ce37bc8c29b5dbc3f3cd6e0f7f0",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:resources:policy_based_routing:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:resources:policy_based_routing:properties:network_pbr:network_pbr_rules:all_tcp_traffic",
+      "parent_id": "xcsh-docs:resources:policy_based_routing:properties:network_pbr:network_pbr_rules",
+      "path": "documentation/resources/policy_based_routing/properties/network_pbr/network_pbr_rules/all_tcp_traffic/index.md",
+      "provider_name": "policy_based_routing",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "resources",
+      "registry_path": "docs/guides/resources--policy_based_routing--properties--network_pbr--network_pbr_rules--all_tcp_traffic.md",
+      "role": "properties",
+      "schema_path": ["network_pbr", "network_pbr_rules", "all_tcp_traffic"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/policy_based_routing/properties/network_pbr/network_pbr_rules/all_tcp_traffic/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "network_pbr.network_pbr_rules.all_tcp_traffic for xcsh_policy_based_routing.",
+      "title": "network_pbr.network_pbr_rules.all_tcp_traffic",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["policy_based_routingCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 1539,
+      "body_sha256": "sha256:8971f6727a55f20306d1df9f03f0d1e67adfb30f9927e336ebf69991de293488",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:resources:policy_based_routing:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:resources:policy_based_routing:properties:network_pbr:network_pbr_rules:all_traffic",
+      "parent_id": "xcsh-docs:resources:policy_based_routing:properties:network_pbr:network_pbr_rules",
+      "path": "documentation/resources/policy_based_routing/properties/network_pbr/network_pbr_rules/all_traffic/index.md",
+      "provider_name": "policy_based_routing",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "resources",
+      "registry_path": "docs/guides/resources--policy_based_routing--properties--network_pbr--network_pbr_rules--all_traffic.md",
+      "role": "properties",
+      "schema_path": ["network_pbr", "network_pbr_rules", "all_traffic"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/policy_based_routing/properties/network_pbr/network_pbr_rules/all_traffic/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "network_pbr.network_pbr_rules.all_traffic for xcsh_policy_based_routing.",
+      "title": "network_pbr.network_pbr_rules.all_traffic",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["policy_based_routingCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 1555,
+      "body_sha256": "sha256:bde1551cc075a720dde0c44f42808a1569799df1622fbb8c1fecb963a26ee776",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:resources:policy_based_routing:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:resources:policy_based_routing:properties:network_pbr:network_pbr_rules:all_udp_traffic",
+      "parent_id": "xcsh-docs:resources:policy_based_routing:properties:network_pbr:network_pbr_rules",
+      "path": "documentation/resources/policy_based_routing/properties/network_pbr/network_pbr_rules/all_udp_traffic/index.md",
+      "provider_name": "policy_based_routing",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "resources",
+      "registry_path": "docs/guides/resources--policy_based_routing--properties--network_pbr--network_pbr_rules--all_udp_traffic.md",
+      "role": "properties",
+      "schema_path": ["network_pbr", "network_pbr_rules", "all_udp_traffic"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/policy_based_routing/properties/network_pbr/network_pbr_rules/all_udp_traffic/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "network_pbr.network_pbr_rules.all_udp_traffic for xcsh_policy_based_routing.",
+      "title": "network_pbr.network_pbr_rules.all_udp_traffic",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["policy_based_routingCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 1493,
+      "body_sha256": "sha256:6a80942db5c1f45cc844b88d14b49e121fe0e65846921e2a99872e9aa4e56363",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:resources:policy_based_routing:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:resources:policy_based_routing:properties:network_pbr:network_pbr_rules:any",
+      "parent_id": "xcsh-docs:resources:policy_based_routing:properties:network_pbr:network_pbr_rules",
+      "path": "documentation/resources/policy_based_routing/properties/network_pbr/network_pbr_rules/any/index.md",
+      "provider_name": "policy_based_routing",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "resources",
+      "registry_path": "docs/guides/resources--policy_based_routing--properties--network_pbr--network_pbr_rules--any.md",
+      "role": "properties",
+      "schema_path": ["network_pbr", "network_pbr_rules", "any"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/policy_based_routing/properties/network_pbr/network_pbr_rules/any/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "network_pbr.network_pbr_rules.any for xcsh_policy_based_routing.",
+      "title": "network_pbr.network_pbr_rules.any",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["policy_based_routingCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 2188,
+      "body_sha256": "sha256:9993aa1e9f2b61eae3fb8aa47491e38017b1def16f65a68b123833668d97bcd9",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:resources:policy_based_routing:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:resources:policy_based_routing:properties:network_pbr:network_pbr_rules:applications",
+      "parent_id": "xcsh-docs:resources:policy_based_routing:properties:network_pbr:network_pbr_rules",
+      "path": "documentation/resources/policy_based_routing/properties/network_pbr/network_pbr_rules/applications/index.md",
+      "provider_name": "policy_based_routing",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "resources",
+      "registry_path": "docs/guides/resources--policy_based_routing--properties--network_pbr--network_pbr_rules--applications.md",
+      "role": "properties",
+      "schema_path": ["network_pbr", "network_pbr_rules", "applications"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/policy_based_routing/properties/network_pbr/network_pbr_rules/applications/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "network_pbr.network_pbr_rules.applications for xcsh_policy_based_routing.",
+      "title": "network_pbr.network_pbr_rules.applications",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["policy_based_routingCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 6846,
+      "body_sha256": "sha256:f166221c30df5eb50708702310a704dba7bd9adf6e3b2767f7eef69570cd6933",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:resources:policy_based_routing:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:resources:policy_based_routing:properties:network_pbr:network_pbr_rules:forwarding_class_list",
+      "parent_id": "xcsh-docs:resources:policy_based_routing:properties:network_pbr:network_pbr_rules",
+      "path": "documentation/resources/policy_based_routing/properties/network_pbr/network_pbr_rules/forwarding_class_list/index.md",
+      "provider_name": "policy_based_routing",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "resources",
+      "registry_path": "docs/guides/resources--policy_based_routing--properties--network_pbr--network_pbr_rules--forwarding_class_list.md",
+      "role": "properties",
+      "schema_path": ["network_pbr", "network_pbr_rules", "forwarding_class_list"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/policy_based_routing/properties/network_pbr/network_pbr_rules/forwarding_class_list/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "network_pbr.network_pbr_rules.forwarding_class_list for xcsh_policy_based_routing.",
+      "title": "network_pbr.network_pbr_rules.forwarding_class_list",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["policy_based_routingCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 1919,
+      "body_sha256": "sha256:31f7e444bc81d0ca0a9206194112a23459b065d13b5c0e643e17b48ab976a769",
+      "child_ids": [
+        "xcsh-docs:resources:policy_based_routing:properties:network_pbr:network_pbr_rules:ip_prefix_set:ref"
+      ],
+      "collection_id": "xcsh-docs:resources:policy_based_routing:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:resources:policy_based_routing:properties:network_pbr:network_pbr_rules:ip_prefix_set",
+      "parent_id": "xcsh-docs:resources:policy_based_routing:properties:network_pbr:network_pbr_rules",
+      "path": "documentation/resources/policy_based_routing/properties/network_pbr/network_pbr_rules/ip_prefix_set/index.md",
+      "provider_name": "policy_based_routing",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "resources",
+      "registry_path": "docs/guides/resources--policy_based_routing--properties--network_pbr--network_pbr_rules--ip_prefix_set.md",
+      "role": "properties",
+      "schema_path": ["network_pbr", "network_pbr_rules", "ip_prefix_set"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/policy_based_routing/properties/network_pbr/network_pbr_rules/ip_prefix_set/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "network_pbr.network_pbr_rules.ip_prefix_set for xcsh_policy_based_routing.",
+      "title": "network_pbr.network_pbr_rules.ip_prefix_set",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["policy_based_routingCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 7206,
+      "body_sha256": "sha256:ab2e7bd48d7b41ca8a5eeeb56a2802203e15fbf709aea0cee16723c3fbbb5ef4",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:resources:policy_based_routing:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:resources:policy_based_routing:properties:network_pbr:network_pbr_rules:ip_prefix_set:ref",
+      "parent_id": "xcsh-docs:resources:policy_based_routing:properties:network_pbr:network_pbr_rules:ip_prefix_set",
+      "path": "documentation/resources/policy_based_routing/properties/network_pbr/network_pbr_rules/ip_prefix_set/ref/index.md",
+      "provider_name": "policy_based_routing",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "resources",
+      "registry_path": "docs/guides/resources--policy_based_routing--properties--network_pbr--network_pbr_rules--ip_prefix_set--ref.md",
+      "role": "properties",
+      "schema_path": ["network_pbr", "network_pbr_rules", "ip_prefix_set", "ref"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/policy_based_routing/properties/network_pbr/network_pbr_rules/ip_prefix_set/ref/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "network_pbr.network_pbr_rules.ip_prefix_set.ref for xcsh_policy_based_routing.",
+      "title": "network_pbr.network_pbr_rules.ip_prefix_set.ref",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["policy_based_routingCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 4331,
+      "body_sha256": "sha256:d020266302ad23c007f31955ce34f229cbe08b4d4306734f6f93835d11836d24",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:resources:policy_based_routing:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:resources:policy_based_routing:properties:network_pbr:network_pbr_rules:metadata",
+      "parent_id": "xcsh-docs:resources:policy_based_routing:properties:network_pbr:network_pbr_rules",
+      "path": "documentation/resources/policy_based_routing/properties/network_pbr/network_pbr_rules/metadata/index.md",
+      "provider_name": "policy_based_routing",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "resources",
+      "registry_path": "docs/guides/resources--policy_based_routing--properties--network_pbr--network_pbr_rules--metadata.md",
+      "role": "properties",
+      "schema_path": ["network_pbr", "network_pbr_rules", "metadata"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/policy_based_routing/properties/network_pbr/network_pbr_rules/metadata/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "network_pbr.network_pbr_rules.metadata for xcsh_policy_based_routing.",
+      "title": "network_pbr.network_pbr_rules.metadata",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["policy_based_routingCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 2670,
+      "body_sha256": "sha256:72d54dcc13183d1d505c219ebd34d99258616de1d43339dde61fb825c0150401",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:resources:policy_based_routing:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:resources:policy_based_routing:properties:network_pbr:network_pbr_rules:prefix_list",
+      "parent_id": "xcsh-docs:resources:policy_based_routing:properties:network_pbr:network_pbr_rules",
+      "path": "documentation/resources/policy_based_routing/properties/network_pbr/network_pbr_rules/prefix_list/index.md",
+      "provider_name": "policy_based_routing",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "resources",
+      "registry_path": "docs/guides/resources--policy_based_routing--properties--network_pbr--network_pbr_rules--prefix_list.md",
+      "role": "properties",
+      "schema_path": ["network_pbr", "network_pbr_rules", "prefix_list"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/policy_based_routing/properties/network_pbr/network_pbr_rules/prefix_list/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "network_pbr.network_pbr_rules.prefix_list for xcsh_policy_based_routing.",
+      "title": "network_pbr.network_pbr_rules.prefix_list",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["policy_based_routingCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 3969,
+      "body_sha256": "sha256:9136a145123d26cfff2fbe1c05479e1a1c0547baa6fbdc87c3011e5f0866104b",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:resources:policy_based_routing:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:resources:policy_based_routing:properties:network_pbr:network_pbr_rules:protocol_port_range",
+      "parent_id": "xcsh-docs:resources:policy_based_routing:properties:network_pbr:network_pbr_rules",
+      "path": "documentation/resources/policy_based_routing/properties/network_pbr/network_pbr_rules/protocol_port_range/index.md",
+      "provider_name": "policy_based_routing",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "resources",
+      "registry_path": "docs/guides/resources--policy_based_routing--properties--network_pbr--network_pbr_rules--protocol_port_range.md",
+      "role": "properties",
+      "schema_path": ["network_pbr", "network_pbr_rules", "protocol_port_range"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/policy_based_routing/properties/network_pbr/network_pbr_rules/protocol_port_range/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "network_pbr.network_pbr_rules.protocol_port_range for xcsh_policy_based_routing.",
+      "title": "network_pbr.network_pbr_rules.protocol_port_range",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["policy_based_routingCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 2415,
+      "body_sha256": "sha256:672978987cf999fd654cf122dd71e95918bec5f124c58390f1ba3ae75dc1f0b0",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:resources:policy_based_routing:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:resources:policy_based_routing:properties:network_pbr:prefix_list",
+      "parent_id": "xcsh-docs:resources:policy_based_routing:properties:network_pbr",
+      "path": "documentation/resources/policy_based_routing/properties/network_pbr/prefix_list/index.md",
+      "provider_name": "policy_based_routing",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "resources",
+      "registry_path": "docs/guides/resources--policy_based_routing--properties--network_pbr--prefix_list.md",
+      "role": "properties",
+      "schema_path": ["network_pbr", "prefix_list"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/policy_based_routing/properties/network_pbr/prefix_list/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "network_pbr.prefix_list for xcsh_policy_based_routing.",
+      "title": "network_pbr.prefix_list",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["policy_based_routingCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 2279,
+      "body_sha256": "sha256:15a032ad718bbafe7db8caf0556ea79211d57c1081963fa7becd4500b1d9c14c",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:resources:policy_based_routing:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:resources:policy_based_routing:properties:timeouts",
+      "parent_id": "xcsh-docs:resources:policy_based_routing:reference",
+      "path": "documentation/resources/policy_based_routing/properties/timeouts/index.md",
+      "provider_name": "policy_based_routing",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "resources",
+      "registry_path": "docs/guides/resources--policy_based_routing--properties--timeouts.md",
+      "role": "properties",
+      "schema_path": ["timeouts"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/policy_based_routing/properties/timeouts/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "timeouts for xcsh_policy_based_routing.",
+      "title": "timeouts",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["policy_based_routingCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 681,
+      "body_sha256": "sha256:52e000ec353d120a30d0ba00e270f1613ff03b9893174942ff9f32c670a28691",
+      "child_ids": ["xcsh-docs:resources:policy_based_routing:example:resource"],
+      "collection_id": "xcsh-docs:resources:policy_based_routing:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:resources:policy_based_routing:examples",
+      "parent_id": "xcsh-docs:resources:policy_based_routing:fundamentals",
+      "path": "documentation/resources/policy_based_routing/examples/index.md",
+      "provider_name": "policy_based_routing",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "resources",
+      "registry_path": "docs/guides/resources--policy_based_routing--examples.md",
+      "role": "examples",
+      "schema_path": [],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/policy_based_routing/examples/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "Examples for xcsh_policy_based_routing.",
+      "title": "Examples",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["policy_based_routingCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 1381,
+      "body_sha256": "sha256:fdf33dc197d18e625f99f759df0a828ad1b0ee9ebca617c9ffc2c1b926e28ea8",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:resources:policy_based_routing:collection",
+      "completeness": "complete",
+      "evidence": {
+        "attribution": "Schema-derived minimal configuration validated with the checked-out provider.",
+        "outcome": "valid configuration",
+        "sha256": "sha256:a6f7aae564241cf8a8dc1fa822f0c450be182f4323bb106bc39515f008c22968",
+        "source_path": "examples/resources/xcsh_policy_based_routing/resource.tf",
+        "validation": "terraform validate"
+      },
+      "id": "xcsh-docs:resources:policy_based_routing:example:resource",
+      "parent_id": "xcsh-docs:resources:policy_based_routing:examples",
+      "path": "documentation/resources/policy_based_routing/examples/resource/index.md",
+      "provider_name": "policy_based_routing",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "resources",
+      "registry_path": "docs/guides/resources--policy_based_routing--example--resource.md",
+      "role": "example",
+      "schema_path": ["resource"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/policy_based_routing/examples/resource/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "Resource for xcsh_policy_based_routing.",
+      "title": "Resource",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["policy_based_routingCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 548,
+      "body_sha256": "sha256:4bac28ebb558360972beca56d337f5fe1379731fa66d35924960a4347db3c250",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:resources:policy_based_routing:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:resources:policy_based_routing:import",
+      "parent_id": "xcsh-docs:resources:policy_based_routing:fundamentals",
+      "path": "documentation/resources/policy_based_routing/lifecycle/import/index.md",
+      "provider_name": "policy_based_routing",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "resources",
+      "registry_path": "docs/guides/resources--policy_based_routing--import.md",
+      "role": "import",
+      "schema_path": [],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/policy_based_routing/lifecycle/import/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "Import for xcsh_policy_based_routing.",
+      "title": "Import",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["policy_based_routingCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 608,
+      "body_sha256": "sha256:7af092e3594a379cc8cc8406f82d204b1cee7cd5517b7ed5cb1350e68ff73a4e",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:resources:policy_based_routing:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:resources:policy_based_routing:timeouts",
+      "parent_id": "xcsh-docs:resources:policy_based_routing:fundamentals",
+      "path": "documentation/resources/policy_based_routing/lifecycle/timeouts/index.md",
+      "provider_name": "policy_based_routing",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "resources",
+      "registry_path": "docs/guides/resources--policy_based_routing--timeouts.md",
+      "role": "timeouts",
+      "schema_path": [],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/policy_based_routing/lifecycle/timeouts/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "Timeouts for xcsh_policy_based_routing.",
+      "title": "Timeouts",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["policy_based_routingCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    }
+  ],
+  "provider": "registry.terraform.io/f5-sales-demo/xcsh",
+  "schema_version": 1
+}

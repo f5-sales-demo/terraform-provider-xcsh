@@ -1,0 +1,536 @@
+{
+  "collection": {
+    "fundamentals_id": "xcsh-docs:data-sources:user_identification:fundamentals",
+    "id": "xcsh-docs:data-sources:user_identification:collection",
+    "properties": {
+      "annotations": {
+        "anchor": "schema-annotations",
+        "document_id": "xcsh-docs:data-sources:user_identification:reference",
+        "schema_path": ["annotations"]
+      },
+      "description": {
+        "anchor": "schema-description",
+        "document_id": "xcsh-docs:data-sources:user_identification:reference",
+        "schema_path": ["description"]
+      },
+      "id": {
+        "anchor": "schema-id",
+        "document_id": "xcsh-docs:data-sources:user_identification:reference",
+        "schema_path": ["id"]
+      },
+      "labels": {
+        "anchor": "schema-labels",
+        "document_id": "xcsh-docs:data-sources:user_identification:reference",
+        "schema_path": ["labels"]
+      },
+      "name": {
+        "anchor": "schema-name",
+        "document_id": "xcsh-docs:data-sources:user_identification:reference",
+        "schema_path": ["name"]
+      },
+      "namespace": {
+        "anchor": "schema-namespace",
+        "document_id": "xcsh-docs:data-sources:user_identification:reference",
+        "schema_path": ["namespace"]
+      },
+      "rules": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:data-sources:user_identification:properties:rules",
+        "schema_path": ["rules"]
+      },
+      "rules.client_asn": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:data-sources:user_identification:properties:rules:client_asn",
+        "schema_path": ["rules", "client_asn"]
+      },
+      "rules.client_city": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:data-sources:user_identification:properties:rules:client_city",
+        "schema_path": ["rules", "client_city"]
+      },
+      "rules.client_country": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:data-sources:user_identification:properties:rules:client_country",
+        "schema_path": ["rules", "client_country"]
+      },
+      "rules.client_ip": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:data-sources:user_identification:properties:rules:client_ip",
+        "schema_path": ["rules", "client_ip"]
+      },
+      "rules.client_region": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:data-sources:user_identification:properties:rules:client_region",
+        "schema_path": ["rules", "client_region"]
+      },
+      "rules.cookie_name": {
+        "anchor": "schema-rules--cookie_name",
+        "document_id": "xcsh-docs:data-sources:user_identification:properties:rules",
+        "schema_path": ["rules", "cookie_name"]
+      },
+      "rules.http_header_name": {
+        "anchor": "schema-rules--http_header_name",
+        "document_id": "xcsh-docs:data-sources:user_identification:properties:rules",
+        "schema_path": ["rules", "http_header_name"]
+      },
+      "rules.ip_and_http_header_name": {
+        "anchor": "schema-rules--ip_and_http_header_name",
+        "document_id": "xcsh-docs:data-sources:user_identification:properties:rules",
+        "schema_path": ["rules", "ip_and_http_header_name"]
+      },
+      "rules.ip_and_ja4_tls_fingerprint": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:data-sources:user_identification:properties:rules:ip_and_ja4_tls_fingerprint",
+        "schema_path": ["rules", "ip_and_ja4_tls_fingerprint"]
+      },
+      "rules.ip_and_tls_fingerprint": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:data-sources:user_identification:properties:rules:ip_and_tls_fingerprint",
+        "schema_path": ["rules", "ip_and_tls_fingerprint"]
+      },
+      "rules.ja4_tls_fingerprint": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:data-sources:user_identification:properties:rules:ja4_tls_fingerprint",
+        "schema_path": ["rules", "ja4_tls_fingerprint"]
+      },
+      "rules.jwt_claim_name": {
+        "anchor": "schema-rules--jwt_claim_name",
+        "document_id": "xcsh-docs:data-sources:user_identification:properties:rules",
+        "schema_path": ["rules", "jwt_claim_name"]
+      },
+      "rules.none": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:data-sources:user_identification:properties:rules:none",
+        "schema_path": ["rules", "none"]
+      },
+      "rules.query_param_key": {
+        "anchor": "schema-rules--query_param_key",
+        "document_id": "xcsh-docs:data-sources:user_identification:properties:rules",
+        "schema_path": ["rules", "query_param_key"]
+      },
+      "rules.tls_fingerprint": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:data-sources:user_identification:properties:rules:tls_fingerprint",
+        "schema_path": ["rules", "tls_fingerprint"]
+      }
+    },
+    "provider_name": "user_identification",
+    "provider_type": "data-sources",
+    "reference_id": "xcsh-docs:data-sources:user_identification:reference"
+  },
+  "pages": [
+    {
+      "aliases": [],
+      "body_bytes": 1437,
+      "body_sha256": "sha256:e1ddbe2e68c4222b3a59e32ce2d84eedac4f41e65805c49b08c03f7035a17fa9",
+      "child_ids": [
+        "xcsh-docs:data-sources:user_identification:reference",
+        "xcsh-docs:data-sources:user_identification:examples"
+      ],
+      "collection_id": "xcsh-docs:data-sources:user_identification:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:user_identification:fundamentals",
+      "parent_id": null,
+      "path": "documentation/data-sources/user_identification/index.md",
+      "provider_name": "user_identification",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/data-sources/user_identification.md",
+      "role": "fundamentals",
+      "schema_path": [],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/user_identification/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "xcsh_user_identification for xcsh_user_identification.",
+      "title": "xcsh_user_identification",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["user_identificationCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 10171,
+      "body_sha256": "sha256:26710151f1ffcd3d309fbf292628f97cea92ad373d46e49207128418e9c45e00",
+      "child_ids": ["xcsh-docs:data-sources:user_identification:properties:rules"],
+      "collection_id": "xcsh-docs:data-sources:user_identification:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:user_identification:reference",
+      "parent_id": "xcsh-docs:data-sources:user_identification:fundamentals",
+      "path": "documentation/data-sources/user_identification/properties/index.md",
+      "provider_name": "user_identification",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--user_identification--reference.md",
+      "role": "reference",
+      "schema_path": [],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/user_identification/properties/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "Property reference for xcsh_user_identification.",
+      "title": "Property reference",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["user_identificationCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 13655,
+      "body_sha256": "sha256:74da333953d3cb37574c4fdcac8c0e71cd0ea682efe899ab56a71ee143a2c161",
+      "child_ids": [
+        "xcsh-docs:data-sources:user_identification:properties:rules:client_asn",
+        "xcsh-docs:data-sources:user_identification:properties:rules:client_city",
+        "xcsh-docs:data-sources:user_identification:properties:rules:client_country",
+        "xcsh-docs:data-sources:user_identification:properties:rules:client_ip",
+        "xcsh-docs:data-sources:user_identification:properties:rules:client_region",
+        "xcsh-docs:data-sources:user_identification:properties:rules:ip_and_ja4_tls_fingerprint",
+        "xcsh-docs:data-sources:user_identification:properties:rules:ip_and_tls_fingerprint",
+        "xcsh-docs:data-sources:user_identification:properties:rules:ja4_tls_fingerprint",
+        "xcsh-docs:data-sources:user_identification:properties:rules:none",
+        "xcsh-docs:data-sources:user_identification:properties:rules:tls_fingerprint"
+      ],
+      "collection_id": "xcsh-docs:data-sources:user_identification:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:user_identification:properties:rules",
+      "parent_id": "xcsh-docs:data-sources:user_identification:reference",
+      "path": "documentation/data-sources/user_identification/properties/rules/index.md",
+      "provider_name": "user_identification",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--user_identification--properties--rules.md",
+      "role": "properties",
+      "schema_path": ["rules"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/user_identification/properties/rules/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "rules for xcsh_user_identification.",
+      "title": "rules",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["user_identificationCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 1197,
+      "body_sha256": "sha256:a64a948634048d00f7d3ebd7bdfb3305cf6a8ba04f5d559fe7cf8eeb42d66611",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:data-sources:user_identification:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:user_identification:properties:rules:client_asn",
+      "parent_id": "xcsh-docs:data-sources:user_identification:properties:rules",
+      "path": "documentation/data-sources/user_identification/properties/rules/client_asn/index.md",
+      "provider_name": "user_identification",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--user_identification--properties--rules--client_asn.md",
+      "role": "properties",
+      "schema_path": ["rules", "client_asn"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/user_identification/properties/rules/client_asn/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "rules.client_asn for xcsh_user_identification.",
+      "title": "rules.client_asn",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["user_identificationCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 1199,
+      "body_sha256": "sha256:b1f5b2f145840fa514bc27d9dc3fb9ae88e73fd34ffd4024243e4843d7f7b16f",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:data-sources:user_identification:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:user_identification:properties:rules:client_city",
+      "parent_id": "xcsh-docs:data-sources:user_identification:properties:rules",
+      "path": "documentation/data-sources/user_identification/properties/rules/client_city/index.md",
+      "provider_name": "user_identification",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--user_identification--properties--rules--client_city.md",
+      "role": "properties",
+      "schema_path": ["rules", "client_city"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/user_identification/properties/rules/client_city/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "rules.client_city for xcsh_user_identification.",
+      "title": "rules.client_city",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["user_identificationCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 1205,
+      "body_sha256": "sha256:b9162e97debeeaad14a5c3150855212be05cbe203b2bd72c9356f799b98aebc5",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:data-sources:user_identification:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:user_identification:properties:rules:client_country",
+      "parent_id": "xcsh-docs:data-sources:user_identification:properties:rules",
+      "path": "documentation/data-sources/user_identification/properties/rules/client_country/index.md",
+      "provider_name": "user_identification",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--user_identification--properties--rules--client_country.md",
+      "role": "properties",
+      "schema_path": ["rules", "client_country"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/user_identification/properties/rules/client_country/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "rules.client_country for xcsh_user_identification.",
+      "title": "rules.client_country",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["user_identificationCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 1195,
+      "body_sha256": "sha256:bee131403b5bf9fb897ec7ec247282d28d6995a9be0db6c68ced31ba39fe9bf6",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:data-sources:user_identification:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:user_identification:properties:rules:client_ip",
+      "parent_id": "xcsh-docs:data-sources:user_identification:properties:rules",
+      "path": "documentation/data-sources/user_identification/properties/rules/client_ip/index.md",
+      "provider_name": "user_identification",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--user_identification--properties--rules--client_ip.md",
+      "role": "properties",
+      "schema_path": ["rules", "client_ip"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/user_identification/properties/rules/client_ip/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "rules.client_ip for xcsh_user_identification.",
+      "title": "rules.client_ip",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["user_identificationCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 1203,
+      "body_sha256": "sha256:30cb155d5854fb2a58ec60ff9dde504a05299240cb60fc2954ab53ba8677dd05",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:data-sources:user_identification:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:user_identification:properties:rules:client_region",
+      "parent_id": "xcsh-docs:data-sources:user_identification:properties:rules",
+      "path": "documentation/data-sources/user_identification/properties/rules/client_region/index.md",
+      "provider_name": "user_identification",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--user_identification--properties--rules--client_region.md",
+      "role": "properties",
+      "schema_path": ["rules", "client_region"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/user_identification/properties/rules/client_region/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "rules.client_region for xcsh_user_identification.",
+      "title": "rules.client_region",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["user_identificationCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 1229,
+      "body_sha256": "sha256:3c2b14ce5264df8e0f63d0b962b9caa4874e6281af0fb26cb3b77753e52ff5c2",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:data-sources:user_identification:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:user_identification:properties:rules:ip_and_ja4_tls_fingerprint",
+      "parent_id": "xcsh-docs:data-sources:user_identification:properties:rules",
+      "path": "documentation/data-sources/user_identification/properties/rules/ip_and_ja4_tls_fingerprint/index.md",
+      "provider_name": "user_identification",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--user_identification--properties--rules--ip_and_ja4_tls_fingerprint.md",
+      "role": "properties",
+      "schema_path": ["rules", "ip_and_ja4_tls_fingerprint"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/user_identification/properties/rules/ip_and_ja4_tls_fingerprint/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "rules.ip_and_ja4_tls_fingerprint for xcsh_user_identification.",
+      "title": "rules.ip_and_ja4_tls_fingerprint",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["user_identificationCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 1221,
+      "body_sha256": "sha256:22f2ffe356319762e5a033e5ff6b16e08e6b7a3df170e3a47bdd5d1c029f6d78",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:data-sources:user_identification:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:user_identification:properties:rules:ip_and_tls_fingerprint",
+      "parent_id": "xcsh-docs:data-sources:user_identification:properties:rules",
+      "path": "documentation/data-sources/user_identification/properties/rules/ip_and_tls_fingerprint/index.md",
+      "provider_name": "user_identification",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--user_identification--properties--rules--ip_and_tls_fingerprint.md",
+      "role": "properties",
+      "schema_path": ["rules", "ip_and_tls_fingerprint"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/user_identification/properties/rules/ip_and_tls_fingerprint/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "rules.ip_and_tls_fingerprint for xcsh_user_identification.",
+      "title": "rules.ip_and_tls_fingerprint",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["user_identificationCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 1245,
+      "body_sha256": "sha256:855145f5a38f564e158f780140c98ff58f132ca971780bf5a7c9ffdbe6d54ba7",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:data-sources:user_identification:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:user_identification:properties:rules:ja4_tls_fingerprint",
+      "parent_id": "xcsh-docs:data-sources:user_identification:properties:rules",
+      "path": "documentation/data-sources/user_identification/properties/rules/ja4_tls_fingerprint/index.md",
+      "provider_name": "user_identification",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--user_identification--properties--rules--ja4_tls_fingerprint.md",
+      "role": "properties",
+      "schema_path": ["rules", "ja4_tls_fingerprint"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/user_identification/properties/rules/ja4_tls_fingerprint/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "rules.ja4_tls_fingerprint for xcsh_user_identification.",
+      "title": "rules.ja4_tls_fingerprint",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["user_identificationCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 1185,
+      "body_sha256": "sha256:5db212f70392bec67eb3d17392fe9eccaa563c4092697db3c0a883e6cce52f31",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:data-sources:user_identification:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:user_identification:properties:rules:none",
+      "parent_id": "xcsh-docs:data-sources:user_identification:properties:rules",
+      "path": "documentation/data-sources/user_identification/properties/rules/none/index.md",
+      "provider_name": "user_identification",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--user_identification--properties--rules--none.md",
+      "role": "properties",
+      "schema_path": ["rules", "none"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/user_identification/properties/rules/none/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "rules.none for xcsh_user_identification.",
+      "title": "rules.none",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["user_identificationCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 1233,
+      "body_sha256": "sha256:3c55c30e0b5746b91b05e42c81e702b9c34a4e385e973b5fe9735e649410db10",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:data-sources:user_identification:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:user_identification:properties:rules:tls_fingerprint",
+      "parent_id": "xcsh-docs:data-sources:user_identification:properties:rules",
+      "path": "documentation/data-sources/user_identification/properties/rules/tls_fingerprint/index.md",
+      "provider_name": "user_identification",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--user_identification--properties--rules--tls_fingerprint.md",
+      "role": "properties",
+      "schema_path": ["rules", "tls_fingerprint"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/user_identification/properties/rules/tls_fingerprint/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "rules.tls_fingerprint for xcsh_user_identification.",
+      "title": "rules.tls_fingerprint",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["user_identificationCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 699,
+      "body_sha256": "sha256:b707f36022f1cac309553ca2c2e22ad8f6a1215349bbc6898ce5ef77a20c912d",
+      "child_ids": ["xcsh-docs:data-sources:user_identification:example:data-source"],
+      "collection_id": "xcsh-docs:data-sources:user_identification:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:user_identification:examples",
+      "parent_id": "xcsh-docs:data-sources:user_identification:fundamentals",
+      "path": "documentation/data-sources/user_identification/examples/index.md",
+      "provider_name": "user_identification",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--user_identification--examples.md",
+      "role": "examples",
+      "schema_path": [],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/user_identification/examples/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "Examples for xcsh_user_identification.",
+      "title": "Examples",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["user_identificationCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 1370,
+      "body_sha256": "sha256:45a9b3d6de88a37e9caf21343637bb1dec935b661de0e96aeb98f99d562504e7",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:data-sources:user_identification:collection",
+      "completeness": "complete",
+      "evidence": {
+        "attribution": "Schema-derived minimal configuration validated with the checked-out provider.",
+        "outcome": "valid configuration",
+        "sha256": "sha256:c30020dfd6aecd49ffb0273704b9b9e1c85f494c0e9e28cd883c479b6b6234a3",
+        "source_path": "examples/data-sources/xcsh_user_identification/data-source.tf",
+        "validation": "terraform validate"
+      },
+      "id": "xcsh-docs:data-sources:user_identification:example:data-source",
+      "parent_id": "xcsh-docs:data-sources:user_identification:examples",
+      "path": "documentation/data-sources/user_identification/examples/data-source/index.md",
+      "provider_name": "user_identification",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--user_identification--example--data-source.md",
+      "role": "example",
+      "schema_path": ["data-source"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/user_identification/examples/data-source/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "Data source for xcsh_user_identification.",
+      "title": "Data source",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["user_identificationCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    }
+  ],
+  "provider": "registry.terraform.io/f5-sales-demo/xcsh",
+  "schema_version": 1
+}

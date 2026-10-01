@@ -1,0 +1,927 @@
+{
+  "collection": {
+    "fundamentals_id": "xcsh-docs:resources:dns_load_balancer:fundamentals",
+    "id": "xcsh-docs:resources:dns_load_balancer:collection",
+    "properties": {
+      "annotations": {
+        "anchor": "schema-annotations",
+        "document_id": "xcsh-docs:resources:dns_load_balancer:reference",
+        "schema_path": ["annotations"]
+      },
+      "description": {
+        "anchor": "schema-description",
+        "document_id": "xcsh-docs:resources:dns_load_balancer:reference",
+        "schema_path": ["description"]
+      },
+      "disable": {
+        "anchor": "schema-disable",
+        "document_id": "xcsh-docs:resources:dns_load_balancer:reference",
+        "schema_path": ["disable"]
+      },
+      "fallback_pool": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:resources:dns_load_balancer:properties:fallback_pool",
+        "schema_path": ["fallback_pool"]
+      },
+      "fallback_pool.name": {
+        "anchor": "schema-fallback_pool--name",
+        "document_id": "xcsh-docs:resources:dns_load_balancer:properties:fallback_pool",
+        "schema_path": ["fallback_pool", "name"]
+      },
+      "fallback_pool.namespace": {
+        "anchor": "schema-fallback_pool--namespace",
+        "document_id": "xcsh-docs:resources:dns_load_balancer:properties:fallback_pool",
+        "schema_path": ["fallback_pool", "namespace"]
+      },
+      "fallback_pool.tenant": {
+        "anchor": "schema-fallback_pool--tenant",
+        "document_id": "xcsh-docs:resources:dns_load_balancer:properties:fallback_pool",
+        "schema_path": ["fallback_pool", "tenant"]
+      },
+      "id": {
+        "anchor": "schema-id",
+        "document_id": "xcsh-docs:resources:dns_load_balancer:reference",
+        "schema_path": ["id"]
+      },
+      "labels": {
+        "anchor": "schema-labels",
+        "document_id": "xcsh-docs:resources:dns_load_balancer:reference",
+        "schema_path": ["labels"]
+      },
+      "name": {
+        "anchor": "schema-name",
+        "document_id": "xcsh-docs:resources:dns_load_balancer:reference",
+        "schema_path": ["name"]
+      },
+      "namespace": {
+        "anchor": "schema-namespace",
+        "document_id": "xcsh-docs:resources:dns_load_balancer:reference",
+        "schema_path": ["namespace"]
+      },
+      "record_type": {
+        "anchor": "schema-record_type",
+        "document_id": "xcsh-docs:resources:dns_load_balancer:reference",
+        "schema_path": ["record_type"]
+      },
+      "response_cache": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:resources:dns_load_balancer:properties:response_cache",
+        "schema_path": ["response_cache"]
+      },
+      "response_cache.default_response_cache_parameters": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:resources:dns_load_balancer:properties:response_cache:default_response_cache_parameters",
+        "schema_path": ["response_cache", "default_response_cache_parameters"]
+      },
+      "response_cache.disable_spec": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:resources:dns_load_balancer:properties:response_cache:disable_spec",
+        "schema_path": ["response_cache", "disable_spec"]
+      },
+      "response_cache.response_cache_parameters": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:resources:dns_load_balancer:properties:response_cache:response_cache_parameters",
+        "schema_path": ["response_cache", "response_cache_parameters"]
+      },
+      "response_cache.response_cache_parameters.cache_cidr_ipv4": {
+        "anchor": "schema-response_cache--response_cache_parameters--cache_cidr_ipv4",
+        "document_id": "xcsh-docs:resources:dns_load_balancer:properties:response_cache:response_cache_parameters",
+        "schema_path": ["response_cache", "response_cache_parameters", "cache_cidr_ipv4"]
+      },
+      "response_cache.response_cache_parameters.cache_cidr_ipv6": {
+        "anchor": "schema-response_cache--response_cache_parameters--cache_cidr_ipv6",
+        "document_id": "xcsh-docs:resources:dns_load_balancer:properties:response_cache:response_cache_parameters",
+        "schema_path": ["response_cache", "response_cache_parameters", "cache_cidr_ipv6"]
+      },
+      "response_cache.response_cache_parameters.cache_ttl": {
+        "anchor": "schema-response_cache--response_cache_parameters--cache_ttl",
+        "document_id": "xcsh-docs:resources:dns_load_balancer:properties:response_cache:response_cache_parameters",
+        "schema_path": ["response_cache", "response_cache_parameters", "cache_ttl"]
+      },
+      "rule_list": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:resources:dns_load_balancer:properties:rule_list",
+        "schema_path": ["rule_list"]
+      },
+      "rule_list.rules": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:resources:dns_load_balancer:properties:rule_list:rules",
+        "schema_path": ["rule_list", "rules"]
+      },
+      "rule_list.rules.asn_list": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:resources:dns_load_balancer:properties:rule_list:rules:asn_list",
+        "schema_path": ["rule_list", "rules", "asn_list"]
+      },
+      "rule_list.rules.asn_list.as_numbers": {
+        "anchor": "schema-rule_list--rules--asn_list--as_numbers",
+        "document_id": "xcsh-docs:resources:dns_load_balancer:properties:rule_list:rules:asn_list",
+        "schema_path": ["rule_list", "rules", "asn_list", "as_numbers"]
+      },
+      "rule_list.rules.asn_matcher": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:resources:dns_load_balancer:properties:rule_list:rules:asn_matcher",
+        "schema_path": ["rule_list", "rules", "asn_matcher"]
+      },
+      "rule_list.rules.asn_matcher.asn_sets": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:resources:dns_load_balancer:properties:rule_list:rules:asn_matcher:asn_sets",
+        "schema_path": ["rule_list", "rules", "asn_matcher", "asn_sets"]
+      },
+      "rule_list.rules.asn_matcher.asn_sets.kind": {
+        "anchor": "schema-rule_list--rules--asn_matcher--asn_sets--kind",
+        "document_id": "xcsh-docs:resources:dns_load_balancer:properties:rule_list:rules:asn_matcher:asn_sets",
+        "schema_path": ["rule_list", "rules", "asn_matcher", "asn_sets", "kind"]
+      },
+      "rule_list.rules.asn_matcher.asn_sets.name": {
+        "anchor": "schema-rule_list--rules--asn_matcher--asn_sets--name",
+        "document_id": "xcsh-docs:resources:dns_load_balancer:properties:rule_list:rules:asn_matcher:asn_sets",
+        "schema_path": ["rule_list", "rules", "asn_matcher", "asn_sets", "name"]
+      },
+      "rule_list.rules.asn_matcher.asn_sets.namespace": {
+        "anchor": "schema-rule_list--rules--asn_matcher--asn_sets--namespace",
+        "document_id": "xcsh-docs:resources:dns_load_balancer:properties:rule_list:rules:asn_matcher:asn_sets",
+        "schema_path": ["rule_list", "rules", "asn_matcher", "asn_sets", "namespace"]
+      },
+      "rule_list.rules.asn_matcher.asn_sets.tenant": {
+        "anchor": "schema-rule_list--rules--asn_matcher--asn_sets--tenant",
+        "document_id": "xcsh-docs:resources:dns_load_balancer:properties:rule_list:rules:asn_matcher:asn_sets",
+        "schema_path": ["rule_list", "rules", "asn_matcher", "asn_sets", "tenant"]
+      },
+      "rule_list.rules.asn_matcher.asn_sets.uid": {
+        "anchor": "schema-rule_list--rules--asn_matcher--asn_sets--uid",
+        "document_id": "xcsh-docs:resources:dns_load_balancer:properties:rule_list:rules:asn_matcher:asn_sets",
+        "schema_path": ["rule_list", "rules", "asn_matcher", "asn_sets", "uid"]
+      },
+      "rule_list.rules.geo_location_label_selector": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:resources:dns_load_balancer:properties:rule_list:rules:geo_location_label_selector",
+        "schema_path": ["rule_list", "rules", "geo_location_label_selector"]
+      },
+      "rule_list.rules.geo_location_label_selector.expressions": {
+        "anchor": "schema-rule_list--rules--geo_location_label_selector--expressions",
+        "document_id": "xcsh-docs:resources:dns_load_balancer:properties:rule_list:rules:geo_location_label_selector",
+        "schema_path": ["rule_list", "rules", "geo_location_label_selector", "expressions"]
+      },
+      "rule_list.rules.geo_location_set": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:resources:dns_load_balancer:properties:rule_list:rules:geo_location_set",
+        "schema_path": ["rule_list", "rules", "geo_location_set"]
+      },
+      "rule_list.rules.geo_location_set.name": {
+        "anchor": "schema-rule_list--rules--geo_location_set--name",
+        "document_id": "xcsh-docs:resources:dns_load_balancer:properties:rule_list:rules:geo_location_set",
+        "schema_path": ["rule_list", "rules", "geo_location_set", "name"]
+      },
+      "rule_list.rules.geo_location_set.namespace": {
+        "anchor": "schema-rule_list--rules--geo_location_set--namespace",
+        "document_id": "xcsh-docs:resources:dns_load_balancer:properties:rule_list:rules:geo_location_set",
+        "schema_path": ["rule_list", "rules", "geo_location_set", "namespace"]
+      },
+      "rule_list.rules.geo_location_set.tenant": {
+        "anchor": "schema-rule_list--rules--geo_location_set--tenant",
+        "document_id": "xcsh-docs:resources:dns_load_balancer:properties:rule_list:rules:geo_location_set",
+        "schema_path": ["rule_list", "rules", "geo_location_set", "tenant"]
+      },
+      "rule_list.rules.ip_prefix_list": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:resources:dns_load_balancer:properties:rule_list:rules:ip_prefix_list",
+        "schema_path": ["rule_list", "rules", "ip_prefix_list"]
+      },
+      "rule_list.rules.ip_prefix_list.invert_match": {
+        "anchor": "schema-rule_list--rules--ip_prefix_list--invert_match",
+        "document_id": "xcsh-docs:resources:dns_load_balancer:properties:rule_list:rules:ip_prefix_list",
+        "schema_path": ["rule_list", "rules", "ip_prefix_list", "invert_match"]
+      },
+      "rule_list.rules.ip_prefix_list.ip_prefixes": {
+        "anchor": "schema-rule_list--rules--ip_prefix_list--ip_prefixes",
+        "document_id": "xcsh-docs:resources:dns_load_balancer:properties:rule_list:rules:ip_prefix_list",
+        "schema_path": ["rule_list", "rules", "ip_prefix_list", "ip_prefixes"]
+      },
+      "rule_list.rules.ip_prefix_set": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:resources:dns_load_balancer:properties:rule_list:rules:ip_prefix_set",
+        "schema_path": ["rule_list", "rules", "ip_prefix_set"]
+      },
+      "rule_list.rules.ip_prefix_set.invert_matcher": {
+        "anchor": "schema-rule_list--rules--ip_prefix_set--invert_matcher",
+        "document_id": "xcsh-docs:resources:dns_load_balancer:properties:rule_list:rules:ip_prefix_set",
+        "schema_path": ["rule_list", "rules", "ip_prefix_set", "invert_matcher"]
+      },
+      "rule_list.rules.ip_prefix_set.prefix_sets": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:resources:dns_load_balancer:properties:rule_list:rules:ip_prefix_set:prefix_sets",
+        "schema_path": ["rule_list", "rules", "ip_prefix_set", "prefix_sets"]
+      },
+      "rule_list.rules.ip_prefix_set.prefix_sets.kind": {
+        "anchor": "schema-rule_list--rules--ip_prefix_set--prefix_sets--kind",
+        "document_id": "xcsh-docs:resources:dns_load_balancer:properties:rule_list:rules:ip_prefix_set:prefix_sets",
+        "schema_path": ["rule_list", "rules", "ip_prefix_set", "prefix_sets", "kind"]
+      },
+      "rule_list.rules.ip_prefix_set.prefix_sets.name": {
+        "anchor": "schema-rule_list--rules--ip_prefix_set--prefix_sets--name",
+        "document_id": "xcsh-docs:resources:dns_load_balancer:properties:rule_list:rules:ip_prefix_set:prefix_sets",
+        "schema_path": ["rule_list", "rules", "ip_prefix_set", "prefix_sets", "name"]
+      },
+      "rule_list.rules.ip_prefix_set.prefix_sets.namespace": {
+        "anchor": "schema-rule_list--rules--ip_prefix_set--prefix_sets--namespace",
+        "document_id": "xcsh-docs:resources:dns_load_balancer:properties:rule_list:rules:ip_prefix_set:prefix_sets",
+        "schema_path": ["rule_list", "rules", "ip_prefix_set", "prefix_sets", "namespace"]
+      },
+      "rule_list.rules.ip_prefix_set.prefix_sets.tenant": {
+        "anchor": "schema-rule_list--rules--ip_prefix_set--prefix_sets--tenant",
+        "document_id": "xcsh-docs:resources:dns_load_balancer:properties:rule_list:rules:ip_prefix_set:prefix_sets",
+        "schema_path": ["rule_list", "rules", "ip_prefix_set", "prefix_sets", "tenant"]
+      },
+      "rule_list.rules.ip_prefix_set.prefix_sets.uid": {
+        "anchor": "schema-rule_list--rules--ip_prefix_set--prefix_sets--uid",
+        "document_id": "xcsh-docs:resources:dns_load_balancer:properties:rule_list:rules:ip_prefix_set:prefix_sets",
+        "schema_path": ["rule_list", "rules", "ip_prefix_set", "prefix_sets", "uid"]
+      },
+      "rule_list.rules.pool": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:resources:dns_load_balancer:properties:rule_list:rules:pool",
+        "schema_path": ["rule_list", "rules", "pool"]
+      },
+      "rule_list.rules.pool.name": {
+        "anchor": "schema-rule_list--rules--pool--name",
+        "document_id": "xcsh-docs:resources:dns_load_balancer:properties:rule_list:rules:pool",
+        "schema_path": ["rule_list", "rules", "pool", "name"]
+      },
+      "rule_list.rules.pool.namespace": {
+        "anchor": "schema-rule_list--rules--pool--namespace",
+        "document_id": "xcsh-docs:resources:dns_load_balancer:properties:rule_list:rules:pool",
+        "schema_path": ["rule_list", "rules", "pool", "namespace"]
+      },
+      "rule_list.rules.pool.tenant": {
+        "anchor": "schema-rule_list--rules--pool--tenant",
+        "document_id": "xcsh-docs:resources:dns_load_balancer:properties:rule_list:rules:pool",
+        "schema_path": ["rule_list", "rules", "pool", "tenant"]
+      },
+      "rule_list.rules.score": {
+        "anchor": "schema-rule_list--rules--score",
+        "document_id": "xcsh-docs:resources:dns_load_balancer:properties:rule_list:rules",
+        "schema_path": ["rule_list", "rules", "score"]
+      },
+      "timeouts": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:resources:dns_load_balancer:properties:timeouts",
+        "schema_path": ["timeouts"]
+      },
+      "timeouts.create": {
+        "anchor": "schema-timeouts--create",
+        "document_id": "xcsh-docs:resources:dns_load_balancer:properties:timeouts",
+        "schema_path": ["timeouts", "create"]
+      },
+      "timeouts.delete": {
+        "anchor": "schema-timeouts--delete",
+        "document_id": "xcsh-docs:resources:dns_load_balancer:properties:timeouts",
+        "schema_path": ["timeouts", "delete"]
+      },
+      "timeouts.read": {
+        "anchor": "schema-timeouts--read",
+        "document_id": "xcsh-docs:resources:dns_load_balancer:properties:timeouts",
+        "schema_path": ["timeouts", "read"]
+      },
+      "timeouts.update": {
+        "anchor": "schema-timeouts--update",
+        "document_id": "xcsh-docs:resources:dns_load_balancer:properties:timeouts",
+        "schema_path": ["timeouts", "update"]
+      }
+    },
+    "provider_name": "dns_load_balancer",
+    "provider_type": "resources",
+    "reference_id": "xcsh-docs:resources:dns_load_balancer:reference"
+  },
+  "pages": [
+    {
+      "aliases": [],
+      "body_bytes": 1691,
+      "body_sha256": "sha256:2323205f20bca2b648229600e943ae9856df5acdf5201b911e467433585f6517",
+      "child_ids": [
+        "xcsh-docs:resources:dns_load_balancer:reference",
+        "xcsh-docs:resources:dns_load_balancer:examples",
+        "xcsh-docs:resources:dns_load_balancer:import",
+        "xcsh-docs:resources:dns_load_balancer:timeouts"
+      ],
+      "collection_id": "xcsh-docs:resources:dns_load_balancer:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:resources:dns_load_balancer:fundamentals",
+      "parent_id": null,
+      "path": "documentation/resources/dns_load_balancer/index.md",
+      "provider_name": "dns_load_balancer",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "resources",
+      "registry_path": "docs/resources/dns_load_balancer.md",
+      "role": "fundamentals",
+      "schema_path": [],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/dns_load_balancer/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "xcsh_dns_load_balancer for xcsh_dns_load_balancer.",
+      "title": "xcsh_dns_load_balancer",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["dns_load_balancerCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 21844,
+      "body_sha256": "sha256:8b4271338f7aab0f2a030388e6a6c49e669c112dba266961652d585b2886fc91",
+      "child_ids": [
+        "xcsh-docs:resources:dns_load_balancer:properties:fallback_pool",
+        "xcsh-docs:resources:dns_load_balancer:properties:response_cache",
+        "xcsh-docs:resources:dns_load_balancer:properties:rule_list",
+        "xcsh-docs:resources:dns_load_balancer:properties:timeouts"
+      ],
+      "collection_id": "xcsh-docs:resources:dns_load_balancer:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:resources:dns_load_balancer:reference",
+      "parent_id": "xcsh-docs:resources:dns_load_balancer:fundamentals",
+      "path": "documentation/resources/dns_load_balancer/properties/index.md",
+      "provider_name": "dns_load_balancer",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "resources",
+      "registry_path": "docs/guides/resources--dns_load_balancer--reference.md",
+      "role": "reference",
+      "schema_path": [],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/dns_load_balancer/properties/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "Property reference for xcsh_dns_load_balancer.",
+      "title": "Property reference",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["dns_load_balancerCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 5865,
+      "body_sha256": "sha256:8cd6fc4ffa0fd016ae1575e529cd768a538aba49a8ec16481e5ecacda0b8fe2a",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:resources:dns_load_balancer:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:resources:dns_load_balancer:properties:fallback_pool",
+      "parent_id": "xcsh-docs:resources:dns_load_balancer:reference",
+      "path": "documentation/resources/dns_load_balancer/properties/fallback_pool/index.md",
+      "provider_name": "dns_load_balancer",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "resources",
+      "registry_path": "docs/guides/resources--dns_load_balancer--properties--fallback_pool.md",
+      "role": "properties",
+      "schema_path": ["fallback_pool"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/dns_load_balancer/properties/fallback_pool/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "fallback_pool for xcsh_dns_load_balancer.",
+      "title": "fallback_pool",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["dns_load_balancerCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 2768,
+      "body_sha256": "sha256:ec96d1be57b8d8ceea675e0f8ff8c1577819e03c9fe7df208daf1d9e5d96970c",
+      "child_ids": [
+        "xcsh-docs:resources:dns_load_balancer:properties:response_cache:default_response_cache_parameters",
+        "xcsh-docs:resources:dns_load_balancer:properties:response_cache:disable_spec",
+        "xcsh-docs:resources:dns_load_balancer:properties:response_cache:response_cache_parameters"
+      ],
+      "collection_id": "xcsh-docs:resources:dns_load_balancer:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:resources:dns_load_balancer:properties:response_cache",
+      "parent_id": "xcsh-docs:resources:dns_load_balancer:reference",
+      "path": "documentation/resources/dns_load_balancer/properties/response_cache/index.md",
+      "provider_name": "dns_load_balancer",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "resources",
+      "registry_path": "docs/guides/resources--dns_load_balancer--properties--response_cache.md",
+      "role": "properties",
+      "schema_path": ["response_cache"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/dns_load_balancer/properties/response_cache/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "response_cache for xcsh_dns_load_balancer.",
+      "title": "response_cache",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["dns_load_balancerCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 1388,
+      "body_sha256": "sha256:86910c7aa586f2f2d7c93dc402c5372f046e54e7afb450b35b3577132e1ab10a",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:resources:dns_load_balancer:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:resources:dns_load_balancer:properties:response_cache:default_response_cache_parameters",
+      "parent_id": "xcsh-docs:resources:dns_load_balancer:properties:response_cache",
+      "path": "documentation/resources/dns_load_balancer/properties/response_cache/default_response_cache_parameters/index.md",
+      "provider_name": "dns_load_balancer",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "resources",
+      "registry_path": "docs/guides/resources--dns_load_balancer--properties--response_cache--default_response_cache_parameters.md",
+      "role": "properties",
+      "schema_path": ["response_cache", "default_response_cache_parameters"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/dns_load_balancer/properties/response_cache/default_response_cache_parameters/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "response_cache.default_response_cache_parameters for xcsh_dns_load_balancer.",
+      "title": "response_cache.default_response_cache_parameters",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["dns_load_balancerCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 1024,
+      "body_sha256": "sha256:c5b7ec028e1b61244cb19affcc89fa0ad9cce9bc79c2f3eca389b90de2a538b2",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:resources:dns_load_balancer:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:resources:dns_load_balancer:properties:response_cache:disable_spec",
+      "parent_id": "xcsh-docs:resources:dns_load_balancer:properties:response_cache",
+      "path": "documentation/resources/dns_load_balancer/properties/response_cache/disable_spec/index.md",
+      "provider_name": "dns_load_balancer",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "resources",
+      "registry_path": "docs/guides/resources--dns_load_balancer--properties--response_cache--disable_spec.md",
+      "role": "properties",
+      "schema_path": ["response_cache", "disable_spec"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/dns_load_balancer/properties/response_cache/disable_spec/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "response_cache.disable_spec for xcsh_dns_load_balancer.",
+      "title": "response_cache.disable_spec",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["dns_load_balancerCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 4383,
+      "body_sha256": "sha256:8960150269ec762cb7023eecf9278c89079040bee19cdc3f491fa60cf915a527",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:resources:dns_load_balancer:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:resources:dns_load_balancer:properties:response_cache:response_cache_parameters",
+      "parent_id": "xcsh-docs:resources:dns_load_balancer:properties:response_cache",
+      "path": "documentation/resources/dns_load_balancer/properties/response_cache/response_cache_parameters/index.md",
+      "provider_name": "dns_load_balancer",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "resources",
+      "registry_path": "docs/guides/resources--dns_load_balancer--properties--response_cache--response_cache_parameters.md",
+      "role": "properties",
+      "schema_path": ["response_cache", "response_cache_parameters"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/dns_load_balancer/properties/response_cache/response_cache_parameters/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "response_cache.response_cache_parameters for xcsh_dns_load_balancer.",
+      "title": "response_cache.response_cache_parameters",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["dns_load_balancerCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 1538,
+      "body_sha256": "sha256:492ce1bcf897b77ee4e1d618629a2b025e94a823a9f1bbdb5419dcfc05968547",
+      "child_ids": ["xcsh-docs:resources:dns_load_balancer:properties:rule_list:rules"],
+      "collection_id": "xcsh-docs:resources:dns_load_balancer:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:resources:dns_load_balancer:properties:rule_list",
+      "parent_id": "xcsh-docs:resources:dns_load_balancer:reference",
+      "path": "documentation/resources/dns_load_balancer/properties/rule_list/index.md",
+      "provider_name": "dns_load_balancer",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "resources",
+      "registry_path": "docs/guides/resources--dns_load_balancer--properties--rule_list.md",
+      "role": "properties",
+      "schema_path": ["rule_list"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/dns_load_balancer/properties/rule_list/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "rule_list for xcsh_dns_load_balancer.",
+      "title": "rule_list",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["dns_load_balancerCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 6916,
+      "body_sha256": "sha256:bbff3c84f2d10b631f018131a7babfe2806b5d940a3adfdbd8fc1ef8d03e779c",
+      "child_ids": [
+        "xcsh-docs:resources:dns_load_balancer:properties:rule_list:rules:asn_list",
+        "xcsh-docs:resources:dns_load_balancer:properties:rule_list:rules:asn_matcher",
+        "xcsh-docs:resources:dns_load_balancer:properties:rule_list:rules:geo_location_label_selector",
+        "xcsh-docs:resources:dns_load_balancer:properties:rule_list:rules:geo_location_set",
+        "xcsh-docs:resources:dns_load_balancer:properties:rule_list:rules:ip_prefix_list",
+        "xcsh-docs:resources:dns_load_balancer:properties:rule_list:rules:ip_prefix_set",
+        "xcsh-docs:resources:dns_load_balancer:properties:rule_list:rules:pool"
+      ],
+      "collection_id": "xcsh-docs:resources:dns_load_balancer:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:resources:dns_load_balancer:properties:rule_list:rules",
+      "parent_id": "xcsh-docs:resources:dns_load_balancer:properties:rule_list",
+      "path": "documentation/resources/dns_load_balancer/properties/rule_list/rules/index.md",
+      "provider_name": "dns_load_balancer",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "resources",
+      "registry_path": "docs/guides/resources--dns_load_balancer--properties--rule_list--rules.md",
+      "role": "properties",
+      "schema_path": ["rule_list", "rules"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/dns_load_balancer/properties/rule_list/rules/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "rule_list.rules for xcsh_dns_load_balancer.",
+      "title": "rule_list.rules",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["dns_load_balancerCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 3588,
+      "body_sha256": "sha256:fd8c22b8fd85c3c416959e8be4c6321c0ea14cfd68b0fd57cd93f58178708cf5",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:resources:dns_load_balancer:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:resources:dns_load_balancer:properties:rule_list:rules:asn_list",
+      "parent_id": "xcsh-docs:resources:dns_load_balancer:properties:rule_list:rules",
+      "path": "documentation/resources/dns_load_balancer/properties/rule_list/rules/asn_list/index.md",
+      "provider_name": "dns_load_balancer",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "resources",
+      "registry_path": "docs/guides/resources--dns_load_balancer--properties--rule_list--rules--asn_list.md",
+      "role": "properties",
+      "schema_path": ["rule_list", "rules", "asn_list"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/dns_load_balancer/properties/rule_list/rules/asn_list/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "rule_list.rules.asn_list for xcsh_dns_load_balancer.",
+      "title": "rule_list.rules.asn_list",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["dns_load_balancerCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 1855,
+      "body_sha256": "sha256:53ec39d3323e5f11dba99eb4fc2e669437289e571e96dc08e8c4370be22cca1c",
+      "child_ids": ["xcsh-docs:resources:dns_load_balancer:properties:rule_list:rules:asn_matcher:asn_sets"],
+      "collection_id": "xcsh-docs:resources:dns_load_balancer:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:resources:dns_load_balancer:properties:rule_list:rules:asn_matcher",
+      "parent_id": "xcsh-docs:resources:dns_load_balancer:properties:rule_list:rules",
+      "path": "documentation/resources/dns_load_balancer/properties/rule_list/rules/asn_matcher/index.md",
+      "provider_name": "dns_load_balancer",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "resources",
+      "registry_path": "docs/guides/resources--dns_load_balancer--properties--rule_list--rules--asn_matcher.md",
+      "role": "properties",
+      "schema_path": ["rule_list", "rules", "asn_matcher"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/dns_load_balancer/properties/rule_list/rules/asn_matcher/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "rule_list.rules.asn_matcher for xcsh_dns_load_balancer.",
+      "title": "rule_list.rules.asn_matcher",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["dns_load_balancerCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 7109,
+      "body_sha256": "sha256:181b481ee74e05a4fd4f23308848415f07ea5bfe0c57d35c859cb3b9d79fcbed",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:resources:dns_load_balancer:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:resources:dns_load_balancer:properties:rule_list:rules:asn_matcher:asn_sets",
+      "parent_id": "xcsh-docs:resources:dns_load_balancer:properties:rule_list:rules:asn_matcher",
+      "path": "documentation/resources/dns_load_balancer/properties/rule_list/rules/asn_matcher/asn_sets/index.md",
+      "provider_name": "dns_load_balancer",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "resources",
+      "registry_path": "docs/guides/resources--dns_load_balancer--properties--rule_list--rules--asn_matcher--asn_sets.md",
+      "role": "properties",
+      "schema_path": ["rule_list", "rules", "asn_matcher", "asn_sets"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/dns_load_balancer/properties/rule_list/rules/asn_matcher/asn_sets/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "rule_list.rules.asn_matcher.asn_sets for xcsh_dns_load_balancer.",
+      "title": "rule_list.rules.asn_matcher.asn_sets",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["dns_load_balancerCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 4361,
+      "body_sha256": "sha256:6a82280ad719d16ab37513fa14a06d14bc0705f3a153980e33f6985f826e8e9c",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:resources:dns_load_balancer:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:resources:dns_load_balancer:properties:rule_list:rules:geo_location_label_selector",
+      "parent_id": "xcsh-docs:resources:dns_load_balancer:properties:rule_list:rules",
+      "path": "documentation/resources/dns_load_balancer/properties/rule_list/rules/geo_location_label_selector/index.md",
+      "provider_name": "dns_load_balancer",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "resources",
+      "registry_path": "docs/guides/resources--dns_load_balancer--properties--rule_list--rules--geo_location_label_selector.md",
+      "role": "properties",
+      "schema_path": ["rule_list", "rules", "geo_location_label_selector"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/dns_load_balancer/properties/rule_list/rules/geo_location_label_selector/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "rule_list.rules.geo_location_label_selector for xcsh_dns_load_balancer.",
+      "title": "rule_list.rules.geo_location_label_selector",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["dns_load_balancerCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 6236,
+      "body_sha256": "sha256:a1a67e6c8fc84a772b3cecc44b9fba75b306d87493c3378bdc557355d360a81d",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:resources:dns_load_balancer:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:resources:dns_load_balancer:properties:rule_list:rules:geo_location_set",
+      "parent_id": "xcsh-docs:resources:dns_load_balancer:properties:rule_list:rules",
+      "path": "documentation/resources/dns_load_balancer/properties/rule_list/rules/geo_location_set/index.md",
+      "provider_name": "dns_load_balancer",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "resources",
+      "registry_path": "docs/guides/resources--dns_load_balancer--properties--rule_list--rules--geo_location_set.md",
+      "role": "properties",
+      "schema_path": ["rule_list", "rules", "geo_location_set"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/dns_load_balancer/properties/rule_list/rules/geo_location_set/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "rule_list.rules.geo_location_set for xcsh_dns_load_balancer.",
+      "title": "rule_list.rules.geo_location_set",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["dns_load_balancerCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 3133,
+      "body_sha256": "sha256:1350a22e6da5277d02f50683bd0329864209e2bed02ce156dab27ebcacc01d42",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:resources:dns_load_balancer:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:resources:dns_load_balancer:properties:rule_list:rules:ip_prefix_list",
+      "parent_id": "xcsh-docs:resources:dns_load_balancer:properties:rule_list:rules",
+      "path": "documentation/resources/dns_load_balancer/properties/rule_list/rules/ip_prefix_list/index.md",
+      "provider_name": "dns_load_balancer",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "resources",
+      "registry_path": "docs/guides/resources--dns_load_balancer--properties--rule_list--rules--ip_prefix_list.md",
+      "role": "properties",
+      "schema_path": ["rule_list", "rules", "ip_prefix_list"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/dns_load_balancer/properties/rule_list/rules/ip_prefix_list/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "rule_list.rules.ip_prefix_list for xcsh_dns_load_balancer.",
+      "title": "rule_list.rules.ip_prefix_list",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["dns_load_balancerCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 2493,
+      "body_sha256": "sha256:4f7b66ac574aacadabd07f4abf64441cb1c865175ce6bf77622dd77929fd0e6a",
+      "child_ids": ["xcsh-docs:resources:dns_load_balancer:properties:rule_list:rules:ip_prefix_set:prefix_sets"],
+      "collection_id": "xcsh-docs:resources:dns_load_balancer:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:resources:dns_load_balancer:properties:rule_list:rules:ip_prefix_set",
+      "parent_id": "xcsh-docs:resources:dns_load_balancer:properties:rule_list:rules",
+      "path": "documentation/resources/dns_load_balancer/properties/rule_list/rules/ip_prefix_set/index.md",
+      "provider_name": "dns_load_balancer",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "resources",
+      "registry_path": "docs/guides/resources--dns_load_balancer--properties--rule_list--rules--ip_prefix_set.md",
+      "role": "properties",
+      "schema_path": ["rule_list", "rules", "ip_prefix_set"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/dns_load_balancer/properties/rule_list/rules/ip_prefix_set/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "rule_list.rules.ip_prefix_set for xcsh_dns_load_balancer.",
+      "title": "rule_list.rules.ip_prefix_set",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["dns_load_balancerCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 7159,
+      "body_sha256": "sha256:1acb0f522147257a2e20909fa5aa2f6c823c5a20b513d8d69810440a36b22966",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:resources:dns_load_balancer:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:resources:dns_load_balancer:properties:rule_list:rules:ip_prefix_set:prefix_sets",
+      "parent_id": "xcsh-docs:resources:dns_load_balancer:properties:rule_list:rules:ip_prefix_set",
+      "path": "documentation/resources/dns_load_balancer/properties/rule_list/rules/ip_prefix_set/prefix_sets/index.md",
+      "provider_name": "dns_load_balancer",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "resources",
+      "registry_path": "docs/guides/resources--dns_load_balancer--properties--rule_list--rules--ip_prefix_set--prefix_sets.md",
+      "role": "properties",
+      "schema_path": ["rule_list", "rules", "ip_prefix_set", "prefix_sets"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/dns_load_balancer/properties/rule_list/rules/ip_prefix_set/prefix_sets/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "rule_list.rules.ip_prefix_set.prefix_sets for xcsh_dns_load_balancer.",
+      "title": "rule_list.rules.ip_prefix_set.prefix_sets",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["dns_load_balancerCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 6164,
+      "body_sha256": "sha256:f1d3fd3800b4d126730f4557bbeb4a06ea2babc17479cd4abc59e85541cdb09c",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:resources:dns_load_balancer:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:resources:dns_load_balancer:properties:rule_list:rules:pool",
+      "parent_id": "xcsh-docs:resources:dns_load_balancer:properties:rule_list:rules",
+      "path": "documentation/resources/dns_load_balancer/properties/rule_list/rules/pool/index.md",
+      "provider_name": "dns_load_balancer",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "resources",
+      "registry_path": "docs/guides/resources--dns_load_balancer--properties--rule_list--rules--pool.md",
+      "role": "properties",
+      "schema_path": ["rule_list", "rules", "pool"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/dns_load_balancer/properties/rule_list/rules/pool/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "rule_list.rules.pool for xcsh_dns_load_balancer.",
+      "title": "rule_list.rules.pool",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["dns_load_balancerCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 2261,
+      "body_sha256": "sha256:cf24688a0f3993f4a2d13681f2d71216b148ff4085fb96ab7c9d171c5aaf7f74",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:resources:dns_load_balancer:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:resources:dns_load_balancer:properties:timeouts",
+      "parent_id": "xcsh-docs:resources:dns_load_balancer:reference",
+      "path": "documentation/resources/dns_load_balancer/properties/timeouts/index.md",
+      "provider_name": "dns_load_balancer",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "resources",
+      "registry_path": "docs/guides/resources--dns_load_balancer--properties--timeouts.md",
+      "role": "properties",
+      "schema_path": ["timeouts"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/dns_load_balancer/properties/timeouts/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "timeouts for xcsh_dns_load_balancer.",
+      "title": "timeouts",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["dns_load_balancerCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 663,
+      "body_sha256": "sha256:652d3bc360ccf7a5877cb9cf3c13fb5d3841a9facc5d3cd0d95b140be27be139",
+      "child_ids": ["xcsh-docs:resources:dns_load_balancer:example:resource"],
+      "collection_id": "xcsh-docs:resources:dns_load_balancer:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:resources:dns_load_balancer:examples",
+      "parent_id": "xcsh-docs:resources:dns_load_balancer:fundamentals",
+      "path": "documentation/resources/dns_load_balancer/examples/index.md",
+      "provider_name": "dns_load_balancer",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "resources",
+      "registry_path": "docs/guides/resources--dns_load_balancer--examples.md",
+      "role": "examples",
+      "schema_path": [],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/dns_load_balancer/examples/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "Examples for xcsh_dns_load_balancer.",
+      "title": "Examples",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["dns_load_balancerCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 1276,
+      "body_sha256": "sha256:5132f94063ff5ec89afc131469381306a0ff930dd222748482c16178ecb55cdc",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:resources:dns_load_balancer:collection",
+      "completeness": "complete",
+      "evidence": {
+        "attribution": "Schema-derived minimal configuration validated with the checked-out provider.",
+        "outcome": "valid configuration",
+        "sha256": "sha256:103fabb6495b3c7befdb807ff9ebc6d11ed6c79f3f4a4083e4f2815709c3a01c",
+        "source_path": "examples/resources/xcsh_dns_load_balancer/resource.tf",
+        "validation": "terraform validate"
+      },
+      "id": "xcsh-docs:resources:dns_load_balancer:example:resource",
+      "parent_id": "xcsh-docs:resources:dns_load_balancer:examples",
+      "path": "documentation/resources/dns_load_balancer/examples/resource/index.md",
+      "provider_name": "dns_load_balancer",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "resources",
+      "registry_path": "docs/guides/resources--dns_load_balancer--example--resource.md",
+      "role": "example",
+      "schema_path": ["resource"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/dns_load_balancer/examples/resource/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "Resource for xcsh_dns_load_balancer.",
+      "title": "Resource",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["dns_load_balancerCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 533,
+      "body_sha256": "sha256:f7b73beb8aaec4cb05a3945a51d5499b749650c8e31ebc8ced0ff012b00b6426",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:resources:dns_load_balancer:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:resources:dns_load_balancer:import",
+      "parent_id": "xcsh-docs:resources:dns_load_balancer:fundamentals",
+      "path": "documentation/resources/dns_load_balancer/lifecycle/import/index.md",
+      "provider_name": "dns_load_balancer",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "resources",
+      "registry_path": "docs/guides/resources--dns_load_balancer--import.md",
+      "role": "import",
+      "schema_path": [],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/dns_load_balancer/lifecycle/import/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "Import for xcsh_dns_load_balancer.",
+      "title": "Import",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["dns_load_balancerCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 593,
+      "body_sha256": "sha256:a6106e56cef1ee3ea3c783f7745a384344c4e8c36c55fc4325d2eaa512824998",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:resources:dns_load_balancer:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:resources:dns_load_balancer:timeouts",
+      "parent_id": "xcsh-docs:resources:dns_load_balancer:fundamentals",
+      "path": "documentation/resources/dns_load_balancer/lifecycle/timeouts/index.md",
+      "provider_name": "dns_load_balancer",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "resources",
+      "registry_path": "docs/guides/resources--dns_load_balancer--timeouts.md",
+      "role": "timeouts",
+      "schema_path": [],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/dns_load_balancer/lifecycle/timeouts/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "Timeouts for xcsh_dns_load_balancer.",
+      "title": "Timeouts",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["dns_load_balancerCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    }
+  ],
+  "provider": "registry.terraform.io/f5-sales-demo/xcsh",
+  "schema_version": 1
+}

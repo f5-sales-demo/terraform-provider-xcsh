@@ -1,0 +1,699 @@
+{
+  "collection": {
+    "fundamentals_id": "xcsh-docs:data-sources:certified_hardware:fundamentals",
+    "id": "xcsh-docs:data-sources:certified_hardware:collection",
+    "properties": {
+      "annotations": {
+        "anchor": "schema-annotations",
+        "document_id": "xcsh-docs:data-sources:certified_hardware:reference",
+        "schema_path": ["annotations"]
+      },
+      "certified_hardware_type": {
+        "anchor": "schema-certified_hardware_type",
+        "document_id": "xcsh-docs:data-sources:certified_hardware:reference",
+        "schema_path": ["certified_hardware_type"]
+      },
+      "description": {
+        "anchor": "schema-description",
+        "document_id": "xcsh-docs:data-sources:certified_hardware:reference",
+        "schema_path": ["description"]
+      },
+      "devices": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:data-sources:certified_hardware:properties:devices",
+        "schema_path": ["devices"]
+      },
+      "devices.device_list": {
+        "anchor": "schema-devices--device_list",
+        "document_id": "xcsh-docs:data-sources:certified_hardware:properties:devices",
+        "schema_path": ["devices", "device_list"]
+      },
+      "devices.max_unit": {
+        "anchor": "schema-devices--max_unit",
+        "document_id": "xcsh-docs:data-sources:certified_hardware:properties:devices",
+        "schema_path": ["devices", "max_unit"]
+      },
+      "devices.min_unit": {
+        "anchor": "schema-devices--min_unit",
+        "document_id": "xcsh-docs:data-sources:certified_hardware:properties:devices",
+        "schema_path": ["devices", "min_unit"]
+      },
+      "devices.name": {
+        "anchor": "schema-devices--name",
+        "document_id": "xcsh-docs:data-sources:certified_hardware:properties:devices",
+        "schema_path": ["devices", "name"]
+      },
+      "devices.type": {
+        "anchor": "schema-devices--type",
+        "document_id": "xcsh-docs:data-sources:certified_hardware:properties:devices",
+        "schema_path": ["devices", "type"]
+      },
+      "devices.use": {
+        "anchor": "schema-devices--use",
+        "document_id": "xcsh-docs:data-sources:certified_hardware:properties:devices",
+        "schema_path": ["devices", "use"]
+      },
+      "id": {
+        "anchor": "schema-id",
+        "document_id": "xcsh-docs:data-sources:certified_hardware:reference",
+        "schema_path": ["id"]
+      },
+      "image_list": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:data-sources:certified_hardware:properties:image_list",
+        "schema_path": ["image_list"]
+      },
+      "image_list.aws": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:data-sources:certified_hardware:properties:image_list:aws",
+        "schema_path": ["image_list", "aws"]
+      },
+      "image_list.aws.image_id": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:data-sources:certified_hardware:properties:image_list:aws:image_id",
+        "schema_path": ["image_list", "aws", "image_id"]
+      },
+      "image_list.aws.image_id.image_id": {
+        "anchor": "schema-image_list--aws--image_id--image_id",
+        "document_id": "xcsh-docs:data-sources:certified_hardware:properties:image_list:aws:image_id",
+        "schema_path": ["image_list", "aws", "image_id", "image_id"]
+      },
+      "image_list.aws.image_id.region": {
+        "anchor": "schema-image_list--aws--image_id--region",
+        "document_id": "xcsh-docs:data-sources:certified_hardware:properties:image_list:aws:image_id",
+        "schema_path": ["image_list", "aws", "image_id", "region"]
+      },
+      "image_list.azure": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:data-sources:certified_hardware:properties:image_list:azure",
+        "schema_path": ["image_list", "azure"]
+      },
+      "image_list.azure.image_id": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:data-sources:certified_hardware:properties:image_list:azure:image_id",
+        "schema_path": ["image_list", "azure", "image_id"]
+      },
+      "image_list.azure.image_id.image_id": {
+        "anchor": "schema-image_list--azure--image_id--image_id",
+        "document_id": "xcsh-docs:data-sources:certified_hardware:properties:image_list:azure:image_id",
+        "schema_path": ["image_list", "azure", "image_id", "image_id"]
+      },
+      "image_list.azure.marketplace": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:data-sources:certified_hardware:properties:image_list:azure:marketplace",
+        "schema_path": ["image_list", "azure", "marketplace"]
+      },
+      "image_list.azure.marketplace.name": {
+        "anchor": "schema-image_list--azure--marketplace--name",
+        "document_id": "xcsh-docs:data-sources:certified_hardware:properties:image_list:azure:marketplace",
+        "schema_path": ["image_list", "azure", "marketplace", "name"]
+      },
+      "image_list.azure.marketplace.offer": {
+        "anchor": "schema-image_list--azure--marketplace--offer",
+        "document_id": "xcsh-docs:data-sources:certified_hardware:properties:image_list:azure:marketplace",
+        "schema_path": ["image_list", "azure", "marketplace", "offer"]
+      },
+      "image_list.azure.marketplace.publisher": {
+        "anchor": "schema-image_list--azure--marketplace--publisher",
+        "document_id": "xcsh-docs:data-sources:certified_hardware:properties:image_list:azure:marketplace",
+        "schema_path": ["image_list", "azure", "marketplace", "publisher"]
+      },
+      "image_list.azure.marketplace.sku": {
+        "anchor": "schema-image_list--azure--marketplace--sku",
+        "document_id": "xcsh-docs:data-sources:certified_hardware:properties:image_list:azure:marketplace",
+        "schema_path": ["image_list", "azure", "marketplace", "sku"]
+      },
+      "image_list.azure.marketplace.version": {
+        "anchor": "schema-image_list--azure--marketplace--version",
+        "document_id": "xcsh-docs:data-sources:certified_hardware:properties:image_list:azure:marketplace",
+        "schema_path": ["image_list", "azure", "marketplace", "version"]
+      },
+      "image_list.gcp": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:data-sources:certified_hardware:properties:image_list:gcp",
+        "schema_path": ["image_list", "gcp"]
+      },
+      "image_list.gcp.image_id": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:data-sources:certified_hardware:properties:image_list:gcp:image_id",
+        "schema_path": ["image_list", "gcp", "image_id"]
+      },
+      "image_list.gcp.image_id.image_id": {
+        "anchor": "schema-image_list--gcp--image_id--image_id",
+        "document_id": "xcsh-docs:data-sources:certified_hardware:properties:image_list:gcp:image_id",
+        "schema_path": ["image_list", "gcp", "image_id", "image_id"]
+      },
+      "image_list.name": {
+        "anchor": "schema-image_list--name",
+        "document_id": "xcsh-docs:data-sources:certified_hardware:properties:image_list",
+        "schema_path": ["image_list", "name"]
+      },
+      "image_list.provider_ref": {
+        "anchor": "schema-image_list--provider_ref",
+        "document_id": "xcsh-docs:data-sources:certified_hardware:properties:image_list",
+        "schema_path": ["image_list", "provider_ref"]
+      },
+      "internal_usb_device_rule": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:data-sources:certified_hardware:properties:internal_usb_device_rule",
+        "schema_path": ["internal_usb_device_rule"]
+      },
+      "internal_usb_device_rule.b_device_class": {
+        "anchor": "schema-internal_usb_device_rule--b_device_class",
+        "document_id": "xcsh-docs:data-sources:certified_hardware:properties:internal_usb_device_rule",
+        "schema_path": ["internal_usb_device_rule", "b_device_class"]
+      },
+      "internal_usb_device_rule.b_device_protocol": {
+        "anchor": "schema-internal_usb_device_rule--b_device_protocol",
+        "document_id": "xcsh-docs:data-sources:certified_hardware:properties:internal_usb_device_rule",
+        "schema_path": ["internal_usb_device_rule", "b_device_protocol"]
+      },
+      "internal_usb_device_rule.b_device_sub_class": {
+        "anchor": "schema-internal_usb_device_rule--b_device_sub_class",
+        "document_id": "xcsh-docs:data-sources:certified_hardware:properties:internal_usb_device_rule",
+        "schema_path": ["internal_usb_device_rule", "b_device_sub_class"]
+      },
+      "internal_usb_device_rule.i_serial": {
+        "anchor": "schema-internal_usb_device_rule--i_serial",
+        "document_id": "xcsh-docs:data-sources:certified_hardware:properties:internal_usb_device_rule",
+        "schema_path": ["internal_usb_device_rule", "i_serial"]
+      },
+      "internal_usb_device_rule.id_product": {
+        "anchor": "schema-internal_usb_device_rule--id_product",
+        "document_id": "xcsh-docs:data-sources:certified_hardware:properties:internal_usb_device_rule",
+        "schema_path": ["internal_usb_device_rule", "id_product"]
+      },
+      "internal_usb_device_rule.id_vendor": {
+        "anchor": "schema-internal_usb_device_rule--id_vendor",
+        "document_id": "xcsh-docs:data-sources:certified_hardware:properties:internal_usb_device_rule",
+        "schema_path": ["internal_usb_device_rule", "id_vendor"]
+      },
+      "labels": {
+        "anchor": "schema-labels",
+        "document_id": "xcsh-docs:data-sources:certified_hardware:reference",
+        "schema_path": ["labels"]
+      },
+      "mem_page_number": {
+        "anchor": "schema-mem_page_number",
+        "document_id": "xcsh-docs:data-sources:certified_hardware:reference",
+        "schema_path": ["mem_page_number"]
+      },
+      "mem_page_size": {
+        "anchor": "schema-mem_page_size",
+        "document_id": "xcsh-docs:data-sources:certified_hardware:reference",
+        "schema_path": ["mem_page_size"]
+      },
+      "name": {
+        "anchor": "schema-name",
+        "document_id": "xcsh-docs:data-sources:certified_hardware:reference",
+        "schema_path": ["name"]
+      },
+      "namespace": {
+        "anchor": "schema-namespace",
+        "document_id": "xcsh-docs:data-sources:certified_hardware:reference",
+        "schema_path": ["namespace"]
+      },
+      "numa_mem": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:data-sources:certified_hardware:properties:numa_mem",
+        "schema_path": ["numa_mem"]
+      },
+      "numa_mem.memory": {
+        "anchor": "schema-numa_mem--memory",
+        "document_id": "xcsh-docs:data-sources:certified_hardware:properties:numa_mem",
+        "schema_path": ["numa_mem", "memory"]
+      },
+      "numa_mem.node": {
+        "anchor": "schema-numa_mem--node",
+        "document_id": "xcsh-docs:data-sources:certified_hardware:properties:numa_mem",
+        "schema_path": ["numa_mem", "node"]
+      },
+      "numa_nodes": {
+        "anchor": "schema-numa_nodes",
+        "document_id": "xcsh-docs:data-sources:certified_hardware:reference",
+        "schema_path": ["numa_nodes"]
+      },
+      "vendor_model_list": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:data-sources:certified_hardware:properties:vendor_model_list",
+        "schema_path": ["vendor_model_list"]
+      },
+      "vendor_model_list.model": {
+        "anchor": "schema-vendor_model_list--model",
+        "document_id": "xcsh-docs:data-sources:certified_hardware:properties:vendor_model_list",
+        "schema_path": ["vendor_model_list", "model"]
+      },
+      "vendor_model_list.vendor": {
+        "anchor": "schema-vendor_model_list--vendor",
+        "document_id": "xcsh-docs:data-sources:certified_hardware:properties:vendor_model_list",
+        "schema_path": ["vendor_model_list", "vendor"]
+      }
+    },
+    "provider_name": "certified_hardware",
+    "provider_type": "data-sources",
+    "reference_id": "xcsh-docs:data-sources:certified_hardware:reference"
+  },
+  "pages": [
+    {
+      "aliases": [],
+      "body_bytes": 1442,
+      "body_sha256": "sha256:645067ab19d547dc046221e2768431ab40e6cc7ee345d84ff77db0f01998a6c6",
+      "child_ids": [
+        "xcsh-docs:data-sources:certified_hardware:reference",
+        "xcsh-docs:data-sources:certified_hardware:examples"
+      ],
+      "collection_id": "xcsh-docs:data-sources:certified_hardware:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:certified_hardware:fundamentals",
+      "parent_id": null,
+      "path": "documentation/data-sources/certified_hardware/index.md",
+      "provider_name": "certified_hardware",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/data-sources/certified_hardware.md",
+      "role": "fundamentals",
+      "schema_path": [],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/certified_hardware/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "xcsh_certified_hardware for xcsh_certified_hardware.",
+      "title": "xcsh_certified_hardware",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": [],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 13802,
+      "body_sha256": "sha256:a7c54201f63bb5dfd009afd582524ce05c0e30d93309574b0ef45c2820d78180",
+      "child_ids": [
+        "xcsh-docs:data-sources:certified_hardware:properties:devices",
+        "xcsh-docs:data-sources:certified_hardware:properties:image_list",
+        "xcsh-docs:data-sources:certified_hardware:properties:internal_usb_device_rule",
+        "xcsh-docs:data-sources:certified_hardware:properties:numa_mem",
+        "xcsh-docs:data-sources:certified_hardware:properties:vendor_model_list"
+      ],
+      "collection_id": "xcsh-docs:data-sources:certified_hardware:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:certified_hardware:reference",
+      "parent_id": "xcsh-docs:data-sources:certified_hardware:fundamentals",
+      "path": "documentation/data-sources/certified_hardware/properties/index.md",
+      "provider_name": "certified_hardware",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--certified_hardware--reference.md",
+      "role": "reference",
+      "schema_path": [],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/certified_hardware/properties/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "Property reference for xcsh_certified_hardware.",
+      "title": "Property reference",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": [],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 3688,
+      "body_sha256": "sha256:e5ff2fc3243296932ad44be532082e014434e5d51f7b0ca4424dd850f7911e38",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:data-sources:certified_hardware:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:certified_hardware:properties:devices",
+      "parent_id": "xcsh-docs:data-sources:certified_hardware:reference",
+      "path": "documentation/data-sources/certified_hardware/properties/devices/index.md",
+      "provider_name": "certified_hardware",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--certified_hardware--properties--devices.md",
+      "role": "properties",
+      "schema_path": ["devices"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/certified_hardware/properties/devices/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "devices for xcsh_certified_hardware.",
+      "title": "devices",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": [],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 1996,
+      "body_sha256": "sha256:94891713edd271ffcabfbf083d42d76c2d05ef6db311af9cfda5315590f6a4b8",
+      "child_ids": [
+        "xcsh-docs:data-sources:certified_hardware:properties:image_list:aws",
+        "xcsh-docs:data-sources:certified_hardware:properties:image_list:azure",
+        "xcsh-docs:data-sources:certified_hardware:properties:image_list:gcp"
+      ],
+      "collection_id": "xcsh-docs:data-sources:certified_hardware:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:certified_hardware:properties:image_list",
+      "parent_id": "xcsh-docs:data-sources:certified_hardware:reference",
+      "path": "documentation/data-sources/certified_hardware/properties/image_list/index.md",
+      "provider_name": "certified_hardware",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--certified_hardware--properties--image_list.md",
+      "role": "properties",
+      "schema_path": ["image_list"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/certified_hardware/properties/image_list/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "image_list for xcsh_certified_hardware.",
+      "title": "image_list",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": [],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 1207,
+      "body_sha256": "sha256:5fb932ace5dcb12d90a3baed4e41e7a3f96ca1d3535c009212b7044184a8793a",
+      "child_ids": ["xcsh-docs:data-sources:certified_hardware:properties:image_list:aws:image_id"],
+      "collection_id": "xcsh-docs:data-sources:certified_hardware:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:certified_hardware:properties:image_list:aws",
+      "parent_id": "xcsh-docs:data-sources:certified_hardware:properties:image_list",
+      "path": "documentation/data-sources/certified_hardware/properties/image_list/aws/index.md",
+      "provider_name": "certified_hardware",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--certified_hardware--properties--image_list--aws.md",
+      "role": "properties",
+      "schema_path": ["image_list", "aws"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/certified_hardware/properties/image_list/aws/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "image_list.aws for xcsh_certified_hardware.",
+      "title": "image_list.aws",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": [],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 1337,
+      "body_sha256": "sha256:fcf5545b8493eab27b5c7ca23bbe5814a2083d088ed7211b514f76a4c8a3caac",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:data-sources:certified_hardware:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:certified_hardware:properties:image_list:aws:image_id",
+      "parent_id": "xcsh-docs:data-sources:certified_hardware:properties:image_list:aws",
+      "path": "documentation/data-sources/certified_hardware/properties/image_list/aws/image_id/index.md",
+      "provider_name": "certified_hardware",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--certified_hardware--properties--image_list--aws--image_id.md",
+      "role": "properties",
+      "schema_path": ["image_list", "aws", "image_id"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/certified_hardware/properties/image_list/aws/image_id/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "image_list.aws.image_id for xcsh_certified_hardware.",
+      "title": "image_list.aws.image_id",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": [],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 1563,
+      "body_sha256": "sha256:cb8eb937e18fff7a3bd47cb2cce26208432553e53836ee8256dcbd531c4e507d",
+      "child_ids": [
+        "xcsh-docs:data-sources:certified_hardware:properties:image_list:azure:image_id",
+        "xcsh-docs:data-sources:certified_hardware:properties:image_list:azure:marketplace"
+      ],
+      "collection_id": "xcsh-docs:data-sources:certified_hardware:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:certified_hardware:properties:image_list:azure",
+      "parent_id": "xcsh-docs:data-sources:certified_hardware:properties:image_list",
+      "path": "documentation/data-sources/certified_hardware/properties/image_list/azure/index.md",
+      "provider_name": "certified_hardware",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--certified_hardware--properties--image_list--azure.md",
+      "role": "properties",
+      "schema_path": ["image_list", "azure"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/certified_hardware/properties/image_list/azure/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "image_list.azure for xcsh_certified_hardware.",
+      "title": "image_list.azure",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": [],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 1203,
+      "body_sha256": "sha256:f219a16bd4b2f46681f7174acac332be5c53c7e09acf1768d72ab01e515325e5",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:data-sources:certified_hardware:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:certified_hardware:properties:image_list:azure:image_id",
+      "parent_id": "xcsh-docs:data-sources:certified_hardware:properties:image_list:azure",
+      "path": "documentation/data-sources/certified_hardware/properties/image_list/azure/image_id/index.md",
+      "provider_name": "certified_hardware",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--certified_hardware--properties--image_list--azure--image_id.md",
+      "role": "properties",
+      "schema_path": ["image_list", "azure", "image_id"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/certified_hardware/properties/image_list/azure/image_id/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "image_list.azure.image_id for xcsh_certified_hardware.",
+      "title": "image_list.azure.image_id",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": [],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 1879,
+      "body_sha256": "sha256:3eb7f3166ca370243bc1155ac43743bf2c7fe4459237d6c5b37fa7c8690609a2",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:data-sources:certified_hardware:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:certified_hardware:properties:image_list:azure:marketplace",
+      "parent_id": "xcsh-docs:data-sources:certified_hardware:properties:image_list:azure",
+      "path": "documentation/data-sources/certified_hardware/properties/image_list/azure/marketplace/index.md",
+      "provider_name": "certified_hardware",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--certified_hardware--properties--image_list--azure--marketplace.md",
+      "role": "properties",
+      "schema_path": ["image_list", "azure", "marketplace"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/certified_hardware/properties/image_list/azure/marketplace/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "image_list.azure.marketplace for xcsh_certified_hardware.",
+      "title": "image_list.azure.marketplace",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": [],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 1207,
+      "body_sha256": "sha256:e31248d9ce40b3e0b50112163dd162bf0794382115244770cdd7f0b7031f28b9",
+      "child_ids": ["xcsh-docs:data-sources:certified_hardware:properties:image_list:gcp:image_id"],
+      "collection_id": "xcsh-docs:data-sources:certified_hardware:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:certified_hardware:properties:image_list:gcp",
+      "parent_id": "xcsh-docs:data-sources:certified_hardware:properties:image_list",
+      "path": "documentation/data-sources/certified_hardware/properties/image_list/gcp/index.md",
+      "provider_name": "certified_hardware",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--certified_hardware--properties--image_list--gcp.md",
+      "role": "properties",
+      "schema_path": ["image_list", "gcp"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/certified_hardware/properties/image_list/gcp/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "image_list.gcp for xcsh_certified_hardware.",
+      "title": "image_list.gcp",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": [],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 1178,
+      "body_sha256": "sha256:7179c369c6aa6a2868b29264852dc22da21c3a3d252f17c809ef581fd2938de3",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:data-sources:certified_hardware:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:certified_hardware:properties:image_list:gcp:image_id",
+      "parent_id": "xcsh-docs:data-sources:certified_hardware:properties:image_list:gcp",
+      "path": "documentation/data-sources/certified_hardware/properties/image_list/gcp/image_id/index.md",
+      "provider_name": "certified_hardware",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--certified_hardware--properties--image_list--gcp--image_id.md",
+      "role": "properties",
+      "schema_path": ["image_list", "gcp", "image_id"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/certified_hardware/properties/image_list/gcp/image_id/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "image_list.gcp.image_id for xcsh_certified_hardware.",
+      "title": "image_list.gcp.image_id",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": [],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 1769,
+      "body_sha256": "sha256:a091993a3916c0ebc6c4d61077606be53b69ef2d2428eca711c5647b3ace9f45",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:data-sources:certified_hardware:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:certified_hardware:properties:internal_usb_device_rule",
+      "parent_id": "xcsh-docs:data-sources:certified_hardware:reference",
+      "path": "documentation/data-sources/certified_hardware/properties/internal_usb_device_rule/index.md",
+      "provider_name": "certified_hardware",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--certified_hardware--properties--internal_usb_device_rule.md",
+      "role": "properties",
+      "schema_path": ["internal_usb_device_rule"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/certified_hardware/properties/internal_usb_device_rule/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "internal_usb_device_rule for xcsh_certified_hardware.",
+      "title": "internal_usb_device_rule",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": [],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 1150,
+      "body_sha256": "sha256:aff39fdfc64356fef5b03999c8bc9bce2018a95d193e618d78951e03fe463aad",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:data-sources:certified_hardware:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:certified_hardware:properties:numa_mem",
+      "parent_id": "xcsh-docs:data-sources:certified_hardware:reference",
+      "path": "documentation/data-sources/certified_hardware/properties/numa_mem/index.md",
+      "provider_name": "certified_hardware",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--certified_hardware--properties--numa_mem.md",
+      "role": "properties",
+      "schema_path": ["numa_mem"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/certified_hardware/properties/numa_mem/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "numa_mem for xcsh_certified_hardware.",
+      "title": "numa_mem",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": [],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 1159,
+      "body_sha256": "sha256:1a48e1d8203ccd2e553e263f4519f055f171356228a14fca9fc074314068deeb",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:data-sources:certified_hardware:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:certified_hardware:properties:vendor_model_list",
+      "parent_id": "xcsh-docs:data-sources:certified_hardware:reference",
+      "path": "documentation/data-sources/certified_hardware/properties/vendor_model_list/index.md",
+      "provider_name": "certified_hardware",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--certified_hardware--properties--vendor_model_list.md",
+      "role": "properties",
+      "schema_path": ["vendor_model_list"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/certified_hardware/properties/vendor_model_list/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "vendor_model_list for xcsh_certified_hardware.",
+      "title": "vendor_model_list",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": [],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 693,
+      "body_sha256": "sha256:985050493c53bc8a18b337d11b211b7a638997d0f449bba08c647948baa9cb30",
+      "child_ids": ["xcsh-docs:data-sources:certified_hardware:example:data-source"],
+      "collection_id": "xcsh-docs:data-sources:certified_hardware:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:certified_hardware:examples",
+      "parent_id": "xcsh-docs:data-sources:certified_hardware:fundamentals",
+      "path": "documentation/data-sources/certified_hardware/examples/index.md",
+      "provider_name": "certified_hardware",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--certified_hardware--examples.md",
+      "role": "examples",
+      "schema_path": [],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/certified_hardware/examples/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "Examples for xcsh_certified_hardware.",
+      "title": "Examples",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": [],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 1357,
+      "body_sha256": "sha256:b91985fdaf4d778d416188c7c2813ce84e241404ecdb3761bfe056af2c33ba22",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:data-sources:certified_hardware:collection",
+      "completeness": "complete",
+      "evidence": {
+        "attribution": "Schema-derived minimal configuration validated with the checked-out provider.",
+        "outcome": "valid configuration",
+        "sha256": "sha256:44db2061b6da9d984930695f1d32baecee3d5ce0c74f32e0c377962e7ba246ba",
+        "source_path": "examples/data-sources/xcsh_certified_hardware/data-source.tf",
+        "validation": "terraform validate"
+      },
+      "id": "xcsh-docs:data-sources:certified_hardware:example:data-source",
+      "parent_id": "xcsh-docs:data-sources:certified_hardware:examples",
+      "path": "documentation/data-sources/certified_hardware/examples/data-source/index.md",
+      "provider_name": "certified_hardware",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--certified_hardware--example--data-source.md",
+      "role": "example",
+      "schema_path": ["data-source"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/certified_hardware/examples/data-source/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "Data source for xcsh_certified_hardware.",
+      "title": "Data source",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": [],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    }
+  ],
+  "provider": "registry.terraform.io/f5-sales-demo/xcsh",
+  "schema_version": 1
+}

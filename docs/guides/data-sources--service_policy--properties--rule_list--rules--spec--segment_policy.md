@@ -1,0 +1,64 @@
+---
+page_title: "rule_list.rules.spec.segment_policy"
+subcategory: "Security"
+description: "rule_list.rules.spec.segment_policy for xcsh_service_policy."
+xcsh_docs: {"aliases": [], "body_bytes": 2673, "body_sha256": "sha256:b45a5e5c1dc46ee856fe9ef142dcbec5ca03f99ddad3e0ad123dee876b085d1d", "canonical_id": "xcsh-docs:data-sources:service_policy:properties:rule_list:rules:spec:segment_policy", "child_ids": ["xcsh-docs:data-sources:service_policy:properties:rule_list:rules:spec:segment_policy:dst_any", "xcsh-docs:data-sources:service_policy:properties:rule_list:rules:spec:segment_policy:dst_segments", "xcsh-docs:data-sources:service_policy:properties:rule_list:rules:spec:segment_policy:intra_segment", "xcsh-docs:data-sources:service_policy:properties:rule_list:rules:spec:segment_policy:src_any", "xcsh-docs:data-sources:service_policy:properties:rule_list:rules:spec:segment_policy:src_segments"], "collection_id": "xcsh-docs:data-sources:service_policy:collection", "completeness": "complete", "id": "xcsh-docs:data-sources:service_policy:properties:rule_list:rules:spec:segment_policy", "parent_id": "xcsh-docs:data-sources:service_policy:properties:rule_list:rules:spec", "path": "docs/guides/data-sources--service_policy--properties--rule_list--rules--spec--segment_policy.md", "provider_name": "service_policy", "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6", "provider_type": "data-sources", "publishing_destination": "registry", "role": "properties", "schema_path": ["rule_list", "rules", "spec", "segment_policy"], "schema_version": 1, "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/service_policy/properties/rule_list/rules/spec/segment_policy/index.txt", "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774", "summary": "rule_list.rules.spec.segment_policy for xcsh_service_policy.", "upstream_identity": {"release_tag": "v9.0.0", "schema_components": ["service_policyCreateRequest"], "target_commit": "f95183046197e6547a3ea123e324f53126eae440"}}
+---
+
+<!-- Exact provider and upstream contract identifiers. -->
+
+<!-- textlint-disable terminology -->
+
+# rule_list.rules.spec.segment_policy
+
+Breadcrumbs:
+
+- [xcsh_service_policy](../data-sources/service_policy.md)
+- [Property reference](data-sources--service_policy--reference.md)
+- [rule_list](data-sources--service_policy--properties--rule_list.md)
+- [rule_list.rules](data-sources--service_policy--properties--rule_list--rules.md)
+- [rule_list.rules.spec](data-sources--service_policy--properties--rule_list--rules--spec.md)
+- rule_list.rules.spec.segment_policy
+
+<a id="section"></a>
+
+Type: `"single"`. Computed.
+
+Configure source and destination segment for policy.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  },
+  "x-ves-oneof-field-dst_segment_choice": "[\"dst_any\",\"dst_segments\",\"intra_segment\"]",
+  "x-ves-oneof-field-src_segment_choice": "[\"src_any\",\"src_segments\"]"
+}
+```
+
+## Direct properties
+
+- [dst_any](data-sources--service_policy--properties--rule_list--rules--spec--segment_policy--dst_any.md): complete subsection reference.
+
+- [dst_segments](data-sources--service_policy--properties--rule_list--rules--spec--segment_policy--dst_segments.md): complete subsection reference.
+
+- [intra_segment](data-sources--service_policy--properties--rule_list--rules--spec--segment_policy--intra_segment.md): complete subsection reference.
+
+- [src_any](data-sources--service_policy--properties--rule_list--rules--spec--segment_policy--src_any.md): complete subsection reference.
+
+- [src_segments](data-sources--service_policy--properties--rule_list--rules--spec--segment_policy--src_segments.md): complete subsection reference.
+
+## Next pages
+
+- [rule_list.rules.spec.segment_policy.dst_any](data-sources--service_policy--properties--rule_list--rules--spec--segment_policy--dst_any.md)
+- [rule_list.rules.spec.segment_policy.dst_segments](data-sources--service_policy--properties--rule_list--rules--spec--segment_policy--dst_segments.md)
+- [rule_list.rules.spec.segment_policy.intra_segment](data-sources--service_policy--properties--rule_list--rules--spec--segment_policy--intra_segment.md)
+- [rule_list.rules.spec.segment_policy.src_any](data-sources--service_policy--properties--rule_list--rules--spec--segment_policy--src_any.md)
+- [rule_list.rules.spec.segment_policy.src_segments](data-sources--service_policy--properties--rule_list--rules--spec--segment_policy--src_segments.md)
+- [rule_list.rules.spec](data-sources--service_policy--properties--rule_list--rules--spec.md)
+- [xcsh_service_policy](../data-sources/service_policy.md)

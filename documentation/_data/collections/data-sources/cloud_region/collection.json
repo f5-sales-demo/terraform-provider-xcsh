@@ -1,0 +1,236 @@
+{
+  "collection": {
+    "fundamentals_id": "xcsh-docs:data-sources:cloud_region:fundamentals",
+    "id": "xcsh-docs:data-sources:cloud_region:collection",
+    "properties": {
+      "annotations": {
+        "anchor": "schema-annotations",
+        "document_id": "xcsh-docs:data-sources:cloud_region:reference",
+        "schema_path": ["annotations"]
+      },
+      "default_policy_group": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:data-sources:cloud_region:properties:default_policy_group",
+        "schema_path": ["default_policy_group"]
+      },
+      "description": {
+        "anchor": "schema-description",
+        "document_id": "xcsh-docs:data-sources:cloud_region:reference",
+        "schema_path": ["description"]
+      },
+      "id": {
+        "anchor": "schema-id",
+        "document_id": "xcsh-docs:data-sources:cloud_region:reference",
+        "schema_path": ["id"]
+      },
+      "labels": {
+        "anchor": "schema-labels",
+        "document_id": "xcsh-docs:data-sources:cloud_region:reference",
+        "schema_path": ["labels"]
+      },
+      "name": {
+        "anchor": "schema-name",
+        "document_id": "xcsh-docs:data-sources:cloud_region:reference",
+        "schema_path": ["name"]
+      },
+      "namespace": {
+        "anchor": "schema-namespace",
+        "document_id": "xcsh-docs:data-sources:cloud_region:reference",
+        "schema_path": ["namespace"]
+      },
+      "policy_group": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:data-sources:cloud_region:properties:policy_group",
+        "schema_path": ["policy_group"]
+      },
+      "policy_group.name": {
+        "anchor": "schema-policy_group--name",
+        "document_id": "xcsh-docs:data-sources:cloud_region:properties:policy_group",
+        "schema_path": ["policy_group", "name"]
+      },
+      "policy_group.namespace": {
+        "anchor": "schema-policy_group--namespace",
+        "document_id": "xcsh-docs:data-sources:cloud_region:properties:policy_group",
+        "schema_path": ["policy_group", "namespace"]
+      },
+      "policy_group.tenant": {
+        "anchor": "schema-policy_group--tenant",
+        "document_id": "xcsh-docs:data-sources:cloud_region:properties:policy_group",
+        "schema_path": ["policy_group", "tenant"]
+      }
+    },
+    "provider_name": "cloud_region",
+    "provider_type": "data-sources",
+    "reference_id": "xcsh-docs:data-sources:cloud_region:reference"
+  },
+  "pages": [
+    {
+      "aliases": [],
+      "body_bytes": 1369,
+      "body_sha256": "sha256:439768a4ad01607f8ee681e374bc2628314c6fa823544e2d0bb4313b8ebe5644",
+      "child_ids": ["xcsh-docs:data-sources:cloud_region:reference", "xcsh-docs:data-sources:cloud_region:examples"],
+      "collection_id": "xcsh-docs:data-sources:cloud_region:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:cloud_region:fundamentals",
+      "parent_id": null,
+      "path": "documentation/data-sources/cloud_region/index.md",
+      "provider_name": "cloud_region",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/data-sources/cloud_region.md",
+      "role": "fundamentals",
+      "schema_path": [],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/cloud_region/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "xcsh_cloud_region for xcsh_cloud_region.",
+      "title": "xcsh_cloud_region",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": [],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 3556,
+      "body_sha256": "sha256:0b80a385c64e2e35085537ef05f28642930b49def992b78a926bc53248186ed5",
+      "child_ids": [
+        "xcsh-docs:data-sources:cloud_region:properties:default_policy_group",
+        "xcsh-docs:data-sources:cloud_region:properties:policy_group"
+      ],
+      "collection_id": "xcsh-docs:data-sources:cloud_region:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:cloud_region:reference",
+      "parent_id": "xcsh-docs:data-sources:cloud_region:fundamentals",
+      "path": "documentation/data-sources/cloud_region/properties/index.md",
+      "provider_name": "cloud_region",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--cloud_region--reference.md",
+      "role": "reference",
+      "schema_path": [],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/cloud_region/properties/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "Property reference for xcsh_cloud_region.",
+      "title": "Property reference",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": [],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 826,
+      "body_sha256": "sha256:9a5345a0a507c10ff52459dc402b2dda711babc4ce41113ff7b9d6a678e2f9e9",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:data-sources:cloud_region:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:cloud_region:properties:default_policy_group",
+      "parent_id": "xcsh-docs:data-sources:cloud_region:reference",
+      "path": "documentation/data-sources/cloud_region/properties/default_policy_group/index.md",
+      "provider_name": "cloud_region",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--cloud_region--properties--default_policy_group.md",
+      "role": "properties",
+      "schema_path": ["default_policy_group"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/cloud_region/properties/default_policy_group/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "default_policy_group for xcsh_cloud_region.",
+      "title": "default_policy_group",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": [],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 1540,
+      "body_sha256": "sha256:0d63402a5c27c826985854a6495b038aea32706cd86dd3d3c94736b68d720462",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:data-sources:cloud_region:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:cloud_region:properties:policy_group",
+      "parent_id": "xcsh-docs:data-sources:cloud_region:reference",
+      "path": "documentation/data-sources/cloud_region/properties/policy_group/index.md",
+      "provider_name": "cloud_region",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--cloud_region--properties--policy_group.md",
+      "role": "properties",
+      "schema_path": ["policy_group"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/cloud_region/properties/policy_group/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "policy_group for xcsh_cloud_region.",
+      "title": "policy_group",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": [],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 657,
+      "body_sha256": "sha256:c6144c1ed237aea85c973c99274d268b8d5bc1404a3079a72867e7e72a5b5930",
+      "child_ids": ["xcsh-docs:data-sources:cloud_region:example:data-source"],
+      "collection_id": "xcsh-docs:data-sources:cloud_region:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:cloud_region:examples",
+      "parent_id": "xcsh-docs:data-sources:cloud_region:fundamentals",
+      "path": "documentation/data-sources/cloud_region/examples/index.md",
+      "provider_name": "cloud_region",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--cloud_region--examples.md",
+      "role": "examples",
+      "schema_path": [],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/cloud_region/examples/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "Examples for xcsh_cloud_region.",
+      "title": "Examples",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": [],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 1279,
+      "body_sha256": "sha256:f19a520b7cd634bf48ad9770d07d60962a60b76ffe74cb8c09ab08ce372c94f7",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:data-sources:cloud_region:collection",
+      "completeness": "complete",
+      "evidence": {
+        "attribution": "Schema-derived minimal configuration validated with the checked-out provider.",
+        "outcome": "valid configuration",
+        "sha256": "sha256:78c1e9c6e8676d021e9b37f2f6a06e7aa0e27e7d2ed71f73c7951ef98b928563",
+        "source_path": "examples/data-sources/xcsh_cloud_region/data-source.tf",
+        "validation": "terraform validate"
+      },
+      "id": "xcsh-docs:data-sources:cloud_region:example:data-source",
+      "parent_id": "xcsh-docs:data-sources:cloud_region:examples",
+      "path": "documentation/data-sources/cloud_region/examples/data-source/index.md",
+      "provider_name": "cloud_region",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--cloud_region--example--data-source.md",
+      "role": "example",
+      "schema_path": ["data-source"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/cloud_region/examples/data-source/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "Data source for xcsh_cloud_region.",
+      "title": "Data source",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": [],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    }
+  ],
+  "provider": "registry.terraform.io/f5-sales-demo/xcsh",
+  "schema_version": 1
+}

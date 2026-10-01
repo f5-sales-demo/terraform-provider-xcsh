@@ -1,0 +1,362 @@
+---
+page_title: "Property reference"
+subcategory: ""
+description: "Property reference for xcsh_fast_acl."
+xcsh_docs: {"aliases": [], "body_bytes": 29820, "body_sha256": "sha256:3134285f9b11f6f4f265e8ee65febb575e18456ed6e5e9e8409793e9ac3bee22", "child_ids": ["xcsh-docs:data-sources:fast_acl:properties:protocol_policer", "xcsh-docs:data-sources:fast_acl:properties:re_acl", "xcsh-docs:data-sources:fast_acl:properties:site_acl"], "collection_id": "xcsh-docs:data-sources:fast_acl:collection", "completeness": "complete", "id": "xcsh-docs:data-sources:fast_acl:reference", "parent_id": "xcsh-docs:data-sources:fast_acl:fundamentals", "path": "documentation/data-sources/fast_acl/properties/index.md", "provider_name": "fast_acl", "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6", "provider_type": "data-sources", "role": "reference", "schema_path": [], "schema_version": 1, "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/fast_acl/properties/index.txt", "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774", "summary": "Property reference for xcsh_fast_acl.", "upstream_identity": {"release_tag": "v9.0.0", "schema_components": ["fast_aclCreateRequest"], "target_commit": "f95183046197e6547a3ea123e324f53126eae440"}}
+---
+
+<!-- Exact provider and upstream contract identifiers. -->
+
+<!-- textlint-disable terminology -->
+
+# Property reference
+
+Breadcrumbs:
+
+- [xcsh_fast_acl](https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/fast_acl/)
+- Property reference
+
+## Direct properties
+
+<a id="schema-annotations"></a>
+
+### annotations property
+
+Type: `["map", "string"]`. Computed.
+
+Annotations applied to this resource.
+
+Upstream description:
+
+Annotations is an unstructured key value map stored with a resource that may be set by external
+tools to store and retrieve arbitrary metadata. They are not queryable and should be preserved when
+modifying objects.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  },
+  "x-validation-rules": {
+    "ves.io.schema.rules.map.keys.string.max_len": "64",
+    "ves.io.schema.rules.map.keys.string.min_len": "1",
+    "ves.io.schema.rules.map.values.string.max_len": "1024",
+    "ves.io.schema.rules.map.values.string.min_len": "1"
+  },
+  "x-ves-validation-rules": {
+    "ves.io.schema.rules.map.keys.string.max_len": "64",
+    "ves.io.schema.rules.map.keys.string.min_len": "1",
+    "ves.io.schema.rules.map.values.string.max_len": "1024",
+    "ves.io.schema.rules.map.values.string.min_len": "1"
+  }
+}
+```
+
+<a id="schema-description"></a>
+
+### description property
+
+Type: `"string"`. Computed.
+
+Description of the FastACL.
+
+Upstream description:
+
+Human readable description for the object.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "maxLength": 1200,
+  "x-f5xc-constraints": {
+    "byteLength": {
+      "max": 1200
+    },
+    "category": "discovery",
+    "characterSet": {
+      "description": "Free text with UTF-8 support"
+    },
+    "constraintType": "string",
+    "deterministic": true,
+    "maxLength": 1200,
+    "metadata": {
+      "confidence": 0.99,
+      "source": "discovery",
+      "validatedAt": "2026-09-29T03:20:54+00:00"
+    },
+    "minLength": 0
+  },
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  },
+  "x-validation-rules": {
+    "ves.io.schema.rules.string.max_bytes": "1200"
+  },
+  "x-ves-validation-rules": {
+    "ves.io.schema.rules.string.max_bytes": "1200"
+  }
+}
+```
+
+<a id="schema-id"></a>
+
+### id property
+
+Type: `"string"`. Computed.
+
+Unique identifier for the resource.
+
+<a id="schema-labels"></a>
+
+### labels property
+
+Type: `["map", "string"]`. Computed.
+
+Labels applied to this resource.
+
+Upstream description:
+
+Map of string keys and values that can be used to organize and categorize (scope and select) objects
+as chosen by the user. Values specified here will be used by selector expression.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  }
+}
+```
+
+<a id="schema-name"></a>
+
+### name property
+
+Type: `"string"`. Required.
+
+Name of the FastACL.
+
+Upstream description:
+
+This is the name of configuration object. It has to be unique within the namespace. It can only be
+specified during create API and cannot be changed during replace API. The value of name has to
+follow DNS-1035 format.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-constraints": {
+    "category": "naming",
+    "characterSet": {
+      "allowed": "[a-z0-9-]",
+      "description": "Lowercase letter start, alphanumeric with hyphens, alphanumeric end",
+      "required": "[a-z0-9]",
+      "restricted": "[^a-z0-9-]"
+    },
+    "constraintType": "string",
+    "deterministic": true,
+    "format": "dns-label",
+    "formatDescription": "DNS-1035 label: must start with a lowercase letter, may contain lowercase alphanumeric and hyphens, must end with alphanumeric",
+    "maxLength": 63,
+    "metadata": {
+      "confidence": 0.99,
+      "source": "inferred",
+      "validatedAt": "2026-09-29T03:20:54+00:00"
+    },
+    "minLength": 1,
+    "pattern": "^[a-z]([-a-z0-9]*[a-z0-9])?$",
+    "validation": {
+      "rfc": "RFC 1035",
+      "standard": "DNS-1035 label (alpha-first)"
+    }
+  },
+  "x-f5xc-required-for": {
+    "create": true,
+    "minimum_config": true,
+    "read": false,
+    "update": false
+  },
+  "x-validation-rules": {
+    "ves.io.schema.rules.message.required": "true"
+  },
+  "x-ves-validation-rules": {
+    "ves.io.schema.rules.message.required": "true"
+  }
+}
+```
+
+<a id="schema-namespace"></a>
+
+### namespace property
+
+Type: `"string"`. Optional, Computed.
+
+Namespace where the FastACL exists.
+
+Upstream description:
+
+This defines the workspace within which each the configuration object is to be created. Must be a
+DNS\_LABEL format. For a namespace object itself, namespace value will be ""
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-constraints": {
+    "category": "naming",
+    "characterSet": {
+      "allowed": "[a-z0-9-]",
+      "description": "Lowercase letter start, alphanumeric with hyphens, alphanumeric end",
+      "required": "[a-z0-9]",
+      "restricted": "[^a-z0-9-]"
+    },
+    "constraintType": "string",
+    "deterministic": true,
+    "format": "dns-label",
+    "formatDescription": "DNS-1035 label: must start with a lowercase letter",
+    "maxLength": 63,
+    "metadata": {
+      "confidence": 0.99,
+      "source": "inferred",
+      "validatedAt": "2026-09-29T03:20:54+00:00"
+    },
+    "minLength": 1,
+    "pattern": "^[a-z]([-a-z0-9]*[a-z0-9])?$",
+    "validation": {
+      "rfc": "RFC 1035",
+      "standard": "DNS-1035 label (alpha-first)"
+    }
+  },
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  }
+}
+```
+
+- [protocol_policer](https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/fast_acl/properties/protocol_policer/): complete subsection reference.
+
+- [re_acl](https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/fast_acl/properties/re_acl/): complete subsection reference.
+
+- [site_acl](https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/fast_acl/properties/site_acl/): complete subsection reference.
+
+## All schema paths
+
+Each exact path has one authoritative reference destination. Collection element indexes are runtime positions; schema paths name the subsection.
+
+| Schema path | Complete reference |
+| --- | --- |
+| `annotations` | [annotations](https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/fast_acl/properties/#schema-annotations) |
+| `description` | [description](https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/fast_acl/properties/#schema-description) |
+| `id` | [id](https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/fast_acl/properties/#schema-id) |
+| `labels` | [labels](https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/fast_acl/properties/#schema-labels) |
+| `name` | [name](https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/fast_acl/properties/#schema-name) |
+| `namespace` | [namespace](https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/fast_acl/properties/#schema-namespace) |
+| `protocol_policer` | [protocol_policer](https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/fast_acl/properties/protocol_policer/#section) |
+| `protocol_policer.name` | [protocol_policer.name](https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/fast_acl/properties/protocol_policer/#schema-protocol_policer--name) |
+| `protocol_policer.namespace` | [protocol_policer.namespace](https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/fast_acl/properties/protocol_policer/#schema-protocol_policer--namespace) |
+| `protocol_policer.tenant` | [protocol_policer.tenant](https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/fast_acl/properties/protocol_policer/#schema-protocol_policer--tenant) |
+| `re_acl` | [re_acl](https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/fast_acl/properties/re_acl/#section) |
+| `re_acl.all_public_vips` | [re_acl.all_public_vips](https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/fast_acl/properties/re_acl/all_public_vips/#section) |
+| `re_acl.default_tenant_vip` | [re_acl.default_tenant_vip](https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/fast_acl/properties/re_acl/default_tenant_vip/#section) |
+| `re_acl.fast_acl_rules` | [re_acl.fast_acl_rules](https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/fast_acl/properties/re_acl/fast_acl_rules/#section) |
+| `re_acl.fast_acl_rules.action` | [re_acl.fast_acl_rules.action](https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/fast_acl/properties/re_acl/fast_acl_rules/action/#section) |
+| `re_acl.fast_acl_rules.action.policer_action` | [re_acl.fast_acl_rules.action.policer_action](https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/fast_acl/properties/re_acl/fast_acl_rules/action/policer_action/#section) |
+| `re_acl.fast_acl_rules.action.policer_action.ref` | [re_acl.fast_acl_rules.action.policer_action.ref](https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/fast_acl/properties/re_acl/fast_acl_rules/action/policer_action/ref/#section) |
+| `re_acl.fast_acl_rules.action.policer_action.ref.kind` | [re_acl.fast_acl_rules.action.policer_action.ref.kind](https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/fast_acl/properties/re_acl/fast_acl_rules/action/policer_action/ref/#schema-re_acl--fast_acl_rules--action--policer_action--ref--kind) |
+| `re_acl.fast_acl_rules.action.policer_action.ref.name` | [re_acl.fast_acl_rules.action.policer_action.ref.name](https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/fast_acl/properties/re_acl/fast_acl_rules/action/policer_action/ref/#schema-re_acl--fast_acl_rules--action--policer_action--ref--name) |
+| `re_acl.fast_acl_rules.action.policer_action.ref.namespace` | [re_acl.fast_acl_rules.action.policer_action.ref.namespace](https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/fast_acl/properties/re_acl/fast_acl_rules/action/policer_action/ref/#schema-re_acl--fast_acl_rules--action--policer_action--ref--namespace) |
+| `re_acl.fast_acl_rules.action.policer_action.ref.tenant` | [re_acl.fast_acl_rules.action.policer_action.ref.tenant](https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/fast_acl/properties/re_acl/fast_acl_rules/action/policer_action/ref/#schema-re_acl--fast_acl_rules--action--policer_action--ref--tenant) |
+| `re_acl.fast_acl_rules.action.policer_action.ref.uid` | [re_acl.fast_acl_rules.action.policer_action.ref.uid](https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/fast_acl/properties/re_acl/fast_acl_rules/action/policer_action/ref/#schema-re_acl--fast_acl_rules--action--policer_action--ref--uid) |
+| `re_acl.fast_acl_rules.action.protocol_policer_action` | [re_acl.fast_acl_rules.action.protocol_policer_action](https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/fast_acl/properties/re_acl/fast_acl_rules/action/protocol_policer_action/#section) |
+| `re_acl.fast_acl_rules.action.protocol_policer_action.ref` | [re_acl.fast_acl_rules.action.protocol_policer_action.ref](https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/fast_acl/properties/re_acl/fast_acl_rules/action/protocol_policer_action/ref/#section) |
+| `re_acl.fast_acl_rules.action.protocol_policer_action.ref.kind` | [re_acl.fast_acl_rules.action.protocol_policer_action.ref.kind](https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/fast_acl/properties/re_acl/fast_acl_rules/action/protocol_policer_action/ref/#schema-re_acl--fast_acl_rules--action--protocol_policer_action--ref--kind) |
+| `re_acl.fast_acl_rules.action.protocol_policer_action.ref.name` | [re_acl.fast_acl_rules.action.protocol_policer_action.ref.name](https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/fast_acl/properties/re_acl/fast_acl_rules/action/protocol_policer_action/ref/#schema-re_acl--fast_acl_rules--action--protocol_policer_action--ref--name) |
+| `re_acl.fast_acl_rules.action.protocol_policer_action.ref.namespace` | [re_acl.fast_acl_rules.action.protocol_policer_action.ref.namespace](https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/fast_acl/properties/re_acl/fast_acl_rules/action/protocol_policer_action/ref/#schema-re_acl--fast_acl_rules--action--protocol_policer_action--ref--namespace) |
+| `re_acl.fast_acl_rules.action.protocol_policer_action.ref.tenant` | [re_acl.fast_acl_rules.action.protocol_policer_action.ref.tenant](https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/fast_acl/properties/re_acl/fast_acl_rules/action/protocol_policer_action/ref/#schema-re_acl--fast_acl_rules--action--protocol_policer_action--ref--tenant) |
+| `re_acl.fast_acl_rules.action.protocol_policer_action.ref.uid` | [re_acl.fast_acl_rules.action.protocol_policer_action.ref.uid](https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/fast_acl/properties/re_acl/fast_acl_rules/action/protocol_policer_action/ref/#schema-re_acl--fast_acl_rules--action--protocol_policer_action--ref--uid) |
+| `re_acl.fast_acl_rules.action.simple_action` | [re_acl.fast_acl_rules.action.simple_action](https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/fast_acl/properties/re_acl/fast_acl_rules/action/#schema-re_acl--fast_acl_rules--action--simple_action) |
+| `re_acl.fast_acl_rules.ip_prefix_set` | [re_acl.fast_acl_rules.ip_prefix_set](https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/fast_acl/properties/re_acl/fast_acl_rules/ip_prefix_set/#section) |
+| `re_acl.fast_acl_rules.ip_prefix_set.ref` | [re_acl.fast_acl_rules.ip_prefix_set.ref](https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/fast_acl/properties/re_acl/fast_acl_rules/ip_prefix_set/ref/#section) |
+| `re_acl.fast_acl_rules.ip_prefix_set.ref.kind` | [re_acl.fast_acl_rules.ip_prefix_set.ref.kind](https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/fast_acl/properties/re_acl/fast_acl_rules/ip_prefix_set/ref/#schema-re_acl--fast_acl_rules--ip_prefix_set--ref--kind) |
+| `re_acl.fast_acl_rules.ip_prefix_set.ref.name` | [re_acl.fast_acl_rules.ip_prefix_set.ref.name](https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/fast_acl/properties/re_acl/fast_acl_rules/ip_prefix_set/ref/#schema-re_acl--fast_acl_rules--ip_prefix_set--ref--name) |
+| `re_acl.fast_acl_rules.ip_prefix_set.ref.namespace` | [re_acl.fast_acl_rules.ip_prefix_set.ref.namespace](https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/fast_acl/properties/re_acl/fast_acl_rules/ip_prefix_set/ref/#schema-re_acl--fast_acl_rules--ip_prefix_set--ref--namespace) |
+| `re_acl.fast_acl_rules.ip_prefix_set.ref.tenant` | [re_acl.fast_acl_rules.ip_prefix_set.ref.tenant](https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/fast_acl/properties/re_acl/fast_acl_rules/ip_prefix_set/ref/#schema-re_acl--fast_acl_rules--ip_prefix_set--ref--tenant) |
+| `re_acl.fast_acl_rules.ip_prefix_set.ref.uid` | [re_acl.fast_acl_rules.ip_prefix_set.ref.uid](https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/fast_acl/properties/re_acl/fast_acl_rules/ip_prefix_set/ref/#schema-re_acl--fast_acl_rules--ip_prefix_set--ref--uid) |
+| `re_acl.fast_acl_rules.metadata` | [re_acl.fast_acl_rules.metadata](https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/fast_acl/properties/re_acl/fast_acl_rules/metadata/#section) |
+| `re_acl.fast_acl_rules.metadata.description_spec` | [re_acl.fast_acl_rules.metadata.description_spec](https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/fast_acl/properties/re_acl/fast_acl_rules/metadata/#schema-re_acl--fast_acl_rules--metadata--description_spec) |
+| `re_acl.fast_acl_rules.metadata.name` | [re_acl.fast_acl_rules.metadata.name](https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/fast_acl/properties/re_acl/fast_acl_rules/metadata/#schema-re_acl--fast_acl_rules--metadata--name) |
+| `re_acl.fast_acl_rules.port` | [re_acl.fast_acl_rules.port](https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/fast_acl/properties/re_acl/fast_acl_rules/port/#section) |
+| `re_acl.fast_acl_rules.port.all` | [re_acl.fast_acl_rules.port.all](https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/fast_acl/properties/re_acl/fast_acl_rules/port/all/#section) |
+| `re_acl.fast_acl_rules.port.dns` | [re_acl.fast_acl_rules.port.dns](https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/fast_acl/properties/re_acl/fast_acl_rules/port/dns/#section) |
+| `re_acl.fast_acl_rules.port.user_defined` | [re_acl.fast_acl_rules.port.user_defined](https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/fast_acl/properties/re_acl/fast_acl_rules/port/#schema-re_acl--fast_acl_rules--port--user_defined) |
+| `re_acl.fast_acl_rules.prefix` | [re_acl.fast_acl_rules.prefix](https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/fast_acl/properties/re_acl/fast_acl_rules/prefix/#section) |
+| `re_acl.fast_acl_rules.prefix.prefix` | [re_acl.fast_acl_rules.prefix.prefix](https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/fast_acl/properties/re_acl/fast_acl_rules/prefix/#schema-re_acl--fast_acl_rules--prefix--prefix) |
+| `re_acl.selected_tenant_vip` | [re_acl.selected_tenant_vip](https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/fast_acl/properties/re_acl/selected_tenant_vip/#section) |
+| `re_acl.selected_tenant_vip.default_tenant_vip` | [re_acl.selected_tenant_vip.default_tenant_vip](https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/fast_acl/properties/re_acl/selected_tenant_vip/#schema-re_acl--selected_tenant_vip--default_tenant_vip) |
+| `re_acl.selected_tenant_vip.public_ip_refs` | [re_acl.selected_tenant_vip.public_ip_refs](https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/fast_acl/properties/re_acl/selected_tenant_vip/public_ip_refs/#section) |
+| `re_acl.selected_tenant_vip.public_ip_refs.name` | [re_acl.selected_tenant_vip.public_ip_refs.name](https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/fast_acl/properties/re_acl/selected_tenant_vip/public_ip_refs/#schema-re_acl--selected_tenant_vip--public_ip_refs--name) |
+| `re_acl.selected_tenant_vip.public_ip_refs.namespace` | [re_acl.selected_tenant_vip.public_ip_refs.namespace](https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/fast_acl/properties/re_acl/selected_tenant_vip/public_ip_refs/#schema-re_acl--selected_tenant_vip--public_ip_refs--namespace) |
+| `re_acl.selected_tenant_vip.public_ip_refs.tenant` | [re_acl.selected_tenant_vip.public_ip_refs.tenant](https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/fast_acl/properties/re_acl/selected_tenant_vip/public_ip_refs/#schema-re_acl--selected_tenant_vip--public_ip_refs--tenant) |
+| `site_acl` | [site_acl](https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/fast_acl/properties/site_acl/#section) |
+| `site_acl.all_services` | [site_acl.all_services](https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/fast_acl/properties/site_acl/all_services/#section) |
+| `site_acl.fast_acl_rules` | [site_acl.fast_acl_rules](https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/fast_acl/properties/site_acl/fast_acl_rules/#section) |
+| `site_acl.fast_acl_rules.action` | [site_acl.fast_acl_rules.action](https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/fast_acl/properties/site_acl/fast_acl_rules/action/#section) |
+| `site_acl.fast_acl_rules.action.policer_action` | [site_acl.fast_acl_rules.action.policer_action](https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/fast_acl/properties/site_acl/fast_acl_rules/action/policer_action/#section) |
+| `site_acl.fast_acl_rules.action.policer_action.ref` | [site_acl.fast_acl_rules.action.policer_action.ref](https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/fast_acl/properties/site_acl/fast_acl_rules/action/policer_action/ref/#section) |
+| `site_acl.fast_acl_rules.action.policer_action.ref.kind` | [site_acl.fast_acl_rules.action.policer_action.ref.kind](https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/fast_acl/properties/site_acl/fast_acl_rules/action/policer_action/ref/#schema-site_acl--fast_acl_rules--action--policer_action--ref--kind) |
+| `site_acl.fast_acl_rules.action.policer_action.ref.name` | [site_acl.fast_acl_rules.action.policer_action.ref.name](https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/fast_acl/properties/site_acl/fast_acl_rules/action/policer_action/ref/#schema-site_acl--fast_acl_rules--action--policer_action--ref--name) |
+| `site_acl.fast_acl_rules.action.policer_action.ref.namespace` | [site_acl.fast_acl_rules.action.policer_action.ref.namespace](https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/fast_acl/properties/site_acl/fast_acl_rules/action/policer_action/ref/#schema-site_acl--fast_acl_rules--action--policer_action--ref--namespace) |
+| `site_acl.fast_acl_rules.action.policer_action.ref.tenant` | [site_acl.fast_acl_rules.action.policer_action.ref.tenant](https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/fast_acl/properties/site_acl/fast_acl_rules/action/policer_action/ref/#schema-site_acl--fast_acl_rules--action--policer_action--ref--tenant) |
+| `site_acl.fast_acl_rules.action.policer_action.ref.uid` | [site_acl.fast_acl_rules.action.policer_action.ref.uid](https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/fast_acl/properties/site_acl/fast_acl_rules/action/policer_action/ref/#schema-site_acl--fast_acl_rules--action--policer_action--ref--uid) |
+| `site_acl.fast_acl_rules.action.protocol_policer_action` | [site_acl.fast_acl_rules.action.protocol_policer_action](https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/fast_acl/properties/site_acl/fast_acl_rules/action/protocol_policer_action/#section) |
+| `site_acl.fast_acl_rules.action.protocol_policer_action.ref` | [site_acl.fast_acl_rules.action.protocol_policer_action.ref](https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/fast_acl/properties/site_acl/fast_acl_rules/action/protocol_policer_action/ref/#section) |
+| `site_acl.fast_acl_rules.action.protocol_policer_action.ref.kind` | [site_acl.fast_acl_rules.action.protocol_policer_action.ref.kind](https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/fast_acl/properties/site_acl/fast_acl_rules/action/protocol_policer_action/ref/#schema-site_acl--fast_acl_rules--action--protocol_policer_action--ref--kind) |
+| `site_acl.fast_acl_rules.action.protocol_policer_action.ref.name` | [site_acl.fast_acl_rules.action.protocol_policer_action.ref.name](https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/fast_acl/properties/site_acl/fast_acl_rules/action/protocol_policer_action/ref/#schema-site_acl--fast_acl_rules--action--protocol_policer_action--ref--name) |
+| `site_acl.fast_acl_rules.action.protocol_policer_action.ref.namespace` | [site_acl.fast_acl_rules.action.protocol_policer_action.ref.namespace](https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/fast_acl/properties/site_acl/fast_acl_rules/action/protocol_policer_action/ref/#schema-site_acl--fast_acl_rules--action--protocol_policer_action--ref--namespace) |
+| `site_acl.fast_acl_rules.action.protocol_policer_action.ref.tenant` | [site_acl.fast_acl_rules.action.protocol_policer_action.ref.tenant](https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/fast_acl/properties/site_acl/fast_acl_rules/action/protocol_policer_action/ref/#schema-site_acl--fast_acl_rules--action--protocol_policer_action--ref--tenant) |
+| `site_acl.fast_acl_rules.action.protocol_policer_action.ref.uid` | [site_acl.fast_acl_rules.action.protocol_policer_action.ref.uid](https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/fast_acl/properties/site_acl/fast_acl_rules/action/protocol_policer_action/ref/#schema-site_acl--fast_acl_rules--action--protocol_policer_action--ref--uid) |
+| `site_acl.fast_acl_rules.action.simple_action` | [site_acl.fast_acl_rules.action.simple_action](https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/fast_acl/properties/site_acl/fast_acl_rules/action/#schema-site_acl--fast_acl_rules--action--simple_action) |
+| `site_acl.fast_acl_rules.ip_prefix_set` | [site_acl.fast_acl_rules.ip_prefix_set](https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/fast_acl/properties/site_acl/fast_acl_rules/ip_prefix_set/#section) |
+| `site_acl.fast_acl_rules.ip_prefix_set.ref` | [site_acl.fast_acl_rules.ip_prefix_set.ref](https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/fast_acl/properties/site_acl/fast_acl_rules/ip_prefix_set/ref/#section) |
+| `site_acl.fast_acl_rules.ip_prefix_set.ref.kind` | [site_acl.fast_acl_rules.ip_prefix_set.ref.kind](https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/fast_acl/properties/site_acl/fast_acl_rules/ip_prefix_set/ref/#schema-site_acl--fast_acl_rules--ip_prefix_set--ref--kind) |
+| `site_acl.fast_acl_rules.ip_prefix_set.ref.name` | [site_acl.fast_acl_rules.ip_prefix_set.ref.name](https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/fast_acl/properties/site_acl/fast_acl_rules/ip_prefix_set/ref/#schema-site_acl--fast_acl_rules--ip_prefix_set--ref--name) |
+| `site_acl.fast_acl_rules.ip_prefix_set.ref.namespace` | [site_acl.fast_acl_rules.ip_prefix_set.ref.namespace](https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/fast_acl/properties/site_acl/fast_acl_rules/ip_prefix_set/ref/#schema-site_acl--fast_acl_rules--ip_prefix_set--ref--namespace) |
+| `site_acl.fast_acl_rules.ip_prefix_set.ref.tenant` | [site_acl.fast_acl_rules.ip_prefix_set.ref.tenant](https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/fast_acl/properties/site_acl/fast_acl_rules/ip_prefix_set/ref/#schema-site_acl--fast_acl_rules--ip_prefix_set--ref--tenant) |
+| `site_acl.fast_acl_rules.ip_prefix_set.ref.uid` | [site_acl.fast_acl_rules.ip_prefix_set.ref.uid](https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/fast_acl/properties/site_acl/fast_acl_rules/ip_prefix_set/ref/#schema-site_acl--fast_acl_rules--ip_prefix_set--ref--uid) |
+| `site_acl.fast_acl_rules.metadata` | [site_acl.fast_acl_rules.metadata](https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/fast_acl/properties/site_acl/fast_acl_rules/metadata/#section) |
+| `site_acl.fast_acl_rules.metadata.description_spec` | [site_acl.fast_acl_rules.metadata.description_spec](https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/fast_acl/properties/site_acl/fast_acl_rules/metadata/#schema-site_acl--fast_acl_rules--metadata--description_spec) |
+| `site_acl.fast_acl_rules.metadata.name` | [site_acl.fast_acl_rules.metadata.name](https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/fast_acl/properties/site_acl/fast_acl_rules/metadata/#schema-site_acl--fast_acl_rules--metadata--name) |
+| `site_acl.fast_acl_rules.port` | [site_acl.fast_acl_rules.port](https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/fast_acl/properties/site_acl/fast_acl_rules/port/#section) |
+| `site_acl.fast_acl_rules.port.all` | [site_acl.fast_acl_rules.port.all](https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/fast_acl/properties/site_acl/fast_acl_rules/port/all/#section) |
+| `site_acl.fast_acl_rules.port.dns` | [site_acl.fast_acl_rules.port.dns](https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/fast_acl/properties/site_acl/fast_acl_rules/port/dns/#section) |
+| `site_acl.fast_acl_rules.port.user_defined` | [site_acl.fast_acl_rules.port.user_defined](https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/fast_acl/properties/site_acl/fast_acl_rules/port/#schema-site_acl--fast_acl_rules--port--user_defined) |
+| `site_acl.fast_acl_rules.prefix` | [site_acl.fast_acl_rules.prefix](https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/fast_acl/properties/site_acl/fast_acl_rules/prefix/#section) |
+| `site_acl.fast_acl_rules.prefix.prefix` | [site_acl.fast_acl_rules.prefix.prefix](https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/fast_acl/properties/site_acl/fast_acl_rules/prefix/#schema-site_acl--fast_acl_rules--prefix--prefix) |
+| `site_acl.inside_network` | [site_acl.inside_network](https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/fast_acl/properties/site_acl/inside_network/#section) |
+| `site_acl.interface_services` | [site_acl.interface_services](https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/fast_acl/properties/site_acl/interface_services/#section) |
+| `site_acl.outside_network` | [site_acl.outside_network](https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/fast_acl/properties/site_acl/outside_network/#section) |
+| `site_acl.vip_services` | [site_acl.vip_services](https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/fast_acl/properties/site_acl/vip_services/#section) |
+
+## Next pages
+
+- [protocol_policer](https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/fast_acl/properties/protocol_policer/)
+- [re_acl](https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/fast_acl/properties/re_acl/)
+- [site_acl](https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/fast_acl/properties/site_acl/)
+- [xcsh_fast_acl](https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/fast_acl/)

@@ -1,0 +1,991 @@
+{
+  "collection": {
+    "fundamentals_id": "xcsh-docs:resources:cloud_link:fundamentals",
+    "id": "xcsh-docs:resources:cloud_link:collection",
+    "properties": {
+      "annotations": {
+        "anchor": "schema-annotations",
+        "document_id": "xcsh-docs:resources:cloud_link:reference",
+        "schema_path": ["annotations"]
+      },
+      "aws": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:resources:cloud_link:properties:aws",
+        "schema_path": ["aws"]
+      },
+      "aws.aws_cred": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:resources:cloud_link:properties:aws:aws_cred",
+        "schema_path": ["aws", "aws_cred"]
+      },
+      "aws.aws_cred.name": {
+        "anchor": "schema-aws--aws_cred--name",
+        "document_id": "xcsh-docs:resources:cloud_link:properties:aws:aws_cred",
+        "schema_path": ["aws", "aws_cred", "name"]
+      },
+      "aws.aws_cred.namespace": {
+        "anchor": "schema-aws--aws_cred--namespace",
+        "document_id": "xcsh-docs:resources:cloud_link:properties:aws:aws_cred",
+        "schema_path": ["aws", "aws_cred", "namespace"]
+      },
+      "aws.aws_cred.tenant": {
+        "anchor": "schema-aws--aws_cred--tenant",
+        "document_id": "xcsh-docs:resources:cloud_link:properties:aws:aws_cred",
+        "schema_path": ["aws", "aws_cred", "tenant"]
+      },
+      "aws.byoc": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:resources:cloud_link:properties:aws:byoc",
+        "schema_path": ["aws", "byoc"]
+      },
+      "aws.byoc.connections": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:resources:cloud_link:properties:aws:byoc:connections",
+        "schema_path": ["aws", "byoc", "connections"]
+      },
+      "aws.byoc.connections.auth_key": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:resources:cloud_link:properties:aws:byoc:connections:auth_key",
+        "schema_path": ["aws", "byoc", "connections", "auth_key"]
+      },
+      "aws.byoc.connections.auth_key.blindfold_secret_info": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:resources:cloud_link:properties:aws:byoc:connections:auth_key:blindfold_secret_info",
+        "schema_path": ["aws", "byoc", "connections", "auth_key", "blindfold_secret_info"]
+      },
+      "aws.byoc.connections.auth_key.blindfold_secret_info.decryption_provider": {
+        "anchor": "schema-aws--byoc--connections--auth_key--blindfold_secret_info--decryption_provider",
+        "document_id": "xcsh-docs:resources:cloud_link:properties:aws:byoc:connections:auth_key:blindfold_secret_info",
+        "schema_path": ["aws", "byoc", "connections", "auth_key", "blindfold_secret_info", "decryption_provider"]
+      },
+      "aws.byoc.connections.auth_key.blindfold_secret_info.location": {
+        "anchor": "schema-aws--byoc--connections--auth_key--blindfold_secret_info--location",
+        "document_id": "xcsh-docs:resources:cloud_link:properties:aws:byoc:connections:auth_key:blindfold_secret_info",
+        "schema_path": ["aws", "byoc", "connections", "auth_key", "blindfold_secret_info", "location"]
+      },
+      "aws.byoc.connections.auth_key.blindfold_secret_info.store_provider": {
+        "anchor": "schema-aws--byoc--connections--auth_key--blindfold_secret_info--store_provider",
+        "document_id": "xcsh-docs:resources:cloud_link:properties:aws:byoc:connections:auth_key:blindfold_secret_info",
+        "schema_path": ["aws", "byoc", "connections", "auth_key", "blindfold_secret_info", "store_provider"]
+      },
+      "aws.byoc.connections.auth_key.clear_secret_info": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:resources:cloud_link:properties:aws:byoc:connections:auth_key:clear_secret_info",
+        "schema_path": ["aws", "byoc", "connections", "auth_key", "clear_secret_info"]
+      },
+      "aws.byoc.connections.auth_key.clear_secret_info.provider_ref": {
+        "anchor": "schema-aws--byoc--connections--auth_key--clear_secret_info--provider_ref",
+        "document_id": "xcsh-docs:resources:cloud_link:properties:aws:byoc:connections:auth_key:clear_secret_info",
+        "schema_path": ["aws", "byoc", "connections", "auth_key", "clear_secret_info", "provider_ref"]
+      },
+      "aws.byoc.connections.auth_key.clear_secret_info.url": {
+        "anchor": "schema-aws--byoc--connections--auth_key--clear_secret_info--url",
+        "document_id": "xcsh-docs:resources:cloud_link:properties:aws:byoc:connections:auth_key:clear_secret_info",
+        "schema_path": ["aws", "byoc", "connections", "auth_key", "clear_secret_info", "url"]
+      },
+      "aws.byoc.connections.bgp_asn": {
+        "anchor": "schema-aws--byoc--connections--bgp_asn",
+        "document_id": "xcsh-docs:resources:cloud_link:properties:aws:byoc:connections",
+        "schema_path": ["aws", "byoc", "connections", "bgp_asn"]
+      },
+      "aws.byoc.connections.connection_id": {
+        "anchor": "schema-aws--byoc--connections--connection_id",
+        "document_id": "xcsh-docs:resources:cloud_link:properties:aws:byoc:connections",
+        "schema_path": ["aws", "byoc", "connections", "connection_id"]
+      },
+      "aws.byoc.connections.ipv4": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:resources:cloud_link:properties:aws:byoc:connections:ipv4",
+        "schema_path": ["aws", "byoc", "connections", "ipv4"]
+      },
+      "aws.byoc.connections.ipv4.aws_router_peer_address": {
+        "anchor": "schema-aws--byoc--connections--ipv4--aws_router_peer_address",
+        "document_id": "xcsh-docs:resources:cloud_link:properties:aws:byoc:connections:ipv4",
+        "schema_path": ["aws", "byoc", "connections", "ipv4", "aws_router_peer_address"]
+      },
+      "aws.byoc.connections.ipv4.router_peer_address": {
+        "anchor": "schema-aws--byoc--connections--ipv4--router_peer_address",
+        "document_id": "xcsh-docs:resources:cloud_link:properties:aws:byoc:connections:ipv4",
+        "schema_path": ["aws", "byoc", "connections", "ipv4", "router_peer_address"]
+      },
+      "aws.byoc.connections.metadata": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:resources:cloud_link:properties:aws:byoc:connections:metadata",
+        "schema_path": ["aws", "byoc", "connections", "metadata"]
+      },
+      "aws.byoc.connections.metadata.description_spec": {
+        "anchor": "schema-aws--byoc--connections--metadata--description_spec",
+        "document_id": "xcsh-docs:resources:cloud_link:properties:aws:byoc:connections:metadata",
+        "schema_path": ["aws", "byoc", "connections", "metadata", "description_spec"]
+      },
+      "aws.byoc.connections.metadata.name": {
+        "anchor": "schema-aws--byoc--connections--metadata--name",
+        "document_id": "xcsh-docs:resources:cloud_link:properties:aws:byoc:connections:metadata",
+        "schema_path": ["aws", "byoc", "connections", "metadata", "name"]
+      },
+      "aws.byoc.connections.region": {
+        "anchor": "schema-aws--byoc--connections--region",
+        "document_id": "xcsh-docs:resources:cloud_link:properties:aws:byoc:connections",
+        "schema_path": ["aws", "byoc", "connections", "region"]
+      },
+      "aws.byoc.connections.system_generated_name": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:resources:cloud_link:properties:aws:byoc:connections:system_generated_name",
+        "schema_path": ["aws", "byoc", "connections", "system_generated_name"]
+      },
+      "aws.byoc.connections.tags": {
+        "anchor": "schema-aws--byoc--connections--tags",
+        "document_id": "xcsh-docs:resources:cloud_link:properties:aws:byoc:connections",
+        "schema_path": ["aws", "byoc", "connections", "tags"]
+      },
+      "aws.byoc.connections.user_assigned_name": {
+        "anchor": "schema-aws--byoc--connections--user_assigned_name",
+        "document_id": "xcsh-docs:resources:cloud_link:properties:aws:byoc:connections",
+        "schema_path": ["aws", "byoc", "connections", "user_assigned_name"]
+      },
+      "aws.byoc.connections.virtual_interface_type": {
+        "anchor": "schema-aws--byoc--connections--virtual_interface_type",
+        "document_id": "xcsh-docs:resources:cloud_link:properties:aws:byoc:connections",
+        "schema_path": ["aws", "byoc", "connections", "virtual_interface_type"]
+      },
+      "aws.byoc.connections.vlan": {
+        "anchor": "schema-aws--byoc--connections--vlan",
+        "document_id": "xcsh-docs:resources:cloud_link:properties:aws:byoc:connections",
+        "schema_path": ["aws", "byoc", "connections", "vlan"]
+      },
+      "aws.custom_asn": {
+        "anchor": "schema-aws--custom_asn",
+        "document_id": "xcsh-docs:resources:cloud_link:properties:aws",
+        "schema_path": ["aws", "custom_asn"]
+      },
+      "description": {
+        "anchor": "schema-description",
+        "document_id": "xcsh-docs:resources:cloud_link:reference",
+        "schema_path": ["description"]
+      },
+      "disable": {
+        "anchor": "schema-disable",
+        "document_id": "xcsh-docs:resources:cloud_link:reference",
+        "schema_path": ["disable"]
+      },
+      "disabled": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:resources:cloud_link:properties:disabled",
+        "schema_path": ["disabled"]
+      },
+      "enabled": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:resources:cloud_link:properties:enabled",
+        "schema_path": ["enabled"]
+      },
+      "enabled.cloudlink_network_name": {
+        "anchor": "schema-enabled--cloudlink_network_name",
+        "document_id": "xcsh-docs:resources:cloud_link:properties:enabled",
+        "schema_path": ["enabled", "cloudlink_network_name"]
+      },
+      "gcp": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:resources:cloud_link:properties:gcp",
+        "schema_path": ["gcp"]
+      },
+      "gcp.byoc": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:resources:cloud_link:properties:gcp:byoc",
+        "schema_path": ["gcp", "byoc"]
+      },
+      "gcp.byoc.connections": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:resources:cloud_link:properties:gcp:byoc:connections",
+        "schema_path": ["gcp", "byoc", "connections"]
+      },
+      "gcp.byoc.connections.interconnect_attachment_name": {
+        "anchor": "schema-gcp--byoc--connections--interconnect_attachment_name",
+        "document_id": "xcsh-docs:resources:cloud_link:properties:gcp:byoc:connections",
+        "schema_path": ["gcp", "byoc", "connections", "interconnect_attachment_name"]
+      },
+      "gcp.byoc.connections.metadata": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:resources:cloud_link:properties:gcp:byoc:connections:metadata",
+        "schema_path": ["gcp", "byoc", "connections", "metadata"]
+      },
+      "gcp.byoc.connections.metadata.description_spec": {
+        "anchor": "schema-gcp--byoc--connections--metadata--description_spec",
+        "document_id": "xcsh-docs:resources:cloud_link:properties:gcp:byoc:connections:metadata",
+        "schema_path": ["gcp", "byoc", "connections", "metadata", "description_spec"]
+      },
+      "gcp.byoc.connections.metadata.name": {
+        "anchor": "schema-gcp--byoc--connections--metadata--name",
+        "document_id": "xcsh-docs:resources:cloud_link:properties:gcp:byoc:connections:metadata",
+        "schema_path": ["gcp", "byoc", "connections", "metadata", "name"]
+      },
+      "gcp.byoc.connections.project": {
+        "anchor": "schema-gcp--byoc--connections--project",
+        "document_id": "xcsh-docs:resources:cloud_link:properties:gcp:byoc:connections",
+        "schema_path": ["gcp", "byoc", "connections", "project"]
+      },
+      "gcp.byoc.connections.region": {
+        "anchor": "schema-gcp--byoc--connections--region",
+        "document_id": "xcsh-docs:resources:cloud_link:properties:gcp:byoc:connections",
+        "schema_path": ["gcp", "byoc", "connections", "region"]
+      },
+      "gcp.byoc.connections.same_as_credential": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:resources:cloud_link:properties:gcp:byoc:connections:same_as_credential",
+        "schema_path": ["gcp", "byoc", "connections", "same_as_credential"]
+      },
+      "gcp.gcp_cred": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:resources:cloud_link:properties:gcp:gcp_cred",
+        "schema_path": ["gcp", "gcp_cred"]
+      },
+      "gcp.gcp_cred.name": {
+        "anchor": "schema-gcp--gcp_cred--name",
+        "document_id": "xcsh-docs:resources:cloud_link:properties:gcp:gcp_cred",
+        "schema_path": ["gcp", "gcp_cred", "name"]
+      },
+      "gcp.gcp_cred.namespace": {
+        "anchor": "schema-gcp--gcp_cred--namespace",
+        "document_id": "xcsh-docs:resources:cloud_link:properties:gcp:gcp_cred",
+        "schema_path": ["gcp", "gcp_cred", "namespace"]
+      },
+      "gcp.gcp_cred.tenant": {
+        "anchor": "schema-gcp--gcp_cred--tenant",
+        "document_id": "xcsh-docs:resources:cloud_link:properties:gcp:gcp_cred",
+        "schema_path": ["gcp", "gcp_cred", "tenant"]
+      },
+      "id": { "anchor": "schema-id", "document_id": "xcsh-docs:resources:cloud_link:reference", "schema_path": ["id"] },
+      "labels": {
+        "anchor": "schema-labels",
+        "document_id": "xcsh-docs:resources:cloud_link:reference",
+        "schema_path": ["labels"]
+      },
+      "name": {
+        "anchor": "schema-name",
+        "document_id": "xcsh-docs:resources:cloud_link:reference",
+        "schema_path": ["name"]
+      },
+      "namespace": {
+        "anchor": "schema-namespace",
+        "document_id": "xcsh-docs:resources:cloud_link:reference",
+        "schema_path": ["namespace"]
+      },
+      "timeouts": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:resources:cloud_link:properties:timeouts",
+        "schema_path": ["timeouts"]
+      },
+      "timeouts.create": {
+        "anchor": "schema-timeouts--create",
+        "document_id": "xcsh-docs:resources:cloud_link:properties:timeouts",
+        "schema_path": ["timeouts", "create"]
+      },
+      "timeouts.delete": {
+        "anchor": "schema-timeouts--delete",
+        "document_id": "xcsh-docs:resources:cloud_link:properties:timeouts",
+        "schema_path": ["timeouts", "delete"]
+      },
+      "timeouts.read": {
+        "anchor": "schema-timeouts--read",
+        "document_id": "xcsh-docs:resources:cloud_link:properties:timeouts",
+        "schema_path": ["timeouts", "read"]
+      },
+      "timeouts.update": {
+        "anchor": "schema-timeouts--update",
+        "document_id": "xcsh-docs:resources:cloud_link:properties:timeouts",
+        "schema_path": ["timeouts", "update"]
+      }
+    },
+    "provider_name": "cloud_link",
+    "provider_type": "resources",
+    "reference_id": "xcsh-docs:resources:cloud_link:reference"
+  },
+  "pages": [
+    {
+      "aliases": [],
+      "body_bytes": 1511,
+      "body_sha256": "sha256:d8e55c19093220d046549ab9d845e4aea76ab71197499bff215614c344a4843f",
+      "child_ids": [
+        "xcsh-docs:resources:cloud_link:reference",
+        "xcsh-docs:resources:cloud_link:examples",
+        "xcsh-docs:resources:cloud_link:import",
+        "xcsh-docs:resources:cloud_link:timeouts"
+      ],
+      "collection_id": "xcsh-docs:resources:cloud_link:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:resources:cloud_link:fundamentals",
+      "parent_id": null,
+      "path": "documentation/resources/cloud_link/index.md",
+      "provider_name": "cloud_link",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "resources",
+      "registry_path": "docs/resources/cloud_link.md",
+      "role": "fundamentals",
+      "schema_path": [],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/cloud_link/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "xcsh_cloud_link for xcsh_cloud_link.",
+      "title": "xcsh_cloud_link",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["cloud_linkCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 20119,
+      "body_sha256": "sha256:38204696a4fe79c82a0c3ce030912066cc96e87a7a188d34dfbb78d514d2ed3a",
+      "child_ids": [
+        "xcsh-docs:resources:cloud_link:properties:aws",
+        "xcsh-docs:resources:cloud_link:properties:disabled",
+        "xcsh-docs:resources:cloud_link:properties:enabled",
+        "xcsh-docs:resources:cloud_link:properties:gcp",
+        "xcsh-docs:resources:cloud_link:properties:timeouts"
+      ],
+      "collection_id": "xcsh-docs:resources:cloud_link:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:resources:cloud_link:reference",
+      "parent_id": "xcsh-docs:resources:cloud_link:fundamentals",
+      "path": "documentation/resources/cloud_link/properties/index.md",
+      "provider_name": "cloud_link",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "resources",
+      "registry_path": "docs/guides/resources--cloud_link--reference.md",
+      "role": "reference",
+      "schema_path": [],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/cloud_link/properties/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "Property reference for xcsh_cloud_link.",
+      "title": "Property reference",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["cloud_linkCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 3282,
+      "body_sha256": "sha256:e1b4d7c6e159212254a41c0088d145f8e528b44217a1822fc21911a7e8a6c3a3",
+      "child_ids": [
+        "xcsh-docs:resources:cloud_link:properties:aws:aws_cred",
+        "xcsh-docs:resources:cloud_link:properties:aws:byoc"
+      ],
+      "collection_id": "xcsh-docs:resources:cloud_link:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:resources:cloud_link:properties:aws",
+      "parent_id": "xcsh-docs:resources:cloud_link:reference",
+      "path": "documentation/resources/cloud_link/properties/aws/index.md",
+      "provider_name": "cloud_link",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "resources",
+      "registry_path": "docs/guides/resources--cloud_link--properties--aws.md",
+      "role": "properties",
+      "schema_path": ["aws"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/cloud_link/properties/aws/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "aws for xcsh_cloud_link.",
+      "title": "aws",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["cloud_linkCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 5907,
+      "body_sha256": "sha256:4a85f2712d973f63f6d901ea7ca44b10597cf1b9745b79a67d08938cd03dad9c",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:resources:cloud_link:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:resources:cloud_link:properties:aws:aws_cred",
+      "parent_id": "xcsh-docs:resources:cloud_link:properties:aws",
+      "path": "documentation/resources/cloud_link/properties/aws/aws_cred/index.md",
+      "provider_name": "cloud_link",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "resources",
+      "registry_path": "docs/guides/resources--cloud_link--properties--aws--aws_cred.md",
+      "role": "properties",
+      "schema_path": ["aws", "aws_cred"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/cloud_link/properties/aws/aws_cred/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "aws.aws_cred for xcsh_cloud_link.",
+      "title": "aws.aws_cred",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["cloud_linkCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 1595,
+      "body_sha256": "sha256:021507ae470c849d427605e011b26120d0469bbb38b205f4702dfd07031c4881",
+      "child_ids": ["xcsh-docs:resources:cloud_link:properties:aws:byoc:connections"],
+      "collection_id": "xcsh-docs:resources:cloud_link:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:resources:cloud_link:properties:aws:byoc",
+      "parent_id": "xcsh-docs:resources:cloud_link:properties:aws",
+      "path": "documentation/resources/cloud_link/properties/aws/byoc/index.md",
+      "provider_name": "cloud_link",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "resources",
+      "registry_path": "docs/guides/resources--cloud_link--properties--aws--byoc.md",
+      "role": "properties",
+      "schema_path": ["aws", "byoc"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/cloud_link/properties/aws/byoc/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "aws.byoc for xcsh_cloud_link.",
+      "title": "aws.byoc",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["cloud_linkCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 14664,
+      "body_sha256": "sha256:a49e5fc91e025aa1edd3f47c96b5432f2854a2a60c6c3f5074a891c8782c3704",
+      "child_ids": [
+        "xcsh-docs:resources:cloud_link:properties:aws:byoc:connections:auth_key",
+        "xcsh-docs:resources:cloud_link:properties:aws:byoc:connections:ipv4",
+        "xcsh-docs:resources:cloud_link:properties:aws:byoc:connections:metadata",
+        "xcsh-docs:resources:cloud_link:properties:aws:byoc:connections:system_generated_name"
+      ],
+      "collection_id": "xcsh-docs:resources:cloud_link:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:resources:cloud_link:properties:aws:byoc:connections",
+      "parent_id": "xcsh-docs:resources:cloud_link:properties:aws:byoc",
+      "path": "documentation/resources/cloud_link/properties/aws/byoc/connections/index.md",
+      "provider_name": "cloud_link",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "resources",
+      "registry_path": "docs/guides/resources--cloud_link--properties--aws--byoc--connections.md",
+      "role": "properties",
+      "schema_path": ["aws", "byoc", "connections"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/cloud_link/properties/aws/byoc/connections/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "aws.byoc.connections for xcsh_cloud_link.",
+      "title": "aws.byoc.connections",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["cloud_linkCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 2497,
+      "body_sha256": "sha256:f1f0faf360591937ee8ed3d51b947821cc215f9a6c8335a86eab4d8281c193ca",
+      "child_ids": [
+        "xcsh-docs:resources:cloud_link:properties:aws:byoc:connections:auth_key:blindfold_secret_info",
+        "xcsh-docs:resources:cloud_link:properties:aws:byoc:connections:auth_key:clear_secret_info"
+      ],
+      "collection_id": "xcsh-docs:resources:cloud_link:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:resources:cloud_link:properties:aws:byoc:connections:auth_key",
+      "parent_id": "xcsh-docs:resources:cloud_link:properties:aws:byoc:connections",
+      "path": "documentation/resources/cloud_link/properties/aws/byoc/connections/auth_key/index.md",
+      "provider_name": "cloud_link",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "resources",
+      "registry_path": "docs/guides/resources--cloud_link--properties--aws--byoc--connections--auth_key.md",
+      "role": "properties",
+      "schema_path": ["aws", "byoc", "connections", "auth_key"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/cloud_link/properties/aws/byoc/connections/auth_key/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "aws.byoc.connections.auth_key for xcsh_cloud_link.",
+      "title": "aws.byoc.connections.auth_key",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["cloud_linkCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 5112,
+      "body_sha256": "sha256:2739c20a23d05dc23b2adfefdb52b52ce7c9dd89dc8f3c9eac3e16d21b4666c4",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:resources:cloud_link:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:resources:cloud_link:properties:aws:byoc:connections:auth_key:blindfold_secret_info",
+      "parent_id": "xcsh-docs:resources:cloud_link:properties:aws:byoc:connections:auth_key",
+      "path": "documentation/resources/cloud_link/properties/aws/byoc/connections/auth_key/blindfold_secret_info/index.md",
+      "provider_name": "cloud_link",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "resources",
+      "registry_path": "docs/guides/resources--cloud_link--properties--aws--byoc--connections--auth_key--blindfold_secret_info.md",
+      "role": "properties",
+      "schema_path": ["aws", "byoc", "connections", "auth_key", "blindfold_secret_info"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/cloud_link/properties/aws/byoc/connections/auth_key/blindfold_secret_info/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "aws.byoc.connections.auth_key.blindfold_secret_info for xcsh_cloud_link.",
+      "title": "aws.byoc.connections.auth_key.blindfold_secret_info",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["cloud_linkCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 3991,
+      "body_sha256": "sha256:ff59cf6f2fda8efced995c1df82746e7a8031bfef6c1b5bc6eef55c393c7b000",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:resources:cloud_link:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:resources:cloud_link:properties:aws:byoc:connections:auth_key:clear_secret_info",
+      "parent_id": "xcsh-docs:resources:cloud_link:properties:aws:byoc:connections:auth_key",
+      "path": "documentation/resources/cloud_link/properties/aws/byoc/connections/auth_key/clear_secret_info/index.md",
+      "provider_name": "cloud_link",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "resources",
+      "registry_path": "docs/guides/resources--cloud_link--properties--aws--byoc--connections--auth_key--clear_secret_info.md",
+      "role": "properties",
+      "schema_path": ["aws", "byoc", "connections", "auth_key", "clear_secret_info"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/cloud_link/properties/aws/byoc/connections/auth_key/clear_secret_info/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "aws.byoc.connections.auth_key.clear_secret_info for xcsh_cloud_link.",
+      "title": "aws.byoc.connections.auth_key.clear_secret_info",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["cloud_linkCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 3820,
+      "body_sha256": "sha256:537503216c0a8b7ffa0a5fb6edeb5e4b903c9eb38001a846b88d52e504bff75c",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:resources:cloud_link:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:resources:cloud_link:properties:aws:byoc:connections:ipv4",
+      "parent_id": "xcsh-docs:resources:cloud_link:properties:aws:byoc:connections",
+      "path": "documentation/resources/cloud_link/properties/aws/byoc/connections/ipv4/index.md",
+      "provider_name": "cloud_link",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "resources",
+      "registry_path": "docs/guides/resources--cloud_link--properties--aws--byoc--connections--ipv4.md",
+      "role": "properties",
+      "schema_path": ["aws", "byoc", "connections", "ipv4"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/cloud_link/properties/aws/byoc/connections/ipv4/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "aws.byoc.connections.ipv4 for xcsh_cloud_link.",
+      "title": "aws.byoc.connections.ipv4",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["cloud_linkCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 4277,
+      "body_sha256": "sha256:464cb5652360f54c6affe34ab025105fb88e70edbb448570a3b1d6ed9f16cdb0",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:resources:cloud_link:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:resources:cloud_link:properties:aws:byoc:connections:metadata",
+      "parent_id": "xcsh-docs:resources:cloud_link:properties:aws:byoc:connections",
+      "path": "documentation/resources/cloud_link/properties/aws/byoc/connections/metadata/index.md",
+      "provider_name": "cloud_link",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "resources",
+      "registry_path": "docs/guides/resources--cloud_link--properties--aws--byoc--connections--metadata.md",
+      "role": "properties",
+      "schema_path": ["aws", "byoc", "connections", "metadata"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/cloud_link/properties/aws/byoc/connections/metadata/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "aws.byoc.connections.metadata for xcsh_cloud_link.",
+      "title": "aws.byoc.connections.metadata",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["cloud_linkCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 1509,
+      "body_sha256": "sha256:1d077dc247d95efb8a9f679fcd6410b7133c0682cec0a1c877ad8aab3091c645",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:resources:cloud_link:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:resources:cloud_link:properties:aws:byoc:connections:system_generated_name",
+      "parent_id": "xcsh-docs:resources:cloud_link:properties:aws:byoc:connections",
+      "path": "documentation/resources/cloud_link/properties/aws/byoc/connections/system_generated_name/index.md",
+      "provider_name": "cloud_link",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "resources",
+      "registry_path": "docs/guides/resources--cloud_link--properties--aws--byoc--connections--system_generated_name.md",
+      "role": "properties",
+      "schema_path": ["aws", "byoc", "connections", "system_generated_name"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/cloud_link/properties/aws/byoc/connections/system_generated_name/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "aws.byoc.connections.system_generated_name for xcsh_cloud_link.",
+      "title": "aws.byoc.connections.system_generated_name",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["cloud_linkCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 1428,
+      "body_sha256": "sha256:cd8e92d3ca8ca7015b71f48d2e7b29e6c11d71f7c80e297b368136d36a969a3b",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:resources:cloud_link:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:resources:cloud_link:properties:disabled",
+      "parent_id": "xcsh-docs:resources:cloud_link:reference",
+      "path": "documentation/resources/cloud_link/properties/disabled/index.md",
+      "provider_name": "cloud_link",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "resources",
+      "registry_path": "docs/guides/resources--cloud_link--properties--disabled.md",
+      "role": "properties",
+      "schema_path": ["disabled"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/cloud_link/properties/disabled/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "disabled for xcsh_cloud_link.",
+      "title": "disabled",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["cloud_linkCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 2344,
+      "body_sha256": "sha256:53a3806af3549e174c4ac15a2836c6b5a2a565cbf253dc1f26106a35879bfb10",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:resources:cloud_link:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:resources:cloud_link:properties:enabled",
+      "parent_id": "xcsh-docs:resources:cloud_link:reference",
+      "path": "documentation/resources/cloud_link/properties/enabled/index.md",
+      "provider_name": "cloud_link",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "resources",
+      "registry_path": "docs/guides/resources--cloud_link--properties--enabled.md",
+      "role": "properties",
+      "schema_path": ["enabled"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/cloud_link/properties/enabled/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "enabled for xcsh_cloud_link.",
+      "title": "enabled",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["cloud_linkCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 1642,
+      "body_sha256": "sha256:ea3124abdab328ab04e08aaa4bdac2053cfc3819c0d61a9f9b6029da7f712e80",
+      "child_ids": [
+        "xcsh-docs:resources:cloud_link:properties:gcp:byoc",
+        "xcsh-docs:resources:cloud_link:properties:gcp:gcp_cred"
+      ],
+      "collection_id": "xcsh-docs:resources:cloud_link:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:resources:cloud_link:properties:gcp",
+      "parent_id": "xcsh-docs:resources:cloud_link:reference",
+      "path": "documentation/resources/cloud_link/properties/gcp/index.md",
+      "provider_name": "cloud_link",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "resources",
+      "registry_path": "docs/guides/resources--cloud_link--properties--gcp.md",
+      "role": "properties",
+      "schema_path": ["gcp"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/cloud_link/properties/gcp/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "gcp for xcsh_cloud_link.",
+      "title": "gcp",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["cloud_linkCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 1609,
+      "body_sha256": "sha256:3f9f46f9056e1f13d757d2399c4265c8aac5872232e2634704b99c98aedb79b3",
+      "child_ids": ["xcsh-docs:resources:cloud_link:properties:gcp:byoc:connections"],
+      "collection_id": "xcsh-docs:resources:cloud_link:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:resources:cloud_link:properties:gcp:byoc",
+      "parent_id": "xcsh-docs:resources:cloud_link:properties:gcp",
+      "path": "documentation/resources/cloud_link/properties/gcp/byoc/index.md",
+      "provider_name": "cloud_link",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "resources",
+      "registry_path": "docs/guides/resources--cloud_link--properties--gcp--byoc.md",
+      "role": "properties",
+      "schema_path": ["gcp", "byoc"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/cloud_link/properties/gcp/byoc/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "gcp.byoc for xcsh_cloud_link.",
+      "title": "gcp.byoc",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["cloud_linkCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 11324,
+      "body_sha256": "sha256:59bd1f0a46ce060a5590f39b1aed6066e94fc9e49b1ad9d4b1fc5d12d1d93e97",
+      "child_ids": [
+        "xcsh-docs:resources:cloud_link:properties:gcp:byoc:connections:metadata",
+        "xcsh-docs:resources:cloud_link:properties:gcp:byoc:connections:same_as_credential"
+      ],
+      "collection_id": "xcsh-docs:resources:cloud_link:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:resources:cloud_link:properties:gcp:byoc:connections",
+      "parent_id": "xcsh-docs:resources:cloud_link:properties:gcp:byoc",
+      "path": "documentation/resources/cloud_link/properties/gcp/byoc/connections/index.md",
+      "provider_name": "cloud_link",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "resources",
+      "registry_path": "docs/guides/resources--cloud_link--properties--gcp--byoc--connections.md",
+      "role": "properties",
+      "schema_path": ["gcp", "byoc", "connections"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/cloud_link/properties/gcp/byoc/connections/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "gcp.byoc.connections for xcsh_cloud_link.",
+      "title": "gcp.byoc.connections",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["cloud_linkCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 4277,
+      "body_sha256": "sha256:139f172932be8210c2a6013b760e937d26d62f53e29e49abf085728d6cf5d335",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:resources:cloud_link:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:resources:cloud_link:properties:gcp:byoc:connections:metadata",
+      "parent_id": "xcsh-docs:resources:cloud_link:properties:gcp:byoc:connections",
+      "path": "documentation/resources/cloud_link/properties/gcp/byoc/connections/metadata/index.md",
+      "provider_name": "cloud_link",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "resources",
+      "registry_path": "docs/guides/resources--cloud_link--properties--gcp--byoc--connections--metadata.md",
+      "role": "properties",
+      "schema_path": ["gcp", "byoc", "connections", "metadata"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/cloud_link/properties/gcp/byoc/connections/metadata/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "gcp.byoc.connections.metadata for xcsh_cloud_link.",
+      "title": "gcp.byoc.connections.metadata",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["cloud_linkCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 1529,
+      "body_sha256": "sha256:0f58fcba220ab6948b18e84c06319396b0d087fee8df8649a26fcec2994854aa",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:resources:cloud_link:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:resources:cloud_link:properties:gcp:byoc:connections:same_as_credential",
+      "parent_id": "xcsh-docs:resources:cloud_link:properties:gcp:byoc:connections",
+      "path": "documentation/resources/cloud_link/properties/gcp/byoc/connections/same_as_credential/index.md",
+      "provider_name": "cloud_link",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "resources",
+      "registry_path": "docs/guides/resources--cloud_link--properties--gcp--byoc--connections--same_as_credential.md",
+      "role": "properties",
+      "schema_path": ["gcp", "byoc", "connections", "same_as_credential"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/cloud_link/properties/gcp/byoc/connections/same_as_credential/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "gcp.byoc.connections.same_as_credential for xcsh_cloud_link.",
+      "title": "gcp.byoc.connections.same_as_credential",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["cloud_linkCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 5907,
+      "body_sha256": "sha256:7987ef350ee95a70bbc0b3946503967116ae11a008eea9f608b1353becea7e2c",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:resources:cloud_link:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:resources:cloud_link:properties:gcp:gcp_cred",
+      "parent_id": "xcsh-docs:resources:cloud_link:properties:gcp",
+      "path": "documentation/resources/cloud_link/properties/gcp/gcp_cred/index.md",
+      "provider_name": "cloud_link",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "resources",
+      "registry_path": "docs/guides/resources--cloud_link--properties--gcp--gcp_cred.md",
+      "role": "properties",
+      "schema_path": ["gcp", "gcp_cred"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/cloud_link/properties/gcp/gcp_cred/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "gcp.gcp_cred for xcsh_cloud_link.",
+      "title": "gcp.gcp_cred",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["cloud_linkCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 2219,
+      "body_sha256": "sha256:a9ca140bc1f9608eae39a92a62de49c95efd1bc02a3d5ed9cd9048af20f69ecd",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:resources:cloud_link:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:resources:cloud_link:properties:timeouts",
+      "parent_id": "xcsh-docs:resources:cloud_link:reference",
+      "path": "documentation/resources/cloud_link/properties/timeouts/index.md",
+      "provider_name": "cloud_link",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "resources",
+      "registry_path": "docs/guides/resources--cloud_link--properties--timeouts.md",
+      "role": "properties",
+      "schema_path": ["timeouts"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/cloud_link/properties/timeouts/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "timeouts for xcsh_cloud_link.",
+      "title": "timeouts",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["cloud_linkCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 621,
+      "body_sha256": "sha256:c72dc21ed08c9002820847229861eeeaf86a0369e0518464867d051ca175419b",
+      "child_ids": ["xcsh-docs:resources:cloud_link:example:resource"],
+      "collection_id": "xcsh-docs:resources:cloud_link:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:resources:cloud_link:examples",
+      "parent_id": "xcsh-docs:resources:cloud_link:fundamentals",
+      "path": "documentation/resources/cloud_link/examples/index.md",
+      "provider_name": "cloud_link",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "resources",
+      "registry_path": "docs/guides/resources--cloud_link--examples.md",
+      "role": "examples",
+      "schema_path": [],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/cloud_link/examples/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "Examples for xcsh_cloud_link.",
+      "title": "Examples",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["cloud_linkCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 1228,
+      "body_sha256": "sha256:60e13b97f210d620d77658c8bcbac3e368d0f43450801e5b2ccfc9aa0ed12164",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:resources:cloud_link:collection",
+      "completeness": "complete",
+      "evidence": {
+        "attribution": "Schema-derived minimal configuration validated with the checked-out provider.",
+        "outcome": "valid configuration",
+        "sha256": "sha256:1be93a99c9a3175561f8ebf72f83a5762c7f54a0a05e770026c4c08e2199ba00",
+        "source_path": "examples/resources/xcsh_cloud_link/resource.tf",
+        "validation": "terraform validate"
+      },
+      "id": "xcsh-docs:resources:cloud_link:example:resource",
+      "parent_id": "xcsh-docs:resources:cloud_link:examples",
+      "path": "documentation/resources/cloud_link/examples/resource/index.md",
+      "provider_name": "cloud_link",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "resources",
+      "registry_path": "docs/guides/resources--cloud_link--example--resource.md",
+      "role": "example",
+      "schema_path": ["resource"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/cloud_link/examples/resource/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "Resource for xcsh_cloud_link.",
+      "title": "Resource",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["cloud_linkCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 498,
+      "body_sha256": "sha256:a44c31c93e7d2fa2b6f35b7e86e35eeebbc399467f49f139bddfa8ec4a854c62",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:resources:cloud_link:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:resources:cloud_link:import",
+      "parent_id": "xcsh-docs:resources:cloud_link:fundamentals",
+      "path": "documentation/resources/cloud_link/lifecycle/import/index.md",
+      "provider_name": "cloud_link",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "resources",
+      "registry_path": "docs/guides/resources--cloud_link--import.md",
+      "role": "import",
+      "schema_path": [],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/cloud_link/lifecycle/import/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "Import for xcsh_cloud_link.",
+      "title": "Import",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["cloud_linkCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 558,
+      "body_sha256": "sha256:dba4455805548dde927acba085f10e8d17012c49977a49ffa7772fc9acafd559",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:resources:cloud_link:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:resources:cloud_link:timeouts",
+      "parent_id": "xcsh-docs:resources:cloud_link:fundamentals",
+      "path": "documentation/resources/cloud_link/lifecycle/timeouts/index.md",
+      "provider_name": "cloud_link",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "resources",
+      "registry_path": "docs/guides/resources--cloud_link--timeouts.md",
+      "role": "timeouts",
+      "schema_path": [],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/cloud_link/lifecycle/timeouts/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "Timeouts for xcsh_cloud_link.",
+      "title": "Timeouts",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": ["cloud_linkCreateRequest"],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    }
+  ],
+  "provider": "registry.terraform.io/f5-sales-demo/xcsh",
+  "schema_version": 1
+}

@@ -1,0 +1,70 @@
+---
+page_title: "xcsh_tcp_loadbalancer"
+subcategory: "Load Balancing"
+description: "xcsh_tcp_loadbalancer for xcsh_tcp_loadbalancer."
+xcsh_docs: {"aliases": [], "body_bytes": 1858, "body_sha256": "sha256:7398486b847a41c597771207f93b1f48463b28d0784a616e9a04f64e62cda4e7", "child_ids": ["xcsh-docs:resources:tcp_loadbalancer:reference", "xcsh-docs:resources:tcp_loadbalancer:examples", "xcsh-docs:resources:tcp_loadbalancer:import", "xcsh-docs:resources:tcp_loadbalancer:timeouts"], "collection_id": "xcsh-docs:resources:tcp_loadbalancer:collection", "completeness": "complete", "id": "xcsh-docs:resources:tcp_loadbalancer:fundamentals", "parent_id": null, "path": "documentation/resources/tcp_loadbalancer/index.md", "provider_name": "tcp_loadbalancer", "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6", "provider_type": "resources", "role": "fundamentals", "schema_path": [], "schema_version": 1, "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/tcp_loadbalancer/index.txt", "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774", "summary": "xcsh_tcp_loadbalancer for xcsh_tcp_loadbalancer.", "upstream_identity": {"release_tag": "v9.0.0", "schema_components": ["tcp_loadbalancerCreateRequest"], "target_commit": "f95183046197e6547a3ea123e324f53126eae440"}}
+---
+
+<!-- Exact provider and upstream contract identifiers. -->
+
+<!-- textlint-disable terminology -->
+
+# xcsh_tcp_loadbalancer
+
+Breadcrumbs:
+
+- xcsh_tcp_loadbalancer
+
+Manages a TCP Load Balancer resource in F5 Distributed Cloud for load balancing TCP traffic across
+origin pools.
+
+## Prerequisites
+
+Install Terraform and the `f5-sales-demo/xcsh` provider. Configure provider authentication and access to the target namespace.
+
+Required service tier: Standard.
+
+Required dependencies: `origin_pool`.
+
+Optional integrations: `healthcheck`.
+
+- origin_pool: Backend servers for TCP/UDP traffic
+
+- healthcheck: Monitor origin server health
+
+## Minimal configuration
+
+Validated with the exact checked-out provider using `terraform validate`. This does not assert a successful live apply.
+
+```terraform
+# TCPLoadBalancer Resource Example
+# Manages a TCP Load Balancer resource in F5 Distributed Cloud for load balancing TCP traffic across origin pools.
+
+terraform {
+  required_version = ">= 1.0"
+
+  required_providers {
+    xcsh = {
+      source  = "f5-sales-demo/xcsh"
+      version = ">= 0.1.0"
+    }
+  }
+}
+
+# Basic TCPLoadBalancer configuration
+resource "xcsh_tcp_loadbalancer" "example" {
+  name      = "example-tcp-loadbalancer"
+  namespace = "staging"
+}
+```
+
+## Root configuration
+
+Required root properties: `name`, `namespace`. Full root flags and choices appear in the property reference.
+
+## Next pages
+
+- [Property reference](https://f5-sales-demo.github.io/terraform-provider-xcsh/resources/tcp_loadbalancer/properties/)
+- [Examples](https://f5-sales-demo.github.io/terraform-provider-xcsh/resources/tcp_loadbalancer/examples/)
+- [Import](https://f5-sales-demo.github.io/terraform-provider-xcsh/resources/tcp_loadbalancer/lifecycle/import/)
+- [Timeouts](https://f5-sales-demo.github.io/terraform-provider-xcsh/resources/tcp_loadbalancer/lifecycle/timeouts/)

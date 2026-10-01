@@ -1,8 +1,0 @@
-# Applications
-
-Application settings, types, discovery, and filtering
-
-## Resources
-
-- [app_setting](_llms-txt/resources/app_setting.txt) : App setting configuration in namespace metadata.namespace
-- [app_type](_llms-txt/resources/app_type.txt) : App type will create the configuration in namespace metadata.namespace

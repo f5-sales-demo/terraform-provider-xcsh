@@ -1,0 +1,52 @@
+---
+page_title: "datadog_receiver.use_tls.no_ca"
+subcategory: ""
+description: "datadog_receiver.use_tls.no_ca for xcsh_global_log_receiver."
+xcsh_docs: {"aliases": [], "body_bytes": 1135, "body_sha256": "sha256:c92ddd9c87b46ca79a9927c2542ae7f503888fb092d0b94c1317fa38afa5b3c6", "canonical_id": "xcsh-docs:data-sources:global_log_receiver:properties:datadog_receiver:use_tls:no_ca", "child_ids": [], "collection_id": "xcsh-docs:data-sources:global_log_receiver:collection", "completeness": "complete", "id": "xcsh-docs:data-sources:global_log_receiver:properties:datadog_receiver:use_tls:no_ca", "parent_id": "xcsh-docs:data-sources:global_log_receiver:properties:datadog_receiver:use_tls", "path": "docs/guides/data-sources--global_log_receiver--properties--datadog_receiver--use_tls--no_ca.md", "provider_name": "global_log_receiver", "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6", "provider_type": "data-sources", "publishing_destination": "registry", "role": "properties", "schema_path": ["datadog_receiver", "use_tls", "no_ca"], "schema_version": 1, "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/global_log_receiver/properties/datadog_receiver/use_tls/no_ca/index.txt", "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774", "summary": "datadog_receiver.use_tls.no_ca for xcsh_global_log_receiver.", "upstream_identity": {"release_tag": "v9.0.0", "schema_components": ["global_log_receiverCreateRequest"], "target_commit": "f95183046197e6547a3ea123e324f53126eae440"}}
+---
+
+<!-- Exact provider and upstream contract identifiers. -->
+
+<!-- textlint-disable terminology -->
+
+# datadog_receiver.use_tls.no_ca
+
+Breadcrumbs:
+
+- [xcsh_global_log_receiver](../data-sources/global_log_receiver.md)
+- [Property reference](data-sources--global_log_receiver--reference.md)
+- [datadog_receiver](data-sources--global_log_receiver--properties--datadog_receiver.md)
+- [datadog_receiver.use_tls](data-sources--global_log_receiver--properties--datadog_receiver--use_tls.md)
+- datadog_receiver.use_tls.no_ca
+
+<a id="section"></a>
+
+Type: `["object", {}]`. Computed.
+
+Enable this option
+
+Upstream description:
+
+This can be used for messages where no values are needed.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  }
+}
+```
+
+## Direct properties
+
+This is an empty object or choice marker. It has no direct properties.
+
+## Next pages
+
+- [datadog_receiver.use_tls](data-sources--global_log_receiver--properties--datadog_receiver--use_tls.md)
+- [xcsh_global_log_receiver](../data-sources/global_log_receiver.md)

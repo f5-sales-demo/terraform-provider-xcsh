@@ -1,0 +1,634 @@
+{
+  "collection": {
+    "fundamentals_id": "xcsh-docs:data-sources:lma_region:fundamentals",
+    "id": "xcsh-docs:data-sources:lma_region:collection",
+    "properties": {
+      "access_logs_s3_params": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:data-sources:lma_region:properties:access_logs_s3_params",
+        "schema_path": ["access_logs_s3_params"]
+      },
+      "access_logs_s3_params.aws_credentials": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:data-sources:lma_region:properties:access_logs_s3_params:aws_credentials",
+        "schema_path": ["access_logs_s3_params", "aws_credentials"]
+      },
+      "access_logs_s3_params.aws_credentials.access_key_id": {
+        "anchor": "schema-access_logs_s3_params--aws_credentials--access_key_id",
+        "document_id": "xcsh-docs:data-sources:lma_region:properties:access_logs_s3_params:aws_credentials",
+        "schema_path": ["access_logs_s3_params", "aws_credentials", "access_key_id"]
+      },
+      "access_logs_s3_params.aws_credentials.region": {
+        "anchor": "schema-access_logs_s3_params--aws_credentials--region",
+        "document_id": "xcsh-docs:data-sources:lma_region:properties:access_logs_s3_params:aws_credentials",
+        "schema_path": ["access_logs_s3_params", "aws_credentials", "region"]
+      },
+      "access_logs_s3_params.aws_credentials.secret_access_key": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:data-sources:lma_region:properties:access_logs_s3_params:aws_credentials:secret_access_key",
+        "schema_path": ["access_logs_s3_params", "aws_credentials", "secret_access_key"]
+      },
+      "access_logs_s3_params.aws_credentials.secret_access_key.blindfold_secret_info": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:data-sources:lma_region:properties:access_logs_s3_params:aws_credentials:secret_access_key:blindfold_secret_info",
+        "schema_path": ["access_logs_s3_params", "aws_credentials", "secret_access_key", "blindfold_secret_info"]
+      },
+      "access_logs_s3_params.aws_credentials.secret_access_key.blindfold_secret_info.decryption_provider": {
+        "anchor": "schema-access_logs_s3_params--aws_credentials--secret_access_key--blindfold_secret_info--decryption_provider",
+        "document_id": "xcsh-docs:data-sources:lma_region:properties:access_logs_s3_params:aws_credentials:secret_access_key:blindfold_secret_info",
+        "schema_path": [
+          "access_logs_s3_params",
+          "aws_credentials",
+          "secret_access_key",
+          "blindfold_secret_info",
+          "decryption_provider"
+        ]
+      },
+      "access_logs_s3_params.aws_credentials.secret_access_key.blindfold_secret_info.location": {
+        "anchor": "schema-access_logs_s3_params--aws_credentials--secret_access_key--blindfold_secret_info--location",
+        "document_id": "xcsh-docs:data-sources:lma_region:properties:access_logs_s3_params:aws_credentials:secret_access_key:blindfold_secret_info",
+        "schema_path": [
+          "access_logs_s3_params",
+          "aws_credentials",
+          "secret_access_key",
+          "blindfold_secret_info",
+          "location"
+        ]
+      },
+      "access_logs_s3_params.aws_credentials.secret_access_key.blindfold_secret_info.store_provider": {
+        "anchor": "schema-access_logs_s3_params--aws_credentials--secret_access_key--blindfold_secret_info--store_provider",
+        "document_id": "xcsh-docs:data-sources:lma_region:properties:access_logs_s3_params:aws_credentials:secret_access_key:blindfold_secret_info",
+        "schema_path": [
+          "access_logs_s3_params",
+          "aws_credentials",
+          "secret_access_key",
+          "blindfold_secret_info",
+          "store_provider"
+        ]
+      },
+      "access_logs_s3_params.aws_credentials.secret_access_key.clear_secret_info": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:data-sources:lma_region:properties:access_logs_s3_params:aws_credentials:secret_access_key:clear_secret_info",
+        "schema_path": ["access_logs_s3_params", "aws_credentials", "secret_access_key", "clear_secret_info"]
+      },
+      "access_logs_s3_params.aws_credentials.secret_access_key.clear_secret_info.provider_ref": {
+        "anchor": "schema-access_logs_s3_params--aws_credentials--secret_access_key--clear_secret_info--provider_ref",
+        "document_id": "xcsh-docs:data-sources:lma_region:properties:access_logs_s3_params:aws_credentials:secret_access_key:clear_secret_info",
+        "schema_path": [
+          "access_logs_s3_params",
+          "aws_credentials",
+          "secret_access_key",
+          "clear_secret_info",
+          "provider_ref"
+        ]
+      },
+      "access_logs_s3_params.aws_credentials.secret_access_key.clear_secret_info.url": {
+        "anchor": "schema-access_logs_s3_params--aws_credentials--secret_access_key--clear_secret_info--url",
+        "document_id": "xcsh-docs:data-sources:lma_region:properties:access_logs_s3_params:aws_credentials:secret_access_key:clear_secret_info",
+        "schema_path": ["access_logs_s3_params", "aws_credentials", "secret_access_key", "clear_secret_info", "url"]
+      },
+      "access_logs_s3_params.bucket": {
+        "anchor": "schema-access_logs_s3_params--bucket",
+        "document_id": "xcsh-docs:data-sources:lma_region:properties:access_logs_s3_params",
+        "schema_path": ["access_logs_s3_params", "bucket"]
+      },
+      "annotations": {
+        "anchor": "schema-annotations",
+        "document_id": "xcsh-docs:data-sources:lma_region:reference",
+        "schema_path": ["annotations"]
+      },
+      "clickhouse_params": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:data-sources:lma_region:properties:clickhouse_params",
+        "schema_path": ["clickhouse_params"]
+      },
+      "clickhouse_params.host": {
+        "anchor": "schema-clickhouse_params--host",
+        "document_id": "xcsh-docs:data-sources:lma_region:properties:clickhouse_params",
+        "schema_path": ["clickhouse_params", "host"]
+      },
+      "clickhouse_params.password": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:data-sources:lma_region:properties:clickhouse_params:password",
+        "schema_path": ["clickhouse_params", "password"]
+      },
+      "clickhouse_params.password.blindfold_secret_info": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:data-sources:lma_region:properties:clickhouse_params:password:blindfold_secret_info",
+        "schema_path": ["clickhouse_params", "password", "blindfold_secret_info"]
+      },
+      "clickhouse_params.password.blindfold_secret_info.decryption_provider": {
+        "anchor": "schema-clickhouse_params--password--blindfold_secret_info--decryption_provider",
+        "document_id": "xcsh-docs:data-sources:lma_region:properties:clickhouse_params:password:blindfold_secret_info",
+        "schema_path": ["clickhouse_params", "password", "blindfold_secret_info", "decryption_provider"]
+      },
+      "clickhouse_params.password.blindfold_secret_info.location": {
+        "anchor": "schema-clickhouse_params--password--blindfold_secret_info--location",
+        "document_id": "xcsh-docs:data-sources:lma_region:properties:clickhouse_params:password:blindfold_secret_info",
+        "schema_path": ["clickhouse_params", "password", "blindfold_secret_info", "location"]
+      },
+      "clickhouse_params.password.blindfold_secret_info.store_provider": {
+        "anchor": "schema-clickhouse_params--password--blindfold_secret_info--store_provider",
+        "document_id": "xcsh-docs:data-sources:lma_region:properties:clickhouse_params:password:blindfold_secret_info",
+        "schema_path": ["clickhouse_params", "password", "blindfold_secret_info", "store_provider"]
+      },
+      "clickhouse_params.password.clear_secret_info": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:data-sources:lma_region:properties:clickhouse_params:password:clear_secret_info",
+        "schema_path": ["clickhouse_params", "password", "clear_secret_info"]
+      },
+      "clickhouse_params.password.clear_secret_info.provider_ref": {
+        "anchor": "schema-clickhouse_params--password--clear_secret_info--provider_ref",
+        "document_id": "xcsh-docs:data-sources:lma_region:properties:clickhouse_params:password:clear_secret_info",
+        "schema_path": ["clickhouse_params", "password", "clear_secret_info", "provider_ref"]
+      },
+      "clickhouse_params.password.clear_secret_info.url": {
+        "anchor": "schema-clickhouse_params--password--clear_secret_info--url",
+        "document_id": "xcsh-docs:data-sources:lma_region:properties:clickhouse_params:password:clear_secret_info",
+        "schema_path": ["clickhouse_params", "password", "clear_secret_info", "url"]
+      },
+      "clickhouse_params.port": {
+        "anchor": "schema-clickhouse_params--port",
+        "document_id": "xcsh-docs:data-sources:lma_region:properties:clickhouse_params",
+        "schema_path": ["clickhouse_params", "port"]
+      },
+      "clickhouse_params.user": {
+        "anchor": "schema-clickhouse_params--user",
+        "document_id": "xcsh-docs:data-sources:lma_region:properties:clickhouse_params",
+        "schema_path": ["clickhouse_params", "user"]
+      },
+      "country": {
+        "anchor": "schema-country",
+        "document_id": "xcsh-docs:data-sources:lma_region:reference",
+        "schema_path": ["country"]
+      },
+      "description": {
+        "anchor": "schema-description",
+        "document_id": "xcsh-docs:data-sources:lma_region:reference",
+        "schema_path": ["description"]
+      },
+      "elastic_params": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:data-sources:lma_region:properties:elastic_params",
+        "schema_path": ["elastic_params"]
+      },
+      "elastic_params.urls": {
+        "anchor": "schema-elastic_params--urls",
+        "document_id": "xcsh-docs:data-sources:lma_region:properties:elastic_params",
+        "schema_path": ["elastic_params", "urls"]
+      },
+      "id": {
+        "anchor": "schema-id",
+        "document_id": "xcsh-docs:data-sources:lma_region:reference",
+        "schema_path": ["id"]
+      },
+      "is_default": {
+        "anchor": "schema-is_default",
+        "document_id": "xcsh-docs:data-sources:lma_region:reference",
+        "schema_path": ["is_default"]
+      },
+      "kafka_params": {
+        "anchor": "section",
+        "document_id": "xcsh-docs:data-sources:lma_region:properties:kafka_params",
+        "schema_path": ["kafka_params"]
+      },
+      "kafka_params.bootstrap_servers": {
+        "anchor": "schema-kafka_params--bootstrap_servers",
+        "document_id": "xcsh-docs:data-sources:lma_region:properties:kafka_params",
+        "schema_path": ["kafka_params", "bootstrap_servers"]
+      },
+      "labels": {
+        "anchor": "schema-labels",
+        "document_id": "xcsh-docs:data-sources:lma_region:reference",
+        "schema_path": ["labels"]
+      },
+      "name": {
+        "anchor": "schema-name",
+        "document_id": "xcsh-docs:data-sources:lma_region:reference",
+        "schema_path": ["name"]
+      },
+      "namespace": {
+        "anchor": "schema-namespace",
+        "document_id": "xcsh-docs:data-sources:lma_region:reference",
+        "schema_path": ["namespace"]
+      }
+    },
+    "provider_name": "lma_region",
+    "provider_type": "data-sources",
+    "reference_id": "xcsh-docs:data-sources:lma_region:reference"
+  },
+  "pages": [
+    {
+      "aliases": [],
+      "body_bytes": 1349,
+      "body_sha256": "sha256:989618b4ed5bd8e0facd56ea4be72638dfeb75f01d8d52f9703dd8f42c723d7b",
+      "child_ids": ["xcsh-docs:data-sources:lma_region:reference", "xcsh-docs:data-sources:lma_region:examples"],
+      "collection_id": "xcsh-docs:data-sources:lma_region:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:lma_region:fundamentals",
+      "parent_id": null,
+      "path": "documentation/data-sources/lma_region/index.md",
+      "provider_name": "lma_region",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/data-sources/lma_region.md",
+      "role": "fundamentals",
+      "schema_path": [],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/lma_region/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "xcsh_lma_region for xcsh_lma_region.",
+      "title": "xcsh_lma_region",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": [],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 12060,
+      "body_sha256": "sha256:2fb54283b9397a9e77f25342fbf5310e25ee016e23e11ea8644d45d995454afb",
+      "child_ids": [
+        "xcsh-docs:data-sources:lma_region:properties:access_logs_s3_params",
+        "xcsh-docs:data-sources:lma_region:properties:clickhouse_params",
+        "xcsh-docs:data-sources:lma_region:properties:elastic_params",
+        "xcsh-docs:data-sources:lma_region:properties:kafka_params"
+      ],
+      "collection_id": "xcsh-docs:data-sources:lma_region:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:lma_region:reference",
+      "parent_id": "xcsh-docs:data-sources:lma_region:fundamentals",
+      "path": "documentation/data-sources/lma_region/properties/index.md",
+      "provider_name": "lma_region",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--lma_region--reference.md",
+      "role": "reference",
+      "schema_path": [],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/lma_region/properties/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "Property reference for xcsh_lma_region.",
+      "title": "Property reference",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": [],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 1230,
+      "body_sha256": "sha256:b9352bcea6e934c0cf0c87544d085ee60c71e1bb039bf79f36521ed0b42833bb",
+      "child_ids": ["xcsh-docs:data-sources:lma_region:properties:access_logs_s3_params:aws_credentials"],
+      "collection_id": "xcsh-docs:data-sources:lma_region:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:lma_region:properties:access_logs_s3_params",
+      "parent_id": "xcsh-docs:data-sources:lma_region:reference",
+      "path": "documentation/data-sources/lma_region/properties/access_logs_s3_params/index.md",
+      "provider_name": "lma_region",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--lma_region--properties--access_logs_s3_params.md",
+      "role": "properties",
+      "schema_path": ["access_logs_s3_params"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/lma_region/properties/access_logs_s3_params/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "access_logs_s3_params for xcsh_lma_region.",
+      "title": "access_logs_s3_params",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": [],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 1658,
+      "body_sha256": "sha256:5294905dd03a6eec937f3a60163f4b23185603cc35ac5cc05fbeffeae5eceef1",
+      "child_ids": [
+        "xcsh-docs:data-sources:lma_region:properties:access_logs_s3_params:aws_credentials:secret_access_key"
+      ],
+      "collection_id": "xcsh-docs:data-sources:lma_region:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:lma_region:properties:access_logs_s3_params:aws_credentials",
+      "parent_id": "xcsh-docs:data-sources:lma_region:properties:access_logs_s3_params",
+      "path": "documentation/data-sources/lma_region/properties/access_logs_s3_params/aws_credentials/index.md",
+      "provider_name": "lma_region",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--lma_region--properties--access_logs_s3_params--aws_credentials.md",
+      "role": "properties",
+      "schema_path": ["access_logs_s3_params", "aws_credentials"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/lma_region/properties/access_logs_s3_params/aws_credentials/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "access_logs_s3_params.aws_credentials for xcsh_lma_region.",
+      "title": "access_logs_s3_params.aws_credentials",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": [],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 2153,
+      "body_sha256": "sha256:11bcbd335e61c59b3cbaeea32aefc898389246fe9f7ee5ff88fabe6d562f760a",
+      "child_ids": [
+        "xcsh-docs:data-sources:lma_region:properties:access_logs_s3_params:aws_credentials:secret_access_key:blindfold_secret_info",
+        "xcsh-docs:data-sources:lma_region:properties:access_logs_s3_params:aws_credentials:secret_access_key:clear_secret_info"
+      ],
+      "collection_id": "xcsh-docs:data-sources:lma_region:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:lma_region:properties:access_logs_s3_params:aws_credentials:secret_access_key",
+      "parent_id": "xcsh-docs:data-sources:lma_region:properties:access_logs_s3_params:aws_credentials",
+      "path": "documentation/data-sources/lma_region/properties/access_logs_s3_params/aws_credentials/secret_access_key/index.md",
+      "provider_name": "lma_region",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--lma_region--properties--access_logs_s3_params--aws_credentials--secret_access_key.md",
+      "role": "properties",
+      "schema_path": ["access_logs_s3_params", "aws_credentials", "secret_access_key"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/lma_region/properties/access_logs_s3_params/aws_credentials/secret_access_key/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "access_logs_s3_params.aws_credentials.secret_access_key for xcsh_lma_region.",
+      "title": "access_logs_s3_params.aws_credentials.secret_access_key",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": [],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 2490,
+      "body_sha256": "sha256:001a78e7fcece5b0f73cc94cb82fd9102dac6e27a8261f9370e875f9672bfaa0",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:data-sources:lma_region:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:lma_region:properties:access_logs_s3_params:aws_credentials:secret_access_key:blindfold_secret_info",
+      "parent_id": "xcsh-docs:data-sources:lma_region:properties:access_logs_s3_params:aws_credentials:secret_access_key",
+      "path": "documentation/data-sources/lma_region/properties/access_logs_s3_params/aws_credentials/secret_access_key/blindfold_secret_info/index.md",
+      "provider_name": "lma_region",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--lma_region--properties--access_logs_s3_params--aws_credentials--secret_access_key--blindfold_secret_info.md",
+      "role": "properties",
+      "schema_path": ["access_logs_s3_params", "aws_credentials", "secret_access_key", "blindfold_secret_info"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/lma_region/properties/access_logs_s3_params/aws_credentials/secret_access_key/blindfold_secret_info/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "access_logs_s3_params.aws_credentials.secret_access_key.blindfold_secret_info for xcsh_lma_region.",
+      "title": "access_logs_s3_params.aws_credentials.secret_access_key.blindfold_secret_info",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": [],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 2215,
+      "body_sha256": "sha256:f985c20bb5fe6392cb97e5bef48f128fba991cfc9b82ca5aba2584b393b432cd",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:data-sources:lma_region:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:lma_region:properties:access_logs_s3_params:aws_credentials:secret_access_key:clear_secret_info",
+      "parent_id": "xcsh-docs:data-sources:lma_region:properties:access_logs_s3_params:aws_credentials:secret_access_key",
+      "path": "documentation/data-sources/lma_region/properties/access_logs_s3_params/aws_credentials/secret_access_key/clear_secret_info/index.md",
+      "provider_name": "lma_region",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--lma_region--properties--access_logs_s3_params--aws_credentials--secret_access_key--clear_secret_info.md",
+      "role": "properties",
+      "schema_path": ["access_logs_s3_params", "aws_credentials", "secret_access_key", "clear_secret_info"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/lma_region/properties/access_logs_s3_params/aws_credentials/secret_access_key/clear_secret_info/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "access_logs_s3_params.aws_credentials.secret_access_key.clear_secret_info for xcsh_lma_region.",
+      "title": "access_logs_s3_params.aws_credentials.secret_access_key.clear_secret_info",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": [],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 1428,
+      "body_sha256": "sha256:3d8763e7ee657a2fd312d823c876f5b1eaab319439a2b0c35057da69dbdb7570",
+      "child_ids": ["xcsh-docs:data-sources:lma_region:properties:clickhouse_params:password"],
+      "collection_id": "xcsh-docs:data-sources:lma_region:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:lma_region:properties:clickhouse_params",
+      "parent_id": "xcsh-docs:data-sources:lma_region:reference",
+      "path": "documentation/data-sources/lma_region/properties/clickhouse_params/index.md",
+      "provider_name": "lma_region",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--lma_region--properties--clickhouse_params.md",
+      "role": "properties",
+      "schema_path": ["clickhouse_params"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/lma_region/properties/clickhouse_params/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "clickhouse_params for xcsh_lma_region.",
+      "title": "clickhouse_params",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": [],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 1700,
+      "body_sha256": "sha256:a2f8a0de53bdb6dc201a5ad981cc3915ff44d315e9559742000166b3530e57bf",
+      "child_ids": [
+        "xcsh-docs:data-sources:lma_region:properties:clickhouse_params:password:blindfold_secret_info",
+        "xcsh-docs:data-sources:lma_region:properties:clickhouse_params:password:clear_secret_info"
+      ],
+      "collection_id": "xcsh-docs:data-sources:lma_region:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:lma_region:properties:clickhouse_params:password",
+      "parent_id": "xcsh-docs:data-sources:lma_region:properties:clickhouse_params",
+      "path": "documentation/data-sources/lma_region/properties/clickhouse_params/password/index.md",
+      "provider_name": "lma_region",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--lma_region--properties--clickhouse_params--password.md",
+      "role": "properties",
+      "schema_path": ["clickhouse_params", "password"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/lma_region/properties/clickhouse_params/password/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "clickhouse_params.password for xcsh_lma_region.",
+      "title": "clickhouse_params.password",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": [],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 2045,
+      "body_sha256": "sha256:75e12a4d3d2faa7ffccb6ea386f7f7d82eee1366b18b3d0cf8276c4584da0a9a",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:data-sources:lma_region:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:lma_region:properties:clickhouse_params:password:blindfold_secret_info",
+      "parent_id": "xcsh-docs:data-sources:lma_region:properties:clickhouse_params:password",
+      "path": "documentation/data-sources/lma_region/properties/clickhouse_params/password/blindfold_secret_info/index.md",
+      "provider_name": "lma_region",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--lma_region--properties--clickhouse_params--password--blindfold_secret_info.md",
+      "role": "properties",
+      "schema_path": ["clickhouse_params", "password", "blindfold_secret_info"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/lma_region/properties/clickhouse_params/password/blindfold_secret_info/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "clickhouse_params.password.blindfold_secret_info for xcsh_lma_region.",
+      "title": "clickhouse_params.password.blindfold_secret_info",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": [],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 1800,
+      "body_sha256": "sha256:5d547896f64340d890876f8cd73c79146fea4ec561aeddd632b4f4b06384f4b3",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:data-sources:lma_region:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:lma_region:properties:clickhouse_params:password:clear_secret_info",
+      "parent_id": "xcsh-docs:data-sources:lma_region:properties:clickhouse_params:password",
+      "path": "documentation/data-sources/lma_region/properties/clickhouse_params/password/clear_secret_info/index.md",
+      "provider_name": "lma_region",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--lma_region--properties--clickhouse_params--password--clear_secret_info.md",
+      "role": "properties",
+      "schema_path": ["clickhouse_params", "password", "clear_secret_info"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/lma_region/properties/clickhouse_params/password/clear_secret_info/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "clickhouse_params.password.clear_secret_info for xcsh_lma_region.",
+      "title": "clickhouse_params.password.clear_secret_info",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": [],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 860,
+      "body_sha256": "sha256:0a230bbe082acadd22b290f6ccc70b223bbbf10f427ae5cc68186780fe04e1d1",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:data-sources:lma_region:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:lma_region:properties:elastic_params",
+      "parent_id": "xcsh-docs:data-sources:lma_region:reference",
+      "path": "documentation/data-sources/lma_region/properties/elastic_params/index.md",
+      "provider_name": "lma_region",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--lma_region--properties--elastic_params.md",
+      "role": "properties",
+      "schema_path": ["elastic_params"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/lma_region/properties/elastic_params/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "elastic_params for xcsh_lma_region.",
+      "title": "elastic_params",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": [],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 933,
+      "body_sha256": "sha256:2606c61a7b24e0f2f3ff2e0532ea3dc1f0db7fdd40cb40ac58291dd78702612e",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:data-sources:lma_region:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:lma_region:properties:kafka_params",
+      "parent_id": "xcsh-docs:data-sources:lma_region:reference",
+      "path": "documentation/data-sources/lma_region/properties/kafka_params/index.md",
+      "provider_name": "lma_region",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--lma_region--properties--kafka_params.md",
+      "role": "properties",
+      "schema_path": ["kafka_params"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/lma_region/properties/kafka_params/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "kafka_params for xcsh_lma_region.",
+      "title": "kafka_params",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": [],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 645,
+      "body_sha256": "sha256:0ada20b81614f6684ecbd878f4af06de6dabfdd97b03ce4d7a133bc6f9c48756",
+      "child_ids": ["xcsh-docs:data-sources:lma_region:example:data-source"],
+      "collection_id": "xcsh-docs:data-sources:lma_region:collection",
+      "completeness": "complete",
+      "id": "xcsh-docs:data-sources:lma_region:examples",
+      "parent_id": "xcsh-docs:data-sources:lma_region:fundamentals",
+      "path": "documentation/data-sources/lma_region/examples/index.md",
+      "provider_name": "lma_region",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--lma_region--examples.md",
+      "role": "examples",
+      "schema_path": [],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/lma_region/examples/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "Examples for xcsh_lma_region.",
+      "title": "Examples",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": [],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    },
+    {
+      "aliases": [],
+      "body_bytes": 1253,
+      "body_sha256": "sha256:169adde0909745c4f389dcaccad01a9c3e5cf507a434549e8444defb19068e6c",
+      "child_ids": [],
+      "collection_id": "xcsh-docs:data-sources:lma_region:collection",
+      "completeness": "complete",
+      "evidence": {
+        "attribution": "Schema-derived minimal configuration validated with the checked-out provider.",
+        "outcome": "valid configuration",
+        "sha256": "sha256:6e44cbfbf0065cf8526c29152a263e7eb100be46cd3be2092eca1d815333bf89",
+        "source_path": "examples/data-sources/xcsh_lma_region/data-source.tf",
+        "validation": "terraform validate"
+      },
+      "id": "xcsh-docs:data-sources:lma_region:example:data-source",
+      "parent_id": "xcsh-docs:data-sources:lma_region:examples",
+      "path": "documentation/data-sources/lma_region/examples/data-source/index.md",
+      "provider_name": "lma_region",
+      "provider_schema_digest": "sha256:63e4fbb3e2007c78e36dc243aa3840076ce8a32eff8e7120cacece30bcdd2cd6",
+      "provider_type": "data-sources",
+      "registry_path": "docs/guides/data-sources--lma_region--example--data-source.md",
+      "role": "example",
+      "schema_path": ["data-source"],
+      "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/lma_region/examples/data-source/index.txt",
+      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "summary": "Data source for xcsh_lma_region.",
+      "title": "Data source",
+      "upstream_identity": {
+        "release_tag": "v9.0.0",
+        "schema_components": [],
+        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+      }
+    }
+  ],
+  "provider": "registry.terraform.io/f5-sales-demo/xcsh",
+  "schema_version": 1
+}
