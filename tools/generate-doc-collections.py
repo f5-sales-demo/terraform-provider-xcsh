@@ -68,6 +68,11 @@ def description_markdown(value):
         lambda match: match.group(1) + "&#8203;",
         escaped,
     )
+    escaped = re.sub(
+        r"(?i)\bnotin\b",
+        lambda match: match.group(0)[0] + "&#111;" + match.group(0)[2:],
+        escaped,
+    )
     paragraphs = re.split(r"\n\s*\n", escaped)
     result = "\n\n".join(
         textwrap.fill(
@@ -829,7 +834,7 @@ def registry_project(pages, categories):
             landing = f"# {page['title']}\n\nComplete reference sections:\n\n"
             for index, original_part in enumerate(parts, 1):
                 part = original_part
-                if not part.lstrip().startswith("# "):
+                if not re.search(r"(?m)^# ", part):
                     part = f"# {page['title']} — Part {index}\n\n" + part
                 part_path = f"docs/guides/{projection_name(page)}--part-{index}.md"
                 landing += f"- [Part {index}]({os.path.relpath(part_path, str(PurePosixPath(output_path).parent))})\n"
