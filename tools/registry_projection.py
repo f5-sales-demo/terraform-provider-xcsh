@@ -293,7 +293,7 @@ def publication_body(text: str, context: str) -> str:
                 segments[offset] = re.sub(
                     r"\b" + re.escape(before) + r"\b", after, segments[offset]
                 )
-        part = "".join(segments)
+        part = "".join(segments).replace("[id](", "[ID](")
         parts[index] = re.sub(r"\n{3,}", "\n\n", part)
     return "\n\n".join(part.strip() for part in parts if part.strip()) + "\n\n"
 
