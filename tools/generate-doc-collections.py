@@ -309,7 +309,14 @@ class Collection:
                 ).get("description", "")
                 if upstream:
                     description = upstream
-            page["summary"] = retrieval_summary(description, page["summary"])
+            reviewed = self.retrieval_rules.reviewed_summary(
+                self.kind, self.name, schema_path
+            )
+            page["summary"] = retrieval_summary(
+                reviewed or description, page["summary"]
+            )
+            if reviewed:
+                page["classification"]["sources"].append("reviewed-summary")
             page["aliases"] = self.retrieval_rules.aliases(
                 ".".join(schema_path) or self.name, description
             )
@@ -331,8 +338,11 @@ class Collection:
                 upstream = self.specs.field(
                     self.spec_roots, self.spec_schemas, exact
                 ).get("description", "")
+                reviewed = self.retrieval_rules.reviewed_summary(
+                    self.kind, self.name, exact
+                )
                 prose = retrieval_summary(
-                    upstream or description, name.replace("_", " ")
+                    reviewed or upstream or description, name.replace("_", " ")
                 )
                 page["sections"].append(
                     {
@@ -372,6 +382,41 @@ class Collection:
                         ),
                     }
                 )
+
+        self.enrich_immutable_choices()
+
+    def enrich_immutable_choices(self):
+        """Expose receipt-pinned type choices without claiming schema prerequisites."""
+        if self.kind != "resources":
+            return
+        groups: dict = getattr(self.specs, "immutable_oneof_groups", lambda _name: {})(
+            self.name
+        )
+        for group, members in sorted(groups.items()):
+            destinations = []
+            for member in members:
+                target = self.coverage.get(member)
+                if target is None:
+                    raise ValueError("missing immutable choice destination: " + group)
+                destinations.append(target)
+            for page in self.pages.values():
+                if page["role"] != "reference" and page["schema_path"] not in [
+                    [member] for member in members
+                ]:
+                    continue
+                for target in destinations:
+                    if target["document_id"] == page["id"]:
+                        continue
+                    page["relationships"].append(
+                        {
+                            "type": "choice",
+                            "target_id": target["document_id"],
+                            "anchor": target["anchor"],
+                            "enforcement": "provider-choice",
+                            "source": "receipt-pinned-immutable-oneof",
+                            "group": group,
+                        }
+                    )
 
     def add(self, role, path, filename, title, parent_role=None, parent_path=()):
         identifier = stable_id(self.kind, self.name, role, path)

@@ -41,6 +41,37 @@ class RetrievalRules:
             raise ValueError("unsupported retrieval rules version")
         self.rules = data.get("rules", [])
         self.terms = data.get("terms", [])
+        self.summaries = data.get("summaries", [])
+        if any(
+            term.get("match_source", "description") not in {"identifier", "description"}
+            for term in self.terms
+        ):
+            raise ValueError("invalid retrieval term match source")
+        summaries_seen: dict[tuple, dict] = {}
+        for rule in self.summaries:
+            if (
+                not isinstance(rule, dict)
+                or not isinstance(rule.get("schema_path"), list)
+                or not all(isinstance(part, str) for part in rule["schema_path"])
+                or not all(
+                    isinstance(rule.get(key), str) and rule[key].strip()
+                    for key in (
+                        "provider_type",
+                        "collection",
+                        "summary",
+                        "review_basis",
+                    )
+                )
+            ):
+                raise ValueError("invalid reviewed retrieval summary")
+            key = (
+                rule["provider_type"],
+                rule["collection"],
+                tuple(rule["schema_path"]),
+            )
+            if key in summaries_seen and summaries_seen[key] != rule:
+                raise ValueError("conflicting reviewed retrieval summaries")
+            summaries_seen[key] = rule
         self.digest = (
             "sha256:"
             + hashlib.sha256(
@@ -131,12 +162,28 @@ class RetrievalRules:
             },
         }
 
+    def reviewed_summary(self, provider_type, collection, schema_path):
+        matches = [
+            rule["summary"]
+            for rule in self.summaries
+            if rule["provider_type"] == provider_type
+            and rule["collection"] == collection
+            and rule["schema_path"] == schema_path
+        ]
+        if len(set(matches)) > 1:
+            raise ValueError("conflicting reviewed retrieval summaries")
+        return matches[0] if matches else None
+
     def aliases(self, identifier, description=""):
         prose = re.sub(r"[_\.]+", " ", identifier).lower()
         values = {prose.strip()} if prose.strip() else set()
         text = prose + " " + description.lower()
+        local_identifier = identifier.rsplit(".", 1)[-1].replace("_", " ").lower()
         for term in self.terms:
-            if re.search(term["pattern"], text):
+            if re.search(
+                term["pattern"],
+                local_identifier if term.get("match_source") == "identifier" else text,
+            ):
                 values.update(term["aliases"])
         return sorted(values)
 

@@ -504,6 +504,36 @@ class ImmutableSelectionLifecycleTests(unittest.TestCase):
             )
             page = collection.pages[DOCS.stable_id("resources", "fixture", "lifecycle")]
             body = collection.body(page)
+            reference = collection.pages[
+                DOCS.stable_id("resources", "fixture", "reference")
+            ]
+            choices = [r for r in reference["relationships"] if r["type"] == "choice"]
+            self.assertEqual(len(choices), 3)
+            self.assertEqual({r["enforcement"] for r in choices}, {"provider-choice"})
+            self.assertEqual(
+                {r["source"] for r in choices}, {"receipt-pinned-immutable-oneof"}
+            )
+            self.assertEqual(
+                {r["target_id"] for r in choices},
+                {
+                    DOCS.stable_id("resources", "fixture", "properties", (name,))
+                    for name in ("http", "https", "https_auto_cert")
+                },
+            )
+            for name in ("http", "https", "https_auto_cert"):
+                choice_page = collection.pages[
+                    DOCS.stable_id("resources", "fixture", "properties", (name,))
+                ]
+                self.assertEqual(
+                    len(
+                        [
+                            r
+                            for r in choice_page["relationships"]
+                            if r["type"] == "choice"
+                        ]
+                    ),
+                    2,
+                )
             self.assertTrue(all(len(line) <= 400 for line in body.splitlines()))
             for phrase in (
                 "requires recreation",
