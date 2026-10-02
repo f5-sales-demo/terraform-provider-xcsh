@@ -43,7 +43,8 @@ class RetrievalRules:
         self.terms = data.get("terms", [])
         self.summaries = data.get("summaries", [])
         if any(
-            term.get("match_source", "description") not in {"identifier", "description"}
+            term.get("match_source", "description")
+            not in {"identifier", "description", "schema_path"}
             for term in self.terms
         ):
             raise ValueError("invalid retrieval term match source")
@@ -180,9 +181,17 @@ class RetrievalRules:
         text = prose + " " + description.lower()
         local_identifier = identifier.rsplit(".", 1)[-1].replace("_", " ").lower()
         for term in self.terms:
+            if term.get("context_pattern") and not re.search(
+                term["context_pattern"], prose
+            ):
+                continue
             if re.search(
                 term["pattern"],
-                local_identifier if term.get("match_source") == "identifier" else text,
+                local_identifier
+                if term.get("match_source") == "identifier"
+                else prose
+                if term.get("match_source") == "schema_path"
+                else text,
             ):
                 values.update(term["aliases"])
         return sorted(values)

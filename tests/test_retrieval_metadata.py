@@ -146,6 +146,71 @@ class RetrievalMetadataTests(unittest.TestCase):
                 {"version": 1, "summaries": [{**rule, "review_basis": ""}]}
             )
 
+    def test_login_success_alias_requires_authentication_outcome_context(self):
+        rules = MODULE.RetrievalRules.default()
+        self.assertNotIn(
+            "login success",
+            rules.aliases(
+                "notification_parameters.repeat_interval",
+                "Send notification again after it was sent successfully.",
+            ),
+        )
+        self.assertNotIn(
+            "login success",
+            rules.aliases(
+                "tcp_health_check", "Connection succeeds when the backend is healthy."
+            ),
+        )
+        self.assertIn(
+            "login success",
+            rules.aliases(
+                "authentication.login.transaction_result.success_conditions",
+                "Success Conditions.",
+            ),
+        )
+        self.assertIn(
+            "login success",
+            rules.aliases(
+                "transaction_result_criteria.transaction_result_success",
+                "Success result.",
+            ),
+        )
+        self.assertIn(
+            "success",
+            rules.aliases(
+                "notification_parameters.repeat_interval",
+                "Notification sent successfully.",
+            ),
+        )
+
+    def test_success_alias_ignores_incidental_success_in_login_failure_descriptions(
+        self,
+    ):
+        rules = MODULE.RetrievalRules.default()
+        self.assertNotIn(
+            "login success",
+            rules.aliases(
+                "login.transaction_result.failure_conditions",
+                "Failure after successful connection.",
+            ),
+        )
+        self.assertNotIn(
+            "login success",
+            rules.aliases(
+                "login.transaction_result.success_conditions.status",
+                "HTTP response code.",
+            ),
+        )
+        with self.assertRaisesRegex(ValueError, "invalid retrieval term match source"):
+            MODULE.RetrievalRules(
+                {
+                    "version": 1,
+                    "terms": [
+                        {"match_source": "unknown", "pattern": "success", "aliases": []}
+                    ],
+                }
+            )
+
     def test_summary_preserves_complete_words(self):
         text = "complete " * 40
         result = MODULE.summary(text, "fallback")
