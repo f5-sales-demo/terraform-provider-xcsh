@@ -193,6 +193,10 @@ func TestPublicIPBindingSchemaKeepsAllocatedIdentityImmutable(t *testing.T) {
 			t.Fatalf("%s identity is mutable", name)
 		}
 	}
+	managed := s.Schema.Attributes["managed_bindings"].(schema.StringAttribute)
+	if len(managed.PlanModifiers) != 0 {
+		t.Fatal("managed binding must remain unknown when the configured target changes")
+	}
 	c := resource.ConfigureResponse{}
 	r.Configure(context.Background(), resource.ConfigureRequest{ProviderData: "wrong"}, &c)
 	if !c.Diagnostics.HasError() {

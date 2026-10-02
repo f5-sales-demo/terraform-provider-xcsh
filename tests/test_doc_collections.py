@@ -3,6 +3,7 @@
 
 import importlib.util
 import json
+import os
 import tempfile
 import unittest
 from itertools import pairwise
@@ -43,6 +44,31 @@ class CollectionTests(unittest.TestCase):
             {},
             root,
             "sha256:" + "c" * 64,
+        )
+
+    @staticmethod
+    def schema_paths(block, prefix=()):
+        paths = set()
+        for name, (_, shape, _) in DOCS.children(block).items():
+            exact = (*prefix, name)
+            paths.add(".".join(exact))
+            if shape is not None:
+                paths.update(CollectionTests.schema_paths(shape, exact))
+        return paths
+
+    def test_schema_paths_include_new_and_nested_attributes(self):
+        block = {
+            "attributes": {"new_attribute": {"type": "string", "required": True}},
+            "block_types": {
+                "nested": {
+                    "block": {
+                        "attributes": {"leaf": {"type": "string", "optional": True}}
+                    }
+                }
+            },
+        }
+        self.assertEqual(
+            self.schema_paths(block), {"new_attribute", "nested", "nested.leaf"}
         )
 
     def test_namespace_import_contract(self):
@@ -329,10 +355,27 @@ class CollectionTests(unittest.TestCase):
         self.assertTrue(
             any(page["provider_type"] == "guides" for page in pages.values())
         )
-        self.assertEqual(
-            sum(len(collection["properties"]) for collection in index["collections"]),
-            39557,
-        )
+        schema_path = os.environ.get("XCSH_DOCS_SCHEMA")
+        if schema_path:
+            provider_schema = json.loads(Path(schema_path).read_text())[
+                "provider_schemas"
+            ][DOCS.PROVIDER]
+            collections = {
+                collection["id"]: collection for collection in index["collections"]
+            }
+            expected_ids = set()
+            for kind, (schema_key, _, _, _) in DOCS.TYPES.items():
+                for full_name, schema in provider_schema.get(schema_key, {}).items():
+                    identifier = DOCS.stable_id(
+                        kind, full_name.removeprefix("xcsh_"), "collection"
+                    )
+                    expected_ids.add(identifier)
+                    self.assertEqual(
+                        set(collections[identifier]["properties"]),
+                        self.schema_paths(DOCS.schema_root(schema)),
+                        identifier,
+                    )
+            self.assertEqual(set(collections), expected_ids)
         sections = [
             section
             for shard in projection["section_manifests"]

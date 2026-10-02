@@ -47,6 +47,7 @@ MANUALLY_MAINTAINED_FILES=(
   "examples/data-sources/xcsh_network_customer_edge_egress/data-source.tf"
   "internal/provider/network_allowlist_data_source.go"
   "internal/provider/smsv2_kvm_runtime_interface_resource.go"
+  "internal/provider/public_ip_binding_resource.go"
   "internal/provider/site_registration_data_source.go"
   "internal/provider/site_bgp_status_data_source.go"
   "internal/provider/site_upgrade_status_data_source.go"

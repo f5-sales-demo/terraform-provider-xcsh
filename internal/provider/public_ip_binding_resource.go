@@ -55,7 +55,7 @@ func (r *PublicIPBindingResource) Schema(_ context.Context, _ resource.SchemaReq
 			"expected_ip":            schema.StringAttribute{Required: true, PlanModifiers: immutable, MarkdownDescription: "Exact IPv4/IPv6 address expected in the allocated object."},
 			"virtual_site":           schema.StringAttribute{Required: true, MarkdownDescription: "Desired REGIONAL_EDGE virtual site. Refreshed from the actual binding so drift is repairable."},
 			"virtual_site_namespace": schema.StringAttribute{Required: true, MarkdownDescription: "Namespace of the regional virtual site."},
-			"managed_bindings":       schema.StringAttribute{Computed: true, PlanModifiers: []planmodifier.String{stringplanmodifier.UseStateForUnknown()}, MarkdownDescription: "Last applied binding retained to reject foreign changes at teardown."},
+			"managed_bindings":       schema.StringAttribute{Computed: true, MarkdownDescription: "Last applied binding retained to reject foreign changes at teardown."},
 			"original_bindings":      schema.StringAttribute{Computed: true, PlanModifiers: []planmodifier.String{stringplanmodifier.UseStateForUnknown()}, MarkdownDescription: "Original virtual-site bindings restored on delete; kept in Terraform state."},
 		},
 	}
