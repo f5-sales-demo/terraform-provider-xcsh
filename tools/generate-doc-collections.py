@@ -309,7 +309,14 @@ class Collection:
                 ).get("description", "")
                 if upstream:
                     description = upstream
-            page["summary"] = retrieval_summary(description, page["summary"])
+            reviewed = self.retrieval_rules.reviewed_summary(
+                self.kind, self.name, schema_path
+            )
+            page["summary"] = retrieval_summary(
+                reviewed or description, page["summary"]
+            )
+            if reviewed:
+                page["classification"]["sources"].append("reviewed-summary")
             page["aliases"] = self.retrieval_rules.aliases(
                 ".".join(schema_path) or self.name, description
             )
@@ -331,8 +338,11 @@ class Collection:
                 upstream = self.specs.field(
                     self.spec_roots, self.spec_schemas, exact
                 ).get("description", "")
+                reviewed = self.retrieval_rules.reviewed_summary(
+                    self.kind, self.name, exact
+                )
                 prose = retrieval_summary(
-                    upstream or description, name.replace("_", " ")
+                    reviewed or upstream or description, name.replace("_", " ")
                 )
                 page["sections"].append(
                     {

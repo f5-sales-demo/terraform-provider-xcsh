@@ -102,6 +102,41 @@ class RetrievalMetadataTests(unittest.TestCase):
         self.assertIn("backend servers", rules.aliases("origin_servers"))
         self.assertIn("credential setup", rules.aliases("credentials"))
 
+    def test_reviewed_summary_is_scoped_to_exact_provider_path(self):
+        rules = MODULE.RetrievalRules.default()
+        text = rules.reviewed_summary(
+            "resources", "http_loadbalancer", ["https_auto_cert"]
+        )
+        self.assertIn("automatic", text.lower())
+        self.assertIsNone(
+            rules.reviewed_summary(
+                "resources", "http_loadbalancer", ["https_auto_cert", "port"]
+            )
+        )
+        self.assertIsNone(
+            rules.reviewed_summary("resources", "origin_pool", ["https_auto_cert"])
+        )
+
+    def test_invalid_reviewed_summary_rules_fail_before_generation(self):
+        rule = {
+            "provider_type": "resources",
+            "collection": "fixture",
+            "schema_path": ["tls"],
+            "summary": "Reviewed TLS settings.",
+            "review_basis": "Verified schema.",
+        }
+        with self.assertRaisesRegex(ValueError, "conflicting"):
+            MODULE.RetrievalRules(
+                {
+                    "version": 1,
+                    "summaries": [rule, {**rule, "summary": "Different wording."}],
+                }
+            )
+        with self.assertRaisesRegex(ValueError, "invalid"):
+            MODULE.RetrievalRules(
+                {"version": 1, "summaries": [{**rule, "review_basis": ""}]}
+            )
+
     def test_summary_preserves_complete_words(self):
         text = "complete " * 40
         result = MODULE.summary(text, "fallback")

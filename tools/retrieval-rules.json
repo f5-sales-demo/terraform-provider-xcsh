@@ -1034,5 +1034,25 @@
         "managed TLS certificates"
       ]
     }
+  ],
+  "summaries": [
+    {
+      "provider_type": "resources",
+      "collection": "http_loadbalancer",
+      "schema_path": [
+        "https_auto_cert"
+      ],
+      "summary": "Configure HTTPS with automatic TLS certificate management for load balancer domains.",
+      "review_basis": "Schema identifier https_auto_cert and maintained examples/resources/xcsh_http_loadbalancer/https-auto-cert.tf; upstream description repeats bring-your-own wording."
+    },
+    {
+      "provider_type": "data-sources",
+      "collection": "http_loadbalancer",
+      "schema_path": [
+        "https_auto_cert"
+      ],
+      "summary": "Inspect HTTPS automatic TLS certificate management settings for load balancer domains.",
+      "review_basis": "Resource schema identity and corresponding computed data-source schema."
+    }
   ]
 }
