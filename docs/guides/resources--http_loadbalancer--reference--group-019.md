@@ -6,91 +6,6 @@ description: "Complete grouped canonical reference for xcsh_http_loadbalancer re
 
 # xcsh_http_loadbalancer reference
 
-<a id="canonical-1222133212100220-2002203123023130-0022301002100132-1323000130110133-1332112002020033-1333130121010012-3231031331001031-1032231012020322"></a>
-
-## dns_volterra_managed property — http / 302213323300 / 4
-
-Type: `"bool"`. Optional.
-
-DNS records for domains will be managed automatically by F5 Distributed Cloud. As a prerequisite,
-the domain must be delegated to F5 Distributed Cloud using Delegated domain feature or a DNS CNAME
-record should be created in your DNS provider's portal.
-
-Upstream description:
-
-DNS records for domains will be managed automatically by F5 Distributed Cloud. As a prerequisite,
-the domain must be delegated to F5 Distributed Cloud using Delegated domain feature or a DNS CNAME
-record should be created in your DNS provider's portal.
-
-Receipt-pinned upstream constraints:
-
-```json
-{
-  "x-f5xc-required-for": {
-    "create": false,
-    "minimum_config": false,
-    "read": false,
-    "update": false
-  }
-}
-```
-
-<a id="canonical-0120011102032230-1003033001211202-2330312220333013-0130001032231131-2002023113112120-0111020111331300-2000231112330211-0001102000221211"></a>
-
-<a id="canonical-3022030301200023-0213201001013300-3331103221312330-3033112000113032-0021331131110003-1320330132020200-0213212212310002-2202001111313023"></a>
-
-## port property — http / 302213323300 / 5
-
-Type: `"number"`. Optional.
-
-Exclusive with \[port\_ranges\] HTTP port to Listen.
-
-Upstream description:
-
-Exclusive with \[port\_ranges\] HTTP port to Listen.
-
-Provider validators and defaults (from schema source):
-
-```go
-Validators: []validator.Int64{
-  int64validator.Between(1, 65535),
-}
-```
-
-Receipt-pinned upstream constraints:
-
-```json
-{
-  "x-f5xc-constraints": {
-    "category": "discovery",
-    "constraintType": "number",
-    "deterministic": true,
-    "maximum": 65535,
-    "metadata": {
-      "confidence": 0.99,
-      "source": "api-probed",
-      "validatedAt": "2026-09-29T03:20:54+00:00"
-    },
-    "minimum": 1,
-    "multipleOf": 1
-  },
-  "x-f5xc-required-for": {
-    "create": false,
-    "minimum_config": false,
-    "read": false,
-    "update": false
-  },
-  "x-validation-rules": {
-    "ves.io.schema.rules.uint32.lte": "65535"
-  },
-  "x-ves-validation-rules": {
-    "ves.io.schema.rules.uint32.lte": "65535"
-  }
-}
-```
-
-<a id="canonical-1010212311212230-3223032300310201-1211001003221013-3233132221220131-2002133303103032-0003321311111223-2102212120312231-1302323232203311"></a>
-
 <a id="canonical-3223001213213131-2023230002332210-1130133201232212-3333023322332202-0202232321220020-0122301012033210-0211231001312122-2333001231332001"></a>
 
 ## port_ranges property — http / 302213323300 / 6
@@ -178,6 +93,12 @@ Breadcrumbs:
 <a id="canonical-1300211231013103-1001303130221323-0000301002110021-2210133210111010-1323100310232132-0101111330112313-3100110313000100-1120103110300213"></a>
 
 Type: `"object"`. single nested block, Optional.
+
+Choice for selecting HTTP proxy with bring your own certificates. Changing this type selection
+requires recreation and may interrupt service. Supported settings within the same selected type
+remain updatable.
+
+Upstream description:
 
 Choice for selecting HTTP proxy with bring your own certificates.
 

@@ -6524,8 +6524,8 @@ Breadcrumbs:
 
 Type: `"object"`. single nested block, Optional.
 
-\[OneOf: http, https, https\_auto\_cert; Default: https\_auto\_cert\] HTTP Choice. Choice for
-selecting HTTP proxy.
+HTTP Choice. Choice for selecting HTTP proxy. Changing this type selection requires recreation and
+may interrupt service. Supported settings within the same selected type remain updatable.
 
 Upstream description:
 
@@ -6552,14 +6552,6 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-OneOf alternatives in this subsection:
-
-- [http](resources--http_loadbalancer--reference--group-018.md#canonical-1202011002202030-1301123223221210-0221133001100200-3113323103312320-1112211202323013-2102200302020220-1011302212010002-2131232013211102)
-- [https](resources--http_loadbalancer--reference--group-019.md#canonical-1300211231013103-1001303130221323-0000301002110021-2210133210111010-1323100310232132-0101111330112313-3100110313000100-1120103110300213)
-- [https_auto_cert](resources--http_loadbalancer--reference--group-020.md#canonical-1223123300112032-0222133020221001-3201331012031023-0133020113303300-1120222301233102-1120232121100332-2220301031031210-0023330100002100)
-
-Select alternatives according to the provider validators above.
-
 Terraform syntax:
 
 ```terraform
@@ -6573,3 +6565,88 @@ http {
 ## Direct properties — http / 302213323300 / 3
 
 <a id="canonical-2131122102321022-2330313211011031-3303033230012121-2133113011020220-1320303033100221-0312200102313112-0020201201231333-2201211131330222"></a>
+
+<a id="canonical-1222133212100220-2002203123023130-0022301002100132-1323000130110133-1332112002020033-1333130121010012-3231031331001031-1032231012020322"></a>
+
+## dns_volterra_managed property — http / 302213323300 / 4
+
+Type: `"bool"`. Optional.
+
+DNS records for domains will be managed automatically by F5 Distributed Cloud. As a prerequisite,
+the domain must be delegated to F5 Distributed Cloud using Delegated domain feature or a DNS CNAME
+record should be created in your DNS provider's portal.
+
+Upstream description:
+
+DNS records for domains will be managed automatically by F5 Distributed Cloud. As a prerequisite,
+the domain must be delegated to F5 Distributed Cloud using Delegated domain feature or a DNS CNAME
+record should be created in your DNS provider's portal.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  }
+}
+```
+
+<a id="canonical-0120011102032230-1003033001211202-2330312220333013-0130001032231131-2002023113112120-0111020111331300-2000231112330211-0001102000221211"></a>
+
+<a id="canonical-3022030301200023-0213201001013300-3331103221312330-3033112000113032-0021331131110003-1320330132020200-0213212212310002-2202001111313023"></a>
+
+## port property — http / 302213323300 / 5
+
+Type: `"number"`. Optional.
+
+Exclusive with \[port\_ranges\] HTTP port to Listen.
+
+Upstream description:
+
+Exclusive with \[port\_ranges\] HTTP port to Listen.
+
+Provider validators and defaults (from schema source):
+
+```go
+Validators: []validator.Int64{
+  int64validator.Between(1, 65535),
+}
+```
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-constraints": {
+    "category": "discovery",
+    "constraintType": "number",
+    "deterministic": true,
+    "maximum": 65535,
+    "metadata": {
+      "confidence": 0.99,
+      "source": "api-probed",
+      "validatedAt": "2026-09-29T03:20:54+00:00"
+    },
+    "minimum": 1,
+    "multipleOf": 1
+  },
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  },
+  "x-validation-rules": {
+    "ves.io.schema.rules.uint32.lte": "65535"
+  },
+  "x-ves-validation-rules": {
+    "ves.io.schema.rules.uint32.lte": "65535"
+  }
+}
+```
+
+<a id="canonical-1010212311212230-3223032300310201-1211001003221013-3233132221220131-2002133303103032-0003321311111223-2102212120312231-1302323232203311"></a>

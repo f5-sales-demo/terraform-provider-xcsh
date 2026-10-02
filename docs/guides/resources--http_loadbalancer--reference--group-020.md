@@ -123,6 +123,12 @@ Breadcrumbs:
 
 Type: `"object"`. single nested block, Optional.
 
+Choice for selecting HTTP proxy with bring your own certificates. Changing this type selection
+requires recreation and may interrupt service. Supported settings within the same selected type
+remain updatable.
+
+Upstream description:
+
 Choice for selecting HTTP proxy with bring your own certificates.
 
 Provider validators and defaults (from schema source):

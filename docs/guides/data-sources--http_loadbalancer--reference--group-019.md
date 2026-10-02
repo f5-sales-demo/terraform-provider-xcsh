@@ -6,19 +6,6 @@ description: "Complete grouped canonical reference for xcsh_http_loadbalancer re
 
 # xcsh_http_loadbalancer reference
 
-<a id="canonical-3333203203132111-2202100331223302-0011123111031001-0131312330003122-3100210020112122-2222212030323020-2130113132013111-1120113100330301"></a>
-
-## Next pages — trusted_ca / 231212133303 / 7
-
-- [https.tls_cert_params.use_mtls](data-sources--http_loadbalancer--reference--group-018.md#canonical-0100211003133012-2022100102310023-1213133030310333-1112311330321323-1113030000201010-3012132103130231-3110303333323213-0302113200332100)
-- [xcsh_http_loadbalancer](../data-sources/http_loadbalancer.md#canonical-2321021211310331-0013021131330032-3102301033221021-2110211001101012-3233200230311321-0111111122130023-0121000122111210-2130013030322000)
-
-<a id="canonical-0101113332133200-2011200000230031-0032201320100301-2333000103132121-0121221113003010-3220211212032320-1023031111012212-1113123323123003"></a>
-
-<!-- Exact provider and upstream contract identifiers. -->
-
-<!-- textlint-disable terminology -->
-
 <a id="canonical-1101112102202113-2121230230301233-0211110213032203-1110223211201333-3020003011303030-2210332033330130-2110221123102032-0112202121030001"></a>
 
 ## https.tls_cert_params.use_mtls.xfcc_disabled — xfcc_disabled / 130130330223 / 2
@@ -2230,6 +2217,12 @@ Breadcrumbs:
 <a id="canonical-2110233032332000-2230100230102301-1331113121321211-2111113312132303-0303213311122331-0023321211013320-1001321133320230-1213120312211202"></a>
 
 Type: `"single"`. Computed.
+
+Choice for selecting HTTP proxy with bring your own certificates. Changing this type selection
+requires recreation and may interrupt service. Supported settings within the same selected type
+remain updatable.
+
+Upstream description:
 
 Choice for selecting HTTP proxy with bring your own certificates.
 
@@ -5059,3 +5052,34 @@ Receipt-pinned upstream constraints:
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
+
+<a id="canonical-1100113233210203-1201203213113120-1100011112031102-3023030302323323-0203123200033111-0210301310023103-1002031100323321-1020000310112202"></a>
+
+## jwt_validation.action — action / 332123313103 / 2
+
+Breadcrumbs:
+
+- [xcsh_http_loadbalancer](../data-sources/http_loadbalancer.md#canonical-2321021211310331-0013021131330032-3102301033221021-2110211001101012-3233200230311321-0111111122130023-0121000122111210-2130013030322000)
+- [Property reference](data-sources--http_loadbalancer--reference--group-001.md#canonical-1120010220221032-3212233022220221-3011110301103233-1232002110102021-0012103312230301-1322002232013201-2131001010211321-3011122013022320)
+- [jwt_validation](data-sources--http_loadbalancer--reference--group-019.md#canonical-0133002233023033-0213212130220323-1323123322310121-1331110232211203-2031102121220113-0003303230320233-3002110300000232-1203213002200130)
+- jwt_validation.action
+
+<a id="canonical-2322133200003120-0020322322031123-0112011202201012-2132213001020232-1002201123203303-2222321031110231-3003001213332310-0320110230013333"></a>
+
+Type: `"single"`. Computed.
+
+Action
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  },
+  "x-ves-oneof-field-action_choice": "[\"block\",\"report\"]"
+}
+```
