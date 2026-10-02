@@ -1078,6 +1078,42 @@
       "registry_path": "docs/guides/resources--http_loadbalancer--lifecycle--group-001.md"
     },
     {
+      "canonical_id": "xcsh-docs:resources:http_loadbalancer:lifecycle",
+      "section_id": "xcsh-docs:resources:http_loadbalancer:lifecycle:section:0",
+      "source_sha256": "sha256:197d41522a9dd286cb9805a03d8a5bd782cc3f3fd95ea854bf2dfc326e83e50c",
+      "source_bytes": 99,
+      "canonical_source_sha256": "sha256:d9397c9dcf86cffd8b010891c7e3483170a291dd7ae6347337ec5350f89dee86",
+      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/resources/http_loadbalancer/lifecycle/",
+      "anchor": "canonical-2201010321200222-2110320331131013-1013211030201130-0130323333132231-1030203101130301-0030312322132221-0233000232333000-3101312320200212",
+      "anchor_map": [],
+      "mode": "embedded",
+      "registry_path": "docs/guides/resources--http_loadbalancer--lifecycle--group-001.md"
+    },
+    {
+      "canonical_id": "xcsh-docs:resources:http_loadbalancer:lifecycle",
+      "section_id": "xcsh-docs:resources:http_loadbalancer:lifecycle:section:1",
+      "source_sha256": "sha256:4a18b7b95e76d29e204f3421c31533509733fd3320a7671467b3fc62ac62d72a",
+      "source_bytes": 1374,
+      "canonical_source_sha256": "sha256:d9397c9dcf86cffd8b010891c7e3483170a291dd7ae6347337ec5350f89dee86",
+      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/resources/http_loadbalancer/lifecycle/",
+      "anchor": "canonical-3022120022203003-2303213010230302-1031200100211313-2213013130121321-1310121230212232-3131002221302203-2000233323103312-3001112103123033",
+      "anchor_map": [],
+      "mode": "embedded",
+      "registry_path": "docs/guides/resources--http_loadbalancer--lifecycle--group-001.md"
+    },
+    {
+      "canonical_id": "xcsh-docs:resources:http_loadbalancer:lifecycle",
+      "section_id": "xcsh-docs:resources:http_loadbalancer:lifecycle:section:2",
+      "source_sha256": "sha256:0c5c1156997fac04aa4e9c566f7eea6ce709871ae18a2f4f6dfa85808b5effc4",
+      "source_bytes": 128,
+      "canonical_source_sha256": "sha256:d9397c9dcf86cffd8b010891c7e3483170a291dd7ae6347337ec5350f89dee86",
+      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/resources/http_loadbalancer/lifecycle/",
+      "anchor": "canonical-1232110203102110-2300200000021301-1013230003120232-2221103212032023-3330232211013320-3101323320003330-0210302030302211-0323132211131132",
+      "anchor_map": [],
+      "mode": "embedded",
+      "registry_path": "docs/guides/resources--http_loadbalancer--lifecycle--group-001.md"
+    },
+    {
       "canonical_id": "xcsh-docs:resources:ike1:fundamentals",
       "section_id": "xcsh-docs:resources:ike1:fundamentals:section:0",
       "source_sha256": "sha256:197d41522a9dd286cb9805a03d8a5bd782cc3f3fd95ea854bf2dfc326e83e50c",
@@ -7982,30 +8018,6 @@
       "canonical_source_sha256": "sha256:e5bfcc376bc59a04f87e05ae4f44c6feca3b3299c3e1b0859ec9a4748d5ab451",
       "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/resources/k8s_cluster/properties/use_custom_psp_list/",
       "anchor": "canonical-3223203101320222-3310221323001203-3332232103331202-0002022321101123-1322130122223123-2001002032333002-0311030223221302-2111313101131201",
-      "anchor_map": [],
-      "mode": "embedded",
-      "registry_path": "docs/guides/resources--k8s_cluster--reference--group-001.md"
-    },
-    {
-      "canonical_id": "xcsh-docs:resources:k8s_cluster:properties:use_custom_psp_list",
-      "section_id": "xcsh-docs:resources:k8s_cluster:properties:use_custom_psp_list:section:3",
-      "source_sha256": "sha256:0fb52579bee5b98e2a484496adb36341f87c41a438b30715621a28e151a1f71f",
-      "source_bytes": 409,
-      "canonical_source_sha256": "sha256:e5bfcc376bc59a04f87e05ae4f44c6feca3b3299c3e1b0859ec9a4748d5ab451",
-      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/resources/k8s_cluster/properties/use_custom_psp_list/",
-      "anchor": "canonical-0231232312312222-3330201132232311-1201103123033201-0130211320331310-0210310121130132-1211323220203222-3132200313100012-3133201010333003",
-      "anchor_map": [],
-      "mode": "embedded",
-      "registry_path": "docs/guides/resources--k8s_cluster--reference--group-001.md"
-    },
-    {
-      "canonical_id": "xcsh-docs:resources:k8s_cluster:properties:use_custom_psp_list:pod_security_policies",
-      "section_id": "xcsh-docs:resources:k8s_cluster:properties:use_custom_psp_list:pod_security_policies:section:0",
-      "source_sha256": "sha256:197d41522a9dd286cb9805a03d8a5bd782cc3f3fd95ea854bf2dfc326e83e50c",
-      "source_bytes": 99,
-      "canonical_source_sha256": "sha256:578828a342c80bd49c5cc09312e99c157988a63fa9910e98a0095aac4ce40c09",
-      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/resources/k8s_cluster/properties/use_custom_psp_list/pod_security_policies/",
-      "anchor": "canonical-0212111212212021-3011323230102122-1202310001220202-2301303321012313-3012020123012013-1311002120232123-2113012331010033-0321020003333003",
       "anchor_map": [],
       "mode": "embedded",
       "registry_path": "docs/guides/resources--k8s_cluster--reference--group-001.md"

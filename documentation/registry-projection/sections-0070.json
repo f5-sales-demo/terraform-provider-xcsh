@@ -3,6 +3,23 @@
   "sections": [
     {
       "canonical_id": "xcsh-docs:resources:service_policy:properties:rule_list:rules:spec:any_asn",
+      "section_id": "xcsh-docs:resources:service_policy:properties:rule_list:rules:spec:any_asn:section:1",
+      "source_sha256": "sha256:c013425469f114d5481b1e0970e6a4ec0be1c5467fa157e5819b957a5b9f8d79",
+      "source_bytes": 1074,
+      "canonical_source_sha256": "sha256:0f7c804ce052ba35a36d834c626df9a28d4b0d2ab2a0feb8ad13ce9c8ae6c47f",
+      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/resources/service_policy/properties/rule_list/rules/spec/any_asn/",
+      "anchor": "canonical-0323121023013222-3302001011203103-3300312032000123-0131331010210030-3201130323322202-3211323323030011-2132333133221212-0301220001231201",
+      "anchor_map": [
+        [
+          "section",
+          "canonical-3201031031122211-3121221200332103-2000210302033231-3110022213222232-2101203221223023-0111310320201312-3002013310322000-3303311333202223"
+        ]
+      ],
+      "mode": "embedded",
+      "registry_path": "docs/guides/resources--service_policy--reference--group-002.md"
+    },
+    {
+      "canonical_id": "xcsh-docs:resources:service_policy:properties:rule_list:rules:spec:any_asn",
       "section_id": "xcsh-docs:resources:service_policy:properties:rule_list:rules:spec:any_asn:section:2",
       "source_sha256": "sha256:0d4398201e18f9ddb2ea00ceed6d3256755ea4d008d849d1cec42dab5c55f1b5",
       "source_bytes": 94,
@@ -7427,23 +7444,6 @@
         [
           "schema-asn_matcher--asn_sets--namespace",
           "canonical-1210131120210100-3321132310133131-1231113330332113-0223003303212133-3300110122012230-3102000232022032-1330013233113110-2222120332103222"
-        ]
-      ],
-      "mode": "embedded",
-      "registry_path": "docs/guides/resources--service_policy_rule--reference--group-001.md"
-    },
-    {
-      "canonical_id": "xcsh-docs:resources:service_policy_rule:properties:asn_matcher:asn_sets",
-      "section_id": "xcsh-docs:resources:service_policy_rule:properties:asn_matcher:asn_sets:section:5",
-      "source_sha256": "sha256:dbc4bb6ffd35102ca812936a506c788f3b250f9f7d59bf519520315f8d72b58b",
-      "source_bytes": 1597,
-      "canonical_source_sha256": "sha256:ac5bebbc27df53b626fc1dbf846919bf117770ffd708596f8d17c0fe010117bd",
-      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/resources/service_policy_rule/properties/asn_matcher/asn_sets/",
-      "anchor": "canonical-1220111302222200-0323310101303013-0133131203032310-1121332200233001-1201121102021322-0030013131310311-2230031322112010-2213012212203301",
-      "anchor_map": [
-        [
-          "schema-asn_matcher--asn_sets--tenant",
-          "canonical-2312222230230110-0013130002131321-0310302111111033-0312222010203113-2331223301132222-3112031313233003-0200132300031112-0132102311011120"
         ]
       ],
       "mode": "embedded",

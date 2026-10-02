@@ -3,6 +3,23 @@
   "sections": [
     {
       "canonical_id": "xcsh-docs:resources:nfv_service:properties:palo_alto_fw_service:service_nodes:nodes:mgmt_subnet",
+      "section_id": "xcsh-docs:resources:nfv_service:properties:palo_alto_fw_service:service_nodes:nodes:mgmt_subnet:section:1",
+      "source_sha256": "sha256:db686000cb1316082c6973bd0f2cb2bd2e4421ef1bb969a1eb752b69d785f197",
+      "source_bytes": 1514,
+      "canonical_source_sha256": "sha256:d85bd41a989cea9981b140263b927368bff8c9049e22a0dc39319645c7279931",
+      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/resources/nfv_service/properties/palo_alto_fw_service/service_nodes/nodes/mgmt_subnet/",
+      "anchor": "canonical-0200011310120030-0233112321313200-2213132301230201-0300001320212113-3011011122030103-0330001222211321-3203203312123313-3133113300013120",
+      "anchor_map": [
+        [
+          "section",
+          "canonical-3300303212211100-3223222323322012-2221330302221020-1010123222300000-2103132230233001-2303221320100120-3223300103122320-2032122021331300"
+        ]
+      ],
+      "mode": "embedded",
+      "registry_path": "docs/guides/resources--nfv_service--reference--group-004.md"
+    },
+    {
+      "canonical_id": "xcsh-docs:resources:nfv_service:properties:palo_alto_fw_service:service_nodes:nodes:mgmt_subnet",
       "section_id": "xcsh-docs:resources:nfv_service:properties:palo_alto_fw_service:service_nodes:nodes:mgmt_subnet:section:2",
       "source_sha256": "sha256:d7b0c3117e7df6b20268fa3a4837e36002fd8333eeb93f507a6e02f66e86fb1a",
       "source_bytes": 119,
@@ -7602,18 +7619,6 @@
       "canonical_source_sha256": "sha256:3219a2a482af6f4655b40e7e264a91167dffa58d7a8c27f8f69111afa043758d",
       "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/resources/origin_pool/properties/upstream_conn_pool_reuse_type/disable_conn_pool_reuse/",
       "anchor": "canonical-0220203013101300-1133320100232313-1032310222310001-3221201213313302-0312103211222011-3110010132332333-2013101322120103-1033311112103033",
-      "anchor_map": [],
-      "mode": "embedded",
-      "registry_path": "docs/guides/resources--origin_pool--reference--group-003.md"
-    },
-    {
-      "canonical_id": "xcsh-docs:resources:origin_pool:properties:upstream_conn_pool_reuse_type:enable_conn_pool_reuse",
-      "section_id": "xcsh-docs:resources:origin_pool:properties:upstream_conn_pool_reuse_type:enable_conn_pool_reuse:section:0",
-      "source_sha256": "sha256:197d41522a9dd286cb9805a03d8a5bd782cc3f3fd95ea854bf2dfc326e83e50c",
-      "source_bytes": 99,
-      "canonical_source_sha256": "sha256:ff884624aeba86a3a496bd930baf1e7745b3ffad3f415b2fa65cb6a97ccd9b58",
-      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/resources/origin_pool/properties/upstream_conn_pool_reuse_type/enable_conn_pool_reuse/",
-      "anchor": "canonical-3131222111103001-1022113210301001-2003220322321311-2101301230133010-3001313222333012-1033323302303222-3113132123323330-0121133313120301",
       "anchor_map": [],
       "mode": "embedded",
       "registry_path": "docs/guides/resources--origin_pool--reference--group-003.md"

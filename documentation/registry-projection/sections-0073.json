@@ -3,6 +3,23 @@
   "sections": [
     {
       "canonical_id": "xcsh-docs:resources:tcp_loadbalancer:properties:tls_tcp_auto_cert:tls_config:low_security",
+      "section_id": "xcsh-docs:resources:tcp_loadbalancer:properties:tls_tcp_auto_cert:tls_config:low_security:section:1",
+      "source_sha256": "sha256:89988d04eb1f9c5edd912db20c73b7ddf7b7911da3f948912b6cdc475a682c50",
+      "source_bytes": 1017,
+      "canonical_source_sha256": "sha256:48df9ee369c36b9f00e0e648cd5e0a08fca75913a79cfd82391e3dc95f4f9356",
+      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/resources/tcp_loadbalancer/properties/tls_tcp_auto_cert/tls_config/low_security/",
+      "anchor": "canonical-2103220222333121-1022333201223210-1113023001301102-3213121202031301-2011013003300100-2321102123213013-1022002310102211-0030312222220103",
+      "anchor_map": [
+        [
+          "section",
+          "canonical-0012331301303113-0122013031120210-3111133330002022-1223232130010220-0213102121003312-3333303311320231-2330320030021323-1132012003211232"
+        ]
+      ],
+      "mode": "embedded",
+      "registry_path": "docs/guides/resources--tcp_loadbalancer--reference--group-003.md"
+    },
+    {
+      "canonical_id": "xcsh-docs:resources:tcp_loadbalancer:properties:tls_tcp_auto_cert:tls_config:low_security",
       "section_id": "xcsh-docs:resources:tcp_loadbalancer:properties:tls_tcp_auto_cert:tls_config:low_security:section:2",
       "source_sha256": "sha256:0d4398201e18f9ddb2ea00ceed6d3256755ea4d008d849d1cec42dab5c55f1b5",
       "source_bytes": 94,
@@ -7833,23 +7850,6 @@
         [
           "section",
           "canonical-1110001011323311-2302202330233110-0030121101122132-2032230213311300-1030010322332013-0020003130312311-1321100213210311-3003330122302000"
-        ]
-      ],
-      "mode": "embedded",
-      "registry_path": "docs/guides/resources--udp_loadbalancer--reference--group-001.md"
-    },
-    {
-      "canonical_id": "xcsh-docs:resources:udp_loadbalancer:properties:advertise_custom:advertise_where:vk8s_service:site",
-      "section_id": "xcsh-docs:resources:udp_loadbalancer:properties:advertise_custom:advertise_where:vk8s_service:site:section:2",
-      "source_sha256": "sha256:0328427ddc0ac5188a7660d857ba94431326022ab916dba037214c276996eb30",
-      "source_bytes": 103,
-      "canonical_source_sha256": "sha256:67cd08f4c5fb305363d59f20ce639f7ce10c698b3ae20d70181fd88cebc11305",
-      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/resources/udp_loadbalancer/properties/advertise_custom/advertise_where/vk8s_service/site/",
-      "anchor": "canonical-1010001230233013-1012003331011130-1002132331323333-1303320130101021-0311332033211331-2031002021231010-0123100300120333-2322113332103320",
-      "anchor_map": [
-        [
-          "schema-advertise_custom--advertise_where--vk8s_service--site--name",
-          "canonical-2303201300332222-0012023001221030-2113203321232321-3231230231212011-0122203213302032-1311322200023221-3310122030312213-3020020223220212"
         ]
       ],
       "mode": "embedded",
