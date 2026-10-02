@@ -47,7 +47,7 @@ class RetrievalRules:
             for term in self.terms
         ):
             raise ValueError("invalid retrieval term match source")
-        summaries_seen = {}
+        summaries_seen: dict[tuple, dict] = {}
         for rule in self.summaries:
             if (
                 not isinstance(rule, dict)

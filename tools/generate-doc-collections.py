@@ -389,13 +389,16 @@ class Collection:
         """Expose receipt-pinned type choices without claiming schema prerequisites."""
         if self.kind != "resources":
             return
-        groups = getattr(self.specs, "immutable_oneof_groups", lambda _name: {})(
+        groups: dict = getattr(self.specs, "immutable_oneof_groups", lambda _name: {})(
             self.name
         )
         for group, members in sorted(groups.items()):
-            destinations = [self.coverage.get(member) for member in members]
-            if any(target is None for target in destinations):
-                raise ValueError("missing immutable choice destination: " + group)
+            destinations = []
+            for member in members:
+                target = self.coverage.get(member)
+                if target is None:
+                    raise ValueError("missing immutable choice destination: " + group)
+                destinations.append(target)
             for page in self.pages.values():
                 if page["role"] != "reference" and page["schema_path"] not in [
                     [member] for member in members
