@@ -1034,7 +1034,7 @@
       ]
     },
     {
-      "pattern": "\\b(?:success conditions|transaction result success|login result)\\b",
+      "pattern": "\\b(?:success conditions|transaction result success|login result)$",
       "context_pattern": "\\blogin\\b|\\btransaction result\\b",
       "aliases": [
         "login success"

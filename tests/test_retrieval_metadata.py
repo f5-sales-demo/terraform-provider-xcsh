@@ -194,7 +194,7 @@ class RetrievalMetadataTests(unittest.TestCase):
                 "Failure after successful connection.",
             ),
         )
-        self.assertIn(
+        self.assertNotIn(
             "login success",
             rules.aliases(
                 "login.transaction_result.success_conditions.status",
