@@ -455,7 +455,7 @@
         "xcsh-docs:data-sources:rate_limiter_policy:examples"
       ],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": ["receipt-pinned-upstream"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -501,7 +501,7 @@
         "xcsh-docs:data-sources:rate_limiter_policy:properties:server_selector"
       ],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": ["receipt-pinned-upstream"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -649,7 +649,7 @@
           "type": "string"
         },
         {
-          "aliases": ["login success", "server name matcher", "succeeded", "success", "successful"],
+          "aliases": ["server name matcher", "succeeded", "success", "successful"],
           "anchor": "section",
           "description": "A matcher specifies multiple criteria for matching an input string. The match is considered successful if any of the criteria are satisfied. The set of supported match criteria includes a list of exact values and a list of regular expressions.",
           "document_id": "xcsh-docs:data-sources:rate_limiter_policy:properties:server_name_matcher",
@@ -696,7 +696,7 @@
       "category": "security",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": ["receipt-pinned-upstream"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -739,7 +739,7 @@
         "xcsh-docs:data-sources:rate_limiter_policy:properties:rules:spec"
       ],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": ["receipt-pinned-upstream"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -808,7 +808,7 @@
       "category": "security",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": ["receipt-pinned-upstream"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -894,7 +894,7 @@
         "xcsh-docs:data-sources:rate_limiter_policy:properties:rules:spec:segment_policy"
       ],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": ["receipt-pinned-upstream"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -1042,7 +1042,7 @@
           "type": "object"
         },
         {
-          "aliases": ["domain matcher", "login success", "succeeded", "success", "successful"],
+          "aliases": ["domain matcher", "succeeded", "success", "successful"],
           "anchor": "section",
           "description": "A matcher specifies multiple criteria for matching an input string. The match is considered successful if any of the criteria are satisfied. The set of supported match criteria includes a list of exact values and a list of regular expressions.",
           "document_id": "xcsh-docs:data-sources:rate_limiter_policy:properties:rules:spec:domain_matcher",
@@ -1070,7 +1070,7 @@
           "type": "object"
         },
         {
-          "aliases": ["http method", "login success", "succeeded", "success", "successful"],
+          "aliases": ["http method", "succeeded", "success", "successful"],
           "anchor": "section",
           "description": "A HTTP method matcher specifies a list of methods to match an input HTTP method. The match is considered successful if the input method is a member of the list. The result of the match based on the method list is inverted if invert_matcher is true.",
           "document_id": "xcsh-docs:data-sources:rate_limiter_policy:properties:rules:spec:http_method",
@@ -1112,7 +1112,7 @@
           "type": "object"
         },
         {
-          "aliases": ["login success", "path", "succeeded", "success", "successful"],
+          "aliases": ["path", "succeeded", "success", "successful"],
           "anchor": "section",
           "description": "A path matcher specifies multiple criteria for matching an HTTP path string. The match is considered successful if any of the criteria are satisfied. The set of supported match criteria includes a list of path prefixes, a list of exact path values and a list of regular expressions.",
           "document_id": "xcsh-docs:data-sources:rate_limiter_policy:properties:rules:spec:path",
@@ -1159,7 +1159,7 @@
       "category": "security",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": ["receipt-pinned-upstream"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -1199,7 +1199,7 @@
       "category": "security",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": ["receipt-pinned-upstream"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -1239,7 +1239,7 @@
       "category": "security",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": ["receipt-pinned-upstream"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -1279,7 +1279,7 @@
       "category": "security",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": ["receipt-pinned-upstream"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -1319,7 +1319,7 @@
       "category": "security",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": ["receipt-pinned-upstream"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -1374,7 +1374,7 @@
       "category": "security",
       "child_ids": ["xcsh-docs:data-sources:rate_limiter_policy:properties:rules:spec:asn_matcher:asn_sets"],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": ["receipt-pinned-upstream"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -1429,7 +1429,7 @@
       "category": "security",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": ["receipt-pinned-upstream"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -1540,7 +1540,7 @@
       "category": "security",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": ["receipt-pinned-upstream"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -1580,7 +1580,7 @@
       "category": "security",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": ["receipt-pinned-upstream"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -1649,7 +1649,7 @@
       "category": "security",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": ["receipt-pinned-upstream"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -1725,14 +1725,14 @@
       }
     },
     {
-      "aliases": ["login success", "rules spec domain matcher", "succeeded", "success", "successful"],
+      "aliases": ["rules spec domain matcher", "succeeded", "success", "successful"],
       "body_bytes": 4372,
       "body_sha256": "sha256:4fa028a816557790094b383518da3090c06dcfbaf3976af6a9855478d76b814d",
       "capabilities": ["security"],
       "category": "security",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": ["receipt-pinned-upstream"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -1805,7 +1805,7 @@
         "xcsh-docs:data-sources:rate_limiter_policy:properties:rules:spec:headers:item"
       ],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": ["receipt-pinned-upstream"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -1869,7 +1869,7 @@
           "type": "bool"
         },
         {
-          "aliases": ["item", "login success", "succeeded", "success", "successful"],
+          "aliases": ["item", "succeeded", "success", "successful"],
           "anchor": "section",
           "description": "A matcher specifies multiple criteria for matching an input string. The match is considered successful if any of the criteria are satisfied. The set of supported match criteria includes a list of exact values and a list of regular expressions.",
           "document_id": "xcsh-docs:data-sources:rate_limiter_policy:properties:rules:spec:headers:item",
@@ -1916,7 +1916,7 @@
       "category": "security",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": ["receipt-pinned-upstream"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -1956,7 +1956,7 @@
       "category": "security",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": ["receipt-pinned-upstream"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -1989,14 +1989,14 @@
       }
     },
     {
-      "aliases": ["login success", "rules spec headers item", "succeeded", "success", "successful"],
+      "aliases": ["rules spec headers item", "succeeded", "success", "successful"],
       "body_bytes": 5927,
       "body_sha256": "sha256:4cd53c8aabcfe62fe652a38e8abd16e9b542a38686cf2b6b1dc0dd1d341b8882",
       "capabilities": ["security"],
       "category": "security",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": ["receipt-pinned-upstream"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -2072,14 +2072,14 @@
       }
     },
     {
-      "aliases": ["login success", "rules spec http method", "succeeded", "success", "successful"],
+      "aliases": ["rules spec http method", "succeeded", "success", "successful"],
       "body_bytes": 3424,
       "body_sha256": "sha256:442ff7d49fa75f5abcbd72d711c6c0a1bf96edb016ef27b01bd48c14a9f689b2",
       "capabilities": ["security"],
       "category": "security",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": ["receipt-pinned-upstream"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -2148,7 +2148,7 @@
       "category": "security",
       "child_ids": ["xcsh-docs:data-sources:rate_limiter_policy:properties:rules:spec:ip_matcher:prefix_sets"],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": ["receipt-pinned-upstream"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -2217,7 +2217,7 @@
       "category": "security",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": ["receipt-pinned-upstream"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -2328,7 +2328,7 @@
       "category": "security",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": ["receipt-pinned-upstream"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -2390,14 +2390,14 @@
       }
     },
     {
-      "aliases": ["login success", "rules spec path", "succeeded", "success", "successful"],
+      "aliases": ["rules spec path", "succeeded", "success", "successful"],
       "body_bytes": 9436,
       "body_sha256": "sha256:1e8fed5b1b4d14f03314b8af28918d3b4254703933222d96ae064e8e971b64c8",
       "capabilities": ["security"],
       "category": "security",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": ["receipt-pinned-upstream"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -2542,7 +2542,7 @@
         "xcsh-docs:data-sources:rate_limiter_policy:properties:rules:spec:segment_policy:src_segments"
       ],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": ["receipt-pinned-upstream"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -2653,7 +2653,7 @@
       "category": "security",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": ["receipt-pinned-upstream"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -2695,7 +2695,7 @@
         "xcsh-docs:data-sources:rate_limiter_policy:properties:rules:spec:segment_policy:dst_segments:segments"
       ],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": ["receipt-pinned-upstream"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -2750,7 +2750,7 @@
       "category": "security",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": ["receipt-pinned-upstream"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -2833,7 +2833,7 @@
       "category": "security",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": ["receipt-pinned-upstream"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -2873,7 +2873,7 @@
       "category": "security",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": ["receipt-pinned-upstream"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -2915,7 +2915,7 @@
         "xcsh-docs:data-sources:rate_limiter_policy:properties:rules:spec:segment_policy:src_segments:segments"
       ],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": ["receipt-pinned-upstream"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -2970,7 +2970,7 @@
       "category": "security",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": ["receipt-pinned-upstream"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -3046,14 +3046,14 @@
       }
     },
     {
-      "aliases": ["login success", "server name matcher", "succeeded", "success", "successful"],
+      "aliases": ["server name matcher", "succeeded", "success", "successful"],
       "body_bytes": 4095,
       "body_sha256": "sha256:f526a9317a66709baf786641478ac2b298471a79c1994feba1bc80bfd7cb252f",
       "capabilities": ["security"],
       "category": "security",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": ["receipt-pinned-upstream"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -3122,7 +3122,7 @@
       "category": "security",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": ["receipt-pinned-upstream"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -3177,7 +3177,7 @@
       "category": "security",
       "child_ids": ["xcsh-docs:data-sources:rate_limiter_policy:example:data-source"],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": ["receipt-pinned-upstream"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -3217,7 +3217,7 @@
       "category": "security",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": ["receipt-pinned-upstream"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
