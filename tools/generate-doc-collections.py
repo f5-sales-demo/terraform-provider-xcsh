@@ -772,15 +772,17 @@ class Collection:
                 for group, members in sorted(
                     self.specs.immutable_oneof_groups(self.name).items()
                 ):
-                    links = ", ".join(
+                    links = ",\n".join(
                         self.link(
                             stable_id(self.kind, self.name, "properties", (member,))
                         )
                         for member in members
                     )
                     lines.append(
-                        f"Changing the {group} selection between {links}, including an omitted selection, requires recreation and may interrupt service. "
-                        "F5 Distributed Cloud cannot change this type selection in place. Certificate rotation and other supported settings within the same selected type remain updates.\n"
+                        f"Changing the {group} selection between\n{links},\n"
+                        "including an omitted selection, requires recreation and may interrupt service.\n"
+                        "F5 Distributed Cloud cannot change this type selection in place.\n"
+                        "Certificate rotation and other supported settings within the same selected type remain updates.\n"
                     )
                 lines.append(
                     "Terraform identifies the affected type blocks as **must be replaced**. Unknown block presence requires replacement when unchanged selection cannot be proven; unknown child settings alone do not. Recommendations do not establish API defaults.\n"

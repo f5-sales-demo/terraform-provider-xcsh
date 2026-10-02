@@ -461,6 +461,7 @@ class ImmutableSelectionLifecycleTests(unittest.TestCase):
             )
             page = collection.pages[DOCS.stable_id("resources", "fixture", "lifecycle")]
             body = collection.body(page)
+            self.assertTrue(all(len(line) <= 400 for line in body.splitlines()))
             for phrase in (
                 "requires recreation",
                 "may interrupt service",
