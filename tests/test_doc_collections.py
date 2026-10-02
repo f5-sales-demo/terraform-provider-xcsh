@@ -324,6 +324,29 @@ class CollectionTests(unittest.TestCase):
         with self.assertRaisesRegex(ValueError, "missing navigation target"):
             DOCS.registry_navigation(surface, outputs)
 
+    def assert_schema_property_coverage(self, index):
+        schema_path = os.environ.get("XCSH_DOCS_SCHEMA")
+        if schema_path:
+            provider_schema = json.loads(Path(schema_path).read_text())[
+                "provider_schemas"
+            ][DOCS.PROVIDER]
+            collections = {
+                collection["id"]: collection for collection in index["collections"]
+            }
+            expected_ids = set()
+            for kind, (schema_key, _, _, _) in DOCS.TYPES.items():
+                for full_name, schema in provider_schema.get(schema_key, {}).items():
+                    identifier = DOCS.stable_id(
+                        kind, full_name.removeprefix("xcsh_"), "collection"
+                    )
+                    expected_ids.add(identifier)
+                    self.assertEqual(
+                        set(collections[identifier]["properties"]),
+                        self.schema_paths(DOCS.schema_root(schema)),
+                        identifier,
+                    )
+            self.assertEqual(set(collections), expected_ids)
+
     def test_complete_registry_projection_coverage(self):
         manifest_path = ROOT / "documentation/registry-projection-manifest.json"
         if not manifest_path.exists():
@@ -355,27 +378,7 @@ class CollectionTests(unittest.TestCase):
         self.assertTrue(
             any(page["provider_type"] == "guides" for page in pages.values())
         )
-        schema_path = os.environ.get("XCSH_DOCS_SCHEMA")
-        if schema_path:
-            provider_schema = json.loads(Path(schema_path).read_text())[
-                "provider_schemas"
-            ][DOCS.PROVIDER]
-            collections = {
-                collection["id"]: collection for collection in index["collections"]
-            }
-            expected_ids = set()
-            for kind, (schema_key, _, _, _) in DOCS.TYPES.items():
-                for full_name, schema in provider_schema.get(schema_key, {}).items():
-                    identifier = DOCS.stable_id(
-                        kind, full_name.removeprefix("xcsh_"), "collection"
-                    )
-                    expected_ids.add(identifier)
-                    self.assertEqual(
-                        set(collections[identifier]["properties"]),
-                        self.schema_paths(DOCS.schema_root(schema)),
-                        identifier,
-                    )
-            self.assertEqual(set(collections), expected_ids)
+        self.assert_schema_property_coverage(index)
         sections = [
             section
             for shard in projection["section_manifests"]
