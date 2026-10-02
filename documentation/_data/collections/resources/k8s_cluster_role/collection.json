@@ -135,265 +135,902 @@
   },
   "pages": [
     {
-      "aliases": [],
+      "aliases": ["backend servers", "k8s cluster role", "origin servers", "upstream servers"],
       "body_bytes": 1701,
       "body_sha256": "sha256:eb02bb0e52d09a05678a12258ee1df0da6083c737df61487118f93f7a089f1b4",
+      "capabilities": ["container"],
+      "category": "container",
       "child_ids": [
         "xcsh-docs:resources:k8s_cluster_role:reference",
         "xcsh-docs:resources:k8s_cluster_role:examples",
         "xcsh-docs:resources:k8s_cluster_role:import",
         "xcsh-docs:resources:k8s_cluster_role:timeouts"
       ],
+      "classification": {
+        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "sources": ["receipt-pinned-upstream", "reviewed-rule"],
+        "status": "resolved",
+        "upstream_category_source": "receipt-pinned-resource"
+      },
       "collection_id": "xcsh-docs:resources:k8s_cluster_role:collection",
       "completeness": "complete",
       "id": "xcsh-docs:resources:k8s_cluster_role:fundamentals",
-      "parent_id": null,
+      "parent_id": "xcsh-docs:resources:xcsh:navigation",
       "path": "documentation/resources/k8s_cluster_role/index.md",
+      "product": "distributed-cloud",
       "provider_name": "k8s_cluster_role",
       "provider_schema_digest": "sha256:e63a07e98b4893c041a6f79be7e19c64babfe543fc6847c17641037e084e1c7c",
       "provider_type": "resources",
       "registry_anchor": "canonical-1032203102313310-1310133031312032-2032211220123023-3022101331120133-3300202302000301-2221012031203122-0233002122331003-2331111132121223",
       "registry_path": "docs/resources/k8s_cluster_role.md",
+      "relationships": [],
+      "retrieval_version": 1,
       "role": "fundamentals",
       "schema_path": [],
+      "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/k8s_cluster_role/index.txt",
-      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
-      "summary": "xcsh_k8s_cluster_role for xcsh_k8s_cluster_role.",
+      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "summary": "Manages k8s_cluster_role will create the object in the storage backend for namespace metadata.namespace in F5 Distributed Cloud.",
+      "tasks": ["configuration"],
       "title": "xcsh_k8s_cluster_role",
+      "unresolved_relationships": [],
       "upstream_identity": {
-        "release_tag": "v9.0.0",
+        "release_tag": "v9.0.1",
         "schema_components": ["k8s_cluster_roleCreateRequest"],
-        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
       }
     },
     {
-      "aliases": [],
+      "aliases": ["k8s cluster role"],
       "body_bytes": 14512,
       "body_sha256": "sha256:d78deb5b852e79b241e2b604ea24954c9cccfa64433fea3e059a14ada585c3b8",
+      "capabilities": ["container"],
+      "category": "container",
       "child_ids": [
         "xcsh-docs:resources:k8s_cluster_role:properties:k8s_cluster_role_selector",
         "xcsh-docs:resources:k8s_cluster_role:properties:policy_rule_list",
         "xcsh-docs:resources:k8s_cluster_role:properties:timeouts"
       ],
+      "classification": {
+        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "sources": ["receipt-pinned-upstream", "reviewed-rule"],
+        "status": "resolved",
+        "upstream_category_source": "receipt-pinned-resource"
+      },
       "collection_id": "xcsh-docs:resources:k8s_cluster_role:collection",
       "completeness": "complete",
       "id": "xcsh-docs:resources:k8s_cluster_role:reference",
       "parent_id": "xcsh-docs:resources:k8s_cluster_role:fundamentals",
       "path": "documentation/resources/k8s_cluster_role/properties/index.md",
+      "product": "distributed-cloud",
       "provider_name": "k8s_cluster_role",
       "provider_schema_digest": "sha256:e63a07e98b4893c041a6f79be7e19c64babfe543fc6847c17641037e084e1c7c",
       "provider_type": "resources",
       "registry_anchor": "canonical-2133203023220330-1102213322212330-0132102322203020-3312031132113031-0113221210031112-2310320230002102-0032121131200320-1022122031320230",
       "registry_path": "docs/guides/resources--k8s_cluster_role--reference--group-001.md",
+      "relationships": [],
+      "retrieval_version": 1,
       "role": "reference",
       "schema_path": [],
+      "sections": [
+        {
+          "aliases": ["annotations"],
+          "anchor": "schema-annotations",
+          "description": "Annotations is an unstructured key value map stored with a resource that may be set by external tools to store and retrieve arbitrary metadata. They are not queryable and should be preserved when modifying objects.",
+          "document_id": "xcsh-docs:resources:k8s_cluster_role:reference",
+          "flags": ["optional"],
+          "max_items": null,
+          "min_items": null,
+          "nesting": null,
+          "relationships": [],
+          "schema_path": ["annotations"],
+          "syntax": "attribute",
+          "type": "map"
+        },
+        {
+          "aliases": ["description"],
+          "anchor": "schema-description",
+          "description": "Human readable description for the object.",
+          "document_id": "xcsh-docs:resources:k8s_cluster_role:reference",
+          "flags": ["optional"],
+          "max_items": null,
+          "min_items": null,
+          "nesting": null,
+          "relationships": [],
+          "schema_path": ["description"],
+          "syntax": "attribute",
+          "type": "string"
+        },
+        {
+          "aliases": ["disable"],
+          "anchor": "schema-disable",
+          "description": "A value of true will administratively disable the object.",
+          "document_id": "xcsh-docs:resources:k8s_cluster_role:reference",
+          "flags": ["optional"],
+          "max_items": null,
+          "min_items": null,
+          "nesting": null,
+          "relationships": [],
+          "schema_path": ["disable"],
+          "syntax": "attribute",
+          "type": "bool"
+        },
+        {
+          "aliases": ["id"],
+          "anchor": "schema-id",
+          "description": "Unique identifier for the resource.",
+          "document_id": "xcsh-docs:resources:k8s_cluster_role:reference",
+          "flags": ["computed"],
+          "max_items": null,
+          "min_items": null,
+          "nesting": null,
+          "relationships": [],
+          "schema_path": ["id"],
+          "syntax": "attribute",
+          "type": "string"
+        },
+        {
+          "aliases": ["k8s cluster role selector"],
+          "anchor": "section",
+          "description": "This type can be used to establish a 'selector reference' from one object(called selector) to a set of other objects(called selectees) based on the value of expressions. A label selector is a label query over a set of resources. An empty label selector matches all objects. A null label selector matches no objects.",
+          "document_id": "xcsh-docs:resources:k8s_cluster_role:properties:k8s_cluster_role_selector",
+          "flags": [],
+          "max_items": null,
+          "min_items": null,
+          "nesting": "single",
+          "relationships": [
+            {
+              "anchor": "schema-k8s_cluster_role_selector--expressions",
+              "enforcement": "provider-schema",
+              "group": "k8s_cluster_role_selector:RequiredObjectAttributes:expressions",
+              "source": "ast-validator:RequiredObjectAttributes",
+              "target_id": "xcsh-docs:resources:k8s_cluster_role:properties:k8s_cluster_role_selector",
+              "type": "requires"
+            }
+          ],
+          "schema_path": ["k8s_cluster_role_selector"],
+          "syntax": "block",
+          "type": "object"
+        },
+        {
+          "aliases": ["labels"],
+          "anchor": "schema-labels",
+          "description": "Map of string keys and values that can be used to organize and categorize (scope and select) objects as chosen by the user. Values specified here will be used by selector expression.",
+          "document_id": "xcsh-docs:resources:k8s_cluster_role:reference",
+          "flags": ["optional"],
+          "max_items": null,
+          "min_items": null,
+          "nesting": null,
+          "relationships": [],
+          "schema_path": ["labels"],
+          "syntax": "attribute",
+          "type": "map"
+        },
+        {
+          "aliases": ["name"],
+          "anchor": "schema-name",
+          "description": "This is the name of configuration object. It has to be unique within the namespace. It can only be specified during create API and cannot be changed during replace API. The value of name has to follow DNS-1035 format.",
+          "document_id": "xcsh-docs:resources:k8s_cluster_role:reference",
+          "flags": ["required"],
+          "max_items": null,
+          "min_items": null,
+          "nesting": null,
+          "relationships": [],
+          "schema_path": ["name"],
+          "syntax": "attribute",
+          "type": "string"
+        },
+        {
+          "aliases": ["namespace"],
+          "anchor": "schema-namespace",
+          "description": "This defines the workspace within which each the configuration object is to be created. Must be a DNS_LABEL format. For a namespace object itself, namespace value will be \"\"",
+          "document_id": "xcsh-docs:resources:k8s_cluster_role:reference",
+          "flags": ["optional", "computed"],
+          "max_items": null,
+          "min_items": null,
+          "nesting": null,
+          "relationships": [],
+          "schema_path": ["namespace"],
+          "syntax": "attribute",
+          "type": "string"
+        },
+        {
+          "aliases": ["policy rule list"],
+          "anchor": "section",
+          "description": "List of rules for role permissions.",
+          "document_id": "xcsh-docs:resources:k8s_cluster_role:properties:policy_rule_list",
+          "flags": [],
+          "max_items": null,
+          "min_items": null,
+          "nesting": "single",
+          "relationships": [
+            {
+              "anchor": "section",
+              "enforcement": "provider-schema",
+              "group": "policy_rule_list:RequiredObjectAttributes:policy_rule",
+              "source": "ast-validator:RequiredObjectAttributes",
+              "target_id": "xcsh-docs:resources:k8s_cluster_role:properties:policy_rule_list:policy_rule",
+              "type": "requires"
+            }
+          ],
+          "schema_path": ["policy_rule_list"],
+          "syntax": "block",
+          "type": "object"
+        },
+        {
+          "aliases": ["duration", "operation timeout", "timeouts"],
+          "anchor": "section",
+          "description": "timeouts",
+          "document_id": "xcsh-docs:resources:k8s_cluster_role:properties:timeouts",
+          "flags": [],
+          "max_items": null,
+          "min_items": null,
+          "nesting": "single",
+          "relationships": [],
+          "schema_path": ["timeouts"],
+          "syntax": "block",
+          "type": "object"
+        },
+        {
+          "aliases": ["yaml"],
+          "anchor": "schema-yaml",
+          "description": "Exclusive with K8s YAML for ClusterRole.",
+          "document_id": "xcsh-docs:resources:k8s_cluster_role:reference",
+          "flags": ["optional", "computed"],
+          "max_items": null,
+          "min_items": null,
+          "nesting": null,
+          "relationships": [],
+          "schema_path": ["yaml"],
+          "syntax": "attribute",
+          "type": "string"
+        }
+      ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/k8s_cluster_role/properties/index.txt",
-      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
       "summary": "Property reference for xcsh_k8s_cluster_role.",
+      "tasks": ["configuration"],
       "title": "Property reference",
       "upstream_identity": {
-        "release_tag": "v9.0.0",
+        "release_tag": "v9.0.1",
         "schema_components": ["k8s_cluster_roleCreateRequest"],
-        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
       }
     },
     {
-      "aliases": [],
+      "aliases": ["k8s cluster role selector"],
       "body_bytes": 4626,
       "body_sha256": "sha256:56f368afae8b500cc4ebb7e1f4374018c3fdd7126376ae15d66ef95765c58696",
+      "capabilities": ["container"],
+      "category": "container",
       "child_ids": [],
+      "classification": {
+        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "sources": ["receipt-pinned-upstream", "reviewed-rule"],
+        "status": "resolved",
+        "upstream_category_source": "receipt-pinned-resource"
+      },
       "collection_id": "xcsh-docs:resources:k8s_cluster_role:collection",
       "completeness": "complete",
       "id": "xcsh-docs:resources:k8s_cluster_role:properties:k8s_cluster_role_selector",
       "parent_id": "xcsh-docs:resources:k8s_cluster_role:reference",
       "path": "documentation/resources/k8s_cluster_role/properties/k8s_cluster_role_selector/index.md",
+      "product": "distributed-cloud",
       "provider_name": "k8s_cluster_role",
       "provider_schema_digest": "sha256:e63a07e98b4893c041a6f79be7e19c64babfe543fc6847c17641037e084e1c7c",
       "provider_type": "resources",
       "registry_anchor": "canonical-2012130112223230-2221001233011322-3013232013330020-3003303130102122-1110003201333103-3232213300001201-1001203112330100-1312120312230031",
       "registry_path": "docs/guides/resources--k8s_cluster_role--reference--group-001.md",
+      "relationships": [
+        {
+          "anchor": "schema-k8s_cluster_role_selector--expressions",
+          "enforcement": "provider-schema",
+          "group": "k8s_cluster_role_selector:RequiredObjectAttributes:expressions",
+          "source": "ast-validator:RequiredObjectAttributes",
+          "target_id": "xcsh-docs:resources:k8s_cluster_role:properties:k8s_cluster_role_selector",
+          "type": "requires"
+        }
+      ],
+      "retrieval_version": 1,
       "role": "properties",
       "schema_path": ["k8s_cluster_role_selector"],
+      "sections": [
+        {
+          "aliases": ["expressions"],
+          "anchor": "schema-k8s_cluster_role_selector--expressions",
+          "description": "Expressions contains the Kubernetes style label expression for selections.",
+          "document_id": "xcsh-docs:resources:k8s_cluster_role:properties:k8s_cluster_role_selector",
+          "flags": ["optional"],
+          "max_items": null,
+          "min_items": null,
+          "nesting": null,
+          "relationships": [],
+          "schema_path": ["k8s_cluster_role_selector", "expressions"],
+          "syntax": "attribute",
+          "type": "list"
+        }
+      ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/k8s_cluster_role/properties/k8s_cluster_role_selector/index.txt",
-      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
-      "summary": "k8s_cluster_role_selector for xcsh_k8s_cluster_role.",
+      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "summary": "This type can be used to establish a 'selector reference' from one object(called selector) to a set of other objects(called selectees) based on the value of expressions. A label selector is a label query over a set of resources. An empty label selector matches all objects. A null label selector matches no objects.",
+      "tasks": ["configuration"],
       "title": "k8s_cluster_role_selector",
       "upstream_identity": {
-        "release_tag": "v9.0.0",
+        "release_tag": "v9.0.1",
         "schema_components": ["k8s_cluster_roleCreateRequest"],
-        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
       }
     },
     {
-      "aliases": [],
+      "aliases": ["policy rule list"],
       "body_bytes": 1598,
       "body_sha256": "sha256:57103c20a32e38625d91148b0f5b4581314a2d8c251dd459bc53f92e064221b7",
+      "capabilities": ["container"],
+      "category": "container",
       "child_ids": ["xcsh-docs:resources:k8s_cluster_role:properties:policy_rule_list:policy_rule"],
+      "classification": {
+        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "sources": ["receipt-pinned-upstream", "reviewed-rule"],
+        "status": "resolved",
+        "upstream_category_source": "receipt-pinned-resource"
+      },
       "collection_id": "xcsh-docs:resources:k8s_cluster_role:collection",
       "completeness": "complete",
       "id": "xcsh-docs:resources:k8s_cluster_role:properties:policy_rule_list",
       "parent_id": "xcsh-docs:resources:k8s_cluster_role:reference",
       "path": "documentation/resources/k8s_cluster_role/properties/policy_rule_list/index.md",
+      "product": "distributed-cloud",
       "provider_name": "k8s_cluster_role",
       "provider_schema_digest": "sha256:e63a07e98b4893c041a6f79be7e19c64babfe543fc6847c17641037e084e1c7c",
       "provider_type": "resources",
       "registry_anchor": "canonical-1023113210123132-3332103033023120-3101111131023112-2032220111002331-2223303002022013-3220332111132122-3323013121032023-1032303313310031",
       "registry_path": "docs/guides/resources--k8s_cluster_role--reference--group-001.md",
+      "relationships": [
+        {
+          "anchor": "section",
+          "enforcement": "provider-schema",
+          "group": "policy_rule_list:RequiredObjectAttributes:policy_rule",
+          "source": "ast-validator:RequiredObjectAttributes",
+          "target_id": "xcsh-docs:resources:k8s_cluster_role:properties:policy_rule_list:policy_rule",
+          "type": "requires"
+        }
+      ],
+      "retrieval_version": 1,
       "role": "properties",
       "schema_path": ["policy_rule_list"],
+      "sections": [
+        {
+          "aliases": ["policy rule"],
+          "anchor": "section",
+          "description": "List of rules for role permissions.",
+          "document_id": "xcsh-docs:resources:k8s_cluster_role:properties:policy_rule_list:policy_rule",
+          "flags": [],
+          "max_items": null,
+          "min_items": null,
+          "nesting": "list",
+          "relationships": [
+            {
+              "anchor": "section",
+              "enforcement": "provider-schema",
+              "group": "policy_rule_list.policy_rule:ConflictingListObjectAttributes:non_resource_url_list,resource_list",
+              "source": "ast-validator:ConflictingListObjectAttributes",
+              "target_id": "xcsh-docs:resources:k8s_cluster_role:properties:policy_rule_list:policy_rule:non_resource_url_list",
+              "type": "conflicts"
+            },
+            {
+              "anchor": "section",
+              "enforcement": "provider-schema",
+              "group": "policy_rule_list.policy_rule:ConflictingListObjectAttributes:non_resource_url_list,resource_list",
+              "source": "ast-validator:ConflictingListObjectAttributes",
+              "target_id": "xcsh-docs:resources:k8s_cluster_role:properties:policy_rule_list:policy_rule:resource_list",
+              "type": "conflicts"
+            }
+          ],
+          "schema_path": ["policy_rule_list", "policy_rule"],
+          "syntax": "block",
+          "type": "object"
+        }
+      ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/k8s_cluster_role/properties/policy_rule_list/index.txt",
-      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
-      "summary": "policy_rule_list for xcsh_k8s_cluster_role.",
+      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "summary": "List of rules for role permissions.",
+      "tasks": ["configuration"],
       "title": "policy_rule_list",
       "upstream_identity": {
-        "release_tag": "v9.0.0",
+        "release_tag": "v9.0.1",
         "schema_components": ["k8s_cluster_roleCreateRequest"],
-        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
       }
     },
     {
-      "aliases": [],
+      "aliases": ["policy rule list policy rule"],
       "body_bytes": 3067,
       "body_sha256": "sha256:85f718f0a57bba189009618a616b62d523242bdfd6877771390b6f832d7469cc",
+      "capabilities": ["container"],
+      "category": "container",
       "child_ids": [
         "xcsh-docs:resources:k8s_cluster_role:properties:policy_rule_list:policy_rule:non_resource_url_list",
         "xcsh-docs:resources:k8s_cluster_role:properties:policy_rule_list:policy_rule:resource_list"
       ],
+      "classification": {
+        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "sources": ["receipt-pinned-upstream", "reviewed-rule"],
+        "status": "resolved",
+        "upstream_category_source": "receipt-pinned-resource"
+      },
       "collection_id": "xcsh-docs:resources:k8s_cluster_role:collection",
       "completeness": "complete",
       "id": "xcsh-docs:resources:k8s_cluster_role:properties:policy_rule_list:policy_rule",
       "parent_id": "xcsh-docs:resources:k8s_cluster_role:properties:policy_rule_list",
       "path": "documentation/resources/k8s_cluster_role/properties/policy_rule_list/policy_rule/index.md",
+      "product": "distributed-cloud",
       "provider_name": "k8s_cluster_role",
       "provider_schema_digest": "sha256:e63a07e98b4893c041a6f79be7e19c64babfe543fc6847c17641037e084e1c7c",
       "provider_type": "resources",
       "registry_anchor": "canonical-3031232101002032-1311120200232222-2332131333022232-2322030333100023-1022010033311002-1333100321120122-0301021330113311-2030031003323331",
       "registry_path": "docs/guides/resources--k8s_cluster_role--reference--group-001.md",
+      "relationships": [
+        {
+          "anchor": "section",
+          "enforcement": "provider-schema",
+          "group": "policy_rule_list.policy_rule:ConflictingListObjectAttributes:non_resource_url_list,resource_list",
+          "source": "ast-validator:ConflictingListObjectAttributes",
+          "target_id": "xcsh-docs:resources:k8s_cluster_role:properties:policy_rule_list:policy_rule:non_resource_url_list",
+          "type": "conflicts"
+        },
+        {
+          "anchor": "section",
+          "enforcement": "provider-schema",
+          "group": "policy_rule_list.policy_rule:ConflictingListObjectAttributes:non_resource_url_list,resource_list",
+          "source": "ast-validator:ConflictingListObjectAttributes",
+          "target_id": "xcsh-docs:resources:k8s_cluster_role:properties:policy_rule_list:policy_rule:resource_list",
+          "type": "conflicts"
+        }
+      ],
+      "retrieval_version": 1,
       "role": "properties",
       "schema_path": ["policy_rule_list", "policy_rule"],
+      "sections": [
+        {
+          "aliases": ["non resource url list"],
+          "anchor": "section",
+          "description": "Permissions for URL(s) that do not represent K8s resource.",
+          "document_id": "xcsh-docs:resources:k8s_cluster_role:properties:policy_rule_list:policy_rule:non_resource_url_list",
+          "flags": [],
+          "max_items": null,
+          "min_items": null,
+          "nesting": "single",
+          "relationships": [
+            {
+              "anchor": "schema-policy_rule_list--policy_rule--non_resource_url_list--urls",
+              "enforcement": "provider-schema",
+              "group": "policy_rule_list.policy_rule.non_resource_url_list:RequiredObjectAttributes:urls,verbs",
+              "source": "ast-validator:RequiredObjectAttributes",
+              "target_id": "xcsh-docs:resources:k8s_cluster_role:properties:policy_rule_list:policy_rule:non_resource_url_list",
+              "type": "requires"
+            },
+            {
+              "anchor": "schema-policy_rule_list--policy_rule--non_resource_url_list--verbs",
+              "enforcement": "provider-schema",
+              "group": "policy_rule_list.policy_rule.non_resource_url_list:RequiredObjectAttributes:urls,verbs",
+              "source": "ast-validator:RequiredObjectAttributes",
+              "target_id": "xcsh-docs:resources:k8s_cluster_role:properties:policy_rule_list:policy_rule:non_resource_url_list",
+              "type": "requires"
+            }
+          ],
+          "schema_path": ["policy_rule_list", "policy_rule", "non_resource_url_list"],
+          "syntax": "block",
+          "type": "object"
+        },
+        {
+          "aliases": ["resource list"],
+          "anchor": "section",
+          "description": "List of resources in terms of API groups/resource types/resource instances and verbs allowed.",
+          "document_id": "xcsh-docs:resources:k8s_cluster_role:properties:policy_rule_list:policy_rule:resource_list",
+          "flags": [],
+          "max_items": null,
+          "min_items": null,
+          "nesting": "single",
+          "relationships": [
+            {
+              "anchor": "schema-policy_rule_list--policy_rule--resource_list--api_groups",
+              "enforcement": "provider-schema",
+              "group": "policy_rule_list.policy_rule.resource_list:RequiredObjectAttributes:api_groups,resource_types,verbs",
+              "source": "ast-validator:RequiredObjectAttributes",
+              "target_id": "xcsh-docs:resources:k8s_cluster_role:properties:policy_rule_list:policy_rule:resource_list",
+              "type": "requires"
+            },
+            {
+              "anchor": "schema-policy_rule_list--policy_rule--resource_list--resource_types",
+              "enforcement": "provider-schema",
+              "group": "policy_rule_list.policy_rule.resource_list:RequiredObjectAttributes:api_groups,resource_types,verbs",
+              "source": "ast-validator:RequiredObjectAttributes",
+              "target_id": "xcsh-docs:resources:k8s_cluster_role:properties:policy_rule_list:policy_rule:resource_list",
+              "type": "requires"
+            },
+            {
+              "anchor": "schema-policy_rule_list--policy_rule--resource_list--verbs",
+              "enforcement": "provider-schema",
+              "group": "policy_rule_list.policy_rule.resource_list:RequiredObjectAttributes:api_groups,resource_types,verbs",
+              "source": "ast-validator:RequiredObjectAttributes",
+              "target_id": "xcsh-docs:resources:k8s_cluster_role:properties:policy_rule_list:policy_rule:resource_list",
+              "type": "requires"
+            }
+          ],
+          "schema_path": ["policy_rule_list", "policy_rule", "resource_list"],
+          "syntax": "block",
+          "type": "object"
+        }
+      ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/k8s_cluster_role/properties/policy_rule_list/policy_rule/index.txt",
-      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
-      "summary": "policy_rule_list.policy_rule for xcsh_k8s_cluster_role.",
+      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "summary": "List of rules for role permissions.",
+      "tasks": ["configuration"],
       "title": "policy_rule_list.policy_rule",
       "upstream_identity": {
-        "release_tag": "v9.0.0",
+        "release_tag": "v9.0.1",
         "schema_components": ["k8s_cluster_roleCreateRequest"],
-        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
       }
     },
     {
-      "aliases": [],
+      "aliases": ["policy rule list policy rule non resource url list"],
       "body_bytes": 4586,
       "body_sha256": "sha256:2266c59bbcadf2da43d2004528533f67e1b0d7c7a1eebf3a107353f853488a5b",
+      "capabilities": ["container"],
+      "category": "container",
       "child_ids": [],
+      "classification": {
+        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "sources": ["receipt-pinned-upstream", "reviewed-rule"],
+        "status": "resolved",
+        "upstream_category_source": "receipt-pinned-resource"
+      },
       "collection_id": "xcsh-docs:resources:k8s_cluster_role:collection",
       "completeness": "complete",
       "id": "xcsh-docs:resources:k8s_cluster_role:properties:policy_rule_list:policy_rule:non_resource_url_list",
       "parent_id": "xcsh-docs:resources:k8s_cluster_role:properties:policy_rule_list:policy_rule",
       "path": "documentation/resources/k8s_cluster_role/properties/policy_rule_list/policy_rule/non_resource_url_list/index.md",
+      "product": "distributed-cloud",
       "provider_name": "k8s_cluster_role",
       "provider_schema_digest": "sha256:e63a07e98b4893c041a6f79be7e19c64babfe543fc6847c17641037e084e1c7c",
       "provider_type": "resources",
       "registry_anchor": "canonical-0221101002211010-2332121033033023-3021032130332130-1233020012001021-2321102100233310-3202223331333212-2031221200210213-2311022221322023",
       "registry_path": "docs/guides/resources--k8s_cluster_role--reference--group-001.md",
+      "relationships": [
+        {
+          "anchor": "schema-policy_rule_list--policy_rule--non_resource_url_list--urls",
+          "enforcement": "provider-schema",
+          "group": "policy_rule_list.policy_rule.non_resource_url_list:RequiredObjectAttributes:urls,verbs",
+          "source": "ast-validator:RequiredObjectAttributes",
+          "target_id": "xcsh-docs:resources:k8s_cluster_role:properties:policy_rule_list:policy_rule:non_resource_url_list",
+          "type": "requires"
+        },
+        {
+          "anchor": "schema-policy_rule_list--policy_rule--non_resource_url_list--verbs",
+          "enforcement": "provider-schema",
+          "group": "policy_rule_list.policy_rule.non_resource_url_list:RequiredObjectAttributes:urls,verbs",
+          "source": "ast-validator:RequiredObjectAttributes",
+          "target_id": "xcsh-docs:resources:k8s_cluster_role:properties:policy_rule_list:policy_rule:non_resource_url_list",
+          "type": "requires"
+        }
+      ],
+      "retrieval_version": 1,
       "role": "properties",
       "schema_path": ["policy_rule_list", "policy_rule", "non_resource_url_list"],
+      "sections": [
+        {
+          "aliases": ["urls"],
+          "anchor": "schema-policy_rule_list--policy_rule--non_resource_url_list--urls",
+          "description": "Allowed URL(s) that do not represent any K8s resource. URL can be suffix or regex.",
+          "document_id": "xcsh-docs:resources:k8s_cluster_role:properties:policy_rule_list:policy_rule:non_resource_url_list",
+          "flags": ["optional"],
+          "max_items": null,
+          "min_items": null,
+          "nesting": null,
+          "relationships": [],
+          "schema_path": ["policy_rule_list", "policy_rule", "non_resource_url_list", "urls"],
+          "syntax": "attribute",
+          "type": "list"
+        },
+        {
+          "aliases": ["verbs"],
+          "anchor": "schema-policy_rule_list--policy_rule--non_resource_url_list--verbs",
+          "description": "Allowed list of verbs(operations) on resources. Use VerbAll for all operations.",
+          "document_id": "xcsh-docs:resources:k8s_cluster_role:properties:policy_rule_list:policy_rule:non_resource_url_list",
+          "flags": ["optional"],
+          "max_items": null,
+          "min_items": null,
+          "nesting": null,
+          "relationships": [],
+          "schema_path": ["policy_rule_list", "policy_rule", "non_resource_url_list", "verbs"],
+          "syntax": "attribute",
+          "type": "list"
+        }
+      ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/k8s_cluster_role/properties/policy_rule_list/policy_rule/non_resource_url_list/index.txt",
-      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
-      "summary": "policy_rule_list.policy_rule.non_resource_url_list for xcsh_k8s_cluster_role.",
+      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "summary": "Permissions for URL(s) that do not represent K8s resource.",
+      "tasks": ["configuration"],
       "title": "policy_rule_list.policy_rule.non_resource_url_list",
       "upstream_identity": {
-        "release_tag": "v9.0.0",
+        "release_tag": "v9.0.1",
         "schema_components": ["k8s_cluster_roleCreateRequest"],
-        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
       }
     },
     {
-      "aliases": [],
+      "aliases": ["policy rule list policy rule resource list"],
       "body_bytes": 7324,
       "body_sha256": "sha256:b73e0884ac9466231da1615e26dbe300ccdd53b515ba978cea2f3e53923548a3",
+      "capabilities": ["container"],
+      "category": "container",
       "child_ids": [],
+      "classification": {
+        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "sources": ["receipt-pinned-upstream", "reviewed-rule"],
+        "status": "resolved",
+        "upstream_category_source": "receipt-pinned-resource"
+      },
       "collection_id": "xcsh-docs:resources:k8s_cluster_role:collection",
       "completeness": "complete",
       "id": "xcsh-docs:resources:k8s_cluster_role:properties:policy_rule_list:policy_rule:resource_list",
       "parent_id": "xcsh-docs:resources:k8s_cluster_role:properties:policy_rule_list:policy_rule",
       "path": "documentation/resources/k8s_cluster_role/properties/policy_rule_list/policy_rule/resource_list/index.md",
+      "product": "distributed-cloud",
       "provider_name": "k8s_cluster_role",
       "provider_schema_digest": "sha256:e63a07e98b4893c041a6f79be7e19c64babfe543fc6847c17641037e084e1c7c",
       "provider_type": "resources",
       "registry_anchor": "canonical-1213332002311130-3231122203013000-2322301033131231-0011022002223223-2330322021103232-0312300212021310-2300212230331232-1003210302103211",
       "registry_path": "docs/guides/resources--k8s_cluster_role--reference--group-001.md",
+      "relationships": [
+        {
+          "anchor": "schema-policy_rule_list--policy_rule--resource_list--api_groups",
+          "enforcement": "provider-schema",
+          "group": "policy_rule_list.policy_rule.resource_list:RequiredObjectAttributes:api_groups,resource_types,verbs",
+          "source": "ast-validator:RequiredObjectAttributes",
+          "target_id": "xcsh-docs:resources:k8s_cluster_role:properties:policy_rule_list:policy_rule:resource_list",
+          "type": "requires"
+        },
+        {
+          "anchor": "schema-policy_rule_list--policy_rule--resource_list--resource_types",
+          "enforcement": "provider-schema",
+          "group": "policy_rule_list.policy_rule.resource_list:RequiredObjectAttributes:api_groups,resource_types,verbs",
+          "source": "ast-validator:RequiredObjectAttributes",
+          "target_id": "xcsh-docs:resources:k8s_cluster_role:properties:policy_rule_list:policy_rule:resource_list",
+          "type": "requires"
+        },
+        {
+          "anchor": "schema-policy_rule_list--policy_rule--resource_list--verbs",
+          "enforcement": "provider-schema",
+          "group": "policy_rule_list.policy_rule.resource_list:RequiredObjectAttributes:api_groups,resource_types,verbs",
+          "source": "ast-validator:RequiredObjectAttributes",
+          "target_id": "xcsh-docs:resources:k8s_cluster_role:properties:policy_rule_list:policy_rule:resource_list",
+          "type": "requires"
+        }
+      ],
+      "retrieval_version": 1,
       "role": "properties",
       "schema_path": ["policy_rule_list", "policy_rule", "resource_list"],
+      "sections": [
+        {
+          "aliases": ["api groups"],
+          "anchor": "schema-policy_rule_list--policy_rule--resource_list--api_groups",
+          "description": "Allowed list of API group that contains resources, all resources of a given API group.",
+          "document_id": "xcsh-docs:resources:k8s_cluster_role:properties:policy_rule_list:policy_rule:resource_list",
+          "flags": ["optional"],
+          "max_items": null,
+          "min_items": null,
+          "nesting": null,
+          "relationships": [],
+          "schema_path": ["policy_rule_list", "policy_rule", "resource_list", "api_groups"],
+          "syntax": "attribute",
+          "type": "list"
+        },
+        {
+          "aliases": ["resource instances"],
+          "anchor": "schema-policy_rule_list--policy_rule--resource_list--resource_instances",
+          "description": "Allowed list of resource instances within the resource types.",
+          "document_id": "xcsh-docs:resources:k8s_cluster_role:properties:policy_rule_list:policy_rule:resource_list",
+          "flags": ["optional"],
+          "max_items": null,
+          "min_items": null,
+          "nesting": null,
+          "relationships": [],
+          "schema_path": ["policy_rule_list", "policy_rule", "resource_list", "resource_instances"],
+          "syntax": "attribute",
+          "type": "list"
+        },
+        {
+          "aliases": ["resource types"],
+          "anchor": "schema-policy_rule_list--policy_rule--resource_list--resource_types",
+          "description": "Allowed list of resource types within the API groups.",
+          "document_id": "xcsh-docs:resources:k8s_cluster_role:properties:policy_rule_list:policy_rule:resource_list",
+          "flags": ["optional"],
+          "max_items": null,
+          "min_items": null,
+          "nesting": null,
+          "relationships": [],
+          "schema_path": ["policy_rule_list", "policy_rule", "resource_list", "resource_types"],
+          "syntax": "attribute",
+          "type": "list"
+        },
+        {
+          "aliases": ["verbs"],
+          "anchor": "schema-policy_rule_list--policy_rule--resource_list--verbs",
+          "description": "Allowed list of verbs(operations) on resources. Use * for all operations.",
+          "document_id": "xcsh-docs:resources:k8s_cluster_role:properties:policy_rule_list:policy_rule:resource_list",
+          "flags": ["optional"],
+          "max_items": null,
+          "min_items": null,
+          "nesting": null,
+          "relationships": [],
+          "schema_path": ["policy_rule_list", "policy_rule", "resource_list", "verbs"],
+          "syntax": "attribute",
+          "type": "list"
+        }
+      ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/k8s_cluster_role/properties/policy_rule_list/policy_rule/resource_list/index.txt",
-      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
-      "summary": "policy_rule_list.policy_rule.resource_list for xcsh_k8s_cluster_role.",
+      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "summary": "List of resources in terms of API groups/resource types/resource instances and verbs allowed.",
+      "tasks": ["configuration"],
       "title": "policy_rule_list.policy_rule.resource_list",
       "upstream_identity": {
-        "release_tag": "v9.0.0",
+        "release_tag": "v9.0.1",
         "schema_components": ["k8s_cluster_roleCreateRequest"],
-        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
       }
     },
     {
-      "aliases": [],
+      "aliases": ["duration", "operation timeout", "timeouts"],
       "body_bytes": 2255,
       "body_sha256": "sha256:677bdaf1745d93a80b0e7d70c468d3afac73efa186399829902070ede8876403",
+      "capabilities": ["container"],
+      "category": "container",
       "child_ids": [],
+      "classification": {
+        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "sources": ["receipt-pinned-upstream", "reviewed-rule"],
+        "status": "resolved",
+        "upstream_category_source": "receipt-pinned-resource"
+      },
       "collection_id": "xcsh-docs:resources:k8s_cluster_role:collection",
       "completeness": "complete",
       "id": "xcsh-docs:resources:k8s_cluster_role:properties:timeouts",
       "parent_id": "xcsh-docs:resources:k8s_cluster_role:reference",
       "path": "documentation/resources/k8s_cluster_role/properties/timeouts/index.md",
+      "product": "distributed-cloud",
       "provider_name": "k8s_cluster_role",
       "provider_schema_digest": "sha256:e63a07e98b4893c041a6f79be7e19c64babfe543fc6847c17641037e084e1c7c",
       "provider_type": "resources",
       "registry_anchor": "canonical-3002332110020001-2223323210230310-2210320301033330-1013333122000300-3200102002202230-1010030211022032-1300133321301222-1010222230130303",
       "registry_path": "docs/guides/resources--k8s_cluster_role--reference--group-001.md",
+      "relationships": [],
+      "retrieval_version": 1,
       "role": "properties",
       "schema_path": ["timeouts"],
+      "sections": [
+        {
+          "aliases": ["create"],
+          "anchor": "schema-timeouts--create",
+          "description": "A string that can be (https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as \"30s\" or \"2h45m\". Valid time units are \"s\" (seconds), \"m\" (minutes), \"h\" (hours).",
+          "document_id": "xcsh-docs:resources:k8s_cluster_role:properties:timeouts",
+          "flags": ["optional"],
+          "max_items": null,
+          "min_items": null,
+          "nesting": null,
+          "relationships": [],
+          "schema_path": ["timeouts", "create"],
+          "syntax": "attribute",
+          "type": "string"
+        },
+        {
+          "aliases": ["delete", "duration", "operation timeout"],
+          "anchor": "schema-timeouts--delete",
+          "description": "A string that can be (https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as \"30s\" or \"2h45m\". Valid time units are \"s\" (seconds), \"m\" (minutes), \"h\" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.",
+          "document_id": "xcsh-docs:resources:k8s_cluster_role:properties:timeouts",
+          "flags": ["optional"],
+          "max_items": null,
+          "min_items": null,
+          "nesting": null,
+          "relationships": [],
+          "schema_path": ["timeouts", "delete"],
+          "syntax": "attribute",
+          "type": "string"
+        },
+        {
+          "aliases": ["read"],
+          "anchor": "schema-timeouts--read",
+          "description": "A string that can be (https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as \"30s\" or \"2h45m\". Valid time units are \"s\" (seconds), \"m\" (minutes), \"h\" (hours). Read operations occur during any refresh or planning operation when refresh is enabled.",
+          "document_id": "xcsh-docs:resources:k8s_cluster_role:properties:timeouts",
+          "flags": ["optional"],
+          "max_items": null,
+          "min_items": null,
+          "nesting": null,
+          "relationships": [],
+          "schema_path": ["timeouts", "read"],
+          "syntax": "attribute",
+          "type": "string"
+        },
+        {
+          "aliases": ["update"],
+          "anchor": "schema-timeouts--update",
+          "description": "A string that can be (https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as \"30s\" or \"2h45m\". Valid time units are \"s\" (seconds), \"m\" (minutes), \"h\" (hours).",
+          "document_id": "xcsh-docs:resources:k8s_cluster_role:properties:timeouts",
+          "flags": ["optional"],
+          "max_items": null,
+          "min_items": null,
+          "nesting": null,
+          "relationships": [],
+          "schema_path": ["timeouts", "update"],
+          "syntax": "attribute",
+          "type": "string"
+        }
+      ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/k8s_cluster_role/properties/timeouts/index.txt",
-      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
       "summary": "timeouts for xcsh_k8s_cluster_role.",
+      "tasks": ["configuration"],
       "title": "timeouts",
       "upstream_identity": {
-        "release_tag": "v9.0.0",
+        "release_tag": "v9.0.1",
         "schema_components": ["k8s_cluster_roleCreateRequest"],
-        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
       }
     },
     {
-      "aliases": [],
+      "aliases": ["k8s cluster role"],
       "body_bytes": 657,
       "body_sha256": "sha256:205adb9da10752da7f529b0f2b8aad34995bb57545d39dc669239f00614f14b2",
+      "capabilities": ["container"],
+      "category": "container",
       "child_ids": ["xcsh-docs:resources:k8s_cluster_role:example:resource"],
+      "classification": {
+        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "sources": ["receipt-pinned-upstream", "reviewed-rule"],
+        "status": "resolved",
+        "upstream_category_source": "receipt-pinned-resource"
+      },
       "collection_id": "xcsh-docs:resources:k8s_cluster_role:collection",
       "completeness": "complete",
       "id": "xcsh-docs:resources:k8s_cluster_role:examples",
       "parent_id": "xcsh-docs:resources:k8s_cluster_role:fundamentals",
       "path": "documentation/resources/k8s_cluster_role/examples/index.md",
+      "product": "distributed-cloud",
       "provider_name": "k8s_cluster_role",
       "provider_schema_digest": "sha256:e63a07e98b4893c041a6f79be7e19c64babfe543fc6847c17641037e084e1c7c",
       "provider_type": "resources",
       "registry_anchor": "canonical-3032032202030211-2103232223211331-2300202132302320-2120220203311022-1010110123332232-2023233131230201-3120122013131313-2321230131003200",
       "registry_path": "docs/guides/resources--k8s_cluster_role--examples--group-001.md",
+      "relationships": [],
+      "retrieval_version": 1,
       "role": "examples",
       "schema_path": [],
+      "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/k8s_cluster_role/examples/index.txt",
-      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
       "summary": "Examples for xcsh_k8s_cluster_role.",
+      "tasks": ["configuration"],
       "title": "Examples",
       "upstream_identity": {
-        "release_tag": "v9.0.0",
+        "release_tag": "v9.0.1",
         "schema_components": ["k8s_cluster_roleCreateRequest"],
-        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
       }
     },
     {
-      "aliases": [],
+      "aliases": ["resource"],
       "body_bytes": 1346,
       "body_sha256": "sha256:64d3b046fa0058b8ac849418fe9d59eded6c7c487c657df6fa404f0c22a9eb4f",
+      "capabilities": ["container"],
+      "category": "container",
       "child_ids": [],
+      "classification": {
+        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "sources": ["receipt-pinned-upstream", "reviewed-rule"],
+        "status": "resolved",
+        "upstream_category_source": "receipt-pinned-resource"
+      },
       "collection_id": "xcsh-docs:resources:k8s_cluster_role:collection",
       "completeness": "complete",
       "evidence": {
@@ -406,76 +1043,107 @@
       "id": "xcsh-docs:resources:k8s_cluster_role:example:resource",
       "parent_id": "xcsh-docs:resources:k8s_cluster_role:examples",
       "path": "documentation/resources/k8s_cluster_role/examples/resource/index.md",
+      "product": "distributed-cloud",
       "provider_name": "k8s_cluster_role",
       "provider_schema_digest": "sha256:e63a07e98b4893c041a6f79be7e19c64babfe543fc6847c17641037e084e1c7c",
       "provider_type": "resources",
       "registry_anchor": "canonical-0210001011031233-2213030330023033-0230032213111100-0020111321332013-1121320113302011-1231132013303212-1110223132313312-1310110320133101",
       "registry_path": "docs/guides/resources--k8s_cluster_role--examples--group-001.md",
+      "relationships": [],
+      "retrieval_version": 1,
       "role": "example",
       "schema_path": ["resource"],
+      "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/k8s_cluster_role/examples/resource/index.txt",
-      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
       "summary": "Resource for xcsh_k8s_cluster_role.",
+      "tasks": ["configuration"],
       "title": "Resource",
       "upstream_identity": {
-        "release_tag": "v9.0.0",
+        "release_tag": "v9.0.1",
         "schema_components": ["k8s_cluster_roleCreateRequest"],
-        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
       }
     },
     {
-      "aliases": [],
+      "aliases": ["k8s cluster role"],
       "body_bytes": 500,
       "body_sha256": "sha256:ddda8178d21b685c2873722df7e4ae41fcdbff077302ce1f1866adbc4d7f262a",
+      "capabilities": ["container"],
+      "category": "container",
       "child_ids": [],
+      "classification": {
+        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "sources": ["receipt-pinned-upstream", "reviewed-rule"],
+        "status": "resolved",
+        "upstream_category_source": "receipt-pinned-resource"
+      },
       "collection_id": "xcsh-docs:resources:k8s_cluster_role:collection",
       "completeness": "complete",
       "id": "xcsh-docs:resources:k8s_cluster_role:import",
       "import_guidance": "Import using the `namespace/name` identifier format.",
       "parent_id": "xcsh-docs:resources:k8s_cluster_role:fundamentals",
       "path": "documentation/resources/k8s_cluster_role/lifecycle/import/index.md",
+      "product": "distributed-cloud",
       "provider_name": "k8s_cluster_role",
       "provider_schema_digest": "sha256:e63a07e98b4893c041a6f79be7e19c64babfe543fc6847c17641037e084e1c7c",
       "provider_type": "resources",
       "registry_anchor": "canonical-1311100021231112-1103201000203120-1230302223123300-2033030131200232-0101221011113101-2030130202312213-1323300030210202-2230301011323023",
       "registry_path": "docs/guides/resources--k8s_cluster_role--lifecycle--group-001.md",
+      "relationships": [],
+      "retrieval_version": 1,
       "role": "import",
       "schema_path": [],
+      "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/k8s_cluster_role/lifecycle/import/index.txt",
-      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
       "summary": "Import for xcsh_k8s_cluster_role.",
+      "tasks": ["import"],
       "title": "Import",
       "upstream_identity": {
-        "release_tag": "v9.0.0",
+        "release_tag": "v9.0.1",
         "schema_components": ["k8s_cluster_roleCreateRequest"],
-        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
       }
     },
     {
-      "aliases": [],
+      "aliases": ["k8s cluster role"],
       "body_bytes": 588,
       "body_sha256": "sha256:6ad30118806482f6c81f71085211152f792e7b50273a7ad50089fab39e611ce3",
+      "capabilities": ["container"],
+      "category": "container",
       "child_ids": [],
+      "classification": {
+        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "sources": ["receipt-pinned-upstream", "reviewed-rule"],
+        "status": "resolved",
+        "upstream_category_source": "receipt-pinned-resource"
+      },
       "collection_id": "xcsh-docs:resources:k8s_cluster_role:collection",
       "completeness": "complete",
       "id": "xcsh-docs:resources:k8s_cluster_role:timeouts",
       "parent_id": "xcsh-docs:resources:k8s_cluster_role:fundamentals",
       "path": "documentation/resources/k8s_cluster_role/lifecycle/timeouts/index.md",
+      "product": "distributed-cloud",
       "provider_name": "k8s_cluster_role",
       "provider_schema_digest": "sha256:e63a07e98b4893c041a6f79be7e19c64babfe543fc6847c17641037e084e1c7c",
       "provider_type": "resources",
       "registry_anchor": "canonical-0012112112011322-1230003232011311-0211032231302000-2023023312200230-1011211220010202-3001333102222221-3000103220211032-1132311021100001",
       "registry_path": "docs/guides/resources--k8s_cluster_role--lifecycle--group-001.md",
+      "relationships": [],
+      "retrieval_version": 1,
       "role": "timeouts",
       "schema_path": [],
+      "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/k8s_cluster_role/lifecycle/timeouts/index.txt",
-      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
       "summary": "Timeouts for xcsh_k8s_cluster_role.",
+      "tasks": ["lifecycle"],
       "title": "Timeouts",
       "upstream_identity": {
-        "release_tag": "v9.0.0",
+        "release_tag": "v9.0.1",
         "schema_components": ["k8s_cluster_roleCreateRequest"],
-        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
       }
     }
   ],

@@ -3,6 +3,18 @@
   "sections": [
     {
       "canonical_id": "xcsh-docs:resources:securemesh_site:properties:bond_device_list:bond_devices:lacp",
+      "section_id": "xcsh-docs:resources:securemesh_site:properties:bond_device_list:bond_devices:lacp:section:0",
+      "source_sha256": "sha256:197d41522a9dd286cb9805a03d8a5bd782cc3f3fd95ea854bf2dfc326e83e50c",
+      "source_bytes": 99,
+      "canonical_source_sha256": "sha256:2297ac17fb993c253a5a0d49f1bcc4bdb36f3722143cdbf1b561cc8af4bc1f7f",
+      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/resources/securemesh_site/properties/bond_device_list/bond_devices/lacp/",
+      "anchor": "canonical-2130022013330121-0121222312233022-3032200323232120-1301002202301202-0032301220312010-3102101030120311-3210033133320221-3101012023011311",
+      "anchor_map": [],
+      "mode": "embedded",
+      "registry_path": "docs/guides/resources--securemesh_site--reference--group-001.md"
+    },
+    {
+      "canonical_id": "xcsh-docs:resources:securemesh_site:properties:bond_device_list:bond_devices:lacp",
       "section_id": "xcsh-docs:resources:securemesh_site:properties:bond_device_list:bond_devices:lacp:section:1",
       "source_sha256": "sha256:984423cc25590add75a1128234cf1d6573a72c0e3704ea0045a2c62c955d743f",
       "source_bytes": 1207,
@@ -6555,18 +6567,6 @@
       "canonical_source_sha256": "sha256:8fa65941738438c9c956a29cd8563bead056b83cc570bf2a13aeeab6eef0c23a",
       "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/resources/securemesh_site/properties/custom_network_config/slo_config/no_dc_cluster_group/",
       "anchor": "canonical-1001332022020321-2102100321131123-0122223020000120-1131120300200001-2200212221301103-2232301230121212-2222323122232210-2123113031223323",
-      "anchor_map": [],
-      "mode": "embedded",
-      "registry_path": "docs/guides/resources--securemesh_site--reference--group-003.md"
-    },
-    {
-      "canonical_id": "xcsh-docs:resources:securemesh_site:properties:custom_network_config:slo_config:no_dc_cluster_group",
-      "section_id": "xcsh-docs:resources:securemesh_site:properties:custom_network_config:slo_config:no_dc_cluster_group:section:3",
-      "source_sha256": "sha256:f912773c9af3638f7e955eb607108a655da2813a4df79c0a26249581cffe20d2",
-      "source_bytes": 289,
-      "canonical_source_sha256": "sha256:8fa65941738438c9c956a29cd8563bead056b83cc570bf2a13aeeab6eef0c23a",
-      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/resources/securemesh_site/properties/custom_network_config/slo_config/no_dc_cluster_group/",
-      "anchor": "canonical-2120303310220323-0300201002103122-2023323331111230-3301320300310113-3033330123220232-2101000122302313-0132210300012131-3030012320330203",
       "anchor_map": [],
       "mode": "embedded",
       "registry_path": "docs/guides/resources--securemesh_site--reference--group-003.md"

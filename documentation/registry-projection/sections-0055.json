@@ -2,6 +2,18 @@
   "schema_version": 1,
   "sections": [
     {
+      "canonical_id": "xcsh-docs:resources:protected_application:properties:cloudflare:protected_endpoints:mobile_client",
+      "section_id": "xcsh-docs:resources:protected_application:properties:cloudflare:protected_endpoints:mobile_client:section:3",
+      "source_sha256": "sha256:46de3c7866ced3e099a399ef888752154d751cfc8e9e52e0f580ce316220656c",
+      "source_bytes": 723,
+      "canonical_source_sha256": "sha256:871f3764714004ffc1d2665108921cfda164ee6b45d2367c572da37f4ffae1ce",
+      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/resources/protected_application/properties/cloudflare/protected_endpoints/mobile_client/",
+      "anchor": "canonical-1113212113201312-2013310131001302-3110122121230223-1022233130210112-1102112331031312-0202210332213233-3013301100133220-2232122222213320",
+      "anchor_map": [],
+      "mode": "embedded",
+      "registry_path": "docs/guides/resources--protected_application--reference--group-002.md"
+    },
+    {
       "canonical_id": "xcsh-docs:resources:protected_application:properties:cloudflare:protected_endpoints:mobile_client:block",
       "section_id": "xcsh-docs:resources:protected_application:properties:cloudflare:protected_endpoints:mobile_client:block:section:0",
       "source_sha256": "sha256:197d41522a9dd286cb9805a03d8a5bd782cc3f3fd95ea854bf2dfc326e83e50c",
@@ -6810,23 +6822,6 @@
         [
           "schema-cloudfront--protected_endpoints--web_mobile_client--block_mobile--content_type",
           "canonical-0310030032333022-0002203130202220-2300212110101021-2213030003023300-3310301010101022-0333131320030203-2111231321112323-3103111112132200"
-        ]
-      ],
-      "mode": "embedded",
-      "registry_path": "docs/guides/resources--protected_application--reference--group-004.md"
-    },
-    {
-      "canonical_id": "xcsh-docs:resources:protected_application:properties:cloudfront:protected_endpoints:web_mobile_client:block_mobile",
-      "section_id": "xcsh-docs:resources:protected_application:properties:cloudfront:protected_endpoints:web_mobile_client:block_mobile:section:4",
-      "source_sha256": "sha256:5384e9f0aecdc9933591f0ccda589c97e49e52eb7f7fb3c87b634a07de22939a",
-      "source_bytes": 956,
-      "canonical_source_sha256": "sha256:f1d27a7bd149191a08e96c13f3c80462096f41acfd3a03b0f47430d2f6f1e2d9",
-      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/resources/protected_application/properties/cloudfront/protected_endpoints/web_mobile_client/block_mobile/",
-      "anchor": "canonical-0022111110123322-3102100100322032-2203113333303011-1301130230223201-0122130021110323-0130310033010030-0112210311301020-2123011322012101",
-      "anchor_map": [
-        [
-          "schema-cloudfront--protected_endpoints--web_mobile_client--block_mobile--status",
-          "canonical-2013333210311123-3301300010013300-1032003231333330-2130102313312032-1232001022331013-2302110131100120-2013311223232332-3013203201321133"
         ]
       ],
       "mode": "embedded",

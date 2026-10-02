@@ -359,341 +359,1220 @@
   },
   "pages": [
     {
-      "aliases": [],
+      "aliases": ["cloud connect"],
       "body_bytes": 1623,
       "body_sha256": "sha256:483e8e74ba1385392e4b3a6d1972652eb7eeff41be5dad4b66bb22c8deed76eb",
+      "capabilities": ["infrastructure"],
+      "category": "infrastructure",
       "child_ids": [
         "xcsh-docs:resources:cloud_connect:reference",
         "xcsh-docs:resources:cloud_connect:examples",
         "xcsh-docs:resources:cloud_connect:import",
         "xcsh-docs:resources:cloud_connect:timeouts"
       ],
+      "classification": {
+        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "sources": ["reviewed-rule"],
+        "status": "resolved",
+        "upstream_category_source": "receipt-pinned-domain"
+      },
       "collection_id": "xcsh-docs:resources:cloud_connect:collection",
       "completeness": "complete",
       "id": "xcsh-docs:resources:cloud_connect:fundamentals",
-      "parent_id": null,
+      "parent_id": "xcsh-docs:resources:xcsh:navigation",
       "path": "documentation/resources/cloud_connect/index.md",
+      "product": "distributed-cloud",
       "provider_name": "cloud_connect",
       "provider_schema_digest": "sha256:e63a07e98b4893c041a6f79be7e19c64babfe543fc6847c17641037e084e1c7c",
       "provider_type": "resources",
       "registry_anchor": "canonical-3211233122320300-2011210020323101-0200131013121302-1233133220013202-0122133132120331-2023300223331013-1010032320020312-0333212122300033",
       "registry_path": "docs/resources/cloud_connect.md",
+      "relationships": [],
+      "retrieval_version": 1,
       "role": "fundamentals",
       "schema_path": [],
+      "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/cloud_connect/index.txt",
-      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
-      "summary": "xcsh_cloud_connect for xcsh_cloud_connect.",
+      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "summary": "Manages a Cloud Connect resource in F5 Distributed Cloud for establishing connectivity to cloud provider networks.",
+      "tasks": ["configuration"],
       "title": "xcsh_cloud_connect",
+      "unresolved_relationships": [],
       "upstream_identity": {
-        "release_tag": "v9.0.0",
+        "release_tag": "v9.0.1",
         "schema_components": ["cloud_connectCreateRequest"],
-        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
       }
     },
     {
-      "aliases": [],
+      "aliases": ["cloud connect"],
       "body_bytes": 22791,
       "body_sha256": "sha256:45f37e1a814bc9ceed48d836f02eff78b692f7f0ac01d9a8a522548b66535512",
+      "capabilities": ["infrastructure"],
+      "category": "infrastructure",
       "child_ids": [
         "xcsh-docs:resources:cloud_connect:properties:aws_provider",
         "xcsh-docs:resources:cloud_connect:properties:azure_vnet_site",
         "xcsh-docs:resources:cloud_connect:properties:segment",
         "xcsh-docs:resources:cloud_connect:properties:timeouts"
       ],
+      "classification": {
+        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "sources": ["reviewed-rule"],
+        "status": "resolved",
+        "upstream_category_source": "receipt-pinned-domain"
+      },
       "collection_id": "xcsh-docs:resources:cloud_connect:collection",
       "completeness": "complete",
       "id": "xcsh-docs:resources:cloud_connect:reference",
       "parent_id": "xcsh-docs:resources:cloud_connect:fundamentals",
       "path": "documentation/resources/cloud_connect/properties/index.md",
+      "product": "distributed-cloud",
       "provider_name": "cloud_connect",
       "provider_schema_digest": "sha256:e63a07e98b4893c041a6f79be7e19c64babfe543fc6847c17641037e084e1c7c",
       "provider_type": "resources",
       "registry_anchor": "canonical-3000033123020112-3330311232230011-1111030120033023-0320023332201330-1233113231331330-1101323002122132-1323101202220113-3023111000220221",
       "registry_path": "docs/guides/resources--cloud_connect--reference--group-001.md",
+      "relationships": [],
+      "retrieval_version": 1,
       "role": "reference",
       "schema_path": [],
+      "sections": [
+        {
+          "aliases": ["annotations"],
+          "anchor": "schema-annotations",
+          "description": "Annotations is an unstructured key value map stored with a resource that may be set by external tools to store and retrieve arbitrary metadata. They are not queryable and should be preserved when modifying objects.",
+          "document_id": "xcsh-docs:resources:cloud_connect:reference",
+          "flags": ["optional"],
+          "max_items": null,
+          "min_items": null,
+          "nesting": null,
+          "relationships": [],
+          "schema_path": ["annotations"],
+          "syntax": "attribute",
+          "type": "map"
+        },
+        {
+          "aliases": ["aws provider"],
+          "anchor": "section",
+          "description": "Cloud Connect with AWS.",
+          "document_id": "xcsh-docs:resources:cloud_connect:properties:aws_provider",
+          "flags": [],
+          "max_items": null,
+          "min_items": null,
+          "nesting": "single",
+          "relationships": [],
+          "schema_path": ["aws_provider"],
+          "syntax": "block",
+          "type": "object"
+        },
+        {
+          "aliases": ["azure vnet site"],
+          "anchor": "section",
+          "description": "Cloud Connect Azure VNet Site Type.",
+          "document_id": "xcsh-docs:resources:cloud_connect:properties:azure_vnet_site",
+          "flags": [],
+          "max_items": null,
+          "min_items": null,
+          "nesting": "single",
+          "relationships": [],
+          "schema_path": ["azure_vnet_site"],
+          "syntax": "block",
+          "type": "object"
+        },
+        {
+          "aliases": ["description"],
+          "anchor": "schema-description",
+          "description": "Human readable description for the object.",
+          "document_id": "xcsh-docs:resources:cloud_connect:reference",
+          "flags": ["optional"],
+          "max_items": null,
+          "min_items": null,
+          "nesting": null,
+          "relationships": [],
+          "schema_path": ["description"],
+          "syntax": "attribute",
+          "type": "string"
+        },
+        {
+          "aliases": ["disable"],
+          "anchor": "schema-disable",
+          "description": "A value of true will administratively disable the object.",
+          "document_id": "xcsh-docs:resources:cloud_connect:reference",
+          "flags": ["optional"],
+          "max_items": null,
+          "min_items": null,
+          "nesting": null,
+          "relationships": [],
+          "schema_path": ["disable"],
+          "syntax": "attribute",
+          "type": "bool"
+        },
+        {
+          "aliases": ["id"],
+          "anchor": "schema-id",
+          "description": "Unique identifier for the resource.",
+          "document_id": "xcsh-docs:resources:cloud_connect:reference",
+          "flags": ["computed"],
+          "max_items": null,
+          "min_items": null,
+          "nesting": null,
+          "relationships": [],
+          "schema_path": ["id"],
+          "syntax": "attribute",
+          "type": "string"
+        },
+        {
+          "aliases": ["labels"],
+          "anchor": "schema-labels",
+          "description": "Map of string keys and values that can be used to organize and categorize (scope and select) objects as chosen by the user. Values specified here will be used by selector expression.",
+          "document_id": "xcsh-docs:resources:cloud_connect:reference",
+          "flags": ["optional"],
+          "max_items": null,
+          "min_items": null,
+          "nesting": null,
+          "relationships": [],
+          "schema_path": ["labels"],
+          "syntax": "attribute",
+          "type": "map"
+        },
+        {
+          "aliases": ["name"],
+          "anchor": "schema-name",
+          "description": "This is the name of configuration object. It has to be unique within the namespace. It can only be specified during create API and cannot be changed during replace API. The value of name has to follow DNS-1035 format.",
+          "document_id": "xcsh-docs:resources:cloud_connect:reference",
+          "flags": ["required"],
+          "max_items": null,
+          "min_items": null,
+          "nesting": null,
+          "relationships": [],
+          "schema_path": ["name"],
+          "syntax": "attribute",
+          "type": "string"
+        },
+        {
+          "aliases": ["namespace"],
+          "anchor": "schema-namespace",
+          "description": "This defines the workspace within which each the configuration object is to be created. Must be a DNS_LABEL format. For a namespace object itself, namespace value will be \"\"",
+          "document_id": "xcsh-docs:resources:cloud_connect:reference",
+          "flags": ["required"],
+          "max_items": null,
+          "min_items": null,
+          "nesting": null,
+          "relationships": [],
+          "schema_path": ["namespace"],
+          "syntax": "attribute",
+          "type": "string"
+        },
+        {
+          "aliases": ["segment"],
+          "anchor": "section",
+          "description": "This type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name.",
+          "document_id": "xcsh-docs:resources:cloud_connect:properties:segment",
+          "flags": [],
+          "max_items": null,
+          "min_items": null,
+          "nesting": "single",
+          "relationships": [
+            {
+              "anchor": "schema-segment--name",
+              "enforcement": "provider-schema",
+              "group": "segment:RequiredObjectAttributes:name",
+              "source": "ast-validator:RequiredObjectAttributes",
+              "target_id": "xcsh-docs:resources:cloud_connect:properties:segment",
+              "type": "requires"
+            }
+          ],
+          "schema_path": ["segment"],
+          "syntax": "block",
+          "type": "object"
+        },
+        {
+          "aliases": ["duration", "operation timeout", "timeouts"],
+          "anchor": "section",
+          "description": "timeouts",
+          "document_id": "xcsh-docs:resources:cloud_connect:properties:timeouts",
+          "flags": [],
+          "max_items": null,
+          "min_items": null,
+          "nesting": "single",
+          "relationships": [],
+          "schema_path": ["timeouts"],
+          "syntax": "block",
+          "type": "object"
+        }
+      ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/cloud_connect/properties/index.txt",
-      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
       "summary": "Property reference for xcsh_cloud_connect.",
+      "tasks": ["configuration"],
       "title": "Property reference",
       "upstream_identity": {
-        "release_tag": "v9.0.0",
+        "release_tag": "v9.0.1",
         "schema_components": ["cloud_connectCreateRequest"],
-        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
       }
     },
     {
-      "aliases": [],
+      "aliases": ["aws provider"],
       "body_bytes": 1853,
       "body_sha256": "sha256:938eded216b46f03277e3d767c3a4bd4a7cc03ba449f07d0ca0cfa4b6111a1b4",
+      "capabilities": ["infrastructure"],
+      "category": "infrastructure",
       "child_ids": ["xcsh-docs:resources:cloud_connect:properties:aws_provider:aws_tgw_site"],
+      "classification": {
+        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "sources": ["reviewed-rule"],
+        "status": "resolved",
+        "upstream_category_source": "receipt-pinned-domain"
+      },
       "collection_id": "xcsh-docs:resources:cloud_connect:collection",
       "completeness": "complete",
       "id": "xcsh-docs:resources:cloud_connect:properties:aws_provider",
       "parent_id": "xcsh-docs:resources:cloud_connect:reference",
       "path": "documentation/resources/cloud_connect/properties/aws_provider/index.md",
+      "product": "distributed-cloud",
       "provider_name": "cloud_connect",
       "provider_schema_digest": "sha256:e63a07e98b4893c041a6f79be7e19c64babfe543fc6847c17641037e084e1c7c",
       "provider_type": "resources",
       "registry_anchor": "canonical-3103101220221300-3222333301231021-3123032111132110-0202212222332110-2002030232032101-0022221112102322-2300121023130210-2030003033012003",
       "registry_path": "docs/guides/resources--cloud_connect--reference--group-001.md",
+      "relationships": [],
+      "retrieval_version": 1,
       "role": "properties",
       "schema_path": ["aws_provider"],
+      "sections": [
+        {
+          "aliases": ["aws tgw site"],
+          "anchor": "section",
+          "description": "Cloud Connect AWS TGW Site Type.",
+          "document_id": "xcsh-docs:resources:cloud_connect:properties:aws_provider:aws_tgw_site",
+          "flags": [],
+          "max_items": null,
+          "min_items": null,
+          "nesting": "single",
+          "relationships": [],
+          "schema_path": ["aws_provider", "aws_tgw_site"],
+          "syntax": "block",
+          "type": "object"
+        }
+      ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/cloud_connect/properties/aws_provider/index.txt",
-      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
-      "summary": "aws_provider for xcsh_cloud_connect.",
+      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "summary": "Cloud Connect with AWS.",
+      "tasks": ["configuration"],
       "title": "aws_provider",
       "upstream_identity": {
-        "release_tag": "v9.0.0",
+        "release_tag": "v9.0.1",
         "schema_components": ["cloud_connectCreateRequest"],
-        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
       }
     },
     {
-      "aliases": [],
+      "aliases": ["aws provider aws tgw site"],
       "body_bytes": 2256,
       "body_sha256": "sha256:7b9024b03b8d527ed00b81f8f84eb84281fe372d2750f52433e2a74b2e549cc9",
+      "capabilities": ["infrastructure"],
+      "category": "infrastructure",
       "child_ids": [
         "xcsh-docs:resources:cloud_connect:properties:aws_provider:aws_tgw_site:cred",
         "xcsh-docs:resources:cloud_connect:properties:aws_provider:aws_tgw_site:site",
         "xcsh-docs:resources:cloud_connect:properties:aws_provider:aws_tgw_site:vpc_attachments"
       ],
+      "classification": {
+        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "sources": ["reviewed-rule"],
+        "status": "resolved",
+        "upstream_category_source": "receipt-pinned-domain"
+      },
       "collection_id": "xcsh-docs:resources:cloud_connect:collection",
       "completeness": "complete",
       "id": "xcsh-docs:resources:cloud_connect:properties:aws_provider:aws_tgw_site",
       "parent_id": "xcsh-docs:resources:cloud_connect:properties:aws_provider",
       "path": "documentation/resources/cloud_connect/properties/aws_provider/aws_tgw_site/index.md",
+      "product": "distributed-cloud",
       "provider_name": "cloud_connect",
       "provider_schema_digest": "sha256:e63a07e98b4893c041a6f79be7e19c64babfe543fc6847c17641037e084e1c7c",
       "provider_type": "resources",
       "registry_anchor": "canonical-1100320102231322-1033313001221030-2113103123301132-3232000101000312-1011301322100112-3011313110020121-3031331221113311-2313211203222203",
       "registry_path": "docs/guides/resources--cloud_connect--reference--group-001.md",
+      "relationships": [],
+      "retrieval_version": 1,
       "role": "properties",
       "schema_path": ["aws_provider", "aws_tgw_site"],
+      "sections": [
+        {
+          "aliases": ["cred"],
+          "anchor": "section",
+          "description": "This type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name.",
+          "document_id": "xcsh-docs:resources:cloud_connect:properties:aws_provider:aws_tgw_site:cred",
+          "flags": [],
+          "max_items": null,
+          "min_items": null,
+          "nesting": "single",
+          "relationships": [
+            {
+              "anchor": "schema-aws_provider--aws_tgw_site--cred--name",
+              "enforcement": "provider-schema",
+              "group": "aws_provider.aws_tgw_site.cred:RequiredObjectAttributes:name",
+              "source": "ast-validator:RequiredObjectAttributes",
+              "target_id": "xcsh-docs:resources:cloud_connect:properties:aws_provider:aws_tgw_site:cred",
+              "type": "requires"
+            }
+          ],
+          "schema_path": ["aws_provider", "aws_tgw_site", "cred"],
+          "syntax": "block",
+          "type": "object"
+        },
+        {
+          "aliases": ["site"],
+          "anchor": "section",
+          "description": "This type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name.",
+          "document_id": "xcsh-docs:resources:cloud_connect:properties:aws_provider:aws_tgw_site:site",
+          "flags": [],
+          "max_items": null,
+          "min_items": null,
+          "nesting": "single",
+          "relationships": [
+            {
+              "anchor": "schema-aws_provider--aws_tgw_site--site--name",
+              "enforcement": "provider-schema",
+              "group": "aws_provider.aws_tgw_site.site:RequiredObjectAttributes:name",
+              "source": "ast-validator:RequiredObjectAttributes",
+              "target_id": "xcsh-docs:resources:cloud_connect:properties:aws_provider:aws_tgw_site:site",
+              "type": "requires"
+            }
+          ],
+          "schema_path": ["aws_provider", "aws_tgw_site", "site"],
+          "syntax": "block",
+          "type": "object"
+        },
+        {
+          "aliases": ["vpc attachments"],
+          "anchor": "section",
+          "description": "Configuration parameter for vpc attachments.",
+          "document_id": "xcsh-docs:resources:cloud_connect:properties:aws_provider:aws_tgw_site:vpc_attachments",
+          "flags": [],
+          "max_items": null,
+          "min_items": null,
+          "nesting": "single",
+          "relationships": [],
+          "schema_path": ["aws_provider", "aws_tgw_site", "vpc_attachments"],
+          "syntax": "block",
+          "type": "object"
+        }
+      ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/cloud_connect/properties/aws_provider/aws_tgw_site/index.txt",
-      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
-      "summary": "aws_provider.aws_tgw_site for xcsh_cloud_connect.",
+      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "summary": "Cloud Connect AWS TGW Site Type.",
+      "tasks": ["configuration"],
       "title": "aws_provider.aws_tgw_site",
       "upstream_identity": {
-        "release_tag": "v9.0.0",
+        "release_tag": "v9.0.1",
         "schema_components": ["cloud_connectCreateRequest"],
-        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
       }
     },
     {
-      "aliases": [],
+      "aliases": ["aws provider aws tgw site cred"],
       "body_bytes": 6228,
       "body_sha256": "sha256:401696d28d6308b489d98d664c0d70ffbf452bbec15711f614f7d5ff724fff7c",
+      "capabilities": ["infrastructure"],
+      "category": "infrastructure",
       "child_ids": [],
+      "classification": {
+        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "sources": ["reviewed-rule"],
+        "status": "resolved",
+        "upstream_category_source": "receipt-pinned-domain"
+      },
       "collection_id": "xcsh-docs:resources:cloud_connect:collection",
       "completeness": "complete",
       "id": "xcsh-docs:resources:cloud_connect:properties:aws_provider:aws_tgw_site:cred",
       "parent_id": "xcsh-docs:resources:cloud_connect:properties:aws_provider:aws_tgw_site",
       "path": "documentation/resources/cloud_connect/properties/aws_provider/aws_tgw_site/cred/index.md",
+      "product": "distributed-cloud",
       "provider_name": "cloud_connect",
       "provider_schema_digest": "sha256:e63a07e98b4893c041a6f79be7e19c64babfe543fc6847c17641037e084e1c7c",
       "provider_type": "resources",
       "registry_anchor": "canonical-3312332321213110-3213330110212003-3310122110111331-1231321322333232-3233202120123330-1133000031113111-1113123132210321-3223120103022131",
       "registry_path": "docs/guides/resources--cloud_connect--reference--group-001.md",
+      "relationships": [
+        {
+          "anchor": "schema-aws_provider--aws_tgw_site--cred--name",
+          "enforcement": "provider-schema",
+          "group": "aws_provider.aws_tgw_site.cred:RequiredObjectAttributes:name",
+          "source": "ast-validator:RequiredObjectAttributes",
+          "target_id": "xcsh-docs:resources:cloud_connect:properties:aws_provider:aws_tgw_site:cred",
+          "type": "requires"
+        }
+      ],
+      "retrieval_version": 1,
       "role": "properties",
       "schema_path": ["aws_provider", "aws_tgw_site", "cred"],
+      "sections": [
+        {
+          "aliases": ["name"],
+          "anchor": "schema-aws_provider--aws_tgw_site--cred--name",
+          "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.",
+          "document_id": "xcsh-docs:resources:cloud_connect:properties:aws_provider:aws_tgw_site:cred",
+          "flags": ["optional"],
+          "max_items": null,
+          "min_items": null,
+          "nesting": null,
+          "relationships": [],
+          "schema_path": ["aws_provider", "aws_tgw_site", "cred", "name"],
+          "syntax": "attribute",
+          "type": "string"
+        },
+        {
+          "aliases": ["namespace"],
+          "anchor": "schema-aws_provider--aws_tgw_site--cred--namespace",
+          "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace.",
+          "document_id": "xcsh-docs:resources:cloud_connect:properties:aws_provider:aws_tgw_site:cred",
+          "flags": ["optional", "computed"],
+          "max_items": null,
+          "min_items": null,
+          "nesting": null,
+          "relationships": [],
+          "schema_path": ["aws_provider", "aws_tgw_site", "cred", "namespace"],
+          "syntax": "attribute",
+          "type": "string"
+        },
+        {
+          "aliases": ["tenant"],
+          "anchor": "schema-aws_provider--aws_tgw_site--cred--tenant",
+          "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant.",
+          "document_id": "xcsh-docs:resources:cloud_connect:properties:aws_provider:aws_tgw_site:cred",
+          "flags": ["computed"],
+          "max_items": null,
+          "min_items": null,
+          "nesting": null,
+          "relationships": [],
+          "schema_path": ["aws_provider", "aws_tgw_site", "cred", "tenant"],
+          "syntax": "attribute",
+          "type": "string"
+        }
+      ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/cloud_connect/properties/aws_provider/aws_tgw_site/cred/index.txt",
-      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
-      "summary": "aws_provider.aws_tgw_site.cred for xcsh_cloud_connect.",
+      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "summary": "This type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name.",
+      "tasks": ["configuration"],
       "title": "aws_provider.aws_tgw_site.cred",
       "upstream_identity": {
-        "release_tag": "v9.0.0",
+        "release_tag": "v9.0.1",
         "schema_components": ["cloud_connectCreateRequest"],
-        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
       }
     },
     {
-      "aliases": [],
+      "aliases": ["aws provider aws tgw site site"],
       "body_bytes": 6228,
       "body_sha256": "sha256:3bd0704e350bac54dd202d80a11de3f8cfd63528a5ccb06b6c8b8bd8b7fa5176",
+      "capabilities": ["infrastructure"],
+      "category": "infrastructure",
       "child_ids": [],
+      "classification": {
+        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "sources": ["reviewed-rule"],
+        "status": "resolved",
+        "upstream_category_source": "receipt-pinned-domain"
+      },
       "collection_id": "xcsh-docs:resources:cloud_connect:collection",
       "completeness": "complete",
       "id": "xcsh-docs:resources:cloud_connect:properties:aws_provider:aws_tgw_site:site",
       "parent_id": "xcsh-docs:resources:cloud_connect:properties:aws_provider:aws_tgw_site",
       "path": "documentation/resources/cloud_connect/properties/aws_provider/aws_tgw_site/site/index.md",
+      "product": "distributed-cloud",
       "provider_name": "cloud_connect",
       "provider_schema_digest": "sha256:e63a07e98b4893c041a6f79be7e19c64babfe543fc6847c17641037e084e1c7c",
       "provider_type": "resources",
       "registry_anchor": "canonical-0233330102101201-0312302011112010-3311212032012230-3123312202232022-3321133002331133-1301013302132103-3120000132221021-2231203211032000",
       "registry_path": "docs/guides/resources--cloud_connect--reference--group-001.md",
+      "relationships": [
+        {
+          "anchor": "schema-aws_provider--aws_tgw_site--site--name",
+          "enforcement": "provider-schema",
+          "group": "aws_provider.aws_tgw_site.site:RequiredObjectAttributes:name",
+          "source": "ast-validator:RequiredObjectAttributes",
+          "target_id": "xcsh-docs:resources:cloud_connect:properties:aws_provider:aws_tgw_site:site",
+          "type": "requires"
+        }
+      ],
+      "retrieval_version": 1,
       "role": "properties",
       "schema_path": ["aws_provider", "aws_tgw_site", "site"],
+      "sections": [
+        {
+          "aliases": ["name"],
+          "anchor": "schema-aws_provider--aws_tgw_site--site--name",
+          "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.",
+          "document_id": "xcsh-docs:resources:cloud_connect:properties:aws_provider:aws_tgw_site:site",
+          "flags": ["optional"],
+          "max_items": null,
+          "min_items": null,
+          "nesting": null,
+          "relationships": [],
+          "schema_path": ["aws_provider", "aws_tgw_site", "site", "name"],
+          "syntax": "attribute",
+          "type": "string"
+        },
+        {
+          "aliases": ["namespace"],
+          "anchor": "schema-aws_provider--aws_tgw_site--site--namespace",
+          "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace.",
+          "document_id": "xcsh-docs:resources:cloud_connect:properties:aws_provider:aws_tgw_site:site",
+          "flags": ["optional", "computed"],
+          "max_items": null,
+          "min_items": null,
+          "nesting": null,
+          "relationships": [],
+          "schema_path": ["aws_provider", "aws_tgw_site", "site", "namespace"],
+          "syntax": "attribute",
+          "type": "string"
+        },
+        {
+          "aliases": ["tenant"],
+          "anchor": "schema-aws_provider--aws_tgw_site--site--tenant",
+          "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant.",
+          "document_id": "xcsh-docs:resources:cloud_connect:properties:aws_provider:aws_tgw_site:site",
+          "flags": ["computed"],
+          "max_items": null,
+          "min_items": null,
+          "nesting": null,
+          "relationships": [],
+          "schema_path": ["aws_provider", "aws_tgw_site", "site", "tenant"],
+          "syntax": "attribute",
+          "type": "string"
+        }
+      ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/cloud_connect/properties/aws_provider/aws_tgw_site/site/index.txt",
-      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
-      "summary": "aws_provider.aws_tgw_site.site for xcsh_cloud_connect.",
+      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "summary": "This type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name.",
+      "tasks": ["configuration"],
       "title": "aws_provider.aws_tgw_site.site",
       "upstream_identity": {
-        "release_tag": "v9.0.0",
+        "release_tag": "v9.0.1",
         "schema_components": ["cloud_connectCreateRequest"],
-        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
       }
     },
     {
-      "aliases": [],
+      "aliases": ["aws provider aws tgw site vpc attachments"],
       "body_bytes": 1772,
       "body_sha256": "sha256:cc7e9509a8a418e198bbde7b33e5e69e1605c1597df4b3b88f955d6da51a55dd",
+      "capabilities": ["infrastructure"],
+      "category": "infrastructure",
       "child_ids": ["xcsh-docs:resources:cloud_connect:properties:aws_provider:aws_tgw_site:vpc_attachments:vpc_list"],
+      "classification": {
+        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "sources": ["reviewed-rule"],
+        "status": "resolved",
+        "upstream_category_source": "receipt-pinned-domain"
+      },
       "collection_id": "xcsh-docs:resources:cloud_connect:collection",
       "completeness": "complete",
       "id": "xcsh-docs:resources:cloud_connect:properties:aws_provider:aws_tgw_site:vpc_attachments",
       "parent_id": "xcsh-docs:resources:cloud_connect:properties:aws_provider:aws_tgw_site",
       "path": "documentation/resources/cloud_connect/properties/aws_provider/aws_tgw_site/vpc_attachments/index.md",
+      "product": "distributed-cloud",
       "provider_name": "cloud_connect",
       "provider_schema_digest": "sha256:e63a07e98b4893c041a6f79be7e19c64babfe543fc6847c17641037e084e1c7c",
       "provider_type": "resources",
       "registry_anchor": "canonical-2012322120311013-2100022121212203-0111001020222200-1332313201300222-3001000002033020-0011230321132211-1201033112130331-1100132320030110",
       "registry_path": "docs/guides/resources--cloud_connect--reference--group-001.md",
+      "relationships": [],
+      "retrieval_version": 1,
       "role": "properties",
       "schema_path": ["aws_provider", "aws_tgw_site", "vpc_attachments"],
+      "sections": [
+        {
+          "aliases": ["vpc list"],
+          "anchor": "section",
+          "description": "Collection of items or values",
+          "document_id": "xcsh-docs:resources:cloud_connect:properties:aws_provider:aws_tgw_site:vpc_attachments:vpc_list",
+          "flags": [],
+          "max_items": null,
+          "min_items": null,
+          "nesting": "list",
+          "relationships": [
+            {
+              "anchor": "section",
+              "enforcement": "provider-schema",
+              "group": "aws_provider.aws_tgw_site.vpc_attachments.vpc_list:ConflictingListObjectAttributes:custom_routing,default_route",
+              "source": "ast-validator:ConflictingListObjectAttributes",
+              "target_id": "xcsh-docs:resources:cloud_connect:properties:aws_provider:aws_tgw_site:vpc_attachments:vpc_list:custom_routing",
+              "type": "conflicts"
+            },
+            {
+              "anchor": "section",
+              "enforcement": "provider-schema",
+              "group": "aws_provider.aws_tgw_site.vpc_attachments.vpc_list:ConflictingListObjectAttributes:custom_routing,manual_routing",
+              "source": "ast-validator:ConflictingListObjectAttributes",
+              "target_id": "xcsh-docs:resources:cloud_connect:properties:aws_provider:aws_tgw_site:vpc_attachments:vpc_list:custom_routing",
+              "type": "conflicts"
+            },
+            {
+              "anchor": "section",
+              "enforcement": "provider-schema",
+              "group": "aws_provider.aws_tgw_site.vpc_attachments.vpc_list:ConflictingListObjectAttributes:custom_routing,default_route",
+              "source": "ast-validator:ConflictingListObjectAttributes",
+              "target_id": "xcsh-docs:resources:cloud_connect:properties:aws_provider:aws_tgw_site:vpc_attachments:vpc_list:default_route",
+              "type": "conflicts"
+            },
+            {
+              "anchor": "section",
+              "enforcement": "provider-schema",
+              "group": "aws_provider.aws_tgw_site.vpc_attachments.vpc_list:ConflictingListObjectAttributes:default_route,manual_routing",
+              "source": "ast-validator:ConflictingListObjectAttributes",
+              "target_id": "xcsh-docs:resources:cloud_connect:properties:aws_provider:aws_tgw_site:vpc_attachments:vpc_list:default_route",
+              "type": "conflicts"
+            },
+            {
+              "anchor": "section",
+              "enforcement": "provider-schema",
+              "group": "aws_provider.aws_tgw_site.vpc_attachments.vpc_list:ConflictingListObjectAttributes:custom_routing,manual_routing",
+              "source": "ast-validator:ConflictingListObjectAttributes",
+              "target_id": "xcsh-docs:resources:cloud_connect:properties:aws_provider:aws_tgw_site:vpc_attachments:vpc_list:manual_routing",
+              "type": "conflicts"
+            },
+            {
+              "anchor": "section",
+              "enforcement": "provider-schema",
+              "group": "aws_provider.aws_tgw_site.vpc_attachments.vpc_list:ConflictingListObjectAttributes:default_route,manual_routing",
+              "source": "ast-validator:ConflictingListObjectAttributes",
+              "target_id": "xcsh-docs:resources:cloud_connect:properties:aws_provider:aws_tgw_site:vpc_attachments:vpc_list:manual_routing",
+              "type": "conflicts"
+            },
+            {
+              "anchor": "schema-aws_provider--aws_tgw_site--vpc_attachments--vpc_list--vpc_id",
+              "enforcement": "provider-schema",
+              "group": "aws_provider.aws_tgw_site.vpc_attachments.vpc_list:RequiredListObjectAttributes:vpc_id",
+              "source": "ast-validator:RequiredListObjectAttributes",
+              "target_id": "xcsh-docs:resources:cloud_connect:properties:aws_provider:aws_tgw_site:vpc_attachments:vpc_list",
+              "type": "requires"
+            }
+          ],
+          "schema_path": ["aws_provider", "aws_tgw_site", "vpc_attachments", "vpc_list"],
+          "syntax": "block",
+          "type": "object"
+        }
+      ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/cloud_connect/properties/aws_provider/aws_tgw_site/vpc_attachments/index.txt",
-      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
-      "summary": "aws_provider.aws_tgw_site.vpc_attachments for xcsh_cloud_connect.",
+      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "summary": "Configuration parameter for vpc attachments.",
+      "tasks": ["configuration"],
       "title": "aws_provider.aws_tgw_site.vpc_attachments",
       "upstream_identity": {
-        "release_tag": "v9.0.0",
+        "release_tag": "v9.0.1",
         "schema_components": ["cloud_connectCreateRequest"],
-        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
       }
     },
     {
-      "aliases": [],
+      "aliases": ["aws provider aws tgw site vpc attachments vpc list"],
       "body_bytes": 5489,
       "body_sha256": "sha256:6d07b15106aeda6495991376d7e94612b3313c30e56ba71cfac358559673bb9f",
+      "capabilities": ["infrastructure"],
+      "category": "infrastructure",
       "child_ids": [
         "xcsh-docs:resources:cloud_connect:properties:aws_provider:aws_tgw_site:vpc_attachments:vpc_list:custom_routing",
         "xcsh-docs:resources:cloud_connect:properties:aws_provider:aws_tgw_site:vpc_attachments:vpc_list:default_route",
         "xcsh-docs:resources:cloud_connect:properties:aws_provider:aws_tgw_site:vpc_attachments:vpc_list:labels",
         "xcsh-docs:resources:cloud_connect:properties:aws_provider:aws_tgw_site:vpc_attachments:vpc_list:manual_routing"
       ],
+      "classification": {
+        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "sources": ["reviewed-rule"],
+        "status": "resolved",
+        "upstream_category_source": "receipt-pinned-domain"
+      },
       "collection_id": "xcsh-docs:resources:cloud_connect:collection",
       "completeness": "complete",
       "id": "xcsh-docs:resources:cloud_connect:properties:aws_provider:aws_tgw_site:vpc_attachments:vpc_list",
       "parent_id": "xcsh-docs:resources:cloud_connect:properties:aws_provider:aws_tgw_site:vpc_attachments",
       "path": "documentation/resources/cloud_connect/properties/aws_provider/aws_tgw_site/vpc_attachments/vpc_list/index.md",
+      "product": "distributed-cloud",
       "provider_name": "cloud_connect",
       "provider_schema_digest": "sha256:e63a07e98b4893c041a6f79be7e19c64babfe543fc6847c17641037e084e1c7c",
       "provider_type": "resources",
       "registry_anchor": "canonical-3200300212101213-0322103321201312-3031332200301200-0130131130213120-0121121301223133-1102023111022131-1132102113110112-0030232031110101",
       "registry_path": "docs/guides/resources--cloud_connect--reference--group-001.md",
+      "relationships": [
+        {
+          "anchor": "section",
+          "enforcement": "provider-schema",
+          "group": "aws_provider.aws_tgw_site.vpc_attachments.vpc_list:ConflictingListObjectAttributes:custom_routing,default_route",
+          "source": "ast-validator:ConflictingListObjectAttributes",
+          "target_id": "xcsh-docs:resources:cloud_connect:properties:aws_provider:aws_tgw_site:vpc_attachments:vpc_list:custom_routing",
+          "type": "conflicts"
+        },
+        {
+          "anchor": "section",
+          "enforcement": "provider-schema",
+          "group": "aws_provider.aws_tgw_site.vpc_attachments.vpc_list:ConflictingListObjectAttributes:custom_routing,manual_routing",
+          "source": "ast-validator:ConflictingListObjectAttributes",
+          "target_id": "xcsh-docs:resources:cloud_connect:properties:aws_provider:aws_tgw_site:vpc_attachments:vpc_list:custom_routing",
+          "type": "conflicts"
+        },
+        {
+          "anchor": "section",
+          "enforcement": "provider-schema",
+          "group": "aws_provider.aws_tgw_site.vpc_attachments.vpc_list:ConflictingListObjectAttributes:custom_routing,default_route",
+          "source": "ast-validator:ConflictingListObjectAttributes",
+          "target_id": "xcsh-docs:resources:cloud_connect:properties:aws_provider:aws_tgw_site:vpc_attachments:vpc_list:default_route",
+          "type": "conflicts"
+        },
+        {
+          "anchor": "section",
+          "enforcement": "provider-schema",
+          "group": "aws_provider.aws_tgw_site.vpc_attachments.vpc_list:ConflictingListObjectAttributes:default_route,manual_routing",
+          "source": "ast-validator:ConflictingListObjectAttributes",
+          "target_id": "xcsh-docs:resources:cloud_connect:properties:aws_provider:aws_tgw_site:vpc_attachments:vpc_list:default_route",
+          "type": "conflicts"
+        },
+        {
+          "anchor": "section",
+          "enforcement": "provider-schema",
+          "group": "aws_provider.aws_tgw_site.vpc_attachments.vpc_list:ConflictingListObjectAttributes:custom_routing,manual_routing",
+          "source": "ast-validator:ConflictingListObjectAttributes",
+          "target_id": "xcsh-docs:resources:cloud_connect:properties:aws_provider:aws_tgw_site:vpc_attachments:vpc_list:manual_routing",
+          "type": "conflicts"
+        },
+        {
+          "anchor": "section",
+          "enforcement": "provider-schema",
+          "group": "aws_provider.aws_tgw_site.vpc_attachments.vpc_list:ConflictingListObjectAttributes:default_route,manual_routing",
+          "source": "ast-validator:ConflictingListObjectAttributes",
+          "target_id": "xcsh-docs:resources:cloud_connect:properties:aws_provider:aws_tgw_site:vpc_attachments:vpc_list:manual_routing",
+          "type": "conflicts"
+        },
+        {
+          "anchor": "schema-aws_provider--aws_tgw_site--vpc_attachments--vpc_list--vpc_id",
+          "enforcement": "provider-schema",
+          "group": "aws_provider.aws_tgw_site.vpc_attachments.vpc_list:RequiredListObjectAttributes:vpc_id",
+          "source": "ast-validator:RequiredListObjectAttributes",
+          "target_id": "xcsh-docs:resources:cloud_connect:properties:aws_provider:aws_tgw_site:vpc_attachments:vpc_list",
+          "type": "requires"
+        }
+      ],
+      "retrieval_version": 1,
       "role": "properties",
       "schema_path": ["aws_provider", "aws_tgw_site", "vpc_attachments", "vpc_list"],
+      "sections": [
+        {
+          "aliases": ["custom routing"],
+          "anchor": "section",
+          "description": "AWS Route Table List.",
+          "document_id": "xcsh-docs:resources:cloud_connect:properties:aws_provider:aws_tgw_site:vpc_attachments:vpc_list:custom_routing",
+          "flags": [],
+          "max_items": null,
+          "min_items": null,
+          "nesting": "single",
+          "relationships": [
+            {
+              "anchor": "section",
+              "enforcement": "provider-schema",
+              "group": "aws_provider.aws_tgw_site.vpc_attachments.vpc_list.custom_routing:RequiredObjectAttributes:route_tables",
+              "source": "ast-validator:RequiredObjectAttributes",
+              "target_id": "xcsh-docs:resources:cloud_connect:properties:aws_provider:aws_tgw_site:vpc_attachments:vpc_list:custom_routing:route_tables",
+              "type": "requires"
+            }
+          ],
+          "schema_path": ["aws_provider", "aws_tgw_site", "vpc_attachments", "vpc_list", "custom_routing"],
+          "syntax": "block",
+          "type": "object"
+        },
+        {
+          "aliases": ["default route"],
+          "anchor": "section",
+          "description": "Select Override Default Route Choice.",
+          "document_id": "xcsh-docs:resources:cloud_connect:properties:aws_provider:aws_tgw_site:vpc_attachments:vpc_list:default_route",
+          "flags": [],
+          "max_items": null,
+          "min_items": null,
+          "nesting": "single",
+          "relationships": [
+            {
+              "anchor": "section",
+              "enforcement": "provider-schema",
+              "group": "aws_provider.aws_tgw_site.vpc_attachments.vpc_list.default_route:ConflictingObjectAttributes:all_route_tables,selective_route_tables",
+              "source": "ast-validator:ConflictingObjectAttributes",
+              "target_id": "xcsh-docs:resources:cloud_connect:properties:aws_provider:aws_tgw_site:vpc_attachments:vpc_list:default_route:all_route_tables",
+              "type": "conflicts"
+            },
+            {
+              "anchor": "section",
+              "enforcement": "provider-schema",
+              "group": "aws_provider.aws_tgw_site.vpc_attachments.vpc_list.default_route:ConflictingObjectAttributes:all_route_tables,selective_route_tables",
+              "source": "ast-validator:ConflictingObjectAttributes",
+              "target_id": "xcsh-docs:resources:cloud_connect:properties:aws_provider:aws_tgw_site:vpc_attachments:vpc_list:default_route:selective_route_tables",
+              "type": "conflicts"
+            }
+          ],
+          "schema_path": ["aws_provider", "aws_tgw_site", "vpc_attachments", "vpc_list", "default_route"],
+          "syntax": "block",
+          "type": "object"
+        },
+        {
+          "aliases": ["labels"],
+          "anchor": "section",
+          "description": "Add labels for the VPC attachment. These labels can then be used in policies such as enhanced firewall.",
+          "document_id": "xcsh-docs:resources:cloud_connect:properties:aws_provider:aws_tgw_site:vpc_attachments:vpc_list:labels",
+          "flags": [],
+          "max_items": null,
+          "min_items": null,
+          "nesting": "single",
+          "relationships": [],
+          "schema_path": ["aws_provider", "aws_tgw_site", "vpc_attachments", "vpc_list", "labels"],
+          "syntax": "block",
+          "type": "object"
+        },
+        {
+          "aliases": ["manual routing"],
+          "anchor": "section",
+          "description": "This can be used for messages where no values are needed.",
+          "document_id": "xcsh-docs:resources:cloud_connect:properties:aws_provider:aws_tgw_site:vpc_attachments:vpc_list:manual_routing",
+          "flags": ["optional"],
+          "max_items": null,
+          "min_items": null,
+          "nesting": null,
+          "relationships": [],
+          "schema_path": ["aws_provider", "aws_tgw_site", "vpc_attachments", "vpc_list", "manual_routing"],
+          "syntax": "attribute",
+          "type": "object"
+        },
+        {
+          "aliases": ["vpc id"],
+          "anchor": "schema-aws_provider--aws_tgw_site--vpc_attachments--vpc_list--vpc_id",
+          "description": "Enter the VPC ID of the VPC to be attached.",
+          "document_id": "xcsh-docs:resources:cloud_connect:properties:aws_provider:aws_tgw_site:vpc_attachments:vpc_list",
+          "flags": ["optional"],
+          "max_items": null,
+          "min_items": null,
+          "nesting": null,
+          "relationships": [],
+          "schema_path": ["aws_provider", "aws_tgw_site", "vpc_attachments", "vpc_list", "vpc_id"],
+          "syntax": "attribute",
+          "type": "string"
+        }
+      ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/cloud_connect/properties/aws_provider/aws_tgw_site/vpc_attachments/vpc_list/index.txt",
-      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
-      "summary": "aws_provider.aws_tgw_site.vpc_attachments.vpc_list for xcsh_cloud_connect.",
+      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "summary": "Collection of items or values",
+      "tasks": ["configuration"],
       "title": "aws_provider.aws_tgw_site.vpc_attachments.vpc_list",
       "upstream_identity": {
-        "release_tag": "v9.0.0",
+        "release_tag": "v9.0.1",
         "schema_components": ["cloud_connectCreateRequest"],
-        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
       }
     },
     {
-      "aliases": [],
+      "aliases": ["aws provider aws tgw site vpc attachments vpc list custom routing"],
       "body_bytes": 2533,
       "body_sha256": "sha256:5fcaaa86d7bc675a5a86ddc8cab6421bc422207c74840462f172fc7b39f15aff",
+      "capabilities": ["infrastructure"],
+      "category": "infrastructure",
       "child_ids": [
         "xcsh-docs:resources:cloud_connect:properties:aws_provider:aws_tgw_site:vpc_attachments:vpc_list:custom_routing:route_tables"
       ],
+      "classification": {
+        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "sources": ["reviewed-rule"],
+        "status": "resolved",
+        "upstream_category_source": "receipt-pinned-domain"
+      },
       "collection_id": "xcsh-docs:resources:cloud_connect:collection",
       "completeness": "complete",
       "id": "xcsh-docs:resources:cloud_connect:properties:aws_provider:aws_tgw_site:vpc_attachments:vpc_list:custom_routing",
       "parent_id": "xcsh-docs:resources:cloud_connect:properties:aws_provider:aws_tgw_site:vpc_attachments:vpc_list",
       "path": "documentation/resources/cloud_connect/properties/aws_provider/aws_tgw_site/vpc_attachments/vpc_list/custom_routing/index.md",
+      "product": "distributed-cloud",
       "provider_name": "cloud_connect",
       "provider_schema_digest": "sha256:e63a07e98b4893c041a6f79be7e19c64babfe543fc6847c17641037e084e1c7c",
       "provider_type": "resources",
       "registry_anchor": "canonical-3113202333110312-1102031311301233-1330222132123100-3010313232010100-2211120033002201-0101123022332001-1002320221233133-3031201133012021",
       "registry_path": "docs/guides/resources--cloud_connect--reference--group-001.md",
+      "relationships": [
+        {
+          "anchor": "section",
+          "enforcement": "provider-schema",
+          "group": "aws_provider.aws_tgw_site.vpc_attachments.vpc_list.custom_routing:RequiredObjectAttributes:route_tables",
+          "source": "ast-validator:RequiredObjectAttributes",
+          "target_id": "xcsh-docs:resources:cloud_connect:properties:aws_provider:aws_tgw_site:vpc_attachments:vpc_list:custom_routing:route_tables",
+          "type": "requires"
+        }
+      ],
+      "retrieval_version": 1,
       "role": "properties",
       "schema_path": ["aws_provider", "aws_tgw_site", "vpc_attachments", "vpc_list", "custom_routing"],
+      "sections": [
+        {
+          "aliases": ["route tables"],
+          "anchor": "section",
+          "description": "Route Tables.",
+          "document_id": "xcsh-docs:resources:cloud_connect:properties:aws_provider:aws_tgw_site:vpc_attachments:vpc_list:custom_routing:route_tables",
+          "flags": [],
+          "max_items": null,
+          "min_items": null,
+          "nesting": "list",
+          "relationships": [
+            {
+              "anchor": "schema-aws_provider--aws_tgw_site--vpc_attachments--vpc_list--custom_routing--route_tables--static_routes",
+              "enforcement": "provider-schema",
+              "group": "aws_provider.aws_tgw_site.vpc_attachments.vpc_list.custom_routing.route_tables:RequiredListObjectAttributes:static_routes",
+              "source": "ast-validator:RequiredListObjectAttributes",
+              "target_id": "xcsh-docs:resources:cloud_connect:properties:aws_provider:aws_tgw_site:vpc_attachments:vpc_list:custom_routing:route_tables",
+              "type": "requires"
+            }
+          ],
+          "schema_path": [
+            "aws_provider",
+            "aws_tgw_site",
+            "vpc_attachments",
+            "vpc_list",
+            "custom_routing",
+            "route_tables"
+          ],
+          "syntax": "block",
+          "type": "object"
+        }
+      ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/cloud_connect/properties/aws_provider/aws_tgw_site/vpc_attachments/vpc_list/custom_routing/index.txt",
-      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
-      "summary": "aws_provider.aws_tgw_site.vpc_attachments.vpc_list.custom_routing for xcsh_cloud_connect.",
+      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "summary": "AWS Route Table List.",
+      "tasks": ["configuration"],
       "title": "aws_provider.aws_tgw_site.vpc_attachments.vpc_list.custom_routing",
       "upstream_identity": {
-        "release_tag": "v9.0.0",
+        "release_tag": "v9.0.1",
         "schema_components": ["cloud_connectCreateRequest"],
-        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
       }
     },
     {
-      "aliases": [],
+      "aliases": ["aws provider aws tgw site vpc attachments vpc list custom routing route tables"],
       "body_bytes": 5911,
       "body_sha256": "sha256:5fd6324ad2d483c3b06ea496ca1371ae47921d4e36233edbfe47b9182cdf22b3",
+      "capabilities": ["infrastructure"],
+      "category": "infrastructure",
       "child_ids": [],
+      "classification": {
+        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "sources": ["reviewed-rule"],
+        "status": "resolved",
+        "upstream_category_source": "receipt-pinned-domain"
+      },
       "collection_id": "xcsh-docs:resources:cloud_connect:collection",
       "completeness": "complete",
       "id": "xcsh-docs:resources:cloud_connect:properties:aws_provider:aws_tgw_site:vpc_attachments:vpc_list:custom_routing:route_tables",
       "parent_id": "xcsh-docs:resources:cloud_connect:properties:aws_provider:aws_tgw_site:vpc_attachments:vpc_list:custom_routing",
       "path": "documentation/resources/cloud_connect/properties/aws_provider/aws_tgw_site/vpc_attachments/vpc_list/custom_routing/route_tables/index.md",
+      "product": "distributed-cloud",
       "provider_name": "cloud_connect",
       "provider_schema_digest": "sha256:e63a07e98b4893c041a6f79be7e19c64babfe543fc6847c17641037e084e1c7c",
       "provider_type": "resources",
       "registry_anchor": "canonical-2133311032131320-3013333312010132-1213001102130021-2033211121203110-2230021233331030-1230112231022231-0121022113130102-3031030331211000",
       "registry_path": "docs/guides/resources--cloud_connect--reference--group-001.md",
+      "relationships": [
+        {
+          "anchor": "schema-aws_provider--aws_tgw_site--vpc_attachments--vpc_list--custom_routing--route_tables--static_routes",
+          "enforcement": "provider-schema",
+          "group": "aws_provider.aws_tgw_site.vpc_attachments.vpc_list.custom_routing.route_tables:RequiredListObjectAttributes:static_routes",
+          "source": "ast-validator:RequiredListObjectAttributes",
+          "target_id": "xcsh-docs:resources:cloud_connect:properties:aws_provider:aws_tgw_site:vpc_attachments:vpc_list:custom_routing:route_tables",
+          "type": "requires"
+        }
+      ],
+      "retrieval_version": 1,
       "role": "properties",
       "schema_path": ["aws_provider", "aws_tgw_site", "vpc_attachments", "vpc_list", "custom_routing", "route_tables"],
+      "sections": [
+        {
+          "aliases": ["route table id"],
+          "anchor": "schema-aws_provider--aws_tgw_site--vpc_attachments--vpc_list--custom_routing--route_tables--route_table_id",
+          "description": "Route table ID.",
+          "document_id": "xcsh-docs:resources:cloud_connect:properties:aws_provider:aws_tgw_site:vpc_attachments:vpc_list:custom_routing:route_tables",
+          "flags": ["optional"],
+          "max_items": null,
+          "min_items": null,
+          "nesting": null,
+          "relationships": [],
+          "schema_path": [
+            "aws_provider",
+            "aws_tgw_site",
+            "vpc_attachments",
+            "vpc_list",
+            "custom_routing",
+            "route_tables",
+            "route_table_id"
+          ],
+          "syntax": "attribute",
+          "type": "string"
+        },
+        {
+          "aliases": ["static routes"],
+          "anchor": "schema-aws_provider--aws_tgw_site--vpc_attachments--vpc_list--custom_routing--route_tables--static_routes",
+          "description": "List of Static Routes.",
+          "document_id": "xcsh-docs:resources:cloud_connect:properties:aws_provider:aws_tgw_site:vpc_attachments:vpc_list:custom_routing:route_tables",
+          "flags": ["optional"],
+          "max_items": null,
+          "min_items": null,
+          "nesting": null,
+          "relationships": [],
+          "schema_path": [
+            "aws_provider",
+            "aws_tgw_site",
+            "vpc_attachments",
+            "vpc_list",
+            "custom_routing",
+            "route_tables",
+            "static_routes"
+          ],
+          "syntax": "attribute",
+          "type": "list"
+        }
+      ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/cloud_connect/properties/aws_provider/aws_tgw_site/vpc_attachments/vpc_list/custom_routing/route_tables/index.txt",
-      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
-      "summary": "aws_provider.aws_tgw_site.vpc_attachments.vpc_list.custom_routing.route_tables for xcsh_cloud_connect.",
+      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "summary": "Route Tables.",
+      "tasks": ["configuration"],
       "title": "aws_provider.aws_tgw_site.vpc_attachments.vpc_list.custom_routing.route_tables",
       "upstream_identity": {
-        "release_tag": "v9.0.0",
+        "release_tag": "v9.0.1",
         "schema_components": ["cloud_connectCreateRequest"],
-        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
       }
     },
     {
-      "aliases": [],
+      "aliases": ["aws provider aws tgw site vpc attachments vpc list default route"],
       "body_bytes": 3206,
       "body_sha256": "sha256:e3890c913cf2012eb08ff585609e45949983c3adaad42b62c9ba58f19a537863",
+      "capabilities": ["infrastructure"],
+      "category": "infrastructure",
       "child_ids": [
         "xcsh-docs:resources:cloud_connect:properties:aws_provider:aws_tgw_site:vpc_attachments:vpc_list:default_route:all_route_tables",
         "xcsh-docs:resources:cloud_connect:properties:aws_provider:aws_tgw_site:vpc_attachments:vpc_list:default_route:selective_route_tables"
       ],
+      "classification": {
+        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "sources": ["reviewed-rule"],
+        "status": "resolved",
+        "upstream_category_source": "receipt-pinned-domain"
+      },
       "collection_id": "xcsh-docs:resources:cloud_connect:collection",
       "completeness": "complete",
       "id": "xcsh-docs:resources:cloud_connect:properties:aws_provider:aws_tgw_site:vpc_attachments:vpc_list:default_route",
       "parent_id": "xcsh-docs:resources:cloud_connect:properties:aws_provider:aws_tgw_site:vpc_attachments:vpc_list",
       "path": "documentation/resources/cloud_connect/properties/aws_provider/aws_tgw_site/vpc_attachments/vpc_list/default_route/index.md",
+      "product": "distributed-cloud",
       "provider_name": "cloud_connect",
       "provider_schema_digest": "sha256:e63a07e98b4893c041a6f79be7e19c64babfe543fc6847c17641037e084e1c7c",
       "provider_type": "resources",
       "registry_anchor": "canonical-3233310033321120-2110120300102121-1222212213121011-3211203323031022-0323101010102011-3032033101120022-1321001101212331-1323210021310313",
       "registry_path": "docs/guides/resources--cloud_connect--reference--group-001.md",
+      "relationships": [
+        {
+          "anchor": "section",
+          "enforcement": "provider-schema",
+          "group": "aws_provider.aws_tgw_site.vpc_attachments.vpc_list.default_route:ConflictingObjectAttributes:all_route_tables,selective_route_tables",
+          "source": "ast-validator:ConflictingObjectAttributes",
+          "target_id": "xcsh-docs:resources:cloud_connect:properties:aws_provider:aws_tgw_site:vpc_attachments:vpc_list:default_route:all_route_tables",
+          "type": "conflicts"
+        },
+        {
+          "anchor": "section",
+          "enforcement": "provider-schema",
+          "group": "aws_provider.aws_tgw_site.vpc_attachments.vpc_list.default_route:ConflictingObjectAttributes:all_route_tables,selective_route_tables",
+          "source": "ast-validator:ConflictingObjectAttributes",
+          "target_id": "xcsh-docs:resources:cloud_connect:properties:aws_provider:aws_tgw_site:vpc_attachments:vpc_list:default_route:selective_route_tables",
+          "type": "conflicts"
+        }
+      ],
+      "retrieval_version": 1,
       "role": "properties",
       "schema_path": ["aws_provider", "aws_tgw_site", "vpc_attachments", "vpc_list", "default_route"],
+      "sections": [
+        {
+          "aliases": ["all route tables"],
+          "anchor": "section",
+          "description": "This can be used for messages where no values are needed.",
+          "document_id": "xcsh-docs:resources:cloud_connect:properties:aws_provider:aws_tgw_site:vpc_attachments:vpc_list:default_route:all_route_tables",
+          "flags": ["optional"],
+          "max_items": null,
+          "min_items": null,
+          "nesting": null,
+          "relationships": [],
+          "schema_path": [
+            "aws_provider",
+            "aws_tgw_site",
+            "vpc_attachments",
+            "vpc_list",
+            "default_route",
+            "all_route_tables"
+          ],
+          "syntax": "attribute",
+          "type": "object"
+        },
+        {
+          "aliases": ["selective route tables"],
+          "anchor": "section",
+          "description": "AWS Route Table.",
+          "document_id": "xcsh-docs:resources:cloud_connect:properties:aws_provider:aws_tgw_site:vpc_attachments:vpc_list:default_route:selective_route_tables",
+          "flags": [],
+          "max_items": null,
+          "min_items": null,
+          "nesting": "single",
+          "relationships": [],
+          "schema_path": [
+            "aws_provider",
+            "aws_tgw_site",
+            "vpc_attachments",
+            "vpc_list",
+            "default_route",
+            "selective_route_tables"
+          ],
+          "syntax": "block",
+          "type": "object"
+        }
+      ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/cloud_connect/properties/aws_provider/aws_tgw_site/vpc_attachments/vpc_list/default_route/index.txt",
-      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
-      "summary": "aws_provider.aws_tgw_site.vpc_attachments.vpc_list.default_route for xcsh_cloud_connect.",
+      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "summary": "Select Override Default Route Choice.",
+      "tasks": ["configuration"],
       "title": "aws_provider.aws_tgw_site.vpc_attachments.vpc_list.default_route",
       "upstream_identity": {
-        "release_tag": "v9.0.0",
+        "release_tag": "v9.0.1",
         "schema_components": ["cloud_connectCreateRequest"],
-        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
       }
     },
     {
-      "aliases": [],
+      "aliases": ["aws provider aws tgw site vpc attachments vpc list default route all route tables"],
       "body_bytes": 2244,
       "body_sha256": "sha256:5a16a1c7ea1e77e7dec250d4c739dd886775f5f741bf8ad0433875c3bdb73fd7",
+      "capabilities": ["infrastructure"],
+      "category": "infrastructure",
       "child_ids": [],
+      "classification": {
+        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "sources": ["reviewed-rule"],
+        "status": "resolved",
+        "upstream_category_source": "receipt-pinned-domain"
+      },
       "collection_id": "xcsh-docs:resources:cloud_connect:collection",
       "completeness": "complete",
       "id": "xcsh-docs:resources:cloud_connect:properties:aws_provider:aws_tgw_site:vpc_attachments:vpc_list:default_route:all_route_tables",
       "parent_id": "xcsh-docs:resources:cloud_connect:properties:aws_provider:aws_tgw_site:vpc_attachments:vpc_list:default_route",
       "path": "documentation/resources/cloud_connect/properties/aws_provider/aws_tgw_site/vpc_attachments/vpc_list/default_route/all_route_tables/index.md",
+      "product": "distributed-cloud",
       "provider_name": "cloud_connect",
       "provider_schema_digest": "sha256:e63a07e98b4893c041a6f79be7e19c64babfe543fc6847c17641037e084e1c7c",
       "provider_type": "resources",
       "registry_anchor": "canonical-2010210330133012-1113331121220211-2301211111021022-0220023012332111-2233033303102131-3330031330102111-0330312233333010-3133001110201101",
       "registry_path": "docs/guides/resources--cloud_connect--reference--group-001.md",
+      "relationships": [],
+      "retrieval_version": 1,
       "role": "properties",
       "schema_path": [
         "aws_provider",
@@ -703,31 +1582,44 @@
         "default_route",
         "all_route_tables"
       ],
+      "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/cloud_connect/properties/aws_provider/aws_tgw_site/vpc_attachments/vpc_list/default_route/all_route_tables/index.txt",
-      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
-      "summary": "aws_provider.aws_tgw_site.vpc_attachments.vpc_list.default_route.all_route_tables for xcsh_cloud_connect.",
+      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "summary": "This can be used for messages where no values are needed.",
+      "tasks": ["configuration"],
       "title": "aws_provider.aws_tgw_site.vpc_attachments.vpc_list.default_route.all_route_tables",
       "upstream_identity": {
-        "release_tag": "v9.0.0",
+        "release_tag": "v9.0.1",
         "schema_components": ["cloud_connectCreateRequest"],
-        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
       }
     },
     {
-      "aliases": [],
+      "aliases": ["aws provider aws tgw site vpc attachments vpc list default route selective route tables"],
       "body_bytes": 3414,
       "body_sha256": "sha256:d8b18cd2b659f7dd8158c90e2a9525ad6054ec50df9d71bd0c3bd3665cec67bc",
+      "capabilities": ["infrastructure"],
+      "category": "infrastructure",
       "child_ids": [],
+      "classification": {
+        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "sources": ["reviewed-rule"],
+        "status": "resolved",
+        "upstream_category_source": "receipt-pinned-domain"
+      },
       "collection_id": "xcsh-docs:resources:cloud_connect:collection",
       "completeness": "complete",
       "id": "xcsh-docs:resources:cloud_connect:properties:aws_provider:aws_tgw_site:vpc_attachments:vpc_list:default_route:selective_route_tables",
       "parent_id": "xcsh-docs:resources:cloud_connect:properties:aws_provider:aws_tgw_site:vpc_attachments:vpc_list:default_route",
       "path": "documentation/resources/cloud_connect/properties/aws_provider/aws_tgw_site/vpc_attachments/vpc_list/default_route/selective_route_tables/index.md",
+      "product": "distributed-cloud",
       "provider_name": "cloud_connect",
       "provider_schema_digest": "sha256:e63a07e98b4893c041a6f79be7e19c64babfe543fc6847c17641037e084e1c7c",
       "provider_type": "resources",
       "registry_anchor": "canonical-2221223103020031-3233303133133123-1311301323021132-0222313210010320-0121213023132100-2030020101221211-3222121030210213-1112030230300030",
       "registry_path": "docs/guides/resources--cloud_connect--reference--group-001.md",
+      "relationships": [],
+      "retrieval_version": 1,
       "role": "properties",
       "schema_path": [
         "aws_provider",
@@ -737,466 +1629,1321 @@
         "default_route",
         "selective_route_tables"
       ],
+      "sections": [
+        {
+          "aliases": ["route table id"],
+          "anchor": "schema-aws_provider--aws_tgw_site--vpc_attachments--vpc_list--default_route--selective_route_tables--route_table_id",
+          "description": "Route table ID.",
+          "document_id": "xcsh-docs:resources:cloud_connect:properties:aws_provider:aws_tgw_site:vpc_attachments:vpc_list:default_route:selective_route_tables",
+          "flags": ["optional"],
+          "max_items": null,
+          "min_items": null,
+          "nesting": null,
+          "relationships": [],
+          "schema_path": [
+            "aws_provider",
+            "aws_tgw_site",
+            "vpc_attachments",
+            "vpc_list",
+            "default_route",
+            "selective_route_tables",
+            "route_table_id"
+          ],
+          "syntax": "attribute",
+          "type": "list"
+        }
+      ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/cloud_connect/properties/aws_provider/aws_tgw_site/vpc_attachments/vpc_list/default_route/selective_route_tables/index.txt",
-      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
-      "summary": "aws_provider.aws_tgw_site.vpc_attachments.vpc_list.default_route.selective_route_tables for xcsh_cloud_connect.",
+      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "summary": "AWS Route Table.",
+      "tasks": ["configuration"],
       "title": "aws_provider.aws_tgw_site.vpc_attachments.vpc_list.default_route.selective_route_tables",
       "upstream_identity": {
-        "release_tag": "v9.0.0",
+        "release_tag": "v9.0.1",
         "schema_components": ["cloud_connectCreateRequest"],
-        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
       }
     },
     {
-      "aliases": [],
+      "aliases": ["aws provider aws tgw site vpc attachments vpc list labels"],
       "body_bytes": 1920,
       "body_sha256": "sha256:c603026686e887fee89fdf74eebcea42ce81480906e4cf93dde74bde9a0f2154",
+      "capabilities": ["infrastructure"],
+      "category": "infrastructure",
       "child_ids": [],
+      "classification": {
+        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "sources": ["reviewed-rule"],
+        "status": "resolved",
+        "upstream_category_source": "receipt-pinned-domain"
+      },
       "collection_id": "xcsh-docs:resources:cloud_connect:collection",
       "completeness": "complete",
       "id": "xcsh-docs:resources:cloud_connect:properties:aws_provider:aws_tgw_site:vpc_attachments:vpc_list:labels",
       "parent_id": "xcsh-docs:resources:cloud_connect:properties:aws_provider:aws_tgw_site:vpc_attachments:vpc_list",
       "path": "documentation/resources/cloud_connect/properties/aws_provider/aws_tgw_site/vpc_attachments/vpc_list/labels/index.md",
+      "product": "distributed-cloud",
       "provider_name": "cloud_connect",
       "provider_schema_digest": "sha256:e63a07e98b4893c041a6f79be7e19c64babfe543fc6847c17641037e084e1c7c",
       "provider_type": "resources",
       "registry_anchor": "canonical-0310333211010221-3003201212210333-1202231323203330-3001221120111001-0120030123123332-1120302002132233-2123230323133300-3122312331330310",
       "registry_path": "docs/guides/resources--cloud_connect--reference--group-001.md",
+      "relationships": [],
+      "retrieval_version": 1,
       "role": "properties",
       "schema_path": ["aws_provider", "aws_tgw_site", "vpc_attachments", "vpc_list", "labels"],
+      "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/cloud_connect/properties/aws_provider/aws_tgw_site/vpc_attachments/vpc_list/labels/index.txt",
-      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
-      "summary": "aws_provider.aws_tgw_site.vpc_attachments.vpc_list.labels for xcsh_cloud_connect.",
+      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "summary": "Add labels for the VPC attachment. These labels can then be used in policies such as enhanced firewall.",
+      "tasks": ["configuration"],
       "title": "aws_provider.aws_tgw_site.vpc_attachments.vpc_list.labels",
       "upstream_identity": {
-        "release_tag": "v9.0.0",
+        "release_tag": "v9.0.1",
         "schema_components": ["cloud_connectCreateRequest"],
-        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
       }
     },
     {
-      "aliases": [],
+      "aliases": ["aws provider aws tgw site vpc attachments vpc list manual routing"],
       "body_bytes": 1928,
       "body_sha256": "sha256:fe7cbc676d812db95e6e938ad7d2e6c9d0e39012f8af19197e2c4fd6d4fb87cc",
+      "capabilities": ["infrastructure"],
+      "category": "infrastructure",
       "child_ids": [],
+      "classification": {
+        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "sources": ["reviewed-rule"],
+        "status": "resolved",
+        "upstream_category_source": "receipt-pinned-domain"
+      },
       "collection_id": "xcsh-docs:resources:cloud_connect:collection",
       "completeness": "complete",
       "id": "xcsh-docs:resources:cloud_connect:properties:aws_provider:aws_tgw_site:vpc_attachments:vpc_list:manual_routing",
       "parent_id": "xcsh-docs:resources:cloud_connect:properties:aws_provider:aws_tgw_site:vpc_attachments:vpc_list",
       "path": "documentation/resources/cloud_connect/properties/aws_provider/aws_tgw_site/vpc_attachments/vpc_list/manual_routing/index.md",
+      "product": "distributed-cloud",
       "provider_name": "cloud_connect",
       "provider_schema_digest": "sha256:e63a07e98b4893c041a6f79be7e19c64babfe543fc6847c17641037e084e1c7c",
       "provider_type": "resources",
       "registry_anchor": "canonical-1020113333302101-2030202001320221-3010320333121102-2301330000232212-0323202310103020-2220221103200131-1112302001210021-2320020130203231",
       "registry_path": "docs/guides/resources--cloud_connect--reference--group-001.md",
+      "relationships": [],
+      "retrieval_version": 1,
       "role": "properties",
       "schema_path": ["aws_provider", "aws_tgw_site", "vpc_attachments", "vpc_list", "manual_routing"],
+      "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/cloud_connect/properties/aws_provider/aws_tgw_site/vpc_attachments/vpc_list/manual_routing/index.txt",
-      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
-      "summary": "aws_provider.aws_tgw_site.vpc_attachments.vpc_list.manual_routing for xcsh_cloud_connect.",
+      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "summary": "This can be used for messages where no values are needed.",
+      "tasks": ["configuration"],
       "title": "aws_provider.aws_tgw_site.vpc_attachments.vpc_list.manual_routing",
       "upstream_identity": {
-        "release_tag": "v9.0.0",
+        "release_tag": "v9.0.1",
         "schema_components": ["cloud_connectCreateRequest"],
-        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
       }
     },
     {
-      "aliases": [],
+      "aliases": ["azure vnet site"],
       "body_bytes": 1737,
       "body_sha256": "sha256:b2bfeb4d62953a411741a707d095d4182d4633c099cc299d90a5acc51ec59c93",
+      "capabilities": ["infrastructure"],
+      "category": "infrastructure",
       "child_ids": [
         "xcsh-docs:resources:cloud_connect:properties:azure_vnet_site:site",
         "xcsh-docs:resources:cloud_connect:properties:azure_vnet_site:vnet_attachments"
       ],
+      "classification": {
+        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "sources": ["reviewed-rule"],
+        "status": "resolved",
+        "upstream_category_source": "receipt-pinned-domain"
+      },
       "collection_id": "xcsh-docs:resources:cloud_connect:collection",
       "completeness": "complete",
       "id": "xcsh-docs:resources:cloud_connect:properties:azure_vnet_site",
       "parent_id": "xcsh-docs:resources:cloud_connect:reference",
       "path": "documentation/resources/cloud_connect/properties/azure_vnet_site/index.md",
+      "product": "distributed-cloud",
       "provider_name": "cloud_connect",
       "provider_schema_digest": "sha256:e63a07e98b4893c041a6f79be7e19c64babfe543fc6847c17641037e084e1c7c",
       "provider_type": "resources",
       "registry_anchor": "canonical-3021103322130320-1200003010013121-0010020300322100-0312322031223102-3220323002313103-2002300323233103-0021222100212022-3300231133311003",
       "registry_path": "docs/guides/resources--cloud_connect--reference--group-001.md",
+      "relationships": [],
+      "retrieval_version": 1,
       "role": "properties",
       "schema_path": ["azure_vnet_site"],
+      "sections": [
+        {
+          "aliases": ["site"],
+          "anchor": "section",
+          "description": "This type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name.",
+          "document_id": "xcsh-docs:resources:cloud_connect:properties:azure_vnet_site:site",
+          "flags": [],
+          "max_items": null,
+          "min_items": null,
+          "nesting": "single",
+          "relationships": [
+            {
+              "anchor": "schema-azure_vnet_site--site--name",
+              "enforcement": "provider-schema",
+              "group": "azure_vnet_site.site:RequiredObjectAttributes:name",
+              "source": "ast-validator:RequiredObjectAttributes",
+              "target_id": "xcsh-docs:resources:cloud_connect:properties:azure_vnet_site:site",
+              "type": "requires"
+            }
+          ],
+          "schema_path": ["azure_vnet_site", "site"],
+          "syntax": "block",
+          "type": "object"
+        },
+        {
+          "aliases": ["vnet attachments"],
+          "anchor": "section",
+          "description": "Configuration parameter for vnet attachments.",
+          "document_id": "xcsh-docs:resources:cloud_connect:properties:azure_vnet_site:vnet_attachments",
+          "flags": [],
+          "max_items": null,
+          "min_items": null,
+          "nesting": "single",
+          "relationships": [],
+          "schema_path": ["azure_vnet_site", "vnet_attachments"],
+          "syntax": "block",
+          "type": "object"
+        }
+      ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/cloud_connect/properties/azure_vnet_site/index.txt",
-      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
-      "summary": "azure_vnet_site for xcsh_cloud_connect.",
+      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "summary": "Cloud Connect Azure VNet Site Type.",
+      "tasks": ["configuration"],
       "title": "azure_vnet_site",
       "upstream_identity": {
-        "release_tag": "v9.0.0",
+        "release_tag": "v9.0.1",
         "schema_components": ["cloud_connectCreateRequest"],
-        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
       }
     },
     {
-      "aliases": [],
+      "aliases": ["azure vnet site site"],
       "body_bytes": 6012,
       "body_sha256": "sha256:dc21d8b8a5c1834b4ee1f520f4e77a237706f3954f1a43d22ffef40efb72dd53",
+      "capabilities": ["infrastructure"],
+      "category": "infrastructure",
       "child_ids": [],
+      "classification": {
+        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "sources": ["reviewed-rule"],
+        "status": "resolved",
+        "upstream_category_source": "receipt-pinned-domain"
+      },
       "collection_id": "xcsh-docs:resources:cloud_connect:collection",
       "completeness": "complete",
       "id": "xcsh-docs:resources:cloud_connect:properties:azure_vnet_site:site",
       "parent_id": "xcsh-docs:resources:cloud_connect:properties:azure_vnet_site",
       "path": "documentation/resources/cloud_connect/properties/azure_vnet_site/site/index.md",
+      "product": "distributed-cloud",
       "provider_name": "cloud_connect",
       "provider_schema_digest": "sha256:e63a07e98b4893c041a6f79be7e19c64babfe543fc6847c17641037e084e1c7c",
       "provider_type": "resources",
       "registry_anchor": "canonical-1210100313321313-2113000230032213-2231210032203023-0132313332201110-1332101111332330-2131122210112033-1230210322321031-0211002210020212",
       "registry_path": "docs/guides/resources--cloud_connect--reference--group-001.md",
+      "relationships": [
+        {
+          "anchor": "schema-azure_vnet_site--site--name",
+          "enforcement": "provider-schema",
+          "group": "azure_vnet_site.site:RequiredObjectAttributes:name",
+          "source": "ast-validator:RequiredObjectAttributes",
+          "target_id": "xcsh-docs:resources:cloud_connect:properties:azure_vnet_site:site",
+          "type": "requires"
+        }
+      ],
+      "retrieval_version": 1,
       "role": "properties",
       "schema_path": ["azure_vnet_site", "site"],
+      "sections": [
+        {
+          "aliases": ["name"],
+          "anchor": "schema-azure_vnet_site--site--name",
+          "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.",
+          "document_id": "xcsh-docs:resources:cloud_connect:properties:azure_vnet_site:site",
+          "flags": ["optional"],
+          "max_items": null,
+          "min_items": null,
+          "nesting": null,
+          "relationships": [],
+          "schema_path": ["azure_vnet_site", "site", "name"],
+          "syntax": "attribute",
+          "type": "string"
+        },
+        {
+          "aliases": ["namespace"],
+          "anchor": "schema-azure_vnet_site--site--namespace",
+          "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace.",
+          "document_id": "xcsh-docs:resources:cloud_connect:properties:azure_vnet_site:site",
+          "flags": ["optional", "computed"],
+          "max_items": null,
+          "min_items": null,
+          "nesting": null,
+          "relationships": [],
+          "schema_path": ["azure_vnet_site", "site", "namespace"],
+          "syntax": "attribute",
+          "type": "string"
+        },
+        {
+          "aliases": ["tenant"],
+          "anchor": "schema-azure_vnet_site--site--tenant",
+          "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant.",
+          "document_id": "xcsh-docs:resources:cloud_connect:properties:azure_vnet_site:site",
+          "flags": ["computed"],
+          "max_items": null,
+          "min_items": null,
+          "nesting": null,
+          "relationships": [],
+          "schema_path": ["azure_vnet_site", "site", "tenant"],
+          "syntax": "attribute",
+          "type": "string"
+        }
+      ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/cloud_connect/properties/azure_vnet_site/site/index.txt",
-      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
-      "summary": "azure_vnet_site.site for xcsh_cloud_connect.",
+      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "summary": "This type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name.",
+      "tasks": ["configuration"],
       "title": "azure_vnet_site.site",
       "upstream_identity": {
-        "release_tag": "v9.0.0",
+        "release_tag": "v9.0.1",
         "schema_components": ["cloud_connectCreateRequest"],
-        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
       }
     },
     {
-      "aliases": [],
+      "aliases": ["azure vnet site vnet attachments"],
       "body_bytes": 1570,
       "body_sha256": "sha256:c3cba08b85220bb172012f38e3d3cf230f9ed542f99ad129c9bdc56ce9d508d0",
+      "capabilities": ["infrastructure"],
+      "category": "infrastructure",
       "child_ids": ["xcsh-docs:resources:cloud_connect:properties:azure_vnet_site:vnet_attachments:vnet_list"],
+      "classification": {
+        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "sources": ["reviewed-rule"],
+        "status": "resolved",
+        "upstream_category_source": "receipt-pinned-domain"
+      },
       "collection_id": "xcsh-docs:resources:cloud_connect:collection",
       "completeness": "complete",
       "id": "xcsh-docs:resources:cloud_connect:properties:azure_vnet_site:vnet_attachments",
       "parent_id": "xcsh-docs:resources:cloud_connect:properties:azure_vnet_site",
       "path": "documentation/resources/cloud_connect/properties/azure_vnet_site/vnet_attachments/index.md",
+      "product": "distributed-cloud",
       "provider_name": "cloud_connect",
       "provider_schema_digest": "sha256:e63a07e98b4893c041a6f79be7e19c64babfe543fc6847c17641037e084e1c7c",
       "provider_type": "resources",
       "registry_anchor": "canonical-3022033033322013-0223203001230023-1301122301311130-3323100132012112-1213320010021300-3231311210113021-1200002123210200-2332333310000100",
       "registry_path": "docs/guides/resources--cloud_connect--reference--group-001.md",
+      "relationships": [],
+      "retrieval_version": 1,
       "role": "properties",
       "schema_path": ["azure_vnet_site", "vnet_attachments"],
+      "sections": [
+        {
+          "aliases": ["vnet list"],
+          "anchor": "section",
+          "description": "Collection of items or values",
+          "document_id": "xcsh-docs:resources:cloud_connect:properties:azure_vnet_site:vnet_attachments:vnet_list",
+          "flags": [],
+          "max_items": null,
+          "min_items": null,
+          "nesting": "list",
+          "relationships": [
+            {
+              "anchor": "section",
+              "enforcement": "provider-schema",
+              "group": "azure_vnet_site.vnet_attachments.vnet_list:ConflictingListObjectAttributes:custom_routing,default_route",
+              "source": "ast-validator:ConflictingListObjectAttributes",
+              "target_id": "xcsh-docs:resources:cloud_connect:properties:azure_vnet_site:vnet_attachments:vnet_list:custom_routing",
+              "type": "conflicts"
+            },
+            {
+              "anchor": "section",
+              "enforcement": "provider-schema",
+              "group": "azure_vnet_site.vnet_attachments.vnet_list:ConflictingListObjectAttributes:custom_routing,manual_routing",
+              "source": "ast-validator:ConflictingListObjectAttributes",
+              "target_id": "xcsh-docs:resources:cloud_connect:properties:azure_vnet_site:vnet_attachments:vnet_list:custom_routing",
+              "type": "conflicts"
+            },
+            {
+              "anchor": "section",
+              "enforcement": "provider-schema",
+              "group": "azure_vnet_site.vnet_attachments.vnet_list:ConflictingListObjectAttributes:custom_routing,default_route",
+              "source": "ast-validator:ConflictingListObjectAttributes",
+              "target_id": "xcsh-docs:resources:cloud_connect:properties:azure_vnet_site:vnet_attachments:vnet_list:default_route",
+              "type": "conflicts"
+            },
+            {
+              "anchor": "section",
+              "enforcement": "provider-schema",
+              "group": "azure_vnet_site.vnet_attachments.vnet_list:ConflictingListObjectAttributes:default_route,manual_routing",
+              "source": "ast-validator:ConflictingListObjectAttributes",
+              "target_id": "xcsh-docs:resources:cloud_connect:properties:azure_vnet_site:vnet_attachments:vnet_list:default_route",
+              "type": "conflicts"
+            },
+            {
+              "anchor": "section",
+              "enforcement": "provider-schema",
+              "group": "azure_vnet_site.vnet_attachments.vnet_list:ConflictingListObjectAttributes:custom_routing,manual_routing",
+              "source": "ast-validator:ConflictingListObjectAttributes",
+              "target_id": "xcsh-docs:resources:cloud_connect:properties:azure_vnet_site:vnet_attachments:vnet_list:manual_routing",
+              "type": "conflicts"
+            },
+            {
+              "anchor": "section",
+              "enforcement": "provider-schema",
+              "group": "azure_vnet_site.vnet_attachments.vnet_list:ConflictingListObjectAttributes:default_route,manual_routing",
+              "source": "ast-validator:ConflictingListObjectAttributes",
+              "target_id": "xcsh-docs:resources:cloud_connect:properties:azure_vnet_site:vnet_attachments:vnet_list:manual_routing",
+              "type": "conflicts"
+            },
+            {
+              "anchor": "schema-azure_vnet_site--vnet_attachments--vnet_list--subscription_id",
+              "enforcement": "provider-schema",
+              "group": "azure_vnet_site.vnet_attachments.vnet_list:RequiredListObjectAttributes:subscription_id,vnet_id",
+              "source": "ast-validator:RequiredListObjectAttributes",
+              "target_id": "xcsh-docs:resources:cloud_connect:properties:azure_vnet_site:vnet_attachments:vnet_list",
+              "type": "requires"
+            },
+            {
+              "anchor": "schema-azure_vnet_site--vnet_attachments--vnet_list--vnet_id",
+              "enforcement": "provider-schema",
+              "group": "azure_vnet_site.vnet_attachments.vnet_list:RequiredListObjectAttributes:subscription_id,vnet_id",
+              "source": "ast-validator:RequiredListObjectAttributes",
+              "target_id": "xcsh-docs:resources:cloud_connect:properties:azure_vnet_site:vnet_attachments:vnet_list",
+              "type": "requires"
+            }
+          ],
+          "schema_path": ["azure_vnet_site", "vnet_attachments", "vnet_list"],
+          "syntax": "block",
+          "type": "object"
+        }
+      ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/cloud_connect/properties/azure_vnet_site/vnet_attachments/index.txt",
-      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
-      "summary": "azure_vnet_site.vnet_attachments for xcsh_cloud_connect.",
+      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "summary": "Configuration parameter for vnet attachments.",
+      "tasks": ["configuration"],
       "title": "azure_vnet_site.vnet_attachments",
       "upstream_identity": {
-        "release_tag": "v9.0.0",
+        "release_tag": "v9.0.1",
         "schema_components": ["cloud_connectCreateRequest"],
-        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
       }
     },
     {
-      "aliases": [],
+      "aliases": ["azure vnet site vnet attachments vnet list"],
       "body_bytes": 6252,
       "body_sha256": "sha256:fc91f68935c18708f517ec947745177b3b60f60cde54a73dbaf2bc2e533267d5",
+      "capabilities": ["infrastructure"],
+      "category": "infrastructure",
       "child_ids": [
         "xcsh-docs:resources:cloud_connect:properties:azure_vnet_site:vnet_attachments:vnet_list:custom_routing",
         "xcsh-docs:resources:cloud_connect:properties:azure_vnet_site:vnet_attachments:vnet_list:default_route",
         "xcsh-docs:resources:cloud_connect:properties:azure_vnet_site:vnet_attachments:vnet_list:labels",
         "xcsh-docs:resources:cloud_connect:properties:azure_vnet_site:vnet_attachments:vnet_list:manual_routing"
       ],
+      "classification": {
+        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "sources": ["reviewed-rule"],
+        "status": "resolved",
+        "upstream_category_source": "receipt-pinned-domain"
+      },
       "collection_id": "xcsh-docs:resources:cloud_connect:collection",
       "completeness": "complete",
       "id": "xcsh-docs:resources:cloud_connect:properties:azure_vnet_site:vnet_attachments:vnet_list",
       "parent_id": "xcsh-docs:resources:cloud_connect:properties:azure_vnet_site:vnet_attachments",
       "path": "documentation/resources/cloud_connect/properties/azure_vnet_site/vnet_attachments/vnet_list/index.md",
+      "product": "distributed-cloud",
       "provider_name": "cloud_connect",
       "provider_schema_digest": "sha256:e63a07e98b4893c041a6f79be7e19c64babfe543fc6847c17641037e084e1c7c",
       "provider_type": "resources",
       "registry_anchor": "canonical-2103202202212310-0301333133333230-1313222101031310-2110032331113122-1302101123011231-2220302331003321-1211030020313312-2313300020200222",
       "registry_path": "docs/guides/resources--cloud_connect--reference--group-001.md",
+      "relationships": [
+        {
+          "anchor": "section",
+          "enforcement": "provider-schema",
+          "group": "azure_vnet_site.vnet_attachments.vnet_list:ConflictingListObjectAttributes:custom_routing,default_route",
+          "source": "ast-validator:ConflictingListObjectAttributes",
+          "target_id": "xcsh-docs:resources:cloud_connect:properties:azure_vnet_site:vnet_attachments:vnet_list:custom_routing",
+          "type": "conflicts"
+        },
+        {
+          "anchor": "section",
+          "enforcement": "provider-schema",
+          "group": "azure_vnet_site.vnet_attachments.vnet_list:ConflictingListObjectAttributes:custom_routing,manual_routing",
+          "source": "ast-validator:ConflictingListObjectAttributes",
+          "target_id": "xcsh-docs:resources:cloud_connect:properties:azure_vnet_site:vnet_attachments:vnet_list:custom_routing",
+          "type": "conflicts"
+        },
+        {
+          "anchor": "section",
+          "enforcement": "provider-schema",
+          "group": "azure_vnet_site.vnet_attachments.vnet_list:ConflictingListObjectAttributes:custom_routing,default_route",
+          "source": "ast-validator:ConflictingListObjectAttributes",
+          "target_id": "xcsh-docs:resources:cloud_connect:properties:azure_vnet_site:vnet_attachments:vnet_list:default_route",
+          "type": "conflicts"
+        },
+        {
+          "anchor": "section",
+          "enforcement": "provider-schema",
+          "group": "azure_vnet_site.vnet_attachments.vnet_list:ConflictingListObjectAttributes:default_route,manual_routing",
+          "source": "ast-validator:ConflictingListObjectAttributes",
+          "target_id": "xcsh-docs:resources:cloud_connect:properties:azure_vnet_site:vnet_attachments:vnet_list:default_route",
+          "type": "conflicts"
+        },
+        {
+          "anchor": "section",
+          "enforcement": "provider-schema",
+          "group": "azure_vnet_site.vnet_attachments.vnet_list:ConflictingListObjectAttributes:custom_routing,manual_routing",
+          "source": "ast-validator:ConflictingListObjectAttributes",
+          "target_id": "xcsh-docs:resources:cloud_connect:properties:azure_vnet_site:vnet_attachments:vnet_list:manual_routing",
+          "type": "conflicts"
+        },
+        {
+          "anchor": "section",
+          "enforcement": "provider-schema",
+          "group": "azure_vnet_site.vnet_attachments.vnet_list:ConflictingListObjectAttributes:default_route,manual_routing",
+          "source": "ast-validator:ConflictingListObjectAttributes",
+          "target_id": "xcsh-docs:resources:cloud_connect:properties:azure_vnet_site:vnet_attachments:vnet_list:manual_routing",
+          "type": "conflicts"
+        },
+        {
+          "anchor": "schema-azure_vnet_site--vnet_attachments--vnet_list--subscription_id",
+          "enforcement": "provider-schema",
+          "group": "azure_vnet_site.vnet_attachments.vnet_list:RequiredListObjectAttributes:subscription_id,vnet_id",
+          "source": "ast-validator:RequiredListObjectAttributes",
+          "target_id": "xcsh-docs:resources:cloud_connect:properties:azure_vnet_site:vnet_attachments:vnet_list",
+          "type": "requires"
+        },
+        {
+          "anchor": "schema-azure_vnet_site--vnet_attachments--vnet_list--vnet_id",
+          "enforcement": "provider-schema",
+          "group": "azure_vnet_site.vnet_attachments.vnet_list:RequiredListObjectAttributes:subscription_id,vnet_id",
+          "source": "ast-validator:RequiredListObjectAttributes",
+          "target_id": "xcsh-docs:resources:cloud_connect:properties:azure_vnet_site:vnet_attachments:vnet_list",
+          "type": "requires"
+        }
+      ],
+      "retrieval_version": 1,
       "role": "properties",
       "schema_path": ["azure_vnet_site", "vnet_attachments", "vnet_list"],
+      "sections": [
+        {
+          "aliases": ["custom routing"],
+          "anchor": "section",
+          "description": "List Azure Route Table with Static Route.",
+          "document_id": "xcsh-docs:resources:cloud_connect:properties:azure_vnet_site:vnet_attachments:vnet_list:custom_routing",
+          "flags": [],
+          "max_items": null,
+          "min_items": null,
+          "nesting": "single",
+          "relationships": [
+            {
+              "anchor": "section",
+              "enforcement": "provider-schema",
+              "group": "azure_vnet_site.vnet_attachments.vnet_list.custom_routing:RequiredObjectAttributes:route_tables",
+              "source": "ast-validator:RequiredObjectAttributes",
+              "target_id": "xcsh-docs:resources:cloud_connect:properties:azure_vnet_site:vnet_attachments:vnet_list:custom_routing:route_tables",
+              "type": "requires"
+            }
+          ],
+          "schema_path": ["azure_vnet_site", "vnet_attachments", "vnet_list", "custom_routing"],
+          "syntax": "block",
+          "type": "object"
+        },
+        {
+          "aliases": ["default route"],
+          "anchor": "section",
+          "description": "Select Override Default Route Choice.",
+          "document_id": "xcsh-docs:resources:cloud_connect:properties:azure_vnet_site:vnet_attachments:vnet_list:default_route",
+          "flags": [],
+          "max_items": null,
+          "min_items": null,
+          "nesting": "single",
+          "relationships": [
+            {
+              "anchor": "section",
+              "enforcement": "provider-schema",
+              "group": "azure_vnet_site.vnet_attachments.vnet_list.default_route:ConflictingObjectAttributes:all_route_tables,selective_route_tables",
+              "source": "ast-validator:ConflictingObjectAttributes",
+              "target_id": "xcsh-docs:resources:cloud_connect:properties:azure_vnet_site:vnet_attachments:vnet_list:default_route:all_route_tables",
+              "type": "conflicts"
+            },
+            {
+              "anchor": "section",
+              "enforcement": "provider-schema",
+              "group": "azure_vnet_site.vnet_attachments.vnet_list.default_route:ConflictingObjectAttributes:all_route_tables,selective_route_tables",
+              "source": "ast-validator:ConflictingObjectAttributes",
+              "target_id": "xcsh-docs:resources:cloud_connect:properties:azure_vnet_site:vnet_attachments:vnet_list:default_route:selective_route_tables",
+              "type": "conflicts"
+            }
+          ],
+          "schema_path": ["azure_vnet_site", "vnet_attachments", "vnet_list", "default_route"],
+          "syntax": "block",
+          "type": "object"
+        },
+        {
+          "aliases": ["labels"],
+          "anchor": "section",
+          "description": "Add labels for the VNet attachments. These labels can then be used in policies such as enhanced firewall policies.",
+          "document_id": "xcsh-docs:resources:cloud_connect:properties:azure_vnet_site:vnet_attachments:vnet_list:labels",
+          "flags": [],
+          "max_items": null,
+          "min_items": null,
+          "nesting": "single",
+          "relationships": [],
+          "schema_path": ["azure_vnet_site", "vnet_attachments", "vnet_list", "labels"],
+          "syntax": "block",
+          "type": "object"
+        },
+        {
+          "aliases": ["manual routing"],
+          "anchor": "section",
+          "description": "This can be used for messages where no values are needed.",
+          "document_id": "xcsh-docs:resources:cloud_connect:properties:azure_vnet_site:vnet_attachments:vnet_list:manual_routing",
+          "flags": ["optional"],
+          "max_items": null,
+          "min_items": null,
+          "nesting": null,
+          "relationships": [],
+          "schema_path": ["azure_vnet_site", "vnet_attachments", "vnet_list", "manual_routing"],
+          "syntax": "attribute",
+          "type": "object"
+        },
+        {
+          "aliases": ["subscription id"],
+          "anchor": "schema-azure_vnet_site--vnet_attachments--vnet_list--subscription_id",
+          "description": "Enter the Subscription ID of the VNet to be attached.",
+          "document_id": "xcsh-docs:resources:cloud_connect:properties:azure_vnet_site:vnet_attachments:vnet_list",
+          "flags": ["optional"],
+          "max_items": null,
+          "min_items": null,
+          "nesting": null,
+          "relationships": [],
+          "schema_path": ["azure_vnet_site", "vnet_attachments", "vnet_list", "subscription_id"],
+          "syntax": "attribute",
+          "type": "string"
+        },
+        {
+          "aliases": ["vnet id"],
+          "anchor": "schema-azure_vnet_site--vnet_attachments--vnet_list--vnet_id",
+          "description": "Enter the VNet ID of the VNet to be attached in format /<resource-group-name>/<VNet-name>",
+          "document_id": "xcsh-docs:resources:cloud_connect:properties:azure_vnet_site:vnet_attachments:vnet_list",
+          "flags": ["optional"],
+          "max_items": null,
+          "min_items": null,
+          "nesting": null,
+          "relationships": [],
+          "schema_path": ["azure_vnet_site", "vnet_attachments", "vnet_list", "vnet_id"],
+          "syntax": "attribute",
+          "type": "string"
+        }
+      ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/cloud_connect/properties/azure_vnet_site/vnet_attachments/vnet_list/index.txt",
-      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
-      "summary": "azure_vnet_site.vnet_attachments.vnet_list for xcsh_cloud_connect.",
+      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "summary": "Collection of items or values",
+      "tasks": ["configuration"],
       "title": "azure_vnet_site.vnet_attachments.vnet_list",
       "upstream_identity": {
-        "release_tag": "v9.0.0",
+        "release_tag": "v9.0.1",
         "schema_components": ["cloud_connectCreateRequest"],
-        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
       }
     },
     {
-      "aliases": [],
+      "aliases": ["azure vnet site vnet attachments vnet list custom routing"],
       "body_bytes": 2252,
       "body_sha256": "sha256:039a7960b71bb091f3f0dcb08ee5e4925f869d35b98a758327f052370b3510f0",
+      "capabilities": ["infrastructure"],
+      "category": "infrastructure",
       "child_ids": [
         "xcsh-docs:resources:cloud_connect:properties:azure_vnet_site:vnet_attachments:vnet_list:custom_routing:route_tables"
       ],
+      "classification": {
+        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "sources": ["reviewed-rule"],
+        "status": "resolved",
+        "upstream_category_source": "receipt-pinned-domain"
+      },
       "collection_id": "xcsh-docs:resources:cloud_connect:collection",
       "completeness": "complete",
       "id": "xcsh-docs:resources:cloud_connect:properties:azure_vnet_site:vnet_attachments:vnet_list:custom_routing",
       "parent_id": "xcsh-docs:resources:cloud_connect:properties:azure_vnet_site:vnet_attachments:vnet_list",
       "path": "documentation/resources/cloud_connect/properties/azure_vnet_site/vnet_attachments/vnet_list/custom_routing/index.md",
+      "product": "distributed-cloud",
       "provider_name": "cloud_connect",
       "provider_schema_digest": "sha256:e63a07e98b4893c041a6f79be7e19c64babfe543fc6847c17641037e084e1c7c",
       "provider_type": "resources",
       "registry_anchor": "canonical-2200110000212110-0211223122101311-0132320111230123-3202303313123111-3032112321013112-3003302001202121-0223200133101303-3220101131112012",
       "registry_path": "docs/guides/resources--cloud_connect--reference--group-001.md",
+      "relationships": [
+        {
+          "anchor": "section",
+          "enforcement": "provider-schema",
+          "group": "azure_vnet_site.vnet_attachments.vnet_list.custom_routing:RequiredObjectAttributes:route_tables",
+          "source": "ast-validator:RequiredObjectAttributes",
+          "target_id": "xcsh-docs:resources:cloud_connect:properties:azure_vnet_site:vnet_attachments:vnet_list:custom_routing:route_tables",
+          "type": "requires"
+        }
+      ],
+      "retrieval_version": 1,
       "role": "properties",
       "schema_path": ["azure_vnet_site", "vnet_attachments", "vnet_list", "custom_routing"],
+      "sections": [
+        {
+          "aliases": ["route tables"],
+          "anchor": "section",
+          "description": "Route Tables with static routes.",
+          "document_id": "xcsh-docs:resources:cloud_connect:properties:azure_vnet_site:vnet_attachments:vnet_list:custom_routing:route_tables",
+          "flags": [],
+          "max_items": null,
+          "min_items": null,
+          "nesting": "list",
+          "relationships": [
+            {
+              "anchor": "schema-azure_vnet_site--vnet_attachments--vnet_list--custom_routing--route_tables--static_routes",
+              "enforcement": "provider-schema",
+              "group": "azure_vnet_site.vnet_attachments.vnet_list.custom_routing.route_tables:RequiredListObjectAttributes:static_routes",
+              "source": "ast-validator:RequiredListObjectAttributes",
+              "target_id": "xcsh-docs:resources:cloud_connect:properties:azure_vnet_site:vnet_attachments:vnet_list:custom_routing:route_tables",
+              "type": "requires"
+            }
+          ],
+          "schema_path": ["azure_vnet_site", "vnet_attachments", "vnet_list", "custom_routing", "route_tables"],
+          "syntax": "block",
+          "type": "object"
+        }
+      ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/cloud_connect/properties/azure_vnet_site/vnet_attachments/vnet_list/custom_routing/index.txt",
-      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
-      "summary": "azure_vnet_site.vnet_attachments.vnet_list.custom_routing for xcsh_cloud_connect.",
+      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "summary": "List Azure Route Table with Static Route.",
+      "tasks": ["configuration"],
       "title": "azure_vnet_site.vnet_attachments.vnet_list.custom_routing",
       "upstream_identity": {
-        "release_tag": "v9.0.0",
+        "release_tag": "v9.0.1",
         "schema_components": ["cloud_connectCreateRequest"],
-        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
       }
     },
     {
-      "aliases": [],
+      "aliases": ["azure vnet site vnet attachments vnet list custom routing route tables"],
       "body_bytes": 5972,
       "body_sha256": "sha256:f9036d48847fb9802bb8a65d48a34fb92ed1636302ca1875c4db610c3c865ad9",
+      "capabilities": ["infrastructure"],
+      "category": "infrastructure",
       "child_ids": [],
+      "classification": {
+        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "sources": ["reviewed-rule"],
+        "status": "resolved",
+        "upstream_category_source": "receipt-pinned-domain"
+      },
       "collection_id": "xcsh-docs:resources:cloud_connect:collection",
       "completeness": "complete",
       "id": "xcsh-docs:resources:cloud_connect:properties:azure_vnet_site:vnet_attachments:vnet_list:custom_routing:route_tables",
       "parent_id": "xcsh-docs:resources:cloud_connect:properties:azure_vnet_site:vnet_attachments:vnet_list:custom_routing",
       "path": "documentation/resources/cloud_connect/properties/azure_vnet_site/vnet_attachments/vnet_list/custom_routing/route_tables/index.md",
+      "product": "distributed-cloud",
       "provider_name": "cloud_connect",
       "provider_schema_digest": "sha256:e63a07e98b4893c041a6f79be7e19c64babfe543fc6847c17641037e084e1c7c",
       "provider_type": "resources",
       "registry_anchor": "canonical-1333020222202213-0312323112021211-3232130011213302-1223001300200100-2221133021022132-0200212002203133-2221033221323120-3011313330102330",
       "registry_path": "docs/guides/resources--cloud_connect--reference--group-001.md",
+      "relationships": [
+        {
+          "anchor": "schema-azure_vnet_site--vnet_attachments--vnet_list--custom_routing--route_tables--static_routes",
+          "enforcement": "provider-schema",
+          "group": "azure_vnet_site.vnet_attachments.vnet_list.custom_routing.route_tables:RequiredListObjectAttributes:static_routes",
+          "source": "ast-validator:RequiredListObjectAttributes",
+          "target_id": "xcsh-docs:resources:cloud_connect:properties:azure_vnet_site:vnet_attachments:vnet_list:custom_routing:route_tables",
+          "type": "requires"
+        }
+      ],
+      "retrieval_version": 1,
       "role": "properties",
       "schema_path": ["azure_vnet_site", "vnet_attachments", "vnet_list", "custom_routing", "route_tables"],
+      "sections": [
+        {
+          "aliases": ["route table id"],
+          "anchor": "schema-azure_vnet_site--vnet_attachments--vnet_list--custom_routing--route_tables--route_table_id",
+          "description": "Route table ID in the format /<resource-group-name>/<route-table-name>",
+          "document_id": "xcsh-docs:resources:cloud_connect:properties:azure_vnet_site:vnet_attachments:vnet_list:custom_routing:route_tables",
+          "flags": ["optional"],
+          "max_items": null,
+          "min_items": null,
+          "nesting": null,
+          "relationships": [],
+          "schema_path": [
+            "azure_vnet_site",
+            "vnet_attachments",
+            "vnet_list",
+            "custom_routing",
+            "route_tables",
+            "route_table_id"
+          ],
+          "syntax": "attribute",
+          "type": "string"
+        },
+        {
+          "aliases": ["static routes"],
+          "anchor": "schema-azure_vnet_site--vnet_attachments--vnet_list--custom_routing--route_tables--static_routes",
+          "description": "List of Static Routes.",
+          "document_id": "xcsh-docs:resources:cloud_connect:properties:azure_vnet_site:vnet_attachments:vnet_list:custom_routing:route_tables",
+          "flags": ["optional"],
+          "max_items": null,
+          "min_items": null,
+          "nesting": null,
+          "relationships": [],
+          "schema_path": [
+            "azure_vnet_site",
+            "vnet_attachments",
+            "vnet_list",
+            "custom_routing",
+            "route_tables",
+            "static_routes"
+          ],
+          "syntax": "attribute",
+          "type": "list"
+        }
+      ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/cloud_connect/properties/azure_vnet_site/vnet_attachments/vnet_list/custom_routing/route_tables/index.txt",
-      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
-      "summary": "azure_vnet_site.vnet_attachments.vnet_list.custom_routing.route_tables for xcsh_cloud_connect.",
+      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "summary": "Route Tables with static routes.",
+      "tasks": ["configuration"],
       "title": "azure_vnet_site.vnet_attachments.vnet_list.custom_routing.route_tables",
       "upstream_identity": {
-        "release_tag": "v9.0.0",
+        "release_tag": "v9.0.1",
         "schema_components": ["cloud_connectCreateRequest"],
-        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
       }
     },
     {
-      "aliases": [],
+      "aliases": ["azure vnet site vnet attachments vnet list default route"],
       "body_bytes": 2949,
       "body_sha256": "sha256:48b32601c3ed6463bea380b32ba948fb5fc6578d6fbc6e94638ed2d6cdb87620",
+      "capabilities": ["infrastructure"],
+      "category": "infrastructure",
       "child_ids": [
         "xcsh-docs:resources:cloud_connect:properties:azure_vnet_site:vnet_attachments:vnet_list:default_route:all_route_tables",
         "xcsh-docs:resources:cloud_connect:properties:azure_vnet_site:vnet_attachments:vnet_list:default_route:selective_route_tables"
       ],
+      "classification": {
+        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "sources": ["reviewed-rule"],
+        "status": "resolved",
+        "upstream_category_source": "receipt-pinned-domain"
+      },
       "collection_id": "xcsh-docs:resources:cloud_connect:collection",
       "completeness": "complete",
       "id": "xcsh-docs:resources:cloud_connect:properties:azure_vnet_site:vnet_attachments:vnet_list:default_route",
       "parent_id": "xcsh-docs:resources:cloud_connect:properties:azure_vnet_site:vnet_attachments:vnet_list",
       "path": "documentation/resources/cloud_connect/properties/azure_vnet_site/vnet_attachments/vnet_list/default_route/index.md",
+      "product": "distributed-cloud",
       "provider_name": "cloud_connect",
       "provider_schema_digest": "sha256:e63a07e98b4893c041a6f79be7e19c64babfe543fc6847c17641037e084e1c7c",
       "provider_type": "resources",
       "registry_anchor": "canonical-3220201320311203-2020313030312302-1330213222131120-3312022320300031-0211232111213303-1132323111103322-2121000101222302-0211103211201013",
       "registry_path": "docs/guides/resources--cloud_connect--reference--group-001.md",
+      "relationships": [
+        {
+          "anchor": "section",
+          "enforcement": "provider-schema",
+          "group": "azure_vnet_site.vnet_attachments.vnet_list.default_route:ConflictingObjectAttributes:all_route_tables,selective_route_tables",
+          "source": "ast-validator:ConflictingObjectAttributes",
+          "target_id": "xcsh-docs:resources:cloud_connect:properties:azure_vnet_site:vnet_attachments:vnet_list:default_route:all_route_tables",
+          "type": "conflicts"
+        },
+        {
+          "anchor": "section",
+          "enforcement": "provider-schema",
+          "group": "azure_vnet_site.vnet_attachments.vnet_list.default_route:ConflictingObjectAttributes:all_route_tables,selective_route_tables",
+          "source": "ast-validator:ConflictingObjectAttributes",
+          "target_id": "xcsh-docs:resources:cloud_connect:properties:azure_vnet_site:vnet_attachments:vnet_list:default_route:selective_route_tables",
+          "type": "conflicts"
+        }
+      ],
+      "retrieval_version": 1,
       "role": "properties",
       "schema_path": ["azure_vnet_site", "vnet_attachments", "vnet_list", "default_route"],
+      "sections": [
+        {
+          "aliases": ["all route tables"],
+          "anchor": "section",
+          "description": "This can be used for messages where no values are needed.",
+          "document_id": "xcsh-docs:resources:cloud_connect:properties:azure_vnet_site:vnet_attachments:vnet_list:default_route:all_route_tables",
+          "flags": ["optional"],
+          "max_items": null,
+          "min_items": null,
+          "nesting": null,
+          "relationships": [],
+          "schema_path": ["azure_vnet_site", "vnet_attachments", "vnet_list", "default_route", "all_route_tables"],
+          "syntax": "attribute",
+          "type": "object"
+        },
+        {
+          "aliases": ["selective route tables"],
+          "anchor": "section",
+          "description": "Azure Route Table.",
+          "document_id": "xcsh-docs:resources:cloud_connect:properties:azure_vnet_site:vnet_attachments:vnet_list:default_route:selective_route_tables",
+          "flags": [],
+          "max_items": null,
+          "min_items": null,
+          "nesting": "single",
+          "relationships": [],
+          "schema_path": [
+            "azure_vnet_site",
+            "vnet_attachments",
+            "vnet_list",
+            "default_route",
+            "selective_route_tables"
+          ],
+          "syntax": "block",
+          "type": "object"
+        }
+      ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/cloud_connect/properties/azure_vnet_site/vnet_attachments/vnet_list/default_route/index.txt",
-      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
-      "summary": "azure_vnet_site.vnet_attachments.vnet_list.default_route for xcsh_cloud_connect.",
+      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "summary": "Select Override Default Route Choice.",
+      "tasks": ["configuration"],
       "title": "azure_vnet_site.vnet_attachments.vnet_list.default_route",
       "upstream_identity": {
-        "release_tag": "v9.0.0",
+        "release_tag": "v9.0.1",
         "schema_components": ["cloud_connectCreateRequest"],
-        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
       }
     },
     {
-      "aliases": [],
+      "aliases": ["azure vnet site vnet attachments vnet list default route all route tables"],
       "body_bytes": 2019,
       "body_sha256": "sha256:4cbfa4d144e1f9db119dbf3e022b75a6bd434c72ca593ec7826449860db71d82",
+      "capabilities": ["infrastructure"],
+      "category": "infrastructure",
       "child_ids": [],
+      "classification": {
+        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "sources": ["reviewed-rule"],
+        "status": "resolved",
+        "upstream_category_source": "receipt-pinned-domain"
+      },
       "collection_id": "xcsh-docs:resources:cloud_connect:collection",
       "completeness": "complete",
       "id": "xcsh-docs:resources:cloud_connect:properties:azure_vnet_site:vnet_attachments:vnet_list:default_route:all_route_tables",
       "parent_id": "xcsh-docs:resources:cloud_connect:properties:azure_vnet_site:vnet_attachments:vnet_list:default_route",
       "path": "documentation/resources/cloud_connect/properties/azure_vnet_site/vnet_attachments/vnet_list/default_route/all_route_tables/index.md",
+      "product": "distributed-cloud",
       "provider_name": "cloud_connect",
       "provider_schema_digest": "sha256:e63a07e98b4893c041a6f79be7e19c64babfe543fc6847c17641037e084e1c7c",
       "provider_type": "resources",
       "registry_anchor": "canonical-2321310022221102-0211100223023023-2101002122232231-0223133232223133-0122330111013112-0122120022030302-3232322322110001-3131022211321301",
       "registry_path": "docs/guides/resources--cloud_connect--reference--group-001.md",
+      "relationships": [],
+      "retrieval_version": 1,
       "role": "properties",
       "schema_path": ["azure_vnet_site", "vnet_attachments", "vnet_list", "default_route", "all_route_tables"],
+      "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/cloud_connect/properties/azure_vnet_site/vnet_attachments/vnet_list/default_route/all_route_tables/index.txt",
-      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
-      "summary": "azure_vnet_site.vnet_attachments.vnet_list.default_route.all_route_tables for xcsh_cloud_connect.",
+      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "summary": "This can be used for messages where no values are needed.",
+      "tasks": ["configuration"],
       "title": "azure_vnet_site.vnet_attachments.vnet_list.default_route.all_route_tables",
       "upstream_identity": {
-        "release_tag": "v9.0.0",
+        "release_tag": "v9.0.1",
         "schema_components": ["cloud_connectCreateRequest"],
-        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
       }
     },
     {
-      "aliases": [],
+      "aliases": ["azure vnet site vnet attachments vnet list default route selective route tables"],
       "body_bytes": 3113,
       "body_sha256": "sha256:de537b9dd318ea603976daa6e2ff5ed2dd0da51b504c1992733d5f61c45ac87e",
+      "capabilities": ["infrastructure"],
+      "category": "infrastructure",
       "child_ids": [],
+      "classification": {
+        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "sources": ["reviewed-rule"],
+        "status": "resolved",
+        "upstream_category_source": "receipt-pinned-domain"
+      },
       "collection_id": "xcsh-docs:resources:cloud_connect:collection",
       "completeness": "complete",
       "id": "xcsh-docs:resources:cloud_connect:properties:azure_vnet_site:vnet_attachments:vnet_list:default_route:selective_route_tables",
       "parent_id": "xcsh-docs:resources:cloud_connect:properties:azure_vnet_site:vnet_attachments:vnet_list:default_route",
       "path": "documentation/resources/cloud_connect/properties/azure_vnet_site/vnet_attachments/vnet_list/default_route/selective_route_tables/index.md",
+      "product": "distributed-cloud",
       "provider_name": "cloud_connect",
       "provider_schema_digest": "sha256:e63a07e98b4893c041a6f79be7e19c64babfe543fc6847c17641037e084e1c7c",
       "provider_type": "resources",
       "registry_anchor": "canonical-1330323010211330-0223132112002123-1311312313131103-1003013021230300-0031320131121332-2330301012303023-1313113122010021-1231303321321130",
       "registry_path": "docs/guides/resources--cloud_connect--reference--group-001.md",
+      "relationships": [],
+      "retrieval_version": 1,
       "role": "properties",
       "schema_path": ["azure_vnet_site", "vnet_attachments", "vnet_list", "default_route", "selective_route_tables"],
+      "sections": [
+        {
+          "aliases": ["route table id"],
+          "anchor": "schema-azure_vnet_site--vnet_attachments--vnet_list--default_route--selective_route_tables--route_table_id",
+          "description": "Route table ID in the format /<resource-group-name>/<route-table-name>",
+          "document_id": "xcsh-docs:resources:cloud_connect:properties:azure_vnet_site:vnet_attachments:vnet_list:default_route:selective_route_tables",
+          "flags": ["optional"],
+          "max_items": null,
+          "min_items": null,
+          "nesting": null,
+          "relationships": [],
+          "schema_path": [
+            "azure_vnet_site",
+            "vnet_attachments",
+            "vnet_list",
+            "default_route",
+            "selective_route_tables",
+            "route_table_id"
+          ],
+          "syntax": "attribute",
+          "type": "list"
+        }
+      ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/cloud_connect/properties/azure_vnet_site/vnet_attachments/vnet_list/default_route/selective_route_tables/index.txt",
-      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
-      "summary": "azure_vnet_site.vnet_attachments.vnet_list.default_route.selective_route_tables for xcsh_cloud_connect.",
+      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "summary": "Azure Route Table.",
+      "tasks": ["configuration"],
       "title": "azure_vnet_site.vnet_attachments.vnet_list.default_route.selective_route_tables",
       "upstream_identity": {
-        "release_tag": "v9.0.0",
+        "release_tag": "v9.0.1",
         "schema_components": ["cloud_connectCreateRequest"],
-        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
       }
     },
     {
-      "aliases": [],
+      "aliases": ["azure vnet site vnet attachments vnet list labels"],
       "body_bytes": 1722,
       "body_sha256": "sha256:861d754150d03a399006dd54006c6b31bcf5e260fa6c50977f5c46348df971ab",
+      "capabilities": ["infrastructure"],
+      "category": "infrastructure",
       "child_ids": [],
+      "classification": {
+        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "sources": ["reviewed-rule"],
+        "status": "resolved",
+        "upstream_category_source": "receipt-pinned-domain"
+      },
       "collection_id": "xcsh-docs:resources:cloud_connect:collection",
       "completeness": "complete",
       "id": "xcsh-docs:resources:cloud_connect:properties:azure_vnet_site:vnet_attachments:vnet_list:labels",
       "parent_id": "xcsh-docs:resources:cloud_connect:properties:azure_vnet_site:vnet_attachments:vnet_list",
       "path": "documentation/resources/cloud_connect/properties/azure_vnet_site/vnet_attachments/vnet_list/labels/index.md",
+      "product": "distributed-cloud",
       "provider_name": "cloud_connect",
       "provider_schema_digest": "sha256:e63a07e98b4893c041a6f79be7e19c64babfe543fc6847c17641037e084e1c7c",
       "provider_type": "resources",
       "registry_anchor": "canonical-2202230122213313-2312032221021231-1230313333300022-2000331210312310-1002233121022033-2213301331013233-3003120110013113-2112131221230020",
       "registry_path": "docs/guides/resources--cloud_connect--reference--group-001.md",
+      "relationships": [],
+      "retrieval_version": 1,
       "role": "properties",
       "schema_path": ["azure_vnet_site", "vnet_attachments", "vnet_list", "labels"],
+      "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/cloud_connect/properties/azure_vnet_site/vnet_attachments/vnet_list/labels/index.txt",
-      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
-      "summary": "azure_vnet_site.vnet_attachments.vnet_list.labels for xcsh_cloud_connect.",
+      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "summary": "Add labels for the VNet attachments. These labels can then be used in policies such as enhanced firewall policies.",
+      "tasks": ["configuration"],
       "title": "azure_vnet_site.vnet_attachments.vnet_list.labels",
       "upstream_identity": {
-        "release_tag": "v9.0.0",
+        "release_tag": "v9.0.1",
         "schema_components": ["cloud_connectCreateRequest"],
-        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
       }
     },
     {
-      "aliases": [],
+      "aliases": ["azure vnet site vnet attachments vnet list manual routing"],
       "body_bytes": 1719,
       "body_sha256": "sha256:2a32b2aabf9ff2122a9bbfe94e66fde0777d81348a1fecb6b7eddf0f0bd7eab7",
+      "capabilities": ["infrastructure"],
+      "category": "infrastructure",
       "child_ids": [],
+      "classification": {
+        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "sources": ["reviewed-rule"],
+        "status": "resolved",
+        "upstream_category_source": "receipt-pinned-domain"
+      },
       "collection_id": "xcsh-docs:resources:cloud_connect:collection",
       "completeness": "complete",
       "id": "xcsh-docs:resources:cloud_connect:properties:azure_vnet_site:vnet_attachments:vnet_list:manual_routing",
       "parent_id": "xcsh-docs:resources:cloud_connect:properties:azure_vnet_site:vnet_attachments:vnet_list",
       "path": "documentation/resources/cloud_connect/properties/azure_vnet_site/vnet_attachments/vnet_list/manual_routing/index.md",
+      "product": "distributed-cloud",
       "provider_name": "cloud_connect",
       "provider_schema_digest": "sha256:e63a07e98b4893c041a6f79be7e19c64babfe543fc6847c17641037e084e1c7c",
       "provider_type": "resources",
       "registry_anchor": "canonical-3210032132201123-2302223311020303-2330130200133121-0133200323321032-0002012102122332-0110321202210120-1220322230013030-3113020302121222",
       "registry_path": "docs/guides/resources--cloud_connect--reference--group-001.md",
+      "relationships": [],
+      "retrieval_version": 1,
       "role": "properties",
       "schema_path": ["azure_vnet_site", "vnet_attachments", "vnet_list", "manual_routing"],
+      "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/cloud_connect/properties/azure_vnet_site/vnet_attachments/vnet_list/manual_routing/index.txt",
-      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
-      "summary": "azure_vnet_site.vnet_attachments.vnet_list.manual_routing for xcsh_cloud_connect.",
+      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "summary": "This can be used for messages where no values are needed.",
+      "tasks": ["configuration"],
       "title": "azure_vnet_site.vnet_attachments.vnet_list.manual_routing",
       "upstream_identity": {
-        "release_tag": "v9.0.0",
+        "release_tag": "v9.0.1",
         "schema_components": ["cloud_connectCreateRequest"],
-        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
       }
     },
     {
-      "aliases": [],
+      "aliases": ["segment"],
       "body_bytes": 5805,
       "body_sha256": "sha256:04778679ff912ef76a90d0cbafb78d06511cd18e9286979f18dbb252a2b3b95e",
+      "capabilities": ["infrastructure"],
+      "category": "infrastructure",
       "child_ids": [],
+      "classification": {
+        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "sources": ["reviewed-rule"],
+        "status": "resolved",
+        "upstream_category_source": "receipt-pinned-domain"
+      },
       "collection_id": "xcsh-docs:resources:cloud_connect:collection",
       "completeness": "complete",
       "id": "xcsh-docs:resources:cloud_connect:properties:segment",
       "parent_id": "xcsh-docs:resources:cloud_connect:reference",
       "path": "documentation/resources/cloud_connect/properties/segment/index.md",
+      "product": "distributed-cloud",
       "provider_name": "cloud_connect",
       "provider_schema_digest": "sha256:e63a07e98b4893c041a6f79be7e19c64babfe543fc6847c17641037e084e1c7c",
       "provider_type": "resources",
       "registry_anchor": "canonical-0212201120030202-1202123000003111-2102023221221232-3200021132222310-2120132330002232-1032231132002213-2133103223032230-0321330113002232",
       "registry_path": "docs/guides/resources--cloud_connect--reference--group-001.md",
+      "relationships": [
+        {
+          "anchor": "schema-segment--name",
+          "enforcement": "provider-schema",
+          "group": "segment:RequiredObjectAttributes:name",
+          "source": "ast-validator:RequiredObjectAttributes",
+          "target_id": "xcsh-docs:resources:cloud_connect:properties:segment",
+          "type": "requires"
+        }
+      ],
+      "retrieval_version": 1,
       "role": "properties",
       "schema_path": ["segment"],
+      "sections": [
+        {
+          "aliases": ["name"],
+          "anchor": "schema-segment--name",
+          "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.",
+          "document_id": "xcsh-docs:resources:cloud_connect:properties:segment",
+          "flags": ["optional"],
+          "max_items": null,
+          "min_items": null,
+          "nesting": null,
+          "relationships": [],
+          "schema_path": ["segment", "name"],
+          "syntax": "attribute",
+          "type": "string"
+        },
+        {
+          "aliases": ["namespace"],
+          "anchor": "schema-segment--namespace",
+          "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace.",
+          "document_id": "xcsh-docs:resources:cloud_connect:properties:segment",
+          "flags": ["optional", "computed"],
+          "max_items": null,
+          "min_items": null,
+          "nesting": null,
+          "relationships": [],
+          "schema_path": ["segment", "namespace"],
+          "syntax": "attribute",
+          "type": "string"
+        },
+        {
+          "aliases": ["tenant"],
+          "anchor": "schema-segment--tenant",
+          "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant.",
+          "document_id": "xcsh-docs:resources:cloud_connect:properties:segment",
+          "flags": ["computed"],
+          "max_items": null,
+          "min_items": null,
+          "nesting": null,
+          "relationships": [],
+          "schema_path": ["segment", "tenant"],
+          "syntax": "attribute",
+          "type": "string"
+        }
+      ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/cloud_connect/properties/segment/index.txt",
-      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
-      "summary": "segment for xcsh_cloud_connect.",
+      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "summary": "This type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name.",
+      "tasks": ["configuration"],
       "title": "segment",
       "upstream_identity": {
-        "release_tag": "v9.0.0",
+        "release_tag": "v9.0.1",
         "schema_components": ["cloud_connectCreateRequest"],
-        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
       }
     },
     {
-      "aliases": [],
+      "aliases": ["duration", "operation timeout", "timeouts"],
       "body_bytes": 2237,
       "body_sha256": "sha256:a38d0891a7c34553841b3a73fbbea624a130f18f91ea9ebbefde4de775a9a142",
+      "capabilities": ["infrastructure"],
+      "category": "infrastructure",
       "child_ids": [],
+      "classification": {
+        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "sources": ["reviewed-rule"],
+        "status": "resolved",
+        "upstream_category_source": "receipt-pinned-domain"
+      },
       "collection_id": "xcsh-docs:resources:cloud_connect:collection",
       "completeness": "complete",
       "id": "xcsh-docs:resources:cloud_connect:properties:timeouts",
       "parent_id": "xcsh-docs:resources:cloud_connect:reference",
       "path": "documentation/resources/cloud_connect/properties/timeouts/index.md",
+      "product": "distributed-cloud",
       "provider_name": "cloud_connect",
       "provider_schema_digest": "sha256:e63a07e98b4893c041a6f79be7e19c64babfe543fc6847c17641037e084e1c7c",
       "provider_type": "resources",
       "registry_anchor": "canonical-0102000200203213-0133023212110222-3021012023202203-0022100231003022-1321013002322210-0303322031111330-1031321201022011-1032333113131332",
       "registry_path": "docs/guides/resources--cloud_connect--reference--group-001.md",
+      "relationships": [],
+      "retrieval_version": 1,
       "role": "properties",
       "schema_path": ["timeouts"],
+      "sections": [
+        {
+          "aliases": ["create"],
+          "anchor": "schema-timeouts--create",
+          "description": "A string that can be (https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as \"30s\" or \"2h45m\". Valid time units are \"s\" (seconds), \"m\" (minutes), \"h\" (hours).",
+          "document_id": "xcsh-docs:resources:cloud_connect:properties:timeouts",
+          "flags": ["optional"],
+          "max_items": null,
+          "min_items": null,
+          "nesting": null,
+          "relationships": [],
+          "schema_path": ["timeouts", "create"],
+          "syntax": "attribute",
+          "type": "string"
+        },
+        {
+          "aliases": ["delete", "duration", "operation timeout"],
+          "anchor": "schema-timeouts--delete",
+          "description": "A string that can be (https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as \"30s\" or \"2h45m\". Valid time units are \"s\" (seconds), \"m\" (minutes), \"h\" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.",
+          "document_id": "xcsh-docs:resources:cloud_connect:properties:timeouts",
+          "flags": ["optional"],
+          "max_items": null,
+          "min_items": null,
+          "nesting": null,
+          "relationships": [],
+          "schema_path": ["timeouts", "delete"],
+          "syntax": "attribute",
+          "type": "string"
+        },
+        {
+          "aliases": ["read"],
+          "anchor": "schema-timeouts--read",
+          "description": "A string that can be (https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as \"30s\" or \"2h45m\". Valid time units are \"s\" (seconds), \"m\" (minutes), \"h\" (hours). Read operations occur during any refresh or planning operation when refresh is enabled.",
+          "document_id": "xcsh-docs:resources:cloud_connect:properties:timeouts",
+          "flags": ["optional"],
+          "max_items": null,
+          "min_items": null,
+          "nesting": null,
+          "relationships": [],
+          "schema_path": ["timeouts", "read"],
+          "syntax": "attribute",
+          "type": "string"
+        },
+        {
+          "aliases": ["update"],
+          "anchor": "schema-timeouts--update",
+          "description": "A string that can be (https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as \"30s\" or \"2h45m\". Valid time units are \"s\" (seconds), \"m\" (minutes), \"h\" (hours).",
+          "document_id": "xcsh-docs:resources:cloud_connect:properties:timeouts",
+          "flags": ["optional"],
+          "max_items": null,
+          "min_items": null,
+          "nesting": null,
+          "relationships": [],
+          "schema_path": ["timeouts", "update"],
+          "syntax": "attribute",
+          "type": "string"
+        }
+      ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/cloud_connect/properties/timeouts/index.txt",
-      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
       "summary": "timeouts for xcsh_cloud_connect.",
+      "tasks": ["configuration"],
       "title": "timeouts",
       "upstream_identity": {
-        "release_tag": "v9.0.0",
+        "release_tag": "v9.0.1",
         "schema_components": ["cloud_connectCreateRequest"],
-        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
       }
     },
     {
-      "aliases": [],
+      "aliases": ["cloud connect"],
       "body_bytes": 639,
       "body_sha256": "sha256:b62f829d79f1ac085d481d637c7a4880be568139a4cf126b42bb95291c95a120",
+      "capabilities": ["infrastructure"],
+      "category": "infrastructure",
       "child_ids": ["xcsh-docs:resources:cloud_connect:example:resource"],
+      "classification": {
+        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "sources": ["reviewed-rule"],
+        "status": "resolved",
+        "upstream_category_source": "receipt-pinned-domain"
+      },
       "collection_id": "xcsh-docs:resources:cloud_connect:collection",
       "completeness": "complete",
       "id": "xcsh-docs:resources:cloud_connect:examples",
       "parent_id": "xcsh-docs:resources:cloud_connect:fundamentals",
       "path": "documentation/resources/cloud_connect/examples/index.md",
+      "product": "distributed-cloud",
       "provider_name": "cloud_connect",
       "provider_schema_digest": "sha256:e63a07e98b4893c041a6f79be7e19c64babfe543fc6847c17641037e084e1c7c",
       "provider_type": "resources",
       "registry_anchor": "canonical-0123101101112120-2022133020013020-0302023021001322-2211230202313232-2112121210021023-3202132333203330-1131200300131112-3003102213332121",
       "registry_path": "docs/guides/resources--cloud_connect--examples--group-001.md",
+      "relationships": [],
+      "retrieval_version": 1,
       "role": "examples",
       "schema_path": [],
+      "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/cloud_connect/examples/index.txt",
-      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
       "summary": "Examples for xcsh_cloud_connect.",
+      "tasks": ["configuration"],
       "title": "Examples",
       "upstream_identity": {
-        "release_tag": "v9.0.0",
+        "release_tag": "v9.0.1",
         "schema_components": ["cloud_connectCreateRequest"],
-        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
       }
     },
     {
-      "aliases": [],
+      "aliases": ["resource"],
       "body_bytes": 1302,
       "body_sha256": "sha256:87761280c34f7f3b1af686ec6350407a7b0fad5a7c3dce6fa6eceb0224965d27",
+      "capabilities": ["infrastructure"],
+      "category": "infrastructure",
       "child_ids": [],
+      "classification": {
+        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "sources": ["reviewed-rule"],
+        "status": "resolved",
+        "upstream_category_source": "receipt-pinned-domain"
+      },
       "collection_id": "xcsh-docs:resources:cloud_connect:collection",
       "completeness": "complete",
       "evidence": {
@@ -1209,76 +2956,107 @@
       "id": "xcsh-docs:resources:cloud_connect:example:resource",
       "parent_id": "xcsh-docs:resources:cloud_connect:examples",
       "path": "documentation/resources/cloud_connect/examples/resource/index.md",
+      "product": "distributed-cloud",
       "provider_name": "cloud_connect",
       "provider_schema_digest": "sha256:e63a07e98b4893c041a6f79be7e19c64babfe543fc6847c17641037e084e1c7c",
       "provider_type": "resources",
       "registry_anchor": "canonical-2303220331213200-2102331201020231-1003230332031210-0213310202133103-1120000223013203-1031133230232231-1311131023030013-0132120103303331",
       "registry_path": "docs/guides/resources--cloud_connect--examples--group-001.md",
+      "relationships": [],
+      "retrieval_version": 1,
       "role": "example",
       "schema_path": ["resource"],
+      "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/cloud_connect/examples/resource/index.txt",
-      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
       "summary": "Resource for xcsh_cloud_connect.",
+      "tasks": ["configuration"],
       "title": "Resource",
       "upstream_identity": {
-        "release_tag": "v9.0.0",
+        "release_tag": "v9.0.1",
         "schema_components": ["cloud_connectCreateRequest"],
-        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
       }
     },
     {
-      "aliases": [],
+      "aliases": ["cloud connect"],
       "body_bytes": 485,
       "body_sha256": "sha256:47f00cbd26b873a7b985fc075e2645015b189866c114db7997e74ed159d77620",
+      "capabilities": ["infrastructure"],
+      "category": "infrastructure",
       "child_ids": [],
+      "classification": {
+        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "sources": ["reviewed-rule"],
+        "status": "resolved",
+        "upstream_category_source": "receipt-pinned-domain"
+      },
       "collection_id": "xcsh-docs:resources:cloud_connect:collection",
       "completeness": "complete",
       "id": "xcsh-docs:resources:cloud_connect:import",
       "import_guidance": "Import using the `namespace/name` identifier format.",
       "parent_id": "xcsh-docs:resources:cloud_connect:fundamentals",
       "path": "documentation/resources/cloud_connect/lifecycle/import/index.md",
+      "product": "distributed-cloud",
       "provider_name": "cloud_connect",
       "provider_schema_digest": "sha256:e63a07e98b4893c041a6f79be7e19c64babfe543fc6847c17641037e084e1c7c",
       "provider_type": "resources",
       "registry_anchor": "canonical-0303110103131322-0331201202312301-1132313131310220-3312200300323311-1111232310113210-1002300211231013-0030211203302300-2021022023220222",
       "registry_path": "docs/guides/resources--cloud_connect--lifecycle--group-001.md",
+      "relationships": [],
+      "retrieval_version": 1,
       "role": "import",
       "schema_path": [],
+      "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/cloud_connect/lifecycle/import/index.txt",
-      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
       "summary": "Import for xcsh_cloud_connect.",
+      "tasks": ["import"],
       "title": "Import",
       "upstream_identity": {
-        "release_tag": "v9.0.0",
+        "release_tag": "v9.0.1",
         "schema_components": ["cloud_connectCreateRequest"],
-        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
       }
     },
     {
-      "aliases": [],
+      "aliases": ["cloud connect"],
       "body_bytes": 573,
       "body_sha256": "sha256:1088a52c5f9ee14eb9c0868b9bd5be60f3cd919faef616a707e2cdca14ab37ef",
+      "capabilities": ["infrastructure"],
+      "category": "infrastructure",
       "child_ids": [],
+      "classification": {
+        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "sources": ["reviewed-rule"],
+        "status": "resolved",
+        "upstream_category_source": "receipt-pinned-domain"
+      },
       "collection_id": "xcsh-docs:resources:cloud_connect:collection",
       "completeness": "complete",
       "id": "xcsh-docs:resources:cloud_connect:timeouts",
       "parent_id": "xcsh-docs:resources:cloud_connect:fundamentals",
       "path": "documentation/resources/cloud_connect/lifecycle/timeouts/index.md",
+      "product": "distributed-cloud",
       "provider_name": "cloud_connect",
       "provider_schema_digest": "sha256:e63a07e98b4893c041a6f79be7e19c64babfe543fc6847c17641037e084e1c7c",
       "provider_type": "resources",
       "registry_anchor": "canonical-0301022101330330-3113121221220023-3033233123203021-0001230300222012-0320220311021223-2101222202020220-1011312012213132-3022320000100202",
       "registry_path": "docs/guides/resources--cloud_connect--lifecycle--group-001.md",
+      "relationships": [],
+      "retrieval_version": 1,
       "role": "timeouts",
       "schema_path": [],
+      "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/cloud_connect/lifecycle/timeouts/index.txt",
-      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
       "summary": "Timeouts for xcsh_cloud_connect.",
+      "tasks": ["lifecycle"],
       "title": "Timeouts",
       "upstream_identity": {
-        "release_tag": "v9.0.0",
+        "release_tag": "v9.0.1",
         "schema_components": ["cloud_connectCreateRequest"],
-        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
       }
     }
   ],

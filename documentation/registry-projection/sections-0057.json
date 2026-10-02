@@ -3,6 +3,23 @@
   "sections": [
     {
       "canonical_id": "xcsh-docs:resources:proxy:properties:dynamic_proxy:https_proxy:more_option",
+      "section_id": "xcsh-docs:resources:proxy:properties:dynamic_proxy:https_proxy:more_option:section:5",
+      "source_sha256": "sha256:2666bb7ac1dca4dfb59c3db40bcf8c51aa50b5781ebcf2bfdd4ae6fa8c77e7a2",
+      "source_bytes": 1414,
+      "canonical_source_sha256": "sha256:e51ddbf33f3f5585b466e2f7c50b89561dd048581eebda229e7b865ad4276a74",
+      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/resources/proxy/properties/dynamic_proxy/https_proxy/more_option/",
+      "anchor": "canonical-3300220320312221-2210302032021223-3011210102020132-2311222332231330-0312031030123132-2113332100200303-2100211312132302-3330120001012003",
+      "anchor_map": [
+        [
+          "schema-dynamic_proxy--https_proxy--more_option--max_request_header_size",
+          "canonical-1133031030113001-3211122221310122-3100200031331231-0212030022132112-2020111131230310-0110123120311000-2310002321120023-0321130232003202"
+        ]
+      ],
+      "mode": "embedded",
+      "registry_path": "docs/guides/resources--proxy--reference--group-002.md"
+    },
+    {
+      "canonical_id": "xcsh-docs:resources:proxy:properties:dynamic_proxy:https_proxy:more_option",
       "section_id": "xcsh-docs:resources:proxy:properties:dynamic_proxy:https_proxy:more_option:section:6",
       "source_sha256": "sha256:ab24cf618497b1f3d999c6ae3487483f63283f9955f4e6e1dc0ed38ed457fd42",
       "source_bytes": 1542,
@@ -7109,18 +7126,6 @@
           "canonical-0330010312031012-1031211200003032-1113101120121000-0103322101000003-1123231100201303-1330122212321002-2013223333021300-3311313330112122"
         ]
       ],
-      "mode": "embedded",
-      "registry_path": "docs/guides/resources--proxy--reference--group-004.md"
-    },
-    {
-      "canonical_id": "xcsh-docs:resources:proxy:properties:http_proxy:more_option:response_headers_to_add:secret_value:clear_secret_info",
-      "section_id": "xcsh-docs:resources:proxy:properties:http_proxy:more_option:response_headers_to_add:secret_value:clear_secret_info:section:4",
-      "source_sha256": "sha256:daef6cc83a9491835c21c2981a3f2ea8da48ac30ea93cdadf5ea2d0de85e9fd0",
-      "source_bytes": 1788,
-      "canonical_source_sha256": "sha256:83d1b49e89518bafff99338663d304dcb5e9c0fffb6057ea0f7218807f66e7ea",
-      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/resources/proxy/properties/http_proxy/more_option/response_headers_to_add/secret_value/clear_secret_info/",
-      "anchor": "canonical-2000121030112232-0013123310320232-3213212100100013-1301012211130300-2020301233203011-1002232013010202-2110201312131132-0013331120303113",
-      "anchor_map": [],
       "mode": "embedded",
       "registry_path": "docs/guides/resources--proxy--reference--group-004.md"
     }

@@ -306,942 +306,2712 @@
   },
   "pages": [
     {
-      "aliases": [],
+      "aliases": ["tunnel"],
       "body_bytes": 1466,
       "body_sha256": "sha256:ac63b94faf6a0f3dab7b6d32eba55712d382f0e15dfd03fac13d0c81237a2512",
+      "capabilities": ["networking"],
+      "category": "networking",
       "child_ids": [
         "xcsh-docs:resources:tunnel:reference",
         "xcsh-docs:resources:tunnel:examples",
         "xcsh-docs:resources:tunnel:import",
         "xcsh-docs:resources:tunnel:timeouts"
       ],
+      "classification": {
+        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "sources": ["reviewed-rule"],
+        "status": "resolved",
+        "upstream_category_source": "receipt-pinned-domain"
+      },
       "collection_id": "xcsh-docs:resources:tunnel:collection",
       "completeness": "complete",
       "id": "xcsh-docs:resources:tunnel:fundamentals",
-      "parent_id": null,
+      "parent_id": "xcsh-docs:resources:xcsh:navigation",
       "path": "documentation/resources/tunnel/index.md",
+      "product": "distributed-cloud",
       "provider_name": "tunnel",
       "provider_schema_digest": "sha256:e63a07e98b4893c041a6f79be7e19c64babfe543fc6847c17641037e084e1c7c",
       "provider_type": "resources",
       "registry_anchor": "canonical-0203021123133200-3211200030212033-1303111112231210-3132112211210223-1120012223230031-3120003313300332-1222213113111002-3111033220000122",
       "registry_path": "docs/resources/tunnel.md",
+      "relationships": [],
+      "retrieval_version": 1,
       "role": "fundamentals",
       "schema_path": [],
+      "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/tunnel/index.txt",
-      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
-      "summary": "xcsh_tunnel for xcsh_tunnel.",
+      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "summary": "Manages tunnel in a given namespace. If one already exist it will give a error in F5 Distributed Cloud.",
+      "tasks": ["configuration"],
       "title": "xcsh_tunnel",
+      "unresolved_relationships": [],
       "upstream_identity": {
-        "release_tag": "v9.0.0",
+        "release_tag": "v9.0.1",
         "schema_components": ["tunnelCreateRequest"],
-        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
       }
     },
     {
-      "aliases": [],
+      "aliases": ["tunnel"],
       "body_bytes": 20683,
       "body_sha256": "sha256:468be3eaf8b1569055025d4d74d7a66660d80c4a94e9e547ed32ef90a9480df0",
+      "capabilities": ["networking"],
+      "category": "networking",
       "child_ids": [
         "xcsh-docs:resources:tunnel:properties:local_ip",
         "xcsh-docs:resources:tunnel:properties:params",
         "xcsh-docs:resources:tunnel:properties:remote_ip",
         "xcsh-docs:resources:tunnel:properties:timeouts"
       ],
+      "classification": {
+        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "sources": ["reviewed-rule"],
+        "status": "resolved",
+        "upstream_category_source": "receipt-pinned-domain"
+      },
       "collection_id": "xcsh-docs:resources:tunnel:collection",
       "completeness": "complete",
       "id": "xcsh-docs:resources:tunnel:reference",
       "parent_id": "xcsh-docs:resources:tunnel:fundamentals",
       "path": "documentation/resources/tunnel/properties/index.md",
+      "product": "distributed-cloud",
       "provider_name": "tunnel",
       "provider_schema_digest": "sha256:e63a07e98b4893c041a6f79be7e19c64babfe543fc6847c17641037e084e1c7c",
       "provider_type": "resources",
       "registry_anchor": "canonical-0200201231331322-0303330032131211-1023201331203011-0231303320312231-3020103211200302-0321300301031220-0123132320301220-2202331313303213",
       "registry_path": "docs/guides/resources--tunnel--reference--group-001.md",
+      "relationships": [],
+      "retrieval_version": 1,
       "role": "reference",
       "schema_path": [],
+      "sections": [
+        {
+          "aliases": ["annotations"],
+          "anchor": "schema-annotations",
+          "description": "Annotations is an unstructured key value map stored with a resource that may be set by external tools to store and retrieve arbitrary metadata. They are not queryable and should be preserved when modifying objects.",
+          "document_id": "xcsh-docs:resources:tunnel:reference",
+          "flags": ["optional"],
+          "max_items": null,
+          "min_items": null,
+          "nesting": null,
+          "relationships": [],
+          "schema_path": ["annotations"],
+          "syntax": "attribute",
+          "type": "map"
+        },
+        {
+          "aliases": ["description"],
+          "anchor": "schema-description",
+          "description": "Human readable description for the object.",
+          "document_id": "xcsh-docs:resources:tunnel:reference",
+          "flags": ["optional"],
+          "max_items": null,
+          "min_items": null,
+          "nesting": null,
+          "relationships": [],
+          "schema_path": ["description"],
+          "syntax": "attribute",
+          "type": "string"
+        },
+        {
+          "aliases": ["disable"],
+          "anchor": "schema-disable",
+          "description": "A value of true will administratively disable the object.",
+          "document_id": "xcsh-docs:resources:tunnel:reference",
+          "flags": ["optional"],
+          "max_items": null,
+          "min_items": null,
+          "nesting": null,
+          "relationships": [],
+          "schema_path": ["disable"],
+          "syntax": "attribute",
+          "type": "bool"
+        },
+        {
+          "aliases": ["id"],
+          "anchor": "schema-id",
+          "description": "Unique identifier for the resource.",
+          "document_id": "xcsh-docs:resources:tunnel:reference",
+          "flags": ["computed"],
+          "max_items": null,
+          "min_items": null,
+          "nesting": null,
+          "relationships": [],
+          "schema_path": ["id"],
+          "syntax": "attribute",
+          "type": "string"
+        },
+        {
+          "aliases": ["labels"],
+          "anchor": "schema-labels",
+          "description": "Map of string keys and values that can be used to organize and categorize (scope and select) objects as chosen by the user. Values specified here will be used by selector expression.",
+          "document_id": "xcsh-docs:resources:tunnel:reference",
+          "flags": ["optional"],
+          "max_items": null,
+          "min_items": null,
+          "nesting": null,
+          "relationships": [],
+          "schema_path": ["labels"],
+          "syntax": "attribute",
+          "type": "map"
+        },
+        {
+          "aliases": ["local ip"],
+          "anchor": "section",
+          "description": "Defines the OPTIONS to select local IP address and virtual network for tunnel object OPTIONS available are - 1. Local Interface - Network Interface from which IP address and network will be selected 2. IP Address - IP address and network can be configured explicitly.",
+          "document_id": "xcsh-docs:resources:tunnel:properties:local_ip",
+          "flags": [],
+          "max_items": null,
+          "min_items": null,
+          "nesting": "single",
+          "relationships": [
+            {
+              "anchor": "section",
+              "enforcement": "provider-schema",
+              "group": "local_ip:ConflictingObjectAttributes:intf,ip_address",
+              "source": "ast-validator:ConflictingObjectAttributes",
+              "target_id": "xcsh-docs:resources:tunnel:properties:local_ip:intf",
+              "type": "conflicts"
+            },
+            {
+              "anchor": "section",
+              "enforcement": "provider-schema",
+              "group": "local_ip:ConflictingObjectAttributes:intf,ip_address",
+              "source": "ast-validator:ConflictingObjectAttributes",
+              "target_id": "xcsh-docs:resources:tunnel:properties:local_ip:ip_address",
+              "type": "conflicts"
+            }
+          ],
+          "schema_path": ["local_ip"],
+          "syntax": "block",
+          "type": "object"
+        },
+        {
+          "aliases": ["name"],
+          "anchor": "schema-name",
+          "description": "This is the name of configuration object. It has to be unique within the namespace. It can only be specified during create API and cannot be changed during replace API. The value of name has to follow DNS-1035 format.",
+          "document_id": "xcsh-docs:resources:tunnel:reference",
+          "flags": ["required"],
+          "max_items": null,
+          "min_items": null,
+          "nesting": null,
+          "relationships": [],
+          "schema_path": ["name"],
+          "syntax": "attribute",
+          "type": "string"
+        },
+        {
+          "aliases": ["namespace"],
+          "anchor": "schema-namespace",
+          "description": "This defines the workspace within which each the configuration object is to be created. Must be a DNS_LABEL format. For a namespace object itself, namespace value will be \"\"",
+          "document_id": "xcsh-docs:resources:tunnel:reference",
+          "flags": ["required"],
+          "max_items": null,
+          "min_items": null,
+          "nesting": null,
+          "relationships": [],
+          "schema_path": ["namespace"],
+          "syntax": "attribute",
+          "type": "string"
+        },
+        {
+          "aliases": ["params"],
+          "anchor": "section",
+          "description": "Tunnel configuration parameters for supported encapsulation 1. IPsec is supported with PSK for which PSK can be configured.",
+          "document_id": "xcsh-docs:resources:tunnel:properties:params",
+          "flags": [],
+          "max_items": null,
+          "min_items": null,
+          "nesting": "single",
+          "relationships": [],
+          "schema_path": ["params"],
+          "syntax": "block",
+          "type": "object"
+        },
+        {
+          "aliases": ["remote ip"],
+          "anchor": "section",
+          "description": "Defines the OPTIONS to select remote IP address for tunnel object OPTIONS available are - 1. IP Address - Specifies the remote IP to which tunnel has to be connected 2. Remote endpoint - Is a map of IP address on per ver node basis.",
+          "document_id": "xcsh-docs:resources:tunnel:properties:remote_ip",
+          "flags": [],
+          "max_items": null,
+          "min_items": null,
+          "nesting": "single",
+          "relationships": [
+            {
+              "anchor": "section",
+              "enforcement": "provider-schema",
+              "group": "remote_ip:ConflictingObjectAttributes:endpoints,ip",
+              "source": "ast-validator:ConflictingObjectAttributes",
+              "target_id": "xcsh-docs:resources:tunnel:properties:remote_ip:endpoints",
+              "type": "conflicts"
+            },
+            {
+              "anchor": "section",
+              "enforcement": "provider-schema",
+              "group": "remote_ip:ConflictingObjectAttributes:endpoints,ip",
+              "source": "ast-validator:ConflictingObjectAttributes",
+              "target_id": "xcsh-docs:resources:tunnel:properties:remote_ip:ip",
+              "type": "conflicts"
+            }
+          ],
+          "schema_path": ["remote_ip"],
+          "syntax": "block",
+          "type": "object"
+        },
+        {
+          "aliases": ["duration", "operation timeout", "timeouts"],
+          "anchor": "section",
+          "description": "timeouts",
+          "document_id": "xcsh-docs:resources:tunnel:properties:timeouts",
+          "flags": [],
+          "max_items": null,
+          "min_items": null,
+          "nesting": "single",
+          "relationships": [],
+          "schema_path": ["timeouts"],
+          "syntax": "block",
+          "type": "object"
+        },
+        {
+          "aliases": ["tunnel type"],
+          "anchor": "schema-tunnel_type",
+          "description": "Supported tunnel types are IPsec IPsec tunnel type with PSK GRE tunnel type.",
+          "document_id": "xcsh-docs:resources:tunnel:reference",
+          "flags": ["optional", "computed"],
+          "max_items": null,
+          "min_items": null,
+          "nesting": null,
+          "relationships": [],
+          "schema_path": ["tunnel_type"],
+          "syntax": "attribute",
+          "type": "string"
+        }
+      ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/tunnel/properties/index.txt",
-      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
       "summary": "Property reference for xcsh_tunnel.",
+      "tasks": ["configuration"],
       "title": "Property reference",
       "upstream_identity": {
-        "release_tag": "v9.0.0",
+        "release_tag": "v9.0.1",
         "schema_components": ["tunnelCreateRequest"],
-        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
       }
     },
     {
-      "aliases": [],
+      "aliases": ["local ip"],
       "body_bytes": 2257,
       "body_sha256": "sha256:89c679a59809da8721a3e7f82e2e58b06aaf24ee073d4d45beea53a06bf4c55d",
+      "capabilities": ["networking"],
+      "category": "networking",
       "child_ids": [
         "xcsh-docs:resources:tunnel:properties:local_ip:intf",
         "xcsh-docs:resources:tunnel:properties:local_ip:ip_address"
       ],
+      "classification": {
+        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "sources": ["reviewed-rule"],
+        "status": "resolved",
+        "upstream_category_source": "receipt-pinned-domain"
+      },
       "collection_id": "xcsh-docs:resources:tunnel:collection",
       "completeness": "complete",
       "id": "xcsh-docs:resources:tunnel:properties:local_ip",
       "parent_id": "xcsh-docs:resources:tunnel:reference",
       "path": "documentation/resources/tunnel/properties/local_ip/index.md",
+      "product": "distributed-cloud",
       "provider_name": "tunnel",
       "provider_schema_digest": "sha256:e63a07e98b4893c041a6f79be7e19c64babfe543fc6847c17641037e084e1c7c",
       "provider_type": "resources",
       "registry_anchor": "canonical-3310002120310311-3233112233301322-3202003303031322-3200110222231231-1110211002321202-2023230133212221-3020020030123203-3312013200013013",
       "registry_path": "docs/guides/resources--tunnel--reference--group-001.md",
+      "relationships": [
+        {
+          "anchor": "section",
+          "enforcement": "provider-schema",
+          "group": "local_ip:ConflictingObjectAttributes:intf,ip_address",
+          "source": "ast-validator:ConflictingObjectAttributes",
+          "target_id": "xcsh-docs:resources:tunnel:properties:local_ip:intf",
+          "type": "conflicts"
+        },
+        {
+          "anchor": "section",
+          "enforcement": "provider-schema",
+          "group": "local_ip:ConflictingObjectAttributes:intf,ip_address",
+          "source": "ast-validator:ConflictingObjectAttributes",
+          "target_id": "xcsh-docs:resources:tunnel:properties:local_ip:ip_address",
+          "type": "conflicts"
+        }
+      ],
+      "retrieval_version": 1,
       "role": "properties",
       "schema_path": ["local_ip"],
+      "sections": [
+        {
+          "aliases": ["intf"],
+          "anchor": "section",
+          "description": "Provides the local interface to pick up source IP and network for transporting encapsulated packet.",
+          "document_id": "xcsh-docs:resources:tunnel:properties:local_ip:intf",
+          "flags": [],
+          "max_items": null,
+          "min_items": null,
+          "nesting": "single",
+          "relationships": [],
+          "schema_path": ["local_ip", "intf"],
+          "syntax": "block",
+          "type": "object"
+        },
+        {
+          "aliases": ["ip address"],
+          "anchor": "section",
+          "description": "Provides the configuration to pick up source IP and network for transporting encapsulated packet.",
+          "document_id": "xcsh-docs:resources:tunnel:properties:local_ip:ip_address",
+          "flags": [],
+          "max_items": null,
+          "min_items": null,
+          "nesting": "single",
+          "relationships": [
+            {
+              "anchor": "section",
+              "enforcement": "provider-schema",
+              "group": "local_ip.ip_address:ConflictingObjectAttributes:auto,ip_address",
+              "source": "ast-validator:ConflictingObjectAttributes",
+              "target_id": "xcsh-docs:resources:tunnel:properties:local_ip:ip_address:auto",
+              "type": "conflicts"
+            },
+            {
+              "anchor": "section",
+              "enforcement": "provider-schema",
+              "group": "local_ip.ip_address:ConflictingObjectAttributes:auto,ip_address",
+              "source": "ast-validator:ConflictingObjectAttributes",
+              "target_id": "xcsh-docs:resources:tunnel:properties:local_ip:ip_address:ip_address",
+              "type": "conflicts"
+            }
+          ],
+          "schema_path": ["local_ip", "ip_address"],
+          "syntax": "block",
+          "type": "object"
+        }
+      ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/tunnel/properties/local_ip/index.txt",
-      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
-      "summary": "local_ip for xcsh_tunnel.",
+      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "summary": "Defines the OPTIONS to select local IP address and virtual network for tunnel object OPTIONS available are - 1. Local Interface - Network Interface from which IP address and network will be selected 2. IP Address - IP address and network can be configured explicitly.",
+      "tasks": ["configuration"],
       "title": "local_ip",
       "upstream_identity": {
-        "release_tag": "v9.0.0",
+        "release_tag": "v9.0.1",
         "schema_components": ["tunnelCreateRequest"],
-        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
       }
     },
     {
-      "aliases": [],
+      "aliases": ["local ip intf"],
       "body_bytes": 1430,
       "body_sha256": "sha256:46d01543e5b792a6eb0398c83b85e2435778830714b628a1b4d6e500088d1031",
+      "capabilities": ["networking"],
+      "category": "networking",
       "child_ids": ["xcsh-docs:resources:tunnel:properties:local_ip:intf:local_intf"],
+      "classification": {
+        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "sources": ["reviewed-rule"],
+        "status": "resolved",
+        "upstream_category_source": "receipt-pinned-domain"
+      },
       "collection_id": "xcsh-docs:resources:tunnel:collection",
       "completeness": "complete",
       "id": "xcsh-docs:resources:tunnel:properties:local_ip:intf",
       "parent_id": "xcsh-docs:resources:tunnel:properties:local_ip",
       "path": "documentation/resources/tunnel/properties/local_ip/intf/index.md",
+      "product": "distributed-cloud",
       "provider_name": "tunnel",
       "provider_schema_digest": "sha256:e63a07e98b4893c041a6f79be7e19c64babfe543fc6847c17641037e084e1c7c",
       "provider_type": "resources",
       "registry_anchor": "canonical-2223230302300101-0122121121132103-2321020002221033-3320003233333123-3313223101333111-2000011230222230-0300113212001320-1033032031000213",
       "registry_path": "docs/guides/resources--tunnel--reference--group-001.md",
+      "relationships": [],
+      "retrieval_version": 1,
       "role": "properties",
       "schema_path": ["local_ip", "intf"],
+      "sections": [
+        {
+          "aliases": ["local intf"],
+          "anchor": "section",
+          "description": "Local interface to be used for filling in source information of IP and network for transport.",
+          "document_id": "xcsh-docs:resources:tunnel:properties:local_ip:intf:local_intf",
+          "flags": [],
+          "max_items": null,
+          "min_items": null,
+          "nesting": "list",
+          "relationships": [],
+          "schema_path": ["local_ip", "intf", "local_intf"],
+          "syntax": "block",
+          "type": "object"
+        }
+      ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/tunnel/properties/local_ip/intf/index.txt",
-      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
-      "summary": "local_ip.intf for xcsh_tunnel.",
+      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "summary": "Provides the local interface to pick up source IP and network for transporting encapsulated packet.",
+      "tasks": ["configuration"],
       "title": "local_ip.intf",
       "upstream_identity": {
-        "release_tag": "v9.0.0",
+        "release_tag": "v9.0.1",
         "schema_components": ["tunnelCreateRequest"],
-        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
       }
     },
     {
-      "aliases": [],
+      "aliases": ["local ip intf local intf"],
       "body_bytes": 6619,
       "body_sha256": "sha256:043dc1df7e6f429036cce4e4e8dc334e6208f44db25f2c5696fa8d2022258928",
+      "capabilities": ["networking"],
+      "category": "networking",
       "child_ids": [],
+      "classification": {
+        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "sources": ["reviewed-rule"],
+        "status": "resolved",
+        "upstream_category_source": "receipt-pinned-domain"
+      },
       "collection_id": "xcsh-docs:resources:tunnel:collection",
       "completeness": "complete",
       "id": "xcsh-docs:resources:tunnel:properties:local_ip:intf:local_intf",
       "parent_id": "xcsh-docs:resources:tunnel:properties:local_ip:intf",
       "path": "documentation/resources/tunnel/properties/local_ip/intf/local_intf/index.md",
+      "product": "distributed-cloud",
       "provider_name": "tunnel",
       "provider_schema_digest": "sha256:e63a07e98b4893c041a6f79be7e19c64babfe543fc6847c17641037e084e1c7c",
       "provider_type": "resources",
       "registry_anchor": "canonical-0033232322122220-1001102021210033-3113312202103221-1132231210330230-3031302022112310-0322232330223010-0001022110123012-3232111312130330",
       "registry_path": "docs/guides/resources--tunnel--reference--group-001.md",
+      "relationships": [],
+      "retrieval_version": 1,
       "role": "properties",
       "schema_path": ["local_ip", "intf", "local_intf"],
+      "sections": [
+        {
+          "aliases": ["kind"],
+          "anchor": "schema-local_ip--intf--local_intf--kind",
+          "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then kind will hold the referred object's kind (e.g. \"route\")",
+          "document_id": "xcsh-docs:resources:tunnel:properties:local_ip:intf:local_intf",
+          "flags": ["computed"],
+          "max_items": null,
+          "min_items": null,
+          "nesting": null,
+          "relationships": [],
+          "schema_path": ["local_ip", "intf", "local_intf", "kind"],
+          "syntax": "attribute",
+          "type": "string"
+        },
+        {
+          "aliases": ["name"],
+          "anchor": "schema-local_ip--intf--local_intf--name",
+          "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.",
+          "document_id": "xcsh-docs:resources:tunnel:properties:local_ip:intf:local_intf",
+          "flags": ["optional"],
+          "max_items": null,
+          "min_items": null,
+          "nesting": null,
+          "relationships": [],
+          "schema_path": ["local_ip", "intf", "local_intf", "name"],
+          "syntax": "attribute",
+          "type": "string"
+        },
+        {
+          "aliases": ["namespace"],
+          "anchor": "schema-local_ip--intf--local_intf--namespace",
+          "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace.",
+          "document_id": "xcsh-docs:resources:tunnel:properties:local_ip:intf:local_intf",
+          "flags": ["optional", "computed"],
+          "max_items": null,
+          "min_items": null,
+          "nesting": null,
+          "relationships": [],
+          "schema_path": ["local_ip", "intf", "local_intf", "namespace"],
+          "syntax": "attribute",
+          "type": "string"
+        },
+        {
+          "aliases": ["tenant"],
+          "anchor": "schema-local_ip--intf--local_intf--tenant",
+          "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant.",
+          "document_id": "xcsh-docs:resources:tunnel:properties:local_ip:intf:local_intf",
+          "flags": ["computed"],
+          "max_items": null,
+          "min_items": null,
+          "nesting": null,
+          "relationships": [],
+          "schema_path": ["local_ip", "intf", "local_intf", "tenant"],
+          "syntax": "attribute",
+          "type": "string"
+        },
+        {
+          "aliases": ["uid"],
+          "anchor": "schema-local_ip--intf--local_intf--uid",
+          "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then uid will hold the referred object's(e.g. Route's) uid.",
+          "document_id": "xcsh-docs:resources:tunnel:properties:local_ip:intf:local_intf",
+          "flags": ["computed"],
+          "max_items": null,
+          "min_items": null,
+          "nesting": null,
+          "relationships": [],
+          "schema_path": ["local_ip", "intf", "local_intf", "uid"],
+          "syntax": "attribute",
+          "type": "string"
+        }
+      ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/tunnel/properties/local_ip/intf/local_intf/index.txt",
-      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
-      "summary": "local_ip.intf.local_intf for xcsh_tunnel.",
+      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "summary": "Local interface to be used for filling in source information of IP and network for transport.",
+      "tasks": ["configuration"],
       "title": "local_ip.intf.local_intf",
       "upstream_identity": {
-        "release_tag": "v9.0.0",
+        "release_tag": "v9.0.1",
         "schema_components": ["tunnelCreateRequest"],
-        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
       }
     },
     {
-      "aliases": [],
+      "aliases": ["local ip ip address"],
       "body_bytes": 2335,
       "body_sha256": "sha256:1e64b69ffef9e3f908584beb00b8c47a15688e300726677ceb361f8f8575a04d",
+      "capabilities": ["networking"],
+      "category": "networking",
       "child_ids": [
         "xcsh-docs:resources:tunnel:properties:local_ip:ip_address:auto",
         "xcsh-docs:resources:tunnel:properties:local_ip:ip_address:ip_address",
         "xcsh-docs:resources:tunnel:properties:local_ip:ip_address:virtual_network_type"
       ],
+      "classification": {
+        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "sources": ["reviewed-rule"],
+        "status": "resolved",
+        "upstream_category_source": "receipt-pinned-domain"
+      },
       "collection_id": "xcsh-docs:resources:tunnel:collection",
       "completeness": "complete",
       "id": "xcsh-docs:resources:tunnel:properties:local_ip:ip_address",
       "parent_id": "xcsh-docs:resources:tunnel:properties:local_ip",
       "path": "documentation/resources/tunnel/properties/local_ip/ip_address/index.md",
+      "product": "distributed-cloud",
       "provider_name": "tunnel",
       "provider_schema_digest": "sha256:e63a07e98b4893c041a6f79be7e19c64babfe543fc6847c17641037e084e1c7c",
       "provider_type": "resources",
       "registry_anchor": "canonical-0101220131022022-1000210322332102-0021030332331230-1223222200000203-3112120121021221-1333110220021312-3320303000313110-3032130312212310",
       "registry_path": "docs/guides/resources--tunnel--reference--group-001.md",
+      "relationships": [
+        {
+          "anchor": "section",
+          "enforcement": "provider-schema",
+          "group": "local_ip.ip_address:ConflictingObjectAttributes:auto,ip_address",
+          "source": "ast-validator:ConflictingObjectAttributes",
+          "target_id": "xcsh-docs:resources:tunnel:properties:local_ip:ip_address:auto",
+          "type": "conflicts"
+        },
+        {
+          "anchor": "section",
+          "enforcement": "provider-schema",
+          "group": "local_ip.ip_address:ConflictingObjectAttributes:auto,ip_address",
+          "source": "ast-validator:ConflictingObjectAttributes",
+          "target_id": "xcsh-docs:resources:tunnel:properties:local_ip:ip_address:ip_address",
+          "type": "conflicts"
+        }
+      ],
+      "retrieval_version": 1,
       "role": "properties",
       "schema_path": ["local_ip", "ip_address"],
+      "sections": [
+        {
+          "aliases": ["auto"],
+          "anchor": "section",
+          "description": "This can be used for messages where no values are needed.",
+          "document_id": "xcsh-docs:resources:tunnel:properties:local_ip:ip_address:auto",
+          "flags": ["optional"],
+          "max_items": null,
+          "min_items": null,
+          "nesting": null,
+          "relationships": [],
+          "schema_path": ["local_ip", "ip_address", "auto"],
+          "syntax": "attribute",
+          "type": "object"
+        },
+        {
+          "aliases": ["ip address"],
+          "anchor": "section",
+          "description": "IP Address used to specify an IPv4 or IPv6 address.",
+          "document_id": "xcsh-docs:resources:tunnel:properties:local_ip:ip_address:ip_address",
+          "flags": [],
+          "max_items": null,
+          "min_items": null,
+          "nesting": "single",
+          "relationships": [
+            {
+              "anchor": "section",
+              "enforcement": "provider-schema",
+              "group": "local_ip.ip_address.ip_address:ConflictingObjectAttributes:dual_stack,ipv4",
+              "source": "ast-validator:ConflictingObjectAttributes",
+              "target_id": "xcsh-docs:resources:tunnel:properties:local_ip:ip_address:ip_address:dual_stack",
+              "type": "conflicts"
+            },
+            {
+              "anchor": "section",
+              "enforcement": "provider-schema",
+              "group": "local_ip.ip_address.ip_address:ConflictingObjectAttributes:dual_stack,ipv6",
+              "source": "ast-validator:ConflictingObjectAttributes",
+              "target_id": "xcsh-docs:resources:tunnel:properties:local_ip:ip_address:ip_address:dual_stack",
+              "type": "conflicts"
+            },
+            {
+              "anchor": "section",
+              "enforcement": "provider-schema",
+              "group": "local_ip.ip_address.ip_address:ConflictingObjectAttributes:dual_stack,ipv4",
+              "source": "ast-validator:ConflictingObjectAttributes",
+              "target_id": "xcsh-docs:resources:tunnel:properties:local_ip:ip_address:ip_address:ipv4",
+              "type": "conflicts"
+            },
+            {
+              "anchor": "section",
+              "enforcement": "provider-schema",
+              "group": "local_ip.ip_address.ip_address:ConflictingObjectAttributes:ipv4,ipv6",
+              "source": "ast-validator:ConflictingObjectAttributes",
+              "target_id": "xcsh-docs:resources:tunnel:properties:local_ip:ip_address:ip_address:ipv4",
+              "type": "conflicts"
+            },
+            {
+              "anchor": "section",
+              "enforcement": "provider-schema",
+              "group": "local_ip.ip_address.ip_address:ConflictingObjectAttributes:dual_stack,ipv6",
+              "source": "ast-validator:ConflictingObjectAttributes",
+              "target_id": "xcsh-docs:resources:tunnel:properties:local_ip:ip_address:ip_address:ipv6",
+              "type": "conflicts"
+            },
+            {
+              "anchor": "section",
+              "enforcement": "provider-schema",
+              "group": "local_ip.ip_address.ip_address:ConflictingObjectAttributes:ipv4,ipv6",
+              "source": "ast-validator:ConflictingObjectAttributes",
+              "target_id": "xcsh-docs:resources:tunnel:properties:local_ip:ip_address:ip_address:ipv6",
+              "type": "conflicts"
+            }
+          ],
+          "schema_path": ["local_ip", "ip_address", "ip_address"],
+          "syntax": "block",
+          "type": "object"
+        },
+        {
+          "aliases": ["virtual network type"],
+          "anchor": "section",
+          "description": "Different types of virtual networks understood by the system.",
+          "document_id": "xcsh-docs:resources:tunnel:properties:local_ip:ip_address:virtual_network_type",
+          "flags": [],
+          "max_items": null,
+          "min_items": null,
+          "nesting": "single",
+          "relationships": [
+            {
+              "anchor": "section",
+              "enforcement": "provider-schema",
+              "group": "local_ip.ip_address.virtual_network_type:ConflictingObjectAttributes:public,site_local",
+              "source": "ast-validator:ConflictingObjectAttributes",
+              "target_id": "xcsh-docs:resources:tunnel:properties:local_ip:ip_address:virtual_network_type:public",
+              "type": "conflicts"
+            },
+            {
+              "anchor": "section",
+              "enforcement": "provider-schema",
+              "group": "local_ip.ip_address.virtual_network_type:ConflictingObjectAttributes:public,site_local_inside",
+              "source": "ast-validator:ConflictingObjectAttributes",
+              "target_id": "xcsh-docs:resources:tunnel:properties:local_ip:ip_address:virtual_network_type:public",
+              "type": "conflicts"
+            },
+            {
+              "anchor": "section",
+              "enforcement": "provider-schema",
+              "group": "local_ip.ip_address.virtual_network_type:ConflictingObjectAttributes:public,site_local",
+              "source": "ast-validator:ConflictingObjectAttributes",
+              "target_id": "xcsh-docs:resources:tunnel:properties:local_ip:ip_address:virtual_network_type:site_local",
+              "type": "conflicts"
+            },
+            {
+              "anchor": "section",
+              "enforcement": "provider-schema",
+              "group": "local_ip.ip_address.virtual_network_type:ConflictingObjectAttributes:site_local,site_local_inside",
+              "source": "ast-validator:ConflictingObjectAttributes",
+              "target_id": "xcsh-docs:resources:tunnel:properties:local_ip:ip_address:virtual_network_type:site_local",
+              "type": "conflicts"
+            },
+            {
+              "anchor": "section",
+              "enforcement": "provider-schema",
+              "group": "local_ip.ip_address.virtual_network_type:ConflictingObjectAttributes:public,site_local_inside",
+              "source": "ast-validator:ConflictingObjectAttributes",
+              "target_id": "xcsh-docs:resources:tunnel:properties:local_ip:ip_address:virtual_network_type:site_local_inside",
+              "type": "conflicts"
+            },
+            {
+              "anchor": "section",
+              "enforcement": "provider-schema",
+              "group": "local_ip.ip_address.virtual_network_type:ConflictingObjectAttributes:site_local,site_local_inside",
+              "source": "ast-validator:ConflictingObjectAttributes",
+              "target_id": "xcsh-docs:resources:tunnel:properties:local_ip:ip_address:virtual_network_type:site_local_inside",
+              "type": "conflicts"
+            }
+          ],
+          "schema_path": ["local_ip", "ip_address", "virtual_network_type"],
+          "syntax": "block",
+          "type": "object"
+        }
+      ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/tunnel/properties/local_ip/ip_address/index.txt",
-      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
-      "summary": "local_ip.ip_address for xcsh_tunnel.",
+      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "summary": "Provides the configuration to pick up source IP and network for transporting encapsulated packet.",
+      "tasks": ["configuration"],
       "title": "local_ip.ip_address",
       "upstream_identity": {
-        "release_tag": "v9.0.0",
+        "release_tag": "v9.0.1",
         "schema_components": ["tunnelCreateRequest"],
-        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
       }
     },
     {
-      "aliases": [],
+      "aliases": ["local ip ip address auto"],
       "body_bytes": 1318,
       "body_sha256": "sha256:6f07d138aed410c86a255df8f6e963c69633fe743153511187a3c1f142573a9d",
+      "capabilities": ["networking"],
+      "category": "networking",
       "child_ids": [],
+      "classification": {
+        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "sources": ["reviewed-rule"],
+        "status": "resolved",
+        "upstream_category_source": "receipt-pinned-domain"
+      },
       "collection_id": "xcsh-docs:resources:tunnel:collection",
       "completeness": "complete",
       "id": "xcsh-docs:resources:tunnel:properties:local_ip:ip_address:auto",
       "parent_id": "xcsh-docs:resources:tunnel:properties:local_ip:ip_address",
       "path": "documentation/resources/tunnel/properties/local_ip/ip_address/auto/index.md",
+      "product": "distributed-cloud",
       "provider_name": "tunnel",
       "provider_schema_digest": "sha256:e63a07e98b4893c041a6f79be7e19c64babfe543fc6847c17641037e084e1c7c",
       "provider_type": "resources",
       "registry_anchor": "canonical-2310113003120102-2123032023112022-1033021130133210-3202032303213133-0320330211322033-0121101031222013-0020231300333130-1032320033221121",
       "registry_path": "docs/guides/resources--tunnel--reference--group-001.md",
+      "relationships": [],
+      "retrieval_version": 1,
       "role": "properties",
       "schema_path": ["local_ip", "ip_address", "auto"],
+      "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/tunnel/properties/local_ip/ip_address/auto/index.txt",
-      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
-      "summary": "local_ip.ip_address.auto for xcsh_tunnel.",
+      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "summary": "This can be used for messages where no values are needed.",
+      "tasks": ["configuration"],
       "title": "local_ip.ip_address.auto",
       "upstream_identity": {
-        "release_tag": "v9.0.0",
+        "release_tag": "v9.0.1",
         "schema_components": ["tunnelCreateRequest"],
-        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
       }
     },
     {
-      "aliases": [],
+      "aliases": ["local ip ip address ip address"],
       "body_bytes": 2636,
       "body_sha256": "sha256:3a22a3a9e5e173e0da2d3f4754644eaa1a135678fe37db50ee2d44e9e07bedf2",
+      "capabilities": ["networking"],
+      "category": "networking",
       "child_ids": [
         "xcsh-docs:resources:tunnel:properties:local_ip:ip_address:ip_address:dual_stack",
         "xcsh-docs:resources:tunnel:properties:local_ip:ip_address:ip_address:ipv4",
         "xcsh-docs:resources:tunnel:properties:local_ip:ip_address:ip_address:ipv6"
       ],
+      "classification": {
+        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "sources": ["reviewed-rule"],
+        "status": "resolved",
+        "upstream_category_source": "receipt-pinned-domain"
+      },
       "collection_id": "xcsh-docs:resources:tunnel:collection",
       "completeness": "complete",
       "id": "xcsh-docs:resources:tunnel:properties:local_ip:ip_address:ip_address",
       "parent_id": "xcsh-docs:resources:tunnel:properties:local_ip:ip_address",
       "path": "documentation/resources/tunnel/properties/local_ip/ip_address/ip_address/index.md",
+      "product": "distributed-cloud",
       "provider_name": "tunnel",
       "provider_schema_digest": "sha256:e63a07e98b4893c041a6f79be7e19c64babfe543fc6847c17641037e084e1c7c",
       "provider_type": "resources",
       "registry_anchor": "canonical-0123320310030102-3000002332100213-3023203210330130-0211220103322203-2133231313021313-2320203201313302-0230120313001220-0212201223230022",
       "registry_path": "docs/guides/resources--tunnel--reference--group-001.md",
+      "relationships": [
+        {
+          "anchor": "section",
+          "enforcement": "provider-schema",
+          "group": "local_ip.ip_address.ip_address:ConflictingObjectAttributes:dual_stack,ipv4",
+          "source": "ast-validator:ConflictingObjectAttributes",
+          "target_id": "xcsh-docs:resources:tunnel:properties:local_ip:ip_address:ip_address:dual_stack",
+          "type": "conflicts"
+        },
+        {
+          "anchor": "section",
+          "enforcement": "provider-schema",
+          "group": "local_ip.ip_address.ip_address:ConflictingObjectAttributes:dual_stack,ipv6",
+          "source": "ast-validator:ConflictingObjectAttributes",
+          "target_id": "xcsh-docs:resources:tunnel:properties:local_ip:ip_address:ip_address:dual_stack",
+          "type": "conflicts"
+        },
+        {
+          "anchor": "section",
+          "enforcement": "provider-schema",
+          "group": "local_ip.ip_address.ip_address:ConflictingObjectAttributes:dual_stack,ipv4",
+          "source": "ast-validator:ConflictingObjectAttributes",
+          "target_id": "xcsh-docs:resources:tunnel:properties:local_ip:ip_address:ip_address:ipv4",
+          "type": "conflicts"
+        },
+        {
+          "anchor": "section",
+          "enforcement": "provider-schema",
+          "group": "local_ip.ip_address.ip_address:ConflictingObjectAttributes:ipv4,ipv6",
+          "source": "ast-validator:ConflictingObjectAttributes",
+          "target_id": "xcsh-docs:resources:tunnel:properties:local_ip:ip_address:ip_address:ipv4",
+          "type": "conflicts"
+        },
+        {
+          "anchor": "section",
+          "enforcement": "provider-schema",
+          "group": "local_ip.ip_address.ip_address:ConflictingObjectAttributes:dual_stack,ipv6",
+          "source": "ast-validator:ConflictingObjectAttributes",
+          "target_id": "xcsh-docs:resources:tunnel:properties:local_ip:ip_address:ip_address:ipv6",
+          "type": "conflicts"
+        },
+        {
+          "anchor": "section",
+          "enforcement": "provider-schema",
+          "group": "local_ip.ip_address.ip_address:ConflictingObjectAttributes:ipv4,ipv6",
+          "source": "ast-validator:ConflictingObjectAttributes",
+          "target_id": "xcsh-docs:resources:tunnel:properties:local_ip:ip_address:ip_address:ipv6",
+          "type": "conflicts"
+        }
+      ],
+      "retrieval_version": 1,
       "role": "properties",
       "schema_path": ["local_ip", "ip_address", "ip_address"],
+      "sections": [
+        {
+          "aliases": ["dual stack"],
+          "anchor": "section",
+          "description": "DualStackAddressType represents both IPv4 and IPv6 together.",
+          "document_id": "xcsh-docs:resources:tunnel:properties:local_ip:ip_address:ip_address:dual_stack",
+          "flags": [],
+          "max_items": null,
+          "min_items": null,
+          "nesting": "single",
+          "relationships": [],
+          "schema_path": ["local_ip", "ip_address", "ip_address", "dual_stack"],
+          "syntax": "block",
+          "type": "object"
+        },
+        {
+          "aliases": ["ipv4"],
+          "anchor": "section",
+          "description": "IPv4 Address in dot-decimal notation.",
+          "document_id": "xcsh-docs:resources:tunnel:properties:local_ip:ip_address:ip_address:ipv4",
+          "flags": [],
+          "max_items": null,
+          "min_items": null,
+          "nesting": "single",
+          "relationships": [],
+          "schema_path": ["local_ip", "ip_address", "ip_address", "ipv4"],
+          "syntax": "block",
+          "type": "object"
+        },
+        {
+          "aliases": ["ipv6"],
+          "anchor": "section",
+          "description": "IPv6 Address specified as hexadecimal numbers separated by ':'",
+          "document_id": "xcsh-docs:resources:tunnel:properties:local_ip:ip_address:ip_address:ipv6",
+          "flags": [],
+          "max_items": null,
+          "min_items": null,
+          "nesting": "single",
+          "relationships": [],
+          "schema_path": ["local_ip", "ip_address", "ip_address", "ipv6"],
+          "syntax": "block",
+          "type": "object"
+        }
+      ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/tunnel/properties/local_ip/ip_address/ip_address/index.txt",
-      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
-      "summary": "local_ip.ip_address.ip_address for xcsh_tunnel.",
+      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "summary": "IP Address used to specify an IPv4 or IPv6 address.",
+      "tasks": ["configuration"],
       "title": "local_ip.ip_address.ip_address",
       "upstream_identity": {
-        "release_tag": "v9.0.0",
+        "release_tag": "v9.0.1",
         "schema_components": ["tunnelCreateRequest"],
-        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
       }
     },
     {
-      "aliases": [],
+      "aliases": ["local ip ip address ip address dual stack"],
       "body_bytes": 2198,
       "body_sha256": "sha256:497b3c289a88230d620b1942488cabd0c87c99ab0fa9fc54fa916f27c16a9814",
+      "capabilities": ["networking"],
+      "category": "networking",
       "child_ids": [
         "xcsh-docs:resources:tunnel:properties:local_ip:ip_address:ip_address:dual_stack:ipv4",
         "xcsh-docs:resources:tunnel:properties:local_ip:ip_address:ip_address:dual_stack:ipv6"
       ],
+      "classification": {
+        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "sources": ["reviewed-rule"],
+        "status": "resolved",
+        "upstream_category_source": "receipt-pinned-domain"
+      },
       "collection_id": "xcsh-docs:resources:tunnel:collection",
       "completeness": "complete",
       "id": "xcsh-docs:resources:tunnel:properties:local_ip:ip_address:ip_address:dual_stack",
       "parent_id": "xcsh-docs:resources:tunnel:properties:local_ip:ip_address:ip_address",
       "path": "documentation/resources/tunnel/properties/local_ip/ip_address/ip_address/dual_stack/index.md",
+      "product": "distributed-cloud",
       "provider_name": "tunnel",
       "provider_schema_digest": "sha256:e63a07e98b4893c041a6f79be7e19c64babfe543fc6847c17641037e084e1c7c",
       "provider_type": "resources",
       "registry_anchor": "canonical-3013212302112132-1030133231022030-3222012011111002-1112033112113322-3030322233312100-1312312201211031-1020310211101203-1321022203113030",
       "registry_path": "docs/guides/resources--tunnel--reference--group-001.md",
+      "relationships": [],
+      "retrieval_version": 1,
       "role": "properties",
       "schema_path": ["local_ip", "ip_address", "ip_address", "dual_stack"],
+      "sections": [
+        {
+          "aliases": ["ipv4"],
+          "anchor": "section",
+          "description": "IPv4 Address in dot-decimal notation.",
+          "document_id": "xcsh-docs:resources:tunnel:properties:local_ip:ip_address:ip_address:dual_stack:ipv4",
+          "flags": [],
+          "max_items": null,
+          "min_items": null,
+          "nesting": "single",
+          "relationships": [],
+          "schema_path": ["local_ip", "ip_address", "ip_address", "dual_stack", "ipv4"],
+          "syntax": "block",
+          "type": "object"
+        },
+        {
+          "aliases": ["ipv6"],
+          "anchor": "section",
+          "description": "IPv6 Address specified as hexadecimal numbers separated by ':'",
+          "document_id": "xcsh-docs:resources:tunnel:properties:local_ip:ip_address:ip_address:dual_stack:ipv6",
+          "flags": [],
+          "max_items": null,
+          "min_items": null,
+          "nesting": "single",
+          "relationships": [],
+          "schema_path": ["local_ip", "ip_address", "ip_address", "dual_stack", "ipv6"],
+          "syntax": "block",
+          "type": "object"
+        }
+      ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/tunnel/properties/local_ip/ip_address/ip_address/dual_stack/index.txt",
-      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
-      "summary": "local_ip.ip_address.ip_address.dual_stack for xcsh_tunnel.",
+      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "summary": "DualStackAddressType represents both IPv4 and IPv6 together.",
+      "tasks": ["configuration"],
       "title": "local_ip.ip_address.ip_address.dual_stack",
       "upstream_identity": {
-        "release_tag": "v9.0.0",
+        "release_tag": "v9.0.1",
         "schema_components": ["tunnelCreateRequest"],
-        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
       }
     },
     {
-      "aliases": [],
+      "aliases": ["local ip ip address ip address dual stack ipv4"],
       "body_bytes": 2716,
       "body_sha256": "sha256:ac22044bb794443da0151217d8515b3c955ab24c55bdcf70b59b3deed82e2bc6",
+      "capabilities": ["networking"],
+      "category": "networking",
       "child_ids": [],
+      "classification": {
+        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "sources": ["reviewed-rule"],
+        "status": "resolved",
+        "upstream_category_source": "receipt-pinned-domain"
+      },
       "collection_id": "xcsh-docs:resources:tunnel:collection",
       "completeness": "complete",
       "id": "xcsh-docs:resources:tunnel:properties:local_ip:ip_address:ip_address:dual_stack:ipv4",
       "parent_id": "xcsh-docs:resources:tunnel:properties:local_ip:ip_address:ip_address:dual_stack",
       "path": "documentation/resources/tunnel/properties/local_ip/ip_address/ip_address/dual_stack/ipv4/index.md",
+      "product": "distributed-cloud",
       "provider_name": "tunnel",
       "provider_schema_digest": "sha256:e63a07e98b4893c041a6f79be7e19c64babfe543fc6847c17641037e084e1c7c",
       "provider_type": "resources",
       "registry_anchor": "canonical-1213031103013210-3121000233320202-1021232303012301-1233031111231013-3122111013213111-2130212100312002-3233103103202011-3001012330132312",
       "registry_path": "docs/guides/resources--tunnel--reference--group-001.md",
+      "relationships": [],
+      "retrieval_version": 1,
       "role": "properties",
       "schema_path": ["local_ip", "ip_address", "ip_address", "dual_stack", "ipv4"],
+      "sections": [
+        {
+          "aliases": ["addr"],
+          "anchor": "schema-local_ip--ip_address--ip_address--dual_stack--ipv4--addr",
+          "description": "IPv4 Address in string form with dot-decimal notation.",
+          "document_id": "xcsh-docs:resources:tunnel:properties:local_ip:ip_address:ip_address:dual_stack:ipv4",
+          "flags": ["optional"],
+          "max_items": null,
+          "min_items": null,
+          "nesting": null,
+          "relationships": [],
+          "schema_path": ["local_ip", "ip_address", "ip_address", "dual_stack", "ipv4", "addr"],
+          "syntax": "attribute",
+          "type": "string"
+        }
+      ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/tunnel/properties/local_ip/ip_address/ip_address/dual_stack/ipv4/index.txt",
-      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
-      "summary": "local_ip.ip_address.ip_address.dual_stack.ipv4 for xcsh_tunnel.",
+      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "summary": "IPv4 Address in dot-decimal notation.",
+      "tasks": ["configuration"],
       "title": "local_ip.ip_address.ip_address.dual_stack.ipv4",
       "upstream_identity": {
-        "release_tag": "v9.0.0",
+        "release_tag": "v9.0.1",
         "schema_components": ["tunnelCreateRequest"],
-        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
       }
     },
     {
-      "aliases": [],
+      "aliases": ["local ip ip address ip address dual stack ipv6"],
       "body_bytes": 3226,
       "body_sha256": "sha256:35cd9ca3c58b65669faa854754548730c29b912cbf00bab63b17f991015f4a03",
+      "capabilities": ["networking"],
+      "category": "networking",
       "child_ids": [],
+      "classification": {
+        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "sources": ["reviewed-rule"],
+        "status": "resolved",
+        "upstream_category_source": "receipt-pinned-domain"
+      },
       "collection_id": "xcsh-docs:resources:tunnel:collection",
       "completeness": "complete",
       "id": "xcsh-docs:resources:tunnel:properties:local_ip:ip_address:ip_address:dual_stack:ipv6",
       "parent_id": "xcsh-docs:resources:tunnel:properties:local_ip:ip_address:ip_address:dual_stack",
       "path": "documentation/resources/tunnel/properties/local_ip/ip_address/ip_address/dual_stack/ipv6/index.md",
+      "product": "distributed-cloud",
       "provider_name": "tunnel",
       "provider_schema_digest": "sha256:e63a07e98b4893c041a6f79be7e19c64babfe543fc6847c17641037e084e1c7c",
       "provider_type": "resources",
       "registry_anchor": "canonical-0333000332031203-2331130013010313-0212302020100120-1103033213303323-0333100123233002-2103010131322101-1312003022110323-3222330331022303",
       "registry_path": "docs/guides/resources--tunnel--reference--group-001.md",
+      "relationships": [],
+      "retrieval_version": 1,
       "role": "properties",
       "schema_path": ["local_ip", "ip_address", "ip_address", "dual_stack", "ipv6"],
+      "sections": [
+        {
+          "aliases": ["addr"],
+          "anchor": "schema-local_ip--ip_address--ip_address--dual_stack--ipv6--addr",
+          "description": "IPv6 Address in form of string. IPv6 address must be specified as hexadecimal numbers separated by ':' The address can be compacted by suppressing zeros e.g. '2001:db8:0:0:0:0:2:1' becomes '2001:db8::2:1' or '2001:db8:0:0:0:2:0:0' becomes '2001:db8::2::'",
+          "document_id": "xcsh-docs:resources:tunnel:properties:local_ip:ip_address:ip_address:dual_stack:ipv6",
+          "flags": ["optional"],
+          "max_items": null,
+          "min_items": null,
+          "nesting": null,
+          "relationships": [],
+          "schema_path": ["local_ip", "ip_address", "ip_address", "dual_stack", "ipv6", "addr"],
+          "syntax": "attribute",
+          "type": "string"
+        }
+      ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/tunnel/properties/local_ip/ip_address/ip_address/dual_stack/ipv6/index.txt",
-      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
-      "summary": "local_ip.ip_address.ip_address.dual_stack.ipv6 for xcsh_tunnel.",
+      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "summary": "IPv6 Address specified as hexadecimal numbers separated by ':'",
+      "tasks": ["configuration"],
       "title": "local_ip.ip_address.ip_address.dual_stack.ipv6",
       "upstream_identity": {
-        "release_tag": "v9.0.0",
+        "release_tag": "v9.0.1",
         "schema_components": ["tunnelCreateRequest"],
-        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
       }
     },
     {
-      "aliases": [],
+      "aliases": ["local ip ip address ip address ipv4"],
       "body_bytes": 2486,
       "body_sha256": "sha256:bcb7dceaa7decae6c24a0944e9ae3e9370a06333dd38e32b586ff17ffd7eac08",
+      "capabilities": ["networking"],
+      "category": "networking",
       "child_ids": [],
+      "classification": {
+        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "sources": ["reviewed-rule"],
+        "status": "resolved",
+        "upstream_category_source": "receipt-pinned-domain"
+      },
       "collection_id": "xcsh-docs:resources:tunnel:collection",
       "completeness": "complete",
       "id": "xcsh-docs:resources:tunnel:properties:local_ip:ip_address:ip_address:ipv4",
       "parent_id": "xcsh-docs:resources:tunnel:properties:local_ip:ip_address:ip_address",
       "path": "documentation/resources/tunnel/properties/local_ip/ip_address/ip_address/ipv4/index.md",
+      "product": "distributed-cloud",
       "provider_name": "tunnel",
       "provider_schema_digest": "sha256:e63a07e98b4893c041a6f79be7e19c64babfe543fc6847c17641037e084e1c7c",
       "provider_type": "resources",
       "registry_anchor": "canonical-3002322102010000-2000122100201021-1013220022011213-1103122211213231-3221313033132330-3201012030112122-0112000032131332-2030102123001222",
       "registry_path": "docs/guides/resources--tunnel--reference--group-001.md",
+      "relationships": [],
+      "retrieval_version": 1,
       "role": "properties",
       "schema_path": ["local_ip", "ip_address", "ip_address", "ipv4"],
+      "sections": [
+        {
+          "aliases": ["addr"],
+          "anchor": "schema-local_ip--ip_address--ip_address--ipv4--addr",
+          "description": "IPv4 Address in string form with dot-decimal notation.",
+          "document_id": "xcsh-docs:resources:tunnel:properties:local_ip:ip_address:ip_address:ipv4",
+          "flags": ["optional"],
+          "max_items": null,
+          "min_items": null,
+          "nesting": null,
+          "relationships": [],
+          "schema_path": ["local_ip", "ip_address", "ip_address", "ipv4", "addr"],
+          "syntax": "attribute",
+          "type": "string"
+        }
+      ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/tunnel/properties/local_ip/ip_address/ip_address/ipv4/index.txt",
-      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
-      "summary": "local_ip.ip_address.ip_address.ipv4 for xcsh_tunnel.",
+      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "summary": "IPv4 Address in dot-decimal notation.",
+      "tasks": ["configuration"],
       "title": "local_ip.ip_address.ip_address.ipv4",
       "upstream_identity": {
-        "release_tag": "v9.0.0",
+        "release_tag": "v9.0.1",
         "schema_components": ["tunnelCreateRequest"],
-        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
       }
     },
     {
-      "aliases": [],
+      "aliases": ["local ip ip address ip address ipv6"],
       "body_bytes": 2996,
       "body_sha256": "sha256:cdbb7bdead869e56bfea76386571e00fe8c4e6f9fada6f17b8ae9bdce18c9e34",
+      "capabilities": ["networking"],
+      "category": "networking",
       "child_ids": [],
+      "classification": {
+        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "sources": ["reviewed-rule"],
+        "status": "resolved",
+        "upstream_category_source": "receipt-pinned-domain"
+      },
       "collection_id": "xcsh-docs:resources:tunnel:collection",
       "completeness": "complete",
       "id": "xcsh-docs:resources:tunnel:properties:local_ip:ip_address:ip_address:ipv6",
       "parent_id": "xcsh-docs:resources:tunnel:properties:local_ip:ip_address:ip_address",
       "path": "documentation/resources/tunnel/properties/local_ip/ip_address/ip_address/ipv6/index.md",
+      "product": "distributed-cloud",
       "provider_name": "tunnel",
       "provider_schema_digest": "sha256:e63a07e98b4893c041a6f79be7e19c64babfe543fc6847c17641037e084e1c7c",
       "provider_type": "resources",
       "registry_anchor": "canonical-2210203103113323-2132313122312023-1211333201012213-0332303201320120-3203021021002223-0131010200221011-2320103330121231-0320020103111203",
       "registry_path": "docs/guides/resources--tunnel--reference--group-001.md",
+      "relationships": [],
+      "retrieval_version": 1,
       "role": "properties",
       "schema_path": ["local_ip", "ip_address", "ip_address", "ipv6"],
+      "sections": [
+        {
+          "aliases": ["addr"],
+          "anchor": "schema-local_ip--ip_address--ip_address--ipv6--addr",
+          "description": "IPv6 Address in form of string. IPv6 address must be specified as hexadecimal numbers separated by ':' The address can be compacted by suppressing zeros e.g. '2001:db8:0:0:0:0:2:1' becomes '2001:db8::2:1' or '2001:db8:0:0:0:2:0:0' becomes '2001:db8::2::'",
+          "document_id": "xcsh-docs:resources:tunnel:properties:local_ip:ip_address:ip_address:ipv6",
+          "flags": ["optional"],
+          "max_items": null,
+          "min_items": null,
+          "nesting": null,
+          "relationships": [],
+          "schema_path": ["local_ip", "ip_address", "ip_address", "ipv6", "addr"],
+          "syntax": "attribute",
+          "type": "string"
+        }
+      ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/tunnel/properties/local_ip/ip_address/ip_address/ipv6/index.txt",
-      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
-      "summary": "local_ip.ip_address.ip_address.ipv6 for xcsh_tunnel.",
+      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "summary": "IPv6 Address specified as hexadecimal numbers separated by ':'",
+      "tasks": ["configuration"],
       "title": "local_ip.ip_address.ip_address.ipv6",
       "upstream_identity": {
-        "release_tag": "v9.0.0",
+        "release_tag": "v9.0.1",
         "schema_components": ["tunnelCreateRequest"],
-        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
       }
     },
     {
-      "aliases": [],
+      "aliases": ["local ip ip address virtual network type"],
       "body_bytes": 2882,
       "body_sha256": "sha256:636542a9bedf8df930ef9ab73438034d50d8d2bc02c018493b83b8e1fb99e824",
+      "capabilities": ["networking"],
+      "category": "networking",
       "child_ids": [
         "xcsh-docs:resources:tunnel:properties:local_ip:ip_address:virtual_network_type:public",
         "xcsh-docs:resources:tunnel:properties:local_ip:ip_address:virtual_network_type:site_local",
         "xcsh-docs:resources:tunnel:properties:local_ip:ip_address:virtual_network_type:site_local_inside"
       ],
+      "classification": {
+        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "sources": ["reviewed-rule"],
+        "status": "resolved",
+        "upstream_category_source": "receipt-pinned-domain"
+      },
       "collection_id": "xcsh-docs:resources:tunnel:collection",
       "completeness": "complete",
       "id": "xcsh-docs:resources:tunnel:properties:local_ip:ip_address:virtual_network_type",
       "parent_id": "xcsh-docs:resources:tunnel:properties:local_ip:ip_address",
       "path": "documentation/resources/tunnel/properties/local_ip/ip_address/virtual_network_type/index.md",
+      "product": "distributed-cloud",
       "provider_name": "tunnel",
       "provider_schema_digest": "sha256:e63a07e98b4893c041a6f79be7e19c64babfe543fc6847c17641037e084e1c7c",
       "provider_type": "resources",
       "registry_anchor": "canonical-0101202023032121-3321102122230302-3102130011232222-1203321222212021-3013332320102113-3332333233110211-3213321132100201-3333213310222103",
       "registry_path": "docs/guides/resources--tunnel--reference--group-001.md",
+      "relationships": [
+        {
+          "anchor": "section",
+          "enforcement": "provider-schema",
+          "group": "local_ip.ip_address.virtual_network_type:ConflictingObjectAttributes:public,site_local",
+          "source": "ast-validator:ConflictingObjectAttributes",
+          "target_id": "xcsh-docs:resources:tunnel:properties:local_ip:ip_address:virtual_network_type:public",
+          "type": "conflicts"
+        },
+        {
+          "anchor": "section",
+          "enforcement": "provider-schema",
+          "group": "local_ip.ip_address.virtual_network_type:ConflictingObjectAttributes:public,site_local_inside",
+          "source": "ast-validator:ConflictingObjectAttributes",
+          "target_id": "xcsh-docs:resources:tunnel:properties:local_ip:ip_address:virtual_network_type:public",
+          "type": "conflicts"
+        },
+        {
+          "anchor": "section",
+          "enforcement": "provider-schema",
+          "group": "local_ip.ip_address.virtual_network_type:ConflictingObjectAttributes:public,site_local",
+          "source": "ast-validator:ConflictingObjectAttributes",
+          "target_id": "xcsh-docs:resources:tunnel:properties:local_ip:ip_address:virtual_network_type:site_local",
+          "type": "conflicts"
+        },
+        {
+          "anchor": "section",
+          "enforcement": "provider-schema",
+          "group": "local_ip.ip_address.virtual_network_type:ConflictingObjectAttributes:site_local,site_local_inside",
+          "source": "ast-validator:ConflictingObjectAttributes",
+          "target_id": "xcsh-docs:resources:tunnel:properties:local_ip:ip_address:virtual_network_type:site_local",
+          "type": "conflicts"
+        },
+        {
+          "anchor": "section",
+          "enforcement": "provider-schema",
+          "group": "local_ip.ip_address.virtual_network_type:ConflictingObjectAttributes:public,site_local_inside",
+          "source": "ast-validator:ConflictingObjectAttributes",
+          "target_id": "xcsh-docs:resources:tunnel:properties:local_ip:ip_address:virtual_network_type:site_local_inside",
+          "type": "conflicts"
+        },
+        {
+          "anchor": "section",
+          "enforcement": "provider-schema",
+          "group": "local_ip.ip_address.virtual_network_type:ConflictingObjectAttributes:site_local,site_local_inside",
+          "source": "ast-validator:ConflictingObjectAttributes",
+          "target_id": "xcsh-docs:resources:tunnel:properties:local_ip:ip_address:virtual_network_type:site_local_inside",
+          "type": "conflicts"
+        }
+      ],
+      "retrieval_version": 1,
       "role": "properties",
       "schema_path": ["local_ip", "ip_address", "virtual_network_type"],
+      "sections": [
+        {
+          "aliases": ["public"],
+          "anchor": "section",
+          "description": "This can be used for messages where no values are needed.",
+          "document_id": "xcsh-docs:resources:tunnel:properties:local_ip:ip_address:virtual_network_type:public",
+          "flags": ["optional"],
+          "max_items": null,
+          "min_items": null,
+          "nesting": null,
+          "relationships": [],
+          "schema_path": ["local_ip", "ip_address", "virtual_network_type", "public"],
+          "syntax": "attribute",
+          "type": "object"
+        },
+        {
+          "aliases": ["site local"],
+          "anchor": "section",
+          "description": "This can be used for messages where no values are needed.",
+          "document_id": "xcsh-docs:resources:tunnel:properties:local_ip:ip_address:virtual_network_type:site_local",
+          "flags": ["optional"],
+          "max_items": null,
+          "min_items": null,
+          "nesting": null,
+          "relationships": [],
+          "schema_path": ["local_ip", "ip_address", "virtual_network_type", "site_local"],
+          "syntax": "attribute",
+          "type": "object"
+        },
+        {
+          "aliases": ["site local inside"],
+          "anchor": "section",
+          "description": "This can be used for messages where no values are needed.",
+          "document_id": "xcsh-docs:resources:tunnel:properties:local_ip:ip_address:virtual_network_type:site_local_inside",
+          "flags": ["optional"],
+          "max_items": null,
+          "min_items": null,
+          "nesting": null,
+          "relationships": [],
+          "schema_path": ["local_ip", "ip_address", "virtual_network_type", "site_local_inside"],
+          "syntax": "attribute",
+          "type": "object"
+        }
+      ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/tunnel/properties/local_ip/ip_address/virtual_network_type/index.txt",
-      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
-      "summary": "local_ip.ip_address.virtual_network_type for xcsh_tunnel.",
+      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "summary": "Different types of virtual networks understood by the system.",
+      "tasks": ["configuration"],
       "title": "local_ip.ip_address.virtual_network_type",
       "upstream_identity": {
-        "release_tag": "v9.0.0",
+        "release_tag": "v9.0.1",
         "schema_components": ["tunnelCreateRequest"],
-        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
       }
     },
     {
-      "aliases": [],
+      "aliases": ["local ip ip address virtual network type public"],
       "body_bytes": 1580,
       "body_sha256": "sha256:1d9837d58da8902b1ced0dd88350c9b019f6b5319ba8c2b526f629625e828afd",
+      "capabilities": ["networking"],
+      "category": "networking",
       "child_ids": [],
+      "classification": {
+        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "sources": ["reviewed-rule"],
+        "status": "resolved",
+        "upstream_category_source": "receipt-pinned-domain"
+      },
       "collection_id": "xcsh-docs:resources:tunnel:collection",
       "completeness": "complete",
       "id": "xcsh-docs:resources:tunnel:properties:local_ip:ip_address:virtual_network_type:public",
       "parent_id": "xcsh-docs:resources:tunnel:properties:local_ip:ip_address:virtual_network_type",
       "path": "documentation/resources/tunnel/properties/local_ip/ip_address/virtual_network_type/public/index.md",
+      "product": "distributed-cloud",
       "provider_name": "tunnel",
       "provider_schema_digest": "sha256:e63a07e98b4893c041a6f79be7e19c64babfe543fc6847c17641037e084e1c7c",
       "provider_type": "resources",
       "registry_anchor": "canonical-3120121023033100-3222230032120221-1021310320322210-0312030123110301-1011120112130130-2012031022232022-0113211323030110-3212132332233233",
       "registry_path": "docs/guides/resources--tunnel--reference--group-001.md",
+      "relationships": [],
+      "retrieval_version": 1,
       "role": "properties",
       "schema_path": ["local_ip", "ip_address", "virtual_network_type", "public"],
+      "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/tunnel/properties/local_ip/ip_address/virtual_network_type/public/index.txt",
-      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
-      "summary": "local_ip.ip_address.virtual_network_type.public for xcsh_tunnel.",
+      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "summary": "This can be used for messages where no values are needed.",
+      "tasks": ["configuration"],
       "title": "local_ip.ip_address.virtual_network_type.public",
       "upstream_identity": {
-        "release_tag": "v9.0.0",
+        "release_tag": "v9.0.1",
         "schema_components": ["tunnelCreateRequest"],
-        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
       }
     },
     {
-      "aliases": [],
+      "aliases": ["local ip ip address virtual network type site local"],
       "body_bytes": 1592,
       "body_sha256": "sha256:f5a1f3b8a4f0b98234390b1385d344a904939408fbf5b0e7c59a8cfa7e2bd998",
+      "capabilities": ["networking"],
+      "category": "networking",
       "child_ids": [],
+      "classification": {
+        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "sources": ["reviewed-rule"],
+        "status": "resolved",
+        "upstream_category_source": "receipt-pinned-domain"
+      },
       "collection_id": "xcsh-docs:resources:tunnel:collection",
       "completeness": "complete",
       "id": "xcsh-docs:resources:tunnel:properties:local_ip:ip_address:virtual_network_type:site_local",
       "parent_id": "xcsh-docs:resources:tunnel:properties:local_ip:ip_address:virtual_network_type",
       "path": "documentation/resources/tunnel/properties/local_ip/ip_address/virtual_network_type/site_local/index.md",
+      "product": "distributed-cloud",
       "provider_name": "tunnel",
       "provider_schema_digest": "sha256:e63a07e98b4893c041a6f79be7e19c64babfe543fc6847c17641037e084e1c7c",
       "provider_type": "resources",
       "registry_anchor": "canonical-3311200211120100-2120200220132030-0303323022032102-2210030333200002-3300210100312310-0223102133023131-3220110222300230-1201202100310110",
       "registry_path": "docs/guides/resources--tunnel--reference--group-001.md",
+      "relationships": [],
+      "retrieval_version": 1,
       "role": "properties",
       "schema_path": ["local_ip", "ip_address", "virtual_network_type", "site_local"],
+      "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/tunnel/properties/local_ip/ip_address/virtual_network_type/site_local/index.txt",
-      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
-      "summary": "local_ip.ip_address.virtual_network_type.site_local for xcsh_tunnel.",
+      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "summary": "This can be used for messages where no values are needed.",
+      "tasks": ["configuration"],
       "title": "local_ip.ip_address.virtual_network_type.site_local",
       "upstream_identity": {
-        "release_tag": "v9.0.0",
+        "release_tag": "v9.0.1",
         "schema_components": ["tunnelCreateRequest"],
-        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
       }
     },
     {
-      "aliases": [],
+      "aliases": ["local ip ip address virtual network type site local inside"],
       "body_bytes": 1613,
       "body_sha256": "sha256:d9859906dc7eb7aaf4101dc2d5bf965ad27b01591ab9a62b112096b4ed499e00",
+      "capabilities": ["networking"],
+      "category": "networking",
       "child_ids": [],
+      "classification": {
+        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "sources": ["reviewed-rule"],
+        "status": "resolved",
+        "upstream_category_source": "receipt-pinned-domain"
+      },
       "collection_id": "xcsh-docs:resources:tunnel:collection",
       "completeness": "complete",
       "id": "xcsh-docs:resources:tunnel:properties:local_ip:ip_address:virtual_network_type:site_local_inside",
       "parent_id": "xcsh-docs:resources:tunnel:properties:local_ip:ip_address:virtual_network_type",
       "path": "documentation/resources/tunnel/properties/local_ip/ip_address/virtual_network_type/site_local_inside/index.md",
+      "product": "distributed-cloud",
       "provider_name": "tunnel",
       "provider_schema_digest": "sha256:e63a07e98b4893c041a6f79be7e19c64babfe543fc6847c17641037e084e1c7c",
       "provider_type": "resources",
       "registry_anchor": "canonical-1313331030331221-2220333332103303-3233113300321011-0323323233330111-3132323200121322-2211010011030012-3333331223223021-1012032222120121",
       "registry_path": "docs/guides/resources--tunnel--reference--group-001.md",
+      "relationships": [],
+      "retrieval_version": 1,
       "role": "properties",
       "schema_path": ["local_ip", "ip_address", "virtual_network_type", "site_local_inside"],
+      "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/tunnel/properties/local_ip/ip_address/virtual_network_type/site_local_inside/index.txt",
-      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
-      "summary": "local_ip.ip_address.virtual_network_type.site_local_inside for xcsh_tunnel.",
+      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "summary": "This can be used for messages where no values are needed.",
+      "tasks": ["configuration"],
       "title": "local_ip.ip_address.virtual_network_type.site_local_inside",
       "upstream_identity": {
-        "release_tag": "v9.0.0",
+        "release_tag": "v9.0.1",
         "schema_components": ["tunnelCreateRequest"],
-        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
       }
     },
     {
-      "aliases": [],
+      "aliases": ["params"],
       "body_bytes": 1492,
       "body_sha256": "sha256:32ace857029c50e31e5e48dc1a5912fbc601d0fe24211c303e694c430247fed4",
+      "capabilities": ["networking"],
+      "category": "networking",
       "child_ids": ["xcsh-docs:resources:tunnel:properties:params:ipsec"],
+      "classification": {
+        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "sources": ["reviewed-rule"],
+        "status": "resolved",
+        "upstream_category_source": "receipt-pinned-domain"
+      },
       "collection_id": "xcsh-docs:resources:tunnel:collection",
       "completeness": "complete",
       "id": "xcsh-docs:resources:tunnel:properties:params",
       "parent_id": "xcsh-docs:resources:tunnel:reference",
       "path": "documentation/resources/tunnel/properties/params/index.md",
+      "product": "distributed-cloud",
       "provider_name": "tunnel",
       "provider_schema_digest": "sha256:e63a07e98b4893c041a6f79be7e19c64babfe543fc6847c17641037e084e1c7c",
       "provider_type": "resources",
       "registry_anchor": "canonical-3112221221213033-1303222023230230-0222322021220323-2332312322123003-2200133123232101-3021120033320130-3200322033133310-2131310310120213",
       "registry_path": "docs/guides/resources--tunnel--reference--group-001.md",
+      "relationships": [],
+      "retrieval_version": 1,
       "role": "properties",
       "schema_path": ["params"],
+      "sections": [
+        {
+          "aliases": ["ipsec"],
+          "anchor": "section",
+          "description": "Configuration for IPsec encapsulation are: 1. PSK - pre shared key to be used by IKE.",
+          "document_id": "xcsh-docs:resources:tunnel:properties:params:ipsec",
+          "flags": [],
+          "max_items": null,
+          "min_items": null,
+          "nesting": "single",
+          "relationships": [],
+          "schema_path": ["params", "ipsec"],
+          "syntax": "block",
+          "type": "object"
+        }
+      ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/tunnel/properties/params/index.txt",
-      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
-      "summary": "params for xcsh_tunnel.",
+      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "summary": "Tunnel configuration parameters for supported encapsulation 1. IPsec is supported with PSK for which PSK can be configured.",
+      "tasks": ["configuration"],
       "title": "params",
       "upstream_identity": {
-        "release_tag": "v9.0.0",
+        "release_tag": "v9.0.1",
         "schema_components": ["tunnelCreateRequest"],
-        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
       }
     },
     {
-      "aliases": [],
+      "aliases": ["params ipsec"],
       "body_bytes": 1517,
       "body_sha256": "sha256:f08fb6750b6b8a0604c47df891c6728ed1f821e61f55b2978d76b8869ea1cc26",
+      "capabilities": ["networking"],
+      "category": "networking",
       "child_ids": ["xcsh-docs:resources:tunnel:properties:params:ipsec:ipsec_psk"],
+      "classification": {
+        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "sources": ["reviewed-rule"],
+        "status": "resolved",
+        "upstream_category_source": "receipt-pinned-domain"
+      },
       "collection_id": "xcsh-docs:resources:tunnel:collection",
       "completeness": "complete",
       "id": "xcsh-docs:resources:tunnel:properties:params:ipsec",
       "parent_id": "xcsh-docs:resources:tunnel:properties:params",
       "path": "documentation/resources/tunnel/properties/params/ipsec/index.md",
+      "product": "distributed-cloud",
       "provider_name": "tunnel",
       "provider_schema_digest": "sha256:e63a07e98b4893c041a6f79be7e19c64babfe543fc6847c17641037e084e1c7c",
       "provider_type": "resources",
       "registry_anchor": "canonical-1333220212012230-1111003122111213-2201303031102303-3212013001210022-0333212002213133-3030003012100230-3000310333301101-1011203123230131",
       "registry_path": "docs/guides/resources--tunnel--reference--group-001.md",
+      "relationships": [],
+      "retrieval_version": 1,
       "role": "properties",
       "schema_path": ["params", "ipsec"],
+      "sections": [
+        {
+          "aliases": ["ipsec psk"],
+          "anchor": "section",
+          "description": "SecretType is used in an object to indicate a sensitive/confidential field.",
+          "document_id": "xcsh-docs:resources:tunnel:properties:params:ipsec:ipsec_psk",
+          "flags": [],
+          "max_items": null,
+          "min_items": null,
+          "nesting": "single",
+          "relationships": [
+            {
+              "anchor": "section",
+              "enforcement": "provider-schema",
+              "group": "params.ipsec.ipsec_psk:ConflictingObjectAttributes:blindfold_secret_info,clear_secret_info",
+              "source": "ast-validator:ConflictingObjectAttributes",
+              "target_id": "xcsh-docs:resources:tunnel:properties:params:ipsec:ipsec_psk:blindfold_secret_info",
+              "type": "conflicts"
+            },
+            {
+              "anchor": "section",
+              "enforcement": "provider-schema",
+              "group": "params.ipsec.ipsec_psk:ConflictingObjectAttributes:blindfold_secret_info,clear_secret_info",
+              "source": "ast-validator:ConflictingObjectAttributes",
+              "target_id": "xcsh-docs:resources:tunnel:properties:params:ipsec:ipsec_psk:clear_secret_info",
+              "type": "conflicts"
+            }
+          ],
+          "schema_path": ["params", "ipsec", "ipsec_psk"],
+          "syntax": "block",
+          "type": "object"
+        }
+      ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/tunnel/properties/params/ipsec/index.txt",
-      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
-      "summary": "params.ipsec for xcsh_tunnel.",
+      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "summary": "Configuration for IPsec encapsulation are: 1. PSK - pre shared key to be used by IKE.",
+      "tasks": ["configuration"],
       "title": "params.ipsec",
       "upstream_identity": {
-        "release_tag": "v9.0.0",
+        "release_tag": "v9.0.1",
         "schema_components": ["tunnelCreateRequest"],
-        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
       }
     },
     {
-      "aliases": [],
+      "aliases": ["params ipsec ipsec psk"],
       "body_bytes": 2256,
       "body_sha256": "sha256:773d3b2fc29094b8a3b5a39c6f93f1c1ed2804eb663947215e705b6729b7586a",
+      "capabilities": ["networking"],
+      "category": "networking",
       "child_ids": [
         "xcsh-docs:resources:tunnel:properties:params:ipsec:ipsec_psk:blindfold_secret_info",
         "xcsh-docs:resources:tunnel:properties:params:ipsec:ipsec_psk:clear_secret_info"
       ],
+      "classification": {
+        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "sources": ["reviewed-rule"],
+        "status": "resolved",
+        "upstream_category_source": "receipt-pinned-domain"
+      },
       "collection_id": "xcsh-docs:resources:tunnel:collection",
       "completeness": "complete",
       "id": "xcsh-docs:resources:tunnel:properties:params:ipsec:ipsec_psk",
       "parent_id": "xcsh-docs:resources:tunnel:properties:params:ipsec",
       "path": "documentation/resources/tunnel/properties/params/ipsec/ipsec_psk/index.md",
+      "product": "distributed-cloud",
       "provider_name": "tunnel",
       "provider_schema_digest": "sha256:e63a07e98b4893c041a6f79be7e19c64babfe543fc6847c17641037e084e1c7c",
       "provider_type": "resources",
       "registry_anchor": "canonical-0120100121011131-0222212233122303-0033310323102030-0111122220023121-0012322203220132-3213012300321002-0300020001321011-2000312230323110",
       "registry_path": "docs/guides/resources--tunnel--reference--group-001.md",
+      "relationships": [
+        {
+          "anchor": "section",
+          "enforcement": "provider-schema",
+          "group": "params.ipsec.ipsec_psk:ConflictingObjectAttributes:blindfold_secret_info,clear_secret_info",
+          "source": "ast-validator:ConflictingObjectAttributes",
+          "target_id": "xcsh-docs:resources:tunnel:properties:params:ipsec:ipsec_psk:blindfold_secret_info",
+          "type": "conflicts"
+        },
+        {
+          "anchor": "section",
+          "enforcement": "provider-schema",
+          "group": "params.ipsec.ipsec_psk:ConflictingObjectAttributes:blindfold_secret_info,clear_secret_info",
+          "source": "ast-validator:ConflictingObjectAttributes",
+          "target_id": "xcsh-docs:resources:tunnel:properties:params:ipsec:ipsec_psk:clear_secret_info",
+          "type": "conflicts"
+        }
+      ],
+      "retrieval_version": 1,
       "role": "properties",
       "schema_path": ["params", "ipsec", "ipsec_psk"],
+      "sections": [
+        {
+          "aliases": ["blindfold secret info"],
+          "anchor": "section",
+          "description": "BlindfoldSecretInfoType specifies information about the Secret managed by F5XC Secret Management.",
+          "document_id": "xcsh-docs:resources:tunnel:properties:params:ipsec:ipsec_psk:blindfold_secret_info",
+          "flags": [],
+          "max_items": null,
+          "min_items": null,
+          "nesting": "single",
+          "relationships": [
+            {
+              "anchor": "schema-params--ipsec--ipsec_psk--blindfold_secret_info--location",
+              "enforcement": "provider-schema",
+              "group": "params.ipsec.ipsec_psk.blindfold_secret_info:RequiredObjectAttributes:location",
+              "source": "ast-validator:RequiredObjectAttributes",
+              "target_id": "xcsh-docs:resources:tunnel:properties:params:ipsec:ipsec_psk:blindfold_secret_info",
+              "type": "requires"
+            }
+          ],
+          "schema_path": ["params", "ipsec", "ipsec_psk", "blindfold_secret_info"],
+          "syntax": "block",
+          "type": "object"
+        },
+        {
+          "aliases": ["clear secret info"],
+          "anchor": "section",
+          "description": "ClearSecretInfoType specifies information about the Secret that is not encrypted.",
+          "document_id": "xcsh-docs:resources:tunnel:properties:params:ipsec:ipsec_psk:clear_secret_info",
+          "flags": [],
+          "max_items": null,
+          "min_items": null,
+          "nesting": "single",
+          "relationships": [
+            {
+              "anchor": "schema-params--ipsec--ipsec_psk--clear_secret_info--url",
+              "enforcement": "provider-schema",
+              "group": "params.ipsec.ipsec_psk.clear_secret_info:RequiredObjectAttributes:url",
+              "source": "ast-validator:RequiredObjectAttributes",
+              "target_id": "xcsh-docs:resources:tunnel:properties:params:ipsec:ipsec_psk:clear_secret_info",
+              "type": "requires"
+            }
+          ],
+          "schema_path": ["params", "ipsec", "ipsec_psk", "clear_secret_info"],
+          "syntax": "block",
+          "type": "object"
+        }
+      ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/tunnel/properties/params/ipsec/ipsec_psk/index.txt",
-      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
-      "summary": "params.ipsec.ipsec_psk for xcsh_tunnel.",
+      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "summary": "SecretType is used in an object to indicate a sensitive/confidential field.",
+      "tasks": ["configuration"],
       "title": "params.ipsec.ipsec_psk",
       "upstream_identity": {
-        "release_tag": "v9.0.0",
+        "release_tag": "v9.0.1",
         "schema_components": ["tunnelCreateRequest"],
-        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
       }
     },
     {
-      "aliases": [],
+      "aliases": ["params ipsec ipsec psk blindfold secret info"],
       "body_bytes": 4888,
       "body_sha256": "sha256:46b8abba52c0d2c18b1233961a843b0741bf5cbdfea8706e972a712eac3c330f",
+      "capabilities": ["networking"],
+      "category": "networking",
       "child_ids": [],
+      "classification": {
+        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "sources": ["reviewed-rule"],
+        "status": "resolved",
+        "upstream_category_source": "receipt-pinned-domain"
+      },
       "collection_id": "xcsh-docs:resources:tunnel:collection",
       "completeness": "complete",
       "id": "xcsh-docs:resources:tunnel:properties:params:ipsec:ipsec_psk:blindfold_secret_info",
       "parent_id": "xcsh-docs:resources:tunnel:properties:params:ipsec:ipsec_psk",
       "path": "documentation/resources/tunnel/properties/params/ipsec/ipsec_psk/blindfold_secret_info/index.md",
+      "product": "distributed-cloud",
       "provider_name": "tunnel",
       "provider_schema_digest": "sha256:e63a07e98b4893c041a6f79be7e19c64babfe543fc6847c17641037e084e1c7c",
       "provider_type": "resources",
       "registry_anchor": "canonical-2111211130232311-3131010002301010-1002113100220030-2030323201332221-3011122003103232-1100313220111032-3220301301303131-2303231102102231",
       "registry_path": "docs/guides/resources--tunnel--reference--group-001.md",
+      "relationships": [
+        {
+          "anchor": "schema-params--ipsec--ipsec_psk--blindfold_secret_info--location",
+          "enforcement": "provider-schema",
+          "group": "params.ipsec.ipsec_psk.blindfold_secret_info:RequiredObjectAttributes:location",
+          "source": "ast-validator:RequiredObjectAttributes",
+          "target_id": "xcsh-docs:resources:tunnel:properties:params:ipsec:ipsec_psk:blindfold_secret_info",
+          "type": "requires"
+        }
+      ],
+      "retrieval_version": 1,
       "role": "properties",
       "schema_path": ["params", "ipsec", "ipsec_psk", "blindfold_secret_info"],
+      "sections": [
+        {
+          "aliases": ["backend servers", "decryption provider", "origin servers", "upstream servers"],
+          "anchor": "schema-params--ipsec--ipsec_psk--blindfold_secret_info--decryption_provider",
+          "description": "Name of the Secret Management Access object that contains information about the backend Secret Management service.",
+          "document_id": "xcsh-docs:resources:tunnel:properties:params:ipsec:ipsec_psk:blindfold_secret_info",
+          "flags": ["optional"],
+          "max_items": null,
+          "min_items": null,
+          "nesting": null,
+          "relationships": [],
+          "schema_path": ["params", "ipsec", "ipsec_psk", "blindfold_secret_info", "decryption_provider"],
+          "syntax": "attribute",
+          "type": "string"
+        },
+        {
+          "aliases": ["location"],
+          "anchor": "schema-params--ipsec--ipsec_psk--blindfold_secret_info--location",
+          "description": "Location is the uri_ref. It could be in URL format for string:/// Or it could be a path if the store provider is an HTTP/HTTPS location.",
+          "document_id": "xcsh-docs:resources:tunnel:properties:params:ipsec:ipsec_psk:blindfold_secret_info",
+          "flags": ["optional", "sensitive"],
+          "max_items": null,
+          "min_items": null,
+          "nesting": null,
+          "relationships": [],
+          "schema_path": ["params", "ipsec", "ipsec_psk", "blindfold_secret_info", "location"],
+          "syntax": "attribute",
+          "type": "string"
+        },
+        {
+          "aliases": ["store provider"],
+          "anchor": "schema-params--ipsec--ipsec_psk--blindfold_secret_info--store_provider",
+          "description": "Name of the Secret Management Access object that contains information about the store to GET encrypted bytes This field needs to be provided only if the URL scheme is not string:///.",
+          "document_id": "xcsh-docs:resources:tunnel:properties:params:ipsec:ipsec_psk:blindfold_secret_info",
+          "flags": ["optional"],
+          "max_items": null,
+          "min_items": null,
+          "nesting": null,
+          "relationships": [],
+          "schema_path": ["params", "ipsec", "ipsec_psk", "blindfold_secret_info", "store_provider"],
+          "syntax": "attribute",
+          "type": "string"
+        }
+      ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/tunnel/properties/params/ipsec/ipsec_psk/blindfold_secret_info/index.txt",
-      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
-      "summary": "params.ipsec.ipsec_psk.blindfold_secret_info for xcsh_tunnel.",
+      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "summary": "BlindfoldSecretInfoType specifies information about the Secret managed by F5XC Secret Management.",
+      "tasks": ["configuration"],
       "title": "params.ipsec.ipsec_psk.blindfold_secret_info",
       "upstream_identity": {
-        "release_tag": "v9.0.0",
+        "release_tag": "v9.0.1",
         "schema_components": ["tunnelCreateRequest"],
-        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
       }
     },
     {
-      "aliases": [],
+      "aliases": ["params ipsec ipsec psk clear secret info"],
       "body_bytes": 3775,
       "body_sha256": "sha256:e25ae875e2f8066fcde7e8eca43f89d07de8cf64c13d301c6ca74b36216a6f2e",
+      "capabilities": ["networking"],
+      "category": "networking",
       "child_ids": [],
+      "classification": {
+        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "sources": ["reviewed-rule"],
+        "status": "resolved",
+        "upstream_category_source": "receipt-pinned-domain"
+      },
       "collection_id": "xcsh-docs:resources:tunnel:collection",
       "completeness": "complete",
       "id": "xcsh-docs:resources:tunnel:properties:params:ipsec:ipsec_psk:clear_secret_info",
       "parent_id": "xcsh-docs:resources:tunnel:properties:params:ipsec:ipsec_psk",
       "path": "documentation/resources/tunnel/properties/params/ipsec/ipsec_psk/clear_secret_info/index.md",
+      "product": "distributed-cloud",
       "provider_name": "tunnel",
       "provider_schema_digest": "sha256:e63a07e98b4893c041a6f79be7e19c64babfe543fc6847c17641037e084e1c7c",
       "provider_type": "resources",
       "registry_anchor": "canonical-1331213300122202-3101201130032022-0222212220301031-1030113301222102-1301232003013011-0000113021123220-0013130331220321-3331313100132101",
       "registry_path": "docs/guides/resources--tunnel--reference--group-001.md",
+      "relationships": [
+        {
+          "anchor": "schema-params--ipsec--ipsec_psk--clear_secret_info--url",
+          "enforcement": "provider-schema",
+          "group": "params.ipsec.ipsec_psk.clear_secret_info:RequiredObjectAttributes:url",
+          "source": "ast-validator:RequiredObjectAttributes",
+          "target_id": "xcsh-docs:resources:tunnel:properties:params:ipsec:ipsec_psk:clear_secret_info",
+          "type": "requires"
+        }
+      ],
+      "retrieval_version": 1,
       "role": "properties",
       "schema_path": ["params", "ipsec", "ipsec_psk", "clear_secret_info"],
+      "sections": [
+        {
+          "aliases": ["provider ref"],
+          "anchor": "schema-params--ipsec--ipsec_psk--clear_secret_info--provider_ref",
+          "description": "Name of the Secret Management Access object that contains information about the store to GET encrypted bytes This field needs to be provided only if the URL scheme is not string:///.",
+          "document_id": "xcsh-docs:resources:tunnel:properties:params:ipsec:ipsec_psk:clear_secret_info",
+          "flags": ["optional"],
+          "max_items": null,
+          "min_items": null,
+          "nesting": null,
+          "relationships": [],
+          "schema_path": ["params", "ipsec", "ipsec_psk", "clear_secret_info", "provider_ref"],
+          "syntax": "attribute",
+          "type": "string"
+        },
+        {
+          "aliases": ["url"],
+          "anchor": "schema-params--ipsec--ipsec_psk--clear_secret_info--url",
+          "description": "URL of the secret. Currently supported URL schemes is string:///. For string:/// scheme, Secret needs to be encoded Base64 format. When asked for this secret, caller will GET Secret bytes after Base64 decoding.",
+          "document_id": "xcsh-docs:resources:tunnel:properties:params:ipsec:ipsec_psk:clear_secret_info",
+          "flags": ["optional", "sensitive"],
+          "max_items": null,
+          "min_items": null,
+          "nesting": null,
+          "relationships": [],
+          "schema_path": ["params", "ipsec", "ipsec_psk", "clear_secret_info", "url"],
+          "syntax": "attribute",
+          "type": "string"
+        }
+      ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/tunnel/properties/params/ipsec/ipsec_psk/clear_secret_info/index.txt",
-      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
-      "summary": "params.ipsec.ipsec_psk.clear_secret_info for xcsh_tunnel.",
+      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "summary": "ClearSecretInfoType specifies information about the Secret that is not encrypted.",
+      "tasks": ["configuration"],
       "title": "params.ipsec.ipsec_psk.clear_secret_info",
       "upstream_identity": {
-        "release_tag": "v9.0.0",
+        "release_tag": "v9.0.1",
         "schema_components": ["tunnelCreateRequest"],
-        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
       }
     },
     {
-      "aliases": [],
+      "aliases": ["remote ip"],
       "body_bytes": 2178,
       "body_sha256": "sha256:deb16d0b4f4cbab20482888334b74477dec826ec906911058b340b1a53fc9dc3",
+      "capabilities": ["networking"],
+      "category": "networking",
       "child_ids": [
         "xcsh-docs:resources:tunnel:properties:remote_ip:endpoints",
         "xcsh-docs:resources:tunnel:properties:remote_ip:ip"
       ],
+      "classification": {
+        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "sources": ["reviewed-rule"],
+        "status": "resolved",
+        "upstream_category_source": "receipt-pinned-domain"
+      },
       "collection_id": "xcsh-docs:resources:tunnel:collection",
       "completeness": "complete",
       "id": "xcsh-docs:resources:tunnel:properties:remote_ip",
       "parent_id": "xcsh-docs:resources:tunnel:reference",
       "path": "documentation/resources/tunnel/properties/remote_ip/index.md",
+      "product": "distributed-cloud",
       "provider_name": "tunnel",
       "provider_schema_digest": "sha256:e63a07e98b4893c041a6f79be7e19c64babfe543fc6847c17641037e084e1c7c",
       "provider_type": "resources",
       "registry_anchor": "canonical-0020131231323103-2233031133231022-3221122302102332-0010301321220022-1200003103313200-0000212120201011-3323033323302300-1213020310102310",
       "registry_path": "docs/guides/resources--tunnel--reference--group-001.md",
+      "relationships": [
+        {
+          "anchor": "section",
+          "enforcement": "provider-schema",
+          "group": "remote_ip:ConflictingObjectAttributes:endpoints,ip",
+          "source": "ast-validator:ConflictingObjectAttributes",
+          "target_id": "xcsh-docs:resources:tunnel:properties:remote_ip:endpoints",
+          "type": "conflicts"
+        },
+        {
+          "anchor": "section",
+          "enforcement": "provider-schema",
+          "group": "remote_ip:ConflictingObjectAttributes:endpoints,ip",
+          "source": "ast-validator:ConflictingObjectAttributes",
+          "target_id": "xcsh-docs:resources:tunnel:properties:remote_ip:ip",
+          "type": "conflicts"
+        }
+      ],
+      "retrieval_version": 1,
       "role": "properties",
       "schema_path": ["remote_ip"],
+      "sections": [
+        {
+          "aliases": ["endpoints"],
+          "anchor": "section",
+          "description": "Provides a map of ver node name to remote node attributes Ver node should use these attributes to configure as remote tunnel.",
+          "document_id": "xcsh-docs:resources:tunnel:properties:remote_ip:endpoints",
+          "flags": [],
+          "max_items": null,
+          "min_items": null,
+          "nesting": "single",
+          "relationships": [],
+          "schema_path": ["remote_ip", "endpoints"],
+          "syntax": "block",
+          "type": "object"
+        },
+        {
+          "aliases": ["ip"],
+          "anchor": "section",
+          "description": "IP Address used to specify an IPv4 or IPv6 address.",
+          "document_id": "xcsh-docs:resources:tunnel:properties:remote_ip:ip",
+          "flags": [],
+          "max_items": null,
+          "min_items": null,
+          "nesting": "single",
+          "relationships": [
+            {
+              "anchor": "section",
+              "enforcement": "provider-schema",
+              "group": "remote_ip.ip:ConflictingObjectAttributes:dual_stack,ipv4",
+              "source": "ast-validator:ConflictingObjectAttributes",
+              "target_id": "xcsh-docs:resources:tunnel:properties:remote_ip:ip:dual_stack",
+              "type": "conflicts"
+            },
+            {
+              "anchor": "section",
+              "enforcement": "provider-schema",
+              "group": "remote_ip.ip:ConflictingObjectAttributes:dual_stack,ipv6",
+              "source": "ast-validator:ConflictingObjectAttributes",
+              "target_id": "xcsh-docs:resources:tunnel:properties:remote_ip:ip:dual_stack",
+              "type": "conflicts"
+            },
+            {
+              "anchor": "section",
+              "enforcement": "provider-schema",
+              "group": "remote_ip.ip:ConflictingObjectAttributes:dual_stack,ipv4",
+              "source": "ast-validator:ConflictingObjectAttributes",
+              "target_id": "xcsh-docs:resources:tunnel:properties:remote_ip:ip:ipv4",
+              "type": "conflicts"
+            },
+            {
+              "anchor": "section",
+              "enforcement": "provider-schema",
+              "group": "remote_ip.ip:ConflictingObjectAttributes:ipv4,ipv6",
+              "source": "ast-validator:ConflictingObjectAttributes",
+              "target_id": "xcsh-docs:resources:tunnel:properties:remote_ip:ip:ipv4",
+              "type": "conflicts"
+            },
+            {
+              "anchor": "section",
+              "enforcement": "provider-schema",
+              "group": "remote_ip.ip:ConflictingObjectAttributes:dual_stack,ipv6",
+              "source": "ast-validator:ConflictingObjectAttributes",
+              "target_id": "xcsh-docs:resources:tunnel:properties:remote_ip:ip:ipv6",
+              "type": "conflicts"
+            },
+            {
+              "anchor": "section",
+              "enforcement": "provider-schema",
+              "group": "remote_ip.ip:ConflictingObjectAttributes:ipv4,ipv6",
+              "source": "ast-validator:ConflictingObjectAttributes",
+              "target_id": "xcsh-docs:resources:tunnel:properties:remote_ip:ip:ipv6",
+              "type": "conflicts"
+            }
+          ],
+          "schema_path": ["remote_ip", "ip"],
+          "syntax": "block",
+          "type": "object"
+        }
+      ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/tunnel/properties/remote_ip/index.txt",
-      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
-      "summary": "remote_ip for xcsh_tunnel.",
+      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "summary": "Defines the OPTIONS to select remote IP address for tunnel object OPTIONS available are - 1. IP Address - Specifies the remote IP to which tunnel has to be connected 2. Remote endpoint - Is a map of IP address on per ver node basis.",
+      "tasks": ["configuration"],
       "title": "remote_ip",
       "upstream_identity": {
-        "release_tag": "v9.0.0",
+        "release_tag": "v9.0.1",
         "schema_components": ["tunnelCreateRequest"],
-        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
       }
     },
     {
-      "aliases": [],
+      "aliases": ["remote ip endpoints"],
       "body_bytes": 1641,
       "body_sha256": "sha256:4ceb56a5a2843022aab81cf05aacbe73903f503db8285bec347760a388158d8a",
+      "capabilities": ["networking"],
+      "category": "networking",
       "child_ids": ["xcsh-docs:resources:tunnel:properties:remote_ip:endpoints:endpoints"],
+      "classification": {
+        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "sources": ["reviewed-rule"],
+        "status": "resolved",
+        "upstream_category_source": "receipt-pinned-domain"
+      },
       "collection_id": "xcsh-docs:resources:tunnel:collection",
       "completeness": "complete",
       "id": "xcsh-docs:resources:tunnel:properties:remote_ip:endpoints",
       "parent_id": "xcsh-docs:resources:tunnel:properties:remote_ip",
       "path": "documentation/resources/tunnel/properties/remote_ip/endpoints/index.md",
+      "product": "distributed-cloud",
       "provider_name": "tunnel",
       "provider_schema_digest": "sha256:e63a07e98b4893c041a6f79be7e19c64babfe543fc6847c17641037e084e1c7c",
       "provider_type": "resources",
       "registry_anchor": "canonical-3131101033002030-1000022121022120-0013113323333100-0321112100201110-2032211213331201-1111000223013220-3300302303113101-1020222312210221",
       "registry_path": "docs/guides/resources--tunnel--reference--group-001.md",
+      "relationships": [],
+      "retrieval_version": 1,
       "role": "properties",
       "schema_path": ["remote_ip", "endpoints"],
+      "sections": [
+        {
+          "aliases": ["endpoints"],
+          "anchor": "section",
+          "description": "Map of remote attributes to which tunnel will be established on per site node basis Every node can have a different attributes and IP address to connect to Key is ver node name and value is Remote node attributes.",
+          "document_id": "xcsh-docs:resources:tunnel:properties:remote_ip:endpoints:endpoints",
+          "flags": [],
+          "max_items": null,
+          "min_items": null,
+          "nesting": "single",
+          "relationships": [],
+          "schema_path": ["remote_ip", "endpoints", "endpoints"],
+          "syntax": "block",
+          "type": "object"
+        }
+      ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/tunnel/properties/remote_ip/endpoints/index.txt",
-      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
-      "summary": "remote_ip.endpoints for xcsh_tunnel.",
+      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "summary": "Provides a map of ver node name to remote node attributes Ver node should use these attributes to configure as remote tunnel.",
+      "tasks": ["configuration"],
       "title": "remote_ip.endpoints",
       "upstream_identity": {
-        "release_tag": "v9.0.0",
+        "release_tag": "v9.0.1",
         "schema_components": ["tunnelCreateRequest"],
-        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
       }
     },
     {
-      "aliases": [],
+      "aliases": ["remote ip endpoints endpoints"],
       "body_bytes": 2087,
       "body_sha256": "sha256:e3228ef6c06b886cbba1a4d1997faf1a68c09635fa4d0ac3b233e0a201f7c05d",
+      "capabilities": ["networking"],
+      "category": "networking",
       "child_ids": [],
+      "classification": {
+        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "sources": ["reviewed-rule"],
+        "status": "resolved",
+        "upstream_category_source": "receipt-pinned-domain"
+      },
       "collection_id": "xcsh-docs:resources:tunnel:collection",
       "completeness": "complete",
       "id": "xcsh-docs:resources:tunnel:properties:remote_ip:endpoints:endpoints",
       "parent_id": "xcsh-docs:resources:tunnel:properties:remote_ip:endpoints",
       "path": "documentation/resources/tunnel/properties/remote_ip/endpoints/endpoints/index.md",
+      "product": "distributed-cloud",
       "provider_name": "tunnel",
       "provider_schema_digest": "sha256:e63a07e98b4893c041a6f79be7e19c64babfe543fc6847c17641037e084e1c7c",
       "provider_type": "resources",
       "registry_anchor": "canonical-2200131102023311-1120313333001220-0022101232030223-3300100200331222-2231332133100300-0011012131311200-3113211213310313-1011113233033201",
       "registry_path": "docs/guides/resources--tunnel--reference--group-001.md",
+      "relationships": [],
+      "retrieval_version": 1,
       "role": "properties",
       "schema_path": ["remote_ip", "endpoints", "endpoints"],
+      "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/tunnel/properties/remote_ip/endpoints/endpoints/index.txt",
-      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
-      "summary": "remote_ip.endpoints.endpoints for xcsh_tunnel.",
+      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "summary": "Map of remote attributes to which tunnel will be established on per site node basis Every node can have a different attributes and IP address to connect to Key is ver node name and value is Remote node attributes.",
+      "tasks": ["configuration"],
       "title": "remote_ip.endpoints.endpoints",
       "upstream_identity": {
-        "release_tag": "v9.0.0",
+        "release_tag": "v9.0.1",
         "schema_components": ["tunnelCreateRequest"],
-        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
       }
     },
     {
-      "aliases": [],
+      "aliases": ["remote ip ip"],
       "body_bytes": 2282,
       "body_sha256": "sha256:6725d31b412cb6d6533e2823cc1e900c75fb67cdd3d5cd58950a611bfb491336",
+      "capabilities": ["networking"],
+      "category": "networking",
       "child_ids": [
         "xcsh-docs:resources:tunnel:properties:remote_ip:ip:dual_stack",
         "xcsh-docs:resources:tunnel:properties:remote_ip:ip:ipv4",
         "xcsh-docs:resources:tunnel:properties:remote_ip:ip:ipv6"
       ],
+      "classification": {
+        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "sources": ["reviewed-rule"],
+        "status": "resolved",
+        "upstream_category_source": "receipt-pinned-domain"
+      },
       "collection_id": "xcsh-docs:resources:tunnel:collection",
       "completeness": "complete",
       "id": "xcsh-docs:resources:tunnel:properties:remote_ip:ip",
       "parent_id": "xcsh-docs:resources:tunnel:properties:remote_ip",
       "path": "documentation/resources/tunnel/properties/remote_ip/ip/index.md",
+      "product": "distributed-cloud",
       "provider_name": "tunnel",
       "provider_schema_digest": "sha256:e63a07e98b4893c041a6f79be7e19c64babfe543fc6847c17641037e084e1c7c",
       "provider_type": "resources",
       "registry_anchor": "canonical-2321302332112121-1213230323021130-1030011012230210-2302003120132120-0031302222212223-0133023030001032-1102010220022301-0132123301002110",
       "registry_path": "docs/guides/resources--tunnel--reference--group-001.md",
+      "relationships": [
+        {
+          "anchor": "section",
+          "enforcement": "provider-schema",
+          "group": "remote_ip.ip:ConflictingObjectAttributes:dual_stack,ipv4",
+          "source": "ast-validator:ConflictingObjectAttributes",
+          "target_id": "xcsh-docs:resources:tunnel:properties:remote_ip:ip:dual_stack",
+          "type": "conflicts"
+        },
+        {
+          "anchor": "section",
+          "enforcement": "provider-schema",
+          "group": "remote_ip.ip:ConflictingObjectAttributes:dual_stack,ipv6",
+          "source": "ast-validator:ConflictingObjectAttributes",
+          "target_id": "xcsh-docs:resources:tunnel:properties:remote_ip:ip:dual_stack",
+          "type": "conflicts"
+        },
+        {
+          "anchor": "section",
+          "enforcement": "provider-schema",
+          "group": "remote_ip.ip:ConflictingObjectAttributes:dual_stack,ipv4",
+          "source": "ast-validator:ConflictingObjectAttributes",
+          "target_id": "xcsh-docs:resources:tunnel:properties:remote_ip:ip:ipv4",
+          "type": "conflicts"
+        },
+        {
+          "anchor": "section",
+          "enforcement": "provider-schema",
+          "group": "remote_ip.ip:ConflictingObjectAttributes:ipv4,ipv6",
+          "source": "ast-validator:ConflictingObjectAttributes",
+          "target_id": "xcsh-docs:resources:tunnel:properties:remote_ip:ip:ipv4",
+          "type": "conflicts"
+        },
+        {
+          "anchor": "section",
+          "enforcement": "provider-schema",
+          "group": "remote_ip.ip:ConflictingObjectAttributes:dual_stack,ipv6",
+          "source": "ast-validator:ConflictingObjectAttributes",
+          "target_id": "xcsh-docs:resources:tunnel:properties:remote_ip:ip:ipv6",
+          "type": "conflicts"
+        },
+        {
+          "anchor": "section",
+          "enforcement": "provider-schema",
+          "group": "remote_ip.ip:ConflictingObjectAttributes:ipv4,ipv6",
+          "source": "ast-validator:ConflictingObjectAttributes",
+          "target_id": "xcsh-docs:resources:tunnel:properties:remote_ip:ip:ipv6",
+          "type": "conflicts"
+        }
+      ],
+      "retrieval_version": 1,
       "role": "properties",
       "schema_path": ["remote_ip", "ip"],
+      "sections": [
+        {
+          "aliases": ["dual stack"],
+          "anchor": "section",
+          "description": "DualStackAddressType represents both IPv4 and IPv6 together.",
+          "document_id": "xcsh-docs:resources:tunnel:properties:remote_ip:ip:dual_stack",
+          "flags": [],
+          "max_items": null,
+          "min_items": null,
+          "nesting": "single",
+          "relationships": [],
+          "schema_path": ["remote_ip", "ip", "dual_stack"],
+          "syntax": "block",
+          "type": "object"
+        },
+        {
+          "aliases": ["ipv4"],
+          "anchor": "section",
+          "description": "IPv4 Address in dot-decimal notation.",
+          "document_id": "xcsh-docs:resources:tunnel:properties:remote_ip:ip:ipv4",
+          "flags": [],
+          "max_items": null,
+          "min_items": null,
+          "nesting": "single",
+          "relationships": [],
+          "schema_path": ["remote_ip", "ip", "ipv4"],
+          "syntax": "block",
+          "type": "object"
+        },
+        {
+          "aliases": ["ipv6"],
+          "anchor": "section",
+          "description": "IPv6 Address specified as hexadecimal numbers separated by ':'",
+          "document_id": "xcsh-docs:resources:tunnel:properties:remote_ip:ip:ipv6",
+          "flags": [],
+          "max_items": null,
+          "min_items": null,
+          "nesting": "single",
+          "relationships": [],
+          "schema_path": ["remote_ip", "ip", "ipv6"],
+          "syntax": "block",
+          "type": "object"
+        }
+      ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/tunnel/properties/remote_ip/ip/index.txt",
-      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
-      "summary": "remote_ip.ip for xcsh_tunnel.",
+      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "summary": "IP Address used to specify an IPv4 or IPv6 address.",
+      "tasks": ["configuration"],
       "title": "remote_ip.ip",
       "upstream_identity": {
-        "release_tag": "v9.0.0",
+        "release_tag": "v9.0.1",
         "schema_components": ["tunnelCreateRequest"],
-        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
       }
     },
     {
-      "aliases": [],
+      "aliases": ["remote ip ip dual stack"],
       "body_bytes": 1854,
       "body_sha256": "sha256:79bac51dfac1a47e1f97aa2d0b667b311c5690039bfd58add346413e0a3dadaa",
+      "capabilities": ["networking"],
+      "category": "networking",
       "child_ids": [
         "xcsh-docs:resources:tunnel:properties:remote_ip:ip:dual_stack:ipv4",
         "xcsh-docs:resources:tunnel:properties:remote_ip:ip:dual_stack:ipv6"
       ],
+      "classification": {
+        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "sources": ["reviewed-rule"],
+        "status": "resolved",
+        "upstream_category_source": "receipt-pinned-domain"
+      },
       "collection_id": "xcsh-docs:resources:tunnel:collection",
       "completeness": "complete",
       "id": "xcsh-docs:resources:tunnel:properties:remote_ip:ip:dual_stack",
       "parent_id": "xcsh-docs:resources:tunnel:properties:remote_ip:ip",
       "path": "documentation/resources/tunnel/properties/remote_ip/ip/dual_stack/index.md",
+      "product": "distributed-cloud",
       "provider_name": "tunnel",
       "provider_schema_digest": "sha256:e63a07e98b4893c041a6f79be7e19c64babfe543fc6847c17641037e084e1c7c",
       "provider_type": "resources",
       "registry_anchor": "canonical-0213230203000003-2112030131320032-2223233132332012-0102130123133003-3213101001120131-1112202321122013-3122131200031223-2130210323322303",
       "registry_path": "docs/guides/resources--tunnel--reference--group-001.md",
+      "relationships": [],
+      "retrieval_version": 1,
       "role": "properties",
       "schema_path": ["remote_ip", "ip", "dual_stack"],
+      "sections": [
+        {
+          "aliases": ["ipv4"],
+          "anchor": "section",
+          "description": "IPv4 Address in dot-decimal notation.",
+          "document_id": "xcsh-docs:resources:tunnel:properties:remote_ip:ip:dual_stack:ipv4",
+          "flags": [],
+          "max_items": null,
+          "min_items": null,
+          "nesting": "single",
+          "relationships": [],
+          "schema_path": ["remote_ip", "ip", "dual_stack", "ipv4"],
+          "syntax": "block",
+          "type": "object"
+        },
+        {
+          "aliases": ["ipv6"],
+          "anchor": "section",
+          "description": "IPv6 Address specified as hexadecimal numbers separated by ':'",
+          "document_id": "xcsh-docs:resources:tunnel:properties:remote_ip:ip:dual_stack:ipv6",
+          "flags": [],
+          "max_items": null,
+          "min_items": null,
+          "nesting": "single",
+          "relationships": [],
+          "schema_path": ["remote_ip", "ip", "dual_stack", "ipv6"],
+          "syntax": "block",
+          "type": "object"
+        }
+      ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/tunnel/properties/remote_ip/ip/dual_stack/index.txt",
-      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
-      "summary": "remote_ip.ip.dual_stack for xcsh_tunnel.",
+      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "summary": "DualStackAddressType represents both IPv4 and IPv6 together.",
+      "tasks": ["configuration"],
       "title": "remote_ip.ip.dual_stack",
       "upstream_identity": {
-        "release_tag": "v9.0.0",
+        "release_tag": "v9.0.1",
         "schema_components": ["tunnelCreateRequest"],
-        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
       }
     },
     {
-      "aliases": [],
+      "aliases": ["remote ip ip dual stack ipv4"],
       "body_bytes": 2425,
       "body_sha256": "sha256:2f1a9cc2bd54f406707a5d3b6326bd17e90219b3333f3a429226c29a38dc9d38",
+      "capabilities": ["networking"],
+      "category": "networking",
       "child_ids": [],
+      "classification": {
+        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "sources": ["reviewed-rule"],
+        "status": "resolved",
+        "upstream_category_source": "receipt-pinned-domain"
+      },
       "collection_id": "xcsh-docs:resources:tunnel:collection",
       "completeness": "complete",
       "id": "xcsh-docs:resources:tunnel:properties:remote_ip:ip:dual_stack:ipv4",
       "parent_id": "xcsh-docs:resources:tunnel:properties:remote_ip:ip:dual_stack",
       "path": "documentation/resources/tunnel/properties/remote_ip/ip/dual_stack/ipv4/index.md",
+      "product": "distributed-cloud",
       "provider_name": "tunnel",
       "provider_schema_digest": "sha256:e63a07e98b4893c041a6f79be7e19c64babfe543fc6847c17641037e084e1c7c",
       "provider_type": "resources",
       "registry_anchor": "canonical-2123321021002333-3132312022203020-1301032033223020-1320322002102312-1332301012120210-2222223130313212-2230312132311301-1300203211211122",
       "registry_path": "docs/guides/resources--tunnel--reference--group-001.md",
+      "relationships": [],
+      "retrieval_version": 1,
       "role": "properties",
       "schema_path": ["remote_ip", "ip", "dual_stack", "ipv4"],
+      "sections": [
+        {
+          "aliases": ["addr"],
+          "anchor": "schema-remote_ip--ip--dual_stack--ipv4--addr",
+          "description": "IPv4 Address in string form with dot-decimal notation.",
+          "document_id": "xcsh-docs:resources:tunnel:properties:remote_ip:ip:dual_stack:ipv4",
+          "flags": ["optional"],
+          "max_items": null,
+          "min_items": null,
+          "nesting": null,
+          "relationships": [],
+          "schema_path": ["remote_ip", "ip", "dual_stack", "ipv4", "addr"],
+          "syntax": "attribute",
+          "type": "string"
+        }
+      ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/tunnel/properties/remote_ip/ip/dual_stack/ipv4/index.txt",
-      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
-      "summary": "remote_ip.ip.dual_stack.ipv4 for xcsh_tunnel.",
+      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "summary": "IPv4 Address in dot-decimal notation.",
+      "tasks": ["configuration"],
       "title": "remote_ip.ip.dual_stack.ipv4",
       "upstream_identity": {
-        "release_tag": "v9.0.0",
+        "release_tag": "v9.0.1",
         "schema_components": ["tunnelCreateRequest"],
-        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
       }
     },
     {
-      "aliases": [],
+      "aliases": ["remote ip ip dual stack ipv6"],
       "body_bytes": 2935,
       "body_sha256": "sha256:2dfbbf16c1d67b96039621e66878965247d34b5a997eadc1b6ad3a4dc13a499f",
+      "capabilities": ["networking"],
+      "category": "networking",
       "child_ids": [],
+      "classification": {
+        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "sources": ["reviewed-rule"],
+        "status": "resolved",
+        "upstream_category_source": "receipt-pinned-domain"
+      },
       "collection_id": "xcsh-docs:resources:tunnel:collection",
       "completeness": "complete",
       "id": "xcsh-docs:resources:tunnel:properties:remote_ip:ip:dual_stack:ipv6",
       "parent_id": "xcsh-docs:resources:tunnel:properties:remote_ip:ip:dual_stack",
       "path": "documentation/resources/tunnel/properties/remote_ip/ip/dual_stack/ipv6/index.md",
+      "product": "distributed-cloud",
       "provider_name": "tunnel",
       "provider_schema_digest": "sha256:e63a07e98b4893c041a6f79be7e19c64babfe543fc6847c17641037e084e1c7c",
       "provider_type": "resources",
       "registry_anchor": "canonical-1203001020233122-1323023223003031-1201103302033313-2111131132003131-0232331002113203-2021010112230221-3210130112011213-3130021333122210",
       "registry_path": "docs/guides/resources--tunnel--reference--group-001.md",
+      "relationships": [],
+      "retrieval_version": 1,
       "role": "properties",
       "schema_path": ["remote_ip", "ip", "dual_stack", "ipv6"],
+      "sections": [
+        {
+          "aliases": ["addr"],
+          "anchor": "schema-remote_ip--ip--dual_stack--ipv6--addr",
+          "description": "IPv6 Address in form of string. IPv6 address must be specified as hexadecimal numbers separated by ':' The address can be compacted by suppressing zeros e.g. '2001:db8:0:0:0:0:2:1' becomes '2001:db8::2:1' or '2001:db8:0:0:0:2:0:0' becomes '2001:db8::2::'",
+          "document_id": "xcsh-docs:resources:tunnel:properties:remote_ip:ip:dual_stack:ipv6",
+          "flags": ["optional"],
+          "max_items": null,
+          "min_items": null,
+          "nesting": null,
+          "relationships": [],
+          "schema_path": ["remote_ip", "ip", "dual_stack", "ipv6", "addr"],
+          "syntax": "attribute",
+          "type": "string"
+        }
+      ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/tunnel/properties/remote_ip/ip/dual_stack/ipv6/index.txt",
-      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
-      "summary": "remote_ip.ip.dual_stack.ipv6 for xcsh_tunnel.",
+      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "summary": "IPv6 Address specified as hexadecimal numbers separated by ':'",
+      "tasks": ["configuration"],
       "title": "remote_ip.ip.dual_stack.ipv6",
       "upstream_identity": {
-        "release_tag": "v9.0.0",
+        "release_tag": "v9.0.1",
         "schema_components": ["tunnelCreateRequest"],
-        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
       }
     },
     {
-      "aliases": [],
+      "aliases": ["remote ip ip ipv4"],
       "body_bytes": 2231,
       "body_sha256": "sha256:4732ee9f43083622e19859e54bf19bba215beabb269fa4b271e5b857eae527bc",
+      "capabilities": ["networking"],
+      "category": "networking",
       "child_ids": [],
+      "classification": {
+        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "sources": ["reviewed-rule"],
+        "status": "resolved",
+        "upstream_category_source": "receipt-pinned-domain"
+      },
       "collection_id": "xcsh-docs:resources:tunnel:collection",
       "completeness": "complete",
       "id": "xcsh-docs:resources:tunnel:properties:remote_ip:ip:ipv4",
       "parent_id": "xcsh-docs:resources:tunnel:properties:remote_ip:ip",
       "path": "documentation/resources/tunnel/properties/remote_ip/ip/ipv4/index.md",
+      "product": "distributed-cloud",
       "provider_name": "tunnel",
       "provider_schema_digest": "sha256:e63a07e98b4893c041a6f79be7e19c64babfe543fc6847c17641037e084e1c7c",
       "provider_type": "resources",
       "registry_anchor": "canonical-0232311001033320-3221302023010310-0230010301033330-2120122223312001-3303320321011111-1311120220323233-3002200023233330-1220200100232321",
       "registry_path": "docs/guides/resources--tunnel--reference--group-001.md",
+      "relationships": [],
+      "retrieval_version": 1,
       "role": "properties",
       "schema_path": ["remote_ip", "ip", "ipv4"],
+      "sections": [
+        {
+          "aliases": ["addr"],
+          "anchor": "schema-remote_ip--ip--ipv4--addr",
+          "description": "IPv4 Address in string form with dot-decimal notation.",
+          "document_id": "xcsh-docs:resources:tunnel:properties:remote_ip:ip:ipv4",
+          "flags": ["optional"],
+          "max_items": null,
+          "min_items": null,
+          "nesting": null,
+          "relationships": [],
+          "schema_path": ["remote_ip", "ip", "ipv4", "addr"],
+          "syntax": "attribute",
+          "type": "string"
+        }
+      ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/tunnel/properties/remote_ip/ip/ipv4/index.txt",
-      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
-      "summary": "remote_ip.ip.ipv4 for xcsh_tunnel.",
+      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "summary": "IPv4 Address in dot-decimal notation.",
+      "tasks": ["configuration"],
       "title": "remote_ip.ip.ipv4",
       "upstream_identity": {
-        "release_tag": "v9.0.0",
+        "release_tag": "v9.0.1",
         "schema_components": ["tunnelCreateRequest"],
-        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
       }
     },
     {
-      "aliases": [],
+      "aliases": ["remote ip ip ipv6"],
       "body_bytes": 2741,
       "body_sha256": "sha256:b7e01d22ee4a74eb76aa3b34972fea8dba26e7bc8b8c9628e6805a462f17e777",
+      "capabilities": ["networking"],
+      "category": "networking",
       "child_ids": [],
+      "classification": {
+        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "sources": ["reviewed-rule"],
+        "status": "resolved",
+        "upstream_category_source": "receipt-pinned-domain"
+      },
       "collection_id": "xcsh-docs:resources:tunnel:collection",
       "completeness": "complete",
       "id": "xcsh-docs:resources:tunnel:properties:remote_ip:ip:ipv6",
       "parent_id": "xcsh-docs:resources:tunnel:properties:remote_ip:ip",
       "path": "documentation/resources/tunnel/properties/remote_ip/ip/ipv6/index.md",
+      "product": "distributed-cloud",
       "provider_name": "tunnel",
       "provider_schema_digest": "sha256:e63a07e98b4893c041a6f79be7e19c64babfe543fc6847c17641037e084e1c7c",
       "provider_type": "resources",
       "registry_anchor": "canonical-3133331110133123-2233113021010030-0100320223013202-3232120312223210-2203200110210320-1033023312030323-0102013231220210-1011132322113201",
       "registry_path": "docs/guides/resources--tunnel--reference--group-001.md",
+      "relationships": [],
+      "retrieval_version": 1,
       "role": "properties",
       "schema_path": ["remote_ip", "ip", "ipv6"],
+      "sections": [
+        {
+          "aliases": ["addr"],
+          "anchor": "schema-remote_ip--ip--ipv6--addr",
+          "description": "IPv6 Address in form of string. IPv6 address must be specified as hexadecimal numbers separated by ':' The address can be compacted by suppressing zeros e.g. '2001:db8:0:0:0:0:2:1' becomes '2001:db8::2:1' or '2001:db8:0:0:0:2:0:0' becomes '2001:db8::2::'",
+          "document_id": "xcsh-docs:resources:tunnel:properties:remote_ip:ip:ipv6",
+          "flags": ["optional"],
+          "max_items": null,
+          "min_items": null,
+          "nesting": null,
+          "relationships": [],
+          "schema_path": ["remote_ip", "ip", "ipv6", "addr"],
+          "syntax": "attribute",
+          "type": "string"
+        }
+      ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/tunnel/properties/remote_ip/ip/ipv6/index.txt",
-      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
-      "summary": "remote_ip.ip.ipv6 for xcsh_tunnel.",
+      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "summary": "IPv6 Address specified as hexadecimal numbers separated by ':'",
+      "tasks": ["configuration"],
       "title": "remote_ip.ip.ipv6",
       "upstream_identity": {
-        "release_tag": "v9.0.0",
+        "release_tag": "v9.0.1",
         "schema_components": ["tunnelCreateRequest"],
-        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
       }
     },
     {
-      "aliases": [],
+      "aliases": ["duration", "operation timeout", "timeouts"],
       "body_bytes": 2195,
       "body_sha256": "sha256:0d52417f966048b4e0514f646f2b16fc2f7374eff8130be5c746a14ef30985a3",
+      "capabilities": ["networking"],
+      "category": "networking",
       "child_ids": [],
+      "classification": {
+        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "sources": ["reviewed-rule"],
+        "status": "resolved",
+        "upstream_category_source": "receipt-pinned-domain"
+      },
       "collection_id": "xcsh-docs:resources:tunnel:collection",
       "completeness": "complete",
       "id": "xcsh-docs:resources:tunnel:properties:timeouts",
       "parent_id": "xcsh-docs:resources:tunnel:reference",
       "path": "documentation/resources/tunnel/properties/timeouts/index.md",
+      "product": "distributed-cloud",
       "provider_name": "tunnel",
       "provider_schema_digest": "sha256:e63a07e98b4893c041a6f79be7e19c64babfe543fc6847c17641037e084e1c7c",
       "provider_type": "resources",
       "registry_anchor": "canonical-0232112222121303-1002201122301213-3101023123123300-0132011300202221-1333302123121302-2332110031022232-0013211020002311-1323011300230131",
       "registry_path": "docs/guides/resources--tunnel--reference--group-001.md",
+      "relationships": [],
+      "retrieval_version": 1,
       "role": "properties",
       "schema_path": ["timeouts"],
+      "sections": [
+        {
+          "aliases": ["create"],
+          "anchor": "schema-timeouts--create",
+          "description": "A string that can be (https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as \"30s\" or \"2h45m\". Valid time units are \"s\" (seconds), \"m\" (minutes), \"h\" (hours).",
+          "document_id": "xcsh-docs:resources:tunnel:properties:timeouts",
+          "flags": ["optional"],
+          "max_items": null,
+          "min_items": null,
+          "nesting": null,
+          "relationships": [],
+          "schema_path": ["timeouts", "create"],
+          "syntax": "attribute",
+          "type": "string"
+        },
+        {
+          "aliases": ["delete", "duration", "operation timeout"],
+          "anchor": "schema-timeouts--delete",
+          "description": "A string that can be (https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as \"30s\" or \"2h45m\". Valid time units are \"s\" (seconds), \"m\" (minutes), \"h\" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.",
+          "document_id": "xcsh-docs:resources:tunnel:properties:timeouts",
+          "flags": ["optional"],
+          "max_items": null,
+          "min_items": null,
+          "nesting": null,
+          "relationships": [],
+          "schema_path": ["timeouts", "delete"],
+          "syntax": "attribute",
+          "type": "string"
+        },
+        {
+          "aliases": ["read"],
+          "anchor": "schema-timeouts--read",
+          "description": "A string that can be (https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as \"30s\" or \"2h45m\". Valid time units are \"s\" (seconds), \"m\" (minutes), \"h\" (hours). Read operations occur during any refresh or planning operation when refresh is enabled.",
+          "document_id": "xcsh-docs:resources:tunnel:properties:timeouts",
+          "flags": ["optional"],
+          "max_items": null,
+          "min_items": null,
+          "nesting": null,
+          "relationships": [],
+          "schema_path": ["timeouts", "read"],
+          "syntax": "attribute",
+          "type": "string"
+        },
+        {
+          "aliases": ["update"],
+          "anchor": "schema-timeouts--update",
+          "description": "A string that can be (https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as \"30s\" or \"2h45m\". Valid time units are \"s\" (seconds), \"m\" (minutes), \"h\" (hours).",
+          "document_id": "xcsh-docs:resources:tunnel:properties:timeouts",
+          "flags": ["optional"],
+          "max_items": null,
+          "min_items": null,
+          "nesting": null,
+          "relationships": [],
+          "schema_path": ["timeouts", "update"],
+          "syntax": "attribute",
+          "type": "string"
+        }
+      ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/tunnel/properties/timeouts/index.txt",
-      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
       "summary": "timeouts for xcsh_tunnel.",
+      "tasks": ["configuration"],
       "title": "timeouts",
       "upstream_identity": {
-        "release_tag": "v9.0.0",
+        "release_tag": "v9.0.1",
         "schema_components": ["tunnelCreateRequest"],
-        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
       }
     },
     {
-      "aliases": [],
+      "aliases": ["tunnel"],
       "body_bytes": 597,
       "body_sha256": "sha256:3da06493677d0386131f71c727b3e9a07b9c74f1bfaf26da22bfcc0fa5786205",
+      "capabilities": ["networking"],
+      "category": "networking",
       "child_ids": ["xcsh-docs:resources:tunnel:example:resource"],
+      "classification": {
+        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "sources": ["reviewed-rule"],
+        "status": "resolved",
+        "upstream_category_source": "receipt-pinned-domain"
+      },
       "collection_id": "xcsh-docs:resources:tunnel:collection",
       "completeness": "complete",
       "id": "xcsh-docs:resources:tunnel:examples",
       "parent_id": "xcsh-docs:resources:tunnel:fundamentals",
       "path": "documentation/resources/tunnel/examples/index.md",
+      "product": "distributed-cloud",
       "provider_name": "tunnel",
       "provider_schema_digest": "sha256:e63a07e98b4893c041a6f79be7e19c64babfe543fc6847c17641037e084e1c7c",
       "provider_type": "resources",
       "registry_anchor": "canonical-2313003312031200-0221021012003310-1331120231133012-0101333030122330-2020203002311013-1011200200333123-1332322203132332-2103103231221131",
       "registry_path": "docs/guides/resources--tunnel--examples--group-001.md",
+      "relationships": [],
+      "retrieval_version": 1,
       "role": "examples",
       "schema_path": [],
+      "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/tunnel/examples/index.txt",
-      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
       "summary": "Examples for xcsh_tunnel.",
+      "tasks": ["configuration"],
       "title": "Examples",
       "upstream_identity": {
-        "release_tag": "v9.0.0",
+        "release_tag": "v9.0.1",
         "schema_components": ["tunnelCreateRequest"],
-        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
       }
     },
     {
-      "aliases": [],
+      "aliases": ["resource"],
       "body_bytes": 1149,
       "body_sha256": "sha256:4ad2373f1100278d74c10cca1b4d6f7d742c1780e5355a8f1964c309d2f03cf1",
+      "capabilities": ["networking"],
+      "category": "networking",
       "child_ids": [],
+      "classification": {
+        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "sources": ["reviewed-rule"],
+        "status": "resolved",
+        "upstream_category_source": "receipt-pinned-domain"
+      },
       "collection_id": "xcsh-docs:resources:tunnel:collection",
       "completeness": "complete",
       "evidence": {
@@ -1254,76 +3024,107 @@
       "id": "xcsh-docs:resources:tunnel:example:resource",
       "parent_id": "xcsh-docs:resources:tunnel:examples",
       "path": "documentation/resources/tunnel/examples/resource/index.md",
+      "product": "distributed-cloud",
       "provider_name": "tunnel",
       "provider_schema_digest": "sha256:e63a07e98b4893c041a6f79be7e19c64babfe543fc6847c17641037e084e1c7c",
       "provider_type": "resources",
       "registry_anchor": "canonical-3120322120112022-0023131222020213-3313233331303131-1021012313112101-0200300131221330-0222133001202000-3310231301110112-3323213303332023",
       "registry_path": "docs/guides/resources--tunnel--examples--group-001.md",
+      "relationships": [],
+      "retrieval_version": 1,
       "role": "example",
       "schema_path": ["resource"],
+      "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/tunnel/examples/resource/index.txt",
-      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
       "summary": "Resource for xcsh_tunnel.",
+      "tasks": ["configuration"],
       "title": "Resource",
       "upstream_identity": {
-        "release_tag": "v9.0.0",
+        "release_tag": "v9.0.1",
         "schema_components": ["tunnelCreateRequest"],
-        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
       }
     },
     {
-      "aliases": [],
+      "aliases": ["tunnel"],
       "body_bytes": 450,
       "body_sha256": "sha256:efbe522831c287e6c874f972e5b6976cf2b14a262c7b9cdc5756d3b106ba22c5",
+      "capabilities": ["networking"],
+      "category": "networking",
       "child_ids": [],
+      "classification": {
+        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "sources": ["reviewed-rule"],
+        "status": "resolved",
+        "upstream_category_source": "receipt-pinned-domain"
+      },
       "collection_id": "xcsh-docs:resources:tunnel:collection",
       "completeness": "complete",
       "id": "xcsh-docs:resources:tunnel:import",
       "import_guidance": "Import using the `namespace/name` identifier format.",
       "parent_id": "xcsh-docs:resources:tunnel:fundamentals",
       "path": "documentation/resources/tunnel/lifecycle/import/index.md",
+      "product": "distributed-cloud",
       "provider_name": "tunnel",
       "provider_schema_digest": "sha256:e63a07e98b4893c041a6f79be7e19c64babfe543fc6847c17641037e084e1c7c",
       "provider_type": "resources",
       "registry_anchor": "canonical-1010131233201320-3203100203112233-3100302112033223-0210030201322003-2330312321130221-1233203330313332-3012322103303101-1330312132300010",
       "registry_path": "docs/guides/resources--tunnel--lifecycle--group-001.md",
+      "relationships": [],
+      "retrieval_version": 1,
       "role": "import",
       "schema_path": [],
+      "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/tunnel/lifecycle/import/index.txt",
-      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
       "summary": "Import for xcsh_tunnel.",
+      "tasks": ["import"],
       "title": "Import",
       "upstream_identity": {
-        "release_tag": "v9.0.0",
+        "release_tag": "v9.0.1",
         "schema_components": ["tunnelCreateRequest"],
-        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
       }
     },
     {
-      "aliases": [],
+      "aliases": ["tunnel"],
       "body_bytes": 538,
       "body_sha256": "sha256:450a49704c37e54660c31a12495d83b249544204c8809b8524cea789784f6a4f",
+      "capabilities": ["networking"],
+      "category": "networking",
       "child_ids": [],
+      "classification": {
+        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "sources": ["reviewed-rule"],
+        "status": "resolved",
+        "upstream_category_source": "receipt-pinned-domain"
+      },
       "collection_id": "xcsh-docs:resources:tunnel:collection",
       "completeness": "complete",
       "id": "xcsh-docs:resources:tunnel:timeouts",
       "parent_id": "xcsh-docs:resources:tunnel:fundamentals",
       "path": "documentation/resources/tunnel/lifecycle/timeouts/index.md",
+      "product": "distributed-cloud",
       "provider_name": "tunnel",
       "provider_schema_digest": "sha256:e63a07e98b4893c041a6f79be7e19c64babfe543fc6847c17641037e084e1c7c",
       "provider_type": "resources",
       "registry_anchor": "canonical-1230003013201103-3320232012332123-0002112120313013-2100112000101101-2332120012312230-1233133320102023-0200313112202101-3301003112311131",
       "registry_path": "docs/guides/resources--tunnel--lifecycle--group-001.md",
+      "relationships": [],
+      "retrieval_version": 1,
       "role": "timeouts",
       "schema_path": [],
+      "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/tunnel/lifecycle/timeouts/index.txt",
-      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
       "summary": "Timeouts for xcsh_tunnel.",
+      "tasks": ["lifecycle"],
       "title": "Timeouts",
       "upstream_identity": {
-        "release_tag": "v9.0.0",
+        "release_tag": "v9.0.1",
         "schema_components": ["tunnelCreateRequest"],
-        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
       }
     }
   ],

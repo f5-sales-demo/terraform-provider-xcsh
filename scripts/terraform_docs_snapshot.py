@@ -201,10 +201,15 @@ def snapshot(tag: str, output: Path) -> dict:  # pylint: disable=too-many-locals
                     f"missing relationship target: {document['path']} -> {related}"
                 )
                 raise ValueError(message)
+    versions = {d["metadata"].get("retrieval_version") for d in documents}
+    if versions not in ({1}, {None}):
+        message = "snapshot requires complete retrieval metadata version 1"
+        raise ValueError(message)
     generated = json.loads(
         run("git", "show", tag + ":documentation/generated-manifest.json")
     )
     manifest = {
+        **({"retrieval_metadata_version": 1} if versions == {1} else {}),
         "schema_version": 2,
         "source_root": "documentation",
         "source_repository": REPOSITORY,
@@ -236,6 +241,7 @@ def snapshot(tag: str, output: Path) -> dict:  # pylint: disable=too-many-locals
     assets["publication.json"] = encoded(
         {
             "schema_version": 2,
+            **({"retrieval_metadata_version": 1} if versions == {1} else {}),
             "source_root": "documentation",
             "source_repository": REPOSITORY,
             "release_tag": "documentation-" + tag,

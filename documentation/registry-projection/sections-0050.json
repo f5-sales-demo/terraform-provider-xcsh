@@ -3,6 +3,35 @@
   "sections": [
     {
       "canonical_id": "xcsh-docs:resources:network_firewall:properties:disable_fast_acl",
+      "section_id": "xcsh-docs:resources:network_firewall:properties:disable_fast_acl:section:1",
+      "source_sha256": "sha256:5044cfc89073bc9a728d5e0fadb3eb0b5c466e20e8c7d242e7780a9ee55ca025",
+      "source_bytes": 776,
+      "canonical_source_sha256": "sha256:3da821e31767902d2cd809428d456395d53f2e50c9fc3dc36845bb04c305d0e7",
+      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/resources/network_firewall/properties/disable_fast_acl/",
+      "anchor": "canonical-2302010322300213-0312300331213020-0001121201023031-1021320012311331-0113023131300020-3201102221333103-2010311030322332-3011033223012103",
+      "anchor_map": [
+        [
+          "section",
+          "canonical-0020322223033222-1033131300010010-2012212322122112-2312012011133220-3202031230013310-1002012332122123-1102301030132202-0022221003330211"
+        ]
+      ],
+      "mode": "embedded",
+      "registry_path": "docs/guides/resources--network_firewall--reference--group-001.md"
+    },
+    {
+      "canonical_id": "xcsh-docs:resources:network_firewall:properties:disable_fast_acl",
+      "section_id": "xcsh-docs:resources:network_firewall:properties:disable_fast_acl:section:2",
+      "source_sha256": "sha256:0d4398201e18f9ddb2ea00ceed6d3256755ea4d008d849d1cec42dab5c55f1b5",
+      "source_bytes": 94,
+      "canonical_source_sha256": "sha256:3da821e31767902d2cd809428d456395d53f2e50c9fc3dc36845bb04c305d0e7",
+      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/resources/network_firewall/properties/disable_fast_acl/",
+      "anchor": "canonical-2200133331233030-3100122223000102-1023133322201203-0131120333130131-0200223200302321-1303033020202011-3211030310111320-3111330301320121",
+      "anchor_map": [],
+      "mode": "embedded",
+      "registry_path": "docs/guides/resources--network_firewall--reference--group-001.md"
+    },
+    {
+      "canonical_id": "xcsh-docs:resources:network_firewall:properties:disable_fast_acl",
       "section_id": "xcsh-docs:resources:network_firewall:properties:disable_fast_acl:section:3",
       "source_sha256": "sha256:bda4e51822c5976d92fee044d7ded757357ef2969c2c242c329fbffd76d8f7fc",
       "source_bytes": 245,
@@ -7497,35 +7526,6 @@
       "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/resources/network_policy/properties/rules/ingress_rules/ip_prefix_set/ref/",
       "anchor": "canonical-2300223331102002-1223303021101022-2030111320113003-1011300302333123-1230101220221013-2012213212110231-2201122123333321-2021121031030100",
       "anchor_map": [],
-      "mode": "embedded",
-      "registry_path": "docs/guides/resources--network_policy--reference--group-001.md"
-    },
-    {
-      "canonical_id": "xcsh-docs:resources:network_policy:properties:rules:ingress_rules:label_matcher",
-      "section_id": "xcsh-docs:resources:network_policy:properties:rules:ingress_rules:label_matcher:section:0",
-      "source_sha256": "sha256:197d41522a9dd286cb9805a03d8a5bd782cc3f3fd95ea854bf2dfc326e83e50c",
-      "source_bytes": 99,
-      "canonical_source_sha256": "sha256:7be1411ad5f4d7b810bf8f86a3ac2fdc0359f4a08a1fb00cc459bf2194d94cb5",
-      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/resources/network_policy/properties/rules/ingress_rules/label_matcher/",
-      "anchor": "canonical-1122003323300302-1113001123221231-3322000223332123-0013300200210322-0203330023023021-1133301023122322-1210221320033001-3222301112032320",
-      "anchor_map": [],
-      "mode": "embedded",
-      "registry_path": "docs/guides/resources--network_policy--reference--group-001.md"
-    },
-    {
-      "canonical_id": "xcsh-docs:resources:network_policy:properties:rules:ingress_rules:label_matcher",
-      "section_id": "xcsh-docs:resources:network_policy:properties:rules:ingress_rules:label_matcher:section:1",
-      "source_sha256": "sha256:e4573791406b72ff724ee2d076630af2d6c6c947eae7e59068a668213865449a",
-      "source_bytes": 1433,
-      "canonical_source_sha256": "sha256:7be1411ad5f4d7b810bf8f86a3ac2fdc0359f4a08a1fb00cc459bf2194d94cb5",
-      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/resources/network_policy/properties/rules/ingress_rules/label_matcher/",
-      "anchor": "canonical-2131030323002233-1212232200133203-3010020211031133-1023213322303223-3320111000331021-1101111030223011-1322031022010100-3123211031030013",
-      "anchor_map": [
-        [
-          "section",
-          "canonical-1333130130321112-2010123200001331-0120200031030320-2212333001103023-2303301111012331-0212132201000333-1130312133021010-2202302230301012"
-        ]
-      ],
       "mode": "embedded",
       "registry_path": "docs/guides/resources--network_policy--reference--group-001.md"
     }

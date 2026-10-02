@@ -2,6 +2,18 @@
   "schema_version": 1,
   "sections": [
     {
+      "canonical_id": "xcsh-docs:resources:securemesh_site:properties:custom_network_config:slo_config:no_dc_cluster_group",
+      "section_id": "xcsh-docs:resources:securemesh_site:properties:custom_network_config:slo_config:no_dc_cluster_group:section:3",
+      "source_sha256": "sha256:f912773c9af3638f7e955eb607108a655da2813a4df79c0a26249581cffe20d2",
+      "source_bytes": 289,
+      "canonical_source_sha256": "sha256:8fa65941738438c9c956a29cd8563bead056b83cc570bf2a13aeeab6eef0c23a",
+      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/resources/securemesh_site/properties/custom_network_config/slo_config/no_dc_cluster_group/",
+      "anchor": "canonical-2120303310220323-0300201002103122-2023323331111230-3301320300310113-3033330123220232-2101000122302313-0132210300012131-3030012320330203",
+      "anchor_map": [],
+      "mode": "embedded",
+      "registry_path": "docs/guides/resources--securemesh_site--reference--group-003.md"
+    },
+    {
       "canonical_id": "xcsh-docs:resources:securemesh_site:properties:custom_network_config:slo_config:no_static_routes",
       "section_id": "xcsh-docs:resources:securemesh_site:properties:custom_network_config:slo_config:no_static_routes:section:0",
       "source_sha256": "sha256:197d41522a9dd286cb9805a03d8a5bd782cc3f3fd95ea854bf2dfc326e83e50c",
@@ -7008,18 +7020,6 @@
           "canonical-0123203202112210-0130133020301112-2032313220102322-1022011130131230-1310322031230033-2330331233020232-2011313023222200-0322221303230020"
         ]
       ],
-      "mode": "embedded",
-      "registry_path": "docs/guides/resources--securemesh_site_v2--reference--group-004.md"
-    },
-    {
-      "canonical_id": "xcsh-docs:resources:securemesh_site_v2:properties:aws:not_managed:node_list:interface_list:static_ipv6_address:cluster_static_ip",
-      "section_id": "xcsh-docs:resources:securemesh_site_v2:properties:aws:not_managed:node_list:interface_list:static_ipv6_address:cluster_static_ip:section:3",
-      "source_sha256": "sha256:d678ae6cc441e337551b775a325a997c7cadd50656a61960ede6b082587cf735",
-      "source_bytes": 707,
-      "canonical_source_sha256": "sha256:efb9961d3791939770c37c35c27f6ca4dff4597f98d989735039fbe4c655ae91",
-      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/resources/securemesh_site_v2/properties/aws/not_managed/node_list/interface_list/static_ipv6_address/cluster_static_ip/",
-      "anchor": "canonical-1120031132112100-3121302321122312-2123113121120203-1230222213021010-1310113213130302-1003021010233312-1322321023312210-1013102131000232",
-      "anchor_map": [],
       "mode": "embedded",
       "registry_path": "docs/guides/resources--securemesh_site_v2--reference--group-004.md"
     }

@@ -1,0 +1,1026 @@
+{
+  "version": 1,
+  "review_basis": "Provider schema descriptions and receipt-pinned upstream product terminology; tasks are independent of categories. Unmatched classifications are unresolved.",
+  "rules": [
+    {
+      "collection": "http_loadbalancer",
+      "schema_prefix": [],
+      "category": "load-balancing",
+      "capabilities": [
+        "load-balancing"
+      ]
+    },
+    {
+      "collection": "tcp_loadbalancer",
+      "schema_prefix": [],
+      "category": "load-balancing",
+      "capabilities": [
+        "load-balancing"
+      ]
+    },
+    {
+      "collection": "udp_loadbalancer",
+      "schema_prefix": [],
+      "category": "load-balancing",
+      "capabilities": [
+        "load-balancing"
+      ]
+    },
+    {
+      "collection": "origin_pool",
+      "schema_prefix": [],
+      "category": "load-balancing",
+      "capabilities": [
+        "load-balancing"
+      ]
+    },
+    {
+      "collection": "healthcheck",
+      "schema_prefix": [],
+      "category": "load-balancing",
+      "capabilities": [
+        "load-balancing"
+      ]
+    },
+    {
+      "collection": "virtual_host",
+      "schema_prefix": [],
+      "category": "load-balancing",
+      "capabilities": [
+        "load-balancing"
+      ]
+    },
+    {
+      "collection": "bigip_http_proxy",
+      "schema_prefix": [],
+      "category": "load-balancing",
+      "capabilities": [
+        "load-balancing"
+      ]
+    },
+    {
+      "collection": "dns_zone",
+      "schema_prefix": [],
+      "category": "dns",
+      "capabilities": [
+        "dns"
+      ]
+    },
+    {
+      "collection": "dns_load_balancer",
+      "schema_prefix": [],
+      "category": "dns",
+      "capabilities": [
+        "dns"
+      ]
+    },
+    {
+      "collection": "dns_lb_pool",
+      "schema_prefix": [],
+      "category": "dns",
+      "capabilities": [
+        "dns"
+      ]
+    },
+    {
+      "collection": "dns_lb_health_check",
+      "schema_prefix": [],
+      "category": "dns",
+      "capabilities": [
+        "dns"
+      ]
+    },
+    {
+      "collection": "dns_proxy",
+      "schema_prefix": [],
+      "category": "dns",
+      "capabilities": [
+        "dns"
+      ]
+    },
+    {
+      "collection": "dns_compliance_checks",
+      "schema_prefix": [],
+      "category": "dns",
+      "capabilities": [
+        "dns"
+      ]
+    },
+    {
+      "collection": "cdn_loadbalancer",
+      "schema_prefix": [],
+      "category": "cdn",
+      "capabilities": [
+        "cdn"
+      ]
+    },
+    {
+      "collection": "cdn_cache_rule",
+      "schema_prefix": [],
+      "category": "cdn",
+      "capabilities": [
+        "cdn"
+      ]
+    },
+    {
+      "collection": "cdn_purge_command",
+      "schema_prefix": [],
+      "category": "cdn",
+      "capabilities": [
+        "cdn"
+      ]
+    },
+    {
+      "collection": "authentication",
+      "schema_prefix": [],
+      "category": "identity",
+      "capabilities": [
+        "identity"
+      ],
+      "tasks": [
+        "authentication"
+      ]
+    },
+    {
+      "collection": "authorization_server",
+      "schema_prefix": [],
+      "category": "identity",
+      "capabilities": [
+        "identity"
+      ],
+      "tasks": [
+        "authentication"
+      ]
+    },
+    {
+      "collection": "cloud_user_account",
+      "schema_prefix": [],
+      "category": "identity",
+      "capabilities": [
+        "identity"
+      ]
+    },
+    {
+      "collection": "token",
+      "schema_prefix": [],
+      "category": "identity",
+      "capabilities": [
+        "identity"
+      ]
+    },
+    {
+      "collection": "secret_management_access",
+      "schema_prefix": [],
+      "category": "identity",
+      "capabilities": [
+        "identity"
+      ]
+    },
+    {
+      "collection": "oidc_oauth_discovery",
+      "schema_prefix": [],
+      "category": "identity",
+      "capabilities": [
+        "identity"
+      ]
+    },
+    {
+      "collection": "aws_vpc_site",
+      "schema_prefix": [],
+      "category": "infrastructure",
+      "capabilities": [
+        "infrastructure"
+      ]
+    },
+    {
+      "collection": "aws_tgw_site",
+      "schema_prefix": [],
+      "category": "infrastructure",
+      "capabilities": [
+        "infrastructure"
+      ]
+    },
+    {
+      "collection": "azure_vnet_site",
+      "schema_prefix": [],
+      "category": "infrastructure",
+      "capabilities": [
+        "infrastructure"
+      ]
+    },
+    {
+      "collection": "gcp_vpc_site",
+      "schema_prefix": [],
+      "category": "infrastructure",
+      "capabilities": [
+        "infrastructure"
+      ]
+    },
+    {
+      "collection": "securemesh_site",
+      "schema_prefix": [],
+      "category": "infrastructure",
+      "capabilities": [
+        "infrastructure"
+      ]
+    },
+    {
+      "collection": "securemesh_site_v2",
+      "schema_prefix": [],
+      "category": "infrastructure",
+      "capabilities": [
+        "infrastructure"
+      ]
+    },
+    {
+      "collection": "smsv2_kvm_runtime_interface",
+      "schema_prefix": [],
+      "category": "infrastructure",
+      "capabilities": [
+        "infrastructure"
+      ]
+    },
+    {
+      "collection": "site",
+      "schema_prefix": [],
+      "category": "infrastructure",
+      "capabilities": [
+        "infrastructure"
+      ]
+    },
+    {
+      "collection": "virtual_site",
+      "schema_prefix": [],
+      "category": "infrastructure",
+      "capabilities": [
+        "infrastructure"
+      ]
+    },
+    {
+      "collection": "cloud_credentials",
+      "schema_prefix": [],
+      "category": "infrastructure",
+      "capabilities": [
+        "infrastructure"
+      ],
+      "tasks": [
+        "authentication"
+      ]
+    },
+    {
+      "collection": "cloud_connect",
+      "schema_prefix": [],
+      "category": "infrastructure",
+      "capabilities": [
+        "infrastructure"
+      ]
+    },
+    {
+      "collection": "cloud_link",
+      "schema_prefix": [],
+      "category": "infrastructure",
+      "capabilities": [
+        "infrastructure"
+      ]
+    },
+    {
+      "collection": "cloud_elastic_ip",
+      "schema_prefix": [],
+      "category": "infrastructure",
+      "capabilities": [
+        "infrastructure"
+      ]
+    },
+    {
+      "collection": "registration",
+      "schema_prefix": [],
+      "category": "infrastructure",
+      "capabilities": [
+        "infrastructure"
+      ]
+    },
+    {
+      "collection": "registration_approval",
+      "schema_prefix": [],
+      "category": "infrastructure",
+      "capabilities": [
+        "infrastructure"
+      ]
+    },
+    {
+      "collection": "site_image",
+      "schema_prefix": [],
+      "category": "infrastructure",
+      "capabilities": [
+        "infrastructure"
+      ]
+    },
+    {
+      "collection": "site_cloud_init",
+      "schema_prefix": [],
+      "category": "infrastructure",
+      "capabilities": [
+        "infrastructure"
+      ]
+    },
+    {
+      "collection": "smsv2_kvm_runtime",
+      "schema_prefix": [],
+      "category": "infrastructure",
+      "capabilities": [
+        "infrastructure"
+      ]
+    },
+    {
+      "collection": "smsv2_aws_runtime",
+      "schema_prefix": [],
+      "category": "infrastructure",
+      "capabilities": [
+        "infrastructure"
+      ]
+    },
+    {
+      "collection": "app_firewall",
+      "schema_prefix": [],
+      "category": "security",
+      "capabilities": [
+        "security"
+      ]
+    },
+    {
+      "collection": "waf_exclusion_policy",
+      "schema_prefix": [],
+      "category": "security",
+      "capabilities": [
+        "security"
+      ]
+    },
+    {
+      "collection": "service_policy",
+      "schema_prefix": [],
+      "category": "security",
+      "capabilities": [
+        "security"
+      ]
+    },
+    {
+      "collection": "service_policy_rule",
+      "schema_prefix": [],
+      "category": "security",
+      "capabilities": [
+        "security"
+      ]
+    },
+    {
+      "collection": "enhanced_firewall_policy",
+      "schema_prefix": [],
+      "category": "security",
+      "capabilities": [
+        "security"
+      ]
+    },
+    {
+      "collection": "fast_acl",
+      "schema_prefix": [],
+      "category": "security",
+      "capabilities": [
+        "security"
+      ]
+    },
+    {
+      "collection": "fast_acl_rule",
+      "schema_prefix": [],
+      "category": "security",
+      "capabilities": [
+        "security"
+      ]
+    },
+    {
+      "collection": "network_firewall",
+      "schema_prefix": [],
+      "category": "security",
+      "capabilities": [
+        "security"
+      ]
+    },
+    {
+      "collection": "network_policy",
+      "schema_prefix": [],
+      "category": "security",
+      "capabilities": [
+        "security"
+      ]
+    },
+    {
+      "collection": "network_policy_rule",
+      "schema_prefix": [],
+      "category": "security",
+      "capabilities": [
+        "security"
+      ]
+    },
+    {
+      "collection": "protected_application",
+      "schema_prefix": [],
+      "category": "security",
+      "capabilities": [
+        "security"
+      ]
+    },
+    {
+      "collection": "protected_domain",
+      "schema_prefix": [],
+      "category": "security",
+      "capabilities": [
+        "security"
+      ]
+    },
+    {
+      "collection": "bot_defense_app_infrastructure",
+      "schema_prefix": [],
+      "category": "security",
+      "capabilities": [
+        "security"
+      ]
+    },
+    {
+      "collection": "bot_infrastructure",
+      "schema_prefix": [],
+      "category": "security",
+      "capabilities": [
+        "security"
+      ]
+    },
+    {
+      "collection": "malicious_user_mitigation",
+      "schema_prefix": [],
+      "category": "security",
+      "capabilities": [
+        "security"
+      ]
+    },
+    {
+      "collection": "certificate",
+      "schema_prefix": [],
+      "category": "security",
+      "capabilities": [
+        "security"
+      ]
+    },
+    {
+      "collection": "certificate_chain",
+      "schema_prefix": [],
+      "category": "security",
+      "capabilities": [
+        "security"
+      ]
+    },
+    {
+      "collection": "trusted_ca_list",
+      "schema_prefix": [],
+      "category": "security",
+      "capabilities": [
+        "security"
+      ]
+    },
+    {
+      "collection": "crl",
+      "schema_prefix": [],
+      "category": "security",
+      "capabilities": [
+        "security"
+      ]
+    },
+    {
+      "collection": "sensitive_data_policy",
+      "schema_prefix": [],
+      "category": "security",
+      "capabilities": [
+        "security"
+      ]
+    },
+    {
+      "collection": "user_identification",
+      "schema_prefix": [],
+      "category": "security",
+      "capabilities": [
+        "security"
+      ]
+    },
+    {
+      "collection": "alert_gen_policy",
+      "schema_prefix": [],
+      "category": "monitoring",
+      "capabilities": [
+        "monitoring"
+      ]
+    },
+    {
+      "collection": "alert_policy",
+      "schema_prefix": [],
+      "category": "monitoring",
+      "capabilities": [
+        "monitoring"
+      ]
+    },
+    {
+      "collection": "alert_receiver",
+      "schema_prefix": [],
+      "category": "monitoring",
+      "capabilities": [
+        "monitoring"
+      ]
+    },
+    {
+      "collection": "alert_template",
+      "schema_prefix": [],
+      "category": "monitoring",
+      "capabilities": [
+        "monitoring"
+      ]
+    },
+    {
+      "collection": "global_log_receiver",
+      "schema_prefix": [],
+      "category": "monitoring",
+      "capabilities": [
+        "monitoring"
+      ]
+    },
+    {
+      "collection": "log_receiver",
+      "schema_prefix": [],
+      "category": "monitoring",
+      "capabilities": [
+        "monitoring"
+      ]
+    },
+    {
+      "collection": "api_crawler",
+      "schema_prefix": [],
+      "category": "api-management",
+      "capabilities": [
+        "api-management"
+      ]
+    },
+    {
+      "collection": "api_definition",
+      "schema_prefix": [],
+      "category": "api-management",
+      "capabilities": [
+        "api-management"
+      ]
+    },
+    {
+      "collection": "api_discovery",
+      "schema_prefix": [],
+      "category": "api-management",
+      "capabilities": [
+        "api-management"
+      ]
+    },
+    {
+      "collection": "api_testing",
+      "schema_prefix": [],
+      "category": "api-management",
+      "capabilities": [
+        "api-management"
+      ]
+    },
+    {
+      "collection": "app_api_group",
+      "schema_prefix": [],
+      "category": "api-management",
+      "capabilities": [
+        "api-management"
+      ]
+    },
+    {
+      "collection": "k8s_cluster",
+      "schema_prefix": [],
+      "category": "container",
+      "capabilities": [
+        "container"
+      ]
+    },
+    {
+      "collection": "k8s_cluster_role",
+      "schema_prefix": [],
+      "category": "container",
+      "capabilities": [
+        "container"
+      ]
+    },
+    {
+      "collection": "k8s_cluster_role_binding",
+      "schema_prefix": [],
+      "category": "container",
+      "capabilities": [
+        "container"
+      ]
+    },
+    {
+      "collection": "k8s_pod_security_admission",
+      "schema_prefix": [],
+      "category": "container",
+      "capabilities": [
+        "container"
+      ]
+    },
+    {
+      "collection": "k8s_pod_security_policy",
+      "schema_prefix": [],
+      "category": "container",
+      "capabilities": [
+        "container"
+      ]
+    },
+    {
+      "collection": "virtual_k8s",
+      "schema_prefix": [],
+      "category": "container",
+      "capabilities": [
+        "container"
+      ]
+    },
+    {
+      "collection": "workload",
+      "schema_prefix": [],
+      "category": "container",
+      "capabilities": [
+        "container"
+      ]
+    },
+    {
+      "collection": "workload_flavor",
+      "schema_prefix": [],
+      "category": "container",
+      "capabilities": [
+        "container"
+      ]
+    },
+    {
+      "collection": "container_registry",
+      "schema_prefix": [],
+      "category": "container",
+      "capabilities": [
+        "container"
+      ]
+    },
+    {
+      "collection": "kubernetes_manifests",
+      "schema_prefix": [],
+      "category": "container",
+      "capabilities": [
+        "container"
+      ]
+    },
+    {
+      "collection": "address_allocator",
+      "schema_prefix": [],
+      "category": "networking",
+      "capabilities": [
+        "networking"
+      ]
+    },
+    {
+      "collection": "advertise_policy",
+      "schema_prefix": [],
+      "category": "networking",
+      "capabilities": [
+        "networking"
+      ]
+    },
+    {
+      "collection": "bgp",
+      "schema_prefix": [],
+      "category": "networking",
+      "capabilities": [
+        "networking"
+      ]
+    },
+    {
+      "collection": "bgp_asn_set",
+      "schema_prefix": [],
+      "category": "networking",
+      "capabilities": [
+        "networking"
+      ]
+    },
+    {
+      "collection": "bgp_routing_policy",
+      "schema_prefix": [],
+      "category": "networking",
+      "capabilities": [
+        "networking"
+      ]
+    },
+    {
+      "collection": "forward_proxy_policy",
+      "schema_prefix": [],
+      "category": "networking",
+      "capabilities": [
+        "networking"
+      ]
+    },
+    {
+      "collection": "forwarding_class",
+      "schema_prefix": [],
+      "category": "networking",
+      "capabilities": [
+        "networking"
+      ]
+    },
+    {
+      "collection": "ip_prefix_set",
+      "schema_prefix": [],
+      "category": "networking",
+      "capabilities": [
+        "networking"
+      ]
+    },
+    {
+      "collection": "nat_policy",
+      "schema_prefix": [],
+      "category": "networking",
+      "capabilities": [
+        "networking"
+      ]
+    },
+    {
+      "collection": "network_connector",
+      "schema_prefix": [],
+      "category": "networking",
+      "capabilities": [
+        "networking"
+      ]
+    },
+    {
+      "collection": "network_interface",
+      "schema_prefix": [],
+      "category": "networking",
+      "capabilities": [
+        "networking"
+      ]
+    },
+    {
+      "collection": "policer",
+      "schema_prefix": [],
+      "category": "networking",
+      "capabilities": [
+        "networking"
+      ]
+    },
+    {
+      "collection": "policy_based_routing",
+      "schema_prefix": [],
+      "category": "networking",
+      "capabilities": [
+        "networking"
+      ]
+    },
+    {
+      "collection": "proxy",
+      "schema_prefix": [],
+      "category": "networking",
+      "capabilities": [
+        "networking"
+      ]
+    },
+    {
+      "collection": "route",
+      "schema_prefix": [],
+      "category": "networking",
+      "capabilities": [
+        "networking"
+      ]
+    },
+    {
+      "collection": "segment",
+      "schema_prefix": [],
+      "category": "networking",
+      "capabilities": [
+        "networking"
+      ]
+    },
+    {
+      "collection": "srv6_network_slice",
+      "schema_prefix": [],
+      "category": "networking",
+      "capabilities": [
+        "networking"
+      ]
+    },
+    {
+      "collection": "subnet",
+      "schema_prefix": [],
+      "category": "networking",
+      "capabilities": [
+        "networking"
+      ]
+    },
+    {
+      "collection": "tunnel",
+      "schema_prefix": [],
+      "category": "networking",
+      "capabilities": [
+        "networking"
+      ]
+    },
+    {
+      "collection": "virtual_network",
+      "schema_prefix": [],
+      "category": "networking",
+      "capabilities": [
+        "networking"
+      ]
+    },
+    {
+      "collection": "site_mesh_group",
+      "schema_prefix": [],
+      "category": "networking",
+      "capabilities": [
+        "networking"
+      ]
+    },
+    {
+      "collection": "namespace",
+      "schema_prefix": [],
+      "category": "administration",
+      "capabilities": [
+        "administration"
+      ]
+    },
+    {
+      "collection": "tenant_configuration",
+      "schema_prefix": [],
+      "category": "administration",
+      "capabilities": [
+        "administration"
+      ]
+    },
+    {
+      "collection": "setup",
+      "schema_prefix": [],
+      "category": "administration",
+      "capabilities": [
+        "administration"
+      ],
+      "tasks": [
+        "authentication"
+      ]
+    },
+    {
+      "schema_prefix": [
+        "bot_defense"
+      ],
+      "capabilities": [
+        "security.bot-defense"
+      ]
+    },
+    {
+      "schema_prefix": [
+        "bot_defense_advanced_protection"
+      ],
+      "capabilities": [
+        "security.bot-defense"
+      ]
+    },
+    {
+      "schema_prefix": [
+        "client_side_defense"
+      ],
+      "capabilities": [
+        "security.client-side-defense"
+      ]
+    },
+    {
+      "schema_prefix": [
+        "app_firewall"
+      ],
+      "capabilities": [
+        "security.waf"
+      ]
+    },
+    {
+      "schema_prefix": [
+        "api_protection_rules"
+      ],
+      "capabilities": [
+        "security.api-protection"
+      ]
+    },
+    {
+      "schema_prefix": [
+        "api_rate_limit"
+      ],
+      "capabilities": [
+        "security.rate-limiting"
+      ]
+    },
+    {
+      "schema_prefix": [
+        "https"
+      ],
+      "capabilities": [
+        "load-balancing.tls"
+      ]
+    },
+    {
+      "schema_prefix": [
+        "https_auto_cert"
+      ],
+      "capabilities": [
+        "load-balancing.tls"
+      ]
+    },
+    {
+      "schema_prefix": [
+        "origin_servers"
+      ],
+      "capabilities": [
+        "load-balancing.backend-servers"
+      ]
+    },
+    {
+      "schema_prefix": [
+        "tls_parameters"
+      ],
+      "capabilities": [
+        "load-balancing.tls"
+      ]
+    },
+    {
+      "collection": "artifact_registry_token",
+      "schema_prefix": [],
+      "tasks": [
+        "authentication"
+      ]
+    }
+  ],
+  "terms": [
+    {
+      "pattern": "\\blogin\\b|\\blog ?in\\b",
+      "aliases": [
+        "login",
+        "sign in",
+        "login result"
+      ]
+    },
+    {
+      "pattern": "\\bsuccess\\w*\\b",
+      "aliases": [
+        "success",
+        "successful",
+        "succeeded",
+        "login success"
+      ]
+    },
+    {
+      "pattern": "\\bcertificates?\\b|\\btls cert",
+      "aliases": [
+        "certificate",
+        "existing certificates",
+        "tls certificates",
+        "cert"
+      ]
+    },
+    {
+      "pattern": "\\borigin\\b|\\bbackend\\b",
+      "aliases": [
+        "backend servers",
+        "origin servers",
+        "upstream servers"
+      ]
+    },
+    {
+      "pattern": "\\bauthentication\\b|\\bcredentials?\\b|\\bapi token\\b",
+      "aliases": [
+        "credential setup",
+        "authentication",
+        "credentials"
+      ]
+    },
+    {
+      "pattern": "\\btimeout",
+      "aliases": [
+        "operation timeout",
+        "duration"
+      ]
+    },
+    {
+      "pattern": "\\bimport\\b",
+      "aliases": [
+        "import existing resource",
+        "adopt existing object"
+      ]
+    },
+    {
+      "pattern": "bot defense advanced protection",
+      "aliases": [
+        "advanced bot defense",
+        "bot defense advanced protection"
+      ]
+    }
+  ]
+}

@@ -2,6 +2,18 @@
   "schema_version": 1,
   "sections": [
     {
+      "canonical_id": "xcsh-docs:resources:virtual_host:properties:request_cookies_to_add:secret_value:clear_secret_info",
+      "section_id": "xcsh-docs:resources:virtual_host:properties:request_cookies_to_add:secret_value:clear_secret_info:section:5",
+      "source_sha256": "sha256:8ac94d6e73467ad6c52699cb621cef5063de97781ea0a12ded1189c6b49de29c",
+      "source_bytes": 286,
+      "canonical_source_sha256": "sha256:2977670ba659a1c222fa9ba221aaaeb9084abf19cb87466bd0343c2cda162b10",
+      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/resources/virtual_host/properties/request_cookies_to_add/secret_value/clear_secret_info/",
+      "anchor": "canonical-0121312112020012-1012211103121322-3102103322010102-3120100203201033-1222010300102001-1331212211121101-0130301023231132-1200322133331333",
+      "anchor_map": [],
+      "mode": "embedded",
+      "registry_path": "docs/guides/resources--virtual_host--reference--group-002.md"
+    },
+    {
       "canonical_id": "xcsh-docs:resources:virtual_host:properties:request_headers_to_add",
       "section_id": "xcsh-docs:resources:virtual_host:properties:request_headers_to_add:section:0",
       "source_sha256": "sha256:197d41522a9dd286cb9805a03d8a5bd782cc3f3fd95ea854bf2dfc326e83e50c",
@@ -7812,18 +7824,6 @@
       "anchor_map": [],
       "mode": "embedded",
       "registry_path": "docs/resources/voltstack_site.md"
-    },
-    {
-      "canonical_id": "xcsh-docs:resources:voltstack_site:reference",
-      "section_id": "xcsh-docs:resources:voltstack_site:reference:section:0",
-      "source_sha256": "sha256:197d41522a9dd286cb9805a03d8a5bd782cc3f3fd95ea854bf2dfc326e83e50c",
-      "source_bytes": 99,
-      "canonical_source_sha256": "sha256:903ea22db092250092fe1252f76d7fce68bed823e3dc79231dfbdab9b4d4d1db",
-      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/resources/voltstack_site/properties/",
-      "anchor": "canonical-2303313130303000-1321333232312030-2110222133201202-1121003303213312-0221012033213113-0321333012001121-3323103113212202-1012112312220111",
-      "anchor_map": [],
-      "mode": "embedded",
-      "registry_path": "docs/guides/resources--voltstack_site--reference--group-001.md"
     }
   ]
 }
