@@ -1301,7 +1301,7 @@ func TestDocsTfplugindocsMetadataVerification(t *testing.T) {
 	bin := t.TempDir()
 	for name, body := range map[string]string{
 		"tfplugindocs": "#!/bin/sh\nexit 0\n",
-		"terraform":    "#!/bin/sh\nprintf 'Terraform v1.16.3\\n'\n",
+		"terraform":    "#!/bin/sh\nif [ \"$2\" = -json ]; then printf '{\"terraform_version\":\"1.16.3\"}\\n'; else printf 'Terraform v1.16.3\\n'; fi\n",
 		"go":           "#!/bin/sh\n[ \"$1\" = env ] && { echo go1.25.13; exit 0; }\n[ \"$1\" = version ] && [ \"$2\" = -m ] || exit 2\nprintf '/fixture/tfplugindocs: go1.25.13\\n\\tmod\\tgithub.com/hashicorp/terraform-plugin-docs\\t%s\\th1:synthetic\\n' \"$TEST_DOCS_VERSION\"\nexit \"$TEST_DOCS_EXIT\"\n",
 	} {
 		if err := os.WriteFile(filepath.Join(bin, name), []byte(body), 0o700); err != nil {
