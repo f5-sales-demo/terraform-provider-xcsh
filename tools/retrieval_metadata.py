@@ -178,10 +178,11 @@ class RetrievalRules:
         prose = re.sub(r"[_\.]+", " ", identifier).lower()
         values = {prose.strip()} if prose.strip() else set()
         text = prose + " " + description.lower()
+        local_identifier = identifier.rsplit(".", 1)[-1].replace("_", " ").lower()
         for term in self.terms:
             if re.search(
                 term["pattern"],
-                prose if term.get("match_source") == "identifier" else text,
+                local_identifier if term.get("match_source") == "identifier" else text,
             ):
                 values.update(term["aliases"])
         return sorted(values)

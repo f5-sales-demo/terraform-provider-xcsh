@@ -101,6 +101,15 @@ class RetrievalMetadataTests(unittest.TestCase):
         )
         self.assertIn("backend servers", rules.aliases("origin_servers"))
         self.assertIn("credential setup", rules.aliases("credentials"))
+        self.assertNotIn(
+            "existing certificates",
+            rules.aliases("tls_parameters.tls_certificates.custom_hash_algorithms"),
+        )
+        self.assertNotIn("backend servers", rules.aliases("origin_servers.public_ip"))
+        self.assertNotIn("credential setup", rules.aliases("authentication.status"))
+        self.assertIn(
+            "automatic certificates", rules.aliases("listener.https_auto_cert")
+        )
 
     def test_reviewed_summary_is_scoped_to_exact_provider_path(self):
         rules = MODULE.RetrievalRules.default()
