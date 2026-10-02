@@ -8,6 +8,7 @@ import re
 from pathlib import Path
 
 VERSION = 1
+SUMMARY_LIMIT = 320
 TASKS = {"configuration", "troubleshooting", "import", "authentication", "lifecycle"}
 CATEGORIES = {
     "load-balancing",
@@ -29,7 +30,7 @@ def summary(description, fallback):
     prose = re.sub(r"\[[^\]]*\]", "", description)
     prose = re.sub(r"\s+", " ", prose).strip()
     text = prose or fallback
-    return text if len(text) <= 320 else text[:320].rsplit(" ", 1)[0]
+    return text if len(text) <= SUMMARY_LIMIT else text[:SUMMARY_LIMIT].rsplit(" ", 1)[0]
 
 
 class RetrievalRules:
