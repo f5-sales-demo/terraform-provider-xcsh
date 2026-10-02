@@ -69,6 +69,83 @@ class RetrievalMetadataTests(unittest.TestCase):
         self.assertIn("login success", aliases)
         self.assertNotIn("benchmark", " ".join(aliases))
 
+    def test_aliases_do_not_describe_incidental_certificate_mentions(self):
+        rules = MODULE.RetrievalRules.default()
+        self.assertNotIn(
+            "existing certificates",
+            rules.aliases(
+                "custom_hash_algorithms", "Algorithms used for TLS certificates."
+            ),
+        )
+        self.assertNotIn(
+            "existing certificates",
+            rules.aliases(
+                "https_auto_cert",
+                "Choice for selecting HTTP proxy with bring your own certificates.",
+            ),
+        )
+        self.assertIn("automatic certificates", rules.aliases("https_auto_cert"))
+        self.assertIn("existing certificates", rules.aliases("tls_certificates"))
+
+    def test_aliases_keep_credential_and_backend_context_local(self):
+        rules = MODULE.RetrievalRules.default()
+        self.assertNotIn(
+            "credential setup",
+            rules.aliases("status", "Status of authentication credentials."),
+        )
+        self.assertNotIn(
+            "backend servers",
+            rules.aliases(
+                "connection_timeout", "Timeout for connections to origin servers."
+            ),
+        )
+        self.assertIn("backend servers", rules.aliases("origin_servers"))
+        self.assertIn("credential setup", rules.aliases("credentials"))
+        self.assertNotIn(
+            "existing certificates",
+            rules.aliases("tls_parameters.tls_certificates.custom_hash_algorithms"),
+        )
+        self.assertNotIn("backend servers", rules.aliases("origin_servers.public_ip"))
+        self.assertNotIn("credential setup", rules.aliases("authentication.status"))
+        self.assertIn(
+            "automatic certificates", rules.aliases("listener.https_auto_cert")
+        )
+
+    def test_reviewed_summary_is_scoped_to_exact_provider_path(self):
+        rules = MODULE.RetrievalRules.default()
+        text = rules.reviewed_summary(
+            "resources", "http_loadbalancer", ["https_auto_cert"]
+        )
+        self.assertIn("automatic", text.lower())
+        self.assertIsNone(
+            rules.reviewed_summary(
+                "resources", "http_loadbalancer", ["https_auto_cert", "port"]
+            )
+        )
+        self.assertIsNone(
+            rules.reviewed_summary("resources", "origin_pool", ["https_auto_cert"])
+        )
+
+    def test_invalid_reviewed_summary_rules_fail_before_generation(self):
+        rule = {
+            "provider_type": "resources",
+            "collection": "fixture",
+            "schema_path": ["tls"],
+            "summary": "Reviewed TLS settings.",
+            "review_basis": "Verified schema.",
+        }
+        with self.assertRaisesRegex(ValueError, "conflicting"):
+            MODULE.RetrievalRules(
+                {
+                    "version": 1,
+                    "summaries": [rule, {**rule, "summary": "Different wording."}],
+                }
+            )
+        with self.assertRaisesRegex(ValueError, "invalid"):
+            MODULE.RetrievalRules(
+                {"version": 1, "summaries": [{**rule, "review_basis": ""}]}
+            )
+
     def test_summary_preserves_complete_words(self):
         text = "complete " * 40
         result = MODULE.summary(text, "fallback")

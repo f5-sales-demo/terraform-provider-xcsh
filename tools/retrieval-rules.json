@@ -977,13 +977,14 @@
       ]
     },
     {
-      "pattern": "\\bcertificates?\\b|\\btls cert",
+      "pattern": "\\b(?:tls certificates|certificates|certificate chain|certificate url)\\b",
       "aliases": [
         "certificate",
         "existing certificates",
         "tls certificates",
         "cert"
-      ]
+      ],
+      "match_source": "identifier"
     },
     {
       "pattern": "\\borigin\\b|\\bbackend\\b",
@@ -991,7 +992,8 @@
         "backend servers",
         "origin servers",
         "upstream servers"
-      ]
+      ],
+      "match_source": "identifier"
     },
     {
       "pattern": "\\bauthentication\\b|\\bcredentials?\\b|\\bapi token\\b",
@@ -999,7 +1001,8 @@
         "credential setup",
         "authentication",
         "credentials"
-      ]
+      ],
+      "match_source": "identifier"
     },
     {
       "pattern": "\\btimeout",
@@ -1021,6 +1024,35 @@
         "advanced bot defense",
         "bot defense advanced protection"
       ]
+    },
+    {
+      "pattern": "\\bhttps auto cert\\b",
+      "match_source": "identifier",
+      "aliases": [
+        "automatic certificates",
+        "automatic certificate management",
+        "managed TLS certificates"
+      ]
+    }
+  ],
+  "summaries": [
+    {
+      "provider_type": "resources",
+      "collection": "http_loadbalancer",
+      "schema_path": [
+        "https_auto_cert"
+      ],
+      "summary": "Configure HTTPS with automatic TLS certificate management for load balancer domains.",
+      "review_basis": "Schema identifier https_auto_cert and maintained examples/resources/xcsh_http_loadbalancer/https-auto-cert.tf; upstream description repeats bring-your-own wording."
+    },
+    {
+      "provider_type": "data-sources",
+      "collection": "http_loadbalancer",
+      "schema_path": [
+        "https_auto_cert"
+      ],
+      "summary": "Inspect HTTPS automatic TLS certificate management settings for load balancer domains.",
+      "review_basis": "Resource schema identity and corresponding computed data-source schema."
     }
   ]
 }
