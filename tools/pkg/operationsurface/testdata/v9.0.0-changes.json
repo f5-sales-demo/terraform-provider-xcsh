@@ -1,0 +1,183 @@
+{
+  "operations": {
+    "additions": [
+      {
+        "method": "POST",
+        "path": "/api/config/dns/namespaces/system/dns_zone/add_cryptokey"
+      },
+      {
+        "method": "POST",
+        "path": "/api/config/dns/namespaces/system/dns_zone/delete_cryptokey"
+      },
+      {
+        "method": "POST",
+        "path": "/api/config/dns/namespaces/system/dns_zone/edit_cryptokey"
+      },
+      {
+        "method": "POST",
+        "path": "/api/config/dns/namespaces/system/dns_zone/get_cryptokeys"
+      },
+      {
+        "method": "POST",
+        "path": "/api/config/namespaces/{metadata.namespace}/cloud_user_accounts"
+      },
+      {
+        "method": "PUT",
+        "path": "/api/config/namespaces/{metadata.namespace}/cloud_user_accounts/{metadata.name}"
+      },
+      {
+        "method": "GET",
+        "path": "/api/config/namespaces/{namespace}/cloud_user_accounts"
+      },
+      {
+        "method": "DELETE",
+        "path": "/api/config/namespaces/{namespace}/cloud_user_accounts/{name}"
+      },
+      {
+        "method": "GET",
+        "path": "/api/config/namespaces/{namespace}/cloud_user_accounts/{name}"
+      },
+      {
+        "method": "POST",
+        "path": "/api/config/namespaces/{namespace}/oidc_oauth_discovery"
+      },
+      {
+        "method": "POST",
+        "path": "/api/config/namespaces/{namespace}/sites-signatures/update"
+      },
+      {
+        "method": "GET",
+        "path": "/api/data/namespaces/{namespace}/access/active-sessions"
+      },
+      {
+        "method": "POST",
+        "path": "/api/data/namespaces/{namespace}/access/active-sessions/terminate"
+      },
+      {
+        "method": "DELETE",
+        "path": "/api/data/namespaces/{namespace}/access/active-sessions/{id}"
+      },
+      {
+        "method": "GET",
+        "path": "/api/data/namespaces/{namespace}/access/active-sessions/{id}"
+      },
+      {
+        "method": "POST",
+        "path": "/api/data/namespaces/{namespace}/app_security/evidence"
+      },
+      {
+        "method": "POST",
+        "path": "/api/data/namespaces/{namespace}/tmm_session/metrics"
+      },
+      {
+        "method": "POST",
+        "path": "/api/device-intelligence/namespaces/system/device-intelligence/addon/subscribe"
+      },
+      {
+        "method": "POST",
+        "path": "/api/device-intelligence/namespaces/system/device-intelligence/addon/unsubscribe"
+      },
+      {
+        "method": "POST",
+        "path": "/api/device-intelligence/namespaces/{namespace}/analytics/devices/multi-account"
+      },
+      {
+        "method": "POST",
+        "path": "/api/device-intelligence/namespaces/{namespace}/analytics/devices/risk-score-distribution"
+      },
+      {
+        "method": "POST",
+        "path": "/api/device-intelligence/namespaces/{namespace}/analytics/summary"
+      },
+      {
+        "method": "POST",
+        "path": "/api/device-intelligence/namespaces/{namespace}/analytics/transactions/high-risk"
+      },
+      {
+        "method": "POST",
+        "path": "/api/device-intelligence/namespaces/{namespace}/devices"
+      },
+      {
+        "method": "POST",
+        "path": "/api/device-intelligence/namespaces/{namespace}/devices/{device_id}/history"
+      },
+      {
+        "method": "POST",
+        "path": "/api/device-intelligence/namespaces/{namespace}/devices/{device_id}/summary"
+      },
+      {
+        "method": "GET",
+        "path": "/api/infraprotect/namespaces/{namespace}/infraprotect/mitigation/{mitigation_id}/ips/download"
+      },
+      {
+        "method": "POST",
+        "path": "/api/infraprotect/namespaces/{namespace}/infraprotect/synchronize-configuration"
+      },
+      {
+        "method": "GET",
+        "path": "/api/maurice/namespaces/system/sites/{site}/download-kubernetes-manifests"
+      },
+      {
+        "method": "GET",
+        "path": "/api/shape/bot/namespaces/{namespace}/artifact-registry-token"
+      },
+      {
+        "method": "POST",
+        "path": "/api/shape/bot/namespaces/{namespace}/suggest-values"
+      },
+      {
+        "method": "POST",
+        "path": "/api/shape/bot/namespaces/{namespace}/v2/reporting/peers/check"
+      },
+      {
+        "method": "POST",
+        "path": "/api/shape/bot/namespaces/{namespace}/v2/reporting/peers/threat-types"
+      },
+      {
+        "method": "POST",
+        "path": "/api/shape/bot/namespaces/{namespace}/v2/reporting/peers/top-good-bots"
+      },
+      {
+        "method": "POST",
+        "path": "/api/shape/bot/namespaces/{namespace}/v2/reporting/peers/top-reason-codes"
+      },
+      {
+        "method": "POST",
+        "path": "/api/shape/bot/namespaces/{namespace}/v2/reporting/peers/traffic/overview"
+      },
+      {
+        "method": "GET",
+        "path": "/api/waf/attack-signatures"
+      },
+      {
+        "method": "GET",
+        "path": "/api/waf/bot-signatures"
+      },
+      {
+        "method": "GET",
+        "path": "/api/waf/latest-signatures-version"
+      },
+      {
+        "method": "GET",
+        "path": "/api/waf/threat-campaigns"
+      },
+      {
+        "method": "POST",
+        "path": "/api/waf/threats"
+      },
+      {
+        "method": "GET",
+        "path": "/api/web/namespaces/system/customer_support/{name}/comments"
+      },
+      {
+        "method": "GET",
+        "path": "/api/web/namespaces/system/managed_client/customer_support/{tp_id}/comments"
+      },
+      {
+        "method": "GET",
+        "path": "/api/web/namespaces/system/partner-management/customer_support/{tp_id}/comments"
+      }
+    ],
+    "removals": []
+  }
+}
