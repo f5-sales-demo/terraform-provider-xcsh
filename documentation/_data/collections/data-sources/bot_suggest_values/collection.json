@@ -95,7 +95,7 @@
         "xcsh-docs:data-sources:bot_suggest_values:examples"
       ],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -107,7 +107,7 @@
       "path": "documentation/data-sources/bot_suggest_values/index.md",
       "product": "distributed-cloud",
       "provider_name": "bot_suggest_values",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-3223113331303120-3211131233310020-2103101120000000-3302331313210231-3330320100131032-1303233132310303-1120022100002302-3203202022101303",
       "registry_path": "docs/data-sources/bot_suggest_values.md",
@@ -139,7 +139,7 @@
         "xcsh-docs:data-sources:bot_suggest_values:properties:request_body"
       ],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -151,7 +151,7 @@
       "path": "documentation/data-sources/bot_suggest_values/properties/index.md",
       "product": "distributed-cloud",
       "provider_name": "bot_suggest_values",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-0133311012330202-3003220301112011-3121011301000332-0123101221021012-1323031211013031-1311312133320211-3120303313001021-1311000323111302",
       "registry_path": "docs/guides/data-sources--bot_suggest_values--reference--group-001.md",
@@ -250,7 +250,7 @@
       "category": null,
       "child_ids": ["xcsh-docs:data-sources:bot_suggest_values:properties:items:ref_value"],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -262,7 +262,7 @@
       "path": "documentation/data-sources/bot_suggest_values/properties/items/index.md",
       "product": "distributed-cloud",
       "provider_name": "bot_suggest_values",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-1111021110211130-3122023222133231-2011033032111212-3233113022331010-3001220323221102-2221321210220331-1220320022123212-1333000002221221",
       "registry_path": "docs/guides/data-sources--bot_suggest_values--reference--group-001.md",
@@ -361,7 +361,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -373,7 +373,7 @@
       "path": "documentation/data-sources/bot_suggest_values/properties/items/ref_value/index.md",
       "product": "distributed-cloud",
       "provider_name": "bot_suggest_values",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-3232300000213003-0233113111133112-0203322220313002-0211100133220101-3332103033332233-0312012203023132-2021100322323320-0001303113201321",
       "registry_path": "docs/guides/data-sources--bot_suggest_values--reference--group-001.md",
@@ -444,7 +444,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -456,7 +456,7 @@
       "path": "documentation/data-sources/bot_suggest_values/properties/request_body/index.md",
       "product": "distributed-cloud",
       "provider_name": "bot_suggest_values",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-2302002121032203-2330322011313122-1000312001232330-3322130231231133-0032323203121310-2333031332013131-2122312101031013-0032330010330123",
       "registry_path": "docs/guides/data-sources--bot_suggest_values--reference--group-001.md",
@@ -513,7 +513,7 @@
       "category": null,
       "child_ids": ["xcsh-docs:data-sources:bot_suggest_values:example:data-source"],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -525,7 +525,7 @@
       "path": "documentation/data-sources/bot_suggest_values/examples/index.md",
       "product": "distributed-cloud",
       "provider_name": "bot_suggest_values",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-3023011213133012-0111020023130020-1102232223001103-1310002010213032-0302100103210013-3130303103311003-0123122011212000-3022210211021131",
       "registry_path": "docs/guides/data-sources--bot_suggest_values--examples--group-001.md",
@@ -553,7 +553,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -572,7 +572,7 @@
       "path": "documentation/data-sources/bot_suggest_values/examples/data-source/index.md",
       "product": "distributed-cloud",
       "provider_name": "bot_suggest_values",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-0313312323011010-1031111310122203-3012110312110231-3120311032102232-2001012313110231-1121323110102121-3010110120222122-2232101100310000",
       "registry_path": "docs/guides/data-sources--bot_suggest_values--examples--group-001.md",

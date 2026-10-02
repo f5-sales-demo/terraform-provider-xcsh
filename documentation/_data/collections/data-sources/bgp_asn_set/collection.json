@@ -45,14 +45,14 @@
   },
   "pages": [
     {
-      "aliases": ["backend servers", "bgp asn set", "origin servers", "upstream servers"],
+      "aliases": ["bgp asn set"],
       "body_bytes": 1348,
       "body_sha256": "sha256:066f8591b5f9b0ecab87ef6f631c44dfa6179d957807df7c272f8529d05425aa",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": ["xcsh-docs:data-sources:bgp_asn_set:reference", "xcsh-docs:data-sources:bgp_asn_set:examples"],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -64,7 +64,7 @@
       "path": "documentation/data-sources/bgp_asn_set/index.md",
       "product": "distributed-cloud",
       "provider_name": "bgp_asn_set",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-0101132211310203-2233232230121033-0201030033302303-2112033202323033-1200310311200222-2223131321000021-3211120032230011-1102013013320333",
       "registry_path": "docs/data-sources/bgp_asn_set.md",
@@ -93,7 +93,7 @@
       "category": "networking",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -105,7 +105,7 @@
       "path": "documentation/data-sources/bgp_asn_set/properties/index.md",
       "product": "distributed-cloud",
       "provider_name": "bgp_asn_set",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-3313133110321332-0200122330231112-0330010031231222-0131121232003313-0202132231312021-2212233212012031-1311232213212101-1310201022103223",
       "registry_path": "docs/guides/data-sources--bgp_asn_set--reference--group-001.md",
@@ -232,7 +232,7 @@
       "category": "networking",
       "child_ids": ["xcsh-docs:data-sources:bgp_asn_set:example:data-source"],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -244,7 +244,7 @@
       "path": "documentation/data-sources/bgp_asn_set/examples/index.md",
       "product": "distributed-cloud",
       "provider_name": "bgp_asn_set",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-0121101003311303-3302213232300110-0000312323132103-3123212202002220-2302122013101120-3233013032232201-3111302230331100-1001302210011031",
       "registry_path": "docs/guides/data-sources--bgp_asn_set--examples--group-001.md",
@@ -272,7 +272,7 @@
       "category": "networking",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -291,7 +291,7 @@
       "path": "documentation/data-sources/bgp_asn_set/examples/data-source/index.md",
       "product": "distributed-cloud",
       "provider_name": "bgp_asn_set",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-0133022332032332-3102110222003332-3302133133030221-1021010001001311-2013002012320103-0132011011131131-3131232011011312-1203110023113022",
       "registry_path": "docs/guides/data-sources--bgp_asn_set--examples--group-001.md",

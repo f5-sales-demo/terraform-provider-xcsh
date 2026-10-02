@@ -45,7 +45,7 @@
   },
   "pages": [
     {
-      "aliases": ["authorization server", "backend servers", "origin servers", "upstream servers"],
+      "aliases": ["authorization server"],
       "body_bytes": 1448,
       "body_sha256": "sha256:c04a3b02fde7ff652af05b820c8b61fd7116b3c984cbb968e4e3cd6263960b59",
       "capabilities": ["identity"],
@@ -55,7 +55,7 @@
         "xcsh-docs:data-sources:authorization_server:examples"
       ],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -67,7 +67,7 @@
       "path": "documentation/data-sources/authorization_server/index.md",
       "product": "distributed-cloud",
       "provider_name": "authorization_server",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-3021220012103201-0130032102230113-0221231210301022-2323112200300110-3212010013210200-3300200232211023-2113102021313101-1310130133021322",
       "registry_path": "docs/data-sources/authorization_server.md",
@@ -96,7 +96,7 @@
       "category": "identity",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -108,7 +108,7 @@
       "path": "documentation/data-sources/authorization_server/properties/index.md",
       "product": "distributed-cloud",
       "provider_name": "authorization_server",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-1033321203032211-3120322231302331-2201330321022031-2230022113210210-1333130133303221-2233013123102231-1302133330012130-3023121200332031",
       "registry_path": "docs/guides/data-sources--authorization_server--reference--group-001.md",
@@ -235,7 +235,7 @@
       "category": "identity",
       "child_ids": ["xcsh-docs:data-sources:authorization_server:example:data-source"],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -247,7 +247,7 @@
       "path": "documentation/data-sources/authorization_server/examples/index.md",
       "product": "distributed-cloud",
       "provider_name": "authorization_server",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-2033301013221130-0030022030303002-3031133301332223-3230301213310203-1301033002012133-1023011313333003-3130221223113223-2321031313000012",
       "registry_path": "docs/guides/data-sources--authorization_server--examples--group-001.md",
@@ -275,7 +275,7 @@
       "category": "identity",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -294,7 +294,7 @@
       "path": "documentation/data-sources/authorization_server/examples/data-source/index.md",
       "product": "distributed-cloud",
       "provider_name": "authorization_server",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-3033220020101301-1200103222123230-3302210133123003-1010001223210330-2100220321112211-3302123133112100-3031103103010010-1313301033330030",
       "registry_path": "docs/guides/data-sources--authorization_server--examples--group-001.md",

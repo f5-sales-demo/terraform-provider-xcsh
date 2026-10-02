@@ -61,7 +61,7 @@
         "xcsh-docs:resources:registration_approval:import"
       ],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -73,7 +73,7 @@
       "path": "documentation/resources/registration_approval/index.md",
       "product": "distributed-cloud",
       "provider_name": "registration_approval",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "resources",
       "registry_anchor": "canonical-1331103323121310-0002130210000313-2020131122020200-0233121113323131-3323011213331230-0033000123022130-3131333113210323-3013000301112322",
       "registry_path": "docs/resources/registration_approval.md",
@@ -102,7 +102,7 @@
       "category": "infrastructure",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -114,7 +114,7 @@
       "path": "documentation/resources/registration_approval/properties/index.md",
       "product": "distributed-cloud",
       "provider_name": "registration_approval",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "resources",
       "registry_anchor": "canonical-0221110020100131-3031023122311011-2222002100222120-2132023011212021-1212033310020221-0302211021123030-3031320113201232-1302122130102300",
       "registry_path": "docs/guides/resources--registration_approval--reference--group-001.md",
@@ -255,7 +255,7 @@
       "category": "infrastructure",
       "child_ids": ["xcsh-docs:resources:registration_approval:example:resource"],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -267,7 +267,7 @@
       "path": "documentation/resources/registration_approval/examples/index.md",
       "product": "distributed-cloud",
       "provider_name": "registration_approval",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "resources",
       "registry_anchor": "canonical-0120212003331230-0231120030031133-2330122110012231-1321111321200023-2022120032210303-3130002001000100-2300132013030121-2023021330011321",
       "registry_path": "docs/guides/resources--registration_approval--examples--group-001.md",
@@ -295,7 +295,7 @@
       "category": "infrastructure",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -314,7 +314,7 @@
       "path": "documentation/resources/registration_approval/examples/resource/index.md",
       "product": "distributed-cloud",
       "provider_name": "registration_approval",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "resources",
       "registry_anchor": "canonical-1031110231221333-0203300210212111-0223331033100203-1100320031333333-1222031031033003-3033130012233322-0223223213003023-0132133330322103",
       "registry_path": "docs/guides/resources--registration_approval--examples--group-001.md",
@@ -342,7 +342,7 @@
       "category": "infrastructure",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -355,7 +355,7 @@
       "path": "documentation/resources/registration_approval/lifecycle/import/index.md",
       "product": "distributed-cloud",
       "provider_name": "registration_approval",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "resources",
       "registry_anchor": "canonical-2312110032322001-1213023023130212-2003013021212001-3113300022210023-3121221302330121-1211133310201312-2020312303011231-0120033200220303",
       "registry_path": "docs/guides/resources--registration_approval--lifecycle--group-001.md",

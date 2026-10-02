@@ -2,6 +2,406 @@
   "schema_version": 1,
   "sections": [
     {
+      "canonical_id": "xcsh-docs:data-sources:malicious_user_mitigation:reference",
+      "section_id": "xcsh-docs:data-sources:malicious_user_mitigation:reference:section:6",
+      "source_sha256": "sha256:9d50d8f3540a7ae9b4c3a035acf5e8f6c25c7c2e778cb32099adcd8d2dad84f1",
+      "source_bytes": 678,
+      "canonical_source_sha256": "sha256:9885f7a813dcd542f227974f26816ffd04d870631e0dd3651f28562b73d77d35",
+      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/malicious_user_mitigation/properties/",
+      "anchor": "canonical-3010222110130202-3031333031121101-2330121320022030-2321201020312010-0230201133220103-2010332312013223-1020101313100030-3112212120011010",
+      "anchor_map": [
+        [
+          "schema-name",
+          "canonical-3331111031223322-3110020303220223-2011330111212221-2301000112103130-2133333010233111-2312313332333132-1331010332020112-0322322030321302"
+        ]
+      ],
+      "mode": "embedded",
+      "registry_path": "docs/guides/data-sources--malicious_user_mitigation--reference--group-001.md"
+    },
+    {
+      "canonical_id": "xcsh-docs:data-sources:malicious_user_mitigation:reference",
+      "section_id": "xcsh-docs:data-sources:malicious_user_mitigation:reference:section:7",
+      "source_sha256": "sha256:e51e1a9cf7bd351f84c22a098afbabace98fb09ddf5bfa81988ea63abd810c64",
+      "source_bytes": 1528,
+      "canonical_source_sha256": "sha256:9885f7a813dcd542f227974f26816ffd04d870631e0dd3651f28562b73d77d35",
+      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/malicious_user_mitigation/properties/",
+      "anchor": "canonical-3322330332111200-1011022120300131-1111201032002303-2122002130313223-0132000002332102-3012022212322231-0001103332113210-0032311322303102",
+      "anchor_map": [
+        [
+          "schema-namespace",
+          "canonical-2020132201100322-2111110002123333-3011023113220011-0123212121111131-2300110200201133-1313213112001202-0300201010000112-2302331211011010"
+        ]
+      ],
+      "mode": "embedded",
+      "registry_path": "docs/guides/data-sources--malicious_user_mitigation--reference--group-001.md"
+    },
+    {
+      "canonical_id": "xcsh-docs:data-sources:malicious_user_mitigation:reference",
+      "section_id": "xcsh-docs:data-sources:malicious_user_mitigation:reference:section:8",
+      "source_sha256": "sha256:52b9cd88ba47d1142c6b0ba7d7b61633554c26124f9efccbe244da7a1ae40003",
+      "source_bytes": 1232,
+      "canonical_source_sha256": "sha256:9885f7a813dcd542f227974f26816ffd04d870631e0dd3651f28562b73d77d35",
+      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/malicious_user_mitigation/properties/",
+      "anchor": "canonical-0013121131031311-0313232000120323-1310033211220113-3023331100233202-2200000221311021-0202231130113113-1111201111302111-0101131312202312",
+      "anchor_map": [],
+      "mode": "embedded",
+      "registry_path": "docs/guides/data-sources--malicious_user_mitigation--reference--group-001.md"
+    },
+    {
+      "canonical_id": "xcsh-docs:data-sources:malicious_user_mitigation:reference",
+      "section_id": "xcsh-docs:data-sources:malicious_user_mitigation:reference:section:9",
+      "source_sha256": "sha256:8658ee443ef8a2b79dd3f0aa62d8ae37c886006ab947de6b18cd92bb6f70c77f",
+      "source_bytes": 3609,
+      "canonical_source_sha256": "sha256:9885f7a813dcd542f227974f26816ffd04d870631e0dd3651f28562b73d77d35",
+      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/malicious_user_mitigation/properties/",
+      "anchor": "canonical-0233222011232011-2223100131312213-3131230032220221-3322130321201102-2330001102232002-3021222132221022-3003302212120003-0020303022323332",
+      "anchor_map": [],
+      "mode": "embedded",
+      "registry_path": "docs/guides/data-sources--malicious_user_mitigation--reference--group-001.md"
+    },
+    {
+      "canonical_id": "xcsh-docs:data-sources:malicious_user_mitigation:reference",
+      "section_id": "xcsh-docs:data-sources:malicious_user_mitigation:reference:section:10",
+      "source_sha256": "sha256:8c46d527240928ef93aae4776d84ccd44d2fd961495cdb782ebbf1e8a192f829",
+      "source_bytes": 291,
+      "canonical_source_sha256": "sha256:9885f7a813dcd542f227974f26816ffd04d870631e0dd3651f28562b73d77d35",
+      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/malicious_user_mitigation/properties/",
+      "anchor": "canonical-0203103333003303-2230323202020000-3102112232333221-2302213022101222-3232211203101010-1003130203301111-2010203021033220-3121230121122031",
+      "anchor_map": [],
+      "mode": "embedded",
+      "registry_path": "docs/guides/data-sources--malicious_user_mitigation--reference--group-001.md"
+    },
+    {
+      "canonical_id": "xcsh-docs:data-sources:malicious_user_mitigation:properties:mitigation_type",
+      "section_id": "xcsh-docs:data-sources:malicious_user_mitigation:properties:mitigation_type:section:0",
+      "source_sha256": "sha256:197d41522a9dd286cb9805a03d8a5bd782cc3f3fd95ea854bf2dfc326e83e50c",
+      "source_bytes": 99,
+      "canonical_source_sha256": "sha256:849a74288a0a52ca5f55a1aeb5cfcc2972b561c97efc47c03aa951721edf31f3",
+      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/malicious_user_mitigation/properties/mitigation_type/",
+      "anchor": "canonical-0032022102331111-1302130022121002-3103031203113323-2113033130202013-1101333123213223-3331103031001011-2302231301213012-3232220322101211",
+      "anchor_map": [],
+      "mode": "embedded",
+      "registry_path": "docs/guides/data-sources--malicious_user_mitigation--reference--group-001.md"
+    },
+    {
+      "canonical_id": "xcsh-docs:data-sources:malicious_user_mitigation:properties:mitigation_type",
+      "section_id": "xcsh-docs:data-sources:malicious_user_mitigation:properties:mitigation_type:section:1",
+      "source_sha256": "sha256:0e3c9c6c19148e793a1be4cfccbfb1baac0446f2ebc7bf757a09fef6c97ad387",
+      "source_bytes": 1259,
+      "canonical_source_sha256": "sha256:849a74288a0a52ca5f55a1aeb5cfcc2972b561c97efc47c03aa951721edf31f3",
+      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/malicious_user_mitigation/properties/mitigation_type/",
+      "anchor": "canonical-2312332003132220-1133220113210201-2320211312001312-2102033332330132-1120102231222210-0003022222032331-1222102322120320-0201321113002122",
+      "anchor_map": [
+        [
+          "section",
+          "canonical-2003020011100221-3301001332120301-1010212211032330-3022131110031211-1213212111221033-3220223321322100-3201100112323112-2223222111231302"
+        ]
+      ],
+      "mode": "embedded",
+      "registry_path": "docs/guides/data-sources--malicious_user_mitigation--reference--group-001.md"
+    },
+    {
+      "canonical_id": "xcsh-docs:data-sources:malicious_user_mitigation:properties:mitigation_type",
+      "section_id": "xcsh-docs:data-sources:malicious_user_mitigation:properties:mitigation_type:section:2",
+      "source_sha256": "sha256:5957d34892723678491c8725685922b6c56b6dcb1e3b5459a0a13524ed955448",
+      "source_bytes": 195,
+      "canonical_source_sha256": "sha256:849a74288a0a52ca5f55a1aeb5cfcc2972b561c97efc47c03aa951721edf31f3",
+      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/malicious_user_mitigation/properties/mitigation_type/",
+      "anchor": "canonical-3301330131220021-0331001203022201-0110121300213303-2311211221211130-3220011111122031-0031301032332230-3302202203123201-2300001011131210",
+      "anchor_map": [],
+      "mode": "embedded",
+      "registry_path": "docs/guides/data-sources--malicious_user_mitigation--reference--group-001.md"
+    },
+    {
+      "canonical_id": "xcsh-docs:data-sources:malicious_user_mitigation:properties:mitigation_type",
+      "section_id": "xcsh-docs:data-sources:malicious_user_mitigation:properties:mitigation_type:section:3",
+      "source_sha256": "sha256:0080dac477f3516f73a077936fe51c09a9648563466c3457662cf920c37218b9",
+      "source_bytes": 434,
+      "canonical_source_sha256": "sha256:849a74288a0a52ca5f55a1aeb5cfcc2972b561c97efc47c03aa951721edf31f3",
+      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/malicious_user_mitigation/properties/mitigation_type/",
+      "anchor": "canonical-2121110321300201-2233120331123202-0321131203300222-3010103233012211-3332213331001011-3232021331222200-2130323103030332-0122003021311333",
+      "anchor_map": [],
+      "mode": "embedded",
+      "registry_path": "docs/guides/data-sources--malicious_user_mitigation--reference--group-001.md"
+    },
+    {
+      "canonical_id": "xcsh-docs:data-sources:malicious_user_mitigation:properties:mitigation_type:rules",
+      "section_id": "xcsh-docs:data-sources:malicious_user_mitigation:properties:mitigation_type:rules:section:0",
+      "source_sha256": "sha256:197d41522a9dd286cb9805a03d8a5bd782cc3f3fd95ea854bf2dfc326e83e50c",
+      "source_bytes": 99,
+      "canonical_source_sha256": "sha256:77ca02c03eadc76e2da8fbf20706ba5b4dae650d2404c0a21b4f576a84290b23",
+      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/malicious_user_mitigation/properties/mitigation_type/rules/",
+      "anchor": "canonical-0010202120012102-2133302201320223-0111010332312020-3232011323010010-3112032100230212-0103000312223210-3002211221233301-0302332311123121",
+      "anchor_map": [],
+      "mode": "embedded",
+      "registry_path": "docs/guides/data-sources--malicious_user_mitigation--reference--group-001.md"
+    },
+    {
+      "canonical_id": "xcsh-docs:data-sources:malicious_user_mitigation:properties:mitigation_type:rules",
+      "section_id": "xcsh-docs:data-sources:malicious_user_mitigation:properties:mitigation_type:rules:section:1",
+      "source_sha256": "sha256:9e509655a09c1df534aa5d1b4e5532e298a4cc5227bce9ffc859f414c7356dc7",
+      "source_bytes": 1599,
+      "canonical_source_sha256": "sha256:77ca02c03eadc76e2da8fbf20706ba5b4dae650d2404c0a21b4f576a84290b23",
+      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/malicious_user_mitigation/properties/mitigation_type/rules/",
+      "anchor": "canonical-0330302310320313-1123331110233201-0331331213011322-3202101131331333-1320020300302103-2210300100310321-2213303031232230-3232030003122202",
+      "anchor_map": [
+        [
+          "section",
+          "canonical-2030030030202010-0222010322032020-2311023101123020-3212201011003200-0322012100131310-1130332121202132-2000001320121210-0033221220212113"
+        ]
+      ],
+      "mode": "embedded",
+      "registry_path": "docs/guides/data-sources--malicious_user_mitigation--reference--group-001.md"
+    },
+    {
+      "canonical_id": "xcsh-docs:data-sources:malicious_user_mitigation:properties:mitigation_type:rules",
+      "section_id": "xcsh-docs:data-sources:malicious_user_mitigation:properties:mitigation_type:rules:section:2",
+      "source_sha256": "sha256:f86f4e76a9d312950341f7321be0fcdca47d81280b9a358b8a04a4117c39dca0",
+      "source_bytes": 418,
+      "canonical_source_sha256": "sha256:77ca02c03eadc76e2da8fbf20706ba5b4dae650d2404c0a21b4f576a84290b23",
+      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/malicious_user_mitigation/properties/mitigation_type/rules/",
+      "anchor": "canonical-2220320131121221-1323100130111113-0031223112003012-1102032223130030-1022102323311010-2033012110100311-3010321331320101-0000213233030023",
+      "anchor_map": [],
+      "mode": "embedded",
+      "registry_path": "docs/guides/data-sources--malicious_user_mitigation--reference--group-001.md"
+    },
+    {
+      "canonical_id": "xcsh-docs:data-sources:malicious_user_mitigation:properties:mitigation_type:rules",
+      "section_id": "xcsh-docs:data-sources:malicious_user_mitigation:properties:mitigation_type:rules:section:3",
+      "source_sha256": "sha256:34fedccd5a4ba65a831dc0d8854ca921c41fb40ad017db223010e76229a06a5f",
+      "source_bytes": 665,
+      "canonical_source_sha256": "sha256:77ca02c03eadc76e2da8fbf20706ba5b4dae650d2404c0a21b4f576a84290b23",
+      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/malicious_user_mitigation/properties/mitigation_type/rules/",
+      "anchor": "canonical-0313302330131311-1332131033131120-0200121313113232-0212131033110130-1231321311302102-1102112333102020-2002100111230322-1013213131023232",
+      "anchor_map": [],
+      "mode": "embedded",
+      "registry_path": "docs/guides/data-sources--malicious_user_mitigation--reference--group-001.md"
+    },
+    {
+      "canonical_id": "xcsh-docs:data-sources:malicious_user_mitigation:properties:mitigation_type:rules:mitigation_action",
+      "section_id": "xcsh-docs:data-sources:malicious_user_mitigation:properties:mitigation_type:rules:mitigation_action:section:0",
+      "source_sha256": "sha256:197d41522a9dd286cb9805a03d8a5bd782cc3f3fd95ea854bf2dfc326e83e50c",
+      "source_bytes": 99,
+      "canonical_source_sha256": "sha256:cd4365bba0631d612b2b0b6b3d004bd2f3a6bdc4ad77f4f4357262fb67746101",
+      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/malicious_user_mitigation/properties/mitigation_type/rules/mitigation_action/",
+      "anchor": "canonical-0030030303020100-0311203100121220-3331220233330221-0101300133002333-1121230110221131-1301220103000110-2210230100031301-1200132002320103",
+      "anchor_map": [],
+      "mode": "embedded",
+      "registry_path": "docs/guides/data-sources--malicious_user_mitigation--reference--group-001.md"
+    },
+    {
+      "canonical_id": "xcsh-docs:data-sources:malicious_user_mitigation:properties:mitigation_type:rules:mitigation_action",
+      "section_id": "xcsh-docs:data-sources:malicious_user_mitigation:properties:mitigation_type:rules:mitigation_action:section:1",
+      "source_sha256": "sha256:150b858f22a7fc0d0f9ed75e8a92e2e4dd52beeb04f7bc1d8ce68c9d37f9ed20",
+      "source_bytes": 1085,
+      "canonical_source_sha256": "sha256:cd4365bba0631d612b2b0b6b3d004bd2f3a6bdc4ad77f4f4357262fb67746101",
+      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/malicious_user_mitigation/properties/mitigation_type/rules/mitigation_action/",
+      "anchor": "canonical-2231230023122032-2022221310013202-2232230210102221-0023210022303112-3131232333331312-3003310331103113-3320011011020210-1211013101022012",
+      "anchor_map": [
+        [
+          "section",
+          "canonical-1330230200230002-2103023032220020-1222212331232020-2220000323201232-0032030030031331-1203310213132332-2131233012002211-3111330232113321"
+        ]
+      ],
+      "mode": "embedded",
+      "registry_path": "docs/guides/data-sources--malicious_user_mitigation--reference--group-001.md"
+    },
+    {
+      "canonical_id": "xcsh-docs:data-sources:malicious_user_mitigation:properties:mitigation_type:rules:mitigation_action",
+      "section_id": "xcsh-docs:data-sources:malicious_user_mitigation:properties:mitigation_type:rules:mitigation_action:section:2",
+      "source_sha256": "sha256:6fff3bfb9d9aa167668cb572de54c1303af2ce1a2d139eee6fe29d9537104538",
+      "source_bytes": 691,
+      "canonical_source_sha256": "sha256:cd4365bba0631d612b2b0b6b3d004bd2f3a6bdc4ad77f4f4357262fb67746101",
+      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/malicious_user_mitigation/properties/mitigation_type/rules/mitigation_action/",
+      "anchor": "canonical-1130302212031312-3122312120201233-0310232010133032-3033300233001100-1100020012130120-3223112201220331-2310012113211200-3121231231321323",
+      "anchor_map": [],
+      "mode": "embedded",
+      "registry_path": "docs/guides/data-sources--malicious_user_mitigation--reference--group-001.md"
+    },
+    {
+      "canonical_id": "xcsh-docs:data-sources:malicious_user_mitigation:properties:mitigation_type:rules:mitigation_action",
+      "section_id": "xcsh-docs:data-sources:malicious_user_mitigation:properties:mitigation_type:rules:mitigation_action:section:3",
+      "source_sha256": "sha256:930e29d13c47638c316f9a7ae6b4f69902b14fd091616cc6f4909c204531e24c",
+      "source_bytes": 993,
+      "canonical_source_sha256": "sha256:cd4365bba0631d612b2b0b6b3d004bd2f3a6bdc4ad77f4f4357262fb67746101",
+      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/malicious_user_mitigation/properties/mitigation_type/rules/mitigation_action/",
+      "anchor": "canonical-3200312033301331-3231331133031130-3311023332320023-2330223122313122-0320011131203320-2203300101333321-3212301002312230-2202201011330132",
+      "anchor_map": [],
+      "mode": "embedded",
+      "registry_path": "docs/guides/data-sources--malicious_user_mitigation--reference--group-001.md"
+    },
+    {
+      "canonical_id": "xcsh-docs:data-sources:malicious_user_mitigation:properties:mitigation_type:rules:mitigation_action:block_temporarily",
+      "section_id": "xcsh-docs:data-sources:malicious_user_mitigation:properties:mitigation_type:rules:mitigation_action:block_temporarily:section:0",
+      "source_sha256": "sha256:197d41522a9dd286cb9805a03d8a5bd782cc3f3fd95ea854bf2dfc326e83e50c",
+      "source_bytes": 99,
+      "canonical_source_sha256": "sha256:6c03f6349752cf27573ef60d34ada19067ca9cdb87f5dd16bc575f40df54286d",
+      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/malicious_user_mitigation/properties/mitigation_type/rules/mitigation_action/block_temporarily/",
+      "anchor": "canonical-3300313312222210-0103300001101220-0021302330333312-2022230023210330-0222221100303330-3121033003333211-1112300103022230-0322103231322131",
+      "anchor_map": [],
+      "mode": "embedded",
+      "registry_path": "docs/guides/data-sources--malicious_user_mitigation--reference--group-001.md"
+    },
+    {
+      "canonical_id": "xcsh-docs:data-sources:malicious_user_mitigation:properties:mitigation_type:rules:mitigation_action:block_temporarily",
+      "section_id": "xcsh-docs:data-sources:malicious_user_mitigation:properties:mitigation_type:rules:mitigation_action:block_temporarily:section:1",
+      "source_sha256": "sha256:c3a507aa392fdad2787418368d76df3b042e52b8d4a65e8f53f34071d1810c0b",
+      "source_bytes": 1225,
+      "canonical_source_sha256": "sha256:6c03f6349752cf27573ef60d34ada19067ca9cdb87f5dd16bc575f40df54286d",
+      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/malicious_user_mitigation/properties/mitigation_type/rules/mitigation_action/block_temporarily/",
+      "anchor": "canonical-0323032233320332-1011010020212321-3123031200121230-2223311220122233-2220222220221133-1112331023323212-0002313030302013-0100311212032331",
+      "anchor_map": [
+        [
+          "section",
+          "canonical-0211222323103221-3023110221211330-2300130001000200-1233312302001031-1333233131211312-2003121211022003-1120331322133201-2230022303001310"
+        ]
+      ],
+      "mode": "embedded",
+      "registry_path": "docs/guides/data-sources--malicious_user_mitigation--reference--group-001.md"
+    },
+    {
+      "canonical_id": "xcsh-docs:data-sources:malicious_user_mitigation:properties:mitigation_type:rules:mitigation_action:block_temporarily",
+      "section_id": "xcsh-docs:data-sources:malicious_user_mitigation:properties:mitigation_type:rules:mitigation_action:block_temporarily:section:2",
+      "source_sha256": "sha256:0d4398201e18f9ddb2ea00ceed6d3256755ea4d008d849d1cec42dab5c55f1b5",
+      "source_bytes": 94,
+      "canonical_source_sha256": "sha256:6c03f6349752cf27573ef60d34ada19067ca9cdb87f5dd16bc575f40df54286d",
+      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/malicious_user_mitigation/properties/mitigation_type/rules/mitigation_action/block_temporarily/",
+      "anchor": "canonical-0103210230213000-3022030323130233-2200300111200021-0220113030111112-0212313211033321-2213113302301010-2232113313203110-2131323313113211",
+      "anchor_map": [],
+      "mode": "embedded",
+      "registry_path": "docs/guides/data-sources--malicious_user_mitigation--reference--group-001.md"
+    },
+    {
+      "canonical_id": "xcsh-docs:data-sources:malicious_user_mitigation:properties:mitigation_type:rules:mitigation_action:block_temporarily",
+      "section_id": "xcsh-docs:data-sources:malicious_user_mitigation:properties:mitigation_type:rules:mitigation_action:block_temporarily:section:3",
+      "source_sha256": "sha256:a6350eec2412b04e2d3c73d1e7f6aba5fc5b681a848d01745d6a4dd89e1158d7",
+      "source_bytes": 339,
+      "canonical_source_sha256": "sha256:6c03f6349752cf27573ef60d34ada19067ca9cdb87f5dd16bc575f40df54286d",
+      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/malicious_user_mitigation/properties/mitigation_type/rules/mitigation_action/block_temporarily/",
+      "anchor": "canonical-3200130021323011-2202130133113032-0101301122312323-3000023022211221-2212210231012013-2103223103010022-2110201222223203-3221103223011001",
+      "anchor_map": [],
+      "mode": "embedded",
+      "registry_path": "docs/guides/data-sources--malicious_user_mitigation--reference--group-001.md"
+    },
+    {
+      "canonical_id": "xcsh-docs:data-sources:malicious_user_mitigation:properties:mitigation_type:rules:mitigation_action:captcha_challenge",
+      "section_id": "xcsh-docs:data-sources:malicious_user_mitigation:properties:mitigation_type:rules:mitigation_action:captcha_challenge:section:0",
+      "source_sha256": "sha256:197d41522a9dd286cb9805a03d8a5bd782cc3f3fd95ea854bf2dfc326e83e50c",
+      "source_bytes": 99,
+      "canonical_source_sha256": "sha256:6dfaeecf330f5c44ae6dd3345ac25343094e9c2d648aab918dc2676d70a66511",
+      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/malicious_user_mitigation/properties/mitigation_type/rules/mitigation_action/captcha_challenge/",
+      "anchor": "canonical-3311331130130021-0200123222302002-3130331331022113-2313113303132133-0032230322302021-1322021111313202-3202000011210031-1232230211311231",
+      "anchor_map": [],
+      "mode": "embedded",
+      "registry_path": "docs/guides/data-sources--malicious_user_mitigation--reference--group-001.md"
+    },
+    {
+      "canonical_id": "xcsh-docs:data-sources:malicious_user_mitigation:properties:mitigation_type:rules:mitigation_action:captcha_challenge",
+      "section_id": "xcsh-docs:data-sources:malicious_user_mitigation:properties:mitigation_type:rules:mitigation_action:captcha_challenge:section:1",
+      "source_sha256": "sha256:b17bf42112ff20fe445b977ba80e33b87dac7059f4655b323da813af2fb3ff6d",
+      "source_bytes": 1253,
+      "canonical_source_sha256": "sha256:6dfaeecf330f5c44ae6dd3345ac25343094e9c2d648aab918dc2676d70a66511",
+      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/malicious_user_mitigation/properties/mitigation_type/rules/mitigation_action/captcha_challenge/",
+      "anchor": "canonical-3313200231200130-2110032330031002-3233223220020101-3033110033230103-3003210311310010-0302233331120301-0311323211021303-3301101221010201",
+      "anchor_map": [
+        [
+          "section",
+          "canonical-2122130111111021-2011232201113302-2012221331001201-0023011122003102-0301333313313010-3131002221013330-2002133030000030-0321320302030320"
+        ]
+      ],
+      "mode": "embedded",
+      "registry_path": "docs/guides/data-sources--malicious_user_mitigation--reference--group-001.md"
+    },
+    {
+      "canonical_id": "xcsh-docs:data-sources:malicious_user_mitigation:properties:mitigation_type:rules:mitigation_action:captcha_challenge",
+      "section_id": "xcsh-docs:data-sources:malicious_user_mitigation:properties:mitigation_type:rules:mitigation_action:captcha_challenge:section:2",
+      "source_sha256": "sha256:0d4398201e18f9ddb2ea00ceed6d3256755ea4d008d849d1cec42dab5c55f1b5",
+      "source_bytes": 94,
+      "canonical_source_sha256": "sha256:6dfaeecf330f5c44ae6dd3345ac25343094e9c2d648aab918dc2676d70a66511",
+      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/malicious_user_mitigation/properties/mitigation_type/rules/mitigation_action/captcha_challenge/",
+      "anchor": "canonical-0301210012333003-1200221203010110-3220003100212120-2031130200222020-3320331122021303-0221312323103011-3121012022132200-3203303201301130",
+      "anchor_map": [],
+      "mode": "embedded",
+      "registry_path": "docs/guides/data-sources--malicious_user_mitigation--reference--group-001.md"
+    },
+    {
+      "canonical_id": "xcsh-docs:data-sources:malicious_user_mitigation:properties:mitigation_type:rules:mitigation_action:captcha_challenge",
+      "section_id": "xcsh-docs:data-sources:malicious_user_mitigation:properties:mitigation_type:rules:mitigation_action:captcha_challenge:section:3",
+      "source_sha256": "sha256:a6350eec2412b04e2d3c73d1e7f6aba5fc5b681a848d01745d6a4dd89e1158d7",
+      "source_bytes": 339,
+      "canonical_source_sha256": "sha256:6dfaeecf330f5c44ae6dd3345ac25343094e9c2d648aab918dc2676d70a66511",
+      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/malicious_user_mitigation/properties/mitigation_type/rules/mitigation_action/captcha_challenge/",
+      "anchor": "canonical-1020203130113221-2123303032020303-1333111323031111-0302111131203222-0301032201333230-3300000213031031-0022123201220221-2123223201021123",
+      "anchor_map": [],
+      "mode": "embedded",
+      "registry_path": "docs/guides/data-sources--malicious_user_mitigation--reference--group-001.md"
+    },
+    {
+      "canonical_id": "xcsh-docs:data-sources:malicious_user_mitigation:properties:mitigation_type:rules:mitigation_action:javascript_challenge",
+      "section_id": "xcsh-docs:data-sources:malicious_user_mitigation:properties:mitigation_type:rules:mitigation_action:javascript_challenge:section:0",
+      "source_sha256": "sha256:197d41522a9dd286cb9805a03d8a5bd782cc3f3fd95ea854bf2dfc326e83e50c",
+      "source_bytes": 99,
+      "canonical_source_sha256": "sha256:b59b765ce2ff6201113f865221239e76cb4b76dd7fd26fc5ce80c508ef0cc1e3",
+      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/malicious_user_mitigation/properties/mitigation_type/rules/mitigation_action/javascript_challenge/",
+      "anchor": "canonical-1321330123332210-2221320013020213-3200013021202301-2301120100133113-2202332031033212-0202111101110122-2311031300211313-1303223320032011",
+      "anchor_map": [],
+      "mode": "embedded",
+      "registry_path": "docs/guides/data-sources--malicious_user_mitigation--reference--group-001.md"
+    },
+    {
+      "canonical_id": "xcsh-docs:data-sources:malicious_user_mitigation:properties:mitigation_type:rules:mitigation_action:javascript_challenge",
+      "section_id": "xcsh-docs:data-sources:malicious_user_mitigation:properties:mitigation_type:rules:mitigation_action:javascript_challenge:section:1",
+      "source_sha256": "sha256:95fd262af34f4e458003372ca5ea99649ad48c0e63fec5194c4e1424bfd1b7d2",
+      "source_bytes": 1231,
+      "canonical_source_sha256": "sha256:b59b765ce2ff6201113f865221239e76cb4b76dd7fd26fc5ce80c508ef0cc1e3",
+      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/malicious_user_mitigation/properties/mitigation_type/rules/mitigation_action/javascript_challenge/",
+      "anchor": "canonical-3103131201320321-0233332011331301-2031310001120310-0201232110132032-3210223232300030-0031102200120222-2230102101133001-0032202000110231",
+      "anchor_map": [
+        [
+          "section",
+          "canonical-0133312211012132-3133330223113120-2123213030021201-3303233011201033-3230301203111013-0321001330313311-0313300123200201-1010230100201033"
+        ]
+      ],
+      "mode": "embedded",
+      "registry_path": "docs/guides/data-sources--malicious_user_mitigation--reference--group-001.md"
+    },
+    {
+      "canonical_id": "xcsh-docs:data-sources:malicious_user_mitigation:properties:mitigation_type:rules:mitigation_action:javascript_challenge",
+      "section_id": "xcsh-docs:data-sources:malicious_user_mitigation:properties:mitigation_type:rules:mitigation_action:javascript_challenge:section:2",
+      "source_sha256": "sha256:0d4398201e18f9ddb2ea00ceed6d3256755ea4d008d849d1cec42dab5c55f1b5",
+      "source_bytes": 94,
+      "canonical_source_sha256": "sha256:b59b765ce2ff6201113f865221239e76cb4b76dd7fd26fc5ce80c508ef0cc1e3",
+      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/malicious_user_mitigation/properties/mitigation_type/rules/mitigation_action/javascript_challenge/",
+      "anchor": "canonical-3201021302121212-0322330001332200-2321110121101113-2100302230003222-3021013222301013-1132212300111021-1101223023123311-3320020031131201",
+      "anchor_map": [],
+      "mode": "embedded",
+      "registry_path": "docs/guides/data-sources--malicious_user_mitigation--reference--group-001.md"
+    },
+    {
+      "canonical_id": "xcsh-docs:data-sources:malicious_user_mitigation:properties:mitigation_type:rules:mitigation_action:javascript_challenge",
+      "section_id": "xcsh-docs:data-sources:malicious_user_mitigation:properties:mitigation_type:rules:mitigation_action:javascript_challenge:section:3",
+      "source_sha256": "sha256:a6350eec2412b04e2d3c73d1e7f6aba5fc5b681a848d01745d6a4dd89e1158d7",
+      "source_bytes": 339,
+      "canonical_source_sha256": "sha256:b59b765ce2ff6201113f865221239e76cb4b76dd7fd26fc5ce80c508ef0cc1e3",
+      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/malicious_user_mitigation/properties/mitigation_type/rules/mitigation_action/javascript_challenge/",
+      "anchor": "canonical-0212331201013222-1032020132013120-2333331132233102-3201122330232131-1303203112212102-0000231113211330-3303130020302230-3032102301201230",
+      "anchor_map": [],
+      "mode": "embedded",
+      "registry_path": "docs/guides/data-sources--malicious_user_mitigation--reference--group-001.md"
+    },
+    {
+      "canonical_id": "xcsh-docs:data-sources:malicious_user_mitigation:properties:mitigation_type:rules:threat_level",
+      "section_id": "xcsh-docs:data-sources:malicious_user_mitigation:properties:mitigation_type:rules:threat_level:section:0",
+      "source_sha256": "sha256:197d41522a9dd286cb9805a03d8a5bd782cc3f3fd95ea854bf2dfc326e83e50c",
+      "source_bytes": 99,
+      "canonical_source_sha256": "sha256:4bf0e53690c825c82eeca33f02284f3abdff44da37c93a60ae1ce3f0cc12af62",
+      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/malicious_user_mitigation/properties/mitigation_type/rules/threat_level/",
+      "anchor": "canonical-2101121211102013-0231111031232020-2230030313301212-2333132212311123-2022133110130301-3110310310213022-3113323001223321-0022020313302022",
+      "anchor_map": [],
+      "mode": "embedded",
+      "registry_path": "docs/guides/data-sources--malicious_user_mitigation--reference--group-001.md"
+    },
+    {
       "canonical_id": "xcsh-docs:data-sources:malicious_user_mitigation:properties:mitigation_type:rules:threat_level",
       "section_id": "xcsh-docs:data-sources:malicious_user_mitigation:properties:mitigation_type:rules:threat_level:section:1",
       "source_sha256": "sha256:5928c91855c7ac73fdce275d09fb1929d9e471a92e324e2ce140dea941093718",
@@ -7235,457 +7635,6 @@
       ],
       "mode": "embedded",
       "registry_path": "docs/guides/data-sources--network_customer_edge_defaults--reference--group-001.md"
-    },
-    {
-      "canonical_id": "xcsh-docs:data-sources:network_customer_edge_defaults:reference",
-      "section_id": "xcsh-docs:data-sources:network_customer_edge_defaults:reference:section:5",
-      "source_sha256": "sha256:1e1706b1f27810b9fc1b9e1613d8cf8007cff6b2ab990fe2120c004208698ceb",
-      "source_bytes": 188,
-      "canonical_source_sha256": "sha256:dbbf7c08154080f38b28bbed134e5f90d189269d9cca3fa3d7c222b79e94bd81",
-      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/network_customer_edge_defaults/properties/",
-      "anchor": "canonical-2323020212210320-0123321022202120-2010033231300010-2202130220023002-2230303330123222-2211030032301323-1212330301323130-2133201011122110",
-      "anchor_map": [
-        [
-          "schema-manifest_generated_at",
-          "canonical-0211213021330103-1012100033013212-2312121220303303-2211200032002100-3321103311223330-3130100031103012-1320021021120302-3110010211100122"
-        ]
-      ],
-      "mode": "embedded",
-      "registry_path": "docs/guides/data-sources--network_customer_edge_defaults--reference--group-001.md"
-    },
-    {
-      "canonical_id": "xcsh-docs:data-sources:network_customer_edge_defaults:reference",
-      "section_id": "xcsh-docs:data-sources:network_customer_edge_defaults:reference:section:6",
-      "source_sha256": "sha256:9eaf0d8546a87797710c258cd4acff2d35b7c12e3d04b5fd5628e186dafddf7e",
-      "source_bytes": 174,
-      "canonical_source_sha256": "sha256:dbbf7c08154080f38b28bbed134e5f90d189269d9cca3fa3d7c222b79e94bd81",
-      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/network_customer_edge_defaults/properties/",
-      "anchor": "canonical-1021300322002103-3021132301132300-2100223102332130-3301313302120200-3232110223032301-2303000311331133-3223330111202223-1031331001303310",
-      "anchor_map": [
-        [
-          "schema-ntp_servers",
-          "canonical-3133320213213122-0101003123100301-2201221033113320-3022203003332320-3000203320133001-0123110023020210-1220232001300301-3002220103103011"
-        ]
-      ],
-      "mode": "embedded",
-      "registry_path": "docs/guides/data-sources--network_customer_edge_defaults--reference--group-001.md"
-    },
-    {
-      "canonical_id": "xcsh-docs:data-sources:network_customer_edge_defaults:reference",
-      "section_id": "xcsh-docs:data-sources:network_customer_edge_defaults:reference:section:7",
-      "source_sha256": "sha256:f0ab8ede53aa9b04bcaab31bccdbe83547fdae5ecba22e4003e49e3f3171f72d",
-      "source_bytes": 146,
-      "canonical_source_sha256": "sha256:dbbf7c08154080f38b28bbed134e5f90d189269d9cca3fa3d7c222b79e94bd81",
-      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/network_customer_edge_defaults/properties/",
-      "anchor": "canonical-0121330133110033-2002300333012013-1112031313100231-0023232132323303-3313012002322302-0102303012010221-0200230113133331-0311113231231103",
-      "anchor_map": [
-        [
-          "schema-source_sha256",
-          "canonical-3310322113130213-3230333202113213-0220113021313233-0232032130033132-0021221223200121-3212132030010103-3333113322211310-2022030123313030"
-        ]
-      ],
-      "mode": "embedded",
-      "registry_path": "docs/guides/data-sources--network_customer_edge_defaults--reference--group-001.md"
-    },
-    {
-      "canonical_id": "xcsh-docs:data-sources:network_customer_edge_defaults:reference",
-      "section_id": "xcsh-docs:data-sources:network_customer_edge_defaults:reference:section:8",
-      "source_sha256": "sha256:13ff42d171e0087be73dbdb69e0852d23ed54ebf8b841da493313221e57a311c",
-      "source_bytes": 160,
-      "canonical_source_sha256": "sha256:dbbf7c08154080f38b28bbed134e5f90d189269d9cca3fa3d7c222b79e94bd81",
-      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/network_customer_edge_defaults/properties/",
-      "anchor": "canonical-1212332302002123-1201032103211211-2330131323323000-2211300300302012-3102321001310320-2133122321130210-3031110123220022-2231321232000330",
-      "anchor_map": [
-        [
-          "schema-source_url",
-          "canonical-1213021211323120-0020031101310020-1202220123220001-1233313221320333-2321313132020311-3001320102213011-2221011212020223-3102211232322010"
-        ]
-      ],
-      "mode": "embedded",
-      "registry_path": "docs/guides/data-sources--network_customer_edge_defaults--reference--group-001.md"
-    },
-    {
-      "canonical_id": "xcsh-docs:data-sources:network_customer_edge_defaults:reference",
-      "section_id": "xcsh-docs:data-sources:network_customer_edge_defaults:reference:section:9",
-      "source_sha256": "sha256:b5fddd82f7736ca3e558f681bfcc48ab4e9e35e27a0e60fb9759f12108df4ada",
-      "source_bytes": 98,
-      "canonical_source_sha256": "sha256:dbbf7c08154080f38b28bbed134e5f90d189269d9cca3fa3d7c222b79e94bd81",
-      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/network_customer_edge_defaults/properties/",
-      "anchor": "canonical-3223112331233230-2233302001200130-2331321302111231-3101032302320331-2221310320332203-0213220100302030-0121320201201010-3032002001201103",
-      "anchor_map": [],
-      "mode": "embedded",
-      "registry_path": "docs/guides/data-sources--network_customer_edge_defaults--reference--group-001.md"
-    },
-    {
-      "canonical_id": "xcsh-docs:data-sources:network_customer_edge_defaults:reference",
-      "section_id": "xcsh-docs:data-sources:network_customer_edge_defaults:reference:section:10",
-      "source_sha256": "sha256:110e8e6988222aefc5f1c4400f1d251cde52a2d0cb9d62a5c5ab01ff742cf6cb",
-      "source_bytes": 1399,
-      "canonical_source_sha256": "sha256:dbbf7c08154080f38b28bbed134e5f90d189269d9cca3fa3d7c222b79e94bd81",
-      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/network_customer_edge_defaults/properties/",
-      "anchor": "canonical-3231300111330333-3230303220023211-2002120101002311-3233011221201310-2303011122023110-3320213002220121-0120023210230222-0220130221133103",
-      "anchor_map": [],
-      "mode": "embedded",
-      "registry_path": "docs/guides/data-sources--network_customer_edge_defaults--reference--group-001.md"
-    },
-    {
-      "canonical_id": "xcsh-docs:data-sources:network_customer_edge_defaults:reference",
-      "section_id": "xcsh-docs:data-sources:network_customer_edge_defaults:reference:section:11",
-      "source_sha256": "sha256:680a2e28e5b7309b42114065f3f7fdf51aea6b67149c950e227f73381fae4823",
-      "source_bytes": 157,
-      "canonical_source_sha256": "sha256:dbbf7c08154080f38b28bbed134e5f90d189269d9cca3fa3d7c222b79e94bd81",
-      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/network_customer_edge_defaults/properties/",
-      "anchor": "canonical-0331303131121102-3023023101020303-3200002313023023-2021123310211102-1022000322311223-0032103300121222-3302211313312020-1222210223020333",
-      "anchor_map": [],
-      "mode": "embedded",
-      "registry_path": "docs/guides/data-sources--network_customer_edge_defaults--reference--group-001.md"
-    },
-    {
-      "canonical_id": "xcsh-docs:data-sources:network_customer_edge_defaults:examples",
-      "section_id": "xcsh-docs:data-sources:network_customer_edge_defaults:examples:section:0",
-      "source_sha256": "sha256:197d41522a9dd286cb9805a03d8a5bd782cc3f3fd95ea854bf2dfc326e83e50c",
-      "source_bytes": 99,
-      "canonical_source_sha256": "sha256:e9372ba5a34323648ee4dd5e1f1f764502514d3d5ee479af185fcee08e4e9b4a",
-      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/network_customer_edge_defaults/examples/",
-      "anchor": "canonical-3122311111020020-0121221101322000-1332133023312001-2223023020210131-0201032210033320-1030130221333023-3011100312033110-3033021330133130",
-      "anchor_map": [],
-      "mode": "embedded",
-      "registry_path": "docs/guides/data-sources--network_customer_edge_defaults--examples--group-001.md"
-    },
-    {
-      "canonical_id": "xcsh-docs:data-sources:network_customer_edge_defaults:examples",
-      "section_id": "xcsh-docs:data-sources:network_customer_edge_defaults:examples:section:1",
-      "source_sha256": "sha256:843d05affe5a4a001846ad007dced08494aa55bdea36de06ed5551f15b564f80",
-      "source_bytes": 180,
-      "canonical_source_sha256": "sha256:e9372ba5a34323648ee4dd5e1f1f764502514d3d5ee479af185fcee08e4e9b4a",
-      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/network_customer_edge_defaults/examples/",
-      "anchor": "canonical-3320200331030120-3310010202022132-0001300301031000-3003313322011321-2031300022012220-1022031200002023-0123001232311003-1011313101020202",
-      "anchor_map": [],
-      "mode": "embedded",
-      "registry_path": "docs/guides/data-sources--network_customer_edge_defaults--examples--group-001.md"
-    },
-    {
-      "canonical_id": "xcsh-docs:data-sources:network_customer_edge_defaults:examples",
-      "section_id": "xcsh-docs:data-sources:network_customer_edge_defaults:examples:section:2",
-      "source_sha256": "sha256:4591797f543cb775d28e684b1fe9f7b4babf76234b1ee5524996f232e8728a7f",
-      "source_bytes": 190,
-      "canonical_source_sha256": "sha256:e9372ba5a34323648ee4dd5e1f1f764502514d3d5ee479af185fcee08e4e9b4a",
-      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/network_customer_edge_defaults/examples/",
-      "anchor": "canonical-3111021001023221-1300121103313032-0320322002300232-2130211101013110-2023300022203010-1232013002301301-0332132131100302-3120121202003133",
-      "anchor_map": [],
-      "mode": "embedded",
-      "registry_path": "docs/guides/data-sources--network_customer_edge_defaults--examples--group-001.md"
-    },
-    {
-      "canonical_id": "xcsh-docs:data-sources:network_customer_edge_defaults:examples",
-      "section_id": "xcsh-docs:data-sources:network_customer_edge_defaults:examples:section:3",
-      "source_sha256": "sha256:7eada30c11f0153d225d999856d655340719ed02ef08dd5f53d9ab2a98795084",
-      "source_bytes": 296,
-      "canonical_source_sha256": "sha256:e9372ba5a34323648ee4dd5e1f1f764502514d3d5ee479af185fcee08e4e9b4a",
-      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/network_customer_edge_defaults/examples/",
-      "anchor": "canonical-3302132103033110-0031211010011201-0130101122333202-1022221312221103-1033011113323300-3202123103020100-2002320332101100-3113320332203223",
-      "anchor_map": [],
-      "mode": "embedded",
-      "registry_path": "docs/guides/data-sources--network_customer_edge_defaults--examples--group-001.md"
-    },
-    {
-      "canonical_id": "xcsh-docs:data-sources:network_customer_edge_defaults:example:data-source",
-      "section_id": "xcsh-docs:data-sources:network_customer_edge_defaults:example:data-source:section:0",
-      "source_sha256": "sha256:197d41522a9dd286cb9805a03d8a5bd782cc3f3fd95ea854bf2dfc326e83e50c",
-      "source_bytes": 99,
-      "canonical_source_sha256": "sha256:50a0c26c55b1ae39e4bff0dcdd8c93e728d29158e49b2e92d708cfe6a8bfa95b",
-      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/network_customer_edge_defaults/examples/data-source/",
-      "anchor": "canonical-3001112300000133-3223020012320113-1332100113132213-1311103102113012-0213300302030302-0132301020322312-2000212301213233-0231010313312000",
-      "anchor_map": [],
-      "mode": "embedded",
-      "registry_path": "docs/guides/data-sources--network_customer_edge_defaults--examples--group-001.md"
-    },
-    {
-      "canonical_id": "xcsh-docs:data-sources:network_customer_edge_defaults:example:data-source",
-      "section_id": "xcsh-docs:data-sources:network_customer_edge_defaults:example:data-source:section:1",
-      "source_sha256": "sha256:3b5a811400fe420cb8d82c717819383aab5cac8e17858f96e2994c9590830931",
-      "source_bytes": 1288,
-      "canonical_source_sha256": "sha256:50a0c26c55b1ae39e4bff0dcdd8c93e728d29158e49b2e92d708cfe6a8bfa95b",
-      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/network_customer_edge_defaults/examples/data-source/",
-      "anchor": "canonical-3212331221110233-2232033333222122-0022223323110331-0033231233120122-0320323323233110-2232220102333202-1030203222321213-3132231300131213",
-      "anchor_map": [],
-      "mode": "embedded",
-      "registry_path": "docs/guides/data-sources--network_customer_edge_defaults--examples--group-001.md"
-    },
-    {
-      "canonical_id": "xcsh-docs:data-sources:network_customer_edge_defaults:example:data-source",
-      "section_id": "xcsh-docs:data-sources:network_customer_edge_defaults:example:data-source:section:2",
-      "source_sha256": "sha256:602e244f98d18f88d73622bbec87de5da1a63b4ca18dd53b71a21d6fc321320f",
-      "source_bytes": 281,
-      "canonical_source_sha256": "sha256:50a0c26c55b1ae39e4bff0dcdd8c93e728d29158e49b2e92d708cfe6a8bfa95b",
-      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/network_customer_edge_defaults/examples/data-source/",
-      "anchor": "canonical-0012320120003030-2233133001302231-3020232131012221-0010032110111221-3320302002320311-0021020022313231-3312133203230202-2311000322013121",
-      "anchor_map": [],
-      "mode": "embedded",
-      "registry_path": "docs/guides/data-sources--network_customer_edge_defaults--examples--group-001.md"
-    },
-    {
-      "canonical_id": "xcsh-docs:data-sources:network_customer_edge_egress:fundamentals",
-      "section_id": "xcsh-docs:data-sources:network_customer_edge_egress:fundamentals:section:0",
-      "source_sha256": "sha256:197d41522a9dd286cb9805a03d8a5bd782cc3f3fd95ea854bf2dfc326e83e50c",
-      "source_bytes": 99,
-      "canonical_source_sha256": "sha256:3000d89eb70ea6a47e5b9ea88e46d1ebd002b6d9c776b97e071745d130329ab4",
-      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/network_customer_edge_egress/",
-      "anchor": "canonical-3220221103330020-3110221000233302-0211101212002003-1012001301133302-1131222331211321-2333221222011322-0330222303230333-2322220210010320",
-      "anchor_map": [],
-      "mode": "embedded",
-      "registry_path": "docs/data-sources/network_customer_edge_egress.md"
-    },
-    {
-      "canonical_id": "xcsh-docs:data-sources:network_customer_edge_egress:fundamentals",
-      "section_id": "xcsh-docs:data-sources:network_customer_edge_egress:fundamentals:section:1",
-      "source_sha256": "sha256:a3d8cd7e47c6154619ed87a87fa258bc05c6ea5bbb6dceef598cd0862f676f99",
-      "source_bytes": 367,
-      "canonical_source_sha256": "sha256:3000d89eb70ea6a47e5b9ea88e46d1ebd002b6d9c776b97e071745d130329ab4",
-      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/network_customer_edge_egress/",
-      "anchor": "canonical-3130030120210132-1110133211303022-0022103310121003-2313333220313220-1112202100111223-3200133031330112-0332112133301100-2212210013303030",
-      "anchor_map": [],
-      "mode": "embedded",
-      "registry_path": "docs/data-sources/network_customer_edge_egress.md"
-    },
-    {
-      "canonical_id": "xcsh-docs:data-sources:network_customer_edge_egress:fundamentals",
-      "section_id": "xcsh-docs:data-sources:network_customer_edge_egress:fundamentals:section:2",
-      "source_sha256": "sha256:6c9dda0abdc8c39b93dd9d4e2d14fe4202d90147ba6309f00d53dec613761b2f",
-      "source_bytes": 146,
-      "canonical_source_sha256": "sha256:3000d89eb70ea6a47e5b9ea88e46d1ebd002b6d9c776b97e071745d130329ab4",
-      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/network_customer_edge_egress/",
-      "anchor": "canonical-2010133323202210-3031300103220313-1110213310000212-0212223102211032-2121023222122333-1201202022023110-1113021002313213-3210133123133031",
-      "anchor_map": [],
-      "mode": "embedded",
-      "registry_path": "docs/data-sources/network_customer_edge_egress.md"
-    },
-    {
-      "canonical_id": "xcsh-docs:data-sources:network_customer_edge_egress:fundamentals",
-      "section_id": "xcsh-docs:data-sources:network_customer_edge_egress:fundamentals:section:3",
-      "source_sha256": "sha256:6de2226512e388e0f6da85c688584bfda95475bc5b162e8e8074c817217042b0",
-      "source_bytes": 850,
-      "canonical_source_sha256": "sha256:3000d89eb70ea6a47e5b9ea88e46d1ebd002b6d9c776b97e071745d130329ab4",
-      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/network_customer_edge_egress/",
-      "anchor": "canonical-1101102020220111-3233021131331200-3003030123001030-1332322010322121-3323011121000033-0220201303213232-1221110210301330-3121113200330310",
-      "anchor_map": [],
-      "mode": "embedded",
-      "registry_path": "docs/data-sources/network_customer_edge_egress.md"
-    },
-    {
-      "canonical_id": "xcsh-docs:data-sources:network_customer_edge_egress:fundamentals",
-      "section_id": "xcsh-docs:data-sources:network_customer_edge_egress:fundamentals:section:4",
-      "source_sha256": "sha256:7a8483c793d736bd631d5b77356abb16eaaad2c810cb6cd75b06d8ff75cb70c3",
-      "source_bytes": 118,
-      "canonical_source_sha256": "sha256:3000d89eb70ea6a47e5b9ea88e46d1ebd002b6d9c776b97e071745d130329ab4",
-      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/network_customer_edge_egress/",
-      "anchor": "canonical-2222011310002330-0321303212120121-2022010121311222-2223103100222211-0303112221202221-3002023033212230-3211230022110001-2130123031220110",
-      "anchor_map": [],
-      "mode": "embedded",
-      "registry_path": "docs/data-sources/network_customer_edge_egress.md"
-    },
-    {
-      "canonical_id": "xcsh-docs:data-sources:network_customer_edge_egress:fundamentals",
-      "section_id": "xcsh-docs:data-sources:network_customer_edge_egress:fundamentals:section:5",
-      "source_sha256": "sha256:cc9340b54db5792784e0ad22ec7dc6def66140d43e2a148582e0401558c1b869",
-      "source_bytes": 271,
-      "canonical_source_sha256": "sha256:3000d89eb70ea6a47e5b9ea88e46d1ebd002b6d9c776b97e071745d130329ab4",
-      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/network_customer_edge_egress/",
-      "anchor": "canonical-0110203020032232-0212322113132011-0112313232321020-1103230032202333-1020222211311330-1211321020131300-1003031312231123-1000101213232121",
-      "anchor_map": [],
-      "mode": "embedded",
-      "registry_path": "docs/data-sources/network_customer_edge_egress.md"
-    },
-    {
-      "canonical_id": "xcsh-docs:data-sources:network_customer_edge_egress:reference",
-      "section_id": "xcsh-docs:data-sources:network_customer_edge_egress:reference:section:0",
-      "source_sha256": "sha256:197d41522a9dd286cb9805a03d8a5bd782cc3f3fd95ea854bf2dfc326e83e50c",
-      "source_bytes": 99,
-      "canonical_source_sha256": "sha256:5b9234542ef988285763b5f9d16eeedeebb9ec7e1734668ebeb94885de62c6f6",
-      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/network_customer_edge_egress/properties/",
-      "anchor": "canonical-3330330333211022-3210001223230133-2222131201231022-2130313303130101-2303311233122033-0012211213111320-0130220120201232-0201122200232020",
-      "anchor_map": [],
-      "mode": "embedded",
-      "registry_path": "docs/guides/data-sources--network_customer_edge_egress--reference--group-001.md"
-    },
-    {
-      "canonical_id": "xcsh-docs:data-sources:network_customer_edge_egress:reference",
-      "section_id": "xcsh-docs:data-sources:network_customer_edge_egress:reference:section:1",
-      "source_sha256": "sha256:a92c9593618c2f5a115ef52ffa00a14ecba4e08b805509a01ff4373b60e3f5c5",
-      "source_bytes": 196,
-      "canonical_source_sha256": "sha256:5b9234542ef988285763b5f9d16eeedeebb9ec7e1734668ebeb94885de62c6f6",
-      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/network_customer_edge_egress/properties/",
-      "anchor": "canonical-1131020011123030-0302121110233020-1203113022323210-0033203121212020-2033022223122232-3323002020130220-1222302223130103-0032211223002000",
-      "anchor_map": [],
-      "mode": "embedded",
-      "registry_path": "docs/guides/data-sources--network_customer_edge_egress--reference--group-001.md"
-    },
-    {
-      "canonical_id": "xcsh-docs:data-sources:network_customer_edge_egress:reference",
-      "section_id": "xcsh-docs:data-sources:network_customer_edge_egress:reference:section:2",
-      "source_sha256": "sha256:202ed85695c9fc14c649b4f29904a0f383b1d2692c6a3669ecfb0f406e1f24d9",
-      "source_bytes": 59,
-      "canonical_source_sha256": "sha256:5b9234542ef988285763b5f9d16eeedeebb9ec7e1734668ebeb94885de62c6f6",
-      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/network_customer_edge_egress/properties/",
-      "anchor": "canonical-2133313021110033-3103123211332300-0132223013233202-0020110033032032-3000100121000002-1220112110303101-1311030131111122-2133333011100321",
-      "anchor_map": [
-        [
-          "schema-api_release_tag",
-          "canonical-3002130211130102-2203001223233223-1120331233330020-0012102101031111-1200020332311133-2332322130032023-3110333223312110-2321212013311113"
-        ]
-      ],
-      "mode": "embedded",
-      "registry_path": "docs/guides/data-sources--network_customer_edge_egress--reference--group-001.md"
-    },
-    {
-      "canonical_id": "xcsh-docs:data-sources:network_customer_edge_egress:reference",
-      "section_id": "xcsh-docs:data-sources:network_customer_edge_egress:reference:section:3",
-      "source_sha256": "sha256:7304eca34246ba979b06c68ba4f9026b9b6b89136c8346fec53cebe17f903d7c",
-      "source_bytes": 156,
-      "canonical_source_sha256": "sha256:5b9234542ef988285763b5f9d16eeedeebb9ec7e1734668ebeb94885de62c6f6",
-      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/network_customer_edge_egress/properties/",
-      "anchor": "canonical-0012222212323011-0302101313123220-3232003320331003-2030110000133012-3002211313003033-0220203310133312-3023023220123233-0033013021300031",
-      "anchor_map": [
-        [
-          "schema-domains",
-          "canonical-3333233121332113-2101002210121031-1211112223113332-0331010110330231-3111202110312221-1330201221102331-3013010231220121-0323332223232211"
-        ]
-      ],
-      "mode": "embedded",
-      "registry_path": "docs/guides/data-sources--network_customer_edge_egress--reference--group-001.md"
-    },
-    {
-      "canonical_id": "xcsh-docs:data-sources:network_customer_edge_egress:reference",
-      "section_id": "xcsh-docs:data-sources:network_customer_edge_egress:reference:section:4",
-      "source_sha256": "sha256:a10c6a66d6caeeb851019d51562cf94de6cfb12f4c7a5cb4f9dedc36559d19a2",
-      "source_bytes": 171,
-      "canonical_source_sha256": "sha256:5b9234542ef988285763b5f9d16eeedeebb9ec7e1734668ebeb94885de62c6f6",
-      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/network_customer_edge_egress/properties/",
-      "anchor": "canonical-2331202320322303-3311203032012033-1022310030103132-3320230113022013-1211101321112201-3313001010000222-2031323111021322-2101233033000030",
-      "anchor_map": [
-        [
-          "schema-id",
-          "canonical-1310310333203013-3200310321322230-0102333022330201-2320230013123011-2120213030002030-3223212113301231-3323032113000212-2021203102313012"
-        ]
-      ],
-      "mode": "embedded",
-      "registry_path": "docs/guides/data-sources--network_customer_edge_egress--reference--group-001.md"
-    },
-    {
-      "canonical_id": "xcsh-docs:data-sources:network_customer_edge_egress:reference",
-      "section_id": "xcsh-docs:data-sources:network_customer_edge_egress:reference:section:5",
-      "source_sha256": "sha256:1e1706b1f27810b9fc1b9e1613d8cf8007cff6b2ab990fe2120c004208698ceb",
-      "source_bytes": 188,
-      "canonical_source_sha256": "sha256:5b9234542ef988285763b5f9d16eeedeebb9ec7e1734668ebeb94885de62c6f6",
-      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/network_customer_edge_egress/properties/",
-      "anchor": "canonical-1120011101002120-0211013212211221-1131132032331002-0213012001133332-1202322110303332-3113022322333301-3321030020032232-0312311131033113",
-      "anchor_map": [
-        [
-          "schema-manifest_generated_at",
-          "canonical-0133313200032200-3213111111202122-1023101102332120-3333001233001030-0110230312312232-0123322320320322-3010013101302100-0120322111212322"
-        ]
-      ],
-      "mode": "embedded",
-      "registry_path": "docs/guides/data-sources--network_customer_edge_egress--reference--group-001.md"
-    },
-    {
-      "canonical_id": "xcsh-docs:data-sources:network_customer_edge_egress:reference",
-      "section_id": "xcsh-docs:data-sources:network_customer_edge_egress:reference:section:6",
-      "source_sha256": "sha256:6578d38b6f9a65bcc86ad4529a69b83b6014b68ab7050f242bbe18a3f05f98ad",
-      "source_bytes": 185,
-      "canonical_source_sha256": "sha256:5b9234542ef988285763b5f9d16eeedeebb9ec7e1734668ebeb94885de62c6f6",
-      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/network_customer_edge_egress/properties/",
-      "anchor": "canonical-1100021301233133-2100030211111310-3120302313322203-1111202320211101-3111010000100030-0212233112220031-1212112131123111-3223222101011210",
-      "anchor_map": [
-        [
-          "schema-registration_addresses",
-          "canonical-3132101123113230-1220130203130113-0301121113011230-3201230101023230-1000323121303110-1020323233201201-1300313300121220-1231110122322022"
-        ]
-      ],
-      "mode": "embedded",
-      "registry_path": "docs/guides/data-sources--network_customer_edge_egress--reference--group-001.md"
-    },
-    {
-      "canonical_id": "xcsh-docs:data-sources:network_customer_edge_egress:reference",
-      "section_id": "xcsh-docs:data-sources:network_customer_edge_egress:reference:section:7",
-      "source_sha256": "sha256:71aa7a0cde28a5f60d5d28ab40f6176c7de5d146f6e547ea49b10c07905bff5e",
-      "source_bytes": 177,
-      "canonical_source_sha256": "sha256:5b9234542ef988285763b5f9d16eeedeebb9ec7e1734668ebeb94885de62c6f6",
-      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/network_customer_edge_egress/properties/",
-      "anchor": "canonical-0031302110200113-3211312330220320-3222321120033110-0311111203023333-1310201023020201-2010310223020113-0030022033132010-3011232211002001",
-      "anchor_map": [
-        [
-          "schema-source_sha256",
-          "canonical-1131133113200112-3333012010112120-2031200110221132-0330132221031220-3120132111102122-3213220232322332-0213303101003322-1330130102112002"
-        ]
-      ],
-      "mode": "embedded",
-      "registry_path": "docs/guides/data-sources--network_customer_edge_egress--reference--group-001.md"
-    },
-    {
-      "canonical_id": "xcsh-docs:data-sources:network_customer_edge_egress:reference",
-      "section_id": "xcsh-docs:data-sources:network_customer_edge_egress:reference:section:8",
-      "source_sha256": "sha256:13ff42d171e0087be73dbdb69e0852d23ed54ebf8b841da493313221e57a311c",
-      "source_bytes": 160,
-      "canonical_source_sha256": "sha256:5b9234542ef988285763b5f9d16eeedeebb9ec7e1734668ebeb94885de62c6f6",
-      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/network_customer_edge_egress/properties/",
-      "anchor": "canonical-3313212023210023-1323031313203100-3102122120322100-2202233133331311-0031031312111310-0312111322033231-1120322021033123-1312021110131233",
-      "anchor_map": [
-        [
-          "schema-source_url",
-          "canonical-2320022132332222-3221221331230001-3011033031220112-3023112030102120-3111231320212233-3122322033303001-0211201023021111-2321123001013020"
-        ]
-      ],
-      "mode": "embedded",
-      "registry_path": "docs/guides/data-sources--network_customer_edge_egress--reference--group-001.md"
-    },
-    {
-      "canonical_id": "xcsh-docs:data-sources:network_customer_edge_egress:reference",
-      "section_id": "xcsh-docs:data-sources:network_customer_edge_egress:reference:section:9",
-      "source_sha256": "sha256:b5fddd82f7736ca3e558f681bfcc48ab4e9e35e27a0e60fb9759f12108df4ada",
-      "source_bytes": 98,
-      "canonical_source_sha256": "sha256:5b9234542ef988285763b5f9d16eeedeebb9ec7e1734668ebeb94885de62c6f6",
-      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/network_customer_edge_egress/properties/",
-      "anchor": "canonical-1003210101220330-3313101133020232-2222202312132001-3211201220121122-1232120011300230-0000220221112230-1321011110311311-3210210232203312",
-      "anchor_map": [],
-      "mode": "embedded",
-      "registry_path": "docs/guides/data-sources--network_customer_edge_egress--reference--group-001.md"
-    },
-    {
-      "canonical_id": "xcsh-docs:data-sources:network_customer_edge_egress:reference",
-      "section_id": "xcsh-docs:data-sources:network_customer_edge_egress:reference:section:10",
-      "source_sha256": "sha256:be652ee2dc8a01dd8ccfea010dd0a22a46ce4e5e7240e7770ec90b48c3d7c902",
-      "source_bytes": 1406,
-      "canonical_source_sha256": "sha256:5b9234542ef988285763b5f9d16eeedeebb9ec7e1734668ebeb94885de62c6f6",
-      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/network_customer_edge_egress/properties/",
-      "anchor": "canonical-0113020201233230-1002223130113333-2112312211030131-3320303330211010-1121020110110010-1231001320001012-2113232233130131-2130222323210320",
-      "anchor_map": [],
-      "mode": "embedded",
-      "registry_path": "docs/guides/data-sources--network_customer_edge_egress--reference--group-001.md"
-    },
-    {
-      "canonical_id": "xcsh-docs:data-sources:network_customer_edge_egress:reference",
-      "section_id": "xcsh-docs:data-sources:network_customer_edge_egress:reference:section:11",
-      "source_sha256": "sha256:5936a75a677eac551a4236f48c8e59ec8e96e31f9935f4b88e0eb431b6b5422f",
-      "source_bytes": 153,
-      "canonical_source_sha256": "sha256:5b9234542ef988285763b5f9d16eeedeebb9ec7e1734668ebeb94885de62c6f6",
-      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/network_customer_edge_egress/properties/",
-      "anchor": "canonical-0333012311210003-1331203011233010-0222120201313000-0131231332330130-2303321033223223-1221020221232111-1211030222111310-0300223210313303",
-      "anchor_map": [],
-      "mode": "embedded",
-      "registry_path": "docs/guides/data-sources--network_customer_edge_egress--reference--group-001.md"
-    },
-    {
-      "canonical_id": "xcsh-docs:data-sources:network_customer_edge_egress:examples",
-      "section_id": "xcsh-docs:data-sources:network_customer_edge_egress:examples:section:0",
-      "source_sha256": "sha256:197d41522a9dd286cb9805a03d8a5bd782cc3f3fd95ea854bf2dfc326e83e50c",
-      "source_bytes": 99,
-      "canonical_source_sha256": "sha256:cc6c05d33566e7cc6c6e1df4c95776788b0eab13cf76fac3128c94517552c150",
-      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/network_customer_edge_egress/examples/",
-      "anchor": "canonical-1333101203321301-3201210223302323-2122211312232210-3013232221331311-2120221213012230-0300222231222110-1301202011101010-2223303330333200",
-      "anchor_map": [],
-      "mode": "embedded",
-      "registry_path": "docs/guides/data-sources--network_customer_edge_egress--examples--group-001.md"
     }
   ]
 }

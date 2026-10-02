@@ -97,7 +97,7 @@
         "xcsh-docs:resources:geo_location_set:timeouts"
       ],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -109,7 +109,7 @@
       "path": "documentation/resources/geo_location_set/index.md",
       "product": "distributed-cloud",
       "provider_name": "geo_location_set",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "resources",
       "registry_anchor": "canonical-3103011222330300-2233200322023210-0200023031210213-3231332213130232-1013021130033033-2013330101030012-3301030030300101-3321313130311100",
       "registry_path": "docs/resources/geo_location_set.md",
@@ -142,7 +142,7 @@
         "xcsh-docs:resources:geo_location_set:properties:timeouts"
       ],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -154,7 +154,7 @@
       "path": "documentation/resources/geo_location_set/properties/index.md",
       "product": "distributed-cloud",
       "provider_name": "geo_location_set",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "resources",
       "registry_anchor": "canonical-1123112132012331-2320021312120003-1120132113110332-0331323012021123-1320320333300013-2001331312211030-0311313333232210-2132322132112012",
       "registry_path": "docs/guides/resources--geo_location_set--reference--group-001.md",
@@ -332,7 +332,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -344,7 +344,7 @@
       "path": "documentation/resources/geo_location_set/properties/custom_geo_location_selector/index.md",
       "product": "distributed-cloud",
       "provider_name": "geo_location_set",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "resources",
       "registry_anchor": "canonical-1312002213210212-0132131021201320-0011002030203311-3110323132311123-0312132032233211-2300021120300311-1223210211220101-2202203322211021",
       "registry_path": "docs/guides/resources--geo_location_set--reference--group-001.md",
@@ -396,7 +396,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -408,7 +408,7 @@
       "path": "documentation/resources/geo_location_set/properties/global/index.md",
       "product": "distributed-cloud",
       "provider_name": "geo_location_set",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "resources",
       "registry_anchor": "canonical-3321203011103202-0103022333122011-1322313223010213-1110200030333021-1103232001011002-0001332310101033-3132221322222331-2122032032321002",
       "registry_path": "docs/guides/resources--geo_location_set--reference--group-001.md",
@@ -436,7 +436,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -448,7 +448,7 @@
       "path": "documentation/resources/geo_location_set/properties/timeouts/index.md",
       "product": "distributed-cloud",
       "provider_name": "geo_location_set",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "resources",
       "registry_anchor": "canonical-3131320102322030-1221310213222021-0222131000323103-2033130021100111-0010212112013320-2302231122113231-2033321211333003-3013032012213122",
       "registry_path": "docs/guides/resources--geo_location_set--reference--group-001.md",
@@ -533,7 +533,7 @@
       "category": null,
       "child_ids": ["xcsh-docs:resources:geo_location_set:example:resource"],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -545,7 +545,7 @@
       "path": "documentation/resources/geo_location_set/examples/index.md",
       "product": "distributed-cloud",
       "provider_name": "geo_location_set",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "resources",
       "registry_anchor": "canonical-0223332013113021-0001332130320020-0311010023022210-2023020203101321-1102220131101130-1210211322100322-0210031310303333-2200320122323013",
       "registry_path": "docs/guides/resources--geo_location_set--examples--group-001.md",
@@ -573,7 +573,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -592,7 +592,7 @@
       "path": "documentation/resources/geo_location_set/examples/resource/index.md",
       "product": "distributed-cloud",
       "provider_name": "geo_location_set",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "resources",
       "registry_anchor": "canonical-0330213121232311-1231200102323110-2202312321201323-3121322002131301-2333220120310312-0213030330132220-3230200133202333-1333002123232002",
       "registry_path": "docs/guides/resources--geo_location_set--examples--group-001.md",
@@ -620,7 +620,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -633,7 +633,7 @@
       "path": "documentation/resources/geo_location_set/lifecycle/import/index.md",
       "product": "distributed-cloud",
       "provider_name": "geo_location_set",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "resources",
       "registry_anchor": "canonical-3301032132000130-1032133211221023-2031110121122332-0010222332232302-0130021133030310-3123101011102310-3211122100122121-3301113232230002",
       "registry_path": "docs/guides/resources--geo_location_set--lifecycle--group-001.md",
@@ -661,7 +661,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -673,7 +673,7 @@
       "path": "documentation/resources/geo_location_set/lifecycle/timeouts/index.md",
       "product": "distributed-cloud",
       "provider_name": "geo_location_set",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "resources",
       "registry_anchor": "canonical-3123230222023010-3201310023201202-3031220130310010-3332020111133300-1210132122103321-1303233103132322-0031202021023202-2021102233122032",
       "registry_path": "docs/guides/resources--geo_location_set--lifecycle--group-001.md",

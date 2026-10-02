@@ -2,6 +2,363 @@
   "schema_version": 1,
   "sections": [
     {
+      "canonical_id": "xcsh-docs:data-sources:securemesh_site_v2:properties:vmware:not_managed:node_list:interface_list:ipv6_auto_config:host",
+      "section_id": "xcsh-docs:data-sources:securemesh_site_v2:properties:vmware:not_managed:node_list:interface_list:ipv6_auto_config:host:section:0",
+      "source_sha256": "sha256:197d41522a9dd286cb9805a03d8a5bd782cc3f3fd95ea854bf2dfc326e83e50c",
+      "source_bytes": 99,
+      "canonical_source_sha256": "sha256:62cbf93858098a9d49109bc4ea49a249085b00ed2d17e6f184249625fb73a9d0",
+      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/securemesh_site_v2/properties/vmware/not_managed/node_list/interface_list/ipv6_auto_config/host/",
+      "anchor": "canonical-1132013312112011-1022000231113230-2333103132010021-1113013220021002-1313101023330120-1133232113001311-3313013011223212-0122102311222033",
+      "anchor_map": [],
+      "mode": "embedded",
+      "registry_path": "docs/guides/data-sources--securemesh_site_v2--reference--group-017.md"
+    },
+    {
+      "canonical_id": "xcsh-docs:data-sources:securemesh_site_v2:properties:vmware:not_managed:node_list:interface_list:ipv6_auto_config:host",
+      "section_id": "xcsh-docs:data-sources:securemesh_site_v2:properties:vmware:not_managed:node_list:interface_list:ipv6_auto_config:host:section:1",
+      "source_sha256": "sha256:eb02fc51dc923c9b9cba9a6a42dd1a4d94eb8f750d7787060099e0f79cbcc28a",
+      "source_bytes": 1599,
+      "canonical_source_sha256": "sha256:62cbf93858098a9d49109bc4ea49a249085b00ed2d17e6f184249625fb73a9d0",
+      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/securemesh_site_v2/properties/vmware/not_managed/node_list/interface_list/ipv6_auto_config/host/",
+      "anchor": "canonical-3131131231012022-0022023220333031-3200001322212103-1111201111213001-1203021332221313-3013100323130212-0300212133312010-0132031323330113",
+      "anchor_map": [
+        [
+          "section",
+          "canonical-3030300230113012-1002302101013133-0331321311202313-2110302031021333-3322332300101103-0131211120302030-3011012020221033-2231213111130032"
+        ]
+      ],
+      "mode": "embedded",
+      "registry_path": "docs/guides/data-sources--securemesh_site_v2--reference--group-017.md"
+    },
+    {
+      "canonical_id": "xcsh-docs:data-sources:securemesh_site_v2:properties:vmware:not_managed:node_list:interface_list:ipv6_auto_config:host",
+      "section_id": "xcsh-docs:data-sources:securemesh_site_v2:properties:vmware:not_managed:node_list:interface_list:ipv6_auto_config:host:section:2",
+      "source_sha256": "sha256:0d4398201e18f9ddb2ea00ceed6d3256755ea4d008d849d1cec42dab5c55f1b5",
+      "source_bytes": 94,
+      "canonical_source_sha256": "sha256:62cbf93858098a9d49109bc4ea49a249085b00ed2d17e6f184249625fb73a9d0",
+      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/securemesh_site_v2/properties/vmware/not_managed/node_list/interface_list/ipv6_auto_config/host/",
+      "anchor": "canonical-3301013203310212-3213033322010332-0023031131300333-3130233112313010-2213201321022010-1112301013120223-3333111100022210-0311230021001301",
+      "anchor_map": [],
+      "mode": "embedded",
+      "registry_path": "docs/guides/data-sources--securemesh_site_v2--reference--group-017.md"
+    },
+    {
+      "canonical_id": "xcsh-docs:data-sources:securemesh_site_v2:properties:vmware:not_managed:node_list:interface_list:ipv6_auto_config:host",
+      "section_id": "xcsh-docs:data-sources:securemesh_site_v2:properties:vmware:not_managed:node_list:interface_list:ipv6_auto_config:host:section:3",
+      "source_sha256": "sha256:3960170801f2bbc9068528427fabd039a40624347014e10fc7ba801a9cba2a0a",
+      "source_bytes": 360,
+      "canonical_source_sha256": "sha256:62cbf93858098a9d49109bc4ea49a249085b00ed2d17e6f184249625fb73a9d0",
+      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/securemesh_site_v2/properties/vmware/not_managed/node_list/interface_list/ipv6_auto_config/host/",
+      "anchor": "canonical-1200202212200001-1200311323230023-1300203122121210-3303220121332302-3101213010022002-3232100020211101-3001202320001023-0231033213303310",
+      "anchor_map": [],
+      "mode": "embedded",
+      "registry_path": "docs/guides/data-sources--securemesh_site_v2--reference--group-017.md"
+    },
+    {
+      "canonical_id": "xcsh-docs:data-sources:securemesh_site_v2:properties:vmware:not_managed:node_list:interface_list:ipv6_auto_config:router",
+      "section_id": "xcsh-docs:data-sources:securemesh_site_v2:properties:vmware:not_managed:node_list:interface_list:ipv6_auto_config:router:section:0",
+      "source_sha256": "sha256:197d41522a9dd286cb9805a03d8a5bd782cc3f3fd95ea854bf2dfc326e83e50c",
+      "source_bytes": 99,
+      "canonical_source_sha256": "sha256:978b46e009cd7ac4eaff4b5e2457b1092dcc9f0d545b5573af57c53c02230776",
+      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/securemesh_site_v2/properties/vmware/not_managed/node_list/interface_list/ipv6_auto_config/router/",
+      "anchor": "canonical-0013223033023011-3101013310332311-0020120001101222-1022211232333002-2121101202122232-1223120302232000-0000131101220133-0212203332220310",
+      "anchor_map": [],
+      "mode": "embedded",
+      "registry_path": "docs/guides/data-sources--securemesh_site_v2--reference--group-017.md"
+    },
+    {
+      "canonical_id": "xcsh-docs:data-sources:securemesh_site_v2:properties:vmware:not_managed:node_list:interface_list:ipv6_auto_config:router",
+      "section_id": "xcsh-docs:data-sources:securemesh_site_v2:properties:vmware:not_managed:node_list:interface_list:ipv6_auto_config:router:section:1",
+      "source_sha256": "sha256:9ff81e6ed845c99d479bcf09bba3f3b6fd9d6facce981a74faf42e6d002736c1",
+      "source_bytes": 1571,
+      "canonical_source_sha256": "sha256:978b46e009cd7ac4eaff4b5e2457b1092dcc9f0d545b5573af57c53c02230776",
+      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/securemesh_site_v2/properties/vmware/not_managed/node_list/interface_list/ipv6_auto_config/router/",
+      "anchor": "canonical-1010300001013300-3213332303011033-0303223311002233-2030332333003133-3321200330310332-0012100012321220-3223331211123113-3202210213223003",
+      "anchor_map": [
+        [
+          "section",
+          "canonical-2021321131122311-1210020303300300-2333230210322103-1323123301332331-1013203110112202-0132031002022330-1222131301203232-1010131231021021"
+        ]
+      ],
+      "mode": "embedded",
+      "registry_path": "docs/guides/data-sources--securemesh_site_v2--reference--group-017.md"
+    },
+    {
+      "canonical_id": "xcsh-docs:data-sources:securemesh_site_v2:properties:vmware:not_managed:node_list:interface_list:ipv6_auto_config:router",
+      "section_id": "xcsh-docs:data-sources:securemesh_site_v2:properties:vmware:not_managed:node_list:interface_list:ipv6_auto_config:router:section:2",
+      "source_sha256": "sha256:9c082e6372e25e5ec0c34ffb6b5dba13079440e6a1f5bbde26a7fbfb02721623",
+      "source_bytes": 360,
+      "canonical_source_sha256": "sha256:978b46e009cd7ac4eaff4b5e2457b1092dcc9f0d545b5573af57c53c02230776",
+      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/securemesh_site_v2/properties/vmware/not_managed/node_list/interface_list/ipv6_auto_config/router/",
+      "anchor": "canonical-2300121301100222-1300112003332232-2133320111022112-2103013100320230-0310312302032101-0330101303111011-3231033210110311-3020203000102011",
+      "anchor_map": [
+        [
+          "schema-vmware--not_managed--node_list--interface_list--ipv6_auto_config--router--network_prefix",
+          "canonical-0303021332202300-2023122012310230-3123312312330033-2122032123001012-3321021220013202-0330130020320211-1313023113320122-1231220210030320"
+        ]
+      ],
+      "mode": "embedded",
+      "registry_path": "docs/guides/data-sources--securemesh_site_v2--reference--group-017.md"
+    },
+    {
+      "canonical_id": "xcsh-docs:data-sources:securemesh_site_v2:properties:vmware:not_managed:node_list:interface_list:ipv6_auto_config:router",
+      "section_id": "xcsh-docs:data-sources:securemesh_site_v2:properties:vmware:not_managed:node_list:interface_list:ipv6_auto_config:router:section:3",
+      "source_sha256": "sha256:c4ff2a941d3e2d3e22a4b70bafdbdcfe012e825d059076bcec6c2ed0c8bf834f",
+      "source_bytes": 1311,
+      "canonical_source_sha256": "sha256:978b46e009cd7ac4eaff4b5e2457b1092dcc9f0d545b5573af57c53c02230776",
+      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/securemesh_site_v2/properties/vmware/not_managed/node_list/interface_list/ipv6_auto_config/router/",
+      "anchor": "canonical-3102100001002301-1010230033323023-1122130133322003-2302000033230012-0200200331202232-1232300122222222-0221123123203302-1101121000023312",
+      "anchor_map": [],
+      "mode": "embedded",
+      "registry_path": "docs/guides/data-sources--securemesh_site_v2--reference--group-017.md"
+    },
+    {
+      "canonical_id": "xcsh-docs:data-sources:securemesh_site_v2:properties:vmware:not_managed:node_list:interface_list:ipv6_auto_config:router",
+      "section_id": "xcsh-docs:data-sources:securemesh_site_v2:properties:vmware:not_managed:node_list:interface_list:ipv6_auto_config:router:section:4",
+      "source_sha256": "sha256:7c3cd023568ef92643c2cde78e2ac3700869b0a7d2d3bb16fdb6270286fe92bd",
+      "source_bytes": 882,
+      "canonical_source_sha256": "sha256:978b46e009cd7ac4eaff4b5e2457b1092dcc9f0d545b5573af57c53c02230776",
+      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/securemesh_site_v2/properties/vmware/not_managed/node_list/interface_list/ipv6_auto_config/router/",
+      "anchor": "canonical-0123101123223220-2210331100220321-0310112013312033-3312132101313212-1311111310113001-1103110230130303-0031210030031130-1313122312121310",
+      "anchor_map": [],
+      "mode": "embedded",
+      "registry_path": "docs/guides/data-sources--securemesh_site_v2--reference--group-017.md"
+    },
+    {
+      "canonical_id": "xcsh-docs:data-sources:securemesh_site_v2:properties:vmware:not_managed:node_list:interface_list:ipv6_auto_config:router:dns_config",
+      "section_id": "xcsh-docs:data-sources:securemesh_site_v2:properties:vmware:not_managed:node_list:interface_list:ipv6_auto_config:router:dns_config:section:0",
+      "source_sha256": "sha256:197d41522a9dd286cb9805a03d8a5bd782cc3f3fd95ea854bf2dfc326e83e50c",
+      "source_bytes": 99,
+      "canonical_source_sha256": "sha256:31fbb4bb4a6ba78b9ad8083cab698344e2b46e6f0c4f077731193dc11a1350ad",
+      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/securemesh_site_v2/properties/vmware/not_managed/node_list/interface_list/ipv6_auto_config/router/dns_config/",
+      "anchor": "canonical-3011321102030023-1301031300212200-0213233301112122-3200120111211001-3332030331200132-2130101201231023-2002030033332230-0310323032223102",
+      "anchor_map": [],
+      "mode": "embedded",
+      "registry_path": "docs/guides/data-sources--securemesh_site_v2--reference--group-017.md"
+    },
+    {
+      "canonical_id": "xcsh-docs:data-sources:securemesh_site_v2:properties:vmware:not_managed:node_list:interface_list:ipv6_auto_config:router:dns_config",
+      "section_id": "xcsh-docs:data-sources:securemesh_site_v2:properties:vmware:not_managed:node_list:interface_list:ipv6_auto_config:router:dns_config:section:1",
+      "source_sha256": "sha256:3e837453b07c22aee808d9c568b3fb511945df054af97f41c6638f196e2df32f",
+      "source_bytes": 1821,
+      "canonical_source_sha256": "sha256:31fbb4bb4a6ba78b9ad8083cab698344e2b46e6f0c4f077731193dc11a1350ad",
+      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/securemesh_site_v2/properties/vmware/not_managed/node_list/interface_list/ipv6_auto_config/router/dns_config/",
+      "anchor": "canonical-0230201032020012-0133203032031300-3032300132032131-1310131121200010-2310320033003122-3122012210110032-3320020111222333-3210332121010023",
+      "anchor_map": [
+        [
+          "section",
+          "canonical-1300020121210110-1213132132213120-1321123000213202-3131021011300130-0332111101203303-1223232002232001-2303230212020301-2111201130033322"
+        ]
+      ],
+      "mode": "embedded",
+      "registry_path": "docs/guides/data-sources--securemesh_site_v2--reference--group-017.md"
+    },
+    {
+      "canonical_id": "xcsh-docs:data-sources:securemesh_site_v2:properties:vmware:not_managed:node_list:interface_list:ipv6_auto_config:router:dns_config",
+      "section_id": "xcsh-docs:data-sources:securemesh_site_v2:properties:vmware:not_managed:node_list:interface_list:ipv6_auto_config:router:dns_config:section:2",
+      "source_sha256": "sha256:fe8a3d0d1f7ee1507c8f25872f2a673cad1ff42ae35174328f961073275fdd5d",
+      "source_bytes": 508,
+      "canonical_source_sha256": "sha256:31fbb4bb4a6ba78b9ad8083cab698344e2b46e6f0c4f077731193dc11a1350ad",
+      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/securemesh_site_v2/properties/vmware/not_managed/node_list/interface_list/ipv6_auto_config/router/dns_config/",
+      "anchor": "canonical-3332200301003331-0331031002003032-0210311311333320-3022033200303322-3322323013321311-2133113111203123-3001102103003020-2111232313100031",
+      "anchor_map": [],
+      "mode": "embedded",
+      "registry_path": "docs/guides/data-sources--securemesh_site_v2--reference--group-017.md"
+    },
+    {
+      "canonical_id": "xcsh-docs:data-sources:securemesh_site_v2:properties:vmware:not_managed:node_list:interface_list:ipv6_auto_config:router:dns_config",
+      "section_id": "xcsh-docs:data-sources:securemesh_site_v2:properties:vmware:not_managed:node_list:interface_list:ipv6_auto_config:router:dns_config:section:3",
+      "source_sha256": "sha256:ee27404a3caf3bee2fba78610c651a4f9a24a3a69927446d40e46e570e574e35",
+      "source_bytes": 952,
+      "canonical_source_sha256": "sha256:31fbb4bb4a6ba78b9ad8083cab698344e2b46e6f0c4f077731193dc11a1350ad",
+      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/securemesh_site_v2/properties/vmware/not_managed/node_list/interface_list/ipv6_auto_config/router/dns_config/",
+      "anchor": "canonical-0003221213131103-0212322022233031-2011331332232312-0012321303310112-1011003030213012-1221311330301311-1320130211313222-1200003130300030",
+      "anchor_map": [],
+      "mode": "embedded",
+      "registry_path": "docs/guides/data-sources--securemesh_site_v2--reference--group-017.md"
+    },
+    {
+      "canonical_id": "xcsh-docs:data-sources:securemesh_site_v2:properties:vmware:not_managed:node_list:interface_list:ipv6_auto_config:router:dns_config:configured_list",
+      "section_id": "xcsh-docs:data-sources:securemesh_site_v2:properties:vmware:not_managed:node_list:interface_list:ipv6_auto_config:router:dns_config:configured_list:section:0",
+      "source_sha256": "sha256:197d41522a9dd286cb9805a03d8a5bd782cc3f3fd95ea854bf2dfc326e83e50c",
+      "source_bytes": 99,
+      "canonical_source_sha256": "sha256:a489cb1454775b3ffd35c9eed55b5d9ede9a4ff5d0cbd8bc416861521da5460f",
+      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/securemesh_site_v2/properties/vmware/not_managed/node_list/interface_list/ipv6_auto_config/router/dns_config/configured_list/",
+      "anchor": "canonical-3020230112011223-2010313001221120-1102301212010011-1002333321000131-2002231210020233-2202331111113210-2003212211312023-2230311102332302",
+      "anchor_map": [],
+      "mode": "embedded",
+      "registry_path": "docs/guides/data-sources--securemesh_site_v2--reference--group-017.md"
+    },
+    {
+      "canonical_id": "xcsh-docs:data-sources:securemesh_site_v2:properties:vmware:not_managed:node_list:interface_list:ipv6_auto_config:router:dns_config:configured_list",
+      "section_id": "xcsh-docs:data-sources:securemesh_site_v2:properties:vmware:not_managed:node_list:interface_list:ipv6_auto_config:router:dns_config:configured_list:section:1",
+      "source_sha256": "sha256:f43e9e85504a1e1521f278aeabd96477ae0c2bc4fa4f2dcf79487e4a593adc6b",
+      "source_bytes": 2041,
+      "canonical_source_sha256": "sha256:a489cb1454775b3ffd35c9eed55b5d9ede9a4ff5d0cbd8bc416861521da5460f",
+      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/securemesh_site_v2/properties/vmware/not_managed/node_list/interface_list/ipv6_auto_config/router/dns_config/configured_list/",
+      "anchor": "canonical-2230203220312123-2022200102323300-3132133010313101-3032323230332330-2030020230032333-2201223102010132-2130210013200332-2003113102131133",
+      "anchor_map": [
+        [
+          "section",
+          "canonical-1303001203203221-3000013233123203-1120323332032113-3010321003300320-2110031031222010-0231111312123203-3123000301213221-0313201111022020"
+        ]
+      ],
+      "mode": "embedded",
+      "registry_path": "docs/guides/data-sources--securemesh_site_v2--reference--group-017.md"
+    },
+    {
+      "canonical_id": "xcsh-docs:data-sources:securemesh_site_v2:properties:vmware:not_managed:node_list:interface_list:ipv6_auto_config:router:dns_config:configured_list",
+      "section_id": "xcsh-docs:data-sources:securemesh_site_v2:properties:vmware:not_managed:node_list:interface_list:ipv6_auto_config:router:dns_config:configured_list:section:2",
+      "source_sha256": "sha256:6af52fa9e4054495337d9baeb0ab4589f621cb428e640b06205385c739291ab3",
+      "source_bytes": 155,
+      "canonical_source_sha256": "sha256:a489cb1454775b3ffd35c9eed55b5d9ede9a4ff5d0cbd8bc416861521da5460f",
+      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/securemesh_site_v2/properties/vmware/not_managed/node_list/interface_list/ipv6_auto_config/router/dns_config/configured_list/",
+      "anchor": "canonical-1001031230003000-3333222121130313-1312112111330210-2032033213200322-1000222221012120-1321211211200312-0331233231323013-3122333331102003",
+      "anchor_map": [
+        [
+          "schema-vmware--not_managed--node_list--interface_list--ipv6_auto_config--router--dns_config--configured_list--dns_list",
+          "canonical-3202130221021102-3110323220022120-1001001223113212-0200003020230330-1222111322103210-0202032310121300-3112121202223331-3310233333203222"
+        ]
+      ],
+      "mode": "embedded",
+      "registry_path": "docs/guides/data-sources--securemesh_site_v2--reference--group-017.md"
+    },
+    {
+      "canonical_id": "xcsh-docs:data-sources:securemesh_site_v2:properties:vmware:not_managed:node_list:interface_list:ipv6_auto_config:router:dns_config:configured_list",
+      "section_id": "xcsh-docs:data-sources:securemesh_site_v2:properties:vmware:not_managed:node_list:interface_list:ipv6_auto_config:router:dns_config:configured_list:section:3",
+      "source_sha256": "sha256:e341b3a8d266c22cd56d48bf971bd3796713ef5f7ba18a76b85c86c8bb6c260b",
+      "source_bytes": 1223,
+      "canonical_source_sha256": "sha256:a489cb1454775b3ffd35c9eed55b5d9ede9a4ff5d0cbd8bc416861521da5460f",
+      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/securemesh_site_v2/properties/vmware/not_managed/node_list/interface_list/ipv6_auto_config/router/dns_config/configured_list/",
+      "anchor": "canonical-2331133001333231-2303320313101033-1301231221113210-3221120302203030-1202131111302232-2212200332331210-3003122302030021-3120312022033132",
+      "anchor_map": [],
+      "mode": "embedded",
+      "registry_path": "docs/guides/data-sources--securemesh_site_v2--reference--group-017.md"
+    },
+    {
+      "canonical_id": "xcsh-docs:data-sources:securemesh_site_v2:properties:vmware:not_managed:node_list:interface_list:ipv6_auto_config:router:dns_config:configured_list",
+      "section_id": "xcsh-docs:data-sources:securemesh_site_v2:properties:vmware:not_managed:node_list:interface_list:ipv6_auto_config:router:dns_config:configured_list:section:4",
+      "source_sha256": "sha256:34a6a72752262f5b2f271f7c289d55aae522045d59108efe4cbee1695da9b158",
+      "source_bytes": 396,
+      "canonical_source_sha256": "sha256:a489cb1454775b3ffd35c9eed55b5d9ede9a4ff5d0cbd8bc416861521da5460f",
+      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/securemesh_site_v2/properties/vmware/not_managed/node_list/interface_list/ipv6_auto_config/router/dns_config/configured_list/",
+      "anchor": "canonical-1301302212002110-3020121210232131-1130201002300002-1013120131012112-0132211201222032-0122201100221320-0233000322102203-0320122303311313",
+      "anchor_map": [],
+      "mode": "embedded",
+      "registry_path": "docs/guides/data-sources--securemesh_site_v2--reference--group-017.md"
+    },
+    {
+      "canonical_id": "xcsh-docs:data-sources:securemesh_site_v2:properties:vmware:not_managed:node_list:interface_list:ipv6_auto_config:router:dns_config:local_dns",
+      "section_id": "xcsh-docs:data-sources:securemesh_site_v2:properties:vmware:not_managed:node_list:interface_list:ipv6_auto_config:router:dns_config:local_dns:section:0",
+      "source_sha256": "sha256:197d41522a9dd286cb9805a03d8a5bd782cc3f3fd95ea854bf2dfc326e83e50c",
+      "source_bytes": 99,
+      "canonical_source_sha256": "sha256:e64b0749af069cbab9b6864de122c61487302ee330c9f73dbe69d338a815f6b4",
+      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/securemesh_site_v2/properties/vmware/not_managed/node_list/interface_list/ipv6_auto_config/router/dns_config/local_dns/",
+      "anchor": "canonical-3233011301210000-0003000221203101-0210101332311132-0120330301202222-3231120110100332-1232201031231222-2333131210310112-2320132020133333",
+      "anchor_map": [],
+      "mode": "embedded",
+      "registry_path": "docs/guides/data-sources--securemesh_site_v2--reference--group-017.md"
+    },
+    {
+      "canonical_id": "xcsh-docs:data-sources:securemesh_site_v2:properties:vmware:not_managed:node_list:interface_list:ipv6_auto_config:router:dns_config:local_dns",
+      "section_id": "xcsh-docs:data-sources:securemesh_site_v2:properties:vmware:not_managed:node_list:interface_list:ipv6_auto_config:router:dns_config:local_dns:section:1",
+      "source_sha256": "sha256:311661b52a38981ff5d45d044e9b4c5f0aeb156884bce9f4dda62ef83e930161",
+      "source_bytes": 2140,
+      "canonical_source_sha256": "sha256:e64b0749af069cbab9b6864de122c61487302ee330c9f73dbe69d338a815f6b4",
+      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/securemesh_site_v2/properties/vmware/not_managed/node_list/interface_list/ipv6_auto_config/router/dns_config/local_dns/",
+      "anchor": "canonical-1301211020202301-1322331010011312-2110302001030332-0000003011001101-0113323223121002-0022322302211311-1302222303231302-2201203120131022",
+      "anchor_map": [
+        [
+          "section",
+          "canonical-0301130203113233-3020023202310333-0003113032233230-3003301302000301-3233202111210022-0320120002101230-2133331123301022-2103003202100100"
+        ]
+      ],
+      "mode": "embedded",
+      "registry_path": "docs/guides/data-sources--securemesh_site_v2--reference--group-017.md"
+    },
+    {
+      "canonical_id": "xcsh-docs:data-sources:securemesh_site_v2:properties:vmware:not_managed:node_list:interface_list:ipv6_auto_config:router:dns_config:local_dns",
+      "section_id": "xcsh-docs:data-sources:securemesh_site_v2:properties:vmware:not_managed:node_list:interface_list:ipv6_auto_config:router:dns_config:local_dns:section:2",
+      "source_sha256": "sha256:5da7caa81972d4bc2d67cd13f9dce7cb5dd9a4bffec0fc7daf081d2cbec8befc",
+      "source_bytes": 159,
+      "canonical_source_sha256": "sha256:e64b0749af069cbab9b6864de122c61487302ee330c9f73dbe69d338a815f6b4",
+      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/securemesh_site_v2/properties/vmware/not_managed/node_list/interface_list/ipv6_auto_config/router/dns_config/local_dns/",
+      "anchor": "canonical-1222322132303333-3101233011313022-1002031122322103-3102212103020202-2033321133121302-0211012310021303-0020030100213021-0212011011220121",
+      "anchor_map": [
+        [
+          "schema-vmware--not_managed--node_list--interface_list--ipv6_auto_config--router--dns_config--local_dns--configured_address",
+          "canonical-0031302212323321-0101222210222211-2102313032200003-1012122000203222-3120110333130012-2313110021010213-1001022123133332-1001101022001033"
+        ]
+      ],
+      "mode": "embedded",
+      "registry_path": "docs/guides/data-sources--securemesh_site_v2--reference--group-017.md"
+    },
+    {
+      "canonical_id": "xcsh-docs:data-sources:securemesh_site_v2:properties:vmware:not_managed:node_list:interface_list:ipv6_auto_config:router:dns_config:local_dns",
+      "section_id": "xcsh-docs:data-sources:securemesh_site_v2:properties:vmware:not_managed:node_list:interface_list:ipv6_auto_config:router:dns_config:local_dns:section:3",
+      "source_sha256": "sha256:ce41c98fe6135a0801c26b50c1f3aa522b6e9f6a0da95c0a2bf65e8214242840",
+      "source_bytes": 1452,
+      "canonical_source_sha256": "sha256:e64b0749af069cbab9b6864de122c61487302ee330c9f73dbe69d338a815f6b4",
+      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/securemesh_site_v2/properties/vmware/not_managed/node_list/interface_list/ipv6_auto_config/router/dns_config/local_dns/",
+      "anchor": "canonical-2230332331220112-3230020221330222-1312211122301233-0123233031230013-3203122103231033-0022032233320103-3331033011022123-2032222321000100",
+      "anchor_map": [],
+      "mode": "embedded",
+      "registry_path": "docs/guides/data-sources--securemesh_site_v2--reference--group-017.md"
+    },
+    {
+      "canonical_id": "xcsh-docs:data-sources:securemesh_site_v2:properties:vmware:not_managed:node_list:interface_list:ipv6_auto_config:router:dns_config:local_dns",
+      "section_id": "xcsh-docs:data-sources:securemesh_site_v2:properties:vmware:not_managed:node_list:interface_list:ipv6_auto_config:router:dns_config:local_dns:section:4",
+      "source_sha256": "sha256:55a41a8fa2c21cc63d47d22ddebbe0ca66eabe6c1fa06db766b7b307bdf0f6c1",
+      "source_bytes": 1016,
+      "canonical_source_sha256": "sha256:e64b0749af069cbab9b6864de122c61487302ee330c9f73dbe69d338a815f6b4",
+      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/securemesh_site_v2/properties/vmware/not_managed/node_list/interface_list/ipv6_auto_config/router/dns_config/local_dns/",
+      "anchor": "canonical-3220000300013113-0101223211312011-3210221122233310-3201003321103001-1302012000301311-3332023120010222-2302032010022200-1000122213300122",
+      "anchor_map": [],
+      "mode": "embedded",
+      "registry_path": "docs/guides/data-sources--securemesh_site_v2--reference--group-017.md"
+    },
+    {
+      "canonical_id": "xcsh-docs:data-sources:securemesh_site_v2:properties:vmware:not_managed:node_list:interface_list:ipv6_auto_config:router:dns_config:local_dns:first_address",
+      "section_id": "xcsh-docs:data-sources:securemesh_site_v2:properties:vmware:not_managed:node_list:interface_list:ipv6_auto_config:router:dns_config:local_dns:first_address:section:0",
+      "source_sha256": "sha256:197d41522a9dd286cb9805a03d8a5bd782cc3f3fd95ea854bf2dfc326e83e50c",
+      "source_bytes": 99,
+      "canonical_source_sha256": "sha256:e5f42c57269960fc466f2670a460af9fd56cda533ab71e4f1e9934ab608f8266",
+      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/securemesh_site_v2/properties/vmware/not_managed/node_list/interface_list/ipv6_auto_config/router/dns_config/local_dns/first_address/",
+      "anchor": "canonical-0030221210310320-2113222321032302-0013233320133132-0230220020011213-3332011303032213-2203100221111223-0101100333130233-1011213231211110",
+      "anchor_map": [],
+      "mode": "embedded",
+      "registry_path": "docs/guides/data-sources--securemesh_site_v2--reference--group-017.md"
+    },
+    {
+      "canonical_id": "xcsh-docs:data-sources:securemesh_site_v2:properties:vmware:not_managed:node_list:interface_list:ipv6_auto_config:router:dns_config:local_dns:first_address",
+      "section_id": "xcsh-docs:data-sources:securemesh_site_v2:properties:vmware:not_managed:node_list:interface_list:ipv6_auto_config:router:dns_config:local_dns:first_address:section:1",
+      "source_sha256": "sha256:87d002ac4f23c3f133f7febc0a9a978b8555b52850ce55dbc767cc1f8c66407b",
+      "source_bytes": 2434,
+      "canonical_source_sha256": "sha256:e5f42c57269960fc466f2670a460af9fd56cda533ab71e4f1e9934ab608f8266",
+      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/securemesh_site_v2/properties/vmware/not_managed/node_list/interface_list/ipv6_auto_config/router/dns_config/local_dns/first_address/",
+      "anchor": "canonical-3302031031321111-1321123100102233-3121130201230322-2233000313312313-3301202200102301-1122003030321132-3013012310113231-1111001133202113",
+      "anchor_map": [
+        [
+          "section",
+          "canonical-3330303332020201-2233230322310012-0312010132102013-1032301233113112-2230112133132230-1031203201231022-0011113113220322-0310110110110210"
+        ]
+      ],
+      "mode": "embedded",
+      "registry_path": "docs/guides/data-sources--securemesh_site_v2--reference--group-017.md"
+    },
+    {
+      "canonical_id": "xcsh-docs:data-sources:securemesh_site_v2:properties:vmware:not_managed:node_list:interface_list:ipv6_auto_config:router:dns_config:local_dns:first_address",
+      "section_id": "xcsh-docs:data-sources:securemesh_site_v2:properties:vmware:not_managed:node_list:interface_list:ipv6_auto_config:router:dns_config:local_dns:first_address:section:2",
+      "source_sha256": "sha256:0d4398201e18f9ddb2ea00ceed6d3256755ea4d008d849d1cec42dab5c55f1b5",
+      "source_bytes": 94,
+      "canonical_source_sha256": "sha256:e5f42c57269960fc466f2670a460af9fd56cda533ab71e4f1e9934ab608f8266",
+      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/securemesh_site_v2/properties/vmware/not_managed/node_list/interface_list/ipv6_auto_config/router/dns_config/local_dns/first_address/",
+      "anchor": "canonical-1203100012310323-3023101201311121-0212000212112220-3003120320112333-1220300022301203-2210003021111102-0100200132031011-2010032223231010",
+      "anchor_map": [],
+      "mode": "embedded",
+      "registry_path": "docs/guides/data-sources--securemesh_site_v2--reference--group-017.md"
+    },
+    {
       "canonical_id": "xcsh-docs:data-sources:securemesh_site_v2:properties:vmware:not_managed:node_list:interface_list:ipv6_auto_config:router:dns_config:local_dns:first_address",
       "section_id": "xcsh-docs:data-sources:securemesh_site_v2:properties:vmware:not_managed:node_list:interface_list:ipv6_auto_config:router:dns_config:local_dns:first_address:section:3",
       "source_sha256": "sha256:a35c18de5e0d320992228c39a9bdb04666a31750541e86185bc00f6edfa10bbd",
@@ -7026,424 +7383,6 @@
           "canonical-3002231303110022-0312113102132001-1321121302002030-2132132300112132-2013301103223020-1020300333332330-2310000321321100-3003211030320101"
         ]
       ],
-      "mode": "embedded",
-      "registry_path": "docs/guides/data-sources--service_policy--reference--group-002.md"
-    },
-    {
-      "canonical_id": "xcsh-docs:data-sources:service_policy:properties:rule_list:rules:spec:http_method",
-      "section_id": "xcsh-docs:data-sources:service_policy:properties:rule_list:rules:spec:http_method:section:3",
-      "source_sha256": "sha256:c2d82c95446f4e4419545f8241984742b103bc02716f835c1bac8dad2053d119",
-      "source_bytes": 395,
-      "canonical_source_sha256": "sha256:49ac810ab72776a7e26345134b1dfa103eef1c1ffcff6c63b25673962b164af2",
-      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/service_policy/properties/rule_list/rules/spec/http_method/",
-      "anchor": "canonical-2313312212331310-1213111120210103-3002003131011221-1222331132102033-0222011201101221-0102323033030333-3111033020001213-3133020313321102",
-      "anchor_map": [
-        [
-          "schema-rule_list--rules--spec--http_method--methods",
-          "canonical-1112232112123232-1033332002021200-0313002233110322-1123010013230230-3203010331222302-1020001133220012-3013102202320232-1012312320233133"
-        ]
-      ],
-      "mode": "embedded",
-      "registry_path": "docs/guides/data-sources--service_policy--reference--group-002.md"
-    },
-    {
-      "canonical_id": "xcsh-docs:data-sources:service_policy:properties:rule_list:rules:spec:http_method",
-      "section_id": "xcsh-docs:data-sources:service_policy:properties:rule_list:rules:spec:http_method:section:4",
-      "source_sha256": "sha256:5d2544848d4e4cfaab5e689cc1c1d0a16cb61150d9d496fda2ad90d78c037853",
-      "source_bytes": 1288,
-      "canonical_source_sha256": "sha256:49ac810ab72776a7e26345134b1dfa103eef1c1ffcff6c63b25673962b164af2",
-      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/service_policy/properties/rule_list/rules/spec/http_method/",
-      "anchor": "canonical-0330031201303010-2133203132001103-3302201130221301-0231213120302201-2200022320101132-3021333103013000-3102122100013000-0300322113100232",
-      "anchor_map": [],
-      "mode": "embedded",
-      "registry_path": "docs/guides/data-sources--service_policy--reference--group-002.md"
-    },
-    {
-      "canonical_id": "xcsh-docs:data-sources:service_policy:properties:rule_list:rules:spec:http_method",
-      "section_id": "xcsh-docs:data-sources:service_policy:properties:rule_list:rules:spec:http_method:section:5",
-      "source_sha256": "sha256:27badefecd851fcda430e4c1f9ffc81d6bc8dcfa33837c4b1bd6115f58fae576",
-      "source_bytes": 268,
-      "canonical_source_sha256": "sha256:49ac810ab72776a7e26345134b1dfa103eef1c1ffcff6c63b25673962b164af2",
-      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/service_policy/properties/rule_list/rules/spec/http_method/",
-      "anchor": "canonical-2023303100003322-1001320023321313-2320112213311120-1113011000001113-2310200031002122-2311223231321032-3313103010311311-1300333203312013",
-      "anchor_map": [],
-      "mode": "embedded",
-      "registry_path": "docs/guides/data-sources--service_policy--reference--group-002.md"
-    },
-    {
-      "canonical_id": "xcsh-docs:data-sources:service_policy:properties:rule_list:rules:spec:ip_matcher",
-      "section_id": "xcsh-docs:data-sources:service_policy:properties:rule_list:rules:spec:ip_matcher:section:0",
-      "source_sha256": "sha256:197d41522a9dd286cb9805a03d8a5bd782cc3f3fd95ea854bf2dfc326e83e50c",
-      "source_bytes": 99,
-      "canonical_source_sha256": "sha256:32cac7e367f23ae8246c486f7c243fc9c70bcb3f79267dc7305556062b9449a3",
-      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/service_policy/properties/rule_list/rules/spec/ip_matcher/",
-      "anchor": "canonical-3001311313101200-0111313102213231-0330101313233022-0210001223230123-2232331303200003-2213132112112331-2233022233020222-3112013102100001",
-      "anchor_map": [],
-      "mode": "embedded",
-      "registry_path": "docs/guides/data-sources--service_policy--reference--group-002.md"
-    },
-    {
-      "canonical_id": "xcsh-docs:data-sources:service_policy:properties:rule_list:rules:spec:ip_matcher",
-      "section_id": "xcsh-docs:data-sources:service_policy:properties:rule_list:rules:spec:ip_matcher:section:1",
-      "source_sha256": "sha256:58a44f359835d2aa4e9c8ca40508f7c3a42917bf3b7f9b1edef70bef51f04697",
-      "source_bytes": 1216,
-      "canonical_source_sha256": "sha256:32cac7e367f23ae8246c486f7c243fc9c70bcb3f79267dc7305556062b9449a3",
-      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/service_policy/properties/rule_list/rules/spec/ip_matcher/",
-      "anchor": "canonical-0020302111110011-3232013132220332-0302213012002033-1003331011332200-0311232200001102-0020010100312131-2020211133023330-1120332203133201",
-      "anchor_map": [
-        [
-          "section",
-          "canonical-1331103032030102-2202002232213222-1121220301103201-1312101033120123-2222122002112213-3011010203232302-2120300023201203-1221230211311001"
-        ]
-      ],
-      "mode": "embedded",
-      "registry_path": "docs/guides/data-sources--service_policy--reference--group-002.md"
-    },
-    {
-      "canonical_id": "xcsh-docs:data-sources:service_policy:properties:rule_list:rules:spec:ip_matcher",
-      "section_id": "xcsh-docs:data-sources:service_policy:properties:rule_list:rules:spec:ip_matcher:section:2",
-      "source_sha256": "sha256:d4474659875c15fb3ac70fff4d32c9a312846c64f6691ef7157ea1f85cbeaa50",
-      "source_bytes": 94,
-      "canonical_source_sha256": "sha256:32cac7e367f23ae8246c486f7c243fc9c70bcb3f79267dc7305556062b9449a3",
-      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/service_policy/properties/rule_list/rules/spec/ip_matcher/",
-      "anchor": "canonical-0222013303101131-2033233020212312-3313120032230330-1133120110123133-2100313310313202-3102130312120100-2211211213322001-2312031130130220",
-      "anchor_map": [
-        [
-          "schema-rule_list--rules--spec--ip_matcher--invert_matcher",
-          "canonical-3310210102200031-3113013002201213-2030322331233002-2033200311013101-0000103132112123-0002301231302331-3331202331311030-0301223131302313"
-        ]
-      ],
-      "mode": "embedded",
-      "registry_path": "docs/guides/data-sources--service_policy--reference--group-002.md"
-    },
-    {
-      "canonical_id": "xcsh-docs:data-sources:service_policy:properties:rule_list:rules:spec:ip_matcher",
-      "section_id": "xcsh-docs:data-sources:service_policy:properties:rule_list:rules:spec:ip_matcher:section:3",
-      "source_sha256": "sha256:aea25e2748b766994e01976d04c5d80f9ed5f0384a3f1aeba7e8ea4a23062db7",
-      "source_bytes": 515,
-      "canonical_source_sha256": "sha256:32cac7e367f23ae8246c486f7c243fc9c70bcb3f79267dc7305556062b9449a3",
-      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/service_policy/properties/rule_list/rules/spec/ip_matcher/",
-      "anchor": "canonical-1133021300332301-0222131121133112-3201020200233301-0302311010132031-1333200012221112-1213110231202313-2310123210131000-3113320202300200",
-      "anchor_map": [],
-      "mode": "embedded",
-      "registry_path": "docs/guides/data-sources--service_policy--reference--group-002.md"
-    },
-    {
-      "canonical_id": "xcsh-docs:data-sources:service_policy:properties:rule_list:rules:spec:ip_matcher",
-      "section_id": "xcsh-docs:data-sources:service_policy:properties:rule_list:rules:spec:ip_matcher:section:4",
-      "source_sha256": "sha256:7496225db10044fda5bcb17ea9790f0687605c9e3a2d9aaff118a58a78677d32",
-      "source_bytes": 457,
-      "canonical_source_sha256": "sha256:32cac7e367f23ae8246c486f7c243fc9c70bcb3f79267dc7305556062b9449a3",
-      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/service_policy/properties/rule_list/rules/spec/ip_matcher/",
-      "anchor": "canonical-0210303020202122-0113023313023111-2232120103101310-0332023300303023-0230033011303231-3002002200331002-2203321310102312-0100023000310020",
-      "anchor_map": [],
-      "mode": "embedded",
-      "registry_path": "docs/guides/data-sources--service_policy--reference--group-002.md"
-    },
-    {
-      "canonical_id": "xcsh-docs:data-sources:service_policy:properties:rule_list:rules:spec:ip_matcher:prefix_sets",
-      "section_id": "xcsh-docs:data-sources:service_policy:properties:rule_list:rules:spec:ip_matcher:prefix_sets:section:0",
-      "source_sha256": "sha256:197d41522a9dd286cb9805a03d8a5bd782cc3f3fd95ea854bf2dfc326e83e50c",
-      "source_bytes": 99,
-      "canonical_source_sha256": "sha256:a30c37f096e23b536614c9dee028f53d414c294075c344e48755485171277427",
-      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/service_policy/properties/rule_list/rules/spec/ip_matcher/prefix_sets/",
-      "anchor": "canonical-3202231202123333-2110110232001130-1131033132311212-2020131100002112-3310111023003233-0203301303212202-3100123112303020-3333230020323313",
-      "anchor_map": [],
-      "mode": "embedded",
-      "registry_path": "docs/guides/data-sources--service_policy--reference--group-002.md"
-    },
-    {
-      "canonical_id": "xcsh-docs:data-sources:service_policy:properties:rule_list:rules:spec:ip_matcher:prefix_sets",
-      "section_id": "xcsh-docs:data-sources:service_policy:properties:rule_list:rules:spec:ip_matcher:prefix_sets:section:1",
-      "source_sha256": "sha256:317baf9a1cc83a45cf083fedb6b854bdd26c39822f2c47074659aba03e777a2e",
-      "source_bytes": 1795,
-      "canonical_source_sha256": "sha256:a30c37f096e23b536614c9dee028f53d414c294075c344e48755485171277427",
-      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/service_policy/properties/rule_list/rules/spec/ip_matcher/prefix_sets/",
-      "anchor": "canonical-2011101002111230-2113122332003321-2321233222103110-3013020312012102-1133020003100312-0120121121321013-1320123022133202-2302131122133322",
-      "anchor_map": [
-        [
-          "section",
-          "canonical-0330011200233103-1103220323320011-1311331221001120-0211020322101330-3032112322011203-2003120203331101-3020030130023113-3230221113002313"
-        ]
-      ],
-      "mode": "embedded",
-      "registry_path": "docs/guides/data-sources--service_policy--reference--group-002.md"
-    },
-    {
-      "canonical_id": "xcsh-docs:data-sources:service_policy:properties:rule_list:rules:spec:ip_matcher:prefix_sets",
-      "section_id": "xcsh-docs:data-sources:service_policy:properties:rule_list:rules:spec:ip_matcher:prefix_sets:section:2",
-      "source_sha256": "sha256:b34a3ac8d317e7fa4b4edeb2d1a3d231259511c815b9dc79b252bd9ff6c490e2",
-      "source_bytes": 97,
-      "canonical_source_sha256": "sha256:a30c37f096e23b536614c9dee028f53d414c294075c344e48755485171277427",
-      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/service_policy/properties/rule_list/rules/spec/ip_matcher/prefix_sets/",
-      "anchor": "canonical-1031102000210321-2333313320102031-2033313123322213-0210022320233033-2210230321001030-2313310221331002-2101001233312302-0011302233230321",
-      "anchor_map": [
-        [
-          "schema-rule_list--rules--spec--ip_matcher--prefix_sets--kind",
-          "canonical-2322013233111133-1011230113131320-2111220110130101-1002020122033333-3122113211323310-2203021121123311-0233021020313210-3313103223230132"
-        ]
-      ],
-      "mode": "embedded",
-      "registry_path": "docs/guides/data-sources--service_policy--reference--group-002.md"
-    },
-    {
-      "canonical_id": "xcsh-docs:data-sources:service_policy:properties:rule_list:rules:spec:ip_matcher:prefix_sets",
-      "section_id": "xcsh-docs:data-sources:service_policy:properties:rule_list:rules:spec:ip_matcher:prefix_sets:section:3",
-      "source_sha256": "sha256:6ba4ec07cd9f7a882dc19cb171bb0c25a3df43cca5005476ae62dcce5d248a49",
-      "source_bytes": 842,
-      "canonical_source_sha256": "sha256:a30c37f096e23b536614c9dee028f53d414c294075c344e48755485171277427",
-      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/service_policy/properties/rule_list/rules/spec/ip_matcher/prefix_sets/",
-      "anchor": "canonical-3330103220210003-1310233122333201-3220301230131310-0031103102323331-3033110121210311-2021100000010332-0310221103003301-0032002223322103",
-      "anchor_map": [
-        [
-          "schema-rule_list--rules--spec--ip_matcher--prefix_sets--name",
-          "canonical-0330301031313300-3211323220200013-0331221123012112-3001311010313330-0001010300100130-1322232313103100-3331321000223200-1023221322132102"
-        ]
-      ],
-      "mode": "embedded",
-      "registry_path": "docs/guides/data-sources--service_policy--reference--group-002.md"
-    },
-    {
-      "canonical_id": "xcsh-docs:data-sources:service_policy:properties:rule_list:rules:spec:ip_matcher:prefix_sets",
-      "section_id": "xcsh-docs:data-sources:service_policy:properties:rule_list:rules:spec:ip_matcher:prefix_sets:section:4",
-      "source_sha256": "sha256:1778d1a16dd9bb1f54c0ffc1c86ebbd4379a0b50fd88d1f89de9b8fd8957afaa",
-      "source_bytes": 846,
-      "canonical_source_sha256": "sha256:a30c37f096e23b536614c9dee028f53d414c294075c344e48755485171277427",
-      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/service_policy/properties/rule_list/rules/spec/ip_matcher/prefix_sets/",
-      "anchor": "canonical-2130312102121120-3031200111003203-2303303100102312-1001130100312113-0132301300310031-0013101122122003-0303321330031302-1023300133113200",
-      "anchor_map": [
-        [
-          "schema-rule_list--rules--spec--ip_matcher--prefix_sets--namespace",
-          "canonical-3001031222221102-2221000130030010-3320022311220221-2212010013103330-1103103331101111-1322020012303333-1230210213020203-2131210213330011"
-        ]
-      ],
-      "mode": "embedded",
-      "registry_path": "docs/guides/data-sources--service_policy--reference--group-002.md"
-    },
-    {
-      "canonical_id": "xcsh-docs:data-sources:service_policy:properties:rule_list:rules:spec:ip_matcher:prefix_sets",
-      "section_id": "xcsh-docs:data-sources:service_policy:properties:rule_list:rules:spec:ip_matcher:prefix_sets:section:5",
-      "source_sha256": "sha256:0f85fb6a42b73a019fc9268219a48e4322b284c40f4bfab6556811ac991c6408",
-      "source_bytes": 1380,
-      "canonical_source_sha256": "sha256:a30c37f096e23b536614c9dee028f53d414c294075c344e48755485171277427",
-      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/service_policy/properties/rule_list/rules/spec/ip_matcher/prefix_sets/",
-      "anchor": "canonical-3133331203100330-2313322120103200-2312130321221201-2010010113301012-0222321231030303-2113233200323121-3113123100130121-0002322032223312",
-      "anchor_map": [
-        [
-          "schema-rule_list--rules--spec--ip_matcher--prefix_sets--tenant",
-          "canonical-2121201132222230-1333213120120023-1233233012012311-3013220323021210-1310301301333321-2312012331003210-2123022211332323-0123210312032101"
-        ]
-      ],
-      "mode": "embedded",
-      "registry_path": "docs/guides/data-sources--service_policy--reference--group-002.md"
-    },
-    {
-      "canonical_id": "xcsh-docs:data-sources:service_policy:properties:rule_list:rules:spec:ip_matcher:prefix_sets",
-      "section_id": "xcsh-docs:data-sources:service_policy:properties:rule_list:rules:spec:ip_matcher:prefix_sets:section:6",
-      "source_sha256": "sha256:fbc8eba2c3ea4fd51cca13501d6e3ecb93e40d112f6635e345f95259cb8afa10",
-      "source_bytes": 850,
-      "canonical_source_sha256": "sha256:a30c37f096e23b536614c9dee028f53d414c294075c344e48755485171277427",
-      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/service_policy/properties/rule_list/rules/spec/ip_matcher/prefix_sets/",
-      "anchor": "canonical-3123323121010133-3111112002123322-2120120321010300-1100311120301033-0310101112302220-2023112011131120-0101221322301333-0313030310011312",
-      "anchor_map": [
-        [
-          "schema-rule_list--rules--spec--ip_matcher--prefix_sets--uid",
-          "canonical-0122311311233032-1022010012320301-2033020203222131-3122321101330203-3301300201003220-0210103122311300-2331133000333332-1233220301211333"
-        ]
-      ],
-      "mode": "embedded",
-      "registry_path": "docs/guides/data-sources--service_policy--reference--group-002.md"
-    },
-    {
-      "canonical_id": "xcsh-docs:data-sources:service_policy:properties:rule_list:rules:spec:ip_matcher:prefix_sets",
-      "section_id": "xcsh-docs:data-sources:service_policy:properties:rule_list:rules:spec:ip_matcher:prefix_sets:section:7",
-      "source_sha256": "sha256:3dea66bd5fa6de0d55133711dfe4a5ffcb3217e0a89d5332adcc5472146ef4c9",
-      "source_bytes": 761,
-      "canonical_source_sha256": "sha256:a30c37f096e23b536614c9dee028f53d414c294075c344e48755485171277427",
-      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/service_policy/properties/rule_list/rules/spec/ip_matcher/prefix_sets/",
-      "anchor": "canonical-0103300202221130-2131123102212201-3213010302001001-3120100332022002-3211301130133200-1200211012210203-1301220020120020-0123020201101221",
-      "anchor_map": [],
-      "mode": "embedded",
-      "registry_path": "docs/guides/data-sources--service_policy--reference--group-002.md"
-    },
-    {
-      "canonical_id": "xcsh-docs:data-sources:service_policy:properties:rule_list:rules:spec:ip_matcher:prefix_sets",
-      "section_id": "xcsh-docs:data-sources:service_policy:properties:rule_list:rules:spec:ip_matcher:prefix_sets:section:8",
-      "source_sha256": "sha256:ea40d788dee9330ae7efc13e0cdcbe962ff8f25e1661c68c37a9bfce14412115",
-      "source_bytes": 290,
-      "canonical_source_sha256": "sha256:a30c37f096e23b536614c9dee028f53d414c294075c344e48755485171277427",
-      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/service_policy/properties/rule_list/rules/spec/ip_matcher/prefix_sets/",
-      "anchor": "canonical-1301130213113301-0232002120131231-2012323103002113-1301130113320211-3011123320321223-1002302103131202-0011333000330233-0121232120302230",
-      "anchor_map": [],
-      "mode": "embedded",
-      "registry_path": "docs/guides/data-sources--service_policy--reference--group-002.md"
-    },
-    {
-      "canonical_id": "xcsh-docs:data-sources:service_policy:properties:rule_list:rules:spec:ip_prefix_list",
-      "section_id": "xcsh-docs:data-sources:service_policy:properties:rule_list:rules:spec:ip_prefix_list:section:0",
-      "source_sha256": "sha256:197d41522a9dd286cb9805a03d8a5bd782cc3f3fd95ea854bf2dfc326e83e50c",
-      "source_bytes": 99,
-      "canonical_source_sha256": "sha256:f6c15c28a31867b881293162abec62d9bcb6eeba5e9ee2246360f45b805c5c93",
-      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/service_policy/properties/rule_list/rules/spec/ip_prefix_list/",
-      "anchor": "canonical-1133021322231212-2103223100112132-2212113321333203-0113233322020010-0003213320223311-3112100133213021-3323011012332312-1123001232301321",
-      "anchor_map": [],
-      "mode": "embedded",
-      "registry_path": "docs/guides/data-sources--service_policy--reference--group-002.md"
-    },
-    {
-      "canonical_id": "xcsh-docs:data-sources:service_policy:properties:rule_list:rules:spec:ip_prefix_list",
-      "section_id": "xcsh-docs:data-sources:service_policy:properties:rule_list:rules:spec:ip_prefix_list:section:1",
-      "source_sha256": "sha256:ada831c3d10aea116f47c35f3f348dfaefd229a0d508fc22d470df7c7b8b0513",
-      "source_bytes": 990,
-      "canonical_source_sha256": "sha256:f6c15c28a31867b881293162abec62d9bcb6eeba5e9ee2246360f45b805c5c93",
-      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/service_policy/properties/rule_list/rules/spec/ip_prefix_list/",
-      "anchor": "canonical-3231101303322131-0130121003333210-3132310001212303-3003210223020012-0012211322010301-1122201133020222-1030223031101001-3031230102020312",
-      "anchor_map": [
-        [
-          "section",
-          "canonical-0332320110133201-3103032311222213-2312021222023232-0330203300133120-1232221103000032-0021300000103213-2220330322332103-1101231122101103"
-        ]
-      ],
-      "mode": "embedded",
-      "registry_path": "docs/guides/data-sources--service_policy--reference--group-002.md"
-    },
-    {
-      "canonical_id": "xcsh-docs:data-sources:service_policy:properties:rule_list:rules:spec:ip_prefix_list",
-      "section_id": "xcsh-docs:data-sources:service_policy:properties:rule_list:rules:spec:ip_prefix_list:section:2",
-      "source_sha256": "sha256:191f66445cb2504a48d3c95e688ead36e1ec46c9f48928036c3c7cec2b807837",
-      "source_bytes": 96,
-      "canonical_source_sha256": "sha256:f6c15c28a31867b881293162abec62d9bcb6eeba5e9ee2246360f45b805c5c93",
-      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/service_policy/properties/rule_list/rules/spec/ip_prefix_list/",
-      "anchor": "canonical-0233031313320122-0222333301213230-1311000222130002-3002133331302112-0102131020310330-0003013022020112-0312001322022002-2010313303303221",
-      "anchor_map": [
-        [
-          "schema-rule_list--rules--spec--ip_prefix_list--invert_match",
-          "canonical-3020222320221332-3211131100011233-0233021301301223-3120032112132122-2322120322302233-2032302202303103-2332021132210330-0103123213331131"
-        ]
-      ],
-      "mode": "embedded",
-      "registry_path": "docs/guides/data-sources--service_policy--reference--group-002.md"
-    },
-    {
-      "canonical_id": "xcsh-docs:data-sources:service_policy:properties:rule_list:rules:spec:ip_prefix_list",
-      "section_id": "xcsh-docs:data-sources:service_policy:properties:rule_list:rules:spec:ip_prefix_list:section:3",
-      "source_sha256": "sha256:cb830795b13645769dc6b07e8929bc9ecd2ffa68e09e192f19b56d672ec19d01",
-      "source_bytes": 398,
-      "canonical_source_sha256": "sha256:f6c15c28a31867b881293162abec62d9bcb6eeba5e9ee2246360f45b805c5c93",
-      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/service_policy/properties/rule_list/rules/spec/ip_prefix_list/",
-      "anchor": "canonical-2032021013330122-2002313213123232-2023000330132213-3230020300310033-1133113312313132-2132212033123200-2000310321023300-0100103002231032",
-      "anchor_map": [
-        [
-          "schema-rule_list--rules--spec--ip_prefix_list--ip_prefixes",
-          "canonical-0333212333332103-3030131233230322-3332112111013110-0013032331201233-2132232001000230-2332021221012113-0313130323113332-0122133333332230"
-        ]
-      ],
-      "mode": "embedded",
-      "registry_path": "docs/guides/data-sources--service_policy--reference--group-002.md"
-    },
-    {
-      "canonical_id": "xcsh-docs:data-sources:service_policy:properties:rule_list:rules:spec:ip_prefix_list",
-      "section_id": "xcsh-docs:data-sources:service_policy:properties:rule_list:rules:spec:ip_prefix_list:section:4",
-      "source_sha256": "sha256:d390c685ae58590be93f2787af8394974182ff5f15eb27c640df9168b5a463da",
-      "source_bytes": 1196,
-      "canonical_source_sha256": "sha256:f6c15c28a31867b881293162abec62d9bcb6eeba5e9ee2246360f45b805c5c93",
-      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/service_policy/properties/rule_list/rules/spec/ip_prefix_list/",
-      "anchor": "canonical-3200111001212201-2221320032011033-2312022132213112-2122033033333000-3003021132032032-2303303222100033-1301223111233002-2113000000032323",
-      "anchor_map": [],
-      "mode": "embedded",
-      "registry_path": "docs/guides/data-sources--service_policy--reference--group-002.md"
-    },
-    {
-      "canonical_id": "xcsh-docs:data-sources:service_policy:properties:rule_list:rules:spec:ip_prefix_list",
-      "section_id": "xcsh-docs:data-sources:service_policy:properties:rule_list:rules:spec:ip_prefix_list:section:5",
-      "source_sha256": "sha256:27badefecd851fcda430e4c1f9ffc81d6bc8dcfa33837c4b1bd6115f58fae576",
-      "source_bytes": 268,
-      "canonical_source_sha256": "sha256:f6c15c28a31867b881293162abec62d9bcb6eeba5e9ee2246360f45b805c5c93",
-      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/service_policy/properties/rule_list/rules/spec/ip_prefix_list/",
-      "anchor": "canonical-1132033133331223-1331210202331100-3122023022210010-3332130220002012-0323010021130120-1010310320310023-2001123320330021-0031010133030200",
-      "anchor_map": [],
-      "mode": "embedded",
-      "registry_path": "docs/guides/data-sources--service_policy--reference--group-002.md"
-    },
-    {
-      "canonical_id": "xcsh-docs:data-sources:service_policy:properties:rule_list:rules:spec:ip_threat_category_list",
-      "section_id": "xcsh-docs:data-sources:service_policy:properties:rule_list:rules:spec:ip_threat_category_list:section:0",
-      "source_sha256": "sha256:197d41522a9dd286cb9805a03d8a5bd782cc3f3fd95ea854bf2dfc326e83e50c",
-      "source_bytes": 99,
-      "canonical_source_sha256": "sha256:d81b83b98f2827b7dc11bb71644cc6c82ff6d52e7700ab107b6217ee72f36a16",
-      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/service_policy/properties/rule_list/rules/spec/ip_threat_category_list/",
-      "anchor": "canonical-0213001221332012-0333230020030103-1200211310131211-0231323331103203-2310310332330330-3313312022312012-1302033120012331-0021212310222310",
-      "anchor_map": [],
-      "mode": "embedded",
-      "registry_path": "docs/guides/data-sources--service_policy--reference--group-002.md"
-    },
-    {
-      "canonical_id": "xcsh-docs:data-sources:service_policy:properties:rule_list:rules:spec:ip_threat_category_list",
-      "section_id": "xcsh-docs:data-sources:service_policy:properties:rule_list:rules:spec:ip_threat_category_list:section:1",
-      "source_sha256": "sha256:fdfb88032d7255439a2d3fa8abbddf90914778a769baba6b0e42d0a1d5d76e04",
-      "source_bytes": 1078,
-      "canonical_source_sha256": "sha256:d81b83b98f2827b7dc11bb71644cc6c82ff6d52e7700ab107b6217ee72f36a16",
-      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/service_policy/properties/rule_list/rules/spec/ip_threat_category_list/",
-      "anchor": "canonical-1022310001321202-3321010120203002-1111102311122203-2033013213200301-3121230221022300-3100120312103213-1202312133011301-3332003130322300",
-      "anchor_map": [
-        [
-          "section",
-          "canonical-0332320111030232-3310113121200022-1031330203210102-2212203332210312-3201012132323000-0200201001103023-0210310132323111-3010331010001100"
-        ]
-      ],
-      "mode": "embedded",
-      "registry_path": "docs/guides/data-sources--service_policy--reference--group-002.md"
-    },
-    {
-      "canonical_id": "xcsh-docs:data-sources:service_policy:properties:rule_list:rules:spec:ip_threat_category_list",
-      "section_id": "xcsh-docs:data-sources:service_policy:properties:rule_list:rules:spec:ip_threat_category_list:section:2",
-      "source_sha256": "sha256:e0d50a2c5a9241145c837c215d5195f65cf7ee1ae663a45b1826d070f397d171",
-      "source_bytes": 113,
-      "canonical_source_sha256": "sha256:d81b83b98f2827b7dc11bb71644cc6c82ff6d52e7700ab107b6217ee72f36a16",
-      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/service_policy/properties/rule_list/rules/spec/ip_threat_category_list/",
-      "anchor": "canonical-0100031100313033-3002211120220331-0100322221211102-3221021003111201-3301022300323100-3100101232223031-3301323032303101-0113332332321103",
-      "anchor_map": [
-        [
-          "schema-rule_list--rules--spec--ip_threat_category_list--ip_threat_categories",
-          "canonical-2102010000011313-1231113311132130-1000300113122132-2132213113111123-1310321100110133-1220232223110023-1310101201212000-0201222211103130"
-        ]
-      ],
-      "mode": "embedded",
-      "registry_path": "docs/guides/data-sources--service_policy--reference--group-002.md"
-    },
-    {
-      "canonical_id": "xcsh-docs:data-sources:service_policy:properties:rule_list:rules:spec:ip_threat_category_list",
-      "section_id": "xcsh-docs:data-sources:service_policy:properties:rule_list:rules:spec:ip_threat_category_list:section:3",
-      "source_sha256": "sha256:6a7b5f6eafb921df8cdd343b77c1f6a6ae6c7cede8adb142f6ac316b0e840e17",
-      "source_bytes": 1602,
-      "canonical_source_sha256": "sha256:d81b83b98f2827b7dc11bb71644cc6c82ff6d52e7700ab107b6217ee72f36a16",
-      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/service_policy/properties/rule_list/rules/spec/ip_threat_category_list/",
-      "anchor": "canonical-1123203212001030-3301202013333121-1232000012132123-1020232120321130-1223333002322013-1323333300031311-0033232303031001-2022012202311330",
-      "anchor_map": [],
-      "mode": "embedded",
-      "registry_path": "docs/guides/data-sources--service_policy--reference--group-002.md"
-    },
-    {
-      "canonical_id": "xcsh-docs:data-sources:service_policy:properties:rule_list:rules:spec:ip_threat_category_list",
-      "section_id": "xcsh-docs:data-sources:service_policy:properties:rule_list:rules:spec:ip_threat_category_list:section:4",
-      "source_sha256": "sha256:27badefecd851fcda430e4c1f9ffc81d6bc8dcfa33837c4b1bd6115f58fae576",
-      "source_bytes": 268,
-      "canonical_source_sha256": "sha256:d81b83b98f2827b7dc11bb71644cc6c82ff6d52e7700ab107b6217ee72f36a16",
-      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/service_policy/properties/rule_list/rules/spec/ip_threat_category_list/",
-      "anchor": "canonical-3300230313333130-3123122002211200-2001233020011321-2113132121111123-1203131313220031-1330032230102003-2323132210232231-2002210331200102",
-      "anchor_map": [],
-      "mode": "embedded",
-      "registry_path": "docs/guides/data-sources--service_policy--reference--group-002.md"
-    },
-    {
-      "canonical_id": "xcsh-docs:data-sources:service_policy:properties:rule_list:rules:spec:ja4_tls_fingerprint",
-      "section_id": "xcsh-docs:data-sources:service_policy:properties:rule_list:rules:spec:ja4_tls_fingerprint:section:0",
-      "source_sha256": "sha256:197d41522a9dd286cb9805a03d8a5bd782cc3f3fd95ea854bf2dfc326e83e50c",
-      "source_bytes": 99,
-      "canonical_source_sha256": "sha256:467dfbead3bb4e8666377b5e077d91372eeb0afc6ad49ce0b58f737da038fccc",
-      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/service_policy/properties/rule_list/rules/spec/ja4_tls_fingerprint/",
-      "anchor": "canonical-0020023013210332-1201130101003103-1003112321233212-2120210311320132-0321330033001332-2103123112111112-1013321012220033-1032311101122303",
-      "anchor_map": [],
       "mode": "embedded",
       "registry_path": "docs/guides/data-sources--service_policy--reference--group-002.md"
     }

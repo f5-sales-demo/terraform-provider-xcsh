@@ -490,7 +490,7 @@
         "xcsh-docs:data-sources:advertise_policy:examples"
       ],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -502,7 +502,7 @@
       "path": "documentation/data-sources/advertise_policy/index.md",
       "product": "distributed-cloud",
       "provider_name": "advertise_policy",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-1313323203033333-1300230112313332-2100102121033233-0222102011113211-1021300002113302-1302230112320222-2132203330001002-0321121130220222",
       "registry_path": "docs/data-sources/advertise_policy.md",
@@ -538,7 +538,7 @@
         "xcsh-docs:data-sources:advertise_policy:properties:where"
       ],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -550,7 +550,7 @@
       "path": "documentation/data-sources/advertise_policy/properties/index.md",
       "product": "distributed-cloud",
       "provider_name": "advertise_policy",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-3010222011101133-3131011331220330-3123033233202132-3132111131310333-1021002301231222-0132012231031132-0333012123300203-0102212303112111",
       "registry_path": "docs/guides/data-sources--advertise_policy--reference--group-001.md",
@@ -817,7 +817,7 @@
       "category": "networking",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -829,7 +829,7 @@
       "path": "documentation/data-sources/advertise_policy/properties/dualstack/index.md",
       "product": "distributed-cloud",
       "provider_name": "advertise_policy",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-1300321132021101-2312230222232310-0310313232330230-3132121011011210-3012022120112200-0112311123223231-0322331101121122-2111101311031301",
       "registry_path": "docs/guides/data-sources--advertise_policy--reference--group-001.md",
@@ -857,7 +857,7 @@
       "category": "networking",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -869,7 +869,7 @@
       "path": "documentation/data-sources/advertise_policy/properties/ipv4/index.md",
       "product": "distributed-cloud",
       "provider_name": "advertise_policy",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-1300230300021232-2301101201003023-1102112101111220-2033230013100203-3113130231001221-2021032021321002-0121110201113322-3013030122031113",
       "registry_path": "docs/guides/data-sources--advertise_policy--reference--group-001.md",
@@ -897,7 +897,7 @@
       "category": "networking",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -909,7 +909,7 @@
       "path": "documentation/data-sources/advertise_policy/properties/ipv6/index.md",
       "product": "distributed-cloud",
       "provider_name": "advertise_policy",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-3030320210032120-0311231213102131-3313031321031213-2212033303022323-3232202022303210-1200012232101102-2301310012000100-2103101021323202",
       "registry_path": "docs/guides/data-sources--advertise_policy--reference--group-001.md",
@@ -937,7 +937,7 @@
       "category": "networking",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -949,7 +949,7 @@
       "path": "documentation/data-sources/advertise_policy/properties/public_ip/index.md",
       "product": "distributed-cloud",
       "provider_name": "advertise_policy",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-1200131111121300-2031302003000210-2100010210320211-0330113201210113-2201133223113121-2132003101201300-2012110130310313-2132313212322132",
       "registry_path": "docs/guides/data-sources--advertise_policy--reference--group-001.md",
@@ -1053,7 +1053,7 @@
         "xcsh-docs:data-sources:advertise_policy:properties:tls_parameters:no_client_certificate"
       ],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -1065,7 +1065,7 @@
       "path": "documentation/data-sources/advertise_policy/properties/tls_parameters/index.md",
       "product": "distributed-cloud",
       "provider_name": "advertise_policy",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-1333123330133002-3132202201000303-2210303001223323-0323031213133013-3032003211001213-0123132123210112-1310023301123000-2302301003333103",
       "registry_path": "docs/guides/data-sources--advertise_policy--reference--group-001.md",
@@ -1075,13 +1075,7 @@
       "schema_path": ["tls_parameters"],
       "sections": [
         {
-          "aliases": [
-            "cert",
-            "certificate",
-            "client certificate optional",
-            "existing certificates",
-            "tls certificates"
-          ],
+          "aliases": ["client certificate optional"],
           "anchor": "section",
           "description": "This can be used for messages where no values are needed.",
           "document_id": "xcsh-docs:data-sources:advertise_policy:properties:tls_parameters:client_certificate_optional",
@@ -1095,13 +1089,7 @@
           "type": "object"
         },
         {
-          "aliases": [
-            "cert",
-            "certificate",
-            "client certificate required",
-            "existing certificates",
-            "tls certificates"
-          ],
+          "aliases": ["client certificate required"],
           "anchor": "section",
           "description": "This can be used for messages where no values are needed.",
           "document_id": "xcsh-docs:data-sources:advertise_policy:properties:tls_parameters:client_certificate_required",
@@ -1115,16 +1103,7 @@
           "type": "object"
         },
         {
-          "aliases": [
-            "authentication",
-            "cert",
-            "certificate",
-            "common params",
-            "credential setup",
-            "credentials",
-            "existing certificates",
-            "tls certificates"
-          ],
+          "aliases": ["common params"],
           "anchor": "section",
           "description": "Information of different aspects for TLS authentication related to ciphers, certificates and trust store.",
           "document_id": "xcsh-docs:data-sources:advertise_policy:properties:tls_parameters:common_params",
@@ -1138,7 +1117,7 @@
           "type": "object"
         },
         {
-          "aliases": ["cert", "certificate", "existing certificates", "no client certificate", "tls certificates"],
+          "aliases": ["no client certificate"],
           "anchor": "section",
           "description": "This can be used for messages where no values are needed.",
           "document_id": "xcsh-docs:data-sources:advertise_policy:properties:tls_parameters:no_client_certificate",
@@ -1178,20 +1157,14 @@
       }
     },
     {
-      "aliases": [
-        "cert",
-        "certificate",
-        "existing certificates",
-        "tls certificates",
-        "tls parameters client certificate optional"
-      ],
+      "aliases": ["tls parameters client certificate optional"],
       "body_bytes": 1264,
       "body_sha256": "sha256:1f5561d72ac645814fc950ec9c52391c1634bd09d12e0b1e6b4129649a90bb4f",
       "capabilities": ["load-balancing.tls", "networking"],
       "category": "networking",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -1203,7 +1176,7 @@
       "path": "documentation/data-sources/advertise_policy/properties/tls_parameters/client_certificate_optional/index.md",
       "product": "distributed-cloud",
       "provider_name": "advertise_policy",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-3020301002012332-1020200011231021-3003223203122012-3312110133011330-3232221232111211-1310220133301101-0021131020210233-1020003130133013",
       "registry_path": "docs/guides/data-sources--advertise_policy--reference--group-001.md",
@@ -1224,20 +1197,14 @@
       }
     },
     {
-      "aliases": [
-        "cert",
-        "certificate",
-        "existing certificates",
-        "tls certificates",
-        "tls parameters client certificate required"
-      ],
+      "aliases": ["tls parameters client certificate required"],
       "body_bytes": 1264,
       "body_sha256": "sha256:aeef7717b083f7713c42757a919b6b9031343926b8632db241dfb9da01d92d65",
       "capabilities": ["load-balancing.tls", "networking"],
       "category": "networking",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -1249,7 +1216,7 @@
       "path": "documentation/data-sources/advertise_policy/properties/tls_parameters/client_certificate_required/index.md",
       "product": "distributed-cloud",
       "provider_name": "advertise_policy",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-2233231030003123-0210001130012303-3311101233201323-2210013301130132-1221113220331111-2112113023231003-3220220123331333-0301222032322302",
       "registry_path": "docs/guides/data-sources--advertise_policy--reference--group-001.md",
@@ -1270,16 +1237,7 @@
       }
     },
     {
-      "aliases": [
-        "authentication",
-        "cert",
-        "certificate",
-        "credential setup",
-        "credentials",
-        "existing certificates",
-        "tls certificates",
-        "tls parameters common params"
-      ],
+      "aliases": ["tls parameters common params"],
       "body_bytes": 7551,
       "body_sha256": "sha256:04537625954acc14ae2905497fab47d86e7f6dd3ae9d93fe5f7b2fb878f0a953",
       "capabilities": ["load-balancing.tls", "networking"],
@@ -1289,7 +1247,7 @@
         "xcsh-docs:data-sources:advertise_policy:properties:tls_parameters:common_params:validation_params"
       ],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -1301,7 +1259,7 @@
       "path": "documentation/data-sources/advertise_policy/properties/tls_parameters/common_params/index.md",
       "product": "distributed-cloud",
       "provider_name": "advertise_policy",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-3313122022011100-1100013303303203-1233331311300012-1313103030111210-3021010313003023-0130303131120033-0022100313131303-0202130100132002",
       "registry_path": "docs/guides/data-sources--advertise_policy--reference--group-001.md",
@@ -1411,7 +1369,7 @@
         "xcsh-docs:data-sources:advertise_policy:properties:tls_parameters:common_params:tls_certificates:use_system_defaults"
       ],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -1423,7 +1381,7 @@
       "path": "documentation/data-sources/advertise_policy/properties/tls_parameters/common_params/tls_certificates/index.md",
       "product": "distributed-cloud",
       "provider_name": "advertise_policy",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-3212201103100220-3022333332123023-1031313202031303-0022022110101322-2030230222033000-0213221202032221-0323000133123303-0222021120221130",
       "registry_path": "docs/guides/data-sources--advertise_policy--reference--group-001.md",
@@ -1461,7 +1419,7 @@
           "type": "object"
         },
         {
-          "aliases": ["cert", "certificate", "description spec", "existing certificates", "tls certificates"],
+          "aliases": ["description spec"],
           "anchor": "schema-tls_parameters--common_params--tls_certificates--description_spec",
           "description": "Description. Description for the certificate.",
           "document_id": "xcsh-docs:data-sources:advertise_policy:properties:tls_parameters:common_params:tls_certificates",
@@ -1529,20 +1487,14 @@
       }
     },
     {
-      "aliases": [
-        "cert",
-        "certificate",
-        "existing certificates",
-        "tls certificates",
-        "tls parameters common params tls certificates custom hash algorithms"
-      ],
+      "aliases": ["tls parameters common params tls certificates custom hash algorithms"],
       "body_bytes": 3040,
       "body_sha256": "sha256:825f323213362bad2812b73a1a3c406cf19d80b7c9c97488cc7dd17f47b5af6a",
       "capabilities": ["load-balancing.tls", "networking"],
       "category": "networking",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -1554,7 +1506,7 @@
       "path": "documentation/data-sources/advertise_policy/properties/tls_parameters/common_params/tls_certificates/custom_hash_algorithms/index.md",
       "product": "distributed-cloud",
       "provider_name": "advertise_policy",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-0321212230323001-2302231122203113-3103310200012312-3210130233010120-2223331022211233-0123031121131301-2313121310123202-0130112203012333",
       "registry_path": "docs/guides/data-sources--advertise_policy--reference--group-001.md",
@@ -1596,20 +1548,14 @@
       }
     },
     {
-      "aliases": [
-        "cert",
-        "certificate",
-        "existing certificates",
-        "tls certificates",
-        "tls parameters common params tls certificates disable ocsp stapling"
-      ],
+      "aliases": ["tls parameters common params tls certificates disable ocsp stapling"],
       "body_bytes": 1764,
       "body_sha256": "sha256:c5aabda89da25d9694ed0262b44c793b6d1bd0e2ecb0a3caa3320da6e28a30a4",
       "capabilities": ["load-balancing.tls", "networking"],
       "category": "networking",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -1621,7 +1567,7 @@
       "path": "documentation/data-sources/advertise_policy/properties/tls_parameters/common_params/tls_certificates/disable_ocsp_stapling/index.md",
       "product": "distributed-cloud",
       "provider_name": "advertise_policy",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-3022332101000010-1000000103201220-0323030213212321-2101313110002231-2023130000130303-2103232331122000-3301033111311021-0312002022032103",
       "registry_path": "docs/guides/data-sources--advertise_policy--reference--group-001.md",
@@ -1642,13 +1588,7 @@
       }
     },
     {
-      "aliases": [
-        "cert",
-        "certificate",
-        "existing certificates",
-        "tls certificates",
-        "tls parameters common params tls certificates private key"
-      ],
+      "aliases": ["tls parameters common params tls certificates private key"],
       "body_bytes": 2689,
       "body_sha256": "sha256:f2c7fc59d1bcf67d5d0f2e0883f54ae7109c264a7205a4adb5340974a020a15c",
       "capabilities": ["load-balancing.tls", "networking"],
@@ -1658,7 +1598,7 @@
         "xcsh-docs:data-sources:advertise_policy:properties:tls_parameters:common_params:tls_certificates:private_key:clear_secret_info"
       ],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -1670,7 +1610,7 @@
       "path": "documentation/data-sources/advertise_policy/properties/tls_parameters/common_params/tls_certificates/private_key/index.md",
       "product": "distributed-cloud",
       "provider_name": "advertise_policy",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-0323030313030010-2103100132200310-0233232101002303-0003302312120300-1123101022232022-0232332232222113-1000213320213003-1301123113301303",
       "registry_path": "docs/guides/data-sources--advertise_policy--reference--group-001.md",
@@ -1726,20 +1666,14 @@
       }
     },
     {
-      "aliases": [
-        "cert",
-        "certificate",
-        "existing certificates",
-        "tls certificates",
-        "tls parameters common params tls certificates private key blindfold secret info"
-      ],
+      "aliases": ["tls parameters common params tls certificates private key blindfold secret info"],
       "body_bytes": 5138,
       "body_sha256": "sha256:778348b87622913d66266b045ef5aab6a3c9ea29743ae616c511b303f70e8744",
       "capabilities": ["load-balancing.tls", "networking"],
       "category": "networking",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -1751,7 +1685,7 @@
       "path": "documentation/data-sources/advertise_policy/properties/tls_parameters/common_params/tls_certificates/private_key/blindfold_secret_info/index.md",
       "product": "distributed-cloud",
       "provider_name": "advertise_policy",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-2022031222202320-1021203131310222-1320023103302221-1203132302323222-1230230223133121-1322200123112123-2023133021212102-0023213131331331",
       "registry_path": "docs/guides/data-sources--advertise_policy--reference--group-001.md",
@@ -1761,7 +1695,7 @@
       "schema_path": ["tls_parameters", "common_params", "tls_certificates", "private_key", "blindfold_secret_info"],
       "sections": [
         {
-          "aliases": ["backend servers", "decryption provider", "origin servers", "upstream servers"],
+          "aliases": ["decryption provider"],
           "anchor": "schema-tls_parameters--common_params--tls_certificates--private_key--blindfold_secret_info--decryption_provider",
           "description": "Name of the Secret Management Access object that contains information about the backend Secret Management service.",
           "document_id": "xcsh-docs:data-sources:advertise_policy:properties:tls_parameters:common_params:tls_certificates:private_key:blindfold_secret_info",
@@ -1836,20 +1770,14 @@
       }
     },
     {
-      "aliases": [
-        "cert",
-        "certificate",
-        "existing certificates",
-        "tls certificates",
-        "tls parameters common params tls certificates private key clear secret info"
-      ],
+      "aliases": ["tls parameters common params tls certificates private key clear secret info"],
       "body_bytes": 3998,
       "body_sha256": "sha256:f155f00e69b552ccdf7f883d512aebc8a8ed6d9babc8860052a23e8f08aaf195",
       "capabilities": ["load-balancing.tls", "networking"],
       "category": "networking",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -1861,7 +1789,7 @@
       "path": "documentation/data-sources/advertise_policy/properties/tls_parameters/common_params/tls_certificates/private_key/clear_secret_info/index.md",
       "product": "distributed-cloud",
       "provider_name": "advertise_policy",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-0332112320202101-2312133030102011-0122111101032322-0100013112131302-2132322223230313-3212312323211201-3000120301211331-1321231123300132",
       "registry_path": "docs/guides/data-sources--advertise_policy--reference--group-001.md",
@@ -1925,20 +1853,14 @@
       }
     },
     {
-      "aliases": [
-        "cert",
-        "certificate",
-        "existing certificates",
-        "tls certificates",
-        "tls parameters common params tls certificates use system defaults"
-      ],
+      "aliases": ["tls parameters common params tls certificates use system defaults"],
       "body_bytes": 1758,
       "body_sha256": "sha256:52a57268c2d7c0dcd7fec9d014398aad1f2ad696c982e938bc1f63a95fc61f41",
       "capabilities": ["load-balancing.tls", "networking"],
       "category": "networking",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -1950,7 +1872,7 @@
       "path": "documentation/data-sources/advertise_policy/properties/tls_parameters/common_params/tls_certificates/use_system_defaults/index.md",
       "product": "distributed-cloud",
       "provider_name": "advertise_policy",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-3201311330022203-3322122202111030-3103113302222112-0203202111310032-1210021233130302-2133300011030133-0100330000102231-3203313201032233",
       "registry_path": "docs/guides/data-sources--advertise_policy--reference--group-001.md",
@@ -1980,7 +1902,7 @@
         "xcsh-docs:data-sources:advertise_policy:properties:tls_parameters:common_params:validation_params:trusted_ca"
       ],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -1992,7 +1914,7 @@
       "path": "documentation/data-sources/advertise_policy/properties/tls_parameters/common_params/validation_params/index.md",
       "product": "distributed-cloud",
       "provider_name": "advertise_policy",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-0322133030322321-2320230313111300-2303313113210011-0223030322312100-2333103030321112-2022322223330100-3101112313222031-0303321002201220",
       "registry_path": "docs/guides/data-sources--advertise_policy--reference--group-001.md",
@@ -2002,7 +1924,7 @@
       "schema_path": ["tls_parameters", "common_params", "validation_params"],
       "sections": [
         {
-          "aliases": ["cert", "certificate", "existing certificates", "skip hostname verification", "tls certificates"],
+          "aliases": ["skip hostname verification"],
           "anchor": "schema-tls_parameters--common_params--validation_params--skip_hostname_verification",
           "description": "When True, skip verification of hostname i.e. CN/Subject Alt Name of certificate is not matched to the connecting hostname.",
           "document_id": "xcsh-docs:data-sources:advertise_policy:properties:tls_parameters:common_params:validation_params",
@@ -2016,7 +1938,7 @@
           "type": "bool"
         },
         {
-          "aliases": ["cert", "certificate", "existing certificates", "tls certificates", "trusted ca"],
+          "aliases": ["trusted ca"],
           "anchor": "section",
           "description": "Reference to Root CA Certificate.",
           "document_id": "xcsh-docs:data-sources:advertise_policy:properties:tls_parameters:common_params:validation_params:trusted_ca",
@@ -2030,7 +1952,7 @@
           "type": "object"
         },
         {
-          "aliases": ["cert", "certificate", "existing certificates", "tls certificates", "trusted ca url"],
+          "aliases": ["trusted ca url"],
           "anchor": "schema-tls_parameters--common_params--validation_params--trusted_ca_url",
           "description": "Exclusive with Inline Root CA Certificate.",
           "document_id": "xcsh-docs:data-sources:advertise_policy:properties:tls_parameters:common_params:validation_params",
@@ -2044,7 +1966,7 @@
           "type": "string"
         },
         {
-          "aliases": ["cert", "certificate", "existing certificates", "tls certificates", "verify subject alt names"],
+          "aliases": ["verify subject alt names"],
           "anchor": "schema-tls_parameters--common_params--validation_params--verify_subject_alt_names",
           "description": "List of acceptable Subject Alt Names/CN in the peer's certificate. When skip_hostname_verification is false and verify_subject_alt_names is empty, the hostname of the peer will be used for matching against SAN/CN of peer's certificate.",
           "document_id": "xcsh-docs:data-sources:advertise_policy:properties:tls_parameters:common_params:validation_params",
@@ -2070,13 +1992,7 @@
       }
     },
     {
-      "aliases": [
-        "cert",
-        "certificate",
-        "existing certificates",
-        "tls certificates",
-        "tls parameters common params validation params trusted ca"
-      ],
+      "aliases": ["tls parameters common params validation params trusted ca"],
       "body_bytes": 2137,
       "body_sha256": "sha256:f55c749c1dab9c5c8b74f35ffde8ec14ff00aecdf4ab10e03ded813933af9fa8",
       "capabilities": ["load-balancing.tls", "networking"],
@@ -2085,7 +2001,7 @@
         "xcsh-docs:data-sources:advertise_policy:properties:tls_parameters:common_params:validation_params:trusted_ca:trusted_ca_list"
       ],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -2097,7 +2013,7 @@
       "path": "documentation/data-sources/advertise_policy/properties/tls_parameters/common_params/validation_params/trusted_ca/index.md",
       "product": "distributed-cloud",
       "provider_name": "advertise_policy",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-3123013323111022-3221213313030012-3113003210231313-3012022013330003-1001120213101111-0121112133012312-1123013223130130-1130121330300033",
       "registry_path": "docs/guides/data-sources--advertise_policy--reference--group-001.md",
@@ -2107,7 +2023,7 @@
       "schema_path": ["tls_parameters", "common_params", "validation_params", "trusted_ca"],
       "sections": [
         {
-          "aliases": ["cert", "certificate", "existing certificates", "tls certificates", "trusted ca list"],
+          "aliases": ["trusted ca list"],
           "anchor": "section",
           "description": "Reference to Root CA Certificate.",
           "document_id": "xcsh-docs:data-sources:advertise_policy:properties:tls_parameters:common_params:validation_params:trusted_ca:trusted_ca_list",
@@ -2133,20 +2049,14 @@
       }
     },
     {
-      "aliases": [
-        "cert",
-        "certificate",
-        "existing certificates",
-        "tls certificates",
-        "tls parameters common params validation params trusted ca trusted ca list"
-      ],
+      "aliases": ["tls parameters common params validation params trusted ca trusted ca list"],
       "body_bytes": 7283,
       "body_sha256": "sha256:a8cc49028c0ff04dbe1c471f4dbde6d196c8c85b7e29052d064284a8d9d7d96a",
       "capabilities": ["load-balancing.tls", "networking"],
       "category": "networking",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -2158,7 +2068,7 @@
       "path": "documentation/data-sources/advertise_policy/properties/tls_parameters/common_params/validation_params/trusted_ca/trusted_ca_list/index.md",
       "product": "distributed-cloud",
       "provider_name": "advertise_policy",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-0232202223122102-2212112130322213-3030103003312101-2103023233322222-0112200221213031-0103321323102020-3123211132301113-1031323212300212",
       "registry_path": "docs/guides/data-sources--advertise_policy--reference--group-001.md",
@@ -2285,20 +2195,14 @@
       }
     },
     {
-      "aliases": [
-        "cert",
-        "certificate",
-        "existing certificates",
-        "tls certificates",
-        "tls parameters no client certificate"
-      ],
+      "aliases": ["tls parameters no client certificate"],
       "body_bytes": 1252,
       "body_sha256": "sha256:f2a32d18a9dcde06937935762edc268f292c1382ae8f3a592e9876de77a1c557",
       "capabilities": ["load-balancing.tls", "networking"],
       "category": "networking",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -2310,7 +2214,7 @@
       "path": "documentation/data-sources/advertise_policy/properties/tls_parameters/no_client_certificate/index.md",
       "product": "distributed-cloud",
       "provider_name": "advertise_policy",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-2223212220111111-2233230113112200-3100103203001101-3030012220303303-1111203311122213-2331023301330200-2331001011111302-1221201303301111",
       "registry_path": "docs/guides/data-sources--advertise_policy--reference--group-001.md",
@@ -2342,7 +2246,7 @@
         "xcsh-docs:data-sources:advertise_policy:properties:where:virtual_site"
       ],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -2354,7 +2258,7 @@
       "path": "documentation/data-sources/advertise_policy/properties/where/index.md",
       "product": "distributed-cloud",
       "provider_name": "advertise_policy",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-3031120312202103-3312322201132331-3211232330311113-3303330100012123-2023223003011103-2303121112322110-3133101002313302-0322223323111230",
       "registry_path": "docs/guides/data-sources--advertise_policy--reference--group-001.md",
@@ -2429,7 +2333,7 @@
         "xcsh-docs:data-sources:advertise_policy:properties:where:site:ref"
       ],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -2441,7 +2345,7 @@
       "path": "documentation/data-sources/advertise_policy/properties/where/site/index.md",
       "product": "distributed-cloud",
       "provider_name": "advertise_policy",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-2112001213300311-2001131200322322-0303021101333320-3111001211121210-2322201100323202-2300302322003030-0333212200221122-1202013330321122",
       "registry_path": "docs/guides/data-sources--advertise_policy--reference--group-001.md",
@@ -2526,7 +2430,7 @@
       "category": "networking",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -2538,7 +2442,7 @@
       "path": "documentation/data-sources/advertise_policy/properties/where/site/disable_internet_vip/index.md",
       "product": "distributed-cloud",
       "provider_name": "advertise_policy",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-1021013022020010-3313001012132201-2100333122002313-1121022203303210-1132313121232000-0200012031302332-0130023302333300-3111332100232223",
       "registry_path": "docs/guides/data-sources--advertise_policy--reference--group-001.md",
@@ -2566,7 +2470,7 @@
       "category": "networking",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -2578,7 +2482,7 @@
       "path": "documentation/data-sources/advertise_policy/properties/where/site/enable_internet_vip/index.md",
       "product": "distributed-cloud",
       "provider_name": "advertise_policy",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-2133100313033002-3110321222301102-0322220320113320-3120220113102331-1223102200031132-1102310000101011-1100100333032123-3123303200133112",
       "registry_path": "docs/guides/data-sources--advertise_policy--reference--group-001.md",
@@ -2606,7 +2510,7 @@
       "category": "networking",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -2618,7 +2522,7 @@
       "path": "documentation/data-sources/advertise_policy/properties/where/site/ref/index.md",
       "product": "distributed-cloud",
       "provider_name": "advertise_policy",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-1013013220222110-1003110320330113-2232333213302211-0103001232112231-2020220310231313-0013121121333233-0230111230332101-2022013120022030",
       "registry_path": "docs/guides/data-sources--advertise_policy--reference--group-001.md",
@@ -2717,7 +2621,7 @@
       "category": "networking",
       "child_ids": ["xcsh-docs:data-sources:advertise_policy:properties:where:virtual_network:ref"],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -2729,7 +2633,7 @@
       "path": "documentation/data-sources/advertise_policy/properties/where/virtual_network/index.md",
       "product": "distributed-cloud",
       "provider_name": "advertise_policy",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-3022121311302203-3101121122331332-1030013301210030-1330202012133112-2103012211120022-3202303132311322-2231200013110312-3231223110331133",
       "registry_path": "docs/guides/data-sources--advertise_policy--reference--group-001.md",
@@ -2772,7 +2676,7 @@
       "category": "networking",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -2784,7 +2688,7 @@
       "path": "documentation/data-sources/advertise_policy/properties/where/virtual_network/ref/index.md",
       "product": "distributed-cloud",
       "provider_name": "advertise_policy",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-0121332123303331-0320331131031002-1333030322113132-3113032223130300-2122131122121302-1302001111200322-0322102112320031-0012312012111010",
       "registry_path": "docs/guides/data-sources--advertise_policy--reference--group-001.md",
@@ -2887,7 +2791,7 @@
         "xcsh-docs:data-sources:advertise_policy:properties:where:virtual_site:ref"
       ],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -2899,7 +2803,7 @@
       "path": "documentation/data-sources/advertise_policy/properties/where/virtual_site/index.md",
       "product": "distributed-cloud",
       "provider_name": "advertise_policy",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-1122300101022033-1023233111033000-3200123020121203-1031111032230031-2102210032312210-0211312202230101-3021312302303020-0330211202113310",
       "registry_path": "docs/guides/data-sources--advertise_policy--reference--group-001.md",
@@ -2984,7 +2888,7 @@
       "category": "networking",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -2996,7 +2900,7 @@
       "path": "documentation/data-sources/advertise_policy/properties/where/virtual_site/disable_internet_vip/index.md",
       "product": "distributed-cloud",
       "provider_name": "advertise_policy",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-1310031202030210-3300302112322233-3201303220121123-0102303230330122-3322130100303022-1310332203131312-0223210312213202-0020111320223102",
       "registry_path": "docs/guides/data-sources--advertise_policy--reference--group-001.md",
@@ -3024,7 +2928,7 @@
       "category": "networking",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -3036,7 +2940,7 @@
       "path": "documentation/data-sources/advertise_policy/properties/where/virtual_site/enable_internet_vip/index.md",
       "product": "distributed-cloud",
       "provider_name": "advertise_policy",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-3330222322123002-1200130002330023-2331321232113321-3203312001021201-3123301201222023-0020120011033003-1331211033133322-0101332221131230",
       "registry_path": "docs/guides/data-sources--advertise_policy--reference--group-001.md",
@@ -3064,7 +2968,7 @@
       "category": "networking",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -3076,7 +2980,7 @@
       "path": "documentation/data-sources/advertise_policy/properties/where/virtual_site/ref/index.md",
       "product": "distributed-cloud",
       "provider_name": "advertise_policy",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-3333333023331330-1213320333031232-0003211103021132-2230331323020311-1221110211113002-0120220321221123-0010212301010122-3013032320313313",
       "registry_path": "docs/guides/data-sources--advertise_policy--reference--group-001.md",
@@ -3175,7 +3079,7 @@
       "category": "networking",
       "child_ids": ["xcsh-docs:data-sources:advertise_policy:example:data-source"],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -3187,7 +3091,7 @@
       "path": "documentation/data-sources/advertise_policy/examples/index.md",
       "product": "distributed-cloud",
       "provider_name": "advertise_policy",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-3001020230333331-2030223330301300-0330111210101131-2021213112120012-0220120323212011-1312001132020230-2100222333330312-3132321031200111",
       "registry_path": "docs/guides/data-sources--advertise_policy--examples--group-001.md",
@@ -3215,7 +3119,7 @@
       "category": "networking",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -3234,7 +3138,7 @@
       "path": "documentation/data-sources/advertise_policy/examples/data-source/index.md",
       "product": "distributed-cloud",
       "provider_name": "advertise_policy",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-1233231313132130-3332030313113030-2321110130210211-3203001212202223-0033001301103321-2201031123102221-0331213233033331-1313122120323121",
       "registry_path": "docs/guides/data-sources--advertise_policy--examples--group-001.md",

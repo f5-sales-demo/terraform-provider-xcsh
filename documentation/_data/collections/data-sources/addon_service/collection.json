@@ -57,7 +57,7 @@
       "category": null,
       "child_ids": ["xcsh-docs:data-sources:addon_service:reference", "xcsh-docs:data-sources:addon_service:examples"],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -69,7 +69,7 @@
       "path": "documentation/data-sources/addon_service/index.md",
       "product": "distributed-cloud",
       "provider_name": "addon_service",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-2330122101113210-0031213211000013-0113320231112112-2023300013333011-1030201010131303-2332021031023321-1030302210322030-1132200333322121",
       "registry_path": "docs/data-sources/addon_service.md",
@@ -98,7 +98,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -110,7 +110,7 @@
       "path": "documentation/data-sources/addon_service/properties/index.md",
       "product": "distributed-cloud",
       "provider_name": "addon_service",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-0101311200030200-2033233113311222-3123301302321122-2232020112101123-3323000031131011-2103311130212112-2210113200221131-3330200122001111",
       "registry_path": "docs/guides/data-sources--addon_service--reference--group-001.md",
@@ -251,7 +251,7 @@
       "category": null,
       "child_ids": ["xcsh-docs:data-sources:addon_service:example:data-source"],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -263,7 +263,7 @@
       "path": "documentation/data-sources/addon_service/examples/index.md",
       "product": "distributed-cloud",
       "provider_name": "addon_service",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-2200032121332322-2232122133010113-2030311301331333-0012110031130233-2230232102303223-1021131330013322-3112031330020320-3332012230232033",
       "registry_path": "docs/guides/data-sources--addon_service--examples--group-001.md",
@@ -291,7 +291,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -310,7 +310,7 @@
       "path": "documentation/data-sources/addon_service/examples/data-source/index.md",
       "product": "distributed-cloud",
       "provider_name": "addon_service",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-2131011112100033-2103211030113023-0312103132202320-3213200310222301-1103122223130032-0301321223022231-0011221023322310-3333233023013213",
       "registry_path": "docs/guides/data-sources--addon_service--examples--group-001.md",

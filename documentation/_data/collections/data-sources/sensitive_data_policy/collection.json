@@ -75,7 +75,7 @@
   },
   "pages": [
     {
-      "aliases": ["backend servers", "origin servers", "sensitive data policy", "upstream servers"],
+      "aliases": ["sensitive data policy"],
       "body_bytes": 1492,
       "body_sha256": "sha256:3e0ab4540cad012ad5fe9276651a115dbea75410aef0f5dfdd1b5f91fbdc6df1",
       "capabilities": ["security"],
@@ -85,7 +85,7 @@
         "xcsh-docs:data-sources:sensitive_data_policy:examples"
       ],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -97,7 +97,7 @@
       "path": "documentation/data-sources/sensitive_data_policy/index.md",
       "product": "distributed-cloud",
       "provider_name": "sensitive_data_policy",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-2321213032331000-2132213131031233-2100233222312121-0113013100321030-1011013210020203-2003033231120211-3313210223013012-0130113122220200",
       "registry_path": "docs/data-sources/sensitive_data_policy.md",
@@ -126,7 +126,7 @@
       "category": "security",
       "child_ids": ["xcsh-docs:data-sources:sensitive_data_policy:properties:custom_data_types"],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -138,7 +138,7 @@
       "path": "documentation/data-sources/sensitive_data_policy/properties/index.md",
       "product": "distributed-cloud",
       "provider_name": "sensitive_data_policy",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-2012220221230301-2110311100333312-1310211131030013-1101130223100303-2002300211120322-3233031313000120-3123212231312123-0033113022332033",
       "registry_path": "docs/guides/data-sources--sensitive_data_policy--reference--group-001.md",
@@ -293,7 +293,7 @@
       "category": "security",
       "child_ids": ["xcsh-docs:data-sources:sensitive_data_policy:properties:custom_data_types:custom_data_type_ref"],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -305,7 +305,7 @@
       "path": "documentation/data-sources/sensitive_data_policy/properties/custom_data_types/index.md",
       "product": "distributed-cloud",
       "provider_name": "sensitive_data_policy",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-2213331322133102-0313231331030120-0210321330120000-3203032221020333-2021113001131100-2132023212032102-1123203103322320-1230012010303112",
       "registry_path": "docs/guides/data-sources--sensitive_data_policy--reference--group-001.md",
@@ -348,7 +348,7 @@
       "category": "security",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -360,7 +360,7 @@
       "path": "documentation/data-sources/sensitive_data_policy/properties/custom_data_types/custom_data_type_ref/index.md",
       "product": "distributed-cloud",
       "provider_name": "sensitive_data_policy",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-1312000322012203-0023222002023230-3102330000112032-0111231230300202-0130001330011121-1213010001233203-0031232100120211-3302111011220100",
       "registry_path": "docs/guides/data-sources--sensitive_data_policy--reference--group-001.md",
@@ -431,7 +431,7 @@
       "category": "security",
       "child_ids": ["xcsh-docs:data-sources:sensitive_data_policy:example:data-source"],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -443,7 +443,7 @@
       "path": "documentation/data-sources/sensitive_data_policy/examples/index.md",
       "product": "distributed-cloud",
       "provider_name": "sensitive_data_policy",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-3130112210311310-3220231221203112-2212010312211031-2031330001130100-3203332022210322-0021312303111210-0231223120331200-2020130310211003",
       "registry_path": "docs/guides/data-sources--sensitive_data_policy--examples--group-001.md",
@@ -471,7 +471,7 @@
       "category": "security",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -490,7 +490,7 @@
       "path": "documentation/data-sources/sensitive_data_policy/examples/data-source/index.md",
       "product": "distributed-cloud",
       "provider_name": "sensitive_data_policy",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-3000113000010210-3110121213122023-0330003221011312-2213310130020331-2301323102013130-0031021032220203-2302310032030012-3023202303013101",
       "registry_path": "docs/guides/data-sources--sensitive_data_policy--examples--group-001.md",

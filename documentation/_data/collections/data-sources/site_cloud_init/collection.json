@@ -40,7 +40,7 @@
         "xcsh-docs:data-sources:site_cloud_init:examples"
       ],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -52,7 +52,7 @@
       "path": "documentation/data-sources/site_cloud_init/index.md",
       "product": "distributed-cloud",
       "provider_name": "site_cloud_init",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-2323200302110331-3032331300132323-0030000003201111-2021230223222112-1331220322311201-1311121001102222-2100011132101132-0331131132130320",
       "registry_path": "docs/data-sources/site_cloud_init.md",
@@ -81,7 +81,7 @@
       "category": "infrastructure",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -93,7 +93,7 @@
       "path": "documentation/data-sources/site_cloud_init/properties/index.md",
       "product": "distributed-cloud",
       "provider_name": "site_cloud_init",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-1010210110123221-2301023030310012-3131213301230313-0212223132222233-1001200020011312-1122011223101313-1011020230110010-0030103221003122",
       "registry_path": "docs/guides/data-sources--site_cloud_init--reference--group-001.md",
@@ -178,7 +178,7 @@
       "category": "infrastructure",
       "child_ids": ["xcsh-docs:data-sources:site_cloud_init:example:data-source"],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -190,7 +190,7 @@
       "path": "documentation/data-sources/site_cloud_init/examples/index.md",
       "product": "distributed-cloud",
       "provider_name": "site_cloud_init",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-0222330133321102-3332331012120322-1322100023222212-3112032330330131-1123001012030022-0120223001321210-3030113310202003-3331003312302210",
       "registry_path": "docs/guides/data-sources--site_cloud_init--examples--group-001.md",
@@ -218,7 +218,7 @@
       "category": "infrastructure",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -237,7 +237,7 @@
       "path": "documentation/data-sources/site_cloud_init/examples/data-source/index.md",
       "product": "distributed-cloud",
       "provider_name": "site_cloud_init",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-3023031122223133-3022120121113110-2321333301133030-2300003101220121-2011303302310123-1320021012330331-3211001111311321-1210212212231330",
       "registry_path": "docs/guides/data-sources--site_cloud_init--examples--group-001.md",

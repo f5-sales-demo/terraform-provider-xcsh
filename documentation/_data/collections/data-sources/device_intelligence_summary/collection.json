@@ -110,7 +110,7 @@
         "xcsh-docs:data-sources:device_intelligence_summary:examples"
       ],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -122,7 +122,7 @@
       "path": "documentation/data-sources/device_intelligence_summary/index.md",
       "product": "distributed-cloud",
       "provider_name": "device_intelligence_summary",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-1301033300112123-2331103013013311-3321132033101320-1310222002112032-1233113332311133-1310100202102222-2023210120211201-1120100233333321",
       "registry_path": "docs/data-sources/device_intelligence_summary.md",
@@ -151,7 +151,7 @@
       "category": null,
       "child_ids": ["xcsh-docs:data-sources:device_intelligence_summary:properties:filters"],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -163,7 +163,7 @@
       "path": "documentation/data-sources/device_intelligence_summary/properties/index.md",
       "product": "distributed-cloud",
       "provider_name": "device_intelligence_summary",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-0130130001220323-3031111221132001-3222102300212300-0203021003111000-2213312212330210-2310230230130330-0213320113111122-2313223002130011",
       "registry_path": "docs/guides/data-sources--device_intelligence_summary--reference--group-001.md",
@@ -374,7 +374,7 @@
       "category": null,
       "child_ids": ["xcsh-docs:data-sources:device_intelligence_summary:properties:filters:global_filters"],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -386,7 +386,7 @@
       "path": "documentation/data-sources/device_intelligence_summary/properties/filters/index.md",
       "product": "distributed-cloud",
       "provider_name": "device_intelligence_summary",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-0310002002331232-2312333120230003-0000332312002113-1212213332001111-1322320003331030-0033011301031002-0011120310231111-1300301022011032",
       "registry_path": "docs/guides/data-sources--device_intelligence_summary--reference--group-001.md",
@@ -443,7 +443,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -455,7 +455,7 @@
       "path": "documentation/data-sources/device_intelligence_summary/properties/filters/global_filters/index.md",
       "product": "distributed-cloud",
       "provider_name": "device_intelligence_summary",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-0231123002130030-3212113100012313-2210013123123000-3201100310222211-2321001113200011-2132333301302303-1321013101003103-1110211300031023",
       "registry_path": "docs/guides/data-sources--device_intelligence_summary--reference--group-001.md",
@@ -526,7 +526,7 @@
       "category": null,
       "child_ids": ["xcsh-docs:data-sources:device_intelligence_summary:example:data-source"],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -538,7 +538,7 @@
       "path": "documentation/data-sources/device_intelligence_summary/examples/index.md",
       "product": "distributed-cloud",
       "provider_name": "device_intelligence_summary",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-3321132220332130-1310310320203213-2303202233130231-1232203011031011-2321031101113113-1210300031010010-3013101010002313-1310231302022030",
       "registry_path": "docs/guides/data-sources--device_intelligence_summary--examples--group-001.md",
@@ -566,7 +566,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -585,7 +585,7 @@
       "path": "documentation/data-sources/device_intelligence_summary/examples/data-source/index.md",
       "product": "distributed-cloud",
       "provider_name": "device_intelligence_summary",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-3202102222333320-1312230102022103-1231223221131112-3103012033022012-2020131322201223-0011302202233301-1302130221202113-1302013032011121",
       "registry_path": "docs/guides/data-sources--device_intelligence_summary--examples--group-001.md",

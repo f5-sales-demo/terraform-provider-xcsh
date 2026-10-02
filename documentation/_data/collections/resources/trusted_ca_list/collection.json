@@ -75,7 +75,7 @@
   },
   "pages": [
     {
-      "aliases": ["cert", "certificate", "existing certificates", "tls certificates", "trusted ca list"],
+      "aliases": ["trusted ca list"],
       "body_bytes": 1631,
       "body_sha256": "sha256:774c98beda284e608439a0f1033bea42803bde51ef84a6592c3160d8594d8060",
       "capabilities": ["security"],
@@ -87,7 +87,7 @@
         "xcsh-docs:resources:trusted_ca_list:timeouts"
       ],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -99,7 +99,7 @@
       "path": "documentation/resources/trusted_ca_list/index.md",
       "product": "distributed-cloud",
       "provider_name": "trusted_ca_list",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "resources",
       "registry_anchor": "canonical-0222000113113203-2212232323102203-2101230202220010-2030322030013021-2133220023123121-2113200100110031-3003002313103330-2200302323113112",
       "registry_path": "docs/resources/trusted_ca_list.md",
@@ -128,7 +128,7 @@
       "category": "security",
       "child_ids": ["xcsh-docs:resources:trusted_ca_list:properties:timeouts"],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -140,7 +140,7 @@
       "path": "documentation/resources/trusted_ca_list/properties/index.md",
       "product": "distributed-cloud",
       "provider_name": "trusted_ca_list",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "resources",
       "registry_anchor": "canonical-2011100021221213-2030030021232013-1113200112210011-3323103123123311-0202132011000133-0020212102203021-2031323023203030-2231003231000112",
       "registry_path": "docs/guides/resources--trusted_ca_list--reference--group-001.md",
@@ -262,7 +262,7 @@
           "type": "object"
         },
         {
-          "aliases": ["cert", "certificate", "existing certificates", "tls certificates", "trusted ca url"],
+          "aliases": ["trusted ca url"],
           "anchor": "schema-trusted_ca_url",
           "description": "Trusted CA certificates for validating certificates.",
           "document_id": "xcsh-docs:resources:trusted_ca_list:reference",
@@ -295,7 +295,7 @@
       "category": "security",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -307,7 +307,7 @@
       "path": "documentation/resources/trusted_ca_list/properties/timeouts/index.md",
       "product": "distributed-cloud",
       "provider_name": "trusted_ca_list",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "resources",
       "registry_anchor": "canonical-3203210011233323-1022230202020011-3301302003301121-1113323201212111-2130030203222223-2222021013203211-3333100121100133-3133102001231313",
       "registry_path": "docs/guides/resources--trusted_ca_list--reference--group-001.md",
@@ -392,7 +392,7 @@
       "category": "security",
       "child_ids": ["xcsh-docs:resources:trusted_ca_list:example:resource"],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -404,7 +404,7 @@
       "path": "documentation/resources/trusted_ca_list/examples/index.md",
       "product": "distributed-cloud",
       "provider_name": "trusted_ca_list",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "resources",
       "registry_anchor": "canonical-1313012232330110-3010303033130202-2023002102131213-1311200033113301-3030011313223302-0010020201221102-3110312100122103-0133111300230220",
       "registry_path": "docs/guides/resources--trusted_ca_list--examples--group-001.md",
@@ -432,7 +432,7 @@
       "category": "security",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -451,7 +451,7 @@
       "path": "documentation/resources/trusted_ca_list/examples/resource/index.md",
       "product": "distributed-cloud",
       "provider_name": "trusted_ca_list",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "resources",
       "registry_anchor": "canonical-2103021213110323-1232123021100101-0100111023203031-2120302130122313-1013031001112213-0112213033332111-0122031310202201-0001213323302301",
       "registry_path": "docs/guides/resources--trusted_ca_list--examples--group-001.md",
@@ -479,7 +479,7 @@
       "category": "security",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -492,7 +492,7 @@
       "path": "documentation/resources/trusted_ca_list/lifecycle/import/index.md",
       "product": "distributed-cloud",
       "provider_name": "trusted_ca_list",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "resources",
       "registry_anchor": "canonical-2100031021303333-2312102102232223-1130221210320233-0033003021231131-1111033121121320-1122131302001000-3121332113222202-3222212211031113",
       "registry_path": "docs/guides/resources--trusted_ca_list--lifecycle--group-001.md",
@@ -520,7 +520,7 @@
       "category": "security",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -532,7 +532,7 @@
       "path": "documentation/resources/trusted_ca_list/lifecycle/timeouts/index.md",
       "product": "distributed-cloud",
       "provider_name": "trusted_ca_list",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "resources",
       "registry_anchor": "canonical-2133211020202300-3231300233020200-3023311303321120-1231013100223101-2322103231000131-0330022131222113-3120203022101332-3210022211131300",
       "registry_path": "docs/guides/resources--trusted_ca_list--lifecycle--group-001.md",

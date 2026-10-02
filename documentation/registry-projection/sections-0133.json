@@ -2,6 +2,409 @@
   "schema_version": 1,
   "sections": [
     {
+      "canonical_id": "xcsh-docs:data-sources:gcp_vpc_site:properties:admin_password:blindfold_secret_info",
+      "section_id": "xcsh-docs:data-sources:gcp_vpc_site:properties:admin_password:blindfold_secret_info:section:3",
+      "source_sha256": "sha256:d82086a6cca56d7a2612dd270b990f6a3603fa6258dc8d6e80bdb24c59ffad43",
+      "source_bytes": 663,
+      "canonical_source_sha256": "sha256:2ccdd219d4118b5133969836c37d5aa10e664891537175da4784a40074b82a71",
+      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/gcp_vpc_site/properties/admin_password/blindfold_secret_info/",
+      "anchor": "canonical-0113033100031000-3010333202100121-3130230103220202-1210120322033100-3130022112120001-2100311123033321-2213220303231122-3332003202233102",
+      "anchor_map": [
+        [
+          "schema-admin_password--blindfold_secret_info--location",
+          "canonical-0122001132313003-2011233300323210-3100013003322012-2232233133323202-0333013220201013-0213331331313233-3212231131000103-2300122131013231"
+        ]
+      ],
+      "mode": "embedded",
+      "registry_path": "docs/guides/data-sources--gcp_vpc_site--reference--group-001.md"
+    },
+    {
+      "canonical_id": "xcsh-docs:data-sources:gcp_vpc_site:properties:admin_password:blindfold_secret_info",
+      "section_id": "xcsh-docs:data-sources:gcp_vpc_site:properties:admin_password:blindfold_secret_info:section:4",
+      "source_sha256": "sha256:582b64fd8fdbafe13ce0ef965bdd19638c030bb32c2cc82c87252663cd550ace",
+      "source_bytes": 1475,
+      "canonical_source_sha256": "sha256:2ccdd219d4118b5133969836c37d5aa10e664891537175da4784a40074b82a71",
+      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/gcp_vpc_site/properties/admin_password/blindfold_secret_info/",
+      "anchor": "canonical-1130103203013012-0233221313332211-3011001203220131-1112130120230121-3011132201302030-0311013101300200-1232232013001322-0023100002010201",
+      "anchor_map": [
+        [
+          "schema-admin_password--blindfold_secret_info--store_provider",
+          "canonical-3131133132102300-3122111320110012-1011103101123021-0022111330101032-1033010112320200-0211121022333033-3220203321023102-3333113130022132"
+        ]
+      ],
+      "mode": "embedded",
+      "registry_path": "docs/guides/data-sources--gcp_vpc_site--reference--group-001.md"
+    },
+    {
+      "canonical_id": "xcsh-docs:data-sources:gcp_vpc_site:properties:admin_password:blindfold_secret_info",
+      "section_id": "xcsh-docs:data-sources:gcp_vpc_site:properties:admin_password:blindfold_secret_info:section:5",
+      "source_sha256": "sha256:0831ef4cb04eefb8921cebf23ca01bfb82b2b337f17b7b99e0910bdf1f5f2d25",
+      "source_bytes": 864,
+      "canonical_source_sha256": "sha256:2ccdd219d4118b5133969836c37d5aa10e664891537175da4784a40074b82a71",
+      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/gcp_vpc_site/properties/admin_password/blindfold_secret_info/",
+      "anchor": "canonical-2131202003303022-3112301221100211-3033103302321210-1220120110131330-1302201212030003-0213232301030220-1321312313121220-1320220003321232",
+      "anchor_map": [],
+      "mode": "embedded",
+      "registry_path": "docs/guides/data-sources--gcp_vpc_site--reference--group-001.md"
+    },
+    {
+      "canonical_id": "xcsh-docs:data-sources:gcp_vpc_site:properties:admin_password:blindfold_secret_info",
+      "section_id": "xcsh-docs:data-sources:gcp_vpc_site:properties:admin_password:blindfold_secret_info:section:6",
+      "source_sha256": "sha256:2bf4be56e02a455cca9f9d5a416331dbc4228d074395c0f793d5112294c71503",
+      "source_bytes": 250,
+      "canonical_source_sha256": "sha256:2ccdd219d4118b5133969836c37d5aa10e664891537175da4784a40074b82a71",
+      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/gcp_vpc_site/properties/admin_password/blindfold_secret_info/",
+      "anchor": "canonical-1123200200220202-0131222302311221-1231120301331203-0321302113113010-1023120130031111-1222331001031103-3220021320323333-2002013113311333",
+      "anchor_map": [],
+      "mode": "embedded",
+      "registry_path": "docs/guides/data-sources--gcp_vpc_site--reference--group-001.md"
+    },
+    {
+      "canonical_id": "xcsh-docs:data-sources:gcp_vpc_site:properties:admin_password:clear_secret_info",
+      "section_id": "xcsh-docs:data-sources:gcp_vpc_site:properties:admin_password:clear_secret_info:section:0",
+      "source_sha256": "sha256:197d41522a9dd286cb9805a03d8a5bd782cc3f3fd95ea854bf2dfc326e83e50c",
+      "source_bytes": 99,
+      "canonical_source_sha256": "sha256:f04cff73bcac5f169b922436a3be993844e5e63bddad38117a057e9c82c3a9c8",
+      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/gcp_vpc_site/properties/admin_password/clear_secret_info/",
+      "anchor": "canonical-3100213022320000-3113200020013000-3133023301300321-0321313333022233-0110333100320211-1323113201021212-3310202313020232-1021332012312102",
+      "anchor_map": [],
+      "mode": "embedded",
+      "registry_path": "docs/guides/data-sources--gcp_vpc_site--reference--group-001.md"
+    },
+    {
+      "canonical_id": "xcsh-docs:data-sources:gcp_vpc_site:properties:admin_password:clear_secret_info",
+      "section_id": "xcsh-docs:data-sources:gcp_vpc_site:properties:admin_password:clear_secret_info:section:1",
+      "source_sha256": "sha256:9e56534f3f335add832c9f9382c31351e506ea13d732681dcc147f4598bc6666",
+      "source_bytes": 748,
+      "canonical_source_sha256": "sha256:f04cff73bcac5f169b922436a3be993844e5e63bddad38117a057e9c82c3a9c8",
+      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/gcp_vpc_site/properties/admin_password/clear_secret_info/",
+      "anchor": "canonical-3331100101120301-3320022103100113-2210220022121032-1130210221322203-0220113133200313-0110131223011220-0012332132323133-0012322000200110",
+      "anchor_map": [
+        [
+          "section",
+          "canonical-3230313103123211-0033130310330212-3003313222123112-3120220211110332-1331102322323310-3122100122021232-2022023023011323-2113303332123311"
+        ]
+      ],
+      "mode": "embedded",
+      "registry_path": "docs/guides/data-sources--gcp_vpc_site--reference--group-001.md"
+    },
+    {
+      "canonical_id": "xcsh-docs:data-sources:gcp_vpc_site:properties:admin_password:clear_secret_info",
+      "section_id": "xcsh-docs:data-sources:gcp_vpc_site:properties:admin_password:clear_secret_info:section:2",
+      "source_sha256": "sha256:af8aa1407d35e7e59eb02a1214e8d31b5d8389f9ddf12c9225bf59f84c172675",
+      "source_bytes": 91,
+      "canonical_source_sha256": "sha256:f04cff73bcac5f169b922436a3be993844e5e63bddad38117a057e9c82c3a9c8",
+      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/gcp_vpc_site/properties/admin_password/clear_secret_info/",
+      "anchor": "canonical-2203103020022311-2301322333321000-1013322133013013-2100200210123332-0232210113023333-3333020030010211-2101230133300221-1222200313333122",
+      "anchor_map": [
+        [
+          "schema-admin_password--clear_secret_info--provider_ref",
+          "canonical-2303033232331212-3123101230112312-1201203033033102-3013202332000310-1002301302121030-2310302030111123-1300330000202002-2012303311200211"
+        ]
+      ],
+      "mode": "embedded",
+      "registry_path": "docs/guides/data-sources--gcp_vpc_site--reference--group-001.md"
+    },
+    {
+      "canonical_id": "xcsh-docs:data-sources:gcp_vpc_site:properties:admin_password:clear_secret_info",
+      "section_id": "xcsh-docs:data-sources:gcp_vpc_site:properties:admin_password:clear_secret_info:section:3",
+      "source_sha256": "sha256:5008b94fea194891b313ebc4520a0ec209676b77806c84f23a72da98a81beb07",
+      "source_bytes": 300,
+      "canonical_source_sha256": "sha256:f04cff73bcac5f169b922436a3be993844e5e63bddad38117a057e9c82c3a9c8",
+      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/gcp_vpc_site/properties/admin_password/clear_secret_info/",
+      "anchor": "canonical-0322331212230030-3003223201120131-0332120131230322-1213120200300020-1200303311202020-3002200113022111-0100302010221000-0320213121310320",
+      "anchor_map": [
+        [
+          "schema-admin_password--clear_secret_info--url",
+          "canonical-1311222210002333-1212000013222133-1323200011101122-0022320020223210-3013303233020012-3223231130012001-3100220111301000-2103022031230131"
+        ]
+      ],
+      "mode": "embedded",
+      "registry_path": "docs/guides/data-sources--gcp_vpc_site--reference--group-001.md"
+    },
+    {
+      "canonical_id": "xcsh-docs:data-sources:gcp_vpc_site:properties:admin_password:clear_secret_info",
+      "section_id": "xcsh-docs:data-sources:gcp_vpc_site:properties:admin_password:clear_secret_info:section:4",
+      "source_sha256": "sha256:0712655acd3c24569c397e0e8e5c9052a3b39a9869e5e242174f6fca32b82fea",
+      "source_bytes": 1643,
+      "canonical_source_sha256": "sha256:f04cff73bcac5f169b922436a3be993844e5e63bddad38117a057e9c82c3a9c8",
+      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/gcp_vpc_site/properties/admin_password/clear_secret_info/",
+      "anchor": "canonical-2033323320113033-2120013111222100-0032221133312121-3301123312130201-0230223013103112-0010011231102321-1121111123003201-1201212321010213",
+      "anchor_map": [],
+      "mode": "embedded",
+      "registry_path": "docs/guides/data-sources--gcp_vpc_site--reference--group-001.md"
+    },
+    {
+      "canonical_id": "xcsh-docs:data-sources:gcp_vpc_site:properties:admin_password:clear_secret_info",
+      "section_id": "xcsh-docs:data-sources:gcp_vpc_site:properties:admin_password:clear_secret_info:section:5",
+      "source_sha256": "sha256:2bf4be56e02a455cca9f9d5a416331dbc4228d074395c0f793d5112294c71503",
+      "source_bytes": 250,
+      "canonical_source_sha256": "sha256:f04cff73bcac5f169b922436a3be993844e5e63bddad38117a057e9c82c3a9c8",
+      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/gcp_vpc_site/properties/admin_password/clear_secret_info/",
+      "anchor": "canonical-2323120311221210-2233133210030121-1331123322213002-0100303303302002-2323100223313201-2022020212313303-0233103001111323-3103023330311122",
+      "anchor_map": [],
+      "mode": "embedded",
+      "registry_path": "docs/guides/data-sources--gcp_vpc_site--reference--group-001.md"
+    },
+    {
+      "canonical_id": "xcsh-docs:data-sources:gcp_vpc_site:properties:block_all_services",
+      "section_id": "xcsh-docs:data-sources:gcp_vpc_site:properties:block_all_services:section:0",
+      "source_sha256": "sha256:197d41522a9dd286cb9805a03d8a5bd782cc3f3fd95ea854bf2dfc326e83e50c",
+      "source_bytes": 99,
+      "canonical_source_sha256": "sha256:c377b7cfc1a60f63dfa33d52415b1460ef864ff5c19631a351032ba7f1c2b6e6",
+      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/gcp_vpc_site/properties/block_all_services/",
+      "anchor": "canonical-0113100323303113-0310110023300331-3103003023231223-3321211023203020-3010203011100033-3323230220130232-0302012300333301-2211200122013012",
+      "anchor_map": [],
+      "mode": "embedded",
+      "registry_path": "docs/guides/data-sources--gcp_vpc_site--reference--group-001.md"
+    },
+    {
+      "canonical_id": "xcsh-docs:data-sources:gcp_vpc_site:properties:block_all_services",
+      "section_id": "xcsh-docs:data-sources:gcp_vpc_site:properties:block_all_services:section:1",
+      "source_sha256": "sha256:51f3384d4eb6a4b0b09f3a6d5a7b4ccf209ebd8e1f65fabd22e0d980064d5490",
+      "source_bytes": 1281,
+      "canonical_source_sha256": "sha256:c377b7cfc1a60f63dfa33d52415b1460ef864ff5c19631a351032ba7f1c2b6e6",
+      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/gcp_vpc_site/properties/block_all_services/",
+      "anchor": "canonical-1030003102032223-3111020023200101-0301000031030333-2232130202212210-1303000210131330-3220222302033010-3202110003300210-1312310230321120",
+      "anchor_map": [
+        [
+          "section",
+          "canonical-2321132300131021-3120103231201003-0132232310133110-3332101201330320-1311220331223123-1323203303130321-2023300210122320-1102303210032113"
+        ]
+      ],
+      "mode": "embedded",
+      "registry_path": "docs/guides/data-sources--gcp_vpc_site--reference--group-001.md"
+    },
+    {
+      "canonical_id": "xcsh-docs:data-sources:gcp_vpc_site:properties:block_all_services",
+      "section_id": "xcsh-docs:data-sources:gcp_vpc_site:properties:block_all_services:section:2",
+      "source_sha256": "sha256:0d4398201e18f9ddb2ea00ceed6d3256755ea4d008d849d1cec42dab5c55f1b5",
+      "source_bytes": 94,
+      "canonical_source_sha256": "sha256:c377b7cfc1a60f63dfa33d52415b1460ef864ff5c19631a351032ba7f1c2b6e6",
+      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/gcp_vpc_site/properties/block_all_services/",
+      "anchor": "canonical-1321331321113320-1032000013020121-0332031023101212-3220233312221131-3312030011000302-1003133210202110-0111003102111011-0030112312021203",
+      "anchor_map": [],
+      "mode": "embedded",
+      "registry_path": "docs/guides/data-sources--gcp_vpc_site--reference--group-001.md"
+    },
+    {
+      "canonical_id": "xcsh-docs:data-sources:gcp_vpc_site:properties:block_all_services",
+      "section_id": "xcsh-docs:data-sources:gcp_vpc_site:properties:block_all_services:section:3",
+      "source_sha256": "sha256:e6badf85a6fd4e4147a4f2ad127f53af30089f50a5210dc2ef292adfe3b7adcf",
+      "source_bytes": 239,
+      "canonical_source_sha256": "sha256:c377b7cfc1a60f63dfa33d52415b1460ef864ff5c19631a351032ba7f1c2b6e6",
+      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/gcp_vpc_site/properties/block_all_services/",
+      "anchor": "canonical-3131103300031122-1121011030133311-0211331113312022-0120212100210003-0303303332222121-3212221223211302-1002023301020120-2121201021203312",
+      "anchor_map": [],
+      "mode": "embedded",
+      "registry_path": "docs/guides/data-sources--gcp_vpc_site--reference--group-001.md"
+    },
+    {
+      "canonical_id": "xcsh-docs:data-sources:gcp_vpc_site:properties:blocked_services",
+      "section_id": "xcsh-docs:data-sources:gcp_vpc_site:properties:blocked_services:section:0",
+      "source_sha256": "sha256:197d41522a9dd286cb9805a03d8a5bd782cc3f3fd95ea854bf2dfc326e83e50c",
+      "source_bytes": 99,
+      "canonical_source_sha256": "sha256:0a0997ac09e04e69cde808ce390ed7c3ca61273c6816bc562815398f6adb9867",
+      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/gcp_vpc_site/properties/blocked_services/",
+      "anchor": "canonical-0112133220222300-0000323123001311-2213320321113330-3300321323210101-2300111003213112-2130320223132032-3002112220002022-3201011103233301",
+      "anchor_map": [],
+      "mode": "embedded",
+      "registry_path": "docs/guides/data-sources--gcp_vpc_site--reference--group-001.md"
+    },
+    {
+      "canonical_id": "xcsh-docs:data-sources:gcp_vpc_site:properties:blocked_services",
+      "section_id": "xcsh-docs:data-sources:gcp_vpc_site:properties:blocked_services:section:1",
+      "source_sha256": "sha256:eee0357926484dc3fabc504b49b36ab7d9f8a7dca951163d0ba190888d13f82b",
+      "source_bytes": 683,
+      "canonical_source_sha256": "sha256:0a0997ac09e04e69cde808ce390ed7c3ca61273c6816bc562815398f6adb9867",
+      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/gcp_vpc_site/properties/blocked_services/",
+      "anchor": "canonical-1003201011122131-3330113123303202-2302323210300011-2002210033203130-1201222333121213-0332022033101320-0121013211323021-2102221012333321",
+      "anchor_map": [
+        [
+          "section",
+          "canonical-2300113002021223-1232203130003210-3021221232212012-0103322233302132-2212120121101103-0312330301111031-2232120212102203-0302011032303022"
+        ]
+      ],
+      "mode": "embedded",
+      "registry_path": "docs/guides/data-sources--gcp_vpc_site--reference--group-001.md"
+    },
+    {
+      "canonical_id": "xcsh-docs:data-sources:gcp_vpc_site:properties:blocked_services",
+      "section_id": "xcsh-docs:data-sources:gcp_vpc_site:properties:blocked_services:section:2",
+      "source_sha256": "sha256:6f6e5ed11d4773d2aae9579f0365422b2a72efdd0f9dc4d5d5125523d936b20c",
+      "source_bytes": 203,
+      "canonical_source_sha256": "sha256:0a0997ac09e04e69cde808ce390ed7c3ca61273c6816bc562815398f6adb9867",
+      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/gcp_vpc_site/properties/blocked_services/",
+      "anchor": "canonical-2313321210111002-2311331202113102-0033112132313300-0113213111111102-3231110233131012-2300122313200103-2100113203203020-3320110023312121",
+      "anchor_map": [],
+      "mode": "embedded",
+      "registry_path": "docs/guides/data-sources--gcp_vpc_site--reference--group-001.md"
+    },
+    {
+      "canonical_id": "xcsh-docs:data-sources:gcp_vpc_site:properties:blocked_services",
+      "section_id": "xcsh-docs:data-sources:gcp_vpc_site:properties:blocked_services:section:3",
+      "source_sha256": "sha256:fb372f65e37ff83d98da293132940382da69ffe5c7aedca4f92d034ef2a79e69",
+      "source_bytes": 404,
+      "canonical_source_sha256": "sha256:0a0997ac09e04e69cde808ce390ed7c3ca61273c6816bc562815398f6adb9867",
+      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/gcp_vpc_site/properties/blocked_services/",
+      "anchor": "canonical-1213011102323233-1332222232331112-1100203010002313-0103023200110103-0033021301210000-1032301233102121-3210113130031203-2000032020102313",
+      "anchor_map": [],
+      "mode": "embedded",
+      "registry_path": "docs/guides/data-sources--gcp_vpc_site--reference--group-001.md"
+    },
+    {
+      "canonical_id": "xcsh-docs:data-sources:gcp_vpc_site:properties:blocked_services:blocked_service",
+      "section_id": "xcsh-docs:data-sources:gcp_vpc_site:properties:blocked_services:blocked_service:section:0",
+      "source_sha256": "sha256:197d41522a9dd286cb9805a03d8a5bd782cc3f3fd95ea854bf2dfc326e83e50c",
+      "source_bytes": 99,
+      "canonical_source_sha256": "sha256:18fdbf2f33f569528aac1904da20b1b7f0aed78ce007a261737baf7a8ee143d3",
+      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/gcp_vpc_site/properties/blocked_services/blocked_service/",
+      "anchor": "canonical-2202022012222332-0221002302320022-1203313311322132-1321330221302202-1023300210312100-0020022200001323-1330023011013000-2131131133010121",
+      "anchor_map": [],
+      "mode": "embedded",
+      "registry_path": "docs/guides/data-sources--gcp_vpc_site--reference--group-001.md"
+    },
+    {
+      "canonical_id": "xcsh-docs:data-sources:gcp_vpc_site:properties:blocked_services:blocked_service",
+      "section_id": "xcsh-docs:data-sources:gcp_vpc_site:properties:blocked_services:blocked_service:section:1",
+      "source_sha256": "sha256:33aded3bb0ae4cb602330a45791c8c0e32881d0320c4854705f08e8a662f89f4",
+      "source_bytes": 1224,
+      "canonical_source_sha256": "sha256:18fdbf2f33f569528aac1904da20b1b7f0aed78ce007a261737baf7a8ee143d3",
+      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/gcp_vpc_site/properties/blocked_services/blocked_service/",
+      "anchor": "canonical-0032131332213022-2123202221332032-0021312101332020-2320121130133012-3131102201323112-1121312030020122-2103220132013101-2220321332002330",
+      "anchor_map": [
+        [
+          "section",
+          "canonical-2220331212111013-2311331210033001-1121311301203031-1200133031312022-0012202221222322-0231001110111120-3320013031111302-3003330133103112"
+        ]
+      ],
+      "mode": "embedded",
+      "registry_path": "docs/guides/data-sources--gcp_vpc_site--reference--group-001.md"
+    },
+    {
+      "canonical_id": "xcsh-docs:data-sources:gcp_vpc_site:properties:blocked_services:blocked_service",
+      "section_id": "xcsh-docs:data-sources:gcp_vpc_site:properties:blocked_services:blocked_service:section:2",
+      "source_sha256": "sha256:7340ce9fc675e9629cf10e111c4472ca074ff085797ec2a36787b48b0d70d87a",
+      "source_bytes": 264,
+      "canonical_source_sha256": "sha256:18fdbf2f33f569528aac1904da20b1b7f0aed78ce007a261737baf7a8ee143d3",
+      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/gcp_vpc_site/properties/blocked_services/blocked_service/",
+      "anchor": "canonical-0333100300023310-3132001223111001-1102121002023303-2312200031121011-1221311200031310-0200220002010121-1133300022102133-2122323003321213",
+      "anchor_map": [
+        [
+          "schema-blocked_services--blocked_service--network_type",
+          "canonical-3221132120121110-2100001221102032-2200311203033101-1103130012233100-3002233101030110-2013331023302012-3312220131320310-2110302201232122"
+        ]
+      ],
+      "mode": "embedded",
+      "registry_path": "docs/guides/data-sources--gcp_vpc_site--reference--group-001.md"
+    },
+    {
+      "canonical_id": "xcsh-docs:data-sources:gcp_vpc_site:properties:blocked_services:blocked_service",
+      "section_id": "xcsh-docs:data-sources:gcp_vpc_site:properties:blocked_services:blocked_service:section:3",
+      "source_sha256": "sha256:8130570008413f96da3c0a31fe22e8d1c4e59f62849baac5259a541ed2ab1377",
+      "source_bytes": 5862,
+      "canonical_source_sha256": "sha256:18fdbf2f33f569528aac1904da20b1b7f0aed78ce007a261737baf7a8ee143d3",
+      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/gcp_vpc_site/properties/blocked_services/blocked_service/",
+      "anchor": "canonical-1210200223221120-3022112113222112-1320203330222230-1001303312330331-1210300121103021-1002322110223232-1313222011030320-3330213320111113",
+      "anchor_map": [],
+      "mode": "embedded",
+      "registry_path": "docs/guides/data-sources--gcp_vpc_site--reference--group-001.md"
+    },
+    {
+      "canonical_id": "xcsh-docs:data-sources:gcp_vpc_site:properties:blocked_services:blocked_service",
+      "section_id": "xcsh-docs:data-sources:gcp_vpc_site:properties:blocked_services:blocked_service:section:4",
+      "source_sha256": "sha256:538f4067b8c0fce35d8177c3fb82e446d0e1d7827cea34d59ca7bb1f87587844",
+      "source_bytes": 803,
+      "canonical_source_sha256": "sha256:18fdbf2f33f569528aac1904da20b1b7f0aed78ce007a261737baf7a8ee143d3",
+      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/gcp_vpc_site/properties/blocked_services/blocked_service/",
+      "anchor": "canonical-0112232112323001-1100310003212310-3131121000213121-0111322120323232-1303321310120102-0223011000120203-0332230021332123-2012130321010222",
+      "anchor_map": [],
+      "mode": "embedded",
+      "registry_path": "docs/guides/data-sources--gcp_vpc_site--reference--group-001.md"
+    },
+    {
+      "canonical_id": "xcsh-docs:data-sources:gcp_vpc_site:properties:blocked_services:blocked_service:dns",
+      "section_id": "xcsh-docs:data-sources:gcp_vpc_site:properties:blocked_services:blocked_service:dns:section:0",
+      "source_sha256": "sha256:197d41522a9dd286cb9805a03d8a5bd782cc3f3fd95ea854bf2dfc326e83e50c",
+      "source_bytes": 99,
+      "canonical_source_sha256": "sha256:00310f05c14124f1bba4c77a5336fcb72245cab9a07907bb50e1cea4768f542d",
+      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/gcp_vpc_site/properties/blocked_services/blocked_service/dns/",
+      "anchor": "canonical-0010002033322101-3033312220112100-0222313233102331-0210030030100202-1230120033213221-2221003122233130-0320211032321232-0310312211022122",
+      "anchor_map": [],
+      "mode": "embedded",
+      "registry_path": "docs/guides/data-sources--gcp_vpc_site--reference--group-001.md"
+    },
+    {
+      "canonical_id": "xcsh-docs:data-sources:gcp_vpc_site:properties:blocked_services:blocked_service:dns",
+      "section_id": "xcsh-docs:data-sources:gcp_vpc_site:properties:blocked_services:blocked_service:dns:section:1",
+      "source_sha256": "sha256:0f4d7c23c5b0bfec7c31fd16005880719ab48c832593f5172a2ba60a90f9dd18",
+      "source_bytes": 950,
+      "canonical_source_sha256": "sha256:00310f05c14124f1bba4c77a5336fcb72245cab9a07907bb50e1cea4768f542d",
+      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/gcp_vpc_site/properties/blocked_services/blocked_service/dns/",
+      "anchor": "canonical-0311211131203131-0033122201133200-0222321021232111-3130132202330333-3221223110310323-1131312300212201-2103211100020033-1023303303322212",
+      "anchor_map": [
+        [
+          "section",
+          "canonical-2102333102031100-3233222311023001-0023121210011110-3211231233123223-1131300332202001-0031220323111101-2023032012321322-0021301201030320"
+        ]
+      ],
+      "mode": "embedded",
+      "registry_path": "docs/guides/data-sources--gcp_vpc_site--reference--group-001.md"
+    },
+    {
+      "canonical_id": "xcsh-docs:data-sources:gcp_vpc_site:properties:blocked_services:blocked_service:dns",
+      "section_id": "xcsh-docs:data-sources:gcp_vpc_site:properties:blocked_services:blocked_service:dns:section:2",
+      "source_sha256": "sha256:0d4398201e18f9ddb2ea00ceed6d3256755ea4d008d849d1cec42dab5c55f1b5",
+      "source_bytes": 94,
+      "canonical_source_sha256": "sha256:00310f05c14124f1bba4c77a5336fcb72245cab9a07907bb50e1cea4768f542d",
+      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/gcp_vpc_site/properties/blocked_services/blocked_service/dns/",
+      "anchor": "canonical-0221123022103132-1013123020210211-1310232233101032-2211220232312021-2313222202003213-3121221330223012-3212330201310302-2020020313102130",
+      "anchor_map": [],
+      "mode": "embedded",
+      "registry_path": "docs/guides/data-sources--gcp_vpc_site--reference--group-001.md"
+    },
+    {
+      "canonical_id": "xcsh-docs:data-sources:gcp_vpc_site:properties:blocked_services:blocked_service:dns",
+      "section_id": "xcsh-docs:data-sources:gcp_vpc_site:properties:blocked_services:blocked_service:dns:section:3",
+      "source_sha256": "sha256:5cc9b177123721363f931f082b237ad09d46009d5c255387d57e3318331669b3",
+      "source_bytes": 286,
+      "canonical_source_sha256": "sha256:00310f05c14124f1bba4c77a5336fcb72245cab9a07907bb50e1cea4768f542d",
+      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/gcp_vpc_site/properties/blocked_services/blocked_service/dns/",
+      "anchor": "canonical-3331101002222310-2101002120022331-1331323111102302-0133031320101301-3212013310003011-2203120313033223-2302332103012321-2300102020203031",
+      "anchor_map": [],
+      "mode": "embedded",
+      "registry_path": "docs/guides/data-sources--gcp_vpc_site--reference--group-001.md"
+    },
+    {
+      "canonical_id": "xcsh-docs:data-sources:gcp_vpc_site:properties:blocked_services:blocked_service:ssh",
+      "section_id": "xcsh-docs:data-sources:gcp_vpc_site:properties:blocked_services:blocked_service:ssh:section:0",
+      "source_sha256": "sha256:197d41522a9dd286cb9805a03d8a5bd782cc3f3fd95ea854bf2dfc326e83e50c",
+      "source_bytes": 99,
+      "canonical_source_sha256": "sha256:a7937ef184a2b1faa5673282aab7c8c6b6c4395573a24349f84ac58acb087a6c",
+      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/gcp_vpc_site/properties/blocked_services/blocked_service/ssh/",
+      "anchor": "canonical-1330121112223010-1312221320201203-2333203121320203-0001132331331021-2301012012030022-1322132203102012-2130322031330311-1030221231230101",
+      "anchor_map": [],
+      "mode": "embedded",
+      "registry_path": "docs/guides/data-sources--gcp_vpc_site--reference--group-001.md"
+    },
+    {
+      "canonical_id": "xcsh-docs:data-sources:gcp_vpc_site:properties:blocked_services:blocked_service:ssh",
+      "section_id": "xcsh-docs:data-sources:gcp_vpc_site:properties:blocked_services:blocked_service:ssh:section:1",
+      "source_sha256": "sha256:b92b5897ed02fab10ef8f5fa33ca5572acf844589b16bbcbcd8f0d167983298d",
+      "source_bytes": 950,
+      "canonical_source_sha256": "sha256:a7937ef184a2b1faa5673282aab7c8c6b6c4395573a24349f84ac58acb087a6c",
+      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/gcp_vpc_site/properties/blocked_services/blocked_service/ssh/",
+      "anchor": "canonical-1102210120002130-2233323301133230-1202002101202312-2003023333232332-2132202213212221-1120311111131230-0003202132303210-2312100322230021",
+      "anchor_map": [
+        [
+          "section",
+          "canonical-3011223012123301-1122110132031111-1212223302301133-2213323122330210-1020000332300020-3320222000311230-0221200330320230-1321103213002333"
+        ]
+      ],
+      "mode": "embedded",
+      "registry_path": "docs/guides/data-sources--gcp_vpc_site--reference--group-001.md"
+    },
+    {
       "canonical_id": "xcsh-docs:data-sources:gcp_vpc_site:properties:blocked_services:blocked_service:ssh",
       "section_id": "xcsh-docs:data-sources:gcp_vpc_site:properties:blocked_services:blocked_service:ssh:section:2",
       "source_sha256": "sha256:0d4398201e18f9ddb2ea00ceed6d3256755ea4d008d849d1cec42dab5c55f1b5",
@@ -6508,375 +6911,6 @@
       "canonical_source_sha256": "sha256:be0f81bafabb478ff17ec4cfbc1910b274ee5b865fe48322d953b96ebe64cf73",
       "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/gcp_vpc_site/properties/ingress_gw/performance_enhancement_mode/perf_mode_l7_enhanced/jumbo_disabled/",
       "anchor": "canonical-3022323021032120-3202333313313220-3110200210311033-0012103010232210-3313003323203033-2221213003331223-1131222212202022-0000212202020321",
-      "anchor_map": [],
-      "mode": "embedded",
-      "registry_path": "docs/guides/data-sources--gcp_vpc_site--reference--group-003.md"
-    },
-    {
-      "canonical_id": "xcsh-docs:data-sources:gcp_vpc_site:properties:ingress_gw:performance_enhancement_mode:perf_mode_l7_enhanced:jumbo_disabled",
-      "section_id": "xcsh-docs:data-sources:gcp_vpc_site:properties:ingress_gw:performance_enhancement_mode:perf_mode_l7_enhanced:jumbo_disabled:section:3",
-      "source_sha256": "sha256:47a2dbfed1a250ad2c1ffed72ea018cc4a27538c2762da4fd46249016a5fc622",
-      "source_bytes": 344,
-      "canonical_source_sha256": "sha256:be0f81bafabb478ff17ec4cfbc1910b274ee5b865fe48322d953b96ebe64cf73",
-      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/gcp_vpc_site/properties/ingress_gw/performance_enhancement_mode/perf_mode_l7_enhanced/jumbo_disabled/",
-      "anchor": "canonical-2012221202313322-1203302220332200-3103030210123122-1200012302110033-2101012313332323-3302002201331323-0003301321223230-1000112221131020",
-      "anchor_map": [],
-      "mode": "embedded",
-      "registry_path": "docs/guides/data-sources--gcp_vpc_site--reference--group-003.md"
-    },
-    {
-      "canonical_id": "xcsh-docs:data-sources:gcp_vpc_site:properties:ingress_gw:performance_enhancement_mode:perf_mode_l7_enhanced:jumbo_enabled",
-      "section_id": "xcsh-docs:data-sources:gcp_vpc_site:properties:ingress_gw:performance_enhancement_mode:perf_mode_l7_enhanced:jumbo_enabled:section:0",
-      "source_sha256": "sha256:197d41522a9dd286cb9805a03d8a5bd782cc3f3fd95ea854bf2dfc326e83e50c",
-      "source_bytes": 99,
-      "canonical_source_sha256": "sha256:b05ac40f337657cd772e8919bc0b2db4cb58a9b2cb3601067a3b2979cf49be90",
-      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/gcp_vpc_site/properties/ingress_gw/performance_enhancement_mode/perf_mode_l7_enhanced/jumbo_enabled/",
-      "anchor": "canonical-2220001103200132-0220122100223221-3002212000221121-2131301023130112-0210100023002013-3013311001122132-3030331000031013-1031203003302113",
-      "anchor_map": [],
-      "mode": "embedded",
-      "registry_path": "docs/guides/data-sources--gcp_vpc_site--reference--group-003.md"
-    },
-    {
-      "canonical_id": "xcsh-docs:data-sources:gcp_vpc_site:properties:ingress_gw:performance_enhancement_mode:perf_mode_l7_enhanced:jumbo_enabled",
-      "section_id": "xcsh-docs:data-sources:gcp_vpc_site:properties:ingress_gw:performance_enhancement_mode:perf_mode_l7_enhanced:jumbo_enabled:section:1",
-      "source_sha256": "sha256:7536d19b2abc1c3aa5bf74100e5a602b8891e40743c62ffea06e283a9da4f85e",
-      "source_bytes": 1253,
-      "canonical_source_sha256": "sha256:b05ac40f337657cd772e8919bc0b2db4cb58a9b2cb3601067a3b2979cf49be90",
-      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/gcp_vpc_site/properties/ingress_gw/performance_enhancement_mode/perf_mode_l7_enhanced/jumbo_enabled/",
-      "anchor": "canonical-1220002310103002-1003023022331331-0230201302122010-3011232313032302-2321001222303220-3113131102213102-2111033030302031-1332321113013322",
-      "anchor_map": [
-        [
-          "section",
-          "canonical-2231301320323132-3321012201321121-3133002303212030-0003221300213332-2000333322330113-3330133113202323-0322031220213220-2203013332301030"
-        ]
-      ],
-      "mode": "embedded",
-      "registry_path": "docs/guides/data-sources--gcp_vpc_site--reference--group-003.md"
-    },
-    {
-      "canonical_id": "xcsh-docs:data-sources:gcp_vpc_site:properties:ingress_gw:performance_enhancement_mode:perf_mode_l7_enhanced:jumbo_enabled",
-      "section_id": "xcsh-docs:data-sources:gcp_vpc_site:properties:ingress_gw:performance_enhancement_mode:perf_mode_l7_enhanced:jumbo_enabled:section:2",
-      "source_sha256": "sha256:0d4398201e18f9ddb2ea00ceed6d3256755ea4d008d849d1cec42dab5c55f1b5",
-      "source_bytes": 94,
-      "canonical_source_sha256": "sha256:b05ac40f337657cd772e8919bc0b2db4cb58a9b2cb3601067a3b2979cf49be90",
-      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/gcp_vpc_site/properties/ingress_gw/performance_enhancement_mode/perf_mode_l7_enhanced/jumbo_enabled/",
-      "anchor": "canonical-2102332002302331-3031012110302221-0001310300210311-1212031332002300-3112200333222133-2133201123302022-1210010002323012-1223211000013103",
-      "anchor_map": [],
-      "mode": "embedded",
-      "registry_path": "docs/guides/data-sources--gcp_vpc_site--reference--group-003.md"
-    },
-    {
-      "canonical_id": "xcsh-docs:data-sources:gcp_vpc_site:properties:ingress_gw:performance_enhancement_mode:perf_mode_l7_enhanced:jumbo_enabled",
-      "section_id": "xcsh-docs:data-sources:gcp_vpc_site:properties:ingress_gw:performance_enhancement_mode:perf_mode_l7_enhanced:jumbo_enabled:section:3",
-      "source_sha256": "sha256:47a2dbfed1a250ad2c1ffed72ea018cc4a27538c2762da4fd46249016a5fc622",
-      "source_bytes": 344,
-      "canonical_source_sha256": "sha256:b05ac40f337657cd772e8919bc0b2db4cb58a9b2cb3601067a3b2979cf49be90",
-      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/gcp_vpc_site/properties/ingress_gw/performance_enhancement_mode/perf_mode_l7_enhanced/jumbo_enabled/",
-      "anchor": "canonical-0232210311022102-3022313013123222-0012203121212321-0121233221131301-1103130300011333-3013212020203102-0003113030020221-2102003330002200",
-      "anchor_map": [],
-      "mode": "embedded",
-      "registry_path": "docs/guides/data-sources--gcp_vpc_site--reference--group-003.md"
-    },
-    {
-      "canonical_id": "xcsh-docs:data-sources:gcp_vpc_site:properties:kubernetes_upgrade_drain",
-      "section_id": "xcsh-docs:data-sources:gcp_vpc_site:properties:kubernetes_upgrade_drain:section:0",
-      "source_sha256": "sha256:197d41522a9dd286cb9805a03d8a5bd782cc3f3fd95ea854bf2dfc326e83e50c",
-      "source_bytes": 99,
-      "canonical_source_sha256": "sha256:7b4d4c4cc2a66c2d9ab6d5dea2c4c3adc5f4ee16de14ae7423aa62c0e8c9dfdf",
-      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/gcp_vpc_site/properties/kubernetes_upgrade_drain/",
-      "anchor": "canonical-1022113113131303-2323310123132033-2333330201223220-0203120001033203-3132021212231333-3113000331201222-3002010313110322-3330113112120320",
-      "anchor_map": [],
-      "mode": "embedded",
-      "registry_path": "docs/guides/data-sources--gcp_vpc_site--reference--group-003.md"
-    },
-    {
-      "canonical_id": "xcsh-docs:data-sources:gcp_vpc_site:properties:kubernetes_upgrade_drain",
-      "section_id": "xcsh-docs:data-sources:gcp_vpc_site:properties:kubernetes_upgrade_drain:section:1",
-      "source_sha256": "sha256:a01242abb0210b64a75f6ec72f47f397fbc09425d56cdfd79f503553466fc085",
-      "source_bytes": 696,
-      "canonical_source_sha256": "sha256:7b4d4c4cc2a66c2d9ab6d5dea2c4c3adc5f4ee16de14ae7423aa62c0e8c9dfdf",
-      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/gcp_vpc_site/properties/kubernetes_upgrade_drain/",
-      "anchor": "canonical-3112120202303011-2302132232003130-3322021221130303-2000123133322312-2121311220310233-0100122231323212-1020002103011203-0111311033231202",
-      "anchor_map": [
-        [
-          "section",
-          "canonical-0002122032131302-2200202021122223-3022132011312112-1122013331003113-3112220132232020-1103123130233212-2120200021130012-1122211210330310"
-        ]
-      ],
-      "mode": "embedded",
-      "registry_path": "docs/guides/data-sources--gcp_vpc_site--reference--group-003.md"
-    },
-    {
-      "canonical_id": "xcsh-docs:data-sources:gcp_vpc_site:properties:kubernetes_upgrade_drain",
-      "section_id": "xcsh-docs:data-sources:gcp_vpc_site:properties:kubernetes_upgrade_drain:section:2",
-      "source_sha256": "sha256:5f4f04fee3e9ee4adbb591e7c838c4825fa55e8eb3f11fa3634dc5c1a7bc3563",
-      "source_bytes": 422,
-      "canonical_source_sha256": "sha256:7b4d4c4cc2a66c2d9ab6d5dea2c4c3adc5f4ee16de14ae7423aa62c0e8c9dfdf",
-      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/gcp_vpc_site/properties/kubernetes_upgrade_drain/",
-      "anchor": "canonical-0213112103231300-0100222222131032-3133020303002232-3110322212003123-3321003001022010-3101221020120332-1100233020121222-1322321032120303",
-      "anchor_map": [],
-      "mode": "embedded",
-      "registry_path": "docs/guides/data-sources--gcp_vpc_site--reference--group-003.md"
-    },
-    {
-      "canonical_id": "xcsh-docs:data-sources:gcp_vpc_site:properties:kubernetes_upgrade_drain",
-      "section_id": "xcsh-docs:data-sources:gcp_vpc_site:properties:kubernetes_upgrade_drain:section:3",
-      "source_sha256": "sha256:6660abdc776e58f887480a57e28c7408f7bd2f9d39a129b457b817c1bd891a7b",
-      "source_bytes": 623,
-      "canonical_source_sha256": "sha256:7b4d4c4cc2a66c2d9ab6d5dea2c4c3adc5f4ee16de14ae7423aa62c0e8c9dfdf",
-      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/gcp_vpc_site/properties/kubernetes_upgrade_drain/",
-      "anchor": "canonical-1131322323013020-0221213210022200-2210301021131112-0202330331202122-0231213112310323-1200320133013020-3001101011112201-3113033211121333",
-      "anchor_map": [],
-      "mode": "embedded",
-      "registry_path": "docs/guides/data-sources--gcp_vpc_site--reference--group-003.md"
-    },
-    {
-      "canonical_id": "xcsh-docs:data-sources:gcp_vpc_site:properties:kubernetes_upgrade_drain:disable_upgrade_drain",
-      "section_id": "xcsh-docs:data-sources:gcp_vpc_site:properties:kubernetes_upgrade_drain:disable_upgrade_drain:section:0",
-      "source_sha256": "sha256:197d41522a9dd286cb9805a03d8a5bd782cc3f3fd95ea854bf2dfc326e83e50c",
-      "source_bytes": 99,
-      "canonical_source_sha256": "sha256:c36be3584c240dc75cfdca0efc8a25a8bc30312e6392e916b151bf508554dd5f",
-      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/gcp_vpc_site/properties/kubernetes_upgrade_drain/disable_upgrade_drain/",
-      "anchor": "canonical-3311312212202033-2030131012312303-3230032020132211-0100031130120113-2320121331300323-0033101132011332-1232111131133232-1000213222001000",
-      "anchor_map": [],
-      "mode": "embedded",
-      "registry_path": "docs/guides/data-sources--gcp_vpc_site--reference--group-003.md"
-    },
-    {
-      "canonical_id": "xcsh-docs:data-sources:gcp_vpc_site:properties:kubernetes_upgrade_drain:disable_upgrade_drain",
-      "section_id": "xcsh-docs:data-sources:gcp_vpc_site:properties:kubernetes_upgrade_drain:disable_upgrade_drain:section:1",
-      "source_sha256": "sha256:684a2239b4c9ef13ff60d1f6a648de3dff55ecc749bfdea579a48b0994714acb",
-      "source_bytes": 853,
-      "canonical_source_sha256": "sha256:c36be3584c240dc75cfdca0efc8a25a8bc30312e6392e916b151bf508554dd5f",
-      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/gcp_vpc_site/properties/kubernetes_upgrade_drain/disable_upgrade_drain/",
-      "anchor": "canonical-0313312211322010-2113213102233222-0102120323002331-3111000333202323-2133123110222213-1201223210323120-1203023112300000-0031033130212010",
-      "anchor_map": [
-        [
-          "section",
-          "canonical-3301112121031322-3013000213113120-0001112023333211-2000132121010303-2133032232110133-3010221021111213-1023303111002332-2301103313232223"
-        ]
-      ],
-      "mode": "embedded",
-      "registry_path": "docs/guides/data-sources--gcp_vpc_site--reference--group-003.md"
-    },
-    {
-      "canonical_id": "xcsh-docs:data-sources:gcp_vpc_site:properties:kubernetes_upgrade_drain:disable_upgrade_drain",
-      "section_id": "xcsh-docs:data-sources:gcp_vpc_site:properties:kubernetes_upgrade_drain:disable_upgrade_drain:section:2",
-      "source_sha256": "sha256:0d4398201e18f9ddb2ea00ceed6d3256755ea4d008d849d1cec42dab5c55f1b5",
-      "source_bytes": 94,
-      "canonical_source_sha256": "sha256:c36be3584c240dc75cfdca0efc8a25a8bc30312e6392e916b151bf508554dd5f",
-      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/gcp_vpc_site/properties/kubernetes_upgrade_drain/disable_upgrade_drain/",
-      "anchor": "canonical-3330112021032202-0132221330211301-3023312313133330-1021032010310021-0320111103103321-3321202012022113-0002120312320103-2132330020210113",
-      "anchor_map": [],
-      "mode": "embedded",
-      "registry_path": "docs/guides/data-sources--gcp_vpc_site--reference--group-003.md"
-    },
-    {
-      "canonical_id": "xcsh-docs:data-sources:gcp_vpc_site:properties:kubernetes_upgrade_drain:disable_upgrade_drain",
-      "section_id": "xcsh-docs:data-sources:gcp_vpc_site:properties:kubernetes_upgrade_drain:disable_upgrade_drain:section:3",
-      "source_sha256": "sha256:dba8a5098ff1a5ba96e4a6c3d1c4f5e1f9e8fd23a531f52ff39a492df772d812",
-      "source_bytes": 270,
-      "canonical_source_sha256": "sha256:c36be3584c240dc75cfdca0efc8a25a8bc30312e6392e916b151bf508554dd5f",
-      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/gcp_vpc_site/properties/kubernetes_upgrade_drain/disable_upgrade_drain/",
-      "anchor": "canonical-1320123203103032-0132131233020203-3232022011221232-0120030323120102-3230223233101210-1011112322213021-0331002030303233-1230122032222233",
-      "anchor_map": [],
-      "mode": "embedded",
-      "registry_path": "docs/guides/data-sources--gcp_vpc_site--reference--group-003.md"
-    },
-    {
-      "canonical_id": "xcsh-docs:data-sources:gcp_vpc_site:properties:kubernetes_upgrade_drain:enable_upgrade_drain",
-      "section_id": "xcsh-docs:data-sources:gcp_vpc_site:properties:kubernetes_upgrade_drain:enable_upgrade_drain:section:0",
-      "source_sha256": "sha256:197d41522a9dd286cb9805a03d8a5bd782cc3f3fd95ea854bf2dfc326e83e50c",
-      "source_bytes": 99,
-      "canonical_source_sha256": "sha256:f8bca4a340c5d745b2bc9518b80e8937495feb2033c06aef4cb800ca21b1836e",
-      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/gcp_vpc_site/properties/kubernetes_upgrade_drain/enable_upgrade_drain/",
-      "anchor": "canonical-3323212132230003-2312303210231123-1131133311202102-0102100023032120-3232013232301122-1212021030233021-2011013013232120-0203131302103111",
-      "anchor_map": [],
-      "mode": "embedded",
-      "registry_path": "docs/guides/data-sources--gcp_vpc_site--reference--group-003.md"
-    },
-    {
-      "canonical_id": "xcsh-docs:data-sources:gcp_vpc_site:properties:kubernetes_upgrade_drain:enable_upgrade_drain",
-      "section_id": "xcsh-docs:data-sources:gcp_vpc_site:properties:kubernetes_upgrade_drain:enable_upgrade_drain:section:1",
-      "source_sha256": "sha256:6c17c6321ba6e4c1aefc9a4178cf9a5acc3f0a4918d796ce0c43f14222cce034",
-      "source_bytes": 1031,
-      "canonical_source_sha256": "sha256:f8bca4a340c5d745b2bc9518b80e8937495feb2033c06aef4cb800ca21b1836e",
-      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/gcp_vpc_site/properties/kubernetes_upgrade_drain/enable_upgrade_drain/",
-      "anchor": "canonical-0332100211021332-3010322213120220-1220102201102200-3001330302201111-2123331101020231-3013230022113012-1212132111302010-3212233111233331",
-      "anchor_map": [
-        [
-          "section",
-          "canonical-0310023332203232-1000010221212310-1101312113030310-2033201223202301-3230211322231010-2020030031113333-1202310300020002-2123031112222011"
-        ]
-      ],
-      "mode": "embedded",
-      "registry_path": "docs/guides/data-sources--gcp_vpc_site--reference--group-003.md"
-    },
-    {
-      "canonical_id": "xcsh-docs:data-sources:gcp_vpc_site:properties:kubernetes_upgrade_drain:enable_upgrade_drain",
-      "section_id": "xcsh-docs:data-sources:gcp_vpc_site:properties:kubernetes_upgrade_drain:enable_upgrade_drain:section:2",
-      "source_sha256": "sha256:1a4fabcefac14f78bb169bada083723ff226ad40328b5d317cda32cb51da0e19",
-      "source_bytes": 354,
-      "canonical_source_sha256": "sha256:f8bca4a340c5d745b2bc9518b80e8937495feb2033c06aef4cb800ca21b1836e",
-      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/gcp_vpc_site/properties/kubernetes_upgrade_drain/enable_upgrade_drain/",
-      "anchor": "canonical-3102313320033000-3311203222130020-2000311032101220-2122310213213323-1300201221211200-2132312133002122-3200020210302302-1331303221010120",
-      "anchor_map": [
-        [
-          "schema-kubernetes_upgrade_drain--enable_upgrade_drain--drain_max_unavailable_node_count",
-          "canonical-2122211012012301-2203332313101330-2032302110220113-2132122202302131-0321112032313321-3103212321310211-1312132331023101-0112203312222001"
-        ]
-      ],
-      "mode": "embedded",
-      "registry_path": "docs/guides/data-sources--gcp_vpc_site--reference--group-003.md"
-    },
-    {
-      "canonical_id": "xcsh-docs:data-sources:gcp_vpc_site:properties:kubernetes_upgrade_drain:enable_upgrade_drain",
-      "section_id": "xcsh-docs:data-sources:gcp_vpc_site:properties:kubernetes_upgrade_drain:enable_upgrade_drain:section:3",
-      "source_sha256": "sha256:d35a96d780121398240518e588ff242c1a23a22423eb7a04f0906128d1df16fb",
-      "source_bytes": 975,
-      "canonical_source_sha256": "sha256:f8bca4a340c5d745b2bc9518b80e8937495feb2033c06aef4cb800ca21b1836e",
-      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/gcp_vpc_site/properties/kubernetes_upgrade_drain/enable_upgrade_drain/",
-      "anchor": "canonical-3033322320010133-0012330323113130-0131032222321031-1221120232111020-1001222101032002-3222020033122013-2330012231223002-3310122102023021",
-      "anchor_map": [
-        [
-          "schema-kubernetes_upgrade_drain--enable_upgrade_drain--drain_max_unavailable_node_percentage",
-          "canonical-2112321323121332-2013222311322221-0302120122030030-2202310222102210-3233332131201310-1021302132111232-0022110323333023-3312103222231203"
-        ]
-      ],
-      "mode": "embedded",
-      "registry_path": "docs/guides/data-sources--gcp_vpc_site--reference--group-003.md"
-    },
-    {
-      "canonical_id": "xcsh-docs:data-sources:gcp_vpc_site:properties:kubernetes_upgrade_drain:enable_upgrade_drain",
-      "section_id": "xcsh-docs:data-sources:gcp_vpc_site:properties:kubernetes_upgrade_drain:enable_upgrade_drain:section:4",
-      "source_sha256": "sha256:d76c8ae8552a53b10d21e3c748bf27833fd2554d2a5ad77da83e8e74ed7a98e4",
-      "source_bytes": 235,
-      "canonical_source_sha256": "sha256:f8bca4a340c5d745b2bc9518b80e8937495feb2033c06aef4cb800ca21b1836e",
-      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/gcp_vpc_site/properties/kubernetes_upgrade_drain/enable_upgrade_drain/",
-      "anchor": "canonical-0313133023222002-3120012003212020-1313203023210010-2301301203230203-2103033231023003-2003332212032230-1020200211221030-3320110220320310",
-      "anchor_map": [
-        [
-          "schema-kubernetes_upgrade_drain--enable_upgrade_drain--drain_node_timeout",
-          "canonical-1000312003003221-0132033211203122-3310230323121231-2100031203233033-2223331023303102-2010100133020311-2301000113300221-2101113112322312"
-        ]
-      ],
-      "mode": "embedded",
-      "registry_path": "docs/guides/data-sources--gcp_vpc_site--reference--group-003.md"
-    },
-    {
-      "canonical_id": "xcsh-docs:data-sources:gcp_vpc_site:properties:kubernetes_upgrade_drain:enable_upgrade_drain",
-      "section_id": "xcsh-docs:data-sources:gcp_vpc_site:properties:kubernetes_upgrade_drain:enable_upgrade_drain:section:5",
-      "source_sha256": "sha256:aa2817f5c518f3b5bca12a6ab246155f4caa09cb7cb22195a589f12de926543b",
-      "source_bytes": 1745,
-      "canonical_source_sha256": "sha256:f8bca4a340c5d745b2bc9518b80e8937495feb2033c06aef4cb800ca21b1836e",
-      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/gcp_vpc_site/properties/kubernetes_upgrade_drain/enable_upgrade_drain/",
-      "anchor": "canonical-2123103220330210-2312222302122123-2223131221333333-0311200110233330-2003103001323101-3023121100000011-3222031032312310-0003032130112212",
-      "anchor_map": [],
-      "mode": "embedded",
-      "registry_path": "docs/guides/data-sources--gcp_vpc_site--reference--group-003.md"
-    },
-    {
-      "canonical_id": "xcsh-docs:data-sources:gcp_vpc_site:properties:kubernetes_upgrade_drain:enable_upgrade_drain",
-      "section_id": "xcsh-docs:data-sources:gcp_vpc_site:properties:kubernetes_upgrade_drain:enable_upgrade_drain:section:6",
-      "source_sha256": "sha256:1061709ed82c51a10ba7fa0062207cef511e8916bb88ca81db0af315ec9feacd",
-      "source_bytes": 754,
-      "canonical_source_sha256": "sha256:f8bca4a340c5d745b2bc9518b80e8937495feb2033c06aef4cb800ca21b1836e",
-      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/gcp_vpc_site/properties/kubernetes_upgrade_drain/enable_upgrade_drain/",
-      "anchor": "canonical-3120332130330122-0230220210101111-3311012011301333-2031312312122121-1301020300133002-3011222331112112-0133331232221203-3201000113100201",
-      "anchor_map": [],
-      "mode": "embedded",
-      "registry_path": "docs/guides/data-sources--gcp_vpc_site--reference--group-003.md"
-    },
-    {
-      "canonical_id": "xcsh-docs:data-sources:gcp_vpc_site:properties:kubernetes_upgrade_drain:enable_upgrade_drain:disable_vega_upgrade_mode",
-      "section_id": "xcsh-docs:data-sources:gcp_vpc_site:properties:kubernetes_upgrade_drain:enable_upgrade_drain:disable_vega_upgrade_mode:section:0",
-      "source_sha256": "sha256:197d41522a9dd286cb9805a03d8a5bd782cc3f3fd95ea854bf2dfc326e83e50c",
-      "source_bytes": 99,
-      "canonical_source_sha256": "sha256:1c0ba7f0f8ac0348850955161988c943ce10f07e685e31b43d91403ce0454c1b",
-      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/gcp_vpc_site/properties/kubernetes_upgrade_drain/enable_upgrade_drain/disable_vega_upgrade_mode/",
-      "anchor": "canonical-1032303231033033-3303311230113232-2201230312132110-2100232011202222-2120113310133120-0011100223321123-3303310010202333-2312111100011022",
-      "anchor_map": [],
-      "mode": "embedded",
-      "registry_path": "docs/guides/data-sources--gcp_vpc_site--reference--group-003.md"
-    },
-    {
-      "canonical_id": "xcsh-docs:data-sources:gcp_vpc_site:properties:kubernetes_upgrade_drain:enable_upgrade_drain:disable_vega_upgrade_mode",
-      "section_id": "xcsh-docs:data-sources:gcp_vpc_site:properties:kubernetes_upgrade_drain:enable_upgrade_drain:disable_vega_upgrade_mode:section:1",
-      "source_sha256": "sha256:86ef68843fc807ace52f311070a395752cb2c52caf5260711e6a0fdad34a5b88",
-      "source_bytes": 1098,
-      "canonical_source_sha256": "sha256:1c0ba7f0f8ac0348850955161988c943ce10f07e685e31b43d91403ce0454c1b",
-      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/gcp_vpc_site/properties/kubernetes_upgrade_drain/enable_upgrade_drain/disable_vega_upgrade_mode/",
-      "anchor": "canonical-0100221221013011-0113322222001112-2033311233211001-1033011203011223-1200122030022230-0133323210111223-2303001300202111-3221223311012123",
-      "anchor_map": [
-        [
-          "section",
-          "canonical-1131102200031101-1301220300220130-1131333003311120-3131133230113111-3012122230130330-3123123332202133-1111323133133301-3000330023322023"
-        ]
-      ],
-      "mode": "embedded",
-      "registry_path": "docs/guides/data-sources--gcp_vpc_site--reference--group-003.md"
-    },
-    {
-      "canonical_id": "xcsh-docs:data-sources:gcp_vpc_site:properties:kubernetes_upgrade_drain:enable_upgrade_drain:disable_vega_upgrade_mode",
-      "section_id": "xcsh-docs:data-sources:gcp_vpc_site:properties:kubernetes_upgrade_drain:enable_upgrade_drain:disable_vega_upgrade_mode:section:2",
-      "source_sha256": "sha256:0d4398201e18f9ddb2ea00ceed6d3256755ea4d008d849d1cec42dab5c55f1b5",
-      "source_bytes": 94,
-      "canonical_source_sha256": "sha256:1c0ba7f0f8ac0348850955161988c943ce10f07e685e31b43d91403ce0454c1b",
-      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/gcp_vpc_site/properties/kubernetes_upgrade_drain/enable_upgrade_drain/disable_vega_upgrade_mode/",
-      "anchor": "canonical-1300332230233021-3202312313322000-3101032300221200-1213100330011012-2033100030233031-2311021010301101-1202203122120000-3033233210020103",
-      "anchor_map": [],
-      "mode": "embedded",
-      "registry_path": "docs/guides/data-sources--gcp_vpc_site--reference--group-003.md"
-    },
-    {
-      "canonical_id": "xcsh-docs:data-sources:gcp_vpc_site:properties:kubernetes_upgrade_drain:enable_upgrade_drain:disable_vega_upgrade_mode",
-      "section_id": "xcsh-docs:data-sources:gcp_vpc_site:properties:kubernetes_upgrade_drain:enable_upgrade_drain:disable_vega_upgrade_mode:section:3",
-      "source_sha256": "sha256:231e0492efbf106895d2ae8774f132c35da8ba11e3293e2b314aa89847dc7713",
-      "source_bytes": 312,
-      "canonical_source_sha256": "sha256:1c0ba7f0f8ac0348850955161988c943ce10f07e685e31b43d91403ce0454c1b",
-      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/gcp_vpc_site/properties/kubernetes_upgrade_drain/enable_upgrade_drain/disable_vega_upgrade_mode/",
-      "anchor": "canonical-0121000233113200-2200133012130122-3202331331230011-0002000120003213-1103132202120230-0220330112322010-1220111300210320-2332300000321310",
-      "anchor_map": [],
-      "mode": "embedded",
-      "registry_path": "docs/guides/data-sources--gcp_vpc_site--reference--group-003.md"
-    },
-    {
-      "canonical_id": "xcsh-docs:data-sources:gcp_vpc_site:properties:kubernetes_upgrade_drain:enable_upgrade_drain:enable_vega_upgrade_mode",
-      "section_id": "xcsh-docs:data-sources:gcp_vpc_site:properties:kubernetes_upgrade_drain:enable_upgrade_drain:enable_vega_upgrade_mode:section:0",
-      "source_sha256": "sha256:197d41522a9dd286cb9805a03d8a5bd782cc3f3fd95ea854bf2dfc326e83e50c",
-      "source_bytes": 99,
-      "canonical_source_sha256": "sha256:84df61da183133c2afaa58408722a9e0228827c92dd793460a5dbba10495c458",
-      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/gcp_vpc_site/properties/kubernetes_upgrade_drain/enable_upgrade_drain/enable_vega_upgrade_mode/",
-      "anchor": "canonical-3102210032013301-2333012212112122-0222001202013010-0310010202123132-3323113303133101-1332102332303132-1131003110220022-3112031233113300",
-      "anchor_map": [],
-      "mode": "embedded",
-      "registry_path": "docs/guides/data-sources--gcp_vpc_site--reference--group-003.md"
-    },
-    {
-      "canonical_id": "xcsh-docs:data-sources:gcp_vpc_site:properties:kubernetes_upgrade_drain:enable_upgrade_drain:enable_vega_upgrade_mode",
-      "section_id": "xcsh-docs:data-sources:gcp_vpc_site:properties:kubernetes_upgrade_drain:enable_upgrade_drain:enable_vega_upgrade_mode:section:1",
-      "source_sha256": "sha256:f2d2eec6e8caf01e4dba7635e154116b554429bb41534f0a2c281ae927e8936c",
-      "source_bytes": 1095,
-      "canonical_source_sha256": "sha256:84df61da183133c2afaa58408722a9e0228827c92dd793460a5dbba10495c458",
-      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/gcp_vpc_site/properties/kubernetes_upgrade_drain/enable_upgrade_drain/enable_vega_upgrade_mode/",
-      "anchor": "canonical-3003320132310303-0001130130203320-1201031222002330-0021112122021303-0223100220101011-2202213301213310-1132113122011320-1102322200001031",
-      "anchor_map": [
-        [
-          "section",
-          "canonical-3232210220233102-1233233211213033-0203000032323333-0321111003322010-1221211121131302-2220301122202021-3101213230133002-3310100212022003"
-        ]
-      ],
-      "mode": "embedded",
-      "registry_path": "docs/guides/data-sources--gcp_vpc_site--reference--group-003.md"
-    },
-    {
-      "canonical_id": "xcsh-docs:data-sources:gcp_vpc_site:properties:kubernetes_upgrade_drain:enable_upgrade_drain:enable_vega_upgrade_mode",
-      "section_id": "xcsh-docs:data-sources:gcp_vpc_site:properties:kubernetes_upgrade_drain:enable_upgrade_drain:enable_vega_upgrade_mode:section:2",
-      "source_sha256": "sha256:0d4398201e18f9ddb2ea00ceed6d3256755ea4d008d849d1cec42dab5c55f1b5",
-      "source_bytes": 94,
-      "canonical_source_sha256": "sha256:84df61da183133c2afaa58408722a9e0228827c92dd793460a5dbba10495c458",
-      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/gcp_vpc_site/properties/kubernetes_upgrade_drain/enable_upgrade_drain/enable_vega_upgrade_mode/",
-      "anchor": "canonical-3222210012233010-3132322021210100-0210200112311112-2110330121323321-2223220302211001-2103201300223112-3121133011221002-3303220201013101",
       "anchor_map": [],
       "mode": "embedded",
       "registry_path": "docs/guides/data-sources--gcp_vpc_site--reference--group-003.md"

@@ -2,6 +2,351 @@
   "schema_version": 1,
   "sections": [
     {
+      "canonical_id": "xcsh-docs:data-sources:securemesh_site_v2:properties:azure:not_managed:node_list:interface_list:ipv6_auto_config:router:dns_config:local_dns:first_address",
+      "section_id": "xcsh-docs:data-sources:securemesh_site_v2:properties:azure:not_managed:node_list:interface_list:ipv6_auto_config:router:dns_config:local_dns:first_address:section:1",
+      "source_sha256": "sha256:a11437b89bf6f5773058f65a2f36de882c67da92f4bb7fe663b973b76b9b5839",
+      "source_bytes": 2416,
+      "canonical_source_sha256": "sha256:fbeb7d213ba4c0e8b30e91df85fb6a3c818f93d2d01a0d3bf10bc55c44457a9b",
+      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/securemesh_site_v2/properties/azure/not_managed/node_list/interface_list/ipv6_auto_config/router/dns_config/local_dns/first_address/",
+      "anchor": "canonical-0101022100030231-0131223301230313-3301233032102133-1021021102122331-1020033011110332-1323123310212120-3302002111311001-0230233132100332",
+      "anchor_map": [
+        [
+          "section",
+          "canonical-1311202003321311-0133333312010120-2122213310123201-0220102312302332-1102131120220200-1031320301213100-3021301133120201-1211122210112233"
+        ]
+      ],
+      "mode": "embedded",
+      "registry_path": "docs/guides/data-sources--securemesh_site_v2--reference--group-005.md"
+    },
+    {
+      "canonical_id": "xcsh-docs:data-sources:securemesh_site_v2:properties:azure:not_managed:node_list:interface_list:ipv6_auto_config:router:dns_config:local_dns:first_address",
+      "section_id": "xcsh-docs:data-sources:securemesh_site_v2:properties:azure:not_managed:node_list:interface_list:ipv6_auto_config:router:dns_config:local_dns:first_address:section:2",
+      "source_sha256": "sha256:0d4398201e18f9ddb2ea00ceed6d3256755ea4d008d849d1cec42dab5c55f1b5",
+      "source_bytes": 94,
+      "canonical_source_sha256": "sha256:fbeb7d213ba4c0e8b30e91df85fb6a3c818f93d2d01a0d3bf10bc55c44457a9b",
+      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/securemesh_site_v2/properties/azure/not_managed/node_list/interface_list/ipv6_auto_config/router/dns_config/local_dns/first_address/",
+      "anchor": "canonical-2300021110102210-0221311203003300-0013133033311222-2310032013322220-1123201202012232-2300110023121331-0301212013323233-0301201003122332",
+      "anchor_map": [],
+      "mode": "embedded",
+      "registry_path": "docs/guides/data-sources--securemesh_site_v2--reference--group-005.md"
+    },
+    {
+      "canonical_id": "xcsh-docs:data-sources:securemesh_site_v2:properties:azure:not_managed:node_list:interface_list:ipv6_auto_config:router:dns_config:local_dns:first_address",
+      "section_id": "xcsh-docs:data-sources:securemesh_site_v2:properties:azure:not_managed:node_list:interface_list:ipv6_auto_config:router:dns_config:local_dns:first_address:section:3",
+      "source_sha256": "sha256:d1c47719396e925bed7a68325e7958935d6bade4ef4b6590bdb12300a2948b0f",
+      "source_bytes": 414,
+      "canonical_source_sha256": "sha256:fbeb7d213ba4c0e8b30e91df85fb6a3c818f93d2d01a0d3bf10bc55c44457a9b",
+      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/securemesh_site_v2/properties/azure/not_managed/node_list/interface_list/ipv6_auto_config/router/dns_config/local_dns/first_address/",
+      "anchor": "canonical-1321101021111112-2333121112120210-2330203103210331-1112101121112033-2133300212322332-1311023033230230-1313000120003132-0001023210101100",
+      "anchor_map": [],
+      "mode": "embedded",
+      "registry_path": "docs/guides/data-sources--securemesh_site_v2--reference--group-005.md"
+    },
+    {
+      "canonical_id": "xcsh-docs:data-sources:securemesh_site_v2:properties:azure:not_managed:node_list:interface_list:ipv6_auto_config:router:dns_config:local_dns:last_address",
+      "section_id": "xcsh-docs:data-sources:securemesh_site_v2:properties:azure:not_managed:node_list:interface_list:ipv6_auto_config:router:dns_config:local_dns:last_address:section:0",
+      "source_sha256": "sha256:197d41522a9dd286cb9805a03d8a5bd782cc3f3fd95ea854bf2dfc326e83e50c",
+      "source_bytes": 99,
+      "canonical_source_sha256": "sha256:651632596546de0921abd7ee796655ae901a289a90869fe7621e55bccb6f3cc0",
+      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/securemesh_site_v2/properties/azure/not_managed/node_list/interface_list/ipv6_auto_config/router/dns_config/local_dns/last_address/",
+      "anchor": "canonical-1320002312122331-3223131223133320-0113001111333222-2113331210222012-3232021100123232-0302131002123310-1220122001320121-1000010033111010",
+      "anchor_map": [],
+      "mode": "embedded",
+      "registry_path": "docs/guides/data-sources--securemesh_site_v2--reference--group-005.md"
+    },
+    {
+      "canonical_id": "xcsh-docs:data-sources:securemesh_site_v2:properties:azure:not_managed:node_list:interface_list:ipv6_auto_config:router:dns_config:local_dns:last_address",
+      "section_id": "xcsh-docs:data-sources:securemesh_site_v2:properties:azure:not_managed:node_list:interface_list:ipv6_auto_config:router:dns_config:local_dns:last_address:section:1",
+      "source_sha256": "sha256:36d2f3f4034a4ebe5b631fc8577eba537ca42bc1ddfabd4381ad054f735ddcdd",
+      "source_bytes": 2414,
+      "canonical_source_sha256": "sha256:651632596546de0921abd7ee796655ae901a289a90869fe7621e55bccb6f3cc0",
+      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/securemesh_site_v2/properties/azure/not_managed/node_list/interface_list/ipv6_auto_config/router/dns_config/local_dns/last_address/",
+      "anchor": "canonical-3012322033302221-3101110111303011-1000011123020013-0211123212300301-2120201122311300-0002133301012211-3231322020320122-2333033321120332",
+      "anchor_map": [
+        [
+          "section",
+          "canonical-1033213102102103-0321131313103322-2010100131212323-3312230111300000-1301322103113011-1103230333030113-0123311201313101-1323303131322301"
+        ]
+      ],
+      "mode": "embedded",
+      "registry_path": "docs/guides/data-sources--securemesh_site_v2--reference--group-005.md"
+    },
+    {
+      "canonical_id": "xcsh-docs:data-sources:securemesh_site_v2:properties:azure:not_managed:node_list:interface_list:ipv6_auto_config:router:dns_config:local_dns:last_address",
+      "section_id": "xcsh-docs:data-sources:securemesh_site_v2:properties:azure:not_managed:node_list:interface_list:ipv6_auto_config:router:dns_config:local_dns:last_address:section:2",
+      "source_sha256": "sha256:0d4398201e18f9ddb2ea00ceed6d3256755ea4d008d849d1cec42dab5c55f1b5",
+      "source_bytes": 94,
+      "canonical_source_sha256": "sha256:651632596546de0921abd7ee796655ae901a289a90869fe7621e55bccb6f3cc0",
+      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/securemesh_site_v2/properties/azure/not_managed/node_list/interface_list/ipv6_auto_config/router/dns_config/local_dns/last_address/",
+      "anchor": "canonical-2332120313332012-3123323012111203-0033021320110220-3030103020233331-0323102012223112-0232320310233222-3022031012211201-1022200023111011",
+      "anchor_map": [],
+      "mode": "embedded",
+      "registry_path": "docs/guides/data-sources--securemesh_site_v2--reference--group-005.md"
+    },
+    {
+      "canonical_id": "xcsh-docs:data-sources:securemesh_site_v2:properties:azure:not_managed:node_list:interface_list:ipv6_auto_config:router:dns_config:local_dns:last_address",
+      "section_id": "xcsh-docs:data-sources:securemesh_site_v2:properties:azure:not_managed:node_list:interface_list:ipv6_auto_config:router:dns_config:local_dns:last_address:section:3",
+      "source_sha256": "sha256:d1c47719396e925bed7a68325e7958935d6bade4ef4b6590bdb12300a2948b0f",
+      "source_bytes": 414,
+      "canonical_source_sha256": "sha256:651632596546de0921abd7ee796655ae901a289a90869fe7621e55bccb6f3cc0",
+      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/securemesh_site_v2/properties/azure/not_managed/node_list/interface_list/ipv6_auto_config/router/dns_config/local_dns/last_address/",
+      "anchor": "canonical-0000323030312122-0201310113232032-3000020312121313-1130211101300223-0133101321323012-3023012300103201-2103302300201021-1101330212022313",
+      "anchor_map": [],
+      "mode": "embedded",
+      "registry_path": "docs/guides/data-sources--securemesh_site_v2--reference--group-005.md"
+    },
+    {
+      "canonical_id": "xcsh-docs:data-sources:securemesh_site_v2:properties:azure:not_managed:node_list:interface_list:ipv6_auto_config:router:stateful",
+      "section_id": "xcsh-docs:data-sources:securemesh_site_v2:properties:azure:not_managed:node_list:interface_list:ipv6_auto_config:router:stateful:section:0",
+      "source_sha256": "sha256:197d41522a9dd286cb9805a03d8a5bd782cc3f3fd95ea854bf2dfc326e83e50c",
+      "source_bytes": 99,
+      "canonical_source_sha256": "sha256:2b91c0ae9882128732a877704deb3b174d24b9fb12b4e845c1555f2d0a0b7f42",
+      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/securemesh_site_v2/properties/azure/not_managed/node_list/interface_list/ipv6_auto_config/router/stateful/",
+      "anchor": "canonical-1331003103202301-0133030233110213-2031003230123113-1321001200230202-2203301311120223-0313122202002013-1322333020112303-1012031003022321",
+      "anchor_map": [],
+      "mode": "embedded",
+      "registry_path": "docs/guides/data-sources--securemesh_site_v2--reference--group-005.md"
+    },
+    {
+      "canonical_id": "xcsh-docs:data-sources:securemesh_site_v2:properties:azure:not_managed:node_list:interface_list:ipv6_auto_config:router:stateful",
+      "section_id": "xcsh-docs:data-sources:securemesh_site_v2:properties:azure:not_managed:node_list:interface_list:ipv6_auto_config:router:stateful:section:1",
+      "source_sha256": "sha256:77d57fb48ffb1b391c204091a65419f09f5fb06f2ee8b3e1033af42d4a05aa63",
+      "source_bytes": 1867,
+      "canonical_source_sha256": "sha256:2b91c0ae9882128732a877704deb3b174d24b9fb12b4e845c1555f2d0a0b7f42",
+      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/securemesh_site_v2/properties/azure/not_managed/node_list/interface_list/ipv6_auto_config/router/stateful/",
+      "anchor": "canonical-2002120130333303-2020202102032033-3210322100023323-3322111133200322-1132312210321212-0132302033103333-3233211111310130-1101213013210130",
+      "anchor_map": [
+        [
+          "section",
+          "canonical-3223023330001233-3123213232222310-1101030121131213-2110031023113332-2121303300123212-1000331221131331-1233120331223033-1313200102300121"
+        ]
+      ],
+      "mode": "embedded",
+      "registry_path": "docs/guides/data-sources--securemesh_site_v2--reference--group-005.md"
+    },
+    {
+      "canonical_id": "xcsh-docs:data-sources:securemesh_site_v2:properties:azure:not_managed:node_list:interface_list:ipv6_auto_config:router:stateful",
+      "section_id": "xcsh-docs:data-sources:securemesh_site_v2:properties:azure:not_managed:node_list:interface_list:ipv6_auto_config:router:stateful:section:2",
+      "source_sha256": "sha256:872bfbda34e7c2fcd8c5aac6dd45e04ab70f721731d3cae53a5bc419562ce147",
+      "source_bytes": 889,
+      "canonical_source_sha256": "sha256:2b91c0ae9882128732a877704deb3b174d24b9fb12b4e845c1555f2d0a0b7f42",
+      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/securemesh_site_v2/properties/azure/not_managed/node_list/interface_list/ipv6_auto_config/router/stateful/",
+      "anchor": "canonical-2011200002320031-1300031133320012-3003033110121331-3322002123220003-3200023202032233-3130223033212311-0130223123013111-1013313132000130",
+      "anchor_map": [
+        [
+          "schema-azure--not_managed--node_list--interface_list--ipv6_auto_config--router--stateful--fixed_ip_map",
+          "canonical-1011333020302333-2203202030131201-3220230021312301-2130110123203322-3310103003011132-1211332323022020-0312330303331202-2123132332211223"
+        ]
+      ],
+      "mode": "embedded",
+      "registry_path": "docs/guides/data-sources--securemesh_site_v2--reference--group-005.md"
+    },
+    {
+      "canonical_id": "xcsh-docs:data-sources:securemesh_site_v2:properties:azure:not_managed:node_list:interface_list:ipv6_auto_config:router:stateful",
+      "section_id": "xcsh-docs:data-sources:securemesh_site_v2:properties:azure:not_managed:node_list:interface_list:ipv6_auto_config:router:stateful:section:3",
+      "source_sha256": "sha256:0369f3f4c8cd071cb1efb4d68fb67526b35a6f5d4913a34f936ebe94b736cac5",
+      "source_bytes": 1305,
+      "canonical_source_sha256": "sha256:2b91c0ae9882128732a877704deb3b174d24b9fb12b4e845c1555f2d0a0b7f42",
+      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/securemesh_site_v2/properties/azure/not_managed/node_list/interface_list/ipv6_auto_config/router/stateful/",
+      "anchor": "canonical-0203121102031101-1212202111130120-0210122223201321-1202000232312212-2123302321321132-1013003122321311-2120113313020332-1021012132222110",
+      "anchor_map": [],
+      "mode": "embedded",
+      "registry_path": "docs/guides/data-sources--securemesh_site_v2--reference--group-005.md"
+    },
+    {
+      "canonical_id": "xcsh-docs:data-sources:securemesh_site_v2:properties:azure:not_managed:node_list:interface_list:ipv6_auto_config:router:stateful",
+      "section_id": "xcsh-docs:data-sources:securemesh_site_v2:properties:azure:not_managed:node_list:interface_list:ipv6_auto_config:router:stateful:section:4",
+      "source_sha256": "sha256:142a0afef7e85ae6680da01eb7da8578269cf3c4d29ca521d44e9bac936279e5",
+      "source_bytes": 1542,
+      "canonical_source_sha256": "sha256:2b91c0ae9882128732a877704deb3b174d24b9fb12b4e845c1555f2d0a0b7f42",
+      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/securemesh_site_v2/properties/azure/not_managed/node_list/interface_list/ipv6_auto_config/router/stateful/",
+      "anchor": "canonical-2311103023331202-2231002320312012-0321130311321300-1333021312222202-0233012332322211-0100122110211131-1223011130003322-2210222210232132",
+      "anchor_map": [],
+      "mode": "embedded",
+      "registry_path": "docs/guides/data-sources--securemesh_site_v2--reference--group-005.md"
+    },
+    {
+      "canonical_id": "xcsh-docs:data-sources:securemesh_site_v2:properties:azure:not_managed:node_list:interface_list:ipv6_auto_config:router:stateful:automatic_from_end",
+      "section_id": "xcsh-docs:data-sources:securemesh_site_v2:properties:azure:not_managed:node_list:interface_list:ipv6_auto_config:router:stateful:automatic_from_end:section:0",
+      "source_sha256": "sha256:197d41522a9dd286cb9805a03d8a5bd782cc3f3fd95ea854bf2dfc326e83e50c",
+      "source_bytes": 99,
+      "canonical_source_sha256": "sha256:b8ac5c00329ffcc61d9eaa9df24da53a2f39eec6b6082e7f4041158e746eec41",
+      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/securemesh_site_v2/properties/azure/not_managed/node_list/interface_list/ipv6_auto_config/router/stateful/automatic_from_end/",
+      "anchor": "canonical-3312030101311210-2323122312313321-0122330000210103-2222332211120301-3313130200030020-1120020032302133-0200033330332003-1110012130322212",
+      "anchor_map": [],
+      "mode": "embedded",
+      "registry_path": "docs/guides/data-sources--securemesh_site_v2--reference--group-005.md"
+    },
+    {
+      "canonical_id": "xcsh-docs:data-sources:securemesh_site_v2:properties:azure:not_managed:node_list:interface_list:ipv6_auto_config:router:stateful:automatic_from_end",
+      "section_id": "xcsh-docs:data-sources:securemesh_site_v2:properties:azure:not_managed:node_list:interface_list:ipv6_auto_config:router:stateful:automatic_from_end:section:1",
+      "source_sha256": "sha256:466964e9ce2c1569d82b4dcee44adc55c34402906dceca4fb2da1007be9f74aa",
+      "source_bytes": 2146,
+      "canonical_source_sha256": "sha256:b8ac5c00329ffcc61d9eaa9df24da53a2f39eec6b6082e7f4041158e746eec41",
+      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/securemesh_site_v2/properties/azure/not_managed/node_list/interface_list/ipv6_auto_config/router/stateful/automatic_from_end/",
+      "anchor": "canonical-2312133331102322-3203001031000320-0203103111230212-1202223310323112-0002030321032130-3213232020302100-3302031333331303-0002213233131222",
+      "anchor_map": [
+        [
+          "section",
+          "canonical-3321301330033020-2220002032332203-2110131002112130-0211121213020302-1103002300301311-3003300332020212-1330030301130102-3001130211231322"
+        ]
+      ],
+      "mode": "embedded",
+      "registry_path": "docs/guides/data-sources--securemesh_site_v2--reference--group-005.md"
+    },
+    {
+      "canonical_id": "xcsh-docs:data-sources:securemesh_site_v2:properties:azure:not_managed:node_list:interface_list:ipv6_auto_config:router:stateful:automatic_from_end",
+      "section_id": "xcsh-docs:data-sources:securemesh_site_v2:properties:azure:not_managed:node_list:interface_list:ipv6_auto_config:router:stateful:automatic_from_end:section:2",
+      "source_sha256": "sha256:0d4398201e18f9ddb2ea00ceed6d3256755ea4d008d849d1cec42dab5c55f1b5",
+      "source_bytes": 94,
+      "canonical_source_sha256": "sha256:b8ac5c00329ffcc61d9eaa9df24da53a2f39eec6b6082e7f4041158e746eec41",
+      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/securemesh_site_v2/properties/azure/not_managed/node_list/interface_list/ipv6_auto_config/router/stateful/automatic_from_end/",
+      "anchor": "canonical-0123222022111012-1333130313300002-0030210132200110-3321112030323232-1131110002020230-2013223331233331-2331121231010102-0310121333031332",
+      "anchor_map": [],
+      "mode": "embedded",
+      "registry_path": "docs/guides/data-sources--securemesh_site_v2--reference--group-005.md"
+    },
+    {
+      "canonical_id": "xcsh-docs:data-sources:securemesh_site_v2:properties:azure:not_managed:node_list:interface_list:ipv6_auto_config:router:stateful:automatic_from_end",
+      "section_id": "xcsh-docs:data-sources:securemesh_site_v2:properties:azure:not_managed:node_list:interface_list:ipv6_auto_config:router:stateful:automatic_from_end:section:3",
+      "source_sha256": "sha256:32db7a357b332c4293c207a6f4f16f6175c0cdb4958dcdf1b6bfd22a6f015f9e",
+      "source_bytes": 390,
+      "canonical_source_sha256": "sha256:b8ac5c00329ffcc61d9eaa9df24da53a2f39eec6b6082e7f4041158e746eec41",
+      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/securemesh_site_v2/properties/azure/not_managed/node_list/interface_list/ipv6_auto_config/router/stateful/automatic_from_end/",
+      "anchor": "canonical-2122331302001311-0213323311003302-0102130201232011-0002310200210011-1021331230023313-2132333331223110-3002221222220121-0031311221233330",
+      "anchor_map": [],
+      "mode": "embedded",
+      "registry_path": "docs/guides/data-sources--securemesh_site_v2--reference--group-005.md"
+    },
+    {
+      "canonical_id": "xcsh-docs:data-sources:securemesh_site_v2:properties:azure:not_managed:node_list:interface_list:ipv6_auto_config:router:stateful:automatic_from_start",
+      "section_id": "xcsh-docs:data-sources:securemesh_site_v2:properties:azure:not_managed:node_list:interface_list:ipv6_auto_config:router:stateful:automatic_from_start:section:0",
+      "source_sha256": "sha256:197d41522a9dd286cb9805a03d8a5bd782cc3f3fd95ea854bf2dfc326e83e50c",
+      "source_bytes": 99,
+      "canonical_source_sha256": "sha256:20613be9ee52eb392e33aabc0a6b365de8e2d0ca70341a347bd9f952b2d1885f",
+      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/securemesh_site_v2/properties/azure/not_managed/node_list/interface_list/ipv6_auto_config/router/stateful/automatic_from_start/",
+      "anchor": "canonical-0011011120313133-1333111230311031-0323103322012122-1303032132100213-2020232223031230-2303101001231001-0101022100001213-1311120200213032",
+      "anchor_map": [],
+      "mode": "embedded",
+      "registry_path": "docs/guides/data-sources--securemesh_site_v2--reference--group-005.md"
+    },
+    {
+      "canonical_id": "xcsh-docs:data-sources:securemesh_site_v2:properties:azure:not_managed:node_list:interface_list:ipv6_auto_config:router:stateful:automatic_from_start",
+      "section_id": "xcsh-docs:data-sources:securemesh_site_v2:properties:azure:not_managed:node_list:interface_list:ipv6_auto_config:router:stateful:automatic_from_start:section:1",
+      "source_sha256": "sha256:5f92cb4df39886fe489adf054e92a3e73891b088eddb117dde0682e2f32b2ebb",
+      "source_bytes": 2152,
+      "canonical_source_sha256": "sha256:20613be9ee52eb392e33aabc0a6b365de8e2d0ca70341a347bd9f952b2d1885f",
+      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/securemesh_site_v2/properties/azure/not_managed/node_list/interface_list/ipv6_auto_config/router/stateful/automatic_from_start/",
+      "anchor": "canonical-2233200103303310-0332131031333033-0203203300103211-1032322003313130-3133103332011012-0023012301001313-0031112231332313-2312021113122200",
+      "anchor_map": [
+        [
+          "section",
+          "canonical-0210220202011333-2002320211003223-1113002321322131-1310110103333202-2022032322301032-0101313122200011-0230223311032221-0122112001201101"
+        ]
+      ],
+      "mode": "embedded",
+      "registry_path": "docs/guides/data-sources--securemesh_site_v2--reference--group-005.md"
+    },
+    {
+      "canonical_id": "xcsh-docs:data-sources:securemesh_site_v2:properties:azure:not_managed:node_list:interface_list:ipv6_auto_config:router:stateful:automatic_from_start",
+      "section_id": "xcsh-docs:data-sources:securemesh_site_v2:properties:azure:not_managed:node_list:interface_list:ipv6_auto_config:router:stateful:automatic_from_start:section:2",
+      "source_sha256": "sha256:0d4398201e18f9ddb2ea00ceed6d3256755ea4d008d849d1cec42dab5c55f1b5",
+      "source_bytes": 94,
+      "canonical_source_sha256": "sha256:20613be9ee52eb392e33aabc0a6b365de8e2d0ca70341a347bd9f952b2d1885f",
+      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/securemesh_site_v2/properties/azure/not_managed/node_list/interface_list/ipv6_auto_config/router/stateful/automatic_from_start/",
+      "anchor": "canonical-0323012023132233-2221111212030230-1313023020030302-0022230323101103-0023211013232010-0220102332201132-3311020233133320-2203032230220203",
+      "anchor_map": [],
+      "mode": "embedded",
+      "registry_path": "docs/guides/data-sources--securemesh_site_v2--reference--group-005.md"
+    },
+    {
+      "canonical_id": "xcsh-docs:data-sources:securemesh_site_v2:properties:azure:not_managed:node_list:interface_list:ipv6_auto_config:router:stateful:automatic_from_start",
+      "section_id": "xcsh-docs:data-sources:securemesh_site_v2:properties:azure:not_managed:node_list:interface_list:ipv6_auto_config:router:stateful:automatic_from_start:section:3",
+      "source_sha256": "sha256:32db7a357b332c4293c207a6f4f16f6175c0cdb4958dcdf1b6bfd22a6f015f9e",
+      "source_bytes": 390,
+      "canonical_source_sha256": "sha256:20613be9ee52eb392e33aabc0a6b365de8e2d0ca70341a347bd9f952b2d1885f",
+      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/securemesh_site_v2/properties/azure/not_managed/node_list/interface_list/ipv6_auto_config/router/stateful/automatic_from_start/",
+      "anchor": "canonical-2210212210213223-2012231111211133-2201202000123131-1313203101133232-2213132212110323-3212133102222212-2003220133100101-3020223110123333",
+      "anchor_map": [],
+      "mode": "embedded",
+      "registry_path": "docs/guides/data-sources--securemesh_site_v2--reference--group-005.md"
+    },
+    {
+      "canonical_id": "xcsh-docs:data-sources:securemesh_site_v2:properties:azure:not_managed:node_list:interface_list:ipv6_auto_config:router:stateful:dhcp_networks",
+      "section_id": "xcsh-docs:data-sources:securemesh_site_v2:properties:azure:not_managed:node_list:interface_list:ipv6_auto_config:router:stateful:dhcp_networks:section:0",
+      "source_sha256": "sha256:197d41522a9dd286cb9805a03d8a5bd782cc3f3fd95ea854bf2dfc326e83e50c",
+      "source_bytes": 99,
+      "canonical_source_sha256": "sha256:6228127a48f407043585d7079b1a285a9dc4081158aab5e72d12e0e4ab5dac0e",
+      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/securemesh_site_v2/properties/azure/not_managed/node_list/interface_list/ipv6_auto_config/router/stateful/dhcp_networks/",
+      "anchor": "canonical-1023022103103320-3322311130031010-3030010313233022-0321130211102330-2032102011111101-2111121033131333-3011201231022100-3030022331032132",
+      "anchor_map": [],
+      "mode": "embedded",
+      "registry_path": "docs/guides/data-sources--securemesh_site_v2--reference--group-005.md"
+    },
+    {
+      "canonical_id": "xcsh-docs:data-sources:securemesh_site_v2:properties:azure:not_managed:node_list:interface_list:ipv6_auto_config:router:stateful:dhcp_networks",
+      "section_id": "xcsh-docs:data-sources:securemesh_site_v2:properties:azure:not_managed:node_list:interface_list:ipv6_auto_config:router:stateful:dhcp_networks:section:1",
+      "source_sha256": "sha256:2f1e72dd01cd0877c3f0e8a23c78a6f09e177757511bca1dfae2321e24563f4e",
+      "source_bytes": 2880,
+      "canonical_source_sha256": "sha256:6228127a48f407043585d7079b1a285a9dc4081158aab5e72d12e0e4ab5dac0e",
+      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/securemesh_site_v2/properties/azure/not_managed/node_list/interface_list/ipv6_auto_config/router/stateful/dhcp_networks/",
+      "anchor": "canonical-2233211020100103-1131211031023223-2200030232131022-0201331203023212-1023203020323213-2220301003331323-0001013133322213-1012132331023303",
+      "anchor_map": [
+        [
+          "section",
+          "canonical-3212101031230000-1331223031233311-1123123122330231-3233203333330131-0200303110121123-3020222321331313-2012103220322031-1211333330112122"
+        ]
+      ],
+      "mode": "embedded",
+      "registry_path": "docs/guides/data-sources--securemesh_site_v2--reference--group-005.md"
+    },
+    {
+      "canonical_id": "xcsh-docs:data-sources:securemesh_site_v2:properties:azure:not_managed:node_list:interface_list:ipv6_auto_config:router:stateful:dhcp_networks",
+      "section_id": "xcsh-docs:data-sources:securemesh_site_v2:properties:azure:not_managed:node_list:interface_list:ipv6_auto_config:router:stateful:dhcp_networks:section:2",
+      "source_sha256": "sha256:7d528a779280d6ec3844ec518f75e362e4489377251758da13c7a74f409674b7",
+      "source_bytes": 156,
+      "canonical_source_sha256": "sha256:6228127a48f407043585d7079b1a285a9dc4081158aab5e72d12e0e4ab5dac0e",
+      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/securemesh_site_v2/properties/azure/not_managed/node_list/interface_list/ipv6_auto_config/router/stateful/dhcp_networks/",
+      "anchor": "canonical-2030101030331203-3122120012122231-1312200130231121-3113322313121021-2032233001321331-1322301012022230-3123333301012123-1300333323212013",
+      "anchor_map": [
+        [
+          "schema-azure--not_managed--node_list--interface_list--ipv6_auto_config--router--stateful--dhcp_networks--network_prefix",
+          "canonical-3202230032301012-3223023310221000-0032223320100232-2132321033230003-1312301110230010-3011023123001103-2011221231122203-3333300311312203"
+        ]
+      ],
+      "mode": "embedded",
+      "registry_path": "docs/guides/data-sources--securemesh_site_v2--reference--group-005.md"
+    },
+    {
+      "canonical_id": "xcsh-docs:data-sources:securemesh_site_v2:properties:azure:not_managed:node_list:interface_list:ipv6_auto_config:router:stateful:dhcp_networks",
+      "section_id": "xcsh-docs:data-sources:securemesh_site_v2:properties:azure:not_managed:node_list:interface_list:ipv6_auto_config:router:stateful:dhcp_networks:section:3",
+      "source_sha256": "sha256:f31f10a6f003203b55203cff8d656d20d30599a042941e8c54e0f89e42e76be7",
+      "source_bytes": 969,
+      "canonical_source_sha256": "sha256:6228127a48f407043585d7079b1a285a9dc4081158aab5e72d12e0e4ab5dac0e",
+      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/securemesh_site_v2/properties/azure/not_managed/node_list/interface_list/ipv6_auto_config/router/stateful/dhcp_networks/",
+      "anchor": "canonical-2111321303300110-0022211233212323-2333212003302100-2002011032003121-1233222212001230-1020321232231303-2132120311203331-3010122231130121",
+      "anchor_map": [
+        [
+          "schema-azure--not_managed--node_list--interface_list--ipv6_auto_config--router--stateful--dhcp_networks--pool_settings",
+          "canonical-0133033103100102-2320200232032100-2202220332301003-2010132112310312-2220012003302111-0100220332312032-0002131022031103-3022132201222101"
+        ]
+      ],
+      "mode": "embedded",
+      "registry_path": "docs/guides/data-sources--securemesh_site_v2--reference--group-005.md"
+    },
+    {
+      "canonical_id": "xcsh-docs:data-sources:securemesh_site_v2:properties:azure:not_managed:node_list:interface_list:ipv6_auto_config:router:stateful:dhcp_networks",
+      "section_id": "xcsh-docs:data-sources:securemesh_site_v2:properties:azure:not_managed:node_list:interface_list:ipv6_auto_config:router:stateful:dhcp_networks:section:4",
+      "source_sha256": "sha256:8f449d142d610c16094c975eb79e078706e67631188b4604884337ce411c0736",
+      "source_bytes": 1314,
+      "canonical_source_sha256": "sha256:6228127a48f407043585d7079b1a285a9dc4081158aab5e72d12e0e4ab5dac0e",
+      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/securemesh_site_v2/properties/azure/not_managed/node_list/interface_list/ipv6_auto_config/router/stateful/dhcp_networks/",
+      "anchor": "canonical-3112100031311333-0032320321310031-3320110213020200-0003321211130213-0012020023200332-0333222013331310-2232002200202001-0123103213200030",
+      "anchor_map": [],
+      "mode": "embedded",
+      "registry_path": "docs/guides/data-sources--securemesh_site_v2--reference--group-005.md"
+    },
+    {
       "canonical_id": "xcsh-docs:data-sources:securemesh_site_v2:properties:azure:not_managed:node_list:interface_list:ipv6_auto_config:router:stateful:dhcp_networks",
       "section_id": "xcsh-docs:data-sources:securemesh_site_v2:properties:azure:not_managed:node_list:interface_list:ipv6_auto_config:router:stateful:dhcp_networks:section:5",
       "source_sha256": "sha256:f0973885740ced663ed39117ceea8fdea25cfb4e1af32a983fa4224e450cabeb",
@@ -6430,395 +6775,6 @@
           "canonical-0133310301111102-1102122121001020-2322110121112321-0121110010313333-2321113303331033-0233202033020211-2003201322203222-2120322212311121"
         ]
       ],
-      "mode": "embedded",
-      "registry_path": "docs/guides/data-sources--securemesh_site_v2--reference--group-007.md"
-    },
-    {
-      "canonical_id": "xcsh-docs:data-sources:securemesh_site_v2:properties:eks_k8s:not_managed:node_list:interface_list",
-      "section_id": "xcsh-docs:data-sources:securemesh_site_v2:properties:eks_k8s:not_managed:node_list:interface_list:section:5",
-      "source_sha256": "sha256:f638b4553177bfff76b592fcf0313a1ed7c6b4d131b9a75a256e02881c6c0a19",
-      "source_bytes": 161,
-      "canonical_source_sha256": "sha256:325c9bc27592eea5f2e0738f25b6ce6cddaabbdcfc461dc44db9c11f333327a8",
-      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/securemesh_site_v2/properties/eks_k8s/not_managed/node_list/interface_list/",
-      "anchor": "canonical-1202232112030021-1021210030311201-2210203011323211-1012213010223012-1133322303301223-2303000301102100-3033230223330131-2120110100233002",
-      "anchor_map": [
-        [
-          "schema-eks_k8s--not_managed--node_list--interface_list--labels",
-          "canonical-3221211321321121-1222032212030200-2020311233312012-1220100003101303-1123221300121311-0133000022222222-1122220112202121-2333111302131020"
-        ]
-      ],
-      "mode": "embedded",
-      "registry_path": "docs/guides/data-sources--securemesh_site_v2--reference--group-007.md"
-    },
-    {
-      "canonical_id": "xcsh-docs:data-sources:securemesh_site_v2:properties:eks_k8s:not_managed:node_list:interface_list",
-      "section_id": "xcsh-docs:data-sources:securemesh_site_v2:properties:eks_k8s:not_managed:node_list:interface_list:section:6",
-      "source_sha256": "sha256:79c100fdd35313f902fc4566b2ec7634e045fc24524923802ac0e7229f8c41d4",
-      "source_bytes": 1419,
-      "canonical_source_sha256": "sha256:325c9bc27592eea5f2e0738f25b6ce6cddaabbdcfc461dc44db9c11f333327a8",
-      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/securemesh_site_v2/properties/eks_k8s/not_managed/node_list/interface_list/",
-      "anchor": "canonical-0321001131031313-0222300300202231-1031013113101331-0120103133003023-1221320203323302-0122200202133130-0001210232032300-0020300011212310",
-      "anchor_map": [
-        [
-          "schema-eks_k8s--not_managed--node_list--interface_list--mtu",
-          "canonical-1230012010330302-2130133312120103-2021111313300310-1123333313222032-1333132210030202-2223312012301301-1202020232133011-3231022203112312"
-        ]
-      ],
-      "mode": "embedded",
-      "registry_path": "docs/guides/data-sources--securemesh_site_v2--reference--group-007.md"
-    },
-    {
-      "canonical_id": "xcsh-docs:data-sources:securemesh_site_v2:properties:eks_k8s:not_managed:node_list:interface_list",
-      "section_id": "xcsh-docs:data-sources:securemesh_site_v2:properties:eks_k8s:not_managed:node_list:interface_list:section:7",
-      "source_sha256": "sha256:33ae398d0ad0954e798709032d563c28b2406072d7d5e0fd0ea5b9e7416f529e",
-      "source_bytes": 989,
-      "canonical_source_sha256": "sha256:325c9bc27592eea5f2e0738f25b6ce6cddaabbdcfc461dc44db9c11f333327a8",
-      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/securemesh_site_v2/properties/eks_k8s/not_managed/node_list/interface_list/",
-      "anchor": "canonical-2110220110220012-3331203123321320-2333300230032311-1110020023003301-1111303002001202-1101121101130010-3213200332033322-2231003323133023",
-      "anchor_map": [
-        [
-          "schema-eks_k8s--not_managed--node_list--interface_list--name",
-          "canonical-1022133003332112-2320200322203310-0130130231301202-2001323133200303-3211213232223010-0232210310311032-0300300021211012-3011213132001200"
-        ]
-      ],
-      "mode": "embedded",
-      "registry_path": "docs/guides/data-sources--securemesh_site_v2--reference--group-007.md"
-    },
-    {
-      "canonical_id": "xcsh-docs:data-sources:securemesh_site_v2:properties:eks_k8s:not_managed:node_list:interface_list",
-      "section_id": "xcsh-docs:data-sources:securemesh_site_v2:properties:eks_k8s:not_managed:node_list:interface_list:section:8",
-      "source_sha256": "sha256:115b1de4bd658e79de600b095dac883ac30f93ee9701d51d7f1b713f354adb39",
-      "source_bytes": 2049,
-      "canonical_source_sha256": "sha256:325c9bc27592eea5f2e0738f25b6ce6cddaabbdcfc461dc44db9c11f333327a8",
-      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/securemesh_site_v2/properties/eks_k8s/not_managed/node_list/interface_list/",
-      "anchor": "canonical-1210231301201121-0313230131132211-1210331012302023-1203111213010202-0101302223322100-3302101001013201-2002301101322302-3300231212200023",
-      "anchor_map": [
-        [
-          "schema-eks_k8s--not_managed--node_list--interface_list--priority",
-          "canonical-3010020003110303-1320122132113122-0120332302011010-3330331200033121-3331120203233222-3203111033113031-3023031220111201-1330223222130032"
-        ]
-      ],
-      "mode": "embedded",
-      "registry_path": "docs/guides/data-sources--securemesh_site_v2--reference--group-007.md"
-    },
-    {
-      "canonical_id": "xcsh-docs:data-sources:securemesh_site_v2:properties:eks_k8s:not_managed:node_list:interface_list",
-      "section_id": "xcsh-docs:data-sources:securemesh_site_v2:properties:eks_k8s:not_managed:node_list:interface_list:section:9",
-      "source_sha256": "sha256:5b7f3aea6206a6edf18faaf203b42797231f2a71a7be19b71ddfb1870833f05c",
-      "source_bytes": 2544,
-      "canonical_source_sha256": "sha256:325c9bc27592eea5f2e0738f25b6ce6cddaabbdcfc461dc44db9c11f333327a8",
-      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/securemesh_site_v2/properties/eks_k8s/not_managed/node_list/interface_list/",
-      "anchor": "canonical-3033133011323013-2210122323003120-1002312202102110-2223332132020233-2300330321013112-1303320132203030-2010002302331122-3122213210033122",
-      "anchor_map": [],
-      "mode": "embedded",
-      "registry_path": "docs/guides/data-sources--securemesh_site_v2--reference--group-007.md"
-    },
-    {
-      "canonical_id": "xcsh-docs:data-sources:securemesh_site_v2:properties:eks_k8s:not_managed:node_list:interface_list",
-      "section_id": "xcsh-docs:data-sources:securemesh_site_v2:properties:eks_k8s:not_managed:node_list:interface_list:section:10",
-      "source_sha256": "sha256:905a194407f477e6f4791ee418fd53940a99a8e8146ac79cee0be49758271666",
-      "source_bytes": 3785,
-      "canonical_source_sha256": "sha256:325c9bc27592eea5f2e0738f25b6ce6cddaabbdcfc461dc44db9c11f333327a8",
-      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/securemesh_site_v2/properties/eks_k8s/not_managed/node_list/interface_list/",
-      "anchor": "canonical-3131332030103330-3200201300010323-3312131213032231-2101310320233333-0100103323311131-3313213313012300-1013101200000221-2013213320310131",
-      "anchor_map": [],
-      "mode": "embedded",
-      "registry_path": "docs/guides/data-sources--securemesh_site_v2--reference--group-007.md"
-    },
-    {
-      "canonical_id": "xcsh-docs:data-sources:securemesh_site_v2:properties:eks_k8s:not_managed:node_list:interface_list:bond_interface",
-      "section_id": "xcsh-docs:data-sources:securemesh_site_v2:properties:eks_k8s:not_managed:node_list:interface_list:bond_interface:section:0",
-      "source_sha256": "sha256:197d41522a9dd286cb9805a03d8a5bd782cc3f3fd95ea854bf2dfc326e83e50c",
-      "source_bytes": 99,
-      "canonical_source_sha256": "sha256:a540951d9c9852b057fc2d2552d1fd0d009b0c6a061bec130c5d29a27f60da2b",
-      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/securemesh_site_v2/properties/eks_k8s/not_managed/node_list/interface_list/bond_interface/",
-      "anchor": "canonical-0033133322031212-2121200222321312-1002131121323023-1032000213222300-2002123332032020-3023311230322330-0033221220022020-2001332033032313",
-      "anchor_map": [],
-      "mode": "embedded",
-      "registry_path": "docs/guides/data-sources--securemesh_site_v2--reference--group-007.md"
-    },
-    {
-      "canonical_id": "xcsh-docs:data-sources:securemesh_site_v2:properties:eks_k8s:not_managed:node_list:interface_list:bond_interface",
-      "section_id": "xcsh-docs:data-sources:securemesh_site_v2:properties:eks_k8s:not_managed:node_list:interface_list:bond_interface:section:1",
-      "source_sha256": "sha256:8b24b6fff99b49b967564871ebffabc89e45c9761e87ee1d1f8e591909866b40",
-      "source_bytes": 1408,
-      "canonical_source_sha256": "sha256:a540951d9c9852b057fc2d2552d1fd0d009b0c6a061bec130c5d29a27f60da2b",
-      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/securemesh_site_v2/properties/eks_k8s/not_managed/node_list/interface_list/bond_interface/",
-      "anchor": "canonical-0323031010030002-3020032202232323-1111321033323323-0331320200011202-0221200301111110-0033013033211013-1023330011030312-1201322333222123",
-      "anchor_map": [
-        [
-          "section",
-          "canonical-0321210221100113-2303201013302112-0003331130032010-3102312033022131-1101223000311320-3002003310022023-1230133122112320-3032102021331230"
-        ]
-      ],
-      "mode": "embedded",
-      "registry_path": "docs/guides/data-sources--securemesh_site_v2--reference--group-007.md"
-    },
-    {
-      "canonical_id": "xcsh-docs:data-sources:securemesh_site_v2:properties:eks_k8s:not_managed:node_list:interface_list:bond_interface",
-      "section_id": "xcsh-docs:data-sources:securemesh_site_v2:properties:eks_k8s:not_managed:node_list:interface_list:bond_interface:section:2",
-      "source_sha256": "sha256:3242b534a8693635f71358cbb3a5954654e113bbd21209b721d1743528ca1583",
-      "source_bytes": 342,
-      "canonical_source_sha256": "sha256:a540951d9c9852b057fc2d2552d1fd0d009b0c6a061bec130c5d29a27f60da2b",
-      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/securemesh_site_v2/properties/eks_k8s/not_managed/node_list/interface_list/bond_interface/",
-      "anchor": "canonical-1232301123101123-0333033333102120-0031301320212112-2112123213022010-2013203011102211-3320300212200320-0230020301020032-2203201122132002",
-      "anchor_map": [
-        [
-          "schema-eks_k8s--not_managed--node_list--interface_list--bond_interface--devices",
-          "canonical-1000312003011211-2111021102030021-1213221323233120-0030131010001301-3323111231320321-1120030101120230-2102322113302020-1201201232223110"
-        ]
-      ],
-      "mode": "embedded",
-      "registry_path": "docs/guides/data-sources--securemesh_site_v2--reference--group-007.md"
-    },
-    {
-      "canonical_id": "xcsh-docs:data-sources:securemesh_site_v2:properties:eks_k8s:not_managed:node_list:interface_list:bond_interface",
-      "section_id": "xcsh-docs:data-sources:securemesh_site_v2:properties:eks_k8s:not_managed:node_list:interface_list:bond_interface:section:3",
-      "source_sha256": "sha256:2ffd69e22b654ad4fb731c7df51952e2732aa0e0fde699315e82b06985669dcb",
-      "source_bytes": 1540,
-      "canonical_source_sha256": "sha256:a540951d9c9852b057fc2d2552d1fd0d009b0c6a061bec130c5d29a27f60da2b",
-      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/securemesh_site_v2/properties/eks_k8s/not_managed/node_list/interface_list/bond_interface/",
-      "anchor": "canonical-0000203311103323-0022000223313320-2230300113311020-0122212101100110-0213311000101333-1123213220203221-2100230112030023-2130012322130213",
-      "anchor_map": [
-        [
-          "schema-eks_k8s--not_managed--node_list--interface_list--bond_interface--link_polling_interval",
-          "canonical-2211233202130021-3202121330330000-2130120310033303-0010001213132100-1033302321313221-3333223123113220-1121312000101120-2122133130212023"
-        ]
-      ],
-      "mode": "embedded",
-      "registry_path": "docs/guides/data-sources--securemesh_site_v2--reference--group-007.md"
-    },
-    {
-      "canonical_id": "xcsh-docs:data-sources:securemesh_site_v2:properties:eks_k8s:not_managed:node_list:interface_list:bond_interface",
-      "section_id": "xcsh-docs:data-sources:securemesh_site_v2:properties:eks_k8s:not_managed:node_list:interface_list:bond_interface:section:4",
-      "source_sha256": "sha256:d47506ca03611b349a22c47ac040568022d5898906163ba80ad57c7a110c6c59",
-      "source_bytes": 1103,
-      "canonical_source_sha256": "sha256:a540951d9c9852b057fc2d2552d1fd0d009b0c6a061bec130c5d29a27f60da2b",
-      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/securemesh_site_v2/properties/eks_k8s/not_managed/node_list/interface_list/bond_interface/",
-      "anchor": "canonical-3223123013012031-1033322130222122-2213323011110130-2323103230130020-2031321013323120-2200020133001301-3112323233033231-2303202221002023",
-      "anchor_map": [
-        [
-          "schema-eks_k8s--not_managed--node_list--interface_list--bond_interface--link_up_delay",
-          "canonical-2210131223003301-3131222230213222-2212330300223222-1123213203220213-0020000031313113-2013011212331021-2201001230010311-1020111120101100"
-        ]
-      ],
-      "mode": "embedded",
-      "registry_path": "docs/guides/data-sources--securemesh_site_v2--reference--group-007.md"
-    },
-    {
-      "canonical_id": "xcsh-docs:data-sources:securemesh_site_v2:properties:eks_k8s:not_managed:node_list:interface_list:bond_interface",
-      "section_id": "xcsh-docs:data-sources:securemesh_site_v2:properties:eks_k8s:not_managed:node_list:interface_list:bond_interface:section:5",
-      "source_sha256": "sha256:741d740fc098f66d6cc0943daa07980ad56ff9b3ef1de1c09a512c90deea6672",
-      "source_bytes": 1001,
-      "canonical_source_sha256": "sha256:a540951d9c9852b057fc2d2552d1fd0d009b0c6a061bec130c5d29a27f60da2b",
-      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/securemesh_site_v2/properties/eks_k8s/not_managed/node_list/interface_list/bond_interface/",
-      "anchor": "canonical-1113100220132113-3300031310321220-3022012302322130-1020221022312201-3023003123230301-3011223101220001-2002013311010300-3300000032112010",
-      "anchor_map": [
-        [
-          "schema-eks_k8s--not_managed--node_list--interface_list--bond_interface--name",
-          "canonical-2030211110333322-1333032122210100-1000333003221220-1100112013213123-2030302332003333-3310310310001133-1103313202310232-1322221303002331"
-        ]
-      ],
-      "mode": "embedded",
-      "registry_path": "docs/guides/data-sources--securemesh_site_v2--reference--group-007.md"
-    },
-    {
-      "canonical_id": "xcsh-docs:data-sources:securemesh_site_v2:properties:eks_k8s:not_managed:node_list:interface_list:bond_interface",
-      "section_id": "xcsh-docs:data-sources:securemesh_site_v2:properties:eks_k8s:not_managed:node_list:interface_list:bond_interface:section:6",
-      "source_sha256": "sha256:ac8c9fce1ea25f5328c8f4dce5b3cdd70398b49dce6364aa03116e7077aab8cc",
-      "source_bytes": 1439,
-      "canonical_source_sha256": "sha256:a540951d9c9852b057fc2d2552d1fd0d009b0c6a061bec130c5d29a27f60da2b",
-      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/securemesh_site_v2/properties/eks_k8s/not_managed/node_list/interface_list/bond_interface/",
-      "anchor": "canonical-2031013022221231-1101222201012010-0231211112312111-0323023212210101-3110310313212301-1133113132130322-3122302330322320-2301002002102120",
-      "anchor_map": [],
-      "mode": "embedded",
-      "registry_path": "docs/guides/data-sources--securemesh_site_v2--reference--group-007.md"
-    },
-    {
-      "canonical_id": "xcsh-docs:data-sources:securemesh_site_v2:properties:eks_k8s:not_managed:node_list:interface_list:bond_interface",
-      "section_id": "xcsh-docs:data-sources:securemesh_site_v2:properties:eks_k8s:not_managed:node_list:interface_list:bond_interface:section:7",
-      "source_sha256": "sha256:0f5358a13e92d3e60fb5d21a96d1ef1d404b4c0877502171e668b9d1f38db844",
-      "source_bytes": 816,
-      "canonical_source_sha256": "sha256:a540951d9c9852b057fc2d2552d1fd0d009b0c6a061bec130c5d29a27f60da2b",
-      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/securemesh_site_v2/properties/eks_k8s/not_managed/node_list/interface_list/bond_interface/",
-      "anchor": "canonical-3000001331120032-0112132000222300-1031102132303000-3021122113202112-0021222100311312-2110131100232011-0010231111022110-3331020222012303",
-      "anchor_map": [],
-      "mode": "embedded",
-      "registry_path": "docs/guides/data-sources--securemesh_site_v2--reference--group-007.md"
-    },
-    {
-      "canonical_id": "xcsh-docs:data-sources:securemesh_site_v2:properties:eks_k8s:not_managed:node_list:interface_list:bond_interface:active_backup",
-      "section_id": "xcsh-docs:data-sources:securemesh_site_v2:properties:eks_k8s:not_managed:node_list:interface_list:bond_interface:active_backup:section:0",
-      "source_sha256": "sha256:197d41522a9dd286cb9805a03d8a5bd782cc3f3fd95ea854bf2dfc326e83e50c",
-      "source_bytes": 99,
-      "canonical_source_sha256": "sha256:a02fdca004e356206a807655062e809d2dc8ac808e8098d42cb5c1e09b89dc1c",
-      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/securemesh_site_v2/properties/eks_k8s/not_managed/node_list/interface_list/bond_interface/active_backup/",
-      "anchor": "canonical-0021000323202202-0023333301323233-1020223213313032-0203332100203302-0010130230121313-2222303110223301-2030313001123110-1331230321331230",
-      "anchor_map": [],
-      "mode": "embedded",
-      "registry_path": "docs/guides/data-sources--securemesh_site_v2--reference--group-007.md"
-    },
-    {
-      "canonical_id": "xcsh-docs:data-sources:securemesh_site_v2:properties:eks_k8s:not_managed:node_list:interface_list:bond_interface:active_backup",
-      "section_id": "xcsh-docs:data-sources:securemesh_site_v2:properties:eks_k8s:not_managed:node_list:interface_list:bond_interface:active_backup:section:1",
-      "source_sha256": "sha256:1e88fb72cf6ae54e2c13d167770fa32ac39940d76c4092f96c0f2db547b5208a",
-      "source_bytes": 1619,
-      "canonical_source_sha256": "sha256:a02fdca004e356206a807655062e809d2dc8ac808e8098d42cb5c1e09b89dc1c",
-      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/securemesh_site_v2/properties/eks_k8s/not_managed/node_list/interface_list/bond_interface/active_backup/",
-      "anchor": "canonical-3223010020302320-2231031301001210-2203211001120121-0031001101200023-2313223333230012-0030011200303122-0230122100332131-3211231113203011",
-      "anchor_map": [
-        [
-          "section",
-          "canonical-0310210010333132-1032202012132100-3230222122200122-1111113212310122-3313321320021011-0331103221021123-2013023312023131-2022231100223212"
-        ]
-      ],
-      "mode": "embedded",
-      "registry_path": "docs/guides/data-sources--securemesh_site_v2--reference--group-007.md"
-    },
-    {
-      "canonical_id": "xcsh-docs:data-sources:securemesh_site_v2:properties:eks_k8s:not_managed:node_list:interface_list:bond_interface:active_backup",
-      "section_id": "xcsh-docs:data-sources:securemesh_site_v2:properties:eks_k8s:not_managed:node_list:interface_list:bond_interface:active_backup:section:2",
-      "source_sha256": "sha256:0d4398201e18f9ddb2ea00ceed6d3256755ea4d008d849d1cec42dab5c55f1b5",
-      "source_bytes": 94,
-      "canonical_source_sha256": "sha256:a02fdca004e356206a807655062e809d2dc8ac808e8098d42cb5c1e09b89dc1c",
-      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/securemesh_site_v2/properties/eks_k8s/not_managed/node_list/interface_list/bond_interface/active_backup/",
-      "anchor": "canonical-3323301123110210-0232132201313101-3012313222032122-1101211332021020-2003030101210311-0123302031221012-0021101011132223-3031331132330200",
-      "anchor_map": [],
-      "mode": "embedded",
-      "registry_path": "docs/guides/data-sources--securemesh_site_v2--reference--group-007.md"
-    },
-    {
-      "canonical_id": "xcsh-docs:data-sources:securemesh_site_v2:properties:eks_k8s:not_managed:node_list:interface_list:bond_interface:active_backup",
-      "section_id": "xcsh-docs:data-sources:securemesh_site_v2:properties:eks_k8s:not_managed:node_list:interface_list:bond_interface:active_backup:section:3",
-      "source_sha256": "sha256:55c636cbee2036027131ef816bcb7b5f41ff5a1a96a9b5058ae6acf405396694",
-      "source_bytes": 358,
-      "canonical_source_sha256": "sha256:a02fdca004e356206a807655062e809d2dc8ac808e8098d42cb5c1e09b89dc1c",
-      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/securemesh_site_v2/properties/eks_k8s/not_managed/node_list/interface_list/bond_interface/active_backup/",
-      "anchor": "canonical-3321210112122121-3303220130020031-3122330333120210-1320330332123233-0210002320202311-2232133012133023-3100221130322300-2323220111211130",
-      "anchor_map": [],
-      "mode": "embedded",
-      "registry_path": "docs/guides/data-sources--securemesh_site_v2--reference--group-007.md"
-    },
-    {
-      "canonical_id": "xcsh-docs:data-sources:securemesh_site_v2:properties:eks_k8s:not_managed:node_list:interface_list:bond_interface:lacp",
-      "section_id": "xcsh-docs:data-sources:securemesh_site_v2:properties:eks_k8s:not_managed:node_list:interface_list:bond_interface:lacp:section:0",
-      "source_sha256": "sha256:197d41522a9dd286cb9805a03d8a5bd782cc3f3fd95ea854bf2dfc326e83e50c",
-      "source_bytes": 99,
-      "canonical_source_sha256": "sha256:0ef2be58a6303065352027ee3ec1962cfc8d30a2c3c57927d9de6e4e85f78079",
-      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/securemesh_site_v2/properties/eks_k8s/not_managed/node_list/interface_list/bond_interface/lacp/",
-      "anchor": "canonical-0023211123312100-2111310101030302-2301212111322230-1121311023100033-0230220120312101-3302013022332220-0223100032312322-3312121123220323",
-      "anchor_map": [],
-      "mode": "embedded",
-      "registry_path": "docs/guides/data-sources--securemesh_site_v2--reference--group-007.md"
-    },
-    {
-      "canonical_id": "xcsh-docs:data-sources:securemesh_site_v2:properties:eks_k8s:not_managed:node_list:interface_list:bond_interface:lacp",
-      "section_id": "xcsh-docs:data-sources:securemesh_site_v2:properties:eks_k8s:not_managed:node_list:interface_list:bond_interface:lacp:section:1",
-      "source_sha256": "sha256:344c464a14cbc9330a543b9ac3d7e051e401582db4df730c9cc5617ce9e0e365",
-      "source_bytes": 1585,
-      "canonical_source_sha256": "sha256:0ef2be58a6303065352027ee3ec1962cfc8d30a2c3c57927d9de6e4e85f78079",
-      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/securemesh_site_v2/properties/eks_k8s/not_managed/node_list/interface_list/bond_interface/lacp/",
-      "anchor": "canonical-2122120110111130-2320022223123003-3132101122310123-3211101011210131-2130020231011033-3132100133010300-3122233110312000-3003022013122133",
-      "anchor_map": [
-        [
-          "section",
-          "canonical-1332022121223201-3220001333233021-0020231300232122-1102131301003333-3002001331330203-1113112231321322-3020200000132020-2222321023310002"
-        ]
-      ],
-      "mode": "embedded",
-      "registry_path": "docs/guides/data-sources--securemesh_site_v2--reference--group-007.md"
-    },
-    {
-      "canonical_id": "xcsh-docs:data-sources:securemesh_site_v2:properties:eks_k8s:not_managed:node_list:interface_list:bond_interface:lacp",
-      "section_id": "xcsh-docs:data-sources:securemesh_site_v2:properties:eks_k8s:not_managed:node_list:interface_list:bond_interface:lacp:section:2",
-      "source_sha256": "sha256:5ef998988ee1078a5295328a43dc93ec63e459e1984eb061c8859e639b192927",
-      "source_bytes": 119,
-      "canonical_source_sha256": "sha256:0ef2be58a6303065352027ee3ec1962cfc8d30a2c3c57927d9de6e4e85f78079",
-      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/securemesh_site_v2/properties/eks_k8s/not_managed/node_list/interface_list/bond_interface/lacp/",
-      "anchor": "canonical-1213300123211110-3331002323302312-0120131233330123-2022003232313121-2233110321021113-0201102302130300-2301323032011020-3002311313021012",
-      "anchor_map": [
-        [
-          "schema-eks_k8s--not_managed--node_list--interface_list--bond_interface--lacp--rate",
-          "canonical-2011310120001321-2212201100302212-3030332321000131-0332011121002233-1320310121101312-0231011103311121-3100321313321030-0020012302223012"
-        ]
-      ],
-      "mode": "embedded",
-      "registry_path": "docs/guides/data-sources--securemesh_site_v2--reference--group-007.md"
-    },
-    {
-      "canonical_id": "xcsh-docs:data-sources:securemesh_site_v2:properties:eks_k8s:not_managed:node_list:interface_list:bond_interface:lacp",
-      "section_id": "xcsh-docs:data-sources:securemesh_site_v2:properties:eks_k8s:not_managed:node_list:interface_list:bond_interface:lacp:section:3",
-      "source_sha256": "sha256:215b9fc0a55b4e7b7055a59dab76147a1013aeebae962f7a30792790a55f37c9",
-      "source_bytes": 791,
-      "canonical_source_sha256": "sha256:0ef2be58a6303065352027ee3ec1962cfc8d30a2c3c57927d9de6e4e85f78079",
-      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/securemesh_site_v2/properties/eks_k8s/not_managed/node_list/interface_list/bond_interface/lacp/",
-      "anchor": "canonical-3320111121110212-0311011300202113-1312230120023213-2300011021200303-3203322030023123-2333212323331122-3131323202312200-3011302301000321",
-      "anchor_map": [],
-      "mode": "embedded",
-      "registry_path": "docs/guides/data-sources--securemesh_site_v2--reference--group-007.md"
-    },
-    {
-      "canonical_id": "xcsh-docs:data-sources:securemesh_site_v2:properties:eks_k8s:not_managed:node_list:interface_list:bond_interface:lacp",
-      "section_id": "xcsh-docs:data-sources:securemesh_site_v2:properties:eks_k8s:not_managed:node_list:interface_list:bond_interface:lacp:section:4",
-      "source_sha256": "sha256:55c636cbee2036027131ef816bcb7b5f41ff5a1a96a9b5058ae6acf405396694",
-      "source_bytes": 358,
-      "canonical_source_sha256": "sha256:0ef2be58a6303065352027ee3ec1962cfc8d30a2c3c57927d9de6e4e85f78079",
-      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/securemesh_site_v2/properties/eks_k8s/not_managed/node_list/interface_list/bond_interface/lacp/",
-      "anchor": "canonical-0310201130301111-0023220330103331-2023002123030312-1312330301011030-3311033301232002-3232130113202311-0223020201330302-0032313020231010",
-      "anchor_map": [],
-      "mode": "embedded",
-      "registry_path": "docs/guides/data-sources--securemesh_site_v2--reference--group-007.md"
-    },
-    {
-      "canonical_id": "xcsh-docs:data-sources:securemesh_site_v2:properties:eks_k8s:not_managed:node_list:interface_list:dhcp_client",
-      "section_id": "xcsh-docs:data-sources:securemesh_site_v2:properties:eks_k8s:not_managed:node_list:interface_list:dhcp_client:section:0",
-      "source_sha256": "sha256:197d41522a9dd286cb9805a03d8a5bd782cc3f3fd95ea854bf2dfc326e83e50c",
-      "source_bytes": 99,
-      "canonical_source_sha256": "sha256:2265469fc6a8e043cd800edd5d6dd55c52d19e1a74e3ca45157e048607c69c09",
-      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/securemesh_site_v2/properties/eks_k8s/not_managed/node_list/interface_list/dhcp_client/",
-      "anchor": "canonical-3011103132221220-0312310320321320-2313013102101231-2103133321330323-0313333032310233-1201033222300131-3213202330132230-0011313320331003",
-      "anchor_map": [],
-      "mode": "embedded",
-      "registry_path": "docs/guides/data-sources--securemesh_site_v2--reference--group-007.md"
-    },
-    {
-      "canonical_id": "xcsh-docs:data-sources:securemesh_site_v2:properties:eks_k8s:not_managed:node_list:interface_list:dhcp_client",
-      "section_id": "xcsh-docs:data-sources:securemesh_site_v2:properties:eks_k8s:not_managed:node_list:interface_list:dhcp_client:section:1",
-      "source_sha256": "sha256:3c001104a4f0dfd2bf6d1ace94e60c2b75348f812befe4439475014deb1b3147",
-      "source_bytes": 1336,
-      "canonical_source_sha256": "sha256:2265469fc6a8e043cd800edd5d6dd55c52d19e1a74e3ca45157e048607c69c09",
-      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/securemesh_site_v2/properties/eks_k8s/not_managed/node_list/interface_list/dhcp_client/",
-      "anchor": "canonical-0211001330221020-0031100221311132-1233332021103322-3012032232100311-1231212323331232-0112203012002211-2102211122002111-2111000200233323",
-      "anchor_map": [
-        [
-          "section",
-          "canonical-0222023020102031-1032112132303132-0321110322332123-1031321331033313-1213223003012001-2300202112100201-3021112113200103-1131101331132232"
-        ]
-      ],
-      "mode": "embedded",
-      "registry_path": "docs/guides/data-sources--securemesh_site_v2--reference--group-007.md"
-    },
-    {
-      "canonical_id": "xcsh-docs:data-sources:securemesh_site_v2:properties:eks_k8s:not_managed:node_list:interface_list:dhcp_client",
-      "section_id": "xcsh-docs:data-sources:securemesh_site_v2:properties:eks_k8s:not_managed:node_list:interface_list:dhcp_client:section:2",
-      "source_sha256": "sha256:0d4398201e18f9ddb2ea00ceed6d3256755ea4d008d849d1cec42dab5c55f1b5",
-      "source_bytes": 94,
-      "canonical_source_sha256": "sha256:2265469fc6a8e043cd800edd5d6dd55c52d19e1a74e3ca45157e048607c69c09",
-      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/securemesh_site_v2/properties/eks_k8s/not_managed/node_list/interface_list/dhcp_client/",
-      "anchor": "canonical-3321311201223112-3033113113300231-2011310312010313-1311233100033103-1320230020003000-0010220031030022-1001232012310211-0012100012103000",
-      "anchor_map": [],
-      "mode": "embedded",
-      "registry_path": "docs/guides/data-sources--securemesh_site_v2--reference--group-007.md"
-    },
-    {
-      "canonical_id": "xcsh-docs:data-sources:securemesh_site_v2:properties:eks_k8s:not_managed:node_list:interface_list:dhcp_client",
-      "section_id": "xcsh-docs:data-sources:securemesh_site_v2:properties:eks_k8s:not_managed:node_list:interface_list:dhcp_client:section:3",
-      "source_sha256": "sha256:2f7b4b506ebb3a1bc5aa1dd14fbded576fdd08f73320ddf43a348c3dffba1b98",
-      "source_bytes": 328,
-      "canonical_source_sha256": "sha256:2265469fc6a8e043cd800edd5d6dd55c52d19e1a74e3ca45157e048607c69c09",
-      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/securemesh_site_v2/properties/eks_k8s/not_managed/node_list/interface_list/dhcp_client/",
-      "anchor": "canonical-1203233100021212-2012120333022212-1122131102230223-2230001300311122-1021212302102210-3121200021012030-1121121032211012-3102002032313133",
-      "anchor_map": [],
       "mode": "embedded",
       "registry_path": "docs/guides/data-sources--securemesh_site_v2--reference--group-007.md"
     }

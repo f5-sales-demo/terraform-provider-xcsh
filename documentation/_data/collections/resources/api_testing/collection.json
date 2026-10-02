@@ -370,7 +370,7 @@
         "xcsh-docs:resources:api_testing:timeouts"
       ],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -382,7 +382,7 @@
       "path": "documentation/resources/api_testing/index.md",
       "product": "distributed-cloud",
       "provider_name": "api_testing",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "resources",
       "registry_anchor": "canonical-1320313112233301-2001010323023332-0002303200021012-0212000001111221-2303001322120031-0333103011303201-3210321332031231-3311000110203202",
       "registry_path": "docs/resources/api_testing.md",
@@ -417,7 +417,7 @@
         "xcsh-docs:resources:api_testing:properties:timeouts"
       ],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -429,7 +429,7 @@
       "path": "documentation/resources/api_testing/properties/index.md",
       "product": "distributed-cloud",
       "provider_name": "api_testing",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "resources",
       "registry_anchor": "canonical-1331011221020002-0101113010020201-3000223003122333-2221100022203120-0003123322222021-1111021213002232-3230122010113202-3110332000132333",
       "registry_path": "docs/guides/resources--api_testing--reference--group-001.md",
@@ -495,7 +495,7 @@
           "type": "bool"
         },
         {
-          "aliases": ["authentication", "credential setup", "credentials", "domains"],
+          "aliases": ["domains"],
           "anchor": "section",
           "description": "Add and configure testing domains and credentials.",
           "document_id": "xcsh-docs:resources:api_testing:properties:domains",
@@ -650,14 +650,14 @@
       }
     },
     {
-      "aliases": ["authentication", "credential setup", "credentials", "domains"],
+      "aliases": ["domains"],
       "body_bytes": 3750,
       "body_sha256": "sha256:066b521f3cb46000fe13a1c679898766defd9419697700a957b87b4ed491042a",
       "capabilities": ["api-management"],
       "category": "api-management",
       "child_ids": ["xcsh-docs:resources:api_testing:properties:domains:credentials"],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -669,7 +669,7 @@
       "path": "documentation/resources/api_testing/properties/domains/index.md",
       "product": "distributed-cloud",
       "provider_name": "api_testing",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "resources",
       "registry_anchor": "canonical-2223022033230132-1100002031201033-2300302100332300-0002201023313131-3033303322000202-3203110011331213-1121223222031011-2320202032031303",
       "registry_path": "docs/guides/resources--api_testing--reference--group-001.md",
@@ -885,7 +885,7 @@
         "xcsh-docs:resources:api_testing:properties:domains:credentials:standard"
       ],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -897,7 +897,7 @@
       "path": "documentation/resources/api_testing/properties/domains/credentials/index.md",
       "product": "distributed-cloud",
       "provider_name": "api_testing",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "resources",
       "registry_anchor": "canonical-1203220111020303-0212211321110103-2232032300111100-0122020313110201-1322013123200132-3132023321123022-3133220101003103-0222223211321301",
       "registry_path": "docs/guides/resources--api_testing--reference--group-001.md",
@@ -1065,7 +1065,7 @@
           "type": "object"
         },
         {
-          "aliases": ["authentication", "basic auth", "credential setup", "credentials"],
+          "aliases": ["basic auth"],
           "anchor": "section",
           "description": "Basic Authentication.",
           "document_id": "xcsh-docs:resources:api_testing:properties:domains:credentials:basic_auth",
@@ -1173,14 +1173,14 @@
       }
     },
     {
-      "aliases": ["authentication", "credential setup", "credentials", "domains credentials admin"],
+      "aliases": ["domains credentials admin"],
       "body_bytes": 1359,
       "body_sha256": "sha256:66ec3a9d249618dac94486e9ec97315f693e776c6173e0f300d5f1174c6bfbf8",
       "capabilities": ["api-management"],
       "category": "api-management",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -1192,7 +1192,7 @@
       "path": "documentation/resources/api_testing/properties/domains/credentials/admin/index.md",
       "product": "distributed-cloud",
       "provider_name": "api_testing",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "resources",
       "registry_anchor": "canonical-3122213202111132-2220200131230222-0133133211302110-1003333230010112-1301022313033321-3313323120100023-0323021032320223-2301233300101212",
       "registry_path": "docs/guides/resources--api_testing--reference--group-001.md",
@@ -1213,14 +1213,14 @@
       }
     },
     {
-      "aliases": ["authentication", "credential setup", "credentials", "domains credentials api key"],
+      "aliases": ["domains credentials api key"],
       "body_bytes": 2786,
       "body_sha256": "sha256:c51b8ae8892dcd068498d9808c4e82853b53fcc591324f5ff9874086986d602a",
       "capabilities": ["api-management"],
       "category": "api-management",
       "child_ids": ["xcsh-docs:resources:api_testing:properties:domains:credentials:api_key:value"],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -1232,7 +1232,7 @@
       "path": "documentation/resources/api_testing/properties/domains/credentials/api_key/index.md",
       "product": "distributed-cloud",
       "provider_name": "api_testing",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "resources",
       "registry_anchor": "canonical-1310322331313200-2120112223003333-0312311302230121-2213021111301031-2322202103201013-1111001112101213-0113333213002202-2021030011001022",
       "registry_path": "docs/guides/resources--api_testing--reference--group-001.md",
@@ -1308,7 +1308,7 @@
       }
     },
     {
-      "aliases": ["authentication", "credential setup", "credentials", "domains credentials api key value"],
+      "aliases": ["domains credentials api key value"],
       "body_bytes": 2597,
       "body_sha256": "sha256:785844890f48463bb5a4e480d10f5b2314e0d2260f777dd2516066cd08dd3707",
       "capabilities": ["api-management"],
@@ -1318,7 +1318,7 @@
         "xcsh-docs:resources:api_testing:properties:domains:credentials:api_key:value:clear_secret_info"
       ],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -1330,7 +1330,7 @@
       "path": "documentation/resources/api_testing/properties/domains/credentials/api_key/value/index.md",
       "product": "distributed-cloud",
       "provider_name": "api_testing",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "resources",
       "registry_anchor": "canonical-3112312300210202-3311001121123231-0122332323322133-3231220321010003-0113121030320031-2220103203012320-3030121332213200-3312201110021123",
       "registry_path": "docs/guides/resources--api_testing--reference--group-001.md",
@@ -1415,19 +1415,14 @@
       }
     },
     {
-      "aliases": [
-        "authentication",
-        "credential setup",
-        "credentials",
-        "domains credentials api key value blindfold secret info"
-      ],
+      "aliases": ["domains credentials api key value blindfold secret info"],
       "body_bytes": 5202,
       "body_sha256": "sha256:b6115e502f81f19b3505f927036671927057436b84078a3223fc81b78ba77119",
       "capabilities": ["api-management"],
       "category": "api-management",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -1439,7 +1434,7 @@
       "path": "documentation/resources/api_testing/properties/domains/credentials/api_key/value/blindfold_secret_info/index.md",
       "product": "distributed-cloud",
       "provider_name": "api_testing",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "resources",
       "registry_anchor": "canonical-3331223013111213-0020133123123113-3132023101001010-3131110011120123-1010212301302003-0133300202030211-3312223111200111-1333321131233102",
       "registry_path": "docs/guides/resources--api_testing--reference--group-001.md",
@@ -1458,7 +1453,7 @@
       "schema_path": ["domains", "credentials", "api_key", "value", "blindfold_secret_info"],
       "sections": [
         {
-          "aliases": ["backend servers", "decryption provider", "origin servers", "upstream servers"],
+          "aliases": ["decryption provider"],
           "anchor": "schema-domains--credentials--api_key--value--blindfold_secret_info--decryption_provider",
           "description": "Name of the Secret Management Access object that contains information about the backend Secret Management service.",
           "document_id": "xcsh-docs:resources:api_testing:properties:domains:credentials:api_key:value:blindfold_secret_info",
@@ -1512,19 +1507,14 @@
       }
     },
     {
-      "aliases": [
-        "authentication",
-        "credential setup",
-        "credentials",
-        "domains credentials api key value clear secret info"
-      ],
+      "aliases": ["domains credentials api key value clear secret info"],
       "body_bytes": 4077,
       "body_sha256": "sha256:3abcad1b5c3db6455bfaa7cbe93b7df9a114ba1c7cdf8df5e2eb803e22bb5efc",
       "capabilities": ["api-management"],
       "category": "api-management",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -1536,7 +1526,7 @@
       "path": "documentation/resources/api_testing/properties/domains/credentials/api_key/value/clear_secret_info/index.md",
       "product": "distributed-cloud",
       "provider_name": "api_testing",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "resources",
       "registry_anchor": "canonical-3001133012120300-1300303320332233-3102000022233033-2330210212201023-3032213011331222-0123332203013322-2000000000132111-2003233300001211",
       "registry_path": "docs/guides/resources--api_testing--reference--group-001.md",
@@ -1595,14 +1585,14 @@
       }
     },
     {
-      "aliases": ["authentication", "credential setup", "credentials", "domains credentials basic auth"],
+      "aliases": ["domains credentials basic auth"],
       "body_bytes": 3036,
       "body_sha256": "sha256:185007337f8ef8a2d11b600a7d39bc045992341d3ac638f351d0564b1aff0b64",
       "capabilities": ["api-management"],
       "category": "api-management",
       "child_ids": ["xcsh-docs:resources:api_testing:properties:domains:credentials:basic_auth:password"],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -1614,7 +1604,7 @@
       "path": "documentation/resources/api_testing/properties/domains/credentials/basic_auth/index.md",
       "product": "distributed-cloud",
       "provider_name": "api_testing",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "resources",
       "registry_anchor": "canonical-2033211223323113-2331012220022033-1231231000223221-2233221003202021-1033332122310111-3220032320212333-1202210233011231-1200331122120232",
       "registry_path": "docs/guides/resources--api_testing--reference--group-001.md",
@@ -1690,7 +1680,7 @@
       }
     },
     {
-      "aliases": ["authentication", "credential setup", "credentials", "domains credentials basic auth password"],
+      "aliases": ["domains credentials basic auth password"],
       "body_bytes": 2660,
       "body_sha256": "sha256:308d157f5afba225b04af8f211bc98929cd73fc54cee2ab302a5b652c8a88339",
       "capabilities": ["api-management"],
@@ -1700,7 +1690,7 @@
         "xcsh-docs:resources:api_testing:properties:domains:credentials:basic_auth:password:clear_secret_info"
       ],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -1712,7 +1702,7 @@
       "path": "documentation/resources/api_testing/properties/domains/credentials/basic_auth/password/index.md",
       "product": "distributed-cloud",
       "provider_name": "api_testing",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "resources",
       "registry_anchor": "canonical-0331001113312230-0103212312121003-3301131202232210-0030032301331230-2000023223320332-2223310231011101-0321013212233130-0331111000302321",
       "registry_path": "docs/guides/resources--api_testing--reference--group-001.md",
@@ -1797,19 +1787,14 @@
       }
     },
     {
-      "aliases": [
-        "authentication",
-        "credential setup",
-        "credentials",
-        "domains credentials basic auth password blindfold secret info"
-      ],
+      "aliases": ["domains credentials basic auth password blindfold secret info"],
       "body_bytes": 5262,
       "body_sha256": "sha256:f3aff314b2685889c9cf8e76d7e236549b3c9e98ca11dbe0862b30a006836d47",
       "capabilities": ["api-management"],
       "category": "api-management",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -1821,7 +1806,7 @@
       "path": "documentation/resources/api_testing/properties/domains/credentials/basic_auth/password/blindfold_secret_info/index.md",
       "product": "distributed-cloud",
       "provider_name": "api_testing",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "resources",
       "registry_anchor": "canonical-1221122211110303-2002333300112000-2020122103130301-2332003200330003-0112322010300121-3221100211322001-3112023100212002-0210332110321233",
       "registry_path": "docs/guides/resources--api_testing--reference--group-001.md",
@@ -1840,7 +1825,7 @@
       "schema_path": ["domains", "credentials", "basic_auth", "password", "blindfold_secret_info"],
       "sections": [
         {
-          "aliases": ["backend servers", "decryption provider", "origin servers", "upstream servers"],
+          "aliases": ["decryption provider"],
           "anchor": "schema-domains--credentials--basic_auth--password--blindfold_secret_info--decryption_provider",
           "description": "Name of the Secret Management Access object that contains information about the backend Secret Management service.",
           "document_id": "xcsh-docs:resources:api_testing:properties:domains:credentials:basic_auth:password:blindfold_secret_info",
@@ -1908,19 +1893,14 @@
       }
     },
     {
-      "aliases": [
-        "authentication",
-        "credential setup",
-        "credentials",
-        "domains credentials basic auth password clear secret info"
-      ],
+      "aliases": ["domains credentials basic auth password clear secret info"],
       "body_bytes": 4131,
       "body_sha256": "sha256:ce54b6c910d6ed036d7d0d03738935a7a526290dc44a9597f9a1bda3bbd1b683",
       "capabilities": ["api-management"],
       "category": "api-management",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -1932,7 +1912,7 @@
       "path": "documentation/resources/api_testing/properties/domains/credentials/basic_auth/password/clear_secret_info/index.md",
       "product": "distributed-cloud",
       "provider_name": "api_testing",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "resources",
       "registry_anchor": "canonical-3212220103120302-0030133000303200-2331131233300221-0322031110200102-3031123333300231-2121300211112002-3123300200212311-2112333311000220",
       "registry_path": "docs/guides/resources--api_testing--reference--group-001.md",
@@ -1991,14 +1971,14 @@
       }
     },
     {
-      "aliases": ["authentication", "credential setup", "credentials", "domains credentials bearer token"],
+      "aliases": ["domains credentials bearer token"],
       "body_bytes": 1655,
       "body_sha256": "sha256:2d402a8b136803e600c47b889e946db9d989a4ea99441c20965b95b62e159f8d",
       "capabilities": ["api-management"],
       "category": "api-management",
       "child_ids": ["xcsh-docs:resources:api_testing:properties:domains:credentials:bearer_token:token"],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -2010,7 +1990,7 @@
       "path": "documentation/resources/api_testing/properties/domains/credentials/bearer_token/index.md",
       "product": "distributed-cloud",
       "provider_name": "api_testing",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "resources",
       "registry_anchor": "canonical-2102000003130030-2110103012123130-2321313213030133-0300232112121133-0122113201230000-1100213033111103-1323112220033201-2121323232122323",
       "registry_path": "docs/guides/resources--api_testing--reference--group-001.md",
@@ -2063,7 +2043,7 @@
       }
     },
     {
-      "aliases": ["authentication", "credential setup", "credentials", "domains credentials bearer token token"],
+      "aliases": ["domains credentials bearer token token"],
       "body_bytes": 2657,
       "body_sha256": "sha256:5409892280066eae14ce044fefd190dffa004562ab54543a878e2ff5262fcc92",
       "capabilities": ["api-management"],
@@ -2073,7 +2053,7 @@
         "xcsh-docs:resources:api_testing:properties:domains:credentials:bearer_token:token:clear_secret_info"
       ],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -2085,7 +2065,7 @@
       "path": "documentation/resources/api_testing/properties/domains/credentials/bearer_token/token/index.md",
       "product": "distributed-cloud",
       "provider_name": "api_testing",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "resources",
       "registry_anchor": "canonical-0221310330223200-0113211011210010-2312122011223200-1211230323232203-3032330002023120-0332002120320212-3323002210333322-1100010202103100",
       "registry_path": "docs/guides/resources--api_testing--reference--group-001.md",
@@ -2170,19 +2150,14 @@
       }
     },
     {
-      "aliases": [
-        "authentication",
-        "credential setup",
-        "credentials",
-        "domains credentials bearer token token blindfold secret info"
-      ],
+      "aliases": ["domains credentials bearer token token blindfold secret info"],
       "body_bytes": 5257,
       "body_sha256": "sha256:50e3c0705b327fda8afd0a4be8bf54acb3c8af56f99c30eb8789097fe307c093",
       "capabilities": ["api-management"],
       "category": "api-management",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -2194,7 +2169,7 @@
       "path": "documentation/resources/api_testing/properties/domains/credentials/bearer_token/token/blindfold_secret_info/index.md",
       "product": "distributed-cloud",
       "provider_name": "api_testing",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "resources",
       "registry_anchor": "canonical-1032130023210230-3320320002021221-2031122211110123-3021021333101011-1303013111230213-0230132013113210-0330023312220333-1013312103003223",
       "registry_path": "docs/guides/resources--api_testing--reference--group-001.md",
@@ -2213,7 +2188,7 @@
       "schema_path": ["domains", "credentials", "bearer_token", "token", "blindfold_secret_info"],
       "sections": [
         {
-          "aliases": ["backend servers", "decryption provider", "origin servers", "upstream servers"],
+          "aliases": ["decryption provider"],
           "anchor": "schema-domains--credentials--bearer_token--token--blindfold_secret_info--decryption_provider",
           "description": "Name of the Secret Management Access object that contains information about the backend Secret Management service.",
           "document_id": "xcsh-docs:resources:api_testing:properties:domains:credentials:bearer_token:token:blindfold_secret_info",
@@ -2274,19 +2249,14 @@
       }
     },
     {
-      "aliases": [
-        "authentication",
-        "credential setup",
-        "credentials",
-        "domains credentials bearer token token clear secret info"
-      ],
+      "aliases": ["domains credentials bearer token token clear secret info"],
       "body_bytes": 4127,
       "body_sha256": "sha256:f2b16275c02dc3f7213fd1d5c1886c984621b426847ecb1baf7542dbe0cfe91c",
       "capabilities": ["api-management"],
       "category": "api-management",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -2298,7 +2268,7 @@
       "path": "documentation/resources/api_testing/properties/domains/credentials/bearer_token/token/clear_secret_info/index.md",
       "product": "distributed-cloud",
       "provider_name": "api_testing",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "resources",
       "registry_anchor": "canonical-3130120303123330-1023021233102223-0120333013210120-2122200120031100-1221203330302230-2333113003331000-3023221203130103-3200322201132003",
       "registry_path": "docs/guides/resources--api_testing--reference--group-001.md",
@@ -2357,22 +2327,14 @@
       }
     },
     {
-      "aliases": [
-        "authentication",
-        "credential setup",
-        "credentials",
-        "domains credentials login endpoint",
-        "login",
-        "login result",
-        "sign in"
-      ],
+      "aliases": ["domains credentials login endpoint", "login", "login result", "sign in"],
       "body_bytes": 5033,
       "body_sha256": "sha256:c861224313a340372eb0a8d265c0d5a4bacfab9d663b815f698d31233ba7a07b",
       "capabilities": ["api-management"],
       "category": "api-management",
       "child_ids": ["xcsh-docs:resources:api_testing:properties:domains:credentials:login_endpoint:json_payload"],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -2384,7 +2346,7 @@
       "path": "documentation/resources/api_testing/properties/domains/credentials/login_endpoint/index.md",
       "product": "distributed-cloud",
       "provider_name": "api_testing",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "resources",
       "registry_anchor": "canonical-1312310220102302-0103103210322222-2130003122012103-0203103010212333-3203303011133113-2023122313232220-2020331001121111-1332103212030311",
       "registry_path": "docs/guides/resources--api_testing--reference--group-001.md",
@@ -2496,15 +2458,7 @@
       }
     },
     {
-      "aliases": [
-        "authentication",
-        "credential setup",
-        "credentials",
-        "domains credentials login endpoint json payload",
-        "login",
-        "login result",
-        "sign in"
-      ],
+      "aliases": ["domains credentials login endpoint json payload", "login", "login result", "sign in"],
       "body_bytes": 2744,
       "body_sha256": "sha256:c6c9e18522c5cec722ff97b5437f0c8e21254d5b85e240864e9ec7cdb9f8f06f",
       "capabilities": ["api-management"],
@@ -2514,7 +2468,7 @@
         "xcsh-docs:resources:api_testing:properties:domains:credentials:login_endpoint:json_payload:clear_secret_info"
       ],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -2526,7 +2480,7 @@
       "path": "documentation/resources/api_testing/properties/domains/credentials/login_endpoint/json_payload/index.md",
       "product": "distributed-cloud",
       "provider_name": "api_testing",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "resources",
       "registry_anchor": "canonical-2022021213220201-2233331101332133-1312233301111020-3102231111200321-2303231331113321-0120220311133230-2201100332012212-2011001001012123",
       "registry_path": "docs/guides/resources--api_testing--reference--group-001.md",
@@ -2612,9 +2566,6 @@
     },
     {
       "aliases": [
-        "authentication",
-        "credential setup",
-        "credentials",
         "domains credentials login endpoint json payload blindfold secret info",
         "login",
         "login result",
@@ -2626,7 +2577,7 @@
       "category": "api-management",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -2638,7 +2589,7 @@
       "path": "documentation/resources/api_testing/properties/domains/credentials/login_endpoint/json_payload/blindfold_secret_info/index.md",
       "product": "distributed-cloud",
       "provider_name": "api_testing",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "resources",
       "registry_anchor": "canonical-1031130201203203-2130331023231213-1231230001100111-3120230121211220-2213103223200011-0030111213202301-3200020223232211-0130121030313212",
       "registry_path": "docs/guides/resources--api_testing--reference--group-001.md",
@@ -2657,7 +2608,7 @@
       "schema_path": ["domains", "credentials", "login_endpoint", "json_payload", "blindfold_secret_info"],
       "sections": [
         {
-          "aliases": ["backend servers", "decryption provider", "origin servers", "upstream servers"],
+          "aliases": ["decryption provider"],
           "anchor": "schema-domains--credentials--login_endpoint--json_payload--blindfold_secret_info--decryption_provider",
           "description": "Name of the Secret Management Access object that contains information about the backend Secret Management service.",
           "document_id": "xcsh-docs:resources:api_testing:properties:domains:credentials:login_endpoint:json_payload:blindfold_secret_info",
@@ -2733,9 +2684,6 @@
     },
     {
       "aliases": [
-        "authentication",
-        "credential setup",
-        "credentials",
         "domains credentials login endpoint json payload clear secret info",
         "login",
         "login result",
@@ -2747,7 +2695,7 @@
       "category": "api-management",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -2759,7 +2707,7 @@
       "path": "documentation/resources/api_testing/properties/domains/credentials/login_endpoint/json_payload/clear_secret_info/index.md",
       "product": "distributed-cloud",
       "provider_name": "api_testing",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "resources",
       "registry_anchor": "canonical-1100021321303321-0213032221113301-2231021322323100-0032313001032123-1121133030321033-3321033323031220-3131221021132121-3031211331332103",
       "registry_path": "docs/guides/resources--api_testing--reference--group-001.md",
@@ -2825,14 +2773,14 @@
       }
     },
     {
-      "aliases": ["authentication", "credential setup", "credentials", "domains credentials standard"],
+      "aliases": ["domains credentials standard"],
       "body_bytes": 1368,
       "body_sha256": "sha256:b3bf5a0268befdcd95b55f8f874e959e90137137252cce3b3d16fbe9d3fcabe9",
       "capabilities": ["api-management"],
       "category": "api-management",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -2844,7 +2792,7 @@
       "path": "documentation/resources/api_testing/properties/domains/credentials/standard/index.md",
       "product": "distributed-cloud",
       "provider_name": "api_testing",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "resources",
       "registry_anchor": "canonical-0321022203131213-3031011300013101-3002210120000322-1112003033022101-2020232002313102-2321202203310213-1230012333020222-2233200021203210",
       "registry_path": "docs/guides/resources--api_testing--reference--group-001.md",
@@ -2872,7 +2820,7 @@
       "category": "api-management",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -2884,7 +2832,7 @@
       "path": "documentation/resources/api_testing/properties/every_day/index.md",
       "product": "distributed-cloud",
       "provider_name": "api_testing",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "resources",
       "registry_anchor": "canonical-0110133330203132-0300210311112100-1220023032121103-3000313102030220-3123012332002301-1030201222002031-3231121132130330-1120323230220100",
       "registry_path": "docs/guides/resources--api_testing--reference--group-001.md",
@@ -2912,7 +2860,7 @@
       "category": "api-management",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -2924,7 +2872,7 @@
       "path": "documentation/resources/api_testing/properties/every_month/index.md",
       "product": "distributed-cloud",
       "provider_name": "api_testing",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "resources",
       "registry_anchor": "canonical-1323120202200200-3120122313023333-2112000223300001-2210110033112032-1033031302013222-0202010110312210-3111003132122233-2102132121222333",
       "registry_path": "docs/guides/resources--api_testing--reference--group-001.md",
@@ -2952,7 +2900,7 @@
       "category": "api-management",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -2964,7 +2912,7 @@
       "path": "documentation/resources/api_testing/properties/every_week/index.md",
       "product": "distributed-cloud",
       "provider_name": "api_testing",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "resources",
       "registry_anchor": "canonical-3003302130133212-2030223321333013-0223331221002310-0112202233231032-2022332023223330-0202032113013331-2112123012003322-0233330122012011",
       "registry_path": "docs/guides/resources--api_testing--reference--group-001.md",
@@ -2992,7 +2940,7 @@
       "category": "api-management",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -3004,7 +2952,7 @@
       "path": "documentation/resources/api_testing/properties/timeouts/index.md",
       "product": "distributed-cloud",
       "provider_name": "api_testing",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "resources",
       "registry_anchor": "canonical-2220221222303221-1321122301102101-3213032112213022-2113023312203202-0313020120112103-0030330120312111-1212213100132010-0212222120301330",
       "registry_path": "docs/guides/resources--api_testing--reference--group-001.md",
@@ -3089,7 +3037,7 @@
       "category": "api-management",
       "child_ids": ["xcsh-docs:resources:api_testing:example:resource"],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -3101,7 +3049,7 @@
       "path": "documentation/resources/api_testing/examples/index.md",
       "product": "distributed-cloud",
       "provider_name": "api_testing",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "resources",
       "registry_anchor": "canonical-3122233230003213-2011003033202121-2331112103320233-2321012312111213-1010101031002022-2203213121202220-1032111212002233-2230021233210122",
       "registry_path": "docs/guides/resources--api_testing--examples--group-001.md",
@@ -3129,7 +3077,7 @@
       "category": "api-management",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -3148,7 +3096,7 @@
       "path": "documentation/resources/api_testing/examples/resource/index.md",
       "product": "distributed-cloud",
       "provider_name": "api_testing",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "resources",
       "registry_anchor": "canonical-3321221100122300-1131211313201230-1111200101001123-3300032223033202-2131230212231332-2031330321223113-3200002103032101-2132332220323233",
       "registry_path": "docs/guides/resources--api_testing--examples--group-001.md",
@@ -3176,7 +3124,7 @@
       "category": "api-management",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -3189,7 +3137,7 @@
       "path": "documentation/resources/api_testing/lifecycle/import/index.md",
       "product": "distributed-cloud",
       "provider_name": "api_testing",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "resources",
       "registry_anchor": "canonical-1332020310032312-1023111302320331-2210032310200113-0103202212210300-0222230213012020-2322222331000203-3330033323010002-2110023100013010",
       "registry_path": "docs/guides/resources--api_testing--lifecycle--group-001.md",
@@ -3217,7 +3165,7 @@
       "category": "api-management",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -3229,7 +3177,7 @@
       "path": "documentation/resources/api_testing/lifecycle/timeouts/index.md",
       "product": "distributed-cloud",
       "provider_name": "api_testing",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "resources",
       "registry_anchor": "canonical-2210300101312311-3000121202121211-1320203322312213-0313033311122002-3020201201102011-3300011003232003-1121202332022020-0311010333203301",
       "registry_path": "docs/guides/resources--api_testing--lifecycle--group-001.md",

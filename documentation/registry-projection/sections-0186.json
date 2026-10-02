@@ -2,6 +2,426 @@
   "schema_version": 1,
   "sections": [
     {
+      "canonical_id": "xcsh-docs:data-sources:voltstack_site:properties:enable_gpu",
+      "section_id": "xcsh-docs:data-sources:voltstack_site:properties:enable_gpu:section:2",
+      "source_sha256": "sha256:0d4398201e18f9ddb2ea00ceed6d3256755ea4d008d849d1cec42dab5c55f1b5",
+      "source_bytes": 94,
+      "canonical_source_sha256": "sha256:e526fcc883ceb3287783c89510f07c89698ac4997e9fb95f5582fa70679b3afb",
+      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/voltstack_site/properties/enable_gpu/",
+      "anchor": "canonical-0210323032302013-2023033212033221-3230112312303030-0200300112130012-0113310001121222-0331300123310112-2122120023310232-2312220330213121",
+      "anchor_map": [],
+      "mode": "embedded",
+      "registry_path": "docs/guides/data-sources--voltstack_site--reference--group-008.md"
+    },
+    {
+      "canonical_id": "xcsh-docs:data-sources:voltstack_site:properties:enable_gpu",
+      "section_id": "xcsh-docs:data-sources:voltstack_site:properties:enable_gpu:section:3",
+      "source_sha256": "sha256:fccfdc7948e7060ec848cc148da2e81239ec3c2246e710a2101fce7a3cb7ed2b",
+      "source_bytes": 245,
+      "canonical_source_sha256": "sha256:e526fcc883ceb3287783c89510f07c89698ac4997e9fb95f5582fa70679b3afb",
+      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/voltstack_site/properties/enable_gpu/",
+      "anchor": "canonical-1022132023002301-3310002332131322-1303331133321032-1321022003122330-3212330130311002-3022022222211222-2122000232301002-3013012233011112",
+      "anchor_map": [],
+      "mode": "embedded",
+      "registry_path": "docs/guides/data-sources--voltstack_site--reference--group-008.md"
+    },
+    {
+      "canonical_id": "xcsh-docs:data-sources:voltstack_site:properties:enable_vgpu",
+      "section_id": "xcsh-docs:data-sources:voltstack_site:properties:enable_vgpu:section:0",
+      "source_sha256": "sha256:197d41522a9dd286cb9805a03d8a5bd782cc3f3fd95ea854bf2dfc326e83e50c",
+      "source_bytes": 99,
+      "canonical_source_sha256": "sha256:1c08b39c72078baa8fb909023ae3142ca4fa48e7e256e1a9f9b833d59b7a5485",
+      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/voltstack_site/properties/enable_vgpu/",
+      "anchor": "canonical-1131330000323001-2000332111122333-3330122310233213-2112201320320113-3011213113023220-1211302100220022-2031013022001131-1002210211033323",
+      "anchor_map": [],
+      "mode": "embedded",
+      "registry_path": "docs/guides/data-sources--voltstack_site--reference--group-008.md"
+    },
+    {
+      "canonical_id": "xcsh-docs:data-sources:voltstack_site:properties:enable_vgpu",
+      "section_id": "xcsh-docs:data-sources:voltstack_site:properties:enable_vgpu:section:1",
+      "source_sha256": "sha256:fda56dbc95dd1e3390bdee3b11ea862733265807cb95dc374c9d636ffaa67c43",
+      "source_bytes": 542,
+      "canonical_source_sha256": "sha256:1c08b39c72078baa8fb909023ae3142ca4fa48e7e256e1a9f9b833d59b7a5485",
+      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/voltstack_site/properties/enable_vgpu/",
+      "anchor": "canonical-0302300323302020-1123320022202331-2012101231202011-2002012313111312-0130301012023100-0132321100222110-1033223320001000-2333201121311001",
+      "anchor_map": [
+        [
+          "section",
+          "canonical-0030020213330000-1122013130013133-2312022203212133-3023110222323100-2321220211002123-3000200310110032-2312020211113232-3122113023111101"
+        ]
+      ],
+      "mode": "embedded",
+      "registry_path": "docs/guides/data-sources--voltstack_site--reference--group-008.md"
+    },
+    {
+      "canonical_id": "xcsh-docs:data-sources:voltstack_site:properties:enable_vgpu",
+      "section_id": "xcsh-docs:data-sources:voltstack_site:properties:enable_vgpu:section:2",
+      "source_sha256": "sha256:de8d71bb216a5b4277d2ebceee007b0a28970ced6834fd53e27ce7fa325c5e66",
+      "source_bytes": 69,
+      "canonical_source_sha256": "sha256:1c08b39c72078baa8fb909023ae3142ca4fa48e7e256e1a9f9b833d59b7a5485",
+      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/voltstack_site/properties/enable_vgpu/",
+      "anchor": "canonical-1232303211312300-0201033010233221-1311122011323123-0002200013301303-1311103302101233-1130123233011232-3223020102331031-2122023132301132",
+      "anchor_map": [
+        [
+          "schema-enable_vgpu--feature_type",
+          "canonical-2332322213000012-2122133133010221-1031223120332333-2203220312323132-3030303033132130-1322302233010302-0230232320032023-3133011301011101"
+        ]
+      ],
+      "mode": "embedded",
+      "registry_path": "docs/guides/data-sources--voltstack_site--reference--group-008.md"
+    },
+    {
+      "canonical_id": "xcsh-docs:data-sources:voltstack_site:properties:enable_vgpu",
+      "section_id": "xcsh-docs:data-sources:voltstack_site:properties:enable_vgpu:section:3",
+      "source_sha256": "sha256:c44bb684a07eb22efa35966d7da20fd9d65f111d232f3a5eb9ae79041bd7cd85",
+      "source_bytes": 851,
+      "canonical_source_sha256": "sha256:1c08b39c72078baa8fb909023ae3142ca4fa48e7e256e1a9f9b833d59b7a5485",
+      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/voltstack_site/properties/enable_vgpu/",
+      "anchor": "canonical-0100323132300312-3022012220221003-3031033201233311-1023013232031210-0313101231033331-0000302321013333-2012110030002312-3302021031132220",
+      "anchor_map": [
+        [
+          "schema-enable_vgpu--server_address",
+          "canonical-1212020303113111-0113022022330121-2322313002030130-3312202110100230-2232011303001312-2210311302323300-1223130201322113-2003011023201030"
+        ]
+      ],
+      "mode": "embedded",
+      "registry_path": "docs/guides/data-sources--voltstack_site--reference--group-008.md"
+    },
+    {
+      "canonical_id": "xcsh-docs:data-sources:voltstack_site:properties:enable_vgpu",
+      "section_id": "xcsh-docs:data-sources:voltstack_site:properties:enable_vgpu:section:4",
+      "source_sha256": "sha256:f9e8ce5044f19b3be06dc86766d6ea6db77301154270980715a1f72417673000",
+      "source_bytes": 802,
+      "canonical_source_sha256": "sha256:1c08b39c72078baa8fb909023ae3142ca4fa48e7e256e1a9f9b833d59b7a5485",
+      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/voltstack_site/properties/enable_vgpu/",
+      "anchor": "canonical-3101333312201231-2332222221232102-1213332100202320-2112210133022331-0132020002210010-3020201010110033-2100023010020332-1330110200003301",
+      "anchor_map": [
+        [
+          "schema-enable_vgpu--server_port",
+          "canonical-2031100103103321-0100103100221231-1213213213322202-1202002101130012-1331102013122302-2323110100232320-1020210002310202-0001122230230222"
+        ]
+      ],
+      "mode": "embedded",
+      "registry_path": "docs/guides/data-sources--voltstack_site--reference--group-008.md"
+    },
+    {
+      "canonical_id": "xcsh-docs:data-sources:voltstack_site:properties:enable_vgpu",
+      "section_id": "xcsh-docs:data-sources:voltstack_site:properties:enable_vgpu:section:5",
+      "source_sha256": "sha256:49a09a0ebd94bfa4a7905459773c9f9044fcdde8cc9d4a1cc96259aff28f6c3c",
+      "source_bytes": 877,
+      "canonical_source_sha256": "sha256:1c08b39c72078baa8fb909023ae3142ca4fa48e7e256e1a9f9b833d59b7a5485",
+      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/voltstack_site/properties/enable_vgpu/",
+      "anchor": "canonical-1321221120003012-0221132200223310-2023130030030030-2211202232212213-3321222003131013-1300033022230131-2331323031232111-0332023011022013",
+      "anchor_map": [],
+      "mode": "embedded",
+      "registry_path": "docs/guides/data-sources--voltstack_site--reference--group-008.md"
+    },
+    {
+      "canonical_id": "xcsh-docs:data-sources:voltstack_site:properties:enable_vgpu",
+      "section_id": "xcsh-docs:data-sources:voltstack_site:properties:enable_vgpu:section:6",
+      "source_sha256": "sha256:fccfdc7948e7060ec848cc148da2e81239ec3c2246e710a2101fce7a3cb7ed2b",
+      "source_bytes": 245,
+      "canonical_source_sha256": "sha256:1c08b39c72078baa8fb909023ae3142ca4fa48e7e256e1a9f9b833d59b7a5485",
+      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/voltstack_site/properties/enable_vgpu/",
+      "anchor": "canonical-1332131133333333-2010321320202212-0311033211211032-0221313213203132-3020323300221320-2310331333212323-0221113203210120-1223110011332112",
+      "anchor_map": [],
+      "mode": "embedded",
+      "registry_path": "docs/guides/data-sources--voltstack_site--reference--group-008.md"
+    },
+    {
+      "canonical_id": "xcsh-docs:data-sources:voltstack_site:properties:enable_vm",
+      "section_id": "xcsh-docs:data-sources:voltstack_site:properties:enable_vm:section:0",
+      "source_sha256": "sha256:197d41522a9dd286cb9805a03d8a5bd782cc3f3fd95ea854bf2dfc326e83e50c",
+      "source_bytes": 99,
+      "canonical_source_sha256": "sha256:3dc6b4afec2987c644a7b48b5c88f43f55fe53667df281a464a2a6f1ed7b70af",
+      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/voltstack_site/properties/enable_vm/",
+      "anchor": "canonical-2120033220230201-3201323001000303-2300010003321030-1322013303121300-1311012110311000-2112222220331213-2322312333333022-2023330301130102",
+      "anchor_map": [],
+      "mode": "embedded",
+      "registry_path": "docs/guides/data-sources--voltstack_site--reference--group-008.md"
+    },
+    {
+      "canonical_id": "xcsh-docs:data-sources:voltstack_site:properties:enable_vm",
+      "section_id": "xcsh-docs:data-sources:voltstack_site:properties:enable_vm:section:1",
+      "source_sha256": "sha256:57526593fa8b09a6316d9ec13877484f3f9496a331d51ae04343eb6c610c66f2",
+      "source_bytes": 599,
+      "canonical_source_sha256": "sha256:3dc6b4afec2987c644a7b48b5c88f43f55fe53667df281a464a2a6f1ed7b70af",
+      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/voltstack_site/properties/enable_vm/",
+      "anchor": "canonical-1003201321300102-3103311022200203-1123032313100232-3010101032013211-1121311333322323-3230221112220231-0132120221221303-3012122222302032",
+      "anchor_map": [
+        [
+          "section",
+          "canonical-2020200311313011-3232123011223033-3323320322331112-0103113121133303-2213221102313321-3312230011021111-2200133132202212-2332020333122130"
+        ]
+      ],
+      "mode": "embedded",
+      "registry_path": "docs/guides/data-sources--voltstack_site--reference--group-008.md"
+    },
+    {
+      "canonical_id": "xcsh-docs:data-sources:voltstack_site:properties:enable_vm",
+      "section_id": "xcsh-docs:data-sources:voltstack_site:properties:enable_vm:section:2",
+      "source_sha256": "sha256:0d4398201e18f9ddb2ea00ceed6d3256755ea4d008d849d1cec42dab5c55f1b5",
+      "source_bytes": 94,
+      "canonical_source_sha256": "sha256:3dc6b4afec2987c644a7b48b5c88f43f55fe53667df281a464a2a6f1ed7b70af",
+      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/voltstack_site/properties/enable_vm/",
+      "anchor": "canonical-2102130221220100-2130331131223233-3232323033221310-1133033221121333-1103233312203333-0201021230133230-2111332010110102-3222123322301203",
+      "anchor_map": [],
+      "mode": "embedded",
+      "registry_path": "docs/guides/data-sources--voltstack_site--reference--group-008.md"
+    },
+    {
+      "canonical_id": "xcsh-docs:data-sources:voltstack_site:properties:enable_vm",
+      "section_id": "xcsh-docs:data-sources:voltstack_site:properties:enable_vm:section:3",
+      "source_sha256": "sha256:fccfdc7948e7060ec848cc148da2e81239ec3c2246e710a2101fce7a3cb7ed2b",
+      "source_bytes": 245,
+      "canonical_source_sha256": "sha256:3dc6b4afec2987c644a7b48b5c88f43f55fe53667df281a464a2a6f1ed7b70af",
+      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/voltstack_site/properties/enable_vm/",
+      "anchor": "canonical-3331121021332202-3202102211212020-3120012102332132-3221133220202212-3230023231211301-3111003231010330-1201221210133231-2310331132033002",
+      "anchor_map": [],
+      "mode": "embedded",
+      "registry_path": "docs/guides/data-sources--voltstack_site--reference--group-008.md"
+    },
+    {
+      "canonical_id": "xcsh-docs:data-sources:voltstack_site:properties:k8s_cluster",
+      "section_id": "xcsh-docs:data-sources:voltstack_site:properties:k8s_cluster:section:0",
+      "source_sha256": "sha256:197d41522a9dd286cb9805a03d8a5bd782cc3f3fd95ea854bf2dfc326e83e50c",
+      "source_bytes": 99,
+      "canonical_source_sha256": "sha256:86228bc9190552e222491249f60c7f1d40dfc7a3d176966134b93e743d86bab5",
+      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/voltstack_site/properties/k8s_cluster/",
+      "anchor": "canonical-1132230233133203-3131223100302000-2120313313123100-3220310332231001-0231212333120223-3101313210021001-1002131331120000-1311031032021230",
+      "anchor_map": [],
+      "mode": "embedded",
+      "registry_path": "docs/guides/data-sources--voltstack_site--reference--group-008.md"
+    },
+    {
+      "canonical_id": "xcsh-docs:data-sources:voltstack_site:properties:k8s_cluster",
+      "section_id": "xcsh-docs:data-sources:voltstack_site:properties:k8s_cluster:section:1",
+      "source_sha256": "sha256:6e2dff3ccd3902830d2b29cab6184214aed4a65d47b2059246185b29b78eac87",
+      "source_bytes": 1269,
+      "canonical_source_sha256": "sha256:86228bc9190552e222491249f60c7f1d40dfc7a3d176966134b93e743d86bab5",
+      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/voltstack_site/properties/k8s_cluster/",
+      "anchor": "canonical-1320102130021002-0231332312122000-3301312200323021-0323302222033102-2133331321032030-3223332232030133-0010233233210303-1222021121211231",
+      "anchor_map": [
+        [
+          "section",
+          "canonical-2311100022221013-1222221000021030-1011010103103301-1213133132103320-2222320100220012-2232023100002321-1102310223031122-1100212010322121"
+        ]
+      ],
+      "mode": "embedded",
+      "registry_path": "docs/guides/data-sources--voltstack_site--reference--group-008.md"
+    },
+    {
+      "canonical_id": "xcsh-docs:data-sources:voltstack_site:properties:k8s_cluster",
+      "section_id": "xcsh-docs:data-sources:voltstack_site:properties:k8s_cluster:section:2",
+      "source_sha256": "sha256:a761a1f6f7320a06b4f0f052edd26cd60477825a45a98487103f3e99f3a5b614",
+      "source_bytes": 61,
+      "canonical_source_sha256": "sha256:86228bc9190552e222491249f60c7f1d40dfc7a3d176966134b93e743d86bab5",
+      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/voltstack_site/properties/k8s_cluster/",
+      "anchor": "canonical-3111121031313312-1300321000103230-1302133202133211-2330123201232023-3000323123010122-2001123212230320-0320220102032132-2000021101100213",
+      "anchor_map": [
+        [
+          "schema-k8s_cluster--name",
+          "canonical-1121300331321002-2321103130333332-3320310110220000-3303120322323300-0112201012223211-3230332022210201-1312231032120121-0220011111100010"
+        ]
+      ],
+      "mode": "embedded",
+      "registry_path": "docs/guides/data-sources--voltstack_site--reference--group-008.md"
+    },
+    {
+      "canonical_id": "xcsh-docs:data-sources:voltstack_site:properties:k8s_cluster",
+      "section_id": "xcsh-docs:data-sources:voltstack_site:properties:k8s_cluster:section:3",
+      "source_sha256": "sha256:4ef06f7dc2595de5eb43cbbf2a7837d10653f6851ae4b6091355673b7a65c6f7",
+      "source_bytes": 1323,
+      "canonical_source_sha256": "sha256:86228bc9190552e222491249f60c7f1d40dfc7a3d176966134b93e743d86bab5",
+      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/voltstack_site/properties/k8s_cluster/",
+      "anchor": "canonical-0033200022311122-1323022213232013-2322132303202330-1331000313212103-2013310101203312-1313101332011312-2312212331233030-2000332120001032",
+      "anchor_map": [
+        [
+          "schema-k8s_cluster--namespace",
+          "canonical-1023122021113322-2302231321123203-3312331321331103-3302021331223023-0022131311313333-3121132321111100-1002201012312333-0032100120302310"
+        ]
+      ],
+      "mode": "embedded",
+      "registry_path": "docs/guides/data-sources--voltstack_site--reference--group-008.md"
+    },
+    {
+      "canonical_id": "xcsh-docs:data-sources:voltstack_site:properties:k8s_cluster",
+      "section_id": "xcsh-docs:data-sources:voltstack_site:properties:k8s_cluster:section:4",
+      "source_sha256": "sha256:1e0120f31a95078bb319595914d6596791bccf011291c420dc2c733860f0de3c",
+      "source_bytes": 1574,
+      "canonical_source_sha256": "sha256:86228bc9190552e222491249f60c7f1d40dfc7a3d176966134b93e743d86bab5",
+      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/voltstack_site/properties/k8s_cluster/",
+      "anchor": "canonical-1200023320331010-1123000302310133-2303303120302202-0112322313221230-2010133233301331-2023230221113213-2213021232202311-3131212110010110",
+      "anchor_map": [
+        [
+          "schema-k8s_cluster--tenant",
+          "canonical-3033223332302031-1210101210312233-0000210303003233-1333101011231110-3011123221200213-0102203321223223-1101031112233120-1021022322011201"
+        ]
+      ],
+      "mode": "embedded",
+      "registry_path": "docs/guides/data-sources--voltstack_site--reference--group-009.md"
+    },
+    {
+      "canonical_id": "xcsh-docs:data-sources:voltstack_site:properties:k8s_cluster",
+      "section_id": "xcsh-docs:data-sources:voltstack_site:properties:k8s_cluster:section:5",
+      "source_sha256": "sha256:ab2481332cc037671619af0cefc06c9ceccdc07e964a6178dfd59e35c8469ef5",
+      "source_bytes": 1030,
+      "canonical_source_sha256": "sha256:86228bc9190552e222491249f60c7f1d40dfc7a3d176966134b93e743d86bab5",
+      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/voltstack_site/properties/k8s_cluster/",
+      "anchor": "canonical-0300133333010021-3103111313200312-0113230230000331-3332322232223302-2123311030300333-1233302132100001-0231113313220203-1311332322023302",
+      "anchor_map": [],
+      "mode": "embedded",
+      "registry_path": "docs/guides/data-sources--voltstack_site--reference--group-009.md"
+    },
+    {
+      "canonical_id": "xcsh-docs:data-sources:voltstack_site:properties:k8s_cluster",
+      "section_id": "xcsh-docs:data-sources:voltstack_site:properties:k8s_cluster:section:6",
+      "source_sha256": "sha256:fccfdc7948e7060ec848cc148da2e81239ec3c2246e710a2101fce7a3cb7ed2b",
+      "source_bytes": 245,
+      "canonical_source_sha256": "sha256:86228bc9190552e222491249f60c7f1d40dfc7a3d176966134b93e743d86bab5",
+      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/voltstack_site/properties/k8s_cluster/",
+      "anchor": "canonical-2122321121232011-1233203012310030-0333201230223003-0131223231020003-2120113313101303-2022201233111002-3332003202221021-3210113312020010",
+      "anchor_map": [],
+      "mode": "embedded",
+      "registry_path": "docs/guides/data-sources--voltstack_site--reference--group-009.md"
+    },
+    {
+      "canonical_id": "xcsh-docs:data-sources:voltstack_site:properties:kubernetes_upgrade_drain",
+      "section_id": "xcsh-docs:data-sources:voltstack_site:properties:kubernetes_upgrade_drain:section:0",
+      "source_sha256": "sha256:197d41522a9dd286cb9805a03d8a5bd782cc3f3fd95ea854bf2dfc326e83e50c",
+      "source_bytes": 99,
+      "canonical_source_sha256": "sha256:fd80a662d8b010f55fa15fe5836ff151840ad1b8f002ad7fac627059386c441c",
+      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/voltstack_site/properties/kubernetes_upgrade_drain/",
+      "anchor": "canonical-3320131330201111-2130101200102000-2332212122311310-2211301113232033-3130213303132011-2010111113113320-3322320132110020-1012320321211130",
+      "anchor_map": [],
+      "mode": "embedded",
+      "registry_path": "docs/guides/data-sources--voltstack_site--reference--group-009.md"
+    },
+    {
+      "canonical_id": "xcsh-docs:data-sources:voltstack_site:properties:kubernetes_upgrade_drain",
+      "section_id": "xcsh-docs:data-sources:voltstack_site:properties:kubernetes_upgrade_drain:section:1",
+      "source_sha256": "sha256:31317e2cdb106a6fbc451a870d608080269063fca518f514985d85745dc1760f",
+      "source_bytes": 702,
+      "canonical_source_sha256": "sha256:fd80a662d8b010f55fa15fe5836ff151840ad1b8f002ad7fac627059386c441c",
+      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/voltstack_site/properties/kubernetes_upgrade_drain/",
+      "anchor": "canonical-0223112230120310-1203213131230022-2331320312213330-0311110311331000-1312201220031132-3200021220000030-2300102021222021-3101133110322222",
+      "anchor_map": [
+        [
+          "section",
+          "canonical-3220310013233131-2033032033210030-3200231302112233-1020312221202230-3123222312203212-0332321333211312-3111110012220210-2002121300332233"
+        ]
+      ],
+      "mode": "embedded",
+      "registry_path": "docs/guides/data-sources--voltstack_site--reference--group-009.md"
+    },
+    {
+      "canonical_id": "xcsh-docs:data-sources:voltstack_site:properties:kubernetes_upgrade_drain",
+      "section_id": "xcsh-docs:data-sources:voltstack_site:properties:kubernetes_upgrade_drain:section:2",
+      "source_sha256": "sha256:778ecc41cb085247d6b0153563189b8b7c9a0d595f0cb8d2d5056b879d47fdb6",
+      "source_bytes": 426,
+      "canonical_source_sha256": "sha256:fd80a662d8b010f55fa15fe5836ff151840ad1b8f002ad7fac627059386c441c",
+      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/voltstack_site/properties/kubernetes_upgrade_drain/",
+      "anchor": "canonical-3120323232030200-3321100323102023-3230122013133200-3230330232213223-0132200122320102-0033220020330310-0221203331300011-0310032021323230",
+      "anchor_map": [],
+      "mode": "embedded",
+      "registry_path": "docs/guides/data-sources--voltstack_site--reference--group-009.md"
+    },
+    {
+      "canonical_id": "xcsh-docs:data-sources:voltstack_site:properties:kubernetes_upgrade_drain",
+      "section_id": "xcsh-docs:data-sources:voltstack_site:properties:kubernetes_upgrade_drain:section:3",
+      "source_sha256": "sha256:981b7f047d18934329cf1457fd7e70bd00a02aaa59412cf807ae7209a3e94220",
+      "source_bytes": 633,
+      "canonical_source_sha256": "sha256:fd80a662d8b010f55fa15fe5836ff151840ad1b8f002ad7fac627059386c441c",
+      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/voltstack_site/properties/kubernetes_upgrade_drain/",
+      "anchor": "canonical-0233313202231123-2200230113112022-3300121123221011-3332031233010132-0023200100123212-0122333101202111-3221100011030010-1320022120132212",
+      "anchor_map": [],
+      "mode": "embedded",
+      "registry_path": "docs/guides/data-sources--voltstack_site--reference--group-009.md"
+    },
+    {
+      "canonical_id": "xcsh-docs:data-sources:voltstack_site:properties:kubernetes_upgrade_drain:disable_upgrade_drain",
+      "section_id": "xcsh-docs:data-sources:voltstack_site:properties:kubernetes_upgrade_drain:disable_upgrade_drain:section:0",
+      "source_sha256": "sha256:197d41522a9dd286cb9805a03d8a5bd782cc3f3fd95ea854bf2dfc326e83e50c",
+      "source_bytes": 99,
+      "canonical_source_sha256": "sha256:abd347c557c9beae917c9420fa105c769e803c64ad744af0b20a139c08a0e51a",
+      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/voltstack_site/properties/kubernetes_upgrade_drain/disable_upgrade_drain/",
+      "anchor": "canonical-3202220213021313-1210331303010123-0002003222230311-3222323110032311-1022002203201103-2232102331221222-1100330230201232-2222212120323312",
+      "anchor_map": [],
+      "mode": "embedded",
+      "registry_path": "docs/guides/data-sources--voltstack_site--reference--group-009.md"
+    },
+    {
+      "canonical_id": "xcsh-docs:data-sources:voltstack_site:properties:kubernetes_upgrade_drain:disable_upgrade_drain",
+      "section_id": "xcsh-docs:data-sources:voltstack_site:properties:kubernetes_upgrade_drain:disable_upgrade_drain:section:1",
+      "source_sha256": "sha256:e9d5b095d976e1ca3945c90ad68b20220dbcb4d13a6214a2da9cb0fa0f745720",
+      "source_bytes": 861,
+      "canonical_source_sha256": "sha256:abd347c557c9beae917c9420fa105c769e803c64ad744af0b20a139c08a0e51a",
+      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/voltstack_site/properties/kubernetes_upgrade_drain/disable_upgrade_drain/",
+      "anchor": "canonical-0231202123333113-0313332321022330-0133001003003023-1213111122012023-3311110333330110-3030111013230101-2210012133030003-0030120212221113",
+      "anchor_map": [
+        [
+          "section",
+          "canonical-2131000111020031-3033113012121322-1231100321301131-1102300210332111-3212331002112233-0211333301133232-0220312303312312-0221110031111103"
+        ]
+      ],
+      "mode": "embedded",
+      "registry_path": "docs/guides/data-sources--voltstack_site--reference--group-009.md"
+    },
+    {
+      "canonical_id": "xcsh-docs:data-sources:voltstack_site:properties:kubernetes_upgrade_drain:disable_upgrade_drain",
+      "section_id": "xcsh-docs:data-sources:voltstack_site:properties:kubernetes_upgrade_drain:disable_upgrade_drain:section:2",
+      "source_sha256": "sha256:0d4398201e18f9ddb2ea00ceed6d3256755ea4d008d849d1cec42dab5c55f1b5",
+      "source_bytes": 94,
+      "canonical_source_sha256": "sha256:abd347c557c9beae917c9420fa105c769e803c64ad744af0b20a139c08a0e51a",
+      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/voltstack_site/properties/kubernetes_upgrade_drain/disable_upgrade_drain/",
+      "anchor": "canonical-2203213203300221-3320012022013112-1202230312222133-0020203120312300-3303100001122011-1012022300000301-2230132123230333-0221321202201330",
+      "anchor_map": [],
+      "mode": "embedded",
+      "registry_path": "docs/guides/data-sources--voltstack_site--reference--group-009.md"
+    },
+    {
+      "canonical_id": "xcsh-docs:data-sources:voltstack_site:properties:kubernetes_upgrade_drain:disable_upgrade_drain",
+      "section_id": "xcsh-docs:data-sources:voltstack_site:properties:kubernetes_upgrade_drain:disable_upgrade_drain:section:3",
+      "source_sha256": "sha256:74e04149f6429dbeaf1813e88804a781a61a9ae185fea18dd8f4c11bca848111",
+      "source_bytes": 276,
+      "canonical_source_sha256": "sha256:abd347c557c9beae917c9420fa105c769e803c64ad744af0b20a139c08a0e51a",
+      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/voltstack_site/properties/kubernetes_upgrade_drain/disable_upgrade_drain/",
+      "anchor": "canonical-2101020222002103-2323220111330330-1003033122320133-3011130012213210-2323313000322123-0023330013101022-3223112231331021-1101012302233022",
+      "anchor_map": [],
+      "mode": "embedded",
+      "registry_path": "docs/guides/data-sources--voltstack_site--reference--group-009.md"
+    },
+    {
+      "canonical_id": "xcsh-docs:data-sources:voltstack_site:properties:kubernetes_upgrade_drain:enable_upgrade_drain",
+      "section_id": "xcsh-docs:data-sources:voltstack_site:properties:kubernetes_upgrade_drain:enable_upgrade_drain:section:0",
+      "source_sha256": "sha256:197d41522a9dd286cb9805a03d8a5bd782cc3f3fd95ea854bf2dfc326e83e50c",
+      "source_bytes": 99,
+      "canonical_source_sha256": "sha256:55d4bb3aa86653fc908c09b657100ce1a0db4a64cc4a8993980aa4be58497161",
+      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/voltstack_site/properties/kubernetes_upgrade_drain/enable_upgrade_drain/",
+      "anchor": "canonical-2201032123122320-1112111213321322-2202220303331033-0021102101122331-2210202201331321-2020322203313132-2000332220310222-2222202210100102",
+      "anchor_map": [],
+      "mode": "embedded",
+      "registry_path": "docs/guides/data-sources--voltstack_site--reference--group-009.md"
+    },
+    {
+      "canonical_id": "xcsh-docs:data-sources:voltstack_site:properties:kubernetes_upgrade_drain:enable_upgrade_drain",
+      "section_id": "xcsh-docs:data-sources:voltstack_site:properties:kubernetes_upgrade_drain:enable_upgrade_drain:section:1",
+      "source_sha256": "sha256:aac164c279a643023e99d515b245b22426fa0a40a16992a0980ac64fcee37604",
+      "source_bytes": 1039,
+      "canonical_source_sha256": "sha256:55d4bb3aa86653fc908c09b657100ce1a0db4a64cc4a8993980aa4be58497161",
+      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/voltstack_site/properties/kubernetes_upgrade_drain/enable_upgrade_drain/",
+      "anchor": "canonical-1213000102202333-1001322122013203-1003301001131323-2332100231030302-0020221101232113-3001331132330112-3301302101331031-0030000213211130",
+      "anchor_map": [
+        [
+          "section",
+          "canonical-2202322220010100-1033113033100021-0111011103120110-1033223213200021-0320320103210321-1013003310001113-2230101102300120-0232131210100000"
+        ]
+      ],
+      "mode": "embedded",
+      "registry_path": "docs/guides/data-sources--voltstack_site--reference--group-009.md"
+    },
+    {
       "canonical_id": "xcsh-docs:data-sources:voltstack_site:properties:kubernetes_upgrade_drain:enable_upgrade_drain",
       "section_id": "xcsh-docs:data-sources:voltstack_site:properties:kubernetes_upgrade_drain:enable_upgrade_drain:section:2",
       "source_sha256": "sha256:f572eaa47c443d3094797b37c17409aed35b58694e6d12b1cdf85ece548d7e0e",
@@ -6970,464 +7390,6 @@
       ],
       "mode": "embedded",
       "registry_path": "docs/guides/data-sources--waf_threats--reference--group-001.md"
-    },
-    {
-      "canonical_id": "xcsh-docs:data-sources:waf_threats:reference",
-      "section_id": "xcsh-docs:data-sources:waf_threats:reference:section:6",
-      "source_sha256": "sha256:0b9c11292ca1cd84b303e1ed1757c400410a27723889a9f41b471efa490dda19",
-      "source_bytes": 158,
-      "canonical_source_sha256": "sha256:3c40e848203f9b6e48b6b1f8c1e8dead7cb4ceb4fe0b5df1e74421d4999d5117",
-      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/waf_threats/properties/",
-      "anchor": "canonical-1233020202211231-3322131303023233-2301033200232321-1321023220021030-0331020002132221-1331332223013311-3212221311020000-2011322332233102",
-      "anchor_map": [
-        [
-          "schema-threats",
-          "canonical-1132133030121113-3000331210022010-3021003313301233-1320222323131031-1313123333222310-1301201230121303-0023222023130330-3122323122320201"
-        ]
-      ],
-      "mode": "embedded",
-      "registry_path": "docs/guides/data-sources--waf_threats--reference--group-001.md"
-    },
-    {
-      "canonical_id": "xcsh-docs:data-sources:waf_threats:reference",
-      "section_id": "xcsh-docs:data-sources:waf_threats:reference:section:7",
-      "source_sha256": "sha256:7cda3e58901ead1e3e3e776445c6a16639d61986860727fb42c53a6d4388647d",
-      "source_bytes": 149,
-      "canonical_source_sha256": "sha256:3c40e848203f9b6e48b6b1f8c1e8dead7cb4ceb4fe0b5df1e74421d4999d5117",
-      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/waf_threats/properties/",
-      "anchor": "canonical-2201312122022113-2121112233100210-3210322100132122-0201130222223013-3333201210103103-2022010231210101-2310323000102300-3000330202102310",
-      "anchor_map": [
-        [
-          "schema-waf_sec_event_id",
-          "canonical-0320311023110322-2311312122331003-0112001111012110-2110010230203313-2032020221310113-3213032202233213-3212130131213321-3120330111323232"
-        ]
-      ],
-      "mode": "embedded",
-      "registry_path": "docs/guides/data-sources--waf_threats--reference--group-001.md"
-    },
-    {
-      "canonical_id": "xcsh-docs:data-sources:waf_threats:reference",
-      "section_id": "xcsh-docs:data-sources:waf_threats:reference:section:8",
-      "source_sha256": "sha256:f44bb0fdccf264c7b4c8fc2af1dfd4e064374aef5da55a9a81a6e527de3a0325",
-      "source_bytes": 163,
-      "canonical_source_sha256": "sha256:3c40e848203f9b6e48b6b1f8c1e8dead7cb4ceb4fe0b5df1e74421d4999d5117",
-      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/waf_threats/properties/",
-      "anchor": "canonical-3223000331102001-1011000312231321-3311120213311213-2213211121232130-1103312321311130-3301130322200133-3033302103320010-3103312223120120",
-      "anchor_map": [],
-      "mode": "embedded",
-      "registry_path": "docs/guides/data-sources--waf_threats--reference--group-001.md"
-    },
-    {
-      "canonical_id": "xcsh-docs:data-sources:waf_threats:reference",
-      "section_id": "xcsh-docs:data-sources:waf_threats:reference:section:9",
-      "source_sha256": "sha256:1f3773a8d2939540f706afead61fbb4e1507c7869f0599b38724799f2fe7d602",
-      "source_bytes": 1387,
-      "canonical_source_sha256": "sha256:3c40e848203f9b6e48b6b1f8c1e8dead7cb4ceb4fe0b5df1e74421d4999d5117",
-      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/waf_threats/properties/",
-      "anchor": "canonical-0300301133120002-1111013013301132-3100301322202313-3031210002220000-0023232202231303-3102010021221200-3020330231322312-2320331200101302",
-      "anchor_map": [],
-      "mode": "embedded",
-      "registry_path": "docs/guides/data-sources--waf_threats--reference--group-001.md"
-    },
-    {
-      "canonical_id": "xcsh-docs:data-sources:waf_threats:reference",
-      "section_id": "xcsh-docs:data-sources:waf_threats:reference:section:10",
-      "source_sha256": "sha256:06d45dabdcc66401490a8cf749cd28b35f15ae98e5c0840c783ed400ef93eeef",
-      "source_bytes": 233,
-      "canonical_source_sha256": "sha256:3c40e848203f9b6e48b6b1f8c1e8dead7cb4ceb4fe0b5df1e74421d4999d5117",
-      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/waf_threats/properties/",
-      "anchor": "canonical-0203222021210113-2221033213132210-1113232102320312-1323010313303023-2233022010111011-2121102130021032-3323200001102101-0333233122312333",
-      "anchor_map": [],
-      "mode": "embedded",
-      "registry_path": "docs/guides/data-sources--waf_threats--reference--group-001.md"
-    },
-    {
-      "canonical_id": "xcsh-docs:data-sources:waf_threats:properties:cve_ids",
-      "section_id": "xcsh-docs:data-sources:waf_threats:properties:cve_ids:section:0",
-      "source_sha256": "sha256:197d41522a9dd286cb9805a03d8a5bd782cc3f3fd95ea854bf2dfc326e83e50c",
-      "source_bytes": 99,
-      "canonical_source_sha256": "sha256:90d3a683402b72e0ad788a0f58866642c5dbd39575b93ab3ba4581dbcfc83498",
-      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/waf_threats/properties/cve_ids/",
-      "anchor": "canonical-3310211112211330-1200201202322030-3033320213030222-0131133002322122-0001312021112313-3301333212123330-1201120120331021-1220322301000111",
-      "anchor_map": [],
-      "mode": "embedded",
-      "registry_path": "docs/guides/data-sources--waf_threats--reference--group-001.md"
-    },
-    {
-      "canonical_id": "xcsh-docs:data-sources:waf_threats:properties:cve_ids",
-      "section_id": "xcsh-docs:data-sources:waf_threats:properties:cve_ids:section:1",
-      "source_sha256": "sha256:f3e4794d7f6a87faa164b99f56c6124c0821fe478cd60a085914cc67dadde13a",
-      "source_bytes": 341,
-      "canonical_source_sha256": "sha256:90d3a683402b72e0ad788a0f58866642c5dbd39575b93ab3ba4581dbcfc83498",
-      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/waf_threats/properties/cve_ids/",
-      "anchor": "canonical-1032112331000030-1132002300312030-2220220201032102-0000112022221132-2223222300223333-3233311123001212-3100121302011032-1232033210231231",
-      "anchor_map": [
-        [
-          "section",
-          "canonical-2103221212220002-0100111301023331-0321113201302103-1121103013203103-2000130020122100-2302313121310001-1321231311312000-1002223332100230"
-        ]
-      ],
-      "mode": "embedded",
-      "registry_path": "docs/guides/data-sources--waf_threats--reference--group-001.md"
-    },
-    {
-      "canonical_id": "xcsh-docs:data-sources:waf_threats:properties:cve_ids",
-      "section_id": "xcsh-docs:data-sources:waf_threats:properties:cve_ids:section:2",
-      "source_sha256": "sha256:f522b3bb54fb7cd119b43e5b10783bee5788abab8b45c715fd51c91803d71140",
-      "source_bytes": 56,
-      "canonical_source_sha256": "sha256:90d3a683402b72e0ad788a0f58866642c5dbd39575b93ab3ba4581dbcfc83498",
-      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/waf_threats/properties/cve_ids/",
-      "anchor": "canonical-1023222031100112-0001001011313320-3030112102111123-3100023210210300-2332010122311132-1321133103002212-3131110303133233-2232112310010033",
-      "anchor_map": [
-        [
-          "schema-cve_ids--ids",
-          "canonical-1331213010033323-0301331311310123-0221303210211222-3333001212313113-2331221112111032-3322123302133323-1011122132113321-1301310012301233"
-        ]
-      ],
-      "mode": "embedded",
-      "registry_path": "docs/guides/data-sources--waf_threats--reference--group-001.md"
-    },
-    {
-      "canonical_id": "xcsh-docs:data-sources:waf_threats:properties:cve_ids",
-      "section_id": "xcsh-docs:data-sources:waf_threats:properties:cve_ids:section:3",
-      "source_sha256": "sha256:e03009b5f6b197c2e1c7d8e986ecdd34380cd9dde1953b487458e6b1f2af30cf",
-      "source_bytes": 217,
-      "canonical_source_sha256": "sha256:90d3a683402b72e0ad788a0f58866642c5dbd39575b93ab3ba4581dbcfc83498",
-      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/waf_threats/properties/cve_ids/",
-      "anchor": "canonical-3233232301002001-2211233313103030-1201302123320223-0120222023003100-3031003110301211-3311022320020013-1332132100123131-2113322213333220",
-      "anchor_map": [],
-      "mode": "embedded",
-      "registry_path": "docs/guides/data-sources--waf_threats--reference--group-001.md"
-    },
-    {
-      "canonical_id": "xcsh-docs:data-sources:waf_threats:properties:cve_ids",
-      "section_id": "xcsh-docs:data-sources:waf_threats:properties:cve_ids:section:4",
-      "source_sha256": "sha256:7829127086fb099c619ad4d1a492d32aae42b1a53408add7534bb14946c0bf92",
-      "source_bytes": 236,
-      "canonical_source_sha256": "sha256:90d3a683402b72e0ad788a0f58866642c5dbd39575b93ab3ba4581dbcfc83498",
-      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/waf_threats/properties/cve_ids/",
-      "anchor": "canonical-3130100101011030-2332013232013130-2002003331110123-3132310021332213-1000202221202313-0301110202202111-3303311202110213-0030232120312313",
-      "anchor_map": [],
-      "mode": "embedded",
-      "registry_path": "docs/guides/data-sources--waf_threats--reference--group-001.md"
-    },
-    {
-      "canonical_id": "xcsh-docs:data-sources:waf_threats:examples",
-      "section_id": "xcsh-docs:data-sources:waf_threats:examples:section:0",
-      "source_sha256": "sha256:197d41522a9dd286cb9805a03d8a5bd782cc3f3fd95ea854bf2dfc326e83e50c",
-      "source_bytes": 99,
-      "canonical_source_sha256": "sha256:b2bf4ce5f978831b97f9f8d82eeac834594118d36e32c2b3426e37b61e7991ff",
-      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/waf_threats/examples/",
-      "anchor": "canonical-3230103102203013-1010033330333121-2003113212233311-1300003030111202-3133333103013112-3030011121032033-2232210213030222-1301003232032012",
-      "anchor_map": [],
-      "mode": "embedded",
-      "registry_path": "docs/guides/data-sources--waf_threats--examples--group-001.md"
-    },
-    {
-      "canonical_id": "xcsh-docs:data-sources:waf_threats:examples",
-      "section_id": "xcsh-docs:data-sources:waf_threats:examples:section:1",
-      "source_sha256": "sha256:1a9b290f15f51a407b21757188a69876df3df12dd8ca17b454e7e7a7dda8a64b",
-      "source_bytes": 142,
-      "canonical_source_sha256": "sha256:b2bf4ce5f978831b97f9f8d82eeac834594118d36e32c2b3426e37b61e7991ff",
-      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/waf_threats/examples/",
-      "anchor": "canonical-1213030021022102-2130200023230030-1113211311120233-1011230331001011-3122223321012110-1231301312020201-1123300131102312-0203211113021302",
-      "anchor_map": [],
-      "mode": "embedded",
-      "registry_path": "docs/guides/data-sources--waf_threats--examples--group-001.md"
-    },
-    {
-      "canonical_id": "xcsh-docs:data-sources:waf_threats:examples",
-      "section_id": "xcsh-docs:data-sources:waf_threats:examples:section:2",
-      "source_sha256": "sha256:99ae72e43288f86f4690a35e249fcf614a1ed6862c9f076604d3cce12908aad3",
-      "source_bytes": 171,
-      "canonical_source_sha256": "sha256:b2bf4ce5f978831b97f9f8d82eeac834594118d36e32c2b3426e37b61e7991ff",
-      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/waf_threats/examples/",
-      "anchor": "canonical-1111323002322203-1201232110311320-2213220001011320-0210021102102030-2200222001311100-1312031032120330-0102130301202032-2201311222332121",
-      "anchor_map": [],
-      "mode": "embedded",
-      "registry_path": "docs/guides/data-sources--waf_threats--examples--group-001.md"
-    },
-    {
-      "canonical_id": "xcsh-docs:data-sources:waf_threats:examples",
-      "section_id": "xcsh-docs:data-sources:waf_threats:examples:section:3",
-      "source_sha256": "sha256:54d5a95c6c4039120630642a9539b57b76ab23a9accd0e779d29c628bafb2e7a",
-      "source_bytes": 239,
-      "canonical_source_sha256": "sha256:b2bf4ce5f978831b97f9f8d82eeac834594118d36e32c2b3426e37b61e7991ff",
-      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/waf_threats/examples/",
-      "anchor": "canonical-0232303210023002-2322003202332232-3202302223121330-1022210301111001-1222122213130321-1031112231222033-0003322232021212-1001323233320210",
-      "anchor_map": [],
-      "mode": "embedded",
-      "registry_path": "docs/guides/data-sources--waf_threats--examples--group-001.md"
-    },
-    {
-      "canonical_id": "xcsh-docs:data-sources:waf_threats:example:data-source",
-      "section_id": "xcsh-docs:data-sources:waf_threats:example:data-source:section:0",
-      "source_sha256": "sha256:197d41522a9dd286cb9805a03d8a5bd782cc3f3fd95ea854bf2dfc326e83e50c",
-      "source_bytes": 99,
-      "canonical_source_sha256": "sha256:d841754b8c1b9cade9c340024c138ed584dd3e9a018ec82a09bc8245d3fca439",
-      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/waf_threats/examples/data-source/",
-      "anchor": "canonical-2202312212030212-0201011323231132-1103233031011022-3010302202012333-1211332010302213-0131321311030321-3000213121010220-0210013231310221",
-      "anchor_map": [],
-      "mode": "embedded",
-      "registry_path": "docs/guides/data-sources--waf_threats--examples--group-001.md"
-    },
-    {
-      "canonical_id": "xcsh-docs:data-sources:waf_threats:example:data-source",
-      "section_id": "xcsh-docs:data-sources:waf_threats:example:data-source:section:1",
-      "source_sha256": "sha256:888a09ea3e5997f6424f8e6a19e742cefc2510eb424d7125d16a93d3f4aa63bd",
-      "source_bytes": 843,
-      "canonical_source_sha256": "sha256:d841754b8c1b9cade9c340024c138ed584dd3e9a018ec82a09bc8245d3fca439",
-      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/waf_threats/examples/data-source/",
-      "anchor": "canonical-1110002232013031-1311023111331310-2321011330231233-0300212123032122-3112012320013003-3231133010113303-2203012123130313-1000331001113013",
-      "anchor_map": [],
-      "mode": "embedded",
-      "registry_path": "docs/guides/data-sources--waf_threats--examples--group-001.md"
-    },
-    {
-      "canonical_id": "xcsh-docs:data-sources:waf_threats:example:data-source",
-      "section_id": "xcsh-docs:data-sources:waf_threats:example:data-source:section:2",
-      "source_sha256": "sha256:a00e0d9de5327e0bd76cd7b94cd3824887aede5befcaeadfae7577f6fea78f75",
-      "source_bytes": 224,
-      "canonical_source_sha256": "sha256:d841754b8c1b9cade9c340024c138ed584dd3e9a018ec82a09bc8245d3fca439",
-      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/waf_threats/examples/data-source/",
-      "anchor": "canonical-3202101323133110-3113123332000331-1100101232001221-3113210111022101-1000210320333303-0202302331202321-3110311331333121-1033032202222303",
-      "anchor_map": [],
-      "mode": "embedded",
-      "registry_path": "docs/guides/data-sources--waf_threats--examples--group-001.md"
-    },
-    {
-      "canonical_id": "xcsh-docs:data-sources:workload:fundamentals",
-      "section_id": "xcsh-docs:data-sources:workload:fundamentals:section:0",
-      "source_sha256": "sha256:197d41522a9dd286cb9805a03d8a5bd782cc3f3fd95ea854bf2dfc326e83e50c",
-      "source_bytes": 99,
-      "canonical_source_sha256": "sha256:1510e641fdd262c9badd2f64444cd1e1303e4173ce4e44affbb0a649e191179b",
-      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/workload/",
-      "anchor": "canonical-1002113323301123-1000231011222222-2130003220201313-1332320021201220-0322102223332102-3110303113322020-1203310220131002-3110013201311100",
-      "anchor_map": [],
-      "mode": "embedded",
-      "registry_path": "docs/data-sources/workload.md"
-    },
-    {
-      "canonical_id": "xcsh-docs:data-sources:workload:fundamentals",
-      "section_id": "xcsh-docs:data-sources:workload:fundamentals:section:1",
-      "source_sha256": "sha256:ffa11713f7a818ed01f51df97735f3cd48d32f3462ce409c5e0a2d87489e1358",
-      "source_bytes": 130,
-      "canonical_source_sha256": "sha256:1510e641fdd262c9badd2f64444cd1e1303e4173ce4e44affbb0a649e191179b",
-      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/workload/",
-      "anchor": "canonical-1320323331132320-3113121101211131-1110223122020231-2332223032101330-1302301000310000-1302203010111302-3222131123122331-0200101221112333",
-      "anchor_map": [],
-      "mode": "embedded",
-      "registry_path": "docs/data-sources/workload.md"
-    },
-    {
-      "canonical_id": "xcsh-docs:data-sources:workload:fundamentals",
-      "section_id": "xcsh-docs:data-sources:workload:fundamentals:section:2",
-      "source_sha256": "sha256:e2358a6793d1dccb0006c62790b300eb4c6fa26403fa5e2ac7158d738a13c95b",
-      "source_bytes": 269,
-      "canonical_source_sha256": "sha256:1510e641fdd262c9badd2f64444cd1e1303e4173ce4e44affbb0a649e191179b",
-      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/workload/",
-      "anchor": "canonical-2023222120322212-2100221333111113-0200122011111232-3110213003232033-2133203301133201-2123033323201013-1333101122120300-3203312223211331",
-      "anchor_map": [],
-      "mode": "embedded",
-      "registry_path": "docs/data-sources/workload.md"
-    },
-    {
-      "canonical_id": "xcsh-docs:data-sources:workload:fundamentals",
-      "section_id": "xcsh-docs:data-sources:workload:fundamentals:section:3",
-      "source_sha256": "sha256:a3f98441e4876d1c048b4c9fb6ca135a32cfc52666bc75ad5346362d0a0e356b",
-      "source_bytes": 550,
-      "canonical_source_sha256": "sha256:1510e641fdd262c9badd2f64444cd1e1303e4173ce4e44affbb0a649e191179b",
-      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/workload/",
-      "anchor": "canonical-3011211310131032-3321100001200201-0131002231210321-1022233111212223-1233103331033332-2332033002303003-1200120123022021-2133112113020303",
-      "anchor_map": [],
-      "mode": "embedded",
-      "registry_path": "docs/data-sources/workload.md"
-    },
-    {
-      "canonical_id": "xcsh-docs:data-sources:workload:fundamentals",
-      "section_id": "xcsh-docs:data-sources:workload:fundamentals:section:4",
-      "source_sha256": "sha256:0f24c496c342ab400f63cdd581bca5de161d4befccfb207a6a87620bb6fe19ab",
-      "source_bytes": 133,
-      "canonical_source_sha256": "sha256:1510e641fdd262c9badd2f64444cd1e1303e4173ce4e44affbb0a649e191179b",
-      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/workload/",
-      "anchor": "canonical-1221010202223321-0121132023030312-2121102101000022-3010233111111033-2330331000301101-1032113311033002-3331333012113200-1233000333223013",
-      "anchor_map": [],
-      "mode": "embedded",
-      "registry_path": "docs/data-sources/workload.md"
-    },
-    {
-      "canonical_id": "xcsh-docs:data-sources:workload:fundamentals",
-      "section_id": "xcsh-docs:data-sources:workload:fundamentals:section:5",
-      "source_sha256": "sha256:1726be4c1dbdfcf7b3bfff6323fe1a5330f92d28cb5f6b0bdfe583157fcc39bd",
-      "source_bytes": 231,
-      "canonical_source_sha256": "sha256:1510e641fdd262c9badd2f64444cd1e1303e4173ce4e44affbb0a649e191179b",
-      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/workload/",
-      "anchor": "canonical-3331213301310230-2300211132130312-2211203323203322-1113333222300222-2033212233021122-3010230212222222-2232032033002330-0222202011310212",
-      "anchor_map": [],
-      "mode": "embedded",
-      "registry_path": "docs/data-sources/workload.md"
-    },
-    {
-      "canonical_id": "xcsh-docs:data-sources:workload:reference",
-      "section_id": "xcsh-docs:data-sources:workload:reference:section:0",
-      "source_sha256": "sha256:197d41522a9dd286cb9805a03d8a5bd782cc3f3fd95ea854bf2dfc326e83e50c",
-      "source_bytes": 99,
-      "canonical_source_sha256": "sha256:a8a2e6af1979313a27871de0ca51b51bcb3ec678858f1797925bb4e284805f8a",
-      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/workload/properties/",
-      "anchor": "canonical-0301022022220103-1212310020010033-3233011010231130-1311133001133002-1331212010221022-1102300330221113-1112020030323222-3211222302103031",
-      "anchor_map": [],
-      "mode": "embedded",
-      "registry_path": "docs/guides/data-sources--workload--reference--group-001.md"
-    },
-    {
-      "canonical_id": "xcsh-docs:data-sources:workload:reference",
-      "section_id": "xcsh-docs:data-sources:workload:reference:section:1",
-      "source_sha256": "sha256:ac145debd6be8dcfb03396f9264a02318b67bf0802644334f9bb77b3fe24fe4b",
-      "source_bytes": 156,
-      "canonical_source_sha256": "sha256:a8a2e6af1979313a27871de0ca51b51bcb3ec678858f1797925bb4e284805f8a",
-      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/workload/properties/",
-      "anchor": "canonical-3230202210333311-1132133213222003-2311023322023202-1210201232021313-2122031223003033-2331030113232221-0121233130211130-3031202320200113",
-      "anchor_map": [],
-      "mode": "embedded",
-      "registry_path": "docs/guides/data-sources--workload--reference--group-001.md"
-    },
-    {
-      "canonical_id": "xcsh-docs:data-sources:workload:reference",
-      "section_id": "xcsh-docs:data-sources:workload:reference:section:2",
-      "source_sha256": "sha256:5e24c1769a2780906b19611af5e2de45d01c51b1225450dc1c3372d5f82c79e9",
-      "source_bytes": 55,
-      "canonical_source_sha256": "sha256:a8a2e6af1979313a27871de0ca51b51bcb3ec678858f1797925bb4e284805f8a",
-      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/workload/properties/",
-      "anchor": "canonical-3033031123001232-2201322200310110-1211030012323212-2231022223010301-0213030033332230-0222323222210320-0013103002221021-1330113232303012",
-      "anchor_map": [
-        [
-          "schema-annotations",
-          "canonical-3331101321312310-2132331323323130-3322013230311302-1223002323233320-3121102032103302-3113332230303011-0112030330200111-2103100021010322"
-        ]
-      ],
-      "mode": "embedded",
-      "registry_path": "docs/guides/data-sources--workload--reference--group-001.md"
-    },
-    {
-      "canonical_id": "xcsh-docs:data-sources:workload:reference",
-      "section_id": "xcsh-docs:data-sources:workload:reference:section:3",
-      "source_sha256": "sha256:4eb0909622bbedb7f3b3b2b021c3791da9fc7124e2186bca7c7d4e32e1e6dae0",
-      "source_bytes": 1078,
-      "canonical_source_sha256": "sha256:a8a2e6af1979313a27871de0ca51b51bcb3ec678858f1797925bb4e284805f8a",
-      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/workload/properties/",
-      "anchor": "canonical-3113333133131333-3001112112021311-2101333202330111-3133011213210232-2011031331131332-2012313103030310-3001002103122312-2213211210211110",
-      "anchor_map": [
-        [
-          "schema-description",
-          "canonical-3011323232031133-1123230012010032-1111202101230331-0221213233113231-0121212221133011-0221333231310021-2031000100122213-1330122130101232"
-        ]
-      ],
-      "mode": "embedded",
-      "registry_path": "docs/guides/data-sources--workload--reference--group-001.md"
-    },
-    {
-      "canonical_id": "xcsh-docs:data-sources:workload:reference",
-      "section_id": "xcsh-docs:data-sources:workload:reference:section:4",
-      "source_sha256": "sha256:1cd6741da281683f4f8672b64e5b67105b953163eb1842b9bd586a3937f55945",
-      "source_bytes": 956,
-      "canonical_source_sha256": "sha256:a8a2e6af1979313a27871de0ca51b51bcb3ec678858f1797925bb4e284805f8a",
-      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/workload/properties/",
-      "anchor": "canonical-3033013303123331-3113133212121002-3203030323022231-3221330332230311-1313223202203120-2331201100013102-0313003232223210-1313132303033220",
-      "anchor_map": [
-        [
-          "schema-id",
-          "canonical-1100313110202220-0101323003322323-1101213223200212-0212003302101200-1133011101203200-0213133312013220-0303120031211223-0323223211110232"
-        ]
-      ],
-      "mode": "embedded",
-      "registry_path": "docs/guides/data-sources--workload--reference--group-001.md"
-    },
-    {
-      "canonical_id": "xcsh-docs:data-sources:workload:reference",
-      "section_id": "xcsh-docs:data-sources:workload:reference:section:5",
-      "source_sha256": "sha256:dce500bb8279c791f19c9474e0f4a5602186dbb244111ee2fed6dfef17b0e8ef",
-      "source_bytes": 247,
-      "canonical_source_sha256": "sha256:a8a2e6af1979313a27871de0ca51b51bcb3ec678858f1797925bb4e284805f8a",
-      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/workload/properties/",
-      "anchor": "canonical-2132131120322132-3021221003203032-3222030203130121-0022112321123210-3101133001322321-2321022312300312-3301232220302112-1222333201001031",
-      "anchor_map": [
-        [
-          "schema-labels",
-          "canonical-3010112001223203-0230322012312002-1022122022230333-1111012101201010-0111110310021300-2100202012311003-2020333123310112-0303110013312221"
-        ]
-      ],
-      "mode": "embedded",
-      "registry_path": "docs/guides/data-sources--workload--reference--group-001.md"
-    },
-    {
-      "canonical_id": "xcsh-docs:data-sources:workload:reference",
-      "section_id": "xcsh-docs:data-sources:workload:reference:section:6",
-      "source_sha256": "sha256:473ec19ee190cc9edd80edcce0ba345e0114023da604483bb94b992b23391623",
-      "source_bytes": 501,
-      "canonical_source_sha256": "sha256:a8a2e6af1979313a27871de0ca51b51bcb3ec678858f1797925bb4e284805f8a",
-      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/workload/properties/",
-      "anchor": "canonical-3211112202111110-0012120233313201-3232302311021333-3230120023301130-3330112332231331-2220303203023222-2003103103323303-3110323203121303",
-      "anchor_map": [
-        [
-          "schema-name",
-          "canonical-1112230021323200-0323233231021132-3002213212023302-0300333330130322-3131032201032210-3011233022032120-0110323330033123-0233131011100133"
-        ]
-      ],
-      "mode": "embedded",
-      "registry_path": "docs/guides/data-sources--workload--reference--group-001.md"
-    },
-    {
-      "canonical_id": "xcsh-docs:data-sources:workload:reference",
-      "section_id": "xcsh-docs:data-sources:workload:reference:section:7",
-      "source_sha256": "sha256:9214bdd4cb31ba1fe75883cd4c962d3a5715e3df6acb68705e3d7d99e10cc096",
-      "source_bytes": 1513,
-      "canonical_source_sha256": "sha256:a8a2e6af1979313a27871de0ca51b51bcb3ec678858f1797925bb4e284805f8a",
-      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/workload/properties/",
-      "anchor": "canonical-0311232222231113-1220002323201233-1333123111133301-3132133033310211-3112222010312032-2031111332120031-2010311033022200-2231332033221300",
-      "anchor_map": [
-        [
-          "schema-namespace",
-          "canonical-3030311032201033-0033122332232100-2221121122231020-3311013122311022-3132003012021030-2103001112030202-2031203123310121-2311030110220020"
-        ]
-      ],
-      "mode": "embedded",
-      "registry_path": "docs/guides/data-sources--workload--reference--group-001.md"
-    },
-    {
-      "canonical_id": "xcsh-docs:data-sources:workload:reference",
-      "section_id": "xcsh-docs:data-sources:workload:reference:section:8",
-      "source_sha256": "sha256:8a21582305542075ea36c0fbf09066d4e6c5e12185186e665e64dc4747578726",
-      "source_bytes": 1681,
-      "canonical_source_sha256": "sha256:a8a2e6af1979313a27871de0ca51b51bcb3ec678858f1797925bb4e284805f8a",
-      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/workload/properties/",
-      "anchor": "canonical-3201131121300200-2221002022011331-1131012110333300-1320202130210023-2111023020122112-1012313201231312-0002303303320122-3003031102212303",
-      "anchor_map": [],
-      "mode": "embedded",
-      "registry_path": "docs/guides/data-sources--workload--reference--group-001.md"
-    },
-    {
-      "canonical_id": "xcsh-docs:data-sources:workload:reference",
-      "section_id": "xcsh-docs:data-sources:workload:reference:section:9",
-      "source_sha256": "sha256:d6fcc1453126a4dca82a528ae57785d50ba6211031c175a3c22bde466b338985",
-      "source_bytes": 433497,
-      "canonical_source_sha256": "sha256:a8a2e6af1979313a27871de0ca51b51bcb3ec678858f1797925bb4e284805f8a",
-      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/workload/properties/",
-      "anchor": "canonical-2301313131120202-1310222000020112-3022311332010201-2112130022111233-0300311203102120-0321313033101323-0002032211211020-0130102213101011",
-      "anchor_map": [],
-      "mode": "embedded",
-      "registry_path": "docs/guides/data-sources--workload--reference--group-002.md"
-    },
-    {
-      "canonical_id": "xcsh-docs:data-sources:workload:reference",
-      "section_id": "xcsh-docs:data-sources:workload:reference:section:10",
-      "source_sha256": "sha256:87147232c0f009ecbca4a4dfd7d56d7835a9a4b1f3c84832e302ba642498a3d5",
-      "source_bytes": 433395,
-      "canonical_source_sha256": "sha256:a8a2e6af1979313a27871de0ca51b51bcb3ec678858f1797925bb4e284805f8a",
-      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/workload/properties/",
-      "anchor": "canonical-3221221101101313-3101002120302130-0321020133130312-1222001221202112-2320133332133101-1312023011121133-0022012022311132-1023001110103332",
-      "anchor_map": [],
-      "mode": "embedded",
-      "registry_path": "docs/guides/data-sources--workload--reference--group-003.md"
     }
   ]
 }

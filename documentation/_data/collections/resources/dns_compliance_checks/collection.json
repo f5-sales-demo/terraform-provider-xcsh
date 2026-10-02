@@ -97,7 +97,7 @@
         "xcsh-docs:resources:dns_compliance_checks:timeouts"
       ],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -109,7 +109,7 @@
       "path": "documentation/resources/dns_compliance_checks/index.md",
       "product": "distributed-cloud",
       "provider_name": "dns_compliance_checks",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "resources",
       "registry_anchor": "canonical-2320330031033230-1032132011323312-3322232320012321-0210130122222101-3131030333303122-1013130113312022-2213230000130100-1010120232210210",
       "registry_path": "docs/resources/dns_compliance_checks.md",
@@ -138,7 +138,7 @@
       "category": "dns",
       "child_ids": ["xcsh-docs:resources:dns_compliance_checks:properties:timeouts"],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -150,7 +150,7 @@
       "path": "documentation/resources/dns_compliance_checks/properties/index.md",
       "product": "distributed-cloud",
       "provider_name": "dns_compliance_checks",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "resources",
       "registry_anchor": "canonical-3232320123103113-0100311102312313-0121302010013132-2312320000130313-1222132032330322-2302213002320222-1233300132211231-3112210312300202",
       "registry_path": "docs/guides/resources--dns_compliance_checks--reference--group-001.md",
@@ -333,7 +333,7 @@
       "category": "dns",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -345,7 +345,7 @@
       "path": "documentation/resources/dns_compliance_checks/properties/timeouts/index.md",
       "product": "distributed-cloud",
       "provider_name": "dns_compliance_checks",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "resources",
       "registry_anchor": "canonical-0121213120233133-1312330233101232-1322031333323222-1212200121211103-0022222020113321-3121131210333132-3013302012320332-1200122023220122",
       "registry_path": "docs/guides/resources--dns_compliance_checks--reference--group-001.md",
@@ -430,7 +430,7 @@
       "category": "dns",
       "child_ids": ["xcsh-docs:resources:dns_compliance_checks:example:resource"],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -442,7 +442,7 @@
       "path": "documentation/resources/dns_compliance_checks/examples/index.md",
       "product": "distributed-cloud",
       "provider_name": "dns_compliance_checks",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "resources",
       "registry_anchor": "canonical-3223100300030001-0303112321333032-1230022123231032-0200122111033303-2032110213100222-3010330013000322-1120330313333123-1101230331011201",
       "registry_path": "docs/guides/resources--dns_compliance_checks--examples--group-001.md",
@@ -470,7 +470,7 @@
       "category": "dns",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -489,7 +489,7 @@
       "path": "documentation/resources/dns_compliance_checks/examples/resource/index.md",
       "product": "distributed-cloud",
       "provider_name": "dns_compliance_checks",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "resources",
       "registry_anchor": "canonical-0310000323310100-1023120330100322-0333100003022130-1231033132331112-0002303000233003-1030200222032233-3320101210031232-2022232323030301",
       "registry_path": "docs/guides/resources--dns_compliance_checks--examples--group-001.md",
@@ -517,7 +517,7 @@
       "category": "dns",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -530,7 +530,7 @@
       "path": "documentation/resources/dns_compliance_checks/lifecycle/import/index.md",
       "product": "distributed-cloud",
       "provider_name": "dns_compliance_checks",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "resources",
       "registry_anchor": "canonical-0332203010112020-0330310122032110-2023110300311131-1212322311002112-1201323103020202-3010210330100323-1022020332100223-0103033113122301",
       "registry_path": "docs/guides/resources--dns_compliance_checks--lifecycle--group-001.md",
@@ -558,7 +558,7 @@
       "category": "dns",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -570,7 +570,7 @@
       "path": "documentation/resources/dns_compliance_checks/lifecycle/timeouts/index.md",
       "product": "distributed-cloud",
       "provider_name": "dns_compliance_checks",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "resources",
       "registry_anchor": "canonical-2312121020011203-3130101230331010-2311131120002133-2201023300033220-0211200200330233-1123302233212230-1120020010110233-3322112333300103",
       "registry_path": "docs/guides/resources--dns_compliance_checks--lifecycle--group-001.md",

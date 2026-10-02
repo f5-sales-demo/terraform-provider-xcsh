@@ -125,14 +125,14 @@
   },
   "pages": [
     {
-      "aliases": ["cert", "certificate", "existing certificates", "tls certificates"],
+      "aliases": ["certificate"],
       "body_bytes": 1359,
       "body_sha256": "sha256:4f2bae471026afe5b87058ff608a4d5a0f9ca636fdbf5d6512ade24a3248a6d8",
       "capabilities": ["security"],
       "category": "security",
       "child_ids": ["xcsh-docs:data-sources:certificate:reference", "xcsh-docs:data-sources:certificate:examples"],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -144,7 +144,7 @@
       "path": "documentation/data-sources/certificate/index.md",
       "product": "distributed-cloud",
       "provider_name": "certificate",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-3012321000133203-2232232100110030-1133220132311111-1220230030331111-1113103323102333-2233030332231013-0322121312100331-0121101033322010",
       "registry_path": "docs/data-sources/certificate.md",
@@ -166,7 +166,7 @@
       }
     },
     {
-      "aliases": ["cert", "certificate", "existing certificates", "tls certificates"],
+      "aliases": ["certificate"],
       "body_bytes": 13417,
       "body_sha256": "sha256:9ec13df60d6d02439c2f0fe69924d1ac8425bf86ea8b92562981fe70404e002c",
       "capabilities": ["security"],
@@ -179,7 +179,7 @@
         "xcsh-docs:data-sources:certificate:properties:use_system_defaults"
       ],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -191,7 +191,7 @@
       "path": "documentation/data-sources/certificate/properties/index.md",
       "product": "distributed-cloud",
       "provider_name": "certificate",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-0231301231300033-0330331110133021-2220121332302031-1112310222301003-2132000233121232-0233011201000301-3230232011333001-1002232100313000",
       "registry_path": "docs/guides/data-sources--certificate--reference--group-001.md",
@@ -388,7 +388,7 @@
       "category": "security",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -400,7 +400,7 @@
       "path": "documentation/data-sources/certificate/properties/certificate_chain/index.md",
       "product": "distributed-cloud",
       "provider_name": "certificate",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-1201120301312222-1110032002030323-1311101123101112-2231320131101203-3033033031011131-0002122100230310-1313320132333010-2022233002033223",
       "registry_path": "docs/guides/data-sources--certificate--reference--group-001.md",
@@ -471,7 +471,7 @@
       "category": "security",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -483,7 +483,7 @@
       "path": "documentation/data-sources/certificate/properties/custom_hash_algorithms/index.md",
       "product": "distributed-cloud",
       "provider_name": "certificate",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-0303233230122130-1303313303031100-0320311101201112-1233011200123032-3233130001310213-0200202130000212-3132121010121103-3203232021031312",
       "registry_path": "docs/guides/data-sources--certificate--reference--group-001.md",
@@ -526,7 +526,7 @@
       "category": "security",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -538,7 +538,7 @@
       "path": "documentation/data-sources/certificate/properties/disable_ocsp_stapling/index.md",
       "product": "distributed-cloud",
       "provider_name": "certificate",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-1303300001332333-2133003111102030-1211002312221203-1032210221332122-0332301200132133-2220203300032233-2102213320133233-2200000202032210",
       "registry_path": "docs/guides/data-sources--certificate--reference--group-001.md",
@@ -569,7 +569,7 @@
         "xcsh-docs:data-sources:certificate:properties:private_key:clear_secret_info"
       ],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -581,7 +581,7 @@
       "path": "documentation/data-sources/certificate/properties/private_key/index.md",
       "product": "distributed-cloud",
       "provider_name": "certificate",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-0303332301111032-1121312202010230-2010123001002110-1000200100332031-2022332113132133-1001003300221032-0013103033011303-1322002121022121",
       "registry_path": "docs/guides/data-sources--certificate--reference--group-001.md",
@@ -638,7 +638,7 @@
       "category": "security",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -650,7 +650,7 @@
       "path": "documentation/data-sources/certificate/properties/private_key/blindfold_secret_info/index.md",
       "product": "distributed-cloud",
       "provider_name": "certificate",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-3032322222111030-1210310322211001-1302023313202232-1030121331103231-2221020002031332-1233220131331130-2131130231331113-2303112033021323",
       "registry_path": "docs/guides/data-sources--certificate--reference--group-001.md",
@@ -660,7 +660,7 @@
       "schema_path": ["private_key", "blindfold_secret_info"],
       "sections": [
         {
-          "aliases": ["backend servers", "decryption provider", "origin servers", "upstream servers"],
+          "aliases": ["decryption provider"],
           "anchor": "schema-private_key--blindfold_secret_info--decryption_provider",
           "description": "Name of the Secret Management Access object that contains information about the backend Secret Management service.",
           "document_id": "xcsh-docs:data-sources:certificate:properties:private_key:blindfold_secret_info",
@@ -721,7 +721,7 @@
       "category": "security",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -733,7 +733,7 @@
       "path": "documentation/data-sources/certificate/properties/private_key/clear_secret_info/index.md",
       "product": "distributed-cloud",
       "provider_name": "certificate",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-0312212232033310-2233230322130022-1332030032003133-3132303102333130-1123121202123101-2130321121222323-3011222232331310-2213202123300230",
       "registry_path": "docs/guides/data-sources--certificate--reference--group-001.md",
@@ -790,7 +790,7 @@
       "category": "security",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -802,7 +802,7 @@
       "path": "documentation/data-sources/certificate/properties/use_system_defaults/index.md",
       "product": "distributed-cloud",
       "provider_name": "certificate",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-0322002230033322-0010111113303313-1123023032313223-1232100302003111-3313122222131302-2120130313311330-1112120102030010-1300311202323230",
       "registry_path": "docs/guides/data-sources--certificate--reference--group-001.md",
@@ -823,14 +823,14 @@
       }
     },
     {
-      "aliases": ["cert", "certificate", "existing certificates", "tls certificates"],
+      "aliases": ["certificate"],
       "body_bytes": 651,
       "body_sha256": "sha256:2bff38e4f046df7f1f818d160d974d12161f0c92572b2b39b45bc5a3f3a8d161",
       "capabilities": ["security"],
       "category": "security",
       "child_ids": ["xcsh-docs:data-sources:certificate:example:data-source"],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -842,7 +842,7 @@
       "path": "documentation/data-sources/certificate/examples/index.md",
       "product": "distributed-cloud",
       "provider_name": "certificate",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-0332313110100301-2123222322221030-3221312133000120-2333200122131330-1111030233012332-3313211030323021-0130210110332303-0312311102101303",
       "registry_path": "docs/guides/data-sources--certificate--examples--group-001.md",
@@ -870,7 +870,7 @@
       "category": "security",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -889,7 +889,7 @@
       "path": "documentation/data-sources/certificate/examples/data-source/index.md",
       "product": "distributed-cloud",
       "provider_name": "certificate",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-0230322312131310-1100223021111133-2013003200312120-3001030011211123-2210201231002213-3101333023233123-2120323312113233-3103212213321302",
       "registry_path": "docs/guides/data-sources--certificate--examples--group-001.md",

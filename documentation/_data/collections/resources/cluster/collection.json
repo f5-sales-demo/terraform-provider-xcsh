@@ -706,7 +706,7 @@
   },
   "pages": [
     {
-      "aliases": ["backend servers", "cluster", "origin servers", "upstream servers"],
+      "aliases": ["cluster"],
       "body_bytes": 1575,
       "body_sha256": "sha256:e468791ad036faebbc9114a56b57e31a0dfa256a0f499cba8b0fe0a7faf801ac",
       "capabilities": [],
@@ -718,7 +718,7 @@
         "xcsh-docs:resources:cluster:timeouts"
       ],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -730,7 +730,7 @@
       "path": "documentation/resources/cluster/index.md",
       "product": "distributed-cloud",
       "provider_name": "cluster",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "resources",
       "registry_anchor": "canonical-0200232312311331-3030233031121222-1103023001033003-2132323312102233-3022210011323301-1323303310030333-2031301002313333-2332312221310003",
       "registry_path": "docs/resources/cluster.md",
@@ -777,7 +777,7 @@
         "xcsh-docs:resources:cluster:properties:upstream_conn_pool_reuse_type"
       ],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -789,7 +789,7 @@
       "path": "documentation/resources/cluster/properties/index.md",
       "product": "distributed-cloud",
       "provider_name": "cluster",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "resources",
       "registry_anchor": "canonical-3101131133022110-3312300202101321-1032132322320210-3102023201100003-0111113110022121-3023312323003101-2100300213113301-3113003202303321",
       "registry_path": "docs/guides/resources--cluster--reference--group-001.md",
@@ -1060,7 +1060,7 @@
           "type": "map"
         },
         {
-          "aliases": ["backend servers", "loadbalancer algorithm", "origin servers", "upstream servers"],
+          "aliases": ["loadbalancer algorithm"],
           "anchor": "schema-loadbalancer_algorithm",
           "description": "Different load balancing algorithms supported When a connection to a endpoint in an upstream cluster is required, the load balancer uses loadbalancer_algorithm to determine which host is selected. - ROUND_ROBIN: ROUND_ROBIN Policy in which each healthy/available upstream endpoint is selected in round robin order. -",
           "document_id": "xcsh-docs:resources:cluster:reference",
@@ -1074,7 +1074,7 @@
           "type": "string"
         },
         {
-          "aliases": ["backend servers", "max requests per connection", "origin servers", "upstream servers"],
+          "aliases": ["max requests per connection"],
           "anchor": "schema-max_requests_per_connection",
           "description": "Exclusive with Sets the maximum number of requests allowed per connection to the origin server. Enter a value >=1 to define the request limit per connection.",
           "document_id": "xcsh-docs:resources:cluster:reference",
@@ -1391,7 +1391,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -1403,7 +1403,7 @@
       "path": "documentation/resources/cluster/properties/auto_http_config/index.md",
       "product": "distributed-cloud",
       "provider_name": "cluster",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "resources",
       "registry_anchor": "canonical-2322231020220022-3201131011222101-3111130311210132-1100300313031231-3130321322022012-1103100132333333-0022230220220021-1222033112300230",
       "registry_path": "docs/guides/resources--cluster--reference--group-001.md",
@@ -1431,7 +1431,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -1443,7 +1443,7 @@
       "path": "documentation/resources/cluster/properties/circuit_breaker/index.md",
       "product": "distributed-cloud",
       "provider_name": "cluster",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "resources",
       "registry_anchor": "canonical-2221020232120031-3001013211111132-1121322102221222-0312203310302010-0011203101220332-1323012230031023-2230330130032331-3233102132202313",
       "registry_path": "docs/guides/resources--cluster--reference--group-001.md",
@@ -1542,7 +1542,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -1554,7 +1554,7 @@
       "path": "documentation/resources/cluster/properties/default_subset/index.md",
       "product": "distributed-cloud",
       "provider_name": "cluster",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "resources",
       "registry_anchor": "canonical-2203130112112230-2033101230311313-1232010302031100-1220213120323211-1000330212310013-1123310312113230-2123012021101121-1101210100101030",
       "registry_path": "docs/guides/resources--cluster--reference--group-001.md",
@@ -1582,7 +1582,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -1594,7 +1594,7 @@
       "path": "documentation/resources/cluster/properties/disable_proxy_protocol/index.md",
       "product": "distributed-cloud",
       "provider_name": "cluster",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "resources",
       "registry_anchor": "canonical-1332231121213303-0300331221322310-1213312031322122-0103330310021233-0230233100333021-3101001230012121-0312003112200120-0231110302130011",
       "registry_path": "docs/guides/resources--cluster--reference--group-001.md",
@@ -1622,7 +1622,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -1634,7 +1634,7 @@
       "path": "documentation/resources/cluster/properties/endpoint_subsets/index.md",
       "product": "distributed-cloud",
       "provider_name": "cluster",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "resources",
       "registry_anchor": "canonical-0130002222020001-0232133310310030-3303113101232230-1302101000000023-2102221011311020-3031020222211032-2220002000132123-3001122011123303",
       "registry_path": "docs/guides/resources--cluster--reference--group-001.md",
@@ -1686,7 +1686,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -1698,7 +1698,7 @@
       "path": "documentation/resources/cluster/properties/endpoints/index.md",
       "product": "distributed-cloud",
       "provider_name": "cluster",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "resources",
       "registry_anchor": "canonical-1122033200033300-2212233112332301-0113231231121220-3011100310230301-2211231323321310-2322020033013220-2001321233013220-1011003202200223",
       "registry_path": "docs/guides/resources--cluster--reference--group-001.md",
@@ -1797,7 +1797,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -1809,7 +1809,7 @@
       "path": "documentation/resources/cluster/properties/health_checks/index.md",
       "product": "distributed-cloud",
       "provider_name": "cluster",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "resources",
       "registry_anchor": "canonical-3333112022010122-1123221201321130-3332220012202132-3212101010213330-3221010130203101-2233333323313123-3210103231011213-1002123323200100",
       "registry_path": "docs/guides/resources--cluster--reference--group-001.md",
@@ -1908,7 +1908,7 @@
       "category": null,
       "child_ids": ["xcsh-docs:resources:cluster:properties:http1_config:header_transformation"],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -1920,7 +1920,7 @@
       "path": "documentation/resources/cluster/properties/http1_config/index.md",
       "product": "distributed-cloud",
       "provider_name": "cluster",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "resources",
       "registry_anchor": "canonical-0212332320322030-3122311023101131-3132013323032230-0111223003223223-2130302302311213-0223311332033230-1210013301010022-2212200332003133",
       "registry_path": "docs/guides/resources--cluster--reference--group-001.md",
@@ -2016,7 +2016,7 @@
         "xcsh-docs:resources:cluster:properties:http1_config:header_transformation:proper_case_header_transformation"
       ],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -2028,7 +2028,7 @@
       "path": "documentation/resources/cluster/properties/http1_config/header_transformation/index.md",
       "product": "distributed-cloud",
       "provider_name": "cluster",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "resources",
       "registry_anchor": "canonical-3203221021123323-3232201000310320-1220303231330220-2221303021202311-1322120131023313-3223020332000123-3210030230131311-2303313021022011",
       "registry_path": "docs/guides/resources--cluster--reference--group-001.md",
@@ -2148,7 +2148,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -2160,7 +2160,7 @@
       "path": "documentation/resources/cluster/properties/http1_config/header_transformation/default_header_transformation/index.md",
       "product": "distributed-cloud",
       "provider_name": "cluster",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "resources",
       "registry_anchor": "canonical-3210111201011333-3303233101013001-1220302301313223-2002332233223022-0331321212130333-2311311023333103-3300021323021322-0323322311021201",
       "registry_path": "docs/guides/resources--cluster--reference--group-001.md",
@@ -2188,7 +2188,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -2200,7 +2200,7 @@
       "path": "documentation/resources/cluster/properties/http1_config/header_transformation/preserve_case_header_transformation/index.md",
       "product": "distributed-cloud",
       "provider_name": "cluster",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "resources",
       "registry_anchor": "canonical-2233030001120322-0200313113322200-1313032121203330-2322320303213222-1213122030323010-1013033223110220-0331000121023311-1202330301032131",
       "registry_path": "docs/guides/resources--cluster--reference--group-001.md",
@@ -2228,7 +2228,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -2240,7 +2240,7 @@
       "path": "documentation/resources/cluster/properties/http1_config/header_transformation/proper_case_header_transformation/index.md",
       "product": "distributed-cloud",
       "provider_name": "cluster",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "resources",
       "registry_anchor": "canonical-2231100321330203-1210202101302300-1303003222032121-0312313011333021-3211020021011222-2122211033331200-2002101332232122-1202020021103120",
       "registry_path": "docs/guides/resources--cluster--reference--group-001.md",
@@ -2268,7 +2268,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -2280,7 +2280,7 @@
       "path": "documentation/resources/cluster/properties/http2_options/index.md",
       "product": "distributed-cloud",
       "provider_name": "cluster",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "resources",
       "registry_anchor": "canonical-1122100310003003-3113331120023312-1013121113333323-1300201130311202-1110110033320221-1200012120120123-3131112312310130-0313133200131313",
       "registry_path": "docs/guides/resources--cluster--reference--group-001.md",
@@ -2323,7 +2323,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -2335,7 +2335,7 @@
       "path": "documentation/resources/cluster/properties/no_panic_threshold/index.md",
       "product": "distributed-cloud",
       "provider_name": "cluster",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "resources",
       "registry_anchor": "canonical-3003220312211122-0130132300200133-0003203213303111-3231033101300201-1323232130312102-0321223312002221-2012322311301030-2120333223120322",
       "registry_path": "docs/guides/resources--cluster--reference--group-001.md",
@@ -2363,7 +2363,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -2375,7 +2375,7 @@
       "path": "documentation/resources/cluster/properties/no_request_limit_per_connection/index.md",
       "product": "distributed-cloud",
       "provider_name": "cluster",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "resources",
       "registry_anchor": "canonical-1222033230013012-0003313031123021-2201020000223133-2130312313211123-2000222100123110-2213333002013013-2112332102110013-3113022211303122",
       "registry_path": "docs/guides/resources--cluster--reference--group-001.md",
@@ -2403,7 +2403,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -2415,7 +2415,7 @@
       "path": "documentation/resources/cluster/properties/outlier_detection/index.md",
       "product": "distributed-cloud",
       "provider_name": "cluster",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "resources",
       "registry_anchor": "canonical-1332022310131110-0010322311202313-0132333220211213-1222030130221111-1133102220330211-3122120000022131-3202112111002123-3313332331030110",
       "registry_path": "docs/guides/resources--cluster--reference--group-001.md",
@@ -2514,7 +2514,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -2526,7 +2526,7 @@
       "path": "documentation/resources/cluster/properties/proxy_protocol_v1/index.md",
       "product": "distributed-cloud",
       "provider_name": "cluster",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "resources",
       "registry_anchor": "canonical-0033223222002132-3130113312332000-3110121121032222-0311212300220331-2111030221111102-1103202003220133-3230012120130011-3222201230122200",
       "registry_path": "docs/guides/resources--cluster--reference--group-001.md",
@@ -2554,7 +2554,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -2566,7 +2566,7 @@
       "path": "documentation/resources/cluster/properties/proxy_protocol_v2/index.md",
       "product": "distributed-cloud",
       "provider_name": "cluster",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "resources",
       "registry_anchor": "canonical-1030230022303201-0210032031113222-1010300000311002-1033013033031211-1231331022232311-0022211013203320-1012130030000133-0133112211302022",
       "registry_path": "docs/guides/resources--cluster--reference--group-001.md",
@@ -2594,7 +2594,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -2606,7 +2606,7 @@
       "path": "documentation/resources/cluster/properties/timeouts/index.md",
       "product": "distributed-cloud",
       "provider_name": "cluster",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "resources",
       "registry_anchor": "canonical-2330030023321302-2111121231202211-3222113200022000-2010222000312212-1332323122330130-1131000321201000-2221222311312130-0300331200322010",
       "registry_path": "docs/guides/resources--cluster--reference--group-001.md",
@@ -2698,7 +2698,7 @@
         "xcsh-docs:resources:cluster:properties:tls_parameters:use_host_header_as_sni"
       ],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["reviewed-rule"],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -2710,7 +2710,7 @@
       "path": "documentation/resources/cluster/properties/tls_parameters/index.md",
       "product": "distributed-cloud",
       "provider_name": "cluster",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "resources",
       "registry_anchor": "canonical-3220210122031322-3121113012222331-0213030232301003-2002100301202230-1030100031230032-2222122001310100-2022213213020103-1031100333310031",
       "registry_path": "docs/guides/resources--cluster--reference--group-001.md",
@@ -2833,16 +2833,7 @@
       "schema_path": ["tls_parameters"],
       "sections": [
         {
-          "aliases": [
-            "authentication",
-            "cert",
-            "cert params",
-            "certificate",
-            "credential setup",
-            "credentials",
-            "existing certificates",
-            "tls certificates"
-          ],
+          "aliases": ["cert params"],
           "anchor": "section",
           "description": "Certificate Parameters for authentication, TLS ciphers, and trust store.",
           "document_id": "xcsh-docs:resources:cluster:properties:tls_parameters:cert_params",
@@ -2913,16 +2904,7 @@
           "type": "object"
         },
         {
-          "aliases": [
-            "authentication",
-            "cert",
-            "certificate",
-            "common params",
-            "credential setup",
-            "credentials",
-            "existing certificates",
-            "tls certificates"
-          ],
+          "aliases": ["common params"],
           "anchor": "section",
           "description": "Information of different aspects for TLS authentication related to ciphers, certificates and trust store.",
           "document_id": "xcsh-docs:resources:cluster:properties:tls_parameters:common_params",
@@ -3032,16 +3014,7 @@
       }
     },
     {
-      "aliases": [
-        "authentication",
-        "cert",
-        "certificate",
-        "credential setup",
-        "credentials",
-        "existing certificates",
-        "tls certificates",
-        "tls parameters cert params"
-      ],
+      "aliases": ["tls parameters cert params"],
       "body_bytes": 9101,
       "body_sha256": "sha256:d179b82348e29c4c8c83be94d0489629670d9bb054697023ec4acba7c73b12c8",
       "capabilities": ["load-balancing.tls"],
@@ -3053,7 +3026,7 @@
         "xcsh-docs:resources:cluster:properties:tls_parameters:cert_params:volterra_trusted_ca"
       ],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["reviewed-rule"],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -3065,7 +3038,7 @@
       "path": "documentation/resources/cluster/properties/tls_parameters/cert_params/index.md",
       "product": "distributed-cloud",
       "provider_name": "cluster",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "resources",
       "registry_anchor": "canonical-1100203002130122-0022303002220133-3103111323222000-2330331223110031-2130313221330022-3031012100210311-2322023011022002-1201200201010022",
       "registry_path": "docs/guides/resources--cluster--reference--group-001.md",
@@ -3132,16 +3105,7 @@
       "schema_path": ["tls_parameters", "cert_params"],
       "sections": [
         {
-          "aliases": [
-            "authentication",
-            "cert",
-            "certificate",
-            "certificates",
-            "credential setup",
-            "credentials",
-            "existing certificates",
-            "tls certificates"
-          ],
+          "aliases": ["cert", "certificate", "certificates", "existing certificates", "tls certificates"],
           "anchor": "section",
           "description": "Client TLS Certificate required for mTLS authentication.",
           "document_id": "xcsh-docs:resources:cluster:properties:tls_parameters:cert_params:certificates",
@@ -3269,11 +3233,8 @@
     },
     {
       "aliases": [
-        "authentication",
         "cert",
         "certificate",
-        "credential setup",
-        "credentials",
         "existing certificates",
         "tls certificates",
         "tls parameters cert params certificates"
@@ -3284,7 +3245,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["reviewed-rule"],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -3296,7 +3257,7 @@
       "path": "documentation/resources/cluster/properties/tls_parameters/cert_params/certificates/index.md",
       "product": "distributed-cloud",
       "provider_name": "cluster",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "resources",
       "registry_anchor": "canonical-3231221112110221-2222223230122221-0123030212331110-3102133330132221-1323200221220213-2331121203031321-2322013132001213-1231033011033303",
       "registry_path": "docs/guides/resources--cluster--reference--group-001.md",
@@ -3395,7 +3356,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["reviewed-rule"],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -3407,7 +3368,7 @@
       "path": "documentation/resources/cluster/properties/tls_parameters/cert_params/skip_server_verification/index.md",
       "product": "distributed-cloud",
       "provider_name": "cluster",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "resources",
       "registry_anchor": "canonical-3230113212220110-1311312112103302-1122313301110122-2300101023102300-2311300223331201-3302320331023023-1100030020113322-2020202131030311",
       "registry_path": "docs/guides/resources--cluster--reference--group-001.md",
@@ -3437,7 +3398,7 @@
         "xcsh-docs:resources:cluster:properties:tls_parameters:cert_params:tls_validation_params:trusted_ca"
       ],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["reviewed-rule"],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -3449,7 +3410,7 @@
       "path": "documentation/resources/cluster/properties/tls_parameters/cert_params/tls_validation_params/index.md",
       "product": "distributed-cloud",
       "provider_name": "cluster",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "resources",
       "registry_anchor": "canonical-2101011001120302-3311230102233231-2123132022111332-1330332321231133-2303000103200231-1130103300133322-3102220332233122-0200233112023111",
       "registry_path": "docs/guides/resources--cluster--reference--group-001.md",
@@ -3476,7 +3437,7 @@
       "schema_path": ["tls_parameters", "cert_params", "tls_validation_params"],
       "sections": [
         {
-          "aliases": ["cert", "certificate", "existing certificates", "skip hostname verification", "tls certificates"],
+          "aliases": ["skip hostname verification"],
           "anchor": "schema-tls_parameters--cert_params--tls_validation_params--skip_hostname_verification",
           "description": "When True, skip verification of hostname i.e. CN/Subject Alt Name of certificate is not matched to the connecting hostname.",
           "document_id": "xcsh-docs:resources:cluster:properties:tls_parameters:cert_params:tls_validation_params",
@@ -3490,7 +3451,7 @@
           "type": "bool"
         },
         {
-          "aliases": ["cert", "certificate", "existing certificates", "tls certificates", "trusted ca"],
+          "aliases": ["trusted ca"],
           "anchor": "section",
           "description": "Reference to Root CA Certificate.",
           "document_id": "xcsh-docs:resources:cluster:properties:tls_parameters:cert_params:tls_validation_params:trusted_ca",
@@ -3504,7 +3465,7 @@
           "type": "object"
         },
         {
-          "aliases": ["cert", "certificate", "existing certificates", "tls certificates", "trusted ca url"],
+          "aliases": ["trusted ca url"],
           "anchor": "schema-tls_parameters--cert_params--tls_validation_params--trusted_ca_url",
           "description": "Exclusive with Inline Root CA Certificate.",
           "document_id": "xcsh-docs:resources:cluster:properties:tls_parameters:cert_params:tls_validation_params",
@@ -3518,7 +3479,7 @@
           "type": "string"
         },
         {
-          "aliases": ["cert", "certificate", "existing certificates", "tls certificates", "verify subject alt names"],
+          "aliases": ["verify subject alt names"],
           "anchor": "schema-tls_parameters--cert_params--tls_validation_params--verify_subject_alt_names",
           "description": "List of acceptable Subject Alt Names/CN in the peer's certificate. When skip_hostname_verification is false and verify_subject_alt_names is empty, the hostname of the peer will be used for matching against SAN/CN of peer's certificate.",
           "document_id": "xcsh-docs:resources:cluster:properties:tls_parameters:cert_params:tls_validation_params",
@@ -3544,13 +3505,7 @@
       }
     },
     {
-      "aliases": [
-        "cert",
-        "certificate",
-        "existing certificates",
-        "tls certificates",
-        "tls parameters cert params tls validation params trusted ca"
-      ],
+      "aliases": ["tls parameters cert params tls validation params trusted ca"],
       "body_bytes": 2144,
       "body_sha256": "sha256:814046876ebdf832cb94971a143e455c74207cbb010cdc4565f2f49dd2b75b07",
       "capabilities": ["load-balancing.tls"],
@@ -3559,7 +3514,7 @@
         "xcsh-docs:resources:cluster:properties:tls_parameters:cert_params:tls_validation_params:trusted_ca:trusted_ca_list"
       ],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["reviewed-rule"],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -3571,7 +3526,7 @@
       "path": "documentation/resources/cluster/properties/tls_parameters/cert_params/tls_validation_params/trusted_ca/index.md",
       "product": "distributed-cloud",
       "provider_name": "cluster",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "resources",
       "registry_anchor": "canonical-2021030210210031-1231023013013102-0122320101032012-2302332333111113-0333210230330213-3302100001131133-3133303313021330-3103133220131322",
       "registry_path": "docs/guides/resources--cluster--reference--group-001.md",
@@ -3581,7 +3536,7 @@
       "schema_path": ["tls_parameters", "cert_params", "tls_validation_params", "trusted_ca"],
       "sections": [
         {
-          "aliases": ["cert", "certificate", "existing certificates", "tls certificates", "trusted ca list"],
+          "aliases": ["trusted ca list"],
           "anchor": "section",
           "description": "Reference to Root CA Certificate.",
           "document_id": "xcsh-docs:resources:cluster:properties:tls_parameters:cert_params:tls_validation_params:trusted_ca:trusted_ca_list",
@@ -3607,20 +3562,14 @@
       }
     },
     {
-      "aliases": [
-        "cert",
-        "certificate",
-        "existing certificates",
-        "tls certificates",
-        "tls parameters cert params tls validation params trusted ca trusted ca list"
-      ],
+      "aliases": ["tls parameters cert params tls validation params trusted ca trusted ca list"],
       "body_bytes": 7558,
       "body_sha256": "sha256:2c990f13297dd79c935c3c08389d0c694bac7b79e9b8ca965c5f4f88dbec89fd",
       "capabilities": ["load-balancing.tls"],
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["reviewed-rule"],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -3632,7 +3581,7 @@
       "path": "documentation/resources/cluster/properties/tls_parameters/cert_params/tls_validation_params/trusted_ca/trusted_ca_list/index.md",
       "product": "distributed-cloud",
       "provider_name": "cluster",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "resources",
       "registry_anchor": "canonical-3210202012233222-2222111012311100-0302200210313202-1110231121211201-2133310310320312-1123123022220111-1311011101003222-2302030122313211",
       "registry_path": "docs/guides/resources--cluster--reference--group-001.md",
@@ -3766,7 +3715,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["reviewed-rule"],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -3778,7 +3727,7 @@
       "path": "documentation/resources/cluster/properties/tls_parameters/cert_params/volterra_trusted_ca/index.md",
       "product": "distributed-cloud",
       "provider_name": "cluster",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "resources",
       "registry_anchor": "canonical-0232001101331213-3011133133010213-0313330030310323-1311002133300112-1300011211333120-3323002231113130-0300100332301033-0311100310121120",
       "registry_path": "docs/guides/resources--cluster--reference--group-001.md",
@@ -3799,16 +3748,7 @@
       }
     },
     {
-      "aliases": [
-        "authentication",
-        "cert",
-        "certificate",
-        "credential setup",
-        "credentials",
-        "existing certificates",
-        "tls certificates",
-        "tls parameters common params"
-      ],
+      "aliases": ["tls parameters common params"],
       "body_bytes": 7943,
       "body_sha256": "sha256:9108658231171640d4955139c08949dfbd58462d14d7545dc4589d78ac9bbbbc",
       "capabilities": ["load-balancing.tls"],
@@ -3818,7 +3758,7 @@
         "xcsh-docs:resources:cluster:properties:tls_parameters:common_params:validation_params"
       ],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["reviewed-rule"],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -3830,7 +3770,7 @@
       "path": "documentation/resources/cluster/properties/tls_parameters/common_params/index.md",
       "product": "distributed-cloud",
       "provider_name": "cluster",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "resources",
       "registry_anchor": "canonical-3000332102231031-2232112022123031-0211133232202112-0032122020002033-2212122300111002-2302023030003012-0222333220103023-0320013312123031",
       "registry_path": "docs/guides/resources--cluster--reference--group-001.md",
@@ -4014,7 +3954,7 @@
         "xcsh-docs:resources:cluster:properties:tls_parameters:common_params:tls_certificates:use_system_defaults"
       ],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["reviewed-rule"],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -4026,7 +3966,7 @@
       "path": "documentation/resources/cluster/properties/tls_parameters/common_params/tls_certificates/index.md",
       "product": "distributed-cloud",
       "provider_name": "cluster",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "resources",
       "registry_anchor": "canonical-0131010103112232-3231212333021030-2003223122303221-0310132121203233-1133132000120130-0020110303123221-1122130221010233-3121233100221002",
       "registry_path": "docs/guides/resources--cluster--reference--group-001.md",
@@ -4130,7 +4070,7 @@
           "type": "object"
         },
         {
-          "aliases": ["cert", "certificate", "description spec", "existing certificates", "tls certificates"],
+          "aliases": ["description spec"],
           "anchor": "schema-tls_parameters--common_params--tls_certificates--description_spec",
           "description": "Description. Description for the certificate.",
           "document_id": "xcsh-docs:resources:cluster:properties:tls_parameters:common_params:tls_certificates",
@@ -4215,20 +4155,14 @@
       }
     },
     {
-      "aliases": [
-        "cert",
-        "certificate",
-        "existing certificates",
-        "tls certificates",
-        "tls parameters common params tls certificates custom hash algorithms"
-      ],
+      "aliases": ["tls parameters common params tls certificates custom hash algorithms"],
       "body_bytes": 3357,
       "body_sha256": "sha256:79a8570c4c1b60593534ae49fba767d2088ccc40b9cb3f7fbeb5737eac78fa2e",
       "capabilities": ["load-balancing.tls"],
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["reviewed-rule"],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -4240,7 +4174,7 @@
       "path": "documentation/resources/cluster/properties/tls_parameters/common_params/tls_certificates/custom_hash_algorithms/index.md",
       "product": "distributed-cloud",
       "provider_name": "cluster",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "resources",
       "registry_anchor": "canonical-3100030202202023-3332102123210012-3211221011112033-1010201322312023-3201300103121021-3032033210313123-1010332231032003-2220333022212312",
       "registry_path": "docs/guides/resources--cluster--reference--group-001.md",
@@ -4291,20 +4225,14 @@
       }
     },
     {
-      "aliases": [
-        "cert",
-        "certificate",
-        "existing certificates",
-        "tls certificates",
-        "tls parameters common params tls certificates disable ocsp stapling"
-      ],
+      "aliases": ["tls parameters common params tls certificates disable ocsp stapling"],
       "body_bytes": 1726,
       "body_sha256": "sha256:7a586420a2098d9c71ba2709edff519d68313798dae64da2b1428d0786204f8a",
       "capabilities": ["load-balancing.tls"],
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["reviewed-rule"],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -4316,7 +4244,7 @@
       "path": "documentation/resources/cluster/properties/tls_parameters/common_params/tls_certificates/disable_ocsp_stapling/index.md",
       "product": "distributed-cloud",
       "provider_name": "cluster",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "resources",
       "registry_anchor": "canonical-1113012131322320-0302131123233120-3101220102133203-2113133101130003-2232130312102120-0013123302000011-3200201321123120-3032320120001011",
       "registry_path": "docs/guides/resources--cluster--reference--group-001.md",
@@ -4337,13 +4265,7 @@
       }
     },
     {
-      "aliases": [
-        "cert",
-        "certificate",
-        "existing certificates",
-        "tls certificates",
-        "tls parameters common params tls certificates private key"
-      ],
+      "aliases": ["tls parameters common params tls certificates private key"],
       "body_bytes": 2847,
       "body_sha256": "sha256:fd8e478f3ed216671c3191f32cbd25a9e4da64b97d3514d9e68887ad4b994eae",
       "capabilities": ["load-balancing.tls"],
@@ -4353,7 +4275,7 @@
         "xcsh-docs:resources:cluster:properties:tls_parameters:common_params:tls_certificates:private_key:clear_secret_info"
       ],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["reviewed-rule"],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -4365,7 +4287,7 @@
       "path": "documentation/resources/cluster/properties/tls_parameters/common_params/tls_certificates/private_key/index.md",
       "product": "distributed-cloud",
       "provider_name": "cluster",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "resources",
       "registry_anchor": "canonical-0112322121010113-2232031323011101-1331110203332032-1103021020010321-1303003331100031-1100121002230200-0112002301111132-2220220321333331",
       "registry_path": "docs/guides/resources--cluster--reference--group-001.md",
@@ -4456,20 +4378,14 @@
       }
     },
     {
-      "aliases": [
-        "cert",
-        "certificate",
-        "existing certificates",
-        "tls certificates",
-        "tls parameters common params tls certificates private key blindfold secret info"
-      ],
+      "aliases": ["tls parameters common params tls certificates private key blindfold secret info"],
       "body_bytes": 5446,
       "body_sha256": "sha256:3bd30f3eca5b5f730e518b0718e49564daaf2bea165aa61e55a6023ed8a789d5",
       "capabilities": ["load-balancing.tls"],
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["reviewed-rule"],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -4481,7 +4397,7 @@
       "path": "documentation/resources/cluster/properties/tls_parameters/common_params/tls_certificates/private_key/blindfold_secret_info/index.md",
       "product": "distributed-cloud",
       "provider_name": "cluster",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "resources",
       "registry_anchor": "canonical-1111201001212120-2100030320133102-3113220213330111-2312322131330022-1100301011312201-0210323001212333-3322202132011012-0132330022213300",
       "registry_path": "docs/guides/resources--cluster--reference--group-001.md",
@@ -4500,7 +4416,7 @@
       "schema_path": ["tls_parameters", "common_params", "tls_certificates", "private_key", "blindfold_secret_info"],
       "sections": [
         {
-          "aliases": ["backend servers", "decryption provider", "origin servers", "upstream servers"],
+          "aliases": ["decryption provider"],
           "anchor": "schema-tls_parameters--common_params--tls_certificates--private_key--blindfold_secret_info--decryption_provider",
           "description": "Name of the Secret Management Access object that contains information about the backend Secret Management service.",
           "document_id": "xcsh-docs:resources:cluster:properties:tls_parameters:common_params:tls_certificates:private_key:blindfold_secret_info",
@@ -4575,20 +4491,14 @@
       }
     },
     {
-      "aliases": [
-        "cert",
-        "certificate",
-        "existing certificates",
-        "tls certificates",
-        "tls parameters common params tls certificates private key clear secret info"
-      ],
+      "aliases": ["tls parameters common params tls certificates private key clear secret info"],
       "body_bytes": 4297,
       "body_sha256": "sha256:740b31f8c67e8f5808505ef2109d307a4bef4e915630c6c4bba896d8bc9038af",
       "capabilities": ["load-balancing.tls"],
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["reviewed-rule"],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -4600,7 +4510,7 @@
       "path": "documentation/resources/cluster/properties/tls_parameters/common_params/tls_certificates/private_key/clear_secret_info/index.md",
       "product": "distributed-cloud",
       "provider_name": "cluster",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "resources",
       "registry_anchor": "canonical-1003030120101221-1132033110233013-2333213312110121-0201233200102312-3032112003002113-2132331313311002-2101032023032311-3121200103302010",
       "registry_path": "docs/guides/resources--cluster--reference--group-001.md",
@@ -4673,20 +4583,14 @@
       }
     },
     {
-      "aliases": [
-        "cert",
-        "certificate",
-        "existing certificates",
-        "tls certificates",
-        "tls parameters common params tls certificates use system defaults"
-      ],
+      "aliases": ["tls parameters common params tls certificates use system defaults"],
       "body_bytes": 1718,
       "body_sha256": "sha256:8dfade64e16c549978bf4dd62320252420fca91dce8dae06e52cf5923be0f12f",
       "capabilities": ["load-balancing.tls"],
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["reviewed-rule"],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -4698,7 +4602,7 @@
       "path": "documentation/resources/cluster/properties/tls_parameters/common_params/tls_certificates/use_system_defaults/index.md",
       "product": "distributed-cloud",
       "provider_name": "cluster",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "resources",
       "registry_anchor": "canonical-3312123133213002-2033110322000311-1233120302113100-3332231330331002-2223313020333233-3322023210233300-1001131001321311-3210320211002102",
       "registry_path": "docs/guides/resources--cluster--reference--group-001.md",
@@ -4726,7 +4630,7 @@
       "category": null,
       "child_ids": ["xcsh-docs:resources:cluster:properties:tls_parameters:common_params:validation_params:trusted_ca"],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["reviewed-rule"],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -4738,7 +4642,7 @@
       "path": "documentation/resources/cluster/properties/tls_parameters/common_params/validation_params/index.md",
       "product": "distributed-cloud",
       "provider_name": "cluster",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "resources",
       "registry_anchor": "canonical-1131330230312303-0310300220320222-1103213131021110-2122322113313130-2030303111023121-0130120220032310-3333210220201121-3331003030302103",
       "registry_path": "docs/guides/resources--cluster--reference--group-002.md",
@@ -4765,7 +4669,7 @@
       "schema_path": ["tls_parameters", "common_params", "validation_params"],
       "sections": [
         {
-          "aliases": ["cert", "certificate", "existing certificates", "skip hostname verification", "tls certificates"],
+          "aliases": ["skip hostname verification"],
           "anchor": "schema-tls_parameters--common_params--validation_params--skip_hostname_verification",
           "description": "When True, skip verification of hostname i.e. CN/Subject Alt Name of certificate is not matched to the connecting hostname.",
           "document_id": "xcsh-docs:resources:cluster:properties:tls_parameters:common_params:validation_params",
@@ -4779,7 +4683,7 @@
           "type": "bool"
         },
         {
-          "aliases": ["cert", "certificate", "existing certificates", "tls certificates", "trusted ca"],
+          "aliases": ["trusted ca"],
           "anchor": "section",
           "description": "Reference to Root CA Certificate.",
           "document_id": "xcsh-docs:resources:cluster:properties:tls_parameters:common_params:validation_params:trusted_ca",
@@ -4793,7 +4697,7 @@
           "type": "object"
         },
         {
-          "aliases": ["cert", "certificate", "existing certificates", "tls certificates", "trusted ca url"],
+          "aliases": ["trusted ca url"],
           "anchor": "schema-tls_parameters--common_params--validation_params--trusted_ca_url",
           "description": "Exclusive with Inline Root CA Certificate.",
           "document_id": "xcsh-docs:resources:cluster:properties:tls_parameters:common_params:validation_params",
@@ -4807,7 +4711,7 @@
           "type": "string"
         },
         {
-          "aliases": ["cert", "certificate", "existing certificates", "tls certificates", "verify subject alt names"],
+          "aliases": ["verify subject alt names"],
           "anchor": "schema-tls_parameters--common_params--validation_params--verify_subject_alt_names",
           "description": "List of acceptable Subject Alt Names/CN in the peer's certificate. When skip_hostname_verification is false and verify_subject_alt_names is empty, the hostname of the peer will be used for matching against SAN/CN of peer's certificate.",
           "document_id": "xcsh-docs:resources:cluster:properties:tls_parameters:common_params:validation_params",
@@ -4833,13 +4737,7 @@
       }
     },
     {
-      "aliases": [
-        "cert",
-        "certificate",
-        "existing certificates",
-        "tls certificates",
-        "tls parameters common params validation params trusted ca"
-      ],
+      "aliases": ["tls parameters common params validation params trusted ca"],
       "body_bytes": 2130,
       "body_sha256": "sha256:71d5d86a615aa1976edf5ceadd05e4cf3487fe133967a79bfd58a70b9d494f6c",
       "capabilities": ["load-balancing.tls"],
@@ -4848,7 +4746,7 @@
         "xcsh-docs:resources:cluster:properties:tls_parameters:common_params:validation_params:trusted_ca:trusted_ca_list"
       ],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["reviewed-rule"],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -4860,7 +4758,7 @@
       "path": "documentation/resources/cluster/properties/tls_parameters/common_params/validation_params/trusted_ca/index.md",
       "product": "distributed-cloud",
       "provider_name": "cluster",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "resources",
       "registry_anchor": "canonical-2123020121303021-2110101300212030-3021001233002120-3111103121230120-2023100101002103-1211222000220210-2232311111312300-2313222211011230",
       "registry_path": "docs/guides/resources--cluster--reference--group-002.md",
@@ -4870,7 +4768,7 @@
       "schema_path": ["tls_parameters", "common_params", "validation_params", "trusted_ca"],
       "sections": [
         {
-          "aliases": ["cert", "certificate", "existing certificates", "tls certificates", "trusted ca list"],
+          "aliases": ["trusted ca list"],
           "anchor": "section",
           "description": "Reference to Root CA Certificate.",
           "document_id": "xcsh-docs:resources:cluster:properties:tls_parameters:common_params:validation_params:trusted_ca:trusted_ca_list",
@@ -4896,20 +4794,14 @@
       }
     },
     {
-      "aliases": [
-        "cert",
-        "certificate",
-        "existing certificates",
-        "tls certificates",
-        "tls parameters common params validation params trusted ca trusted ca list"
-      ],
+      "aliases": ["tls parameters common params validation params trusted ca trusted ca list"],
       "body_bytes": 7536,
       "body_sha256": "sha256:af05f6d2578737df37990729f599a2f5b0384aa45f5110338bf93b59c28c5939",
       "capabilities": ["load-balancing.tls"],
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["reviewed-rule"],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -4921,7 +4813,7 @@
       "path": "documentation/resources/cluster/properties/tls_parameters/common_params/validation_params/trusted_ca/trusted_ca_list/index.md",
       "product": "distributed-cloud",
       "provider_name": "cluster",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "resources",
       "registry_anchor": "canonical-2031332030331232-1103121133023121-1011133313302011-2210130002320220-3121303200312203-2233202100102010-1012212230111202-0333000000121000",
       "registry_path": "docs/guides/resources--cluster--reference--group-002.md",
@@ -5055,7 +4947,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["reviewed-rule"],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -5067,7 +4959,7 @@
       "path": "documentation/resources/cluster/properties/tls_parameters/default_session_key_caching/index.md",
       "product": "distributed-cloud",
       "provider_name": "cluster",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "resources",
       "registry_anchor": "canonical-3111210320132103-3023301033212102-3010212200103223-1330312002311102-2203031033111312-1310030010122203-0223131200231111-2130111222200133",
       "registry_path": "docs/guides/resources--cluster--reference--group-002.md",
@@ -5095,7 +4987,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["reviewed-rule"],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -5107,7 +4999,7 @@
       "path": "documentation/resources/cluster/properties/tls_parameters/disable_session_key_caching/index.md",
       "product": "distributed-cloud",
       "provider_name": "cluster",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "resources",
       "registry_anchor": "canonical-2102323013232123-2122130023210330-2223011133213113-3010120223212310-3033220231110101-2003103300202020-3311031203312302-0210012033113310",
       "registry_path": "docs/guides/resources--cluster--reference--group-002.md",
@@ -5135,7 +5027,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["reviewed-rule"],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -5147,7 +5039,7 @@
       "path": "documentation/resources/cluster/properties/tls_parameters/disable_sni/index.md",
       "product": "distributed-cloud",
       "provider_name": "cluster",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "resources",
       "registry_anchor": "canonical-1231201030310032-2232133130332230-3102203310013132-0231112133233202-2112002222030130-0312121223003313-1302023203330231-0310011232322132",
       "registry_path": "docs/guides/resources--cluster--reference--group-002.md",
@@ -5175,7 +5067,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["reviewed-rule"],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -5187,7 +5079,7 @@
       "path": "documentation/resources/cluster/properties/tls_parameters/use_host_header_as_sni/index.md",
       "product": "distributed-cloud",
       "provider_name": "cluster",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "resources",
       "registry_anchor": "canonical-3303030113320302-0313223030232122-1230002312320323-0112201033032021-3032303300003222-3030123202200331-3032022101232333-0330331332030030",
       "registry_path": "docs/guides/resources--cluster--reference--group-002.md",
@@ -5218,7 +5110,7 @@
         "xcsh-docs:resources:cluster:properties:upstream_conn_pool_reuse_type:enable_conn_pool_reuse"
       ],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -5230,7 +5122,7 @@
       "path": "documentation/resources/cluster/properties/upstream_conn_pool_reuse_type/index.md",
       "product": "distributed-cloud",
       "provider_name": "cluster",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "resources",
       "registry_anchor": "canonical-2112130020110230-3121122220021332-0102101233321233-3011130330023132-3123211112301313-2313230113011333-2220110203131001-2022033121110202",
       "registry_path": "docs/guides/resources--cluster--reference--group-002.md",
@@ -5304,7 +5196,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -5316,7 +5208,7 @@
       "path": "documentation/resources/cluster/properties/upstream_conn_pool_reuse_type/disable_conn_pool_reuse/index.md",
       "product": "distributed-cloud",
       "provider_name": "cluster",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "resources",
       "registry_anchor": "canonical-3323023220002122-1301220010310231-1031013200230113-2100310231030123-2113121100122000-2033203013032233-0220222232110011-1222231110321022",
       "registry_path": "docs/guides/resources--cluster--reference--group-002.md",
@@ -5344,7 +5236,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -5356,7 +5248,7 @@
       "path": "documentation/resources/cluster/properties/upstream_conn_pool_reuse_type/enable_conn_pool_reuse/index.md",
       "product": "distributed-cloud",
       "provider_name": "cluster",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "resources",
       "registry_anchor": "canonical-2303230031132101-0221312032202231-3131333202122000-0321210220013310-2012022020012310-2203211202111212-1223313210332112-0131300233211203",
       "registry_path": "docs/guides/resources--cluster--reference--group-002.md",
@@ -5384,7 +5276,7 @@
       "category": null,
       "child_ids": ["xcsh-docs:resources:cluster:example:resource"],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -5396,7 +5288,7 @@
       "path": "documentation/resources/cluster/examples/index.md",
       "product": "distributed-cloud",
       "provider_name": "cluster",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "resources",
       "registry_anchor": "canonical-0222121032033202-3301310203120212-3210221131013113-2100232232000123-2211032310121200-0300120221121213-0032213223032312-0220012231030221",
       "registry_path": "docs/guides/resources--cluster--examples--group-001.md",
@@ -5424,7 +5316,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -5443,7 +5335,7 @@
       "path": "documentation/resources/cluster/examples/resource/index.md",
       "product": "distributed-cloud",
       "provider_name": "cluster",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "resources",
       "registry_anchor": "canonical-0331332022232123-1322210312322323-3011020222012033-3110310002112202-1232010201201122-0302122102013332-0301020330012110-0312002302322022",
       "registry_path": "docs/guides/resources--cluster--examples--group-001.md",
@@ -5471,7 +5363,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -5484,7 +5376,7 @@
       "path": "documentation/resources/cluster/lifecycle/import/index.md",
       "product": "distributed-cloud",
       "provider_name": "cluster",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "resources",
       "registry_anchor": "canonical-3011110330023100-0223201213132312-2223331123111022-2211103133210212-2200320323320003-1013331133211300-1201233201011103-3013233120010320",
       "registry_path": "docs/guides/resources--cluster--lifecycle--group-001.md",
@@ -5512,7 +5404,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -5524,7 +5416,7 @@
       "path": "documentation/resources/cluster/lifecycle/timeouts/index.md",
       "product": "distributed-cloud",
       "provider_name": "cluster",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "resources",
       "registry_anchor": "canonical-0021032101101013-2210121022021022-3201022301002222-2301132131010212-3233110020013030-0332301123112101-2021310313310022-3333302023300312",
       "registry_path": "docs/guides/resources--cluster--lifecycle--group-001.md",

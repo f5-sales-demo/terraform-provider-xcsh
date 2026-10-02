@@ -125,7 +125,7 @@
         "xcsh-docs:data-sources:site_upgrade_status:examples"
       ],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -137,7 +137,7 @@
       "path": "documentation/data-sources/site_upgrade_status/index.md",
       "product": "distributed-cloud",
       "provider_name": "site_upgrade_status",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-0311103030013201-2023013222321300-1123321212232123-1232102210103331-2001110222022222-0103301221312320-3101213121122310-1101333312101011",
       "registry_path": "docs/data-sources/site_upgrade_status.md",
@@ -166,7 +166,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -178,7 +178,7 @@
       "path": "documentation/data-sources/site_upgrade_status/properties/index.md",
       "product": "distributed-cloud",
       "provider_name": "site_upgrade_status",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-0002123201223230-3102222113003200-2112313021101312-3221113322221231-2011313330023232-1101331323313032-0200231210030103-1020333122010212",
       "registry_path": "docs/guides/data-sources--site_upgrade_status--reference--group-001.md",
@@ -501,7 +501,7 @@
       "category": null,
       "child_ids": ["xcsh-docs:data-sources:site_upgrade_status:example:data-source"],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -513,7 +513,7 @@
       "path": "documentation/data-sources/site_upgrade_status/examples/index.md",
       "product": "distributed-cloud",
       "provider_name": "site_upgrade_status",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-3223111323110230-0123231002213330-0202201232313001-1031031203203312-0001221101110320-3222113013223302-2012232221110223-2002010112100100",
       "registry_path": "docs/guides/data-sources--site_upgrade_status--examples--group-001.md",
@@ -541,7 +541,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -560,7 +560,7 @@
       "path": "documentation/data-sources/site_upgrade_status/examples/data-source/index.md",
       "product": "distributed-cloud",
       "provider_name": "site_upgrade_status",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-2300222103311212-2122102320121120-1002232212000123-0112301033311311-3211020331002101-0123231331013330-0322323313202022-3000302011202323",
       "registry_path": "docs/guides/data-sources--site_upgrade_status--examples--group-001.md",

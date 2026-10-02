@@ -569,7 +569,7 @@
         "xcsh-docs:resources:alert_receiver:timeouts"
       ],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -581,7 +581,7 @@
       "path": "documentation/resources/alert_receiver/index.md",
       "product": "distributed-cloud",
       "provider_name": "alert_receiver",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "resources",
       "registry_anchor": "canonical-0033232020121120-2032300130130001-0103310100210332-0222200222113132-2102202301202302-0022022203130310-0311110212100013-2210100123333311",
       "registry_path": "docs/resources/alert_receiver.md",
@@ -618,7 +618,7 @@
         "xcsh-docs:resources:alert_receiver:properties:webhook"
       ],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -630,7 +630,7 @@
       "path": "documentation/resources/alert_receiver/properties/index.md",
       "product": "distributed-cloud",
       "provider_name": "alert_receiver",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "resources",
       "registry_anchor": "canonical-0323313120200103-0203032321132030-1120210132201312-3223000113332221-3323222122210213-0100202202103113-3212102330201013-1220330230101010",
       "registry_path": "docs/guides/resources--alert_receiver--reference--group-001.md",
@@ -882,7 +882,7 @@
       "category": "monitoring",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -894,7 +894,7 @@
       "path": "documentation/resources/alert_receiver/properties/email/index.md",
       "product": "distributed-cloud",
       "provider_name": "alert_receiver",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "resources",
       "registry_anchor": "canonical-1323022032232303-1330320332312203-2011200000313323-0131203103332132-0201310302130131-1010310000301301-3032213102033322-2120230210032032",
       "registry_path": "docs/guides/resources--alert_receiver--reference--group-001.md",
@@ -937,7 +937,7 @@
       "category": "monitoring",
       "child_ids": ["xcsh-docs:resources:alert_receiver:properties:opsgenie:api_key"],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -949,7 +949,7 @@
       "path": "documentation/resources/alert_receiver/properties/opsgenie/index.md",
       "product": "distributed-cloud",
       "provider_name": "alert_receiver",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "resources",
       "registry_anchor": "canonical-3031023232312101-1202323002033211-2132032310321310-1311023022112333-0123230310221030-1201112223012231-2133110202321302-1233221122212121",
       "registry_path": "docs/guides/resources--alert_receiver--reference--group-001.md",
@@ -1035,7 +1035,7 @@
         "xcsh-docs:resources:alert_receiver:properties:opsgenie:api_key:clear_secret_info"
       ],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -1047,7 +1047,7 @@
       "path": "documentation/resources/alert_receiver/properties/opsgenie/api_key/index.md",
       "product": "distributed-cloud",
       "provider_name": "alert_receiver",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "resources",
       "registry_anchor": "canonical-1122233210111011-1231210321232132-2120130122233230-1103301232332223-3023203111102110-3113122020001331-1123220110000111-1101331002113102",
       "registry_path": "docs/guides/resources--alert_receiver--reference--group-001.md",
@@ -1139,7 +1139,7 @@
       "category": "monitoring",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -1151,7 +1151,7 @@
       "path": "documentation/resources/alert_receiver/properties/opsgenie/api_key/blindfold_secret_info/index.md",
       "product": "distributed-cloud",
       "provider_name": "alert_receiver",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "resources",
       "registry_anchor": "canonical-1312110332011303-2130000010101013-3321313330120201-2303221113210313-1100323122021101-0132212311133112-3222001011303301-0012000311330301",
       "registry_path": "docs/guides/resources--alert_receiver--reference--group-001.md",
@@ -1170,7 +1170,7 @@
       "schema_path": ["opsgenie", "api_key", "blindfold_secret_info"],
       "sections": [
         {
-          "aliases": ["backend servers", "decryption provider", "origin servers", "upstream servers"],
+          "aliases": ["decryption provider"],
           "anchor": "schema-opsgenie--api_key--blindfold_secret_info--decryption_provider",
           "description": "Name of the Secret Management Access object that contains information about the backend Secret Management service.",
           "document_id": "xcsh-docs:resources:alert_receiver:properties:opsgenie:api_key:blindfold_secret_info",
@@ -1231,7 +1231,7 @@
       "category": "monitoring",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -1243,7 +1243,7 @@
       "path": "documentation/resources/alert_receiver/properties/opsgenie/api_key/clear_secret_info/index.md",
       "product": "distributed-cloud",
       "provider_name": "alert_receiver",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "resources",
       "registry_anchor": "canonical-0012032323210232-2200101030211310-1231003302033321-0232120310321011-1231300320132303-0202010332002003-3203222333211321-1203121031000020",
       "registry_path": "docs/guides/resources--alert_receiver--reference--group-001.md",
@@ -1309,7 +1309,7 @@
       "category": "monitoring",
       "child_ids": ["xcsh-docs:resources:alert_receiver:properties:pagerduty:routing_key"],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -1321,7 +1321,7 @@
       "path": "documentation/resources/alert_receiver/properties/pagerduty/index.md",
       "product": "distributed-cloud",
       "provider_name": "alert_receiver",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "resources",
       "registry_anchor": "canonical-2030011230032101-0030332021230211-0222131321322313-3023232233132332-1112230010122010-3103113212312200-1332122030201102-0313302230011001",
       "registry_path": "docs/guides/resources--alert_receiver--reference--group-001.md",
@@ -1407,7 +1407,7 @@
         "xcsh-docs:resources:alert_receiver:properties:pagerduty:routing_key:clear_secret_info"
       ],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -1419,7 +1419,7 @@
       "path": "documentation/resources/alert_receiver/properties/pagerduty/routing_key/index.md",
       "product": "distributed-cloud",
       "provider_name": "alert_receiver",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "resources",
       "registry_anchor": "canonical-0102322223320031-2012233012020231-3313030010322021-0112222332120010-1020101123230322-1002000011100003-2302021223200211-3202103010331111",
       "registry_path": "docs/guides/resources--alert_receiver--reference--group-001.md",
@@ -1511,7 +1511,7 @@
       "category": "monitoring",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -1523,7 +1523,7 @@
       "path": "documentation/resources/alert_receiver/properties/pagerduty/routing_key/blindfold_secret_info/index.md",
       "product": "distributed-cloud",
       "provider_name": "alert_receiver",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "resources",
       "registry_anchor": "canonical-1210102222120230-2221110000312013-2323320111222222-0133230130232200-2232333013112030-1320330220202132-3020112132103010-0030203220122132",
       "registry_path": "docs/guides/resources--alert_receiver--reference--group-001.md",
@@ -1542,7 +1542,7 @@
       "schema_path": ["pagerduty", "routing_key", "blindfold_secret_info"],
       "sections": [
         {
-          "aliases": ["backend servers", "decryption provider", "origin servers", "upstream servers"],
+          "aliases": ["decryption provider"],
           "anchor": "schema-pagerduty--routing_key--blindfold_secret_info--decryption_provider",
           "description": "Name of the Secret Management Access object that contains information about the backend Secret Management service.",
           "document_id": "xcsh-docs:resources:alert_receiver:properties:pagerduty:routing_key:blindfold_secret_info",
@@ -1603,7 +1603,7 @@
       "category": "monitoring",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -1615,7 +1615,7 @@
       "path": "documentation/resources/alert_receiver/properties/pagerduty/routing_key/clear_secret_info/index.md",
       "product": "distributed-cloud",
       "provider_name": "alert_receiver",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "resources",
       "registry_anchor": "canonical-0012212331200102-0323302333033131-2013020201232212-0333302002022033-1012333223211122-2022323313133000-3011312131010021-3220213333012112",
       "registry_path": "docs/guides/resources--alert_receiver--reference--group-001.md",
@@ -1681,7 +1681,7 @@
       "category": "monitoring",
       "child_ids": ["xcsh-docs:resources:alert_receiver:properties:slack:url"],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -1693,7 +1693,7 @@
       "path": "documentation/resources/alert_receiver/properties/slack/index.md",
       "product": "distributed-cloud",
       "provider_name": "alert_receiver",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "resources",
       "registry_anchor": "canonical-1132230210120230-1021200013202111-0112203322033000-1023212002032331-0132121001023021-0031132230200201-0322203213301311-1103312012003011",
       "registry_path": "docs/guides/resources--alert_receiver--reference--group-001.md",
@@ -1779,7 +1779,7 @@
         "xcsh-docs:resources:alert_receiver:properties:slack:url:clear_secret_info"
       ],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -1791,7 +1791,7 @@
       "path": "documentation/resources/alert_receiver/properties/slack/url/index.md",
       "product": "distributed-cloud",
       "provider_name": "alert_receiver",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "resources",
       "registry_anchor": "canonical-2303331113332101-1001223132303023-1131130102311020-2230022102203123-0012323302311031-1313311132332111-3212023302301011-3330133333000033",
       "registry_path": "docs/guides/resources--alert_receiver--reference--group-001.md",
@@ -1883,7 +1883,7 @@
       "category": "monitoring",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -1895,7 +1895,7 @@
       "path": "documentation/resources/alert_receiver/properties/slack/url/blindfold_secret_info/index.md",
       "product": "distributed-cloud",
       "provider_name": "alert_receiver",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "resources",
       "registry_anchor": "canonical-0100310013112113-2121131132303202-1000200032221223-1333312333233303-2031203123202212-0000030003331022-1120233113112001-2210320221131223",
       "registry_path": "docs/guides/resources--alert_receiver--reference--group-001.md",
@@ -1914,7 +1914,7 @@
       "schema_path": ["slack", "url", "blindfold_secret_info"],
       "sections": [
         {
-          "aliases": ["backend servers", "decryption provider", "origin servers", "upstream servers"],
+          "aliases": ["decryption provider"],
           "anchor": "schema-slack--url--blindfold_secret_info--decryption_provider",
           "description": "Name of the Secret Management Access object that contains information about the backend Secret Management service.",
           "document_id": "xcsh-docs:resources:alert_receiver:properties:slack:url:blindfold_secret_info",
@@ -1975,7 +1975,7 @@
       "category": "monitoring",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -1987,7 +1987,7 @@
       "path": "documentation/resources/alert_receiver/properties/slack/url/clear_secret_info/index.md",
       "product": "distributed-cloud",
       "provider_name": "alert_receiver",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "resources",
       "registry_anchor": "canonical-0231300212011020-3010300332120202-3201120313021321-0332130211012100-3002130021023002-3303233203301312-0112033233130321-2321232213333022",
       "registry_path": "docs/guides/resources--alert_receiver--reference--group-001.md",
@@ -2053,7 +2053,7 @@
       "category": "monitoring",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -2065,7 +2065,7 @@
       "path": "documentation/resources/alert_receiver/properties/sms/index.md",
       "product": "distributed-cloud",
       "provider_name": "alert_receiver",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "resources",
       "registry_anchor": "canonical-2321322330122322-3323101322120202-0332000331221112-1333103013101001-3330200333023112-3123201202122121-1121033313113332-2312331010332202",
       "registry_path": "docs/guides/resources--alert_receiver--reference--group-001.md",
@@ -2108,7 +2108,7 @@
       "category": "monitoring",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -2120,7 +2120,7 @@
       "path": "documentation/resources/alert_receiver/properties/timeouts/index.md",
       "product": "distributed-cloud",
       "provider_name": "alert_receiver",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "resources",
       "registry_anchor": "canonical-1031122120302100-1202022023002122-0331303300111330-2033331012213033-0230220022302311-0210013101031223-2231203211323301-1110212233302221",
       "registry_path": "docs/guides/resources--alert_receiver--reference--group-001.md",
@@ -2208,7 +2208,7 @@
         "xcsh-docs:resources:alert_receiver:properties:webhook:url"
       ],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -2220,7 +2220,7 @@
       "path": "documentation/resources/alert_receiver/properties/webhook/index.md",
       "product": "distributed-cloud",
       "provider_name": "alert_receiver",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "resources",
       "registry_anchor": "canonical-0203003021003112-2331200103023302-0122130211113012-1101331111211212-3333322200311030-1220011302033023-0300320331122021-0001122031122103",
       "registry_path": "docs/guides/resources--alert_receiver--reference--group-001.md",
@@ -2414,7 +2414,7 @@
         "xcsh-docs:resources:alert_receiver:properties:webhook:http_config:use_tls"
       ],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -2426,7 +2426,7 @@
       "path": "documentation/resources/alert_receiver/properties/webhook/http_config/index.md",
       "product": "distributed-cloud",
       "provider_name": "alert_receiver",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "resources",
       "registry_anchor": "canonical-1030200301112321-0230212112121020-3303323333001300-0101003301133101-2123123032220110-0012111023302011-2330222013130102-3103032011103022",
       "registry_path": "docs/guides/resources--alert_receiver--reference--group-001.md",
@@ -2549,7 +2549,7 @@
       "schema_path": ["webhook", "http_config"],
       "sections": [
         {
-          "aliases": ["auth token", "authentication", "credential setup", "credentials"],
+          "aliases": ["auth token"],
           "anchor": "section",
           "description": "Authentication Token for access.",
           "document_id": "xcsh-docs:resources:alert_receiver:properties:webhook:http_config:auth_token",
@@ -2586,7 +2586,7 @@
           "type": "object"
         },
         {
-          "aliases": ["cert", "certificate", "client cert obj", "existing certificates", "tls certificates"],
+          "aliases": ["client cert obj"],
           "anchor": "section",
           "description": "Configuration for client certificate.",
           "document_id": "xcsh-docs:resources:alert_receiver:properties:webhook:http_config:client_cert_obj",
@@ -2715,14 +2715,14 @@
       }
     },
     {
-      "aliases": ["authentication", "credential setup", "credentials", "webhook http config auth token"],
+      "aliases": ["webhook http config auth token"],
       "body_bytes": 1735,
       "body_sha256": "sha256:a9d8288574992b74044c1e269cd77f443aa7a48504820793af2d6a596464316c",
       "capabilities": ["monitoring"],
       "category": "monitoring",
       "child_ids": ["xcsh-docs:resources:alert_receiver:properties:webhook:http_config:auth_token:token"],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -2734,7 +2734,7 @@
       "path": "documentation/resources/alert_receiver/properties/webhook/http_config/auth_token/index.md",
       "product": "distributed-cloud",
       "provider_name": "alert_receiver",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "resources",
       "registry_anchor": "canonical-3020311131213031-1020223133201012-3210330203321111-2302203020010020-1111303003131230-2331200011011211-2313311130212123-0220112010033312",
       "registry_path": "docs/guides/resources--alert_receiver--reference--group-001.md",
@@ -2797,7 +2797,7 @@
         "xcsh-docs:resources:alert_receiver:properties:webhook:http_config:auth_token:token:clear_secret_info"
       ],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -2809,7 +2809,7 @@
       "path": "documentation/resources/alert_receiver/properties/webhook/http_config/auth_token/token/index.md",
       "product": "distributed-cloud",
       "provider_name": "alert_receiver",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "resources",
       "registry_anchor": "canonical-3031221001332212-0302220212232310-0311223033332023-0310333300020220-0020001121203312-0132132131203011-3103301002202003-3320311220110022",
       "registry_path": "docs/guides/resources--alert_receiver--reference--group-001.md",
@@ -2901,7 +2901,7 @@
       "category": "monitoring",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -2913,7 +2913,7 @@
       "path": "documentation/resources/alert_receiver/properties/webhook/http_config/auth_token/token/blindfold_secret_info/index.md",
       "product": "distributed-cloud",
       "provider_name": "alert_receiver",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "resources",
       "registry_anchor": "canonical-1203313303020333-3001003110100123-1101323310203210-2001201300303003-0201111223211302-3021203133302230-3221132201311313-2303122321031110",
       "registry_path": "docs/guides/resources--alert_receiver--reference--group-001.md",
@@ -2932,7 +2932,7 @@
       "schema_path": ["webhook", "http_config", "auth_token", "token", "blindfold_secret_info"],
       "sections": [
         {
-          "aliases": ["backend servers", "decryption provider", "origin servers", "upstream servers"],
+          "aliases": ["decryption provider"],
           "anchor": "schema-webhook--http_config--auth_token--token--blindfold_secret_info--decryption_provider",
           "description": "Name of the Secret Management Access object that contains information about the backend Secret Management service.",
           "document_id": "xcsh-docs:resources:alert_receiver:properties:webhook:http_config:auth_token:token:blindfold_secret_info",
@@ -3000,7 +3000,7 @@
       "category": "monitoring",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -3012,7 +3012,7 @@
       "path": "documentation/resources/alert_receiver/properties/webhook/http_config/auth_token/token/clear_secret_info/index.md",
       "product": "distributed-cloud",
       "provider_name": "alert_receiver",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "resources",
       "registry_anchor": "canonical-2330202311221103-2213331010031213-2220200231020121-0112131120111222-1101022113203323-2203003112222322-1230133021230201-1003202221231230",
       "registry_path": "docs/guides/resources--alert_receiver--reference--group-001.md",
@@ -3078,7 +3078,7 @@
       "category": "monitoring",
       "child_ids": ["xcsh-docs:resources:alert_receiver:properties:webhook:http_config:basic_auth:password"],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -3090,7 +3090,7 @@
       "path": "documentation/resources/alert_receiver/properties/webhook/http_config/basic_auth/index.md",
       "product": "distributed-cloud",
       "provider_name": "alert_receiver",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "resources",
       "registry_anchor": "canonical-2203121002000122-2002301012020130-3132012311001303-1113313133330121-2131210012023303-0113321023210102-3012313020303322-1333300320111233",
       "registry_path": "docs/guides/resources--alert_receiver--reference--group-001.md",
@@ -3176,7 +3176,7 @@
         "xcsh-docs:resources:alert_receiver:properties:webhook:http_config:basic_auth:password:clear_secret_info"
       ],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -3188,7 +3188,7 @@
       "path": "documentation/resources/alert_receiver/properties/webhook/http_config/basic_auth/password/index.md",
       "product": "distributed-cloud",
       "provider_name": "alert_receiver",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "resources",
       "registry_anchor": "canonical-1213010003022202-2021203100323000-3210013101220001-0210232033030323-0213011001010312-3230000023103311-2021210133023200-0211113303000233",
       "registry_path": "docs/guides/resources--alert_receiver--reference--group-001.md",
@@ -3280,7 +3280,7 @@
       "category": "monitoring",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -3292,7 +3292,7 @@
       "path": "documentation/resources/alert_receiver/properties/webhook/http_config/basic_auth/password/blindfold_secret_info/index.md",
       "product": "distributed-cloud",
       "provider_name": "alert_receiver",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "resources",
       "registry_anchor": "canonical-0033011200113200-0110002003122001-3303022131132312-0021322211223031-1200103310302111-1323122301311013-2303013322321213-0033313302211020",
       "registry_path": "docs/guides/resources--alert_receiver--reference--group-001.md",
@@ -3311,7 +3311,7 @@
       "schema_path": ["webhook", "http_config", "basic_auth", "password", "blindfold_secret_info"],
       "sections": [
         {
-          "aliases": ["backend servers", "decryption provider", "origin servers", "upstream servers"],
+          "aliases": ["decryption provider"],
           "anchor": "schema-webhook--http_config--basic_auth--password--blindfold_secret_info--decryption_provider",
           "description": "Name of the Secret Management Access object that contains information about the backend Secret Management service.",
           "document_id": "xcsh-docs:resources:alert_receiver:properties:webhook:http_config:basic_auth:password:blindfold_secret_info",
@@ -3386,7 +3386,7 @@
       "category": "monitoring",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -3398,7 +3398,7 @@
       "path": "documentation/resources/alert_receiver/properties/webhook/http_config/basic_auth/password/clear_secret_info/index.md",
       "product": "distributed-cloud",
       "provider_name": "alert_receiver",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "resources",
       "registry_anchor": "canonical-0232010013233031-2021210013313212-2002001021331113-3031213132230301-0022330230330000-0110313103310303-3132330312130203-3323322303012303",
       "registry_path": "docs/guides/resources--alert_receiver--reference--group-001.md",
@@ -3457,20 +3457,14 @@
       }
     },
     {
-      "aliases": [
-        "cert",
-        "certificate",
-        "existing certificates",
-        "tls certificates",
-        "webhook http config client cert obj"
-      ],
+      "aliases": ["webhook http config client cert obj"],
       "body_bytes": 1812,
       "body_sha256": "sha256:52c53ec4ba5e81155ea60e4e8128cb873fae50c79ce4085aa4ff918bade970e9",
       "capabilities": ["monitoring"],
       "category": "monitoring",
       "child_ids": ["xcsh-docs:resources:alert_receiver:properties:webhook:http_config:client_cert_obj:use_tls_obj"],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -3482,7 +3476,7 @@
       "path": "documentation/resources/alert_receiver/properties/webhook/http_config/client_cert_obj/index.md",
       "product": "distributed-cloud",
       "provider_name": "alert_receiver",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "resources",
       "registry_anchor": "canonical-0001133132213100-1310233321222231-3033101332123331-2331133220012333-1233030013101022-0021213321003121-2121331002230132-3011020232321100",
       "registry_path": "docs/guides/resources--alert_receiver--reference--group-001.md",
@@ -3492,7 +3486,7 @@
       "schema_path": ["webhook", "http_config", "client_cert_obj"],
       "sections": [
         {
-          "aliases": ["cert", "certificate", "existing certificates", "tls certificates", "use tls obj"],
+          "aliases": ["use tls obj"],
           "anchor": "section",
           "description": "Reference to client certificate object.",
           "document_id": "xcsh-docs:resources:alert_receiver:properties:webhook:http_config:client_cert_obj:use_tls_obj",
@@ -3518,20 +3512,14 @@
       }
     },
     {
-      "aliases": [
-        "cert",
-        "certificate",
-        "existing certificates",
-        "tls certificates",
-        "webhook http config client cert obj use tls obj"
-      ],
+      "aliases": ["webhook http config client cert obj use tls obj"],
       "body_bytes": 7104,
       "body_sha256": "sha256:0778cf13a10d85ecfac119c236ba35ab640c9ebd3fcaa67df178a125f2359e8b",
       "capabilities": ["monitoring"],
       "category": "monitoring",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -3543,7 +3531,7 @@
       "path": "documentation/resources/alert_receiver/properties/webhook/http_config/client_cert_obj/use_tls_obj/index.md",
       "product": "distributed-cloud",
       "provider_name": "alert_receiver",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "resources",
       "registry_anchor": "canonical-3313133313133231-3002013323102012-0102323202333012-2000222010000012-1123202321221331-2310320010313032-3320121212101102-3223023133132310",
       "registry_path": "docs/guides/resources--alert_receiver--reference--group-001.md",
@@ -3642,7 +3630,7 @@
       "category": "monitoring",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -3654,7 +3642,7 @@
       "path": "documentation/resources/alert_receiver/properties/webhook/http_config/no_authorization/index.md",
       "product": "distributed-cloud",
       "provider_name": "alert_receiver",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "resources",
       "registry_anchor": "canonical-3001330103012311-2320121223330230-2011300030332132-3232110222030120-1130232011331212-1213030222332331-3231203321321130-2031122012102232",
       "registry_path": "docs/guides/resources--alert_receiver--reference--group-001.md",
@@ -3682,7 +3670,7 @@
       "category": "monitoring",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -3694,7 +3682,7 @@
       "path": "documentation/resources/alert_receiver/properties/webhook/http_config/no_tls/index.md",
       "product": "distributed-cloud",
       "provider_name": "alert_receiver",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "resources",
       "registry_anchor": "canonical-3322110000220223-2002013220102223-2301310132030110-1131321030322130-3023232113100010-3013022200212212-0103033022220323-2003310000213130",
       "registry_path": "docs/guides/resources--alert_receiver--reference--group-001.md",
@@ -3726,7 +3714,7 @@
         "xcsh-docs:resources:alert_receiver:properties:webhook:http_config:use_tls:volterra_trusted_ca"
       ],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -3738,7 +3726,7 @@
       "path": "documentation/resources/alert_receiver/properties/webhook/http_config/use_tls/index.md",
       "product": "distributed-cloud",
       "provider_name": "alert_receiver",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "resources",
       "registry_anchor": "canonical-2233200131202023-2133021101000112-3033100330210313-1022303021210003-0333000013320003-0130013021000100-1022220003213321-3223012110031213",
       "registry_path": "docs/guides/resources--alert_receiver--reference--group-001.md",
@@ -3884,7 +3872,7 @@
       "category": "monitoring",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -3896,7 +3884,7 @@
       "path": "documentation/resources/alert_receiver/properties/webhook/http_config/use_tls/disable_sni/index.md",
       "product": "distributed-cloud",
       "provider_name": "alert_receiver",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "resources",
       "registry_anchor": "canonical-0320030233030310-1013031020112330-1322120301100231-2033031312001131-2123300130000202-3123120132213321-0122310003223200-3102022222220203",
       "registry_path": "docs/guides/resources--alert_receiver--reference--group-001.md",
@@ -3926,7 +3914,7 @@
         "xcsh-docs:resources:alert_receiver:properties:webhook:http_config:use_tls:use_server_verification:ca_cert_obj"
       ],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -3938,7 +3926,7 @@
       "path": "documentation/resources/alert_receiver/properties/webhook/http_config/use_tls/use_server_verification/index.md",
       "product": "distributed-cloud",
       "provider_name": "alert_receiver",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "resources",
       "registry_anchor": "canonical-2131220010301300-3123321232201323-2213202011132023-1013020222133000-1021033331010320-2233102323120313-1301211312133201-3212230200301133",
       "registry_path": "docs/guides/resources--alert_receiver--reference--group-001.md",
@@ -3948,7 +3936,7 @@
       "schema_path": ["webhook", "http_config", "use_tls", "use_server_verification"],
       "sections": [
         {
-          "aliases": ["ca cert obj", "cert", "certificate", "existing certificates", "tls certificates"],
+          "aliases": ["ca cert obj"],
           "anchor": "section",
           "description": "Configuration for CA certificate.",
           "document_id": "xcsh-docs:resources:alert_receiver:properties:webhook:http_config:use_tls:use_server_verification:ca_cert_obj",
@@ -3974,13 +3962,7 @@
       }
     },
     {
-      "aliases": [
-        "cert",
-        "certificate",
-        "existing certificates",
-        "tls certificates",
-        "webhook http config use tls use server verification ca cert obj"
-      ],
+      "aliases": ["webhook http config use tls use server verification ca cert obj"],
       "body_bytes": 2336,
       "body_sha256": "sha256:cb44ad83faf6d4769e90abb76eacf7e389ef9d663fa1176eec5c7e5bff5d269c",
       "capabilities": ["monitoring"],
@@ -3989,7 +3971,7 @@
         "xcsh-docs:resources:alert_receiver:properties:webhook:http_config:use_tls:use_server_verification:ca_cert_obj:trusted_ca"
       ],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -4001,7 +3983,7 @@
       "path": "documentation/resources/alert_receiver/properties/webhook/http_config/use_tls/use_server_verification/ca_cert_obj/index.md",
       "product": "distributed-cloud",
       "provider_name": "alert_receiver",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "resources",
       "registry_anchor": "canonical-1003300023330312-1101230210120132-3233321202232310-3001331330131032-3323000222031023-3020031003212202-1022202301130111-0030112133330021",
       "registry_path": "docs/guides/resources--alert_receiver--reference--group-001.md",
@@ -4011,7 +3993,7 @@
       "schema_path": ["webhook", "http_config", "use_tls", "use_server_verification", "ca_cert_obj"],
       "sections": [
         {
-          "aliases": ["cert", "certificate", "existing certificates", "tls certificates", "trusted ca"],
+          "aliases": ["trusted ca"],
           "anchor": "section",
           "description": "Reference to client certificate object.",
           "document_id": "xcsh-docs:resources:alert_receiver:properties:webhook:http_config:use_tls:use_server_verification:ca_cert_obj:trusted_ca",
@@ -4037,20 +4019,14 @@
       }
     },
     {
-      "aliases": [
-        "cert",
-        "certificate",
-        "existing certificates",
-        "tls certificates",
-        "webhook http config use tls use server verification ca cert obj trusted ca"
-      ],
+      "aliases": ["webhook http config use tls use server verification ca cert obj trusted ca"],
       "body_bytes": 7770,
       "body_sha256": "sha256:dbb2732a999958da10a08990a2e03e34ec6a774b066a47b6a1568497268a4480",
       "capabilities": ["monitoring"],
       "category": "monitoring",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -4062,7 +4038,7 @@
       "path": "documentation/resources/alert_receiver/properties/webhook/http_config/use_tls/use_server_verification/ca_cert_obj/trusted_ca/index.md",
       "product": "distributed-cloud",
       "provider_name": "alert_receiver",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "resources",
       "registry_anchor": "canonical-1331201222320013-0332232332222031-2122022122230201-0300201112310003-3313102001021303-3021222223030201-1211211102100201-2000120311003122",
       "registry_path": "docs/guides/resources--alert_receiver--reference--group-001.md",
@@ -4201,7 +4177,7 @@
       "category": "monitoring",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -4213,7 +4189,7 @@
       "path": "documentation/resources/alert_receiver/properties/webhook/http_config/use_tls/volterra_trusted_ca/index.md",
       "product": "distributed-cloud",
       "provider_name": "alert_receiver",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "resources",
       "registry_anchor": "canonical-3231300230002132-1122230313302133-3111223223032033-1022113031333210-0310103333120312-2101221001200012-0331102202123022-3030211012211102",
       "registry_path": "docs/guides/resources--alert_receiver--reference--group-001.md",
@@ -4244,7 +4220,7 @@
         "xcsh-docs:resources:alert_receiver:properties:webhook:url:clear_secret_info"
       ],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -4256,7 +4232,7 @@
       "path": "documentation/resources/alert_receiver/properties/webhook/url/index.md",
       "product": "distributed-cloud",
       "provider_name": "alert_receiver",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "resources",
       "registry_anchor": "canonical-2033110323033103-3132333200000003-0120310200220223-3323203323303332-3101321030211112-3121123120032101-0322231230021112-2031012010103110",
       "registry_path": "docs/guides/resources--alert_receiver--reference--group-001.md",
@@ -4348,7 +4324,7 @@
       "category": "monitoring",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -4360,7 +4336,7 @@
       "path": "documentation/resources/alert_receiver/properties/webhook/url/blindfold_secret_info/index.md",
       "product": "distributed-cloud",
       "provider_name": "alert_receiver",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "resources",
       "registry_anchor": "canonical-0321102330022111-2303202000212013-1132311133333221-0000022112122022-0110110231011302-0112131101131012-0032130320322021-1003021112033003",
       "registry_path": "docs/guides/resources--alert_receiver--reference--group-001.md",
@@ -4379,7 +4355,7 @@
       "schema_path": ["webhook", "url", "blindfold_secret_info"],
       "sections": [
         {
-          "aliases": ["backend servers", "decryption provider", "origin servers", "upstream servers"],
+          "aliases": ["decryption provider"],
           "anchor": "schema-webhook--url--blindfold_secret_info--decryption_provider",
           "description": "Name of the Secret Management Access object that contains information about the backend Secret Management service.",
           "document_id": "xcsh-docs:resources:alert_receiver:properties:webhook:url:blindfold_secret_info",
@@ -4440,7 +4416,7 @@
       "category": "monitoring",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -4452,7 +4428,7 @@
       "path": "documentation/resources/alert_receiver/properties/webhook/url/clear_secret_info/index.md",
       "product": "distributed-cloud",
       "provider_name": "alert_receiver",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "resources",
       "registry_anchor": "canonical-2020321110121221-3013300001320101-0323112233200321-3300220232300012-2213330010233320-1202322200102202-2212132013111121-0030113233021210",
       "registry_path": "docs/guides/resources--alert_receiver--reference--group-001.md",
@@ -4518,7 +4494,7 @@
       "category": "monitoring",
       "child_ids": ["xcsh-docs:resources:alert_receiver:example:resource"],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -4530,7 +4506,7 @@
       "path": "documentation/resources/alert_receiver/examples/index.md",
       "product": "distributed-cloud",
       "provider_name": "alert_receiver",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "resources",
       "registry_anchor": "canonical-2322202131233023-2131223013300313-1311001032100001-2201231332310233-0302203023203330-0120223112233121-2021102111032332-0233300211000222",
       "registry_path": "docs/guides/resources--alert_receiver--examples--group-001.md",
@@ -4558,7 +4534,7 @@
       "category": "monitoring",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -4577,7 +4553,7 @@
       "path": "documentation/resources/alert_receiver/examples/resource/index.md",
       "product": "distributed-cloud",
       "provider_name": "alert_receiver",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "resources",
       "registry_anchor": "canonical-0302211312132003-2302010323020101-0131303320113013-1001122332121003-1012202002120331-1200011020020323-3122133110000031-2221032233231212",
       "registry_path": "docs/guides/resources--alert_receiver--examples--group-001.md",
@@ -4605,7 +4581,7 @@
       "category": "monitoring",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -4618,7 +4594,7 @@
       "path": "documentation/resources/alert_receiver/lifecycle/import/index.md",
       "product": "distributed-cloud",
       "provider_name": "alert_receiver",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "resources",
       "registry_anchor": "canonical-2120230021133013-3220001122131200-3300023323230321-3033322220311321-0323001020101010-2103100010200323-3133011113122323-0010212023102221",
       "registry_path": "docs/guides/resources--alert_receiver--lifecycle--group-001.md",
@@ -4646,7 +4622,7 @@
       "category": "monitoring",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -4658,7 +4634,7 @@
       "path": "documentation/resources/alert_receiver/lifecycle/timeouts/index.md",
       "product": "distributed-cloud",
       "provider_name": "alert_receiver",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "resources",
       "registry_anchor": "canonical-3123000220030201-3310112000111320-2031322131111122-3332320010103220-2210121121102130-3030301231110212-1130231301000311-1001022002300333",
       "registry_path": "docs/guides/resources--alert_receiver--lifecycle--group-001.md",

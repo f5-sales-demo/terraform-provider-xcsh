@@ -2,6 +2,383 @@
   "schema_version": 1,
   "sections": [
     {
+      "canonical_id": "xcsh-docs:data-sources:protected_application:properties:cloudflare:protected_endpoints:web_client:redirect",
+      "section_id": "xcsh-docs:data-sources:protected_application:properties:cloudflare:protected_endpoints:web_client:redirect:section:1",
+      "source_sha256": "sha256:8e8aa2c72f9a54c1160b9dbdb7c9f0f30e03c4cc68ecb31f09e7014804c7a40b",
+      "source_bytes": 1146,
+      "canonical_source_sha256": "sha256:ce3f36daf53584f3c50f69c1508963afd2141b28635227dd6a019e90ca9d9431",
+      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/protected_application/properties/cloudflare/protected_endpoints/web_client/redirect/",
+      "anchor": "canonical-1201302122001233-1112013301322023-2210031010000313-3323331013202033-0323003233210131-2101113011100322-2023110323310201-1000311311032011",
+      "anchor_map": [
+        [
+          "section",
+          "canonical-3213203111103102-1320033023102031-3130012122012100-1301232221020200-2320012310200010-0213123101313001-3120013103121110-0122031033012130"
+        ]
+      ],
+      "mode": "embedded",
+      "registry_path": "docs/guides/data-sources--protected_application--reference--group-002.md"
+    },
+    {
+      "canonical_id": "xcsh-docs:data-sources:protected_application:properties:cloudflare:protected_endpoints:web_client:redirect",
+      "section_id": "xcsh-docs:data-sources:protected_application:properties:cloudflare:protected_endpoints:web_client:redirect:section:2",
+      "source_sha256": "sha256:261621eb21f05b6a821866a7579301a0bbe5504bc27d685c7e21e6fd60ca16af",
+      "source_bytes": 107,
+      "canonical_source_sha256": "sha256:ce3f36daf53584f3c50f69c1508963afd2141b28635227dd6a019e90ca9d9431",
+      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/protected_application/properties/cloudflare/protected_endpoints/web_client/redirect/",
+      "anchor": "canonical-2130133102012300-0220103031103222-2302312003032310-1302330312201012-2113302320320030-0331310222023212-0011031101120011-0310010102230210",
+      "anchor_map": [
+        [
+          "schema-cloudflare--protected_endpoints--web_client--redirect--location",
+          "canonical-3003312021332122-3331321302030003-3302303013222020-1011310110030003-2010023212102222-2313202123332022-2130023322111230-1131222332222120"
+        ]
+      ],
+      "mode": "embedded",
+      "registry_path": "docs/guides/data-sources--protected_application--reference--group-002.md"
+    },
+    {
+      "canonical_id": "xcsh-docs:data-sources:protected_application:properties:cloudflare:protected_endpoints:web_client:redirect",
+      "section_id": "xcsh-docs:data-sources:protected_application:properties:cloudflare:protected_endpoints:web_client:redirect:section:3",
+      "source_sha256": "sha256:87f734fe8065e6614669b67ec2d3ce29610683f84fcd383aefbf673329acf125",
+      "source_bytes": 1132,
+      "canonical_source_sha256": "sha256:ce3f36daf53584f3c50f69c1508963afd2141b28635227dd6a019e90ca9d9431",
+      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/protected_application/properties/cloudflare/protected_endpoints/web_client/redirect/",
+      "anchor": "canonical-1223203122211222-2223300220020332-3321221302320103-0223303200120203-3002213100322031-3203100121030002-0223313213312123-1211333301133313",
+      "anchor_map": [
+        [
+          "schema-cloudflare--protected_endpoints--web_client--redirect--status",
+          "canonical-0331233013321231-2230122321133001-0221100133213321-3331232020031102-2331322023100113-0031000133013333-1110003102001203-2030320213332032"
+        ]
+      ],
+      "mode": "embedded",
+      "registry_path": "docs/guides/data-sources--protected_application--reference--group-002.md"
+    },
+    {
+      "canonical_id": "xcsh-docs:data-sources:protected_application:properties:cloudflare:protected_endpoints:web_client:redirect",
+      "section_id": "xcsh-docs:data-sources:protected_application:properties:cloudflare:protected_endpoints:web_client:redirect:section:4",
+      "source_sha256": "sha256:252d0ac43913bea62bf0a1e82975bcdf2eafeefe32956d69091750009b785d37",
+      "source_bytes": 5596,
+      "canonical_source_sha256": "sha256:ce3f36daf53584f3c50f69c1508963afd2141b28635227dd6a019e90ca9d9431",
+      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/protected_application/properties/cloudflare/protected_endpoints/web_client/redirect/",
+      "anchor": "canonical-1322323223111033-2222012102031310-2131320230031120-3233012130333001-2301222030033222-3122333110302310-2122213320221202-1322002323313313",
+      "anchor_map": [],
+      "mode": "embedded",
+      "registry_path": "docs/guides/data-sources--protected_application--reference--group-002.md"
+    },
+    {
+      "canonical_id": "xcsh-docs:data-sources:protected_application:properties:cloudflare:protected_endpoints:web_client:redirect",
+      "section_id": "xcsh-docs:data-sources:protected_application:properties:cloudflare:protected_endpoints:web_client:redirect:section:5",
+      "source_sha256": "sha256:3adb8d4bcc882c2c052c7a76bfa296b271d5e934e811afc2c785156879b4f239",
+      "source_bytes": 331,
+      "canonical_source_sha256": "sha256:ce3f36daf53584f3c50f69c1508963afd2141b28635227dd6a019e90ca9d9431",
+      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/protected_application/properties/cloudflare/protected_endpoints/web_client/redirect/",
+      "anchor": "canonical-3203112200021331-0120203000202312-2211231303120210-3001132133203132-3211323202333113-2203231023231030-0121331331030200-1211333232012323",
+      "anchor_map": [],
+      "mode": "embedded",
+      "registry_path": "docs/guides/data-sources--protected_application--reference--group-002.md"
+    },
+    {
+      "canonical_id": "xcsh-docs:data-sources:protected_application:properties:cloudflare:protected_endpoints:web_mobile_client",
+      "section_id": "xcsh-docs:data-sources:protected_application:properties:cloudflare:protected_endpoints:web_mobile_client:section:0",
+      "source_sha256": "sha256:197d41522a9dd286cb9805a03d8a5bd782cc3f3fd95ea854bf2dfc326e83e50c",
+      "source_bytes": 99,
+      "canonical_source_sha256": "sha256:aa0acc2bf88f5ced36a74f94b8941731153a583034b4b46758de6d94ee545d62",
+      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/protected_application/properties/cloudflare/protected_endpoints/web_mobile_client/",
+      "anchor": "canonical-2200323013101112-0010032321332011-2012100323232032-2200330010131301-2312033323311132-1010333032003110-0321301301131112-0212220022020100",
+      "anchor_map": [],
+      "mode": "embedded",
+      "registry_path": "docs/guides/data-sources--protected_application--reference--group-002.md"
+    },
+    {
+      "canonical_id": "xcsh-docs:data-sources:protected_application:properties:cloudflare:protected_endpoints:web_mobile_client",
+      "section_id": "xcsh-docs:data-sources:protected_application:properties:cloudflare:protected_endpoints:web_mobile_client:section:1",
+      "source_sha256": "sha256:781dfcb40638f04befe7add22eaa9224887763dd5616d97287b4754da4fa5b97",
+      "source_bytes": 1115,
+      "canonical_source_sha256": "sha256:aa0acc2bf88f5ced36a74f94b8941731153a583034b4b46758de6d94ee545d62",
+      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/protected_application/properties/cloudflare/protected_endpoints/web_mobile_client/",
+      "anchor": "canonical-0212021201113320-0100300313320202-3000120111220020-3303231110121012-2133113312011300-3130222112100312-2312313113031212-3332113210000202",
+      "anchor_map": [
+        [
+          "section",
+          "canonical-2112112301200233-2231312101110100-3002121230330310-3230312132111031-0333120023323121-2332301222310030-0212132023212001-2221112130100311"
+        ]
+      ],
+      "mode": "embedded",
+      "registry_path": "docs/guides/data-sources--protected_application--reference--group-002.md"
+    },
+    {
+      "canonical_id": "xcsh-docs:data-sources:protected_application:properties:cloudflare:protected_endpoints:web_mobile_client",
+      "section_id": "xcsh-docs:data-sources:protected_application:properties:cloudflare:protected_endpoints:web_mobile_client:section:2",
+      "source_sha256": "sha256:e0408b18958c03d0fdc20cb7fe07ae4a2db00ddf1e35a7b66dc40f97b6d663e3",
+      "source_bytes": 1102,
+      "canonical_source_sha256": "sha256:aa0acc2bf88f5ced36a74f94b8941731153a583034b4b46758de6d94ee545d62",
+      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/protected_application/properties/cloudflare/protected_endpoints/web_mobile_client/",
+      "anchor": "canonical-3102303323100303-2320302112011111-3002100202223223-3300220200123333-0111003301002002-3023031132320310-3112201102321330-0313022011112222",
+      "anchor_map": [],
+      "mode": "embedded",
+      "registry_path": "docs/guides/data-sources--protected_application--reference--group-002.md"
+    },
+    {
+      "canonical_id": "xcsh-docs:data-sources:protected_application:properties:cloudflare:protected_endpoints:web_mobile_client",
+      "section_id": "xcsh-docs:data-sources:protected_application:properties:cloudflare:protected_endpoints:web_mobile_client:section:3",
+      "source_sha256": "sha256:53b057d2ba27b2e0dcf995260acc676b815e4aec01afede231a3e29dc3e04513",
+      "source_bytes": 1469,
+      "canonical_source_sha256": "sha256:aa0acc2bf88f5ced36a74f94b8941731153a583034b4b46758de6d94ee545d62",
+      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/protected_application/properties/cloudflare/protected_endpoints/web_mobile_client/",
+      "anchor": "canonical-0321230001312113-2032000133110000-1320320332120332-3102021323132310-3323021033130132-3011031311111203-3112200101230232-0323110310001000",
+      "anchor_map": [],
+      "mode": "embedded",
+      "registry_path": "docs/guides/data-sources--protected_application--reference--group-002.md"
+    },
+    {
+      "canonical_id": "xcsh-docs:data-sources:protected_application:properties:cloudflare:protected_endpoints:web_mobile_client:block_mobile",
+      "section_id": "xcsh-docs:data-sources:protected_application:properties:cloudflare:protected_endpoints:web_mobile_client:block_mobile:section:0",
+      "source_sha256": "sha256:197d41522a9dd286cb9805a03d8a5bd782cc3f3fd95ea854bf2dfc326e83e50c",
+      "source_bytes": 99,
+      "canonical_source_sha256": "sha256:d03789494b78f4c03881aba8a2c62984a24c23a6adb07b90cde4fb9dc7033207",
+      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/protected_application/properties/cloudflare/protected_endpoints/web_mobile_client/block_mobile/",
+      "anchor": "canonical-3220122212111120-1300023312301010-1003202002102300-2312130233321233-1010133123111001-3321020311230133-1323213303332323-2132033133203311",
+      "anchor_map": [],
+      "mode": "embedded",
+      "registry_path": "docs/guides/data-sources--protected_application--reference--group-002.md"
+    },
+    {
+      "canonical_id": "xcsh-docs:data-sources:protected_application:properties:cloudflare:protected_endpoints:web_mobile_client:block_mobile",
+      "section_id": "xcsh-docs:data-sources:protected_application:properties:cloudflare:protected_endpoints:web_mobile_client:block_mobile:section:1",
+      "source_sha256": "sha256:c30cc16206d7f260baa0d685ea47fbf17dd76bb026faf240e9bd916c36f5a5df",
+      "source_bytes": 1211,
+      "canonical_source_sha256": "sha256:d03789494b78f4c03881aba8a2c62984a24c23a6adb07b90cde4fb9dc7033207",
+      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/protected_application/properties/cloudflare/protected_endpoints/web_mobile_client/block_mobile/",
+      "anchor": "canonical-0130103020112311-0322023011102323-3223103123021201-1123023020012300-2112032322223222-2330223323330101-2230330003220301-3021300031222320",
+      "anchor_map": [
+        [
+          "section",
+          "canonical-2001020110002110-3201232002303102-2011333110113121-1123301032220230-1330100230120122-3333001001110132-1120023322210212-2301020011023121"
+        ]
+      ],
+      "mode": "embedded",
+      "registry_path": "docs/guides/data-sources--protected_application--reference--group-002.md"
+    },
+    {
+      "canonical_id": "xcsh-docs:data-sources:protected_application:properties:cloudflare:protected_endpoints:web_mobile_client:block_mobile",
+      "section_id": "xcsh-docs:data-sources:protected_application:properties:cloudflare:protected_endpoints:web_mobile_client:block_mobile:section:2",
+      "source_sha256": "sha256:f87aea469c4111e65ea7960b9844ce376db14f1959c50a64b01967480767f682",
+      "source_bytes": 114,
+      "canonical_source_sha256": "sha256:d03789494b78f4c03881aba8a2c62984a24c23a6adb07b90cde4fb9dc7033207",
+      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/protected_application/properties/cloudflare/protected_endpoints/web_mobile_client/block_mobile/",
+      "anchor": "canonical-2330303110203010-0220031203102323-0233113230000122-2210111010130113-0010110230121301-0121020311223103-3132302132121210-1200200221010110",
+      "anchor_map": [
+        [
+          "schema-cloudflare--protected_endpoints--web_mobile_client--block_mobile--body",
+          "canonical-3322102211021001-3011132022130031-1320020313121333-2130020131121021-2030323310213112-0113010010233203-0022123103012212-3013100032123311"
+        ]
+      ],
+      "mode": "embedded",
+      "registry_path": "docs/guides/data-sources--protected_application--reference--group-002.md"
+    },
+    {
+      "canonical_id": "xcsh-docs:data-sources:protected_application:properties:cloudflare:protected_endpoints:web_mobile_client:block_mobile",
+      "section_id": "xcsh-docs:data-sources:protected_application:properties:cloudflare:protected_endpoints:web_mobile_client:block_mobile:section:3",
+      "source_sha256": "sha256:cfa7f26778ca068cd35b2e0f87ed58dca6e1a6e01ea06fbcd527cd06754219e2",
+      "source_bytes": 851,
+      "canonical_source_sha256": "sha256:d03789494b78f4c03881aba8a2c62984a24c23a6adb07b90cde4fb9dc7033207",
+      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/protected_application/properties/cloudflare/protected_endpoints/web_mobile_client/block_mobile/",
+      "anchor": "canonical-3331211120302021-0011030310322311-2322112320202100-3013321133200131-3231102120023202-1303130221321221-2331032031003133-3032032102113312",
+      "anchor_map": [
+        [
+          "schema-cloudflare--protected_endpoints--web_mobile_client--block_mobile--content_type",
+          "canonical-3003131003003022-0100012310020321-2123302232130010-1110321132131011-3022123213331321-2303301312003021-1212010122322110-0131210302220310"
+        ]
+      ],
+      "mode": "embedded",
+      "registry_path": "docs/guides/data-sources--protected_application--reference--group-002.md"
+    },
+    {
+      "canonical_id": "xcsh-docs:data-sources:protected_application:properties:cloudflare:protected_endpoints:web_mobile_client:block_mobile",
+      "section_id": "xcsh-docs:data-sources:protected_application:properties:cloudflare:protected_endpoints:web_mobile_client:block_mobile:section:4",
+      "source_sha256": "sha256:52654c05d338d55d6fb46a40e92e2dd84f7eeaa18a5c719362fc3abbd32d12bb",
+      "source_bytes": 818,
+      "canonical_source_sha256": "sha256:d03789494b78f4c03881aba8a2c62984a24c23a6adb07b90cde4fb9dc7033207",
+      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/protected_application/properties/cloudflare/protected_endpoints/web_mobile_client/block_mobile/",
+      "anchor": "canonical-3200231301130001-0221222321033233-1221333321133310-1022000323131222-3020212330020133-0032121223211323-2210023303213320-0132231332222332",
+      "anchor_map": [
+        [
+          "schema-cloudflare--protected_endpoints--web_mobile_client--block_mobile--status",
+          "canonical-1312131222031321-3310001230202232-3012101132320322-1332002330033212-0023200123002102-1201333331333303-3121300030331031-3021013300210301"
+        ]
+      ],
+      "mode": "embedded",
+      "registry_path": "docs/guides/data-sources--protected_application--reference--group-002.md"
+    },
+    {
+      "canonical_id": "xcsh-docs:data-sources:protected_application:properties:cloudflare:protected_endpoints:web_mobile_client:block_mobile",
+      "section_id": "xcsh-docs:data-sources:protected_application:properties:cloudflare:protected_endpoints:web_mobile_client:block_mobile:section:5",
+      "source_sha256": "sha256:252d0ac43913bea62bf0a1e82975bcdf2eafeefe32956d69091750009b785d37",
+      "source_bytes": 5596,
+      "canonical_source_sha256": "sha256:d03789494b78f4c03881aba8a2c62984a24c23a6adb07b90cde4fb9dc7033207",
+      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/protected_application/properties/cloudflare/protected_endpoints/web_mobile_client/block_mobile/",
+      "anchor": "canonical-0112312311133121-2110312303302232-0000311331202132-1221311310222223-3313300220032212-2023110222300210-0210111220022200-3331002003000011",
+      "anchor_map": [],
+      "mode": "embedded",
+      "registry_path": "docs/guides/data-sources--protected_application--reference--group-002.md"
+    },
+    {
+      "canonical_id": "xcsh-docs:data-sources:protected_application:properties:cloudflare:protected_endpoints:web_mobile_client:block_mobile",
+      "section_id": "xcsh-docs:data-sources:protected_application:properties:cloudflare:protected_endpoints:web_mobile_client:block_mobile:section:6",
+      "source_sha256": "sha256:4fa336cd1e099f6b115d15f66c1acfc179b765c9ae8dd442cfdf24221191e7e7",
+      "source_bytes": 345,
+      "canonical_source_sha256": "sha256:d03789494b78f4c03881aba8a2c62984a24c23a6adb07b90cde4fb9dc7033207",
+      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/protected_application/properties/cloudflare/protected_endpoints/web_mobile_client/block_mobile/",
+      "anchor": "canonical-3033322330133120-3331003003031132-3120223221211333-3210013133211033-1223122122132122-2000333310030012-1023110200111003-1211102302032232",
+      "anchor_map": [],
+      "mode": "embedded",
+      "registry_path": "docs/guides/data-sources--protected_application--reference--group-002.md"
+    },
+    {
+      "canonical_id": "xcsh-docs:data-sources:protected_application:properties:cloudflare:protected_endpoints:web_mobile_client:block_web",
+      "section_id": "xcsh-docs:data-sources:protected_application:properties:cloudflare:protected_endpoints:web_mobile_client:block_web:section:0",
+      "source_sha256": "sha256:197d41522a9dd286cb9805a03d8a5bd782cc3f3fd95ea854bf2dfc326e83e50c",
+      "source_bytes": 99,
+      "canonical_source_sha256": "sha256:1cf5748cf8249189e2adfac52ac50e19e79b31bc2baff655c2d49f0e72f3ac81",
+      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/protected_application/properties/cloudflare/protected_endpoints/web_mobile_client/block_web/",
+      "anchor": "canonical-3220320230212100-1332113211301131-2123313223101100-3231203230312031-0213000201330332-1300210203112322-0230020201311020-2012201300100101",
+      "anchor_map": [],
+      "mode": "embedded",
+      "registry_path": "docs/guides/data-sources--protected_application--reference--group-002.md"
+    },
+    {
+      "canonical_id": "xcsh-docs:data-sources:protected_application:properties:cloudflare:protected_endpoints:web_mobile_client:block_web",
+      "section_id": "xcsh-docs:data-sources:protected_application:properties:cloudflare:protected_endpoints:web_mobile_client:block_web:section:1",
+      "source_sha256": "sha256:020d0a6bcbe4eab71eeafc35a72db913aab87152aa3fdd98939e3ec4cf757bb9",
+      "source_bytes": 1194,
+      "canonical_source_sha256": "sha256:1cf5748cf8249189e2adfac52ac50e19e79b31bc2baff655c2d49f0e72f3ac81",
+      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/protected_application/properties/cloudflare/protected_endpoints/web_mobile_client/block_web/",
+      "anchor": "canonical-1203321103100102-0102012031000220-3013101022232112-2033131322123011-2223210102032323-0021000122333000-1222100122202132-2013321213232221",
+      "anchor_map": [
+        [
+          "section",
+          "canonical-2113232300131302-2003103232210213-3013023012201131-1313102222300031-0201303011031022-3223232033332021-2221022110001312-0332231113300023"
+        ]
+      ],
+      "mode": "embedded",
+      "registry_path": "docs/guides/data-sources--protected_application--reference--group-002.md"
+    },
+    {
+      "canonical_id": "xcsh-docs:data-sources:protected_application:properties:cloudflare:protected_endpoints:web_mobile_client:block_web",
+      "section_id": "xcsh-docs:data-sources:protected_application:properties:cloudflare:protected_endpoints:web_mobile_client:block_web:section:2",
+      "source_sha256": "sha256:c98e9e790c1a1aa79e04fcb3767401479e64e83867366d0f2d9d3eb71f68f9ab",
+      "source_bytes": 111,
+      "canonical_source_sha256": "sha256:1cf5748cf8249189e2adfac52ac50e19e79b31bc2baff655c2d49f0e72f3ac81",
+      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/protected_application/properties/cloudflare/protected_endpoints/web_mobile_client/block_web/",
+      "anchor": "canonical-0312221222023123-1303302223032003-2211232000203220-0332200233031312-2302221301202000-1232103300012230-0232202202120122-2332112121321311",
+      "anchor_map": [
+        [
+          "schema-cloudflare--protected_endpoints--web_mobile_client--block_web--body",
+          "canonical-2100100030101302-3220201313312030-1233110231033130-1113032010320000-1110211310131123-3112132003310132-3231010232203000-3231213223323300"
+        ]
+      ],
+      "mode": "embedded",
+      "registry_path": "docs/guides/data-sources--protected_application--reference--group-002.md"
+    },
+    {
+      "canonical_id": "xcsh-docs:data-sources:protected_application:properties:cloudflare:protected_endpoints:web_mobile_client:block_web",
+      "section_id": "xcsh-docs:data-sources:protected_application:properties:cloudflare:protected_endpoints:web_mobile_client:block_web:section:3",
+      "source_sha256": "sha256:1f2f052d6a997fc61ce3ef52ac75be11f2f40bdd86254df77033df4725c5ccce",
+      "source_bytes": 848,
+      "canonical_source_sha256": "sha256:1cf5748cf8249189e2adfac52ac50e19e79b31bc2baff655c2d49f0e72f3ac81",
+      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/protected_application/properties/cloudflare/protected_endpoints/web_mobile_client/block_web/",
+      "anchor": "canonical-2330112230010223-3220112230110211-1020011202302231-1133020120112323-3303130103133212-3120302121120002-0330330200330200-2302112323211110",
+      "anchor_map": [
+        [
+          "schema-cloudflare--protected_endpoints--web_mobile_client--block_web--content_type",
+          "canonical-0023123233002320-3033113200013000-3330312310120330-1133230121010021-1231110310010011-0213200332201310-2013210202020101-0110303103221103"
+        ]
+      ],
+      "mode": "embedded",
+      "registry_path": "docs/guides/data-sources--protected_application--reference--group-002.md"
+    },
+    {
+      "canonical_id": "xcsh-docs:data-sources:protected_application:properties:cloudflare:protected_endpoints:web_mobile_client:block_web",
+      "section_id": "xcsh-docs:data-sources:protected_application:properties:cloudflare:protected_endpoints:web_mobile_client:block_web:section:4",
+      "source_sha256": "sha256:2495801107340a4eec689203133b76a5ea567c3a903afec0978d80f8b26269b2",
+      "source_bytes": 815,
+      "canonical_source_sha256": "sha256:1cf5748cf8249189e2adfac52ac50e19e79b31bc2baff655c2d49f0e72f3ac81",
+      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/protected_application/properties/cloudflare/protected_endpoints/web_mobile_client/block_web/",
+      "anchor": "canonical-1113200032233022-1113230203111023-0200020122001212-0012300102202300-1221001032110303-3021220020022121-3003231210103311-1331223113230001",
+      "anchor_map": [
+        [
+          "schema-cloudflare--protected_endpoints--web_mobile_client--block_web--status",
+          "canonical-1223111310332000-0222331210231123-1301010200232330-0212030300020320-3133323122302200-0120331211310223-2131130102122023-0102120212331103"
+        ]
+      ],
+      "mode": "embedded",
+      "registry_path": "docs/guides/data-sources--protected_application--reference--group-002.md"
+    },
+    {
+      "canonical_id": "xcsh-docs:data-sources:protected_application:properties:cloudflare:protected_endpoints:web_mobile_client:block_web",
+      "section_id": "xcsh-docs:data-sources:protected_application:properties:cloudflare:protected_endpoints:web_mobile_client:block_web:section:5",
+      "source_sha256": "sha256:252d0ac43913bea62bf0a1e82975bcdf2eafeefe32956d69091750009b785d37",
+      "source_bytes": 5596,
+      "canonical_source_sha256": "sha256:1cf5748cf8249189e2adfac52ac50e19e79b31bc2baff655c2d49f0e72f3ac81",
+      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/protected_application/properties/cloudflare/protected_endpoints/web_mobile_client/block_web/",
+      "anchor": "canonical-2012131303123001-1203202222230113-3213101211001033-3021310131013232-1012101031220323-2231203210020333-2321102112331333-2333301031121232",
+      "anchor_map": [],
+      "mode": "embedded",
+      "registry_path": "docs/guides/data-sources--protected_application--reference--group-002.md"
+    },
+    {
+      "canonical_id": "xcsh-docs:data-sources:protected_application:properties:cloudflare:protected_endpoints:web_mobile_client:block_web",
+      "section_id": "xcsh-docs:data-sources:protected_application:properties:cloudflare:protected_endpoints:web_mobile_client:block_web:section:6",
+      "source_sha256": "sha256:4fa336cd1e099f6b115d15f66c1acfc179b765c9ae8dd442cfdf24221191e7e7",
+      "source_bytes": 345,
+      "canonical_source_sha256": "sha256:1cf5748cf8249189e2adfac52ac50e19e79b31bc2baff655c2d49f0e72f3ac81",
+      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/protected_application/properties/cloudflare/protected_endpoints/web_mobile_client/block_web/",
+      "anchor": "canonical-0133120323000012-2102333032220303-0022333313110112-0032312212311302-3031130102021002-2102311201101210-0002231312100031-1331312332303320",
+      "anchor_map": [],
+      "mode": "embedded",
+      "registry_path": "docs/guides/data-sources--protected_application--reference--group-002.md"
+    },
+    {
+      "canonical_id": "xcsh-docs:data-sources:protected_application:properties:cloudflare:protected_endpoints:web_mobile_client:continue_mobile",
+      "section_id": "xcsh-docs:data-sources:protected_application:properties:cloudflare:protected_endpoints:web_mobile_client:continue_mobile:section:0",
+      "source_sha256": "sha256:197d41522a9dd286cb9805a03d8a5bd782cc3f3fd95ea854bf2dfc326e83e50c",
+      "source_bytes": 99,
+      "canonical_source_sha256": "sha256:07103e0ea75b8a0ca17c0b69a9aa3ca7b3e2f14d7f74457cfe58f5e84b460dbd",
+      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/protected_application/properties/cloudflare/protected_endpoints/web_mobile_client/continue_mobile/",
+      "anchor": "canonical-3233132023020001-0230300021301003-0112231001313030-1003233323220102-0333312231313113-0130130313210200-0232322121003011-3230312231233323",
+      "anchor_map": [],
+      "mode": "embedded",
+      "registry_path": "docs/guides/data-sources--protected_application--reference--group-002.md"
+    },
+    {
+      "canonical_id": "xcsh-docs:data-sources:protected_application:properties:cloudflare:protected_endpoints:web_mobile_client:continue_mobile",
+      "section_id": "xcsh-docs:data-sources:protected_application:properties:cloudflare:protected_endpoints:web_mobile_client:continue_mobile:section:1",
+      "source_sha256": "sha256:b5f6b964f83e0675ec66dbd778f7ab3f5912f24bee2b083aa48655d3bbaf8323",
+      "source_bytes": 1328,
+      "canonical_source_sha256": "sha256:07103e0ea75b8a0ca17c0b69a9aa3ca7b3e2f14d7f74457cfe58f5e84b460dbd",
+      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/protected_application/properties/cloudflare/protected_endpoints/web_mobile_client/continue_mobile/",
+      "anchor": "canonical-2113123320111232-3023221021300031-1311221020333001-2021213113222110-2212300323323000-1132233101103230-3103113222003131-3303003210202022",
+      "anchor_map": [
+        [
+          "section",
+          "canonical-0221210010023111-2231022330022130-1101303212302322-3033231332230123-2100210110010111-2001100023011022-3121113032120002-3230200001223103"
+        ]
+      ],
+      "mode": "embedded",
+      "registry_path": "docs/guides/data-sources--protected_application--reference--group-002.md"
+    },
+    {
+      "canonical_id": "xcsh-docs:data-sources:protected_application:properties:cloudflare:protected_endpoints:web_mobile_client:continue_mobile",
+      "section_id": "xcsh-docs:data-sources:protected_application:properties:cloudflare:protected_endpoints:web_mobile_client:continue_mobile:section:2",
+      "source_sha256": "sha256:a0a53706eb1e9ebe6efe59ac82e10d7e02495aae7df00136a6e19908e319d303",
+      "source_bytes": 476,
+      "canonical_source_sha256": "sha256:07103e0ea75b8a0ca17c0b69a9aa3ca7b3e2f14d7f74457cfe58f5e84b460dbd",
+      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/protected_application/properties/cloudflare/protected_endpoints/web_mobile_client/continue_mobile/",
+      "anchor": "canonical-1123031120330232-2003030121300332-1213101012331301-1332231033013111-3001000020012320-2210111310230220-1302332230103202-2000321002230233",
+      "anchor_map": [],
+      "mode": "embedded",
+      "registry_path": "docs/guides/data-sources--protected_application--reference--group-002.md"
+    },
+    {
       "canonical_id": "xcsh-docs:data-sources:protected_application:properties:cloudflare:protected_endpoints:web_mobile_client:continue_mobile",
       "section_id": "xcsh-docs:data-sources:protected_application:properties:cloudflare:protected_endpoints:web_mobile_client:continue_mobile:section:3",
       "source_sha256": "sha256:33842f7798674fdbd14b11407a2a26ac70d17bcb9dfc42d02cc4a2735ad357f5",
@@ -6336,409 +6713,6 @@
           "canonical-1130010221332230-2323323230311312-1221202002200233-3033122032331300-2111202310333321-1102113333001003-3331102220333303-0310331100113302"
         ]
       ],
-      "mode": "embedded",
-      "registry_path": "docs/guides/data-sources--protected_application--reference--group-004.md"
-    },
-    {
-      "canonical_id": "xcsh-docs:data-sources:protected_application:properties:cloudfront:trusted_clients",
-      "section_id": "xcsh-docs:data-sources:protected_application:properties:cloudfront:trusted_clients:section:2",
-      "source_sha256": "sha256:f1d78219e77ac61dc4bf1a8726dc426de40610aaf6e80e136db616247309dfa8",
-      "source_bytes": 274,
-      "canonical_source_sha256": "sha256:e2adb3252f9603818b036e8e325db54701816c647355c9f4ffa05a809a6ddecc",
-      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/protected_application/properties/cloudfront/trusted_clients/",
-      "anchor": "canonical-2130101101232031-3121331023223233-1311102002100223-3120021020131312-2003203313232001-1313102333000310-3023223213220331-2001022132321223",
-      "anchor_map": [
-        [
-          "schema-cloudfront--trusted_clients--ip_prefix",
-          "canonical-0223302211003300-0112322130232222-2203120311021230-0111230301011132-2223130123320301-1100010212201010-2022333013121002-3012113003203302"
-        ]
-      ],
-      "mode": "embedded",
-      "registry_path": "docs/guides/data-sources--protected_application--reference--group-004.md"
-    },
-    {
-      "canonical_id": "xcsh-docs:data-sources:protected_application:properties:cloudfront:trusted_clients",
-      "section_id": "xcsh-docs:data-sources:protected_application:properties:cloudfront:trusted_clients:section:3",
-      "source_sha256": "sha256:cb848dde5857f51b0467ba98c88878d1ea939915f59f08949a518233b061a65b",
-      "source_bytes": 999,
-      "canonical_source_sha256": "sha256:e2adb3252f9603818b036e8e325db54701816c647355c9f4ffa05a809a6ddecc",
-      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/protected_application/properties/cloudfront/trusted_clients/",
-      "anchor": "canonical-0121001031012033-0220123102122303-0030220132033021-3210000300323222-2330101012230332-3301222200012011-2122213232011131-2102321313100301",
-      "anchor_map": [],
-      "mode": "embedded",
-      "registry_path": "docs/guides/data-sources--protected_application--reference--group-004.md"
-    },
-    {
-      "canonical_id": "xcsh-docs:data-sources:protected_application:properties:cloudfront:trusted_clients",
-      "section_id": "xcsh-docs:data-sources:protected_application:properties:cloudfront:trusted_clients:section:4",
-      "source_sha256": "sha256:a2f92cbde0bb89587eb784d3e1f3c5620de86bf98cbe0521c6f5ae2af6e0b9c5",
-      "source_bytes": 635,
-      "canonical_source_sha256": "sha256:e2adb3252f9603818b036e8e325db54701816c647355c9f4ffa05a809a6ddecc",
-      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/protected_application/properties/cloudfront/trusted_clients/",
-      "anchor": "canonical-0013302321303221-2112113132111130-3202231130132320-0000323002133002-3013000121201320-0120123232033113-2012232210332121-3210230011302200",
-      "anchor_map": [],
-      "mode": "embedded",
-      "registry_path": "docs/guides/data-sources--protected_application--reference--group-004.md"
-    },
-    {
-      "canonical_id": "xcsh-docs:data-sources:protected_application:properties:cloudfront:trusted_clients:http_header",
-      "section_id": "xcsh-docs:data-sources:protected_application:properties:cloudfront:trusted_clients:http_header:section:0",
-      "source_sha256": "sha256:197d41522a9dd286cb9805a03d8a5bd782cc3f3fd95ea854bf2dfc326e83e50c",
-      "source_bytes": 99,
-      "canonical_source_sha256": "sha256:539880a034f58260437bcb0f90e68f7fa088ea8975db59f8e39d741607a002b1",
-      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/protected_application/properties/cloudfront/trusted_clients/http_header/",
-      "anchor": "canonical-1033022210101312-3011123312230132-1310310020002123-2001123113112112-3130232113230121-1300102012321113-3332313312131212-1132123323322302",
-      "anchor_map": [],
-      "mode": "embedded",
-      "registry_path": "docs/guides/data-sources--protected_application--reference--group-004.md"
-    },
-    {
-      "canonical_id": "xcsh-docs:data-sources:protected_application:properties:cloudfront:trusted_clients:http_header",
-      "section_id": "xcsh-docs:data-sources:protected_application:properties:cloudfront:trusted_clients:http_header:section:1",
-      "source_sha256": "sha256:7392e109af3b6c9eec4e2da49927f3a66ebfc7bc41fca0ba8ccf891f32808d43",
-      "source_bytes": 970,
-      "canonical_source_sha256": "sha256:539880a034f58260437bcb0f90e68f7fa088ea8975db59f8e39d741607a002b1",
-      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/protected_application/properties/cloudfront/trusted_clients/http_header/",
-      "anchor": "canonical-0201300310110320-3232213222001330-2101221113322213-2221133021223313-3322221311312200-3330112312000103-0310032202330311-0020221203122322",
-      "anchor_map": [
-        [
-          "section",
-          "canonical-0010102220332203-2011120013322001-2202012021331323-0211333201321102-3003122130322022-3310123212213322-0202023331323321-1230300030301321"
-        ]
-      ],
-      "mode": "embedded",
-      "registry_path": "docs/guides/data-sources--protected_application--reference--group-004.md"
-    },
-    {
-      "canonical_id": "xcsh-docs:data-sources:protected_application:properties:cloudfront:trusted_clients:http_header",
-      "section_id": "xcsh-docs:data-sources:protected_application:properties:cloudfront:trusted_clients:http_header:section:2",
-      "source_sha256": "sha256:5d9e62224cf302194f2a3bf4828477f51c6a194ac2fc7bf7e949336848e5bec0",
-      "source_bytes": 218,
-      "canonical_source_sha256": "sha256:539880a034f58260437bcb0f90e68f7fa088ea8975db59f8e39d741607a002b1",
-      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/protected_application/properties/cloudfront/trusted_clients/http_header/",
-      "anchor": "canonical-0120210221100313-1203030011001211-3123002120212202-0033323223203001-0122131020232030-1302032310132102-0300112003201320-0102221131123331",
-      "anchor_map": [],
-      "mode": "embedded",
-      "registry_path": "docs/guides/data-sources--protected_application--reference--group-004.md"
-    },
-    {
-      "canonical_id": "xcsh-docs:data-sources:protected_application:properties:cloudfront:trusted_clients:http_header",
-      "section_id": "xcsh-docs:data-sources:protected_application:properties:cloudfront:trusted_clients:http_header:section:3",
-      "source_sha256": "sha256:71b2e76f647bf71767cfb72dc917f35e139aba230d88d711bcfe772e6aa9c67b",
-      "source_bytes": 503,
-      "canonical_source_sha256": "sha256:539880a034f58260437bcb0f90e68f7fa088ea8975db59f8e39d741607a002b1",
-      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/protected_application/properties/cloudfront/trusted_clients/http_header/",
-      "anchor": "canonical-3111311030230020-1331233021101112-3033220031020201-1111303000333311-3211030101021321-3333233110321123-1302311010112120-1322330112011222",
-      "anchor_map": [],
-      "mode": "embedded",
-      "registry_path": "docs/guides/data-sources--protected_application--reference--group-004.md"
-    },
-    {
-      "canonical_id": "xcsh-docs:data-sources:protected_application:properties:cloudfront:trusted_clients:http_header:headers",
-      "section_id": "xcsh-docs:data-sources:protected_application:properties:cloudfront:trusted_clients:http_header:headers:section:0",
-      "source_sha256": "sha256:197d41522a9dd286cb9805a03d8a5bd782cc3f3fd95ea854bf2dfc326e83e50c",
-      "source_bytes": 99,
-      "canonical_source_sha256": "sha256:3ed8fc072499df168336336dbd93da620c450344ef372690062f256ee41a8360",
-      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/protected_application/properties/cloudfront/trusted_clients/http_header/headers/",
-      "anchor": "canonical-1320020310120010-1103101210121231-1330321212313201-1013021310221013-0313000020322222-1331002033231033-1320023231221220-3130023230201223",
-      "anchor_map": [],
-      "mode": "embedded",
-      "registry_path": "docs/guides/data-sources--protected_application--reference--group-004.md"
-    },
-    {
-      "canonical_id": "xcsh-docs:data-sources:protected_application:properties:cloudfront:trusted_clients:http_header:headers",
-      "section_id": "xcsh-docs:data-sources:protected_application:properties:cloudfront:trusted_clients:http_header:headers:section:1",
-      "source_sha256": "sha256:f579c2e850fecee57c7a131ff551989ad9275589dcaa75955dd677fefa222b78",
-      "source_bytes": 1709,
-      "canonical_source_sha256": "sha256:3ed8fc072499df168336336dbd93da620c450344ef372690062f256ee41a8360",
-      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/protected_application/properties/cloudfront/trusted_clients/http_header/headers/",
-      "anchor": "canonical-1321101303231011-1112032333302322-2021112222233023-3023120330000002-0333222030200213-3200201302030003-0002120032200202-2310113030001133",
-      "anchor_map": [
-        [
-          "section",
-          "canonical-0232103231001031-3332300221030130-3023023032020223-3113200102001002-1313333201123230-0122333123202031-3320033232300320-1012200121131323"
-        ]
-      ],
-      "mode": "embedded",
-      "registry_path": "docs/guides/data-sources--protected_application--reference--group-004.md"
-    },
-    {
-      "canonical_id": "xcsh-docs:data-sources:protected_application:properties:cloudfront:trusted_clients:http_header:headers",
-      "section_id": "xcsh-docs:data-sources:protected_application:properties:cloudfront:trusted_clients:http_header:headers:section:2",
-      "source_sha256": "sha256:2f9b68916e87441ab01760e2563d8e5ce5d722e70469043ade7a037175d5401e",
-      "source_bytes": 100,
-      "canonical_source_sha256": "sha256:3ed8fc072499df168336336dbd93da620c450344ef372690062f256ee41a8360",
-      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/protected_application/properties/cloudfront/trusted_clients/http_header/headers/",
-      "anchor": "canonical-2132301003030113-0133012121201030-2033223223003323-2233020311003133-3113132201201102-0211221031103213-2222110100003321-1000321201101330",
-      "anchor_map": [
-        [
-          "schema-cloudfront--trusted_clients--http_header--headers--exact",
-          "canonical-0110332230310333-0111021301202112-0013220212012110-2120003030013010-2301212312133213-3302233201203022-2220033230311301-1321332232331132"
-        ]
-      ],
-      "mode": "embedded",
-      "registry_path": "docs/guides/data-sources--protected_application--reference--group-004.md"
-    },
-    {
-      "canonical_id": "xcsh-docs:data-sources:protected_application:properties:cloudfront:trusted_clients:http_header:headers",
-      "section_id": "xcsh-docs:data-sources:protected_application:properties:cloudfront:trusted_clients:http_header:headers:section:3",
-      "source_sha256": "sha256:547023da87952aeff48256e4368426f443fdb7361ac16896e2502612407fe85e",
-      "source_bytes": 1041,
-      "canonical_source_sha256": "sha256:3ed8fc072499df168336336dbd93da620c450344ef372690062f256ee41a8360",
-      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/protected_application/properties/cloudfront/trusted_clients/http_header/headers/",
-      "anchor": "canonical-1203022000003132-3202101000310320-2002333130200320-0233322113132330-1211123313101021-2210212202112311-3022313111121332-2003333312031123",
-      "anchor_map": [
-        [
-          "schema-cloudfront--trusted_clients--http_header--headers--name",
-          "canonical-2032000102003201-0221300100122002-0022222101100000-2211331210102201-0113212202333320-3323303113322011-1201331032032311-2201232022110230"
-        ]
-      ],
-      "mode": "embedded",
-      "registry_path": "docs/guides/data-sources--protected_application--reference--group-004.md"
-    },
-    {
-      "canonical_id": "xcsh-docs:data-sources:protected_application:properties:cloudfront:trusted_clients:http_header:headers",
-      "section_id": "xcsh-docs:data-sources:protected_application:properties:cloudfront:trusted_clients:http_header:headers:section:4",
-      "source_sha256": "sha256:4a620b7fdb361a0189c09730bd726b11343ae3950a593a9e27972b6b4ba77730",
-      "source_bytes": 1788,
-      "canonical_source_sha256": "sha256:3ed8fc072499df168336336dbd93da620c450344ef372690062f256ee41a8360",
-      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/protected_application/properties/cloudfront/trusted_clients/http_header/headers/",
-      "anchor": "canonical-1112123022310321-2333220323020323-0220320223321233-0132333233103312-1311310021331130-0230103001023302-0103322000023311-3222021103331211",
-      "anchor_map": [
-        [
-          "schema-cloudfront--trusted_clients--http_header--headers--regex",
-          "canonical-2230012103033322-3222301200010112-1010132322123310-3321033033320112-1132331112221201-1131032332300323-1030033130110101-0113121320031103"
-        ]
-      ],
-      "mode": "embedded",
-      "registry_path": "docs/guides/data-sources--protected_application--reference--group-004.md"
-    },
-    {
-      "canonical_id": "xcsh-docs:data-sources:protected_application:properties:cloudfront:trusted_clients:http_header:headers",
-      "section_id": "xcsh-docs:data-sources:protected_application:properties:cloudfront:trusted_clients:http_header:headers:section:5",
-      "source_sha256": "sha256:1e84f740d7f436f7b30ea504a9efface877581bc13ac95629db935aab14bc62b",
-      "source_bytes": 1112,
-      "canonical_source_sha256": "sha256:3ed8fc072499df168336336dbd93da620c450344ef372690062f256ee41a8360",
-      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/protected_application/properties/cloudfront/trusted_clients/http_header/headers/",
-      "anchor": "canonical-1033100322112001-1210112223210130-3231203323010101-2130230010033213-2000312101300322-1322012103032000-2223110002331313-1000023300323330",
-      "anchor_map": [],
-      "mode": "embedded",
-      "registry_path": "docs/guides/data-sources--protected_application--reference--group-004.md"
-    },
-    {
-      "canonical_id": "xcsh-docs:data-sources:protected_application:properties:cloudfront:trusted_clients:http_header:headers",
-      "section_id": "xcsh-docs:data-sources:protected_application:properties:cloudfront:trusted_clients:http_header:headers:section:6",
-      "source_sha256": "sha256:140cd4e6f780a0f8081dd588c37c8d319a097f34e756697b0c6608abe0691a7b",
-      "source_bytes": 325,
-      "canonical_source_sha256": "sha256:3ed8fc072499df168336336dbd93da620c450344ef372690062f256ee41a8360",
-      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/protected_application/properties/cloudfront/trusted_clients/http_header/headers/",
-      "anchor": "canonical-2212203332001003-0030313220210120-3121023220033123-0321021032001022-1122230020210220-1031031003211330-0033103022022202-1312221132302221",
-      "anchor_map": [],
-      "mode": "embedded",
-      "registry_path": "docs/guides/data-sources--protected_application--reference--group-004.md"
-    },
-    {
-      "canonical_id": "xcsh-docs:data-sources:protected_application:properties:cloudfront:trusted_clients:metadata",
-      "section_id": "xcsh-docs:data-sources:protected_application:properties:cloudfront:trusted_clients:metadata:section:0",
-      "source_sha256": "sha256:197d41522a9dd286cb9805a03d8a5bd782cc3f3fd95ea854bf2dfc326e83e50c",
-      "source_bytes": 99,
-      "canonical_source_sha256": "sha256:33304ac7599c42298b7a9e48bc1a95f1c05823f463531a4c6716e0c3912b439c",
-      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/protected_application/properties/cloudfront/trusted_clients/metadata/",
-      "anchor": "canonical-2111013232033220-3313331310230010-1110233002321303-1031103203323322-3030101313321020-3122011123232133-0123300132331322-1131112323100110",
-      "anchor_map": [],
-      "mode": "embedded",
-      "registry_path": "docs/guides/data-sources--protected_application--reference--group-004.md"
-    },
-    {
-      "canonical_id": "xcsh-docs:data-sources:protected_application:properties:cloudfront:trusted_clients:metadata",
-      "section_id": "xcsh-docs:data-sources:protected_application:properties:cloudfront:trusted_clients:metadata:section:1",
-      "source_sha256": "sha256:c393643fb0a9dde07e2c7b0d020ad062d44f23662b393fb7b157c8a5a38e253e",
-      "source_bytes": 1500,
-      "canonical_source_sha256": "sha256:33304ac7599c42298b7a9e48bc1a95f1c05823f463531a4c6716e0c3912b439c",
-      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/protected_application/properties/cloudfront/trusted_clients/metadata/",
-      "anchor": "canonical-0021121203032222-2111302102003011-2022030312033113-1311230212033312-1320232120100331-0331221213321103-1232210010220322-0021012212222323",
-      "anchor_map": [
-        [
-          "section",
-          "canonical-0010202132112020-1001320000300321-0222213011012123-1322323033122102-2022032133030001-1110022020232002-1321232221130233-1233033222233322"
-        ]
-      ],
-      "mode": "embedded",
-      "registry_path": "docs/guides/data-sources--protected_application--reference--group-004.md"
-    },
-    {
-      "canonical_id": "xcsh-docs:data-sources:protected_application:properties:cloudfront:trusted_clients:metadata",
-      "section_id": "xcsh-docs:data-sources:protected_application:properties:cloudfront:trusted_clients:metadata:section:2",
-      "source_sha256": "sha256:b758dce8e2ec5681cf156cdc746be74601184ec4fa7f7bc8793faf6db7fb7b56",
-      "source_bytes": 99,
-      "canonical_source_sha256": "sha256:33304ac7599c42298b7a9e48bc1a95f1c05823f463531a4c6716e0c3912b439c",
-      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/protected_application/properties/cloudfront/trusted_clients/metadata/",
-      "anchor": "canonical-2331131021200033-2023122123122222-1300332113032021-3211110210001210-2003003201221111-2021023111122233-0021112300031221-1202111322100311",
-      "anchor_map": [
-        [
-          "schema-cloudfront--trusted_clients--metadata--description_spec",
-          "canonical-3231302311120302-3032100030203131-1000120302130010-1310311313311322-1032033330020332-1332131103303112-0033223331101321-2012121302021301"
-        ]
-      ],
-      "mode": "embedded",
-      "registry_path": "docs/guides/data-sources--protected_application--reference--group-004.md"
-    },
-    {
-      "canonical_id": "xcsh-docs:data-sources:protected_application:properties:cloudfront:trusted_clients:metadata",
-      "section_id": "xcsh-docs:data-sources:protected_application:properties:cloudfront:trusted_clients:metadata:section:3",
-      "source_sha256": "sha256:a552a066a4994d9185900c96d4fdbed48b3eb759600f21f3df2ed3a55430d8b0",
-      "source_bytes": 167,
-      "canonical_source_sha256": "sha256:33304ac7599c42298b7a9e48bc1a95f1c05823f463531a4c6716e0c3912b439c",
-      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/protected_application/properties/cloudfront/trusted_clients/metadata/",
-      "anchor": "canonical-1132302222202001-0100001213233022-1023111301001131-2331311310310122-1321300132020233-0200101033212121-1220100323210113-2110202030112023",
-      "anchor_map": [
-        [
-          "schema-cloudfront--trusted_clients--metadata--name",
-          "canonical-0213120313022013-1333031332010001-3300321031103312-1010223211230233-2010111221002311-3312330313212202-1130313101011302-3220222020202323"
-        ]
-      ],
-      "mode": "embedded",
-      "registry_path": "docs/guides/data-sources--protected_application--reference--group-004.md"
-    },
-    {
-      "canonical_id": "xcsh-docs:data-sources:protected_application:properties:cloudfront:trusted_clients:metadata",
-      "section_id": "xcsh-docs:data-sources:protected_application:properties:cloudfront:trusted_clients:metadata:section:4",
-      "source_sha256": "sha256:a6ad63d6acca5c9ec607e5ab46581ada322b5c13c14f3204cf31276149400d1c",
-      "source_bytes": 1626,
-      "canonical_source_sha256": "sha256:33304ac7599c42298b7a9e48bc1a95f1c05823f463531a4c6716e0c3912b439c",
-      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/protected_application/properties/cloudfront/trusted_clients/metadata/",
-      "anchor": "canonical-3213313323000221-1012120303311212-2000231021020313-3023333031020330-1302300000210211-3021200021103321-2210331012103102-3211320221122102",
-      "anchor_map": [],
-      "mode": "embedded",
-      "registry_path": "docs/guides/data-sources--protected_application--reference--group-004.md"
-    },
-    {
-      "canonical_id": "xcsh-docs:data-sources:protected_application:properties:cloudfront:trusted_clients:metadata",
-      "section_id": "xcsh-docs:data-sources:protected_application:properties:cloudfront:trusted_clients:metadata:section:5",
-      "source_sha256": "sha256:136b939fce155805b07d6851a95dc89d931680d74f594eb13e5c5d5c9a6f9b98",
-      "source_bytes": 301,
-      "canonical_source_sha256": "sha256:33304ac7599c42298b7a9e48bc1a95f1c05823f463531a4c6716e0c3912b439c",
-      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/protected_application/properties/cloudfront/trusted_clients/metadata/",
-      "anchor": "canonical-0302200300101103-3331113010103311-2113320320003030-0203220100100223-2132201123001033-3302100110111110-2300320222202132-0213123121000113",
-      "anchor_map": [],
-      "mode": "embedded",
-      "registry_path": "docs/guides/data-sources--protected_application--reference--group-004.md"
-    },
-    {
-      "canonical_id": "xcsh-docs:data-sources:protected_application:properties:custom_connector",
-      "section_id": "xcsh-docs:data-sources:protected_application:properties:custom_connector:section:0",
-      "source_sha256": "sha256:197d41522a9dd286cb9805a03d8a5bd782cc3f3fd95ea854bf2dfc326e83e50c",
-      "source_bytes": 99,
-      "canonical_source_sha256": "sha256:929493c19905e8ea3bccd6af7718376405842c7463102dd5198929a136f908fe",
-      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/protected_application/properties/custom_connector/",
-      "anchor": "canonical-2131022120013230-3323322131002320-3112130302320203-0132230022331312-3202130201002000-0310132300310330-1103022101033312-1203333103123122",
-      "anchor_map": [],
-      "mode": "embedded",
-      "registry_path": "docs/guides/data-sources--protected_application--reference--group-004.md"
-    },
-    {
-      "canonical_id": "xcsh-docs:data-sources:protected_application:properties:custom_connector",
-      "section_id": "xcsh-docs:data-sources:protected_application:properties:custom_connector:section:1",
-      "source_sha256": "sha256:adc5000a3cec0a92c2c5f3ec747ded108b261f69592438fd32a71d0cecc724a9",
-      "source_bytes": 666,
-      "canonical_source_sha256": "sha256:929493c19905e8ea3bccd6af7718376405842c7463102dd5198929a136f908fe",
-      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/protected_application/properties/custom_connector/",
-      "anchor": "canonical-2000301112021331-0300233311100212-1010120003201333-2222302110222002-0123030223033320-0312111302300110-2313021320312103-2210331303201023",
-      "anchor_map": [
-        [
-          "section",
-          "canonical-2102330322032211-0103123332032130-2302031003011130-3102032101232210-2031020330020132-1000303002313201-0220212130010110-1223321031220121"
-        ]
-      ],
-      "mode": "embedded",
-      "registry_path": "docs/guides/data-sources--protected_application--reference--group-004.md"
-    },
-    {
-      "canonical_id": "xcsh-docs:data-sources:protected_application:properties:custom_connector",
-      "section_id": "xcsh-docs:data-sources:protected_application:properties:custom_connector:section:2",
-      "source_sha256": "sha256:0d4398201e18f9ddb2ea00ceed6d3256755ea4d008d849d1cec42dab5c55f1b5",
-      "source_bytes": 94,
-      "canonical_source_sha256": "sha256:929493c19905e8ea3bccd6af7718376405842c7463102dd5198929a136f908fe",
-      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/protected_application/properties/custom_connector/",
-      "anchor": "canonical-0122232202203031-1213312131113023-2232122322232212-3011203130222232-0330121233132132-1213211323333313-3130301103303221-0003023013330220",
-      "anchor_map": [],
-      "mode": "embedded",
-      "registry_path": "docs/guides/data-sources--protected_application--reference--group-004.md"
-    },
-    {
-      "canonical_id": "xcsh-docs:data-sources:protected_application:properties:custom_connector",
-      "section_id": "xcsh-docs:data-sources:protected_application:properties:custom_connector:section:3",
-      "source_sha256": "sha256:c20d170b62b107082c9d3595348f639610a431ee761d230d596d23130a02a4a3",
-      "source_bytes": 266,
-      "canonical_source_sha256": "sha256:929493c19905e8ea3bccd6af7718376405842c7463102dd5198929a136f908fe",
-      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/protected_application/properties/custom_connector/",
-      "anchor": "canonical-3312011001201310-0033313221203331-3331011130113022-2032230311030022-0001232323221102-3112011300123333-2313310023311130-2131120022021221",
-      "anchor_map": [],
-      "mode": "embedded",
-      "registry_path": "docs/guides/data-sources--protected_application--reference--group-004.md"
-    },
-    {
-      "canonical_id": "xcsh-docs:data-sources:protected_application:properties:f5_big_ip",
-      "section_id": "xcsh-docs:data-sources:protected_application:properties:f5_big_ip:section:0",
-      "source_sha256": "sha256:197d41522a9dd286cb9805a03d8a5bd782cc3f3fd95ea854bf2dfc326e83e50c",
-      "source_bytes": 99,
-      "canonical_source_sha256": "sha256:69f67735048a7b653f9604fa1fd7973c9accac50c6b998da5e96257e15daeaab",
-      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/protected_application/properties/f5_big_ip/",
-      "anchor": "canonical-2221321233201022-2312300032001020-0333110031033331-0133213100320220-0313313301321000-2131300212321000-1211302300200001-2300130230311301",
-      "anchor_map": [],
-      "mode": "embedded",
-      "registry_path": "docs/guides/data-sources--protected_application--reference--group-004.md"
-    },
-    {
-      "canonical_id": "xcsh-docs:data-sources:protected_application:properties:f5_big_ip",
-      "section_id": "xcsh-docs:data-sources:protected_application:properties:f5_big_ip:section:1",
-      "source_sha256": "sha256:25b05743a6f02246937e3814bb7eb4f6b275d2898dca0da4df470b685e7a11a5",
-      "source_bytes": 625,
-      "canonical_source_sha256": "sha256:69f67735048a7b653f9604fa1fd7973c9accac50c6b998da5e96257e15daeaab",
-      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/protected_application/properties/f5_big_ip/",
-      "anchor": "canonical-0203233303111133-1313133032221021-1101212002320223-0211000311221201-3201031002103300-1021303121312000-3233213032002113-0103200302302113",
-      "anchor_map": [
-        [
-          "section",
-          "canonical-0332302203002303-1323230123130022-0213100021022021-2230320230121123-0321322312323030-3013332201212200-1223333231331113-1331213022012310"
-        ]
-      ],
-      "mode": "embedded",
-      "registry_path": "docs/guides/data-sources--protected_application--reference--group-004.md"
-    },
-    {
-      "canonical_id": "xcsh-docs:data-sources:protected_application:properties:f5_big_ip",
-      "section_id": "xcsh-docs:data-sources:protected_application:properties:f5_big_ip:section:2",
-      "source_sha256": "sha256:0d4398201e18f9ddb2ea00ceed6d3256755ea4d008d849d1cec42dab5c55f1b5",
-      "source_bytes": 94,
-      "canonical_source_sha256": "sha256:69f67735048a7b653f9604fa1fd7973c9accac50c6b998da5e96257e15daeaab",
-      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/protected_application/properties/f5_big_ip/",
-      "anchor": "canonical-2121012033230123-2301011213212221-3201133033300321-0011222321013023-3021002213011321-1010020102203311-1123303022222120-3203231233012123",
-      "anchor_map": [],
-      "mode": "embedded",
-      "registry_path": "docs/guides/data-sources--protected_application--reference--group-004.md"
-    },
-    {
-      "canonical_id": "xcsh-docs:data-sources:protected_application:properties:f5_big_ip",
-      "section_id": "xcsh-docs:data-sources:protected_application:properties:f5_big_ip:section:3",
-      "source_sha256": "sha256:c20d170b62b107082c9d3595348f639610a431ee761d230d596d23130a02a4a3",
-      "source_bytes": 266,
-      "canonical_source_sha256": "sha256:69f67735048a7b653f9604fa1fd7973c9accac50c6b998da5e96257e15daeaab",
-      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/protected_application/properties/f5_big_ip/",
-      "anchor": "canonical-2130322132220332-3012111002031320-3213002101322223-1322221101102231-1332000033300200-3323121020110220-0311000121123102-0311030223122120",
-      "anchor_map": [],
-      "mode": "embedded",
-      "registry_path": "docs/guides/data-sources--protected_application--reference--group-004.md"
-    },
-    {
-      "canonical_id": "xcsh-docs:data-sources:protected_application:properties:salesforce_commerce_connector",
-      "section_id": "xcsh-docs:data-sources:protected_application:properties:salesforce_commerce_connector:section:0",
-      "source_sha256": "sha256:197d41522a9dd286cb9805a03d8a5bd782cc3f3fd95ea854bf2dfc326e83e50c",
-      "source_bytes": 99,
-      "canonical_source_sha256": "sha256:f009ff9f9d98f109bc2937060a401fc35b77470940bff269936b20dd56851e5e",
-      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/protected_application/properties/salesforce_commerce_connector/",
-      "anchor": "canonical-3300103021210020-1101231333023233-1202122312030020-1322030202123101-2122211031213030-0203233223330223-3331032100031322-3101033002131222",
-      "anchor_map": [],
       "mode": "embedded",
       "registry_path": "docs/guides/data-sources--protected_application--reference--group-004.md"
     }

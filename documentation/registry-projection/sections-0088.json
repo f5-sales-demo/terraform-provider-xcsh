@@ -2,6 +2,259 @@
   "schema_version": 1,
   "sections": [
     {
+      "canonical_id": "xcsh-docs:resources:workload:properties:stateful_service:advertise_options:advertise_on_public:multi_ports:ports:http_loadbalancer:https_auto_cert:use_mtls:xfcc_disabled",
+      "section_id": "xcsh-docs:resources:workload:properties:stateful_service:advertise_options:advertise_on_public:multi_ports:ports:http_loadbalancer:https_auto_cert:use_mtls:xfcc_disabled:section:3",
+      "source_sha256": "sha256:847108cf1c3e59c05d1d7ae01c5f18096fe977c77c0a21258b5aaa99b9d9900d",
+      "source_bytes": 434,
+      "canonical_source_sha256": "sha256:4827b465c7c0529dc820a209b2ec16d65b3ccd5a2c82c2df9103e9f775e0e69a",
+      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/resources/workload/properties/stateful_service/advertise_options/advertise_on_public/multi_ports/ports/http_loadbalancer/https_auto_cert/use_mtls/xfcc_disabled/",
+      "anchor": "canonical-0122030231213012-1002133323300110-2321130122012013-2012230210022133-3002331211121211-1122221131000202-3100122213303023-0210233131321110",
+      "anchor_map": [],
+      "mode": "embedded",
+      "registry_path": "docs/guides/resources--workload--reference--group-024.md"
+    },
+    {
+      "canonical_id": "xcsh-docs:resources:workload:properties:stateful_service:advertise_options:advertise_on_public:multi_ports:ports:http_loadbalancer:https_auto_cert:use_mtls:xfcc_options",
+      "section_id": "xcsh-docs:resources:workload:properties:stateful_service:advertise_options:advertise_on_public:multi_ports:ports:http_loadbalancer:https_auto_cert:use_mtls:xfcc_options:section:0",
+      "source_sha256": "sha256:197d41522a9dd286cb9805a03d8a5bd782cc3f3fd95ea854bf2dfc326e83e50c",
+      "source_bytes": 99,
+      "canonical_source_sha256": "sha256:78a60ad3e1f78f5af9cba1474ac0ac6795df30623074c78c9d8f30ebead864e4",
+      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/resources/workload/properties/stateful_service/advertise_options/advertise_on_public/multi_ports/ports/http_loadbalancer/https_auto_cert/use_mtls/xfcc_options/",
+      "anchor": "canonical-2231102110120302-0312013330311021-0301101121202131-2210113112311022-0320332110221331-1101233202221210-3233220321330120-3031023220102022",
+      "anchor_map": [],
+      "mode": "embedded",
+      "registry_path": "docs/guides/resources--workload--reference--group-024.md"
+    },
+    {
+      "canonical_id": "xcsh-docs:resources:workload:properties:stateful_service:advertise_options:advertise_on_public:multi_ports:ports:http_loadbalancer:https_auto_cert:use_mtls:xfcc_options",
+      "section_id": "xcsh-docs:resources:workload:properties:stateful_service:advertise_options:advertise_on_public:multi_ports:ports:http_loadbalancer:https_auto_cert:use_mtls:xfcc_options:section:1",
+      "source_sha256": "sha256:cb92bbb061f34e8402b58af060c1f804b52969125d0ca890f42021a2bc5cd97f",
+      "source_bytes": 2914,
+      "canonical_source_sha256": "sha256:78a60ad3e1f78f5af9cba1474ac0ac6795df30623074c78c9d8f30ebead864e4",
+      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/resources/workload/properties/stateful_service/advertise_options/advertise_on_public/multi_ports/ports/http_loadbalancer/https_auto_cert/use_mtls/xfcc_options/",
+      "anchor": "canonical-2022120311300132-3333212011302321-1330020122020313-3312310233220031-2103310333031000-1211130222221333-0331332230202330-2332021200010330",
+      "anchor_map": [
+        [
+          "section",
+          "canonical-2033200320131303-1103020132123311-2332230301330102-3012100001231202-1210310132210231-3021230332213022-0202002121331313-2210123013002030"
+        ]
+      ],
+      "mode": "embedded",
+      "registry_path": "docs/guides/resources--workload--reference--group-024.md"
+    },
+    {
+      "canonical_id": "xcsh-docs:resources:workload:properties:stateful_service:advertise_options:advertise_on_public:multi_ports:ports:http_loadbalancer:https_auto_cert:use_mtls:xfcc_options",
+      "section_id": "xcsh-docs:resources:workload:properties:stateful_service:advertise_options:advertise_on_public:multi_ports:ports:http_loadbalancer:https_auto_cert:use_mtls:xfcc_options:section:2",
+      "source_sha256": "sha256:13972a6d1ae57d25a6297e58d85bd45fcd60d19160a587a726b0f8d9ea7296ff",
+      "source_bytes": 202,
+      "canonical_source_sha256": "sha256:78a60ad3e1f78f5af9cba1474ac0ac6795df30623074c78c9d8f30ebead864e4",
+      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/resources/workload/properties/stateful_service/advertise_options/advertise_on_public/multi_ports/ports/http_loadbalancer/https_auto_cert/use_mtls/xfcc_options/",
+      "anchor": "canonical-2031212000201230-0213123300123321-1022311031223200-0112101233112033-0021020033003212-3213121022100010-0103112300300030-1322030230112023",
+      "anchor_map": [
+        [
+          "schema-stateful_service--advertise_options--advertise_on_public--multi_ports--ports--http_loadbalancer--https_auto_cert--use_mtls--xfcc_options--xfcc_header_elements",
+          "canonical-3033020230312301-3332010110230303-0233000233011031-1211231322032031-0012000013323331-1332313300113310-1232222300120301-0201022211002333"
+        ]
+      ],
+      "mode": "embedded",
+      "registry_path": "docs/guides/resources--workload--reference--group-024.md"
+    },
+    {
+      "canonical_id": "xcsh-docs:resources:workload:properties:stateful_service:advertise_options:advertise_on_public:multi_ports:ports:http_loadbalancer:https_auto_cert:use_mtls:xfcc_options",
+      "section_id": "xcsh-docs:resources:workload:properties:stateful_service:advertise_options:advertise_on_public:multi_ports:ports:http_loadbalancer:https_auto_cert:use_mtls:xfcc_options:section:3",
+      "source_sha256": "sha256:5909ca247ee7db4f649bab1f306494431459c0f062e3f0ebe6b357cdd682710b",
+      "source_bytes": 1052,
+      "canonical_source_sha256": "sha256:78a60ad3e1f78f5af9cba1474ac0ac6795df30623074c78c9d8f30ebead864e4",
+      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/resources/workload/properties/stateful_service/advertise_options/advertise_on_public/multi_ports/ports/http_loadbalancer/https_auto_cert/use_mtls/xfcc_options/",
+      "anchor": "canonical-2311200131313113-3101202110311323-3122001112130030-3100133322022003-3330211203303321-1333111021013031-0211012103212322-0333033211211300",
+      "anchor_map": [],
+      "mode": "embedded",
+      "registry_path": "docs/guides/resources--workload--reference--group-024.md"
+    },
+    {
+      "canonical_id": "xcsh-docs:resources:workload:properties:stateful_service:advertise_options:advertise_on_public:multi_ports:ports:http_loadbalancer:https_auto_cert:use_mtls:xfcc_options",
+      "section_id": "xcsh-docs:resources:workload:properties:stateful_service:advertise_options:advertise_on_public:multi_ports:ports:http_loadbalancer:https_auto_cert:use_mtls:xfcc_options:section:4",
+      "source_sha256": "sha256:847108cf1c3e59c05d1d7ae01c5f18096fe977c77c0a21258b5aaa99b9d9900d",
+      "source_bytes": 434,
+      "canonical_source_sha256": "sha256:78a60ad3e1f78f5af9cba1474ac0ac6795df30623074c78c9d8f30ebead864e4",
+      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/resources/workload/properties/stateful_service/advertise_options/advertise_on_public/multi_ports/ports/http_loadbalancer/https_auto_cert/use_mtls/xfcc_options/",
+      "anchor": "canonical-0331233332123022-2012321330020133-2330110110203323-2112322332103212-1132311022321031-1331110130210221-2302323110112232-1203132122110312",
+      "anchor_map": [],
+      "mode": "embedded",
+      "registry_path": "docs/guides/resources--workload--reference--group-024.md"
+    },
+    {
+      "canonical_id": "xcsh-docs:resources:workload:properties:stateful_service:advertise_options:advertise_on_public:multi_ports:ports:http_loadbalancer:specific_routes",
+      "section_id": "xcsh-docs:resources:workload:properties:stateful_service:advertise_options:advertise_on_public:multi_ports:ports:http_loadbalancer:specific_routes:section:0",
+      "source_sha256": "sha256:197d41522a9dd286cb9805a03d8a5bd782cc3f3fd95ea854bf2dfc326e83e50c",
+      "source_bytes": 99,
+      "canonical_source_sha256": "sha256:03f99ad39d28ee401959534ea638769bb1549516e13d041e88662291487db17f",
+      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/resources/workload/properties/stateful_service/advertise_options/advertise_on_public/multi_ports/ports/http_loadbalancer/specific_routes/",
+      "anchor": "canonical-3131312222321330-1311103031033113-2013033101200323-1130033022133322-2103120313300211-0311222332323111-0103003001003203-0330210232300303",
+      "anchor_map": [],
+      "mode": "embedded",
+      "registry_path": "docs/guides/resources--workload--reference--group-024.md"
+    },
+    {
+      "canonical_id": "xcsh-docs:resources:workload:properties:stateful_service:advertise_options:advertise_on_public:multi_ports:ports:http_loadbalancer:specific_routes",
+      "section_id": "xcsh-docs:resources:workload:properties:stateful_service:advertise_options:advertise_on_public:multi_ports:ports:http_loadbalancer:specific_routes:section:1",
+      "source_sha256": "sha256:82a952b7803a93ad94c00a916403b8a22857429f4f2d3774ee7c77ba3f4b23c9",
+      "source_bytes": 2134,
+      "canonical_source_sha256": "sha256:03f99ad39d28ee401959534ea638769bb1549516e13d041e88662291487db17f",
+      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/resources/workload/properties/stateful_service/advertise_options/advertise_on_public/multi_ports/ports/http_loadbalancer/specific_routes/",
+      "anchor": "canonical-0023320030120000-3012213210110302-2102130231220113-3023313323012133-1111002313032020-0000122211222321-3113210021231013-3012131113232213",
+      "anchor_map": [
+        [
+          "section",
+          "canonical-0033111203120213-0211130310130001-3012000123333132-0223231013332310-0200213312232032-0233002101010003-3101221103001311-2000233131102123"
+        ]
+      ],
+      "mode": "embedded",
+      "registry_path": "docs/guides/resources--workload--reference--group-024.md"
+    },
+    {
+      "canonical_id": "xcsh-docs:resources:workload:properties:stateful_service:advertise_options:advertise_on_public:multi_ports:ports:http_loadbalancer:specific_routes",
+      "section_id": "xcsh-docs:resources:workload:properties:stateful_service:advertise_options:advertise_on_public:multi_ports:ports:http_loadbalancer:specific_routes:section:2",
+      "source_sha256": "sha256:c459312504f91820d029a689e4e1319b4811e31b775da322b7fc0701fcd888f6",
+      "source_bytes": 268,
+      "canonical_source_sha256": "sha256:03f99ad39d28ee401959534ea638769bb1549516e13d041e88662291487db17f",
+      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/resources/workload/properties/stateful_service/advertise_options/advertise_on_public/multi_ports/ports/http_loadbalancer/specific_routes/",
+      "anchor": "canonical-1311110113321120-0122120100030201-3012121103301330-0231323311222310-3122010233210320-3111113102121210-1223210112323021-0310231131331322",
+      "anchor_map": [],
+      "mode": "embedded",
+      "registry_path": "docs/guides/resources--workload--reference--group-024.md"
+    },
+    {
+      "canonical_id": "xcsh-docs:resources:workload:properties:stateful_service:advertise_options:advertise_on_public:multi_ports:ports:http_loadbalancer:specific_routes",
+      "section_id": "xcsh-docs:resources:workload:properties:stateful_service:advertise_options:advertise_on_public:multi_ports:ports:http_loadbalancer:specific_routes:section:3",
+      "source_sha256": "sha256:208f4b2129df503cdeb0ce7323583f1cc9fc00a8bd98ba50eaa268c6dcd1fed5",
+      "source_bytes": 704,
+      "canonical_source_sha256": "sha256:03f99ad39d28ee401959534ea638769bb1549516e13d041e88662291487db17f",
+      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/resources/workload/properties/stateful_service/advertise_options/advertise_on_public/multi_ports/ports/http_loadbalancer/specific_routes/",
+      "anchor": "canonical-0130320100222102-3223120302121232-1221303202023201-2303020130023323-1031002210202013-2100210000123300-0130333111230110-2301211230010321",
+      "anchor_map": [],
+      "mode": "embedded",
+      "registry_path": "docs/guides/resources--workload--reference--group-024.md"
+    },
+    {
+      "canonical_id": "xcsh-docs:resources:workload:properties:stateful_service:advertise_options:advertise_on_public:multi_ports:ports:http_loadbalancer:specific_routes:routes",
+      "section_id": "xcsh-docs:resources:workload:properties:stateful_service:advertise_options:advertise_on_public:multi_ports:ports:http_loadbalancer:specific_routes:routes:section:0",
+      "source_sha256": "sha256:197d41522a9dd286cb9805a03d8a5bd782cc3f3fd95ea854bf2dfc326e83e50c",
+      "source_bytes": 99,
+      "canonical_source_sha256": "sha256:74600356f6495b886579ea5cc7bad1156d0546ae18e02ce75bd99396e7ca1873",
+      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/resources/workload/properties/stateful_service/advertise_options/advertise_on_public/multi_ports/ports/http_loadbalancer/specific_routes/routes/",
+      "anchor": "canonical-3020111103113021-3311323202020101-0113121210230022-0301221011133302-3033312133300012-1333321120323033-1223013010011130-3320021330031102",
+      "anchor_map": [],
+      "mode": "embedded",
+      "registry_path": "docs/guides/resources--workload--reference--group-024.md"
+    },
+    {
+      "canonical_id": "xcsh-docs:resources:workload:properties:stateful_service:advertise_options:advertise_on_public:multi_ports:ports:http_loadbalancer:specific_routes:routes",
+      "section_id": "xcsh-docs:resources:workload:properties:stateful_service:advertise_options:advertise_on_public:multi_ports:ports:http_loadbalancer:specific_routes:routes:section:1",
+      "source_sha256": "sha256:5fca8276988ecb3313c0a99f3afdf7824fb687298269f893db06829cf0b8ee29",
+      "source_bytes": 3512,
+      "canonical_source_sha256": "sha256:74600356f6495b886579ea5cc7bad1156d0546ae18e02ce75bd99396e7ca1873",
+      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/resources/workload/properties/stateful_service/advertise_options/advertise_on_public/multi_ports/ports/http_loadbalancer/specific_routes/routes/",
+      "anchor": "canonical-1012101030123100-3123023022333320-1300232300133203-0301013211211220-2323332221033203-2210322332202200-2200031202212310-2002011122332232",
+      "anchor_map": [
+        [
+          "section",
+          "canonical-0013020103120332-2130230122001120-0101211103312003-1213032013031221-2212333313303012-1231032021023020-0111122112333110-2123302311301001"
+        ]
+      ],
+      "mode": "embedded",
+      "registry_path": "docs/guides/resources--workload--reference--group-024.md"
+    },
+    {
+      "canonical_id": "xcsh-docs:resources:workload:properties:stateful_service:advertise_options:advertise_on_public:multi_ports:ports:http_loadbalancer:specific_routes:routes",
+      "section_id": "xcsh-docs:resources:workload:properties:stateful_service:advertise_options:advertise_on_public:multi_ports:ports:http_loadbalancer:specific_routes:routes:section:2",
+      "source_sha256": "sha256:a23fe392262ca32bd7cd09ba167a251a51ab28ab863391d4b306c9e3c7467c58",
+      "source_bytes": 1118,
+      "canonical_source_sha256": "sha256:74600356f6495b886579ea5cc7bad1156d0546ae18e02ce75bd99396e7ca1873",
+      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/resources/workload/properties/stateful_service/advertise_options/advertise_on_public/multi_ports/ports/http_loadbalancer/specific_routes/routes/",
+      "anchor": "canonical-1331133211231232-1210201323220130-2312312323011200-0233310111233033-0300223321323232-1203332221121022-1030102103111030-3321003103113021",
+      "anchor_map": [],
+      "mode": "embedded",
+      "registry_path": "docs/guides/resources--workload--reference--group-024.md"
+    },
+    {
+      "canonical_id": "xcsh-docs:resources:workload:properties:stateful_service:advertise_options:advertise_on_public:multi_ports:ports:http_loadbalancer:specific_routes:routes",
+      "section_id": "xcsh-docs:resources:workload:properties:stateful_service:advertise_options:advertise_on_public:multi_ports:ports:http_loadbalancer:specific_routes:routes:section:3",
+      "source_sha256": "sha256:a55754c78bab3d5ef6b4b745b993a67e4da57a702bc7b1060e304e7da2c92918",
+      "source_bytes": 1836,
+      "canonical_source_sha256": "sha256:74600356f6495b886579ea5cc7bad1156d0546ae18e02ce75bd99396e7ca1873",
+      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/resources/workload/properties/stateful_service/advertise_options/advertise_on_public/multi_ports/ports/http_loadbalancer/specific_routes/routes/",
+      "anchor": "canonical-2301332133123003-1122020323202330-3230113130321112-2312011121323333-3013302031331030-3203212133233110-1013213300111100-2233313310023213",
+      "anchor_map": [],
+      "mode": "embedded",
+      "registry_path": "docs/guides/resources--workload--reference--group-024.md"
+    },
+    {
+      "canonical_id": "xcsh-docs:resources:workload:properties:stateful_service:advertise_options:advertise_on_public:multi_ports:ports:http_loadbalancer:specific_routes:routes:custom_route_object",
+      "section_id": "xcsh-docs:resources:workload:properties:stateful_service:advertise_options:advertise_on_public:multi_ports:ports:http_loadbalancer:specific_routes:routes:custom_route_object:section:0",
+      "source_sha256": "sha256:197d41522a9dd286cb9805a03d8a5bd782cc3f3fd95ea854bf2dfc326e83e50c",
+      "source_bytes": 99,
+      "canonical_source_sha256": "sha256:07b4d15e96176943195102b1b5b045afaf627846ed414dbfae401035fcf2cbeb",
+      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/resources/workload/properties/stateful_service/advertise_options/advertise_on_public/multi_ports/ports/http_loadbalancer/specific_routes/routes/custom_route_object/",
+      "anchor": "canonical-2202110231000330-0311232323322031-3301232013002231-0223333333213033-3301130320010113-0322231020131111-3310220002231021-1023033203230321",
+      "anchor_map": [],
+      "mode": "embedded",
+      "registry_path": "docs/guides/resources--workload--reference--group-024.md"
+    },
+    {
+      "canonical_id": "xcsh-docs:resources:workload:properties:stateful_service:advertise_options:advertise_on_public:multi_ports:ports:http_loadbalancer:specific_routes:routes:custom_route_object",
+      "section_id": "xcsh-docs:resources:workload:properties:stateful_service:advertise_options:advertise_on_public:multi_ports:ports:http_loadbalancer:specific_routes:routes:custom_route_object:section:1",
+      "source_sha256": "sha256:fa506e23a6fa8d7dd7e7a66028344ca5f0ef967cc0896dcce441024188ed892a",
+      "source_bytes": 3111,
+      "canonical_source_sha256": "sha256:07b4d15e96176943195102b1b5b045afaf627846ed414dbfae401035fcf2cbeb",
+      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/resources/workload/properties/stateful_service/advertise_options/advertise_on_public/multi_ports/ports/http_loadbalancer/specific_routes/routes/custom_route_object/",
+      "anchor": "canonical-2313123013003233-3113111211301310-3003031330320133-1312312003022321-1223122202101332-1323203020000003-0102330221033313-0202122022213011",
+      "anchor_map": [
+        [
+          "section",
+          "canonical-1300013032303223-3011330101322312-1232230010023222-0200112300223313-0220130012021231-0311331231310021-0322133112021033-0000303123131022"
+        ]
+      ],
+      "mode": "embedded",
+      "registry_path": "docs/guides/resources--workload--reference--group-024.md"
+    },
+    {
+      "canonical_id": "xcsh-docs:resources:workload:properties:stateful_service:advertise_options:advertise_on_public:multi_ports:ports:http_loadbalancer:specific_routes:routes:custom_route_object",
+      "section_id": "xcsh-docs:resources:workload:properties:stateful_service:advertise_options:advertise_on_public:multi_ports:ports:http_loadbalancer:specific_routes:routes:custom_route_object:section:2",
+      "source_sha256": "sha256:54635091cc4bd74e5d68b93c0abe02c3aa1506ddc9e64080f4643565d0466bf1",
+      "source_bytes": 883,
+      "canonical_source_sha256": "sha256:07b4d15e96176943195102b1b5b045afaf627846ed414dbfae401035fcf2cbeb",
+      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/resources/workload/properties/stateful_service/advertise_options/advertise_on_public/multi_ports/ports/http_loadbalancer/specific_routes/routes/custom_route_object/",
+      "anchor": "canonical-0323200333203302-2221301321233032-0210323133201111-2100023012013220-3123232011133331-0310101010131300-0121113112032002-0231033133302333",
+      "anchor_map": [],
+      "mode": "embedded",
+      "registry_path": "docs/guides/resources--workload--reference--group-024.md"
+    },
+    {
+      "canonical_id": "xcsh-docs:resources:workload:properties:stateful_service:advertise_options:advertise_on_public:multi_ports:ports:http_loadbalancer:specific_routes:routes:custom_route_object",
+      "section_id": "xcsh-docs:resources:workload:properties:stateful_service:advertise_options:advertise_on_public:multi_ports:ports:http_loadbalancer:specific_routes:routes:custom_route_object:section:3",
+      "source_sha256": "sha256:201b8dc0ba250367e5c87e943ec2005f8564614b87b5394608c6d77ee70e854c",
+      "source_bytes": 1594,
+      "canonical_source_sha256": "sha256:07b4d15e96176943195102b1b5b045afaf627846ed414dbfae401035fcf2cbeb",
+      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/resources/workload/properties/stateful_service/advertise_options/advertise_on_public/multi_ports/ports/http_loadbalancer/specific_routes/routes/custom_route_object/",
+      "anchor": "canonical-2012132201230120-0212213011300213-1323310301102131-2200212303021003-2201123030211302-2113023030332221-1023012310110133-2103230110000211",
+      "anchor_map": [],
+      "mode": "embedded",
+      "registry_path": "docs/guides/resources--workload--reference--group-024.md"
+    },
+    {
+      "canonical_id": "xcsh-docs:resources:workload:properties:stateful_service:advertise_options:advertise_on_public:multi_ports:ports:http_loadbalancer:specific_routes:routes:custom_route_object:caching_disable",
+      "section_id": "xcsh-docs:resources:workload:properties:stateful_service:advertise_options:advertise_on_public:multi_ports:ports:http_loadbalancer:specific_routes:routes:custom_route_object:caching_disable:section:0",
+      "source_sha256": "sha256:197d41522a9dd286cb9805a03d8a5bd782cc3f3fd95ea854bf2dfc326e83e50c",
+      "source_bytes": 99,
+      "canonical_source_sha256": "sha256:fa87e9deb5acff6c23b627034d48b96820d1342eab5e49cb7e19e2ddd2281532",
+      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/resources/workload/properties/stateful_service/advertise_options/advertise_on_public/multi_ports/ports/http_loadbalancer/specific_routes/routes/custom_route_object/caching_disable/",
+      "anchor": "canonical-1220333213031212-1032203033223333-0130231230322302-0020033002113201-3212002030332101-0110310221323131-0122112210001032-3322030111302332",
+      "anchor_map": [],
+      "mode": "embedded",
+      "registry_path": "docs/guides/resources--workload--reference--group-024.md"
+    },
+    {
       "canonical_id": "xcsh-docs:resources:workload:properties:stateful_service:advertise_options:advertise_on_public:multi_ports:ports:http_loadbalancer:specific_routes:routes:custom_route_object:caching_disable",
       "section_id": "xcsh-docs:resources:workload:properties:stateful_service:advertise_options:advertise_on_public:multi_ports:ports:http_loadbalancer:specific_routes:routes:custom_route_object:caching_disable:section:1",
       "source_sha256": "sha256:05efd56b59abe5b3b69f64088c8b53301ad013530873c22abccf77e031ebc252",
@@ -5626,269 +5879,6 @@
         [
           "schema-stateful_service--advertise_options--advertise_on_public--port--http_loadbalancer--https--tls_parameters--use_mtls--crl--tenant",
           "canonical-3210311102023121-1213313321202000-2003000311201203-2100223001120122-3222310132213030-3022022100233201-0011230233233221-3320222221222300"
-        ]
-      ],
-      "mode": "embedded",
-      "registry_path": "docs/guides/resources--workload--reference--group-026.md"
-    },
-    {
-      "canonical_id": "xcsh-docs:resources:workload:properties:stateful_service:advertise_options:advertise_on_public:port:http_loadbalancer:https:tls_parameters:use_mtls:crl",
-      "section_id": "xcsh-docs:resources:workload:properties:stateful_service:advertise_options:advertise_on_public:port:http_loadbalancer:https:tls_parameters:use_mtls:crl:section:5",
-      "source_sha256": "sha256:64c3681847be5ddaab45be01237888419556997bbf5e5d5df0aa0537bbca7c21",
-      "source_bytes": 1167,
-      "canonical_source_sha256": "sha256:f9b234a26892dd840e0c00409482aaadec5c2b2ea1b2722f1afc71b6e0ef2850",
-      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/resources/workload/properties/stateful_service/advertise_options/advertise_on_public/port/http_loadbalancer/https/tls_parameters/use_mtls/crl/",
-      "anchor": "canonical-2000120122300220-2012122122320113-0103002021312222-1002321202023300-0102230300300033-0200313113203000-0020001110000222-1203121333300332",
-      "anchor_map": [],
-      "mode": "embedded",
-      "registry_path": "docs/guides/resources--workload--reference--group-026.md"
-    },
-    {
-      "canonical_id": "xcsh-docs:resources:workload:properties:stateful_service:advertise_options:advertise_on_public:port:http_loadbalancer:https:tls_parameters:use_mtls:crl",
-      "section_id": "xcsh-docs:resources:workload:properties:stateful_service:advertise_options:advertise_on_public:port:http_loadbalancer:https:tls_parameters:use_mtls:crl:section:6",
-      "source_sha256": "sha256:464434a0e5045eb61eeb1f732fc74dc48686663f4493c57103b2e96db2be4010",
-      "source_bytes": 418,
-      "canonical_source_sha256": "sha256:f9b234a26892dd840e0c00409482aaadec5c2b2ea1b2722f1afc71b6e0ef2850",
-      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/resources/workload/properties/stateful_service/advertise_options/advertise_on_public/port/http_loadbalancer/https/tls_parameters/use_mtls/crl/",
-      "anchor": "canonical-2113032231123121-2121300203320023-2101001021133001-0011200231231200-1121032221311332-2012102231332100-2323212332133231-1103320233313231",
-      "anchor_map": [],
-      "mode": "embedded",
-      "registry_path": "docs/guides/resources--workload--reference--group-026.md"
-    },
-    {
-      "canonical_id": "xcsh-docs:resources:workload:properties:stateful_service:advertise_options:advertise_on_public:port:http_loadbalancer:https:tls_parameters:use_mtls:no_crl",
-      "section_id": "xcsh-docs:resources:workload:properties:stateful_service:advertise_options:advertise_on_public:port:http_loadbalancer:https:tls_parameters:use_mtls:no_crl:section:0",
-      "source_sha256": "sha256:197d41522a9dd286cb9805a03d8a5bd782cc3f3fd95ea854bf2dfc326e83e50c",
-      "source_bytes": 99,
-      "canonical_source_sha256": "sha256:95c93efeed7d7d5f2d84da87432f2ef3674021abcec15afa7871924123845ba6",
-      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/resources/workload/properties/stateful_service/advertise_options/advertise_on_public/port/http_loadbalancer/https/tls_parameters/use_mtls/no_crl/",
-      "anchor": "canonical-2102302022132132-3320211232113320-1100223320320200-3313311121113201-0113110212310013-1030020032330012-3211130202023322-3010333100010330",
-      "anchor_map": [],
-      "mode": "embedded",
-      "registry_path": "docs/guides/resources--workload--reference--group-026.md"
-    },
-    {
-      "canonical_id": "xcsh-docs:resources:workload:properties:stateful_service:advertise_options:advertise_on_public:port:http_loadbalancer:https:tls_parameters:use_mtls:no_crl",
-      "section_id": "xcsh-docs:resources:workload:properties:stateful_service:advertise_options:advertise_on_public:port:http_loadbalancer:https:tls_parameters:use_mtls:no_crl:section:1",
-      "source_sha256": "sha256:a658620e04f10d43677c09ca9b3daddb2962d4c503d9fbe1ed693a368873d6ee",
-      "source_bytes": 2647,
-      "canonical_source_sha256": "sha256:95c93efeed7d7d5f2d84da87432f2ef3674021abcec15afa7871924123845ba6",
-      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/resources/workload/properties/stateful_service/advertise_options/advertise_on_public/port/http_loadbalancer/https/tls_parameters/use_mtls/no_crl/",
-      "anchor": "canonical-0233212313113112-2313221111010231-0100130032010310-0301303220022213-1320212100220323-1032220133112031-1121220231220013-3320101030223011",
-      "anchor_map": [
-        [
-          "section",
-          "canonical-1223333110002203-2032100101313123-1301102212022021-1303322021033203-0013113101213202-0302111203312330-1212123213032231-1010022111112123"
-        ]
-      ],
-      "mode": "embedded",
-      "registry_path": "docs/guides/resources--workload--reference--group-026.md"
-    },
-    {
-      "canonical_id": "xcsh-docs:resources:workload:properties:stateful_service:advertise_options:advertise_on_public:port:http_loadbalancer:https:tls_parameters:use_mtls:no_crl",
-      "section_id": "xcsh-docs:resources:workload:properties:stateful_service:advertise_options:advertise_on_public:port:http_loadbalancer:https:tls_parameters:use_mtls:no_crl:section:2",
-      "source_sha256": "sha256:0d4398201e18f9ddb2ea00ceed6d3256755ea4d008d849d1cec42dab5c55f1b5",
-      "source_bytes": 94,
-      "canonical_source_sha256": "sha256:95c93efeed7d7d5f2d84da87432f2ef3674021abcec15afa7871924123845ba6",
-      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/resources/workload/properties/stateful_service/advertise_options/advertise_on_public/port/http_loadbalancer/https/tls_parameters/use_mtls/no_crl/",
-      "anchor": "canonical-2101003111021021-0202311303011233-3102302213103112-1130101222131033-3010111302303121-2200200333310113-3103313332110323-2322001111033332",
-      "anchor_map": [],
-      "mode": "embedded",
-      "registry_path": "docs/guides/resources--workload--reference--group-026.md"
-    },
-    {
-      "canonical_id": "xcsh-docs:resources:workload:properties:stateful_service:advertise_options:advertise_on_public:port:http_loadbalancer:https:tls_parameters:use_mtls:no_crl",
-      "section_id": "xcsh-docs:resources:workload:properties:stateful_service:advertise_options:advertise_on_public:port:http_loadbalancer:https:tls_parameters:use_mtls:no_crl:section:3",
-      "source_sha256": "sha256:464434a0e5045eb61eeb1f732fc74dc48686663f4493c57103b2e96db2be4010",
-      "source_bytes": 418,
-      "canonical_source_sha256": "sha256:95c93efeed7d7d5f2d84da87432f2ef3674021abcec15afa7871924123845ba6",
-      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/resources/workload/properties/stateful_service/advertise_options/advertise_on_public/port/http_loadbalancer/https/tls_parameters/use_mtls/no_crl/",
-      "anchor": "canonical-0310120120323213-2303132031312031-0112002130333332-3120133011103122-1011322033123313-1131103311311220-3330201322211112-0131200120111302",
-      "anchor_map": [],
-      "mode": "embedded",
-      "registry_path": "docs/guides/resources--workload--reference--group-026.md"
-    },
-    {
-      "canonical_id": "xcsh-docs:resources:workload:properties:stateful_service:advertise_options:advertise_on_public:port:http_loadbalancer:https:tls_parameters:use_mtls:trusted_ca",
-      "section_id": "xcsh-docs:resources:workload:properties:stateful_service:advertise_options:advertise_on_public:port:http_loadbalancer:https:tls_parameters:use_mtls:trusted_ca:section:0",
-      "source_sha256": "sha256:197d41522a9dd286cb9805a03d8a5bd782cc3f3fd95ea854bf2dfc326e83e50c",
-      "source_bytes": 99,
-      "canonical_source_sha256": "sha256:12ba0a7187c85fec52299d58f13bbd24ad23bd9807ded254768332c2c5b56bf9",
-      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/resources/workload/properties/stateful_service/advertise_options/advertise_on_public/port/http_loadbalancer/https/tls_parameters/use_mtls/trusted_ca/",
-      "anchor": "canonical-0320201110203230-2112313031203010-1320332131102020-0221132120222010-3223031033311332-1122133303331203-0222031310320031-3033312131032133",
-      "anchor_map": [],
-      "mode": "embedded",
-      "registry_path": "docs/guides/resources--workload--reference--group-026.md"
-    },
-    {
-      "canonical_id": "xcsh-docs:resources:workload:properties:stateful_service:advertise_options:advertise_on_public:port:http_loadbalancer:https:tls_parameters:use_mtls:trusted_ca",
-      "section_id": "xcsh-docs:resources:workload:properties:stateful_service:advertise_options:advertise_on_public:port:http_loadbalancer:https:tls_parameters:use_mtls:trusted_ca:section:1",
-      "source_sha256": "sha256:1eb0f3b980f048a8038115c17973faf8a774e5ea225dafe2f9b21c8eb5a55248",
-      "source_bytes": 3082,
-      "canonical_source_sha256": "sha256:12ba0a7187c85fec52299d58f13bbd24ad23bd9807ded254768332c2c5b56bf9",
-      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/resources/workload/properties/stateful_service/advertise_options/advertise_on_public/port/http_loadbalancer/https/tls_parameters/use_mtls/trusted_ca/",
-      "anchor": "canonical-0112023031133311-1312133301302222-2233302002202021-3100300031232210-3330302013233213-2020323313120002-2311320230330103-2201133130021201",
-      "anchor_map": [
-        [
-          "section",
-          "canonical-1020101103113212-1132223221033310-2133123300220301-1212121003323230-1113322130033313-0033303203312302-0110131033302020-0021203320311111"
-        ]
-      ],
-      "mode": "embedded",
-      "registry_path": "docs/guides/resources--workload--reference--group-026.md"
-    },
-    {
-      "canonical_id": "xcsh-docs:resources:workload:properties:stateful_service:advertise_options:advertise_on_public:port:http_loadbalancer:https:tls_parameters:use_mtls:trusted_ca",
-      "section_id": "xcsh-docs:resources:workload:properties:stateful_service:advertise_options:advertise_on_public:port:http_loadbalancer:https:tls_parameters:use_mtls:trusted_ca:section:2",
-      "source_sha256": "sha256:f15c67fb3de2ad6ea2974a9149e1a13b7a8ee956603df5571ac704e79f68e53b",
-      "source_bytes": 176,
-      "canonical_source_sha256": "sha256:12ba0a7187c85fec52299d58f13bbd24ad23bd9807ded254768332c2c5b56bf9",
-      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/resources/workload/properties/stateful_service/advertise_options/advertise_on_public/port/http_loadbalancer/https/tls_parameters/use_mtls/trusted_ca/",
-      "anchor": "canonical-3320312311013010-1013030023230213-3201110123333300-3102121111020210-3131323103323312-0112022023131201-1002100132121023-2212211312332313",
-      "anchor_map": [
-        [
-          "schema-stateful_service--advertise_options--advertise_on_public--port--http_loadbalancer--https--tls_parameters--use_mtls--trusted_ca--name",
-          "canonical-1223033312330320-3231320221303031-2011101113200221-2332323322333003-1221301033320033-3101132120000230-1211023322121033-1332210202213101"
-        ]
-      ],
-      "mode": "embedded",
-      "registry_path": "docs/guides/resources--workload--reference--group-026.md"
-    },
-    {
-      "canonical_id": "xcsh-docs:resources:workload:properties:stateful_service:advertise_options:advertise_on_public:port:http_loadbalancer:https:tls_parameters:use_mtls:trusted_ca",
-      "section_id": "xcsh-docs:resources:workload:properties:stateful_service:advertise_options:advertise_on_public:port:http_loadbalancer:https:tls_parameters:use_mtls:trusted_ca:section:3",
-      "source_sha256": "sha256:0444b33c03c4c5bc0f50db37e29202e2479b39d04db66db7315c61c458b98cbb",
-      "source_bytes": 1580,
-      "canonical_source_sha256": "sha256:12ba0a7187c85fec52299d58f13bbd24ad23bd9807ded254768332c2c5b56bf9",
-      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/resources/workload/properties/stateful_service/advertise_options/advertise_on_public/port/http_loadbalancer/https/tls_parameters/use_mtls/trusted_ca/",
-      "anchor": "canonical-1000331322221310-2321311122132013-1321020330111022-1000310111233122-1000011221023113-1021021123330020-1111110020200211-3010032302311230",
-      "anchor_map": [
-        [
-          "schema-stateful_service--advertise_options--advertise_on_public--port--http_loadbalancer--https--tls_parameters--use_mtls--trusted_ca--namespace",
-          "canonical-1122032120013320-3323312203012321-2332002010022303-3002131311321311-1310010201110122-3213321331112132-3021311111001220-0320302201103002"
-        ]
-      ],
-      "mode": "embedded",
-      "registry_path": "docs/guides/resources--workload--reference--group-026.md"
-    },
-    {
-      "canonical_id": "xcsh-docs:resources:workload:properties:stateful_service:advertise_options:advertise_on_public:port:http_loadbalancer:https:tls_parameters:use_mtls:trusted_ca",
-      "section_id": "xcsh-docs:resources:workload:properties:stateful_service:advertise_options:advertise_on_public:port:http_loadbalancer:https:tls_parameters:use_mtls:trusted_ca:section:4",
-      "source_sha256": "sha256:6f059d202263608c79c0b4956330eb2ce05f9ee771adcbcb64017f9667c34ed1",
-      "source_bytes": 1840,
-      "canonical_source_sha256": "sha256:12ba0a7187c85fec52299d58f13bbd24ad23bd9807ded254768332c2c5b56bf9",
-      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/resources/workload/properties/stateful_service/advertise_options/advertise_on_public/port/http_loadbalancer/https/tls_parameters/use_mtls/trusted_ca/",
-      "anchor": "canonical-1113131203330332-3333032113210212-3233033030300222-2311103121111012-2122210333032312-3312223102133102-2021331330102210-1131031111230221",
-      "anchor_map": [
-        [
-          "schema-stateful_service--advertise_options--advertise_on_public--port--http_loadbalancer--https--tls_parameters--use_mtls--trusted_ca--tenant",
-          "canonical-0103203131112031-1312300231310022-1313313210301230-0320010323022110-3021222121113201-3111110032113102-2022233001301212-0203123322313221"
-        ]
-      ],
-      "mode": "embedded",
-      "registry_path": "docs/guides/resources--workload--reference--group-026.md"
-    },
-    {
-      "canonical_id": "xcsh-docs:resources:workload:properties:stateful_service:advertise_options:advertise_on_public:port:http_loadbalancer:https:tls_parameters:use_mtls:trusted_ca",
-      "section_id": "xcsh-docs:resources:workload:properties:stateful_service:advertise_options:advertise_on_public:port:http_loadbalancer:https:tls_parameters:use_mtls:trusted_ca:section:5",
-      "source_sha256": "sha256:64c3681847be5ddaab45be01237888419556997bbf5e5d5df0aa0537bbca7c21",
-      "source_bytes": 1167,
-      "canonical_source_sha256": "sha256:12ba0a7187c85fec52299d58f13bbd24ad23bd9807ded254768332c2c5b56bf9",
-      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/resources/workload/properties/stateful_service/advertise_options/advertise_on_public/port/http_loadbalancer/https/tls_parameters/use_mtls/trusted_ca/",
-      "anchor": "canonical-2223213331202222-0311102212313003-3310231123200121-2311111220223002-1100333222233301-2302223120232203-0121030100032320-3022302111210213",
-      "anchor_map": [],
-      "mode": "embedded",
-      "registry_path": "docs/guides/resources--workload--reference--group-026.md"
-    },
-    {
-      "canonical_id": "xcsh-docs:resources:workload:properties:stateful_service:advertise_options:advertise_on_public:port:http_loadbalancer:https:tls_parameters:use_mtls:trusted_ca",
-      "section_id": "xcsh-docs:resources:workload:properties:stateful_service:advertise_options:advertise_on_public:port:http_loadbalancer:https:tls_parameters:use_mtls:trusted_ca:section:6",
-      "source_sha256": "sha256:464434a0e5045eb61eeb1f732fc74dc48686663f4493c57103b2e96db2be4010",
-      "source_bytes": 418,
-      "canonical_source_sha256": "sha256:12ba0a7187c85fec52299d58f13bbd24ad23bd9807ded254768332c2c5b56bf9",
-      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/resources/workload/properties/stateful_service/advertise_options/advertise_on_public/port/http_loadbalancer/https/tls_parameters/use_mtls/trusted_ca/",
-      "anchor": "canonical-2013311330313031-0013222212003020-0210221103101330-1100220210132312-1022323012103200-3103022103003113-0020201303232032-1211223321200011",
-      "anchor_map": [],
-      "mode": "embedded",
-      "registry_path": "docs/guides/resources--workload--reference--group-026.md"
-    },
-    {
-      "canonical_id": "xcsh-docs:resources:workload:properties:stateful_service:advertise_options:advertise_on_public:port:http_loadbalancer:https:tls_parameters:use_mtls:xfcc_disabled",
-      "section_id": "xcsh-docs:resources:workload:properties:stateful_service:advertise_options:advertise_on_public:port:http_loadbalancer:https:tls_parameters:use_mtls:xfcc_disabled:section:0",
-      "source_sha256": "sha256:197d41522a9dd286cb9805a03d8a5bd782cc3f3fd95ea854bf2dfc326e83e50c",
-      "source_bytes": 99,
-      "canonical_source_sha256": "sha256:d3576e4b2feaa57e6d2c56777c11aad26a93097b03f5090d9b811ff44942fc4a",
-      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/resources/workload/properties/stateful_service/advertise_options/advertise_on_public/port/http_loadbalancer/https/tls_parameters/use_mtls/xfcc_disabled/",
-      "anchor": "canonical-2123220132301131-2032003223203132-3222302302031212-3310312220110130-1212222011012231-0132011000010110-3302003131001200-0313212200013000",
-      "anchor_map": [],
-      "mode": "embedded",
-      "registry_path": "docs/guides/resources--workload--reference--group-026.md"
-    },
-    {
-      "canonical_id": "xcsh-docs:resources:workload:properties:stateful_service:advertise_options:advertise_on_public:port:http_loadbalancer:https:tls_parameters:use_mtls:xfcc_disabled",
-      "section_id": "xcsh-docs:resources:workload:properties:stateful_service:advertise_options:advertise_on_public:port:http_loadbalancer:https:tls_parameters:use_mtls:xfcc_disabled:section:1",
-      "source_sha256": "sha256:f4f989f236c5d5117e3eb07d12738cadf823c6e199bc043559a22cc9f6be93ac",
-      "source_bytes": 2668,
-      "canonical_source_sha256": "sha256:d3576e4b2feaa57e6d2c56777c11aad26a93097b03f5090d9b811ff44942fc4a",
-      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/resources/workload/properties/stateful_service/advertise_options/advertise_on_public/port/http_loadbalancer/https/tls_parameters/use_mtls/xfcc_disabled/",
-      "anchor": "canonical-1133201120011213-3111321202022111-1002220121322023-1223312320002302-3132102213113233-2100333210111230-1131310323331100-0121000211000021",
-      "anchor_map": [
-        [
-          "section",
-          "canonical-3130301123101133-0031321332021121-2300003021121331-3113300000021003-0032200312113220-1222202100102021-1130112330220121-0322113111101001"
-        ]
-      ],
-      "mode": "embedded",
-      "registry_path": "docs/guides/resources--workload--reference--group-026.md"
-    },
-    {
-      "canonical_id": "xcsh-docs:resources:workload:properties:stateful_service:advertise_options:advertise_on_public:port:http_loadbalancer:https:tls_parameters:use_mtls:xfcc_disabled",
-      "section_id": "xcsh-docs:resources:workload:properties:stateful_service:advertise_options:advertise_on_public:port:http_loadbalancer:https:tls_parameters:use_mtls:xfcc_disabled:section:2",
-      "source_sha256": "sha256:0d4398201e18f9ddb2ea00ceed6d3256755ea4d008d849d1cec42dab5c55f1b5",
-      "source_bytes": 94,
-      "canonical_source_sha256": "sha256:d3576e4b2feaa57e6d2c56777c11aad26a93097b03f5090d9b811ff44942fc4a",
-      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/resources/workload/properties/stateful_service/advertise_options/advertise_on_public/port/http_loadbalancer/https/tls_parameters/use_mtls/xfcc_disabled/",
-      "anchor": "canonical-3231332113133000-2323303320210331-3201112203333210-2220233311131302-0013110110122313-0112110122030131-1032211210322303-3200220002203003",
-      "anchor_map": [],
-      "mode": "embedded",
-      "registry_path": "docs/guides/resources--workload--reference--group-026.md"
-    },
-    {
-      "canonical_id": "xcsh-docs:resources:workload:properties:stateful_service:advertise_options:advertise_on_public:port:http_loadbalancer:https:tls_parameters:use_mtls:xfcc_disabled",
-      "section_id": "xcsh-docs:resources:workload:properties:stateful_service:advertise_options:advertise_on_public:port:http_loadbalancer:https:tls_parameters:use_mtls:xfcc_disabled:section:3",
-      "source_sha256": "sha256:464434a0e5045eb61eeb1f732fc74dc48686663f4493c57103b2e96db2be4010",
-      "source_bytes": 418,
-      "canonical_source_sha256": "sha256:d3576e4b2feaa57e6d2c56777c11aad26a93097b03f5090d9b811ff44942fc4a",
-      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/resources/workload/properties/stateful_service/advertise_options/advertise_on_public/port/http_loadbalancer/https/tls_parameters/use_mtls/xfcc_disabled/",
-      "anchor": "canonical-3212222321111310-2321012233332211-2222020100211101-1101220201213201-0203320130222021-3113100303111112-2200132330002131-1002310311232000",
-      "anchor_map": [],
-      "mode": "embedded",
-      "registry_path": "docs/guides/resources--workload--reference--group-026.md"
-    },
-    {
-      "canonical_id": "xcsh-docs:resources:workload:properties:stateful_service:advertise_options:advertise_on_public:port:http_loadbalancer:https:tls_parameters:use_mtls:xfcc_options",
-      "section_id": "xcsh-docs:resources:workload:properties:stateful_service:advertise_options:advertise_on_public:port:http_loadbalancer:https:tls_parameters:use_mtls:xfcc_options:section:0",
-      "source_sha256": "sha256:197d41522a9dd286cb9805a03d8a5bd782cc3f3fd95ea854bf2dfc326e83e50c",
-      "source_bytes": 99,
-      "canonical_source_sha256": "sha256:882f72569ce768bcb3bc48c184092e12ed9a215f776319f8120cd9c5c9dbf066",
-      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/resources/workload/properties/stateful_service/advertise_options/advertise_on_public/port/http_loadbalancer/https/tls_parameters/use_mtls/xfcc_options/",
-      "anchor": "canonical-1013103030130312-2203321222123003-2110111120011232-3220333131001002-0323300102120310-2132203022000231-2030030322010110-3133303331202000",
-      "anchor_map": [],
-      "mode": "embedded",
-      "registry_path": "docs/guides/resources--workload--reference--group-026.md"
-    },
-    {
-      "canonical_id": "xcsh-docs:resources:workload:properties:stateful_service:advertise_options:advertise_on_public:port:http_loadbalancer:https:tls_parameters:use_mtls:xfcc_options",
-      "section_id": "xcsh-docs:resources:workload:properties:stateful_service:advertise_options:advertise_on_public:port:http_loadbalancer:https:tls_parameters:use_mtls:xfcc_options:section:1",
-      "source_sha256": "sha256:3da0c5c5ea6d7687bdf0c618d5174eef1a19f80efff2279bcd12a568c6a27df6",
-      "source_bytes": 2848,
-      "canonical_source_sha256": "sha256:882f72569ce768bcb3bc48c184092e12ed9a215f776319f8120cd9c5c9dbf066",
-      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/resources/workload/properties/stateful_service/advertise_options/advertise_on_public/port/http_loadbalancer/https/tls_parameters/use_mtls/xfcc_options/",
-      "anchor": "canonical-3013320103000031-0120322000032323-1202030323133120-2101020101130101-3123002100111032-2320203112030012-0110111231333232-3203121033330031",
-      "anchor_map": [
-        [
-          "section",
-          "canonical-1000122122311302-0210011312110223-3022103111032101-3111201232021010-3331011303330111-2202020303002001-2312331323202212-2321330320320002"
         ]
       ],
       "mode": "embedded",

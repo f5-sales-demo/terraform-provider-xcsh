@@ -82,7 +82,7 @@
       "category": null,
       "child_ids": ["xcsh-docs:data-sources:usb_policy:reference", "xcsh-docs:data-sources:usb_policy:examples"],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -94,7 +94,7 @@
       "path": "documentation/data-sources/usb_policy/index.md",
       "product": "distributed-cloud",
       "provider_name": "usb_policy",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-3133321203222121-0333232330020202-2311221201233121-1211132233302312-0010122132101103-2031031312101012-3000023221320113-0202220320111000",
       "registry_path": "docs/data-sources/usb_policy.md",
@@ -123,7 +123,7 @@
       "category": null,
       "child_ids": ["xcsh-docs:data-sources:usb_policy:properties:allowed_devices"],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -135,7 +135,7 @@
       "path": "documentation/data-sources/usb_policy/properties/index.md",
       "product": "distributed-cloud",
       "provider_name": "usb_policy",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-1000132301302331-1210321310212233-2332001022201121-3133211123011103-2123333120333133-1000202023301002-2333222023302121-1001000003033000",
       "registry_path": "docs/guides/data-sources--usb_policy--reference--group-001.md",
@@ -262,7 +262,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -274,7 +274,7 @@
       "path": "documentation/data-sources/usb_policy/properties/allowed_devices/index.md",
       "product": "distributed-cloud",
       "provider_name": "usb_policy",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-1222313110031021-0033310100131201-3003112111300200-1012320303311210-3122230300102333-2330103233013011-0311111233223203-0223210002011200",
       "registry_path": "docs/guides/data-sources--usb_policy--reference--group-001.md",
@@ -387,7 +387,7 @@
       "category": null,
       "child_ids": ["xcsh-docs:data-sources:usb_policy:example:data-source"],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -399,7 +399,7 @@
       "path": "documentation/data-sources/usb_policy/examples/index.md",
       "product": "distributed-cloud",
       "provider_name": "usb_policy",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-0102202312010132-3223213230021232-3100232232131311-1301000132200210-0022013310320310-1011103100213320-3113320310021033-0000003311301213",
       "registry_path": "docs/guides/data-sources--usb_policy--examples--group-001.md",
@@ -427,7 +427,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -446,7 +446,7 @@
       "path": "documentation/data-sources/usb_policy/examples/data-source/index.md",
       "product": "distributed-cloud",
       "provider_name": "usb_policy",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-0233311010100122-3103202203302102-2223112121120010-2331221331101103-3002112021222331-3023103233320103-3032001201110233-1233133230012303",
       "registry_path": "docs/guides/data-sources--usb_policy--examples--group-001.md",

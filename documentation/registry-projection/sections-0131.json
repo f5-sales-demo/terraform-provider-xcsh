@@ -2,6 +2,424 @@
   "schema_version": 1,
   "sections": [
     {
+      "canonical_id": "xcsh-docs:data-sources:fleet:properties:kubernetes_upgrade_drain:enable_upgrade_drain:disable_vega_upgrade_mode",
+      "section_id": "xcsh-docs:data-sources:fleet:properties:kubernetes_upgrade_drain:enable_upgrade_drain:disable_vega_upgrade_mode:section:2",
+      "source_sha256": "sha256:0d4398201e18f9ddb2ea00ceed6d3256755ea4d008d849d1cec42dab5c55f1b5",
+      "source_bytes": 94,
+      "canonical_source_sha256": "sha256:1166ecd2ebce270bf23f366f3d1997024a9df4cfa31ec920738915fd41012f10",
+      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/fleet/properties/kubernetes_upgrade_drain/enable_upgrade_drain/disable_vega_upgrade_mode/",
+      "anchor": "canonical-1000122001111320-0133120203223113-2002213010311230-3020102000103232-0111210020211032-3031300203333100-2200212311001000-0001302231121001",
+      "anchor_map": [],
+      "mode": "embedded",
+      "registry_path": "docs/guides/data-sources--fleet--reference--group-002.md"
+    },
+    {
+      "canonical_id": "xcsh-docs:data-sources:fleet:properties:kubernetes_upgrade_drain:enable_upgrade_drain:disable_vega_upgrade_mode",
+      "section_id": "xcsh-docs:data-sources:fleet:properties:kubernetes_upgrade_drain:enable_upgrade_drain:disable_vega_upgrade_mode:section:3",
+      "source_sha256": "sha256:0fd8ad63bf2dc1c9dfec5f4519d9f2b928cfa6898e10e343ef61d1482910de48",
+      "source_bytes": 291,
+      "canonical_source_sha256": "sha256:1166ecd2ebce270bf23f366f3d1997024a9df4cfa31ec920738915fd41012f10",
+      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/fleet/properties/kubernetes_upgrade_drain/enable_upgrade_drain/disable_vega_upgrade_mode/",
+      "anchor": "canonical-3231033010010133-3323312302011302-3102320232012323-3302313233310031-1113010233020002-1131211130312133-3311213323023301-2320332003231233",
+      "anchor_map": [],
+      "mode": "embedded",
+      "registry_path": "docs/guides/data-sources--fleet--reference--group-002.md"
+    },
+    {
+      "canonical_id": "xcsh-docs:data-sources:fleet:properties:kubernetes_upgrade_drain:enable_upgrade_drain:enable_vega_upgrade_mode",
+      "section_id": "xcsh-docs:data-sources:fleet:properties:kubernetes_upgrade_drain:enable_upgrade_drain:enable_vega_upgrade_mode:section:0",
+      "source_sha256": "sha256:197d41522a9dd286cb9805a03d8a5bd782cc3f3fd95ea854bf2dfc326e83e50c",
+      "source_bytes": 99,
+      "canonical_source_sha256": "sha256:42505f30e280716f6231d489b570c5ea16615f38b5092596e2dff07a0ebeae62",
+      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/fleet/properties/kubernetes_upgrade_drain/enable_upgrade_drain/enable_vega_upgrade_mode/",
+      "anchor": "canonical-1003100330021331-2120313030331331-0101220331302323-3000113021030003-1200220322032332-0030120003032320-1222213113121022-2223200210333210",
+      "anchor_map": [],
+      "mode": "embedded",
+      "registry_path": "docs/guides/data-sources--fleet--reference--group-002.md"
+    },
+    {
+      "canonical_id": "xcsh-docs:data-sources:fleet:properties:kubernetes_upgrade_drain:enable_upgrade_drain:enable_vega_upgrade_mode",
+      "section_id": "xcsh-docs:data-sources:fleet:properties:kubernetes_upgrade_drain:enable_upgrade_drain:enable_vega_upgrade_mode:section:1",
+      "source_sha256": "sha256:a700316b5b8c22cf975675d317b2d3ba2140fd2eb66cddaf5ef1febd7054f497",
+      "source_bytes": 1060,
+      "canonical_source_sha256": "sha256:42505f30e280716f6231d489b570c5ea16615f38b5092596e2dff07a0ebeae62",
+      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/fleet/properties/kubernetes_upgrade_drain/enable_upgrade_drain/enable_vega_upgrade_mode/",
+      "anchor": "canonical-0122012123013010-0321333100312021-1202000320012130-0313113113302202-1103222232301112-1323310111233011-2221000021003022-1210312032112122",
+      "anchor_map": [
+        [
+          "section",
+          "canonical-0200103012003232-3132222012002223-3010003302331002-1032132233120232-1302331011331100-2231132030003130-1323133202000022-1233002201110033"
+        ]
+      ],
+      "mode": "embedded",
+      "registry_path": "docs/guides/data-sources--fleet--reference--group-002.md"
+    },
+    {
+      "canonical_id": "xcsh-docs:data-sources:fleet:properties:kubernetes_upgrade_drain:enable_upgrade_drain:enable_vega_upgrade_mode",
+      "section_id": "xcsh-docs:data-sources:fleet:properties:kubernetes_upgrade_drain:enable_upgrade_drain:enable_vega_upgrade_mode:section:2",
+      "source_sha256": "sha256:0d4398201e18f9ddb2ea00ceed6d3256755ea4d008d849d1cec42dab5c55f1b5",
+      "source_bytes": 94,
+      "canonical_source_sha256": "sha256:42505f30e280716f6231d489b570c5ea16615f38b5092596e2dff07a0ebeae62",
+      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/fleet/properties/kubernetes_upgrade_drain/enable_upgrade_drain/enable_vega_upgrade_mode/",
+      "anchor": "canonical-1103313210133022-3121113331200231-1222300002011012-0230312022321031-3210000130211323-2211302222021103-3110300332031231-3003303332303100",
+      "anchor_map": [],
+      "mode": "embedded",
+      "registry_path": "docs/guides/data-sources--fleet--reference--group-002.md"
+    },
+    {
+      "canonical_id": "xcsh-docs:data-sources:fleet:properties:kubernetes_upgrade_drain:enable_upgrade_drain:enable_vega_upgrade_mode",
+      "section_id": "xcsh-docs:data-sources:fleet:properties:kubernetes_upgrade_drain:enable_upgrade_drain:enable_vega_upgrade_mode:section:3",
+      "source_sha256": "sha256:0fd8ad63bf2dc1c9dfec5f4519d9f2b928cfa6898e10e343ef61d1482910de48",
+      "source_bytes": 291,
+      "canonical_source_sha256": "sha256:42505f30e280716f6231d489b570c5ea16615f38b5092596e2dff07a0ebeae62",
+      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/fleet/properties/kubernetes_upgrade_drain/enable_upgrade_drain/enable_vega_upgrade_mode/",
+      "anchor": "canonical-0031012102302012-1310313223330311-2322001002102200-2002030312221112-0333323013022100-0110110233203313-2012202121132122-1110323101222232",
+      "anchor_map": [],
+      "mode": "embedded",
+      "registry_path": "docs/guides/data-sources--fleet--reference--group-002.md"
+    },
+    {
+      "canonical_id": "xcsh-docs:data-sources:fleet:properties:log_receiver",
+      "section_id": "xcsh-docs:data-sources:fleet:properties:log_receiver:section:0",
+      "source_sha256": "sha256:197d41522a9dd286cb9805a03d8a5bd782cc3f3fd95ea854bf2dfc326e83e50c",
+      "source_bytes": 99,
+      "canonical_source_sha256": "sha256:319d7096c2c6479803c7efc1fc1051bcddfd8583a2f65d390f21f0bb61c2d4d8",
+      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/fleet/properties/log_receiver/",
+      "anchor": "canonical-1201301010102220-2100130021022310-3332321023231220-2333030020220310-0033013130102022-0331111133203220-2213203023002022-0313201111201132",
+      "anchor_map": [],
+      "mode": "embedded",
+      "registry_path": "docs/guides/data-sources--fleet--reference--group-002.md"
+    },
+    {
+      "canonical_id": "xcsh-docs:data-sources:fleet:properties:log_receiver",
+      "section_id": "xcsh-docs:data-sources:fleet:properties:log_receiver:section:1",
+      "source_sha256": "sha256:5276d86f5424acbf7eb0d50b45f49b1a3c80c042674166943a920b28205c3190",
+      "source_bytes": 1229,
+      "canonical_source_sha256": "sha256:319d7096c2c6479803c7efc1fc1051bcddfd8583a2f65d390f21f0bb61c2d4d8",
+      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/fleet/properties/log_receiver/",
+      "anchor": "canonical-3002001310323302-2133020303230001-2233000003322322-2210211320001200-3330111203033330-0232011030011302-0023211032121321-3023002103121011",
+      "anchor_map": [
+        [
+          "section",
+          "canonical-3312133232332200-3131012330233221-3302321110021211-1233220200313031-3223312202102213-1303320202103233-0322132222132031-2331020112313010"
+        ]
+      ],
+      "mode": "embedded",
+      "registry_path": "docs/guides/data-sources--fleet--reference--group-002.md"
+    },
+    {
+      "canonical_id": "xcsh-docs:data-sources:fleet:properties:log_receiver",
+      "section_id": "xcsh-docs:data-sources:fleet:properties:log_receiver:section:2",
+      "source_sha256": "sha256:ca3624fc90644a34d18286fd7fdc8f7f903a40db891f4899d6b2f20aadd0c620",
+      "source_bytes": 62,
+      "canonical_source_sha256": "sha256:319d7096c2c6479803c7efc1fc1051bcddfd8583a2f65d390f21f0bb61c2d4d8",
+      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/fleet/properties/log_receiver/",
+      "anchor": "canonical-1012032033003331-1013003123121312-0233022200313120-0103233000033012-3132232023300022-1232232213232131-0101321220013100-1322202023201332",
+      "anchor_map": [
+        [
+          "schema-log_receiver--name",
+          "canonical-1032222211330222-3011012102002122-0220023303120323-0310133301230113-2130223032113330-1002113130312112-2132223003313000-0321313032301300"
+        ]
+      ],
+      "mode": "embedded",
+      "registry_path": "docs/guides/data-sources--fleet--reference--group-002.md"
+    },
+    {
+      "canonical_id": "xcsh-docs:data-sources:fleet:properties:log_receiver",
+      "section_id": "xcsh-docs:data-sources:fleet:properties:log_receiver:section:3",
+      "source_sha256": "sha256:fe61b9526b119c5c694d1b95c949ea6b5fe0f391acc755c29a5d544019374453",
+      "source_bytes": 1324,
+      "canonical_source_sha256": "sha256:319d7096c2c6479803c7efc1fc1051bcddfd8583a2f65d390f21f0bb61c2d4d8",
+      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/fleet/properties/log_receiver/",
+      "anchor": "canonical-0212203100120330-2021122030121122-2013021022210203-0332100030100023-2202010310231213-1231313112100122-1332010033103032-1020010010131232",
+      "anchor_map": [
+        [
+          "schema-log_receiver--namespace",
+          "canonical-0113331100013321-0013133013311333-0001120223133120-1231032230323033-1100101322202023-0132010200332332-0120121311032111-3333310110130101"
+        ]
+      ],
+      "mode": "embedded",
+      "registry_path": "docs/guides/data-sources--fleet--reference--group-002.md"
+    },
+    {
+      "canonical_id": "xcsh-docs:data-sources:fleet:properties:log_receiver",
+      "section_id": "xcsh-docs:data-sources:fleet:properties:log_receiver:section:4",
+      "source_sha256": "sha256:9f0f40cc19e48a66a236dfd4ce7df9b9de279250dd4467fa0cc8911d33504685",
+      "source_bytes": 1575,
+      "canonical_source_sha256": "sha256:319d7096c2c6479803c7efc1fc1051bcddfd8583a2f65d390f21f0bb61c2d4d8",
+      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/fleet/properties/log_receiver/",
+      "anchor": "canonical-2231202202222233-2011303113223102-3231200030001101-1122233330312220-1330022000122230-2101313101123120-2302312002231033-1210332013211221",
+      "anchor_map": [
+        [
+          "schema-log_receiver--tenant",
+          "canonical-0133310222310121-0313010303230000-2000322302313310-0302333002232031-1300103031021021-3210100031130213-1213233220102020-0223102303113101"
+        ]
+      ],
+      "mode": "embedded",
+      "registry_path": "docs/guides/data-sources--fleet--reference--group-002.md"
+    },
+    {
+      "canonical_id": "xcsh-docs:data-sources:fleet:properties:log_receiver",
+      "section_id": "xcsh-docs:data-sources:fleet:properties:log_receiver:section:5",
+      "source_sha256": "sha256:ab2481332cc037671619af0cefc06c9ceccdc07e964a6178dfd59e35c8469ef5",
+      "source_bytes": 1030,
+      "canonical_source_sha256": "sha256:319d7096c2c6479803c7efc1fc1051bcddfd8583a2f65d390f21f0bb61c2d4d8",
+      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/fleet/properties/log_receiver/",
+      "anchor": "canonical-3002030103021303-2111030213120011-2113101102333123-1211223021003102-1023000222033130-0030010222222211-0331002123323322-3122322010113023",
+      "anchor_map": [],
+      "mode": "embedded",
+      "registry_path": "docs/guides/data-sources--fleet--reference--group-002.md"
+    },
+    {
+      "canonical_id": "xcsh-docs:data-sources:fleet:properties:log_receiver",
+      "section_id": "xcsh-docs:data-sources:fleet:properties:log_receiver:section:6",
+      "source_sha256": "sha256:6cdf1fc137c146af715ed1d6b25009abea0f5225b3a45bd672426610a92e0113",
+      "source_bytes": 218,
+      "canonical_source_sha256": "sha256:319d7096c2c6479803c7efc1fc1051bcddfd8583a2f65d390f21f0bb61c2d4d8",
+      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/fleet/properties/log_receiver/",
+      "anchor": "canonical-2332300332003300-0221130211311010-0121202113203233-3332003130011001-1113121011303013-1132121221012220-2113201112013023-2121021332031210",
+      "anchor_map": [],
+      "mode": "embedded",
+      "registry_path": "docs/guides/data-sources--fleet--reference--group-002.md"
+    },
+    {
+      "canonical_id": "xcsh-docs:data-sources:fleet:properties:logs_streaming_disabled",
+      "section_id": "xcsh-docs:data-sources:fleet:properties:logs_streaming_disabled:section:0",
+      "source_sha256": "sha256:197d41522a9dd286cb9805a03d8a5bd782cc3f3fd95ea854bf2dfc326e83e50c",
+      "source_bytes": 99,
+      "canonical_source_sha256": "sha256:bdcd5554f2522860f1fb96c0d9ced93267740667871403302974d2e5999cd35e",
+      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/fleet/properties/logs_streaming_disabled/",
+      "anchor": "canonical-2021310223321313-2033131211212111-0113103022232333-2010100020021011-3113131010131303-2321233323330001-0200120122003231-3232132212231033",
+      "anchor_map": [],
+      "mode": "embedded",
+      "registry_path": "docs/guides/data-sources--fleet--reference--group-002.md"
+    },
+    {
+      "canonical_id": "xcsh-docs:data-sources:fleet:properties:logs_streaming_disabled",
+      "section_id": "xcsh-docs:data-sources:fleet:properties:logs_streaming_disabled:section:1",
+      "source_sha256": "sha256:36b0b0bbfae505cec0a81b42fbab3886782229309a6041490774e5d200957eb6",
+      "source_bytes": 605,
+      "canonical_source_sha256": "sha256:bdcd5554f2522860f1fb96c0d9ced93267740667871403302974d2e5999cd35e",
+      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/fleet/properties/logs_streaming_disabled/",
+      "anchor": "canonical-1313212032022113-1230230032111121-3122030032320113-1202131320311222-2210332233101131-0301320301000002-0210320120102213-3303103011302233",
+      "anchor_map": [
+        [
+          "section",
+          "canonical-0110203111011030-1320123113232221-3030201100112202-2203312312332211-2322203331001002-3133002000011332-2313302313333121-0303133230302231"
+        ]
+      ],
+      "mode": "embedded",
+      "registry_path": "docs/guides/data-sources--fleet--reference--group-002.md"
+    },
+    {
+      "canonical_id": "xcsh-docs:data-sources:fleet:properties:logs_streaming_disabled",
+      "section_id": "xcsh-docs:data-sources:fleet:properties:logs_streaming_disabled:section:2",
+      "source_sha256": "sha256:0d4398201e18f9ddb2ea00ceed6d3256755ea4d008d849d1cec42dab5c55f1b5",
+      "source_bytes": 94,
+      "canonical_source_sha256": "sha256:bdcd5554f2522860f1fb96c0d9ced93267740667871403302974d2e5999cd35e",
+      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/fleet/properties/logs_streaming_disabled/",
+      "anchor": "canonical-0013212001131231-0113013101023031-2111210010103200-2232200312312221-1300302102312010-3302130113313100-3213211001232320-0033300101010311",
+      "anchor_map": [],
+      "mode": "embedded",
+      "registry_path": "docs/guides/data-sources--fleet--reference--group-002.md"
+    },
+    {
+      "canonical_id": "xcsh-docs:data-sources:fleet:properties:logs_streaming_disabled",
+      "section_id": "xcsh-docs:data-sources:fleet:properties:logs_streaming_disabled:section:3",
+      "source_sha256": "sha256:6cdf1fc137c146af715ed1d6b25009abea0f5225b3a45bd672426610a92e0113",
+      "source_bytes": 218,
+      "canonical_source_sha256": "sha256:bdcd5554f2522860f1fb96c0d9ced93267740667871403302974d2e5999cd35e",
+      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/fleet/properties/logs_streaming_disabled/",
+      "anchor": "canonical-3133231320303021-2133111221303212-0211132102202230-0232130031333221-0211011010013100-2111001332310311-1301231220000111-0312320010231320",
+      "anchor_map": [],
+      "mode": "embedded",
+      "registry_path": "docs/guides/data-sources--fleet--reference--group-002.md"
+    },
+    {
+      "canonical_id": "xcsh-docs:data-sources:fleet:properties:network_connectors",
+      "section_id": "xcsh-docs:data-sources:fleet:properties:network_connectors:section:0",
+      "source_sha256": "sha256:197d41522a9dd286cb9805a03d8a5bd782cc3f3fd95ea854bf2dfc326e83e50c",
+      "source_bytes": 99,
+      "canonical_source_sha256": "sha256:e29dd84a4334a567dae51e9d07fed4d1257ac2ec729e672eee2b80ffd89997e5",
+      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/fleet/properties/network_connectors/",
+      "anchor": "canonical-3123211022312221-3200100111011110-1201100232001010-1230100331220302-0013301221331213-2220233203231132-0121230201000122-1132010113102123",
+      "anchor_map": [],
+      "mode": "embedded",
+      "registry_path": "docs/guides/data-sources--fleet--reference--group-002.md"
+    },
+    {
+      "canonical_id": "xcsh-docs:data-sources:fleet:properties:network_connectors",
+      "section_id": "xcsh-docs:data-sources:fleet:properties:network_connectors:section:1",
+      "source_sha256": "sha256:b4ad1c5b91f00bb825aa144c8c066d8ab4ef2a65cb69c1ab30aac4bf24928d70",
+      "source_bytes": 1408,
+      "canonical_source_sha256": "sha256:e29dd84a4334a567dae51e9d07fed4d1257ac2ec729e672eee2b80ffd89997e5",
+      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/fleet/properties/network_connectors/",
+      "anchor": "canonical-0230322211130213-1223331113000012-2202221233111223-3020102301023302-1312203311212113-2020330030020200-1332021311101333-1220121313212223",
+      "anchor_map": [
+        [
+          "section",
+          "canonical-3203020222222130-2112202333112110-3013222300132220-3200332010130130-1010201232331313-1223033303322210-2133003223201003-1311200030303102"
+        ]
+      ],
+      "mode": "embedded",
+      "registry_path": "docs/guides/data-sources--fleet--reference--group-002.md"
+    },
+    {
+      "canonical_id": "xcsh-docs:data-sources:fleet:properties:network_connectors",
+      "section_id": "xcsh-docs:data-sources:fleet:properties:network_connectors:section:2",
+      "source_sha256": "sha256:87dfc2e09ae932726f2a757cf92bbfaf9c96798e1e0e7ea76f60608200e45b63",
+      "source_bytes": 68,
+      "canonical_source_sha256": "sha256:e29dd84a4334a567dae51e9d07fed4d1257ac2ec729e672eee2b80ffd89997e5",
+      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/fleet/properties/network_connectors/",
+      "anchor": "canonical-2113301000330332-2322333222012201-3101010202322312-3100011330221100-0203223033132212-1012212021203023-1112011201112203-3302033303330120",
+      "anchor_map": [
+        [
+          "schema-network_connectors--kind",
+          "canonical-1000031223220020-2220033010023220-2031011032110322-2302313301122202-1131132030003301-0132220002010203-2112312300211031-2302003211202000"
+        ]
+      ],
+      "mode": "embedded",
+      "registry_path": "docs/guides/data-sources--fleet--reference--group-002.md"
+    },
+    {
+      "canonical_id": "xcsh-docs:data-sources:fleet:properties:network_connectors",
+      "section_id": "xcsh-docs:data-sources:fleet:properties:network_connectors:section:3",
+      "source_sha256": "sha256:5ac335c3d0ff09cf2261ec40537f417dab261ec4ca0ddfcd1a2ea5642177a1e2",
+      "source_bytes": 813,
+      "canonical_source_sha256": "sha256:e29dd84a4334a567dae51e9d07fed4d1257ac2ec729e672eee2b80ffd89997e5",
+      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/fleet/properties/network_connectors/",
+      "anchor": "canonical-3200131032112222-0330110011001031-3112002032220212-1132021021110132-2333300120322100-2211311201322133-3131022220322131-2131122230023212",
+      "anchor_map": [
+        [
+          "schema-network_connectors--name",
+          "canonical-1010221313033123-0321133003001020-0020330131213311-0212010131101312-1202131230203023-0023131223123212-3120032320321033-0333100332113213"
+        ]
+      ],
+      "mode": "embedded",
+      "registry_path": "docs/guides/data-sources--fleet--reference--group-002.md"
+    },
+    {
+      "canonical_id": "xcsh-docs:data-sources:fleet:properties:network_connectors",
+      "section_id": "xcsh-docs:data-sources:fleet:properties:network_connectors:section:4",
+      "source_sha256": "sha256:f0c8d7106ee2aef95f76564ca1c8dbda7d5f3c2722f061ef69c54d6671410420",
+      "source_bytes": 817,
+      "canonical_source_sha256": "sha256:e29dd84a4334a567dae51e9d07fed4d1257ac2ec729e672eee2b80ffd89997e5",
+      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/fleet/properties/network_connectors/",
+      "anchor": "canonical-2212033221001320-2121323111003223-2312003030011112-1312021122121201-0202033031103122-0023110001020300-3213103200221331-2111222122021131",
+      "anchor_map": [
+        [
+          "schema-network_connectors--namespace",
+          "canonical-2100312301231223-1201211313112103-2201022131133230-3112230311032222-2332301300232200-3111333200120312-1310000130122011-2011113201113102"
+        ]
+      ],
+      "mode": "embedded",
+      "registry_path": "docs/guides/data-sources--fleet--reference--group-002.md"
+    },
+    {
+      "canonical_id": "xcsh-docs:data-sources:fleet:properties:network_connectors",
+      "section_id": "xcsh-docs:data-sources:fleet:properties:network_connectors:section:5",
+      "source_sha256": "sha256:179d2c1fea58b8c0e84a55d31cad0ff5c2702513ec30c1861e51a3b26bb9c26b",
+      "source_bytes": 1351,
+      "canonical_source_sha256": "sha256:e29dd84a4334a567dae51e9d07fed4d1257ac2ec729e672eee2b80ffd89997e5",
+      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/fleet/properties/network_connectors/",
+      "anchor": "canonical-1330320131201211-1113321033312211-3230132110010211-1101011302021322-2011120132022320-0333312232230222-0013011021023332-1212302110303302",
+      "anchor_map": [
+        [
+          "schema-network_connectors--tenant",
+          "canonical-1110201230233201-2101302110023223-2003000102220321-3010031331010002-2022222123232112-2112323201311220-3100313321322100-2032002311210131"
+        ]
+      ],
+      "mode": "embedded",
+      "registry_path": "docs/guides/data-sources--fleet--reference--group-002.md"
+    },
+    {
+      "canonical_id": "xcsh-docs:data-sources:fleet:properties:network_connectors",
+      "section_id": "xcsh-docs:data-sources:fleet:properties:network_connectors:section:6",
+      "source_sha256": "sha256:f8f9fcbc775b9fb74a5990a1ee5c351ee2860eeee0e696b15273214184a8002d",
+      "source_bytes": 821,
+      "canonical_source_sha256": "sha256:e29dd84a4334a567dae51e9d07fed4d1257ac2ec729e672eee2b80ffd89997e5",
+      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/fleet/properties/network_connectors/",
+      "anchor": "canonical-3020103310301201-0313233021223120-1301123223101210-0201323221103330-1312000310210112-1332332333100113-0213121311121131-2333000110110000",
+      "anchor_map": [
+        [
+          "schema-network_connectors--uid",
+          "canonical-0222101321313132-0003203002010120-1231023011023113-2321320133021003-1110301212002212-3323303330000033-3113131012000311-1000302322133112"
+        ]
+      ],
+      "mode": "embedded",
+      "registry_path": "docs/guides/data-sources--fleet--reference--group-002.md"
+    },
+    {
+      "canonical_id": "xcsh-docs:data-sources:fleet:properties:network_connectors",
+      "section_id": "xcsh-docs:data-sources:fleet:properties:network_connectors:section:7",
+      "source_sha256": "sha256:3dea66bd5fa6de0d55133711dfe4a5ffcb3217e0a89d5332adcc5472146ef4c9",
+      "source_bytes": 761,
+      "canonical_source_sha256": "sha256:e29dd84a4334a567dae51e9d07fed4d1257ac2ec729e672eee2b80ffd89997e5",
+      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/fleet/properties/network_connectors/",
+      "anchor": "canonical-3232031110210011-0021200232323230-0313233232210230-3302222032031331-1131022212031122-1202122022032231-3221333002230023-3303021010012000",
+      "anchor_map": [],
+      "mode": "embedded",
+      "registry_path": "docs/guides/data-sources--fleet--reference--group-002.md"
+    },
+    {
+      "canonical_id": "xcsh-docs:data-sources:fleet:properties:network_connectors",
+      "section_id": "xcsh-docs:data-sources:fleet:properties:network_connectors:section:8",
+      "source_sha256": "sha256:6cdf1fc137c146af715ed1d6b25009abea0f5225b3a45bd672426610a92e0113",
+      "source_bytes": 218,
+      "canonical_source_sha256": "sha256:e29dd84a4334a567dae51e9d07fed4d1257ac2ec729e672eee2b80ffd89997e5",
+      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/fleet/properties/network_connectors/",
+      "anchor": "canonical-2312031320132323-3211202222003210-0122302013210300-3030322110133022-2130111301011012-1013000230131000-3030221011213033-3031233331102023",
+      "anchor_map": [],
+      "mode": "embedded",
+      "registry_path": "docs/guides/data-sources--fleet--reference--group-002.md"
+    },
+    {
+      "canonical_id": "xcsh-docs:data-sources:fleet:properties:network_firewall",
+      "section_id": "xcsh-docs:data-sources:fleet:properties:network_firewall:section:0",
+      "source_sha256": "sha256:197d41522a9dd286cb9805a03d8a5bd782cc3f3fd95ea854bf2dfc326e83e50c",
+      "source_bytes": 99,
+      "canonical_source_sha256": "sha256:62fa172e7f97a9cc03341cc1afd1b3240e87c593f3b48d1f26f8646907e8999a",
+      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/fleet/properties/network_firewall/",
+      "anchor": "canonical-3321202220211332-1233100100233320-2030101201021220-1310201200230102-1011003120311131-2130232230230210-1022110013030131-2000202132233333",
+      "anchor_map": [],
+      "mode": "embedded",
+      "registry_path": "docs/guides/data-sources--fleet--reference--group-002.md"
+    },
+    {
+      "canonical_id": "xcsh-docs:data-sources:fleet:properties:network_firewall",
+      "section_id": "xcsh-docs:data-sources:fleet:properties:network_firewall:section:1",
+      "source_sha256": "sha256:2af6a61f1d49bcc1859aedc72c2de1ac791c683180541f73fbe182d4d7ecd4f7",
+      "source_bytes": 1551,
+      "canonical_source_sha256": "sha256:62fa172e7f97a9cc03341cc1afd1b3240e87c593f3b48d1f26f8646907e8999a",
+      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/fleet/properties/network_firewall/",
+      "anchor": "canonical-3202033333023113-3233000221030032-0021130101133111-2310022003303300-2001322221130110-2130001323011210-0321101300131011-3313101323311210",
+      "anchor_map": [
+        [
+          "section",
+          "canonical-0323002023133100-3213113122023212-2210101100101232-2330032000112331-0032023223132312-0212032011021100-0302010331303301-3123210322012132"
+        ]
+      ],
+      "mode": "embedded",
+      "registry_path": "docs/guides/data-sources--fleet--reference--group-002.md"
+    },
+    {
+      "canonical_id": "xcsh-docs:data-sources:fleet:properties:network_firewall",
+      "section_id": "xcsh-docs:data-sources:fleet:properties:network_firewall:section:2",
+      "source_sha256": "sha256:1038a30505dc12609eda8341ac4446c6cad2e8d1e92a548018486a13ab68dcac",
+      "source_bytes": 66,
+      "canonical_source_sha256": "sha256:62fa172e7f97a9cc03341cc1afd1b3240e87c593f3b48d1f26f8646907e8999a",
+      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/fleet/properties/network_firewall/",
+      "anchor": "canonical-3121203220311133-1300233002120130-1222100232013230-3022032101231130-0222110301222211-2112210033203020-0030020102113322-2000232312100310",
+      "anchor_map": [
+        [
+          "schema-network_firewall--kind",
+          "canonical-2132312121120231-2003032200221021-3122303302112322-0223321330030132-2131001131133330-1003103320221020-2110233311222023-1103323023012131"
+        ]
+      ],
+      "mode": "embedded",
+      "registry_path": "docs/guides/data-sources--fleet--reference--group-002.md"
+    },
+    {
       "canonical_id": "xcsh-docs:data-sources:fleet:properties:network_firewall",
       "section_id": "xcsh-docs:data-sources:fleet:properties:network_firewall:section:3",
       "source_sha256": "sha256:389e4651215b54f1a86f2f9a5f0b5aa321de26e049bfb85bca89557dc7819cb9",
@@ -6478,364 +6896,6 @@
       "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/fleet/properties/storage_device_list/storage_devices/netapp_trident/netapp_backend_ontap_san/volume_defaults/no_qos/",
       "anchor": "canonical-1221130310102123-1230123310101230-3130112200230210-0131312111221130-3211201031331321-3213220331101112-2313001020011331-2113102222101032",
       "anchor_map": [],
-      "mode": "embedded",
-      "registry_path": "docs/guides/data-sources--fleet--reference--group-004.md"
-    },
-    {
-      "canonical_id": "xcsh-docs:data-sources:fleet:properties:storage_device_list:storage_devices:pure_service_orchestrator",
-      "section_id": "xcsh-docs:data-sources:fleet:properties:storage_device_list:storage_devices:pure_service_orchestrator:section:0",
-      "source_sha256": "sha256:197d41522a9dd286cb9805a03d8a5bd782cc3f3fd95ea854bf2dfc326e83e50c",
-      "source_bytes": 99,
-      "canonical_source_sha256": "sha256:da79c67e8d8c264a9dd069d68bb0120e1337db8508e552128a837a098187a640",
-      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/fleet/properties/storage_device_list/storage_devices/pure_service_orchestrator/",
-      "anchor": "canonical-0232331033131323-1012000032222131-3103231213311210-3202202123003123-3003333321120112-1102302232131101-2330131202301013-1332210310100022",
-      "anchor_map": [],
-      "mode": "embedded",
-      "registry_path": "docs/guides/data-sources--fleet--reference--group-004.md"
-    },
-    {
-      "canonical_id": "xcsh-docs:data-sources:fleet:properties:storage_device_list:storage_devices:pure_service_orchestrator",
-      "section_id": "xcsh-docs:data-sources:fleet:properties:storage_device_list:storage_devices:pure_service_orchestrator:section:1",
-      "source_sha256": "sha256:bcc8d20edb5bb68098b6a09d492bf42ef929a901c8da9162644446b03cf434b1",
-      "source_bytes": 930,
-      "canonical_source_sha256": "sha256:da79c67e8d8c264a9dd069d68bb0120e1337db8508e552128a837a098187a640",
-      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/fleet/properties/storage_device_list/storage_devices/pure_service_orchestrator/",
-      "anchor": "canonical-0012322311113230-1323012232331202-1210232231323222-1013201033223223-0132010202201222-3322313332310320-2210312132102123-3111102001302222",
-      "anchor_map": [
-        [
-          "section",
-          "canonical-3103200021113021-2113212020022021-3033203132002300-2030331010033303-1110331103303232-2221010220120101-2001201013001121-1002013130103233"
-        ]
-      ],
-      "mode": "embedded",
-      "registry_path": "docs/guides/data-sources--fleet--reference--group-004.md"
-    },
-    {
-      "canonical_id": "xcsh-docs:data-sources:fleet:properties:storage_device_list:storage_devices:pure_service_orchestrator",
-      "section_id": "xcsh-docs:data-sources:fleet:properties:storage_device_list:storage_devices:pure_service_orchestrator:section:2",
-      "source_sha256": "sha256:5549adf203422d7c636d963311cf607d31f17d2d87a2cf60c6d51a63abf04f81",
-      "source_bytes": 320,
-      "canonical_source_sha256": "sha256:da79c67e8d8c264a9dd069d68bb0120e1337db8508e552128a837a098187a640",
-      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/fleet/properties/storage_device_list/storage_devices/pure_service_orchestrator/",
-      "anchor": "canonical-3223201301232000-3013300023110300-0311213211321330-2322101121120303-2213022011323022-0130211322030312-2310030213203100-3112130301131222",
-      "anchor_map": [
-        [
-          "schema-storage_device_list--storage_devices--pure_service_orchestrator--cluster_id",
-          "canonical-2101031202010310-1031221221321122-0112033111020322-1313301032211103-1233131223333332-0202020103320112-0202332120012200-2220202203231332"
-        ]
-      ],
-      "mode": "embedded",
-      "registry_path": "docs/guides/data-sources--fleet--reference--group-004.md"
-    },
-    {
-      "canonical_id": "xcsh-docs:data-sources:fleet:properties:storage_device_list:storage_devices:pure_service_orchestrator",
-      "section_id": "xcsh-docs:data-sources:fleet:properties:storage_device_list:storage_devices:pure_service_orchestrator:section:3",
-      "source_sha256": "sha256:b6b53b661dcefb573c7af56e53af04014aa85b18e2fac88f2375932fdeaa8d81",
-      "source_bytes": 1748,
-      "canonical_source_sha256": "sha256:da79c67e8d8c264a9dd069d68bb0120e1337db8508e552128a837a098187a640",
-      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/fleet/properties/storage_device_list/storage_devices/pure_service_orchestrator/",
-      "anchor": "canonical-0130230010312302-3000332230132312-2121120132023210-0321020210310221-0013331320301302-1230013100121321-0201233311320202-3132320032122122",
-      "anchor_map": [
-        [
-          "schema-storage_device_list--storage_devices--pure_service_orchestrator--enable_storage_topology",
-          "canonical-2100311003310111-1001222033122302-2211102021322333-1223100012322100-0233230012221110-3002332033331023-3321111002210030-3330021013101222"
-        ]
-      ],
-      "mode": "embedded",
-      "registry_path": "docs/guides/data-sources--fleet--reference--group-004.md"
-    },
-    {
-      "canonical_id": "xcsh-docs:data-sources:fleet:properties:storage_device_list:storage_devices:pure_service_orchestrator",
-      "section_id": "xcsh-docs:data-sources:fleet:properties:storage_device_list:storage_devices:pure_service_orchestrator:section:4",
-      "source_sha256": "sha256:6a55c0f889506fa8272eb706812a432702af269ad1d61e9a3906e112c1e1f80f",
-      "source_bytes": 511,
-      "canonical_source_sha256": "sha256:da79c67e8d8c264a9dd069d68bb0120e1337db8508e552128a837a098187a640",
-      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/fleet/properties/storage_device_list/storage_devices/pure_service_orchestrator/",
-      "anchor": "canonical-0003131202030103-0302021232133332-0031330231203333-0021001112212132-3310202201210313-0303210312131322-2011123201321220-2313111202201300",
-      "anchor_map": [
-        [
-          "schema-storage_device_list--storage_devices--pure_service_orchestrator--enable_strict_topology",
-          "canonical-1323013031203322-3200122311011320-1310311133223331-2232312032311312-1122300022321220-3123113032020031-2122031111110210-1303021330101313"
-        ]
-      ],
-      "mode": "embedded",
-      "registry_path": "docs/guides/data-sources--fleet--reference--group-004.md"
-    },
-    {
-      "canonical_id": "xcsh-docs:data-sources:fleet:properties:storage_device_list:storage_devices:pure_service_orchestrator",
-      "section_id": "xcsh-docs:data-sources:fleet:properties:storage_device_list:storage_devices:pure_service_orchestrator:section:5",
-      "source_sha256": "sha256:203d6626496630dcffedef6546bb449512669020f0cbe89804e481f414b6f623",
-      "source_bytes": 415,
-      "canonical_source_sha256": "sha256:da79c67e8d8c264a9dd069d68bb0120e1337db8508e552128a837a098187a640",
-      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/fleet/properties/storage_device_list/storage_devices/pure_service_orchestrator/",
-      "anchor": "canonical-1033020102201110-3203310033032103-0030232232133300-0111023030331203-2221030101211012-2121111232100223-1013223122311101-2103003112032311",
-      "anchor_map": [],
-      "mode": "embedded",
-      "registry_path": "docs/guides/data-sources--fleet--reference--group-004.md"
-    },
-    {
-      "canonical_id": "xcsh-docs:data-sources:fleet:properties:storage_device_list:storage_devices:pure_service_orchestrator",
-      "section_id": "xcsh-docs:data-sources:fleet:properties:storage_device_list:storage_devices:pure_service_orchestrator:section:6",
-      "source_sha256": "sha256:030358ef7f2dab177eac436a8142ba0e91f4c0e82010020a2f4727e073cc2cb2",
-      "source_bytes": 501,
-      "canonical_source_sha256": "sha256:da79c67e8d8c264a9dd069d68bb0120e1337db8508e552128a837a098187a640",
-      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/fleet/properties/storage_device_list/storage_devices/pure_service_orchestrator/",
-      "anchor": "canonical-2320333001300212-0012312013330333-0122202302220211-3332220200001302-0232221212031310-2122113103230201-2210211321300023-3020303130212231",
-      "anchor_map": [],
-      "mode": "embedded",
-      "registry_path": "docs/guides/data-sources--fleet--reference--group-004.md"
-    },
-    {
-      "canonical_id": "xcsh-docs:data-sources:fleet:properties:storage_device_list:storage_devices:pure_service_orchestrator:arrays",
-      "section_id": "xcsh-docs:data-sources:fleet:properties:storage_device_list:storage_devices:pure_service_orchestrator:arrays:section:0",
-      "source_sha256": "sha256:197d41522a9dd286cb9805a03d8a5bd782cc3f3fd95ea854bf2dfc326e83e50c",
-      "source_bytes": 99,
-      "canonical_source_sha256": "sha256:1383b36dfae5ec0cc0a5cd9ff846902163f6ed5d3a128fa2b26ee7db4d3dc02f",
-      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/fleet/properties/storage_device_list/storage_devices/pure_service_orchestrator/arrays/",
-      "anchor": "canonical-2022021200123133-1012311022310131-2011001032320220-1011211211021301-3032232301200012-2111121022022131-3102103001000323-2322001003132223",
-      "anchor_map": [],
-      "mode": "embedded",
-      "registry_path": "docs/guides/data-sources--fleet--reference--group-004.md"
-    },
-    {
-      "canonical_id": "xcsh-docs:data-sources:fleet:properties:storage_device_list:storage_devices:pure_service_orchestrator:arrays",
-      "section_id": "xcsh-docs:data-sources:fleet:properties:storage_device_list:storage_devices:pure_service_orchestrator:arrays:section:1",
-      "source_sha256": "sha256:8e417d0507c69efa71ebb21a8037875ad1489a765386083539f9133a0d4bb214",
-      "source_bytes": 1220,
-      "canonical_source_sha256": "sha256:1383b36dfae5ec0cc0a5cd9ff846902163f6ed5d3a128fa2b26ee7db4d3dc02f",
-      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/fleet/properties/storage_device_list/storage_devices/pure_service_orchestrator/arrays/",
-      "anchor": "canonical-2130232020111113-2031301113101320-1300110202202303-3021111312131022-1010303012133011-0110211110101030-3102201133113122-2302312130122133",
-      "anchor_map": [
-        [
-          "section",
-          "canonical-1220133332301021-2220302313013310-2232231112111331-3331213003133231-0002230133132323-0301013231023201-3323320200020303-0002121312333132"
-        ]
-      ],
-      "mode": "embedded",
-      "registry_path": "docs/guides/data-sources--fleet--reference--group-004.md"
-    },
-    {
-      "canonical_id": "xcsh-docs:data-sources:fleet:properties:storage_device_list:storage_devices:pure_service_orchestrator:arrays",
-      "section_id": "xcsh-docs:data-sources:fleet:properties:storage_device_list:storage_devices:pure_service_orchestrator:arrays:section:2",
-      "source_sha256": "sha256:a6fcea79d1bd6196c153c211572485fe9c790fb2a25a1607cef48782f30a1986",
-      "source_bytes": 458,
-      "canonical_source_sha256": "sha256:1383b36dfae5ec0cc0a5cd9ff846902163f6ed5d3a128fa2b26ee7db4d3dc02f",
-      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/fleet/properties/storage_device_list/storage_devices/pure_service_orchestrator/arrays/",
-      "anchor": "canonical-1201331210331130-0320132103211223-3302023222121132-3320220303200233-1232301212120321-2330320203322300-0233212011010023-3001303000310323",
-      "anchor_map": [],
-      "mode": "embedded",
-      "registry_path": "docs/guides/data-sources--fleet--reference--group-004.md"
-    },
-    {
-      "canonical_id": "xcsh-docs:data-sources:fleet:properties:storage_device_list:storage_devices:pure_service_orchestrator:arrays",
-      "section_id": "xcsh-docs:data-sources:fleet:properties:storage_device_list:storage_devices:pure_service_orchestrator:arrays:section:3",
-      "source_sha256": "sha256:ee969ac32cba46160d9b5c1b2e1a007a150a175a788b791aefabc893675bfe3d",
-      "source_bytes": 831,
-      "canonical_source_sha256": "sha256:1383b36dfae5ec0cc0a5cd9ff846902163f6ed5d3a128fa2b26ee7db4d3dc02f",
-      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/fleet/properties/storage_device_list/storage_devices/pure_service_orchestrator/arrays/",
-      "anchor": "canonical-2112132020220130-0231013102310011-1301212032123203-0203000132302302-1203303330021112-1012203111120313-3302100300102323-2003003012133003",
-      "anchor_map": [],
-      "mode": "embedded",
-      "registry_path": "docs/guides/data-sources--fleet--reference--group-004.md"
-    },
-    {
-      "canonical_id": "xcsh-docs:data-sources:fleet:properties:storage_device_list:storage_devices:pure_service_orchestrator:arrays:flash_array",
-      "section_id": "xcsh-docs:data-sources:fleet:properties:storage_device_list:storage_devices:pure_service_orchestrator:arrays:flash_array:section:0",
-      "source_sha256": "sha256:197d41522a9dd286cb9805a03d8a5bd782cc3f3fd95ea854bf2dfc326e83e50c",
-      "source_bytes": 99,
-      "canonical_source_sha256": "sha256:fa14fd2917bc2601007eeb1f72c0cc074382c17b86d647643fd52a0bbd4d7213",
-      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/fleet/properties/storage_device_list/storage_devices/pure_service_orchestrator/arrays/flash_array/",
-      "anchor": "canonical-3100333230102320-2201210300121102-1332331302002131-1233110231203031-3013323101032112-2023313222111010-1131233313003323-0221211230200313",
-      "anchor_map": [],
-      "mode": "embedded",
-      "registry_path": "docs/guides/data-sources--fleet--reference--group-004.md"
-    },
-    {
-      "canonical_id": "xcsh-docs:data-sources:fleet:properties:storage_device_list:storage_devices:pure_service_orchestrator:arrays:flash_array",
-      "section_id": "xcsh-docs:data-sources:fleet:properties:storage_device_list:storage_devices:pure_service_orchestrator:arrays:flash_array:section:1",
-      "source_sha256": "sha256:29d79ac5e284d7c69464d5f52b6875b679d20b25b46048309600ab9f5a32d1b7",
-      "source_bytes": 1418,
-      "canonical_source_sha256": "sha256:fa14fd2917bc2601007eeb1f72c0cc074382c17b86d647643fd52a0bbd4d7213",
-      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/fleet/properties/storage_device_list/storage_devices/pure_service_orchestrator/arrays/flash_array/",
-      "anchor": "canonical-0320302230001202-3322223233321100-1030330010311222-0220313201230322-3030121112132301-3211230001101211-0313322330230122-1020030000202223",
-      "anchor_map": [
-        [
-          "section",
-          "canonical-0302201022230330-0012011321221330-0120310021103012-0300303211221032-0002221201013200-0302113310212312-0101323330202020-2223032211113330"
-        ]
-      ],
-      "mode": "embedded",
-      "registry_path": "docs/guides/data-sources--fleet--reference--group-004.md"
-    },
-    {
-      "canonical_id": "xcsh-docs:data-sources:fleet:properties:storage_device_list:storage_devices:pure_service_orchestrator:arrays:flash_array",
-      "section_id": "xcsh-docs:data-sources:fleet:properties:storage_device_list:storage_devices:pure_service_orchestrator:arrays:flash_array:section:2",
-      "source_sha256": "sha256:27b7c6cb614cf397997699a06ee3a52e733ca5cac0d2d50200539430f2c20df1",
-      "source_bytes": 144,
-      "canonical_source_sha256": "sha256:fa14fd2917bc2601007eeb1f72c0cc074382c17b86d647643fd52a0bbd4d7213",
-      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/fleet/properties/storage_device_list/storage_devices/pure_service_orchestrator/arrays/flash_array/",
-      "anchor": "canonical-3101300303222121-0321203322002300-3311112012232211-3023023200202203-0213211201210023-1023032221303333-2113302120332033-3023223113003113",
-      "anchor_map": [
-        [
-          "schema-storage_device_list--storage_devices--pure_service_orchestrator--arrays--flash_array--default_fs_opt",
-          "canonical-2131223011212022-0110323200102202-3102103122033213-1220231130221110-0000320233110000-0232013123213010-0031221003021212-0011211101013011"
-        ]
-      ],
-      "mode": "embedded",
-      "registry_path": "docs/guides/data-sources--fleet--reference--group-004.md"
-    },
-    {
-      "canonical_id": "xcsh-docs:data-sources:fleet:properties:storage_device_list:storage_devices:pure_service_orchestrator:arrays:flash_array",
-      "section_id": "xcsh-docs:data-sources:fleet:properties:storage_device_list:storage_devices:pure_service_orchestrator:arrays:flash_array:section:3",
-      "source_sha256": "sha256:3ec965ff43b5fa65dab734a1fd887e2027dfae2c9ca10f2419ff59286a130917",
-      "source_bytes": 1002,
-      "canonical_source_sha256": "sha256:fa14fd2917bc2601007eeb1f72c0cc074382c17b86d647643fd52a0bbd4d7213",
-      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/fleet/properties/storage_device_list/storage_devices/pure_service_orchestrator/arrays/flash_array/",
-      "anchor": "canonical-2000000131100020-3210201312320232-3230022212211110-1120123221030130-2001201111223232-3320202021002110-1001110232313331-3133200123010120",
-      "anchor_map": [
-        [
-          "schema-storage_device_list--storage_devices--pure_service_orchestrator--arrays--flash_array--default_fs_type",
-          "canonical-1130112130001332-3011220300332020-3031033330012131-3111221300123102-0111120122221201-3010230320223201-3310302032111100-3223203232330311"
-        ]
-      ],
-      "mode": "embedded",
-      "registry_path": "docs/guides/data-sources--fleet--reference--group-004.md"
-    },
-    {
-      "canonical_id": "xcsh-docs:data-sources:fleet:properties:storage_device_list:storage_devices:pure_service_orchestrator:arrays:flash_array",
-      "section_id": "xcsh-docs:data-sources:fleet:properties:storage_device_list:storage_devices:pure_service_orchestrator:arrays:flash_array:section:4",
-      "source_sha256": "sha256:cbd470244f5ed9e3004eea6766f6c693e6919c39621e9d8ed26b99b99ced6ab1",
-      "source_bytes": 1153,
-      "canonical_source_sha256": "sha256:fa14fd2917bc2601007eeb1f72c0cc074382c17b86d647643fd52a0bbd4d7213",
-      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/fleet/properties/storage_device_list/storage_devices/pure_service_orchestrator/arrays/flash_array/",
-      "anchor": "canonical-3321320113020113-3101200010333112-0220303200313013-3122133133101310-2102030123322223-2131312102323311-0002032201221321-0110112323311010",
-      "anchor_map": [
-        [
-          "schema-storage_device_list--storage_devices--pure_service_orchestrator--arrays--flash_array--default_mount_opts",
-          "canonical-2111332201122310-1111021121110001-1020230131023332-0111303001130013-1321332210011010-3011021231333313-2330002203310222-2233032111212102"
-        ]
-      ],
-      "mode": "embedded",
-      "registry_path": "docs/guides/data-sources--fleet--reference--group-004.md"
-    },
-    {
-      "canonical_id": "xcsh-docs:data-sources:fleet:properties:storage_device_list:storage_devices:pure_service_orchestrator:arrays:flash_array",
-      "section_id": "xcsh-docs:data-sources:fleet:properties:storage_device_list:storage_devices:pure_service_orchestrator:arrays:flash_array:section:5",
-      "source_sha256": "sha256:0d39537e5cf0f046f01a4d4a9fe9431b7ce3271d14825c60e4b59b3967d34107",
-      "source_bytes": 1032,
-      "canonical_source_sha256": "sha256:fa14fd2917bc2601007eeb1f72c0cc074382c17b86d647643fd52a0bbd4d7213",
-      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/fleet/properties/storage_device_list/storage_devices/pure_service_orchestrator/arrays/flash_array/",
-      "anchor": "canonical-2033223211101023-1132200120022110-2201012322133332-2130132232130331-3333221102302333-1311231123313003-3233112112231010-0121102110301112",
-      "anchor_map": [
-        [
-          "schema-storage_device_list--storage_devices--pure_service_orchestrator--arrays--flash_array--disable_preempt_attachments",
-          "canonical-1312021032030033-0330322302300111-1231130221323323-1203030311310311-1310320211220302-0201200231101221-3301133210231120-3012120331002102"
-        ]
-      ],
-      "mode": "embedded",
-      "registry_path": "docs/guides/data-sources--fleet--reference--group-004.md"
-    },
-    {
-      "canonical_id": "xcsh-docs:data-sources:fleet:properties:storage_device_list:storage_devices:pure_service_orchestrator:arrays:flash_array",
-      "section_id": "xcsh-docs:data-sources:fleet:properties:storage_device_list:storage_devices:pure_service_orchestrator:arrays:flash_array:section:6",
-      "source_sha256": "sha256:465d18ef748b361cfe2ec41c9f9335629c9644af3ba75cec18ae26103afc81cc",
-      "source_bytes": 733,
-      "canonical_source_sha256": "sha256:fa14fd2917bc2601007eeb1f72c0cc074382c17b86d647643fd52a0bbd4d7213",
-      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/fleet/properties/storage_device_list/storage_devices/pure_service_orchestrator/arrays/flash_array/",
-      "anchor": "canonical-1002000233231232-2111231111020223-1022120333201221-3020112003331031-1002021300011222-0023031003010023-1030120212011113-2130023003010221",
-      "anchor_map": [
-        [
-          "schema-storage_device_list--storage_devices--pure_service_orchestrator--arrays--flash_array--iscsi_login_timeout",
-          "canonical-3112101121232013-1311320131013102-1213323211210312-3003330003321133-1023101001021133-1032312121322322-2220212123121302-2303030132133312"
-        ]
-      ],
-      "mode": "embedded",
-      "registry_path": "docs/guides/data-sources--fleet--reference--group-004.md"
-    },
-    {
-      "canonical_id": "xcsh-docs:data-sources:fleet:properties:storage_device_list:storage_devices:pure_service_orchestrator:arrays:flash_array",
-      "section_id": "xcsh-docs:data-sources:fleet:properties:storage_device_list:storage_devices:pure_service_orchestrator:arrays:flash_array:section:7",
-      "source_sha256": "sha256:cab3a5edc8ef4d45d9dc7cdd65f7878f2616885d82a489dd782a5cccff99dca0",
-      "source_bytes": 1042,
-      "canonical_source_sha256": "sha256:fa14fd2917bc2601007eeb1f72c0cc074382c17b86d647643fd52a0bbd4d7213",
-      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/fleet/properties/storage_device_list/storage_devices/pure_service_orchestrator/arrays/flash_array/",
-      "anchor": "canonical-0202112003311320-2201233332322230-3103300212220113-2112032110103022-3203023210211032-1201333222003030-1110003311330113-0123033330102230",
-      "anchor_map": [
-        [
-          "schema-storage_device_list--storage_devices--pure_service_orchestrator--arrays--flash_array--san_type",
-          "canonical-0302122123033100-0300322222122110-0131213232020222-0100030303311300-2100323000202203-0301101023301203-3112320301113213-1000301301033213"
-        ]
-      ],
-      "mode": "embedded",
-      "registry_path": "docs/guides/data-sources--fleet--reference--group-004.md"
-    },
-    {
-      "canonical_id": "xcsh-docs:data-sources:fleet:properties:storage_device_list:storage_devices:pure_service_orchestrator:arrays:flash_array",
-      "section_id": "xcsh-docs:data-sources:fleet:properties:storage_device_list:storage_devices:pure_service_orchestrator:arrays:flash_array:section:8",
-      "source_sha256": "sha256:4431247ce4a2004e85a1d29dd0adddf0c3678115eef3e625bc4d10d6d8ba1b0c",
-      "source_bytes": 989,
-      "canonical_source_sha256": "sha256:fa14fd2917bc2601007eeb1f72c0cc074382c17b86d647643fd52a0bbd4d7213",
-      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/fleet/properties/storage_device_list/storage_devices/pure_service_orchestrator/arrays/flash_array/",
-      "anchor": "canonical-3102312011332120-2213323101221021-0111232030201231-0212300001002022-0102311230130012-2120301232231323-3230211133000022-2203231022312222",
-      "anchor_map": [],
-      "mode": "embedded",
-      "registry_path": "docs/guides/data-sources--fleet--reference--group-004.md"
-    },
-    {
-      "canonical_id": "xcsh-docs:data-sources:fleet:properties:storage_device_list:storage_devices:pure_service_orchestrator:arrays:flash_array",
-      "section_id": "xcsh-docs:data-sources:fleet:properties:storage_device_list:storage_devices:pure_service_orchestrator:arrays:flash_array:section:9",
-      "source_sha256": "sha256:543a9e70228d66b515c0b7fe5d1c607fd8e4729d09a5a69c69e7343cc23e29db",
-      "source_bytes": 617,
-      "canonical_source_sha256": "sha256:fa14fd2917bc2601007eeb1f72c0cc074382c17b86d647643fd52a0bbd4d7213",
-      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/fleet/properties/storage_device_list/storage_devices/pure_service_orchestrator/arrays/flash_array/",
-      "anchor": "canonical-2132123012202303-0201202312112200-1010120202021021-3112031222030201-2020232300110300-2211112000232132-0120133333322133-0233303213133111",
-      "anchor_map": [],
-      "mode": "embedded",
-      "registry_path": "docs/guides/data-sources--fleet--reference--group-004.md"
-    },
-    {
-      "canonical_id": "xcsh-docs:data-sources:fleet:properties:storage_device_list:storage_devices:pure_service_orchestrator:arrays:flash_array:flash_arrays",
-      "section_id": "xcsh-docs:data-sources:fleet:properties:storage_device_list:storage_devices:pure_service_orchestrator:arrays:flash_array:flash_arrays:section:0",
-      "source_sha256": "sha256:197d41522a9dd286cb9805a03d8a5bd782cc3f3fd95ea854bf2dfc326e83e50c",
-      "source_bytes": 99,
-      "canonical_source_sha256": "sha256:dec6e5a599e143ffc3ecc3e70bbd6209a61b853fa63c1e86949ef30292891beb",
-      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/fleet/properties/storage_device_list/storage_devices/pure_service_orchestrator/arrays/flash_array/flash_arrays/",
-      "anchor": "canonical-3302231123231130-1200133220000322-1120123000331211-2120021120300333-0312210101021321-3311211303232112-3012230333112203-3302201320332102",
-      "anchor_map": [],
-      "mode": "embedded",
-      "registry_path": "docs/guides/data-sources--fleet--reference--group-004.md"
-    },
-    {
-      "canonical_id": "xcsh-docs:data-sources:fleet:properties:storage_device_list:storage_devices:pure_service_orchestrator:arrays:flash_array:flash_arrays",
-      "section_id": "xcsh-docs:data-sources:fleet:properties:storage_device_list:storage_devices:pure_service_orchestrator:arrays:flash_array:flash_arrays:section:1",
-      "source_sha256": "sha256:e397ba498789b79aef49d70f2faa3d317f798974c7c593ffba44b2ff3500be59",
-      "source_bytes": 2606,
-      "canonical_source_sha256": "sha256:dec6e5a599e143ffc3ecc3e70bbd6209a61b853fa63c1e86949ef30292891beb",
-      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/fleet/properties/storage_device_list/storage_devices/pure_service_orchestrator/arrays/flash_array/flash_arrays/",
-      "anchor": "canonical-0103120103112332-3110333122331132-2223310021122202-0001111212302010-0020123323103000-2113020133303323-2133301002001233-1321213001101020",
-      "anchor_map": [
-        [
-          "section",
-          "canonical-3103113323013021-2013123110001301-0032021233130100-0021032201110132-2311200320133212-3200330121131233-0010210220220301-1222312111012121"
-        ]
-      ],
-      "mode": "embedded",
-      "registry_path": "docs/guides/data-sources--fleet--reference--group-004.md"
-    },
-    {
-      "canonical_id": "xcsh-docs:data-sources:fleet:properties:storage_device_list:storage_devices:pure_service_orchestrator:arrays:flash_array:flash_arrays",
-      "section_id": "xcsh-docs:data-sources:fleet:properties:storage_device_list:storage_devices:pure_service_orchestrator:arrays:flash_array:flash_arrays:section:2",
-      "source_sha256": "sha256:8bc874bf2ff30bb84ddcdf5dd403aa2ff5414952c7ed3cedc59c9009239f1cb1",
-      "source_bytes": 389,
-      "canonical_source_sha256": "sha256:dec6e5a599e143ffc3ecc3e70bbd6209a61b853fa63c1e86949ef30292891beb",
-      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/fleet/properties/storage_device_list/storage_devices/pure_service_orchestrator/arrays/flash_array/flash_arrays/",
-      "anchor": "canonical-0333123121311212-1021331101110000-2312232221321010-1021023233121322-0331302002213320-1331310010011011-2311300021303123-3133132310321223",
-      "anchor_map": [
-        [
-          "schema-storage_device_list--storage_devices--pure_service_orchestrator--arrays--flash_array--flash_arrays--labels",
-          "canonical-1112222310111031-2023132301131211-2021102110323103-2132021132303230-0011321132112203-0332222000221312-0313301331033311-3031333302322022"
-        ]
-      ],
       "mode": "embedded",
       "registry_path": "docs/guides/data-sources--fleet--reference--group-004.md"
     }

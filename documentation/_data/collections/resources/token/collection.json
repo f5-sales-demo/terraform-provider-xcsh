@@ -94,7 +94,7 @@
         "xcsh-docs:resources:token:timeouts"
       ],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -106,7 +106,7 @@
       "path": "documentation/resources/token/index.md",
       "product": "distributed-cloud",
       "provider_name": "token",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "resources",
       "registry_anchor": "canonical-1033011013002132-3200233320301222-0133100331111013-2201110031233021-3032032333322002-0033103111032332-0232210133220103-2232103023033020",
       "registry_path": "docs/resources/token.md",
@@ -135,7 +135,7 @@
       "category": "identity",
       "child_ids": ["xcsh-docs:resources:token:properties:timeouts"],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -147,7 +147,7 @@
       "path": "documentation/resources/token/properties/index.md",
       "product": "distributed-cloud",
       "provider_name": "token",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "resources",
       "registry_anchor": "canonical-0011220303302322-2103033031012202-3113213332012123-0021203310111012-1122320333101333-3213031012021212-0131120002113213-3022102111320110",
       "registry_path": "docs/guides/resources--token--reference--group-001.md",
@@ -171,7 +171,7 @@
           "type": "map"
         },
         {
-          "aliases": ["authentication", "content", "credential setup", "credentials"],
+          "aliases": ["content"],
           "anchor": "schema-content",
           "description": "Server-issued JWT registration credential.",
           "document_id": "xcsh-docs:resources:token:reference",
@@ -311,7 +311,7 @@
           "type": "number"
         },
         {
-          "aliases": ["authentication", "credential setup", "credentials", "uid"],
+          "aliases": ["uid"],
           "anchor": "schema-uid",
           "description": "Effective sensitive CE registration credential. NORMAL tokens use `system_metadata.uid`; JWT tokens use `spec.content`. This value is stored in plain text in the Terraform state file; ensure your state file is properly secured.",
           "document_id": "xcsh-docs:resources:token:reference",
@@ -344,7 +344,7 @@
       "category": "identity",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -356,7 +356,7 @@
       "path": "documentation/resources/token/properties/timeouts/index.md",
       "product": "distributed-cloud",
       "provider_name": "token",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "resources",
       "registry_anchor": "canonical-3121231312030123-0333320233101011-1021110000110333-0023122210230311-2333030012111020-3311200302211321-0203002333021021-1310322211101202",
       "registry_path": "docs/guides/resources--token--reference--group-001.md",
@@ -441,7 +441,7 @@
       "category": "identity",
       "child_ids": ["xcsh-docs:resources:token:example:resource"],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -453,7 +453,7 @@
       "path": "documentation/resources/token/examples/index.md",
       "product": "distributed-cloud",
       "provider_name": "token",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "resources",
       "registry_anchor": "canonical-1231001331010212-1313303001022020-1211202200302331-3202013321101030-2030333303033133-2200310331003311-3031023232120123-0203113200222102",
       "registry_path": "docs/guides/resources--token--examples--group-001.md",
@@ -481,7 +481,7 @@
       "category": "identity",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -500,7 +500,7 @@
       "path": "documentation/resources/token/examples/resource/index.md",
       "product": "distributed-cloud",
       "provider_name": "token",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "resources",
       "registry_anchor": "canonical-2101330310331202-0332121202233333-3312120320221103-2222113332330330-0203101000211121-0112012123211223-2321302231333312-3120102111310332",
       "registry_path": "docs/guides/resources--token--examples--group-001.md",
@@ -528,7 +528,7 @@
       "category": "identity",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -541,7 +541,7 @@
       "path": "documentation/resources/token/lifecycle/import/index.md",
       "product": "distributed-cloud",
       "provider_name": "token",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "resources",
       "registry_anchor": "canonical-3131222232031130-1102111221001201-1310323230133202-1310100223300000-2132132202210232-0122021232113323-2003233122130213-1021331220333332",
       "registry_path": "docs/guides/resources--token--lifecycle--group-001.md",
@@ -569,7 +569,7 @@
       "category": "identity",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -581,7 +581,7 @@
       "path": "documentation/resources/token/lifecycle/timeouts/index.md",
       "product": "distributed-cloud",
       "provider_name": "token",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "resources",
       "registry_anchor": "canonical-1130320132012022-0212013111310131-2031311231301312-0021130002321003-2133300131331222-1311133312221113-2332000230210302-3320300300313032",
       "registry_path": "docs/guides/resources--token--lifecycle--group-001.md",

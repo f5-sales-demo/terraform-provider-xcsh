@@ -75,7 +75,7 @@
         "xcsh-docs:resources:smsv2_kvm_runtime_interface:examples"
       ],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -87,7 +87,7 @@
       "path": "documentation/resources/smsv2_kvm_runtime_interface/index.md",
       "product": "distributed-cloud",
       "provider_name": "smsv2_kvm_runtime_interface",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "resources",
       "registry_anchor": "canonical-0233003001122211-1020213201010101-2002322101121221-3331312002100322-3220301113102331-2301333011333001-3210222301200020-1102130003212303",
       "registry_path": "docs/resources/smsv2_kvm_runtime_interface.md",
@@ -116,7 +116,7 @@
       "category": "infrastructure",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -128,7 +128,7 @@
       "path": "documentation/resources/smsv2_kvm_runtime_interface/properties/index.md",
       "product": "distributed-cloud",
       "provider_name": "smsv2_kvm_runtime_interface",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "resources",
       "registry_anchor": "canonical-3012122202201230-2332231032003301-1332213012132300-3230003001013213-3113211202002223-1111020221310310-3232001000230113-0323321321201001",
       "registry_path": "docs/guides/resources--smsv2_kvm_runtime_interface--reference--group-001.md",
@@ -311,7 +311,7 @@
       "category": "infrastructure",
       "child_ids": ["xcsh-docs:resources:smsv2_kvm_runtime_interface:example:resource"],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -323,7 +323,7 @@
       "path": "documentation/resources/smsv2_kvm_runtime_interface/examples/index.md",
       "product": "distributed-cloud",
       "provider_name": "smsv2_kvm_runtime_interface",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "resources",
       "registry_anchor": "canonical-3011002130312120-1033333003130030-2223021023111030-1210133003313201-0020030302311203-3333330322030123-2222303322223031-0332113320101331",
       "registry_path": "docs/guides/resources--smsv2_kvm_runtime_interface--examples--group-001.md",
@@ -351,7 +351,7 @@
       "category": "infrastructure",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -370,7 +370,7 @@
       "path": "documentation/resources/smsv2_kvm_runtime_interface/examples/resource/index.md",
       "product": "distributed-cloud",
       "provider_name": "smsv2_kvm_runtime_interface",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "resources",
       "registry_anchor": "canonical-2101230030301211-1101032323033100-1030311030320223-1330001120102223-0113331110210010-0323230232320002-0022332030232231-3220223233211313",
       "registry_path": "docs/guides/resources--smsv2_kvm_runtime_interface--examples--group-001.md",

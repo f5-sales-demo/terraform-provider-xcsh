@@ -1074,7 +1074,7 @@
   },
   "pages": [
     {
-      "aliases": ["backend servers", "origin servers", "tcp loadbalancer", "upstream servers"],
+      "aliases": ["tcp loadbalancer"],
       "body_bytes": 1858,
       "body_sha256": "sha256:7398486b847a41c597771207f93b1f48463b28d0784a616e9a04f64e62cda4e7",
       "capabilities": ["load-balancing"],
@@ -1086,7 +1086,7 @@
         "xcsh-docs:resources:tcp_loadbalancer:timeouts"
       ],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -1098,7 +1098,7 @@
       "path": "documentation/resources/tcp_loadbalancer/index.md",
       "product": "distributed-cloud",
       "provider_name": "tcp_loadbalancer",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "resources",
       "registry_anchor": "canonical-3323211002020332-1021200301211012-2311222223233022-1102201001122211-1023322232300130-0300323320330112-1021022331100101-3210113012102001",
       "registry_path": "docs/resources/tcp_loadbalancer.md",
@@ -1164,7 +1164,7 @@
         "xcsh-docs:resources:tcp_loadbalancer:properties:tls_tcp_auto_cert"
       ],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -1176,7 +1176,7 @@
       "path": "documentation/resources/tcp_loadbalancer/properties/index.md",
       "product": "distributed-cloud",
       "provider_name": "tcp_loadbalancer",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "resources",
       "registry_anchor": "canonical-2012213313231232-3113222123311030-1312023102102220-1333030303022022-3132112211312313-0310133313220331-3313212213313330-2132122131111001",
       "registry_path": "docs/guides/resources--tcp_loadbalancer--reference--group-001.md",
@@ -1655,7 +1655,7 @@
           "type": "object"
         },
         {
-          "aliases": ["cert", "certificate", "existing certificates", "tls certificates", "tls tcp"],
+          "aliases": ["tls tcp"],
           "anchor": "section",
           "description": "Choice for selecting TLS over TCP proxy with bring your own certificates.",
           "document_id": "xcsh-docs:resources:tcp_loadbalancer:properties:tls_tcp",
@@ -1686,7 +1686,7 @@
           "type": "object"
         },
         {
-          "aliases": ["cert", "certificate", "existing certificates", "tls certificates", "tls tcp auto cert"],
+          "aliases": ["tls tcp auto cert"],
           "anchor": "section",
           "description": "Choice for selecting TLS over TCP proxy with automatic certificates.",
           "document_id": "xcsh-docs:resources:tcp_loadbalancer:properties:tls_tcp_auto_cert",
@@ -1736,7 +1736,7 @@
       "category": "load-balancing",
       "child_ids": ["xcsh-docs:resources:tcp_loadbalancer:properties:active_service_policies:policies"],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -1748,7 +1748,7 @@
       "path": "documentation/resources/tcp_loadbalancer/properties/active_service_policies/index.md",
       "product": "distributed-cloud",
       "provider_name": "tcp_loadbalancer",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "resources",
       "registry_anchor": "canonical-2123332010300020-1023231311030232-1300031122101011-1032023203210220-1200333010322303-0323133123222003-1020130133223133-1112131030203102",
       "registry_path": "docs/guides/resources--tcp_loadbalancer--reference--group-001.md",
@@ -1809,7 +1809,7 @@
       "category": "load-balancing",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -1821,7 +1821,7 @@
       "path": "documentation/resources/tcp_loadbalancer/properties/active_service_policies/policies/index.md",
       "product": "distributed-cloud",
       "provider_name": "tcp_loadbalancer",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "resources",
       "registry_anchor": "canonical-3131001221313221-0211331023022001-0110003203230011-1312001122213133-2111103232033312-0120333101021323-2203101020232232-3010122220001001",
       "registry_path": "docs/guides/resources--tcp_loadbalancer--reference--group-001.md",
@@ -1901,7 +1901,7 @@
       "category": "load-balancing",
       "child_ids": ["xcsh-docs:resources:tcp_loadbalancer:properties:advertise_custom:advertise_where"],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -1913,7 +1913,7 @@
       "path": "documentation/resources/tcp_loadbalancer/properties/advertise_custom/index.md",
       "product": "distributed-cloud",
       "provider_name": "tcp_loadbalancer",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "resources",
       "registry_anchor": "canonical-0101013130323102-0111020001013232-1223003210233021-3112202320110020-1310022023311310-1003000113120300-2312202022202013-0222311212101130",
       "registry_path": "docs/guides/resources--tcp_loadbalancer--reference--group-001.md",
@@ -2472,7 +2472,7 @@
         "xcsh-docs:resources:tcp_loadbalancer:properties:advertise_custom:advertise_where:vk8s_service"
       ],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -2484,7 +2484,7 @@
       "path": "documentation/resources/tcp_loadbalancer/properties/advertise_custom/advertise_where/index.md",
       "product": "distributed-cloud",
       "provider_name": "tcp_loadbalancer",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "resources",
       "registry_anchor": "canonical-2220031130203102-2210011003013002-3311212001302200-0330220102220213-0312033302222203-3301311320102322-2002200311110023-0013020221203332",
       "registry_path": "docs/guides/resources--tcp_loadbalancer--reference--group-001.md",
@@ -3216,7 +3216,7 @@
         "xcsh-docs:resources:tcp_loadbalancer:properties:advertise_custom:advertise_where:advertise_dualstack_on_public:public_ip"
       ],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -3228,7 +3228,7 @@
       "path": "documentation/resources/tcp_loadbalancer/properties/advertise_custom/advertise_where/advertise_dualstack_on_public/index.md",
       "product": "distributed-cloud",
       "provider_name": "tcp_loadbalancer",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "resources",
       "registry_anchor": "canonical-3021201332333301-1221103113230301-2222130122300123-1303203313031312-2113012101013220-3333202101332112-3112113102220123-3003103203310001",
       "registry_path": "docs/guides/resources--tcp_loadbalancer--reference--group-001.md",
@@ -3280,7 +3280,7 @@
       "category": "load-balancing",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -3292,7 +3292,7 @@
       "path": "documentation/resources/tcp_loadbalancer/properties/advertise_custom/advertise_where/advertise_dualstack_on_public/public_ip/index.md",
       "product": "distributed-cloud",
       "provider_name": "tcp_loadbalancer",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "resources",
       "registry_anchor": "canonical-2302312312303212-3133301300110213-2212211221023002-2212112003010020-2322330212112320-0032013303322111-1102103121032303-0000120110201313",
       "registry_path": "docs/guides/resources--tcp_loadbalancer--reference--group-001.md",
@@ -3386,7 +3386,7 @@
         "xcsh-docs:resources:tcp_loadbalancer:properties:advertise_custom:advertise_where:advertise_on_public:public_ip"
       ],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -3398,7 +3398,7 @@
       "path": "documentation/resources/tcp_loadbalancer/properties/advertise_custom/advertise_where/advertise_on_public/index.md",
       "product": "distributed-cloud",
       "provider_name": "tcp_loadbalancer",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "resources",
       "registry_anchor": "canonical-3313033122011113-0012321000120221-3030301223212102-0322311032301001-1312203032330232-1233032011232103-2302012030122212-0020323220220130",
       "registry_path": "docs/guides/resources--tcp_loadbalancer--reference--group-001.md",
@@ -3450,7 +3450,7 @@
       "category": "load-balancing",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -3462,7 +3462,7 @@
       "path": "documentation/resources/tcp_loadbalancer/properties/advertise_custom/advertise_where/advertise_on_public/public_ip/index.md",
       "product": "distributed-cloud",
       "provider_name": "tcp_loadbalancer",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "resources",
       "registry_anchor": "canonical-0121132110213323-3121330201102232-2300130311101220-3121032120210331-2122312032032232-3331211232221233-1213102221212133-3203022130100213",
       "registry_path": "docs/guides/resources--tcp_loadbalancer--reference--group-001.md",
@@ -3544,7 +3544,7 @@
         "xcsh-docs:resources:tcp_loadbalancer:properties:advertise_custom:advertise_where:advertise_v6_on_public:public_ip"
       ],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -3556,7 +3556,7 @@
       "path": "documentation/resources/tcp_loadbalancer/properties/advertise_custom/advertise_where/advertise_v6_on_public/index.md",
       "product": "distributed-cloud",
       "provider_name": "tcp_loadbalancer",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "resources",
       "registry_anchor": "canonical-0020010320102332-2030221110332020-0302003031113211-1211232110302323-2133310300202132-3131311232123211-3120121031321210-1201000300021230",
       "registry_path": "docs/guides/resources--tcp_loadbalancer--reference--group-001.md",
@@ -3608,7 +3608,7 @@
       "category": "load-balancing",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -3620,7 +3620,7 @@
       "path": "documentation/resources/tcp_loadbalancer/properties/advertise_custom/advertise_where/advertise_v6_on_public/public_ip/index.md",
       "product": "distributed-cloud",
       "provider_name": "tcp_loadbalancer",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "resources",
       "registry_anchor": "canonical-0013123222000011-2102200221113321-2212131130321231-1103213322233220-1212121101221010-2300021213130011-1000113000130132-1011112310302222",
       "registry_path": "docs/guides/resources--tcp_loadbalancer--reference--group-001.md",
@@ -3700,7 +3700,7 @@
       "category": "load-balancing",
       "child_ids": ["xcsh-docs:resources:tcp_loadbalancer:properties:advertise_custom:advertise_where:site:site"],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -3712,7 +3712,7 @@
       "path": "documentation/resources/tcp_loadbalancer/properties/advertise_custom/advertise_where/site/index.md",
       "product": "distributed-cloud",
       "provider_name": "tcp_loadbalancer",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "resources",
       "registry_anchor": "canonical-0212220231301321-1302012333301320-1033203121232320-2312031111320321-1011312223000220-2301211003310223-0322223221300313-1111000033023321",
       "registry_path": "docs/guides/resources--tcp_loadbalancer--reference--group-001.md",
@@ -3792,7 +3792,7 @@
       "category": "load-balancing",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -3804,7 +3804,7 @@
       "path": "documentation/resources/tcp_loadbalancer/properties/advertise_custom/advertise_where/site/site/index.md",
       "product": "distributed-cloud",
       "provider_name": "tcp_loadbalancer",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "resources",
       "registry_anchor": "canonical-2000212032131230-3031223031320310-3321022200321323-0112030200221113-2110233200133223-2101230233220331-2111000321222102-1031313203321122",
       "registry_path": "docs/guides/resources--tcp_loadbalancer--reference--group-001.md",
@@ -3884,7 +3884,7 @@
       "category": "load-balancing",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -3896,7 +3896,7 @@
       "path": "documentation/resources/tcp_loadbalancer/properties/advertise_custom/advertise_where/use_default_port/index.md",
       "product": "distributed-cloud",
       "provider_name": "tcp_loadbalancer",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "resources",
       "registry_anchor": "canonical-1101203011303313-3221210002023210-0302033021031331-2121122302332230-3323030202321000-3001331232322320-3330220021022113-1030311210112112",
       "registry_path": "docs/guides/resources--tcp_loadbalancer--reference--group-001.md",
@@ -3928,7 +3928,7 @@
         "xcsh-docs:resources:tcp_loadbalancer:properties:advertise_custom:advertise_where:virtual_network:virtual_network"
       ],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -3940,7 +3940,7 @@
       "path": "documentation/resources/tcp_loadbalancer/properties/advertise_custom/advertise_where/virtual_network/index.md",
       "product": "distributed-cloud",
       "provider_name": "tcp_loadbalancer",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "resources",
       "registry_anchor": "canonical-1003112313011332-2020131311011001-0030223322103102-1202300132320101-1111022212122021-1030301120012112-0331021223030333-0330020330031020",
       "registry_path": "docs/guides/resources--tcp_loadbalancer--reference--group-001.md",
@@ -4081,7 +4081,7 @@
       "category": "load-balancing",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -4093,7 +4093,7 @@
       "path": "documentation/resources/tcp_loadbalancer/properties/advertise_custom/advertise_where/virtual_network/default_v6_vip/index.md",
       "product": "distributed-cloud",
       "provider_name": "tcp_loadbalancer",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "resources",
       "registry_anchor": "canonical-3022220111330023-2033301113121011-0103101011332303-2132012011023202-2013032210001032-3030011120200301-1033300322022213-2033331112303313",
       "registry_path": "docs/guides/resources--tcp_loadbalancer--reference--group-001.md",
@@ -4121,7 +4121,7 @@
       "category": "load-balancing",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -4133,7 +4133,7 @@
       "path": "documentation/resources/tcp_loadbalancer/properties/advertise_custom/advertise_where/virtual_network/default_vip/index.md",
       "product": "distributed-cloud",
       "provider_name": "tcp_loadbalancer",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "resources",
       "registry_anchor": "canonical-2032130230213230-3303113002020202-3030213303311100-1301120021221311-2201300123303031-2332211032000302-1000323111133012-2212221120012222",
       "registry_path": "docs/guides/resources--tcp_loadbalancer--reference--group-001.md",
@@ -4161,7 +4161,7 @@
       "category": "load-balancing",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -4173,7 +4173,7 @@
       "path": "documentation/resources/tcp_loadbalancer/properties/advertise_custom/advertise_where/virtual_network/virtual_network/index.md",
       "product": "distributed-cloud",
       "provider_name": "tcp_loadbalancer",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "resources",
       "registry_anchor": "canonical-0320000010022301-3300003102221232-3203200210312200-0013230101012112-0012033102333001-2000100301113312-3220103030121213-2102232111101311",
       "registry_path": "docs/guides/resources--tcp_loadbalancer--reference--group-001.md",
@@ -4255,7 +4255,7 @@
         "xcsh-docs:resources:tcp_loadbalancer:properties:advertise_custom:advertise_where:virtual_site:virtual_site"
       ],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -4267,7 +4267,7 @@
       "path": "documentation/resources/tcp_loadbalancer/properties/advertise_custom/advertise_where/virtual_site/index.md",
       "product": "distributed-cloud",
       "provider_name": "tcp_loadbalancer",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "resources",
       "registry_anchor": "canonical-1122231030213111-1302221130230031-0331311330131011-0113323220002101-1200331300203123-1110330313212100-3233313332101212-2310321002101013",
       "registry_path": "docs/guides/resources--tcp_loadbalancer--reference--group-001.md",
@@ -4333,7 +4333,7 @@
       "category": "load-balancing",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -4345,7 +4345,7 @@
       "path": "documentation/resources/tcp_loadbalancer/properties/advertise_custom/advertise_where/virtual_site/virtual_site/index.md",
       "product": "distributed-cloud",
       "provider_name": "tcp_loadbalancer",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "resources",
       "registry_anchor": "canonical-0023122310132301-1032230311102222-0133211121311212-1302103110110131-0202200031103103-1312221201211012-0012101231330202-1301002220111023",
       "registry_path": "docs/guides/resources--tcp_loadbalancer--reference--group-001.md",
@@ -4427,7 +4427,7 @@
         "xcsh-docs:resources:tcp_loadbalancer:properties:advertise_custom:advertise_where:virtual_site_with_vip:virtual_site"
       ],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -4439,7 +4439,7 @@
       "path": "documentation/resources/tcp_loadbalancer/properties/advertise_custom/advertise_where/virtual_site_with_vip/index.md",
       "product": "distributed-cloud",
       "provider_name": "tcp_loadbalancer",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "resources",
       "registry_anchor": "canonical-1121201333003001-3211103001030232-1120020013233002-1201212112111322-2313032201232300-2313132333210321-3020122003000202-2203220100301301",
       "registry_path": "docs/guides/resources--tcp_loadbalancer--reference--group-001.md",
@@ -4519,7 +4519,7 @@
       "category": "load-balancing",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -4531,7 +4531,7 @@
       "path": "documentation/resources/tcp_loadbalancer/properties/advertise_custom/advertise_where/virtual_site_with_vip/virtual_site/index.md",
       "product": "distributed-cloud",
       "provider_name": "tcp_loadbalancer",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "resources",
       "registry_anchor": "canonical-2011102020302121-2213133103233212-3030222111013333-1023313331013001-1123031331021123-0203213100310001-2101011002203333-2033111322013123",
       "registry_path": "docs/guides/resources--tcp_loadbalancer--reference--group-001.md",
@@ -4614,7 +4614,7 @@
         "xcsh-docs:resources:tcp_loadbalancer:properties:advertise_custom:advertise_where:vk8s_service:virtual_site"
       ],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -4626,7 +4626,7 @@
       "path": "documentation/resources/tcp_loadbalancer/properties/advertise_custom/advertise_where/vk8s_service/index.md",
       "product": "distributed-cloud",
       "provider_name": "tcp_loadbalancer",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "resources",
       "registry_anchor": "canonical-2310032102311332-1320010320220300-3000131113132003-3031300330001303-3011312212131020-2233012333120212-1031220012331120-3102210330032022",
       "registry_path": "docs/guides/resources--tcp_loadbalancer--reference--group-001.md",
@@ -4718,7 +4718,7 @@
       "category": "load-balancing",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -4730,7 +4730,7 @@
       "path": "documentation/resources/tcp_loadbalancer/properties/advertise_custom/advertise_where/vk8s_service/site/index.md",
       "product": "distributed-cloud",
       "provider_name": "tcp_loadbalancer",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "resources",
       "registry_anchor": "canonical-0011122310030103-3322230232311222-2232133023303210-2301302032000120-3001000330230130-0232311010133030-1021101232130312-2031310113021012",
       "registry_path": "docs/guides/resources--tcp_loadbalancer--reference--group-001.md",
@@ -4810,7 +4810,7 @@
       "category": "load-balancing",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -4822,7 +4822,7 @@
       "path": "documentation/resources/tcp_loadbalancer/properties/advertise_custom/advertise_where/vk8s_service/virtual_site/index.md",
       "product": "distributed-cloud",
       "provider_name": "tcp_loadbalancer",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "resources",
       "registry_anchor": "canonical-0102002101330311-3203311313223300-1030302122122311-2331332203030221-0201130111312302-1310112222312130-3133301001133013-2333130010233330",
       "registry_path": "docs/guides/resources--tcp_loadbalancer--reference--group-002.md",
@@ -4902,7 +4902,7 @@
       "category": "load-balancing",
       "child_ids": ["xcsh-docs:resources:tcp_loadbalancer:properties:advertise_on_public:public_ip"],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -4914,7 +4914,7 @@
       "path": "documentation/resources/tcp_loadbalancer/properties/advertise_on_public/index.md",
       "product": "distributed-cloud",
       "provider_name": "tcp_loadbalancer",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "resources",
       "registry_anchor": "canonical-1101101122210003-2330111331303010-2130211300213202-2120322121300012-2033321200023022-3103313203330222-2302000021033232-1221001021130221",
       "registry_path": "docs/guides/resources--tcp_loadbalancer--reference--group-002.md",
@@ -4966,7 +4966,7 @@
       "category": "load-balancing",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -4978,7 +4978,7 @@
       "path": "documentation/resources/tcp_loadbalancer/properties/advertise_on_public/public_ip/index.md",
       "product": "distributed-cloud",
       "provider_name": "tcp_loadbalancer",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "resources",
       "registry_anchor": "canonical-1202122111210021-3012203133200102-2103133031030132-1001321000010000-0321112231023232-3212123332122232-0230203020213311-2312120301320102",
       "registry_path": "docs/guides/resources--tcp_loadbalancer--reference--group-002.md",
@@ -5058,7 +5058,7 @@
       "category": "load-balancing",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -5070,7 +5070,7 @@
       "path": "documentation/resources/tcp_loadbalancer/properties/advertise_on_public_default_vip/index.md",
       "product": "distributed-cloud",
       "provider_name": "tcp_loadbalancer",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "resources",
       "registry_anchor": "canonical-3333100232210200-1000122300031311-3012302322223020-3032022132323133-3310012110333012-2333013330001120-1130222201132013-1120103002011310",
       "registry_path": "docs/guides/resources--tcp_loadbalancer--reference--group-002.md",
@@ -5098,7 +5098,7 @@
       "category": "load-balancing",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -5110,7 +5110,7 @@
       "path": "documentation/resources/tcp_loadbalancer/properties/default_lb_with_sni/index.md",
       "product": "distributed-cloud",
       "provider_name": "tcp_loadbalancer",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "resources",
       "registry_anchor": "canonical-1233300113221313-3110203321303320-1132100212321211-3233111001220210-2202120330231303-1320322300203123-3132233222313123-1030123011100010",
       "registry_path": "docs/guides/resources--tcp_loadbalancer--reference--group-002.md",
@@ -5138,7 +5138,7 @@
       "category": "load-balancing",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -5150,7 +5150,7 @@
       "path": "documentation/resources/tcp_loadbalancer/properties/do_not_advertise/index.md",
       "product": "distributed-cloud",
       "provider_name": "tcp_loadbalancer",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "resources",
       "registry_anchor": "canonical-2322213221112110-0231131200021100-2323031112011321-2113223331230331-1110202310201022-0323112230111011-3203121033311100-1130120122122120",
       "registry_path": "docs/guides/resources--tcp_loadbalancer--reference--group-002.md",
@@ -5178,7 +5178,7 @@
       "category": "load-balancing",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -5190,7 +5190,7 @@
       "path": "documentation/resources/tcp_loadbalancer/properties/do_not_retract_cluster/index.md",
       "product": "distributed-cloud",
       "provider_name": "tcp_loadbalancer",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "resources",
       "registry_anchor": "canonical-2322113213320330-0102033300000032-1130020131303320-1130033301222310-0100131123323030-1300033212333030-2033201321130131-2130003330320013",
       "registry_path": "docs/guides/resources--tcp_loadbalancer--reference--group-002.md",
@@ -5218,7 +5218,7 @@
       "category": "load-balancing",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -5230,7 +5230,7 @@
       "path": "documentation/resources/tcp_loadbalancer/properties/hash_policy_choice_least_active/index.md",
       "product": "distributed-cloud",
       "provider_name": "tcp_loadbalancer",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "resources",
       "registry_anchor": "canonical-3231312101111010-1230322232102131-1310111121030233-1233021020330300-2012003120131022-3230203210022022-1331310221131200-1310111032002330",
       "registry_path": "docs/guides/resources--tcp_loadbalancer--reference--group-002.md",
@@ -5258,7 +5258,7 @@
       "category": "load-balancing",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -5270,7 +5270,7 @@
       "path": "documentation/resources/tcp_loadbalancer/properties/hash_policy_choice_random/index.md",
       "product": "distributed-cloud",
       "provider_name": "tcp_loadbalancer",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "resources",
       "registry_anchor": "canonical-2133201212213303-3220313201223303-0031130110231110-1213131231101232-3321233020122003-3302010033002303-0202202110320320-1222200211330032",
       "registry_path": "docs/guides/resources--tcp_loadbalancer--reference--group-002.md",
@@ -5298,7 +5298,7 @@
       "category": "load-balancing",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -5310,7 +5310,7 @@
       "path": "documentation/resources/tcp_loadbalancer/properties/hash_policy_choice_round_robin/index.md",
       "product": "distributed-cloud",
       "provider_name": "tcp_loadbalancer",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "resources",
       "registry_anchor": "canonical-2011303133011102-2021121122120220-1133330230131122-0002121330231010-2103102030013022-2020210201310012-0000100210012131-3213113301223032",
       "registry_path": "docs/guides/resources--tcp_loadbalancer--reference--group-002.md",
@@ -5338,7 +5338,7 @@
       "category": "load-balancing",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -5350,7 +5350,7 @@
       "path": "documentation/resources/tcp_loadbalancer/properties/hash_policy_choice_source_ip_stickiness/index.md",
       "product": "distributed-cloud",
       "provider_name": "tcp_loadbalancer",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "resources",
       "registry_anchor": "canonical-3123323133211320-2223021102110033-2023122331312031-1312102001331031-2023122213321233-0303012321200222-1233301221213131-3010122320223012",
       "registry_path": "docs/guides/resources--tcp_loadbalancer--reference--group-002.md",
@@ -5378,7 +5378,7 @@
       "category": "load-balancing",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -5390,7 +5390,7 @@
       "path": "documentation/resources/tcp_loadbalancer/properties/no_service_policies/index.md",
       "product": "distributed-cloud",
       "provider_name": "tcp_loadbalancer",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "resources",
       "registry_anchor": "canonical-0211303031122133-3002101102330112-3303102231112031-0323212233100110-3023331222023022-0122331220121021-0201223330103012-0220122230220001",
       "registry_path": "docs/guides/resources--tcp_loadbalancer--reference--group-002.md",
@@ -5418,7 +5418,7 @@
       "category": "load-balancing",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -5430,7 +5430,7 @@
       "path": "documentation/resources/tcp_loadbalancer/properties/no_sni/index.md",
       "product": "distributed-cloud",
       "provider_name": "tcp_loadbalancer",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "resources",
       "registry_anchor": "canonical-0332121320022012-0131110131002221-3211220033203220-3333221011312320-1303130303113032-2011002222333033-3001212201031002-1010101011201223",
       "registry_path": "docs/guides/resources--tcp_loadbalancer--reference--group-002.md",
@@ -5462,7 +5462,7 @@
         "xcsh-docs:resources:tcp_loadbalancer:properties:origin_pools_weights:pool"
       ],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -5474,7 +5474,7 @@
       "path": "documentation/resources/tcp_loadbalancer/properties/origin_pools_weights/index.md",
       "product": "distributed-cloud",
       "provider_name": "tcp_loadbalancer",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "resources",
       "registry_anchor": "canonical-2100010003132033-1331210120313310-0212003223033302-1320122132000102-1302201010312200-3333221331300211-3332023322113011-0102012310233122",
       "registry_path": "docs/guides/resources--tcp_loadbalancer--reference--group-002.md",
@@ -5524,7 +5524,7 @@
           "type": "object"
         },
         {
-          "aliases": ["backend servers", "endpoint subsets", "origin servers", "upstream servers"],
+          "aliases": ["endpoint subsets"],
           "anchor": "section",
           "description": "Upstream origin pool may be configured to divide its origin servers into subsets based on metadata attached to the origin servers. Routes may then specify the metadata that a endpoint must match in order to be selected by the load balancer For origin servers which are discovered in K8s or Consul cluster, the label of",
           "document_id": "xcsh-docs:resources:tcp_loadbalancer:properties:origin_pools_weights:endpoint_subsets",
@@ -5561,7 +5561,7 @@
           "type": "object"
         },
         {
-          "aliases": ["backend servers", "origin servers", "priority", "upstream servers"],
+          "aliases": ["priority"],
           "anchor": "schema-origin_pools_weights--priority",
           "description": "Priority of this origin pool, valid only with multiple origin pools. Value of 0 will make the pool as lowest priority origin pool Priority of 1 means highest priority and is considered active. When active origin pool is not available, lower priority origin pools are made active as per the increasing priority.",
           "document_id": "xcsh-docs:resources:tcp_loadbalancer:properties:origin_pools_weights",
@@ -5575,7 +5575,7 @@
           "type": "number"
         },
         {
-          "aliases": ["backend servers", "origin servers", "upstream servers", "weight"],
+          "aliases": ["weight"],
           "anchor": "schema-origin_pools_weights--weight",
           "description": "Weight of this origin pool, valid only with multiple origin pool. Value of 0 will disable the pool.",
           "document_id": "xcsh-docs:resources:tcp_loadbalancer:properties:origin_pools_weights",
@@ -5601,14 +5601,14 @@
       }
     },
     {
-      "aliases": ["backend servers", "origin pools weights cluster", "origin servers", "upstream servers"],
+      "aliases": ["origin pools weights cluster"],
       "body_bytes": 6096,
       "body_sha256": "sha256:50e7074c55298807f2bff0f7b36eb3b5f059d07d6d0d8e2bb8a3a4ad070c61e0",
       "capabilities": ["load-balancing"],
       "category": "load-balancing",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -5620,7 +5620,7 @@
       "path": "documentation/resources/tcp_loadbalancer/properties/origin_pools_weights/cluster/index.md",
       "product": "distributed-cloud",
       "provider_name": "tcp_loadbalancer",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "resources",
       "registry_anchor": "canonical-1011120330133113-3221310102110212-3012110211103032-1212313330022332-2303330232010101-3212113330300201-2331100110002001-3330111113013333",
       "registry_path": "docs/guides/resources--tcp_loadbalancer--reference--group-002.md",
@@ -5693,14 +5693,14 @@
       }
     },
     {
-      "aliases": ["backend servers", "origin pools weights endpoint subsets", "origin servers", "upstream servers"],
+      "aliases": ["origin pools weights endpoint subsets"],
       "body_bytes": 2449,
       "body_sha256": "sha256:5f435eaefa01fe11563a47e3283d1d36808918971708f763859c0fa462a3a371",
       "capabilities": ["load-balancing"],
       "category": "load-balancing",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -5712,7 +5712,7 @@
       "path": "documentation/resources/tcp_loadbalancer/properties/origin_pools_weights/endpoint_subsets/index.md",
       "product": "distributed-cloud",
       "provider_name": "tcp_loadbalancer",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "resources",
       "registry_anchor": "canonical-0233132302001113-1013122023210222-1222022303323200-3120101033031121-0232202032202111-0031100302133121-1303233330230201-1301123310033123",
       "registry_path": "docs/guides/resources--tcp_loadbalancer--reference--group-002.md",
@@ -5733,14 +5733,14 @@
       }
     },
     {
-      "aliases": ["backend servers", "origin pools weights pool", "origin servers", "upstream servers"],
+      "aliases": ["origin pools weights pool"],
       "body_bytes": 6078,
       "body_sha256": "sha256:a187baa27ce19cb68a351717b7c929c1382906c40b26a6f80b9284dd6dff2ad5",
       "capabilities": ["load-balancing"],
       "category": "load-balancing",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -5752,7 +5752,7 @@
       "path": "documentation/resources/tcp_loadbalancer/properties/origin_pools_weights/pool/index.md",
       "product": "distributed-cloud",
       "provider_name": "tcp_loadbalancer",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "resources",
       "registry_anchor": "canonical-0101012032110312-0012103013221021-2000123112202033-2211320112310201-0213110000103010-1321023222113211-3031331212323121-2320012220221031",
       "registry_path": "docs/guides/resources--tcp_loadbalancer--reference--group-002.md",
@@ -5832,7 +5832,7 @@
       "category": "load-balancing",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -5844,7 +5844,7 @@
       "path": "documentation/resources/tcp_loadbalancer/properties/retract_cluster/index.md",
       "product": "distributed-cloud",
       "provider_name": "tcp_loadbalancer",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "resources",
       "registry_anchor": "canonical-2203330232231221-0231100222101101-2032200123103102-3022031012302100-0322123221223231-2330022031223301-3202022122302011-3102020113332333",
       "registry_path": "docs/guides/resources--tcp_loadbalancer--reference--group-002.md",
@@ -5872,7 +5872,7 @@
       "category": "load-balancing",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -5884,7 +5884,7 @@
       "path": "documentation/resources/tcp_loadbalancer/properties/service_policies_from_namespace/index.md",
       "product": "distributed-cloud",
       "provider_name": "tcp_loadbalancer",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "resources",
       "registry_anchor": "canonical-1302000233122001-0330320220303103-0201012112213303-1133102211110130-2333133012210201-3013203312103310-2212130213030102-1122113100303223",
       "registry_path": "docs/guides/resources--tcp_loadbalancer--reference--group-002.md",
@@ -5912,7 +5912,7 @@
       "category": "load-balancing",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -5924,7 +5924,7 @@
       "path": "documentation/resources/tcp_loadbalancer/properties/sni/index.md",
       "product": "distributed-cloud",
       "provider_name": "tcp_loadbalancer",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "resources",
       "registry_anchor": "canonical-1211312003133330-1223211300322220-2113300203322232-3010131033013022-2332011121303131-3303223200010132-3300002312210210-2000310102320322",
       "registry_path": "docs/guides/resources--tcp_loadbalancer--reference--group-002.md",
@@ -5952,7 +5952,7 @@
       "category": "load-balancing",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -5964,7 +5964,7 @@
       "path": "documentation/resources/tcp_loadbalancer/properties/tcp/index.md",
       "product": "distributed-cloud",
       "provider_name": "tcp_loadbalancer",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "resources",
       "registry_anchor": "canonical-2220232031020123-0333221323000013-0330311311100200-2313132103001132-1300312202210020-1103313303133002-0011300213213202-1132012101023211",
       "registry_path": "docs/guides/resources--tcp_loadbalancer--reference--group-002.md",
@@ -5992,7 +5992,7 @@
       "category": "load-balancing",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -6004,7 +6004,7 @@
       "path": "documentation/resources/tcp_loadbalancer/properties/timeouts/index.md",
       "product": "distributed-cloud",
       "provider_name": "tcp_loadbalancer",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "resources",
       "registry_anchor": "canonical-1223011333230122-2303021022201212-1030021321212322-1311000300020110-1130221333112233-3223223303001030-2231022021122211-0113200021221011",
       "registry_path": "docs/guides/resources--tcp_loadbalancer--reference--group-002.md",
@@ -6082,7 +6082,7 @@
       }
     },
     {
-      "aliases": ["cert", "certificate", "existing certificates", "tls certificates", "tls tcp"],
+      "aliases": ["tls tcp"],
       "body_bytes": 1957,
       "body_sha256": "sha256:ae8b7e0738d13037bd57aedcf2efac7d903e007eab979a0176b1f60d3563778a",
       "capabilities": ["load-balancing"],
@@ -6092,7 +6092,7 @@
         "xcsh-docs:resources:tcp_loadbalancer:properties:tls_tcp:tls_parameters"
       ],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -6104,7 +6104,7 @@
       "path": "documentation/resources/tcp_loadbalancer/properties/tls_tcp/index.md",
       "product": "distributed-cloud",
       "provider_name": "tcp_loadbalancer",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "resources",
       "registry_anchor": "canonical-3202033002211233-1301122221120120-1033012321102210-2321013132013033-0311312210012210-2023111231301233-1132102221100102-1112232122033120",
       "registry_path": "docs/guides/resources--tcp_loadbalancer--reference--group-002.md",
@@ -6131,7 +6131,7 @@
       "schema_path": ["tls_tcp"],
       "sections": [
         {
-          "aliases": ["cert", "certificate", "existing certificates", "tls cert params", "tls certificates"],
+          "aliases": ["tls cert params"],
           "anchor": "section",
           "description": "Select TLS Parameters and Certificates.",
           "document_id": "xcsh-docs:resources:tcp_loadbalancer:properties:tls_tcp:tls_cert_params",
@@ -6221,7 +6221,7 @@
       }
     },
     {
-      "aliases": ["cert", "certificate", "existing certificates", "tls certificates", "tls tcp tls cert params"],
+      "aliases": ["tls tcp tls cert params"],
       "body_bytes": 2906,
       "body_sha256": "sha256:8490ae81c2904a0c75ce50740bc5ef760f4ae550be485a38ea3774647e341915",
       "capabilities": ["load-balancing"],
@@ -6233,7 +6233,7 @@
         "xcsh-docs:resources:tcp_loadbalancer:properties:tls_tcp:tls_cert_params:use_mtls"
       ],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -6245,7 +6245,7 @@
       "path": "documentation/resources/tcp_loadbalancer/properties/tls_tcp/tls_cert_params/index.md",
       "product": "distributed-cloud",
       "provider_name": "tcp_loadbalancer",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "resources",
       "registry_anchor": "canonical-2102302012003330-3112123130012120-2323212311013211-2232213133230020-2101330212110310-0123002001102200-3023210032122023-2030132220321301",
       "registry_path": "docs/guides/resources--tcp_loadbalancer--reference--group-002.md",
@@ -6516,7 +6516,7 @@
       "category": "load-balancing",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -6528,7 +6528,7 @@
       "path": "documentation/resources/tcp_loadbalancer/properties/tls_tcp/tls_cert_params/certificates/index.md",
       "product": "distributed-cloud",
       "provider_name": "tcp_loadbalancer",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "resources",
       "registry_anchor": "canonical-3213110003102033-1303112111202003-2023331320110320-3133112022030112-2203320300332012-0231011200113210-0123111101030111-0201203323200003",
       "registry_path": "docs/guides/resources--tcp_loadbalancer--reference--group-002.md",
@@ -6601,20 +6601,14 @@
       }
     },
     {
-      "aliases": [
-        "cert",
-        "certificate",
-        "existing certificates",
-        "tls certificates",
-        "tls tcp tls cert params no mtls"
-      ],
+      "aliases": ["tls tcp tls cert params no mtls"],
       "body_bytes": 1429,
       "body_sha256": "sha256:bfba6c98f43e35e28b23bab9e62b73faaf6a283ba2b2458060bfbe14a343b627",
       "capabilities": ["load-balancing"],
       "category": "load-balancing",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -6626,7 +6620,7 @@
       "path": "documentation/resources/tcp_loadbalancer/properties/tls_tcp/tls_cert_params/no_mtls/index.md",
       "product": "distributed-cloud",
       "provider_name": "tcp_loadbalancer",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "resources",
       "registry_anchor": "canonical-0011323331201223-2233033222323031-0123021332131023-2101130020120033-1322010103013022-0000022023200202-2333212121323232-1031132032111203",
       "registry_path": "docs/guides/resources--tcp_loadbalancer--reference--group-002.md",
@@ -6647,13 +6641,7 @@
       }
     },
     {
-      "aliases": [
-        "cert",
-        "certificate",
-        "existing certificates",
-        "tls certificates",
-        "tls tcp tls cert params tls config"
-      ],
+      "aliases": ["tls tcp tls cert params tls config"],
       "body_bytes": 3795,
       "body_sha256": "sha256:33652dc3207d5953a1555e07bc5f99cc9ff708b09f8dc3d6c52f17f5d2faca67",
       "capabilities": ["load-balancing"],
@@ -6665,7 +6653,7 @@
         "xcsh-docs:resources:tcp_loadbalancer:properties:tls_tcp:tls_cert_params:tls_config:medium_security"
       ],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -6677,7 +6665,7 @@
       "path": "documentation/resources/tcp_loadbalancer/properties/tls_tcp/tls_cert_params/tls_config/index.md",
       "product": "distributed-cloud",
       "provider_name": "tcp_loadbalancer",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "resources",
       "registry_anchor": "canonical-0322111112121223-3032310231220110-0301012010113032-3030001001013032-3222020211121322-0310302230223200-2310031131231120-2022130022302130",
       "registry_path": "docs/guides/resources--tcp_loadbalancer--reference--group-002.md",
@@ -6861,20 +6849,14 @@
       }
     },
     {
-      "aliases": [
-        "cert",
-        "certificate",
-        "existing certificates",
-        "tls certificates",
-        "tls tcp tls cert params tls config custom security"
-      ],
+      "aliases": ["tls tcp tls cert params tls config custom security"],
       "body_bytes": 6491,
       "body_sha256": "sha256:44f1080ce16db61b4b92c00d04c816b4b0de388dcfca136527f1e9050a2ec6b6",
       "capabilities": ["load-balancing"],
       "category": "load-balancing",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -6886,7 +6868,7 @@
       "path": "documentation/resources/tcp_loadbalancer/properties/tls_tcp/tls_cert_params/tls_config/custom_security/index.md",
       "product": "distributed-cloud",
       "provider_name": "tcp_loadbalancer",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "resources",
       "registry_anchor": "canonical-3320220203210203-3010313213202302-0013120331113012-3331210220313000-0303222000322212-3000121230313001-2332320121112310-3112221030310331",
       "registry_path": "docs/guides/resources--tcp_loadbalancer--reference--group-002.md",
@@ -6959,20 +6941,14 @@
       }
     },
     {
-      "aliases": [
-        "cert",
-        "certificate",
-        "existing certificates",
-        "tls certificates",
-        "tls tcp tls cert params tls config default security"
-      ],
+      "aliases": ["tls tcp tls cert params tls config default security"],
       "body_bytes": 1670,
       "body_sha256": "sha256:6f613bbe47266be04c715e6f118b85b9a948e3b2b7e69d5a71f0f02f4736a9c1",
       "capabilities": ["load-balancing"],
       "category": "load-balancing",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -6984,7 +6960,7 @@
       "path": "documentation/resources/tcp_loadbalancer/properties/tls_tcp/tls_cert_params/tls_config/default_security/index.md",
       "product": "distributed-cloud",
       "provider_name": "tcp_loadbalancer",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "resources",
       "registry_anchor": "canonical-2211123331233312-2131002001130330-1033033000202002-1113120302302011-2303321232232213-0030213231213022-0021123310020203-0212203202100301",
       "registry_path": "docs/guides/resources--tcp_loadbalancer--reference--group-002.md",
@@ -7005,20 +6981,14 @@
       }
     },
     {
-      "aliases": [
-        "cert",
-        "certificate",
-        "existing certificates",
-        "tls certificates",
-        "tls tcp tls cert params tls config low security"
-      ],
+      "aliases": ["tls tcp tls cert params tls config low security"],
       "body_bytes": 1658,
       "body_sha256": "sha256:d6a5bf21032333c5489d5f20a578e2449cb960ede9fb57f88eb3741a7bd9c8c2",
       "capabilities": ["load-balancing"],
       "category": "load-balancing",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -7030,7 +7000,7 @@
       "path": "documentation/resources/tcp_loadbalancer/properties/tls_tcp/tls_cert_params/tls_config/low_security/index.md",
       "product": "distributed-cloud",
       "provider_name": "tcp_loadbalancer",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "resources",
       "registry_anchor": "canonical-3211203330313011-1301102230023230-1221213021020013-2103100111020231-1231100223233220-3102232113203303-0222110120112032-2133031112020113",
       "registry_path": "docs/guides/resources--tcp_loadbalancer--reference--group-002.md",
@@ -7051,20 +7021,14 @@
       }
     },
     {
-      "aliases": [
-        "cert",
-        "certificate",
-        "existing certificates",
-        "tls certificates",
-        "tls tcp tls cert params tls config medium security"
-      ],
+      "aliases": ["tls tcp tls cert params tls config medium security"],
       "body_bytes": 1667,
       "body_sha256": "sha256:320db8ba84d19b9d00ea347a5c48724010384503fa9365f31bb261142a60689d",
       "capabilities": ["load-balancing"],
       "category": "load-balancing",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -7076,7 +7040,7 @@
       "path": "documentation/resources/tcp_loadbalancer/properties/tls_tcp/tls_cert_params/tls_config/medium_security/index.md",
       "product": "distributed-cloud",
       "provider_name": "tcp_loadbalancer",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "resources",
       "registry_anchor": "canonical-3331020220302000-0002023130121130-3302231310301101-0330001232103201-2220022300103220-2221032222003310-3222021022322002-2312232130120111",
       "registry_path": "docs/guides/resources--tcp_loadbalancer--reference--group-002.md",
@@ -7097,13 +7061,7 @@
       }
     },
     {
-      "aliases": [
-        "cert",
-        "certificate",
-        "existing certificates",
-        "tls certificates",
-        "tls tcp tls cert params use mtls"
-      ],
+      "aliases": ["tls tcp tls cert params use mtls"],
       "body_bytes": 6004,
       "body_sha256": "sha256:f5125f629f71539cea7bfbea228fb4495cd65e68bb59af22d2acfcb27521061a",
       "capabilities": ["load-balancing"],
@@ -7116,7 +7074,7 @@
         "xcsh-docs:resources:tcp_loadbalancer:properties:tls_tcp:tls_cert_params:use_mtls:xfcc_options"
       ],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -7128,7 +7086,7 @@
       "path": "documentation/resources/tcp_loadbalancer/properties/tls_tcp/tls_cert_params/use_mtls/index.md",
       "product": "distributed-cloud",
       "provider_name": "tcp_loadbalancer",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "resources",
       "registry_anchor": "canonical-2003301203003021-0233021122121211-2233213111211112-2233232003100000-0310023133013131-0000031312323032-1332232311131110-1021031210223313",
       "registry_path": "docs/guides/resources--tcp_loadbalancer--reference--group-002.md",
@@ -7187,13 +7145,7 @@
       "schema_path": ["tls_tcp", "tls_cert_params", "use_mtls"],
       "sections": [
         {
-          "aliases": [
-            "cert",
-            "certificate",
-            "client certificate optional",
-            "existing certificates",
-            "tls certificates"
-          ],
+          "aliases": ["client certificate optional"],
           "anchor": "schema-tls_tcp--tls_cert_params--use_mtls--client_certificate_optional",
           "description": "Client certificate is optional. If the client has provided a certificate, the load balancer will verify it. If certification verification fails, the connection will be terminated. If the client does not provide a certificate, the connection will be accepted.",
           "document_id": "xcsh-docs:resources:tcp_loadbalancer:properties:tls_tcp:tls_cert_params:use_mtls",
@@ -7267,7 +7219,7 @@
           "type": "object"
         },
         {
-          "aliases": ["cert", "certificate", "existing certificates", "tls certificates", "trusted ca url"],
+          "aliases": ["trusted ca url"],
           "anchor": "schema-tls_tcp--tls_cert_params--use_mtls--trusted_ca_url",
           "description": "Exclusive with Upload a Root CA Certificate specifically for this Load Balancer.",
           "document_id": "xcsh-docs:resources:tcp_loadbalancer:properties:tls_tcp:tls_cert_params:use_mtls",
@@ -7330,20 +7282,14 @@
       }
     },
     {
-      "aliases": [
-        "cert",
-        "certificate",
-        "existing certificates",
-        "tls certificates",
-        "tls tcp tls cert params use mtls crl"
-      ],
+      "aliases": ["tls tcp tls cert params use mtls crl"],
       "body_bytes": 6450,
       "body_sha256": "sha256:160eef844cc756b194b84274b37b557f9572e972a31dfd6abdbdad808cf301e7",
       "capabilities": ["load-balancing"],
       "category": "load-balancing",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -7355,7 +7301,7 @@
       "path": "documentation/resources/tcp_loadbalancer/properties/tls_tcp/tls_cert_params/use_mtls/crl/index.md",
       "product": "distributed-cloud",
       "provider_name": "tcp_loadbalancer",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "resources",
       "registry_anchor": "canonical-0013203232221122-3131111332200030-1203322032032201-3020301221113322-2031221333332022-1223321321032033-1230301223121200-3020112202333022",
       "registry_path": "docs/guides/resources--tcp_loadbalancer--reference--group-002.md",
@@ -7428,20 +7374,14 @@
       }
     },
     {
-      "aliases": [
-        "cert",
-        "certificate",
-        "existing certificates",
-        "tls certificates",
-        "tls tcp tls cert params use mtls no crl"
-      ],
+      "aliases": ["tls tcp tls cert params use mtls no crl"],
       "body_bytes": 1628,
       "body_sha256": "sha256:fbf7afe026f7d76fca3f5176c879c70463e450115f9cc39b5522e49898c320b2",
       "capabilities": ["load-balancing"],
       "category": "load-balancing",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -7453,7 +7393,7 @@
       "path": "documentation/resources/tcp_loadbalancer/properties/tls_tcp/tls_cert_params/use_mtls/no_crl/index.md",
       "product": "distributed-cloud",
       "provider_name": "tcp_loadbalancer",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "resources",
       "registry_anchor": "canonical-3112230111023311-3101102123323312-0012002232001030-2310033001231110-3230312221301102-2001013123020332-1113120033111310-0200211220101232",
       "registry_path": "docs/guides/resources--tcp_loadbalancer--reference--group-002.md",
@@ -7474,20 +7414,14 @@
       }
     },
     {
-      "aliases": [
-        "cert",
-        "certificate",
-        "existing certificates",
-        "tls certificates",
-        "tls tcp tls cert params use mtls trusted ca"
-      ],
+      "aliases": ["tls tcp tls cert params use mtls trusted ca"],
       "body_bytes": 6492,
       "body_sha256": "sha256:977717a8ecf62c20e3649a1713c4d3f2567e2c38c5835ee0ee722f75c71624be",
       "capabilities": ["load-balancing"],
       "category": "load-balancing",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -7499,7 +7433,7 @@
       "path": "documentation/resources/tcp_loadbalancer/properties/tls_tcp/tls_cert_params/use_mtls/trusted_ca/index.md",
       "product": "distributed-cloud",
       "provider_name": "tcp_loadbalancer",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "resources",
       "registry_anchor": "canonical-0200003100030200-2110123332302230-3021233032202021-2113003301313222-1010010331203122-1331032301012223-3233003001322033-3201021231230232",
       "registry_path": "docs/guides/resources--tcp_loadbalancer--reference--group-002.md",
@@ -7572,20 +7506,14 @@
       }
     },
     {
-      "aliases": [
-        "cert",
-        "certificate",
-        "existing certificates",
-        "tls certificates",
-        "tls tcp tls cert params use mtls xfcc disabled"
-      ],
+      "aliases": ["tls tcp tls cert params use mtls xfcc disabled"],
       "body_bytes": 1649,
       "body_sha256": "sha256:76b280ee8eb6b61ca2201437851fe9f466358422125089c666c95900077cdbf2",
       "capabilities": ["load-balancing"],
       "category": "load-balancing",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -7597,7 +7525,7 @@
       "path": "documentation/resources/tcp_loadbalancer/properties/tls_tcp/tls_cert_params/use_mtls/xfcc_disabled/index.md",
       "product": "distributed-cloud",
       "provider_name": "tcp_loadbalancer",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "resources",
       "registry_anchor": "canonical-0232003220003202-2001302003310012-3101300112231123-2000131303013013-0230313130011112-2201230112233231-2311110123132210-0221213112031311",
       "registry_path": "docs/guides/resources--tcp_loadbalancer--reference--group-002.md",
@@ -7618,20 +7546,14 @@
       }
     },
     {
-      "aliases": [
-        "cert",
-        "certificate",
-        "existing certificates",
-        "tls certificates",
-        "tls tcp tls cert params use mtls xfcc options"
-      ],
+      "aliases": ["tls tcp tls cert params use mtls xfcc options"],
       "body_bytes": 2901,
       "body_sha256": "sha256:21b3b6adb58c02d18b6d533da86126b0e8016837ea485850e7ab6244cefb7009",
       "capabilities": ["load-balancing"],
       "category": "load-balancing",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -7643,7 +7565,7 @@
       "path": "documentation/resources/tcp_loadbalancer/properties/tls_tcp/tls_cert_params/use_mtls/xfcc_options/index.md",
       "product": "distributed-cloud",
       "provider_name": "tcp_loadbalancer",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "resources",
       "registry_anchor": "canonical-2211233203111001-0112213331212320-2030100120211101-1123203223220031-0213311102100010-1322132321202230-1210010301011010-3231020331123320",
       "registry_path": "docs/guides/resources--tcp_loadbalancer--reference--group-002.md",
@@ -7700,7 +7622,7 @@
         "xcsh-docs:resources:tcp_loadbalancer:properties:tls_tcp:tls_parameters:use_mtls"
       ],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -7712,7 +7634,7 @@
       "path": "documentation/resources/tcp_loadbalancer/properties/tls_tcp/tls_parameters/index.md",
       "product": "distributed-cloud",
       "provider_name": "tcp_loadbalancer",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "resources",
       "registry_anchor": "canonical-0121111300120302-2230031133133130-2123131213221130-1002012101111221-2123331230122003-0131120123223023-3320211032330010-1110023113101132",
       "registry_path": "docs/guides/resources--tcp_loadbalancer--reference--group-002.md",
@@ -8025,7 +7947,7 @@
       "category": "load-balancing",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -8037,7 +7959,7 @@
       "path": "documentation/resources/tcp_loadbalancer/properties/tls_tcp/tls_parameters/no_mtls/index.md",
       "product": "distributed-cloud",
       "provider_name": "tcp_loadbalancer",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "resources",
       "registry_anchor": "canonical-3312032102310132-3313333033231033-2033013201212031-0312003323222322-1333102130012332-3313300133122000-1013213111230231-1333131222103221",
       "registry_path": "docs/guides/resources--tcp_loadbalancer--reference--group-002.md",
@@ -8076,7 +7998,7 @@
         "xcsh-docs:resources:tcp_loadbalancer:properties:tls_tcp:tls_parameters:tls_certificates:use_system_defaults"
       ],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -8088,7 +8010,7 @@
       "path": "documentation/resources/tcp_loadbalancer/properties/tls_tcp/tls_parameters/tls_certificates/index.md",
       "product": "distributed-cloud",
       "provider_name": "tcp_loadbalancer",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "resources",
       "registry_anchor": "canonical-0002320022201130-0310033133223112-1210131011131021-0233000132012002-0030201320130223-3020131322232320-1330011330112100-0231301213311120",
       "registry_path": "docs/guides/resources--tcp_loadbalancer--reference--group-002.md",
@@ -8192,7 +8114,7 @@
           "type": "object"
         },
         {
-          "aliases": ["cert", "certificate", "description spec", "existing certificates", "tls certificates"],
+          "aliases": ["description spec"],
           "anchor": "schema-tls_tcp--tls_parameters--tls_certificates--description_spec",
           "description": "Description. Description for the certificate.",
           "document_id": "xcsh-docs:resources:tcp_loadbalancer:properties:tls_tcp:tls_parameters:tls_certificates",
@@ -8277,20 +8199,14 @@
       }
     },
     {
-      "aliases": [
-        "cert",
-        "certificate",
-        "existing certificates",
-        "tls certificates",
-        "tls tcp tls parameters tls certificates custom hash algorithms"
-      ],
+      "aliases": ["tls tcp tls parameters tls certificates custom hash algorithms"],
       "body_bytes": 3370,
       "body_sha256": "sha256:460b992d2cbda12661937606a72855835db9e506f906db94bb8795377e084a5e",
       "capabilities": ["load-balancing"],
       "category": "load-balancing",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -8302,7 +8218,7 @@
       "path": "documentation/resources/tcp_loadbalancer/properties/tls_tcp/tls_parameters/tls_certificates/custom_hash_algorithms/index.md",
       "product": "distributed-cloud",
       "provider_name": "tcp_loadbalancer",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "resources",
       "registry_anchor": "canonical-3301303122202032-0100230000013222-3021011212311010-0230130121121012-1321031020230022-2221312323210312-2333010103101231-0313112121312113",
       "registry_path": "docs/guides/resources--tcp_loadbalancer--reference--group-002.md",
@@ -8347,20 +8263,14 @@
       }
     },
     {
-      "aliases": [
-        "cert",
-        "certificate",
-        "existing certificates",
-        "tls certificates",
-        "tls tcp tls parameters tls certificates disable ocsp stapling"
-      ],
+      "aliases": ["tls tcp tls parameters tls certificates disable ocsp stapling"],
       "body_bytes": 1745,
       "body_sha256": "sha256:6aeb661930bfd6779faee259111c291be48094c47d260bac1b5bee3225cd775a",
       "capabilities": ["load-balancing"],
       "category": "load-balancing",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -8372,7 +8282,7 @@
       "path": "documentation/resources/tcp_loadbalancer/properties/tls_tcp/tls_parameters/tls_certificates/disable_ocsp_stapling/index.md",
       "product": "distributed-cloud",
       "provider_name": "tcp_loadbalancer",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "resources",
       "registry_anchor": "canonical-1130133232111030-1313232203303110-3131200030333223-0333033223000000-0222210123323020-0202130300123102-1122110121333233-1003022103200212",
       "registry_path": "docs/guides/resources--tcp_loadbalancer--reference--group-002.md",
@@ -8393,13 +8303,7 @@
       }
     },
     {
-      "aliases": [
-        "cert",
-        "certificate",
-        "existing certificates",
-        "tls certificates",
-        "tls tcp tls parameters tls certificates private key"
-      ],
+      "aliases": ["tls tcp tls parameters tls certificates private key"],
       "body_bytes": 2866,
       "body_sha256": "sha256:8e2b4ba4a76e4d489c7055235f7bc92de0a4513ee61572248c9ec1142a944a3e",
       "capabilities": ["load-balancing"],
@@ -8409,7 +8313,7 @@
         "xcsh-docs:resources:tcp_loadbalancer:properties:tls_tcp:tls_parameters:tls_certificates:private_key:clear_secret_info"
       ],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -8421,7 +8325,7 @@
       "path": "documentation/resources/tcp_loadbalancer/properties/tls_tcp/tls_parameters/tls_certificates/private_key/index.md",
       "product": "distributed-cloud",
       "provider_name": "tcp_loadbalancer",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "resources",
       "registry_anchor": "canonical-0100333102101300-3220200132001223-0030120230300122-3331201232232302-1232301113321120-0330221011030203-2110332331210010-2021112323003013",
       "registry_path": "docs/guides/resources--tcp_loadbalancer--reference--group-002.md",
@@ -8506,20 +8410,14 @@
       }
     },
     {
-      "aliases": [
-        "cert",
-        "certificate",
-        "existing certificates",
-        "tls certificates",
-        "tls tcp tls parameters tls certificates private key blindfold secret info"
-      ],
+      "aliases": ["tls tcp tls parameters tls certificates private key blindfold secret info"],
       "body_bytes": 5444,
       "body_sha256": "sha256:501b3011ee1864a85db8eeb0f58f47d57194e390a95bb3fbcc4add8ef401379c",
       "capabilities": ["load-balancing"],
       "category": "load-balancing",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -8531,7 +8429,7 @@
       "path": "documentation/resources/tcp_loadbalancer/properties/tls_tcp/tls_parameters/tls_certificates/private_key/blindfold_secret_info/index.md",
       "product": "distributed-cloud",
       "provider_name": "tcp_loadbalancer",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "resources",
       "registry_anchor": "canonical-0320313320210230-1002123322100231-1303211120310011-1001023000201010-0110021301010220-1120210310223301-3320002323332001-0323323232130210",
       "registry_path": "docs/guides/resources--tcp_loadbalancer--reference--group-002.md",
@@ -8550,7 +8448,7 @@
       "schema_path": ["tls_tcp", "tls_parameters", "tls_certificates", "private_key", "blindfold_secret_info"],
       "sections": [
         {
-          "aliases": ["backend servers", "decryption provider", "origin servers", "upstream servers"],
+          "aliases": ["decryption provider"],
           "anchor": "schema-tls_tcp--tls_parameters--tls_certificates--private_key--blindfold_secret_info--decryption_provider",
           "description": "Name of the Secret Management Access object that contains information about the backend Secret Management service.",
           "document_id": "xcsh-docs:resources:tcp_loadbalancer:properties:tls_tcp:tls_parameters:tls_certificates:private_key:blindfold_secret_info",
@@ -8625,20 +8523,14 @@
       }
     },
     {
-      "aliases": [
-        "cert",
-        "certificate",
-        "existing certificates",
-        "tls certificates",
-        "tls tcp tls parameters tls certificates private key clear secret info"
-      ],
+      "aliases": ["tls tcp tls parameters tls certificates private key clear secret info"],
       "body_bytes": 4301,
       "body_sha256": "sha256:97add43f9414a9a437cbad58592b414f526b27fc2e2111895eb9cafd0b2c1195",
       "capabilities": ["load-balancing"],
       "category": "load-balancing",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -8650,7 +8542,7 @@
       "path": "documentation/resources/tcp_loadbalancer/properties/tls_tcp/tls_parameters/tls_certificates/private_key/clear_secret_info/index.md",
       "product": "distributed-cloud",
       "provider_name": "tcp_loadbalancer",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "resources",
       "registry_anchor": "canonical-0203120320001120-1303310322101331-1333232131022333-1101032230333221-2201100331122131-0311223122332330-0203003300131013-2010200203233322",
       "registry_path": "docs/guides/resources--tcp_loadbalancer--reference--group-002.md",
@@ -8716,20 +8608,14 @@
       }
     },
     {
-      "aliases": [
-        "cert",
-        "certificate",
-        "existing certificates",
-        "tls certificates",
-        "tls tcp tls parameters tls certificates use system defaults"
-      ],
+      "aliases": ["tls tcp tls parameters tls certificates use system defaults"],
       "body_bytes": 1737,
       "body_sha256": "sha256:59832b49283c4d1835cb3b31a253125aff5361581aa0c28f95d5f93dd0df4323",
       "capabilities": ["load-balancing"],
       "category": "load-balancing",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -8741,7 +8627,7 @@
       "path": "documentation/resources/tcp_loadbalancer/properties/tls_tcp/tls_parameters/tls_certificates/use_system_defaults/index.md",
       "product": "distributed-cloud",
       "provider_name": "tcp_loadbalancer",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "resources",
       "registry_anchor": "canonical-0102010120213331-3223223023110201-0122232110302212-0323110331103310-3031012201011103-1013011002200011-3202010123303321-1231222302131132",
       "registry_path": "docs/guides/resources--tcp_loadbalancer--reference--group-002.md",
@@ -8774,7 +8660,7 @@
         "xcsh-docs:resources:tcp_loadbalancer:properties:tls_tcp:tls_parameters:tls_config:medium_security"
       ],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -8786,7 +8672,7 @@
       "path": "documentation/resources/tcp_loadbalancer/properties/tls_tcp/tls_parameters/tls_config/index.md",
       "product": "distributed-cloud",
       "provider_name": "tcp_loadbalancer",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "resources",
       "registry_anchor": "canonical-3312211030133232-3210300013231003-3101021322121230-0131120002223323-1231030021010300-2313111331303031-1312020033300201-1030323332322003",
       "registry_path": "docs/guides/resources--tcp_loadbalancer--reference--group-002.md",
@@ -8977,7 +8863,7 @@
       "category": "load-balancing",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -8989,7 +8875,7 @@
       "path": "documentation/resources/tcp_loadbalancer/properties/tls_tcp/tls_parameters/tls_config/custom_security/index.md",
       "product": "distributed-cloud",
       "provider_name": "tcp_loadbalancer",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "resources",
       "registry_anchor": "canonical-0130120303200203-2030112320030203-0133122321202013-1233130133222211-2322200122103223-0120023212110033-0231012031200131-1233012301231213",
       "registry_path": "docs/guides/resources--tcp_loadbalancer--reference--group-002.md",
@@ -9069,7 +8955,7 @@
       "category": "load-balancing",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -9081,7 +8967,7 @@
       "path": "documentation/resources/tcp_loadbalancer/properties/tls_tcp/tls_parameters/tls_config/default_security/index.md",
       "product": "distributed-cloud",
       "provider_name": "tcp_loadbalancer",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "resources",
       "registry_anchor": "canonical-3011313102103121-3231233210201221-0022213002310313-1032322300233321-0200302013232133-3300313101210033-2330210102022303-2303013013130210",
       "registry_path": "docs/guides/resources--tcp_loadbalancer--reference--group-002.md",
@@ -9109,7 +8995,7 @@
       "category": "load-balancing",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -9121,7 +9007,7 @@
       "path": "documentation/resources/tcp_loadbalancer/properties/tls_tcp/tls_parameters/tls_config/low_security/index.md",
       "product": "distributed-cloud",
       "provider_name": "tcp_loadbalancer",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "resources",
       "registry_anchor": "canonical-2300003002320102-2022222323333210-2301101111110221-0202120131321310-1011003021132121-1012223013100001-0302333020233012-0111332122032303",
       "registry_path": "docs/guides/resources--tcp_loadbalancer--reference--group-002.md",
@@ -9149,7 +9035,7 @@
       "category": "load-balancing",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -9161,7 +9047,7 @@
       "path": "documentation/resources/tcp_loadbalancer/properties/tls_tcp/tls_parameters/tls_config/medium_security/index.md",
       "product": "distributed-cloud",
       "provider_name": "tcp_loadbalancer",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "resources",
       "registry_anchor": "canonical-0122101212100122-0123222332303022-3031313101311112-3132323113331202-1021023112312302-0003111030202031-1320222133300130-2222121221213212",
       "registry_path": "docs/guides/resources--tcp_loadbalancer--reference--group-002.md",
@@ -9195,7 +9081,7 @@
         "xcsh-docs:resources:tcp_loadbalancer:properties:tls_tcp:tls_parameters:use_mtls:xfcc_options"
       ],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -9207,7 +9093,7 @@
       "path": "documentation/resources/tcp_loadbalancer/properties/tls_tcp/tls_parameters/use_mtls/index.md",
       "product": "distributed-cloud",
       "provider_name": "tcp_loadbalancer",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "resources",
       "registry_anchor": "canonical-3212302133121022-3003310220033333-2103011321231131-1323011000210123-1202121231231222-3333333012323210-1130103201331103-3103101011323000",
       "registry_path": "docs/guides/resources--tcp_loadbalancer--reference--group-002.md",
@@ -9266,13 +9152,7 @@
       "schema_path": ["tls_tcp", "tls_parameters", "use_mtls"],
       "sections": [
         {
-          "aliases": [
-            "cert",
-            "certificate",
-            "client certificate optional",
-            "existing certificates",
-            "tls certificates"
-          ],
+          "aliases": ["client certificate optional"],
           "anchor": "schema-tls_tcp--tls_parameters--use_mtls--client_certificate_optional",
           "description": "Client certificate is optional. If the client has provided a certificate, the load balancer will verify it. If certification verification fails, the connection will be terminated. If the client does not provide a certificate, the connection will be accepted.",
           "document_id": "xcsh-docs:resources:tcp_loadbalancer:properties:tls_tcp:tls_parameters:use_mtls",
@@ -9346,7 +9226,7 @@
           "type": "object"
         },
         {
-          "aliases": ["cert", "certificate", "existing certificates", "tls certificates", "trusted ca url"],
+          "aliases": ["trusted ca url"],
           "anchor": "schema-tls_tcp--tls_parameters--use_mtls--trusted_ca_url",
           "description": "Exclusive with Upload a Root CA Certificate specifically for this Load Balancer.",
           "document_id": "xcsh-docs:resources:tcp_loadbalancer:properties:tls_tcp:tls_parameters:use_mtls",
@@ -9416,7 +9296,7 @@
       "category": "load-balancing",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -9428,7 +9308,7 @@
       "path": "documentation/resources/tcp_loadbalancer/properties/tls_tcp/tls_parameters/use_mtls/crl/index.md",
       "product": "distributed-cloud",
       "provider_name": "tcp_loadbalancer",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "resources",
       "registry_anchor": "canonical-0221011232132102-3013223103032110-1212203323321123-1200223110001020-2321033103122302-2120320330031323-2303023100221123-2200033122213033",
       "registry_path": "docs/guides/resources--tcp_loadbalancer--reference--group-002.md",
@@ -9508,7 +9388,7 @@
       "category": "load-balancing",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -9520,7 +9400,7 @@
       "path": "documentation/resources/tcp_loadbalancer/properties/tls_tcp/tls_parameters/use_mtls/no_crl/index.md",
       "product": "distributed-cloud",
       "provider_name": "tcp_loadbalancer",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "resources",
       "registry_anchor": "canonical-0123330020221011-0130332120131212-0123313133232112-3111230010033011-2221002101021100-0200001231202201-1212210333330011-0011131110130111",
       "registry_path": "docs/guides/resources--tcp_loadbalancer--reference--group-002.md",
@@ -9548,7 +9428,7 @@
       "category": "load-balancing",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -9560,7 +9440,7 @@
       "path": "documentation/resources/tcp_loadbalancer/properties/tls_tcp/tls_parameters/use_mtls/trusted_ca/index.md",
       "product": "distributed-cloud",
       "provider_name": "tcp_loadbalancer",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "resources",
       "registry_anchor": "canonical-2011233303322103-3011101331001312-3210102103312000-2200300102303003-0101022230330103-1013222332313000-2002201113122021-1203021300001330",
       "registry_path": "docs/guides/resources--tcp_loadbalancer--reference--group-002.md",
@@ -9640,7 +9520,7 @@
       "category": "load-balancing",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -9652,7 +9532,7 @@
       "path": "documentation/resources/tcp_loadbalancer/properties/tls_tcp/tls_parameters/use_mtls/xfcc_disabled/index.md",
       "product": "distributed-cloud",
       "provider_name": "tcp_loadbalancer",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "resources",
       "registry_anchor": "canonical-3221120302133200-2013113331332203-0323332322332331-2113030121313132-3201101323233220-1002123231331100-3030233310332120-3033231201103012",
       "registry_path": "docs/guides/resources--tcp_loadbalancer--reference--group-003.md",
@@ -9680,7 +9560,7 @@
       "category": "load-balancing",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -9692,7 +9572,7 @@
       "path": "documentation/resources/tcp_loadbalancer/properties/tls_tcp/tls_parameters/use_mtls/xfcc_options/index.md",
       "product": "distributed-cloud",
       "provider_name": "tcp_loadbalancer",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "resources",
       "registry_anchor": "canonical-0000312003001302-1122232200100212-2311230011331001-2201013210031300-0230220320310321-3013203311333033-3322330201331111-2213231322023111",
       "registry_path": "docs/guides/resources--tcp_loadbalancer--reference--group-003.md",
@@ -9737,7 +9617,7 @@
       }
     },
     {
-      "aliases": ["cert", "certificate", "existing certificates", "tls certificates", "tls tcp auto cert"],
+      "aliases": ["tls tcp auto cert"],
       "body_bytes": 2277,
       "body_sha256": "sha256:c7aa7d2376d1ec17f1cb5dad078e60aa44c1e15979c548fc12ab3182f4c8278f",
       "capabilities": ["load-balancing"],
@@ -9748,7 +9628,7 @@
         "xcsh-docs:resources:tcp_loadbalancer:properties:tls_tcp_auto_cert:use_mtls"
       ],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -9760,7 +9640,7 @@
       "path": "documentation/resources/tcp_loadbalancer/properties/tls_tcp_auto_cert/index.md",
       "product": "distributed-cloud",
       "provider_name": "tcp_loadbalancer",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "resources",
       "registry_anchor": "canonical-1020000333221312-0212323132120330-0112301302023312-1010022111201312-0212120203321302-3011031322120320-0022031132030332-3001230220212331",
       "registry_path": "docs/guides/resources--tcp_loadbalancer--reference--group-003.md",
@@ -9994,7 +9874,7 @@
       "category": "load-balancing",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -10006,7 +9886,7 @@
       "path": "documentation/resources/tcp_loadbalancer/properties/tls_tcp_auto_cert/no_mtls/index.md",
       "product": "distributed-cloud",
       "provider_name": "tcp_loadbalancer",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "resources",
       "registry_anchor": "canonical-2332303230031210-0302010003210303-0310320200311033-1033332033110010-0002031132312001-3011301111002122-3230213021313202-1110210010312033",
       "registry_path": "docs/guides/resources--tcp_loadbalancer--reference--group-003.md",
@@ -10039,7 +9919,7 @@
         "xcsh-docs:resources:tcp_loadbalancer:properties:tls_tcp_auto_cert:tls_config:medium_security"
       ],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -10051,7 +9931,7 @@
       "path": "documentation/resources/tcp_loadbalancer/properties/tls_tcp_auto_cert/tls_config/index.md",
       "product": "distributed-cloud",
       "provider_name": "tcp_loadbalancer",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "resources",
       "registry_anchor": "canonical-2022320330100222-1002022331311031-2300333321023112-2213021113122210-3001322002201333-3021221123102103-0203321133220210-0203000303130301",
       "registry_path": "docs/guides/resources--tcp_loadbalancer--reference--group-003.md",
@@ -10242,7 +10122,7 @@
       "category": "load-balancing",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -10254,7 +10134,7 @@
       "path": "documentation/resources/tcp_loadbalancer/properties/tls_tcp_auto_cert/tls_config/custom_security/index.md",
       "product": "distributed-cloud",
       "provider_name": "tcp_loadbalancer",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "resources",
       "registry_anchor": "canonical-2313013020003011-3223231210320332-2110311102211120-3033132323001101-0011210322131033-0132220020103033-0003120020233123-2220023113001312",
       "registry_path": "docs/guides/resources--tcp_loadbalancer--reference--group-003.md",
@@ -10334,7 +10214,7 @@
       "category": "load-balancing",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -10346,7 +10226,7 @@
       "path": "documentation/resources/tcp_loadbalancer/properties/tls_tcp_auto_cert/tls_config/default_security/index.md",
       "product": "distributed-cloud",
       "provider_name": "tcp_loadbalancer",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "resources",
       "registry_anchor": "canonical-1200213310211002-1313301303222331-2312132112130122-1300233203000230-3222000322331122-1023012300132233-2011131302132312-2322000302023220",
       "registry_path": "docs/guides/resources--tcp_loadbalancer--reference--group-003.md",
@@ -10374,7 +10254,7 @@
       "category": "load-balancing",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -10386,7 +10266,7 @@
       "path": "documentation/resources/tcp_loadbalancer/properties/tls_tcp_auto_cert/tls_config/low_security/index.md",
       "product": "distributed-cloud",
       "provider_name": "tcp_loadbalancer",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "resources",
       "registry_anchor": "canonical-2201112121202132-0000011113332030-3232020202200320-2131120132123300-0331302111333333-2313220001121022-3111212221132303-1112311301131322",
       "registry_path": "docs/guides/resources--tcp_loadbalancer--reference--group-003.md",
@@ -10414,7 +10294,7 @@
       "category": "load-balancing",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -10426,7 +10306,7 @@
       "path": "documentation/resources/tcp_loadbalancer/properties/tls_tcp_auto_cert/tls_config/medium_security/index.md",
       "product": "distributed-cloud",
       "provider_name": "tcp_loadbalancer",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "resources",
       "registry_anchor": "canonical-3000323120232101-0221013010300110-2213311012323201-0213132003100230-2121333300332311-1101023310121302-3121012021212101-3330311103103320",
       "registry_path": "docs/guides/resources--tcp_loadbalancer--reference--group-003.md",
@@ -10460,7 +10340,7 @@
         "xcsh-docs:resources:tcp_loadbalancer:properties:tls_tcp_auto_cert:use_mtls:xfcc_options"
       ],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -10472,7 +10352,7 @@
       "path": "documentation/resources/tcp_loadbalancer/properties/tls_tcp_auto_cert/use_mtls/index.md",
       "product": "distributed-cloud",
       "provider_name": "tcp_loadbalancer",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "resources",
       "registry_anchor": "canonical-2122133202102320-2301201232130231-3003320030220113-3103213110221101-3011102202003030-0301303131230113-2232330000320302-3111231012201330",
       "registry_path": "docs/guides/resources--tcp_loadbalancer--reference--group-003.md",
@@ -10531,13 +10411,7 @@
       "schema_path": ["tls_tcp_auto_cert", "use_mtls"],
       "sections": [
         {
-          "aliases": [
-            "cert",
-            "certificate",
-            "client certificate optional",
-            "existing certificates",
-            "tls certificates"
-          ],
+          "aliases": ["client certificate optional"],
           "anchor": "schema-tls_tcp_auto_cert--use_mtls--client_certificate_optional",
           "description": "Client certificate is optional. If the client has provided a certificate, the load balancer will verify it. If certification verification fails, the connection will be terminated. If the client does not provide a certificate, the connection will be accepted.",
           "document_id": "xcsh-docs:resources:tcp_loadbalancer:properties:tls_tcp_auto_cert:use_mtls",
@@ -10611,7 +10485,7 @@
           "type": "object"
         },
         {
-          "aliases": ["cert", "certificate", "existing certificates", "tls certificates", "trusted ca url"],
+          "aliases": ["trusted ca url"],
           "anchor": "schema-tls_tcp_auto_cert--use_mtls--trusted_ca_url",
           "description": "Exclusive with Upload a Root CA Certificate specifically for this Load Balancer.",
           "document_id": "xcsh-docs:resources:tcp_loadbalancer:properties:tls_tcp_auto_cert:use_mtls",
@@ -10681,7 +10555,7 @@
       "category": "load-balancing",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -10693,7 +10567,7 @@
       "path": "documentation/resources/tcp_loadbalancer/properties/tls_tcp_auto_cert/use_mtls/crl/index.md",
       "product": "distributed-cloud",
       "provider_name": "tcp_loadbalancer",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "resources",
       "registry_anchor": "canonical-1211131111020302-1000023331233231-2300202002002211-2312321110020022-2222322300110003-2030101231311323-2120313123031031-3123103313130203",
       "registry_path": "docs/guides/resources--tcp_loadbalancer--reference--group-003.md",
@@ -10773,7 +10647,7 @@
       "category": "load-balancing",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -10785,7 +10659,7 @@
       "path": "documentation/resources/tcp_loadbalancer/properties/tls_tcp_auto_cert/use_mtls/no_crl/index.md",
       "product": "distributed-cloud",
       "provider_name": "tcp_loadbalancer",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "resources",
       "registry_anchor": "canonical-0221331323323322-2233111213111121-2103120211102130-2112133132101331-2100213203012113-1213303221011011-2112132230030001-2022231220113302",
       "registry_path": "docs/guides/resources--tcp_loadbalancer--reference--group-003.md",
@@ -10813,7 +10687,7 @@
       "category": "load-balancing",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -10825,7 +10699,7 @@
       "path": "documentation/resources/tcp_loadbalancer/properties/tls_tcp_auto_cert/use_mtls/trusted_ca/index.md",
       "product": "distributed-cloud",
       "provider_name": "tcp_loadbalancer",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "resources",
       "registry_anchor": "canonical-1313322021032031-2133113312113013-0313333312300101-0000313030010021-2101100033003031-2103231100121022-1311023121103301-0312120231221130",
       "registry_path": "docs/guides/resources--tcp_loadbalancer--reference--group-003.md",
@@ -10905,7 +10779,7 @@
       "category": "load-balancing",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -10917,7 +10791,7 @@
       "path": "documentation/resources/tcp_loadbalancer/properties/tls_tcp_auto_cert/use_mtls/xfcc_disabled/index.md",
       "product": "distributed-cloud",
       "provider_name": "tcp_loadbalancer",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "resources",
       "registry_anchor": "canonical-3332232033013000-2032222110022033-0001300033312133-0211031021233110-0110331002111312-1311101022331130-3223133323323212-3031212323210310",
       "registry_path": "docs/guides/resources--tcp_loadbalancer--reference--group-003.md",
@@ -10945,7 +10819,7 @@
       "category": "load-balancing",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -10957,7 +10831,7 @@
       "path": "documentation/resources/tcp_loadbalancer/properties/tls_tcp_auto_cert/use_mtls/xfcc_options/index.md",
       "product": "distributed-cloud",
       "provider_name": "tcp_loadbalancer",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "resources",
       "registry_anchor": "canonical-1130133122020122-1203201011332202-0113220130221321-3031122013001103-1211212012303103-2210110030111113-0133120302322110-1110212200100300",
       "registry_path": "docs/guides/resources--tcp_loadbalancer--reference--group-003.md",
@@ -11017,7 +10891,7 @@
         "xcsh-docs:resources:tcp_loadbalancer:example:with-listen-port"
       ],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -11029,7 +10903,7 @@
       "path": "documentation/resources/tcp_loadbalancer/examples/index.md",
       "product": "distributed-cloud",
       "provider_name": "tcp_loadbalancer",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "resources",
       "registry_anchor": "canonical-0323311213221221-0113310031031222-1330121211223312-1203013310022301-2100320220013120-3302231301121302-0132302333323132-0011101322313000",
       "registry_path": "docs/guides/resources--tcp_loadbalancer--examples--group-001.md",
@@ -11057,7 +10931,7 @@
       "category": "load-balancing",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -11076,7 +10950,7 @@
       "path": "documentation/resources/tcp_loadbalancer/examples/all-attributes/index.md",
       "product": "distributed-cloud",
       "provider_name": "tcp_loadbalancer",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "resources",
       "registry_anchor": "canonical-1301201233302211-1210110022130302-1231201101130010-2300123023001031-3221310221210311-1311101113122321-1220331031023323-0031331021202001",
       "registry_path": "docs/guides/resources--tcp_loadbalancer--examples--group-001.md",
@@ -11104,7 +10978,7 @@
       "category": "load-balancing",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -11123,7 +10997,7 @@
       "path": "documentation/resources/tcp_loadbalancer/examples/resource/index.md",
       "product": "distributed-cloud",
       "provider_name": "tcp_loadbalancer",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "resources",
       "registry_anchor": "canonical-3030132121321003-2013130021300310-3112112030301121-3102020110020233-2021003331113332-3103233212023320-3122111323100032-3110120202132001",
       "registry_path": "docs/guides/resources--tcp_loadbalancer--examples--group-001.md",
@@ -11151,7 +11025,7 @@
       "category": "load-balancing",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -11170,7 +11044,7 @@
       "path": "documentation/resources/tcp_loadbalancer/examples/with-annotations/index.md",
       "product": "distributed-cloud",
       "provider_name": "tcp_loadbalancer",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "resources",
       "registry_anchor": "canonical-3220100320321221-0012022032320233-2212312002132202-3101120132123322-3330111233032310-0122101011131321-1231103213313112-1111012223123330",
       "registry_path": "docs/guides/resources--tcp_loadbalancer--examples--group-001.md",
@@ -11198,7 +11072,7 @@
       "category": "load-balancing",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -11217,7 +11091,7 @@
       "path": "documentation/resources/tcp_loadbalancer/examples/with-description/index.md",
       "product": "distributed-cloud",
       "provider_name": "tcp_loadbalancer",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "resources",
       "registry_anchor": "canonical-2332333133312100-2313121003203331-2133101333332332-1022213331101312-0002032003132003-3030312102032312-0030333122031122-0021031112031122",
       "registry_path": "docs/guides/resources--tcp_loadbalancer--examples--group-001.md",
@@ -11245,7 +11119,7 @@
       "category": "load-balancing",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -11264,7 +11138,7 @@
       "path": "documentation/resources/tcp_loadbalancer/examples/with-healthcheck/index.md",
       "product": "distributed-cloud",
       "provider_name": "tcp_loadbalancer",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "resources",
       "registry_anchor": "canonical-1213131201102133-2000302012101102-2030113221011230-0312000232013011-0120022300223021-0301113103321321-3100211002203223-1000133203101100",
       "registry_path": "docs/guides/resources--tcp_loadbalancer--examples--group-001.md",
@@ -11292,7 +11166,7 @@
       "category": "load-balancing",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -11311,7 +11185,7 @@
       "path": "documentation/resources/tcp_loadbalancer/examples/with-labels/index.md",
       "product": "distributed-cloud",
       "provider_name": "tcp_loadbalancer",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "resources",
       "registry_anchor": "canonical-1222200102003200-0033011311323320-2102221133112331-2123101222301132-0130320320232323-2331331332003330-2010330231103332-0101300200020222",
       "registry_path": "docs/guides/resources--tcp_loadbalancer--examples--group-001.md",
@@ -11339,7 +11213,7 @@
       "category": "load-balancing",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -11358,7 +11232,7 @@
       "path": "documentation/resources/tcp_loadbalancer/examples/with-listen-port/index.md",
       "product": "distributed-cloud",
       "provider_name": "tcp_loadbalancer",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "resources",
       "registry_anchor": "canonical-1301223213021230-0103300221332112-2210310131020331-0222120223000330-1210132111201310-0001333321020232-2231032313320311-1033021130000002",
       "registry_path": "docs/guides/resources--tcp_loadbalancer--examples--group-001.md",
@@ -11386,7 +11260,7 @@
       "category": "load-balancing",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -11399,7 +11273,7 @@
       "path": "documentation/resources/tcp_loadbalancer/lifecycle/import/index.md",
       "product": "distributed-cloud",
       "provider_name": "tcp_loadbalancer",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "resources",
       "registry_anchor": "canonical-0010103130330001-3321333010133010-0123010301022122-0013201010103131-2103100023233113-3300122101333230-2102201103021130-2001121313201221",
       "registry_path": "docs/guides/resources--tcp_loadbalancer--lifecycle--group-001.md",
@@ -11427,7 +11301,7 @@
       "category": "load-balancing",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -11439,7 +11313,7 @@
       "path": "documentation/resources/tcp_loadbalancer/lifecycle/timeouts/index.md",
       "product": "distributed-cloud",
       "provider_name": "tcp_loadbalancer",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "resources",
       "registry_anchor": "canonical-0113230333002312-3121321100313030-2332210230213110-1001203203302201-2030120211111123-2000020211011020-2322332023011313-3212203323213223",
       "registry_path": "docs/guides/resources--tcp_loadbalancer--lifecycle--group-001.md",

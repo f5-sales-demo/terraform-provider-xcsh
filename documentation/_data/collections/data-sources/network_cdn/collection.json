@@ -45,14 +45,14 @@
   },
   "pages": [
     {
-      "aliases": ["backend servers", "network cdn", "origin servers", "upstream servers"],
+      "aliases": ["network cdn"],
       "body_bytes": 1445,
       "body_sha256": "sha256:e9a24d4a0a36b1998315da56381e06bd2518e87cbff9477d877d5b0d169ccd14",
       "capabilities": [],
       "category": null,
       "child_ids": ["xcsh-docs:data-sources:network_cdn:reference", "xcsh-docs:data-sources:network_cdn:examples"],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -64,7 +64,7 @@
       "path": "documentation/data-sources/network_cdn/index.md",
       "product": "distributed-cloud",
       "provider_name": "network_cdn",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-3332101011301320-0312003011132032-2233133133001013-2021212311222213-1103000302133332-3011321012313330-0002302023203120-2131131001121112",
       "registry_path": "docs/data-sources/network_cdn.md",
@@ -93,7 +93,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -105,7 +105,7 @@
       "path": "documentation/data-sources/network_cdn/properties/index.md",
       "product": "distributed-cloud",
       "provider_name": "network_cdn",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-3023312220230230-1021020032312223-2101121310120203-1113101030220133-3130221022210110-3202200221031232-3110203322201332-1031200023231013",
       "registry_path": "docs/guides/data-sources--network_cdn--reference--group-001.md",
@@ -232,7 +232,7 @@
       "category": null,
       "child_ids": ["xcsh-docs:data-sources:network_cdn:example:data-source"],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -244,7 +244,7 @@
       "path": "documentation/data-sources/network_cdn/examples/index.md",
       "product": "distributed-cloud",
       "provider_name": "network_cdn",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-1100110203131112-1333321133001020-1320302012333111-0030313021312021-2112102200121123-2030202111321331-2032230133120311-2023332101312322",
       "registry_path": "docs/guides/data-sources--network_cdn--examples--group-001.md",
@@ -272,7 +272,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -291,7 +291,7 @@
       "path": "documentation/data-sources/network_cdn/examples/data-source/index.md",
       "product": "distributed-cloud",
       "provider_name": "network_cdn",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-0001220000332333-3022231313010002-2000312113102232-3222102302012321-2330313023300330-2130333320210031-2010202211031130-2200210112230020",
       "registry_path": "docs/guides/data-sources--network_cdn--examples--group-001.md",

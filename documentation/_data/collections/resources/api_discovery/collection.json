@@ -231,7 +231,7 @@
   },
   "pages": [
     {
-      "aliases": ["api discovery", "backend servers", "origin servers", "upstream servers"],
+      "aliases": ["api discovery"],
       "body_bytes": 1621,
       "body_sha256": "sha256:fd6e0048f94073192e79922dda324e8faf59212d730bc4d78da7aca0caea09b0",
       "capabilities": ["api-management"],
@@ -243,7 +243,7 @@
         "xcsh-docs:resources:api_discovery:timeouts"
       ],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -255,7 +255,7 @@
       "path": "documentation/resources/api_discovery/index.md",
       "product": "distributed-cloud",
       "provider_name": "api_discovery",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "resources",
       "registry_anchor": "canonical-3333330030203101-0213011320123210-0101011221311003-1110030033021003-0023100303333012-1213112122012213-3330220223223100-0213222121332310",
       "registry_path": "docs/resources/api_discovery.md",
@@ -288,7 +288,7 @@
         "xcsh-docs:resources:api_discovery:properties:user_defined_api_discovery_policy"
       ],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -300,7 +300,7 @@
       "path": "documentation/resources/api_discovery/properties/index.md",
       "product": "distributed-cloud",
       "provider_name": "api_discovery",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "resources",
       "registry_anchor": "canonical-1113112330221303-3231101122212110-2001031202133133-0003330200133112-1300003330331131-1120302331131301-1010000310313122-3333223113222003",
       "registry_path": "docs/guides/resources--api_discovery--reference--group-001.md",
@@ -324,7 +324,7 @@
           "type": "map"
         },
         {
-          "aliases": ["authentication", "credential setup", "credentials", "custom auth types"],
+          "aliases": ["custom auth types"],
           "anchor": "section",
           "description": "Select your custom authentication types to be detected in the API discovery.",
           "document_id": "xcsh-docs:resources:api_discovery:properties:custom_auth_types",
@@ -488,14 +488,14 @@
       }
     },
     {
-      "aliases": ["authentication", "credential setup", "credentials", "custom auth types"],
+      "aliases": ["custom auth types"],
       "body_bytes": 4103,
       "body_sha256": "sha256:e6275c12b5aaf531fbb65beaba4e8aee9ca45deafcba88ff05fc126c800c41d9",
       "capabilities": ["api-management"],
       "category": "api-management",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -507,7 +507,7 @@
       "path": "documentation/resources/api_discovery/properties/custom_auth_types/index.md",
       "product": "distributed-cloud",
       "provider_name": "api_discovery",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "resources",
       "registry_anchor": "canonical-2212121133030123-3313103211030133-1332101312033102-0023310100201330-1131130101331031-0031112010301020-0220030121333230-3300021031132021",
       "registry_path": "docs/guides/resources--api_discovery--reference--group-001.md",
@@ -526,7 +526,7 @@
       "schema_path": ["custom_auth_types"],
       "sections": [
         {
-          "aliases": ["authentication", "credential setup", "credentials", "parameter name"],
+          "aliases": ["parameter name"],
           "anchor": "schema-custom_auth_types--parameter_name",
           "description": "The authentication parameter name.",
           "document_id": "xcsh-docs:resources:api_discovery:properties:custom_auth_types",
@@ -540,7 +540,7 @@
           "type": "string"
         },
         {
-          "aliases": ["authentication", "credential setup", "credentials", "parameter type"],
+          "aliases": ["parameter type"],
           "anchor": "schema-custom_auth_types--parameter_type",
           "description": "Enumeration for authentication parameter types.",
           "document_id": "xcsh-docs:resources:api_discovery:properties:custom_auth_types",
@@ -573,7 +573,7 @@
       "category": "api-management",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -585,7 +585,7 @@
       "path": "documentation/resources/api_discovery/properties/timeouts/index.md",
       "product": "distributed-cloud",
       "provider_name": "api_discovery",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "resources",
       "registry_anchor": "canonical-0330002233322121-1233033110301003-0230030201120323-0111002303003220-3301031130232123-2322330011312000-2312101022131231-3301102100120201",
       "registry_path": "docs/guides/resources--api_discovery--reference--group-001.md",
@@ -674,7 +674,7 @@
         "xcsh-docs:resources:api_discovery:properties:user_defined_api_discovery_policy:inclusive"
       ],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -686,7 +686,7 @@
       "path": "documentation/resources/api_discovery/properties/user_defined_api_discovery_policy/index.md",
       "product": "distributed-cloud",
       "provider_name": "api_discovery",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "resources",
       "registry_anchor": "canonical-2110113123313300-1200313003201203-0030202211112133-3211202003002122-0322210303301001-2132132313312231-2300101120203001-1102330022023122",
       "registry_path": "docs/guides/resources--api_discovery--reference--group-001.md",
@@ -795,7 +795,7 @@
         "xcsh-docs:resources:api_discovery:properties:user_defined_api_discovery_policy:discovery_rules:rule_properties"
       ],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -807,7 +807,7 @@
       "path": "documentation/resources/api_discovery/properties/user_defined_api_discovery_policy/discovery_rules/index.md",
       "product": "distributed-cloud",
       "provider_name": "api_discovery",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "resources",
       "registry_anchor": "canonical-1100332332123333-2101003132012032-3320001300132012-1210013330331020-2321321103303010-1322120010232310-2001131223011002-0010130121220313",
       "registry_path": "docs/guides/resources--api_discovery--reference--group-001.md",
@@ -920,7 +920,7 @@
       "category": "api-management",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -932,7 +932,7 @@
       "path": "documentation/resources/api_discovery/properties/user_defined_api_discovery_policy/discovery_rules/labels/index.md",
       "product": "distributed-cloud",
       "provider_name": "api_discovery",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "resources",
       "registry_anchor": "canonical-2103202000312133-0033230123010023-0133233023201233-1032220321002321-3331200022213030-2330211102330330-0310123121003111-0122121012220222",
       "registry_path": "docs/guides/resources--api_discovery--reference--group-001.md",
@@ -960,7 +960,7 @@
       "category": "api-management",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -972,7 +972,7 @@
       "path": "documentation/resources/api_discovery/properties/user_defined_api_discovery_policy/discovery_rules/metadata/index.md",
       "product": "distributed-cloud",
       "provider_name": "api_discovery",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "resources",
       "registry_anchor": "canonical-2100110203233333-0232101103313212-0310312020103302-2113321311111133-1112000130310203-3231100122300011-2313210003020323-3122031220000213",
       "registry_path": "docs/guides/resources--api_discovery--reference--group-001.md",
@@ -1042,7 +1042,7 @@
         "xcsh-docs:resources:api_discovery:properties:user_defined_api_discovery_policy:discovery_rules:rule_properties:inclusion"
       ],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -1054,7 +1054,7 @@
       "path": "documentation/resources/api_discovery/properties/user_defined_api_discovery_policy/discovery_rules/rule_properties/index.md",
       "product": "distributed-cloud",
       "provider_name": "api_discovery",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "resources",
       "registry_anchor": "canonical-2321331002231121-0301012202233131-0210222002121301-2120102001133110-1102230333003131-1112200220303231-0132333122130331-3233003331023032",
       "registry_path": "docs/guides/resources--api_discovery--reference--group-001.md",
@@ -1214,7 +1214,7 @@
         "xcsh-docs:resources:api_discovery:properties:user_defined_api_discovery_policy:discovery_rules:rule_properties:exclusion:ignore"
       ],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -1226,7 +1226,7 @@
       "path": "documentation/resources/api_discovery/properties/user_defined_api_discovery_policy/discovery_rules/rule_properties/exclusion/index.md",
       "product": "distributed-cloud",
       "provider_name": "api_discovery",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "resources",
       "registry_anchor": "canonical-2112010001030322-2131010130031232-2113133011332313-2002111202001233-1210202322303003-2313003003002331-1212321132323220-3201032221133202",
       "registry_path": "docs/guides/resources--api_discovery--reference--group-001.md",
@@ -1312,7 +1312,7 @@
       "category": "api-management",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -1324,7 +1324,7 @@
       "path": "documentation/resources/api_discovery/properties/user_defined_api_discovery_policy/discovery_rules/rule_properties/exclusion/archive/index.md",
       "product": "distributed-cloud",
       "provider_name": "api_discovery",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "resources",
       "registry_anchor": "canonical-3031132210200013-3020010332022302-0231300321303123-3210013133200112-1030220313013211-0301331031030213-0132333310033210-1201112102213130",
       "registry_path": "docs/guides/resources--api_discovery--reference--group-001.md",
@@ -1358,7 +1358,7 @@
       "category": "api-management",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -1370,7 +1370,7 @@
       "path": "documentation/resources/api_discovery/properties/user_defined_api_discovery_policy/discovery_rules/rule_properties/exclusion/ignore/index.md",
       "product": "distributed-cloud",
       "provider_name": "api_discovery",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "resources",
       "registry_anchor": "canonical-3020201301103131-1133213211120333-0210113023002202-2113323003121033-2332300301123221-2322003200012110-1301210002131210-3230220020201132",
       "registry_path": "docs/guides/resources--api_discovery--reference--group-001.md",
@@ -1398,7 +1398,7 @@
       "category": "api-management",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -1410,7 +1410,7 @@
       "path": "documentation/resources/api_discovery/properties/user_defined_api_discovery_policy/discovery_rules/rule_properties/http_header_criteria/index.md",
       "product": "distributed-cloud",
       "provider_name": "api_discovery",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "resources",
       "registry_anchor": "canonical-0113333110113320-2313002210321300-0203020312330021-0031000121231322-1001002023302203-3213112013303320-1220333321311302-1111010301331001",
       "registry_path": "docs/guides/resources--api_discovery--reference--group-001.md",
@@ -1541,7 +1541,7 @@
       "category": "api-management",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -1553,7 +1553,7 @@
       "path": "documentation/resources/api_discovery/properties/user_defined_api_discovery_policy/discovery_rules/rule_properties/inclusion/index.md",
       "product": "distributed-cloud",
       "provider_name": "api_discovery",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "resources",
       "registry_anchor": "canonical-2313332131203231-2330302133122312-1003003322213033-1303131233123131-3223110212011313-2033112100020210-3211013032213303-1013221123200221",
       "registry_path": "docs/guides/resources--api_discovery--reference--group-001.md",
@@ -1584,7 +1584,7 @@
         "xcsh-docs:resources:api_discovery:properties:user_defined_api_discovery_policy:exclusive:ignore"
       ],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -1596,7 +1596,7 @@
       "path": "documentation/resources/api_discovery/properties/user_defined_api_discovery_policy/exclusive/index.md",
       "product": "distributed-cloud",
       "provider_name": "api_discovery",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "resources",
       "registry_anchor": "canonical-1323111022121002-1132133223122101-2223013020320022-0231220000301312-3210230203331032-2003110131131101-2120100303301100-3201211002333002",
       "registry_path": "docs/guides/resources--api_discovery--reference--group-001.md",
@@ -1670,7 +1670,7 @@
       "category": "api-management",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -1682,7 +1682,7 @@
       "path": "documentation/resources/api_discovery/properties/user_defined_api_discovery_policy/exclusive/archive/index.md",
       "product": "distributed-cloud",
       "provider_name": "api_discovery",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "resources",
       "registry_anchor": "canonical-0233112100020222-1012001102232121-0310231030201013-3222211101010220-0020300230130203-0031332231330033-0212102003020122-1202031322310012",
       "registry_path": "docs/guides/resources--api_discovery--reference--group-001.md",
@@ -1710,7 +1710,7 @@
       "category": "api-management",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -1722,7 +1722,7 @@
       "path": "documentation/resources/api_discovery/properties/user_defined_api_discovery_policy/exclusive/ignore/index.md",
       "product": "distributed-cloud",
       "provider_name": "api_discovery",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "resources",
       "registry_anchor": "canonical-3031133300212101-0001123213300321-1333301200111021-3103100331030121-2321100311233312-1020100101032310-3110232112303200-2222232323111002",
       "registry_path": "docs/guides/resources--api_discovery--reference--group-001.md",
@@ -1750,7 +1750,7 @@
       "category": "api-management",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -1762,7 +1762,7 @@
       "path": "documentation/resources/api_discovery/properties/user_defined_api_discovery_policy/inclusive/index.md",
       "product": "distributed-cloud",
       "provider_name": "api_discovery",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "resources",
       "registry_anchor": "canonical-2213032120131311-3200112332220110-3021221201133002-1011013213312212-0033003103311013-0320112210022330-0300213232332322-2210313210122333",
       "registry_path": "docs/guides/resources--api_discovery--reference--group-001.md",
@@ -1790,7 +1790,7 @@
       "category": "api-management",
       "child_ids": ["xcsh-docs:resources:api_discovery:example:resource"],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -1802,7 +1802,7 @@
       "path": "documentation/resources/api_discovery/examples/index.md",
       "product": "distributed-cloud",
       "provider_name": "api_discovery",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "resources",
       "registry_anchor": "canonical-2103330003101230-1200233231321132-1332020330220230-0211002003332330-1301223301010230-1123100002232003-0133303013301232-2212101303032210",
       "registry_path": "docs/guides/resources--api_discovery--examples--group-001.md",
@@ -1830,7 +1830,7 @@
       "category": "api-management",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -1849,7 +1849,7 @@
       "path": "documentation/resources/api_discovery/examples/resource/index.md",
       "product": "distributed-cloud",
       "provider_name": "api_discovery",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "resources",
       "registry_anchor": "canonical-3302331232122212-2213300133302023-0321322321131033-2002332321201000-1000100001310330-1200312122002231-0220330100030333-0303222002202130",
       "registry_path": "docs/guides/resources--api_discovery--examples--group-001.md",
@@ -1877,7 +1877,7 @@
       "category": "api-management",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -1890,7 +1890,7 @@
       "path": "documentation/resources/api_discovery/lifecycle/import/index.md",
       "product": "distributed-cloud",
       "provider_name": "api_discovery",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "resources",
       "registry_anchor": "canonical-1311311330302132-1233323123001231-3203311022310121-1030302022212313-3111233121311110-0133101031311132-3322101000100233-3333123330132131",
       "registry_path": "docs/guides/resources--api_discovery--lifecycle--group-001.md",
@@ -1918,7 +1918,7 @@
       "category": "api-management",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -1930,7 +1930,7 @@
       "path": "documentation/resources/api_discovery/lifecycle/timeouts/index.md",
       "product": "distributed-cloud",
       "provider_name": "api_discovery",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "resources",
       "registry_anchor": "canonical-0013002101201022-1220320001222012-0023000302230130-1111121032320001-2003312101331203-1100101232112130-2011222030302000-1232100132102231",
       "registry_path": "docs/guides/resources--api_discovery--lifecycle--group-001.md",

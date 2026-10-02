@@ -1875,7 +1875,7 @@
         "xcsh-docs:data-sources:site_registrations_by_state:examples"
       ],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -1887,7 +1887,7 @@
       "path": "documentation/data-sources/site_registrations_by_state/index.md",
       "product": "distributed-cloud",
       "provider_name": "site_registrations_by_state",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-1011310232230021-3303123312003111-3120023223111201-0320322111010320-3032200132321200-3310101021222131-0120032131300331-0201133223313303",
       "registry_path": "docs/data-sources/site_registrations_by_state.md",
@@ -1919,7 +1919,7 @@
         "xcsh-docs:data-sources:site_registrations_by_state:properties:items"
       ],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -1931,7 +1931,7 @@
       "path": "documentation/data-sources/site_registrations_by_state/properties/index.md",
       "product": "distributed-cloud",
       "provider_name": "site_registrations_by_state",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-0320011213231301-1102033233211220-0302131120233130-2122121213220203-2033211132132211-0333231313221113-3210300123023021-2021122221230130",
       "registry_path": "docs/guides/data-sources--site_registrations_by_state--reference--group-001.md",
@@ -2016,7 +2016,7 @@
       "category": null,
       "child_ids": ["xcsh-docs:data-sources:site_registrations_by_state:properties:errors:error_obj"],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -2028,7 +2028,7 @@
       "path": "documentation/data-sources/site_registrations_by_state/properties/errors/index.md",
       "product": "distributed-cloud",
       "provider_name": "site_registrations_by_state",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-3123201032113231-1110203102030102-0321102211032320-2011122333202121-2011102030213113-2300113212013233-3311310101312121-2030132221300302",
       "registry_path": "docs/guides/data-sources--site_registrations_by_state--reference--group-001.md",
@@ -2099,7 +2099,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -2111,7 +2111,7 @@
       "path": "documentation/data-sources/site_registrations_by_state/properties/errors/error_obj/index.md",
       "product": "distributed-cloud",
       "provider_name": "site_registrations_by_state",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-1010211013112301-1131221010330231-3133220301030231-0302212300122302-3200131000020122-0110213101233100-3120011230322302-0313320102333033",
       "registry_path": "docs/guides/data-sources--site_registrations_by_state--reference--group-001.md",
@@ -2176,7 +2176,7 @@
         "xcsh-docs:data-sources:site_registrations_by_state:properties:items:system_metadata"
       ],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -2188,7 +2188,7 @@
       "path": "documentation/data-sources/site_registrations_by_state/properties/items/index.md",
       "product": "distributed-cloud",
       "provider_name": "site_registrations_by_state",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-1133122031213013-2312233003121321-2003030111222220-0123212333122102-1113033120112122-1330232222330233-1111303223103223-2020000130121230",
       "registry_path": "docs/guides/data-sources--site_registrations_by_state--reference--group-001.md",
@@ -2399,7 +2399,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -2411,7 +2411,7 @@
       "path": "documentation/data-sources/site_registrations_by_state/properties/items/annotations/index.md",
       "product": "distributed-cloud",
       "provider_name": "site_registrations_by_state",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-1111112331011032-2101233230200031-2220220221020023-3321111201233102-0223101023313321-1233013301230120-1002103232202012-1101001101021030",
       "registry_path": "docs/guides/data-sources--site_registrations_by_state--reference--group-001.md",
@@ -2442,7 +2442,7 @@
         "xcsh-docs:data-sources:site_registrations_by_state:properties:items:get_spec:passport"
       ],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -2454,7 +2454,7 @@
       "path": "documentation/data-sources/site_registrations_by_state/properties/items/get_spec/index.md",
       "product": "distributed-cloud",
       "provider_name": "site_registrations_by_state",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-2321111233223323-1103131313132111-1332011333123121-2230221231113011-3312330012020320-0211132223121102-2102332200012230-0013300300311322",
       "registry_path": "docs/guides/data-sources--site_registrations_by_state--reference--group-001.md",
@@ -2532,7 +2532,7 @@
         "xcsh-docs:data-sources:site_registrations_by_state:properties:items:get_spec:infra:sw_info"
       ],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -2544,7 +2544,7 @@
       "path": "documentation/data-sources/site_registrations_by_state/properties/items/get_spec/infra/index.md",
       "product": "distributed-cloud",
       "provider_name": "site_registrations_by_state",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-0233310023131030-0032203223303021-2221213101122020-0213011131203102-3002201310322332-2203103112111203-2313013132100313-0233320222120321",
       "registry_path": "docs/guides/data-sources--site_registrations_by_state--reference--group-001.md",
@@ -2797,7 +2797,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -2809,7 +2809,7 @@
       "path": "documentation/data-sources/site_registrations_by_state/properties/items/get_spec/infra/bond_config/index.md",
       "product": "distributed-cloud",
       "provider_name": "site_registrations_by_state",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-1010031133200233-2032033102132113-0311123133113020-0330211122202233-1213021231220012-2111022032103301-0020131213033000-2013231120311120",
       "registry_path": "docs/guides/data-sources--site_registrations_by_state--reference--group-001.md",
@@ -2880,7 +2880,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -2892,7 +2892,7 @@
       "path": "documentation/data-sources/site_registrations_by_state/properties/items/get_spec/infra/hugepages/index.md",
       "product": "distributed-cloud",
       "provider_name": "site_registrations_by_state",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-3111011221013121-0123133022212310-2313022103210212-3030032230300132-0112100223320222-1230313101033023-0301303313232221-0123311123101223",
       "registry_path": "docs/guides/data-sources--site_registrations_by_state--reference--group-001.md",
@@ -2976,7 +2976,7 @@
         "xcsh-docs:data-sources:site_registrations_by_state:properties:items:get_spec:infra:hw_info:usb"
       ],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -2988,7 +2988,7 @@
       "path": "documentation/data-sources/site_registrations_by_state/properties/items/get_spec/infra/hw_info/index.md",
       "product": "distributed-cloud",
       "provider_name": "site_registrations_by_state",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-0221000332223002-0003222301201320-0320022333112331-1222022120030000-2003302110120110-1231101313210231-0010010012113111-1302023332323232",
       "registry_path": "docs/guides/data-sources--site_registrations_by_state--reference--group-001.md",
@@ -3199,7 +3199,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -3211,7 +3211,7 @@
       "path": "documentation/data-sources/site_registrations_by_state/properties/items/get_spec/infra/hw_info/bios/index.md",
       "product": "distributed-cloud",
       "provider_name": "site_registrations_by_state",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-2033212002211330-0221113203212011-0331220330030210-0212110133111023-3231110302031231-0321011211322101-3331333322123310-2003010003111320",
       "registry_path": "docs/guides/data-sources--site_registrations_by_state--reference--group-001.md",
@@ -3282,7 +3282,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -3294,7 +3294,7 @@
       "path": "documentation/data-sources/site_registrations_by_state/properties/items/get_spec/infra/hw_info/board/index.md",
       "product": "distributed-cloud",
       "provider_name": "site_registrations_by_state",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-0302231022210121-1112232311012020-1012233002003102-1012113322030333-2003332033311013-2212200221330110-0021312230200131-3102320022322223",
       "registry_path": "docs/guides/data-sources--site_registrations_by_state--reference--group-001.md",
@@ -3393,7 +3393,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -3405,7 +3405,7 @@
       "path": "documentation/data-sources/site_registrations_by_state/properties/items/get_spec/infra/hw_info/chassis/index.md",
       "product": "distributed-cloud",
       "provider_name": "site_registrations_by_state",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-2010322021010012-0322303300203232-0200220212222113-1232321232010110-2210323310223202-2313220002300032-2303013122211331-1112322022122133",
       "registry_path": "docs/guides/data-sources--site_registrations_by_state--reference--group-001.md",
@@ -3504,7 +3504,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -3516,7 +3516,7 @@
       "path": "documentation/data-sources/site_registrations_by_state/properties/items/get_spec/infra/hw_info/cpu/index.md",
       "product": "distributed-cloud",
       "provider_name": "site_registrations_by_state",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-0112300230322103-3202303121113023-1203020223232020-0122333211032210-0110032120003333-1030010031203003-3111310212201112-0013022132131030",
       "registry_path": "docs/guides/data-sources--site_registrations_by_state--reference--group-001.md",
@@ -3645,7 +3645,7 @@
         "xcsh-docs:data-sources:site_registrations_by_state:properties:items:get_spec:infra:hw_info:gpu:gpu_device"
       ],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -3657,7 +3657,7 @@
       "path": "documentation/data-sources/site_registrations_by_state/properties/items/get_spec/infra/hw_info/gpu/index.md",
       "product": "distributed-cloud",
       "provider_name": "site_registrations_by_state",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-2003000320003221-3330311032231112-2020130312301002-1001320221120301-1221202232331033-1300233323021203-0002320002301213-2112321230112211",
       "registry_path": "docs/guides/data-sources--site_registrations_by_state--reference--group-001.md",
@@ -3728,7 +3728,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -3740,7 +3740,7 @@
       "path": "documentation/data-sources/site_registrations_by_state/properties/items/get_spec/infra/hw_info/gpu/gpu_device/index.md",
       "product": "distributed-cloud",
       "provider_name": "site_registrations_by_state",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-1233312223031333-3311132012133130-0330213321211120-2000200020120321-1021323323213202-1221312320320032-0030032103112321-1311032112001133",
       "registry_path": "docs/guides/data-sources--site_registrations_by_state--reference--group-001.md",
@@ -3811,7 +3811,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -3823,7 +3823,7 @@
       "path": "documentation/data-sources/site_registrations_by_state/properties/items/get_spec/infra/hw_info/kernel/index.md",
       "product": "distributed-cloud",
       "provider_name": "site_registrations_by_state",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-0321112322120311-1031123112113320-2110132121130031-0301303201200131-1310103312023122-1221302001022130-3033302103122112-0331031303233002",
       "registry_path": "docs/guides/data-sources--site_registrations_by_state--reference--group-002.md",
@@ -3894,7 +3894,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -3906,7 +3906,7 @@
       "path": "documentation/data-sources/site_registrations_by_state/properties/items/get_spec/infra/hw_info/memory/index.md",
       "product": "distributed-cloud",
       "provider_name": "site_registrations_by_state",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-0320021223023322-2211221200033132-0223111232231321-3100100311210120-3122221233211010-3023100313001032-3332012213031313-1302111032131300",
       "registry_path": "docs/guides/data-sources--site_registrations_by_state--reference--group-002.md",
@@ -3977,7 +3977,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -3989,7 +3989,7 @@
       "path": "documentation/data-sources/site_registrations_by_state/properties/items/get_spec/infra/hw_info/network/index.md",
       "product": "distributed-cloud",
       "provider_name": "site_registrations_by_state",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-3012301313312232-1222121333031330-2223120332121101-3221111311222111-2001133120320212-0200033232310103-3022101110212030-0010022023223111",
       "registry_path": "docs/guides/data-sources--site_registrations_by_state--reference--group-002.md",
@@ -4130,7 +4130,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -4142,7 +4142,7 @@
       "path": "documentation/data-sources/site_registrations_by_state/properties/items/get_spec/infra/hw_info/os/index.md",
       "product": "distributed-cloud",
       "provider_name": "site_registrations_by_state",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-0221010331001303-0211231031231031-3111020113121012-2031133130213031-0212201031013210-0313203213011133-3233121100202112-0301332113302302",
       "registry_path": "docs/guides/data-sources--site_registrations_by_state--reference--group-002.md",
@@ -4241,7 +4241,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -4253,7 +4253,7 @@
       "path": "documentation/data-sources/site_registrations_by_state/properties/items/get_spec/infra/hw_info/product/index.md",
       "product": "distributed-cloud",
       "provider_name": "site_registrations_by_state",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-2112103311331133-0033002130121030-1233121233310203-3100323312013313-2321213001202221-1313121320130013-3300003103323023-2012010322113133",
       "registry_path": "docs/guides/data-sources--site_registrations_by_state--reference--group-002.md",
@@ -4338,7 +4338,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -4350,7 +4350,7 @@
       "path": "documentation/data-sources/site_registrations_by_state/properties/items/get_spec/infra/hw_info/storage/index.md",
       "product": "distributed-cloud",
       "provider_name": "site_registrations_by_state",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-2121200210023133-3230202221331302-0330102230131100-1112231300032211-3313013102203030-3023101123020000-3013113003000002-3121000001131113",
       "registry_path": "docs/guides/data-sources--site_registrations_by_state--reference--group-002.md",
@@ -4463,7 +4463,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -4475,7 +4475,7 @@
       "path": "documentation/data-sources/site_registrations_by_state/properties/items/get_spec/infra/hw_info/usb/index.md",
       "product": "distributed-cloud",
       "provider_name": "site_registrations_by_state",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-1012320201023020-0031212333000222-1120323223011023-3332111323133201-0311030130133132-2012321100132030-0131311331010212-2130113133123220",
       "registry_path": "docs/guides/data-sources--site_registrations_by_state--reference--group-002.md",
@@ -4770,7 +4770,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -4782,7 +4782,7 @@
       "path": "documentation/data-sources/site_registrations_by_state/properties/items/get_spec/infra/interfaces/index.md",
       "product": "distributed-cloud",
       "provider_name": "site_registrations_by_state",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-3230330112200222-0121231210202301-2300313103221122-0122100021022000-1303123321310111-2000001221200201-0320020011130332-2230101100000000",
       "registry_path": "docs/guides/data-sources--site_registrations_by_state--reference--group-002.md",
@@ -4810,7 +4810,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -4822,7 +4822,7 @@
       "path": "documentation/data-sources/site_registrations_by_state/properties/items/get_spec/infra/internet_proxy/index.md",
       "product": "distributed-cloud",
       "provider_name": "site_registrations_by_state",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-3123211222220010-3010203323202310-0310321132111233-2302131232321211-3310321023331323-1320100102101121-3030032120322001-1122300330012121",
       "registry_path": "docs/guides/data-sources--site_registrations_by_state--reference--group-002.md",
@@ -4874,7 +4874,7 @@
           "type": "string"
         },
         {
-          "aliases": ["cert", "certificate", "existing certificates", "proxy cacert url", "tls certificates"],
+          "aliases": ["proxy cacert url"],
           "anchor": "schema-items--get_spec--infra--internet_proxy--proxy_cacert_url",
           "description": "Allow optional different trust-store for proxy in HTTP CONNECT step by picking proxy CA certificate value.",
           "document_id": "xcsh-docs:data-sources:site_registrations_by_state:properties:items:get_spec:infra:internet_proxy",
@@ -4907,7 +4907,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -4919,7 +4919,7 @@
       "path": "documentation/data-sources/site_registrations_by_state/properties/items/get_spec/infra/sw_info/index.md",
       "product": "distributed-cloud",
       "provider_name": "site_registrations_by_state",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-0321201132012310-2302210020130033-2010303311202133-2130012331323002-1023122002033303-2213331203023221-2020123333223033-0031113322201121",
       "registry_path": "docs/guides/data-sources--site_registrations_by_state--reference--group-002.md",
@@ -4965,7 +4965,7 @@
         "xcsh-docs:data-sources:site_registrations_by_state:properties:items:get_spec:passport:default_sw_version"
       ],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -4977,7 +4977,7 @@
       "path": "documentation/data-sources/site_registrations_by_state/properties/items/get_spec/passport/index.md",
       "product": "distributed-cloud",
       "provider_name": "site_registrations_by_state",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-2203132300212312-1221232003303021-1330002313010203-1032320133313122-2323101201303111-2130030110023201-1121001200310221-1111100023322210",
       "registry_path": "docs/guides/data-sources--site_registrations_by_state--reference--group-002.md",
@@ -5146,7 +5146,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -5158,7 +5158,7 @@
       "path": "documentation/data-sources/site_registrations_by_state/properties/items/get_spec/passport/default_os_version/index.md",
       "product": "distributed-cloud",
       "provider_name": "site_registrations_by_state",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-0220101012333311-0123100332123021-2201222101122030-1230312001101200-1130330010120013-2100122123212132-1213030220300111-3121323033302033",
       "registry_path": "docs/guides/data-sources--site_registrations_by_state--reference--group-002.md",
@@ -5186,7 +5186,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -5198,7 +5198,7 @@
       "path": "documentation/data-sources/site_registrations_by_state/properties/items/get_spec/passport/default_sw_version/index.md",
       "product": "distributed-cloud",
       "provider_name": "site_registrations_by_state",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-1101210012120133-2312120223211230-3301303022123110-0212211123310131-1112201132032210-0312210231112221-3310101001112330-0301332131322313",
       "registry_path": "docs/guides/data-sources--site_registrations_by_state--reference--group-002.md",
@@ -5226,7 +5226,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -5238,7 +5238,7 @@
       "path": "documentation/data-sources/site_registrations_by_state/properties/items/labels/index.md",
       "product": "distributed-cloud",
       "provider_name": "site_registrations_by_state",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-0113333120313032-0333021001310200-2302201021223222-1013131210011232-1333103223220323-3110321120132032-2312201232023001-2001003020222102",
       "registry_path": "docs/guides/data-sources--site_registrations_by_state--reference--group-002.md",
@@ -5266,7 +5266,7 @@
       "category": null,
       "child_ids": ["xcsh-docs:data-sources:site_registrations_by_state:properties:items:metadata:labels"],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -5278,7 +5278,7 @@
       "path": "documentation/data-sources/site_registrations_by_state/properties/items/metadata/index.md",
       "product": "distributed-cloud",
       "provider_name": "site_registrations_by_state",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-0002032302103311-0221203213023231-3122021003312130-1331101011003121-2323222002112200-3002012331110331-1321330031023123-2013130031230103",
       "registry_path": "docs/guides/data-sources--site_registrations_by_state--reference--group-002.md",
@@ -5391,7 +5391,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -5403,7 +5403,7 @@
       "path": "documentation/data-sources/site_registrations_by_state/properties/items/metadata/labels/index.md",
       "product": "distributed-cloud",
       "provider_name": "site_registrations_by_state",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-3023000202200303-2103122012022323-1311130030211101-3023022321220130-0130210200033122-0132313030023212-3332101230030313-0221013031001202",
       "registry_path": "docs/guides/data-sources--site_registrations_by_state--reference--group-002.md",
@@ -5436,7 +5436,7 @@
         "xcsh-docs:data-sources:site_registrations_by_state:properties:items:object:system_metadata"
       ],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -5448,7 +5448,7 @@
       "path": "documentation/data-sources/site_registrations_by_state/properties/items/object/index.md",
       "product": "distributed-cloud",
       "provider_name": "site_registrations_by_state",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-1223022213213010-2123312320000202-3212010203300330-2123121110030020-2121322322103003-3031303200312203-3323112222021022-0003011010032003",
       "registry_path": "docs/guides/data-sources--site_registrations_by_state--reference--group-002.md",
@@ -5533,7 +5533,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -5545,7 +5545,7 @@
       "path": "documentation/data-sources/site_registrations_by_state/properties/items/object/metadata/index.md",
       "product": "distributed-cloud",
       "provider_name": "site_registrations_by_state",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-3311000213200301-0000010010112023-3110111210100303-0221203320133311-1001000010211122-0232212110321002-1010201033112110-0200221123110123",
       "registry_path": "docs/guides/data-sources--site_registrations_by_state--reference--group-002.md",
@@ -5672,7 +5672,7 @@
       "category": null,
       "child_ids": ["xcsh-docs:data-sources:site_registrations_by_state:properties:items:object:spec:gc_spec"],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -5684,7 +5684,7 @@
       "path": "documentation/data-sources/site_registrations_by_state/properties/items/object/spec/index.md",
       "product": "distributed-cloud",
       "provider_name": "site_registrations_by_state",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-2300201123032020-3301313011211022-3130333221102211-1201033333320023-2321202211023203-3011230023203033-0331211032133013-3221200200032222",
       "registry_path": "docs/guides/data-sources--site_registrations_by_state--reference--group-002.md",
@@ -5731,7 +5731,7 @@
         "xcsh-docs:data-sources:site_registrations_by_state:properties:items:object:spec:gc_spec:site"
       ],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -5743,7 +5743,7 @@
       "path": "documentation/data-sources/site_registrations_by_state/properties/items/object/spec/gc_spec/index.md",
       "product": "distributed-cloud",
       "provider_name": "site_registrations_by_state",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-0101133023001220-0122002101101002-3021010302200310-1311213123300331-2033020320023103-2103222330330222-2020300312323220-2200331323103311",
       "registry_path": "docs/guides/data-sources--site_registrations_by_state--reference--group-002.md",
@@ -5877,7 +5877,7 @@
         "xcsh-docs:data-sources:site_registrations_by_state:properties:items:object:spec:gc_spec:infra:sw_info"
       ],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -5889,7 +5889,7 @@
       "path": "documentation/data-sources/site_registrations_by_state/properties/items/object/spec/gc_spec/infra/index.md",
       "product": "distributed-cloud",
       "provider_name": "site_registrations_by_state",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-2311032302313011-3133111000003211-0232321221321111-3110112201113112-3121220013111032-0001133110213113-3310011221132020-0131221232203131",
       "registry_path": "docs/guides/data-sources--site_registrations_by_state--reference--group-002.md",
@@ -6142,7 +6142,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -6154,7 +6154,7 @@
       "path": "documentation/data-sources/site_registrations_by_state/properties/items/object/spec/gc_spec/infra/bond_config/index.md",
       "product": "distributed-cloud",
       "provider_name": "site_registrations_by_state",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-3200012012132231-2021330321223202-1111310210313011-0221030132033111-1100202331231310-2113122030321110-0103113211322023-2011102003021203",
       "registry_path": "docs/guides/data-sources--site_registrations_by_state--reference--group-002.md",
@@ -6225,7 +6225,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -6237,7 +6237,7 @@
       "path": "documentation/data-sources/site_registrations_by_state/properties/items/object/spec/gc_spec/infra/hugepages/index.md",
       "product": "distributed-cloud",
       "provider_name": "site_registrations_by_state",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-1010130201023122-0331201310011320-0200321032112302-2331132201131103-3100322223211002-1010233200132100-2330210312110131-3222123030231103",
       "registry_path": "docs/guides/data-sources--site_registrations_by_state--reference--group-002.md",
@@ -6321,7 +6321,7 @@
         "xcsh-docs:data-sources:site_registrations_by_state:properties:items:object:spec:gc_spec:infra:hw_info:usb"
       ],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -6333,7 +6333,7 @@
       "path": "documentation/data-sources/site_registrations_by_state/properties/items/object/spec/gc_spec/infra/hw_info/index.md",
       "product": "distributed-cloud",
       "provider_name": "site_registrations_by_state",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-3133101121332222-2202232121012010-3323200223222302-0210313322311013-0311003023022013-1310101112132123-2202330021323222-2122302031320301",
       "registry_path": "docs/guides/data-sources--site_registrations_by_state--reference--group-002.md",
@@ -6544,7 +6544,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -6556,7 +6556,7 @@
       "path": "documentation/data-sources/site_registrations_by_state/properties/items/object/spec/gc_spec/infra/hw_info/bios/index.md",
       "product": "distributed-cloud",
       "provider_name": "site_registrations_by_state",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-2100031000133301-2100200313010210-1012202313100210-1221323000310221-0221110303110231-0030230113333000-3331222011300202-3233313220321322",
       "registry_path": "docs/guides/data-sources--site_registrations_by_state--reference--group-002.md",
@@ -6627,7 +6627,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -6639,7 +6639,7 @@
       "path": "documentation/data-sources/site_registrations_by_state/properties/items/object/spec/gc_spec/infra/hw_info/board/index.md",
       "product": "distributed-cloud",
       "provider_name": "site_registrations_by_state",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-3230113200202301-2303131130131022-2321300030013212-2330100202121111-1223013020102310-1130011300132323-2130203112102312-0122123113331122",
       "registry_path": "docs/guides/data-sources--site_registrations_by_state--reference--group-002.md",
@@ -6738,7 +6738,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -6750,7 +6750,7 @@
       "path": "documentation/data-sources/site_registrations_by_state/properties/items/object/spec/gc_spec/infra/hw_info/chassis/index.md",
       "product": "distributed-cloud",
       "provider_name": "site_registrations_by_state",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-3020103113000312-0110223303213321-2022231300031012-2230213231032102-0111021113303310-3211331102122321-0121313202202223-2212111223222311",
       "registry_path": "docs/guides/data-sources--site_registrations_by_state--reference--group-002.md",
@@ -6849,7 +6849,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -6861,7 +6861,7 @@
       "path": "documentation/data-sources/site_registrations_by_state/properties/items/object/spec/gc_spec/infra/hw_info/cpu/index.md",
       "product": "distributed-cloud",
       "provider_name": "site_registrations_by_state",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-0001020311203311-3313133131210012-1031033002121011-2002111320102321-0031210201303323-0230210213323221-1130311120323102-2333311011001210",
       "registry_path": "docs/guides/data-sources--site_registrations_by_state--reference--group-002.md",
@@ -6990,7 +6990,7 @@
         "xcsh-docs:data-sources:site_registrations_by_state:properties:items:object:spec:gc_spec:infra:hw_info:gpu:gpu_device"
       ],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -7002,7 +7002,7 @@
       "path": "documentation/data-sources/site_registrations_by_state/properties/items/object/spec/gc_spec/infra/hw_info/gpu/index.md",
       "product": "distributed-cloud",
       "provider_name": "site_registrations_by_state",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-1232323132020021-3103030233221300-0013021113103120-0123100123123333-1301112311312021-2030333031223333-0103101122110233-3221102030333000",
       "registry_path": "docs/guides/data-sources--site_registrations_by_state--reference--group-002.md",
@@ -7073,7 +7073,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -7085,7 +7085,7 @@
       "path": "documentation/data-sources/site_registrations_by_state/properties/items/object/spec/gc_spec/infra/hw_info/gpu/gpu_device/index.md",
       "product": "distributed-cloud",
       "provider_name": "site_registrations_by_state",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-1221231230300120-2201210222312102-1203121133200030-3130010000122010-1330111330000003-1102322021002001-1121310130331303-0131111321023222",
       "registry_path": "docs/guides/data-sources--site_registrations_by_state--reference--group-002.md",
@@ -7166,7 +7166,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -7178,7 +7178,7 @@
       "path": "documentation/data-sources/site_registrations_by_state/properties/items/object/spec/gc_spec/infra/hw_info/kernel/index.md",
       "product": "distributed-cloud",
       "provider_name": "site_registrations_by_state",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-1213200330130132-2123023211323223-3212222231333030-1020203003212213-3003302100032000-0003110302022212-3320032300333203-1300332200321230",
       "registry_path": "docs/guides/data-sources--site_registrations_by_state--reference--group-002.md",
@@ -7249,7 +7249,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -7261,7 +7261,7 @@
       "path": "documentation/data-sources/site_registrations_by_state/properties/items/object/spec/gc_spec/infra/hw_info/memory/index.md",
       "product": "distributed-cloud",
       "provider_name": "site_registrations_by_state",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-3120312233333222-2011020200100122-0212322013000110-2002111212230003-2213320101222232-1201001333200012-2110032230012203-0122023103330323",
       "registry_path": "docs/guides/data-sources--site_registrations_by_state--reference--group-002.md",
@@ -7332,7 +7332,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -7344,7 +7344,7 @@
       "path": "documentation/data-sources/site_registrations_by_state/properties/items/object/spec/gc_spec/infra/hw_info/network/index.md",
       "product": "distributed-cloud",
       "provider_name": "site_registrations_by_state",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-0221302303121132-2023220110210002-3023302110210300-3030321132332303-0322302123102323-2222003330110110-0220310002123111-1332213202330020",
       "registry_path": "docs/guides/data-sources--site_registrations_by_state--reference--group-002.md",
@@ -7485,7 +7485,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -7497,7 +7497,7 @@
       "path": "documentation/data-sources/site_registrations_by_state/properties/items/object/spec/gc_spec/infra/hw_info/os/index.md",
       "product": "distributed-cloud",
       "provider_name": "site_registrations_by_state",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-2310031011320000-3110132232112001-3131013220030122-3022122103220021-2333100031230201-1033330220022113-1330233101023200-1303200320233303",
       "registry_path": "docs/guides/data-sources--site_registrations_by_state--reference--group-002.md",
@@ -7596,7 +7596,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -7608,7 +7608,7 @@
       "path": "documentation/data-sources/site_registrations_by_state/properties/items/object/spec/gc_spec/infra/hw_info/product/index.md",
       "product": "distributed-cloud",
       "provider_name": "site_registrations_by_state",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-2123133323321203-2230110120031202-0003123302211301-0101011001311011-1223002100303002-3002310120000021-2020333023113123-0220311111101032",
       "registry_path": "docs/guides/data-sources--site_registrations_by_state--reference--group-002.md",
@@ -7693,7 +7693,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -7705,7 +7705,7 @@
       "path": "documentation/data-sources/site_registrations_by_state/properties/items/object/spec/gc_spec/infra/hw_info/storage/index.md",
       "product": "distributed-cloud",
       "provider_name": "site_registrations_by_state",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-3010101023233200-1333131230123303-2123112203010033-2310111122030033-0031201313203102-2201212322321333-3033301100210221-2201001303003322",
       "registry_path": "docs/guides/data-sources--site_registrations_by_state--reference--group-002.md",
@@ -7818,7 +7818,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -7830,7 +7830,7 @@
       "path": "documentation/data-sources/site_registrations_by_state/properties/items/object/spec/gc_spec/infra/hw_info/usb/index.md",
       "product": "distributed-cloud",
       "provider_name": "site_registrations_by_state",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-0111133100330100-2100231302310310-3232223102013303-3003112011313210-3311110113303321-3322023233300021-3022002232000003-2131010330230010",
       "registry_path": "docs/guides/data-sources--site_registrations_by_state--reference--group-002.md",
@@ -8125,7 +8125,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -8137,7 +8137,7 @@
       "path": "documentation/data-sources/site_registrations_by_state/properties/items/object/spec/gc_spec/infra/interfaces/index.md",
       "product": "distributed-cloud",
       "provider_name": "site_registrations_by_state",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-3221202213232233-0212322223032113-2233120023013221-2312210211001320-3211111001211033-1030313111232333-1120220220120100-3220003113330130",
       "registry_path": "docs/guides/data-sources--site_registrations_by_state--reference--group-002.md",
@@ -8165,7 +8165,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -8177,7 +8177,7 @@
       "path": "documentation/data-sources/site_registrations_by_state/properties/items/object/spec/gc_spec/infra/internet_proxy/index.md",
       "product": "distributed-cloud",
       "provider_name": "site_registrations_by_state",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-1232112113020023-2011202011023210-3301300222031123-1302131203330030-0331231010011303-2302130211310231-1200113200221002-2312323330012011",
       "registry_path": "docs/guides/data-sources--site_registrations_by_state--reference--group-002.md",
@@ -8229,7 +8229,7 @@
           "type": "string"
         },
         {
-          "aliases": ["cert", "certificate", "existing certificates", "proxy cacert url", "tls certificates"],
+          "aliases": ["proxy cacert url"],
           "anchor": "schema-items--object--spec--gc_spec--infra--internet_proxy--proxy_cacert_url",
           "description": "Allow optional different trust-store for proxy in HTTP CONNECT step by picking proxy CA certificate value.",
           "document_id": "xcsh-docs:data-sources:site_registrations_by_state:properties:items:object:spec:gc_spec:infra:internet_proxy",
@@ -8262,7 +8262,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -8274,7 +8274,7 @@
       "path": "documentation/data-sources/site_registrations_by_state/properties/items/object/spec/gc_spec/infra/sw_info/index.md",
       "product": "distributed-cloud",
       "provider_name": "site_registrations_by_state",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-0123232111222030-3000001113301211-2132112222220211-1003002113120021-3132313221201203-2112222213132302-1310012101213200-2203220023303133",
       "registry_path": "docs/guides/data-sources--site_registrations_by_state--reference--group-002.md",
@@ -8320,7 +8320,7 @@
         "xcsh-docs:data-sources:site_registrations_by_state:properties:items:object:spec:gc_spec:passport:default_sw_version"
       ],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -8332,7 +8332,7 @@
       "path": "documentation/data-sources/site_registrations_by_state/properties/items/object/spec/gc_spec/passport/index.md",
       "product": "distributed-cloud",
       "provider_name": "site_registrations_by_state",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-0231331112312020-0332200010103111-2100133133000021-3221232131111212-3232120300111102-2111103111011202-2211223212113223-0213003021300131",
       "registry_path": "docs/guides/data-sources--site_registrations_by_state--reference--group-002.md",
@@ -8501,7 +8501,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -8513,7 +8513,7 @@
       "path": "documentation/data-sources/site_registrations_by_state/properties/items/object/spec/gc_spec/passport/default_os_version/index.md",
       "product": "distributed-cloud",
       "provider_name": "site_registrations_by_state",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-1222333321101033-3033232221331301-0031300011312003-0102122121210131-2311220121101323-1311311212112000-0001203110002023-0100233220010200",
       "registry_path": "docs/guides/data-sources--site_registrations_by_state--reference--group-002.md",
@@ -8541,7 +8541,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -8553,7 +8553,7 @@
       "path": "documentation/data-sources/site_registrations_by_state/properties/items/object/spec/gc_spec/passport/default_sw_version/index.md",
       "product": "distributed-cloud",
       "provider_name": "site_registrations_by_state",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-2330011221320330-0212222300123121-0110331013210101-3012131213230201-1203002033020102-3231122001303310-1103332310312122-2013013311102012",
       "registry_path": "docs/guides/data-sources--site_registrations_by_state--reference--group-002.md",
@@ -8581,7 +8581,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -8593,7 +8593,7 @@
       "path": "documentation/data-sources/site_registrations_by_state/properties/items/object/spec/gc_spec/site/index.md",
       "product": "distributed-cloud",
       "provider_name": "site_registrations_by_state",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-0221221101033201-1020331112200021-1120033002221013-1033203123012222-1023313332113323-0023330303303010-3030120231213132-2233211312001103",
       "registry_path": "docs/guides/data-sources--site_registrations_by_state--reference--group-002.md",
@@ -8692,7 +8692,7 @@
       "category": null,
       "child_ids": ["xcsh-docs:data-sources:site_registrations_by_state:properties:items:object:status:object_status"],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -8704,7 +8704,7 @@
       "path": "documentation/data-sources/site_registrations_by_state/properties/items/object/status/index.md",
       "product": "distributed-cloud",
       "provider_name": "site_registrations_by_state",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-2332032110021112-3213123313223203-1123222313011220-2031302031133220-3103112021332201-3320000303232303-1020323103232000-1303231302300313",
       "registry_path": "docs/guides/data-sources--site_registrations_by_state--reference--group-003.md",
@@ -8789,7 +8789,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -8801,7 +8801,7 @@
       "path": "documentation/data-sources/site_registrations_by_state/properties/items/object/status/object_status/index.md",
       "product": "distributed-cloud",
       "provider_name": "site_registrations_by_state",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-0320111323202300-3320331113202003-1103220101123222-2310022310012323-3322213231021312-2310100301230212-1132013000033310-0221213130100222",
       "registry_path": "docs/guides/data-sources--site_registrations_by_state--reference--group-003.md",
@@ -8877,7 +8877,7 @@
         "xcsh-docs:data-sources:site_registrations_by_state:properties:items:object:system_metadata:owner_view"
       ],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -8889,7 +8889,7 @@
       "path": "documentation/data-sources/site_registrations_by_state/properties/items/object/system_metadata/index.md",
       "product": "distributed-cloud",
       "provider_name": "site_registrations_by_state",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-2013131010202000-1033233000000223-1220001213202000-0201220032121300-3113011321330320-2320002221203300-0010122123201330-0133122012332002",
       "registry_path": "docs/guides/data-sources--site_registrations_by_state--reference--group-003.md",
@@ -9011,7 +9011,7 @@
           "type": "object"
         },
         {
-          "aliases": ["backend servers", "labels", "origin servers", "upstream servers"],
+          "aliases": ["labels"],
           "anchor": "section",
           "description": "Map of string keys and values that can be used to organize and categorize (scope and select) objects as chosen by the operator or software. Values here can be interpreted by software(backend or frontend) to enable certain behavior e.g. Things marked as soft-deleted(restorable).",
           "document_id": "xcsh-docs:data-sources:site_registrations_by_state:properties:items:object:system_metadata:labels",
@@ -9109,7 +9109,7 @@
           "type": "bool"
         },
         {
-          "aliases": ["authentication", "credential setup", "credentials", "tenant"],
+          "aliases": ["tenant"],
           "anchor": "schema-items--object--system_metadata--tenant",
           "description": "Tenant to which this configuration object belongs to. The value for this is found from presented credentials.",
           "document_id": "xcsh-docs:data-sources:site_registrations_by_state:properties:items:object:system_metadata",
@@ -9151,7 +9151,7 @@
           "type": "string"
         },
         {
-          "aliases": ["backend servers", "origin servers", "upstream servers", "vtrp id"],
+          "aliases": ["vtrp id"],
           "anchor": "schema-items--object--system_metadata--vtrp_id",
           "description": "VTRP ID. Indicate origin of this object.",
           "document_id": "xcsh-docs:data-sources:site_registrations_by_state:properties:items:object:system_metadata",
@@ -9201,7 +9201,7 @@
         "xcsh-docs:data-sources:site_registrations_by_state:properties:items:object:system_metadata:initializers:result"
       ],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -9213,7 +9213,7 @@
       "path": "documentation/data-sources/site_registrations_by_state/properties/items/object/system_metadata/initializers/index.md",
       "product": "distributed-cloud",
       "provider_name": "site_registrations_by_state",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-2121321020130223-3321220332111003-3033012023232233-3200300102203020-2220332102023033-1233321221111301-1100022123211132-1010220223313232",
       "registry_path": "docs/guides/data-sources--site_registrations_by_state--reference--group-003.md",
@@ -9270,7 +9270,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -9282,7 +9282,7 @@
       "path": "documentation/data-sources/site_registrations_by_state/properties/items/object/system_metadata/initializers/pending/index.md",
       "product": "distributed-cloud",
       "provider_name": "site_registrations_by_state",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-3301123013322303-3333000210020013-1203220200121020-1110012131110302-3200230130333001-1203202321003023-1002302230113003-3023311232320231",
       "registry_path": "docs/guides/data-sources--site_registrations_by_state--reference--group-003.md",
@@ -9325,7 +9325,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -9337,7 +9337,7 @@
       "path": "documentation/data-sources/site_registrations_by_state/properties/items/object/system_metadata/initializers/result/index.md",
       "product": "distributed-cloud",
       "provider_name": "site_registrations_by_state",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-2233223021000222-1201110001112012-3010212330103120-0020303232133213-0223130011113110-1231311030013001-0200020112022003-3312120221021300",
       "registry_path": "docs/guides/data-sources--site_registrations_by_state--reference--group-003.md",
@@ -9401,14 +9401,14 @@
       }
     },
     {
-      "aliases": ["backend servers", "items object system metadata labels", "origin servers", "upstream servers"],
+      "aliases": ["items object system metadata labels"],
       "body_bytes": 1646,
       "body_sha256": "sha256:8805e0ba6e9364c15574d73083af4f2f4462968861672a0852fdf06a8538cf94",
       "capabilities": [],
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -9420,7 +9420,7 @@
       "path": "documentation/data-sources/site_registrations_by_state/properties/items/object/system_metadata/labels/index.md",
       "product": "distributed-cloud",
       "provider_name": "site_registrations_by_state",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-0232321320201130-0112221230100133-2312123211031121-2220101002200333-0220332322231032-2101122001100303-1230202231231023-0303303210002010",
       "registry_path": "docs/guides/data-sources--site_registrations_by_state--reference--group-003.md",
@@ -9448,7 +9448,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -9460,7 +9460,7 @@
       "path": "documentation/data-sources/site_registrations_by_state/properties/items/object/system_metadata/namespace/index.md",
       "product": "distributed-cloud",
       "provider_name": "site_registrations_by_state",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-0222220333221103-0031121023120230-1133322120202101-1313121021222123-0130222001303302-0103311201333121-2102221110020203-0302010130321220",
       "registry_path": "docs/guides/data-sources--site_registrations_by_state--reference--group-003.md",
@@ -9559,7 +9559,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -9571,7 +9571,7 @@
       "path": "documentation/data-sources/site_registrations_by_state/properties/items/object/system_metadata/owner_view/index.md",
       "product": "distributed-cloud",
       "provider_name": "site_registrations_by_state",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-1332123201133031-1321012020133231-1031003123111130-0100330112202022-2310013002312223-3032000022033213-3000112333322212-2100122332322303",
       "registry_path": "docs/guides/data-sources--site_registrations_by_state--reference--group-003.md",
@@ -9656,7 +9656,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -9668,7 +9668,7 @@
       "path": "documentation/data-sources/site_registrations_by_state/properties/items/owner_view/index.md",
       "product": "distributed-cloud",
       "provider_name": "site_registrations_by_state",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-2133013002301323-3123031212331031-1032210133102130-1010222011030233-0130032223321211-2221211010323312-3103211001231130-0122303113222322",
       "registry_path": "docs/guides/data-sources--site_registrations_by_state--reference--group-003.md",
@@ -9757,7 +9757,7 @@
         "xcsh-docs:data-sources:site_registrations_by_state:properties:items:system_metadata:owner_view"
       ],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -9769,7 +9769,7 @@
       "path": "documentation/data-sources/site_registrations_by_state/properties/items/system_metadata/index.md",
       "product": "distributed-cloud",
       "provider_name": "site_registrations_by_state",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-0322321200130311-2201333230012031-1313300210121321-2003310001233032-0002023213213302-3011322012112013-1023203013031122-0110211213032322",
       "registry_path": "docs/guides/data-sources--site_registrations_by_state--reference--group-003.md",
@@ -9863,7 +9863,7 @@
           "type": "object"
         },
         {
-          "aliases": ["backend servers", "labels", "origin servers", "upstream servers"],
+          "aliases": ["labels"],
           "anchor": "section",
           "description": "Map of string keys and values that can be used to organize and categorize (scope and select) objects as chosen by the operator or software. Values here can be interpreted by software(backend or frontend) to enable certain behavior e.g. Things marked as soft-deleted(restorable).",
           "document_id": "xcsh-docs:data-sources:site_registrations_by_state:properties:items:system_metadata:labels",
@@ -9919,7 +9919,7 @@
           "type": "object"
         },
         {
-          "aliases": ["authentication", "credential setup", "credentials", "tenant"],
+          "aliases": ["tenant"],
           "anchor": "schema-items--system_metadata--tenant",
           "description": "Tenant to which this configuration object belongs to. The value for this is found from presented credentials.",
           "document_id": "xcsh-docs:data-sources:site_registrations_by_state:properties:items:system_metadata",
@@ -9969,7 +9969,7 @@
         "xcsh-docs:data-sources:site_registrations_by_state:properties:items:system_metadata:initializers:result"
       ],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -9981,7 +9981,7 @@
       "path": "documentation/data-sources/site_registrations_by_state/properties/items/system_metadata/initializers/index.md",
       "product": "distributed-cloud",
       "provider_name": "site_registrations_by_state",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-1330013113012011-1311330023231332-3131000221130223-2321013000333320-2233213022221332-2222030203222020-2301003003012312-0323202333030032",
       "registry_path": "docs/guides/data-sources--site_registrations_by_state--reference--group-003.md",
@@ -10038,7 +10038,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -10050,7 +10050,7 @@
       "path": "documentation/data-sources/site_registrations_by_state/properties/items/system_metadata/initializers/pending/index.md",
       "product": "distributed-cloud",
       "provider_name": "site_registrations_by_state",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-2213103301203301-0213013010211131-0110133020322100-2013101230110200-0133300201311233-3003202123312110-0023232113301131-0213011320310203",
       "registry_path": "docs/guides/data-sources--site_registrations_by_state--reference--group-003.md",
@@ -10093,7 +10093,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -10105,7 +10105,7 @@
       "path": "documentation/data-sources/site_registrations_by_state/properties/items/system_metadata/initializers/result/index.md",
       "product": "distributed-cloud",
       "provider_name": "site_registrations_by_state",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-0100102301023033-2212001013230323-1200231013202112-0313032133123033-3032011320121332-1232201002312210-2112303110013230-2323203020200312",
       "registry_path": "docs/guides/data-sources--site_registrations_by_state--reference--group-003.md",
@@ -10169,14 +10169,14 @@
       }
     },
     {
-      "aliases": ["backend servers", "items system metadata labels", "origin servers", "upstream servers"],
+      "aliases": ["items system metadata labels"],
       "body_bytes": 1464,
       "body_sha256": "sha256:7206d314b4f1a10e9b974dd46d67a5cb07025911898872d72e2996d478cffd7a",
       "capabilities": [],
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -10188,7 +10188,7 @@
       "path": "documentation/data-sources/site_registrations_by_state/properties/items/system_metadata/labels/index.md",
       "product": "distributed-cloud",
       "provider_name": "site_registrations_by_state",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-0130013020200321-2210321001022330-1013112213002023-1130232022111002-0031133012102221-1033332330301320-3031100233310100-2211311132323212",
       "registry_path": "docs/guides/data-sources--site_registrations_by_state--reference--group-003.md",
@@ -10216,7 +10216,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -10228,7 +10228,7 @@
       "path": "documentation/data-sources/site_registrations_by_state/properties/items/system_metadata/owner_view/index.md",
       "product": "distributed-cloud",
       "provider_name": "site_registrations_by_state",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-1330232331010113-1132021302133310-0221213313231131-1202100013132012-2301311112011021-3222321233122101-0021332101202312-2220010010223323",
       "registry_path": "docs/guides/data-sources--site_registrations_by_state--reference--group-003.md",
@@ -10313,7 +10313,7 @@
       "category": null,
       "child_ids": ["xcsh-docs:data-sources:site_registrations_by_state:example:data-source"],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -10325,7 +10325,7 @@
       "path": "documentation/data-sources/site_registrations_by_state/examples/index.md",
       "product": "distributed-cloud",
       "provider_name": "site_registrations_by_state",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-3303201010310230-2003223220001303-1101321302202101-2030220322223133-1333332012121232-2102231003300003-1210020331110123-0320113132311303",
       "registry_path": "docs/guides/data-sources--site_registrations_by_state--examples--group-001.md",
@@ -10353,7 +10353,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -10372,7 +10372,7 @@
       "path": "documentation/data-sources/site_registrations_by_state/examples/data-source/index.md",
       "product": "distributed-cloud",
       "provider_name": "site_registrations_by_state",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-2122023233332330-2113130130003332-1301333213013322-3220013132032113-0310120123300322-0211102000110123-3123233230233132-1121301001023212",
       "registry_path": "docs/guides/data-sources--site_registrations_by_state--examples--group-001.md",

@@ -50,7 +50,7 @@
         "xcsh-docs:data-sources:network_bot_defense:examples"
       ],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -62,7 +62,7 @@
       "path": "documentation/data-sources/network_bot_defense/index.md",
       "product": "distributed-cloud",
       "provider_name": "network_bot_defense",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-0033010203002120-1333301320122310-3023133010230310-1013120133033132-3201111033200121-2113002210321222-0020023233301212-2222022300321031",
       "registry_path": "docs/data-sources/network_bot_defense.md",
@@ -91,7 +91,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -103,7 +103,7 @@
       "path": "documentation/data-sources/network_bot_defense/properties/index.md",
       "product": "distributed-cloud",
       "provider_name": "network_bot_defense",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-3221232120212230-2113110001332110-3020030310200102-2221330102200132-0233033133013112-0223001122321012-2032212130020112-2011211313321001",
       "registry_path": "docs/guides/data-sources--network_bot_defense--reference--group-001.md",
@@ -216,7 +216,7 @@
       "category": null,
       "child_ids": ["xcsh-docs:data-sources:network_bot_defense:example:data-source"],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -228,7 +228,7 @@
       "path": "documentation/data-sources/network_bot_defense/examples/index.md",
       "product": "distributed-cloud",
       "provider_name": "network_bot_defense",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-0002130000312332-1110233230003121-2103233333033223-2312121023022123-2020010323101203-1010300303231210-0003103302003303-2112021022311230",
       "registry_path": "docs/guides/data-sources--network_bot_defense--examples--group-001.md",
@@ -256,7 +256,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -275,7 +275,7 @@
       "path": "documentation/data-sources/network_bot_defense/examples/data-source/index.md",
       "product": "distributed-cloud",
       "provider_name": "network_bot_defense",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-2110231032332131-1321211201201120-0310201033330000-2032302212220211-3330213230110222-0011120001300010-1101323001121133-0200120122011032",
       "registry_path": "docs/guides/data-sources--network_bot_defense--examples--group-001.md",

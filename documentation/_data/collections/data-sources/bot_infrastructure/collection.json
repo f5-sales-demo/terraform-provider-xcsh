@@ -90,7 +90,7 @@
         "xcsh-docs:data-sources:bot_infrastructure:examples"
       ],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -102,7 +102,7 @@
       "path": "documentation/data-sources/bot_infrastructure/index.md",
       "product": "distributed-cloud",
       "provider_name": "bot_infrastructure",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-2013132323231331-0303132312210331-1111131303032231-1230222213330000-3013332023002112-2232231312222310-2333212110130200-1220202223231210",
       "registry_path": "docs/data-sources/bot_infrastructure.md",
@@ -131,7 +131,7 @@
       "category": "security",
       "child_ids": ["xcsh-docs:data-sources:bot_infrastructure:properties:create_cloud_hosted"],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -143,7 +143,7 @@
       "path": "documentation/data-sources/bot_infrastructure/properties/index.md",
       "product": "distributed-cloud",
       "provider_name": "bot_infrastructure",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-3203303203103230-0001213001331001-2201330032223212-1221312203121210-1202122312301302-0021121221223202-1033220220132003-1122303332333232",
       "registry_path": "docs/guides/data-sources--bot_infrastructure--reference--group-001.md",
@@ -287,7 +287,7 @@
         "xcsh-docs:data-sources:bot_infrastructure:properties:create_cloud_hosted:testing"
       ],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -299,7 +299,7 @@
       "path": "documentation/data-sources/bot_infrastructure/properties/create_cloud_hosted/index.md",
       "product": "distributed-cloud",
       "provider_name": "bot_infrastructure",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-1002221222001300-2101220322011111-0133210023323221-3223332231003001-3033003221230102-0212010220020122-0320131010300022-3310302003201121",
       "registry_path": "docs/guides/data-sources--bot_infrastructure--reference--group-001.md",
@@ -370,7 +370,7 @@
       "category": "security",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -382,7 +382,7 @@
       "path": "documentation/data-sources/bot_infrastructure/properties/create_cloud_hosted/production/index.md",
       "product": "distributed-cloud",
       "provider_name": "bot_infrastructure",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-3103113012102212-1110021012012323-2311131123000022-0031100313022110-2213303012213310-2101002231133011-2020002333012001-0333003212110131",
       "registry_path": "docs/guides/data-sources--bot_infrastructure--reference--group-001.md",
@@ -439,7 +439,7 @@
       "category": "security",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -451,7 +451,7 @@
       "path": "documentation/data-sources/bot_infrastructure/properties/create_cloud_hosted/testing/index.md",
       "product": "distributed-cloud",
       "provider_name": "bot_infrastructure",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-0213311311211033-0120002121021033-1011203122121200-0221322330031300-3112200022130021-1000120033110023-0220210100330020-0320231303320302",
       "registry_path": "docs/guides/data-sources--bot_infrastructure--reference--group-001.md",
@@ -494,7 +494,7 @@
       "category": "security",
       "child_ids": ["xcsh-docs:data-sources:bot_infrastructure:example:data-source"],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -506,7 +506,7 @@
       "path": "documentation/data-sources/bot_infrastructure/examples/index.md",
       "product": "distributed-cloud",
       "provider_name": "bot_infrastructure",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-3320013121211030-2031323200002323-2132020301312100-1033303231202032-1322332132203020-3120200230130301-3023000303232123-0301210121302203",
       "registry_path": "docs/guides/data-sources--bot_infrastructure--examples--group-001.md",
@@ -534,7 +534,7 @@
       "category": "security",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -553,7 +553,7 @@
       "path": "documentation/data-sources/bot_infrastructure/examples/data-source/index.md",
       "product": "distributed-cloud",
       "provider_name": "bot_infrastructure",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-2122303003330312-2112310320230020-0311223203032121-2200300011032333-2223202002211123-1212233100203201-2203011311112220-2303003133112113",
       "registry_path": "docs/guides/data-sources--bot_infrastructure--examples--group-001.md",

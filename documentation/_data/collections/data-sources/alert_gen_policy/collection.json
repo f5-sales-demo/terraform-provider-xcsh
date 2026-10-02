@@ -80,7 +80,7 @@
         "xcsh-docs:data-sources:alert_gen_policy:examples"
       ],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -92,7 +92,7 @@
       "path": "documentation/data-sources/alert_gen_policy/index.md",
       "product": "distributed-cloud",
       "provider_name": "alert_gen_policy",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-1212223311231031-2303130101102331-2121323302132120-3001003212230233-2233103321211211-1300022131031130-1101122301003332-3330023301222220",
       "registry_path": "docs/data-sources/alert_gen_policy.md",
@@ -121,7 +121,7 @@
       "category": "monitoring",
       "child_ids": ["xcsh-docs:data-sources:alert_gen_policy:properties:details"],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -133,7 +133,7 @@
       "path": "documentation/data-sources/alert_gen_policy/properties/index.md",
       "product": "distributed-cloud",
       "provider_name": "alert_gen_policy",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-0232203323003000-0030100311001232-1132202033111113-0322101230133330-0330113102210010-3303033232211100-3200031120003321-1033030031110112",
       "registry_path": "docs/guides/data-sources--alert_gen_policy--reference--group-001.md",
@@ -274,7 +274,7 @@
       "category": "monitoring",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -286,7 +286,7 @@
       "path": "documentation/data-sources/alert_gen_policy/properties/details/index.md",
       "product": "distributed-cloud",
       "provider_name": "alert_gen_policy",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-2332002311203110-1011103103320020-2010133001222313-2112130031230013-3211100301131023-3010312121111300-1110110101120033-0323222303032110",
       "registry_path": "docs/guides/data-sources--alert_gen_policy--reference--group-001.md",
@@ -371,7 +371,7 @@
       "category": "monitoring",
       "child_ids": ["xcsh-docs:data-sources:alert_gen_policy:example:data-source"],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -383,7 +383,7 @@
       "path": "documentation/data-sources/alert_gen_policy/examples/index.md",
       "product": "distributed-cloud",
       "provider_name": "alert_gen_policy",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-3101133110101332-1212313230200233-0212133030031121-3000033232011331-3002320201122210-1121300201310231-3102220301010033-0300333030203210",
       "registry_path": "docs/guides/data-sources--alert_gen_policy--examples--group-001.md",
@@ -411,7 +411,7 @@
       "category": "monitoring",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -430,7 +430,7 @@
       "path": "documentation/data-sources/alert_gen_policy/examples/data-source/index.md",
       "product": "distributed-cloud",
       "provider_name": "alert_gen_policy",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-1103023110200103-2022110230331111-2121301210003300-0333200010031033-2013330110211221-2313110133210132-2012222310222220-2032213300022312",
       "registry_path": "docs/guides/data-sources--alert_gen_policy--examples--group-001.md",

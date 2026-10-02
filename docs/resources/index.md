@@ -1,6 +1,6 @@
 # Resources
 
-This provider includes 130 resources.
+This provider includes 131 resources.
 
 - [xcsh_address_allocator](address_allocator.md)
 - [xcsh_advertise_policy](advertise_policy.md)
@@ -100,6 +100,7 @@ This provider includes 130 resources.
 - [xcsh_protocol_inspection](protocol_inspection.md)
 - [xcsh_protocol_policer](protocol_policer.md)
 - [xcsh_proxy](proxy.md)
+- [xcsh_public_ip_binding](public_ip_binding.md)
 - [xcsh_rate_limiter](rate_limiter.md)
 - [xcsh_rate_limiter_policy](rate_limiter_policy.md)
 - [xcsh_registration](registration.md)
