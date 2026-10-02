@@ -312,6 +312,7 @@
     "protocol_inspection",
     "protocol_policer",
     "proxy",
+    "public_ip_binding",
     "rate_limiter",
     "rate_limiter_policy",
     "registration",
