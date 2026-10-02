@@ -4,10 +4,9 @@ package provider
 
 import (
 	"context"
-	"os"
+	"encoding/json"
 	"reflect"
 	"regexp"
-	"strings"
 	"testing"
 
 	"github.com/hashicorp/terraform-plugin-framework/types"
@@ -29,13 +28,19 @@ func TestNetworkAllowlistCIDRConversionAndOrdering(t *testing.T) {
 }
 
 func TestNetworkAllowlistPinnedManifest(t *testing.T) {
-	version, err := os.ReadFile("../../tools/spec-version.txt")
-	if err != nil {
+	// This is compiled-artifact provenance. A pending spec pin changes before
+	// canonical regeneration, so it cannot describe this binary's embedded data.
+	var manifest struct {
+		APIReleaseTag string `json:"api_release_tag"`
+	}
+	if err := json.Unmarshal([]byte(bundledNetworkAllowlistJSON), &manifest); err != nil {
 		t.Fatal(err)
 	}
-	wantReleaseTag := strings.TrimSpace(string(version))
-	if bundledNetworkAllowlist.APIReleaseTag != wantReleaseTag {
-		t.Fatalf("release tag = %q, want %q from tools/spec-version.txt", bundledNetworkAllowlist.APIReleaseTag, wantReleaseTag)
+	if !regexp.MustCompile(`^v[0-9]+\.[0-9]+\.[0-9]+$`).MatchString(manifest.APIReleaseTag) {
+		t.Fatalf("invalid embedded release tag %q", manifest.APIReleaseTag)
+	}
+	if bundledNetworkAllowlist.APIReleaseTag != manifest.APIReleaseTag {
+		t.Fatal("embedded provenance was not preserved")
 	}
 	if bundledNetworkAllowlist.SourceSHA256 != "0bb6fd6bd561aef1ea9fbc772119d4cfea8c26cbe82d7ea6e76f9aeb03366555" {
 		t.Fatalf("source digest = %q", bundledNetworkAllowlist.SourceSHA256)

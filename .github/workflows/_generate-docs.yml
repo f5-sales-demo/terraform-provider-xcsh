@@ -144,7 +144,7 @@ jobs:
         run: |
           set -euo pipefail
           test "$(go env GOVERSION)" = go1.25.13
-          terraform version | head -1 | grep -Fx 'Terraform v1.16.3'
+          terraform version -json | jq -er '.terraform_version == "1.16.3"'
           bash scripts/verify-tfplugindocs.sh
 
       - name: Restore source-bound Go cache
@@ -191,7 +191,7 @@ jobs:
           git reset
           digest="sha256:$(sha256sum <"$patch" | awk '{print $1}')"
           go_version=$(go env GOVERSION)
-          terraform_version=$(terraform version | head -1)
+          terraform_version=$(terraform version -json | jq -er '"Terraform v" + .terraform_version')
           tfplugindocs_version=$(bash scripts/verify-tfplugindocs.sh)
           jq_args=(--arg artifact_kind combined --arg source_sha "$source_sha")
           jq_args+=(--arg patch_file combined-generation.patch --arg patch_sha256 "$digest")
