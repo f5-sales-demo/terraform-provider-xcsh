@@ -86,6 +86,7 @@ type Schema struct {
 
 	// Enrichment — actionable in generation
 	XF5XCConflictsWith           []string               `json:"x-f5xc-conflicts-with"`
+	XF5XCImmutableOneOfGroups    map[string][]string    `json:"x-f5xc-immutable-oneof-groups"`
 	XF5XCRequiredOneOfGroups     map[string][]string    `json:"x-f5xc-required-oneof-groups"`
 	XF5XCConstraints             map[string]interface{} `json:"x-f5xc-constraints"`
 	XF5XCRecommendedOneofVariant interface{}            `json:"x-f5xc-recommended-oneof-variant"`
@@ -222,6 +223,7 @@ type ResourceTemplate struct {
 	HasNamespaceInPath     bool   // Whether API path contains namespace segment
 	Description            string
 	Attributes             []TerraformAttribute
+	ImmutableOneOfGroups   map[string][]string
 	OneOfGroups            map[string][]string
 	HasComplexSpec         bool
 	RequiredAttributes     []string

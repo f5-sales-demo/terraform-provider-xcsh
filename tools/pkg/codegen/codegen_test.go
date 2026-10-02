@@ -2876,3 +2876,28 @@ func TestSecuremeshKVMUpdatePreservesRealizedNodesAfterMarshalling(t *testing.T)
 		t.Fatal("bootstrap creation must remain untouched")
 	}
 }
+
+func TestImmutableSelectionPlanningIsSpecDriven(t *testing.T) {
+	dir := t.TempDir()
+	resource := &openapi.ResourceTemplate{
+		Name: "selection_probe", TitleCase: "SelectionProbe",
+		ImmutableOneOfGroups: map[string][]string{"loadbalancer_type": {"http", "https", "https_auto_cert"}},
+		Attributes:           []openapi.TerraformAttribute{{Name: "name", GoName: "Name", TfsdkTag: "name", Type: "string", Required: true}},
+	}
+	if err := GenerateResourceFile(resource, dir); err != nil {
+		t.Fatal(err)
+	}
+	body, err := os.ReadFile(filepath.Join(dir, "selection_probe_resource.go"))
+	if err != nil {
+		t.Fatal(err)
+	}
+	text := string(body)
+	if !strings.Contains(text, "planmodifiers.RequireImmutableOneOfSelection(ctx, req, resp,") {
+		t.Fatal("missing selection planning hook")
+	}
+	for _, member := range resource.ImmutableOneOfGroups["loadbalancer_type"] {
+		if !strings.Contains(text, `"`+member+`"`) {
+			t.Fatalf("missing member %s", member)
+		}
+	}
+}
