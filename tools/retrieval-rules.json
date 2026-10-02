@@ -972,8 +972,7 @@
       "aliases": [
         "success",
         "successful",
-        "succeeded",
-        "login success"
+        "succeeded"
       ]
     },
     {
@@ -1033,6 +1032,14 @@
         "automatic certificate management",
         "managed TLS certificates"
       ]
+    },
+    {
+      "pattern": "\\b(?:success conditions|transaction result success|login result)\\b",
+      "context_pattern": "\\blogin\\b|\\btransaction result\\b",
+      "aliases": [
+        "login success"
+      ],
+      "match_source": "schema_path"
     }
   ],
   "summaries": [
