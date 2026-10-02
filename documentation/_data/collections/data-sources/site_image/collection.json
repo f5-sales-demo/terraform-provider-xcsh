@@ -30,14 +30,14 @@
   },
   "pages": [
     {
-      "aliases": ["login success", "site image", "succeeded", "success", "successful"],
+      "aliases": ["site image", "succeeded", "success", "successful"],
       "body_bytes": 1398,
       "body_sha256": "sha256:1b207e85df2e6c0df3f366a20436a0fff462b3fd447330fc9712bb1aa4ba22a8",
       "capabilities": ["infrastructure"],
       "category": "infrastructure",
       "child_ids": ["xcsh-docs:data-sources:site_image:reference", "xcsh-docs:data-sources:site_image:examples"],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -78,7 +78,7 @@
       "category": "infrastructure",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -175,7 +175,7 @@
       "category": "infrastructure",
       "child_ids": ["xcsh-docs:data-sources:site_image:example:data-source"],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -215,7 +215,7 @@
       "category": "infrastructure",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"

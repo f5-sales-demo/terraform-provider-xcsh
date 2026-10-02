@@ -177,7 +177,7 @@
         "xcsh-docs:resources:healthcheck:timeouts"
       ],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -224,7 +224,7 @@
         "xcsh-docs:resources:healthcheck:properties:udp_icmp_health_check"
       ],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -302,7 +302,7 @@
           "type": "bool"
         },
         {
-          "aliases": ["healthy threshold", "login success", "succeeded", "success", "successful"],
+          "aliases": ["healthy threshold", "succeeded", "success", "successful"],
           "anchor": "schema-healthy_threshold",
           "description": "Number of successful responses before declaring healthy. In other words, this is the number of healthy health checks required before a host is marked healthy. Note that during startup, only a single successful health check is required to mark a host healthy.",
           "document_id": "xcsh-docs:resources:healthcheck:reference",
@@ -316,7 +316,7 @@
           "type": "number"
         },
         {
-          "aliases": ["http health check", "login success", "succeeded", "success", "successful"],
+          "aliases": ["http health check", "succeeded", "success", "successful"],
           "anchor": "section",
           "description": "Healthy if \"GET\" method on URL \"HTTP(s)://<host>/<path>\" with optional \"<header>\" returns success. \"host\" is not used for DNS resolution. It is used as HTTP Header in the request.",
           "document_id": "xcsh-docs:resources:healthcheck:properties:http_health_check",
@@ -439,7 +439,7 @@
           "type": "string"
         },
         {
-          "aliases": ["login success", "succeeded", "success", "successful", "tcp health check"],
+          "aliases": ["succeeded", "success", "successful", "tcp health check"],
           "anchor": "section",
           "description": "Healthy if TCP connection is successful and response payload matches <expected_response>",
           "document_id": "xcsh-docs:resources:healthcheck:properties:tcp_health_check",
@@ -453,15 +453,7 @@
           "type": "object"
         },
         {
-          "aliases": [
-            "duration",
-            "login success",
-            "operation timeout",
-            "succeeded",
-            "success",
-            "successful",
-            "timeout"
-          ],
+          "aliases": ["duration", "operation timeout", "succeeded", "success", "successful", "timeout"],
           "anchor": "schema-timeout",
           "description": "Timeout in seconds to wait for successful response. In other words, it is the time to wait for a health check response. If the timeout is reached the health check attempt will be considered a failure.",
           "document_id": "xcsh-docs:resources:healthcheck:reference",
@@ -536,7 +528,7 @@
       "category": "load-balancing",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -569,14 +561,14 @@
       }
     },
     {
-      "aliases": ["http health check", "login success", "succeeded", "success", "successful"],
+      "aliases": ["http health check", "succeeded", "success", "successful"],
       "body_bytes": 11919,
       "body_sha256": "sha256:a3e271d2f3d3f0b90a716ffe4c46cac8dfa513b7489989d51192216f3c1fd773",
       "capabilities": ["load-balancing"],
       "category": "load-balancing",
       "child_ids": ["xcsh-docs:resources:healthcheck:properties:http_health_check:use_origin_server_name"],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -754,7 +746,7 @@
       "category": "load-balancing",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -787,14 +779,14 @@
       }
     },
     {
-      "aliases": ["login success", "succeeded", "success", "successful", "tcp health check"],
+      "aliases": ["succeeded", "success", "successful", "tcp health check"],
       "body_bytes": 3785,
       "body_sha256": "sha256:bdc15e2328e93448b0f2fdd5316a92dea2055334069508007f4c1bb8a1e97096",
       "capabilities": ["load-balancing"],
       "category": "load-balancing",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -863,7 +855,7 @@
       "category": "load-balancing",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -960,7 +952,7 @@
       "category": "load-balancing",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -1015,7 +1007,7 @@
         "xcsh-docs:resources:healthcheck:example:with-labels"
       ],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -1055,7 +1047,7 @@
       "category": "load-balancing",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -1102,7 +1094,7 @@
       "category": "load-balancing",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -1149,7 +1141,7 @@
       "category": "load-balancing",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -1196,7 +1188,7 @@
       "category": "load-balancing",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -1243,7 +1235,7 @@
       "category": "load-balancing",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -1290,7 +1282,7 @@
       "category": "load-balancing",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -1337,7 +1329,7 @@
       "category": "load-balancing",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -1384,7 +1376,7 @@
       "category": "load-balancing",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -1431,7 +1423,7 @@
       "category": "load-balancing",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -1478,7 +1470,7 @@
       "category": "load-balancing",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -1525,7 +1517,7 @@
       "category": "load-balancing",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -1572,7 +1564,7 @@
       "category": "load-balancing",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -1619,7 +1611,7 @@
       "category": "load-balancing",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -1666,7 +1658,7 @@
       "category": "load-balancing",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -1713,7 +1705,7 @@
       "category": "load-balancing",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -1754,7 +1746,7 @@
       "category": "load-balancing",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"

@@ -1754,7 +1754,7 @@
       "category": null,
       "child_ids": ["xcsh-docs:data-sources:nfv_service:reference", "xcsh-docs:data-sources:nfv_service:examples"],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -1802,7 +1802,7 @@
         "xcsh-docs:data-sources:nfv_service:properties:palo_alto_fw_service"
       ],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -2011,7 +2011,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -2051,7 +2051,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -2096,7 +2096,7 @@
         "xcsh-docs:data-sources:nfv_service:properties:enabled_ssh_access:node_ssh_ports"
       ],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -2207,7 +2207,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -2247,7 +2247,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -2287,7 +2287,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -2327,7 +2327,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -2402,7 +2402,7 @@
         "xcsh-docs:data-sources:nfv_service:properties:f5_big_ip_aws_service:nodes"
       ],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -2558,7 +2558,7 @@
         "xcsh-docs:data-sources:nfv_service:properties:f5_big_ip_aws_service:admin_password:clear_secret_info"
       ],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -2627,7 +2627,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -2710,7 +2710,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -2781,7 +2781,7 @@
         "xcsh-docs:data-sources:nfv_service:properties:f5_big_ip_aws_service:aws_tgw_site_params:aws_tgw_site"
       ],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -2836,7 +2836,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -2931,7 +2931,7 @@
         "xcsh-docs:data-sources:nfv_service:properties:f5_big_ip_aws_service:endpoint_service:no_udp_ports"
       ],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -3140,7 +3140,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -3180,7 +3180,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -3220,7 +3220,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -3260,7 +3260,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -3315,7 +3315,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -3370,7 +3370,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -3410,7 +3410,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -3450,7 +3450,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -3490,7 +3490,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -3530,7 +3530,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -3570,7 +3570,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -3613,7 +3613,7 @@
         "xcsh-docs:data-sources:nfv_service:properties:f5_big_ip_aws_service:market_place_image:awafpay_g3_gbps"
       ],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -3682,7 +3682,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -3722,7 +3722,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -3766,7 +3766,7 @@
         "xcsh-docs:data-sources:nfv_service:properties:f5_big_ip_aws_service:nodes:reserved_mgmt_subnet"
       ],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -3891,7 +3891,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -3933,7 +3933,7 @@
         "xcsh-docs:data-sources:nfv_service:properties:f5_big_ip_aws_service:nodes:mgmt_subnet:subnet_param"
       ],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -4002,7 +4002,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -4057,7 +4057,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -4105,7 +4105,7 @@
         "xcsh-docs:data-sources:nfv_service:properties:https_management:default_https_port"
       ],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -4272,7 +4272,7 @@
       "category": null,
       "child_ids": ["xcsh-docs:data-sources:nfv_service:properties:https_management:advertise_on_internet:public_ip"],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -4327,7 +4327,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -4410,7 +4410,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -4455,7 +4455,7 @@
         "xcsh-docs:data-sources:nfv_service:properties:https_management:advertise_on_sli_vip:use_mtls"
       ],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -4552,7 +4552,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -4603,7 +4603,7 @@
         "xcsh-docs:data-sources:nfv_service:properties:https_management:advertise_on_sli_vip:tls_certificates:use_system_defaults"
       ],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -4728,7 +4728,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -4789,7 +4789,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -4832,7 +4832,7 @@
         "xcsh-docs:data-sources:nfv_service:properties:https_management:advertise_on_sli_vip:tls_certificates:private_key:clear_secret_info"
       ],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -4913,7 +4913,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -5023,7 +5023,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -5112,7 +5112,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -5157,7 +5157,7 @@
         "xcsh-docs:data-sources:nfv_service:properties:https_management:advertise_on_sli_vip:tls_config:medium_security"
       ],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -5254,7 +5254,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -5337,7 +5337,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -5377,7 +5377,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -5417,7 +5417,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -5463,7 +5463,7 @@
         "xcsh-docs:data-sources:nfv_service:properties:https_management:advertise_on_sli_vip:use_mtls:xfcc_options"
       ],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -5602,7 +5602,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -5685,7 +5685,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -5725,7 +5725,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -5808,7 +5808,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -5848,7 +5848,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -5914,7 +5914,7 @@
         "xcsh-docs:data-sources:nfv_service:properties:https_management:advertise_on_slo_internet_vip:use_mtls"
       ],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -6011,7 +6011,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -6062,7 +6062,7 @@
         "xcsh-docs:data-sources:nfv_service:properties:https_management:advertise_on_slo_internet_vip:tls_certificates:use_system_defaults"
       ],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -6202,7 +6202,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -6268,7 +6268,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -6311,7 +6311,7 @@
         "xcsh-docs:data-sources:nfv_service:properties:https_management:advertise_on_slo_internet_vip:tls_certificates:private_key:clear_secret_info"
       ],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -6392,7 +6392,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -6502,7 +6502,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -6591,7 +6591,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -6636,7 +6636,7 @@
         "xcsh-docs:data-sources:nfv_service:properties:https_management:advertise_on_slo_internet_vip:tls_config:medium_security"
       ],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -6733,7 +6733,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -6834,7 +6834,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -6874,7 +6874,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -6914,7 +6914,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -6960,7 +6960,7 @@
         "xcsh-docs:data-sources:nfv_service:properties:https_management:advertise_on_slo_internet_vip:use_mtls:xfcc_options"
       ],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -7104,7 +7104,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -7187,7 +7187,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -7227,7 +7227,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -7310,7 +7310,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -7350,7 +7350,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -7416,7 +7416,7 @@
         "xcsh-docs:data-sources:nfv_service:properties:https_management:advertise_on_slo_sli:use_mtls"
       ],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -7513,7 +7513,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -7564,7 +7564,7 @@
         "xcsh-docs:data-sources:nfv_service:properties:https_management:advertise_on_slo_sli:tls_certificates:use_system_defaults"
       ],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -7689,7 +7689,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -7750,7 +7750,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -7793,7 +7793,7 @@
         "xcsh-docs:data-sources:nfv_service:properties:https_management:advertise_on_slo_sli:tls_certificates:private_key:clear_secret_info"
       ],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -7874,7 +7874,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -7984,7 +7984,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -8073,7 +8073,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -8118,7 +8118,7 @@
         "xcsh-docs:data-sources:nfv_service:properties:https_management:advertise_on_slo_sli:tls_config:medium_security"
       ],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -8215,7 +8215,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -8298,7 +8298,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -8338,7 +8338,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -8378,7 +8378,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -8424,7 +8424,7 @@
         "xcsh-docs:data-sources:nfv_service:properties:https_management:advertise_on_slo_sli:use_mtls:xfcc_options"
       ],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -8563,7 +8563,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -8646,7 +8646,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -8686,7 +8686,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -8769,7 +8769,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -8809,7 +8809,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -8875,7 +8875,7 @@
         "xcsh-docs:data-sources:nfv_service:properties:https_management:advertise_on_slo_vip:use_mtls"
       ],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -8972,7 +8972,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -9023,7 +9023,7 @@
         "xcsh-docs:data-sources:nfv_service:properties:https_management:advertise_on_slo_vip:tls_certificates:use_system_defaults"
       ],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -9148,7 +9148,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -9209,7 +9209,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -9252,7 +9252,7 @@
         "xcsh-docs:data-sources:nfv_service:properties:https_management:advertise_on_slo_vip:tls_certificates:private_key:clear_secret_info"
       ],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -9333,7 +9333,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -9443,7 +9443,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -9532,7 +9532,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -9577,7 +9577,7 @@
         "xcsh-docs:data-sources:nfv_service:properties:https_management:advertise_on_slo_vip:tls_config:medium_security"
       ],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -9674,7 +9674,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -9757,7 +9757,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -9797,7 +9797,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -9837,7 +9837,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -9883,7 +9883,7 @@
         "xcsh-docs:data-sources:nfv_service:properties:https_management:advertise_on_slo_vip:use_mtls:xfcc_options"
       ],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -10022,7 +10022,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -10105,7 +10105,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -10145,7 +10145,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -10228,7 +10228,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -10268,7 +10268,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -10329,7 +10329,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -10377,7 +10377,7 @@
         "xcsh-docs:data-sources:nfv_service:properties:palo_alto_fw_service:service_nodes"
       ],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -10575,7 +10575,7 @@
         "xcsh-docs:data-sources:nfv_service:properties:palo_alto_fw_service:auto_setup:manual_ssh_keys"
       ],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -10661,7 +10661,7 @@
         "xcsh-docs:data-sources:nfv_service:properties:palo_alto_fw_service:auto_setup:admin_password:clear_secret_info"
       ],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -10730,7 +10730,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -10825,7 +10825,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -10896,7 +10896,7 @@
         "xcsh-docs:data-sources:nfv_service:properties:palo_alto_fw_service:auto_setup:manual_ssh_keys:private_key"
       ],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -10968,7 +10968,7 @@
         "xcsh-docs:data-sources:nfv_service:properties:palo_alto_fw_service:auto_setup:manual_ssh_keys:private_key:clear_secret_info"
       ],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -11043,7 +11043,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -11147,7 +11147,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -11230,7 +11230,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -11313,7 +11313,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -11353,7 +11353,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -11393,7 +11393,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -11435,7 +11435,7 @@
         "xcsh-docs:data-sources:nfv_service:properties:palo_alto_fw_service:panorama_server:authorization_key"
       ],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -11535,7 +11535,7 @@
         "xcsh-docs:data-sources:nfv_service:properties:palo_alto_fw_service:panorama_server:authorization_key:clear_secret_info"
       ],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -11604,7 +11604,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -11705,7 +11705,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -11780,7 +11780,7 @@
       "category": null,
       "child_ids": ["xcsh-docs:data-sources:nfv_service:properties:palo_alto_fw_service:service_nodes:nodes"],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -11838,7 +11838,7 @@
         "xcsh-docs:data-sources:nfv_service:properties:palo_alto_fw_service:service_nodes:nodes:reserved_mgmt_subnet"
       ],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -11937,7 +11937,7 @@
         "xcsh-docs:data-sources:nfv_service:properties:palo_alto_fw_service:service_nodes:nodes:mgmt_subnet:subnet_param"
       ],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -12006,7 +12006,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -12061,7 +12061,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -12101,7 +12101,7 @@
       "category": null,
       "child_ids": ["xcsh-docs:data-sources:nfv_service:example:data-source"],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -12141,7 +12141,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"

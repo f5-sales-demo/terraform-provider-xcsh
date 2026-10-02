@@ -5317,7 +5317,7 @@
         "xcsh-docs:resources:azure_vnet_site:timeouts"
       ],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -5392,7 +5392,7 @@
         "xcsh-docs:resources:azure_vnet_site:properties:waf_signatures"
       ],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -7088,7 +7088,7 @@
         "xcsh-docs:resources:azure_vnet_site:properties:admin_password:clear_secret_info"
       ],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -7192,7 +7192,7 @@
       "category": "infrastructure",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -7284,7 +7284,7 @@
       "category": "infrastructure",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -7362,7 +7362,7 @@
       "category": "infrastructure",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -7454,7 +7454,7 @@
       "category": "infrastructure",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -7494,7 +7494,7 @@
       "category": "infrastructure",
       "child_ids": ["xcsh-docs:resources:azure_vnet_site:properties:blocked_services:blocked_service"],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -7602,7 +7602,7 @@
         "xcsh-docs:resources:azure_vnet_site:properties:blocked_services:blocked_service:web_user_interface"
       ],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -7748,7 +7748,7 @@
       "category": "infrastructure",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -7788,7 +7788,7 @@
       "category": "infrastructure",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -7828,7 +7828,7 @@
       "category": "infrastructure",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -7868,7 +7868,7 @@
       "category": "infrastructure",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -7937,7 +7937,7 @@
       "category": "infrastructure",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -8006,7 +8006,7 @@
       "category": "infrastructure",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -8046,7 +8046,7 @@
       "category": "infrastructure",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -8086,7 +8086,7 @@
       "category": "infrastructure",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -8195,7 +8195,7 @@
         "xcsh-docs:resources:azure_vnet_site:properties:ingress_egress_gw:sm_connection_pvt_ip"
       ],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -8934,7 +8934,7 @@
         "xcsh-docs:resources:azure_vnet_site:properties:ingress_egress_gw:accelerated_networking:enable"
       ],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -9020,7 +9020,7 @@
       "category": "infrastructure",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -9060,7 +9060,7 @@
       "category": "infrastructure",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -9102,7 +9102,7 @@
         "xcsh-docs:resources:azure_vnet_site:properties:ingress_egress_gw:active_enhanced_firewall_policies:enhanced_firewall_policies"
       ],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -9175,7 +9175,7 @@
       "category": "infrastructure",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -9284,7 +9284,7 @@
         "xcsh-docs:resources:azure_vnet_site:properties:ingress_egress_gw:active_forward_proxy_policies:forward_proxy_policies"
       ],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -9357,7 +9357,7 @@
       "category": "infrastructure",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -9451,7 +9451,7 @@
         "xcsh-docs:resources:azure_vnet_site:properties:ingress_egress_gw:active_network_policies:network_policies"
       ],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -9524,7 +9524,7 @@
       "category": "infrastructure",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -9619,7 +9619,7 @@
         "xcsh-docs:resources:azure_vnet_site:properties:ingress_egress_gw:az_nodes:outside_subnet"
       ],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -9748,7 +9748,7 @@
         "xcsh-docs:resources:azure_vnet_site:properties:ingress_egress_gw:az_nodes:inside_subnet:subnet_param"
       ],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -9870,7 +9870,7 @@
         "xcsh-docs:resources:azure_vnet_site:properties:ingress_egress_gw:az_nodes:inside_subnet:subnet:vnet_resource_group"
       ],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -9978,7 +9978,7 @@
       "category": "infrastructure",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -10018,7 +10018,7 @@
       "category": "infrastructure",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -10085,7 +10085,7 @@
         "xcsh-docs:resources:azure_vnet_site:properties:ingress_egress_gw:az_nodes:outside_subnet:subnet_param"
       ],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -10207,7 +10207,7 @@
         "xcsh-docs:resources:azure_vnet_site:properties:ingress_egress_gw:az_nodes:outside_subnet:subnet:vnet_resource_group"
       ],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -10315,7 +10315,7 @@
       "category": "infrastructure",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -10355,7 +10355,7 @@
       "category": "infrastructure",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -10419,7 +10419,7 @@
       "category": "infrastructure",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -10511,7 +10511,7 @@
       "category": "infrastructure",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -10603,7 +10603,7 @@
       "category": "infrastructure",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -10645,7 +10645,7 @@
         "xcsh-docs:resources:azure_vnet_site:properties:ingress_egress_gw:global_network_list:global_network_connections"
       ],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -10729,7 +10729,7 @@
         "xcsh-docs:resources:azure_vnet_site:properties:ingress_egress_gw:global_network_list:global_network_connections:slo_to_global_dr"
       ],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -10817,7 +10817,7 @@
         "xcsh-docs:resources:azure_vnet_site:properties:ingress_egress_gw:global_network_list:global_network_connections:sli_to_global_dr:global_vn"
       ],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -10887,7 +10887,7 @@
       "category": "infrastructure",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -11008,7 +11008,7 @@
         "xcsh-docs:resources:azure_vnet_site:properties:ingress_egress_gw:global_network_list:global_network_connections:slo_to_global_dr:global_vn"
       ],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -11078,7 +11078,7 @@
       "category": "infrastructure",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -11201,7 +11201,7 @@
         "xcsh-docs:resources:azure_vnet_site:properties:ingress_egress_gw:hub:spoke_vnets"
       ],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -11471,7 +11471,7 @@
       "category": "infrastructure",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -11524,7 +11524,7 @@
         "xcsh-docs:resources:azure_vnet_site:properties:ingress_egress_gw:hub:express_route_enabled:sku_standard"
       ],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -12024,7 +12024,7 @@
       "category": "infrastructure",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -12064,7 +12064,7 @@
       "category": "infrastructure",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -12107,7 +12107,7 @@
         "xcsh-docs:resources:azure_vnet_site:properties:ingress_egress_gw:hub:express_route_enabled:connections:other_subscription"
       ],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -12230,7 +12230,7 @@
       "category": "infrastructure",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -12317,7 +12317,7 @@
         "xcsh-docs:resources:azure_vnet_site:properties:ingress_egress_gw:hub:express_route_enabled:connections:other_subscription:authorized_key"
       ],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -12420,7 +12420,7 @@
         "xcsh-docs:resources:azure_vnet_site:properties:ingress_egress_gw:hub:express_route_enabled:connections:other_subscription:authorized_key:clear_secret_info"
       ],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -12549,7 +12549,7 @@
       "category": "infrastructure",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -12678,7 +12678,7 @@
       "category": "infrastructure",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -12782,7 +12782,7 @@
       "category": "infrastructure",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -12826,7 +12826,7 @@
         "xcsh-docs:resources:azure_vnet_site:properties:ingress_egress_gw:hub:express_route_enabled:gateway_subnet:subnet_param"
       ],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -12984,7 +12984,7 @@
       "category": "infrastructure",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -13026,7 +13026,7 @@
         "xcsh-docs:resources:azure_vnet_site:properties:ingress_egress_gw:hub:express_route_enabled:gateway_subnet:subnet:vnet_resource_group"
       ],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -13126,7 +13126,7 @@
       "category": "infrastructure",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -13173,7 +13173,7 @@
       "category": "infrastructure",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -13248,7 +13248,7 @@
         "xcsh-docs:resources:azure_vnet_site:properties:ingress_egress_gw:hub:express_route_enabled:route_server_subnet:subnet_param"
       ],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -13406,7 +13406,7 @@
       "category": "infrastructure",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -13448,7 +13448,7 @@
         "xcsh-docs:resources:azure_vnet_site:properties:ingress_egress_gw:hub:express_route_enabled:route_server_subnet:subnet:vnet_resource_group"
       ],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -13548,7 +13548,7 @@
       "category": "infrastructure",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -13595,7 +13595,7 @@
       "category": "infrastructure",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -13666,7 +13666,7 @@
       "category": "infrastructure",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -13736,7 +13736,7 @@
       "category": "infrastructure",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -13776,7 +13776,7 @@
       "category": "infrastructure",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -13816,7 +13816,7 @@
       "category": "infrastructure",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -13856,7 +13856,7 @@
       "category": "infrastructure",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -13896,7 +13896,7 @@
       "category": "infrastructure",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -13941,7 +13941,7 @@
         "xcsh-docs:resources:azure_vnet_site:properties:ingress_egress_gw:hub:spoke_vnets:vnet"
       ],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -14088,7 +14088,7 @@
       "category": "infrastructure",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -14128,7 +14128,7 @@
       "category": "infrastructure",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -14168,7 +14168,7 @@
       "category": "infrastructure",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -14211,7 +14211,7 @@
         "xcsh-docs:resources:azure_vnet_site:properties:ingress_egress_gw:hub:spoke_vnets:vnet:manual_routing"
       ],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -14341,7 +14341,7 @@
       "category": "infrastructure",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -14381,7 +14381,7 @@
       "category": "infrastructure",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -14423,7 +14423,7 @@
         "xcsh-docs:resources:azure_vnet_site:properties:ingress_egress_gw:inside_static_routes:static_route_list"
       ],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -14506,7 +14506,7 @@
         "xcsh-docs:resources:azure_vnet_site:properties:ingress_egress_gw:inside_static_routes:static_route_list:custom_static_route"
       ],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -14605,7 +14605,7 @@
         "xcsh-docs:resources:azure_vnet_site:properties:ingress_egress_gw:inside_static_routes:static_route_list:custom_static_route:subnets"
       ],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -14752,7 +14752,7 @@
       "category": "infrastructure",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -14801,7 +14801,7 @@
         "xcsh-docs:resources:azure_vnet_site:properties:ingress_egress_gw:inside_static_routes:static_route_list:custom_static_route:nexthop:nexthop_address"
       ],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -14960,7 +14960,7 @@
       "category": "infrastructure",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -15124,7 +15124,7 @@
         "xcsh-docs:resources:azure_vnet_site:properties:ingress_egress_gw:inside_static_routes:static_route_list:custom_static_route:nexthop:nexthop_address:ipv6"
       ],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -15292,7 +15292,7 @@
         "xcsh-docs:resources:azure_vnet_site:properties:ingress_egress_gw:inside_static_routes:static_route_list:custom_static_route:nexthop:nexthop_address:dual_stack:ipv6"
       ],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -15389,7 +15389,7 @@
       "category": "infrastructure",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -15465,7 +15465,7 @@
       "category": "infrastructure",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -15541,7 +15541,7 @@
       "category": "infrastructure",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -15615,7 +15615,7 @@
       "category": "infrastructure",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -15690,7 +15690,7 @@
         "xcsh-docs:resources:azure_vnet_site:properties:ingress_egress_gw:inside_static_routes:static_route_list:custom_static_route:subnets:ipv6"
       ],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -15796,7 +15796,7 @@
       "category": "infrastructure",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -15888,7 +15888,7 @@
       "category": "infrastructure",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -15980,7 +15980,7 @@
       "category": "infrastructure",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -16020,7 +16020,7 @@
       "category": "infrastructure",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -16060,7 +16060,7 @@
       "category": "infrastructure",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -16100,7 +16100,7 @@
       "category": "infrastructure",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -16140,7 +16140,7 @@
       "category": "infrastructure",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -16180,7 +16180,7 @@
       "category": "infrastructure",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -16220,7 +16220,7 @@
       "category": "infrastructure",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -16262,7 +16262,7 @@
         "xcsh-docs:resources:azure_vnet_site:properties:ingress_egress_gw:outside_static_routes:static_route_list"
       ],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -16345,7 +16345,7 @@
         "xcsh-docs:resources:azure_vnet_site:properties:ingress_egress_gw:outside_static_routes:static_route_list:custom_static_route"
       ],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -16444,7 +16444,7 @@
         "xcsh-docs:resources:azure_vnet_site:properties:ingress_egress_gw:outside_static_routes:static_route_list:custom_static_route:subnets"
       ],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -16591,7 +16591,7 @@
       "category": "infrastructure",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -16640,7 +16640,7 @@
         "xcsh-docs:resources:azure_vnet_site:properties:ingress_egress_gw:outside_static_routes:static_route_list:custom_static_route:nexthop:nexthop_address"
       ],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -16799,7 +16799,7 @@
       "category": "infrastructure",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -16963,7 +16963,7 @@
         "xcsh-docs:resources:azure_vnet_site:properties:ingress_egress_gw:outside_static_routes:static_route_list:custom_static_route:nexthop:nexthop_address:ipv6"
       ],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -17131,7 +17131,7 @@
         "xcsh-docs:resources:azure_vnet_site:properties:ingress_egress_gw:outside_static_routes:static_route_list:custom_static_route:nexthop:nexthop_address:dual_stack:ipv6"
       ],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -17228,7 +17228,7 @@
       "category": "infrastructure",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -17304,7 +17304,7 @@
       "category": "infrastructure",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -17380,7 +17380,7 @@
       "category": "infrastructure",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -17454,7 +17454,7 @@
       "category": "infrastructure",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -17529,7 +17529,7 @@
         "xcsh-docs:resources:azure_vnet_site:properties:ingress_egress_gw:outside_static_routes:static_route_list:custom_static_route:subnets:ipv6"
       ],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -17635,7 +17635,7 @@
       "category": "infrastructure",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -17727,7 +17727,7 @@
       "category": "infrastructure",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -17822,7 +17822,7 @@
         "xcsh-docs:resources:azure_vnet_site:properties:ingress_egress_gw:performance_enhancement_mode:perf_mode_l7_enhanced"
       ],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -17945,7 +17945,7 @@
         "xcsh-docs:resources:azure_vnet_site:properties:ingress_egress_gw:performance_enhancement_mode:perf_mode_l3_enhanced:no_jumbo"
       ],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -18031,7 +18031,7 @@
       "category": "infrastructure",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -18071,7 +18071,7 @@
       "category": "infrastructure",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -18114,7 +18114,7 @@
         "xcsh-docs:resources:azure_vnet_site:properties:ingress_egress_gw:performance_enhancement_mode:perf_mode_l7_enhanced:jumbo_enabled"
       ],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -18210,7 +18210,7 @@
       "category": "infrastructure",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -18250,7 +18250,7 @@
       "category": "infrastructure",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -18290,7 +18290,7 @@
       "category": "infrastructure",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -18330,7 +18330,7 @@
       "category": "infrastructure",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -18393,7 +18393,7 @@
         "xcsh-docs:resources:azure_vnet_site:properties:ingress_egress_gw_ar:sm_connection_pvt_ip"
       ],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -19140,7 +19140,7 @@
         "xcsh-docs:resources:azure_vnet_site:properties:ingress_egress_gw_ar:accelerated_networking:enable"
       ],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -19226,7 +19226,7 @@
       "category": "infrastructure",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -19266,7 +19266,7 @@
       "category": "infrastructure",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -19308,7 +19308,7 @@
         "xcsh-docs:resources:azure_vnet_site:properties:ingress_egress_gw_ar:active_enhanced_firewall_policies:enhanced_firewall_policies"
       ],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -19381,7 +19381,7 @@
       "category": "infrastructure",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -19490,7 +19490,7 @@
         "xcsh-docs:resources:azure_vnet_site:properties:ingress_egress_gw_ar:active_forward_proxy_policies:forward_proxy_policies"
       ],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -19563,7 +19563,7 @@
       "category": "infrastructure",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -19662,7 +19662,7 @@
         "xcsh-docs:resources:azure_vnet_site:properties:ingress_egress_gw_ar:active_network_policies:network_policies"
       ],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -19735,7 +19735,7 @@
       "category": "infrastructure",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -19827,7 +19827,7 @@
       "category": "infrastructure",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -19919,7 +19919,7 @@
       "category": "infrastructure",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -20011,7 +20011,7 @@
       "category": "infrastructure",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -20053,7 +20053,7 @@
         "xcsh-docs:resources:azure_vnet_site:properties:ingress_egress_gw_ar:global_network_list:global_network_connections"
       ],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -20137,7 +20137,7 @@
         "xcsh-docs:resources:azure_vnet_site:properties:ingress_egress_gw_ar:global_network_list:global_network_connections:slo_to_global_dr"
       ],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -20235,7 +20235,7 @@
         "xcsh-docs:resources:azure_vnet_site:properties:ingress_egress_gw_ar:global_network_list:global_network_connections:sli_to_global_dr:global_vn"
       ],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -20305,7 +20305,7 @@
       "category": "infrastructure",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -20426,7 +20426,7 @@
         "xcsh-docs:resources:azure_vnet_site:properties:ingress_egress_gw_ar:global_network_list:global_network_connections:slo_to_global_dr:global_vn"
       ],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -20496,7 +20496,7 @@
       "category": "infrastructure",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -20619,7 +20619,7 @@
         "xcsh-docs:resources:azure_vnet_site:properties:ingress_egress_gw_ar:hub:spoke_vnets"
       ],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -20889,7 +20889,7 @@
       "category": "infrastructure",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -20942,7 +20942,7 @@
         "xcsh-docs:resources:azure_vnet_site:properties:ingress_egress_gw_ar:hub:express_route_enabled:sku_standard"
       ],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -21447,7 +21447,7 @@
       "category": "infrastructure",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -21487,7 +21487,7 @@
       "category": "infrastructure",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -21530,7 +21530,7 @@
         "xcsh-docs:resources:azure_vnet_site:properties:ingress_egress_gw_ar:hub:express_route_enabled:connections:other_subscription"
       ],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -21653,7 +21653,7 @@
       "category": "infrastructure",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -21740,7 +21740,7 @@
         "xcsh-docs:resources:azure_vnet_site:properties:ingress_egress_gw_ar:hub:express_route_enabled:connections:other_subscription:authorized_key"
       ],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -21843,7 +21843,7 @@
         "xcsh-docs:resources:azure_vnet_site:properties:ingress_egress_gw_ar:hub:express_route_enabled:connections:other_subscription:authorized_key:clear_secret_info"
       ],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -21972,7 +21972,7 @@
       "category": "infrastructure",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -22101,7 +22101,7 @@
       "category": "infrastructure",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -22205,7 +22205,7 @@
       "category": "infrastructure",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -22249,7 +22249,7 @@
         "xcsh-docs:resources:azure_vnet_site:properties:ingress_egress_gw_ar:hub:express_route_enabled:gateway_subnet:subnet_param"
       ],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -22407,7 +22407,7 @@
       "category": "infrastructure",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -22449,7 +22449,7 @@
         "xcsh-docs:resources:azure_vnet_site:properties:ingress_egress_gw_ar:hub:express_route_enabled:gateway_subnet:subnet:vnet_resource_group"
       ],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -22549,7 +22549,7 @@
       "category": "infrastructure",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -22596,7 +22596,7 @@
       "category": "infrastructure",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -22671,7 +22671,7 @@
         "xcsh-docs:resources:azure_vnet_site:properties:ingress_egress_gw_ar:hub:express_route_enabled:route_server_subnet:subnet_param"
       ],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -22835,7 +22835,7 @@
       "category": "infrastructure",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -22877,7 +22877,7 @@
         "xcsh-docs:resources:azure_vnet_site:properties:ingress_egress_gw_ar:hub:express_route_enabled:route_server_subnet:subnet:vnet_resource_group"
       ],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -22977,7 +22977,7 @@
       "category": "infrastructure",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -23024,7 +23024,7 @@
       "category": "infrastructure",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -23095,7 +23095,7 @@
       "category": "infrastructure",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -23165,7 +23165,7 @@
       "category": "infrastructure",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -23205,7 +23205,7 @@
       "category": "infrastructure",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -23245,7 +23245,7 @@
       "category": "infrastructure",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -23285,7 +23285,7 @@
       "category": "infrastructure",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -23325,7 +23325,7 @@
       "category": "infrastructure",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -23370,7 +23370,7 @@
         "xcsh-docs:resources:azure_vnet_site:properties:ingress_egress_gw_ar:hub:spoke_vnets:vnet"
       ],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -23517,7 +23517,7 @@
       "category": "infrastructure",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -23557,7 +23557,7 @@
       "category": "infrastructure",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -23597,7 +23597,7 @@
       "category": "infrastructure",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -23640,7 +23640,7 @@
         "xcsh-docs:resources:azure_vnet_site:properties:ingress_egress_gw_ar:hub:spoke_vnets:vnet:manual_routing"
       ],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -23770,7 +23770,7 @@
       "category": "infrastructure",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -23810,7 +23810,7 @@
       "category": "infrastructure",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -23852,7 +23852,7 @@
         "xcsh-docs:resources:azure_vnet_site:properties:ingress_egress_gw_ar:inside_static_routes:static_route_list"
       ],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -23935,7 +23935,7 @@
         "xcsh-docs:resources:azure_vnet_site:properties:ingress_egress_gw_ar:inside_static_routes:static_route_list:custom_static_route"
       ],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -24034,7 +24034,7 @@
         "xcsh-docs:resources:azure_vnet_site:properties:ingress_egress_gw_ar:inside_static_routes:static_route_list:custom_static_route:subnets"
       ],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -24181,7 +24181,7 @@
       "category": "infrastructure",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -24230,7 +24230,7 @@
         "xcsh-docs:resources:azure_vnet_site:properties:ingress_egress_gw_ar:inside_static_routes:static_route_list:custom_static_route:nexthop:nexthop_address"
       ],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -24389,7 +24389,7 @@
       "category": "infrastructure",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -24553,7 +24553,7 @@
         "xcsh-docs:resources:azure_vnet_site:properties:ingress_egress_gw_ar:inside_static_routes:static_route_list:custom_static_route:nexthop:nexthop_address:ipv6"
       ],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -24721,7 +24721,7 @@
         "xcsh-docs:resources:azure_vnet_site:properties:ingress_egress_gw_ar:inside_static_routes:static_route_list:custom_static_route:nexthop:nexthop_address:dual_stack:ipv6"
       ],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -24818,7 +24818,7 @@
       "category": "infrastructure",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -24894,7 +24894,7 @@
       "category": "infrastructure",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -24970,7 +24970,7 @@
       "category": "infrastructure",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -25044,7 +25044,7 @@
       "category": "infrastructure",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -25119,7 +25119,7 @@
         "xcsh-docs:resources:azure_vnet_site:properties:ingress_egress_gw_ar:inside_static_routes:static_route_list:custom_static_route:subnets:ipv6"
       ],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -25225,7 +25225,7 @@
       "category": "infrastructure",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -25317,7 +25317,7 @@
       "category": "infrastructure",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -25409,7 +25409,7 @@
       "category": "infrastructure",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -25449,7 +25449,7 @@
       "category": "infrastructure",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -25489,7 +25489,7 @@
       "category": "infrastructure",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -25529,7 +25529,7 @@
       "category": "infrastructure",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -25569,7 +25569,7 @@
       "category": "infrastructure",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -25609,7 +25609,7 @@
       "category": "infrastructure",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -25652,7 +25652,7 @@
         "xcsh-docs:resources:azure_vnet_site:properties:ingress_egress_gw_ar:node:outside_subnet"
       ],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -25825,7 +25825,7 @@
         "xcsh-docs:resources:azure_vnet_site:properties:ingress_egress_gw_ar:node:inside_subnet:subnet_param"
       ],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -25947,7 +25947,7 @@
         "xcsh-docs:resources:azure_vnet_site:properties:ingress_egress_gw_ar:node:inside_subnet:subnet:vnet_resource_group"
       ],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -26055,7 +26055,7 @@
       "category": "infrastructure",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -26095,7 +26095,7 @@
       "category": "infrastructure",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -26162,7 +26162,7 @@
         "xcsh-docs:resources:azure_vnet_site:properties:ingress_egress_gw_ar:node:outside_subnet:subnet_param"
       ],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -26284,7 +26284,7 @@
         "xcsh-docs:resources:azure_vnet_site:properties:ingress_egress_gw_ar:node:outside_subnet:subnet:vnet_resource_group"
       ],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -26392,7 +26392,7 @@
       "category": "infrastructure",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -26432,7 +26432,7 @@
       "category": "infrastructure",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -26496,7 +26496,7 @@
       "category": "infrastructure",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -26538,7 +26538,7 @@
         "xcsh-docs:resources:azure_vnet_site:properties:ingress_egress_gw_ar:outside_static_routes:static_route_list"
       ],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -26621,7 +26621,7 @@
         "xcsh-docs:resources:azure_vnet_site:properties:ingress_egress_gw_ar:outside_static_routes:static_route_list:custom_static_route"
       ],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -26720,7 +26720,7 @@
         "xcsh-docs:resources:azure_vnet_site:properties:ingress_egress_gw_ar:outside_static_routes:static_route_list:custom_static_route:subnets"
       ],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -26867,7 +26867,7 @@
       "category": "infrastructure",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -26916,7 +26916,7 @@
         "xcsh-docs:resources:azure_vnet_site:properties:ingress_egress_gw_ar:outside_static_routes:static_route_list:custom_static_route:nexthop:nexthop_address"
       ],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -27075,7 +27075,7 @@
       "category": "infrastructure",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -27239,7 +27239,7 @@
         "xcsh-docs:resources:azure_vnet_site:properties:ingress_egress_gw_ar:outside_static_routes:static_route_list:custom_static_route:nexthop:nexthop_address:ipv6"
       ],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -27407,7 +27407,7 @@
         "xcsh-docs:resources:azure_vnet_site:properties:ingress_egress_gw_ar:outside_static_routes:static_route_list:custom_static_route:nexthop:nexthop_address:dual_stack:ipv6"
       ],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -27504,7 +27504,7 @@
       "category": "infrastructure",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -27580,7 +27580,7 @@
       "category": "infrastructure",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -27656,7 +27656,7 @@
       "category": "infrastructure",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -27730,7 +27730,7 @@
       "category": "infrastructure",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -27805,7 +27805,7 @@
         "xcsh-docs:resources:azure_vnet_site:properties:ingress_egress_gw_ar:outside_static_routes:static_route_list:custom_static_route:subnets:ipv6"
       ],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -27911,7 +27911,7 @@
       "category": "infrastructure",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -28003,7 +28003,7 @@
       "category": "infrastructure",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -28098,7 +28098,7 @@
         "xcsh-docs:resources:azure_vnet_site:properties:ingress_egress_gw_ar:performance_enhancement_mode:perf_mode_l7_enhanced"
       ],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -28221,7 +28221,7 @@
         "xcsh-docs:resources:azure_vnet_site:properties:ingress_egress_gw_ar:performance_enhancement_mode:perf_mode_l3_enhanced:no_jumbo"
       ],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -28307,7 +28307,7 @@
       "category": "infrastructure",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -28347,7 +28347,7 @@
       "category": "infrastructure",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -28390,7 +28390,7 @@
         "xcsh-docs:resources:azure_vnet_site:properties:ingress_egress_gw_ar:performance_enhancement_mode:perf_mode_l7_enhanced:jumbo_enabled"
       ],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -28486,7 +28486,7 @@
       "category": "infrastructure",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -28531,7 +28531,7 @@
       "category": "infrastructure",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -28571,7 +28571,7 @@
       "category": "infrastructure",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -28611,7 +28611,7 @@
       "category": "infrastructure",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -28655,7 +28655,7 @@
         "xcsh-docs:resources:azure_vnet_site:properties:ingress_gw:performance_enhancement_mode"
       ],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -28815,7 +28815,7 @@
         "xcsh-docs:resources:azure_vnet_site:properties:ingress_gw:accelerated_networking:enable"
       ],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -28901,7 +28901,7 @@
       "category": "infrastructure",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -28941,7 +28941,7 @@
       "category": "infrastructure",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -28981,7 +28981,7 @@
       "category": "infrastructure",
       "child_ids": ["xcsh-docs:resources:azure_vnet_site:properties:ingress_gw:az_nodes:local_subnet"],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -29079,7 +29079,7 @@
         "xcsh-docs:resources:azure_vnet_site:properties:ingress_gw:az_nodes:local_subnet:subnet_param"
       ],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -29201,7 +29201,7 @@
         "xcsh-docs:resources:azure_vnet_site:properties:ingress_gw:az_nodes:local_subnet:subnet:vnet_resource_group"
       ],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -29309,7 +29309,7 @@
       "category": "infrastructure",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -29349,7 +29349,7 @@
       "category": "infrastructure",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -29416,7 +29416,7 @@
         "xcsh-docs:resources:azure_vnet_site:properties:ingress_gw:performance_enhancement_mode:perf_mode_l7_enhanced"
       ],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -29539,7 +29539,7 @@
         "xcsh-docs:resources:azure_vnet_site:properties:ingress_gw:performance_enhancement_mode:perf_mode_l3_enhanced:no_jumbo"
       ],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -29625,7 +29625,7 @@
       "category": "infrastructure",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -29665,7 +29665,7 @@
       "category": "infrastructure",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -29708,7 +29708,7 @@
         "xcsh-docs:resources:azure_vnet_site:properties:ingress_gw:performance_enhancement_mode:perf_mode_l7_enhanced:jumbo_enabled"
       ],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -29794,7 +29794,7 @@
       "category": "infrastructure",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -29834,7 +29834,7 @@
       "category": "infrastructure",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -29878,7 +29878,7 @@
         "xcsh-docs:resources:azure_vnet_site:properties:ingress_gw_ar:performance_enhancement_mode"
       ],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -30046,7 +30046,7 @@
         "xcsh-docs:resources:azure_vnet_site:properties:ingress_gw_ar:accelerated_networking:enable"
       ],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -30132,7 +30132,7 @@
       "category": "infrastructure",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -30172,7 +30172,7 @@
       "category": "infrastructure",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -30212,7 +30212,7 @@
       "category": "infrastructure",
       "child_ids": ["xcsh-docs:resources:azure_vnet_site:properties:ingress_gw_ar:node:local_subnet"],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -30354,7 +30354,7 @@
         "xcsh-docs:resources:azure_vnet_site:properties:ingress_gw_ar:node:local_subnet:subnet_param"
       ],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -30476,7 +30476,7 @@
         "xcsh-docs:resources:azure_vnet_site:properties:ingress_gw_ar:node:local_subnet:subnet:vnet_resource_group"
       ],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -30584,7 +30584,7 @@
       "category": "infrastructure",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -30624,7 +30624,7 @@
       "category": "infrastructure",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -30691,7 +30691,7 @@
         "xcsh-docs:resources:azure_vnet_site:properties:ingress_gw_ar:performance_enhancement_mode:perf_mode_l7_enhanced"
       ],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -30814,7 +30814,7 @@
         "xcsh-docs:resources:azure_vnet_site:properties:ingress_gw_ar:performance_enhancement_mode:perf_mode_l3_enhanced:no_jumbo"
       ],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -30900,7 +30900,7 @@
       "category": "infrastructure",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -30940,7 +30940,7 @@
       "category": "infrastructure",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -30983,7 +30983,7 @@
         "xcsh-docs:resources:azure_vnet_site:properties:ingress_gw_ar:performance_enhancement_mode:perf_mode_l7_enhanced:jumbo_enabled"
       ],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -31069,7 +31069,7 @@
       "category": "infrastructure",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -31109,7 +31109,7 @@
       "category": "infrastructure",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -31152,7 +31152,7 @@
         "xcsh-docs:resources:azure_vnet_site:properties:kubernetes_upgrade_drain:enable_upgrade_drain"
       ],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -31279,7 +31279,7 @@
       "category": "infrastructure",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -31322,7 +31322,7 @@
         "xcsh-docs:resources:azure_vnet_site:properties:kubernetes_upgrade_drain:enable_upgrade_drain:enable_vega_upgrade_mode"
       ],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -31474,7 +31474,7 @@
       "category": "infrastructure",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -31514,7 +31514,7 @@
       "category": "infrastructure",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -31554,7 +31554,7 @@
       "category": "infrastructure",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -31646,7 +31646,7 @@
       "category": "infrastructure",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -31686,7 +31686,7 @@
       "category": "infrastructure",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -31729,7 +31729,7 @@
         "xcsh-docs:resources:azure_vnet_site:properties:offline_survivability_mode:no_offline_survivability_mode"
       ],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -31815,7 +31815,7 @@
       "category": "infrastructure",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -31855,7 +31855,7 @@
       "category": "infrastructure",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -31895,7 +31895,7 @@
       "category": "infrastructure",
       "child_ids": ["xcsh-docs:resources:azure_vnet_site:properties:os:default_os_version"],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -31981,7 +31981,7 @@
       "category": "infrastructure",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -32021,7 +32021,7 @@
       "category": "infrastructure",
       "child_ids": ["xcsh-docs:resources:azure_vnet_site:properties:sw:default_sw_version"],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -32107,7 +32107,7 @@
       "category": "infrastructure",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -32147,7 +32147,7 @@
       "category": "infrastructure",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -32247,7 +32247,7 @@
         "xcsh-docs:resources:azure_vnet_site:properties:vnet:new_vnet"
       ],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -32394,7 +32394,7 @@
         "xcsh-docs:resources:azure_vnet_site:properties:vnet:existing_vnet:manual_routing"
       ],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -32524,7 +32524,7 @@
       "category": "infrastructure",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -32564,7 +32564,7 @@
       "category": "infrastructure",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -32604,7 +32604,7 @@
       "category": "infrastructure",
       "child_ids": ["xcsh-docs:resources:azure_vnet_site:properties:vnet:new_vnet:autogenerate"],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -32712,7 +32712,7 @@
       "category": "infrastructure",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -32773,7 +32773,7 @@
         "xcsh-docs:resources:azure_vnet_site:properties:voltstack_cluster:storage_class_list"
       ],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -33409,7 +33409,7 @@
         "xcsh-docs:resources:azure_vnet_site:properties:voltstack_cluster:accelerated_networking:enable"
       ],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -33495,7 +33495,7 @@
       "category": "infrastructure",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -33535,7 +33535,7 @@
       "category": "infrastructure",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -33577,7 +33577,7 @@
         "xcsh-docs:resources:azure_vnet_site:properties:voltstack_cluster:active_enhanced_firewall_policies:enhanced_firewall_policies"
       ],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -33650,7 +33650,7 @@
       "category": "infrastructure",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -33759,7 +33759,7 @@
         "xcsh-docs:resources:azure_vnet_site:properties:voltstack_cluster:active_forward_proxy_policies:forward_proxy_policies"
       ],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -33832,7 +33832,7 @@
       "category": "infrastructure",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -33926,7 +33926,7 @@
         "xcsh-docs:resources:azure_vnet_site:properties:voltstack_cluster:active_network_policies:network_policies"
       ],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -33999,7 +33999,7 @@
       "category": "infrastructure",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -34091,7 +34091,7 @@
       "category": "infrastructure",
       "child_ids": ["xcsh-docs:resources:azure_vnet_site:properties:voltstack_cluster:az_nodes:local_subnet"],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -34189,7 +34189,7 @@
         "xcsh-docs:resources:azure_vnet_site:properties:voltstack_cluster:az_nodes:local_subnet:subnet_param"
       ],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -34311,7 +34311,7 @@
         "xcsh-docs:resources:azure_vnet_site:properties:voltstack_cluster:az_nodes:local_subnet:subnet:vnet_resource_group"
       ],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -34419,7 +34419,7 @@
       "category": "infrastructure",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -34459,7 +34459,7 @@
       "category": "infrastructure",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -34523,7 +34523,7 @@
       "category": "infrastructure",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -34615,7 +34615,7 @@
       "category": "infrastructure",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -34655,7 +34655,7 @@
       "category": "infrastructure",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -34697,7 +34697,7 @@
         "xcsh-docs:resources:azure_vnet_site:properties:voltstack_cluster:global_network_list:global_network_connections"
       ],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -34781,7 +34781,7 @@
         "xcsh-docs:resources:azure_vnet_site:properties:voltstack_cluster:global_network_list:global_network_connections:slo_to_global_dr"
       ],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -34869,7 +34869,7 @@
         "xcsh-docs:resources:azure_vnet_site:properties:voltstack_cluster:global_network_list:global_network_connections:sli_to_global_dr:global_vn"
       ],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -34939,7 +34939,7 @@
       "category": "infrastructure",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -35060,7 +35060,7 @@
         "xcsh-docs:resources:azure_vnet_site:properties:voltstack_cluster:global_network_list:global_network_connections:slo_to_global_dr:global_vn"
       ],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -35130,7 +35130,7 @@
       "category": "infrastructure",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -35249,7 +35249,7 @@
       "category": "infrastructure",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -35341,7 +35341,7 @@
       "category": "infrastructure",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -35381,7 +35381,7 @@
       "category": "infrastructure",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -35421,7 +35421,7 @@
       "category": "infrastructure",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -35461,7 +35461,7 @@
       "category": "infrastructure",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -35501,7 +35501,7 @@
       "category": "infrastructure",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -35541,7 +35541,7 @@
       "category": "infrastructure",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -35583,7 +35583,7 @@
         "xcsh-docs:resources:azure_vnet_site:properties:voltstack_cluster:outside_static_routes:static_route_list"
       ],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -35666,7 +35666,7 @@
         "xcsh-docs:resources:azure_vnet_site:properties:voltstack_cluster:outside_static_routes:static_route_list:custom_static_route"
       ],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -35765,7 +35765,7 @@
         "xcsh-docs:resources:azure_vnet_site:properties:voltstack_cluster:outside_static_routes:static_route_list:custom_static_route:subnets"
       ],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -35912,7 +35912,7 @@
       "category": "infrastructure",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -35961,7 +35961,7 @@
         "xcsh-docs:resources:azure_vnet_site:properties:voltstack_cluster:outside_static_routes:static_route_list:custom_static_route:nexthop:nexthop_address"
       ],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -36120,7 +36120,7 @@
       "category": "infrastructure",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -36284,7 +36284,7 @@
         "xcsh-docs:resources:azure_vnet_site:properties:voltstack_cluster:outside_static_routes:static_route_list:custom_static_route:nexthop:nexthop_address:ipv6"
       ],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -36452,7 +36452,7 @@
         "xcsh-docs:resources:azure_vnet_site:properties:voltstack_cluster:outside_static_routes:static_route_list:custom_static_route:nexthop:nexthop_address:dual_stack:ipv6"
       ],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -36549,7 +36549,7 @@
       "category": "infrastructure",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -36625,7 +36625,7 @@
       "category": "infrastructure",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -36701,7 +36701,7 @@
       "category": "infrastructure",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -36775,7 +36775,7 @@
       "category": "infrastructure",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -36850,7 +36850,7 @@
         "xcsh-docs:resources:azure_vnet_site:properties:voltstack_cluster:outside_static_routes:static_route_list:custom_static_route:subnets:ipv6"
       ],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -36956,7 +36956,7 @@
       "category": "infrastructure",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -37048,7 +37048,7 @@
       "category": "infrastructure",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -37140,7 +37140,7 @@
       "category": "infrastructure",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -37180,7 +37180,7 @@
       "category": "infrastructure",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -37222,7 +37222,7 @@
         "xcsh-docs:resources:azure_vnet_site:properties:voltstack_cluster:storage_class_list:storage_classes"
       ],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -37286,7 +37286,7 @@
       "category": "infrastructure",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -37385,7 +37385,7 @@
         "xcsh-docs:resources:azure_vnet_site:properties:voltstack_cluster_ar:storage_class_list"
       ],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -38029,7 +38029,7 @@
         "xcsh-docs:resources:azure_vnet_site:properties:voltstack_cluster_ar:accelerated_networking:enable"
       ],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -38115,7 +38115,7 @@
       "category": "infrastructure",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -38155,7 +38155,7 @@
       "category": "infrastructure",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -38197,7 +38197,7 @@
         "xcsh-docs:resources:azure_vnet_site:properties:voltstack_cluster_ar:active_enhanced_firewall_policies:enhanced_firewall_policies"
       ],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -38270,7 +38270,7 @@
       "category": "infrastructure",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -38379,7 +38379,7 @@
         "xcsh-docs:resources:azure_vnet_site:properties:voltstack_cluster_ar:active_forward_proxy_policies:forward_proxy_policies"
       ],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -38452,7 +38452,7 @@
       "category": "infrastructure",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -38551,7 +38551,7 @@
         "xcsh-docs:resources:azure_vnet_site:properties:voltstack_cluster_ar:active_network_policies:network_policies"
       ],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -38624,7 +38624,7 @@
       "category": "infrastructure",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -38716,7 +38716,7 @@
       "category": "infrastructure",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -38808,7 +38808,7 @@
       "category": "infrastructure",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -38848,7 +38848,7 @@
       "category": "infrastructure",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -38890,7 +38890,7 @@
         "xcsh-docs:resources:azure_vnet_site:properties:voltstack_cluster_ar:global_network_list:global_network_connections"
       ],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -38974,7 +38974,7 @@
         "xcsh-docs:resources:azure_vnet_site:properties:voltstack_cluster_ar:global_network_list:global_network_connections:slo_to_global_dr"
       ],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -39072,7 +39072,7 @@
         "xcsh-docs:resources:azure_vnet_site:properties:voltstack_cluster_ar:global_network_list:global_network_connections:sli_to_global_dr:global_vn"
       ],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -39142,7 +39142,7 @@
       "category": "infrastructure",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -39263,7 +39263,7 @@
         "xcsh-docs:resources:azure_vnet_site:properties:voltstack_cluster_ar:global_network_list:global_network_connections:slo_to_global_dr:global_vn"
       ],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -39333,7 +39333,7 @@
       "category": "infrastructure",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -39452,7 +39452,7 @@
       "category": "infrastructure",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -39544,7 +39544,7 @@
       "category": "infrastructure",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -39584,7 +39584,7 @@
       "category": "infrastructure",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -39624,7 +39624,7 @@
       "category": "infrastructure",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -39664,7 +39664,7 @@
       "category": "infrastructure",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -39704,7 +39704,7 @@
       "category": "infrastructure",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -39744,7 +39744,7 @@
       "category": "infrastructure",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -39784,7 +39784,7 @@
       "category": "infrastructure",
       "child_ids": ["xcsh-docs:resources:azure_vnet_site:properties:voltstack_cluster_ar:node:local_subnet"],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -39926,7 +39926,7 @@
         "xcsh-docs:resources:azure_vnet_site:properties:voltstack_cluster_ar:node:local_subnet:subnet_param"
       ],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -40048,7 +40048,7 @@
         "xcsh-docs:resources:azure_vnet_site:properties:voltstack_cluster_ar:node:local_subnet:subnet:vnet_resource_group"
       ],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -40156,7 +40156,7 @@
       "category": "infrastructure",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -40196,7 +40196,7 @@
       "category": "infrastructure",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -40262,7 +40262,7 @@
         "xcsh-docs:resources:azure_vnet_site:properties:voltstack_cluster_ar:outside_static_routes:static_route_list"
       ],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -40345,7 +40345,7 @@
         "xcsh-docs:resources:azure_vnet_site:properties:voltstack_cluster_ar:outside_static_routes:static_route_list:custom_static_route"
       ],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -40444,7 +40444,7 @@
         "xcsh-docs:resources:azure_vnet_site:properties:voltstack_cluster_ar:outside_static_routes:static_route_list:custom_static_route:subnets"
       ],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -40591,7 +40591,7 @@
       "category": "infrastructure",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -40640,7 +40640,7 @@
         "xcsh-docs:resources:azure_vnet_site:properties:voltstack_cluster_ar:outside_static_routes:static_route_list:custom_static_route:nexthop:nexthop_address"
       ],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -40799,7 +40799,7 @@
       "category": "infrastructure",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -40963,7 +40963,7 @@
         "xcsh-docs:resources:azure_vnet_site:properties:voltstack_cluster_ar:outside_static_routes:static_route_list:custom_static_route:nexthop:nexthop_address:ipv6"
       ],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -41131,7 +41131,7 @@
         "xcsh-docs:resources:azure_vnet_site:properties:voltstack_cluster_ar:outside_static_routes:static_route_list:custom_static_route:nexthop:nexthop_address:dual_stack:ipv6"
       ],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -41228,7 +41228,7 @@
       "category": "infrastructure",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -41304,7 +41304,7 @@
       "category": "infrastructure",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -41380,7 +41380,7 @@
       "category": "infrastructure",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -41454,7 +41454,7 @@
       "category": "infrastructure",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -41529,7 +41529,7 @@
         "xcsh-docs:resources:azure_vnet_site:properties:voltstack_cluster_ar:outside_static_routes:static_route_list:custom_static_route:subnets:ipv6"
       ],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -41635,7 +41635,7 @@
       "category": "infrastructure",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -41727,7 +41727,7 @@
       "category": "infrastructure",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -41819,7 +41819,7 @@
       "category": "infrastructure",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -41859,7 +41859,7 @@
       "category": "infrastructure",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -41901,7 +41901,7 @@
         "xcsh-docs:resources:azure_vnet_site:properties:voltstack_cluster_ar:storage_class_list:storage_classes"
       ],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -41965,7 +41965,7 @@
       "category": "infrastructure",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -42046,7 +42046,7 @@
         "xcsh-docs:resources:azure_vnet_site:properties:waf_signatures:manual"
       ],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -42132,7 +42132,7 @@
       "category": "infrastructure",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -42172,7 +42172,7 @@
       "category": "infrastructure",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -42212,7 +42212,7 @@
       "category": "infrastructure",
       "child_ids": ["xcsh-docs:resources:azure_vnet_site:example:resource"],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -42252,7 +42252,7 @@
       "category": "infrastructure",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -42299,7 +42299,7 @@
       "category": "infrastructure",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -42340,7 +42340,7 @@
       "category": "infrastructure",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"

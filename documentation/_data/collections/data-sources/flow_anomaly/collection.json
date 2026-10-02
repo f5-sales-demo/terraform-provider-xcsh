@@ -57,7 +57,7 @@
       "category": null,
       "child_ids": ["xcsh-docs:data-sources:flow_anomaly:reference", "xcsh-docs:data-sources:flow_anomaly:examples"],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -98,7 +98,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -218,7 +218,7 @@
           "type": "string"
         },
         {
-          "aliases": ["login success", "service state", "succeeded", "success", "successful"],
+          "aliases": ["service state", "succeeded", "success", "successful"],
           "anchor": "schema-service_state",
           "description": "State of a service default state initiated subscription request and is pending to activate (requested). Successfully subscribed service subscription request ended up in error state. Possible values are `AS_NONE`, `AS_PENDING`, `AS_SUBSCRIBED`, `AS_ERROR`. Defaults to `AS_NONE`.",
           "document_id": "xcsh-docs:data-sources:flow_anomaly:reference",
@@ -251,7 +251,7 @@
       "category": null,
       "child_ids": ["xcsh-docs:data-sources:flow_anomaly:example:data-source"],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -291,7 +291,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"

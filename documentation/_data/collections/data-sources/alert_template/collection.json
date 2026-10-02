@@ -70,7 +70,7 @@
         "xcsh-docs:data-sources:alert_template:examples"
       ],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -111,7 +111,7 @@
       "category": "monitoring",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -292,7 +292,7 @@
       "category": "monitoring",
       "child_ids": ["xcsh-docs:data-sources:alert_template:example:data-source"],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -332,7 +332,7 @@
       "category": "monitoring",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"

@@ -437,7 +437,7 @@
       "category": "networking",
       "child_ids": ["xcsh-docs:data-sources:nat_policy:reference", "xcsh-docs:data-sources:nat_policy:examples"],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -481,7 +481,7 @@
         "xcsh-docs:data-sources:nat_policy:properties:site"
       ],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -643,7 +643,7 @@
         "xcsh-docs:data-sources:nat_policy:properties:rules:virtual_network"
       ],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -810,7 +810,7 @@
       "category": "networking",
       "child_ids": ["xcsh-docs:data-sources:nat_policy:properties:rules:action:dynamic"],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -882,7 +882,7 @@
         "xcsh-docs:data-sources:nat_policy:properties:rules:action:dynamic:pools"
       ],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -951,7 +951,7 @@
       "category": "networking",
       "child_ids": ["xcsh-docs:data-sources:nat_policy:properties:rules:action:dynamic:elastic_ips:refs"],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -1006,7 +1006,7 @@
       "category": "networking",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -1117,7 +1117,7 @@
       "category": "networking",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -1172,7 +1172,7 @@
       "category": "networking",
       "child_ids": ["xcsh-docs:data-sources:nat_policy:properties:rules:cloud_connect:refs"],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -1227,7 +1227,7 @@
       "category": "networking",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -1345,7 +1345,7 @@
         "xcsh-docs:data-sources:nat_policy:properties:rules:criteria:udp"
       ],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -1498,7 +1498,7 @@
       "category": "networking",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -1538,7 +1538,7 @@
       "category": "networking",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -1578,7 +1578,7 @@
       "category": "networking",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -1618,7 +1618,7 @@
       "category": "networking",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -1661,7 +1661,7 @@
         "xcsh-docs:data-sources:nat_policy:properties:rules:criteria:tcp:source_port"
       ],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -1730,7 +1730,7 @@
       "category": "networking",
       "child_ids": ["xcsh-docs:data-sources:nat_policy:properties:rules:criteria:tcp:destination_port:no_port_match"],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -1813,7 +1813,7 @@
       "category": "networking",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -1853,7 +1853,7 @@
       "category": "networking",
       "child_ids": ["xcsh-docs:data-sources:nat_policy:properties:rules:criteria:tcp:source_port:no_port_match"],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -1936,7 +1936,7 @@
       "category": "networking",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -1979,7 +1979,7 @@
         "xcsh-docs:data-sources:nat_policy:properties:rules:criteria:udp:source_port"
       ],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -2048,7 +2048,7 @@
       "category": "networking",
       "child_ids": ["xcsh-docs:data-sources:nat_policy:properties:rules:criteria:udp:destination_port:no_port_match"],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -2131,7 +2131,7 @@
       "category": "networking",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -2171,7 +2171,7 @@
       "category": "networking",
       "child_ids": ["xcsh-docs:data-sources:nat_policy:properties:rules:criteria:udp:source_port:no_port_match"],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -2254,7 +2254,7 @@
       "category": "networking",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -2294,7 +2294,7 @@
       "category": "networking",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -2334,7 +2334,7 @@
       "category": "networking",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -2374,7 +2374,7 @@
       "category": "networking",
       "child_ids": ["xcsh-docs:data-sources:nat_policy:properties:rules:node_interface:list"],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -2429,7 +2429,7 @@
       "category": "networking",
       "child_ids": ["xcsh-docs:data-sources:nat_policy:properties:rules:node_interface:list:interface"],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -2498,7 +2498,7 @@
       "category": "networking",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -2609,7 +2609,7 @@
       "category": "networking",
       "child_ids": ["xcsh-docs:data-sources:nat_policy:properties:rules:segment:refs"],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -2664,7 +2664,7 @@
       "category": "networking",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -2775,7 +2775,7 @@
       "category": "networking",
       "child_ids": ["xcsh-docs:data-sources:nat_policy:properties:rules:virtual_network:refs"],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -2830,7 +2830,7 @@
       "category": "networking",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -2941,7 +2941,7 @@
       "category": "networking",
       "child_ids": ["xcsh-docs:data-sources:nat_policy:properties:site:refs"],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -2996,7 +2996,7 @@
       "category": "networking",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -3107,7 +3107,7 @@
       "category": "networking",
       "child_ids": ["xcsh-docs:data-sources:nat_policy:example:data-source"],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -3147,7 +3147,7 @@
       "category": "networking",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"

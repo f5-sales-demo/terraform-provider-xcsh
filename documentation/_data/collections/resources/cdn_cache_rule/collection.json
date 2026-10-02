@@ -644,7 +644,7 @@
         "xcsh-docs:resources:cdn_cache_rule:timeouts"
       ],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -688,7 +688,7 @@
         "xcsh-docs:resources:cdn_cache_rule:properties:timeouts"
       ],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -892,7 +892,7 @@
         "xcsh-docs:resources:cdn_cache_rule:properties:cache_rules:rule_expression_list"
       ],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -1056,7 +1056,7 @@
       "category": "cdn",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -1099,7 +1099,7 @@
         "xcsh-docs:resources:cdn_cache_rule:properties:cache_rules:eligible_for_cache:scheme_proxy_host_uri"
       ],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -1203,7 +1203,7 @@
       "category": "cdn",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -1300,7 +1300,7 @@
       "category": "cdn",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -1394,7 +1394,7 @@
         "xcsh-docs:resources:cdn_cache_rule:properties:cache_rules:rule_expression_list:cache_rule_expression"
       ],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -1485,7 +1485,7 @@
         "xcsh-docs:resources:cdn_cache_rule:properties:cache_rules:rule_expression_list:cache_rule_expression:query_parameters"
       ],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -1602,7 +1602,7 @@
         "xcsh-docs:resources:cdn_cache_rule:properties:cache_rules:rule_expression_list:cache_rule_expression:cache_headers:operator"
       ],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -2248,7 +2248,7 @@
       "category": "cdn",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -3057,7 +3057,7 @@
         "xcsh-docs:resources:cdn_cache_rule:properties:cache_rules:rule_expression_list:cache_rule_expression:cookie_matcher:operator"
       ],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -3712,7 +3712,7 @@
       "category": "cdn",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -4521,7 +4521,7 @@
         "xcsh-docs:resources:cdn_cache_rule:properties:cache_rules:rule_expression_list:cache_rule_expression:path_match:operator"
       ],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -5153,7 +5153,7 @@
       "category": "cdn",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -5962,7 +5962,7 @@
         "xcsh-docs:resources:cdn_cache_rule:properties:cache_rules:rule_expression_list:cache_rule_expression:query_parameters:operator"
       ],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -6623,7 +6623,7 @@
       "category": "cdn",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -7430,7 +7430,7 @@
       "category": "cdn",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -7527,7 +7527,7 @@
       "category": "cdn",
       "child_ids": ["xcsh-docs:resources:cdn_cache_rule:example:resource"],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -7567,7 +7567,7 @@
       "category": "cdn",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -7614,7 +7614,7 @@
       "category": "cdn",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -7655,7 +7655,7 @@
       "category": "cdn",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"

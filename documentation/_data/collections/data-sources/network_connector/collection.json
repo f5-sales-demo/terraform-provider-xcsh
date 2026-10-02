@@ -364,7 +364,7 @@
         "xcsh-docs:data-sources:network_connector:examples"
       ],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -419,7 +419,7 @@
         "xcsh-docs:data-sources:network_connector:properties:slo_to_global_dr"
       ],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -614,7 +614,7 @@
       "category": "networking",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -657,7 +657,7 @@
         "xcsh-docs:data-sources:network_connector:properties:enable_forward_proxy:tls_intercept"
       ],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -782,7 +782,7 @@
       "category": "networking",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -828,7 +828,7 @@
         "xcsh-docs:data-sources:network_connector:properties:enable_forward_proxy:tls_intercept:volterra_trusted_ca"
       ],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -958,7 +958,7 @@
         "xcsh-docs:data-sources:network_connector:properties:enable_forward_proxy:tls_intercept:custom_certificate:use_system_defaults"
       ],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -1083,7 +1083,7 @@
       "category": "networking",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -1144,7 +1144,7 @@
       "category": "networking",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -1187,7 +1187,7 @@
         "xcsh-docs:data-sources:network_connector:properties:enable_forward_proxy:tls_intercept:custom_certificate:private_key:clear_secret_info"
       ],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -1268,7 +1268,7 @@
       "category": "networking",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -1378,7 +1378,7 @@
       "category": "networking",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -1467,7 +1467,7 @@
       "category": "networking",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -1507,7 +1507,7 @@
       "category": "networking",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -1549,7 +1549,7 @@
         "xcsh-docs:data-sources:network_connector:properties:enable_forward_proxy:tls_intercept:policy:interception_rules"
       ],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -1608,7 +1608,7 @@
         "xcsh-docs:data-sources:network_connector:properties:enable_forward_proxy:tls_intercept:policy:interception_rules:enable_interception"
       ],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -1703,7 +1703,7 @@
       "category": "networking",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -1743,7 +1743,7 @@
       "category": "networking",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -1847,7 +1847,7 @@
       "category": "networking",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -1887,7 +1887,7 @@
       "category": "networking",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -1927,7 +1927,7 @@
       "category": "networking",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -1967,7 +1967,7 @@
       "category": "networking",
       "child_ids": ["xcsh-docs:data-sources:network_connector:properties:sli_to_global_dr:global_vn"],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -2022,7 +2022,7 @@
       "category": "networking",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -2108,7 +2108,7 @@
         "xcsh-docs:data-sources:network_connector:properties:sli_to_slo_snat:interface_ip"
       ],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -2177,7 +2177,7 @@
       "category": "networking",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -2217,7 +2217,7 @@
       "category": "networking",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -2257,7 +2257,7 @@
       "category": "networking",
       "child_ids": ["xcsh-docs:data-sources:network_connector:properties:slo_to_global_dr:global_vn"],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -2312,7 +2312,7 @@
       "category": "networking",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -2395,7 +2395,7 @@
       "category": "networking",
       "child_ids": ["xcsh-docs:data-sources:network_connector:example:data-source"],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -2435,7 +2435,7 @@
       "category": "networking",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"

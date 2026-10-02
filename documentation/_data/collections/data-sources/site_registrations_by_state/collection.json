@@ -1875,7 +1875,7 @@
         "xcsh-docs:data-sources:site_registrations_by_state:examples"
       ],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -1919,7 +1919,7 @@
         "xcsh-docs:data-sources:site_registrations_by_state:properties:items"
       ],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -2016,7 +2016,7 @@
       "category": null,
       "child_ids": ["xcsh-docs:data-sources:site_registrations_by_state:properties:errors:error_obj"],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -2099,7 +2099,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -2176,7 +2176,7 @@
         "xcsh-docs:data-sources:site_registrations_by_state:properties:items:system_metadata"
       ],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -2399,7 +2399,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -2442,7 +2442,7 @@
         "xcsh-docs:data-sources:site_registrations_by_state:properties:items:get_spec:passport"
       ],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -2532,7 +2532,7 @@
         "xcsh-docs:data-sources:site_registrations_by_state:properties:items:get_spec:infra:sw_info"
       ],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -2797,7 +2797,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -2880,7 +2880,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -2976,7 +2976,7 @@
         "xcsh-docs:data-sources:site_registrations_by_state:properties:items:get_spec:infra:hw_info:usb"
       ],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -3199,7 +3199,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -3282,7 +3282,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -3393,7 +3393,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -3504,7 +3504,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -3645,7 +3645,7 @@
         "xcsh-docs:data-sources:site_registrations_by_state:properties:items:get_spec:infra:hw_info:gpu:gpu_device"
       ],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -3728,7 +3728,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -3811,7 +3811,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -3894,7 +3894,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -3977,7 +3977,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -4130,7 +4130,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -4241,7 +4241,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -4338,7 +4338,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -4463,7 +4463,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -4770,7 +4770,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -4810,7 +4810,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -4907,7 +4907,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -4965,7 +4965,7 @@
         "xcsh-docs:data-sources:site_registrations_by_state:properties:items:get_spec:passport:default_sw_version"
       ],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -5146,7 +5146,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -5186,7 +5186,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -5226,7 +5226,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -5266,7 +5266,7 @@
       "category": null,
       "child_ids": ["xcsh-docs:data-sources:site_registrations_by_state:properties:items:metadata:labels"],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -5391,7 +5391,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -5436,7 +5436,7 @@
         "xcsh-docs:data-sources:site_registrations_by_state:properties:items:object:system_metadata"
       ],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -5533,7 +5533,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -5639,7 +5639,7 @@
           "type": "string"
         },
         {
-          "aliases": ["login success", "succeeded", "success", "successful", "uid"],
+          "aliases": ["succeeded", "success", "successful", "uid"],
           "anchor": "schema-items--object--metadata--uid",
           "description": "Uid is the unique in time and space value for this object. Object create will fail if provided by the client and the value exists in the system. Typically generated by the server on successful creation of an object and is not allowed to change once populated.",
           "document_id": "xcsh-docs:data-sources:site_registrations_by_state:properties:items:object:metadata",
@@ -5672,7 +5672,7 @@
       "category": null,
       "child_ids": ["xcsh-docs:data-sources:site_registrations_by_state:properties:items:object:spec:gc_spec"],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -5731,7 +5731,7 @@
         "xcsh-docs:data-sources:site_registrations_by_state:properties:items:object:spec:gc_spec:site"
       ],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -5877,7 +5877,7 @@
         "xcsh-docs:data-sources:site_registrations_by_state:properties:items:object:spec:gc_spec:infra:sw_info"
       ],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -6142,7 +6142,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -6225,7 +6225,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -6321,7 +6321,7 @@
         "xcsh-docs:data-sources:site_registrations_by_state:properties:items:object:spec:gc_spec:infra:hw_info:usb"
       ],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -6544,7 +6544,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -6627,7 +6627,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -6738,7 +6738,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -6849,7 +6849,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -6990,7 +6990,7 @@
         "xcsh-docs:data-sources:site_registrations_by_state:properties:items:object:spec:gc_spec:infra:hw_info:gpu:gpu_device"
       ],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -7073,7 +7073,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -7166,7 +7166,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -7249,7 +7249,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -7332,7 +7332,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -7485,7 +7485,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -7596,7 +7596,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -7693,7 +7693,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -7818,7 +7818,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -8125,7 +8125,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -8165,7 +8165,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -8262,7 +8262,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -8320,7 +8320,7 @@
         "xcsh-docs:data-sources:site_registrations_by_state:properties:items:object:spec:gc_spec:passport:default_sw_version"
       ],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -8501,7 +8501,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -8541,7 +8541,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -8581,7 +8581,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -8692,7 +8692,7 @@
       "category": null,
       "child_ids": ["xcsh-docs:data-sources:site_registrations_by_state:properties:items:object:status:object_status"],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -8789,7 +8789,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -8839,7 +8839,7 @@
           "type": "string"
         },
         {
-          "aliases": ["login success", "status", "succeeded", "success", "successful"],
+          "aliases": ["status", "succeeded", "success", "successful"],
           "anchor": "schema-items--object--status--object_status--status",
           "description": "Status of the operation. One of: 'Success' or 'Failure'.",
           "document_id": "xcsh-docs:data-sources:site_registrations_by_state:properties:items:object:status:object_status",
@@ -8877,7 +8877,7 @@
         "xcsh-docs:data-sources:site_registrations_by_state:properties:items:object:system_metadata:owner_view"
       ],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -9137,7 +9137,7 @@
           "type": "string"
         },
         {
-          "aliases": ["login success", "succeeded", "success", "successful", "uid"],
+          "aliases": ["succeeded", "success", "successful", "uid"],
           "anchor": "schema-items--object--system_metadata--uid",
           "description": "Uid is the unique in time and space value for this object. It is generated by the server on successful creation of an object and is not allowed to change on Replace API. The value of is taken from uid field of ObjectMetaType, if provided.",
           "document_id": "xcsh-docs:data-sources:site_registrations_by_state:properties:items:object:system_metadata",
@@ -9201,7 +9201,7 @@
         "xcsh-docs:data-sources:site_registrations_by_state:properties:items:object:system_metadata:initializers:result"
       ],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -9270,7 +9270,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -9325,7 +9325,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -9375,7 +9375,7 @@
           "type": "string"
         },
         {
-          "aliases": ["login success", "status", "succeeded", "success", "successful"],
+          "aliases": ["status", "succeeded", "success", "successful"],
           "anchor": "schema-items--object--system_metadata--initializers--result--status",
           "description": "Status of the operation. One of: 'Success' or 'Failure'.",
           "document_id": "xcsh-docs:data-sources:site_registrations_by_state:properties:items:object:system_metadata:initializers:result",
@@ -9408,7 +9408,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -9448,7 +9448,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -9559,7 +9559,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -9656,7 +9656,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -9757,7 +9757,7 @@
         "xcsh-docs:data-sources:site_registrations_by_state:properties:items:system_metadata:owner_view"
       ],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -9933,7 +9933,7 @@
           "type": "string"
         },
         {
-          "aliases": ["login success", "succeeded", "success", "successful", "uid"],
+          "aliases": ["succeeded", "success", "successful", "uid"],
           "anchor": "schema-items--system_metadata--uid",
           "description": "Uid is the unique in time and space value for this object. It is generated by the server on successful creation of an object and is not allowed to change on Replace API. The value of is taken from uid field of ObjectMetaType, if provided.",
           "document_id": "xcsh-docs:data-sources:site_registrations_by_state:properties:items:system_metadata",
@@ -9969,7 +9969,7 @@
         "xcsh-docs:data-sources:site_registrations_by_state:properties:items:system_metadata:initializers:result"
       ],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -10038,7 +10038,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -10093,7 +10093,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -10143,7 +10143,7 @@
           "type": "string"
         },
         {
-          "aliases": ["login success", "status", "succeeded", "success", "successful"],
+          "aliases": ["status", "succeeded", "success", "successful"],
           "anchor": "schema-items--system_metadata--initializers--result--status",
           "description": "Status of the operation. One of: 'Success' or 'Failure'.",
           "document_id": "xcsh-docs:data-sources:site_registrations_by_state:properties:items:system_metadata:initializers:result",
@@ -10176,7 +10176,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -10216,7 +10216,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -10313,7 +10313,7 @@
       "category": null,
       "child_ids": ["xcsh-docs:data-sources:site_registrations_by_state:example:data-source"],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -10353,7 +10353,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
+        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
