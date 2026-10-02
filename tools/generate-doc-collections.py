@@ -373,6 +373,38 @@ class Collection:
                     }
                 )
 
+        self.enrich_immutable_choices()
+
+    def enrich_immutable_choices(self):
+        """Expose receipt-pinned type choices without claiming schema prerequisites."""
+        if self.kind != "resources":
+            return
+        groups = getattr(self.specs, "immutable_oneof_groups", lambda _name: {})(
+            self.name
+        )
+        for group, members in sorted(groups.items()):
+            destinations = [self.coverage.get(member) for member in members]
+            if any(target is None for target in destinations):
+                raise ValueError("missing immutable choice destination: " + group)
+            for page in self.pages.values():
+                if page["role"] != "reference" and page["schema_path"] not in [
+                    [member] for member in members
+                ]:
+                    continue
+                for target in destinations:
+                    if target["document_id"] == page["id"]:
+                        continue
+                    page["relationships"].append(
+                        {
+                            "type": "choice",
+                            "target_id": target["document_id"],
+                            "anchor": target["anchor"],
+                            "enforcement": "provider-choice",
+                            "source": "receipt-pinned-immutable-oneof",
+                            "group": group,
+                        }
+                    )
+
     def add(self, role, path, filename, title, parent_role=None, parent_path=()):
         identifier = stable_id(self.kind, self.name, role, path)
         parent = (
