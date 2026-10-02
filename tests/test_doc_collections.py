@@ -413,3 +413,52 @@ class CollectionTests(unittest.TestCase):
 
 if __name__ == "__main__":
     unittest.main()
+
+
+class ImmutableSelectionLifecycleTests(unittest.TestCase):
+    def test_lifecycle_guidance_links_to_each_selection(self):
+        class SelectionSpecs(FixtureSpecs):
+            def immutable_oneof_groups(self, name):
+                return {"loadbalancer_type": ["http", "https", "https_auto_cert"]}
+
+        with tempfile.TemporaryDirectory() as temporary:
+            example = Path(temporary) / "examples/resources/xcsh_fixture/resource.tf"
+            example.parent.mkdir(parents=True)
+            example.write_text('resource "xcsh_fixture" "example" {}\n')
+            collection = DOCS.Collection(
+                "resources",
+                "fixture",
+                {
+                    "block": {
+                        "block_types": {
+                            name: {
+                                "nesting_mode": "single",
+                                "block": {"attributes": {}},
+                            }
+                            for name in ("http", "https", "https_auto_cert")
+                        }
+                    }
+                },
+                SelectionSpecs(),
+                {},
+                Path(temporary),
+                "sha256:" + "c" * 64,
+            )
+            page = collection.pages[DOCS.stable_id("resources", "fixture", "lifecycle")]
+            body = collection.body(page)
+            for phrase in (
+                "requires recreation",
+                "may interrupt service",
+                "prevent_destroy",
+                "create_before_destroy",
+                "same selected type",
+                "omitted",
+            ):
+                self.assertIn(phrase, body)
+            for member in ("http", "https", "https_auto_cert"):
+                self.assertIn(
+                    collection.link(
+                        DOCS.stable_id("resources", "fixture", "properties", (member,))
+                    ),
+                    body,
+                )
