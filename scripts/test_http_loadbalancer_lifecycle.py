@@ -176,7 +176,7 @@ def exercise(args: argparse.Namespace) -> None:
                     )
                     block = f"{selection} {{\n port = {setting}\n {cert}\n }}"
                 version = (
-                    f'version = "{args.registry_version}"'
+                    f', version = "{args.registry_version}"'
                     if args.registry_version
                     else ""
                 )
