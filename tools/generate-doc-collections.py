@@ -24,6 +24,11 @@ from urllib.parse import quote
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 from import_contract import resolve_import_contract
 from registry_projection import project as grouped_project
+from retrieval_metadata import (
+    RetrievalRules,
+    constraint_relationships,
+    summary as retrieval_summary,
+)
 
 PROVIDER = "registry.terraform.io/f5-sales-demo/xcsh"
 SITE = "https://f5-sales-demo.github.io/terraform-provider-xcsh"
@@ -200,7 +205,13 @@ class Specs:
         return result
 
     def resource(self, name):
-        _entry, metadata = self.resources.get(name, ({}, {}))
+        entry, metadata = self.resources.get(name, ({}, {}))
+        metadata = dict(metadata)
+        if not metadata.get("category") or metadata["category"] == "Other":
+            metadata["category"] = entry.get("x-f5xc-category", "")
+            metadata["category_source"] = "receipt-pinned-domain"
+        else:
+            metadata["category_source"] = "receipt-pinned-resource"
         schemas = self.schemas
         candidates = []
         for key, value in schemas.items():
@@ -258,6 +269,7 @@ class Collection:
             "description", f"Terraform {kind} configuration for xcsh_{name}."
         )
         self.category = self.metadata.get("category", "")
+        self.retrieval_rules = RetrievalRules.default()
         self.add("fundamentals", (), "index.md", f"xcsh_{name}")
         self.add(
             "reference", (), "properties/index.md", "Property reference", "fundamentals"
@@ -265,6 +277,90 @@ class Collection:
         self.walk(schema_root(schema), ())
         self.add_examples()
         self.add_lifecycle()
+        self.enrich_retrieval()
+
+    def enrich_retrieval(self):
+        for page in self.pages.values():
+            schema_path = page["schema_path"]
+            page.update(
+                self.retrieval_rules.classify(
+                    self.kind, self.name, schema_path, page["role"], self.category
+                )
+            )
+            description = self.description if page["role"] == "fundamentals" else ""
+            if page.get("section"):
+                field, _ = page["section"]
+                description = field.get(
+                    "description", field.get("block", {}).get("description", "")
+                )
+                upstream = self.specs.field(
+                    self.spec_roots, self.spec_schemas, schema_path
+                ).get("description", "")
+                if upstream:
+                    description = upstream
+            page["summary"] = retrieval_summary(description, page["summary"])
+            page["aliases"] = self.retrieval_rules.aliases(
+                ".".join(schema_path) or self.name, description
+            )
+            page["relationships"] = constraint_relationships(
+                schema_path,
+                self.constraints.get(".".join(schema_path), {}),
+                self.coverage,
+            )
+            page["classification"]["upstream_category_source"] = self.metadata.get(
+                "category_source", "unresolved"
+            )
+            page["sections"] = []
+            for name, field, _subsection, syntax in page.get("fields", []):
+                exact = [*schema_path, name]
+                target = self.coverage[".".join(exact)]
+                description = field.get(
+                    "description", field.get("block", {}).get("description", "")
+                )
+                upstream = self.specs.field(
+                    self.spec_roots, self.spec_schemas, exact
+                ).get("description", "")
+                prose = retrieval_summary(
+                    upstream or description, name.replace("_", " ")
+                )
+                page["sections"].append(
+                    {
+                        "schema_path": exact,
+                        "document_id": target["document_id"],
+                        "anchor": target["anchor"],
+                        "description": prose,
+                        "aliases": self.retrieval_rules.aliases(
+                            name, upstream or description
+                        ),
+                        "flags": [
+                            flag
+                            for flag in (
+                                "required",
+                                "optional",
+                                "computed",
+                                "sensitive",
+                                "deprecated",
+                                "write_only",
+                            )
+                            if field.get(flag)
+                        ],
+                        "nesting": field.get(
+                            "nesting_mode",
+                            field.get("nested_type", {}).get("nesting_mode"),
+                        ),
+                        "min_items": field.get("min_items"),
+                        "max_items": field.get("max_items"),
+                        "syntax": syntax,
+                        "type": field.get("type", "object")[0]
+                        if isinstance(field.get("type"), list)
+                        else field.get("type", "object"),
+                        "relationships": constraint_relationships(
+                            exact,
+                            self.constraints.get(".".join(exact), {}),
+                            self.coverage,
+                        ),
+                    }
+                )
 
     def add(self, role, path, filename, title, parent_role=None, parent_path=()):
         identifier = stable_id(self.kind, self.name, role, path)
@@ -743,6 +839,26 @@ def validate(pages, collections, outputs):
             and page["id"] not in identifiers[page["parent_id"]]["child_ids"]
         ):
             raise ValueError("missing parent edge")
+    for page in pages:
+        for section in page.get("sections", []):
+            target = identifiers.get(section["document_id"])
+            if not target or f'id="{section["anchor"]}"' not in outputs[target["path"]]:
+                raise ValueError("invalid retrieval section destination")
+        relations = [
+            *page.get("relationships", []),
+            *[
+                r
+                for section in page.get("sections", [])
+                for r in section.get("relationships", [])
+            ],
+        ]
+        for relation in relations:
+            target = identifiers.get(relation["target_id"])
+            if not target or (
+                relation["anchor"]
+                and f'id="{relation["anchor"]}"' not in outputs[target["path"]]
+            ):
+                raise ValueError("invalid retrieval relationship destination")
     urls = {
         SITE
         + "/"
@@ -916,6 +1032,11 @@ def generate(root, schema_path, constraints_path):
             if kind == "provider"
             else f"docs/guides/{name}.md",
         }
+        rules = RetrievalRules.default()
+        page.update(rules.classify(kind, name, [], "overview"))
+        page["aliases"] = rules.aliases(name, body)
+        page["sections"] = []
+        page["relationships"] = []
         pages.append(page)
         outputs[page["path"]] = frontmatter(page, body)
         projection["sections"].append(
@@ -972,6 +1093,105 @@ def generate(root, schema_path, constraints_path):
     outputs["documentation/registry-projection-manifest.json"] = (
         json.dumps(projection, sort_keys=True) + "\n"
     )
+    root_id = stable_id("provider", "xcsh", "navigation")
+    for kind in ("provider", *TYPES):
+        identifier = (
+            root_id if kind == "provider" else stable_id(kind, "xcsh", "navigation")
+        )
+        owned = [
+            p for p in pages if p["provider_type"] == kind and p["parent_id"] is None
+        ]
+        if kind == "provider":
+            owned += [
+                p
+                for p in pages
+                if p["provider_type"] == "guides" and p["parent_id"] is None
+            ]
+        children_ids = [p["id"] for p in owned]
+        if kind == "provider":
+            children_ids += [stable_id(t, "xcsh", "navigation") for t in TYPES]
+        for child in owned:
+            child["parent_id"] = identifier
+        body = (
+            "# "
+            + ("xcsh provider documentation" if kind == "provider" else kind)
+            + "\n\n"
+            + "\n".join(
+                "- ["
+                + p["title"]
+                + "]("
+                + SITE
+                + "/"
+                + p["path"].removeprefix("documentation/").removesuffix("index.md")
+                + ")"
+                for p in owned
+            )
+            + "\n"
+        )
+        if kind == "provider":
+            body += (
+                "\n"
+                + "\n".join("- [" + t + "](" + SITE + "/" + t + "/)" for t in TYPES)
+                + "\n"
+            )
+        page = {
+            "id": identifier,
+            "collection_id": stable_id(kind, "xcsh", "collection"),
+            "provider_type": kind,
+            "provider_name": "xcsh",
+            "role": "navigation",
+            "schema_path": [],
+            "parent_id": None if kind == "provider" else root_id,
+            "child_ids": children_ids,
+            "title": kind,
+            "summary": "Navigate " + kind + " documentation collections.",
+            "aliases": [],
+            "completeness": "complete",
+            "path": "documentation/index.md"
+            if kind == "provider"
+            else f"documentation/{kind}/index.md",
+            "body": body,
+            "body_bytes": len(body.encode()),
+            "body_sha256": digest(body.encode()),
+            "provider_schema_digest": schema_digest,
+            "spec_pin_digest": specs.pin_digest,
+            "sections": [],
+            "relationships": [],
+            **RetrievalRules.default().classify(kind, "xcsh", [], "navigation"),
+        }
+        pages.append(page)
+        outputs[page["path"]] = frontmatter(page, body)
+    by_collection = {(c.kind, c.name): c for c in collections}
+    for collection in collections:
+        page = collection.pages[
+            stable_id(collection.kind, collection.name, "fundamentals")
+        ]
+        page["unresolved_relationships"] = []
+        for kind, names in collection.metadata.get("dependencies", {}).items():
+            if kind not in ("required", "optional"):
+                continue
+            for name in names:
+                target_collection = by_collection.get(("resources", name))
+                if target_collection:
+                    target_id = stable_id("resources", name, "fundamentals")
+                    page["relationships"].append(
+                        {
+                            "type": "advisory",
+                            "target_id": target_id,
+                            "anchor": "",
+                            "enforcement": "upstream-advisory",
+                            "source": "receipt-pinned-dependency:" + kind,
+                        }
+                    )
+                else:
+                    page["unresolved_relationships"].append(
+                        {"name": name, "source": "receipt-pinned-dependency:" + kind}
+                    )
+    # Serialize after adding navigation parents, preserving the body bytes.
+    for page in pages:
+        outputs[page["path"]] = frontmatter(
+            page, page["body"], categories.get(page["collection_id"], "")
+        )
     validate(pages, collections, outputs)
     entries = [
         {
@@ -1063,31 +1283,6 @@ def generate(root, schema_path, constraints_path):
     outputs["documentation/terraform-llms-index.json"] = index_text
     outputs["documentation/_data/terraform-llms-index.json"] = index_text
     outputs["documentation/_data/llms.txt"] = outputs["documentation/llms.txt"]
-    outputs["documentation/index.md"] = (
-        '---\npage_title: "xcsh provider documentation"\ndescription: "Complete Terraform provider documentation collections."\n---\n\n# xcsh provider documentation\n\n'
-        + "\n".join(
-            f"- [{c.kind}: xcsh_{c.name}]({SITE}/{c.kind}/{c.name}/)"
-            for c in collections
-        )
-        + "\n\n- [Provider setup and authentication]("
-        + SITE
-        + "/provider/setup/)\n"
-        + "".join(
-            f"- [{name} guide]({SITE}/guides/{name}/)\n"
-            for kind, name, _ in auxiliary
-            if kind == "guides"
-        )
-    )
-    for kind in TYPES:
-        outputs[f"documentation/{kind}/index.md"] = (
-            f'---\npage_title: "{kind}"\ndescription: "xcsh {kind} collections."\n---\n\n# {kind}\n\n'
-            + "\n".join(
-                f"- [{c.name}]({SITE}/{kind}/{c.name}/)"
-                for c in collections
-                if c.kind == kind
-            )
-            + "\n"
-        )
     manifest_path = root / "documentation/generated-manifest.json"
     old = read_json(manifest_path).get("files", {}) if manifest_path.exists() else {}
     for relative in old:

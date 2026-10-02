@@ -330,31 +330,45 @@
   },
   "pages": [
     {
-      "aliases": [],
+      "aliases": ["authentication", "cloud credentials", "credential setup", "credentials"],
       "body_bytes": 1693,
       "body_sha256": "sha256:78d0464781de149bbdb317d2e9adea191f72e514a2dfe7bcdf425237f1511cfa",
+      "capabilities": ["infrastructure"],
+      "category": "infrastructure",
       "child_ids": [
         "xcsh-docs:resources:cloud_credentials:reference",
         "xcsh-docs:resources:cloud_credentials:examples",
         "xcsh-docs:resources:cloud_credentials:import",
         "xcsh-docs:resources:cloud_credentials:timeouts"
       ],
+      "classification": {
+        "rules_sha256": "sha256:98dbf5280bf8376a0c75c1391250db9db4ac0d293d42bdd831c20f7514925adb",
+        "sources": ["receipt-pinned-upstream", "reviewed-rule"],
+        "status": "resolved",
+        "upstream_category_source": "receipt-pinned-resource"
+      },
       "collection_id": "xcsh-docs:resources:cloud_credentials:collection",
       "completeness": "complete",
       "id": "xcsh-docs:resources:cloud_credentials:fundamentals",
-      "parent_id": null,
+      "parent_id": "xcsh-docs:resources:xcsh:navigation",
       "path": "documentation/resources/cloud_credentials/index.md",
+      "product": "distributed-cloud",
       "provider_name": "cloud_credentials",
       "provider_schema_digest": "sha256:e63a07e98b4893c041a6f79be7e19c64babfe543fc6847c17641037e084e1c7c",
       "provider_type": "resources",
       "registry_anchor": "canonical-0130231023331222-3013013110330021-2003033121003000-3023101330100030-1121122101200120-3011301230122133-2001010122021211-1302313010320120",
       "registry_path": "docs/resources/cloud_credentials.md",
+      "relationships": [],
+      "retrieval_version": 1,
       "role": "fundamentals",
       "schema_path": [],
+      "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/cloud_credentials/index.txt",
       "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
-      "summary": "xcsh_cloud_credentials for xcsh_cloud_credentials.",
+      "summary": "Manages a Cloud Credentials resource in F5 Distributed Cloud for api to create cloud_credentials object. configuration.",
+      "tasks": ["authentication", "configuration"],
       "title": "xcsh_cloud_credentials",
+      "unresolved_relationships": [],
       "upstream_identity": {
         "release_tag": "v9.0.0",
         "schema_components": ["cloud_credentialsCreateRequest"],
@@ -362,9 +376,11 @@
       }
     },
     {
-      "aliases": [],
+      "aliases": ["authentication", "cloud credentials", "credential setup", "credentials"],
       "body_bytes": 24835,
       "body_sha256": "sha256:4889f5386af57d358fa38cda5cf5b5218dfc783427100aaf882560754fd74233",
+      "capabilities": ["infrastructure"],
+      "category": "infrastructure",
       "child_ids": [
         "xcsh-docs:resources:cloud_credentials:properties:aws_assume_role",
         "xcsh-docs:resources:cloud_credentials:properties:aws_secret_key",
@@ -373,21 +389,364 @@
         "xcsh-docs:resources:cloud_credentials:properties:gcp_cred_file",
         "xcsh-docs:resources:cloud_credentials:properties:timeouts"
       ],
+      "classification": {
+        "rules_sha256": "sha256:98dbf5280bf8376a0c75c1391250db9db4ac0d293d42bdd831c20f7514925adb",
+        "sources": ["receipt-pinned-upstream", "reviewed-rule"],
+        "status": "resolved",
+        "upstream_category_source": "receipt-pinned-resource"
+      },
       "collection_id": "xcsh-docs:resources:cloud_credentials:collection",
       "completeness": "complete",
       "id": "xcsh-docs:resources:cloud_credentials:reference",
       "parent_id": "xcsh-docs:resources:cloud_credentials:fundamentals",
       "path": "documentation/resources/cloud_credentials/properties/index.md",
+      "product": "distributed-cloud",
       "provider_name": "cloud_credentials",
       "provider_schema_digest": "sha256:e63a07e98b4893c041a6f79be7e19c64babfe543fc6847c17641037e084e1c7c",
       "provider_type": "resources",
       "registry_anchor": "canonical-3201213022001320-3300101112101223-0013231303001331-1203003101323223-3301132033321232-3133332231103012-2231201322220022-1313022312220200",
       "registry_path": "docs/guides/resources--cloud_credentials--reference--group-001.md",
+      "relationships": [],
+      "retrieval_version": 1,
       "role": "reference",
       "schema_path": [],
+      "sections": [
+        {
+          "aliases": ["annotations"],
+          "anchor": "schema-annotations",
+          "description": "Annotations is an unstructured key value map stored with a resource that may be set by external tools to store and retrieve arbitrary metadata. They are not queryable and should be preserved when modifying objects.",
+          "document_id": "xcsh-docs:resources:cloud_credentials:reference",
+          "flags": ["optional"],
+          "max_items": null,
+          "min_items": null,
+          "nesting": null,
+          "relationships": [],
+          "schema_path": ["annotations"],
+          "syntax": "attribute",
+          "type": "map"
+        },
+        {
+          "aliases": ["aws assume role"],
+          "anchor": "section",
+          "description": "AWS Assume Role to Handle Delegated Access.",
+          "document_id": "xcsh-docs:resources:cloud_credentials:properties:aws_assume_role",
+          "flags": [],
+          "max_items": null,
+          "min_items": null,
+          "nesting": "single",
+          "relationships": [
+            {
+              "anchor": "schema-aws_assume_role--custom_external_id",
+              "enforcement": "provider-schema",
+              "group": "aws_assume_role:ConflictingObjectAttributes:custom_external_id,external_id_is_optional",
+              "source": "ast-validator:ConflictingObjectAttributes",
+              "target_id": "xcsh-docs:resources:cloud_credentials:properties:aws_assume_role",
+              "type": "conflicts"
+            },
+            {
+              "anchor": "schema-aws_assume_role--custom_external_id",
+              "enforcement": "provider-schema",
+              "group": "aws_assume_role:ConflictingObjectAttributes:custom_external_id,external_id_is_tenant_id",
+              "source": "ast-validator:ConflictingObjectAttributes",
+              "target_id": "xcsh-docs:resources:cloud_credentials:properties:aws_assume_role",
+              "type": "conflicts"
+            },
+            {
+              "anchor": "section",
+              "enforcement": "provider-schema",
+              "group": "aws_assume_role:ConflictingObjectAttributes:custom_external_id,external_id_is_optional",
+              "source": "ast-validator:ConflictingObjectAttributes",
+              "target_id": "xcsh-docs:resources:cloud_credentials:properties:aws_assume_role:external_id_is_optional",
+              "type": "conflicts"
+            },
+            {
+              "anchor": "section",
+              "enforcement": "provider-schema",
+              "group": "aws_assume_role:ConflictingObjectAttributes:external_id_is_optional,external_id_is_tenant_id",
+              "source": "ast-validator:ConflictingObjectAttributes",
+              "target_id": "xcsh-docs:resources:cloud_credentials:properties:aws_assume_role:external_id_is_optional",
+              "type": "conflicts"
+            },
+            {
+              "anchor": "section",
+              "enforcement": "provider-schema",
+              "group": "aws_assume_role:ConflictingObjectAttributes:custom_external_id,external_id_is_tenant_id",
+              "source": "ast-validator:ConflictingObjectAttributes",
+              "target_id": "xcsh-docs:resources:cloud_credentials:properties:aws_assume_role:external_id_is_tenant_id",
+              "type": "conflicts"
+            },
+            {
+              "anchor": "section",
+              "enforcement": "provider-schema",
+              "group": "aws_assume_role:ConflictingObjectAttributes:external_id_is_optional,external_id_is_tenant_id",
+              "source": "ast-validator:ConflictingObjectAttributes",
+              "target_id": "xcsh-docs:resources:cloud_credentials:properties:aws_assume_role:external_id_is_tenant_id",
+              "type": "conflicts"
+            },
+            {
+              "anchor": "schema-aws_assume_role--duration_seconds",
+              "enforcement": "provider-schema",
+              "group": "aws_assume_role:RequiredObjectAttributes:duration_seconds,role_arn,session_name",
+              "source": "ast-validator:RequiredObjectAttributes",
+              "target_id": "xcsh-docs:resources:cloud_credentials:properties:aws_assume_role",
+              "type": "requires"
+            },
+            {
+              "anchor": "schema-aws_assume_role--role_arn",
+              "enforcement": "provider-schema",
+              "group": "aws_assume_role:RequiredObjectAttributes:duration_seconds,role_arn,session_name",
+              "source": "ast-validator:RequiredObjectAttributes",
+              "target_id": "xcsh-docs:resources:cloud_credentials:properties:aws_assume_role",
+              "type": "requires"
+            },
+            {
+              "anchor": "schema-aws_assume_role--session_name",
+              "enforcement": "provider-schema",
+              "group": "aws_assume_role:RequiredObjectAttributes:duration_seconds,role_arn,session_name",
+              "source": "ast-validator:RequiredObjectAttributes",
+              "target_id": "xcsh-docs:resources:cloud_credentials:properties:aws_assume_role",
+              "type": "requires"
+            }
+          ],
+          "schema_path": ["aws_assume_role"],
+          "syntax": "block",
+          "type": "object"
+        },
+        {
+          "aliases": ["authentication", "aws secret key", "credential setup", "credentials"],
+          "anchor": "section",
+          "description": "AWS Programmatic Access Credentials type.",
+          "document_id": "xcsh-docs:resources:cloud_credentials:properties:aws_secret_key",
+          "flags": [],
+          "max_items": null,
+          "min_items": null,
+          "nesting": "single",
+          "relationships": [
+            {
+              "anchor": "schema-aws_secret_key--access_key",
+              "enforcement": "provider-schema",
+              "group": "aws_secret_key:RequiredObjectAttributes:access_key",
+              "source": "ast-validator:RequiredObjectAttributes",
+              "target_id": "xcsh-docs:resources:cloud_credentials:properties:aws_secret_key",
+              "type": "requires"
+            }
+          ],
+          "schema_path": ["aws_secret_key"],
+          "syntax": "block",
+          "type": "object"
+        },
+        {
+          "aliases": ["authentication", "azure client secret", "credential setup", "credentials"],
+          "anchor": "section",
+          "description": "Azure Credentials Client Secret type.",
+          "document_id": "xcsh-docs:resources:cloud_credentials:properties:azure_client_secret",
+          "flags": [],
+          "max_items": null,
+          "min_items": null,
+          "nesting": "single",
+          "relationships": [
+            {
+              "anchor": "schema-azure_client_secret--client_id",
+              "enforcement": "provider-schema",
+              "group": "azure_client_secret:RequiredObjectAttributes:client_id,subscription_id,tenant_id",
+              "source": "ast-validator:RequiredObjectAttributes",
+              "target_id": "xcsh-docs:resources:cloud_credentials:properties:azure_client_secret",
+              "type": "requires"
+            },
+            {
+              "anchor": "schema-azure_client_secret--subscription_id",
+              "enforcement": "provider-schema",
+              "group": "azure_client_secret:RequiredObjectAttributes:client_id,subscription_id,tenant_id",
+              "source": "ast-validator:RequiredObjectAttributes",
+              "target_id": "xcsh-docs:resources:cloud_credentials:properties:azure_client_secret",
+              "type": "requires"
+            },
+            {
+              "anchor": "schema-azure_client_secret--tenant_id",
+              "enforcement": "provider-schema",
+              "group": "azure_client_secret:RequiredObjectAttributes:client_id,subscription_id,tenant_id",
+              "source": "ast-validator:RequiredObjectAttributes",
+              "target_id": "xcsh-docs:resources:cloud_credentials:properties:azure_client_secret",
+              "type": "requires"
+            }
+          ],
+          "schema_path": ["azure_client_secret"],
+          "syntax": "block",
+          "type": "object"
+        },
+        {
+          "aliases": [
+            "authentication",
+            "azure pfx certificate",
+            "cert",
+            "certificate",
+            "credential setup",
+            "credentials",
+            "existing certificates",
+            "tls certificates"
+          ],
+          "anchor": "section",
+          "description": "Azure Credentials Client Certificate type.",
+          "document_id": "xcsh-docs:resources:cloud_credentials:properties:azure_pfx_certificate",
+          "flags": [],
+          "max_items": null,
+          "min_items": null,
+          "nesting": "single",
+          "relationships": [
+            {
+              "anchor": "schema-azure_pfx_certificate--certificate_url",
+              "enforcement": "provider-schema",
+              "group": "azure_pfx_certificate:RequiredObjectAttributes:certificate_url,client_id,subscription_id,tenant_id",
+              "source": "ast-validator:RequiredObjectAttributes",
+              "target_id": "xcsh-docs:resources:cloud_credentials:properties:azure_pfx_certificate",
+              "type": "requires"
+            },
+            {
+              "anchor": "schema-azure_pfx_certificate--client_id",
+              "enforcement": "provider-schema",
+              "group": "azure_pfx_certificate:RequiredObjectAttributes:certificate_url,client_id,subscription_id,tenant_id",
+              "source": "ast-validator:RequiredObjectAttributes",
+              "target_id": "xcsh-docs:resources:cloud_credentials:properties:azure_pfx_certificate",
+              "type": "requires"
+            },
+            {
+              "anchor": "schema-azure_pfx_certificate--subscription_id",
+              "enforcement": "provider-schema",
+              "group": "azure_pfx_certificate:RequiredObjectAttributes:certificate_url,client_id,subscription_id,tenant_id",
+              "source": "ast-validator:RequiredObjectAttributes",
+              "target_id": "xcsh-docs:resources:cloud_credentials:properties:azure_pfx_certificate",
+              "type": "requires"
+            },
+            {
+              "anchor": "schema-azure_pfx_certificate--tenant_id",
+              "enforcement": "provider-schema",
+              "group": "azure_pfx_certificate:RequiredObjectAttributes:certificate_url,client_id,subscription_id,tenant_id",
+              "source": "ast-validator:RequiredObjectAttributes",
+              "target_id": "xcsh-docs:resources:cloud_credentials:properties:azure_pfx_certificate",
+              "type": "requires"
+            }
+          ],
+          "schema_path": ["azure_pfx_certificate"],
+          "syntax": "block",
+          "type": "object"
+        },
+        {
+          "aliases": ["description"],
+          "anchor": "schema-description",
+          "description": "Human readable description for the object.",
+          "document_id": "xcsh-docs:resources:cloud_credentials:reference",
+          "flags": ["optional"],
+          "max_items": null,
+          "min_items": null,
+          "nesting": null,
+          "relationships": [],
+          "schema_path": ["description"],
+          "syntax": "attribute",
+          "type": "string"
+        },
+        {
+          "aliases": ["disable"],
+          "anchor": "schema-disable",
+          "description": "A value of true will administratively disable the object.",
+          "document_id": "xcsh-docs:resources:cloud_credentials:reference",
+          "flags": ["optional"],
+          "max_items": null,
+          "min_items": null,
+          "nesting": null,
+          "relationships": [],
+          "schema_path": ["disable"],
+          "syntax": "attribute",
+          "type": "bool"
+        },
+        {
+          "aliases": ["authentication", "credential setup", "credentials", "gcp cred file"],
+          "anchor": "section",
+          "description": "GCP Credentials type.",
+          "document_id": "xcsh-docs:resources:cloud_credentials:properties:gcp_cred_file",
+          "flags": [],
+          "max_items": null,
+          "min_items": null,
+          "nesting": "single",
+          "relationships": [],
+          "schema_path": ["gcp_cred_file"],
+          "syntax": "block",
+          "type": "object"
+        },
+        {
+          "aliases": ["id"],
+          "anchor": "schema-id",
+          "description": "Unique identifier for the resource.",
+          "document_id": "xcsh-docs:resources:cloud_credentials:reference",
+          "flags": ["computed"],
+          "max_items": null,
+          "min_items": null,
+          "nesting": null,
+          "relationships": [],
+          "schema_path": ["id"],
+          "syntax": "attribute",
+          "type": "string"
+        },
+        {
+          "aliases": ["labels"],
+          "anchor": "schema-labels",
+          "description": "Map of string keys and values that can be used to organize and categorize (scope and select) objects as chosen by the user. Values specified here will be used by selector expression.",
+          "document_id": "xcsh-docs:resources:cloud_credentials:reference",
+          "flags": ["optional"],
+          "max_items": null,
+          "min_items": null,
+          "nesting": null,
+          "relationships": [],
+          "schema_path": ["labels"],
+          "syntax": "attribute",
+          "type": "map"
+        },
+        {
+          "aliases": ["name"],
+          "anchor": "schema-name",
+          "description": "This is the name of configuration object. It has to be unique within the namespace. It can only be specified during create API and cannot be changed during replace API. The value of name has to follow DNS-1035 format.",
+          "document_id": "xcsh-docs:resources:cloud_credentials:reference",
+          "flags": ["required"],
+          "max_items": null,
+          "min_items": null,
+          "nesting": null,
+          "relationships": [],
+          "schema_path": ["name"],
+          "syntax": "attribute",
+          "type": "string"
+        },
+        {
+          "aliases": ["namespace"],
+          "anchor": "schema-namespace",
+          "description": "This defines the workspace within which each the configuration object is to be created. Must be a DNS_LABEL format. For a namespace object itself, namespace value will be \"\"",
+          "document_id": "xcsh-docs:resources:cloud_credentials:reference",
+          "flags": ["required"],
+          "max_items": null,
+          "min_items": null,
+          "nesting": null,
+          "relationships": [],
+          "schema_path": ["namespace"],
+          "syntax": "attribute",
+          "type": "string"
+        },
+        {
+          "aliases": ["duration", "operation timeout", "timeouts"],
+          "anchor": "section",
+          "description": "timeouts",
+          "document_id": "xcsh-docs:resources:cloud_credentials:properties:timeouts",
+          "flags": [],
+          "max_items": null,
+          "min_items": null,
+          "nesting": "single",
+          "relationships": [],
+          "schema_path": ["timeouts"],
+          "syntax": "block",
+          "type": "object"
+        }
+      ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/cloud_credentials/properties/index.txt",
       "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
       "summary": "Property reference for xcsh_cloud_credentials.",
+      "tasks": ["authentication", "configuration"],
       "title": "Property reference",
       "upstream_identity": {
         "release_tag": "v9.0.0",
@@ -396,28 +755,213 @@
       }
     },
     {
-      "aliases": [],
+      "aliases": ["aws assume role"],
       "body_bytes": 9396,
       "body_sha256": "sha256:2750fbcf11bdcc597185081a0a0853f1da4e864748671dca803f77b64325a0d3",
+      "capabilities": ["infrastructure"],
+      "category": "infrastructure",
       "child_ids": [
         "xcsh-docs:resources:cloud_credentials:properties:aws_assume_role:external_id_is_optional",
         "xcsh-docs:resources:cloud_credentials:properties:aws_assume_role:external_id_is_tenant_id"
       ],
+      "classification": {
+        "rules_sha256": "sha256:98dbf5280bf8376a0c75c1391250db9db4ac0d293d42bdd831c20f7514925adb",
+        "sources": ["receipt-pinned-upstream", "reviewed-rule"],
+        "status": "resolved",
+        "upstream_category_source": "receipt-pinned-resource"
+      },
       "collection_id": "xcsh-docs:resources:cloud_credentials:collection",
       "completeness": "complete",
       "id": "xcsh-docs:resources:cloud_credentials:properties:aws_assume_role",
       "parent_id": "xcsh-docs:resources:cloud_credentials:reference",
       "path": "documentation/resources/cloud_credentials/properties/aws_assume_role/index.md",
+      "product": "distributed-cloud",
       "provider_name": "cloud_credentials",
       "provider_schema_digest": "sha256:e63a07e98b4893c041a6f79be7e19c64babfe543fc6847c17641037e084e1c7c",
       "provider_type": "resources",
       "registry_anchor": "canonical-3201131310302023-0122011012123001-0130131130232113-3232133100213330-3012223312001231-3021312122320320-3313012123220011-3033311203311103",
       "registry_path": "docs/guides/resources--cloud_credentials--reference--group-001.md",
+      "relationships": [
+        {
+          "anchor": "schema-aws_assume_role--custom_external_id",
+          "enforcement": "provider-schema",
+          "group": "aws_assume_role:ConflictingObjectAttributes:custom_external_id,external_id_is_optional",
+          "source": "ast-validator:ConflictingObjectAttributes",
+          "target_id": "xcsh-docs:resources:cloud_credentials:properties:aws_assume_role",
+          "type": "conflicts"
+        },
+        {
+          "anchor": "schema-aws_assume_role--custom_external_id",
+          "enforcement": "provider-schema",
+          "group": "aws_assume_role:ConflictingObjectAttributes:custom_external_id,external_id_is_tenant_id",
+          "source": "ast-validator:ConflictingObjectAttributes",
+          "target_id": "xcsh-docs:resources:cloud_credentials:properties:aws_assume_role",
+          "type": "conflicts"
+        },
+        {
+          "anchor": "section",
+          "enforcement": "provider-schema",
+          "group": "aws_assume_role:ConflictingObjectAttributes:custom_external_id,external_id_is_optional",
+          "source": "ast-validator:ConflictingObjectAttributes",
+          "target_id": "xcsh-docs:resources:cloud_credentials:properties:aws_assume_role:external_id_is_optional",
+          "type": "conflicts"
+        },
+        {
+          "anchor": "section",
+          "enforcement": "provider-schema",
+          "group": "aws_assume_role:ConflictingObjectAttributes:external_id_is_optional,external_id_is_tenant_id",
+          "source": "ast-validator:ConflictingObjectAttributes",
+          "target_id": "xcsh-docs:resources:cloud_credentials:properties:aws_assume_role:external_id_is_optional",
+          "type": "conflicts"
+        },
+        {
+          "anchor": "section",
+          "enforcement": "provider-schema",
+          "group": "aws_assume_role:ConflictingObjectAttributes:custom_external_id,external_id_is_tenant_id",
+          "source": "ast-validator:ConflictingObjectAttributes",
+          "target_id": "xcsh-docs:resources:cloud_credentials:properties:aws_assume_role:external_id_is_tenant_id",
+          "type": "conflicts"
+        },
+        {
+          "anchor": "section",
+          "enforcement": "provider-schema",
+          "group": "aws_assume_role:ConflictingObjectAttributes:external_id_is_optional,external_id_is_tenant_id",
+          "source": "ast-validator:ConflictingObjectAttributes",
+          "target_id": "xcsh-docs:resources:cloud_credentials:properties:aws_assume_role:external_id_is_tenant_id",
+          "type": "conflicts"
+        },
+        {
+          "anchor": "schema-aws_assume_role--duration_seconds",
+          "enforcement": "provider-schema",
+          "group": "aws_assume_role:RequiredObjectAttributes:duration_seconds,role_arn,session_name",
+          "source": "ast-validator:RequiredObjectAttributes",
+          "target_id": "xcsh-docs:resources:cloud_credentials:properties:aws_assume_role",
+          "type": "requires"
+        },
+        {
+          "anchor": "schema-aws_assume_role--role_arn",
+          "enforcement": "provider-schema",
+          "group": "aws_assume_role:RequiredObjectAttributes:duration_seconds,role_arn,session_name",
+          "source": "ast-validator:RequiredObjectAttributes",
+          "target_id": "xcsh-docs:resources:cloud_credentials:properties:aws_assume_role",
+          "type": "requires"
+        },
+        {
+          "anchor": "schema-aws_assume_role--session_name",
+          "enforcement": "provider-schema",
+          "group": "aws_assume_role:RequiredObjectAttributes:duration_seconds,role_arn,session_name",
+          "source": "ast-validator:RequiredObjectAttributes",
+          "target_id": "xcsh-docs:resources:cloud_credentials:properties:aws_assume_role",
+          "type": "requires"
+        }
+      ],
+      "retrieval_version": 1,
       "role": "properties",
       "schema_path": ["aws_assume_role"],
+      "sections": [
+        {
+          "aliases": ["custom external id"],
+          "anchor": "schema-aws_assume_role--custom_external_id",
+          "description": "Exclusive with External ID is Custom ID.",
+          "document_id": "xcsh-docs:resources:cloud_credentials:properties:aws_assume_role",
+          "flags": ["optional"],
+          "max_items": null,
+          "min_items": null,
+          "nesting": null,
+          "relationships": [],
+          "schema_path": ["aws_assume_role", "custom_external_id"],
+          "syntax": "attribute",
+          "type": "string"
+        },
+        {
+          "aliases": ["duration seconds"],
+          "anchor": "schema-aws_assume_role--duration_seconds",
+          "description": "The duration, in seconds of the role session.",
+          "document_id": "xcsh-docs:resources:cloud_credentials:properties:aws_assume_role",
+          "flags": ["optional"],
+          "max_items": null,
+          "min_items": null,
+          "nesting": null,
+          "relationships": [],
+          "schema_path": ["aws_assume_role", "duration_seconds"],
+          "syntax": "attribute",
+          "type": "number"
+        },
+        {
+          "aliases": ["external id is optional"],
+          "anchor": "section",
+          "description": "This can be used for messages where no values are needed.",
+          "document_id": "xcsh-docs:resources:cloud_credentials:properties:aws_assume_role:external_id_is_optional",
+          "flags": ["optional"],
+          "max_items": null,
+          "min_items": null,
+          "nesting": null,
+          "relationships": [],
+          "schema_path": ["aws_assume_role", "external_id_is_optional"],
+          "syntax": "attribute",
+          "type": "object"
+        },
+        {
+          "aliases": ["external id is tenant id"],
+          "anchor": "section",
+          "description": "This can be used for messages where no values are needed.",
+          "document_id": "xcsh-docs:resources:cloud_credentials:properties:aws_assume_role:external_id_is_tenant_id",
+          "flags": ["optional"],
+          "max_items": null,
+          "min_items": null,
+          "nesting": null,
+          "relationships": [],
+          "schema_path": ["aws_assume_role", "external_id_is_tenant_id"],
+          "syntax": "attribute",
+          "type": "object"
+        },
+        {
+          "aliases": ["role arn"],
+          "anchor": "schema-aws_assume_role--role_arn",
+          "description": "IAM Role ARN to assume the role.",
+          "document_id": "xcsh-docs:resources:cloud_credentials:properties:aws_assume_role",
+          "flags": ["optional"],
+          "max_items": null,
+          "min_items": null,
+          "nesting": null,
+          "relationships": [],
+          "schema_path": ["aws_assume_role", "role_arn"],
+          "syntax": "attribute",
+          "type": "string"
+        },
+        {
+          "aliases": ["session name"],
+          "anchor": "schema-aws_assume_role--session_name",
+          "description": "Use the role session name to uniquely identify a session, which will be used for deploy, monitor from F5XC console.",
+          "document_id": "xcsh-docs:resources:cloud_credentials:properties:aws_assume_role",
+          "flags": ["optional"],
+          "max_items": null,
+          "min_items": null,
+          "nesting": null,
+          "relationships": [],
+          "schema_path": ["aws_assume_role", "session_name"],
+          "syntax": "attribute",
+          "type": "string"
+        },
+        {
+          "aliases": ["session tags"],
+          "anchor": "schema-aws_assume_role--session_tags",
+          "description": "Session tags are key-value pair attributes that you pass when you assume an IAM role.",
+          "document_id": "xcsh-docs:resources:cloud_credentials:properties:aws_assume_role",
+          "flags": ["optional"],
+          "max_items": null,
+          "min_items": null,
+          "nesting": null,
+          "relationships": [],
+          "schema_path": ["aws_assume_role", "session_tags"],
+          "syntax": "attribute",
+          "type": "map"
+        }
+      ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/cloud_credentials/properties/aws_assume_role/index.txt",
       "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
-      "summary": "aws_assume_role for xcsh_cloud_credentials.",
+      "summary": "AWS Assume Role to Handle Delegated Access.",
+      "tasks": ["authentication", "configuration"],
       "title": "aws_assume_role",
       "upstream_identity": {
         "release_tag": "v9.0.0",
@@ -426,25 +970,38 @@
       }
     },
     {
-      "aliases": [],
+      "aliases": ["aws assume role external id is optional"],
       "body_bytes": 1354,
       "body_sha256": "sha256:36d2e106c1a65851b7167da494adb85d218b6ed91008e604554cf3a41a507db0",
+      "capabilities": ["infrastructure"],
+      "category": "infrastructure",
       "child_ids": [],
+      "classification": {
+        "rules_sha256": "sha256:98dbf5280bf8376a0c75c1391250db9db4ac0d293d42bdd831c20f7514925adb",
+        "sources": ["receipt-pinned-upstream", "reviewed-rule"],
+        "status": "resolved",
+        "upstream_category_source": "receipt-pinned-resource"
+      },
       "collection_id": "xcsh-docs:resources:cloud_credentials:collection",
       "completeness": "complete",
       "id": "xcsh-docs:resources:cloud_credentials:properties:aws_assume_role:external_id_is_optional",
       "parent_id": "xcsh-docs:resources:cloud_credentials:properties:aws_assume_role",
       "path": "documentation/resources/cloud_credentials/properties/aws_assume_role/external_id_is_optional/index.md",
+      "product": "distributed-cloud",
       "provider_name": "cloud_credentials",
       "provider_schema_digest": "sha256:e63a07e98b4893c041a6f79be7e19c64babfe543fc6847c17641037e084e1c7c",
       "provider_type": "resources",
       "registry_anchor": "canonical-3122230332231220-2323133033302121-2100003011232100-0331002310102220-2203130002323111-3100121320132111-0113231202303222-2220133223231210",
       "registry_path": "docs/guides/resources--cloud_credentials--reference--group-001.md",
+      "relationships": [],
+      "retrieval_version": 1,
       "role": "properties",
       "schema_path": ["aws_assume_role", "external_id_is_optional"],
+      "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/cloud_credentials/properties/aws_assume_role/external_id_is_optional/index.txt",
       "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
-      "summary": "aws_assume_role.external_id_is_optional for xcsh_cloud_credentials.",
+      "summary": "This can be used for messages where no values are needed.",
+      "tasks": ["authentication", "configuration"],
       "title": "aws_assume_role.external_id_is_optional",
       "upstream_identity": {
         "release_tag": "v9.0.0",
@@ -453,25 +1010,38 @@
       }
     },
     {
-      "aliases": [],
+      "aliases": ["aws assume role external id is tenant id"],
       "body_bytes": 1323,
       "body_sha256": "sha256:80034dcbd67c5e6174ac0bca041bc28d6be61d7bb685afcb9832fa870d3a78ac",
+      "capabilities": ["infrastructure"],
+      "category": "infrastructure",
       "child_ids": [],
+      "classification": {
+        "rules_sha256": "sha256:98dbf5280bf8376a0c75c1391250db9db4ac0d293d42bdd831c20f7514925adb",
+        "sources": ["receipt-pinned-upstream", "reviewed-rule"],
+        "status": "resolved",
+        "upstream_category_source": "receipt-pinned-resource"
+      },
       "collection_id": "xcsh-docs:resources:cloud_credentials:collection",
       "completeness": "complete",
       "id": "xcsh-docs:resources:cloud_credentials:properties:aws_assume_role:external_id_is_tenant_id",
       "parent_id": "xcsh-docs:resources:cloud_credentials:properties:aws_assume_role",
       "path": "documentation/resources/cloud_credentials/properties/aws_assume_role/external_id_is_tenant_id/index.md",
+      "product": "distributed-cloud",
       "provider_name": "cloud_credentials",
       "provider_schema_digest": "sha256:e63a07e98b4893c041a6f79be7e19c64babfe543fc6847c17641037e084e1c7c",
       "provider_type": "resources",
       "registry_anchor": "canonical-2203103211303300-3032003222210131-0131212122013230-0313303303201103-1023331120233333-1313220201120323-1032330303131223-0003332300111312",
       "registry_path": "docs/guides/resources--cloud_credentials--reference--group-001.md",
+      "relationships": [],
+      "retrieval_version": 1,
       "role": "properties",
       "schema_path": ["aws_assume_role", "external_id_is_tenant_id"],
+      "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/cloud_credentials/properties/aws_assume_role/external_id_is_tenant_id/index.txt",
       "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
-      "summary": "aws_assume_role.external_id_is_tenant_id for xcsh_cloud_credentials.",
+      "summary": "This can be used for messages where no values are needed.",
+      "tasks": ["authentication", "configuration"],
       "title": "aws_assume_role.external_id_is_tenant_id",
       "upstream_identity": {
         "release_tag": "v9.0.0",
@@ -480,25 +1050,93 @@
       }
     },
     {
-      "aliases": [],
+      "aliases": ["authentication", "aws secret key", "credential setup", "credentials"],
       "body_bytes": 2597,
       "body_sha256": "sha256:1fedd3df6bf94e74779bf476b8a888f2393965679dd09a2df915cb6822ab9961",
+      "capabilities": ["infrastructure"],
+      "category": "infrastructure",
       "child_ids": ["xcsh-docs:resources:cloud_credentials:properties:aws_secret_key:secret_key"],
+      "classification": {
+        "rules_sha256": "sha256:98dbf5280bf8376a0c75c1391250db9db4ac0d293d42bdd831c20f7514925adb",
+        "sources": ["receipt-pinned-upstream", "reviewed-rule"],
+        "status": "resolved",
+        "upstream_category_source": "receipt-pinned-resource"
+      },
       "collection_id": "xcsh-docs:resources:cloud_credentials:collection",
       "completeness": "complete",
       "id": "xcsh-docs:resources:cloud_credentials:properties:aws_secret_key",
       "parent_id": "xcsh-docs:resources:cloud_credentials:reference",
       "path": "documentation/resources/cloud_credentials/properties/aws_secret_key/index.md",
+      "product": "distributed-cloud",
       "provider_name": "cloud_credentials",
       "provider_schema_digest": "sha256:e63a07e98b4893c041a6f79be7e19c64babfe543fc6847c17641037e084e1c7c",
       "provider_type": "resources",
       "registry_anchor": "canonical-3233111313023123-2112001202221123-1003132111031121-1301010333300232-2201130032133313-3201203222322230-0230201100222323-2123010303221211",
       "registry_path": "docs/guides/resources--cloud_credentials--reference--group-001.md",
+      "relationships": [
+        {
+          "anchor": "schema-aws_secret_key--access_key",
+          "enforcement": "provider-schema",
+          "group": "aws_secret_key:RequiredObjectAttributes:access_key",
+          "source": "ast-validator:RequiredObjectAttributes",
+          "target_id": "xcsh-docs:resources:cloud_credentials:properties:aws_secret_key",
+          "type": "requires"
+        }
+      ],
+      "retrieval_version": 1,
       "role": "properties",
       "schema_path": ["aws_secret_key"],
+      "sections": [
+        {
+          "aliases": ["access key"],
+          "anchor": "schema-aws_secret_key--access_key",
+          "description": "Access key ID for your AWS account.",
+          "document_id": "xcsh-docs:resources:cloud_credentials:properties:aws_secret_key",
+          "flags": ["optional"],
+          "max_items": null,
+          "min_items": null,
+          "nesting": null,
+          "relationships": [],
+          "schema_path": ["aws_secret_key", "access_key"],
+          "syntax": "attribute",
+          "type": "string"
+        },
+        {
+          "aliases": ["secret key"],
+          "anchor": "section",
+          "description": "SecretType is used in an object to indicate a sensitive/confidential field.",
+          "document_id": "xcsh-docs:resources:cloud_credentials:properties:aws_secret_key:secret_key",
+          "flags": [],
+          "max_items": null,
+          "min_items": null,
+          "nesting": "single",
+          "relationships": [
+            {
+              "anchor": "section",
+              "enforcement": "provider-schema",
+              "group": "aws_secret_key.secret_key:ConflictingObjectAttributes:blindfold_secret_info,clear_secret_info",
+              "source": "ast-validator:ConflictingObjectAttributes",
+              "target_id": "xcsh-docs:resources:cloud_credentials:properties:aws_secret_key:secret_key:blindfold_secret_info",
+              "type": "conflicts"
+            },
+            {
+              "anchor": "section",
+              "enforcement": "provider-schema",
+              "group": "aws_secret_key.secret_key:ConflictingObjectAttributes:blindfold_secret_info,clear_secret_info",
+              "source": "ast-validator:ConflictingObjectAttributes",
+              "target_id": "xcsh-docs:resources:cloud_credentials:properties:aws_secret_key:secret_key:clear_secret_info",
+              "type": "conflicts"
+            }
+          ],
+          "schema_path": ["aws_secret_key", "secret_key"],
+          "syntax": "block",
+          "type": "object"
+        }
+      ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/cloud_credentials/properties/aws_secret_key/index.txt",
       "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
-      "summary": "aws_secret_key for xcsh_cloud_credentials.",
+      "summary": "AWS Programmatic Access Credentials type.",
+      "tasks": ["authentication", "configuration"],
       "title": "aws_secret_key",
       "upstream_identity": {
         "release_tag": "v9.0.0",
@@ -507,28 +1145,105 @@
       }
     },
     {
-      "aliases": [],
+      "aliases": ["aws secret key secret key"],
       "body_bytes": 2306,
       "body_sha256": "sha256:b9b1f4d11217ec06e19971294a28eeda31f20da2d0267134116cc1077a3403e6",
+      "capabilities": ["infrastructure"],
+      "category": "infrastructure",
       "child_ids": [
         "xcsh-docs:resources:cloud_credentials:properties:aws_secret_key:secret_key:blindfold_secret_info",
         "xcsh-docs:resources:cloud_credentials:properties:aws_secret_key:secret_key:clear_secret_info"
       ],
+      "classification": {
+        "rules_sha256": "sha256:98dbf5280bf8376a0c75c1391250db9db4ac0d293d42bdd831c20f7514925adb",
+        "sources": ["receipt-pinned-upstream", "reviewed-rule"],
+        "status": "resolved",
+        "upstream_category_source": "receipt-pinned-resource"
+      },
       "collection_id": "xcsh-docs:resources:cloud_credentials:collection",
       "completeness": "complete",
       "id": "xcsh-docs:resources:cloud_credentials:properties:aws_secret_key:secret_key",
       "parent_id": "xcsh-docs:resources:cloud_credentials:properties:aws_secret_key",
       "path": "documentation/resources/cloud_credentials/properties/aws_secret_key/secret_key/index.md",
+      "product": "distributed-cloud",
       "provider_name": "cloud_credentials",
       "provider_schema_digest": "sha256:e63a07e98b4893c041a6f79be7e19c64babfe543fc6847c17641037e084e1c7c",
       "provider_type": "resources",
       "registry_anchor": "canonical-0213131110213223-0223232101023323-2123311133211101-3201320111130300-1021022120000213-3110212022203331-2313010131003223-2002021021331003",
       "registry_path": "docs/guides/resources--cloud_credentials--reference--group-001.md",
+      "relationships": [
+        {
+          "anchor": "section",
+          "enforcement": "provider-schema",
+          "group": "aws_secret_key.secret_key:ConflictingObjectAttributes:blindfold_secret_info,clear_secret_info",
+          "source": "ast-validator:ConflictingObjectAttributes",
+          "target_id": "xcsh-docs:resources:cloud_credentials:properties:aws_secret_key:secret_key:blindfold_secret_info",
+          "type": "conflicts"
+        },
+        {
+          "anchor": "section",
+          "enforcement": "provider-schema",
+          "group": "aws_secret_key.secret_key:ConflictingObjectAttributes:blindfold_secret_info,clear_secret_info",
+          "source": "ast-validator:ConflictingObjectAttributes",
+          "target_id": "xcsh-docs:resources:cloud_credentials:properties:aws_secret_key:secret_key:clear_secret_info",
+          "type": "conflicts"
+        }
+      ],
+      "retrieval_version": 1,
       "role": "properties",
       "schema_path": ["aws_secret_key", "secret_key"],
+      "sections": [
+        {
+          "aliases": ["blindfold secret info"],
+          "anchor": "section",
+          "description": "BlindfoldSecretInfoType specifies information about the Secret managed by F5XC Secret Management.",
+          "document_id": "xcsh-docs:resources:cloud_credentials:properties:aws_secret_key:secret_key:blindfold_secret_info",
+          "flags": [],
+          "max_items": null,
+          "min_items": null,
+          "nesting": "single",
+          "relationships": [
+            {
+              "anchor": "schema-aws_secret_key--secret_key--blindfold_secret_info--location",
+              "enforcement": "provider-schema",
+              "group": "aws_secret_key.secret_key.blindfold_secret_info:RequiredObjectAttributes:location",
+              "source": "ast-validator:RequiredObjectAttributes",
+              "target_id": "xcsh-docs:resources:cloud_credentials:properties:aws_secret_key:secret_key:blindfold_secret_info",
+              "type": "requires"
+            }
+          ],
+          "schema_path": ["aws_secret_key", "secret_key", "blindfold_secret_info"],
+          "syntax": "block",
+          "type": "object"
+        },
+        {
+          "aliases": ["clear secret info"],
+          "anchor": "section",
+          "description": "ClearSecretInfoType specifies information about the Secret that is not encrypted.",
+          "document_id": "xcsh-docs:resources:cloud_credentials:properties:aws_secret_key:secret_key:clear_secret_info",
+          "flags": [],
+          "max_items": null,
+          "min_items": null,
+          "nesting": "single",
+          "relationships": [
+            {
+              "anchor": "schema-aws_secret_key--secret_key--clear_secret_info--url",
+              "enforcement": "provider-schema",
+              "group": "aws_secret_key.secret_key.clear_secret_info:RequiredObjectAttributes:url",
+              "source": "ast-validator:RequiredObjectAttributes",
+              "target_id": "xcsh-docs:resources:cloud_credentials:properties:aws_secret_key:secret_key:clear_secret_info",
+              "type": "requires"
+            }
+          ],
+          "schema_path": ["aws_secret_key", "secret_key", "clear_secret_info"],
+          "syntax": "block",
+          "type": "object"
+        }
+      ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/cloud_credentials/properties/aws_secret_key/secret_key/index.txt",
       "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
-      "summary": "aws_secret_key.secret_key for xcsh_cloud_credentials.",
+      "summary": "SecretType is used in an object to indicate a sensitive/confidential field.",
+      "tasks": ["authentication", "configuration"],
       "title": "aws_secret_key.secret_key",
       "upstream_identity": {
         "release_tag": "v9.0.0",
@@ -537,25 +1252,90 @@
       }
     },
     {
-      "aliases": [],
+      "aliases": ["aws secret key secret key blindfold secret info"],
       "body_bytes": 4900,
       "body_sha256": "sha256:99f6658827a85e41f1b2a3f1872398b8e9762e1d77d15ccce281973b028442fb",
+      "capabilities": ["infrastructure"],
+      "category": "infrastructure",
       "child_ids": [],
+      "classification": {
+        "rules_sha256": "sha256:98dbf5280bf8376a0c75c1391250db9db4ac0d293d42bdd831c20f7514925adb",
+        "sources": ["receipt-pinned-upstream", "reviewed-rule"],
+        "status": "resolved",
+        "upstream_category_source": "receipt-pinned-resource"
+      },
       "collection_id": "xcsh-docs:resources:cloud_credentials:collection",
       "completeness": "complete",
       "id": "xcsh-docs:resources:cloud_credentials:properties:aws_secret_key:secret_key:blindfold_secret_info",
       "parent_id": "xcsh-docs:resources:cloud_credentials:properties:aws_secret_key:secret_key",
       "path": "documentation/resources/cloud_credentials/properties/aws_secret_key/secret_key/blindfold_secret_info/index.md",
+      "product": "distributed-cloud",
       "provider_name": "cloud_credentials",
       "provider_schema_digest": "sha256:e63a07e98b4893c041a6f79be7e19c64babfe543fc6847c17641037e084e1c7c",
       "provider_type": "resources",
       "registry_anchor": "canonical-3333201120120231-3223100301331100-0123323312200330-3203322313201130-3232222302032021-1100011301032210-0312133112310022-2321231001010313",
       "registry_path": "docs/guides/resources--cloud_credentials--reference--group-001.md",
+      "relationships": [
+        {
+          "anchor": "schema-aws_secret_key--secret_key--blindfold_secret_info--location",
+          "enforcement": "provider-schema",
+          "group": "aws_secret_key.secret_key.blindfold_secret_info:RequiredObjectAttributes:location",
+          "source": "ast-validator:RequiredObjectAttributes",
+          "target_id": "xcsh-docs:resources:cloud_credentials:properties:aws_secret_key:secret_key:blindfold_secret_info",
+          "type": "requires"
+        }
+      ],
+      "retrieval_version": 1,
       "role": "properties",
       "schema_path": ["aws_secret_key", "secret_key", "blindfold_secret_info"],
+      "sections": [
+        {
+          "aliases": ["backend servers", "decryption provider", "origin servers", "upstream servers"],
+          "anchor": "schema-aws_secret_key--secret_key--blindfold_secret_info--decryption_provider",
+          "description": "Name of the Secret Management Access object that contains information about the backend Secret Management service.",
+          "document_id": "xcsh-docs:resources:cloud_credentials:properties:aws_secret_key:secret_key:blindfold_secret_info",
+          "flags": ["optional"],
+          "max_items": null,
+          "min_items": null,
+          "nesting": null,
+          "relationships": [],
+          "schema_path": ["aws_secret_key", "secret_key", "blindfold_secret_info", "decryption_provider"],
+          "syntax": "attribute",
+          "type": "string"
+        },
+        {
+          "aliases": ["location"],
+          "anchor": "schema-aws_secret_key--secret_key--blindfold_secret_info--location",
+          "description": "Location is the uri_ref. It could be in URL format for string:/// Or it could be a path if the store provider is an HTTP/HTTPS location.",
+          "document_id": "xcsh-docs:resources:cloud_credentials:properties:aws_secret_key:secret_key:blindfold_secret_info",
+          "flags": ["optional", "sensitive"],
+          "max_items": null,
+          "min_items": null,
+          "nesting": null,
+          "relationships": [],
+          "schema_path": ["aws_secret_key", "secret_key", "blindfold_secret_info", "location"],
+          "syntax": "attribute",
+          "type": "string"
+        },
+        {
+          "aliases": ["store provider"],
+          "anchor": "schema-aws_secret_key--secret_key--blindfold_secret_info--store_provider",
+          "description": "Name of the Secret Management Access object that contains information about the store to GET encrypted bytes This field needs to be provided only if the URL scheme is not string:///.",
+          "document_id": "xcsh-docs:resources:cloud_credentials:properties:aws_secret_key:secret_key:blindfold_secret_info",
+          "flags": ["optional"],
+          "max_items": null,
+          "min_items": null,
+          "nesting": null,
+          "relationships": [],
+          "schema_path": ["aws_secret_key", "secret_key", "blindfold_secret_info", "store_provider"],
+          "syntax": "attribute",
+          "type": "string"
+        }
+      ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/cloud_credentials/properties/aws_secret_key/secret_key/blindfold_secret_info/index.txt",
       "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
-      "summary": "aws_secret_key.secret_key.blindfold_secret_info for xcsh_cloud_credentials.",
+      "summary": "BlindfoldSecretInfoType specifies information about the Secret managed by F5XC Secret Management.",
+      "tasks": ["authentication", "configuration"],
       "title": "aws_secret_key.secret_key.blindfold_secret_info",
       "upstream_identity": {
         "release_tag": "v9.0.0",
@@ -564,25 +1344,76 @@
       }
     },
     {
-      "aliases": [],
+      "aliases": ["aws secret key secret key clear secret info"],
       "body_bytes": 3785,
       "body_sha256": "sha256:29814e8c2aea582f45036f93fc04ab66f8f03d00a5168bb235312c109e718192",
+      "capabilities": ["infrastructure"],
+      "category": "infrastructure",
       "child_ids": [],
+      "classification": {
+        "rules_sha256": "sha256:98dbf5280bf8376a0c75c1391250db9db4ac0d293d42bdd831c20f7514925adb",
+        "sources": ["receipt-pinned-upstream", "reviewed-rule"],
+        "status": "resolved",
+        "upstream_category_source": "receipt-pinned-resource"
+      },
       "collection_id": "xcsh-docs:resources:cloud_credentials:collection",
       "completeness": "complete",
       "id": "xcsh-docs:resources:cloud_credentials:properties:aws_secret_key:secret_key:clear_secret_info",
       "parent_id": "xcsh-docs:resources:cloud_credentials:properties:aws_secret_key:secret_key",
       "path": "documentation/resources/cloud_credentials/properties/aws_secret_key/secret_key/clear_secret_info/index.md",
+      "product": "distributed-cloud",
       "provider_name": "cloud_credentials",
       "provider_schema_digest": "sha256:e63a07e98b4893c041a6f79be7e19c64babfe543fc6847c17641037e084e1c7c",
       "provider_type": "resources",
       "registry_anchor": "canonical-0012032032232232-2020022112230222-0333130123120132-0300101302302230-3112111221011310-0201213011013012-0202122113030311-3103322202223021",
       "registry_path": "docs/guides/resources--cloud_credentials--reference--group-001.md",
+      "relationships": [
+        {
+          "anchor": "schema-aws_secret_key--secret_key--clear_secret_info--url",
+          "enforcement": "provider-schema",
+          "group": "aws_secret_key.secret_key.clear_secret_info:RequiredObjectAttributes:url",
+          "source": "ast-validator:RequiredObjectAttributes",
+          "target_id": "xcsh-docs:resources:cloud_credentials:properties:aws_secret_key:secret_key:clear_secret_info",
+          "type": "requires"
+        }
+      ],
+      "retrieval_version": 1,
       "role": "properties",
       "schema_path": ["aws_secret_key", "secret_key", "clear_secret_info"],
+      "sections": [
+        {
+          "aliases": ["provider ref"],
+          "anchor": "schema-aws_secret_key--secret_key--clear_secret_info--provider_ref",
+          "description": "Name of the Secret Management Access object that contains information about the store to GET encrypted bytes This field needs to be provided only if the URL scheme is not string:///.",
+          "document_id": "xcsh-docs:resources:cloud_credentials:properties:aws_secret_key:secret_key:clear_secret_info",
+          "flags": ["optional"],
+          "max_items": null,
+          "min_items": null,
+          "nesting": null,
+          "relationships": [],
+          "schema_path": ["aws_secret_key", "secret_key", "clear_secret_info", "provider_ref"],
+          "syntax": "attribute",
+          "type": "string"
+        },
+        {
+          "aliases": ["url"],
+          "anchor": "schema-aws_secret_key--secret_key--clear_secret_info--url",
+          "description": "URL of the secret. Currently supported URL schemes is string:///. For string:/// scheme, Secret needs to be encoded Base64 format. When asked for this secret, caller will GET Secret bytes after Base64 decoding.",
+          "document_id": "xcsh-docs:resources:cloud_credentials:properties:aws_secret_key:secret_key:clear_secret_info",
+          "flags": ["optional", "sensitive"],
+          "max_items": null,
+          "min_items": null,
+          "nesting": null,
+          "relationships": [],
+          "schema_path": ["aws_secret_key", "secret_key", "clear_secret_info", "url"],
+          "syntax": "attribute",
+          "type": "string"
+        }
+      ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/cloud_credentials/properties/aws_secret_key/secret_key/clear_secret_info/index.txt",
       "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
-      "summary": "aws_secret_key.secret_key.clear_secret_info for xcsh_cloud_credentials.",
+      "summary": "ClearSecretInfoType specifies information about the Secret that is not encrypted.",
+      "tasks": ["authentication", "configuration"],
       "title": "aws_secret_key.secret_key.clear_secret_info",
       "upstream_identity": {
         "release_tag": "v9.0.0",
@@ -591,25 +1422,137 @@
       }
     },
     {
-      "aliases": [],
+      "aliases": ["authentication", "azure client secret", "credential setup", "credentials"],
       "body_bytes": 4728,
       "body_sha256": "sha256:ed158f38e8710152074e846414247eb98ffcaafa6d1d9316b3725fce80faed69",
+      "capabilities": ["infrastructure"],
+      "category": "infrastructure",
       "child_ids": ["xcsh-docs:resources:cloud_credentials:properties:azure_client_secret:client_secret"],
+      "classification": {
+        "rules_sha256": "sha256:98dbf5280bf8376a0c75c1391250db9db4ac0d293d42bdd831c20f7514925adb",
+        "sources": ["receipt-pinned-upstream", "reviewed-rule"],
+        "status": "resolved",
+        "upstream_category_source": "receipt-pinned-resource"
+      },
       "collection_id": "xcsh-docs:resources:cloud_credentials:collection",
       "completeness": "complete",
       "id": "xcsh-docs:resources:cloud_credentials:properties:azure_client_secret",
       "parent_id": "xcsh-docs:resources:cloud_credentials:reference",
       "path": "documentation/resources/cloud_credentials/properties/azure_client_secret/index.md",
+      "product": "distributed-cloud",
       "provider_name": "cloud_credentials",
       "provider_schema_digest": "sha256:e63a07e98b4893c041a6f79be7e19c64babfe543fc6847c17641037e084e1c7c",
       "provider_type": "resources",
       "registry_anchor": "canonical-0031003222133102-3220220230302231-3221203120103122-2132001113201132-2100013132100213-2210320123302223-3120332020133311-3031023322021323",
       "registry_path": "docs/guides/resources--cloud_credentials--reference--group-001.md",
+      "relationships": [
+        {
+          "anchor": "schema-azure_client_secret--client_id",
+          "enforcement": "provider-schema",
+          "group": "azure_client_secret:RequiredObjectAttributes:client_id,subscription_id,tenant_id",
+          "source": "ast-validator:RequiredObjectAttributes",
+          "target_id": "xcsh-docs:resources:cloud_credentials:properties:azure_client_secret",
+          "type": "requires"
+        },
+        {
+          "anchor": "schema-azure_client_secret--subscription_id",
+          "enforcement": "provider-schema",
+          "group": "azure_client_secret:RequiredObjectAttributes:client_id,subscription_id,tenant_id",
+          "source": "ast-validator:RequiredObjectAttributes",
+          "target_id": "xcsh-docs:resources:cloud_credentials:properties:azure_client_secret",
+          "type": "requires"
+        },
+        {
+          "anchor": "schema-azure_client_secret--tenant_id",
+          "enforcement": "provider-schema",
+          "group": "azure_client_secret:RequiredObjectAttributes:client_id,subscription_id,tenant_id",
+          "source": "ast-validator:RequiredObjectAttributes",
+          "target_id": "xcsh-docs:resources:cloud_credentials:properties:azure_client_secret",
+          "type": "requires"
+        }
+      ],
+      "retrieval_version": 1,
       "role": "properties",
       "schema_path": ["azure_client_secret"],
+      "sections": [
+        {
+          "aliases": ["client id"],
+          "anchor": "schema-azure_client_secret--client_id",
+          "description": "Client ID for your Azure service principal.",
+          "document_id": "xcsh-docs:resources:cloud_credentials:properties:azure_client_secret",
+          "flags": ["optional"],
+          "max_items": null,
+          "min_items": null,
+          "nesting": null,
+          "relationships": [],
+          "schema_path": ["azure_client_secret", "client_id"],
+          "syntax": "attribute",
+          "type": "string"
+        },
+        {
+          "aliases": ["client secret"],
+          "anchor": "section",
+          "description": "SecretType is used in an object to indicate a sensitive/confidential field.",
+          "document_id": "xcsh-docs:resources:cloud_credentials:properties:azure_client_secret:client_secret",
+          "flags": [],
+          "max_items": null,
+          "min_items": null,
+          "nesting": "single",
+          "relationships": [
+            {
+              "anchor": "section",
+              "enforcement": "provider-schema",
+              "group": "azure_client_secret.client_secret:ConflictingObjectAttributes:blindfold_secret_info,clear_secret_info",
+              "source": "ast-validator:ConflictingObjectAttributes",
+              "target_id": "xcsh-docs:resources:cloud_credentials:properties:azure_client_secret:client_secret:blindfold_secret_info",
+              "type": "conflicts"
+            },
+            {
+              "anchor": "section",
+              "enforcement": "provider-schema",
+              "group": "azure_client_secret.client_secret:ConflictingObjectAttributes:blindfold_secret_info,clear_secret_info",
+              "source": "ast-validator:ConflictingObjectAttributes",
+              "target_id": "xcsh-docs:resources:cloud_credentials:properties:azure_client_secret:client_secret:clear_secret_info",
+              "type": "conflicts"
+            }
+          ],
+          "schema_path": ["azure_client_secret", "client_secret"],
+          "syntax": "block",
+          "type": "object"
+        },
+        {
+          "aliases": ["subscription id"],
+          "anchor": "schema-azure_client_secret--subscription_id",
+          "description": "Subscription ID for your Azure service principal.",
+          "document_id": "xcsh-docs:resources:cloud_credentials:properties:azure_client_secret",
+          "flags": ["optional"],
+          "max_items": null,
+          "min_items": null,
+          "nesting": null,
+          "relationships": [],
+          "schema_path": ["azure_client_secret", "subscription_id"],
+          "syntax": "attribute",
+          "type": "string"
+        },
+        {
+          "aliases": ["tenant id"],
+          "anchor": "schema-azure_client_secret--tenant_id",
+          "description": "Tenant ID for your Azure service principal.",
+          "document_id": "xcsh-docs:resources:cloud_credentials:properties:azure_client_secret",
+          "flags": ["optional"],
+          "max_items": null,
+          "min_items": null,
+          "nesting": null,
+          "relationships": [],
+          "schema_path": ["azure_client_secret", "tenant_id"],
+          "syntax": "attribute",
+          "type": "string"
+        }
+      ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/cloud_credentials/properties/azure_client_secret/index.txt",
       "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
-      "summary": "azure_client_secret for xcsh_cloud_credentials.",
+      "summary": "Azure Credentials Client Secret type.",
+      "tasks": ["authentication", "configuration"],
       "title": "azure_client_secret",
       "upstream_identity": {
         "release_tag": "v9.0.0",
@@ -618,28 +1561,105 @@
       }
     },
     {
-      "aliases": [],
+      "aliases": ["azure client secret client secret"],
       "body_bytes": 2393,
       "body_sha256": "sha256:afba49e13a50ea86bef98cc5e6ec6376739d58b4a85ce8aa64db5444fb874d41",
+      "capabilities": ["infrastructure"],
+      "category": "infrastructure",
       "child_ids": [
         "xcsh-docs:resources:cloud_credentials:properties:azure_client_secret:client_secret:blindfold_secret_info",
         "xcsh-docs:resources:cloud_credentials:properties:azure_client_secret:client_secret:clear_secret_info"
       ],
+      "classification": {
+        "rules_sha256": "sha256:98dbf5280bf8376a0c75c1391250db9db4ac0d293d42bdd831c20f7514925adb",
+        "sources": ["receipt-pinned-upstream", "reviewed-rule"],
+        "status": "resolved",
+        "upstream_category_source": "receipt-pinned-resource"
+      },
       "collection_id": "xcsh-docs:resources:cloud_credentials:collection",
       "completeness": "complete",
       "id": "xcsh-docs:resources:cloud_credentials:properties:azure_client_secret:client_secret",
       "parent_id": "xcsh-docs:resources:cloud_credentials:properties:azure_client_secret",
       "path": "documentation/resources/cloud_credentials/properties/azure_client_secret/client_secret/index.md",
+      "product": "distributed-cloud",
       "provider_name": "cloud_credentials",
       "provider_schema_digest": "sha256:e63a07e98b4893c041a6f79be7e19c64babfe543fc6847c17641037e084e1c7c",
       "provider_type": "resources",
       "registry_anchor": "canonical-2010100203212332-1110203230303022-1312013232030032-0311031313033313-3311310202030013-2320110323223123-3220210021311103-0203100022211200",
       "registry_path": "docs/guides/resources--cloud_credentials--reference--group-001.md",
+      "relationships": [
+        {
+          "anchor": "section",
+          "enforcement": "provider-schema",
+          "group": "azure_client_secret.client_secret:ConflictingObjectAttributes:blindfold_secret_info,clear_secret_info",
+          "source": "ast-validator:ConflictingObjectAttributes",
+          "target_id": "xcsh-docs:resources:cloud_credentials:properties:azure_client_secret:client_secret:blindfold_secret_info",
+          "type": "conflicts"
+        },
+        {
+          "anchor": "section",
+          "enforcement": "provider-schema",
+          "group": "azure_client_secret.client_secret:ConflictingObjectAttributes:blindfold_secret_info,clear_secret_info",
+          "source": "ast-validator:ConflictingObjectAttributes",
+          "target_id": "xcsh-docs:resources:cloud_credentials:properties:azure_client_secret:client_secret:clear_secret_info",
+          "type": "conflicts"
+        }
+      ],
+      "retrieval_version": 1,
       "role": "properties",
       "schema_path": ["azure_client_secret", "client_secret"],
+      "sections": [
+        {
+          "aliases": ["blindfold secret info"],
+          "anchor": "section",
+          "description": "BlindfoldSecretInfoType specifies information about the Secret managed by F5XC Secret Management.",
+          "document_id": "xcsh-docs:resources:cloud_credentials:properties:azure_client_secret:client_secret:blindfold_secret_info",
+          "flags": [],
+          "max_items": null,
+          "min_items": null,
+          "nesting": "single",
+          "relationships": [
+            {
+              "anchor": "schema-azure_client_secret--client_secret--blindfold_secret_info--location",
+              "enforcement": "provider-schema",
+              "group": "azure_client_secret.client_secret.blindfold_secret_info:RequiredObjectAttributes:location",
+              "source": "ast-validator:RequiredObjectAttributes",
+              "target_id": "xcsh-docs:resources:cloud_credentials:properties:azure_client_secret:client_secret:blindfold_secret_info",
+              "type": "requires"
+            }
+          ],
+          "schema_path": ["azure_client_secret", "client_secret", "blindfold_secret_info"],
+          "syntax": "block",
+          "type": "object"
+        },
+        {
+          "aliases": ["clear secret info"],
+          "anchor": "section",
+          "description": "ClearSecretInfoType specifies information about the Secret that is not encrypted.",
+          "document_id": "xcsh-docs:resources:cloud_credentials:properties:azure_client_secret:client_secret:clear_secret_info",
+          "flags": [],
+          "max_items": null,
+          "min_items": null,
+          "nesting": "single",
+          "relationships": [
+            {
+              "anchor": "schema-azure_client_secret--client_secret--clear_secret_info--url",
+              "enforcement": "provider-schema",
+              "group": "azure_client_secret.client_secret.clear_secret_info:RequiredObjectAttributes:url",
+              "source": "ast-validator:RequiredObjectAttributes",
+              "target_id": "xcsh-docs:resources:cloud_credentials:properties:azure_client_secret:client_secret:clear_secret_info",
+              "type": "requires"
+            }
+          ],
+          "schema_path": ["azure_client_secret", "client_secret", "clear_secret_info"],
+          "syntax": "block",
+          "type": "object"
+        }
+      ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/cloud_credentials/properties/azure_client_secret/client_secret/index.txt",
       "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
-      "summary": "azure_client_secret.client_secret for xcsh_cloud_credentials.",
+      "summary": "SecretType is used in an object to indicate a sensitive/confidential field.",
+      "tasks": ["authentication", "configuration"],
       "title": "azure_client_secret.client_secret",
       "upstream_identity": {
         "release_tag": "v9.0.0",
@@ -648,25 +1668,90 @@
       }
     },
     {
-      "aliases": [],
+      "aliases": ["azure client secret client secret blindfold secret info"],
       "body_bytes": 4982,
       "body_sha256": "sha256:52bc99ec68bf41381da96525b5606a95df9b60cdeb748155afbdcfb241685d1e",
+      "capabilities": ["infrastructure"],
+      "category": "infrastructure",
       "child_ids": [],
+      "classification": {
+        "rules_sha256": "sha256:98dbf5280bf8376a0c75c1391250db9db4ac0d293d42bdd831c20f7514925adb",
+        "sources": ["receipt-pinned-upstream", "reviewed-rule"],
+        "status": "resolved",
+        "upstream_category_source": "receipt-pinned-resource"
+      },
       "collection_id": "xcsh-docs:resources:cloud_credentials:collection",
       "completeness": "complete",
       "id": "xcsh-docs:resources:cloud_credentials:properties:azure_client_secret:client_secret:blindfold_secret_info",
       "parent_id": "xcsh-docs:resources:cloud_credentials:properties:azure_client_secret:client_secret",
       "path": "documentation/resources/cloud_credentials/properties/azure_client_secret/client_secret/blindfold_secret_info/index.md",
+      "product": "distributed-cloud",
       "provider_name": "cloud_credentials",
       "provider_schema_digest": "sha256:e63a07e98b4893c041a6f79be7e19c64babfe543fc6847c17641037e084e1c7c",
       "provider_type": "resources",
       "registry_anchor": "canonical-0130201031022210-0211013222301100-0333222111233120-1321331002131100-0033033103302122-3113302012123222-2133200113023021-1102333301021330",
       "registry_path": "docs/guides/resources--cloud_credentials--reference--group-001.md",
+      "relationships": [
+        {
+          "anchor": "schema-azure_client_secret--client_secret--blindfold_secret_info--location",
+          "enforcement": "provider-schema",
+          "group": "azure_client_secret.client_secret.blindfold_secret_info:RequiredObjectAttributes:location",
+          "source": "ast-validator:RequiredObjectAttributes",
+          "target_id": "xcsh-docs:resources:cloud_credentials:properties:azure_client_secret:client_secret:blindfold_secret_info",
+          "type": "requires"
+        }
+      ],
+      "retrieval_version": 1,
       "role": "properties",
       "schema_path": ["azure_client_secret", "client_secret", "blindfold_secret_info"],
+      "sections": [
+        {
+          "aliases": ["backend servers", "decryption provider", "origin servers", "upstream servers"],
+          "anchor": "schema-azure_client_secret--client_secret--blindfold_secret_info--decryption_provider",
+          "description": "Name of the Secret Management Access object that contains information about the backend Secret Management service.",
+          "document_id": "xcsh-docs:resources:cloud_credentials:properties:azure_client_secret:client_secret:blindfold_secret_info",
+          "flags": ["optional"],
+          "max_items": null,
+          "min_items": null,
+          "nesting": null,
+          "relationships": [],
+          "schema_path": ["azure_client_secret", "client_secret", "blindfold_secret_info", "decryption_provider"],
+          "syntax": "attribute",
+          "type": "string"
+        },
+        {
+          "aliases": ["location"],
+          "anchor": "schema-azure_client_secret--client_secret--blindfold_secret_info--location",
+          "description": "Location is the uri_ref. It could be in URL format for string:/// Or it could be a path if the store provider is an HTTP/HTTPS location.",
+          "document_id": "xcsh-docs:resources:cloud_credentials:properties:azure_client_secret:client_secret:blindfold_secret_info",
+          "flags": ["optional", "sensitive"],
+          "max_items": null,
+          "min_items": null,
+          "nesting": null,
+          "relationships": [],
+          "schema_path": ["azure_client_secret", "client_secret", "blindfold_secret_info", "location"],
+          "syntax": "attribute",
+          "type": "string"
+        },
+        {
+          "aliases": ["store provider"],
+          "anchor": "schema-azure_client_secret--client_secret--blindfold_secret_info--store_provider",
+          "description": "Name of the Secret Management Access object that contains information about the store to GET encrypted bytes This field needs to be provided only if the URL scheme is not string:///.",
+          "document_id": "xcsh-docs:resources:cloud_credentials:properties:azure_client_secret:client_secret:blindfold_secret_info",
+          "flags": ["optional"],
+          "max_items": null,
+          "min_items": null,
+          "nesting": null,
+          "relationships": [],
+          "schema_path": ["azure_client_secret", "client_secret", "blindfold_secret_info", "store_provider"],
+          "syntax": "attribute",
+          "type": "string"
+        }
+      ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/cloud_credentials/properties/azure_client_secret/client_secret/blindfold_secret_info/index.txt",
       "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
-      "summary": "azure_client_secret.client_secret.blindfold_secret_info for xcsh_cloud_credentials.",
+      "summary": "BlindfoldSecretInfoType specifies information about the Secret managed by F5XC Secret Management.",
+      "tasks": ["authentication", "configuration"],
       "title": "azure_client_secret.client_secret.blindfold_secret_info",
       "upstream_identity": {
         "release_tag": "v9.0.0",
@@ -675,25 +1760,76 @@
       }
     },
     {
-      "aliases": [],
+      "aliases": ["azure client secret client secret clear secret info"],
       "body_bytes": 3859,
       "body_sha256": "sha256:6b61eb790b6649a2fc0f460d58c3c8cc356bfabd7e1a9f4a4ed625cacf3c523c",
+      "capabilities": ["infrastructure"],
+      "category": "infrastructure",
       "child_ids": [],
+      "classification": {
+        "rules_sha256": "sha256:98dbf5280bf8376a0c75c1391250db9db4ac0d293d42bdd831c20f7514925adb",
+        "sources": ["receipt-pinned-upstream", "reviewed-rule"],
+        "status": "resolved",
+        "upstream_category_source": "receipt-pinned-resource"
+      },
       "collection_id": "xcsh-docs:resources:cloud_credentials:collection",
       "completeness": "complete",
       "id": "xcsh-docs:resources:cloud_credentials:properties:azure_client_secret:client_secret:clear_secret_info",
       "parent_id": "xcsh-docs:resources:cloud_credentials:properties:azure_client_secret:client_secret",
       "path": "documentation/resources/cloud_credentials/properties/azure_client_secret/client_secret/clear_secret_info/index.md",
+      "product": "distributed-cloud",
       "provider_name": "cloud_credentials",
       "provider_schema_digest": "sha256:e63a07e98b4893c041a6f79be7e19c64babfe543fc6847c17641037e084e1c7c",
       "provider_type": "resources",
       "registry_anchor": "canonical-1113001302011012-3122110020131131-0321023013110311-0023333123113132-2322023320021101-2331020331232120-0000331030003000-1201201131131211",
       "registry_path": "docs/guides/resources--cloud_credentials--reference--group-001.md",
+      "relationships": [
+        {
+          "anchor": "schema-azure_client_secret--client_secret--clear_secret_info--url",
+          "enforcement": "provider-schema",
+          "group": "azure_client_secret.client_secret.clear_secret_info:RequiredObjectAttributes:url",
+          "source": "ast-validator:RequiredObjectAttributes",
+          "target_id": "xcsh-docs:resources:cloud_credentials:properties:azure_client_secret:client_secret:clear_secret_info",
+          "type": "requires"
+        }
+      ],
+      "retrieval_version": 1,
       "role": "properties",
       "schema_path": ["azure_client_secret", "client_secret", "clear_secret_info"],
+      "sections": [
+        {
+          "aliases": ["provider ref"],
+          "anchor": "schema-azure_client_secret--client_secret--clear_secret_info--provider_ref",
+          "description": "Name of the Secret Management Access object that contains information about the store to GET encrypted bytes This field needs to be provided only if the URL scheme is not string:///.",
+          "document_id": "xcsh-docs:resources:cloud_credentials:properties:azure_client_secret:client_secret:clear_secret_info",
+          "flags": ["optional"],
+          "max_items": null,
+          "min_items": null,
+          "nesting": null,
+          "relationships": [],
+          "schema_path": ["azure_client_secret", "client_secret", "clear_secret_info", "provider_ref"],
+          "syntax": "attribute",
+          "type": "string"
+        },
+        {
+          "aliases": ["url"],
+          "anchor": "schema-azure_client_secret--client_secret--clear_secret_info--url",
+          "description": "URL of the secret. Currently supported URL schemes is string:///. For string:/// scheme, Secret needs to be encoded Base64 format. When asked for this secret, caller will GET Secret bytes after Base64 decoding.",
+          "document_id": "xcsh-docs:resources:cloud_credentials:properties:azure_client_secret:client_secret:clear_secret_info",
+          "flags": ["optional", "sensitive"],
+          "max_items": null,
+          "min_items": null,
+          "nesting": null,
+          "relationships": [],
+          "schema_path": ["azure_client_secret", "client_secret", "clear_secret_info", "url"],
+          "syntax": "attribute",
+          "type": "string"
+        }
+      ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/cloud_credentials/properties/azure_client_secret/client_secret/clear_secret_info/index.txt",
       "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
-      "summary": "azure_client_secret.client_secret.clear_secret_info for xcsh_cloud_credentials.",
+      "summary": "ClearSecretInfoType specifies information about the Secret that is not encrypted.",
+      "tasks": ["authentication", "configuration"],
       "title": "azure_client_secret.client_secret.clear_secret_info",
       "upstream_identity": {
         "release_tag": "v9.0.0",
@@ -702,25 +1838,168 @@
       }
     },
     {
-      "aliases": [],
+      "aliases": [
+        "authentication",
+        "azure pfx certificate",
+        "cert",
+        "certificate",
+        "credential setup",
+        "credentials",
+        "existing certificates",
+        "tls certificates"
+      ],
       "body_bytes": 6365,
       "body_sha256": "sha256:ece7b41ec9be305ed5c1de84a3f8c89f2641237f69a33ddb84cfbb72cf1d3103",
+      "capabilities": ["infrastructure"],
+      "category": "infrastructure",
       "child_ids": ["xcsh-docs:resources:cloud_credentials:properties:azure_pfx_certificate:password"],
+      "classification": {
+        "rules_sha256": "sha256:98dbf5280bf8376a0c75c1391250db9db4ac0d293d42bdd831c20f7514925adb",
+        "sources": ["receipt-pinned-upstream", "reviewed-rule"],
+        "status": "resolved",
+        "upstream_category_source": "receipt-pinned-resource"
+      },
       "collection_id": "xcsh-docs:resources:cloud_credentials:collection",
       "completeness": "complete",
       "id": "xcsh-docs:resources:cloud_credentials:properties:azure_pfx_certificate",
       "parent_id": "xcsh-docs:resources:cloud_credentials:reference",
       "path": "documentation/resources/cloud_credentials/properties/azure_pfx_certificate/index.md",
+      "product": "distributed-cloud",
       "provider_name": "cloud_credentials",
       "provider_schema_digest": "sha256:e63a07e98b4893c041a6f79be7e19c64babfe543fc6847c17641037e084e1c7c",
       "provider_type": "resources",
       "registry_anchor": "canonical-3121121300221320-0323123210301120-3332103121012010-0133333031111230-3231111231030100-0102030303212231-0002210222100033-0213220221123010",
       "registry_path": "docs/guides/resources--cloud_credentials--reference--group-001.md",
+      "relationships": [
+        {
+          "anchor": "schema-azure_pfx_certificate--certificate_url",
+          "enforcement": "provider-schema",
+          "group": "azure_pfx_certificate:RequiredObjectAttributes:certificate_url,client_id,subscription_id,tenant_id",
+          "source": "ast-validator:RequiredObjectAttributes",
+          "target_id": "xcsh-docs:resources:cloud_credentials:properties:azure_pfx_certificate",
+          "type": "requires"
+        },
+        {
+          "anchor": "schema-azure_pfx_certificate--client_id",
+          "enforcement": "provider-schema",
+          "group": "azure_pfx_certificate:RequiredObjectAttributes:certificate_url,client_id,subscription_id,tenant_id",
+          "source": "ast-validator:RequiredObjectAttributes",
+          "target_id": "xcsh-docs:resources:cloud_credentials:properties:azure_pfx_certificate",
+          "type": "requires"
+        },
+        {
+          "anchor": "schema-azure_pfx_certificate--subscription_id",
+          "enforcement": "provider-schema",
+          "group": "azure_pfx_certificate:RequiredObjectAttributes:certificate_url,client_id,subscription_id,tenant_id",
+          "source": "ast-validator:RequiredObjectAttributes",
+          "target_id": "xcsh-docs:resources:cloud_credentials:properties:azure_pfx_certificate",
+          "type": "requires"
+        },
+        {
+          "anchor": "schema-azure_pfx_certificate--tenant_id",
+          "enforcement": "provider-schema",
+          "group": "azure_pfx_certificate:RequiredObjectAttributes:certificate_url,client_id,subscription_id,tenant_id",
+          "source": "ast-validator:RequiredObjectAttributes",
+          "target_id": "xcsh-docs:resources:cloud_credentials:properties:azure_pfx_certificate",
+          "type": "requires"
+        }
+      ],
+      "retrieval_version": 1,
       "role": "properties",
       "schema_path": ["azure_pfx_certificate"],
+      "sections": [
+        {
+          "aliases": ["cert", "certificate", "certificate url", "existing certificates", "tls certificates"],
+          "anchor": "schema-azure_pfx_certificate--certificate_url",
+          "description": "URL for Client Certificate in '.pfx' or '.p12' whose certificate is linked to service principal object Certificate URL can contain client certificate in string:///<Base64 of certificate> format. Here <Base64 of certificate> is base64 of '.pfx' or '.p12' binary file.",
+          "document_id": "xcsh-docs:resources:cloud_credentials:properties:azure_pfx_certificate",
+          "flags": ["optional"],
+          "max_items": null,
+          "min_items": null,
+          "nesting": null,
+          "relationships": [],
+          "schema_path": ["azure_pfx_certificate", "certificate_url"],
+          "syntax": "attribute",
+          "type": "string"
+        },
+        {
+          "aliases": ["client id"],
+          "anchor": "schema-azure_pfx_certificate--client_id",
+          "description": "Client ID for your Azure service principal.",
+          "document_id": "xcsh-docs:resources:cloud_credentials:properties:azure_pfx_certificate",
+          "flags": ["optional"],
+          "max_items": null,
+          "min_items": null,
+          "nesting": null,
+          "relationships": [],
+          "schema_path": ["azure_pfx_certificate", "client_id"],
+          "syntax": "attribute",
+          "type": "string"
+        },
+        {
+          "aliases": ["password"],
+          "anchor": "section",
+          "description": "SecretType is used in an object to indicate a sensitive/confidential field.",
+          "document_id": "xcsh-docs:resources:cloud_credentials:properties:azure_pfx_certificate:password",
+          "flags": [],
+          "max_items": null,
+          "min_items": null,
+          "nesting": "single",
+          "relationships": [
+            {
+              "anchor": "section",
+              "enforcement": "provider-schema",
+              "group": "azure_pfx_certificate.password:ConflictingObjectAttributes:blindfold_secret_info,clear_secret_info",
+              "source": "ast-validator:ConflictingObjectAttributes",
+              "target_id": "xcsh-docs:resources:cloud_credentials:properties:azure_pfx_certificate:password:blindfold_secret_info",
+              "type": "conflicts"
+            },
+            {
+              "anchor": "section",
+              "enforcement": "provider-schema",
+              "group": "azure_pfx_certificate.password:ConflictingObjectAttributes:blindfold_secret_info,clear_secret_info",
+              "source": "ast-validator:ConflictingObjectAttributes",
+              "target_id": "xcsh-docs:resources:cloud_credentials:properties:azure_pfx_certificate:password:clear_secret_info",
+              "type": "conflicts"
+            }
+          ],
+          "schema_path": ["azure_pfx_certificate", "password"],
+          "syntax": "block",
+          "type": "object"
+        },
+        {
+          "aliases": ["subscription id"],
+          "anchor": "schema-azure_pfx_certificate--subscription_id",
+          "description": "Subscription ID for your Azure service principal.",
+          "document_id": "xcsh-docs:resources:cloud_credentials:properties:azure_pfx_certificate",
+          "flags": ["optional"],
+          "max_items": null,
+          "min_items": null,
+          "nesting": null,
+          "relationships": [],
+          "schema_path": ["azure_pfx_certificate", "subscription_id"],
+          "syntax": "attribute",
+          "type": "string"
+        },
+        {
+          "aliases": ["tenant id"],
+          "anchor": "schema-azure_pfx_certificate--tenant_id",
+          "description": "Tenant ID for your Azure service principal.",
+          "document_id": "xcsh-docs:resources:cloud_credentials:properties:azure_pfx_certificate",
+          "flags": ["optional"],
+          "max_items": null,
+          "min_items": null,
+          "nesting": null,
+          "relationships": [],
+          "schema_path": ["azure_pfx_certificate", "tenant_id"],
+          "syntax": "attribute",
+          "type": "string"
+        }
+      ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/cloud_credentials/properties/azure_pfx_certificate/index.txt",
       "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
-      "summary": "azure_pfx_certificate for xcsh_cloud_credentials.",
+      "summary": "Azure Credentials Client Certificate type.",
+      "tasks": ["authentication", "configuration"],
       "title": "azure_pfx_certificate",
       "upstream_identity": {
         "release_tag": "v9.0.0",
@@ -729,28 +2008,105 @@
       }
     },
     {
-      "aliases": [],
+      "aliases": ["azure pfx certificate password", "cert", "certificate", "existing certificates", "tls certificates"],
       "body_bytes": 2372,
       "body_sha256": "sha256:5de1e584f1a664432581ffb344479d956b016acf21323dc4e3fc269232c4d7e8",
+      "capabilities": ["infrastructure"],
+      "category": "infrastructure",
       "child_ids": [
         "xcsh-docs:resources:cloud_credentials:properties:azure_pfx_certificate:password:blindfold_secret_info",
         "xcsh-docs:resources:cloud_credentials:properties:azure_pfx_certificate:password:clear_secret_info"
       ],
+      "classification": {
+        "rules_sha256": "sha256:98dbf5280bf8376a0c75c1391250db9db4ac0d293d42bdd831c20f7514925adb",
+        "sources": ["receipt-pinned-upstream", "reviewed-rule"],
+        "status": "resolved",
+        "upstream_category_source": "receipt-pinned-resource"
+      },
       "collection_id": "xcsh-docs:resources:cloud_credentials:collection",
       "completeness": "complete",
       "id": "xcsh-docs:resources:cloud_credentials:properties:azure_pfx_certificate:password",
       "parent_id": "xcsh-docs:resources:cloud_credentials:properties:azure_pfx_certificate",
       "path": "documentation/resources/cloud_credentials/properties/azure_pfx_certificate/password/index.md",
+      "product": "distributed-cloud",
       "provider_name": "cloud_credentials",
       "provider_schema_digest": "sha256:e63a07e98b4893c041a6f79be7e19c64babfe543fc6847c17641037e084e1c7c",
       "provider_type": "resources",
       "registry_anchor": "canonical-2031130313303332-1313101222131123-2013331003223330-0210331002102030-2321321100123023-1122332123000113-0213011110303113-0100122132020231",
       "registry_path": "docs/guides/resources--cloud_credentials--reference--group-001.md",
+      "relationships": [
+        {
+          "anchor": "section",
+          "enforcement": "provider-schema",
+          "group": "azure_pfx_certificate.password:ConflictingObjectAttributes:blindfold_secret_info,clear_secret_info",
+          "source": "ast-validator:ConflictingObjectAttributes",
+          "target_id": "xcsh-docs:resources:cloud_credentials:properties:azure_pfx_certificate:password:blindfold_secret_info",
+          "type": "conflicts"
+        },
+        {
+          "anchor": "section",
+          "enforcement": "provider-schema",
+          "group": "azure_pfx_certificate.password:ConflictingObjectAttributes:blindfold_secret_info,clear_secret_info",
+          "source": "ast-validator:ConflictingObjectAttributes",
+          "target_id": "xcsh-docs:resources:cloud_credentials:properties:azure_pfx_certificate:password:clear_secret_info",
+          "type": "conflicts"
+        }
+      ],
+      "retrieval_version": 1,
       "role": "properties",
       "schema_path": ["azure_pfx_certificate", "password"],
+      "sections": [
+        {
+          "aliases": ["blindfold secret info"],
+          "anchor": "section",
+          "description": "BlindfoldSecretInfoType specifies information about the Secret managed by F5XC Secret Management.",
+          "document_id": "xcsh-docs:resources:cloud_credentials:properties:azure_pfx_certificate:password:blindfold_secret_info",
+          "flags": [],
+          "max_items": null,
+          "min_items": null,
+          "nesting": "single",
+          "relationships": [
+            {
+              "anchor": "schema-azure_pfx_certificate--password--blindfold_secret_info--location",
+              "enforcement": "provider-schema",
+              "group": "azure_pfx_certificate.password.blindfold_secret_info:RequiredObjectAttributes:location",
+              "source": "ast-validator:RequiredObjectAttributes",
+              "target_id": "xcsh-docs:resources:cloud_credentials:properties:azure_pfx_certificate:password:blindfold_secret_info",
+              "type": "requires"
+            }
+          ],
+          "schema_path": ["azure_pfx_certificate", "password", "blindfold_secret_info"],
+          "syntax": "block",
+          "type": "object"
+        },
+        {
+          "aliases": ["clear secret info"],
+          "anchor": "section",
+          "description": "ClearSecretInfoType specifies information about the Secret that is not encrypted.",
+          "document_id": "xcsh-docs:resources:cloud_credentials:properties:azure_pfx_certificate:password:clear_secret_info",
+          "flags": [],
+          "max_items": null,
+          "min_items": null,
+          "nesting": "single",
+          "relationships": [
+            {
+              "anchor": "schema-azure_pfx_certificate--password--clear_secret_info--url",
+              "enforcement": "provider-schema",
+              "group": "azure_pfx_certificate.password.clear_secret_info:RequiredObjectAttributes:url",
+              "source": "ast-validator:RequiredObjectAttributes",
+              "target_id": "xcsh-docs:resources:cloud_credentials:properties:azure_pfx_certificate:password:clear_secret_info",
+              "type": "requires"
+            }
+          ],
+          "schema_path": ["azure_pfx_certificate", "password", "clear_secret_info"],
+          "syntax": "block",
+          "type": "object"
+        }
+      ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/cloud_credentials/properties/azure_pfx_certificate/password/index.txt",
       "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
-      "summary": "azure_pfx_certificate.password for xcsh_cloud_credentials.",
+      "summary": "SecretType is used in an object to indicate a sensitive/confidential field.",
+      "tasks": ["authentication", "configuration"],
       "title": "azure_pfx_certificate.password",
       "upstream_identity": {
         "release_tag": "v9.0.0",
@@ -759,25 +2115,96 @@
       }
     },
     {
-      "aliases": [],
+      "aliases": [
+        "azure pfx certificate password blindfold secret info",
+        "cert",
+        "certificate",
+        "existing certificates",
+        "tls certificates"
+      ],
       "body_bytes": 4959,
       "body_sha256": "sha256:29725468ccb83fe8f4d86856afec725b0139c8d7e6dc529e13a3087e84814407",
+      "capabilities": ["infrastructure"],
+      "category": "infrastructure",
       "child_ids": [],
+      "classification": {
+        "rules_sha256": "sha256:98dbf5280bf8376a0c75c1391250db9db4ac0d293d42bdd831c20f7514925adb",
+        "sources": ["receipt-pinned-upstream", "reviewed-rule"],
+        "status": "resolved",
+        "upstream_category_source": "receipt-pinned-resource"
+      },
       "collection_id": "xcsh-docs:resources:cloud_credentials:collection",
       "completeness": "complete",
       "id": "xcsh-docs:resources:cloud_credentials:properties:azure_pfx_certificate:password:blindfold_secret_info",
       "parent_id": "xcsh-docs:resources:cloud_credentials:properties:azure_pfx_certificate:password",
       "path": "documentation/resources/cloud_credentials/properties/azure_pfx_certificate/password/blindfold_secret_info/index.md",
+      "product": "distributed-cloud",
       "provider_name": "cloud_credentials",
       "provider_schema_digest": "sha256:e63a07e98b4893c041a6f79be7e19c64babfe543fc6847c17641037e084e1c7c",
       "provider_type": "resources",
       "registry_anchor": "canonical-1310001113023013-3001022212223113-2120100110203131-2030210221001020-3020220111302020-1331111210101031-0030122310010200-0333302212101311",
       "registry_path": "docs/guides/resources--cloud_credentials--reference--group-001.md",
+      "relationships": [
+        {
+          "anchor": "schema-azure_pfx_certificate--password--blindfold_secret_info--location",
+          "enforcement": "provider-schema",
+          "group": "azure_pfx_certificate.password.blindfold_secret_info:RequiredObjectAttributes:location",
+          "source": "ast-validator:RequiredObjectAttributes",
+          "target_id": "xcsh-docs:resources:cloud_credentials:properties:azure_pfx_certificate:password:blindfold_secret_info",
+          "type": "requires"
+        }
+      ],
+      "retrieval_version": 1,
       "role": "properties",
       "schema_path": ["azure_pfx_certificate", "password", "blindfold_secret_info"],
+      "sections": [
+        {
+          "aliases": ["backend servers", "decryption provider", "origin servers", "upstream servers"],
+          "anchor": "schema-azure_pfx_certificate--password--blindfold_secret_info--decryption_provider",
+          "description": "Name of the Secret Management Access object that contains information about the backend Secret Management service.",
+          "document_id": "xcsh-docs:resources:cloud_credentials:properties:azure_pfx_certificate:password:blindfold_secret_info",
+          "flags": ["optional"],
+          "max_items": null,
+          "min_items": null,
+          "nesting": null,
+          "relationships": [],
+          "schema_path": ["azure_pfx_certificate", "password", "blindfold_secret_info", "decryption_provider"],
+          "syntax": "attribute",
+          "type": "string"
+        },
+        {
+          "aliases": ["location"],
+          "anchor": "schema-azure_pfx_certificate--password--blindfold_secret_info--location",
+          "description": "Location is the uri_ref. It could be in URL format for string:/// Or it could be a path if the store provider is an HTTP/HTTPS location.",
+          "document_id": "xcsh-docs:resources:cloud_credentials:properties:azure_pfx_certificate:password:blindfold_secret_info",
+          "flags": ["optional", "sensitive"],
+          "max_items": null,
+          "min_items": null,
+          "nesting": null,
+          "relationships": [],
+          "schema_path": ["azure_pfx_certificate", "password", "blindfold_secret_info", "location"],
+          "syntax": "attribute",
+          "type": "string"
+        },
+        {
+          "aliases": ["store provider"],
+          "anchor": "schema-azure_pfx_certificate--password--blindfold_secret_info--store_provider",
+          "description": "Name of the Secret Management Access object that contains information about the store to GET encrypted bytes This field needs to be provided only if the URL scheme is not string:///.",
+          "document_id": "xcsh-docs:resources:cloud_credentials:properties:azure_pfx_certificate:password:blindfold_secret_info",
+          "flags": ["optional"],
+          "max_items": null,
+          "min_items": null,
+          "nesting": null,
+          "relationships": [],
+          "schema_path": ["azure_pfx_certificate", "password", "blindfold_secret_info", "store_provider"],
+          "syntax": "attribute",
+          "type": "string"
+        }
+      ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/cloud_credentials/properties/azure_pfx_certificate/password/blindfold_secret_info/index.txt",
       "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
-      "summary": "azure_pfx_certificate.password.blindfold_secret_info for xcsh_cloud_credentials.",
+      "summary": "BlindfoldSecretInfoType specifies information about the Secret managed by F5XC Secret Management.",
+      "tasks": ["authentication", "configuration"],
       "title": "azure_pfx_certificate.password.blindfold_secret_info",
       "upstream_identity": {
         "release_tag": "v9.0.0",
@@ -786,25 +2213,82 @@
       }
     },
     {
-      "aliases": [],
+      "aliases": [
+        "azure pfx certificate password clear secret info",
+        "cert",
+        "certificate",
+        "existing certificates",
+        "tls certificates"
+      ],
       "body_bytes": 3839,
       "body_sha256": "sha256:1a2926e329887442a88a05f3c29dfc3c363fa168971f82fca62d11dba0822b23",
+      "capabilities": ["infrastructure"],
+      "category": "infrastructure",
       "child_ids": [],
+      "classification": {
+        "rules_sha256": "sha256:98dbf5280bf8376a0c75c1391250db9db4ac0d293d42bdd831c20f7514925adb",
+        "sources": ["receipt-pinned-upstream", "reviewed-rule"],
+        "status": "resolved",
+        "upstream_category_source": "receipt-pinned-resource"
+      },
       "collection_id": "xcsh-docs:resources:cloud_credentials:collection",
       "completeness": "complete",
       "id": "xcsh-docs:resources:cloud_credentials:properties:azure_pfx_certificate:password:clear_secret_info",
       "parent_id": "xcsh-docs:resources:cloud_credentials:properties:azure_pfx_certificate:password",
       "path": "documentation/resources/cloud_credentials/properties/azure_pfx_certificate/password/clear_secret_info/index.md",
+      "product": "distributed-cloud",
       "provider_name": "cloud_credentials",
       "provider_schema_digest": "sha256:e63a07e98b4893c041a6f79be7e19c64babfe543fc6847c17641037e084e1c7c",
       "provider_type": "resources",
       "registry_anchor": "canonical-0020203022020331-0102202103100332-3301232132332130-1331010013313123-0233022330321020-2210302021003012-3100021220023210-3002203232332002",
       "registry_path": "docs/guides/resources--cloud_credentials--reference--group-001.md",
+      "relationships": [
+        {
+          "anchor": "schema-azure_pfx_certificate--password--clear_secret_info--url",
+          "enforcement": "provider-schema",
+          "group": "azure_pfx_certificate.password.clear_secret_info:RequiredObjectAttributes:url",
+          "source": "ast-validator:RequiredObjectAttributes",
+          "target_id": "xcsh-docs:resources:cloud_credentials:properties:azure_pfx_certificate:password:clear_secret_info",
+          "type": "requires"
+        }
+      ],
+      "retrieval_version": 1,
       "role": "properties",
       "schema_path": ["azure_pfx_certificate", "password", "clear_secret_info"],
+      "sections": [
+        {
+          "aliases": ["provider ref"],
+          "anchor": "schema-azure_pfx_certificate--password--clear_secret_info--provider_ref",
+          "description": "Name of the Secret Management Access object that contains information about the store to GET encrypted bytes This field needs to be provided only if the URL scheme is not string:///.",
+          "document_id": "xcsh-docs:resources:cloud_credentials:properties:azure_pfx_certificate:password:clear_secret_info",
+          "flags": ["optional"],
+          "max_items": null,
+          "min_items": null,
+          "nesting": null,
+          "relationships": [],
+          "schema_path": ["azure_pfx_certificate", "password", "clear_secret_info", "provider_ref"],
+          "syntax": "attribute",
+          "type": "string"
+        },
+        {
+          "aliases": ["url"],
+          "anchor": "schema-azure_pfx_certificate--password--clear_secret_info--url",
+          "description": "URL of the secret. Currently supported URL schemes is string:///. For string:/// scheme, Secret needs to be encoded Base64 format. When asked for this secret, caller will GET Secret bytes after Base64 decoding.",
+          "document_id": "xcsh-docs:resources:cloud_credentials:properties:azure_pfx_certificate:password:clear_secret_info",
+          "flags": ["optional", "sensitive"],
+          "max_items": null,
+          "min_items": null,
+          "nesting": null,
+          "relationships": [],
+          "schema_path": ["azure_pfx_certificate", "password", "clear_secret_info", "url"],
+          "syntax": "attribute",
+          "type": "string"
+        }
+      ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/cloud_credentials/properties/azure_pfx_certificate/password/clear_secret_info/index.txt",
       "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
-      "summary": "azure_pfx_certificate.password.clear_secret_info for xcsh_cloud_credentials.",
+      "summary": "ClearSecretInfoType specifies information about the Secret that is not encrypted.",
+      "tasks": ["authentication", "configuration"],
       "title": "azure_pfx_certificate.password.clear_secret_info",
       "upstream_identity": {
         "release_tag": "v9.0.0",
@@ -813,25 +2297,70 @@
       }
     },
     {
-      "aliases": [],
+      "aliases": ["authentication", "credential setup", "credentials", "gcp cred file"],
       "body_bytes": 1429,
       "body_sha256": "sha256:5926b13fabf6ff1b3c7658ffe47315591ea5247a8f2b09359760876b03eeade7",
+      "capabilities": ["infrastructure"],
+      "category": "infrastructure",
       "child_ids": ["xcsh-docs:resources:cloud_credentials:properties:gcp_cred_file:credential_file"],
+      "classification": {
+        "rules_sha256": "sha256:98dbf5280bf8376a0c75c1391250db9db4ac0d293d42bdd831c20f7514925adb",
+        "sources": ["receipt-pinned-upstream", "reviewed-rule"],
+        "status": "resolved",
+        "upstream_category_source": "receipt-pinned-resource"
+      },
       "collection_id": "xcsh-docs:resources:cloud_credentials:collection",
       "completeness": "complete",
       "id": "xcsh-docs:resources:cloud_credentials:properties:gcp_cred_file",
       "parent_id": "xcsh-docs:resources:cloud_credentials:reference",
       "path": "documentation/resources/cloud_credentials/properties/gcp_cred_file/index.md",
+      "product": "distributed-cloud",
       "provider_name": "cloud_credentials",
       "provider_schema_digest": "sha256:e63a07e98b4893c041a6f79be7e19c64babfe543fc6847c17641037e084e1c7c",
       "provider_type": "resources",
       "registry_anchor": "canonical-3222330220322011-0302130220202222-3211013011122330-0030301333103222-2332221013220321-3331320310312200-2132212011130212-0002121112103213",
       "registry_path": "docs/guides/resources--cloud_credentials--reference--group-001.md",
+      "relationships": [],
+      "retrieval_version": 1,
       "role": "properties",
       "schema_path": ["gcp_cred_file"],
+      "sections": [
+        {
+          "aliases": ["authentication", "credential file", "credential setup", "credentials"],
+          "anchor": "section",
+          "description": "SecretType is used in an object to indicate a sensitive/confidential field.",
+          "document_id": "xcsh-docs:resources:cloud_credentials:properties:gcp_cred_file:credential_file",
+          "flags": [],
+          "max_items": null,
+          "min_items": null,
+          "nesting": "single",
+          "relationships": [
+            {
+              "anchor": "section",
+              "enforcement": "provider-schema",
+              "group": "gcp_cred_file.credential_file:ConflictingObjectAttributes:blindfold_secret_info,clear_secret_info",
+              "source": "ast-validator:ConflictingObjectAttributes",
+              "target_id": "xcsh-docs:resources:cloud_credentials:properties:gcp_cred_file:credential_file:blindfold_secret_info",
+              "type": "conflicts"
+            },
+            {
+              "anchor": "section",
+              "enforcement": "provider-schema",
+              "group": "gcp_cred_file.credential_file:ConflictingObjectAttributes:blindfold_secret_info,clear_secret_info",
+              "source": "ast-validator:ConflictingObjectAttributes",
+              "target_id": "xcsh-docs:resources:cloud_credentials:properties:gcp_cred_file:credential_file:clear_secret_info",
+              "type": "conflicts"
+            }
+          ],
+          "schema_path": ["gcp_cred_file", "credential_file"],
+          "syntax": "block",
+          "type": "object"
+        }
+      ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/cloud_credentials/properties/gcp_cred_file/index.txt",
       "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
-      "summary": "gcp_cred_file for xcsh_cloud_credentials.",
+      "summary": "GCP Credentials type.",
+      "tasks": ["authentication", "configuration"],
       "title": "gcp_cred_file",
       "upstream_identity": {
         "release_tag": "v9.0.0",
@@ -840,28 +2369,105 @@
       }
     },
     {
-      "aliases": [],
+      "aliases": ["authentication", "credential setup", "credentials", "gcp cred file credential file"],
       "body_bytes": 2339,
       "body_sha256": "sha256:13efdf2f002c0128472a3583f599f543f9f024e67ab887c1f1ec7d343b848bb0",
+      "capabilities": ["infrastructure"],
+      "category": "infrastructure",
       "child_ids": [
         "xcsh-docs:resources:cloud_credentials:properties:gcp_cred_file:credential_file:blindfold_secret_info",
         "xcsh-docs:resources:cloud_credentials:properties:gcp_cred_file:credential_file:clear_secret_info"
       ],
+      "classification": {
+        "rules_sha256": "sha256:98dbf5280bf8376a0c75c1391250db9db4ac0d293d42bdd831c20f7514925adb",
+        "sources": ["receipt-pinned-upstream", "reviewed-rule"],
+        "status": "resolved",
+        "upstream_category_source": "receipt-pinned-resource"
+      },
       "collection_id": "xcsh-docs:resources:cloud_credentials:collection",
       "completeness": "complete",
       "id": "xcsh-docs:resources:cloud_credentials:properties:gcp_cred_file:credential_file",
       "parent_id": "xcsh-docs:resources:cloud_credentials:properties:gcp_cred_file",
       "path": "documentation/resources/cloud_credentials/properties/gcp_cred_file/credential_file/index.md",
+      "product": "distributed-cloud",
       "provider_name": "cloud_credentials",
       "provider_schema_digest": "sha256:e63a07e98b4893c041a6f79be7e19c64babfe543fc6847c17641037e084e1c7c",
       "provider_type": "resources",
       "registry_anchor": "canonical-1030130012133333-0222122201313312-1201132103211113-1330031302032020-2323202310330000-3000120330331113-2003212222202203-0133001000320110",
       "registry_path": "docs/guides/resources--cloud_credentials--reference--group-001.md",
+      "relationships": [
+        {
+          "anchor": "section",
+          "enforcement": "provider-schema",
+          "group": "gcp_cred_file.credential_file:ConflictingObjectAttributes:blindfold_secret_info,clear_secret_info",
+          "source": "ast-validator:ConflictingObjectAttributes",
+          "target_id": "xcsh-docs:resources:cloud_credentials:properties:gcp_cred_file:credential_file:blindfold_secret_info",
+          "type": "conflicts"
+        },
+        {
+          "anchor": "section",
+          "enforcement": "provider-schema",
+          "group": "gcp_cred_file.credential_file:ConflictingObjectAttributes:blindfold_secret_info,clear_secret_info",
+          "source": "ast-validator:ConflictingObjectAttributes",
+          "target_id": "xcsh-docs:resources:cloud_credentials:properties:gcp_cred_file:credential_file:clear_secret_info",
+          "type": "conflicts"
+        }
+      ],
+      "retrieval_version": 1,
       "role": "properties",
       "schema_path": ["gcp_cred_file", "credential_file"],
+      "sections": [
+        {
+          "aliases": ["blindfold secret info"],
+          "anchor": "section",
+          "description": "BlindfoldSecretInfoType specifies information about the Secret managed by F5XC Secret Management.",
+          "document_id": "xcsh-docs:resources:cloud_credentials:properties:gcp_cred_file:credential_file:blindfold_secret_info",
+          "flags": [],
+          "max_items": null,
+          "min_items": null,
+          "nesting": "single",
+          "relationships": [
+            {
+              "anchor": "schema-gcp_cred_file--credential_file--blindfold_secret_info--location",
+              "enforcement": "provider-schema",
+              "group": "gcp_cred_file.credential_file.blindfold_secret_info:RequiredObjectAttributes:location",
+              "source": "ast-validator:RequiredObjectAttributes",
+              "target_id": "xcsh-docs:resources:cloud_credentials:properties:gcp_cred_file:credential_file:blindfold_secret_info",
+              "type": "requires"
+            }
+          ],
+          "schema_path": ["gcp_cred_file", "credential_file", "blindfold_secret_info"],
+          "syntax": "block",
+          "type": "object"
+        },
+        {
+          "aliases": ["clear secret info"],
+          "anchor": "section",
+          "description": "ClearSecretInfoType specifies information about the Secret that is not encrypted.",
+          "document_id": "xcsh-docs:resources:cloud_credentials:properties:gcp_cred_file:credential_file:clear_secret_info",
+          "flags": [],
+          "max_items": null,
+          "min_items": null,
+          "nesting": "single",
+          "relationships": [
+            {
+              "anchor": "schema-gcp_cred_file--credential_file--clear_secret_info--url",
+              "enforcement": "provider-schema",
+              "group": "gcp_cred_file.credential_file.clear_secret_info:RequiredObjectAttributes:url",
+              "source": "ast-validator:RequiredObjectAttributes",
+              "target_id": "xcsh-docs:resources:cloud_credentials:properties:gcp_cred_file:credential_file:clear_secret_info",
+              "type": "requires"
+            }
+          ],
+          "schema_path": ["gcp_cred_file", "credential_file", "clear_secret_info"],
+          "syntax": "block",
+          "type": "object"
+        }
+      ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/cloud_credentials/properties/gcp_cred_file/credential_file/index.txt",
       "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
-      "summary": "gcp_cred_file.credential_file for xcsh_cloud_credentials.",
+      "summary": "SecretType is used in an object to indicate a sensitive/confidential field.",
+      "tasks": ["authentication", "configuration"],
       "title": "gcp_cred_file.credential_file",
       "upstream_identity": {
         "release_tag": "v9.0.0",
@@ -870,25 +2476,95 @@
       }
     },
     {
-      "aliases": [],
+      "aliases": [
+        "authentication",
+        "credential setup",
+        "credentials",
+        "gcp cred file credential file blindfold secret info"
+      ],
       "body_bytes": 4934,
       "body_sha256": "sha256:e98c9c68fd59bfd646580825ed648db002f2d1becef8437a9a6305a33596b4b4",
+      "capabilities": ["infrastructure"],
+      "category": "infrastructure",
       "child_ids": [],
+      "classification": {
+        "rules_sha256": "sha256:98dbf5280bf8376a0c75c1391250db9db4ac0d293d42bdd831c20f7514925adb",
+        "sources": ["receipt-pinned-upstream", "reviewed-rule"],
+        "status": "resolved",
+        "upstream_category_source": "receipt-pinned-resource"
+      },
       "collection_id": "xcsh-docs:resources:cloud_credentials:collection",
       "completeness": "complete",
       "id": "xcsh-docs:resources:cloud_credentials:properties:gcp_cred_file:credential_file:blindfold_secret_info",
       "parent_id": "xcsh-docs:resources:cloud_credentials:properties:gcp_cred_file:credential_file",
       "path": "documentation/resources/cloud_credentials/properties/gcp_cred_file/credential_file/blindfold_secret_info/index.md",
+      "product": "distributed-cloud",
       "provider_name": "cloud_credentials",
       "provider_schema_digest": "sha256:e63a07e98b4893c041a6f79be7e19c64babfe543fc6847c17641037e084e1c7c",
       "provider_type": "resources",
       "registry_anchor": "canonical-3001331110213211-0011102121131001-3030222021121213-1211203220232221-3120303000001110-3300020303331002-1222023101003301-2113023232301120",
       "registry_path": "docs/guides/resources--cloud_credentials--reference--group-001.md",
+      "relationships": [
+        {
+          "anchor": "schema-gcp_cred_file--credential_file--blindfold_secret_info--location",
+          "enforcement": "provider-schema",
+          "group": "gcp_cred_file.credential_file.blindfold_secret_info:RequiredObjectAttributes:location",
+          "source": "ast-validator:RequiredObjectAttributes",
+          "target_id": "xcsh-docs:resources:cloud_credentials:properties:gcp_cred_file:credential_file:blindfold_secret_info",
+          "type": "requires"
+        }
+      ],
+      "retrieval_version": 1,
       "role": "properties",
       "schema_path": ["gcp_cred_file", "credential_file", "blindfold_secret_info"],
+      "sections": [
+        {
+          "aliases": ["backend servers", "decryption provider", "origin servers", "upstream servers"],
+          "anchor": "schema-gcp_cred_file--credential_file--blindfold_secret_info--decryption_provider",
+          "description": "Name of the Secret Management Access object that contains information about the backend Secret Management service.",
+          "document_id": "xcsh-docs:resources:cloud_credentials:properties:gcp_cred_file:credential_file:blindfold_secret_info",
+          "flags": ["optional"],
+          "max_items": null,
+          "min_items": null,
+          "nesting": null,
+          "relationships": [],
+          "schema_path": ["gcp_cred_file", "credential_file", "blindfold_secret_info", "decryption_provider"],
+          "syntax": "attribute",
+          "type": "string"
+        },
+        {
+          "aliases": ["location"],
+          "anchor": "schema-gcp_cred_file--credential_file--blindfold_secret_info--location",
+          "description": "Location is the uri_ref. It could be in URL format for string:/// Or it could be a path if the store provider is an HTTP/HTTPS location.",
+          "document_id": "xcsh-docs:resources:cloud_credentials:properties:gcp_cred_file:credential_file:blindfold_secret_info",
+          "flags": ["optional", "sensitive"],
+          "max_items": null,
+          "min_items": null,
+          "nesting": null,
+          "relationships": [],
+          "schema_path": ["gcp_cred_file", "credential_file", "blindfold_secret_info", "location"],
+          "syntax": "attribute",
+          "type": "string"
+        },
+        {
+          "aliases": ["store provider"],
+          "anchor": "schema-gcp_cred_file--credential_file--blindfold_secret_info--store_provider",
+          "description": "Name of the Secret Management Access object that contains information about the store to GET encrypted bytes This field needs to be provided only if the URL scheme is not string:///.",
+          "document_id": "xcsh-docs:resources:cloud_credentials:properties:gcp_cred_file:credential_file:blindfold_secret_info",
+          "flags": ["optional"],
+          "max_items": null,
+          "min_items": null,
+          "nesting": null,
+          "relationships": [],
+          "schema_path": ["gcp_cred_file", "credential_file", "blindfold_secret_info", "store_provider"],
+          "syntax": "attribute",
+          "type": "string"
+        }
+      ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/cloud_credentials/properties/gcp_cred_file/credential_file/blindfold_secret_info/index.txt",
       "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
-      "summary": "gcp_cred_file.credential_file.blindfold_secret_info for xcsh_cloud_credentials.",
+      "summary": "BlindfoldSecretInfoType specifies information about the Secret managed by F5XC Secret Management.",
+      "tasks": ["authentication", "configuration"],
       "title": "gcp_cred_file.credential_file.blindfold_secret_info",
       "upstream_identity": {
         "release_tag": "v9.0.0",
@@ -897,25 +2573,81 @@
       }
     },
     {
-      "aliases": [],
+      "aliases": [
+        "authentication",
+        "credential setup",
+        "credentials",
+        "gcp cred file credential file clear secret info"
+      ],
       "body_bytes": 3815,
       "body_sha256": "sha256:b80908b8244a8116255ab4866a0ae07682698e2ca01ab1843f2547e1fabfd386",
+      "capabilities": ["infrastructure"],
+      "category": "infrastructure",
       "child_ids": [],
+      "classification": {
+        "rules_sha256": "sha256:98dbf5280bf8376a0c75c1391250db9db4ac0d293d42bdd831c20f7514925adb",
+        "sources": ["receipt-pinned-upstream", "reviewed-rule"],
+        "status": "resolved",
+        "upstream_category_source": "receipt-pinned-resource"
+      },
       "collection_id": "xcsh-docs:resources:cloud_credentials:collection",
       "completeness": "complete",
       "id": "xcsh-docs:resources:cloud_credentials:properties:gcp_cred_file:credential_file:clear_secret_info",
       "parent_id": "xcsh-docs:resources:cloud_credentials:properties:gcp_cred_file:credential_file",
       "path": "documentation/resources/cloud_credentials/properties/gcp_cred_file/credential_file/clear_secret_info/index.md",
+      "product": "distributed-cloud",
       "provider_name": "cloud_credentials",
       "provider_schema_digest": "sha256:e63a07e98b4893c041a6f79be7e19c64babfe543fc6847c17641037e084e1c7c",
       "provider_type": "resources",
       "registry_anchor": "canonical-0223211232323111-1121032210201033-0130202123010220-1003132111331311-2212010330330210-0020333211101222-1322201333022123-2010112332112320",
       "registry_path": "docs/guides/resources--cloud_credentials--reference--group-001.md",
+      "relationships": [
+        {
+          "anchor": "schema-gcp_cred_file--credential_file--clear_secret_info--url",
+          "enforcement": "provider-schema",
+          "group": "gcp_cred_file.credential_file.clear_secret_info:RequiredObjectAttributes:url",
+          "source": "ast-validator:RequiredObjectAttributes",
+          "target_id": "xcsh-docs:resources:cloud_credentials:properties:gcp_cred_file:credential_file:clear_secret_info",
+          "type": "requires"
+        }
+      ],
+      "retrieval_version": 1,
       "role": "properties",
       "schema_path": ["gcp_cred_file", "credential_file", "clear_secret_info"],
+      "sections": [
+        {
+          "aliases": ["provider ref"],
+          "anchor": "schema-gcp_cred_file--credential_file--clear_secret_info--provider_ref",
+          "description": "Name of the Secret Management Access object that contains information about the store to GET encrypted bytes This field needs to be provided only if the URL scheme is not string:///.",
+          "document_id": "xcsh-docs:resources:cloud_credentials:properties:gcp_cred_file:credential_file:clear_secret_info",
+          "flags": ["optional"],
+          "max_items": null,
+          "min_items": null,
+          "nesting": null,
+          "relationships": [],
+          "schema_path": ["gcp_cred_file", "credential_file", "clear_secret_info", "provider_ref"],
+          "syntax": "attribute",
+          "type": "string"
+        },
+        {
+          "aliases": ["url"],
+          "anchor": "schema-gcp_cred_file--credential_file--clear_secret_info--url",
+          "description": "URL of the secret. Currently supported URL schemes is string:///. For string:/// scheme, Secret needs to be encoded Base64 format. When asked for this secret, caller will GET Secret bytes after Base64 decoding.",
+          "document_id": "xcsh-docs:resources:cloud_credentials:properties:gcp_cred_file:credential_file:clear_secret_info",
+          "flags": ["optional", "sensitive"],
+          "max_items": null,
+          "min_items": null,
+          "nesting": null,
+          "relationships": [],
+          "schema_path": ["gcp_cred_file", "credential_file", "clear_secret_info", "url"],
+          "syntax": "attribute",
+          "type": "string"
+        }
+      ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/cloud_credentials/properties/gcp_cred_file/credential_file/clear_secret_info/index.txt",
       "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
-      "summary": "gcp_cred_file.credential_file.clear_secret_info for xcsh_cloud_credentials.",
+      "summary": "ClearSecretInfoType specifies information about the Secret that is not encrypted.",
+      "tasks": ["authentication", "configuration"],
       "title": "gcp_cred_file.credential_file.clear_secret_info",
       "upstream_identity": {
         "release_tag": "v9.0.0",
@@ -924,25 +2656,95 @@
       }
     },
     {
-      "aliases": [],
+      "aliases": ["duration", "operation timeout", "timeouts"],
       "body_bytes": 2261,
       "body_sha256": "sha256:1f18b3a7543eb5c9d4d9a2bb9e553d5d32b5af9954f316df2e99b5765ae890b4",
+      "capabilities": ["infrastructure"],
+      "category": "infrastructure",
       "child_ids": [],
+      "classification": {
+        "rules_sha256": "sha256:98dbf5280bf8376a0c75c1391250db9db4ac0d293d42bdd831c20f7514925adb",
+        "sources": ["receipt-pinned-upstream", "reviewed-rule"],
+        "status": "resolved",
+        "upstream_category_source": "receipt-pinned-resource"
+      },
       "collection_id": "xcsh-docs:resources:cloud_credentials:collection",
       "completeness": "complete",
       "id": "xcsh-docs:resources:cloud_credentials:properties:timeouts",
       "parent_id": "xcsh-docs:resources:cloud_credentials:reference",
       "path": "documentation/resources/cloud_credentials/properties/timeouts/index.md",
+      "product": "distributed-cloud",
       "provider_name": "cloud_credentials",
       "provider_schema_digest": "sha256:e63a07e98b4893c041a6f79be7e19c64babfe543fc6847c17641037e084e1c7c",
       "provider_type": "resources",
       "registry_anchor": "canonical-0322303012302112-3031111001122203-3201002312132113-1301113100000020-0130001003100221-3021000310323011-1230333102123130-3302111233300121",
       "registry_path": "docs/guides/resources--cloud_credentials--reference--group-001.md",
+      "relationships": [],
+      "retrieval_version": 1,
       "role": "properties",
       "schema_path": ["timeouts"],
+      "sections": [
+        {
+          "aliases": ["create"],
+          "anchor": "schema-timeouts--create",
+          "description": "A string that can be (https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as \"30s\" or \"2h45m\". Valid time units are \"s\" (seconds), \"m\" (minutes), \"h\" (hours).",
+          "document_id": "xcsh-docs:resources:cloud_credentials:properties:timeouts",
+          "flags": ["optional"],
+          "max_items": null,
+          "min_items": null,
+          "nesting": null,
+          "relationships": [],
+          "schema_path": ["timeouts", "create"],
+          "syntax": "attribute",
+          "type": "string"
+        },
+        {
+          "aliases": ["delete", "duration", "operation timeout"],
+          "anchor": "schema-timeouts--delete",
+          "description": "A string that can be (https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as \"30s\" or \"2h45m\". Valid time units are \"s\" (seconds), \"m\" (minutes), \"h\" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.",
+          "document_id": "xcsh-docs:resources:cloud_credentials:properties:timeouts",
+          "flags": ["optional"],
+          "max_items": null,
+          "min_items": null,
+          "nesting": null,
+          "relationships": [],
+          "schema_path": ["timeouts", "delete"],
+          "syntax": "attribute",
+          "type": "string"
+        },
+        {
+          "aliases": ["read"],
+          "anchor": "schema-timeouts--read",
+          "description": "A string that can be (https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as \"30s\" or \"2h45m\". Valid time units are \"s\" (seconds), \"m\" (minutes), \"h\" (hours). Read operations occur during any refresh or planning operation when refresh is enabled.",
+          "document_id": "xcsh-docs:resources:cloud_credentials:properties:timeouts",
+          "flags": ["optional"],
+          "max_items": null,
+          "min_items": null,
+          "nesting": null,
+          "relationships": [],
+          "schema_path": ["timeouts", "read"],
+          "syntax": "attribute",
+          "type": "string"
+        },
+        {
+          "aliases": ["update"],
+          "anchor": "schema-timeouts--update",
+          "description": "A string that can be (https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as \"30s\" or \"2h45m\". Valid time units are \"s\" (seconds), \"m\" (minutes), \"h\" (hours).",
+          "document_id": "xcsh-docs:resources:cloud_credentials:properties:timeouts",
+          "flags": ["optional"],
+          "max_items": null,
+          "min_items": null,
+          "nesting": null,
+          "relationships": [],
+          "schema_path": ["timeouts", "update"],
+          "syntax": "attribute",
+          "type": "string"
+        }
+      ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/cloud_credentials/properties/timeouts/index.txt",
       "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
       "summary": "timeouts for xcsh_cloud_credentials.",
+      "tasks": ["authentication", "configuration"],
       "title": "timeouts",
       "upstream_identity": {
         "release_tag": "v9.0.0",
@@ -951,25 +2753,38 @@
       }
     },
     {
-      "aliases": [],
+      "aliases": ["authentication", "cloud credentials", "credential setup", "credentials"],
       "body_bytes": 663,
       "body_sha256": "sha256:73d1cc72d589329ad9474192f50c91aa517cefa8b730c1380ea595becfa8b9ea",
+      "capabilities": ["infrastructure"],
+      "category": "infrastructure",
       "child_ids": ["xcsh-docs:resources:cloud_credentials:example:resource"],
+      "classification": {
+        "rules_sha256": "sha256:98dbf5280bf8376a0c75c1391250db9db4ac0d293d42bdd831c20f7514925adb",
+        "sources": ["receipt-pinned-upstream", "reviewed-rule"],
+        "status": "resolved",
+        "upstream_category_source": "receipt-pinned-resource"
+      },
       "collection_id": "xcsh-docs:resources:cloud_credentials:collection",
       "completeness": "complete",
       "id": "xcsh-docs:resources:cloud_credentials:examples",
       "parent_id": "xcsh-docs:resources:cloud_credentials:fundamentals",
       "path": "documentation/resources/cloud_credentials/examples/index.md",
+      "product": "distributed-cloud",
       "provider_name": "cloud_credentials",
       "provider_schema_digest": "sha256:e63a07e98b4893c041a6f79be7e19c64babfe543fc6847c17641037e084e1c7c",
       "provider_type": "resources",
       "registry_anchor": "canonical-3120020011033110-3030221321302133-3001201311303003-0200222331003321-3311303322032013-0001302102303201-3100011302032313-0333323311023021",
       "registry_path": "docs/guides/resources--cloud_credentials--examples--group-001.md",
+      "relationships": [],
+      "retrieval_version": 1,
       "role": "examples",
       "schema_path": [],
+      "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/cloud_credentials/examples/index.txt",
       "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
       "summary": "Examples for xcsh_cloud_credentials.",
+      "tasks": ["authentication", "configuration"],
       "title": "Examples",
       "upstream_identity": {
         "release_tag": "v9.0.0",
@@ -978,10 +2793,18 @@
       }
     },
     {
-      "aliases": [],
+      "aliases": ["resource"],
       "body_bytes": 1336,
       "body_sha256": "sha256:f62b5cd695f6dbe929e309f4821c479a662d02a8820e047c05ce2a357445510b",
+      "capabilities": ["infrastructure"],
+      "category": "infrastructure",
       "child_ids": [],
+      "classification": {
+        "rules_sha256": "sha256:98dbf5280bf8376a0c75c1391250db9db4ac0d293d42bdd831c20f7514925adb",
+        "sources": ["receipt-pinned-upstream", "reviewed-rule"],
+        "status": "resolved",
+        "upstream_category_source": "receipt-pinned-resource"
+      },
       "collection_id": "xcsh-docs:resources:cloud_credentials:collection",
       "completeness": "complete",
       "evidence": {
@@ -994,16 +2817,21 @@
       "id": "xcsh-docs:resources:cloud_credentials:example:resource",
       "parent_id": "xcsh-docs:resources:cloud_credentials:examples",
       "path": "documentation/resources/cloud_credentials/examples/resource/index.md",
+      "product": "distributed-cloud",
       "provider_name": "cloud_credentials",
       "provider_schema_digest": "sha256:e63a07e98b4893c041a6f79be7e19c64babfe543fc6847c17641037e084e1c7c",
       "provider_type": "resources",
       "registry_anchor": "canonical-1311302123221221-1320030133321200-2312101213223331-1230210011313132-1110231031310201-0133030030003102-2212201012002100-0200233100032300",
       "registry_path": "docs/guides/resources--cloud_credentials--examples--group-001.md",
+      "relationships": [],
+      "retrieval_version": 1,
       "role": "example",
       "schema_path": ["resource"],
+      "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/cloud_credentials/examples/resource/index.txt",
       "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
       "summary": "Resource for xcsh_cloud_credentials.",
+      "tasks": ["authentication", "configuration"],
       "title": "Resource",
       "upstream_identity": {
         "release_tag": "v9.0.0",
@@ -1012,26 +2840,39 @@
       }
     },
     {
-      "aliases": [],
+      "aliases": ["authentication", "cloud credentials", "credential setup", "credentials"],
       "body_bytes": 505,
       "body_sha256": "sha256:78520a6c296ae44394bf0c0da09b4e20c5bd849e44a948018400c3df88ad071f",
+      "capabilities": ["infrastructure"],
+      "category": "infrastructure",
       "child_ids": [],
+      "classification": {
+        "rules_sha256": "sha256:98dbf5280bf8376a0c75c1391250db9db4ac0d293d42bdd831c20f7514925adb",
+        "sources": ["receipt-pinned-upstream", "reviewed-rule"],
+        "status": "resolved",
+        "upstream_category_source": "receipt-pinned-resource"
+      },
       "collection_id": "xcsh-docs:resources:cloud_credentials:collection",
       "completeness": "complete",
       "id": "xcsh-docs:resources:cloud_credentials:import",
       "import_guidance": "Import using the `namespace/name` identifier format.",
       "parent_id": "xcsh-docs:resources:cloud_credentials:fundamentals",
       "path": "documentation/resources/cloud_credentials/lifecycle/import/index.md",
+      "product": "distributed-cloud",
       "provider_name": "cloud_credentials",
       "provider_schema_digest": "sha256:e63a07e98b4893c041a6f79be7e19c64babfe543fc6847c17641037e084e1c7c",
       "provider_type": "resources",
       "registry_anchor": "canonical-1100112101112012-0311100211012110-3221001133101211-2122001021022023-0232233203111021-3323211210312032-0320303120222020-0322212111313330",
       "registry_path": "docs/guides/resources--cloud_credentials--lifecycle--group-001.md",
+      "relationships": [],
+      "retrieval_version": 1,
       "role": "import",
       "schema_path": [],
+      "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/cloud_credentials/lifecycle/import/index.txt",
       "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
       "summary": "Import for xcsh_cloud_credentials.",
+      "tasks": ["authentication", "import"],
       "title": "Import",
       "upstream_identity": {
         "release_tag": "v9.0.0",
@@ -1040,25 +2881,38 @@
       }
     },
     {
-      "aliases": [],
+      "aliases": ["authentication", "cloud credentials", "credential setup", "credentials"],
       "body_bytes": 593,
       "body_sha256": "sha256:80735bd5564b1d7f2ba88aecb11340ecd414063383511bd8eab4b3175dfcf496",
+      "capabilities": ["infrastructure"],
+      "category": "infrastructure",
       "child_ids": [],
+      "classification": {
+        "rules_sha256": "sha256:98dbf5280bf8376a0c75c1391250db9db4ac0d293d42bdd831c20f7514925adb",
+        "sources": ["receipt-pinned-upstream", "reviewed-rule"],
+        "status": "resolved",
+        "upstream_category_source": "receipt-pinned-resource"
+      },
       "collection_id": "xcsh-docs:resources:cloud_credentials:collection",
       "completeness": "complete",
       "id": "xcsh-docs:resources:cloud_credentials:timeouts",
       "parent_id": "xcsh-docs:resources:cloud_credentials:fundamentals",
       "path": "documentation/resources/cloud_credentials/lifecycle/timeouts/index.md",
+      "product": "distributed-cloud",
       "provider_name": "cloud_credentials",
       "provider_schema_digest": "sha256:e63a07e98b4893c041a6f79be7e19c64babfe543fc6847c17641037e084e1c7c",
       "provider_type": "resources",
       "registry_anchor": "canonical-1011021231212103-3020302031233101-1131021320030301-0120112330301012-3303122231013323-0222301123003302-2321033022031131-0023313013030312",
       "registry_path": "docs/guides/resources--cloud_credentials--lifecycle--group-001.md",
+      "relationships": [],
+      "retrieval_version": 1,
       "role": "timeouts",
       "schema_path": [],
+      "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/cloud_credentials/lifecycle/timeouts/index.txt",
       "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
       "summary": "Timeouts for xcsh_cloud_credentials.",
+      "tasks": ["authentication", "lifecycle"],
       "title": "Timeouts",
       "upstream_identity": {
         "release_tag": "v9.0.0",

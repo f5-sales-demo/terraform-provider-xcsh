@@ -384,31 +384,53 @@
   },
   "pages": [
     {
-      "aliases": [],
+      "aliases": ["network connector"],
       "body_bytes": 1812,
       "body_sha256": "sha256:baca4f8f81cf03e37d33797c854f33413b877e46f5087ae54bff8b699fd5acb6",
+      "capabilities": ["networking"],
+      "category": "networking",
       "child_ids": [
         "xcsh-docs:resources:network_connector:reference",
         "xcsh-docs:resources:network_connector:examples",
         "xcsh-docs:resources:network_connector:import",
         "xcsh-docs:resources:network_connector:timeouts"
       ],
+      "classification": {
+        "rules_sha256": "sha256:98dbf5280bf8376a0c75c1391250db9db4ac0d293d42bdd831c20f7514925adb",
+        "sources": ["receipt-pinned-upstream", "reviewed-rule"],
+        "status": "resolved",
+        "upstream_category_source": "receipt-pinned-resource"
+      },
       "collection_id": "xcsh-docs:resources:network_connector:collection",
       "completeness": "complete",
       "id": "xcsh-docs:resources:network_connector:fundamentals",
-      "parent_id": null,
+      "parent_id": "xcsh-docs:resources:xcsh:navigation",
       "path": "documentation/resources/network_connector/index.md",
+      "product": "distributed-cloud",
       "provider_name": "network_connector",
       "provider_schema_digest": "sha256:e63a07e98b4893c041a6f79be7e19c64babfe543fc6847c17641037e084e1c7c",
       "provider_type": "resources",
       "registry_anchor": "canonical-0030231112200120-2310101313112331-0112221320311330-1010030020110100-0320030301321031-0201122000110313-2302331223321203-3130322032000100",
       "registry_path": "docs/resources/network_connector.md",
+      "relationships": [
+        {
+          "anchor": "",
+          "enforcement": "upstream-advisory",
+          "source": "receipt-pinned-dependency:required",
+          "target_id": "xcsh-docs:resources:virtual_network:fundamentals",
+          "type": "advisory"
+        }
+      ],
+      "retrieval_version": 1,
       "role": "fundamentals",
       "schema_path": [],
+      "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/network_connector/index.txt",
       "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
-      "summary": "xcsh_network_connector for xcsh_network_connector.",
+      "summary": "Manages a Network Connector resource in F5 Distributed Cloud for network connector is created by users in system namespace. configuration.",
+      "tasks": ["configuration"],
       "title": "xcsh_network_connector",
+      "unresolved_relationships": [],
       "upstream_identity": {
         "release_tag": "v9.0.0",
         "schema_components": ["network_connectorCreateRequest"],
@@ -416,9 +438,11 @@
       }
     },
     {
-      "aliases": [],
+      "aliases": ["network connector"],
       "body_bytes": 25331,
       "body_sha256": "sha256:7d17145fdce02fdb24b184b92ab5417171cf932541c2f9cf669c22be7126e70f",
+      "capabilities": ["networking"],
+      "category": "networking",
       "child_ids": [
         "xcsh-docs:resources:network_connector:properties:disable_forward_proxy",
         "xcsh-docs:resources:network_connector:properties:enable_forward_proxy",
@@ -427,21 +451,232 @@
         "xcsh-docs:resources:network_connector:properties:slo_to_global_dr",
         "xcsh-docs:resources:network_connector:properties:timeouts"
       ],
+      "classification": {
+        "rules_sha256": "sha256:98dbf5280bf8376a0c75c1391250db9db4ac0d293d42bdd831c20f7514925adb",
+        "sources": ["receipt-pinned-upstream", "reviewed-rule"],
+        "status": "resolved",
+        "upstream_category_source": "receipt-pinned-resource"
+      },
       "collection_id": "xcsh-docs:resources:network_connector:collection",
       "completeness": "complete",
       "id": "xcsh-docs:resources:network_connector:reference",
       "parent_id": "xcsh-docs:resources:network_connector:fundamentals",
       "path": "documentation/resources/network_connector/properties/index.md",
+      "product": "distributed-cloud",
       "provider_name": "network_connector",
       "provider_schema_digest": "sha256:e63a07e98b4893c041a6f79be7e19c64babfe543fc6847c17641037e084e1c7c",
       "provider_type": "resources",
       "registry_anchor": "canonical-3230201320313300-3100103222213301-3222301220332000-2102123311113022-2103213133210102-1103110232333032-2123011010231323-2310223103003331",
       "registry_path": "docs/guides/resources--network_connector--reference--group-001.md",
+      "relationships": [],
+      "retrieval_version": 1,
       "role": "reference",
       "schema_path": [],
+      "sections": [
+        {
+          "aliases": ["annotations"],
+          "anchor": "schema-annotations",
+          "description": "Annotations is an unstructured key value map stored with a resource that may be set by external tools to store and retrieve arbitrary metadata. They are not queryable and should be preserved when modifying objects.",
+          "document_id": "xcsh-docs:resources:network_connector:reference",
+          "flags": ["optional"],
+          "max_items": null,
+          "min_items": null,
+          "nesting": null,
+          "relationships": [],
+          "schema_path": ["annotations"],
+          "syntax": "attribute",
+          "type": "map"
+        },
+        {
+          "aliases": ["description"],
+          "anchor": "schema-description",
+          "description": "Human readable description for the object.",
+          "document_id": "xcsh-docs:resources:network_connector:reference",
+          "flags": ["optional"],
+          "max_items": null,
+          "min_items": null,
+          "nesting": null,
+          "relationships": [],
+          "schema_path": ["description"],
+          "syntax": "attribute",
+          "type": "string"
+        },
+        {
+          "aliases": ["disable"],
+          "anchor": "schema-disable",
+          "description": "A value of true will administratively disable the object.",
+          "document_id": "xcsh-docs:resources:network_connector:reference",
+          "flags": ["optional"],
+          "max_items": null,
+          "min_items": null,
+          "nesting": null,
+          "relationships": [],
+          "schema_path": ["disable"],
+          "syntax": "attribute",
+          "type": "bool"
+        },
+        {
+          "aliases": ["disable forward proxy"],
+          "anchor": "section",
+          "description": "This can be used for messages where no values are needed.",
+          "document_id": "xcsh-docs:resources:network_connector:properties:disable_forward_proxy",
+          "flags": ["optional"],
+          "max_items": null,
+          "min_items": null,
+          "nesting": null,
+          "relationships": [],
+          "schema_path": ["disable_forward_proxy"],
+          "syntax": "attribute",
+          "type": "object"
+        },
+        {
+          "aliases": ["duration", "enable forward proxy", "operation timeout"],
+          "anchor": "section",
+          "description": "Fine tune forward proxy behavior Few configurations allowed are White listed ports and IP prefixes: Forward proxy does application protocol detection and server name(SNI) detection by peeking into the traffic on the incoming downstream connection. Few protocols doesn't have client sending the first data. In such cases,",
+          "document_id": "xcsh-docs:resources:network_connector:properties:enable_forward_proxy",
+          "flags": [],
+          "max_items": null,
+          "min_items": null,
+          "nesting": "single",
+          "relationships": [
+            {
+              "anchor": "section",
+              "enforcement": "provider-schema",
+              "group": "enable_forward_proxy:ConflictingObjectAttributes:no_interception,tls_intercept",
+              "source": "ast-validator:ConflictingObjectAttributes",
+              "target_id": "xcsh-docs:resources:network_connector:properties:enable_forward_proxy:no_interception",
+              "type": "conflicts"
+            },
+            {
+              "anchor": "section",
+              "enforcement": "provider-schema",
+              "group": "enable_forward_proxy:ConflictingObjectAttributes:no_interception,tls_intercept",
+              "source": "ast-validator:ConflictingObjectAttributes",
+              "target_id": "xcsh-docs:resources:network_connector:properties:enable_forward_proxy:tls_intercept",
+              "type": "conflicts"
+            }
+          ],
+          "schema_path": ["enable_forward_proxy"],
+          "syntax": "block",
+          "type": "object"
+        },
+        {
+          "aliases": ["id"],
+          "anchor": "schema-id",
+          "description": "Unique identifier for the resource.",
+          "document_id": "xcsh-docs:resources:network_connector:reference",
+          "flags": ["computed"],
+          "max_items": null,
+          "min_items": null,
+          "nesting": null,
+          "relationships": [],
+          "schema_path": ["id"],
+          "syntax": "attribute",
+          "type": "string"
+        },
+        {
+          "aliases": ["labels"],
+          "anchor": "schema-labels",
+          "description": "Map of string keys and values that can be used to organize and categorize (scope and select) objects as chosen by the user. Values specified here will be used by selector expression.",
+          "document_id": "xcsh-docs:resources:network_connector:reference",
+          "flags": ["optional"],
+          "max_items": null,
+          "min_items": null,
+          "nesting": null,
+          "relationships": [],
+          "schema_path": ["labels"],
+          "syntax": "attribute",
+          "type": "map"
+        },
+        {
+          "aliases": ["name"],
+          "anchor": "schema-name",
+          "description": "This is the name of configuration object. It has to be unique within the namespace. It can only be specified during create API and cannot be changed during replace API. The value of name has to follow DNS-1035 format.",
+          "document_id": "xcsh-docs:resources:network_connector:reference",
+          "flags": ["required"],
+          "max_items": null,
+          "min_items": null,
+          "nesting": null,
+          "relationships": [],
+          "schema_path": ["name"],
+          "syntax": "attribute",
+          "type": "string"
+        },
+        {
+          "aliases": ["namespace"],
+          "anchor": "schema-namespace",
+          "description": "This defines the workspace within which each the configuration object is to be created. Must be a DNS_LABEL format. For a namespace object itself, namespace value will be \"\"",
+          "document_id": "xcsh-docs:resources:network_connector:reference",
+          "flags": ["required"],
+          "max_items": null,
+          "min_items": null,
+          "nesting": null,
+          "relationships": [],
+          "schema_path": ["namespace"],
+          "syntax": "attribute",
+          "type": "string"
+        },
+        {
+          "aliases": ["sli to global dr"],
+          "anchor": "section",
+          "description": "Global network reference for direct connection.",
+          "document_id": "xcsh-docs:resources:network_connector:properties:sli_to_global_dr",
+          "flags": [],
+          "max_items": null,
+          "min_items": null,
+          "nesting": "single",
+          "relationships": [],
+          "schema_path": ["sli_to_global_dr"],
+          "syntax": "block",
+          "type": "object"
+        },
+        {
+          "aliases": ["sli to slo snat"],
+          "anchor": "section",
+          "description": "X-example: \"\" description.",
+          "document_id": "xcsh-docs:resources:network_connector:properties:sli_to_slo_snat",
+          "flags": [],
+          "max_items": null,
+          "min_items": null,
+          "nesting": "single",
+          "relationships": [],
+          "schema_path": ["sli_to_slo_snat"],
+          "syntax": "block",
+          "type": "object"
+        },
+        {
+          "aliases": ["slo to global dr"],
+          "anchor": "section",
+          "description": "Global network reference for direct connection.",
+          "document_id": "xcsh-docs:resources:network_connector:properties:slo_to_global_dr",
+          "flags": [],
+          "max_items": null,
+          "min_items": null,
+          "nesting": "single",
+          "relationships": [],
+          "schema_path": ["slo_to_global_dr"],
+          "syntax": "block",
+          "type": "object"
+        },
+        {
+          "aliases": ["duration", "operation timeout", "timeouts"],
+          "anchor": "section",
+          "description": "timeouts",
+          "document_id": "xcsh-docs:resources:network_connector:properties:timeouts",
+          "flags": [],
+          "max_items": null,
+          "min_items": null,
+          "nesting": "single",
+          "relationships": [],
+          "schema_path": ["timeouts"],
+          "syntax": "block",
+          "type": "object"
+        }
+      ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/network_connector/properties/index.txt",
       "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
       "summary": "Property reference for xcsh_network_connector.",
+      "tasks": ["configuration"],
       "title": "Property reference",
       "upstream_identity": {
         "release_tag": "v9.0.0",
@@ -450,25 +685,38 @@
       }
     },
     {
-      "aliases": [],
+      "aliases": ["disable forward proxy"],
       "body_bytes": 1671,
       "body_sha256": "sha256:f5b249ed51a7d6d3e3c58a48a5e4578bf3a5d10779aadf13143131676d05396f",
+      "capabilities": ["networking"],
+      "category": "networking",
       "child_ids": [],
+      "classification": {
+        "rules_sha256": "sha256:98dbf5280bf8376a0c75c1391250db9db4ac0d293d42bdd831c20f7514925adb",
+        "sources": ["receipt-pinned-upstream", "reviewed-rule"],
+        "status": "resolved",
+        "upstream_category_source": "receipt-pinned-resource"
+      },
       "collection_id": "xcsh-docs:resources:network_connector:collection",
       "completeness": "complete",
       "id": "xcsh-docs:resources:network_connector:properties:disable_forward_proxy",
       "parent_id": "xcsh-docs:resources:network_connector:reference",
       "path": "documentation/resources/network_connector/properties/disable_forward_proxy/index.md",
+      "product": "distributed-cloud",
       "provider_name": "network_connector",
       "provider_schema_digest": "sha256:e63a07e98b4893c041a6f79be7e19c64babfe543fc6847c17641037e084e1c7c",
       "provider_type": "resources",
       "registry_anchor": "canonical-2111333330030000-1002031120031312-0303212231133031-0100102111232123-2322101011031230-0120112023330111-3230013222002110-2132322230321121",
       "registry_path": "docs/guides/resources--network_connector--reference--group-001.md",
+      "relationships": [],
+      "retrieval_version": 1,
       "role": "properties",
       "schema_path": ["disable_forward_proxy"],
+      "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/network_connector/properties/disable_forward_proxy/index.txt",
       "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
-      "summary": "disable_forward_proxy for xcsh_network_connector.",
+      "summary": "This can be used for messages where no values are needed.",
+      "tasks": ["configuration"],
       "title": "disable_forward_proxy",
       "upstream_identity": {
         "release_tag": "v9.0.0",
@@ -477,28 +725,192 @@
       }
     },
     {
-      "aliases": [],
+      "aliases": ["duration", "enable forward proxy", "operation timeout"],
       "body_bytes": 7841,
       "body_sha256": "sha256:9f8d0af8f6877e51bb809ab67655f2e6fc5428428106fe037dea2a4e1b9a97cf",
+      "capabilities": ["networking"],
+      "category": "networking",
       "child_ids": [
         "xcsh-docs:resources:network_connector:properties:enable_forward_proxy:no_interception",
         "xcsh-docs:resources:network_connector:properties:enable_forward_proxy:tls_intercept"
       ],
+      "classification": {
+        "rules_sha256": "sha256:98dbf5280bf8376a0c75c1391250db9db4ac0d293d42bdd831c20f7514925adb",
+        "sources": ["receipt-pinned-upstream", "reviewed-rule"],
+        "status": "resolved",
+        "upstream_category_source": "receipt-pinned-resource"
+      },
       "collection_id": "xcsh-docs:resources:network_connector:collection",
       "completeness": "complete",
       "id": "xcsh-docs:resources:network_connector:properties:enable_forward_proxy",
       "parent_id": "xcsh-docs:resources:network_connector:reference",
       "path": "documentation/resources/network_connector/properties/enable_forward_proxy/index.md",
+      "product": "distributed-cloud",
       "provider_name": "network_connector",
       "provider_schema_digest": "sha256:e63a07e98b4893c041a6f79be7e19c64babfe543fc6847c17641037e084e1c7c",
       "provider_type": "resources",
       "registry_anchor": "canonical-1101110030313313-2102212303300111-0320130013022202-3311211123122310-2200103232211301-3223222300011312-2202123000112213-2220311201321020",
       "registry_path": "docs/guides/resources--network_connector--reference--group-001.md",
+      "relationships": [
+        {
+          "anchor": "section",
+          "enforcement": "provider-schema",
+          "group": "enable_forward_proxy:ConflictingObjectAttributes:no_interception,tls_intercept",
+          "source": "ast-validator:ConflictingObjectAttributes",
+          "target_id": "xcsh-docs:resources:network_connector:properties:enable_forward_proxy:no_interception",
+          "type": "conflicts"
+        },
+        {
+          "anchor": "section",
+          "enforcement": "provider-schema",
+          "group": "enable_forward_proxy:ConflictingObjectAttributes:no_interception,tls_intercept",
+          "source": "ast-validator:ConflictingObjectAttributes",
+          "target_id": "xcsh-docs:resources:network_connector:properties:enable_forward_proxy:tls_intercept",
+          "type": "conflicts"
+        }
+      ],
+      "retrieval_version": 1,
       "role": "properties",
       "schema_path": ["enable_forward_proxy"],
+      "sections": [
+        {
+          "aliases": ["connection timeout", "duration", "operation timeout"],
+          "anchor": "schema-enable_forward_proxy--connection_timeout",
+          "description": "The timeout for new network connections to upstream server. This is specified in milliseconds. The default value is 2000 (2 seconds)",
+          "document_id": "xcsh-docs:resources:network_connector:properties:enable_forward_proxy",
+          "flags": ["optional"],
+          "max_items": null,
+          "min_items": null,
+          "nesting": null,
+          "relationships": [],
+          "schema_path": ["enable_forward_proxy", "connection_timeout"],
+          "syntax": "attribute",
+          "type": "number"
+        },
+        {
+          "aliases": ["max connect attempts"],
+          "anchor": "schema-enable_forward_proxy--max_connect_attempts",
+          "description": "Specifies the allowed number of retries on connect failure to upstream server. Defaults to 1.",
+          "document_id": "xcsh-docs:resources:network_connector:properties:enable_forward_proxy",
+          "flags": ["optional"],
+          "max_items": null,
+          "min_items": null,
+          "nesting": null,
+          "relationships": [],
+          "schema_path": ["enable_forward_proxy", "max_connect_attempts"],
+          "syntax": "attribute",
+          "type": "number"
+        },
+        {
+          "aliases": ["no interception"],
+          "anchor": "section",
+          "description": "This can be used for messages where no values are needed.",
+          "document_id": "xcsh-docs:resources:network_connector:properties:enable_forward_proxy:no_interception",
+          "flags": ["optional"],
+          "max_items": null,
+          "min_items": null,
+          "nesting": null,
+          "relationships": [],
+          "schema_path": ["enable_forward_proxy", "no_interception"],
+          "syntax": "attribute",
+          "type": "object"
+        },
+        {
+          "aliases": ["tls intercept"],
+          "anchor": "section",
+          "description": "Configuration to enable TLS interception.",
+          "document_id": "xcsh-docs:resources:network_connector:properties:enable_forward_proxy:tls_intercept",
+          "flags": [],
+          "max_items": null,
+          "min_items": null,
+          "nesting": "single",
+          "relationships": [
+            {
+              "anchor": "schema-enable_forward_proxy--tls_intercept--trusted_ca_url",
+              "enforcement": "provider-schema",
+              "group": "enable_forward_proxy.tls_intercept:ConflictingObjectAttributes:trusted_ca_url,volterra_trusted_ca",
+              "source": "ast-validator:ConflictingObjectAttributes",
+              "target_id": "xcsh-docs:resources:network_connector:properties:enable_forward_proxy:tls_intercept",
+              "type": "conflicts"
+            },
+            {
+              "anchor": "section",
+              "enforcement": "provider-schema",
+              "group": "enable_forward_proxy.tls_intercept:ConflictingObjectAttributes:custom_certificate,volterra_certificate",
+              "source": "ast-validator:ConflictingObjectAttributes",
+              "target_id": "xcsh-docs:resources:network_connector:properties:enable_forward_proxy:tls_intercept:custom_certificate",
+              "type": "conflicts"
+            },
+            {
+              "anchor": "section",
+              "enforcement": "provider-schema",
+              "group": "enable_forward_proxy.tls_intercept:ConflictingObjectAttributes:enable_for_all_domains,policy",
+              "source": "ast-validator:ConflictingObjectAttributes",
+              "target_id": "xcsh-docs:resources:network_connector:properties:enable_forward_proxy:tls_intercept:enable_for_all_domains",
+              "type": "conflicts"
+            },
+            {
+              "anchor": "section",
+              "enforcement": "provider-schema",
+              "group": "enable_forward_proxy.tls_intercept:ConflictingObjectAttributes:enable_for_all_domains,policy",
+              "source": "ast-validator:ConflictingObjectAttributes",
+              "target_id": "xcsh-docs:resources:network_connector:properties:enable_forward_proxy:tls_intercept:policy",
+              "type": "conflicts"
+            },
+            {
+              "anchor": "section",
+              "enforcement": "provider-schema",
+              "group": "enable_forward_proxy.tls_intercept:ConflictingObjectAttributes:custom_certificate,volterra_certificate",
+              "source": "ast-validator:ConflictingObjectAttributes",
+              "target_id": "xcsh-docs:resources:network_connector:properties:enable_forward_proxy:tls_intercept:volterra_certificate",
+              "type": "conflicts"
+            },
+            {
+              "anchor": "section",
+              "enforcement": "provider-schema",
+              "group": "enable_forward_proxy.tls_intercept:ConflictingObjectAttributes:trusted_ca_url,volterra_trusted_ca",
+              "source": "ast-validator:ConflictingObjectAttributes",
+              "target_id": "xcsh-docs:resources:network_connector:properties:enable_forward_proxy:tls_intercept:volterra_trusted_ca",
+              "type": "conflicts"
+            }
+          ],
+          "schema_path": ["enable_forward_proxy", "tls_intercept"],
+          "syntax": "block",
+          "type": "object"
+        },
+        {
+          "aliases": ["white listed ports"],
+          "anchor": "schema-enable_forward_proxy--white_listed_ports",
+          "description": "Traffic to these destination TCP ports is not subjected to protocol parsing Example \"tmate\" server port.",
+          "document_id": "xcsh-docs:resources:network_connector:properties:enable_forward_proxy",
+          "flags": ["optional"],
+          "max_items": null,
+          "min_items": null,
+          "nesting": null,
+          "relationships": [],
+          "schema_path": ["enable_forward_proxy", "white_listed_ports"],
+          "syntax": "attribute",
+          "type": "list"
+        },
+        {
+          "aliases": ["white listed prefixes"],
+          "anchor": "schema-enable_forward_proxy--white_listed_prefixes",
+          "description": "Traffic to these destination IP prefixes is not subjected to protocol parsing Example \"tmate\" server IP.",
+          "document_id": "xcsh-docs:resources:network_connector:properties:enable_forward_proxy",
+          "flags": ["optional"],
+          "max_items": null,
+          "min_items": null,
+          "nesting": null,
+          "relationships": [],
+          "schema_path": ["enable_forward_proxy", "white_listed_prefixes"],
+          "syntax": "attribute",
+          "type": "list"
+        }
+      ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/network_connector/properties/enable_forward_proxy/index.txt",
       "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
-      "summary": "enable_forward_proxy for xcsh_network_connector.",
+      "summary": "Fine tune forward proxy behavior Few configurations allowed are White listed ports and IP prefixes: Forward proxy does application protocol detection and server name(SNI) detection by peeking into the traffic on the incoming downstream connection. Few protocols doesn't have client sending the first data. In such cases,",
+      "tasks": ["configuration"],
       "title": "enable_forward_proxy",
       "upstream_identity": {
         "release_tag": "v9.0.0",
@@ -507,25 +919,38 @@
       }
     },
     {
-      "aliases": [],
+      "aliases": ["enable forward proxy no interception"],
       "body_bytes": 1352,
       "body_sha256": "sha256:7054cda35f8fb555708c69c065673ec71615f66bf57e0c01e8b114d8517e1263",
+      "capabilities": ["networking"],
+      "category": "networking",
       "child_ids": [],
+      "classification": {
+        "rules_sha256": "sha256:98dbf5280bf8376a0c75c1391250db9db4ac0d293d42bdd831c20f7514925adb",
+        "sources": ["receipt-pinned-upstream", "reviewed-rule"],
+        "status": "resolved",
+        "upstream_category_source": "receipt-pinned-resource"
+      },
       "collection_id": "xcsh-docs:resources:network_connector:collection",
       "completeness": "complete",
       "id": "xcsh-docs:resources:network_connector:properties:enable_forward_proxy:no_interception",
       "parent_id": "xcsh-docs:resources:network_connector:properties:enable_forward_proxy",
       "path": "documentation/resources/network_connector/properties/enable_forward_proxy/no_interception/index.md",
+      "product": "distributed-cloud",
       "provider_name": "network_connector",
       "provider_schema_digest": "sha256:e63a07e98b4893c041a6f79be7e19c64babfe543fc6847c17641037e084e1c7c",
       "provider_type": "resources",
       "registry_anchor": "canonical-1220011120312221-0033121031212311-1130212312100101-3302021232121031-1231021000210332-2311003113002230-3002313213221102-2110133322032333",
       "registry_path": "docs/guides/resources--network_connector--reference--group-001.md",
+      "relationships": [],
+      "retrieval_version": 1,
       "role": "properties",
       "schema_path": ["enable_forward_proxy", "no_interception"],
+      "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/network_connector/properties/enable_forward_proxy/no_interception/index.txt",
       "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
-      "summary": "enable_forward_proxy.no_interception for xcsh_network_connector.",
+      "summary": "This can be used for messages where no values are needed.",
+      "tasks": ["configuration"],
       "title": "enable_forward_proxy.no_interception",
       "upstream_identity": {
         "release_tag": "v9.0.0",
@@ -534,9 +959,11 @@
       }
     },
     {
-      "aliases": [],
+      "aliases": ["enable forward proxy tls intercept"],
       "body_bytes": 5275,
       "body_sha256": "sha256:1523058be7c2fbc24c6e1c58744287f7fd6952348a927f5c32181b6de1761ef3",
+      "capabilities": ["networking"],
+      "category": "networking",
       "child_ids": [
         "xcsh-docs:resources:network_connector:properties:enable_forward_proxy:tls_intercept:custom_certificate",
         "xcsh-docs:resources:network_connector:properties:enable_forward_proxy:tls_intercept:enable_for_all_domains",
@@ -544,21 +971,232 @@
         "xcsh-docs:resources:network_connector:properties:enable_forward_proxy:tls_intercept:volterra_certificate",
         "xcsh-docs:resources:network_connector:properties:enable_forward_proxy:tls_intercept:volterra_trusted_ca"
       ],
+      "classification": {
+        "rules_sha256": "sha256:98dbf5280bf8376a0c75c1391250db9db4ac0d293d42bdd831c20f7514925adb",
+        "sources": ["receipt-pinned-upstream", "reviewed-rule"],
+        "status": "resolved",
+        "upstream_category_source": "receipt-pinned-resource"
+      },
       "collection_id": "xcsh-docs:resources:network_connector:collection",
       "completeness": "complete",
       "id": "xcsh-docs:resources:network_connector:properties:enable_forward_proxy:tls_intercept",
       "parent_id": "xcsh-docs:resources:network_connector:properties:enable_forward_proxy",
       "path": "documentation/resources/network_connector/properties/enable_forward_proxy/tls_intercept/index.md",
+      "product": "distributed-cloud",
       "provider_name": "network_connector",
       "provider_schema_digest": "sha256:e63a07e98b4893c041a6f79be7e19c64babfe543fc6847c17641037e084e1c7c",
       "provider_type": "resources",
       "registry_anchor": "canonical-1103300020233001-3233102132113202-0100231103312111-2133120322011110-3203012000032323-3033230123333013-2000221112111311-2302123032122113",
       "registry_path": "docs/guides/resources--network_connector--reference--group-001.md",
+      "relationships": [
+        {
+          "anchor": "schema-enable_forward_proxy--tls_intercept--trusted_ca_url",
+          "enforcement": "provider-schema",
+          "group": "enable_forward_proxy.tls_intercept:ConflictingObjectAttributes:trusted_ca_url,volterra_trusted_ca",
+          "source": "ast-validator:ConflictingObjectAttributes",
+          "target_id": "xcsh-docs:resources:network_connector:properties:enable_forward_proxy:tls_intercept",
+          "type": "conflicts"
+        },
+        {
+          "anchor": "section",
+          "enforcement": "provider-schema",
+          "group": "enable_forward_proxy.tls_intercept:ConflictingObjectAttributes:custom_certificate,volterra_certificate",
+          "source": "ast-validator:ConflictingObjectAttributes",
+          "target_id": "xcsh-docs:resources:network_connector:properties:enable_forward_proxy:tls_intercept:custom_certificate",
+          "type": "conflicts"
+        },
+        {
+          "anchor": "section",
+          "enforcement": "provider-schema",
+          "group": "enable_forward_proxy.tls_intercept:ConflictingObjectAttributes:enable_for_all_domains,policy",
+          "source": "ast-validator:ConflictingObjectAttributes",
+          "target_id": "xcsh-docs:resources:network_connector:properties:enable_forward_proxy:tls_intercept:enable_for_all_domains",
+          "type": "conflicts"
+        },
+        {
+          "anchor": "section",
+          "enforcement": "provider-schema",
+          "group": "enable_forward_proxy.tls_intercept:ConflictingObjectAttributes:enable_for_all_domains,policy",
+          "source": "ast-validator:ConflictingObjectAttributes",
+          "target_id": "xcsh-docs:resources:network_connector:properties:enable_forward_proxy:tls_intercept:policy",
+          "type": "conflicts"
+        },
+        {
+          "anchor": "section",
+          "enforcement": "provider-schema",
+          "group": "enable_forward_proxy.tls_intercept:ConflictingObjectAttributes:custom_certificate,volterra_certificate",
+          "source": "ast-validator:ConflictingObjectAttributes",
+          "target_id": "xcsh-docs:resources:network_connector:properties:enable_forward_proxy:tls_intercept:volterra_certificate",
+          "type": "conflicts"
+        },
+        {
+          "anchor": "section",
+          "enforcement": "provider-schema",
+          "group": "enable_forward_proxy.tls_intercept:ConflictingObjectAttributes:trusted_ca_url,volterra_trusted_ca",
+          "source": "ast-validator:ConflictingObjectAttributes",
+          "target_id": "xcsh-docs:resources:network_connector:properties:enable_forward_proxy:tls_intercept:volterra_trusted_ca",
+          "type": "conflicts"
+        }
+      ],
+      "retrieval_version": 1,
       "role": "properties",
       "schema_path": ["enable_forward_proxy", "tls_intercept"],
+      "sections": [
+        {
+          "aliases": ["cert", "certificate", "custom certificate", "existing certificates", "tls certificates"],
+          "anchor": "section",
+          "description": "Handle to fetch certificate and key.",
+          "document_id": "xcsh-docs:resources:network_connector:properties:enable_forward_proxy:tls_intercept:custom_certificate",
+          "flags": [],
+          "max_items": null,
+          "min_items": null,
+          "nesting": "single",
+          "relationships": [
+            {
+              "anchor": "section",
+              "enforcement": "provider-schema",
+              "group": "enable_forward_proxy.tls_intercept.custom_certificate:ConflictingObjectAttributes:custom_hash_algorithms,disable_ocsp_stapling",
+              "source": "ast-validator:ConflictingObjectAttributes",
+              "target_id": "xcsh-docs:resources:network_connector:properties:enable_forward_proxy:tls_intercept:custom_certificate:custom_hash_algorithms",
+              "type": "conflicts"
+            },
+            {
+              "anchor": "section",
+              "enforcement": "provider-schema",
+              "group": "enable_forward_proxy.tls_intercept.custom_certificate:ConflictingObjectAttributes:custom_hash_algorithms,use_system_defaults",
+              "source": "ast-validator:ConflictingObjectAttributes",
+              "target_id": "xcsh-docs:resources:network_connector:properties:enable_forward_proxy:tls_intercept:custom_certificate:custom_hash_algorithms",
+              "type": "conflicts"
+            },
+            {
+              "anchor": "section",
+              "enforcement": "provider-schema",
+              "group": "enable_forward_proxy.tls_intercept.custom_certificate:ConflictingObjectAttributes:custom_hash_algorithms,disable_ocsp_stapling",
+              "source": "ast-validator:ConflictingObjectAttributes",
+              "target_id": "xcsh-docs:resources:network_connector:properties:enable_forward_proxy:tls_intercept:custom_certificate:disable_ocsp_stapling",
+              "type": "conflicts"
+            },
+            {
+              "anchor": "section",
+              "enforcement": "provider-schema",
+              "group": "enable_forward_proxy.tls_intercept.custom_certificate:ConflictingObjectAttributes:disable_ocsp_stapling,use_system_defaults",
+              "source": "ast-validator:ConflictingObjectAttributes",
+              "target_id": "xcsh-docs:resources:network_connector:properties:enable_forward_proxy:tls_intercept:custom_certificate:disable_ocsp_stapling",
+              "type": "conflicts"
+            },
+            {
+              "anchor": "section",
+              "enforcement": "provider-schema",
+              "group": "enable_forward_proxy.tls_intercept.custom_certificate:ConflictingObjectAttributes:custom_hash_algorithms,use_system_defaults",
+              "source": "ast-validator:ConflictingObjectAttributes",
+              "target_id": "xcsh-docs:resources:network_connector:properties:enable_forward_proxy:tls_intercept:custom_certificate:use_system_defaults",
+              "type": "conflicts"
+            },
+            {
+              "anchor": "section",
+              "enforcement": "provider-schema",
+              "group": "enable_forward_proxy.tls_intercept.custom_certificate:ConflictingObjectAttributes:disable_ocsp_stapling,use_system_defaults",
+              "source": "ast-validator:ConflictingObjectAttributes",
+              "target_id": "xcsh-docs:resources:network_connector:properties:enable_forward_proxy:tls_intercept:custom_certificate:use_system_defaults",
+              "type": "conflicts"
+            },
+            {
+              "anchor": "schema-enable_forward_proxy--tls_intercept--custom_certificate--certificate_url",
+              "enforcement": "provider-schema",
+              "group": "enable_forward_proxy.tls_intercept.custom_certificate:RequiredObjectAttributes:certificate_url",
+              "source": "ast-validator:RequiredObjectAttributes",
+              "target_id": "xcsh-docs:resources:network_connector:properties:enable_forward_proxy:tls_intercept:custom_certificate",
+              "type": "requires"
+            }
+          ],
+          "schema_path": ["enable_forward_proxy", "tls_intercept", "custom_certificate"],
+          "syntax": "block",
+          "type": "object"
+        },
+        {
+          "aliases": ["enable for all domains"],
+          "anchor": "section",
+          "description": "This can be used for messages where no values are needed.",
+          "document_id": "xcsh-docs:resources:network_connector:properties:enable_forward_proxy:tls_intercept:enable_for_all_domains",
+          "flags": ["optional"],
+          "max_items": null,
+          "min_items": null,
+          "nesting": null,
+          "relationships": [],
+          "schema_path": ["enable_forward_proxy", "tls_intercept", "enable_for_all_domains"],
+          "syntax": "attribute",
+          "type": "object"
+        },
+        {
+          "aliases": ["policy"],
+          "anchor": "section",
+          "description": "Policy to enable or disable TLS interception.",
+          "document_id": "xcsh-docs:resources:network_connector:properties:enable_forward_proxy:tls_intercept:policy",
+          "flags": [],
+          "max_items": null,
+          "min_items": null,
+          "nesting": "single",
+          "relationships": [
+            {
+              "anchor": "section",
+              "enforcement": "provider-schema",
+              "group": "enable_forward_proxy.tls_intercept.policy:RequiredObjectAttributes:interception_rules",
+              "source": "ast-validator:RequiredObjectAttributes",
+              "target_id": "xcsh-docs:resources:network_connector:properties:enable_forward_proxy:tls_intercept:policy:interception_rules",
+              "type": "requires"
+            }
+          ],
+          "schema_path": ["enable_forward_proxy", "tls_intercept", "policy"],
+          "syntax": "block",
+          "type": "object"
+        },
+        {
+          "aliases": ["cert", "certificate", "existing certificates", "tls certificates", "trusted ca url"],
+          "anchor": "schema-enable_forward_proxy--tls_intercept--trusted_ca_url",
+          "description": "Exclusive with Custom Root CA Certificate for validating upstream server certificate.",
+          "document_id": "xcsh-docs:resources:network_connector:properties:enable_forward_proxy:tls_intercept",
+          "flags": ["optional"],
+          "max_items": null,
+          "min_items": null,
+          "nesting": null,
+          "relationships": [],
+          "schema_path": ["enable_forward_proxy", "tls_intercept", "trusted_ca_url"],
+          "syntax": "attribute",
+          "type": "string"
+        },
+        {
+          "aliases": ["cert", "certificate", "existing certificates", "tls certificates", "volterra certificate"],
+          "anchor": "section",
+          "description": "This can be used for messages where no values are needed.",
+          "document_id": "xcsh-docs:resources:network_connector:properties:enable_forward_proxy:tls_intercept:volterra_certificate",
+          "flags": ["optional"],
+          "max_items": null,
+          "min_items": null,
+          "nesting": null,
+          "relationships": [],
+          "schema_path": ["enable_forward_proxy", "tls_intercept", "volterra_certificate"],
+          "syntax": "attribute",
+          "type": "object"
+        },
+        {
+          "aliases": ["volterra trusted ca"],
+          "anchor": "section",
+          "description": "This can be used for messages where no values are needed.",
+          "document_id": "xcsh-docs:resources:network_connector:properties:enable_forward_proxy:tls_intercept:volterra_trusted_ca",
+          "flags": ["optional"],
+          "max_items": null,
+          "min_items": null,
+          "nesting": null,
+          "relationships": [],
+          "schema_path": ["enable_forward_proxy", "tls_intercept", "volterra_trusted_ca"],
+          "syntax": "attribute",
+          "type": "object"
+        }
+      ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/network_connector/properties/enable_forward_proxy/tls_intercept/index.txt",
       "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
-      "summary": "enable_forward_proxy.tls_intercept for xcsh_network_connector.",
+      "summary": "Configuration to enable TLS interception.",
+      "tasks": ["configuration"],
       "title": "enable_forward_proxy.tls_intercept",
       "upstream_identity": {
         "release_tag": "v9.0.0",
@@ -567,30 +1205,217 @@
       }
     },
     {
-      "aliases": [],
+      "aliases": [
+        "cert",
+        "certificate",
+        "enable forward proxy tls intercept custom certificate",
+        "existing certificates",
+        "tls certificates"
+      ],
       "body_bytes": 5786,
       "body_sha256": "sha256:99592e93fa522761821d415c2db1a0e5871bd9876b22b60a8548b13926468589",
+      "capabilities": ["networking"],
+      "category": "networking",
       "child_ids": [
         "xcsh-docs:resources:network_connector:properties:enable_forward_proxy:tls_intercept:custom_certificate:custom_hash_algorithms",
         "xcsh-docs:resources:network_connector:properties:enable_forward_proxy:tls_intercept:custom_certificate:disable_ocsp_stapling",
         "xcsh-docs:resources:network_connector:properties:enable_forward_proxy:tls_intercept:custom_certificate:private_key",
         "xcsh-docs:resources:network_connector:properties:enable_forward_proxy:tls_intercept:custom_certificate:use_system_defaults"
       ],
+      "classification": {
+        "rules_sha256": "sha256:98dbf5280bf8376a0c75c1391250db9db4ac0d293d42bdd831c20f7514925adb",
+        "sources": ["receipt-pinned-upstream", "reviewed-rule"],
+        "status": "resolved",
+        "upstream_category_source": "receipt-pinned-resource"
+      },
       "collection_id": "xcsh-docs:resources:network_connector:collection",
       "completeness": "complete",
       "id": "xcsh-docs:resources:network_connector:properties:enable_forward_proxy:tls_intercept:custom_certificate",
       "parent_id": "xcsh-docs:resources:network_connector:properties:enable_forward_proxy:tls_intercept",
       "path": "documentation/resources/network_connector/properties/enable_forward_proxy/tls_intercept/custom_certificate/index.md",
+      "product": "distributed-cloud",
       "provider_name": "network_connector",
       "provider_schema_digest": "sha256:e63a07e98b4893c041a6f79be7e19c64babfe543fc6847c17641037e084e1c7c",
       "provider_type": "resources",
       "registry_anchor": "canonical-3001233111130311-2332001231310032-0012121313112300-2201122031203313-0033000103222321-0201010200101102-1232030300133322-3030101321223233",
       "registry_path": "docs/guides/resources--network_connector--reference--group-001.md",
+      "relationships": [
+        {
+          "anchor": "section",
+          "enforcement": "provider-schema",
+          "group": "enable_forward_proxy.tls_intercept.custom_certificate:ConflictingObjectAttributes:custom_hash_algorithms,disable_ocsp_stapling",
+          "source": "ast-validator:ConflictingObjectAttributes",
+          "target_id": "xcsh-docs:resources:network_connector:properties:enable_forward_proxy:tls_intercept:custom_certificate:custom_hash_algorithms",
+          "type": "conflicts"
+        },
+        {
+          "anchor": "section",
+          "enforcement": "provider-schema",
+          "group": "enable_forward_proxy.tls_intercept.custom_certificate:ConflictingObjectAttributes:custom_hash_algorithms,use_system_defaults",
+          "source": "ast-validator:ConflictingObjectAttributes",
+          "target_id": "xcsh-docs:resources:network_connector:properties:enable_forward_proxy:tls_intercept:custom_certificate:custom_hash_algorithms",
+          "type": "conflicts"
+        },
+        {
+          "anchor": "section",
+          "enforcement": "provider-schema",
+          "group": "enable_forward_proxy.tls_intercept.custom_certificate:ConflictingObjectAttributes:custom_hash_algorithms,disable_ocsp_stapling",
+          "source": "ast-validator:ConflictingObjectAttributes",
+          "target_id": "xcsh-docs:resources:network_connector:properties:enable_forward_proxy:tls_intercept:custom_certificate:disable_ocsp_stapling",
+          "type": "conflicts"
+        },
+        {
+          "anchor": "section",
+          "enforcement": "provider-schema",
+          "group": "enable_forward_proxy.tls_intercept.custom_certificate:ConflictingObjectAttributes:disable_ocsp_stapling,use_system_defaults",
+          "source": "ast-validator:ConflictingObjectAttributes",
+          "target_id": "xcsh-docs:resources:network_connector:properties:enable_forward_proxy:tls_intercept:custom_certificate:disable_ocsp_stapling",
+          "type": "conflicts"
+        },
+        {
+          "anchor": "section",
+          "enforcement": "provider-schema",
+          "group": "enable_forward_proxy.tls_intercept.custom_certificate:ConflictingObjectAttributes:custom_hash_algorithms,use_system_defaults",
+          "source": "ast-validator:ConflictingObjectAttributes",
+          "target_id": "xcsh-docs:resources:network_connector:properties:enable_forward_proxy:tls_intercept:custom_certificate:use_system_defaults",
+          "type": "conflicts"
+        },
+        {
+          "anchor": "section",
+          "enforcement": "provider-schema",
+          "group": "enable_forward_proxy.tls_intercept.custom_certificate:ConflictingObjectAttributes:disable_ocsp_stapling,use_system_defaults",
+          "source": "ast-validator:ConflictingObjectAttributes",
+          "target_id": "xcsh-docs:resources:network_connector:properties:enable_forward_proxy:tls_intercept:custom_certificate:use_system_defaults",
+          "type": "conflicts"
+        },
+        {
+          "anchor": "schema-enable_forward_proxy--tls_intercept--custom_certificate--certificate_url",
+          "enforcement": "provider-schema",
+          "group": "enable_forward_proxy.tls_intercept.custom_certificate:RequiredObjectAttributes:certificate_url",
+          "source": "ast-validator:RequiredObjectAttributes",
+          "target_id": "xcsh-docs:resources:network_connector:properties:enable_forward_proxy:tls_intercept:custom_certificate",
+          "type": "requires"
+        }
+      ],
+      "retrieval_version": 1,
       "role": "properties",
       "schema_path": ["enable_forward_proxy", "tls_intercept", "custom_certificate"],
+      "sections": [
+        {
+          "aliases": ["cert", "certificate", "certificate url", "existing certificates", "tls certificates"],
+          "anchor": "schema-enable_forward_proxy--tls_intercept--custom_certificate--certificate_url",
+          "description": "TLS certificate. Certificate or certificate chain in PEM format including the PEM headers.",
+          "document_id": "xcsh-docs:resources:network_connector:properties:enable_forward_proxy:tls_intercept:custom_certificate",
+          "flags": ["optional"],
+          "max_items": null,
+          "min_items": null,
+          "nesting": null,
+          "relationships": [],
+          "schema_path": ["enable_forward_proxy", "tls_intercept", "custom_certificate", "certificate_url"],
+          "syntax": "attribute",
+          "type": "string"
+        },
+        {
+          "aliases": ["custom hash algorithms"],
+          "anchor": "section",
+          "description": "Specifies the hash algorithms to be used.",
+          "document_id": "xcsh-docs:resources:network_connector:properties:enable_forward_proxy:tls_intercept:custom_certificate:custom_hash_algorithms",
+          "flags": [],
+          "max_items": null,
+          "min_items": null,
+          "nesting": "single",
+          "relationships": [
+            {
+              "anchor": "schema-enable_forward_proxy--tls_intercept--custom_certificate--custom_hash_algorithms--hash_algorithms",
+              "enforcement": "provider-schema",
+              "group": "enable_forward_proxy.tls_intercept.custom_certificate.custom_hash_algorithms:RequiredObjectAttributes:hash_algorithms",
+              "source": "ast-validator:RequiredObjectAttributes",
+              "target_id": "xcsh-docs:resources:network_connector:properties:enable_forward_proxy:tls_intercept:custom_certificate:custom_hash_algorithms",
+              "type": "requires"
+            }
+          ],
+          "schema_path": ["enable_forward_proxy", "tls_intercept", "custom_certificate", "custom_hash_algorithms"],
+          "syntax": "block",
+          "type": "object"
+        },
+        {
+          "aliases": ["cert", "certificate", "description spec", "existing certificates", "tls certificates"],
+          "anchor": "schema-enable_forward_proxy--tls_intercept--custom_certificate--description_spec",
+          "description": "Description. Description for the certificate.",
+          "document_id": "xcsh-docs:resources:network_connector:properties:enable_forward_proxy:tls_intercept:custom_certificate",
+          "flags": ["optional"],
+          "max_items": null,
+          "min_items": null,
+          "nesting": null,
+          "relationships": [],
+          "schema_path": ["enable_forward_proxy", "tls_intercept", "custom_certificate", "description_spec"],
+          "syntax": "attribute",
+          "type": "string"
+        },
+        {
+          "aliases": ["disable ocsp stapling"],
+          "anchor": "section",
+          "description": "This can be used for messages where no values are needed.",
+          "document_id": "xcsh-docs:resources:network_connector:properties:enable_forward_proxy:tls_intercept:custom_certificate:disable_ocsp_stapling",
+          "flags": ["optional"],
+          "max_items": null,
+          "min_items": null,
+          "nesting": null,
+          "relationships": [],
+          "schema_path": ["enable_forward_proxy", "tls_intercept", "custom_certificate", "disable_ocsp_stapling"],
+          "syntax": "attribute",
+          "type": "object"
+        },
+        {
+          "aliases": ["private key"],
+          "anchor": "section",
+          "description": "SecretType is used in an object to indicate a sensitive/confidential field.",
+          "document_id": "xcsh-docs:resources:network_connector:properties:enable_forward_proxy:tls_intercept:custom_certificate:private_key",
+          "flags": [],
+          "max_items": null,
+          "min_items": null,
+          "nesting": "single",
+          "relationships": [
+            {
+              "anchor": "section",
+              "enforcement": "provider-schema",
+              "group": "enable_forward_proxy.tls_intercept.custom_certificate.private_key:ConflictingObjectAttributes:blindfold_secret_info,clear_secret_info",
+              "source": "ast-validator:ConflictingObjectAttributes",
+              "target_id": "xcsh-docs:resources:network_connector:properties:enable_forward_proxy:tls_intercept:custom_certificate:private_key:blindfold_secret_info",
+              "type": "conflicts"
+            },
+            {
+              "anchor": "section",
+              "enforcement": "provider-schema",
+              "group": "enable_forward_proxy.tls_intercept.custom_certificate.private_key:ConflictingObjectAttributes:blindfold_secret_info,clear_secret_info",
+              "source": "ast-validator:ConflictingObjectAttributes",
+              "target_id": "xcsh-docs:resources:network_connector:properties:enable_forward_proxy:tls_intercept:custom_certificate:private_key:clear_secret_info",
+              "type": "conflicts"
+            }
+          ],
+          "schema_path": ["enable_forward_proxy", "tls_intercept", "custom_certificate", "private_key"],
+          "syntax": "block",
+          "type": "object"
+        },
+        {
+          "aliases": ["use system defaults"],
+          "anchor": "section",
+          "description": "This can be used for messages where no values are needed.",
+          "document_id": "xcsh-docs:resources:network_connector:properties:enable_forward_proxy:tls_intercept:custom_certificate:use_system_defaults",
+          "flags": ["optional"],
+          "max_items": null,
+          "min_items": null,
+          "nesting": null,
+          "relationships": [],
+          "schema_path": ["enable_forward_proxy", "tls_intercept", "custom_certificate", "use_system_defaults"],
+          "syntax": "attribute",
+          "type": "object"
+        }
+      ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/network_connector/properties/enable_forward_proxy/tls_intercept/custom_certificate/index.txt",
       "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
-      "summary": "enable_forward_proxy.tls_intercept.custom_certificate for xcsh_network_connector.",
+      "summary": "Handle to fetch certificate and key.",
+      "tasks": ["configuration"],
       "title": "enable_forward_proxy.tls_intercept.custom_certificate",
       "upstream_identity": {
         "release_tag": "v9.0.0",
@@ -599,25 +1424,74 @@
       }
     },
     {
-      "aliases": [],
+      "aliases": [
+        "cert",
+        "certificate",
+        "enable forward proxy tls intercept custom certificate custom hash algorithms",
+        "existing certificates",
+        "tls certificates"
+      ],
       "body_bytes": 3527,
       "body_sha256": "sha256:79af859597cc2ed9255a9a09264b088f3d115bc8d7e4e6cbac67f8c9bf51a761",
+      "capabilities": ["networking"],
+      "category": "networking",
       "child_ids": [],
+      "classification": {
+        "rules_sha256": "sha256:98dbf5280bf8376a0c75c1391250db9db4ac0d293d42bdd831c20f7514925adb",
+        "sources": ["receipt-pinned-upstream", "reviewed-rule"],
+        "status": "resolved",
+        "upstream_category_source": "receipt-pinned-resource"
+      },
       "collection_id": "xcsh-docs:resources:network_connector:collection",
       "completeness": "complete",
       "id": "xcsh-docs:resources:network_connector:properties:enable_forward_proxy:tls_intercept:custom_certificate:custom_hash_algorithms",
       "parent_id": "xcsh-docs:resources:network_connector:properties:enable_forward_proxy:tls_intercept:custom_certificate",
       "path": "documentation/resources/network_connector/properties/enable_forward_proxy/tls_intercept/custom_certificate/custom_hash_algorithms/index.md",
+      "product": "distributed-cloud",
       "provider_name": "network_connector",
       "provider_schema_digest": "sha256:e63a07e98b4893c041a6f79be7e19c64babfe543fc6847c17641037e084e1c7c",
       "provider_type": "resources",
       "registry_anchor": "canonical-1222220221121321-2112110330102031-2011212032031302-3300212212120110-1123322011321313-2300011030023332-0132130133221002-0300232100200203",
       "registry_path": "docs/guides/resources--network_connector--reference--group-001.md",
+      "relationships": [
+        {
+          "anchor": "schema-enable_forward_proxy--tls_intercept--custom_certificate--custom_hash_algorithms--hash_algorithms",
+          "enforcement": "provider-schema",
+          "group": "enable_forward_proxy.tls_intercept.custom_certificate.custom_hash_algorithms:RequiredObjectAttributes:hash_algorithms",
+          "source": "ast-validator:RequiredObjectAttributes",
+          "target_id": "xcsh-docs:resources:network_connector:properties:enable_forward_proxy:tls_intercept:custom_certificate:custom_hash_algorithms",
+          "type": "requires"
+        }
+      ],
+      "retrieval_version": 1,
       "role": "properties",
       "schema_path": ["enable_forward_proxy", "tls_intercept", "custom_certificate", "custom_hash_algorithms"],
+      "sections": [
+        {
+          "aliases": ["hash algorithms"],
+          "anchor": "schema-enable_forward_proxy--tls_intercept--custom_certificate--custom_hash_algorithms--hash_algorithms",
+          "description": "Ordered list of hash algorithms to be used.",
+          "document_id": "xcsh-docs:resources:network_connector:properties:enable_forward_proxy:tls_intercept:custom_certificate:custom_hash_algorithms",
+          "flags": ["optional"],
+          "max_items": null,
+          "min_items": null,
+          "nesting": null,
+          "relationships": [],
+          "schema_path": [
+            "enable_forward_proxy",
+            "tls_intercept",
+            "custom_certificate",
+            "custom_hash_algorithms",
+            "hash_algorithms"
+          ],
+          "syntax": "attribute",
+          "type": "list"
+        }
+      ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/network_connector/properties/enable_forward_proxy/tls_intercept/custom_certificate/custom_hash_algorithms/index.txt",
       "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
-      "summary": "enable_forward_proxy.tls_intercept.custom_certificate.custom_hash_algorithms for xcsh_network_connector.",
+      "summary": "Specifies the hash algorithms to be used.",
+      "tasks": ["configuration"],
       "title": "enable_forward_proxy.tls_intercept.custom_certificate.custom_hash_algorithms",
       "upstream_identity": {
         "release_tag": "v9.0.0",
@@ -626,25 +1500,44 @@
       }
     },
     {
-      "aliases": [],
+      "aliases": [
+        "cert",
+        "certificate",
+        "enable forward proxy tls intercept custom certificate disable ocsp stapling",
+        "existing certificates",
+        "tls certificates"
+      ],
       "body_bytes": 1888,
       "body_sha256": "sha256:febdc1762ecea9fc530720d1291d86cd7c68ab7e9cc31a46aab2b222fa8169dd",
+      "capabilities": ["networking"],
+      "category": "networking",
       "child_ids": [],
+      "classification": {
+        "rules_sha256": "sha256:98dbf5280bf8376a0c75c1391250db9db4ac0d293d42bdd831c20f7514925adb",
+        "sources": ["receipt-pinned-upstream", "reviewed-rule"],
+        "status": "resolved",
+        "upstream_category_source": "receipt-pinned-resource"
+      },
       "collection_id": "xcsh-docs:resources:network_connector:collection",
       "completeness": "complete",
       "id": "xcsh-docs:resources:network_connector:properties:enable_forward_proxy:tls_intercept:custom_certificate:disable_ocsp_stapling",
       "parent_id": "xcsh-docs:resources:network_connector:properties:enable_forward_proxy:tls_intercept:custom_certificate",
       "path": "documentation/resources/network_connector/properties/enable_forward_proxy/tls_intercept/custom_certificate/disable_ocsp_stapling/index.md",
+      "product": "distributed-cloud",
       "provider_name": "network_connector",
       "provider_schema_digest": "sha256:e63a07e98b4893c041a6f79be7e19c64babfe543fc6847c17641037e084e1c7c",
       "provider_type": "resources",
       "registry_anchor": "canonical-3021203321310222-3123232223313100-2312011031021130-0113310311212011-1031322113213221-1011320213122300-0012121210212103-1210003130312211",
       "registry_path": "docs/guides/resources--network_connector--reference--group-001.md",
+      "relationships": [],
+      "retrieval_version": 1,
       "role": "properties",
       "schema_path": ["enable_forward_proxy", "tls_intercept", "custom_certificate", "disable_ocsp_stapling"],
+      "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/network_connector/properties/enable_forward_proxy/tls_intercept/custom_certificate/disable_ocsp_stapling/index.txt",
       "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
-      "summary": "enable_forward_proxy.tls_intercept.custom_certificate.disable_ocsp_stapling for xcsh_network_connector.",
+      "summary": "This can be used for messages where no values are needed.",
+      "tasks": ["configuration"],
       "title": "enable_forward_proxy.tls_intercept.custom_certificate.disable_ocsp_stapling",
       "upstream_identity": {
         "release_tag": "v9.0.0",
@@ -653,28 +1546,123 @@
       }
     },
     {
-      "aliases": [],
+      "aliases": [
+        "cert",
+        "certificate",
+        "enable forward proxy tls intercept custom certificate private key",
+        "existing certificates",
+        "tls certificates"
+      ],
       "body_bytes": 3097,
       "body_sha256": "sha256:e96a4fd6aea34fcfb75d63a085fca0518fbeb2c1ea889f6144ebefecf586712a",
+      "capabilities": ["networking"],
+      "category": "networking",
       "child_ids": [
         "xcsh-docs:resources:network_connector:properties:enable_forward_proxy:tls_intercept:custom_certificate:private_key:blindfold_secret_info",
         "xcsh-docs:resources:network_connector:properties:enable_forward_proxy:tls_intercept:custom_certificate:private_key:clear_secret_info"
       ],
+      "classification": {
+        "rules_sha256": "sha256:98dbf5280bf8376a0c75c1391250db9db4ac0d293d42bdd831c20f7514925adb",
+        "sources": ["receipt-pinned-upstream", "reviewed-rule"],
+        "status": "resolved",
+        "upstream_category_source": "receipt-pinned-resource"
+      },
       "collection_id": "xcsh-docs:resources:network_connector:collection",
       "completeness": "complete",
       "id": "xcsh-docs:resources:network_connector:properties:enable_forward_proxy:tls_intercept:custom_certificate:private_key",
       "parent_id": "xcsh-docs:resources:network_connector:properties:enable_forward_proxy:tls_intercept:custom_certificate",
       "path": "documentation/resources/network_connector/properties/enable_forward_proxy/tls_intercept/custom_certificate/private_key/index.md",
+      "product": "distributed-cloud",
       "provider_name": "network_connector",
       "provider_schema_digest": "sha256:e63a07e98b4893c041a6f79be7e19c64babfe543fc6847c17641037e084e1c7c",
       "provider_type": "resources",
       "registry_anchor": "canonical-2221211102221322-0121012130323032-2120331032320113-1022031001212310-3230231103002311-3202302003110303-0331101203120033-0203030111001221",
       "registry_path": "docs/guides/resources--network_connector--reference--group-001.md",
+      "relationships": [
+        {
+          "anchor": "section",
+          "enforcement": "provider-schema",
+          "group": "enable_forward_proxy.tls_intercept.custom_certificate.private_key:ConflictingObjectAttributes:blindfold_secret_info,clear_secret_info",
+          "source": "ast-validator:ConflictingObjectAttributes",
+          "target_id": "xcsh-docs:resources:network_connector:properties:enable_forward_proxy:tls_intercept:custom_certificate:private_key:blindfold_secret_info",
+          "type": "conflicts"
+        },
+        {
+          "anchor": "section",
+          "enforcement": "provider-schema",
+          "group": "enable_forward_proxy.tls_intercept.custom_certificate.private_key:ConflictingObjectAttributes:blindfold_secret_info,clear_secret_info",
+          "source": "ast-validator:ConflictingObjectAttributes",
+          "target_id": "xcsh-docs:resources:network_connector:properties:enable_forward_proxy:tls_intercept:custom_certificate:private_key:clear_secret_info",
+          "type": "conflicts"
+        }
+      ],
+      "retrieval_version": 1,
       "role": "properties",
       "schema_path": ["enable_forward_proxy", "tls_intercept", "custom_certificate", "private_key"],
+      "sections": [
+        {
+          "aliases": ["blindfold secret info"],
+          "anchor": "section",
+          "description": "BlindfoldSecretInfoType specifies information about the Secret managed by F5XC Secret Management.",
+          "document_id": "xcsh-docs:resources:network_connector:properties:enable_forward_proxy:tls_intercept:custom_certificate:private_key:blindfold_secret_info",
+          "flags": [],
+          "max_items": null,
+          "min_items": null,
+          "nesting": "single",
+          "relationships": [
+            {
+              "anchor": "schema-enable_forward_proxy--tls_intercept--custom_certificate--private_key--blindfold_secret_info--location",
+              "enforcement": "provider-schema",
+              "group": "enable_forward_proxy.tls_intercept.custom_certificate.private_key.blindfold_secret_info:RequiredObjectAttributes:location",
+              "source": "ast-validator:RequiredObjectAttributes",
+              "target_id": "xcsh-docs:resources:network_connector:properties:enable_forward_proxy:tls_intercept:custom_certificate:private_key:blindfold_secret_info",
+              "type": "requires"
+            }
+          ],
+          "schema_path": [
+            "enable_forward_proxy",
+            "tls_intercept",
+            "custom_certificate",
+            "private_key",
+            "blindfold_secret_info"
+          ],
+          "syntax": "block",
+          "type": "object"
+        },
+        {
+          "aliases": ["clear secret info"],
+          "anchor": "section",
+          "description": "ClearSecretInfoType specifies information about the Secret that is not encrypted.",
+          "document_id": "xcsh-docs:resources:network_connector:properties:enable_forward_proxy:tls_intercept:custom_certificate:private_key:clear_secret_info",
+          "flags": [],
+          "max_items": null,
+          "min_items": null,
+          "nesting": "single",
+          "relationships": [
+            {
+              "anchor": "schema-enable_forward_proxy--tls_intercept--custom_certificate--private_key--clear_secret_info--url",
+              "enforcement": "provider-schema",
+              "group": "enable_forward_proxy.tls_intercept.custom_certificate.private_key.clear_secret_info:RequiredObjectAttributes:url",
+              "source": "ast-validator:RequiredObjectAttributes",
+              "target_id": "xcsh-docs:resources:network_connector:properties:enable_forward_proxy:tls_intercept:custom_certificate:private_key:clear_secret_info",
+              "type": "requires"
+            }
+          ],
+          "schema_path": [
+            "enable_forward_proxy",
+            "tls_intercept",
+            "custom_certificate",
+            "private_key",
+            "clear_secret_info"
+          ],
+          "syntax": "block",
+          "type": "object"
+        }
+      ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/network_connector/properties/enable_forward_proxy/tls_intercept/custom_certificate/private_key/index.txt",
       "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
-      "summary": "enable_forward_proxy.tls_intercept.custom_certificate.private_key for xcsh_network_connector.",
+      "summary": "SecretType is used in an object to indicate a sensitive/confidential field.",
+      "tasks": ["configuration"],
       "title": "enable_forward_proxy.tls_intercept.custom_certificate.private_key",
       "upstream_identity": {
         "release_tag": "v9.0.0",
@@ -683,20 +1671,46 @@
       }
     },
     {
-      "aliases": [],
+      "aliases": [
+        "cert",
+        "certificate",
+        "enable forward proxy tls intercept custom certificate private key blindfold secret info",
+        "existing certificates",
+        "tls certificates"
+      ],
       "body_bytes": 5658,
       "body_sha256": "sha256:fabc850d92cceb1ea91f66403fa3a20240b84a107d6b6bf12845301b1b2571b2",
+      "capabilities": ["networking"],
+      "category": "networking",
       "child_ids": [],
+      "classification": {
+        "rules_sha256": "sha256:98dbf5280bf8376a0c75c1391250db9db4ac0d293d42bdd831c20f7514925adb",
+        "sources": ["receipt-pinned-upstream", "reviewed-rule"],
+        "status": "resolved",
+        "upstream_category_source": "receipt-pinned-resource"
+      },
       "collection_id": "xcsh-docs:resources:network_connector:collection",
       "completeness": "complete",
       "id": "xcsh-docs:resources:network_connector:properties:enable_forward_proxy:tls_intercept:custom_certificate:private_key:blindfold_secret_info",
       "parent_id": "xcsh-docs:resources:network_connector:properties:enable_forward_proxy:tls_intercept:custom_certificate:private_key",
       "path": "documentation/resources/network_connector/properties/enable_forward_proxy/tls_intercept/custom_certificate/private_key/blindfold_secret_info/index.md",
+      "product": "distributed-cloud",
       "provider_name": "network_connector",
       "provider_schema_digest": "sha256:e63a07e98b4893c041a6f79be7e19c64babfe543fc6847c17641037e084e1c7c",
       "provider_type": "resources",
       "registry_anchor": "canonical-0301211101221003-2120223030311111-3023111113023002-1213000012321121-3102013112320113-2112103203102303-3333111333020110-1220300300101323",
       "registry_path": "docs/guides/resources--network_connector--reference--group-001.md",
+      "relationships": [
+        {
+          "anchor": "schema-enable_forward_proxy--tls_intercept--custom_certificate--private_key--blindfold_secret_info--location",
+          "enforcement": "provider-schema",
+          "group": "enable_forward_proxy.tls_intercept.custom_certificate.private_key.blindfold_secret_info:RequiredObjectAttributes:location",
+          "source": "ast-validator:RequiredObjectAttributes",
+          "target_id": "xcsh-docs:resources:network_connector:properties:enable_forward_proxy:tls_intercept:custom_certificate:private_key:blindfold_secret_info",
+          "type": "requires"
+        }
+      ],
+      "retrieval_version": 1,
       "role": "properties",
       "schema_path": [
         "enable_forward_proxy",
@@ -705,9 +1719,75 @@
         "private_key",
         "blindfold_secret_info"
       ],
+      "sections": [
+        {
+          "aliases": ["backend servers", "decryption provider", "origin servers", "upstream servers"],
+          "anchor": "schema-enable_forward_proxy--tls_intercept--custom_certificate--private_key--blindfold_secret_info--decryption_provider",
+          "description": "Name of the Secret Management Access object that contains information about the backend Secret Management service.",
+          "document_id": "xcsh-docs:resources:network_connector:properties:enable_forward_proxy:tls_intercept:custom_certificate:private_key:blindfold_secret_info",
+          "flags": ["optional"],
+          "max_items": null,
+          "min_items": null,
+          "nesting": null,
+          "relationships": [],
+          "schema_path": [
+            "enable_forward_proxy",
+            "tls_intercept",
+            "custom_certificate",
+            "private_key",
+            "blindfold_secret_info",
+            "decryption_provider"
+          ],
+          "syntax": "attribute",
+          "type": "string"
+        },
+        {
+          "aliases": ["location"],
+          "anchor": "schema-enable_forward_proxy--tls_intercept--custom_certificate--private_key--blindfold_secret_info--location",
+          "description": "Location is the uri_ref. It could be in URL format for string:/// Or it could be a path if the store provider is an HTTP/HTTPS location.",
+          "document_id": "xcsh-docs:resources:network_connector:properties:enable_forward_proxy:tls_intercept:custom_certificate:private_key:blindfold_secret_info",
+          "flags": ["optional", "sensitive"],
+          "max_items": null,
+          "min_items": null,
+          "nesting": null,
+          "relationships": [],
+          "schema_path": [
+            "enable_forward_proxy",
+            "tls_intercept",
+            "custom_certificate",
+            "private_key",
+            "blindfold_secret_info",
+            "location"
+          ],
+          "syntax": "attribute",
+          "type": "string"
+        },
+        {
+          "aliases": ["store provider"],
+          "anchor": "schema-enable_forward_proxy--tls_intercept--custom_certificate--private_key--blindfold_secret_info--store_provider",
+          "description": "Name of the Secret Management Access object that contains information about the store to GET encrypted bytes This field needs to be provided only if the URL scheme is not string:///.",
+          "document_id": "xcsh-docs:resources:network_connector:properties:enable_forward_proxy:tls_intercept:custom_certificate:private_key:blindfold_secret_info",
+          "flags": ["optional"],
+          "max_items": null,
+          "min_items": null,
+          "nesting": null,
+          "relationships": [],
+          "schema_path": [
+            "enable_forward_proxy",
+            "tls_intercept",
+            "custom_certificate",
+            "private_key",
+            "blindfold_secret_info",
+            "store_provider"
+          ],
+          "syntax": "attribute",
+          "type": "string"
+        }
+      ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/network_connector/properties/enable_forward_proxy/tls_intercept/custom_certificate/private_key/blindfold_secret_info/index.txt",
       "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
-      "summary": "enable_forward_proxy.tls_intercept.custom_certificate.private_key.blindfold_secret_info for xcsh_network_connector.",
+      "summary": "BlindfoldSecretInfoType specifies information about the Secret managed by F5XC Secret Management.",
+      "tasks": ["configuration"],
       "title": "enable_forward_proxy.tls_intercept.custom_certificate.private_key.blindfold_secret_info",
       "upstream_identity": {
         "release_tag": "v9.0.0",
@@ -716,20 +1796,46 @@
       }
     },
     {
-      "aliases": [],
+      "aliases": [
+        "cert",
+        "certificate",
+        "enable forward proxy tls intercept custom certificate private key clear secret info",
+        "existing certificates",
+        "tls certificates"
+      ],
       "body_bytes": 4501,
       "body_sha256": "sha256:846daa6b094fbff53535c1471f088e3aba724b0535b96e62e4fcb317fc67a093",
+      "capabilities": ["networking"],
+      "category": "networking",
       "child_ids": [],
+      "classification": {
+        "rules_sha256": "sha256:98dbf5280bf8376a0c75c1391250db9db4ac0d293d42bdd831c20f7514925adb",
+        "sources": ["receipt-pinned-upstream", "reviewed-rule"],
+        "status": "resolved",
+        "upstream_category_source": "receipt-pinned-resource"
+      },
       "collection_id": "xcsh-docs:resources:network_connector:collection",
       "completeness": "complete",
       "id": "xcsh-docs:resources:network_connector:properties:enable_forward_proxy:tls_intercept:custom_certificate:private_key:clear_secret_info",
       "parent_id": "xcsh-docs:resources:network_connector:properties:enable_forward_proxy:tls_intercept:custom_certificate:private_key",
       "path": "documentation/resources/network_connector/properties/enable_forward_proxy/tls_intercept/custom_certificate/private_key/clear_secret_info/index.md",
+      "product": "distributed-cloud",
       "provider_name": "network_connector",
       "provider_schema_digest": "sha256:e63a07e98b4893c041a6f79be7e19c64babfe543fc6847c17641037e084e1c7c",
       "provider_type": "resources",
       "registry_anchor": "canonical-0032033013102232-3303100213113021-2233201201133120-2101321230020221-3000032021020022-1111303102333230-3311212113232320-1313231203200032",
       "registry_path": "docs/guides/resources--network_connector--reference--group-001.md",
+      "relationships": [
+        {
+          "anchor": "schema-enable_forward_proxy--tls_intercept--custom_certificate--private_key--clear_secret_info--url",
+          "enforcement": "provider-schema",
+          "group": "enable_forward_proxy.tls_intercept.custom_certificate.private_key.clear_secret_info:RequiredObjectAttributes:url",
+          "source": "ast-validator:RequiredObjectAttributes",
+          "target_id": "xcsh-docs:resources:network_connector:properties:enable_forward_proxy:tls_intercept:custom_certificate:private_key:clear_secret_info",
+          "type": "requires"
+        }
+      ],
+      "retrieval_version": 1,
       "role": "properties",
       "schema_path": [
         "enable_forward_proxy",
@@ -738,9 +1844,54 @@
         "private_key",
         "clear_secret_info"
       ],
+      "sections": [
+        {
+          "aliases": ["provider ref"],
+          "anchor": "schema-enable_forward_proxy--tls_intercept--custom_certificate--private_key--clear_secret_info--provider_ref",
+          "description": "Name of the Secret Management Access object that contains information about the store to GET encrypted bytes This field needs to be provided only if the URL scheme is not string:///.",
+          "document_id": "xcsh-docs:resources:network_connector:properties:enable_forward_proxy:tls_intercept:custom_certificate:private_key:clear_secret_info",
+          "flags": ["optional"],
+          "max_items": null,
+          "min_items": null,
+          "nesting": null,
+          "relationships": [],
+          "schema_path": [
+            "enable_forward_proxy",
+            "tls_intercept",
+            "custom_certificate",
+            "private_key",
+            "clear_secret_info",
+            "provider_ref"
+          ],
+          "syntax": "attribute",
+          "type": "string"
+        },
+        {
+          "aliases": ["url"],
+          "anchor": "schema-enable_forward_proxy--tls_intercept--custom_certificate--private_key--clear_secret_info--url",
+          "description": "URL of the secret. Currently supported URL schemes is string:///. For string:/// scheme, Secret needs to be encoded Base64 format. When asked for this secret, caller will GET Secret bytes after Base64 decoding.",
+          "document_id": "xcsh-docs:resources:network_connector:properties:enable_forward_proxy:tls_intercept:custom_certificate:private_key:clear_secret_info",
+          "flags": ["optional", "sensitive"],
+          "max_items": null,
+          "min_items": null,
+          "nesting": null,
+          "relationships": [],
+          "schema_path": [
+            "enable_forward_proxy",
+            "tls_intercept",
+            "custom_certificate",
+            "private_key",
+            "clear_secret_info",
+            "url"
+          ],
+          "syntax": "attribute",
+          "type": "string"
+        }
+      ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/network_connector/properties/enable_forward_proxy/tls_intercept/custom_certificate/private_key/clear_secret_info/index.txt",
       "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
-      "summary": "enable_forward_proxy.tls_intercept.custom_certificate.private_key.clear_secret_info for xcsh_network_connector.",
+      "summary": "ClearSecretInfoType specifies information about the Secret that is not encrypted.",
+      "tasks": ["configuration"],
       "title": "enable_forward_proxy.tls_intercept.custom_certificate.private_key.clear_secret_info",
       "upstream_identity": {
         "release_tag": "v9.0.0",
@@ -749,25 +1900,44 @@
       }
     },
     {
-      "aliases": [],
+      "aliases": [
+        "cert",
+        "certificate",
+        "enable forward proxy tls intercept custom certificate use system defaults",
+        "existing certificates",
+        "tls certificates"
+      ],
       "body_bytes": 1880,
       "body_sha256": "sha256:faafb58ea3fac56e931c3e568a95b89633acfa0023907aa5ce1793c30d4c2d88",
+      "capabilities": ["networking"],
+      "category": "networking",
       "child_ids": [],
+      "classification": {
+        "rules_sha256": "sha256:98dbf5280bf8376a0c75c1391250db9db4ac0d293d42bdd831c20f7514925adb",
+        "sources": ["receipt-pinned-upstream", "reviewed-rule"],
+        "status": "resolved",
+        "upstream_category_source": "receipt-pinned-resource"
+      },
       "collection_id": "xcsh-docs:resources:network_connector:collection",
       "completeness": "complete",
       "id": "xcsh-docs:resources:network_connector:properties:enable_forward_proxy:tls_intercept:custom_certificate:use_system_defaults",
       "parent_id": "xcsh-docs:resources:network_connector:properties:enable_forward_proxy:tls_intercept:custom_certificate",
       "path": "documentation/resources/network_connector/properties/enable_forward_proxy/tls_intercept/custom_certificate/use_system_defaults/index.md",
+      "product": "distributed-cloud",
       "provider_name": "network_connector",
       "provider_schema_digest": "sha256:e63a07e98b4893c041a6f79be7e19c64babfe543fc6847c17641037e084e1c7c",
       "provider_type": "resources",
       "registry_anchor": "canonical-2302323012133000-3023322330122001-2111022313231223-0013221120232101-0322010231231012-3231011213212001-1033002001331323-1201200222112102",
       "registry_path": "docs/guides/resources--network_connector--reference--group-001.md",
+      "relationships": [],
+      "retrieval_version": 1,
       "role": "properties",
       "schema_path": ["enable_forward_proxy", "tls_intercept", "custom_certificate", "use_system_defaults"],
+      "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/network_connector/properties/enable_forward_proxy/tls_intercept/custom_certificate/use_system_defaults/index.txt",
       "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
-      "summary": "enable_forward_proxy.tls_intercept.custom_certificate.use_system_defaults for xcsh_network_connector.",
+      "summary": "This can be used for messages where no values are needed.",
+      "tasks": ["configuration"],
       "title": "enable_forward_proxy.tls_intercept.custom_certificate.use_system_defaults",
       "upstream_identity": {
         "release_tag": "v9.0.0",
@@ -776,25 +1946,38 @@
       }
     },
     {
-      "aliases": [],
+      "aliases": ["enable forward proxy tls intercept enable for all domains"],
       "body_bytes": 1607,
       "body_sha256": "sha256:f62772a1ccfbd51be69c363e17fab81d5d58901b2a767f36191bd846fd7aed37",
+      "capabilities": ["networking"],
+      "category": "networking",
       "child_ids": [],
+      "classification": {
+        "rules_sha256": "sha256:98dbf5280bf8376a0c75c1391250db9db4ac0d293d42bdd831c20f7514925adb",
+        "sources": ["receipt-pinned-upstream", "reviewed-rule"],
+        "status": "resolved",
+        "upstream_category_source": "receipt-pinned-resource"
+      },
       "collection_id": "xcsh-docs:resources:network_connector:collection",
       "completeness": "complete",
       "id": "xcsh-docs:resources:network_connector:properties:enable_forward_proxy:tls_intercept:enable_for_all_domains",
       "parent_id": "xcsh-docs:resources:network_connector:properties:enable_forward_proxy:tls_intercept",
       "path": "documentation/resources/network_connector/properties/enable_forward_proxy/tls_intercept/enable_for_all_domains/index.md",
+      "product": "distributed-cloud",
       "provider_name": "network_connector",
       "provider_schema_digest": "sha256:e63a07e98b4893c041a6f79be7e19c64babfe543fc6847c17641037e084e1c7c",
       "provider_type": "resources",
       "registry_anchor": "canonical-0310220322102112-3023130112222311-0212011213102203-1123003212100212-3112023222123021-2100130210320200-3131321232102211-3300011210112203",
       "registry_path": "docs/guides/resources--network_connector--reference--group-001.md",
+      "relationships": [],
+      "retrieval_version": 1,
       "role": "properties",
       "schema_path": ["enable_forward_proxy", "tls_intercept", "enable_for_all_domains"],
+      "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/network_connector/properties/enable_forward_proxy/tls_intercept/enable_for_all_domains/index.txt",
       "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
-      "summary": "enable_forward_proxy.tls_intercept.enable_for_all_domains for xcsh_network_connector.",
+      "summary": "This can be used for messages where no values are needed.",
+      "tasks": ["configuration"],
       "title": "enable_forward_proxy.tls_intercept.enable_for_all_domains",
       "upstream_identity": {
         "release_tag": "v9.0.0",
@@ -803,27 +1986,64 @@
       }
     },
     {
-      "aliases": [],
+      "aliases": ["enable forward proxy tls intercept policy"],
       "body_bytes": 2053,
       "body_sha256": "sha256:29ce88131444a0e3e19a44fb923e4304911a2a3925dd19df7a4a2ca9bdf72321",
+      "capabilities": ["networking"],
+      "category": "networking",
       "child_ids": [
         "xcsh-docs:resources:network_connector:properties:enable_forward_proxy:tls_intercept:policy:interception_rules"
       ],
+      "classification": {
+        "rules_sha256": "sha256:98dbf5280bf8376a0c75c1391250db9db4ac0d293d42bdd831c20f7514925adb",
+        "sources": ["receipt-pinned-upstream", "reviewed-rule"],
+        "status": "resolved",
+        "upstream_category_source": "receipt-pinned-resource"
+      },
       "collection_id": "xcsh-docs:resources:network_connector:collection",
       "completeness": "complete",
       "id": "xcsh-docs:resources:network_connector:properties:enable_forward_proxy:tls_intercept:policy",
       "parent_id": "xcsh-docs:resources:network_connector:properties:enable_forward_proxy:tls_intercept",
       "path": "documentation/resources/network_connector/properties/enable_forward_proxy/tls_intercept/policy/index.md",
+      "product": "distributed-cloud",
       "provider_name": "network_connector",
       "provider_schema_digest": "sha256:e63a07e98b4893c041a6f79be7e19c64babfe543fc6847c17641037e084e1c7c",
       "provider_type": "resources",
       "registry_anchor": "canonical-3211212111320201-2222122020320213-1320133223221323-0001311130111112-2100023002132002-0313322211212211-2210010112011212-3000210003122113",
       "registry_path": "docs/guides/resources--network_connector--reference--group-001.md",
+      "relationships": [
+        {
+          "anchor": "section",
+          "enforcement": "provider-schema",
+          "group": "enable_forward_proxy.tls_intercept.policy:RequiredObjectAttributes:interception_rules",
+          "source": "ast-validator:RequiredObjectAttributes",
+          "target_id": "xcsh-docs:resources:network_connector:properties:enable_forward_proxy:tls_intercept:policy:interception_rules",
+          "type": "requires"
+        }
+      ],
+      "retrieval_version": 1,
       "role": "properties",
       "schema_path": ["enable_forward_proxy", "tls_intercept", "policy"],
+      "sections": [
+        {
+          "aliases": ["interception rules"],
+          "anchor": "section",
+          "description": "List of ordered rules to enable or disable for TLS interception.",
+          "document_id": "xcsh-docs:resources:network_connector:properties:enable_forward_proxy:tls_intercept:policy:interception_rules",
+          "flags": [],
+          "max_items": null,
+          "min_items": null,
+          "nesting": "list",
+          "relationships": [],
+          "schema_path": ["enable_forward_proxy", "tls_intercept", "policy", "interception_rules"],
+          "syntax": "block",
+          "type": "object"
+        }
+      ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/network_connector/properties/enable_forward_proxy/tls_intercept/policy/index.txt",
       "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
-      "summary": "enable_forward_proxy.tls_intercept.policy for xcsh_network_connector.",
+      "summary": "Policy to enable or disable TLS interception.",
+      "tasks": ["configuration"],
       "title": "enable_forward_proxy.tls_intercept.policy",
       "upstream_identity": {
         "release_tag": "v9.0.0",
@@ -832,29 +2052,146 @@
       }
     },
     {
-      "aliases": [],
+      "aliases": ["enable forward proxy tls intercept policy interception rules"],
       "body_bytes": 4205,
       "body_sha256": "sha256:cd2885c1af29e778e905c1b37d6bb7d9d35c3a1deed1850459fa3e6439d82a7d",
+      "capabilities": ["networking"],
+      "category": "networking",
       "child_ids": [
         "xcsh-docs:resources:network_connector:properties:enable_forward_proxy:tls_intercept:policy:interception_rules:disable_interception",
         "xcsh-docs:resources:network_connector:properties:enable_forward_proxy:tls_intercept:policy:interception_rules:domain_match",
         "xcsh-docs:resources:network_connector:properties:enable_forward_proxy:tls_intercept:policy:interception_rules:enable_interception"
       ],
+      "classification": {
+        "rules_sha256": "sha256:98dbf5280bf8376a0c75c1391250db9db4ac0d293d42bdd831c20f7514925adb",
+        "sources": ["receipt-pinned-upstream", "reviewed-rule"],
+        "status": "resolved",
+        "upstream_category_source": "receipt-pinned-resource"
+      },
       "collection_id": "xcsh-docs:resources:network_connector:collection",
       "completeness": "complete",
       "id": "xcsh-docs:resources:network_connector:properties:enable_forward_proxy:tls_intercept:policy:interception_rules",
       "parent_id": "xcsh-docs:resources:network_connector:properties:enable_forward_proxy:tls_intercept:policy",
       "path": "documentation/resources/network_connector/properties/enable_forward_proxy/tls_intercept/policy/interception_rules/index.md",
+      "product": "distributed-cloud",
       "provider_name": "network_connector",
       "provider_schema_digest": "sha256:e63a07e98b4893c041a6f79be7e19c64babfe543fc6847c17641037e084e1c7c",
       "provider_type": "resources",
       "registry_anchor": "canonical-2212132222031223-2022113131220322-3333032311223130-1203021131321033-1301233321012022-0112103110300102-3133032102230313-3321030102212031",
       "registry_path": "docs/guides/resources--network_connector--reference--group-001.md",
+      "relationships": [],
+      "retrieval_version": 1,
       "role": "properties",
       "schema_path": ["enable_forward_proxy", "tls_intercept", "policy", "interception_rules"],
+      "sections": [
+        {
+          "aliases": ["disable interception"],
+          "anchor": "section",
+          "description": "This can be used for messages where no values are needed.",
+          "document_id": "xcsh-docs:resources:network_connector:properties:enable_forward_proxy:tls_intercept:policy:interception_rules:disable_interception",
+          "flags": ["optional"],
+          "max_items": null,
+          "min_items": null,
+          "nesting": null,
+          "relationships": [],
+          "schema_path": [
+            "enable_forward_proxy",
+            "tls_intercept",
+            "policy",
+            "interception_rules",
+            "disable_interception"
+          ],
+          "syntax": "attribute",
+          "type": "object"
+        },
+        {
+          "aliases": ["domain match"],
+          "anchor": "section",
+          "description": "Domains names.",
+          "document_id": "xcsh-docs:resources:network_connector:properties:enable_forward_proxy:tls_intercept:policy:interception_rules:domain_match",
+          "flags": [],
+          "max_items": null,
+          "min_items": null,
+          "nesting": "single",
+          "relationships": [
+            {
+              "anchor": "schema-enable_forward_proxy--tls_intercept--policy--interception_rules--domain_match--exact_value",
+              "enforcement": "provider-schema",
+              "group": "enable_forward_proxy.tls_intercept.policy.interception_rules.domain_match:ConflictingObjectAttributes:exact_value,regex_value",
+              "source": "ast-validator:ConflictingObjectAttributes",
+              "target_id": "xcsh-docs:resources:network_connector:properties:enable_forward_proxy:tls_intercept:policy:interception_rules:domain_match",
+              "type": "conflicts"
+            },
+            {
+              "anchor": "schema-enable_forward_proxy--tls_intercept--policy--interception_rules--domain_match--exact_value",
+              "enforcement": "provider-schema",
+              "group": "enable_forward_proxy.tls_intercept.policy.interception_rules.domain_match:ConflictingObjectAttributes:exact_value,suffix_value",
+              "source": "ast-validator:ConflictingObjectAttributes",
+              "target_id": "xcsh-docs:resources:network_connector:properties:enable_forward_proxy:tls_intercept:policy:interception_rules:domain_match",
+              "type": "conflicts"
+            },
+            {
+              "anchor": "schema-enable_forward_proxy--tls_intercept--policy--interception_rules--domain_match--regex_value",
+              "enforcement": "provider-schema",
+              "group": "enable_forward_proxy.tls_intercept.policy.interception_rules.domain_match:ConflictingObjectAttributes:exact_value,regex_value",
+              "source": "ast-validator:ConflictingObjectAttributes",
+              "target_id": "xcsh-docs:resources:network_connector:properties:enable_forward_proxy:tls_intercept:policy:interception_rules:domain_match",
+              "type": "conflicts"
+            },
+            {
+              "anchor": "schema-enable_forward_proxy--tls_intercept--policy--interception_rules--domain_match--regex_value",
+              "enforcement": "provider-schema",
+              "group": "enable_forward_proxy.tls_intercept.policy.interception_rules.domain_match:ConflictingObjectAttributes:regex_value,suffix_value",
+              "source": "ast-validator:ConflictingObjectAttributes",
+              "target_id": "xcsh-docs:resources:network_connector:properties:enable_forward_proxy:tls_intercept:policy:interception_rules:domain_match",
+              "type": "conflicts"
+            },
+            {
+              "anchor": "schema-enable_forward_proxy--tls_intercept--policy--interception_rules--domain_match--suffix_value",
+              "enforcement": "provider-schema",
+              "group": "enable_forward_proxy.tls_intercept.policy.interception_rules.domain_match:ConflictingObjectAttributes:exact_value,suffix_value",
+              "source": "ast-validator:ConflictingObjectAttributes",
+              "target_id": "xcsh-docs:resources:network_connector:properties:enable_forward_proxy:tls_intercept:policy:interception_rules:domain_match",
+              "type": "conflicts"
+            },
+            {
+              "anchor": "schema-enable_forward_proxy--tls_intercept--policy--interception_rules--domain_match--suffix_value",
+              "enforcement": "provider-schema",
+              "group": "enable_forward_proxy.tls_intercept.policy.interception_rules.domain_match:ConflictingObjectAttributes:regex_value,suffix_value",
+              "source": "ast-validator:ConflictingObjectAttributes",
+              "target_id": "xcsh-docs:resources:network_connector:properties:enable_forward_proxy:tls_intercept:policy:interception_rules:domain_match",
+              "type": "conflicts"
+            }
+          ],
+          "schema_path": ["enable_forward_proxy", "tls_intercept", "policy", "interception_rules", "domain_match"],
+          "syntax": "block",
+          "type": "object"
+        },
+        {
+          "aliases": ["enable interception"],
+          "anchor": "section",
+          "description": "This can be used for messages where no values are needed.",
+          "document_id": "xcsh-docs:resources:network_connector:properties:enable_forward_proxy:tls_intercept:policy:interception_rules:enable_interception",
+          "flags": ["optional"],
+          "max_items": null,
+          "min_items": null,
+          "nesting": null,
+          "relationships": [],
+          "schema_path": [
+            "enable_forward_proxy",
+            "tls_intercept",
+            "policy",
+            "interception_rules",
+            "enable_interception"
+          ],
+          "syntax": "attribute",
+          "type": "object"
+        }
+      ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/network_connector/properties/enable_forward_proxy/tls_intercept/policy/interception_rules/index.txt",
       "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
-      "summary": "enable_forward_proxy.tls_intercept.policy.interception_rules for xcsh_network_connector.",
+      "summary": "List of ordered rules to enable or disable for TLS interception.",
+      "tasks": ["configuration"],
       "title": "enable_forward_proxy.tls_intercept.policy.interception_rules",
       "upstream_identity": {
         "release_tag": "v9.0.0",
@@ -863,25 +2200,38 @@
       }
     },
     {
-      "aliases": [],
+      "aliases": ["enable forward proxy tls intercept policy interception rules disable interception"],
       "body_bytes": 2111,
       "body_sha256": "sha256:bea2e78c3415886964cf0368316298ee4a0d9eacc6cb235361f438e56aa0e218",
+      "capabilities": ["networking"],
+      "category": "networking",
       "child_ids": [],
+      "classification": {
+        "rules_sha256": "sha256:98dbf5280bf8376a0c75c1391250db9db4ac0d293d42bdd831c20f7514925adb",
+        "sources": ["receipt-pinned-upstream", "reviewed-rule"],
+        "status": "resolved",
+        "upstream_category_source": "receipt-pinned-resource"
+      },
       "collection_id": "xcsh-docs:resources:network_connector:collection",
       "completeness": "complete",
       "id": "xcsh-docs:resources:network_connector:properties:enable_forward_proxy:tls_intercept:policy:interception_rules:disable_interception",
       "parent_id": "xcsh-docs:resources:network_connector:properties:enable_forward_proxy:tls_intercept:policy:interception_rules",
       "path": "documentation/resources/network_connector/properties/enable_forward_proxy/tls_intercept/policy/interception_rules/disable_interception/index.md",
+      "product": "distributed-cloud",
       "provider_name": "network_connector",
       "provider_schema_digest": "sha256:e63a07e98b4893c041a6f79be7e19c64babfe543fc6847c17641037e084e1c7c",
       "provider_type": "resources",
       "registry_anchor": "canonical-3302100112031320-3032312131031033-0321102200002110-3031331311112110-1100020213030010-2210233003210202-1000300032111103-0230122331133103",
       "registry_path": "docs/guides/resources--network_connector--reference--group-001.md",
+      "relationships": [],
+      "retrieval_version": 1,
       "role": "properties",
       "schema_path": ["enable_forward_proxy", "tls_intercept", "policy", "interception_rules", "disable_interception"],
+      "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/network_connector/properties/enable_forward_proxy/tls_intercept/policy/interception_rules/disable_interception/index.txt",
       "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
-      "summary": "enable_forward_proxy.tls_intercept.policy.interception_rules.disable_interception for xcsh_network_connector.",
+      "summary": "This can be used for messages where no values are needed.",
+      "tasks": ["configuration"],
       "title": "enable_forward_proxy.tls_intercept.policy.interception_rules.disable_interception",
       "upstream_identity": {
         "release_tag": "v9.0.0",
@@ -890,25 +2240,151 @@
       }
     },
     {
-      "aliases": [],
+      "aliases": ["enable forward proxy tls intercept policy interception rules domain match"],
       "body_bytes": 6624,
       "body_sha256": "sha256:eb537cdb809baee87200a788548f4b3f53e40cd45bf43431909c22ccabf1ea99",
+      "capabilities": ["networking"],
+      "category": "networking",
       "child_ids": [],
+      "classification": {
+        "rules_sha256": "sha256:98dbf5280bf8376a0c75c1391250db9db4ac0d293d42bdd831c20f7514925adb",
+        "sources": ["receipt-pinned-upstream", "reviewed-rule"],
+        "status": "resolved",
+        "upstream_category_source": "receipt-pinned-resource"
+      },
       "collection_id": "xcsh-docs:resources:network_connector:collection",
       "completeness": "complete",
       "id": "xcsh-docs:resources:network_connector:properties:enable_forward_proxy:tls_intercept:policy:interception_rules:domain_match",
       "parent_id": "xcsh-docs:resources:network_connector:properties:enable_forward_proxy:tls_intercept:policy:interception_rules",
       "path": "documentation/resources/network_connector/properties/enable_forward_proxy/tls_intercept/policy/interception_rules/domain_match/index.md",
+      "product": "distributed-cloud",
       "provider_name": "network_connector",
       "provider_schema_digest": "sha256:e63a07e98b4893c041a6f79be7e19c64babfe543fc6847c17641037e084e1c7c",
       "provider_type": "resources",
       "registry_anchor": "canonical-0310200011100112-3220212010300122-2323023020302311-0223333330110122-1302230013001222-0230322030120110-3332001030223301-2230211211230221",
       "registry_path": "docs/guides/resources--network_connector--reference--group-001.md",
+      "relationships": [
+        {
+          "anchor": "schema-enable_forward_proxy--tls_intercept--policy--interception_rules--domain_match--exact_value",
+          "enforcement": "provider-schema",
+          "group": "enable_forward_proxy.tls_intercept.policy.interception_rules.domain_match:ConflictingObjectAttributes:exact_value,regex_value",
+          "source": "ast-validator:ConflictingObjectAttributes",
+          "target_id": "xcsh-docs:resources:network_connector:properties:enable_forward_proxy:tls_intercept:policy:interception_rules:domain_match",
+          "type": "conflicts"
+        },
+        {
+          "anchor": "schema-enable_forward_proxy--tls_intercept--policy--interception_rules--domain_match--exact_value",
+          "enforcement": "provider-schema",
+          "group": "enable_forward_proxy.tls_intercept.policy.interception_rules.domain_match:ConflictingObjectAttributes:exact_value,suffix_value",
+          "source": "ast-validator:ConflictingObjectAttributes",
+          "target_id": "xcsh-docs:resources:network_connector:properties:enable_forward_proxy:tls_intercept:policy:interception_rules:domain_match",
+          "type": "conflicts"
+        },
+        {
+          "anchor": "schema-enable_forward_proxy--tls_intercept--policy--interception_rules--domain_match--regex_value",
+          "enforcement": "provider-schema",
+          "group": "enable_forward_proxy.tls_intercept.policy.interception_rules.domain_match:ConflictingObjectAttributes:exact_value,regex_value",
+          "source": "ast-validator:ConflictingObjectAttributes",
+          "target_id": "xcsh-docs:resources:network_connector:properties:enable_forward_proxy:tls_intercept:policy:interception_rules:domain_match",
+          "type": "conflicts"
+        },
+        {
+          "anchor": "schema-enable_forward_proxy--tls_intercept--policy--interception_rules--domain_match--regex_value",
+          "enforcement": "provider-schema",
+          "group": "enable_forward_proxy.tls_intercept.policy.interception_rules.domain_match:ConflictingObjectAttributes:regex_value,suffix_value",
+          "source": "ast-validator:ConflictingObjectAttributes",
+          "target_id": "xcsh-docs:resources:network_connector:properties:enable_forward_proxy:tls_intercept:policy:interception_rules:domain_match",
+          "type": "conflicts"
+        },
+        {
+          "anchor": "schema-enable_forward_proxy--tls_intercept--policy--interception_rules--domain_match--suffix_value",
+          "enforcement": "provider-schema",
+          "group": "enable_forward_proxy.tls_intercept.policy.interception_rules.domain_match:ConflictingObjectAttributes:exact_value,suffix_value",
+          "source": "ast-validator:ConflictingObjectAttributes",
+          "target_id": "xcsh-docs:resources:network_connector:properties:enable_forward_proxy:tls_intercept:policy:interception_rules:domain_match",
+          "type": "conflicts"
+        },
+        {
+          "anchor": "schema-enable_forward_proxy--tls_intercept--policy--interception_rules--domain_match--suffix_value",
+          "enforcement": "provider-schema",
+          "group": "enable_forward_proxy.tls_intercept.policy.interception_rules.domain_match:ConflictingObjectAttributes:regex_value,suffix_value",
+          "source": "ast-validator:ConflictingObjectAttributes",
+          "target_id": "xcsh-docs:resources:network_connector:properties:enable_forward_proxy:tls_intercept:policy:interception_rules:domain_match",
+          "type": "conflicts"
+        }
+      ],
+      "retrieval_version": 1,
       "role": "properties",
       "schema_path": ["enable_forward_proxy", "tls_intercept", "policy", "interception_rules", "domain_match"],
+      "sections": [
+        {
+          "aliases": ["exact value"],
+          "anchor": "schema-enable_forward_proxy--tls_intercept--policy--interception_rules--domain_match--exact_value",
+          "description": "Exclusive with Exact domain name.",
+          "document_id": "xcsh-docs:resources:network_connector:properties:enable_forward_proxy:tls_intercept:policy:interception_rules:domain_match",
+          "flags": ["optional"],
+          "max_items": null,
+          "min_items": null,
+          "nesting": null,
+          "relationships": [],
+          "schema_path": [
+            "enable_forward_proxy",
+            "tls_intercept",
+            "policy",
+            "interception_rules",
+            "domain_match",
+            "exact_value"
+          ],
+          "syntax": "attribute",
+          "type": "string"
+        },
+        {
+          "aliases": ["regex value"],
+          "anchor": "schema-enable_forward_proxy--tls_intercept--policy--interception_rules--domain_match--regex_value",
+          "description": "Exclusive with Regular Expression value for the domain name.",
+          "document_id": "xcsh-docs:resources:network_connector:properties:enable_forward_proxy:tls_intercept:policy:interception_rules:domain_match",
+          "flags": ["optional"],
+          "max_items": null,
+          "min_items": null,
+          "nesting": null,
+          "relationships": [],
+          "schema_path": [
+            "enable_forward_proxy",
+            "tls_intercept",
+            "policy",
+            "interception_rules",
+            "domain_match",
+            "regex_value"
+          ],
+          "syntax": "attribute",
+          "type": "string"
+        },
+        {
+          "aliases": ["suffix value"],
+          "anchor": "schema-enable_forward_proxy--tls_intercept--policy--interception_rules--domain_match--suffix_value",
+          "description": "Exclusive with Suffix of domain name e.g \"xyz.com\" will match \"*.xyz.com\" and \"xyz.com\"",
+          "document_id": "xcsh-docs:resources:network_connector:properties:enable_forward_proxy:tls_intercept:policy:interception_rules:domain_match",
+          "flags": ["optional"],
+          "max_items": null,
+          "min_items": null,
+          "nesting": null,
+          "relationships": [],
+          "schema_path": [
+            "enable_forward_proxy",
+            "tls_intercept",
+            "policy",
+            "interception_rules",
+            "domain_match",
+            "suffix_value"
+          ],
+          "syntax": "attribute",
+          "type": "string"
+        }
+      ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/network_connector/properties/enable_forward_proxy/tls_intercept/policy/interception_rules/domain_match/index.txt",
       "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
-      "summary": "enable_forward_proxy.tls_intercept.policy.interception_rules.domain_match for xcsh_network_connector.",
+      "summary": "Domains names.",
+      "tasks": ["configuration"],
       "title": "enable_forward_proxy.tls_intercept.policy.interception_rules.domain_match",
       "upstream_identity": {
         "release_tag": "v9.0.0",
@@ -917,25 +2393,38 @@
       }
     },
     {
-      "aliases": [],
+      "aliases": ["enable forward proxy tls intercept policy interception rules enable interception"],
       "body_bytes": 2107,
       "body_sha256": "sha256:e34d5215906fa8ddeb98fd2b9942e40ccfc658c917a2cf1933079c28ffa654b4",
+      "capabilities": ["networking"],
+      "category": "networking",
       "child_ids": [],
+      "classification": {
+        "rules_sha256": "sha256:98dbf5280bf8376a0c75c1391250db9db4ac0d293d42bdd831c20f7514925adb",
+        "sources": ["receipt-pinned-upstream", "reviewed-rule"],
+        "status": "resolved",
+        "upstream_category_source": "receipt-pinned-resource"
+      },
       "collection_id": "xcsh-docs:resources:network_connector:collection",
       "completeness": "complete",
       "id": "xcsh-docs:resources:network_connector:properties:enable_forward_proxy:tls_intercept:policy:interception_rules:enable_interception",
       "parent_id": "xcsh-docs:resources:network_connector:properties:enable_forward_proxy:tls_intercept:policy:interception_rules",
       "path": "documentation/resources/network_connector/properties/enable_forward_proxy/tls_intercept/policy/interception_rules/enable_interception/index.md",
+      "product": "distributed-cloud",
       "provider_name": "network_connector",
       "provider_schema_digest": "sha256:e63a07e98b4893c041a6f79be7e19c64babfe543fc6847c17641037e084e1c7c",
       "provider_type": "resources",
       "registry_anchor": "canonical-2233321120031103-2221330033023220-3303231331113011-2032300030102113-2320002001121322-1320031132001330-3122221121133001-2221002123022000",
       "registry_path": "docs/guides/resources--network_connector--reference--group-001.md",
+      "relationships": [],
+      "retrieval_version": 1,
       "role": "properties",
       "schema_path": ["enable_forward_proxy", "tls_intercept", "policy", "interception_rules", "enable_interception"],
+      "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/network_connector/properties/enable_forward_proxy/tls_intercept/policy/interception_rules/enable_interception/index.txt",
       "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
-      "summary": "enable_forward_proxy.tls_intercept.policy.interception_rules.enable_interception for xcsh_network_connector.",
+      "summary": "This can be used for messages where no values are needed.",
+      "tasks": ["configuration"],
       "title": "enable_forward_proxy.tls_intercept.policy.interception_rules.enable_interception",
       "upstream_identity": {
         "release_tag": "v9.0.0",
@@ -944,25 +2433,44 @@
       }
     },
     {
-      "aliases": [],
+      "aliases": [
+        "cert",
+        "certificate",
+        "enable forward proxy tls intercept volterra certificate",
+        "existing certificates",
+        "tls certificates"
+      ],
       "body_bytes": 1599,
       "body_sha256": "sha256:da17dbbfe8144e5bf36c4ce63322677548e16b67e24d2bee1baab687e1e2c57a",
+      "capabilities": ["networking"],
+      "category": "networking",
       "child_ids": [],
+      "classification": {
+        "rules_sha256": "sha256:98dbf5280bf8376a0c75c1391250db9db4ac0d293d42bdd831c20f7514925adb",
+        "sources": ["receipt-pinned-upstream", "reviewed-rule"],
+        "status": "resolved",
+        "upstream_category_source": "receipt-pinned-resource"
+      },
       "collection_id": "xcsh-docs:resources:network_connector:collection",
       "completeness": "complete",
       "id": "xcsh-docs:resources:network_connector:properties:enable_forward_proxy:tls_intercept:volterra_certificate",
       "parent_id": "xcsh-docs:resources:network_connector:properties:enable_forward_proxy:tls_intercept",
       "path": "documentation/resources/network_connector/properties/enable_forward_proxy/tls_intercept/volterra_certificate/index.md",
+      "product": "distributed-cloud",
       "provider_name": "network_connector",
       "provider_schema_digest": "sha256:e63a07e98b4893c041a6f79be7e19c64babfe543fc6847c17641037e084e1c7c",
       "provider_type": "resources",
       "registry_anchor": "canonical-0130030220200330-1333222021330210-1133300012112200-0323222022203223-2213302000230231-2102101222222303-1311030030322213-2021112003332203",
       "registry_path": "docs/guides/resources--network_connector--reference--group-001.md",
+      "relationships": [],
+      "retrieval_version": 1,
       "role": "properties",
       "schema_path": ["enable_forward_proxy", "tls_intercept", "volterra_certificate"],
+      "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/network_connector/properties/enable_forward_proxy/tls_intercept/volterra_certificate/index.txt",
       "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
-      "summary": "enable_forward_proxy.tls_intercept.volterra_certificate for xcsh_network_connector.",
+      "summary": "This can be used for messages where no values are needed.",
+      "tasks": ["configuration"],
       "title": "enable_forward_proxy.tls_intercept.volterra_certificate",
       "upstream_identity": {
         "release_tag": "v9.0.0",
@@ -971,25 +2479,38 @@
       }
     },
     {
-      "aliases": [],
+      "aliases": ["enable forward proxy tls intercept volterra trusted ca"],
       "body_bytes": 1595,
       "body_sha256": "sha256:b4703a995ea3904e6a8dc1acc7dd7f064252436e93f9f3d717ddb4579ab5eb15",
+      "capabilities": ["networking"],
+      "category": "networking",
       "child_ids": [],
+      "classification": {
+        "rules_sha256": "sha256:98dbf5280bf8376a0c75c1391250db9db4ac0d293d42bdd831c20f7514925adb",
+        "sources": ["receipt-pinned-upstream", "reviewed-rule"],
+        "status": "resolved",
+        "upstream_category_source": "receipt-pinned-resource"
+      },
       "collection_id": "xcsh-docs:resources:network_connector:collection",
       "completeness": "complete",
       "id": "xcsh-docs:resources:network_connector:properties:enable_forward_proxy:tls_intercept:volterra_trusted_ca",
       "parent_id": "xcsh-docs:resources:network_connector:properties:enable_forward_proxy:tls_intercept",
       "path": "documentation/resources/network_connector/properties/enable_forward_proxy/tls_intercept/volterra_trusted_ca/index.md",
+      "product": "distributed-cloud",
       "provider_name": "network_connector",
       "provider_schema_digest": "sha256:e63a07e98b4893c041a6f79be7e19c64babfe543fc6847c17641037e084e1c7c",
       "provider_type": "resources",
       "registry_anchor": "canonical-2321122203131312-2122202320313213-1022101332303201-3100332222312032-2011110010303333-3303033030030002-3113230312013221-1310020002020330",
       "registry_path": "docs/guides/resources--network_connector--reference--group-001.md",
+      "relationships": [],
+      "retrieval_version": 1,
       "role": "properties",
       "schema_path": ["enable_forward_proxy", "tls_intercept", "volterra_trusted_ca"],
+      "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/network_connector/properties/enable_forward_proxy/tls_intercept/volterra_trusted_ca/index.txt",
       "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
-      "summary": "enable_forward_proxy.tls_intercept.volterra_trusted_ca for xcsh_network_connector.",
+      "summary": "This can be used for messages where no values are needed.",
+      "tasks": ["configuration"],
       "title": "enable_forward_proxy.tls_intercept.volterra_trusted_ca",
       "upstream_identity": {
         "release_tag": "v9.0.0",
@@ -998,25 +2519,62 @@
       }
     },
     {
-      "aliases": [],
+      "aliases": ["sli to global dr"],
       "body_bytes": 2059,
       "body_sha256": "sha256:2a406c1e832dc69a2ebde38c0c03198274c1ea88b230717b2b78b3ed000f42c8",
+      "capabilities": ["networking"],
+      "category": "networking",
       "child_ids": ["xcsh-docs:resources:network_connector:properties:sli_to_global_dr:global_vn"],
+      "classification": {
+        "rules_sha256": "sha256:98dbf5280bf8376a0c75c1391250db9db4ac0d293d42bdd831c20f7514925adb",
+        "sources": ["receipt-pinned-upstream", "reviewed-rule"],
+        "status": "resolved",
+        "upstream_category_source": "receipt-pinned-resource"
+      },
       "collection_id": "xcsh-docs:resources:network_connector:collection",
       "completeness": "complete",
       "id": "xcsh-docs:resources:network_connector:properties:sli_to_global_dr",
       "parent_id": "xcsh-docs:resources:network_connector:reference",
       "path": "documentation/resources/network_connector/properties/sli_to_global_dr/index.md",
+      "product": "distributed-cloud",
       "provider_name": "network_connector",
       "provider_schema_digest": "sha256:e63a07e98b4893c041a6f79be7e19c64babfe543fc6847c17641037e084e1c7c",
       "provider_type": "resources",
       "registry_anchor": "canonical-1323220001110322-1200211010233233-0233223320201012-0231301213210211-1002133133033023-0030103033202111-0202301000230323-0310330231012320",
       "registry_path": "docs/guides/resources--network_connector--reference--group-001.md",
+      "relationships": [],
+      "retrieval_version": 1,
       "role": "properties",
       "schema_path": ["sli_to_global_dr"],
+      "sections": [
+        {
+          "aliases": ["global vn"],
+          "anchor": "section",
+          "description": "This type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name.",
+          "document_id": "xcsh-docs:resources:network_connector:properties:sli_to_global_dr:global_vn",
+          "flags": [],
+          "max_items": null,
+          "min_items": null,
+          "nesting": "single",
+          "relationships": [
+            {
+              "anchor": "schema-sli_to_global_dr--global_vn--name",
+              "enforcement": "provider-schema",
+              "group": "sli_to_global_dr.global_vn:RequiredObjectAttributes:name",
+              "source": "ast-validator:RequiredObjectAttributes",
+              "target_id": "xcsh-docs:resources:network_connector:properties:sli_to_global_dr:global_vn",
+              "type": "requires"
+            }
+          ],
+          "schema_path": ["sli_to_global_dr", "global_vn"],
+          "syntax": "block",
+          "type": "object"
+        }
+      ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/network_connector/properties/sli_to_global_dr/index.txt",
       "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
-      "summary": "sli_to_global_dr for xcsh_network_connector.",
+      "summary": "Global network reference for direct connection.",
+      "tasks": ["configuration"],
       "title": "sli_to_global_dr",
       "upstream_identity": {
         "release_tag": "v9.0.0",
@@ -1025,25 +2583,90 @@
       }
     },
     {
-      "aliases": [],
+      "aliases": ["sli to global dr global vn"],
       "body_bytes": 6079,
       "body_sha256": "sha256:fc508eac15140f7e59f71faa6ad80d1e89ca083ce15a847c069311befb2f7b1a",
+      "capabilities": ["networking"],
+      "category": "networking",
       "child_ids": [],
+      "classification": {
+        "rules_sha256": "sha256:98dbf5280bf8376a0c75c1391250db9db4ac0d293d42bdd831c20f7514925adb",
+        "sources": ["receipt-pinned-upstream", "reviewed-rule"],
+        "status": "resolved",
+        "upstream_category_source": "receipt-pinned-resource"
+      },
       "collection_id": "xcsh-docs:resources:network_connector:collection",
       "completeness": "complete",
       "id": "xcsh-docs:resources:network_connector:properties:sli_to_global_dr:global_vn",
       "parent_id": "xcsh-docs:resources:network_connector:properties:sli_to_global_dr",
       "path": "documentation/resources/network_connector/properties/sli_to_global_dr/global_vn/index.md",
+      "product": "distributed-cloud",
       "provider_name": "network_connector",
       "provider_schema_digest": "sha256:e63a07e98b4893c041a6f79be7e19c64babfe543fc6847c17641037e084e1c7c",
       "provider_type": "resources",
       "registry_anchor": "canonical-1220323023210322-2311312111021101-0233212121321210-2132100302120312-1020212033321133-1200231233223101-3212323103313120-3231101232000022",
       "registry_path": "docs/guides/resources--network_connector--reference--group-001.md",
+      "relationships": [
+        {
+          "anchor": "schema-sli_to_global_dr--global_vn--name",
+          "enforcement": "provider-schema",
+          "group": "sli_to_global_dr.global_vn:RequiredObjectAttributes:name",
+          "source": "ast-validator:RequiredObjectAttributes",
+          "target_id": "xcsh-docs:resources:network_connector:properties:sli_to_global_dr:global_vn",
+          "type": "requires"
+        }
+      ],
+      "retrieval_version": 1,
       "role": "properties",
       "schema_path": ["sli_to_global_dr", "global_vn"],
+      "sections": [
+        {
+          "aliases": ["name"],
+          "anchor": "schema-sli_to_global_dr--global_vn--name",
+          "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.",
+          "document_id": "xcsh-docs:resources:network_connector:properties:sli_to_global_dr:global_vn",
+          "flags": ["optional"],
+          "max_items": null,
+          "min_items": null,
+          "nesting": null,
+          "relationships": [],
+          "schema_path": ["sli_to_global_dr", "global_vn", "name"],
+          "syntax": "attribute",
+          "type": "string"
+        },
+        {
+          "aliases": ["namespace"],
+          "anchor": "schema-sli_to_global_dr--global_vn--namespace",
+          "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace.",
+          "document_id": "xcsh-docs:resources:network_connector:properties:sli_to_global_dr:global_vn",
+          "flags": ["optional", "computed"],
+          "max_items": null,
+          "min_items": null,
+          "nesting": null,
+          "relationships": [],
+          "schema_path": ["sli_to_global_dr", "global_vn", "namespace"],
+          "syntax": "attribute",
+          "type": "string"
+        },
+        {
+          "aliases": ["tenant"],
+          "anchor": "schema-sli_to_global_dr--global_vn--tenant",
+          "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant.",
+          "document_id": "xcsh-docs:resources:network_connector:properties:sli_to_global_dr:global_vn",
+          "flags": ["computed"],
+          "max_items": null,
+          "min_items": null,
+          "nesting": null,
+          "relationships": [],
+          "schema_path": ["sli_to_global_dr", "global_vn", "tenant"],
+          "syntax": "attribute",
+          "type": "string"
+        }
+      ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/network_connector/properties/sli_to_global_dr/global_vn/index.txt",
       "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
-      "summary": "sli_to_global_dr.global_vn for xcsh_network_connector.",
+      "summary": "This type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name.",
+      "tasks": ["configuration"],
       "title": "sli_to_global_dr.global_vn",
       "upstream_identity": {
         "release_tag": "v9.0.0",
@@ -1052,28 +2675,70 @@
       }
     },
     {
-      "aliases": [],
+      "aliases": ["sli to slo snat"],
       "body_bytes": 1903,
       "body_sha256": "sha256:322a9dc301582f83465da46c54c1700e1f9dd3f242c12d5f4febb42a5b33c23d",
+      "capabilities": ["networking"],
+      "category": "networking",
       "child_ids": [
         "xcsh-docs:resources:network_connector:properties:sli_to_slo_snat:default_gw_snat",
         "xcsh-docs:resources:network_connector:properties:sli_to_slo_snat:interface_ip"
       ],
+      "classification": {
+        "rules_sha256": "sha256:98dbf5280bf8376a0c75c1391250db9db4ac0d293d42bdd831c20f7514925adb",
+        "sources": ["receipt-pinned-upstream", "reviewed-rule"],
+        "status": "resolved",
+        "upstream_category_source": "receipt-pinned-resource"
+      },
       "collection_id": "xcsh-docs:resources:network_connector:collection",
       "completeness": "complete",
       "id": "xcsh-docs:resources:network_connector:properties:sli_to_slo_snat",
       "parent_id": "xcsh-docs:resources:network_connector:reference",
       "path": "documentation/resources/network_connector/properties/sli_to_slo_snat/index.md",
+      "product": "distributed-cloud",
       "provider_name": "network_connector",
       "provider_schema_digest": "sha256:e63a07e98b4893c041a6f79be7e19c64babfe543fc6847c17641037e084e1c7c",
       "provider_type": "resources",
       "registry_anchor": "canonical-0311230213310203-1002131223302201-1301011222023101-2212122300321021-2103313222121202-2010010213310323-3111100010201210-0122233201102021",
       "registry_path": "docs/guides/resources--network_connector--reference--group-001.md",
+      "relationships": [],
+      "retrieval_version": 1,
       "role": "properties",
       "schema_path": ["sli_to_slo_snat"],
+      "sections": [
+        {
+          "aliases": ["default gw snat"],
+          "anchor": "section",
+          "description": "This can be used for messages where no values are needed.",
+          "document_id": "xcsh-docs:resources:network_connector:properties:sli_to_slo_snat:default_gw_snat",
+          "flags": [],
+          "max_items": null,
+          "min_items": null,
+          "nesting": "single",
+          "relationships": [],
+          "schema_path": ["sli_to_slo_snat", "default_gw_snat"],
+          "syntax": "block",
+          "type": "object"
+        },
+        {
+          "aliases": ["interface ip"],
+          "anchor": "section",
+          "description": "This can be used for messages where no values are needed.",
+          "document_id": "xcsh-docs:resources:network_connector:properties:sli_to_slo_snat:interface_ip",
+          "flags": [],
+          "max_items": null,
+          "min_items": null,
+          "nesting": "single",
+          "relationships": [],
+          "schema_path": ["sli_to_slo_snat", "interface_ip"],
+          "syntax": "block",
+          "type": "object"
+        }
+      ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/network_connector/properties/sli_to_slo_snat/index.txt",
       "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
-      "summary": "sli_to_slo_snat for xcsh_network_connector.",
+      "summary": "X-example: \"\" description.",
+      "tasks": ["configuration"],
       "title": "sli_to_slo_snat",
       "upstream_identity": {
         "release_tag": "v9.0.0",
@@ -1082,25 +2747,38 @@
       }
     },
     {
-      "aliases": [],
+      "aliases": ["sli to slo snat default gw snat"],
       "body_bytes": 1335,
       "body_sha256": "sha256:f054d664c4721c1ce60ef7dd431e74fd950e8af5c80486d79efb2dd3ebf6da8b",
+      "capabilities": ["networking"],
+      "category": "networking",
       "child_ids": [],
+      "classification": {
+        "rules_sha256": "sha256:98dbf5280bf8376a0c75c1391250db9db4ac0d293d42bdd831c20f7514925adb",
+        "sources": ["receipt-pinned-upstream", "reviewed-rule"],
+        "status": "resolved",
+        "upstream_category_source": "receipt-pinned-resource"
+      },
       "collection_id": "xcsh-docs:resources:network_connector:collection",
       "completeness": "complete",
       "id": "xcsh-docs:resources:network_connector:properties:sli_to_slo_snat:default_gw_snat",
       "parent_id": "xcsh-docs:resources:network_connector:properties:sli_to_slo_snat",
       "path": "documentation/resources/network_connector/properties/sli_to_slo_snat/default_gw_snat/index.md",
+      "product": "distributed-cloud",
       "provider_name": "network_connector",
       "provider_schema_digest": "sha256:e63a07e98b4893c041a6f79be7e19c64babfe543fc6847c17641037e084e1c7c",
       "provider_type": "resources",
       "registry_anchor": "canonical-0330111330011302-2120023101223202-2001031011130121-3022130131313032-1011210130323300-3220003110300102-0210321233001002-0331210133210032",
       "registry_path": "docs/guides/resources--network_connector--reference--group-001.md",
+      "relationships": [],
+      "retrieval_version": 1,
       "role": "properties",
       "schema_path": ["sli_to_slo_snat", "default_gw_snat"],
+      "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/network_connector/properties/sli_to_slo_snat/default_gw_snat/index.txt",
       "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
-      "summary": "sli_to_slo_snat.default_gw_snat for xcsh_network_connector.",
+      "summary": "This can be used for messages where no values are needed.",
+      "tasks": ["configuration"],
       "title": "sli_to_slo_snat.default_gw_snat",
       "upstream_identity": {
         "release_tag": "v9.0.0",
@@ -1109,25 +2787,38 @@
       }
     },
     {
-      "aliases": [],
+      "aliases": ["sli to slo snat interface ip"],
       "body_bytes": 1300,
       "body_sha256": "sha256:4f860528ec75440b21db9d573de98eab9ed32bb3614f3fed2028c9a44c531199",
+      "capabilities": ["networking"],
+      "category": "networking",
       "child_ids": [],
+      "classification": {
+        "rules_sha256": "sha256:98dbf5280bf8376a0c75c1391250db9db4ac0d293d42bdd831c20f7514925adb",
+        "sources": ["receipt-pinned-upstream", "reviewed-rule"],
+        "status": "resolved",
+        "upstream_category_source": "receipt-pinned-resource"
+      },
       "collection_id": "xcsh-docs:resources:network_connector:collection",
       "completeness": "complete",
       "id": "xcsh-docs:resources:network_connector:properties:sli_to_slo_snat:interface_ip",
       "parent_id": "xcsh-docs:resources:network_connector:properties:sli_to_slo_snat",
       "path": "documentation/resources/network_connector/properties/sli_to_slo_snat/interface_ip/index.md",
+      "product": "distributed-cloud",
       "provider_name": "network_connector",
       "provider_schema_digest": "sha256:e63a07e98b4893c041a6f79be7e19c64babfe543fc6847c17641037e084e1c7c",
       "provider_type": "resources",
       "registry_anchor": "canonical-0033200233313320-1002013322001132-2011213031023330-3003301101112222-1121221311132020-2201013322033303-1220103211230210-2133203010203011",
       "registry_path": "docs/guides/resources--network_connector--reference--group-001.md",
+      "relationships": [],
+      "retrieval_version": 1,
       "role": "properties",
       "schema_path": ["sli_to_slo_snat", "interface_ip"],
+      "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/network_connector/properties/sli_to_slo_snat/interface_ip/index.txt",
       "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
-      "summary": "sli_to_slo_snat.interface_ip for xcsh_network_connector.",
+      "summary": "This can be used for messages where no values are needed.",
+      "tasks": ["configuration"],
       "title": "sli_to_slo_snat.interface_ip",
       "upstream_identity": {
         "release_tag": "v9.0.0",
@@ -1136,25 +2827,62 @@
       }
     },
     {
-      "aliases": [],
+      "aliases": ["slo to global dr"],
       "body_bytes": 1382,
       "body_sha256": "sha256:c8af4bde2b2230e0467513ef12985940ce3f483d29c5d5bed4a6a1270adabac0",
+      "capabilities": ["networking"],
+      "category": "networking",
       "child_ids": ["xcsh-docs:resources:network_connector:properties:slo_to_global_dr:global_vn"],
+      "classification": {
+        "rules_sha256": "sha256:98dbf5280bf8376a0c75c1391250db9db4ac0d293d42bdd831c20f7514925adb",
+        "sources": ["receipt-pinned-upstream", "reviewed-rule"],
+        "status": "resolved",
+        "upstream_category_source": "receipt-pinned-resource"
+      },
       "collection_id": "xcsh-docs:resources:network_connector:collection",
       "completeness": "complete",
       "id": "xcsh-docs:resources:network_connector:properties:slo_to_global_dr",
       "parent_id": "xcsh-docs:resources:network_connector:reference",
       "path": "documentation/resources/network_connector/properties/slo_to_global_dr/index.md",
+      "product": "distributed-cloud",
       "provider_name": "network_connector",
       "provider_schema_digest": "sha256:e63a07e98b4893c041a6f79be7e19c64babfe543fc6847c17641037e084e1c7c",
       "provider_type": "resources",
       "registry_anchor": "canonical-3330311132311200-2332201021230031-1213333312000213-3123313301103312-3120201323231333-3303231003321122-2323202202011332-1322123201030111",
       "registry_path": "docs/guides/resources--network_connector--reference--group-001.md",
+      "relationships": [],
+      "retrieval_version": 1,
       "role": "properties",
       "schema_path": ["slo_to_global_dr"],
+      "sections": [
+        {
+          "aliases": ["global vn"],
+          "anchor": "section",
+          "description": "This type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name.",
+          "document_id": "xcsh-docs:resources:network_connector:properties:slo_to_global_dr:global_vn",
+          "flags": [],
+          "max_items": null,
+          "min_items": null,
+          "nesting": "single",
+          "relationships": [
+            {
+              "anchor": "schema-slo_to_global_dr--global_vn--name",
+              "enforcement": "provider-schema",
+              "group": "slo_to_global_dr.global_vn:RequiredObjectAttributes:name",
+              "source": "ast-validator:RequiredObjectAttributes",
+              "target_id": "xcsh-docs:resources:network_connector:properties:slo_to_global_dr:global_vn",
+              "type": "requires"
+            }
+          ],
+          "schema_path": ["slo_to_global_dr", "global_vn"],
+          "syntax": "block",
+          "type": "object"
+        }
+      ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/network_connector/properties/slo_to_global_dr/index.txt",
       "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
-      "summary": "slo_to_global_dr for xcsh_network_connector.",
+      "summary": "Global network reference for direct connection.",
+      "tasks": ["configuration"],
       "title": "slo_to_global_dr",
       "upstream_identity": {
         "release_tag": "v9.0.0",
@@ -1163,25 +2891,90 @@
       }
     },
     {
-      "aliases": [],
+      "aliases": ["slo to global dr global vn"],
       "body_bytes": 6079,
       "body_sha256": "sha256:76de69ad7d25460e4ccc0dde10652f6762e3bbadf4b4bdf6f69e79a23351c40c",
+      "capabilities": ["networking"],
+      "category": "networking",
       "child_ids": [],
+      "classification": {
+        "rules_sha256": "sha256:98dbf5280bf8376a0c75c1391250db9db4ac0d293d42bdd831c20f7514925adb",
+        "sources": ["receipt-pinned-upstream", "reviewed-rule"],
+        "status": "resolved",
+        "upstream_category_source": "receipt-pinned-resource"
+      },
       "collection_id": "xcsh-docs:resources:network_connector:collection",
       "completeness": "complete",
       "id": "xcsh-docs:resources:network_connector:properties:slo_to_global_dr:global_vn",
       "parent_id": "xcsh-docs:resources:network_connector:properties:slo_to_global_dr",
       "path": "documentation/resources/network_connector/properties/slo_to_global_dr/global_vn/index.md",
+      "product": "distributed-cloud",
       "provider_name": "network_connector",
       "provider_schema_digest": "sha256:e63a07e98b4893c041a6f79be7e19c64babfe543fc6847c17641037e084e1c7c",
       "provider_type": "resources",
       "registry_anchor": "canonical-2213133222102121-1010330323120101-1203112033013023-0202300133120113-1303203330032113-0301310100313001-1323302001210333-1232031223232012",
       "registry_path": "docs/guides/resources--network_connector--reference--group-001.md",
+      "relationships": [
+        {
+          "anchor": "schema-slo_to_global_dr--global_vn--name",
+          "enforcement": "provider-schema",
+          "group": "slo_to_global_dr.global_vn:RequiredObjectAttributes:name",
+          "source": "ast-validator:RequiredObjectAttributes",
+          "target_id": "xcsh-docs:resources:network_connector:properties:slo_to_global_dr:global_vn",
+          "type": "requires"
+        }
+      ],
+      "retrieval_version": 1,
       "role": "properties",
       "schema_path": ["slo_to_global_dr", "global_vn"],
+      "sections": [
+        {
+          "aliases": ["name"],
+          "anchor": "schema-slo_to_global_dr--global_vn--name",
+          "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.",
+          "document_id": "xcsh-docs:resources:network_connector:properties:slo_to_global_dr:global_vn",
+          "flags": ["optional"],
+          "max_items": null,
+          "min_items": null,
+          "nesting": null,
+          "relationships": [],
+          "schema_path": ["slo_to_global_dr", "global_vn", "name"],
+          "syntax": "attribute",
+          "type": "string"
+        },
+        {
+          "aliases": ["namespace"],
+          "anchor": "schema-slo_to_global_dr--global_vn--namespace",
+          "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace.",
+          "document_id": "xcsh-docs:resources:network_connector:properties:slo_to_global_dr:global_vn",
+          "flags": ["optional", "computed"],
+          "max_items": null,
+          "min_items": null,
+          "nesting": null,
+          "relationships": [],
+          "schema_path": ["slo_to_global_dr", "global_vn", "namespace"],
+          "syntax": "attribute",
+          "type": "string"
+        },
+        {
+          "aliases": ["tenant"],
+          "anchor": "schema-slo_to_global_dr--global_vn--tenant",
+          "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant.",
+          "document_id": "xcsh-docs:resources:network_connector:properties:slo_to_global_dr:global_vn",
+          "flags": ["computed"],
+          "max_items": null,
+          "min_items": null,
+          "nesting": null,
+          "relationships": [],
+          "schema_path": ["slo_to_global_dr", "global_vn", "tenant"],
+          "syntax": "attribute",
+          "type": "string"
+        }
+      ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/network_connector/properties/slo_to_global_dr/global_vn/index.txt",
       "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
-      "summary": "slo_to_global_dr.global_vn for xcsh_network_connector.",
+      "summary": "This type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name.",
+      "tasks": ["configuration"],
       "title": "slo_to_global_dr.global_vn",
       "upstream_identity": {
         "release_tag": "v9.0.0",
@@ -1190,25 +2983,95 @@
       }
     },
     {
-      "aliases": [],
+      "aliases": ["duration", "operation timeout", "timeouts"],
       "body_bytes": 2261,
       "body_sha256": "sha256:0d4e2aaa46d9e1deaa395334dd13c8dcd36bcd44ce7c34f561868a99cf7d003c",
+      "capabilities": ["networking"],
+      "category": "networking",
       "child_ids": [],
+      "classification": {
+        "rules_sha256": "sha256:98dbf5280bf8376a0c75c1391250db9db4ac0d293d42bdd831c20f7514925adb",
+        "sources": ["receipt-pinned-upstream", "reviewed-rule"],
+        "status": "resolved",
+        "upstream_category_source": "receipt-pinned-resource"
+      },
       "collection_id": "xcsh-docs:resources:network_connector:collection",
       "completeness": "complete",
       "id": "xcsh-docs:resources:network_connector:properties:timeouts",
       "parent_id": "xcsh-docs:resources:network_connector:reference",
       "path": "documentation/resources/network_connector/properties/timeouts/index.md",
+      "product": "distributed-cloud",
       "provider_name": "network_connector",
       "provider_schema_digest": "sha256:e63a07e98b4893c041a6f79be7e19c64babfe543fc6847c17641037e084e1c7c",
       "provider_type": "resources",
       "registry_anchor": "canonical-3221303012220021-3113332122010110-2233110102322321-1221102001133222-3210331030002022-1131133021000020-0202000213031021-3012033020001021",
       "registry_path": "docs/guides/resources--network_connector--reference--group-001.md",
+      "relationships": [],
+      "retrieval_version": 1,
       "role": "properties",
       "schema_path": ["timeouts"],
+      "sections": [
+        {
+          "aliases": ["create"],
+          "anchor": "schema-timeouts--create",
+          "description": "A string that can be (https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as \"30s\" or \"2h45m\". Valid time units are \"s\" (seconds), \"m\" (minutes), \"h\" (hours).",
+          "document_id": "xcsh-docs:resources:network_connector:properties:timeouts",
+          "flags": ["optional"],
+          "max_items": null,
+          "min_items": null,
+          "nesting": null,
+          "relationships": [],
+          "schema_path": ["timeouts", "create"],
+          "syntax": "attribute",
+          "type": "string"
+        },
+        {
+          "aliases": ["delete", "duration", "operation timeout"],
+          "anchor": "schema-timeouts--delete",
+          "description": "A string that can be (https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as \"30s\" or \"2h45m\". Valid time units are \"s\" (seconds), \"m\" (minutes), \"h\" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.",
+          "document_id": "xcsh-docs:resources:network_connector:properties:timeouts",
+          "flags": ["optional"],
+          "max_items": null,
+          "min_items": null,
+          "nesting": null,
+          "relationships": [],
+          "schema_path": ["timeouts", "delete"],
+          "syntax": "attribute",
+          "type": "string"
+        },
+        {
+          "aliases": ["read"],
+          "anchor": "schema-timeouts--read",
+          "description": "A string that can be (https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as \"30s\" or \"2h45m\". Valid time units are \"s\" (seconds), \"m\" (minutes), \"h\" (hours). Read operations occur during any refresh or planning operation when refresh is enabled.",
+          "document_id": "xcsh-docs:resources:network_connector:properties:timeouts",
+          "flags": ["optional"],
+          "max_items": null,
+          "min_items": null,
+          "nesting": null,
+          "relationships": [],
+          "schema_path": ["timeouts", "read"],
+          "syntax": "attribute",
+          "type": "string"
+        },
+        {
+          "aliases": ["update"],
+          "anchor": "schema-timeouts--update",
+          "description": "A string that can be (https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as \"30s\" or \"2h45m\". Valid time units are \"s\" (seconds), \"m\" (minutes), \"h\" (hours).",
+          "document_id": "xcsh-docs:resources:network_connector:properties:timeouts",
+          "flags": ["optional"],
+          "max_items": null,
+          "min_items": null,
+          "nesting": null,
+          "relationships": [],
+          "schema_path": ["timeouts", "update"],
+          "syntax": "attribute",
+          "type": "string"
+        }
+      ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/network_connector/properties/timeouts/index.txt",
       "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
       "summary": "timeouts for xcsh_network_connector.",
+      "tasks": ["configuration"],
       "title": "timeouts",
       "upstream_identity": {
         "release_tag": "v9.0.0",
@@ -1217,25 +3080,38 @@
       }
     },
     {
-      "aliases": [],
+      "aliases": ["network connector"],
       "body_bytes": 663,
       "body_sha256": "sha256:c215cf2bb63832db9412f7bc67a616755544731eebf72647f3cb194e4d4a032b",
+      "capabilities": ["networking"],
+      "category": "networking",
       "child_ids": ["xcsh-docs:resources:network_connector:example:resource"],
+      "classification": {
+        "rules_sha256": "sha256:98dbf5280bf8376a0c75c1391250db9db4ac0d293d42bdd831c20f7514925adb",
+        "sources": ["receipt-pinned-upstream", "reviewed-rule"],
+        "status": "resolved",
+        "upstream_category_source": "receipt-pinned-resource"
+      },
       "collection_id": "xcsh-docs:resources:network_connector:collection",
       "completeness": "complete",
       "id": "xcsh-docs:resources:network_connector:examples",
       "parent_id": "xcsh-docs:resources:network_connector:fundamentals",
       "path": "documentation/resources/network_connector/examples/index.md",
+      "product": "distributed-cloud",
       "provider_name": "network_connector",
       "provider_schema_digest": "sha256:e63a07e98b4893c041a6f79be7e19c64babfe543fc6847c17641037e084e1c7c",
       "provider_type": "resources",
       "registry_anchor": "canonical-3122113101222231-3312000230223303-1133221210021201-1323201211021320-0131303133312321-3010230001001110-3202321232320131-0201123233233333",
       "registry_path": "docs/guides/resources--network_connector--examples--group-001.md",
+      "relationships": [],
+      "retrieval_version": 1,
       "role": "examples",
       "schema_path": [],
+      "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/network_connector/examples/index.txt",
       "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
       "summary": "Examples for xcsh_network_connector.",
+      "tasks": ["configuration"],
       "title": "Examples",
       "upstream_identity": {
         "release_tag": "v9.0.0",
@@ -1244,10 +3120,18 @@
       }
     },
     {
-      "aliases": [],
+      "aliases": ["resource"],
       "body_bytes": 1355,
       "body_sha256": "sha256:2e199ae5ffff4eed72bc6dc1c71219e1b042ecc63d649d286d058ed8ecf28670",
+      "capabilities": ["networking"],
+      "category": "networking",
       "child_ids": [],
+      "classification": {
+        "rules_sha256": "sha256:98dbf5280bf8376a0c75c1391250db9db4ac0d293d42bdd831c20f7514925adb",
+        "sources": ["receipt-pinned-upstream", "reviewed-rule"],
+        "status": "resolved",
+        "upstream_category_source": "receipt-pinned-resource"
+      },
       "collection_id": "xcsh-docs:resources:network_connector:collection",
       "completeness": "complete",
       "evidence": {
@@ -1260,16 +3144,21 @@
       "id": "xcsh-docs:resources:network_connector:example:resource",
       "parent_id": "xcsh-docs:resources:network_connector:examples",
       "path": "documentation/resources/network_connector/examples/resource/index.md",
+      "product": "distributed-cloud",
       "provider_name": "network_connector",
       "provider_schema_digest": "sha256:e63a07e98b4893c041a6f79be7e19c64babfe543fc6847c17641037e084e1c7c",
       "provider_type": "resources",
       "registry_anchor": "canonical-1030210113010330-3111121101310302-1130211303231232-3030211332110311-0232111301310120-1033231001203113-2133001020133213-3320010021030021",
       "registry_path": "docs/guides/resources--network_connector--examples--group-001.md",
+      "relationships": [],
+      "retrieval_version": 1,
       "role": "example",
       "schema_path": ["resource"],
+      "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/network_connector/examples/resource/index.txt",
       "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
       "summary": "Resource for xcsh_network_connector.",
+      "tasks": ["configuration"],
       "title": "Resource",
       "upstream_identity": {
         "release_tag": "v9.0.0",
@@ -1278,26 +3167,39 @@
       }
     },
     {
-      "aliases": [],
+      "aliases": ["network connector"],
       "body_bytes": 505,
       "body_sha256": "sha256:5f316e12eb1c067fca4ac40ba60f0cfc375c036a05a505e4fe35771f81b7bbe7",
+      "capabilities": ["networking"],
+      "category": "networking",
       "child_ids": [],
+      "classification": {
+        "rules_sha256": "sha256:98dbf5280bf8376a0c75c1391250db9db4ac0d293d42bdd831c20f7514925adb",
+        "sources": ["receipt-pinned-upstream", "reviewed-rule"],
+        "status": "resolved",
+        "upstream_category_source": "receipt-pinned-resource"
+      },
       "collection_id": "xcsh-docs:resources:network_connector:collection",
       "completeness": "complete",
       "id": "xcsh-docs:resources:network_connector:import",
       "import_guidance": "Import using the `namespace/name` identifier format.",
       "parent_id": "xcsh-docs:resources:network_connector:fundamentals",
       "path": "documentation/resources/network_connector/lifecycle/import/index.md",
+      "product": "distributed-cloud",
       "provider_name": "network_connector",
       "provider_schema_digest": "sha256:e63a07e98b4893c041a6f79be7e19c64babfe543fc6847c17641037e084e1c7c",
       "provider_type": "resources",
       "registry_anchor": "canonical-2121021212010001-3132121011031220-0300312003111232-0122100212021110-1132301221013132-1122202020030030-1100001331331123-1313000032130213",
       "registry_path": "docs/guides/resources--network_connector--lifecycle--group-001.md",
+      "relationships": [],
+      "retrieval_version": 1,
       "role": "import",
       "schema_path": [],
+      "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/network_connector/lifecycle/import/index.txt",
       "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
       "summary": "Import for xcsh_network_connector.",
+      "tasks": ["import"],
       "title": "Import",
       "upstream_identity": {
         "release_tag": "v9.0.0",
@@ -1306,25 +3208,38 @@
       }
     },
     {
-      "aliases": [],
+      "aliases": ["network connector"],
       "body_bytes": 593,
       "body_sha256": "sha256:7837b1c333b30eb7682d8d24de5712c834121a3248ad737bc82c4d8f21980fd4",
+      "capabilities": ["networking"],
+      "category": "networking",
       "child_ids": [],
+      "classification": {
+        "rules_sha256": "sha256:98dbf5280bf8376a0c75c1391250db9db4ac0d293d42bdd831c20f7514925adb",
+        "sources": ["receipt-pinned-upstream", "reviewed-rule"],
+        "status": "resolved",
+        "upstream_category_source": "receipt-pinned-resource"
+      },
       "collection_id": "xcsh-docs:resources:network_connector:collection",
       "completeness": "complete",
       "id": "xcsh-docs:resources:network_connector:timeouts",
       "parent_id": "xcsh-docs:resources:network_connector:fundamentals",
       "path": "documentation/resources/network_connector/lifecycle/timeouts/index.md",
+      "product": "distributed-cloud",
       "provider_name": "network_connector",
       "provider_schema_digest": "sha256:e63a07e98b4893c041a6f79be7e19c64babfe543fc6847c17641037e084e1c7c",
       "provider_type": "resources",
       "registry_anchor": "canonical-3012322222301233-3323333130133033-3203123210013320-3110211003112222-2110122023112211-1131010121210100-3300002133130022-2001031132210112",
       "registry_path": "docs/guides/resources--network_connector--lifecycle--group-001.md",
+      "relationships": [],
+      "retrieval_version": 1,
       "role": "timeouts",
       "schema_path": [],
+      "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/network_connector/lifecycle/timeouts/index.txt",
       "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
       "summary": "Timeouts for xcsh_network_connector.",
+      "tasks": ["lifecycle"],
       "title": "Timeouts",
       "upstream_identity": {
         "release_tag": "v9.0.0",
