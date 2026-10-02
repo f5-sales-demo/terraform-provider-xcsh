@@ -6,37 +6,6 @@ description: "Complete grouped canonical reference for xcsh_http_loadbalancer re
 
 # xcsh_http_loadbalancer reference
 
-<a id="canonical-1100113233210203-1201203213113120-1100011112031102-3023030302323323-0203123200033111-0210301310023103-1002031100323321-1020000310112202"></a>
-
-## jwt_validation.action — action / 332123313103 / 2
-
-Breadcrumbs:
-
-- [xcsh_http_loadbalancer](../data-sources/http_loadbalancer.md#canonical-2321021211310331-0013021131330032-3102301033221021-2110211001101012-3233200230311321-0111111122130023-0121000122111210-2130013030322000)
-- [Property reference](data-sources--http_loadbalancer--reference--group-001.md#canonical-1120010220221032-3212233022220221-3011110301103233-1232002110102021-0012103312230301-1322002232013201-2131001010211321-3011122013022320)
-- [jwt_validation](data-sources--http_loadbalancer--reference--group-019.md#canonical-0133002233023033-0213212130220323-1323123322310121-1331110232211203-2031102121220113-0003303230320233-3002110300000232-1203213002200130)
-- jwt_validation.action
-
-<a id="canonical-2322133200003120-0020322322031123-0112011202201012-2132213001020232-1002201123203303-2222321031110231-3003001213332310-0320110230013333"></a>
-
-Type: `"single"`. Computed.
-
-Action
-
-Receipt-pinned upstream constraints:
-
-```json
-{
-  "x-f5xc-required-for": {
-    "create": false,
-    "minimum_config": false,
-    "read": false,
-    "update": false
-  },
-  "x-ves-oneof-field-action_choice": "[\"block\",\"report\"]"
-}
-```
-
 <a id="canonical-1000323131332302-3233320132002212-2002001123101323-1023103201023120-1213321323112013-0322201310331320-3032211002103130-3222021031121003"></a>
 
 ## Direct properties — action / 332123313103 / 3
@@ -6063,3 +6032,75 @@ Receipt-pinned upstream constraints:
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
+
+<a id="canonical-1010100131212232-2001221030033123-2332233010121110-2300022021021323-3113021031010131-0323330112321223-3332333011330101-1011033003323202"></a>
+
+## more_option.request_headers_to_add.secret_value.blindfold_secret_info — blindfold_secret_info / 012011312312 / 2
+
+Breadcrumbs:
+
+- [xcsh_http_loadbalancer](../data-sources/http_loadbalancer.md#canonical-2321021211310331-0013021131330032-3102301033221021-2110211001101012-3233200230311321-0111111122130023-0121000122111210-2130013030322000)
+- [Property reference](data-sources--http_loadbalancer--reference--group-001.md#canonical-1120010220221032-3212233022220221-3011110301103233-1232002110102021-0012103312230301-1322002232013201-2131001010211321-3011122013022320)
+- [more_option](data-sources--http_loadbalancer--reference--group-020.md#canonical-3020122111213230-3123110331301013-0212331102130112-1130121311213313-0102332203020303-2031330330302330-2131212323210012-3212203312120101)
+- [more_option.request_headers_to_add](data-sources--http_loadbalancer--reference--group-020.md#canonical-3131323333013211-1120301133201010-1211330033032130-3121231320313312-1312311200203221-3112223310131110-3201331320102000-1013203220202110)
+- [more_option.request_headers_to_add.secret_value](data-sources--http_loadbalancer--reference--group-020.md#canonical-1131121000130320-1202130021200221-1000000220302321-0200030221313113-3002002321113003-3013132122301312-3130102313111120-1023001113122030)
+- more_option.request_headers_to_add.secret_value.blindfold_secret_info
+
+<a id="canonical-3220321331223321-1122030132112030-2102001031332301-2311233120300003-0031331321020010-0212221212230003-0000331310103221-1322300233123021"></a>
+
+Type: `"single"`. Computed.
+
+BlindfoldSecretInfoType specifies information about the Secret managed by F5XC Secret Management.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  }
+}
+```
+
+<a id="canonical-2123303133031001-1231111131211012-2231021233331101-2120102133332023-1321022113330121-2012023321310212-3130313330102320-0322022110021111"></a>
+
+## Direct properties — blindfold_secret_info / 012011312312 / 3
+
+<a id="canonical-3113211213011303-2331331030030013-1230232131313330-0030230012031310-0021301333030302-2321022003121100-3212323031110320-0123211232301023"></a>
+
+<a id="canonical-0123011131230221-1232233010031030-2013232023302111-0312100312133311-2030022200021020-3123132301202330-3130300310002222-1200202200303121"></a>
+
+## decryption_provider property — blindfold_secret_info / 012011312312 / 4
+
+Type: `"string"`. Computed.
+
+Name of the Secret Management Access object that contains information about the backend Secret
+Management service.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-constraints": {
+    "category": "general",
+    "constraintType": "string",
+    "maxLength": 1024,
+    "metadata": {
+      "confidence": 0.85,
+      "source": "inferred",
+      "validatedAt": "2026-09-29T03:20:54+00:00"
+    }
+  },
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  }
+}
+```
+
+<a id="canonical-1011220203112322-2122122110322021-2201230313231222-0200232110203210-1000020220301101-0002121223331002-1222311233021130-1301322023330213"></a>

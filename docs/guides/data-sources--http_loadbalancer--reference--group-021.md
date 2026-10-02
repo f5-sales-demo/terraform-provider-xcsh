@@ -6,78 +6,6 @@ description: "Complete grouped canonical reference for xcsh_http_loadbalancer re
 
 # xcsh_http_loadbalancer reference
 
-<a id="canonical-1010100131212232-2001221030033123-2332233010121110-2300022021021323-3113021031010131-0323330112321223-3332333011330101-1011033003323202"></a>
-
-## more_option.request_headers_to_add.secret_value.blindfold_secret_info — blindfold_secret_info / 012011312312 / 2
-
-Breadcrumbs:
-
-- [xcsh_http_loadbalancer](../data-sources/http_loadbalancer.md#canonical-2321021211310331-0013021131330032-3102301033221021-2110211001101012-3233200230311321-0111111122130023-0121000122111210-2130013030322000)
-- [Property reference](data-sources--http_loadbalancer--reference--group-001.md#canonical-1120010220221032-3212233022220221-3011110301103233-1232002110102021-0012103312230301-1322002232013201-2131001010211321-3011122013022320)
-- [more_option](data-sources--http_loadbalancer--reference--group-020.md#canonical-3020122111213230-3123110331301013-0212331102130112-1130121311213313-0102332203020303-2031330330302330-2131212323210012-3212203312120101)
-- [more_option.request_headers_to_add](data-sources--http_loadbalancer--reference--group-020.md#canonical-3131323333013211-1120301133201010-1211330033032130-3121231320313312-1312311200203221-3112223310131110-3201331320102000-1013203220202110)
-- [more_option.request_headers_to_add.secret_value](data-sources--http_loadbalancer--reference--group-020.md#canonical-1131121000130320-1202130021200221-1000000220302321-0200030221313113-3002002321113003-3013132122301312-3130102313111120-1023001113122030)
-- more_option.request_headers_to_add.secret_value.blindfold_secret_info
-
-<a id="canonical-3220321331223321-1122030132112030-2102001031332301-2311233120300003-0031331321020010-0212221212230003-0000331310103221-1322300233123021"></a>
-
-Type: `"single"`. Computed.
-
-BlindfoldSecretInfoType specifies information about the Secret managed by F5XC Secret Management.
-
-Receipt-pinned upstream constraints:
-
-```json
-{
-  "x-f5xc-required-for": {
-    "create": false,
-    "minimum_config": false,
-    "read": false,
-    "update": false
-  }
-}
-```
-
-<a id="canonical-2123303133031001-1231111131211012-2231021233331101-2120102133332023-1321022113330121-2012023321310212-3130313330102320-0322022110021111"></a>
-
-## Direct properties — blindfold_secret_info / 012011312312 / 3
-
-<a id="canonical-3113211213011303-2331331030030013-1230232131313330-0030230012031310-0021301333030302-2321022003121100-3212323031110320-0123211232301023"></a>
-
-<a id="canonical-0123011131230221-1232233010031030-2013232023302111-0312100312133311-2030022200021020-3123132301202330-3130300310002222-1200202200303121"></a>
-
-## decryption_provider property — blindfold_secret_info / 012011312312 / 4
-
-Type: `"string"`. Computed.
-
-Name of the Secret Management Access object that contains information about the backend Secret
-Management service.
-
-Receipt-pinned upstream constraints:
-
-```json
-{
-  "x-f5xc-constraints": {
-    "category": "general",
-    "constraintType": "string",
-    "maxLength": 1024,
-    "metadata": {
-      "confidence": 0.85,
-      "source": "inferred",
-      "validatedAt": "2026-09-29T03:20:54+00:00"
-    }
-  },
-  "x-f5xc-required-for": {
-    "create": false,
-    "minimum_config": false,
-    "read": false,
-    "update": false
-  }
-}
-```
-
-<a id="canonical-1011220203112322-2122122110322021-2201230313231222-0200232110203210-1000020220301101-0002121223331002-1222311233021130-1301322023330213"></a>
-
 <a id="canonical-1002302132332111-2112133133313210-1011130110000311-3111101223020121-2113312130223022-1300230330022333-3001230013210322-3212103211013022"></a>
 
 ## location property — blindfold_secret_info / 012011312312 / 5
@@ -5558,3 +5486,61 @@ Receipt-pinned upstream constraints:
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
+
+<a id="canonical-2030003311221103-2132102310302111-1020010233302023-3310310033113002-3233311001033120-1313111221311123-3030300131300223-0202102320112231"></a>
+
+## policy_based_challenge.rule_list.rules.metadata — metadata / 321333101113 / 2
+
+Breadcrumbs:
+
+- [xcsh_http_loadbalancer](../data-sources/http_loadbalancer.md#canonical-2321021211310331-0013021131330032-3102301033221021-2110211001101012-3233200230311321-0111111122130023-0121000122111210-2130013030322000)
+- [Property reference](data-sources--http_loadbalancer--reference--group-001.md#canonical-1120010220221032-3212233022220221-3011110301103233-1232002110102021-0012103312230301-1322002232013201-2131001010211321-3011122013022320)
+- [policy_based_challenge](data-sources--http_loadbalancer--reference--group-021.md#canonical-1023133103012222-1300011200232022-1030230202310131-0213212001121312-1033331230101001-1003330132311111-1021320231332331-2113303231031310)
+- [policy_based_challenge.rule_list](data-sources--http_loadbalancer--reference--group-021.md#canonical-3010011021321102-0333202331311212-0021003010321123-1313203103120123-0131220132222100-3110010320233302-2212033110100322-2030230110231212)
+- [policy_based_challenge.rule_list.rules](data-sources--http_loadbalancer--reference--group-021.md#canonical-2120030031313333-0313330033322030-0030333201322122-0332313320330200-3201101222001200-3311033010030022-2201020323310123-1000302221011003)
+- policy_based_challenge.rule_list.rules.metadata
+
+<a id="canonical-1320122212031230-2012200322011311-2102303113202222-2033330331302223-3232121112232121-1233310221131031-1223210002112232-2312031113302112"></a>
+
+Type: `"single"`. Computed.
+
+MessageMetaType is metadata (common attributes) of a message that only certain messages have. This
+information is propagated to the metadata of a child object that gets created from the containing
+message during view processing. The information in this type can be specified by user during
+create..
+
+Upstream description:
+
+MessageMetaType is metadata (common attributes) of a message that only certain messages have. This
+information is propagated to the metadata of a child object that gets created from the containing
+message during view processing. The information in this type can be specified by user during create
+and replace APIs.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  }
+}
+```
+
+<a id="canonical-1021003313212012-0322011223023000-1320302002221031-3113033111102112-0310303103013321-0332232231221101-3111022122300220-2201313031232221"></a>
+
+## Direct properties — metadata / 321333101113 / 3
+
+<a id="canonical-3232102331323011-3133222313322001-0320330110130102-0331230312030210-0322212330020023-3100100102203211-1133210112331212-1231301123322203"></a>
+
+<a id="canonical-0020333221203110-2212001020230300-3202332022020301-3201332200210311-2313323220031012-2333033230221323-3012330322333002-3131102013230200"></a>
+
+## description_spec property — metadata / 321333101113 / 4
+
+Type: `"string"`. Computed.
+
+Description. Human readable description.
+
+<a id="canonical-0203322113230030-2330031122113012-0232320213002322-2011233312000222-3131100200223222-2312312222021021-0210301030220213-0103011030011032"></a>

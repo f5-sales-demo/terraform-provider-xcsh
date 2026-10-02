@@ -30,6 +30,7 @@ import (
 
 	"github.com/f5-sales-demo/terraform-provider-xcsh/internal/client"
 	xcsherrors "github.com/f5-sales-demo/terraform-provider-xcsh/internal/errors"
+	"github.com/f5-sales-demo/terraform-provider-xcsh/internal/planmodifiers"
 	inttimeouts "github.com/f5-sales-demo/terraform-provider-xcsh/internal/timeouts"
 	"github.com/f5-sales-demo/terraform-provider-xcsh/internal/validators"
 )
@@ -19219,7 +19220,7 @@ func (r *HTTPLoadBalancerResource) Schema(ctx context.Context, req resource.Sche
 				},
 			},
 			"http": schema.SingleNestedBlock{
-				MarkdownDescription: "[OneOf: http, https, https_auto_cert; Default: https_auto_cert] HTTP Choice. Choice for selecting HTTP proxy.",
+				MarkdownDescription: "HTTP Choice. Choice for selecting HTTP proxy. Changing this type selection requires recreation and may interrupt service. Supported settings within the same selected type remain updatable.",
 				Validators:          []validator.Object{validators.ConflictingObjectAttributes("port", "port_ranges")},
 
 				Attributes: map[string]schema.Attribute{
@@ -19244,7 +19245,7 @@ func (r *HTTPLoadBalancerResource) Schema(ctx context.Context, req resource.Sche
 				},
 			},
 			"https": schema.SingleNestedBlock{
-				MarkdownDescription: "Choice for selecting HTTP proxy with bring your own certificates.",
+				MarkdownDescription: "Choice for selecting HTTP proxy with bring your own certificates. Changing this type selection requires recreation and may interrupt service. Supported settings within the same selected type remain updatable.",
 				Validators:          []validator.Object{validators.ConflictingObjectAttributes("append_server_name", "default_header"), validators.ConflictingObjectAttributes("append_server_name", "pass_through"), validators.ConflictingObjectAttributes("append_server_name", "server_name"), validators.ConflictingObjectAttributes("default_header", "pass_through"), validators.ConflictingObjectAttributes("default_header", "server_name"), validators.ConflictingObjectAttributes("default_loadbalancer", "non_default_loadbalancer"), validators.ConflictingObjectAttributes("disable_path_normalize", "enable_path_normalize"), validators.ConflictingObjectAttributes("pass_through", "server_name"), validators.ConflictingObjectAttributes("port", "port_ranges"), validators.ConflictingObjectAttributes("tls_cert_params", "tls_parameters")},
 
 				Attributes: map[string]schema.Attribute{
@@ -19838,7 +19839,7 @@ func (r *HTTPLoadBalancerResource) Schema(ctx context.Context, req resource.Sche
 				},
 			},
 			"https_auto_cert": schema.SingleNestedBlock{
-				MarkdownDescription: "Choice for selecting HTTP proxy with bring your own certificates.",
+				MarkdownDescription: "Choice for selecting HTTP proxy with bring your own certificates. Changing this type selection requires recreation and may interrupt service. Supported settings within the same selected type remain updatable.",
 				Validators:          []validator.Object{validators.ConflictingObjectAttributes("append_server_name", "default_header"), validators.ConflictingObjectAttributes("append_server_name", "pass_through"), validators.ConflictingObjectAttributes("append_server_name", "server_name"), validators.ConflictingObjectAttributes("default_header", "pass_through"), validators.ConflictingObjectAttributes("default_header", "server_name"), validators.ConflictingObjectAttributes("default_loadbalancer", "non_default_loadbalancer"), validators.ConflictingObjectAttributes("disable_path_normalize", "enable_path_normalize"), validators.ConflictingObjectAttributes("no_mtls", "use_mtls"), validators.ConflictingObjectAttributes("pass_through", "server_name"), validators.ConflictingObjectAttributes("port", "port_ranges")},
 
 				Attributes: map[string]schema.Attribute{
@@ -25011,19 +25012,17 @@ func (r *HTTPLoadBalancerResource) ModifyPlan(ctx context.Context, req resource.
 	}
 
 	if req.State.Raw.IsNull() {
-		var plan HTTPLoadBalancerResourceModel
-		resp.Diagnostics.Append(req.Plan.Get(ctx, &plan)...)
+		// Inspect only the name: unknown nested settings do not affect selection.
+		var name types.String
+		resp.Diagnostics.Append(req.Plan.GetAttribute(ctx, path.Root("name"), &name)...)
 		if resp.Diagnostics.HasError() {
 			return
 		}
-
-		if plan.Name.IsUnknown() {
-			resp.Diagnostics.AddWarning(
-				"Unknown Resource Name",
-				"The resource name is not yet known. This may affect planning for dependent resources.",
-			)
+		if name.IsUnknown() {
+			resp.Diagnostics.AddWarning("Unknown Resource Name", "The resource name is not yet known. This may affect planning for dependent resources.")
 		}
 	}
+	planmodifiers.RequireImmutableOneOfSelection(ctx, req, resp, "loadbalancer_type", []string{"http", "https", "https_auto_cert"})
 }
 
 func (r *HTTPLoadBalancerResource) Create(ctx context.Context, req resource.CreateRequest, resp *resource.CreateResponse) {

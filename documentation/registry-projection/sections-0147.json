@@ -775,7 +775,7 @@
       "anchor": "canonical-1223202013111303-3102133131320300-1233331231203021-3332222221332110-1130002231320301-0231033023302002-2212022300131000-1110003031032200",
       "anchor_map": [],
       "mode": "embedded",
-      "registry_path": "docs/guides/data-sources--http_loadbalancer--reference--group-025.md"
+      "registry_path": "docs/guides/data-sources--http_loadbalancer--reference--group-024.md"
     },
     {
       "canonical_id": "xcsh-docs:data-sources:http_loadbalancer:properties:routes:simple_route:advanced_options:response_cookies_to_add:add_partitioned",
@@ -792,7 +792,7 @@
         ]
       ],
       "mode": "embedded",
-      "registry_path": "docs/guides/data-sources--http_loadbalancer--reference--group-025.md"
+      "registry_path": "docs/guides/data-sources--http_loadbalancer--reference--group-024.md"
     },
     {
       "canonical_id": "xcsh-docs:data-sources:http_loadbalancer:properties:routes:simple_route:advanced_options:response_cookies_to_add:add_partitioned",
@@ -4258,7 +4258,7 @@
         ]
       ],
       "mode": "embedded",
-      "registry_path": "docs/guides/data-sources--http_loadbalancer--reference--group-026.md"
+      "registry_path": "docs/guides/data-sources--http_loadbalancer--reference--group-025.md"
     },
     {
       "canonical_id": "xcsh-docs:data-sources:http_loadbalancer:properties:routes:simple_route:query_params:remove_all_params",
@@ -4270,7 +4270,7 @@
       "anchor": "canonical-1133212303310112-2120332331211311-1322113022213232-0202020020010222-2100223102133020-0231221002003323-0221221010000302-0032233132103303",
       "anchor_map": [],
       "mode": "embedded",
-      "registry_path": "docs/guides/data-sources--http_loadbalancer--reference--group-026.md"
+      "registry_path": "docs/guides/data-sources--http_loadbalancer--reference--group-025.md"
     },
     {
       "canonical_id": "xcsh-docs:data-sources:http_loadbalancer:properties:routes:simple_route:query_params:remove_all_params",
@@ -4282,7 +4282,7 @@
       "anchor": "canonical-3322032333202303-3003200330322320-0011022312103211-3121020202033320-0122332230011301-0200313122333000-1011000220102320-3312133021223010",
       "anchor_map": [],
       "mode": "embedded",
-      "registry_path": "docs/guides/data-sources--http_loadbalancer--reference--group-026.md"
+      "registry_path": "docs/guides/data-sources--http_loadbalancer--reference--group-025.md"
     },
     {
       "canonical_id": "xcsh-docs:data-sources:http_loadbalancer:properties:routes:simple_route:query_params:retain_all_params",
@@ -4294,7 +4294,7 @@
       "anchor": "canonical-2131313030331302-3323223333230302-2313010010122221-1032313311221010-2003013332313320-3233203001323021-1230322223212312-3302113032331022",
       "anchor_map": [],
       "mode": "embedded",
-      "registry_path": "docs/guides/data-sources--http_loadbalancer--reference--group-026.md"
+      "registry_path": "docs/guides/data-sources--http_loadbalancer--reference--group-025.md"
     },
     {
       "canonical_id": "xcsh-docs:data-sources:http_loadbalancer:properties:routes:simple_route:query_params:retain_all_params",

@@ -7068,7 +7068,7 @@ func (d *HTTPLoadBalancerDataSource) Schema(ctx context.Context, req datasource.
 				Computed: true,
 			},
 			"http": schema.SingleNestedAttribute{
-				MarkdownDescription: "[OneOf: http, https, https_auto_cert; Default: https_auto_cert] HTTP Choice. Choice for selecting HTTP proxy.",
+				MarkdownDescription: "HTTP Choice. Choice for selecting HTTP proxy. Changing this type selection requires recreation and may interrupt service. Supported settings within the same selected type remain updatable.",
 				Attributes: map[string]schema.Attribute{
 					"dns_volterra_managed": schema.BoolAttribute{
 						MarkdownDescription: "DNS records for domains will be managed automatically by F5 Distributed Cloud. As a prerequisite, the domain must be delegated to F5 Distributed Cloud using Delegated domain feature or a DNS CNAME record should be created in your DNS provider's portal.",
@@ -7086,7 +7086,7 @@ func (d *HTTPLoadBalancerDataSource) Schema(ctx context.Context, req datasource.
 				Computed: true,
 			},
 			"https": schema.SingleNestedAttribute{
-				MarkdownDescription: "Choice for selecting HTTP proxy with bring your own certificates.",
+				MarkdownDescription: "Choice for selecting HTTP proxy with bring your own certificates. Changing this type selection requires recreation and may interrupt service. Supported settings within the same selected type remain updatable.",
 				Attributes: map[string]schema.Attribute{
 					"add_hsts": schema.BoolAttribute{
 						MarkdownDescription: "Add HTTP Strict-Transport-Security response header.",
@@ -7550,7 +7550,7 @@ func (d *HTTPLoadBalancerDataSource) Schema(ctx context.Context, req datasource.
 				Computed: true,
 			},
 			"https_auto_cert": schema.SingleNestedAttribute{
-				MarkdownDescription: "Choice for selecting HTTP proxy with bring your own certificates.",
+				MarkdownDescription: "Choice for selecting HTTP proxy with bring your own certificates. Changing this type selection requires recreation and may interrupt service. Supported settings within the same selected type remain updatable.",
 				Attributes: map[string]schema.Attribute{
 					"add_hsts": schema.BoolAttribute{
 						MarkdownDescription: "Add HTTP Strict-Transport-Security response header. Defaults to `false`. Server applies default when omitted.",

@@ -784,7 +784,7 @@
         ]
       ],
       "mode": "embedded",
-      "registry_path": "docs/guides/data-sources--http_loadbalancer--reference--group-021.md"
+      "registry_path": "docs/guides/data-sources--http_loadbalancer--reference--group-020.md"
     },
     {
       "canonical_id": "xcsh-docs:data-sources:http_loadbalancer:properties:more_option:request_headers_to_add:secret_value:blindfold_secret_info",
@@ -801,7 +801,7 @@
         ]
       ],
       "mode": "embedded",
-      "registry_path": "docs/guides/data-sources--http_loadbalancer--reference--group-021.md"
+      "registry_path": "docs/guides/data-sources--http_loadbalancer--reference--group-020.md"
     },
     {
       "canonical_id": "xcsh-docs:data-sources:http_loadbalancer:properties:more_option:request_headers_to_add:secret_value:blindfold_secret_info",
@@ -818,7 +818,7 @@
         ]
       ],
       "mode": "embedded",
-      "registry_path": "docs/guides/data-sources--http_loadbalancer--reference--group-021.md"
+      "registry_path": "docs/guides/data-sources--http_loadbalancer--reference--group-020.md"
     },
     {
       "canonical_id": "xcsh-docs:data-sources:http_loadbalancer:properties:more_option:request_headers_to_add:secret_value:blindfold_secret_info",
@@ -4547,7 +4547,7 @@
         ]
       ],
       "mode": "embedded",
-      "registry_path": "docs/guides/data-sources--http_loadbalancer--reference--group-022.md"
+      "registry_path": "docs/guides/data-sources--http_loadbalancer--reference--group-021.md"
     },
     {
       "canonical_id": "xcsh-docs:data-sources:http_loadbalancer:properties:policy_based_challenge:rule_list:rules:metadata",
@@ -4564,7 +4564,7 @@
         ]
       ],
       "mode": "embedded",
-      "registry_path": "docs/guides/data-sources--http_loadbalancer--reference--group-022.md"
+      "registry_path": "docs/guides/data-sources--http_loadbalancer--reference--group-021.md"
     },
     {
       "canonical_id": "xcsh-docs:data-sources:http_loadbalancer:properties:policy_based_challenge:rule_list:rules:metadata",
@@ -4581,7 +4581,7 @@
         ]
       ],
       "mode": "embedded",
-      "registry_path": "docs/guides/data-sources--http_loadbalancer--reference--group-022.md"
+      "registry_path": "docs/guides/data-sources--http_loadbalancer--reference--group-021.md"
     },
     {
       "canonical_id": "xcsh-docs:data-sources:http_loadbalancer:properties:policy_based_challenge:rule_list:rules:metadata",
