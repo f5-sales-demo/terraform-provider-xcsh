@@ -30,7 +30,9 @@ def summary(description, fallback):
     prose = re.sub(r"\[[^\]]*\]", "", description)
     prose = re.sub(r"\s+", " ", prose).strip()
     text = prose or fallback
-    return text if len(text) <= SUMMARY_LIMIT else text[:SUMMARY_LIMIT].rsplit(" ", 1)[0]
+    return (
+        text if len(text) <= SUMMARY_LIMIT else text[:SUMMARY_LIMIT].rsplit(" ", 1)[0]
+    )
 
 
 class RetrievalRules:
