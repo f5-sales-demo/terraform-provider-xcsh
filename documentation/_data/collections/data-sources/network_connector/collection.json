@@ -364,7 +364,7 @@
         "xcsh-docs:data-sources:network_connector:examples"
       ],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -419,7 +419,7 @@
         "xcsh-docs:data-sources:network_connector:properties:slo_to_global_dr"
       ],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -614,7 +614,7 @@
       "category": "networking",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -657,7 +657,7 @@
         "xcsh-docs:data-sources:network_connector:properties:enable_forward_proxy:tls_intercept"
       ],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -782,7 +782,7 @@
       "category": "networking",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -828,7 +828,7 @@
         "xcsh-docs:data-sources:network_connector:properties:enable_forward_proxy:tls_intercept:volterra_trusted_ca"
       ],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -850,7 +850,7 @@
       "schema_path": ["enable_forward_proxy", "tls_intercept"],
       "sections": [
         {
-          "aliases": ["cert", "certificate", "custom certificate", "existing certificates", "tls certificates"],
+          "aliases": ["custom certificate"],
           "anchor": "section",
           "description": "Handle to fetch certificate and key.",
           "document_id": "xcsh-docs:data-sources:network_connector:properties:enable_forward_proxy:tls_intercept:custom_certificate",
@@ -892,7 +892,7 @@
           "type": "object"
         },
         {
-          "aliases": ["cert", "certificate", "existing certificates", "tls certificates", "trusted ca url"],
+          "aliases": ["trusted ca url"],
           "anchor": "schema-enable_forward_proxy--tls_intercept--trusted_ca_url",
           "description": "Exclusive with Custom Root CA Certificate for validating upstream server certificate.",
           "document_id": "xcsh-docs:data-sources:network_connector:properties:enable_forward_proxy:tls_intercept",
@@ -906,7 +906,7 @@
           "type": "string"
         },
         {
-          "aliases": ["cert", "certificate", "existing certificates", "tls certificates", "volterra certificate"],
+          "aliases": ["volterra certificate"],
           "anchor": "section",
           "description": "This can be used for messages where no values are needed.",
           "document_id": "xcsh-docs:data-sources:network_connector:properties:enable_forward_proxy:tls_intercept:volterra_certificate",
@@ -946,13 +946,7 @@
       }
     },
     {
-      "aliases": [
-        "cert",
-        "certificate",
-        "enable forward proxy tls intercept custom certificate",
-        "existing certificates",
-        "tls certificates"
-      ],
+      "aliases": ["enable forward proxy tls intercept custom certificate"],
       "body_bytes": 5116,
       "body_sha256": "sha256:c280b4be0ee9f39f8879d0e6978b986fd4d1cf6eb404a95ad3bec811797f51ff",
       "capabilities": ["networking"],
@@ -964,7 +958,7 @@
         "xcsh-docs:data-sources:network_connector:properties:enable_forward_proxy:tls_intercept:custom_certificate:use_system_defaults"
       ],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -1014,7 +1008,7 @@
           "type": "object"
         },
         {
-          "aliases": ["cert", "certificate", "description spec", "existing certificates", "tls certificates"],
+          "aliases": ["description spec"],
           "anchor": "schema-enable_forward_proxy--tls_intercept--custom_certificate--description_spec",
           "description": "Description. Description for the certificate.",
           "document_id": "xcsh-docs:data-sources:network_connector:properties:enable_forward_proxy:tls_intercept:custom_certificate",
@@ -1082,20 +1076,14 @@
       }
     },
     {
-      "aliases": [
-        "cert",
-        "certificate",
-        "enable forward proxy tls intercept custom certificate custom hash algorithms",
-        "existing certificates",
-        "tls certificates"
-      ],
+      "aliases": ["enable forward proxy tls intercept custom certificate custom hash algorithms"],
       "body_bytes": 3129,
       "body_sha256": "sha256:8f6087c14cadbb4e71b33adf416f5d9320562e47c5112eb47643b241affb058f",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -1149,20 +1137,14 @@
       }
     },
     {
-      "aliases": [
-        "cert",
-        "certificate",
-        "enable forward proxy tls intercept custom certificate disable ocsp stapling",
-        "existing certificates",
-        "tls certificates"
-      ],
+      "aliases": ["enable forward proxy tls intercept custom certificate disable ocsp stapling"],
       "body_bytes": 1845,
       "body_sha256": "sha256:9a394f40020c6da86ca062d5fbf89ba00b5e2a19586773cd5e8c6b0281134fe2",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -1195,13 +1177,7 @@
       }
     },
     {
-      "aliases": [
-        "cert",
-        "certificate",
-        "enable forward proxy tls intercept custom certificate private key",
-        "existing certificates",
-        "tls certificates"
-      ],
+      "aliases": ["enable forward proxy tls intercept custom certificate private key"],
       "body_bytes": 2822,
       "body_sha256": "sha256:8ce6d3f0bd121b1828db0135c9b6c17bfde130b9bb4a9dfc91c82f33d61162cf",
       "capabilities": ["networking"],
@@ -1211,7 +1187,7 @@
         "xcsh-docs:data-sources:network_connector:properties:enable_forward_proxy:tls_intercept:custom_certificate:private_key:clear_secret_info"
       ],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -1285,20 +1261,14 @@
       }
     },
     {
-      "aliases": [
-        "cert",
-        "certificate",
-        "enable forward proxy tls intercept custom certificate private key blindfold secret info",
-        "existing certificates",
-        "tls certificates"
-      ],
+      "aliases": ["enable forward proxy tls intercept custom certificate private key blindfold secret info"],
       "body_bytes": 5260,
       "body_sha256": "sha256:e1ffc7decff045c6bd7aa3972dc0ce594e3203e12365e884a970db79df104cee",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -1326,7 +1296,7 @@
       ],
       "sections": [
         {
-          "aliases": ["backend servers", "decryption provider", "origin servers", "upstream servers"],
+          "aliases": ["decryption provider"],
           "anchor": "schema-enable_forward_proxy--tls_intercept--custom_certificate--private_key--blindfold_secret_info--decryption_provider",
           "description": "Name of the Secret Management Access object that contains information about the backend Secret Management service.",
           "document_id": "xcsh-docs:data-sources:network_connector:properties:enable_forward_proxy:tls_intercept:custom_certificate:private_key:blindfold_secret_info",
@@ -1401,20 +1371,14 @@
       }
     },
     {
-      "aliases": [
-        "cert",
-        "certificate",
-        "enable forward proxy tls intercept custom certificate private key clear secret info",
-        "existing certificates",
-        "tls certificates"
-      ],
+      "aliases": ["enable forward proxy tls intercept custom certificate private key clear secret info"],
       "body_bytes": 4112,
       "body_sha256": "sha256:5510dd004f2445282f8a4d15d77bc5ea1473d6b1dffea61c2ef4d6cf3b063633",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -1496,20 +1460,14 @@
       }
     },
     {
-      "aliases": [
-        "cert",
-        "certificate",
-        "enable forward proxy tls intercept custom certificate use system defaults",
-        "existing certificates",
-        "tls certificates"
-      ],
+      "aliases": ["enable forward proxy tls intercept custom certificate use system defaults"],
       "body_bytes": 1839,
       "body_sha256": "sha256:98c950a7e88ac9d4e3e10189834c81e700a491a4087d4797fcf6fee7ff521502",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -1549,7 +1507,7 @@
       "category": "networking",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -1591,7 +1549,7 @@
         "xcsh-docs:data-sources:network_connector:properties:enable_forward_proxy:tls_intercept:policy:interception_rules"
       ],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -1650,7 +1608,7 @@
         "xcsh-docs:data-sources:network_connector:properties:enable_forward_proxy:tls_intercept:policy:interception_rules:enable_interception"
       ],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -1745,7 +1703,7 @@
       "category": "networking",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -1785,7 +1743,7 @@
       "category": "networking",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -1889,7 +1847,7 @@
       "category": "networking",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -1922,20 +1880,14 @@
       }
     },
     {
-      "aliases": [
-        "cert",
-        "certificate",
-        "enable forward proxy tls intercept volterra certificate",
-        "existing certificates",
-        "tls certificates"
-      ],
+      "aliases": ["enable forward proxy tls intercept volterra certificate"],
       "body_bytes": 1554,
       "body_sha256": "sha256:f370472da80879190403e0af4c6b2a5345341d46a4e29674cfdae6a3e5c49f37",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -1975,7 +1927,7 @@
       "category": "networking",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -2015,7 +1967,7 @@
       "category": "networking",
       "child_ids": ["xcsh-docs:data-sources:network_connector:properties:sli_to_global_dr:global_vn"],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -2070,7 +2022,7 @@
       "category": "networking",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -2156,7 +2108,7 @@
         "xcsh-docs:data-sources:network_connector:properties:sli_to_slo_snat:interface_ip"
       ],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -2225,7 +2177,7 @@
       "category": "networking",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -2265,7 +2217,7 @@
       "category": "networking",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -2305,7 +2257,7 @@
       "category": "networking",
       "child_ids": ["xcsh-docs:data-sources:network_connector:properties:slo_to_global_dr:global_vn"],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -2360,7 +2312,7 @@
       "category": "networking",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -2443,7 +2395,7 @@
       "category": "networking",
       "child_ids": ["xcsh-docs:data-sources:network_connector:example:data-source"],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -2483,7 +2435,7 @@
       "category": "networking",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"

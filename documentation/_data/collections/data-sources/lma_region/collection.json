@@ -226,7 +226,7 @@
       "category": null,
       "child_ids": ["xcsh-docs:data-sources:lma_region:reference", "xcsh-docs:data-sources:lma_region:examples"],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -272,7 +272,7 @@
         "xcsh-docs:data-sources:lma_region:properties:kafka_params"
       ],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -481,7 +481,7 @@
       "category": null,
       "child_ids": ["xcsh-docs:data-sources:lma_region:properties:access_logs_s3_params:aws_credentials"],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -552,7 +552,7 @@
         "xcsh-docs:data-sources:lma_region:properties:access_logs_s3_params:aws_credentials:secret_access_key"
       ],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -628,12 +628,7 @@
       }
     },
     {
-      "aliases": [
-        "access logs s3 params aws credentials secret access key",
-        "authentication",
-        "credential setup",
-        "credentials"
-      ],
+      "aliases": ["access logs s3 params aws credentials secret access key"],
       "body_bytes": 2153,
       "body_sha256": "sha256:11bcbd335e61c59b3cbaeea32aefc898389246fe9f7ee5ff88fabe6d562f760a",
       "capabilities": [],
@@ -643,7 +638,7 @@
         "xcsh-docs:data-sources:lma_region:properties:access_logs_s3_params:aws_credentials:secret_access_key:clear_secret_info"
       ],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -705,19 +700,14 @@
       }
     },
     {
-      "aliases": [
-        "access logs s3 params aws credentials secret access key blindfold secret info",
-        "authentication",
-        "credential setup",
-        "credentials"
-      ],
+      "aliases": ["access logs s3 params aws credentials secret access key blindfold secret info"],
       "body_bytes": 2490,
       "body_sha256": "sha256:001a78e7fcece5b0f73cc94cb82fd9102dac6e27a8261f9370e875f9672bfaa0",
       "capabilities": [],
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -739,7 +729,7 @@
       "schema_path": ["access_logs_s3_params", "aws_credentials", "secret_access_key", "blindfold_secret_info"],
       "sections": [
         {
-          "aliases": ["backend servers", "decryption provider", "origin servers", "upstream servers"],
+          "aliases": ["decryption provider"],
           "anchor": "schema-access_logs_s3_params--aws_credentials--secret_access_key--blindfold_secret_info--decryption_provider",
           "description": "Name of the Secret Management Access object that contains information about the backend Secret Management service.",
           "document_id": "xcsh-docs:data-sources:lma_region:properties:access_logs_s3_params:aws_credentials:secret_access_key:blindfold_secret_info",
@@ -811,19 +801,14 @@
       }
     },
     {
-      "aliases": [
-        "access logs s3 params aws credentials secret access key clear secret info",
-        "authentication",
-        "credential setup",
-        "credentials"
-      ],
+      "aliases": ["access logs s3 params aws credentials secret access key clear secret info"],
       "body_bytes": 2215,
       "body_sha256": "sha256:f985c20bb5fe6392cb97e5bef48f128fba991cfc9b82ca5aba2584b393b432cd",
       "capabilities": [],
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -898,7 +883,7 @@
       "category": null,
       "child_ids": ["xcsh-docs:data-sources:lma_region:properties:clickhouse_params:password"],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -998,7 +983,7 @@
         "xcsh-docs:data-sources:lma_region:properties:clickhouse_params:password:clear_secret_info"
       ],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -1067,7 +1052,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -1089,7 +1074,7 @@
       "schema_path": ["clickhouse_params", "password", "blindfold_secret_info"],
       "sections": [
         {
-          "aliases": ["backend servers", "decryption provider", "origin servers", "upstream servers"],
+          "aliases": ["decryption provider"],
           "anchor": "schema-clickhouse_params--password--blindfold_secret_info--decryption_provider",
           "description": "Name of the Secret Management Access object that contains information about the backend Secret Management service.",
           "document_id": "xcsh-docs:data-sources:lma_region:properties:clickhouse_params:password:blindfold_secret_info",
@@ -1150,7 +1135,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -1219,7 +1204,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -1274,7 +1259,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -1329,7 +1314,7 @@
       "category": null,
       "child_ids": ["xcsh-docs:data-sources:lma_region:example:data-source"],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -1369,7 +1354,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"

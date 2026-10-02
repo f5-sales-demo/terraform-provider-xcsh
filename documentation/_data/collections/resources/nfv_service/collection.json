@@ -1789,7 +1789,7 @@
         "xcsh-docs:resources:nfv_service:timeouts"
       ],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -1838,7 +1838,7 @@
         "xcsh-docs:resources:nfv_service:properties:timeouts"
       ],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -2479,7 +2479,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -2519,7 +2519,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -2564,7 +2564,7 @@
         "xcsh-docs:resources:nfv_service:properties:enabled_ssh_access:node_ssh_ports"
       ],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -2757,7 +2757,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -2797,7 +2797,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -2837,7 +2837,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -2877,7 +2877,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -2969,7 +2969,7 @@
         "xcsh-docs:resources:nfv_service:properties:f5_big_ip_aws_service:nodes"
       ],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -3474,7 +3474,7 @@
         "xcsh-docs:resources:nfv_service:properties:f5_big_ip_aws_service:admin_password:clear_secret_info"
       ],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -3578,7 +3578,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -3609,7 +3609,7 @@
       "schema_path": ["f5_big_ip_aws_service", "admin_password", "blindfold_secret_info"],
       "sections": [
         {
-          "aliases": ["backend servers", "decryption provider", "origin servers", "upstream servers"],
+          "aliases": ["decryption provider"],
           "anchor": "schema-f5_big_ip_aws_service--admin_password--blindfold_secret_info--decryption_provider",
           "description": "Name of the Secret Management Access object that contains information about the backend Secret Management service.",
           "document_id": "xcsh-docs:resources:nfv_service:properties:f5_big_ip_aws_service:admin_password:blindfold_secret_info",
@@ -3670,7 +3670,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -3750,7 +3750,7 @@
         "xcsh-docs:resources:nfv_service:properties:f5_big_ip_aws_service:aws_tgw_site_params:aws_tgw_site"
       ],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -3814,7 +3814,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -3918,7 +3918,7 @@
         "xcsh-docs:resources:nfv_service:properties:f5_big_ip_aws_service:endpoint_service:no_udp_ports"
       ],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -4386,7 +4386,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -4426,7 +4426,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -4466,7 +4466,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -4506,7 +4506,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -4570,7 +4570,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -4634,7 +4634,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -4674,7 +4674,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -4714,7 +4714,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -4754,7 +4754,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -4794,7 +4794,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -4834,7 +4834,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -4877,7 +4877,7 @@
         "xcsh-docs:resources:nfv_service:properties:f5_big_ip_aws_service:market_place_image:awafpay_g3_gbps"
       ],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -4963,7 +4963,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -5003,7 +5003,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -5047,7 +5047,7 @@
         "xcsh-docs:resources:nfv_service:properties:f5_big_ip_aws_service:nodes:reserved_mgmt_subnet"
       ],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -5238,7 +5238,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -5278,7 +5278,7 @@
       "category": null,
       "child_ids": ["xcsh-docs:resources:nfv_service:properties:f5_big_ip_aws_service:nodes:mgmt_subnet:subnet_param"],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -5373,7 +5373,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -5437,7 +5437,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -5485,7 +5485,7 @@
         "xcsh-docs:resources:nfv_service:properties:https_management:default_https_port"
       ],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -6017,7 +6017,7 @@
       "category": null,
       "child_ids": ["xcsh-docs:resources:nfv_service:properties:https_management:advertise_on_internet:public_ip"],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -6081,7 +6081,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -6173,7 +6173,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -6218,7 +6218,7 @@
         "xcsh-docs:resources:nfv_service:properties:https_management:advertise_on_sli_vip:use_mtls"
       ],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -6543,7 +6543,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -6594,7 +6594,7 @@
         "xcsh-docs:resources:nfv_service:properties:https_management:advertise_on_sli_vip:tls_certificates:use_system_defaults"
       ],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -6710,7 +6710,7 @@
           "type": "object"
         },
         {
-          "aliases": ["cert", "certificate", "description spec", "existing certificates", "tls certificates"],
+          "aliases": ["description spec"],
           "anchor": "schema-https_management--advertise_on_sli_vip--tls_certificates--description_spec",
           "description": "Description. Description for the certificate.",
           "document_id": "xcsh-docs:resources:nfv_service:properties:https_management:advertise_on_sli_vip:tls_certificates",
@@ -6795,20 +6795,14 @@
       }
     },
     {
-      "aliases": [
-        "cert",
-        "certificate",
-        "existing certificates",
-        "https management advertise on sli vip tls certificates custom hash algorithms",
-        "tls certificates"
-      ],
+      "aliases": ["https management advertise on sli vip tls certificates custom hash algorithms"],
       "body_bytes": 3478,
       "body_sha256": "sha256:ae7e93435f79564f4e43e0dafa69f0ae3c333ff47e6a21afa776cf36ea7bb067",
       "capabilities": [],
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -6871,20 +6865,14 @@
       }
     },
     {
-      "aliases": [
-        "cert",
-        "certificate",
-        "existing certificates",
-        "https management advertise on sli vip tls certificates disable ocsp stapling",
-        "tls certificates"
-      ],
+      "aliases": ["https management advertise on sli vip tls certificates disable ocsp stapling"],
       "body_bytes": 1838,
       "body_sha256": "sha256:4cd2550846b5a221457f427bad404a009a9b14db867b21596d16e3a82b501f25",
       "capabilities": [],
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -6917,13 +6905,7 @@
       }
     },
     {
-      "aliases": [
-        "cert",
-        "certificate",
-        "existing certificates",
-        "https management advertise on sli vip tls certificates private key",
-        "tls certificates"
-      ],
+      "aliases": ["https management advertise on sli vip tls certificates private key"],
       "body_bytes": 3029,
       "body_sha256": "sha256:cb838399c1a9ff5afa78f2a1a28a27cba0e05e2756775d8b57157ed5692de8b0",
       "capabilities": [],
@@ -6933,7 +6915,7 @@
         "xcsh-docs:resources:nfv_service:properties:https_management:advertise_on_sli_vip:tls_certificates:private_key:clear_secret_info"
       ],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -7042,20 +7024,14 @@
       }
     },
     {
-      "aliases": [
-        "cert",
-        "certificate",
-        "existing certificates",
-        "https management advertise on sli vip tls certificates private key blindfold secret info",
-        "tls certificates"
-      ],
+      "aliases": ["https management advertise on sli vip tls certificates private key blindfold secret info"],
       "body_bytes": 5607,
       "body_sha256": "sha256:893eb68b9f614eb414ab07ecbce484cccf0ed640361766f0dce5e341fd10aa4e",
       "capabilities": [],
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -7092,7 +7068,7 @@
       ],
       "sections": [
         {
-          "aliases": ["backend servers", "decryption provider", "origin servers", "upstream servers"],
+          "aliases": ["decryption provider"],
           "anchor": "schema-https_management--advertise_on_sli_vip--tls_certificates--private_key--blindfold_secret_info--decryption_provider",
           "description": "Name of the Secret Management Access object that contains information about the backend Secret Management service.",
           "document_id": "xcsh-docs:resources:nfv_service:properties:https_management:advertise_on_sli_vip:tls_certificates:private_key:blindfold_secret_info",
@@ -7167,20 +7143,14 @@
       }
     },
     {
-      "aliases": [
-        "cert",
-        "certificate",
-        "existing certificates",
-        "https management advertise on sli vip tls certificates private key clear secret info",
-        "tls certificates"
-      ],
+      "aliases": ["https management advertise on sli vip tls certificates private key clear secret info"],
       "body_bytes": 4449,
       "body_sha256": "sha256:b2153126f67c0d4d1d36015fcd30e4b0e3e36bc6abf954a54cd9afc315650000",
       "capabilities": [],
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -7271,20 +7241,14 @@
       }
     },
     {
-      "aliases": [
-        "cert",
-        "certificate",
-        "existing certificates",
-        "https management advertise on sli vip tls certificates use system defaults",
-        "tls certificates"
-      ],
+      "aliases": ["https management advertise on sli vip tls certificates use system defaults"],
       "body_bytes": 1830,
       "body_sha256": "sha256:d5765ba1f5958d48e0b7fa96a47864ad8d96ba9f415b9018805ee56dd7cf83d6",
       "capabilities": [],
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -7329,7 +7293,7 @@
         "xcsh-docs:resources:nfv_service:properties:https_management:advertise_on_sli_vip:tls_config:medium_security"
       ],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -7532,7 +7496,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -7624,7 +7588,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -7664,7 +7628,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -7704,7 +7668,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -7750,7 +7714,7 @@
         "xcsh-docs:resources:nfv_service:properties:https_management:advertise_on_sli_vip:use_mtls:xfcc_options"
       ],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -7821,13 +7785,7 @@
       "schema_path": ["https_management", "advertise_on_sli_vip", "use_mtls"],
       "sections": [
         {
-          "aliases": [
-            "cert",
-            "certificate",
-            "client certificate optional",
-            "existing certificates",
-            "tls certificates"
-          ],
+          "aliases": ["client certificate optional"],
           "anchor": "schema-https_management--advertise_on_sli_vip--use_mtls--client_certificate_optional",
           "description": "Client certificate is optional. If the client has provided a certificate, the load balancer will verify it. If certification verification fails, the connection will be terminated. If the client does not provide a certificate, the connection will be accepted.",
           "document_id": "xcsh-docs:resources:nfv_service:properties:https_management:advertise_on_sli_vip:use_mtls",
@@ -7901,7 +7859,7 @@
           "type": "object"
         },
         {
-          "aliases": ["cert", "certificate", "existing certificates", "tls certificates", "trusted ca url"],
+          "aliases": ["trusted ca url"],
           "anchor": "schema-https_management--advertise_on_sli_vip--use_mtls--trusted_ca_url",
           "description": "Exclusive with Upload a Root CA Certificate specifically for this Load Balancer.",
           "document_id": "xcsh-docs:resources:nfv_service:properties:https_management:advertise_on_sli_vip:use_mtls",
@@ -7971,7 +7929,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -8063,7 +8021,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -8103,7 +8061,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -8195,7 +8153,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -8235,7 +8193,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -8310,7 +8268,7 @@
         "xcsh-docs:resources:nfv_service:properties:https_management:advertise_on_slo_internet_vip:use_mtls"
       ],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -8635,7 +8593,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -8686,7 +8644,7 @@
         "xcsh-docs:resources:nfv_service:properties:https_management:advertise_on_slo_internet_vip:tls_certificates:use_system_defaults"
       ],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -8807,7 +8765,7 @@
           "type": "object"
         },
         {
-          "aliases": ["cert", "certificate", "description spec", "existing certificates", "tls certificates"],
+          "aliases": ["description spec"],
           "anchor": "schema-https_management--advertise_on_slo_internet_vip--tls_certificates--description_spec",
           "description": "Description. Description for the certificate.",
           "document_id": "xcsh-docs:resources:nfv_service:properties:https_management:advertise_on_slo_internet_vip:tls_certificates",
@@ -8902,20 +8860,14 @@
       }
     },
     {
-      "aliases": [
-        "cert",
-        "certificate",
-        "existing certificates",
-        "https management advertise on slo internet vip tls certificates custom hash algorithms",
-        "tls certificates"
-      ],
+      "aliases": ["https management advertise on slo internet vip tls certificates custom hash algorithms"],
       "body_bytes": 3559,
       "body_sha256": "sha256:5133793827d5cb5b7cf90cc504092f64c9ea3719732bf526004cc4498790dcc9",
       "capabilities": [],
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -8983,20 +8935,14 @@
       }
     },
     {
-      "aliases": [
-        "cert",
-        "certificate",
-        "existing certificates",
-        "https management advertise on slo internet vip tls certificates disable ocsp stapling",
-        "tls certificates"
-      ],
+      "aliases": ["https management advertise on slo internet vip tls certificates disable ocsp stapling"],
       "body_bytes": 1910,
       "body_sha256": "sha256:c47f31c7266f2b31e3edbc318ca7f8af2c1b31f779855738751b1cd402dfbc71",
       "capabilities": [],
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -9029,13 +8975,7 @@
       }
     },
     {
-      "aliases": [
-        "cert",
-        "certificate",
-        "existing certificates",
-        "https management advertise on slo internet vip tls certificates private key",
-        "tls certificates"
-      ],
+      "aliases": ["https management advertise on slo internet vip tls certificates private key"],
       "body_bytes": 3155,
       "body_sha256": "sha256:70f022823ce1092dac809ce1a4b738068a360b26c59e3fc210795d3b49af1c3e",
       "capabilities": [],
@@ -9045,7 +8985,7 @@
         "xcsh-docs:resources:nfv_service:properties:https_management:advertise_on_slo_internet_vip:tls_certificates:private_key:clear_secret_info"
       ],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -9154,20 +9094,14 @@
       }
     },
     {
-      "aliases": [
-        "cert",
-        "certificate",
-        "existing certificates",
-        "https management advertise on slo internet vip tls certificates private key blindfold secret info",
-        "tls certificates"
-      ],
+      "aliases": ["https management advertise on slo internet vip tls certificates private key blindfold secret info"],
       "body_bytes": 5724,
       "body_sha256": "sha256:b26f81c45bf0e8a472f101a8e8d51aa67030b1787a0c71e25ab582a4eb4aece8",
       "capabilities": [],
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -9204,7 +9138,7 @@
       ],
       "sections": [
         {
-          "aliases": ["backend servers", "decryption provider", "origin servers", "upstream servers"],
+          "aliases": ["decryption provider"],
           "anchor": "schema-https_management--advertise_on_slo_internet_vip--tls_certificates--private_key--blindfold_secret_info--decryption_provider",
           "description": "Name of the Secret Management Access object that contains information about the backend Secret Management service.",
           "document_id": "xcsh-docs:resources:nfv_service:properties:https_management:advertise_on_slo_internet_vip:tls_certificates:private_key:blindfold_secret_info",
@@ -9279,20 +9213,14 @@
       }
     },
     {
-      "aliases": [
-        "cert",
-        "certificate",
-        "existing certificates",
-        "https management advertise on slo internet vip tls certificates private key clear secret info",
-        "tls certificates"
-      ],
+      "aliases": ["https management advertise on slo internet vip tls certificates private key clear secret info"],
       "body_bytes": 4557,
       "body_sha256": "sha256:3ee8ad43f39e92caa5bd908f95b360b335ac461509f053de135fca21157642c5",
       "capabilities": [],
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -9383,20 +9311,14 @@
       }
     },
     {
-      "aliases": [
-        "cert",
-        "certificate",
-        "existing certificates",
-        "https management advertise on slo internet vip tls certificates use system defaults",
-        "tls certificates"
-      ],
+      "aliases": ["https management advertise on slo internet vip tls certificates use system defaults"],
       "body_bytes": 1902,
       "body_sha256": "sha256:d0839251f15d7ddc6cca8b27829b1f1e090962f20f9f92c6130aedbdc51f4586",
       "capabilities": [],
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -9441,7 +9363,7 @@
         "xcsh-docs:resources:nfv_service:properties:https_management:advertise_on_slo_internet_vip:tls_config:medium_security"
       ],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -9644,7 +9566,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -9754,7 +9676,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -9794,7 +9716,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -9834,7 +9756,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -9880,7 +9802,7 @@
         "xcsh-docs:resources:nfv_service:properties:https_management:advertise_on_slo_internet_vip:use_mtls:xfcc_options"
       ],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -9951,13 +9873,7 @@
       "schema_path": ["https_management", "advertise_on_slo_internet_vip", "use_mtls"],
       "sections": [
         {
-          "aliases": [
-            "cert",
-            "certificate",
-            "client certificate optional",
-            "existing certificates",
-            "tls certificates"
-          ],
+          "aliases": ["client certificate optional"],
           "anchor": "schema-https_management--advertise_on_slo_internet_vip--use_mtls--client_certificate_optional",
           "description": "Client certificate is optional. If the client has provided a certificate, the load balancer will verify it. If certification verification fails, the connection will be terminated. If the client does not provide a certificate, the connection will be accepted.",
           "document_id": "xcsh-docs:resources:nfv_service:properties:https_management:advertise_on_slo_internet_vip:use_mtls",
@@ -10036,7 +9952,7 @@
           "type": "object"
         },
         {
-          "aliases": ["cert", "certificate", "existing certificates", "tls certificates", "trusted ca url"],
+          "aliases": ["trusted ca url"],
           "anchor": "schema-https_management--advertise_on_slo_internet_vip--use_mtls--trusted_ca_url",
           "description": "Exclusive with Upload a Root CA Certificate specifically for this Load Balancer.",
           "document_id": "xcsh-docs:resources:nfv_service:properties:https_management:advertise_on_slo_internet_vip:use_mtls",
@@ -10106,7 +10022,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -10198,7 +10114,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -10238,7 +10154,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -10330,7 +10246,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -10370,7 +10286,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -10445,7 +10361,7 @@
         "xcsh-docs:resources:nfv_service:properties:https_management:advertise_on_slo_sli:use_mtls"
       ],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -10770,7 +10686,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -10821,7 +10737,7 @@
         "xcsh-docs:resources:nfv_service:properties:https_management:advertise_on_slo_sli:tls_certificates:use_system_defaults"
       ],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -10937,7 +10853,7 @@
           "type": "object"
         },
         {
-          "aliases": ["cert", "certificate", "description spec", "existing certificates", "tls certificates"],
+          "aliases": ["description spec"],
           "anchor": "schema-https_management--advertise_on_slo_sli--tls_certificates--description_spec",
           "description": "Description. Description for the certificate.",
           "document_id": "xcsh-docs:resources:nfv_service:properties:https_management:advertise_on_slo_sli:tls_certificates",
@@ -11022,20 +10938,14 @@
       }
     },
     {
-      "aliases": [
-        "cert",
-        "certificate",
-        "existing certificates",
-        "https management advertise on slo sli tls certificates custom hash algorithms",
-        "tls certificates"
-      ],
+      "aliases": ["https management advertise on slo sli tls certificates custom hash algorithms"],
       "body_bytes": 3478,
       "body_sha256": "sha256:16400086ff44ffc6966bd65ad4e7949bd6b7715b20937098f5d57f77a4a6a06b",
       "capabilities": [],
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -11098,20 +11008,14 @@
       }
     },
     {
-      "aliases": [
-        "cert",
-        "certificate",
-        "existing certificates",
-        "https management advertise on slo sli tls certificates disable ocsp stapling",
-        "tls certificates"
-      ],
+      "aliases": ["https management advertise on slo sli tls certificates disable ocsp stapling"],
       "body_bytes": 1838,
       "body_sha256": "sha256:43ca3e2b116029835cb397198bf12e4415979b01b7ab38f4b6537a5e8056b145",
       "capabilities": [],
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -11144,13 +11048,7 @@
       }
     },
     {
-      "aliases": [
-        "cert",
-        "certificate",
-        "existing certificates",
-        "https management advertise on slo sli tls certificates private key",
-        "tls certificates"
-      ],
+      "aliases": ["https management advertise on slo sli tls certificates private key"],
       "body_bytes": 3029,
       "body_sha256": "sha256:3b17b4508764877b782b721c976592fc97f024a7d253e491803e5d124d43005d",
       "capabilities": [],
@@ -11160,7 +11058,7 @@
         "xcsh-docs:resources:nfv_service:properties:https_management:advertise_on_slo_sli:tls_certificates:private_key:clear_secret_info"
       ],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -11269,20 +11167,14 @@
       }
     },
     {
-      "aliases": [
-        "cert",
-        "certificate",
-        "existing certificates",
-        "https management advertise on slo sli tls certificates private key blindfold secret info",
-        "tls certificates"
-      ],
+      "aliases": ["https management advertise on slo sli tls certificates private key blindfold secret info"],
       "body_bytes": 5607,
       "body_sha256": "sha256:38ebc0baf87a8beba765464ab0b0bd764c5e185cbe478617ae657e7bcab62eda",
       "capabilities": [],
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -11319,7 +11211,7 @@
       ],
       "sections": [
         {
-          "aliases": ["backend servers", "decryption provider", "origin servers", "upstream servers"],
+          "aliases": ["decryption provider"],
           "anchor": "schema-https_management--advertise_on_slo_sli--tls_certificates--private_key--blindfold_secret_info--decryption_provider",
           "description": "Name of the Secret Management Access object that contains information about the backend Secret Management service.",
           "document_id": "xcsh-docs:resources:nfv_service:properties:https_management:advertise_on_slo_sli:tls_certificates:private_key:blindfold_secret_info",
@@ -11394,20 +11286,14 @@
       }
     },
     {
-      "aliases": [
-        "cert",
-        "certificate",
-        "existing certificates",
-        "https management advertise on slo sli tls certificates private key clear secret info",
-        "tls certificates"
-      ],
+      "aliases": ["https management advertise on slo sli tls certificates private key clear secret info"],
       "body_bytes": 4449,
       "body_sha256": "sha256:f438324b94537e0957c99dc6600b44f5980a827b1ee55158dd69a6b56ad5ea6c",
       "capabilities": [],
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -11498,20 +11384,14 @@
       }
     },
     {
-      "aliases": [
-        "cert",
-        "certificate",
-        "existing certificates",
-        "https management advertise on slo sli tls certificates use system defaults",
-        "tls certificates"
-      ],
+      "aliases": ["https management advertise on slo sli tls certificates use system defaults"],
       "body_bytes": 1830,
       "body_sha256": "sha256:99bd2b69fc2ce32d532b22a6a9c5e01f5f699a5afddd00c1d1450e8b5da8c5d5",
       "capabilities": [],
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -11556,7 +11436,7 @@
         "xcsh-docs:resources:nfv_service:properties:https_management:advertise_on_slo_sli:tls_config:medium_security"
       ],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -11759,7 +11639,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -11851,7 +11731,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -11891,7 +11771,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -11931,7 +11811,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -11977,7 +11857,7 @@
         "xcsh-docs:resources:nfv_service:properties:https_management:advertise_on_slo_sli:use_mtls:xfcc_options"
       ],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -12048,13 +11928,7 @@
       "schema_path": ["https_management", "advertise_on_slo_sli", "use_mtls"],
       "sections": [
         {
-          "aliases": [
-            "cert",
-            "certificate",
-            "client certificate optional",
-            "existing certificates",
-            "tls certificates"
-          ],
+          "aliases": ["client certificate optional"],
           "anchor": "schema-https_management--advertise_on_slo_sli--use_mtls--client_certificate_optional",
           "description": "Client certificate is optional. If the client has provided a certificate, the load balancer will verify it. If certification verification fails, the connection will be terminated. If the client does not provide a certificate, the connection will be accepted.",
           "document_id": "xcsh-docs:resources:nfv_service:properties:https_management:advertise_on_slo_sli:use_mtls",
@@ -12128,7 +12002,7 @@
           "type": "object"
         },
         {
-          "aliases": ["cert", "certificate", "existing certificates", "tls certificates", "trusted ca url"],
+          "aliases": ["trusted ca url"],
           "anchor": "schema-https_management--advertise_on_slo_sli--use_mtls--trusted_ca_url",
           "description": "Exclusive with Upload a Root CA Certificate specifically for this Load Balancer.",
           "document_id": "xcsh-docs:resources:nfv_service:properties:https_management:advertise_on_slo_sli:use_mtls",
@@ -12198,7 +12072,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -12290,7 +12164,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -12330,7 +12204,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -12422,7 +12296,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -12462,7 +12336,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -12537,7 +12411,7 @@
         "xcsh-docs:resources:nfv_service:properties:https_management:advertise_on_slo_vip:use_mtls"
       ],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -12862,7 +12736,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -12913,7 +12787,7 @@
         "xcsh-docs:resources:nfv_service:properties:https_management:advertise_on_slo_vip:tls_certificates:use_system_defaults"
       ],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -13029,7 +12903,7 @@
           "type": "object"
         },
         {
-          "aliases": ["cert", "certificate", "description spec", "existing certificates", "tls certificates"],
+          "aliases": ["description spec"],
           "anchor": "schema-https_management--advertise_on_slo_vip--tls_certificates--description_spec",
           "description": "Description. Description for the certificate.",
           "document_id": "xcsh-docs:resources:nfv_service:properties:https_management:advertise_on_slo_vip:tls_certificates",
@@ -13114,20 +12988,14 @@
       }
     },
     {
-      "aliases": [
-        "cert",
-        "certificate",
-        "existing certificates",
-        "https management advertise on slo vip tls certificates custom hash algorithms",
-        "tls certificates"
-      ],
+      "aliases": ["https management advertise on slo vip tls certificates custom hash algorithms"],
       "body_bytes": 3478,
       "body_sha256": "sha256:52d8e502fa06aaa7f738a994941d4bd12355f4c68124b9cc00690153221b1bc8",
       "capabilities": [],
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -13190,20 +13058,14 @@
       }
     },
     {
-      "aliases": [
-        "cert",
-        "certificate",
-        "existing certificates",
-        "https management advertise on slo vip tls certificates disable ocsp stapling",
-        "tls certificates"
-      ],
+      "aliases": ["https management advertise on slo vip tls certificates disable ocsp stapling"],
       "body_bytes": 1838,
       "body_sha256": "sha256:e2af70bab11bbb51064b10d361bc16711ac8397fee75c44a9ab2d9501060d192",
       "capabilities": [],
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -13236,13 +13098,7 @@
       }
     },
     {
-      "aliases": [
-        "cert",
-        "certificate",
-        "existing certificates",
-        "https management advertise on slo vip tls certificates private key",
-        "tls certificates"
-      ],
+      "aliases": ["https management advertise on slo vip tls certificates private key"],
       "body_bytes": 3029,
       "body_sha256": "sha256:f3b9d41b87186501db6a709efd0000068dd74bac09fa41935844475b4983d57b",
       "capabilities": [],
@@ -13252,7 +13108,7 @@
         "xcsh-docs:resources:nfv_service:properties:https_management:advertise_on_slo_vip:tls_certificates:private_key:clear_secret_info"
       ],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -13361,20 +13217,14 @@
       }
     },
     {
-      "aliases": [
-        "cert",
-        "certificate",
-        "existing certificates",
-        "https management advertise on slo vip tls certificates private key blindfold secret info",
-        "tls certificates"
-      ],
+      "aliases": ["https management advertise on slo vip tls certificates private key blindfold secret info"],
       "body_bytes": 5607,
       "body_sha256": "sha256:082e40d550b813ec412b22fd0f4928a64096582e96b6993fac7d619c19ae32bd",
       "capabilities": [],
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -13411,7 +13261,7 @@
       ],
       "sections": [
         {
-          "aliases": ["backend servers", "decryption provider", "origin servers", "upstream servers"],
+          "aliases": ["decryption provider"],
           "anchor": "schema-https_management--advertise_on_slo_vip--tls_certificates--private_key--blindfold_secret_info--decryption_provider",
           "description": "Name of the Secret Management Access object that contains information about the backend Secret Management service.",
           "document_id": "xcsh-docs:resources:nfv_service:properties:https_management:advertise_on_slo_vip:tls_certificates:private_key:blindfold_secret_info",
@@ -13486,20 +13336,14 @@
       }
     },
     {
-      "aliases": [
-        "cert",
-        "certificate",
-        "existing certificates",
-        "https management advertise on slo vip tls certificates private key clear secret info",
-        "tls certificates"
-      ],
+      "aliases": ["https management advertise on slo vip tls certificates private key clear secret info"],
       "body_bytes": 4449,
       "body_sha256": "sha256:2943b61c68ba23f55f09e20bbfb01d37c19e1baa5adb8ce16701cf292e26998f",
       "capabilities": [],
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -13590,20 +13434,14 @@
       }
     },
     {
-      "aliases": [
-        "cert",
-        "certificate",
-        "existing certificates",
-        "https management advertise on slo vip tls certificates use system defaults",
-        "tls certificates"
-      ],
+      "aliases": ["https management advertise on slo vip tls certificates use system defaults"],
       "body_bytes": 1830,
       "body_sha256": "sha256:6731915219010fe345fede26f8d30e8957526e185e47269870319e233db7a542",
       "capabilities": [],
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -13648,7 +13486,7 @@
         "xcsh-docs:resources:nfv_service:properties:https_management:advertise_on_slo_vip:tls_config:medium_security"
       ],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -13851,7 +13689,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -13943,7 +13781,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -13983,7 +13821,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -14023,7 +13861,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -14069,7 +13907,7 @@
         "xcsh-docs:resources:nfv_service:properties:https_management:advertise_on_slo_vip:use_mtls:xfcc_options"
       ],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -14140,13 +13978,7 @@
       "schema_path": ["https_management", "advertise_on_slo_vip", "use_mtls"],
       "sections": [
         {
-          "aliases": [
-            "cert",
-            "certificate",
-            "client certificate optional",
-            "existing certificates",
-            "tls certificates"
-          ],
+          "aliases": ["client certificate optional"],
           "anchor": "schema-https_management--advertise_on_slo_vip--use_mtls--client_certificate_optional",
           "description": "Client certificate is optional. If the client has provided a certificate, the load balancer will verify it. If certification verification fails, the connection will be terminated. If the client does not provide a certificate, the connection will be accepted.",
           "document_id": "xcsh-docs:resources:nfv_service:properties:https_management:advertise_on_slo_vip:use_mtls",
@@ -14220,7 +14052,7 @@
           "type": "object"
         },
         {
-          "aliases": ["cert", "certificate", "existing certificates", "tls certificates", "trusted ca url"],
+          "aliases": ["trusted ca url"],
           "anchor": "schema-https_management--advertise_on_slo_vip--use_mtls--trusted_ca_url",
           "description": "Exclusive with Upload a Root CA Certificate specifically for this Load Balancer.",
           "document_id": "xcsh-docs:resources:nfv_service:properties:https_management:advertise_on_slo_vip:use_mtls",
@@ -14290,7 +14122,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -14382,7 +14214,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -14422,7 +14254,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -14514,7 +14346,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -14554,7 +14386,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -14624,7 +14456,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -14672,7 +14504,7 @@
         "xcsh-docs:resources:nfv_service:properties:palo_alto_fw_service:service_nodes"
       ],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -14955,7 +14787,7 @@
         "xcsh-docs:resources:nfv_service:properties:palo_alto_fw_service:auto_setup:manual_ssh_keys"
       ],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -15076,7 +14908,7 @@
         "xcsh-docs:resources:nfv_service:properties:palo_alto_fw_service:auto_setup:admin_password:clear_secret_info"
       ],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -15180,7 +15012,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -15211,7 +15043,7 @@
       "schema_path": ["palo_alto_fw_service", "auto_setup", "admin_password", "blindfold_secret_info"],
       "sections": [
         {
-          "aliases": ["backend servers", "decryption provider", "origin servers", "upstream servers"],
+          "aliases": ["decryption provider"],
           "anchor": "schema-palo_alto_fw_service--auto_setup--admin_password--blindfold_secret_info--decryption_provider",
           "description": "Name of the Secret Management Access object that contains information about the backend Secret Management service.",
           "document_id": "xcsh-docs:resources:nfv_service:properties:palo_alto_fw_service:auto_setup:admin_password:blindfold_secret_info",
@@ -15284,7 +15116,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -15364,7 +15196,7 @@
         "xcsh-docs:resources:nfv_service:properties:palo_alto_fw_service:auto_setup:manual_ssh_keys:private_key"
       ],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -15462,7 +15294,7 @@
         "xcsh-docs:resources:nfv_service:properties:palo_alto_fw_service:auto_setup:manual_ssh_keys:private_key:clear_secret_info"
       ],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -15572,7 +15404,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -15603,7 +15435,7 @@
       "schema_path": ["palo_alto_fw_service", "auto_setup", "manual_ssh_keys", "private_key", "blindfold_secret_info"],
       "sections": [
         {
-          "aliases": ["backend servers", "decryption provider", "origin servers", "upstream servers"],
+          "aliases": ["decryption provider"],
           "anchor": "schema-palo_alto_fw_service--auto_setup--manual_ssh_keys--private_key--blindfold_secret_info--decryption_provider",
           "description": "Name of the Secret Management Access object that contains information about the backend Secret Management service.",
           "document_id": "xcsh-docs:resources:nfv_service:properties:palo_alto_fw_service:auto_setup:manual_ssh_keys:private_key:blindfold_secret_info",
@@ -15685,7 +15517,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -15777,7 +15609,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -15869,7 +15701,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -15909,7 +15741,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -15949,7 +15781,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -15991,7 +15823,7 @@
         "xcsh-docs:resources:nfv_service:properties:palo_alto_fw_service:panorama_server:authorization_key"
       ],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -16117,7 +15949,7 @@
         "xcsh-docs:resources:nfv_service:properties:palo_alto_fw_service:panorama_server:authorization_key:clear_secret_info"
       ],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -16221,7 +16053,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -16252,7 +16084,7 @@
       "schema_path": ["palo_alto_fw_service", "panorama_server", "authorization_key", "blindfold_secret_info"],
       "sections": [
         {
-          "aliases": ["backend servers", "decryption provider", "origin servers", "upstream servers"],
+          "aliases": ["decryption provider"],
           "anchor": "schema-palo_alto_fw_service--panorama_server--authorization_key--blindfold_secret_info--decryption_provider",
           "description": "Name of the Secret Management Access object that contains information about the backend Secret Management service.",
           "document_id": "xcsh-docs:resources:nfv_service:properties:palo_alto_fw_service:panorama_server:authorization_key:blindfold_secret_info",
@@ -16331,7 +16163,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -16415,7 +16247,7 @@
       "category": null,
       "child_ids": ["xcsh-docs:resources:nfv_service:properties:palo_alto_fw_service:service_nodes:nodes"],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -16515,7 +16347,7 @@
         "xcsh-docs:resources:nfv_service:properties:palo_alto_fw_service:service_nodes:nodes:reserved_mgmt_subnet"
       ],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -16664,7 +16496,7 @@
         "xcsh-docs:resources:nfv_service:properties:palo_alto_fw_service:service_nodes:nodes:mgmt_subnet:subnet_param"
       ],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -16759,7 +16591,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -16823,7 +16655,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -16863,7 +16695,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -16960,7 +16792,7 @@
       "category": null,
       "child_ids": ["xcsh-docs:resources:nfv_service:example:resource"],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -17000,7 +16832,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -17047,7 +16879,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -17088,7 +16920,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"

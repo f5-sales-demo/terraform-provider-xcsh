@@ -969,7 +969,7 @@
       "category": "dns",
       "child_ids": ["xcsh-docs:data-sources:dns_proxy:reference", "xcsh-docs:data-sources:dns_proxy:examples"],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -1018,7 +1018,7 @@
         "xcsh-docs:data-sources:dns_proxy:properties:proxy_advertisement"
       ],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -1255,7 +1255,7 @@
       "category": "dns",
       "child_ids": ["xcsh-docs:data-sources:dns_proxy:properties:cache_profile:disable_cache_profile"],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -1324,7 +1324,7 @@
       "category": "dns",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -1367,7 +1367,7 @@
         "xcsh-docs:data-sources:dns_proxy:properties:ddos_profile:enable_ddos_mitigation"
       ],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -1436,7 +1436,7 @@
       "category": "dns",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -1476,7 +1476,7 @@
       "category": "dns",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -1516,7 +1516,7 @@
       "category": "dns",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -1599,7 +1599,7 @@
       "category": "dns",
       "child_ids": ["xcsh-docs:data-sources:dns_proxy:properties:lb_algorithm:round_robin"],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -1654,7 +1654,7 @@
       "category": "dns",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -1697,7 +1697,7 @@
         "xcsh-docs:data-sources:dns_proxy:properties:origin_servers:origin_servers"
       ],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -1719,7 +1719,7 @@
       "schema_path": ["origin_servers"],
       "sections": [
         {
-          "aliases": ["backend servers", "health checks", "origin servers", "upstream servers"],
+          "aliases": ["health checks"],
           "anchor": "section",
           "description": "Origin Server Health Checks.",
           "document_id": "xcsh-docs:data-sources:dns_proxy:properties:origin_servers:health_checks",
@@ -1759,14 +1759,14 @@
       }
     },
     {
-      "aliases": ["backend servers", "origin servers", "origin servers health checks", "upstream servers"],
+      "aliases": ["origin servers health checks"],
       "body_bytes": 6861,
       "body_sha256": "sha256:7d53af4c9de053a3b61c9ea9399e73cb19b3a9c1912c9c60c809113c2b4b2a78",
       "capabilities": ["dns", "load-balancing.backend-servers"],
       "category": "dns",
       "child_ids": ["xcsh-docs:data-sources:dns_proxy:properties:origin_servers:health_checks:health_check"],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -1878,7 +1878,7 @@
       }
     },
     {
-      "aliases": ["backend servers", "origin servers", "origin servers health checks health check", "upstream servers"],
+      "aliases": ["origin servers health checks health check"],
       "body_bytes": 3366,
       "body_sha256": "sha256:bcabe1bb6c5a43613875154db1ea63f0f68ec8c4f67e51cab260995e456cbbb3",
       "capabilities": ["dns", "load-balancing.backend-servers"],
@@ -1889,7 +1889,7 @@
         "xcsh-docs:data-sources:dns_proxy:properties:origin_servers:health_checks:health_check:tcp_health_check"
       ],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -1966,14 +1966,11 @@
     },
     {
       "aliases": [
-        "backend servers",
         "login success",
-        "origin servers",
         "origin servers health checks health check dns health check",
         "succeeded",
         "success",
-        "successful",
-        "upstream servers"
+        "successful"
       ],
       "body_bytes": 6849,
       "body_sha256": "sha256:3e0343218ec7154022a5d553bba138b76e583f7f434a9e9dce701095d2f17ab4",
@@ -1981,7 +1978,7 @@
       "category": "dns",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -2105,19 +2102,14 @@
       }
     },
     {
-      "aliases": [
-        "backend servers",
-        "origin servers",
-        "origin servers health checks health check icmp health check",
-        "upstream servers"
-      ],
+      "aliases": ["origin servers health checks health check icmp health check"],
       "body_bytes": 1665,
       "body_sha256": "sha256:58608445fdafcdeca6dd1eb28dffe3adb4f02a5f15eb46ff16645dec7f10726f",
       "capabilities": ["dns", "load-balancing.backend-servers"],
       "category": "dns",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -2151,14 +2143,11 @@
     },
     {
       "aliases": [
-        "backend servers",
         "login success",
-        "origin servers",
         "origin servers health checks health check tcp health check",
         "succeeded",
         "success",
-        "successful",
-        "upstream servers"
+        "successful"
       ],
       "body_bytes": 3547,
       "body_sha256": "sha256:1f482aecd0a1a21b49aa8c5f1ac4b4fa07f3238fdf7afd6ea947b056adeabf1f",
@@ -2166,7 +2155,7 @@
       "category": "dns",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -2241,7 +2230,7 @@
         "xcsh-docs:data-sources:dns_proxy:properties:origin_servers:origin_servers:site_preferences"
       ],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -2263,7 +2252,7 @@
       "schema_path": ["origin_servers", "origin_servers"],
       "sections": [
         {
-          "aliases": ["backend servers", "k8s service", "origin servers", "upstream servers"],
+          "aliases": ["k8s service"],
           "anchor": "section",
           "description": "Specify origin server with K8s service name and site information.",
           "document_id": "xcsh-docs:data-sources:dns_proxy:properties:origin_servers:origin_servers:k8s_service",
@@ -2291,7 +2280,7 @@
           "type": "object"
         },
         {
-          "aliases": ["backend servers", "origin servers", "public ip", "upstream servers"],
+          "aliases": ["public ip"],
           "anchor": "section",
           "description": "Specify origin server with public IP address.",
           "document_id": "xcsh-docs:data-sources:dns_proxy:properties:origin_servers:origin_servers:public_ip",
@@ -2305,7 +2294,7 @@
           "type": "object"
         },
         {
-          "aliases": ["backend servers", "origin servers", "public name", "upstream servers"],
+          "aliases": ["public name"],
           "anchor": "section",
           "description": "Specify origin server with public DNS name.",
           "document_id": "xcsh-docs:data-sources:dns_proxy:properties:origin_servers:origin_servers:public_name",
@@ -2345,7 +2334,7 @@
       }
     },
     {
-      "aliases": ["backend servers", "origin servers", "origin servers origin servers k8s service", "upstream servers"],
+      "aliases": ["origin servers origin servers k8s service"],
       "body_bytes": 5592,
       "body_sha256": "sha256:ae7cef5bb788823e9fac352304905e4d5feb5ec82d1de8659f2cb01dc707fc81",
       "capabilities": ["dns", "load-balancing.backend-servers"],
@@ -2358,7 +2347,7 @@
         "xcsh-docs:data-sources:dns_proxy:properties:origin_servers:origin_servers:k8s_service:vk8s_networks"
       ],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -2422,7 +2411,7 @@
           "type": "string"
         },
         {
-          "aliases": ["backend servers", "origin servers", "service name", "upstream servers"],
+          "aliases": ["service name"],
           "anchor": "schema-origin_servers--origin_servers--k8s_service--service_name",
           "description": "Exclusive with K8s service name of the origin server will be listed, including the namespace and cluster-ID. For vK8s services, you need to enter a string with the format servicename.namespace:example-namespace\"frontend\", namespace is \"speedtest\" and cluster-ID is \"prod\", then you will enter \"frontend.speedtest:prod\".",
           "document_id": "xcsh-docs:data-sources:dns_proxy:properties:origin_servers:origin_servers:k8s_service",
@@ -2490,19 +2479,14 @@
       }
     },
     {
-      "aliases": [
-        "backend servers",
-        "origin servers",
-        "origin servers origin servers k8s service inside network",
-        "upstream servers"
-      ],
+      "aliases": ["origin servers origin servers k8s service inside network"],
       "body_bytes": 1658,
       "body_sha256": "sha256:d256aa04b548fd0c9f4e36b65752e9bc49c88b8085b70fa78a9b7943475f5e98",
       "capabilities": ["dns", "load-balancing.backend-servers"],
       "category": "dns",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -2535,19 +2519,14 @@
       }
     },
     {
-      "aliases": [
-        "backend servers",
-        "origin servers",
-        "origin servers origin servers k8s service outside network",
-        "upstream servers"
-      ],
+      "aliases": ["origin servers origin servers k8s service outside network"],
       "body_bytes": 1661,
       "body_sha256": "sha256:b4f691560137f02a49ae98aecf815f85bb905ce1578e3f946bcc7e2209fd4fb5",
       "capabilities": ["dns", "load-balancing.backend-servers"],
       "category": "dns",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -2580,12 +2559,7 @@
       }
     },
     {
-      "aliases": [
-        "backend servers",
-        "origin servers",
-        "origin servers origin servers k8s service site locator",
-        "upstream servers"
-      ],
+      "aliases": ["origin servers origin servers k8s service site locator"],
       "body_bytes": 2516,
       "body_sha256": "sha256:6b9fd15e94ecbf3e7f62c38f117fa85f3fe0d378262cf813902e29bb7d2102b4",
       "capabilities": ["dns", "load-balancing.backend-servers"],
@@ -2595,7 +2569,7 @@
         "xcsh-docs:data-sources:dns_proxy:properties:origin_servers:origin_servers:k8s_service:site_locator:virtual_site"
       ],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -2657,19 +2631,14 @@
       }
     },
     {
-      "aliases": [
-        "backend servers",
-        "origin servers",
-        "origin servers origin servers k8s service site locator site",
-        "upstream servers"
-      ],
+      "aliases": ["origin servers origin servers k8s service site locator site"],
       "body_bytes": 6135,
       "body_sha256": "sha256:b0804995d5075a899c36cdd72be1b5fd7d85025b97ea8938d96f7dff35e5c749",
       "capabilities": ["dns", "load-balancing.backend-servers"],
       "category": "dns",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -2745,19 +2714,14 @@
       }
     },
     {
-      "aliases": [
-        "backend servers",
-        "origin servers",
-        "origin servers origin servers k8s service site locator virtual site",
-        "upstream servers"
-      ],
+      "aliases": ["origin servers origin servers k8s service site locator virtual site"],
       "body_bytes": 6175,
       "body_sha256": "sha256:b7f562daab9d013bc075a3eee6716eda1c3f1d8673502f49e1cbb81ca1b21482",
       "capabilities": ["dns", "load-balancing.backend-servers"],
       "category": "dns",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -2840,12 +2804,7 @@
       }
     },
     {
-      "aliases": [
-        "backend servers",
-        "origin servers",
-        "origin servers origin servers k8s service snat pool",
-        "upstream servers"
-      ],
+      "aliases": ["origin servers origin servers k8s service snat pool"],
       "body_bytes": 2459,
       "body_sha256": "sha256:9f999aa022e07f5eba6cba04d6e54e433dddc4e5f0eb23f120de2b870892b2c1",
       "capabilities": ["dns", "load-balancing.backend-servers"],
@@ -2855,7 +2814,7 @@
         "xcsh-docs:data-sources:dns_proxy:properties:origin_servers:origin_servers:k8s_service:snat_pool:snat_pool"
       ],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -2917,19 +2876,14 @@
       }
     },
     {
-      "aliases": [
-        "backend servers",
-        "origin servers",
-        "origin servers origin servers k8s service snat pool no snat pool",
-        "upstream servers"
-      ],
+      "aliases": ["origin servers origin servers k8s service snat pool no snat pool"],
       "body_bytes": 1892,
       "body_sha256": "sha256:2b55b0560cbf515baadd049f993b39c95ecb56ae6e648dde8d3ee52e832eedd4",
       "capabilities": ["dns", "load-balancing.backend-servers"],
       "category": "dns",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -2962,19 +2916,14 @@
       }
     },
     {
-      "aliases": [
-        "backend servers",
-        "origin servers",
-        "origin servers origin servers k8s service snat pool snat pool",
-        "upstream servers"
-      ],
+      "aliases": ["origin servers origin servers k8s service snat pool snat pool"],
       "body_bytes": 2840,
       "body_sha256": "sha256:73f65dc1738a7ffab84b8fe32c6713684916fc299cadefbdefaf61e3abe62446",
       "capabilities": ["dns", "load-balancing.backend-servers"],
       "category": "dns",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -3022,19 +2971,14 @@
       }
     },
     {
-      "aliases": [
-        "backend servers",
-        "origin servers",
-        "origin servers origin servers k8s service vk8s networks",
-        "upstream servers"
-      ],
+      "aliases": ["origin servers origin servers k8s service vk8s networks"],
       "body_bytes": 1655,
       "body_sha256": "sha256:25812d937cb40db488d8650bc6f0068732f0a2c01aae18c7f5bca02d796e28f6",
       "capabilities": ["dns", "load-balancing.backend-servers"],
       "category": "dns",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -3067,19 +3011,14 @@
       }
     },
     {
-      "aliases": [
-        "backend servers",
-        "origin servers",
-        "origin servers origin servers no preference",
-        "upstream servers"
-      ],
+      "aliases": ["origin servers origin servers no preference"],
       "body_bytes": 1427,
       "body_sha256": "sha256:e1959f449b06bb4852668b6cee548486cb99e1b56049c4ba7633598aa3719518",
       "capabilities": ["dns", "load-balancing.backend-servers"],
       "category": "dns",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -3112,14 +3051,14 @@
       }
     },
     {
-      "aliases": ["backend servers", "origin servers", "origin servers origin servers public ip", "upstream servers"],
+      "aliases": ["origin servers origin servers public ip"],
       "body_bytes": 2172,
       "body_sha256": "sha256:285bc118206a465f60ba7e201e56f8f9ead41c95490c883ec67ee841ba366860",
       "capabilities": ["dns", "load-balancing.backend-servers"],
       "category": "dns",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -3167,14 +3106,14 @@
       }
     },
     {
-      "aliases": ["backend servers", "origin servers", "origin servers origin servers public name", "upstream servers"],
+      "aliases": ["origin servers origin servers public name"],
       "body_bytes": 3802,
       "body_sha256": "sha256:d1ba5a11d31a542645e8bfea419bfb11a03ff5134bb78ca62dfc9cf7921b19f6",
       "capabilities": ["dns", "load-balancing.backend-servers"],
       "category": "dns",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -3236,19 +3175,14 @@
       }
     },
     {
-      "aliases": [
-        "backend servers",
-        "origin servers",
-        "origin servers origin servers site preferences",
-        "upstream servers"
-      ],
+      "aliases": ["origin servers origin servers site preferences"],
       "body_bytes": 1661,
       "body_sha256": "sha256:02920d0e77ef146f2cdbc6f0b7e77bc7d92d633ac16457e3a836906d34d3fead",
       "capabilities": ["dns", "load-balancing.backend-servers"],
       "category": "dns",
       "child_ids": ["xcsh-docs:data-sources:dns_proxy:properties:origin_servers:origin_servers:site_preferences:refs"],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -3296,19 +3230,14 @@
       }
     },
     {
-      "aliases": [
-        "backend servers",
-        "origin servers",
-        "origin servers origin servers site preferences refs",
-        "upstream servers"
-      ],
+      "aliases": ["origin servers origin servers site preferences refs"],
       "body_bytes": 6114,
       "body_sha256": "sha256:ddab208acb8133369fddf039f23da74a9a73f037605f2150d43266af9ff2dc10",
       "capabilities": ["dns", "load-balancing.backend-servers"],
       "category": "dns",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -3391,7 +3320,7 @@
       "category": "dns",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -3483,7 +3412,7 @@
         "xcsh-docs:data-sources:dns_proxy:properties:proxy_advertisement:do_not_advertise"
       ],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -3636,7 +3565,7 @@
       "category": "dns",
       "child_ids": ["xcsh-docs:data-sources:dns_proxy:properties:proxy_advertisement:advertise_custom:advertise_where"],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -3701,7 +3630,7 @@
         "xcsh-docs:data-sources:dns_proxy:properties:proxy_advertisement:advertise_custom:advertise_where:vk8s_service"
       ],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -3903,7 +3832,7 @@
         "xcsh-docs:data-sources:dns_proxy:properties:proxy_advertisement:advertise_custom:advertise_where:advertise_dualstack_on_public:public_ip"
       ],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -3964,7 +3893,7 @@
       "category": "dns",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -4076,7 +4005,7 @@
         "xcsh-docs:data-sources:dns_proxy:properties:proxy_advertisement:advertise_custom:advertise_where:advertise_on_public:public_ip"
       ],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -4137,7 +4066,7 @@
       "category": "dns",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -4243,7 +4172,7 @@
         "xcsh-docs:data-sources:dns_proxy:properties:proxy_advertisement:advertise_custom:advertise_where:advertise_v6_on_public:public_ip"
       ],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -4304,7 +4233,7 @@
       "category": "dns",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -4416,7 +4345,7 @@
         "xcsh-docs:data-sources:dns_proxy:properties:proxy_advertisement:advertise_custom:advertise_where:site:site"
       ],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -4499,7 +4428,7 @@
       "category": "dns",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -4582,7 +4511,7 @@
       "category": "dns",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -4626,7 +4555,7 @@
         "xcsh-docs:data-sources:dns_proxy:properties:proxy_advertisement:advertise_custom:advertise_where:virtual_network:virtual_network"
       ],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -4767,7 +4696,7 @@
       "category": "dns",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -4813,7 +4742,7 @@
       "category": "dns",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -4853,7 +4782,7 @@
       "category": "dns",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -4965,7 +4894,7 @@
         "xcsh-docs:data-sources:dns_proxy:properties:proxy_advertisement:advertise_custom:advertise_where:virtual_site:virtual_site"
       ],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -5034,7 +4963,7 @@
       "category": "dns",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -5140,7 +5069,7 @@
         "xcsh-docs:data-sources:dns_proxy:properties:proxy_advertisement:advertise_custom:advertise_where:virtual_site_with_vip:virtual_site"
       ],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -5235,7 +5164,7 @@
       "category": "dns",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -5348,7 +5277,7 @@
         "xcsh-docs:data-sources:dns_proxy:properties:proxy_advertisement:advertise_custom:advertise_where:vk8s_service:virtual_site"
       ],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -5417,7 +5346,7 @@
       "category": "dns",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -5514,7 +5443,7 @@
       "category": "dns",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -5620,7 +5549,7 @@
         "xcsh-docs:data-sources:dns_proxy:properties:proxy_advertisement:advertise_dualstack_on_public:public_ip"
       ],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -5675,7 +5604,7 @@
       "category": "dns",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -5758,7 +5687,7 @@
       "category": "dns",
       "child_ids": ["xcsh-docs:data-sources:dns_proxy:properties:proxy_advertisement:advertise_on_public:public_ip"],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -5813,7 +5742,7 @@
       "category": "dns",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -5896,7 +5825,7 @@
       "category": "dns",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -5936,7 +5865,7 @@
       "category": "dns",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -5976,7 +5905,7 @@
       "category": "dns",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -6016,7 +5945,7 @@
       "category": "dns",
       "child_ids": ["xcsh-docs:data-sources:dns_proxy:properties:proxy_advertisement:advertise_v6_on_public:public_ip"],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -6071,7 +6000,7 @@
       "category": "dns",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -6154,7 +6083,7 @@
       "category": "dns",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -6194,7 +6123,7 @@
       "category": "dns",
       "child_ids": ["xcsh-docs:data-sources:dns_proxy:example:data-source"],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -6234,7 +6163,7 @@
       "category": "dns",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"

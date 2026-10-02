@@ -25,7 +25,7 @@
   },
   "pages": [
     {
-      "aliases": ["artifact registry token", "authentication", "credential setup", "credentials"],
+      "aliases": ["artifact registry token"],
       "body_bytes": 1354,
       "body_sha256": "sha256:bd31a9c9f89b5a30de03dc24cf0a82521e8bbba4a126cedce7a57969b5230fd9",
       "capabilities": [],
@@ -36,7 +36,7 @@
         "xcsh-docs:ephemeral-resources:artifact_registry_token:lifecycle"
       ],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["reviewed-rule"],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -77,7 +77,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["reviewed-rule"],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -160,7 +160,7 @@
       "category": null,
       "child_ids": ["xcsh-docs:ephemeral-resources:artifact_registry_token:example:ephemeral"],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["reviewed-rule"],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -200,7 +200,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["reviewed-rule"],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -247,7 +247,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["reviewed-rule"],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"

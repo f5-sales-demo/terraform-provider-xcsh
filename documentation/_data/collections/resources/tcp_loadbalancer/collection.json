@@ -1074,7 +1074,7 @@
   },
   "pages": [
     {
-      "aliases": ["backend servers", "origin servers", "tcp loadbalancer", "upstream servers"],
+      "aliases": ["tcp loadbalancer"],
       "body_bytes": 1858,
       "body_sha256": "sha256:7398486b847a41c597771207f93b1f48463b28d0784a616e9a04f64e62cda4e7",
       "capabilities": ["load-balancing"],
@@ -1086,7 +1086,7 @@
         "xcsh-docs:resources:tcp_loadbalancer:timeouts"
       ],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -1164,7 +1164,7 @@
         "xcsh-docs:resources:tcp_loadbalancer:properties:tls_tcp_auto_cert"
       ],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -1655,7 +1655,7 @@
           "type": "object"
         },
         {
-          "aliases": ["cert", "certificate", "existing certificates", "tls certificates", "tls tcp"],
+          "aliases": ["tls tcp"],
           "anchor": "section",
           "description": "Choice for selecting TLS over TCP proxy with bring your own certificates.",
           "document_id": "xcsh-docs:resources:tcp_loadbalancer:properties:tls_tcp",
@@ -1686,7 +1686,7 @@
           "type": "object"
         },
         {
-          "aliases": ["cert", "certificate", "existing certificates", "tls certificates", "tls tcp auto cert"],
+          "aliases": ["tls tcp auto cert"],
           "anchor": "section",
           "description": "Choice for selecting TLS over TCP proxy with automatic certificates.",
           "document_id": "xcsh-docs:resources:tcp_loadbalancer:properties:tls_tcp_auto_cert",
@@ -1736,7 +1736,7 @@
       "category": "load-balancing",
       "child_ids": ["xcsh-docs:resources:tcp_loadbalancer:properties:active_service_policies:policies"],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -1809,7 +1809,7 @@
       "category": "load-balancing",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -1901,7 +1901,7 @@
       "category": "load-balancing",
       "child_ids": ["xcsh-docs:resources:tcp_loadbalancer:properties:advertise_custom:advertise_where"],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -2472,7 +2472,7 @@
         "xcsh-docs:resources:tcp_loadbalancer:properties:advertise_custom:advertise_where:vk8s_service"
       ],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -3216,7 +3216,7 @@
         "xcsh-docs:resources:tcp_loadbalancer:properties:advertise_custom:advertise_where:advertise_dualstack_on_public:public_ip"
       ],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -3280,7 +3280,7 @@
       "category": "load-balancing",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -3386,7 +3386,7 @@
         "xcsh-docs:resources:tcp_loadbalancer:properties:advertise_custom:advertise_where:advertise_on_public:public_ip"
       ],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -3450,7 +3450,7 @@
       "category": "load-balancing",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -3544,7 +3544,7 @@
         "xcsh-docs:resources:tcp_loadbalancer:properties:advertise_custom:advertise_where:advertise_v6_on_public:public_ip"
       ],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -3608,7 +3608,7 @@
       "category": "load-balancing",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -3700,7 +3700,7 @@
       "category": "load-balancing",
       "child_ids": ["xcsh-docs:resources:tcp_loadbalancer:properties:advertise_custom:advertise_where:site:site"],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -3792,7 +3792,7 @@
       "category": "load-balancing",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -3884,7 +3884,7 @@
       "category": "load-balancing",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -3928,7 +3928,7 @@
         "xcsh-docs:resources:tcp_loadbalancer:properties:advertise_custom:advertise_where:virtual_network:virtual_network"
       ],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -4081,7 +4081,7 @@
       "category": "load-balancing",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -4121,7 +4121,7 @@
       "category": "load-balancing",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -4161,7 +4161,7 @@
       "category": "load-balancing",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -4255,7 +4255,7 @@
         "xcsh-docs:resources:tcp_loadbalancer:properties:advertise_custom:advertise_where:virtual_site:virtual_site"
       ],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -4333,7 +4333,7 @@
       "category": "load-balancing",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -4427,7 +4427,7 @@
         "xcsh-docs:resources:tcp_loadbalancer:properties:advertise_custom:advertise_where:virtual_site_with_vip:virtual_site"
       ],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -4519,7 +4519,7 @@
       "category": "load-balancing",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -4614,7 +4614,7 @@
         "xcsh-docs:resources:tcp_loadbalancer:properties:advertise_custom:advertise_where:vk8s_service:virtual_site"
       ],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -4718,7 +4718,7 @@
       "category": "load-balancing",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -4810,7 +4810,7 @@
       "category": "load-balancing",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -4902,7 +4902,7 @@
       "category": "load-balancing",
       "child_ids": ["xcsh-docs:resources:tcp_loadbalancer:properties:advertise_on_public:public_ip"],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -4966,7 +4966,7 @@
       "category": "load-balancing",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -5058,7 +5058,7 @@
       "category": "load-balancing",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -5098,7 +5098,7 @@
       "category": "load-balancing",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -5138,7 +5138,7 @@
       "category": "load-balancing",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -5178,7 +5178,7 @@
       "category": "load-balancing",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -5218,7 +5218,7 @@
       "category": "load-balancing",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -5258,7 +5258,7 @@
       "category": "load-balancing",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -5298,7 +5298,7 @@
       "category": "load-balancing",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -5338,7 +5338,7 @@
       "category": "load-balancing",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -5378,7 +5378,7 @@
       "category": "load-balancing",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -5418,7 +5418,7 @@
       "category": "load-balancing",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -5462,7 +5462,7 @@
         "xcsh-docs:resources:tcp_loadbalancer:properties:origin_pools_weights:pool"
       ],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -5524,7 +5524,7 @@
           "type": "object"
         },
         {
-          "aliases": ["backend servers", "endpoint subsets", "origin servers", "upstream servers"],
+          "aliases": ["endpoint subsets"],
           "anchor": "section",
           "description": "Upstream origin pool may be configured to divide its origin servers into subsets based on metadata attached to the origin servers. Routes may then specify the metadata that a endpoint must match in order to be selected by the load balancer For origin servers which are discovered in K8s or Consul cluster, the label of",
           "document_id": "xcsh-docs:resources:tcp_loadbalancer:properties:origin_pools_weights:endpoint_subsets",
@@ -5561,7 +5561,7 @@
           "type": "object"
         },
         {
-          "aliases": ["backend servers", "origin servers", "priority", "upstream servers"],
+          "aliases": ["priority"],
           "anchor": "schema-origin_pools_weights--priority",
           "description": "Priority of this origin pool, valid only with multiple origin pools. Value of 0 will make the pool as lowest priority origin pool Priority of 1 means highest priority and is considered active. When active origin pool is not available, lower priority origin pools are made active as per the increasing priority.",
           "document_id": "xcsh-docs:resources:tcp_loadbalancer:properties:origin_pools_weights",
@@ -5575,7 +5575,7 @@
           "type": "number"
         },
         {
-          "aliases": ["backend servers", "origin servers", "upstream servers", "weight"],
+          "aliases": ["weight"],
           "anchor": "schema-origin_pools_weights--weight",
           "description": "Weight of this origin pool, valid only with multiple origin pool. Value of 0 will disable the pool.",
           "document_id": "xcsh-docs:resources:tcp_loadbalancer:properties:origin_pools_weights",
@@ -5601,14 +5601,14 @@
       }
     },
     {
-      "aliases": ["backend servers", "origin pools weights cluster", "origin servers", "upstream servers"],
+      "aliases": ["origin pools weights cluster"],
       "body_bytes": 6096,
       "body_sha256": "sha256:50e7074c55298807f2bff0f7b36eb3b5f059d07d6d0d8e2bb8a3a4ad070c61e0",
       "capabilities": ["load-balancing"],
       "category": "load-balancing",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -5693,14 +5693,14 @@
       }
     },
     {
-      "aliases": ["backend servers", "origin pools weights endpoint subsets", "origin servers", "upstream servers"],
+      "aliases": ["origin pools weights endpoint subsets"],
       "body_bytes": 2449,
       "body_sha256": "sha256:5f435eaefa01fe11563a47e3283d1d36808918971708f763859c0fa462a3a371",
       "capabilities": ["load-balancing"],
       "category": "load-balancing",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -5733,14 +5733,14 @@
       }
     },
     {
-      "aliases": ["backend servers", "origin pools weights pool", "origin servers", "upstream servers"],
+      "aliases": ["origin pools weights pool"],
       "body_bytes": 6078,
       "body_sha256": "sha256:a187baa27ce19cb68a351717b7c929c1382906c40b26a6f80b9284dd6dff2ad5",
       "capabilities": ["load-balancing"],
       "category": "load-balancing",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -5832,7 +5832,7 @@
       "category": "load-balancing",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -5872,7 +5872,7 @@
       "category": "load-balancing",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -5912,7 +5912,7 @@
       "category": "load-balancing",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -5952,7 +5952,7 @@
       "category": "load-balancing",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -5992,7 +5992,7 @@
       "category": "load-balancing",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -6082,7 +6082,7 @@
       }
     },
     {
-      "aliases": ["cert", "certificate", "existing certificates", "tls certificates", "tls tcp"],
+      "aliases": ["tls tcp"],
       "body_bytes": 1957,
       "body_sha256": "sha256:ae8b7e0738d13037bd57aedcf2efac7d903e007eab979a0176b1f60d3563778a",
       "capabilities": ["load-balancing"],
@@ -6092,7 +6092,7 @@
         "xcsh-docs:resources:tcp_loadbalancer:properties:tls_tcp:tls_parameters"
       ],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -6131,7 +6131,7 @@
       "schema_path": ["tls_tcp"],
       "sections": [
         {
-          "aliases": ["cert", "certificate", "existing certificates", "tls cert params", "tls certificates"],
+          "aliases": ["tls cert params"],
           "anchor": "section",
           "description": "Select TLS Parameters and Certificates.",
           "document_id": "xcsh-docs:resources:tcp_loadbalancer:properties:tls_tcp:tls_cert_params",
@@ -6221,7 +6221,7 @@
       }
     },
     {
-      "aliases": ["cert", "certificate", "existing certificates", "tls certificates", "tls tcp tls cert params"],
+      "aliases": ["tls tcp tls cert params"],
       "body_bytes": 2906,
       "body_sha256": "sha256:8490ae81c2904a0c75ce50740bc5ef760f4ae550be485a38ea3774647e341915",
       "capabilities": ["load-balancing"],
@@ -6233,7 +6233,7 @@
         "xcsh-docs:resources:tcp_loadbalancer:properties:tls_tcp:tls_cert_params:use_mtls"
       ],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -6516,7 +6516,7 @@
       "category": "load-balancing",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -6601,20 +6601,14 @@
       }
     },
     {
-      "aliases": [
-        "cert",
-        "certificate",
-        "existing certificates",
-        "tls certificates",
-        "tls tcp tls cert params no mtls"
-      ],
+      "aliases": ["tls tcp tls cert params no mtls"],
       "body_bytes": 1429,
       "body_sha256": "sha256:bfba6c98f43e35e28b23bab9e62b73faaf6a283ba2b2458060bfbe14a343b627",
       "capabilities": ["load-balancing"],
       "category": "load-balancing",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -6647,13 +6641,7 @@
       }
     },
     {
-      "aliases": [
-        "cert",
-        "certificate",
-        "existing certificates",
-        "tls certificates",
-        "tls tcp tls cert params tls config"
-      ],
+      "aliases": ["tls tcp tls cert params tls config"],
       "body_bytes": 3795,
       "body_sha256": "sha256:33652dc3207d5953a1555e07bc5f99cc9ff708b09f8dc3d6c52f17f5d2faca67",
       "capabilities": ["load-balancing"],
@@ -6665,7 +6653,7 @@
         "xcsh-docs:resources:tcp_loadbalancer:properties:tls_tcp:tls_cert_params:tls_config:medium_security"
       ],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -6861,20 +6849,14 @@
       }
     },
     {
-      "aliases": [
-        "cert",
-        "certificate",
-        "existing certificates",
-        "tls certificates",
-        "tls tcp tls cert params tls config custom security"
-      ],
+      "aliases": ["tls tcp tls cert params tls config custom security"],
       "body_bytes": 6491,
       "body_sha256": "sha256:44f1080ce16db61b4b92c00d04c816b4b0de388dcfca136527f1e9050a2ec6b6",
       "capabilities": ["load-balancing"],
       "category": "load-balancing",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -6959,20 +6941,14 @@
       }
     },
     {
-      "aliases": [
-        "cert",
-        "certificate",
-        "existing certificates",
-        "tls certificates",
-        "tls tcp tls cert params tls config default security"
-      ],
+      "aliases": ["tls tcp tls cert params tls config default security"],
       "body_bytes": 1670,
       "body_sha256": "sha256:6f613bbe47266be04c715e6f118b85b9a948e3b2b7e69d5a71f0f02f4736a9c1",
       "capabilities": ["load-balancing"],
       "category": "load-balancing",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -7005,20 +6981,14 @@
       }
     },
     {
-      "aliases": [
-        "cert",
-        "certificate",
-        "existing certificates",
-        "tls certificates",
-        "tls tcp tls cert params tls config low security"
-      ],
+      "aliases": ["tls tcp tls cert params tls config low security"],
       "body_bytes": 1658,
       "body_sha256": "sha256:d6a5bf21032333c5489d5f20a578e2449cb960ede9fb57f88eb3741a7bd9c8c2",
       "capabilities": ["load-balancing"],
       "category": "load-balancing",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -7051,20 +7021,14 @@
       }
     },
     {
-      "aliases": [
-        "cert",
-        "certificate",
-        "existing certificates",
-        "tls certificates",
-        "tls tcp tls cert params tls config medium security"
-      ],
+      "aliases": ["tls tcp tls cert params tls config medium security"],
       "body_bytes": 1667,
       "body_sha256": "sha256:320db8ba84d19b9d00ea347a5c48724010384503fa9365f31bb261142a60689d",
       "capabilities": ["load-balancing"],
       "category": "load-balancing",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -7097,13 +7061,7 @@
       }
     },
     {
-      "aliases": [
-        "cert",
-        "certificate",
-        "existing certificates",
-        "tls certificates",
-        "tls tcp tls cert params use mtls"
-      ],
+      "aliases": ["tls tcp tls cert params use mtls"],
       "body_bytes": 6004,
       "body_sha256": "sha256:f5125f629f71539cea7bfbea228fb4495cd65e68bb59af22d2acfcb27521061a",
       "capabilities": ["load-balancing"],
@@ -7116,7 +7074,7 @@
         "xcsh-docs:resources:tcp_loadbalancer:properties:tls_tcp:tls_cert_params:use_mtls:xfcc_options"
       ],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -7187,13 +7145,7 @@
       "schema_path": ["tls_tcp", "tls_cert_params", "use_mtls"],
       "sections": [
         {
-          "aliases": [
-            "cert",
-            "certificate",
-            "client certificate optional",
-            "existing certificates",
-            "tls certificates"
-          ],
+          "aliases": ["client certificate optional"],
           "anchor": "schema-tls_tcp--tls_cert_params--use_mtls--client_certificate_optional",
           "description": "Client certificate is optional. If the client has provided a certificate, the load balancer will verify it. If certification verification fails, the connection will be terminated. If the client does not provide a certificate, the connection will be accepted.",
           "document_id": "xcsh-docs:resources:tcp_loadbalancer:properties:tls_tcp:tls_cert_params:use_mtls",
@@ -7267,7 +7219,7 @@
           "type": "object"
         },
         {
-          "aliases": ["cert", "certificate", "existing certificates", "tls certificates", "trusted ca url"],
+          "aliases": ["trusted ca url"],
           "anchor": "schema-tls_tcp--tls_cert_params--use_mtls--trusted_ca_url",
           "description": "Exclusive with Upload a Root CA Certificate specifically for this Load Balancer.",
           "document_id": "xcsh-docs:resources:tcp_loadbalancer:properties:tls_tcp:tls_cert_params:use_mtls",
@@ -7330,20 +7282,14 @@
       }
     },
     {
-      "aliases": [
-        "cert",
-        "certificate",
-        "existing certificates",
-        "tls certificates",
-        "tls tcp tls cert params use mtls crl"
-      ],
+      "aliases": ["tls tcp tls cert params use mtls crl"],
       "body_bytes": 6450,
       "body_sha256": "sha256:160eef844cc756b194b84274b37b557f9572e972a31dfd6abdbdad808cf301e7",
       "capabilities": ["load-balancing"],
       "category": "load-balancing",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -7428,20 +7374,14 @@
       }
     },
     {
-      "aliases": [
-        "cert",
-        "certificate",
-        "existing certificates",
-        "tls certificates",
-        "tls tcp tls cert params use mtls no crl"
-      ],
+      "aliases": ["tls tcp tls cert params use mtls no crl"],
       "body_bytes": 1628,
       "body_sha256": "sha256:fbf7afe026f7d76fca3f5176c879c70463e450115f9cc39b5522e49898c320b2",
       "capabilities": ["load-balancing"],
       "category": "load-balancing",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -7474,20 +7414,14 @@
       }
     },
     {
-      "aliases": [
-        "cert",
-        "certificate",
-        "existing certificates",
-        "tls certificates",
-        "tls tcp tls cert params use mtls trusted ca"
-      ],
+      "aliases": ["tls tcp tls cert params use mtls trusted ca"],
       "body_bytes": 6492,
       "body_sha256": "sha256:977717a8ecf62c20e3649a1713c4d3f2567e2c38c5835ee0ee722f75c71624be",
       "capabilities": ["load-balancing"],
       "category": "load-balancing",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -7572,20 +7506,14 @@
       }
     },
     {
-      "aliases": [
-        "cert",
-        "certificate",
-        "existing certificates",
-        "tls certificates",
-        "tls tcp tls cert params use mtls xfcc disabled"
-      ],
+      "aliases": ["tls tcp tls cert params use mtls xfcc disabled"],
       "body_bytes": 1649,
       "body_sha256": "sha256:76b280ee8eb6b61ca2201437851fe9f466358422125089c666c95900077cdbf2",
       "capabilities": ["load-balancing"],
       "category": "load-balancing",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -7618,20 +7546,14 @@
       }
     },
     {
-      "aliases": [
-        "cert",
-        "certificate",
-        "existing certificates",
-        "tls certificates",
-        "tls tcp tls cert params use mtls xfcc options"
-      ],
+      "aliases": ["tls tcp tls cert params use mtls xfcc options"],
       "body_bytes": 2901,
       "body_sha256": "sha256:21b3b6adb58c02d18b6d533da86126b0e8016837ea485850e7ab6244cefb7009",
       "capabilities": ["load-balancing"],
       "category": "load-balancing",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -7700,7 +7622,7 @@
         "xcsh-docs:resources:tcp_loadbalancer:properties:tls_tcp:tls_parameters:use_mtls"
       ],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -8025,7 +7947,7 @@
       "category": "load-balancing",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -8076,7 +7998,7 @@
         "xcsh-docs:resources:tcp_loadbalancer:properties:tls_tcp:tls_parameters:tls_certificates:use_system_defaults"
       ],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -8192,7 +8114,7 @@
           "type": "object"
         },
         {
-          "aliases": ["cert", "certificate", "description spec", "existing certificates", "tls certificates"],
+          "aliases": ["description spec"],
           "anchor": "schema-tls_tcp--tls_parameters--tls_certificates--description_spec",
           "description": "Description. Description for the certificate.",
           "document_id": "xcsh-docs:resources:tcp_loadbalancer:properties:tls_tcp:tls_parameters:tls_certificates",
@@ -8277,20 +8199,14 @@
       }
     },
     {
-      "aliases": [
-        "cert",
-        "certificate",
-        "existing certificates",
-        "tls certificates",
-        "tls tcp tls parameters tls certificates custom hash algorithms"
-      ],
+      "aliases": ["tls tcp tls parameters tls certificates custom hash algorithms"],
       "body_bytes": 3370,
       "body_sha256": "sha256:460b992d2cbda12661937606a72855835db9e506f906db94bb8795377e084a5e",
       "capabilities": ["load-balancing"],
       "category": "load-balancing",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -8347,20 +8263,14 @@
       }
     },
     {
-      "aliases": [
-        "cert",
-        "certificate",
-        "existing certificates",
-        "tls certificates",
-        "tls tcp tls parameters tls certificates disable ocsp stapling"
-      ],
+      "aliases": ["tls tcp tls parameters tls certificates disable ocsp stapling"],
       "body_bytes": 1745,
       "body_sha256": "sha256:6aeb661930bfd6779faee259111c291be48094c47d260bac1b5bee3225cd775a",
       "capabilities": ["load-balancing"],
       "category": "load-balancing",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -8393,13 +8303,7 @@
       }
     },
     {
-      "aliases": [
-        "cert",
-        "certificate",
-        "existing certificates",
-        "tls certificates",
-        "tls tcp tls parameters tls certificates private key"
-      ],
+      "aliases": ["tls tcp tls parameters tls certificates private key"],
       "body_bytes": 2866,
       "body_sha256": "sha256:8e2b4ba4a76e4d489c7055235f7bc92de0a4513ee61572248c9ec1142a944a3e",
       "capabilities": ["load-balancing"],
@@ -8409,7 +8313,7 @@
         "xcsh-docs:resources:tcp_loadbalancer:properties:tls_tcp:tls_parameters:tls_certificates:private_key:clear_secret_info"
       ],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -8506,20 +8410,14 @@
       }
     },
     {
-      "aliases": [
-        "cert",
-        "certificate",
-        "existing certificates",
-        "tls certificates",
-        "tls tcp tls parameters tls certificates private key blindfold secret info"
-      ],
+      "aliases": ["tls tcp tls parameters tls certificates private key blindfold secret info"],
       "body_bytes": 5444,
       "body_sha256": "sha256:501b3011ee1864a85db8eeb0f58f47d57194e390a95bb3fbcc4add8ef401379c",
       "capabilities": ["load-balancing"],
       "category": "load-balancing",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -8550,7 +8448,7 @@
       "schema_path": ["tls_tcp", "tls_parameters", "tls_certificates", "private_key", "blindfold_secret_info"],
       "sections": [
         {
-          "aliases": ["backend servers", "decryption provider", "origin servers", "upstream servers"],
+          "aliases": ["decryption provider"],
           "anchor": "schema-tls_tcp--tls_parameters--tls_certificates--private_key--blindfold_secret_info--decryption_provider",
           "description": "Name of the Secret Management Access object that contains information about the backend Secret Management service.",
           "document_id": "xcsh-docs:resources:tcp_loadbalancer:properties:tls_tcp:tls_parameters:tls_certificates:private_key:blindfold_secret_info",
@@ -8625,20 +8523,14 @@
       }
     },
     {
-      "aliases": [
-        "cert",
-        "certificate",
-        "existing certificates",
-        "tls certificates",
-        "tls tcp tls parameters tls certificates private key clear secret info"
-      ],
+      "aliases": ["tls tcp tls parameters tls certificates private key clear secret info"],
       "body_bytes": 4301,
       "body_sha256": "sha256:97add43f9414a9a437cbad58592b414f526b27fc2e2111895eb9cafd0b2c1195",
       "capabilities": ["load-balancing"],
       "category": "load-balancing",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -8716,20 +8608,14 @@
       }
     },
     {
-      "aliases": [
-        "cert",
-        "certificate",
-        "existing certificates",
-        "tls certificates",
-        "tls tcp tls parameters tls certificates use system defaults"
-      ],
+      "aliases": ["tls tcp tls parameters tls certificates use system defaults"],
       "body_bytes": 1737,
       "body_sha256": "sha256:59832b49283c4d1835cb3b31a253125aff5361581aa0c28f95d5f93dd0df4323",
       "capabilities": ["load-balancing"],
       "category": "load-balancing",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -8774,7 +8660,7 @@
         "xcsh-docs:resources:tcp_loadbalancer:properties:tls_tcp:tls_parameters:tls_config:medium_security"
       ],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -8977,7 +8863,7 @@
       "category": "load-balancing",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -9069,7 +8955,7 @@
       "category": "load-balancing",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -9109,7 +8995,7 @@
       "category": "load-balancing",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -9149,7 +9035,7 @@
       "category": "load-balancing",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -9195,7 +9081,7 @@
         "xcsh-docs:resources:tcp_loadbalancer:properties:tls_tcp:tls_parameters:use_mtls:xfcc_options"
       ],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -9266,13 +9152,7 @@
       "schema_path": ["tls_tcp", "tls_parameters", "use_mtls"],
       "sections": [
         {
-          "aliases": [
-            "cert",
-            "certificate",
-            "client certificate optional",
-            "existing certificates",
-            "tls certificates"
-          ],
+          "aliases": ["client certificate optional"],
           "anchor": "schema-tls_tcp--tls_parameters--use_mtls--client_certificate_optional",
           "description": "Client certificate is optional. If the client has provided a certificate, the load balancer will verify it. If certification verification fails, the connection will be terminated. If the client does not provide a certificate, the connection will be accepted.",
           "document_id": "xcsh-docs:resources:tcp_loadbalancer:properties:tls_tcp:tls_parameters:use_mtls",
@@ -9346,7 +9226,7 @@
           "type": "object"
         },
         {
-          "aliases": ["cert", "certificate", "existing certificates", "tls certificates", "trusted ca url"],
+          "aliases": ["trusted ca url"],
           "anchor": "schema-tls_tcp--tls_parameters--use_mtls--trusted_ca_url",
           "description": "Exclusive with Upload a Root CA Certificate specifically for this Load Balancer.",
           "document_id": "xcsh-docs:resources:tcp_loadbalancer:properties:tls_tcp:tls_parameters:use_mtls",
@@ -9416,7 +9296,7 @@
       "category": "load-balancing",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -9508,7 +9388,7 @@
       "category": "load-balancing",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -9548,7 +9428,7 @@
       "category": "load-balancing",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -9640,7 +9520,7 @@
       "category": "load-balancing",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -9680,7 +9560,7 @@
       "category": "load-balancing",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -9737,7 +9617,7 @@
       }
     },
     {
-      "aliases": ["cert", "certificate", "existing certificates", "tls certificates", "tls tcp auto cert"],
+      "aliases": ["tls tcp auto cert"],
       "body_bytes": 2277,
       "body_sha256": "sha256:c7aa7d2376d1ec17f1cb5dad078e60aa44c1e15979c548fc12ab3182f4c8278f",
       "capabilities": ["load-balancing"],
@@ -9748,7 +9628,7 @@
         "xcsh-docs:resources:tcp_loadbalancer:properties:tls_tcp_auto_cert:use_mtls"
       ],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -9994,7 +9874,7 @@
       "category": "load-balancing",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -10039,7 +9919,7 @@
         "xcsh-docs:resources:tcp_loadbalancer:properties:tls_tcp_auto_cert:tls_config:medium_security"
       ],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -10242,7 +10122,7 @@
       "category": "load-balancing",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -10334,7 +10214,7 @@
       "category": "load-balancing",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -10374,7 +10254,7 @@
       "category": "load-balancing",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -10414,7 +10294,7 @@
       "category": "load-balancing",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -10460,7 +10340,7 @@
         "xcsh-docs:resources:tcp_loadbalancer:properties:tls_tcp_auto_cert:use_mtls:xfcc_options"
       ],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -10531,13 +10411,7 @@
       "schema_path": ["tls_tcp_auto_cert", "use_mtls"],
       "sections": [
         {
-          "aliases": [
-            "cert",
-            "certificate",
-            "client certificate optional",
-            "existing certificates",
-            "tls certificates"
-          ],
+          "aliases": ["client certificate optional"],
           "anchor": "schema-tls_tcp_auto_cert--use_mtls--client_certificate_optional",
           "description": "Client certificate is optional. If the client has provided a certificate, the load balancer will verify it. If certification verification fails, the connection will be terminated. If the client does not provide a certificate, the connection will be accepted.",
           "document_id": "xcsh-docs:resources:tcp_loadbalancer:properties:tls_tcp_auto_cert:use_mtls",
@@ -10611,7 +10485,7 @@
           "type": "object"
         },
         {
-          "aliases": ["cert", "certificate", "existing certificates", "tls certificates", "trusted ca url"],
+          "aliases": ["trusted ca url"],
           "anchor": "schema-tls_tcp_auto_cert--use_mtls--trusted_ca_url",
           "description": "Exclusive with Upload a Root CA Certificate specifically for this Load Balancer.",
           "document_id": "xcsh-docs:resources:tcp_loadbalancer:properties:tls_tcp_auto_cert:use_mtls",
@@ -10681,7 +10555,7 @@
       "category": "load-balancing",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -10773,7 +10647,7 @@
       "category": "load-balancing",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -10813,7 +10687,7 @@
       "category": "load-balancing",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -10905,7 +10779,7 @@
       "category": "load-balancing",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -10945,7 +10819,7 @@
       "category": "load-balancing",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -11017,7 +10891,7 @@
         "xcsh-docs:resources:tcp_loadbalancer:example:with-listen-port"
       ],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -11057,7 +10931,7 @@
       "category": "load-balancing",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -11104,7 +10978,7 @@
       "category": "load-balancing",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -11151,7 +11025,7 @@
       "category": "load-balancing",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -11198,7 +11072,7 @@
       "category": "load-balancing",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -11245,7 +11119,7 @@
       "category": "load-balancing",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -11292,7 +11166,7 @@
       "category": "load-balancing",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -11339,7 +11213,7 @@
       "category": "load-balancing",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -11386,7 +11260,7 @@
       "category": "load-balancing",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -11427,7 +11301,7 @@
       "category": "load-balancing",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"

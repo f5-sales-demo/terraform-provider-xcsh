@@ -522,7 +522,7 @@
         "xcsh-docs:resources:advertise_policy:timeouts"
       ],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -571,7 +571,7 @@
         "xcsh-docs:resources:advertise_policy:properties:where"
       ],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -976,7 +976,7 @@
       "category": "networking",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -1016,7 +1016,7 @@
       "category": "networking",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -1056,7 +1056,7 @@
       "category": "networking",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -1096,7 +1096,7 @@
       "category": "networking",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -1207,7 +1207,7 @@
       "category": "networking",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -1309,7 +1309,7 @@
         "xcsh-docs:resources:advertise_policy:properties:tls_parameters:no_client_certificate"
       ],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -1380,13 +1380,7 @@
       "schema_path": ["tls_parameters"],
       "sections": [
         {
-          "aliases": [
-            "cert",
-            "certificate",
-            "client certificate optional",
-            "existing certificates",
-            "tls certificates"
-          ],
+          "aliases": ["client certificate optional"],
           "anchor": "section",
           "description": "This can be used for messages where no values are needed.",
           "document_id": "xcsh-docs:resources:advertise_policy:properties:tls_parameters:client_certificate_optional",
@@ -1400,13 +1394,7 @@
           "type": "object"
         },
         {
-          "aliases": [
-            "cert",
-            "certificate",
-            "client certificate required",
-            "existing certificates",
-            "tls certificates"
-          ],
+          "aliases": ["client certificate required"],
           "anchor": "section",
           "description": "This can be used for messages where no values are needed.",
           "document_id": "xcsh-docs:resources:advertise_policy:properties:tls_parameters:client_certificate_required",
@@ -1420,16 +1408,7 @@
           "type": "object"
         },
         {
-          "aliases": [
-            "authentication",
-            "cert",
-            "certificate",
-            "common params",
-            "credential setup",
-            "credentials",
-            "existing certificates",
-            "tls certificates"
-          ],
+          "aliases": ["common params"],
           "anchor": "section",
           "description": "Information of different aspects for TLS authentication related to ciphers, certificates and trust store.",
           "document_id": "xcsh-docs:resources:advertise_policy:properties:tls_parameters:common_params",
@@ -1443,7 +1422,7 @@
           "type": "object"
         },
         {
-          "aliases": ["cert", "certificate", "existing certificates", "no client certificate", "tls certificates"],
+          "aliases": ["no client certificate"],
           "anchor": "section",
           "description": "This can be used for messages where no values are needed.",
           "document_id": "xcsh-docs:resources:advertise_policy:properties:tls_parameters:no_client_certificate",
@@ -1483,20 +1462,14 @@
       }
     },
     {
-      "aliases": [
-        "cert",
-        "certificate",
-        "existing certificates",
-        "tls certificates",
-        "tls parameters client certificate optional"
-      ],
+      "aliases": ["tls parameters client certificate optional"],
       "body_bytes": 1319,
       "body_sha256": "sha256:092c64f822c14b0c893ffde9860d09a707f3809394ee430f9e6a21b55d99e0cf",
       "capabilities": ["load-balancing.tls", "networking"],
       "category": "networking",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -1529,20 +1502,14 @@
       }
     },
     {
-      "aliases": [
-        "cert",
-        "certificate",
-        "existing certificates",
-        "tls certificates",
-        "tls parameters client certificate required"
-      ],
+      "aliases": ["tls parameters client certificate required"],
       "body_bytes": 1319,
       "body_sha256": "sha256:1a4cd8b6ded40db34d7dc83c0f45c9c084eed67eb5ce54a2b1ddd7e00480c792",
       "capabilities": ["load-balancing.tls", "networking"],
       "category": "networking",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -1575,16 +1542,7 @@
       }
     },
     {
-      "aliases": [
-        "authentication",
-        "cert",
-        "certificate",
-        "credential setup",
-        "credentials",
-        "existing certificates",
-        "tls certificates",
-        "tls parameters common params"
-      ],
+      "aliases": ["tls parameters common params"],
       "body_bytes": 8042,
       "body_sha256": "sha256:1dbf266ea9832487d9ef9b48d177d985666c601c157b0a9b76cedd704b68973e",
       "capabilities": ["load-balancing.tls", "networking"],
@@ -1594,7 +1552,7 @@
         "xcsh-docs:resources:advertise_policy:properties:tls_parameters:common_params:validation_params"
       ],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -1790,7 +1748,7 @@
         "xcsh-docs:resources:advertise_policy:properties:tls_parameters:common_params:tls_certificates:use_system_defaults"
       ],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -1906,7 +1864,7 @@
           "type": "object"
         },
         {
-          "aliases": ["cert", "certificate", "description spec", "existing certificates", "tls certificates"],
+          "aliases": ["description spec"],
           "anchor": "schema-tls_parameters--common_params--tls_certificates--description_spec",
           "description": "Description. Description for the certificate.",
           "document_id": "xcsh-docs:resources:advertise_policy:properties:tls_parameters:common_params:tls_certificates",
@@ -1991,20 +1949,14 @@
       }
     },
     {
-      "aliases": [
-        "cert",
-        "certificate",
-        "existing certificates",
-        "tls certificates",
-        "tls parameters common params tls certificates custom hash algorithms"
-      ],
+      "aliases": ["tls parameters common params tls certificates custom hash algorithms"],
       "body_bytes": 3438,
       "body_sha256": "sha256:11e3a57b38dd619676247ed6c5817282fae154a5a2c417dedda85bf172e0bc1d",
       "capabilities": ["load-balancing.tls", "networking"],
       "category": "networking",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -2067,20 +2019,14 @@
       }
     },
     {
-      "aliases": [
-        "cert",
-        "certificate",
-        "existing certificates",
-        "tls certificates",
-        "tls parameters common params tls certificates disable ocsp stapling"
-      ],
+      "aliases": ["tls parameters common params tls certificates disable ocsp stapling"],
       "body_bytes": 1807,
       "body_sha256": "sha256:872418e11dd9dfe69a63724d9afc10abf90c017b9e48d35370c4979d12bf6005",
       "capabilities": ["load-balancing.tls", "networking"],
       "category": "networking",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -2113,13 +2059,7 @@
       }
     },
     {
-      "aliases": [
-        "cert",
-        "certificate",
-        "existing certificates",
-        "tls certificates",
-        "tls parameters common params tls certificates private key"
-      ],
+      "aliases": ["tls parameters common params tls certificates private key"],
       "body_bytes": 2964,
       "body_sha256": "sha256:56a26e82aa6355d4d8cbd4fcc7001a3e025d4b8e5899a7c8ba87f00bb101883f",
       "capabilities": ["load-balancing.tls", "networking"],
@@ -2129,7 +2069,7 @@
         "xcsh-docs:resources:advertise_policy:properties:tls_parameters:common_params:tls_certificates:private_key:clear_secret_info"
       ],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -2232,20 +2172,14 @@
       }
     },
     {
-      "aliases": [
-        "cert",
-        "certificate",
-        "existing certificates",
-        "tls certificates",
-        "tls parameters common params tls certificates private key blindfold secret info"
-      ],
+      "aliases": ["tls parameters common params tls certificates private key blindfold secret info"],
       "body_bytes": 5536,
       "body_sha256": "sha256:c28ad33b03a0bea4e887e49a1bb97b7efe1207d954799836fcb7c53aae5d5a66",
       "capabilities": ["load-balancing.tls", "networking"],
       "category": "networking",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -2276,7 +2210,7 @@
       "schema_path": ["tls_parameters", "common_params", "tls_certificates", "private_key", "blindfold_secret_info"],
       "sections": [
         {
-          "aliases": ["backend servers", "decryption provider", "origin servers", "upstream servers"],
+          "aliases": ["decryption provider"],
           "anchor": "schema-tls_parameters--common_params--tls_certificates--private_key--blindfold_secret_info--decryption_provider",
           "description": "Name of the Secret Management Access object that contains information about the backend Secret Management service.",
           "document_id": "xcsh-docs:resources:advertise_policy:properties:tls_parameters:common_params:tls_certificates:private_key:blindfold_secret_info",
@@ -2351,20 +2285,14 @@
       }
     },
     {
-      "aliases": [
-        "cert",
-        "certificate",
-        "existing certificates",
-        "tls certificates",
-        "tls parameters common params tls certificates private key clear secret info"
-      ],
+      "aliases": ["tls parameters common params tls certificates private key clear secret info"],
       "body_bytes": 4387,
       "body_sha256": "sha256:e16592a2d06892f7743c7362126f950026397651db2c71fe971e5df87062f5e9",
       "capabilities": ["load-balancing.tls", "networking"],
       "category": "networking",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -2449,20 +2377,14 @@
       }
     },
     {
-      "aliases": [
-        "cert",
-        "certificate",
-        "existing certificates",
-        "tls certificates",
-        "tls parameters common params tls certificates use system defaults"
-      ],
+      "aliases": ["tls parameters common params tls certificates use system defaults"],
       "body_bytes": 1799,
       "body_sha256": "sha256:fbfa50f24335c72f4760d31f16fa5f72adbb979e7bc81f3581327c04e50bef3d",
       "capabilities": ["load-balancing.tls", "networking"],
       "category": "networking",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -2504,7 +2426,7 @@
         "xcsh-docs:resources:advertise_policy:properties:tls_parameters:common_params:validation_params:trusted_ca"
       ],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -2543,7 +2465,7 @@
       "schema_path": ["tls_parameters", "common_params", "validation_params"],
       "sections": [
         {
-          "aliases": ["cert", "certificate", "existing certificates", "skip hostname verification", "tls certificates"],
+          "aliases": ["skip hostname verification"],
           "anchor": "schema-tls_parameters--common_params--validation_params--skip_hostname_verification",
           "description": "When True, skip verification of hostname i.e. CN/Subject Alt Name of certificate is not matched to the connecting hostname.",
           "document_id": "xcsh-docs:resources:advertise_policy:properties:tls_parameters:common_params:validation_params",
@@ -2557,7 +2479,7 @@
           "type": "bool"
         },
         {
-          "aliases": ["cert", "certificate", "existing certificates", "tls certificates", "trusted ca"],
+          "aliases": ["trusted ca"],
           "anchor": "section",
           "description": "Reference to Root CA Certificate.",
           "document_id": "xcsh-docs:resources:advertise_policy:properties:tls_parameters:common_params:validation_params:trusted_ca",
@@ -2571,7 +2493,7 @@
           "type": "object"
         },
         {
-          "aliases": ["cert", "certificate", "existing certificates", "tls certificates", "trusted ca url"],
+          "aliases": ["trusted ca url"],
           "anchor": "schema-tls_parameters--common_params--validation_params--trusted_ca_url",
           "description": "Exclusive with Inline Root CA Certificate.",
           "document_id": "xcsh-docs:resources:advertise_policy:properties:tls_parameters:common_params:validation_params",
@@ -2585,7 +2507,7 @@
           "type": "string"
         },
         {
-          "aliases": ["cert", "certificate", "existing certificates", "tls certificates", "verify subject alt names"],
+          "aliases": ["verify subject alt names"],
           "anchor": "schema-tls_parameters--common_params--validation_params--verify_subject_alt_names",
           "description": "List of acceptable Subject Alt Names/CN in the peer's certificate. When skip_hostname_verification is false and verify_subject_alt_names is empty, the hostname of the peer will be used for matching against SAN/CN of peer's certificate.",
           "document_id": "xcsh-docs:resources:advertise_policy:properties:tls_parameters:common_params:validation_params",
@@ -2611,13 +2533,7 @@
       }
     },
     {
-      "aliases": [
-        "cert",
-        "certificate",
-        "existing certificates",
-        "tls certificates",
-        "tls parameters common params validation params trusted ca"
-      ],
+      "aliases": ["tls parameters common params validation params trusted ca"],
       "body_bytes": 2229,
       "body_sha256": "sha256:a45bccc7f2764b905b58404fe09a3856acf520476ffeb293b4ae162277cc66b0",
       "capabilities": ["load-balancing.tls", "networking"],
@@ -2626,7 +2542,7 @@
         "xcsh-docs:resources:advertise_policy:properties:tls_parameters:common_params:validation_params:trusted_ca:trusted_ca_list"
       ],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -2648,7 +2564,7 @@
       "schema_path": ["tls_parameters", "common_params", "validation_params", "trusted_ca"],
       "sections": [
         {
-          "aliases": ["cert", "certificate", "existing certificates", "tls certificates", "trusted ca list"],
+          "aliases": ["trusted ca list"],
           "anchor": "section",
           "description": "Reference to Root CA Certificate.",
           "document_id": "xcsh-docs:resources:advertise_policy:properties:tls_parameters:common_params:validation_params:trusted_ca:trusted_ca_list",
@@ -2674,20 +2590,14 @@
       }
     },
     {
-      "aliases": [
-        "cert",
-        "certificate",
-        "existing certificates",
-        "tls certificates",
-        "tls parameters common params validation params trusted ca trusted ca list"
-      ],
+      "aliases": ["tls parameters common params validation params trusted ca trusted ca list"],
       "body_bytes": 7626,
       "body_sha256": "sha256:4e2d75f27fa921da2ba1229d80394ec762d5c497e78da1c11da8d2b51bba87a3",
       "capabilities": ["load-balancing.tls", "networking"],
       "category": "networking",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -2826,20 +2736,14 @@
       }
     },
     {
-      "aliases": [
-        "cert",
-        "certificate",
-        "existing certificates",
-        "tls certificates",
-        "tls parameters no client certificate"
-      ],
+      "aliases": ["tls parameters no client certificate"],
       "body_bytes": 1301,
       "body_sha256": "sha256:7d0c0157e1c5817498049ed6db2bed4e502486b491af0285b9a8c37818b2dd5e",
       "capabilities": ["load-balancing.tls", "networking"],
       "category": "networking",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -2883,7 +2787,7 @@
         "xcsh-docs:resources:advertise_policy:properties:where:virtual_site"
       ],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -3078,7 +2982,7 @@
         "xcsh-docs:resources:advertise_policy:properties:where:site:ref"
       ],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -3200,7 +3104,7 @@
       "category": "networking",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -3240,7 +3144,7 @@
       "category": "networking",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -3280,7 +3184,7 @@
       "category": "networking",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -3391,7 +3295,7 @@
       "category": "networking",
       "child_ids": ["xcsh-docs:resources:advertise_policy:properties:where:virtual_network:ref"],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -3455,7 +3359,7 @@
       "category": "networking",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -3570,7 +3474,7 @@
         "xcsh-docs:resources:advertise_policy:properties:where:virtual_site:ref"
       ],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -3692,7 +3596,7 @@
       "category": "networking",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -3732,7 +3636,7 @@
       "category": "networking",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -3772,7 +3676,7 @@
       "category": "networking",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -3883,7 +3787,7 @@
       "category": "networking",
       "child_ids": ["xcsh-docs:resources:advertise_policy:example:resource"],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -3923,7 +3827,7 @@
       "category": "networking",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -3970,7 +3874,7 @@
       "category": "networking",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -4011,7 +3915,7 @@
       "category": "networking",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"

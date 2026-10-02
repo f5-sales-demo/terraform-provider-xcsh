@@ -873,7 +873,7 @@
   },
   "pages": [
     {
-      "aliases": ["backend servers", "origin servers", "secret management access", "upstream servers"],
+      "aliases": ["secret management access"],
       "body_bytes": 1487,
       "body_sha256": "sha256:645c4f3f2d54f0b6baf35f9405dd61c1565252184a518a941dd2463b83bced1f",
       "capabilities": ["identity"],
@@ -883,7 +883,7 @@
         "xcsh-docs:data-sources:secret_management_access:examples"
       ],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -927,7 +927,7 @@
         "xcsh-docs:data-sources:secret_management_access:properties:where"
       ],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -1047,7 +1047,7 @@
           "type": "string"
         },
         {
-          "aliases": ["backend servers", "origin servers", "provider name", "upstream servers"],
+          "aliases": ["provider name"],
           "anchor": "schema-provider_name",
           "description": "Name given to this secret management backend. site.provider needs to be unique, and will be referenced for using this object.",
           "document_id": "xcsh-docs:data-sources:secret_management_access:reference",
@@ -1098,7 +1098,7 @@
         "xcsh-docs:data-sources:secret_management_access:properties:access_info:vault_auth_info"
       ],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -1120,7 +1120,7 @@
       "schema_path": ["access_info"],
       "sections": [
         {
-          "aliases": ["authentication", "credential setup", "credentials", "rest auth info"],
+          "aliases": ["rest auth info"],
           "anchor": "section",
           "description": "Authentication parameters for REST based hosts.",
           "document_id": "xcsh-docs:data-sources:secret_management_access:properties:access_info:rest_auth_info",
@@ -1176,7 +1176,7 @@
           "type": "object"
         },
         {
-          "aliases": ["authentication", "credential setup", "credentials", "vault auth info"],
+          "aliases": ["vault auth info"],
           "anchor": "section",
           "description": "Authentication parameters for Hashicorp Vault hosts.",
           "document_id": "xcsh-docs:data-sources:secret_management_access:properties:access_info:vault_auth_info",
@@ -1202,7 +1202,7 @@
       }
     },
     {
-      "aliases": ["access info rest auth info", "authentication", "credential setup", "credentials"],
+      "aliases": ["access info rest auth info"],
       "body_bytes": 2415,
       "body_sha256": "sha256:18fd5a732a26c2ad108077456d3b01f186853312425de98a741c64e596773737",
       "capabilities": ["identity"],
@@ -1213,7 +1213,7 @@
         "xcsh-docs:data-sources:secret_management_access:properties:access_info:rest_auth_info:query_params_auth"
       ],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -1235,7 +1235,7 @@
       "schema_path": ["access_info", "rest_auth_info"],
       "sections": [
         {
-          "aliases": ["authentication", "basic auth", "credential setup", "credentials"],
+          "aliases": ["basic auth"],
           "anchor": "section",
           "description": "AuthnTypeBasicAuth is used for using basic_auth mode of HTTP authentication.",
           "document_id": "xcsh-docs:data-sources:secret_management_access:properties:access_info:rest_auth_info:basic_auth",
@@ -1249,7 +1249,7 @@
           "type": "object"
         },
         {
-          "aliases": ["authentication", "credential setup", "credentials", "headers auth"],
+          "aliases": ["headers auth"],
           "anchor": "section",
           "description": "AuthnTypeHeaders is used for setting headers for authentication.",
           "document_id": "xcsh-docs:data-sources:secret_management_access:properties:access_info:rest_auth_info:headers_auth",
@@ -1263,7 +1263,7 @@
           "type": "object"
         },
         {
-          "aliases": ["authentication", "credential setup", "credentials", "query params auth"],
+          "aliases": ["query params auth"],
           "anchor": "section",
           "description": "AuthnTypeQueryParams is used for setting query_params for authentication.",
           "document_id": "xcsh-docs:data-sources:secret_management_access:properties:access_info:rest_auth_info:query_params_auth",
@@ -1289,7 +1289,7 @@
       }
     },
     {
-      "aliases": ["access info rest auth info basic auth", "authentication", "credential setup", "credentials"],
+      "aliases": ["access info rest auth info basic auth"],
       "body_bytes": 2570,
       "body_sha256": "sha256:496e4631598837fec44376a446aecd2e7a4a6c1615fdd85eaa8a9aa8f8162d56",
       "capabilities": ["identity"],
@@ -1298,7 +1298,7 @@
         "xcsh-docs:data-sources:secret_management_access:properties:access_info:rest_auth_info:basic_auth:password"
       ],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -1370,7 +1370,7 @@
         "xcsh-docs:data-sources:secret_management_access:properties:access_info:rest_auth_info:basic_auth:password:clear_secret_info"
       ],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -1439,7 +1439,7 @@
       "category": "identity",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -1461,7 +1461,7 @@
       "schema_path": ["access_info", "rest_auth_info", "basic_auth", "password", "blindfold_secret_info"],
       "sections": [
         {
-          "aliases": ["backend servers", "decryption provider", "origin servers", "upstream servers"],
+          "aliases": ["decryption provider"],
           "anchor": "schema-access_info--rest_auth_info--basic_auth--password--blindfold_secret_info--decryption_provider",
           "description": "Name of the Secret Management Access object that contains information about the backend Secret Management service.",
           "document_id": "xcsh-docs:data-sources:secret_management_access:properties:access_info:rest_auth_info:basic_auth:password:blindfold_secret_info",
@@ -1543,7 +1543,7 @@
       "category": "identity",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -1612,7 +1612,7 @@
       }
     },
     {
-      "aliases": ["access info rest auth info headers auth", "authentication", "credential setup", "credentials"],
+      "aliases": ["access info rest auth info headers auth"],
       "body_bytes": 1790,
       "body_sha256": "sha256:3ebcc9d4fc4313605a5989511275485bedc074c8e872fb5a0f64e1a6a3adaba5",
       "capabilities": ["identity"],
@@ -1621,7 +1621,7 @@
         "xcsh-docs:data-sources:secret_management_access:properties:access_info:rest_auth_info:headers_auth:headers"
       ],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -1643,7 +1643,7 @@
       "schema_path": ["access_info", "rest_auth_info", "headers_auth"],
       "sections": [
         {
-          "aliases": ["authentication", "credential setup", "credentials", "headers"],
+          "aliases": ["headers"],
           "anchor": "section",
           "description": "The set of authentication headers to pass in HTTP request.",
           "document_id": "xcsh-docs:data-sources:secret_management_access:properties:access_info:rest_auth_info:headers_auth:headers",
@@ -1669,19 +1669,14 @@
       }
     },
     {
-      "aliases": [
-        "access info rest auth info headers auth headers",
-        "authentication",
-        "credential setup",
-        "credentials"
-      ],
+      "aliases": ["access info rest auth info headers auth headers"],
       "body_bytes": 2068,
       "body_sha256": "sha256:40244ba3413e9eed8df4a1f78b1a30ba37ea45dd4d19625cc2c0db2bbafbcc9d",
       "capabilities": ["identity"],
       "category": "identity",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -1714,7 +1709,7 @@
       }
     },
     {
-      "aliases": ["access info rest auth info query params auth", "authentication", "credential setup", "credentials"],
+      "aliases": ["access info rest auth info query params auth"],
       "body_bytes": 1845,
       "body_sha256": "sha256:16b640cc9870fbd5ce2b8922eb2ff8e7c357b94685558958e3fd2101c3475154",
       "capabilities": ["identity"],
@@ -1723,7 +1718,7 @@
         "xcsh-docs:data-sources:secret_management_access:properties:access_info:rest_auth_info:query_params_auth:query_params"
       ],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -1745,7 +1740,7 @@
       "schema_path": ["access_info", "rest_auth_info", "query_params_auth"],
       "sections": [
         {
-          "aliases": ["authentication", "credential setup", "credentials", "query params"],
+          "aliases": ["query params"],
           "anchor": "section",
           "description": "The set of authentication parameters to be passed as query parameters.",
           "document_id": "xcsh-docs:data-sources:secret_management_access:properties:access_info:rest_auth_info:query_params_auth:query_params",
@@ -1771,19 +1766,14 @@
       }
     },
     {
-      "aliases": [
-        "access info rest auth info query params auth query params",
-        "authentication",
-        "credential setup",
-        "credentials"
-      ],
+      "aliases": ["access info rest auth info query params auth query params"],
       "body_bytes": 2120,
       "body_sha256": "sha256:5b23169fc58abeb120086ebf432cb8171d4272520ba5ebec0962fb321de76d22",
       "capabilities": ["identity"],
       "category": "identity",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -1830,7 +1820,7 @@
         "xcsh-docs:data-sources:secret_management_access:properties:access_info:tls_config:use_host_header_as_sni"
       ],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -1852,16 +1842,7 @@
       "schema_path": ["access_info", "tls_config"],
       "sections": [
         {
-          "aliases": [
-            "authentication",
-            "cert",
-            "cert params",
-            "certificate",
-            "credential setup",
-            "credentials",
-            "existing certificates",
-            "tls certificates"
-          ],
+          "aliases": ["cert params"],
           "anchor": "section",
           "description": "Certificate Parameters for authentication, TLS ciphers, and trust store.",
           "document_id": "xcsh-docs:data-sources:secret_management_access:properties:access_info:tls_config:cert_params",
@@ -1875,16 +1856,7 @@
           "type": "object"
         },
         {
-          "aliases": [
-            "authentication",
-            "cert",
-            "certificate",
-            "common params",
-            "credential setup",
-            "credentials",
-            "existing certificates",
-            "tls certificates"
-          ],
+          "aliases": ["common params"],
           "anchor": "section",
           "description": "Information of different aspects for TLS authentication related to ciphers, certificates and trust store.",
           "document_id": "xcsh-docs:data-sources:secret_management_access:properties:access_info:tls_config:common_params",
@@ -1994,16 +1966,7 @@
       }
     },
     {
-      "aliases": [
-        "access info tls config cert params",
-        "authentication",
-        "cert",
-        "certificate",
-        "credential setup",
-        "credentials",
-        "existing certificates",
-        "tls certificates"
-      ],
+      "aliases": ["access info tls config cert params"],
       "body_bytes": 8744,
       "body_sha256": "sha256:b3a9266560d86968f63992c82338550ae073faac74d1a0bb808f566b95ed881d",
       "capabilities": ["identity"],
@@ -2015,7 +1978,7 @@
         "xcsh-docs:data-sources:secret_management_access:properties:access_info:tls_config:cert_params:volterra_trusted_ca"
       ],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -2037,16 +2000,7 @@
       "schema_path": ["access_info", "tls_config", "cert_params"],
       "sections": [
         {
-          "aliases": [
-            "authentication",
-            "cert",
-            "certificate",
-            "certificates",
-            "credential setup",
-            "credentials",
-            "existing certificates",
-            "tls certificates"
-          ],
+          "aliases": ["cert", "certificate", "certificates", "existing certificates", "tls certificates"],
           "anchor": "section",
           "description": "Client TLS Certificate required for mTLS authentication.",
           "document_id": "xcsh-docs:data-sources:secret_management_access:properties:access_info:tls_config:cert_params:certificates",
@@ -2158,11 +2112,8 @@
     {
       "aliases": [
         "access info tls config cert params certificates",
-        "authentication",
         "cert",
         "certificate",
-        "credential setup",
-        "credentials",
         "existing certificates",
         "tls certificates"
       ],
@@ -2172,7 +2123,7 @@
       "category": "identity",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -2283,7 +2234,7 @@
       "category": "identity",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -2325,7 +2276,7 @@
         "xcsh-docs:data-sources:secret_management_access:properties:access_info:tls_config:cert_params:tls_validation_params:trusted_ca"
       ],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -2347,7 +2298,7 @@
       "schema_path": ["access_info", "tls_config", "cert_params", "tls_validation_params"],
       "sections": [
         {
-          "aliases": ["cert", "certificate", "existing certificates", "skip hostname verification", "tls certificates"],
+          "aliases": ["skip hostname verification"],
           "anchor": "schema-access_info--tls_config--cert_params--tls_validation_params--skip_hostname_verification",
           "description": "When True, skip verification of hostname i.e. CN/Subject Alt Name of certificate is not matched to the connecting hostname.",
           "document_id": "xcsh-docs:data-sources:secret_management_access:properties:access_info:tls_config:cert_params:tls_validation_params",
@@ -2367,7 +2318,7 @@
           "type": "bool"
         },
         {
-          "aliases": ["cert", "certificate", "existing certificates", "tls certificates", "trusted ca"],
+          "aliases": ["trusted ca"],
           "anchor": "section",
           "description": "Reference to Root CA Certificate.",
           "document_id": "xcsh-docs:data-sources:secret_management_access:properties:access_info:tls_config:cert_params:tls_validation_params:trusted_ca",
@@ -2381,7 +2332,7 @@
           "type": "object"
         },
         {
-          "aliases": ["cert", "certificate", "existing certificates", "tls certificates", "trusted ca url"],
+          "aliases": ["trusted ca url"],
           "anchor": "schema-access_info--tls_config--cert_params--tls_validation_params--trusted_ca_url",
           "description": "Exclusive with Inline Root CA Certificate.",
           "document_id": "xcsh-docs:data-sources:secret_management_access:properties:access_info:tls_config:cert_params:tls_validation_params",
@@ -2395,7 +2346,7 @@
           "type": "string"
         },
         {
-          "aliases": ["cert", "certificate", "existing certificates", "tls certificates", "verify subject alt names"],
+          "aliases": ["verify subject alt names"],
           "anchor": "schema-access_info--tls_config--cert_params--tls_validation_params--verify_subject_alt_names",
           "description": "List of acceptable Subject Alt Names/CN in the peer's certificate. When skip_hostname_verification is false and verify_subject_alt_names is empty, the hostname of the peer will be used for matching against SAN/CN of peer's certificate.",
           "document_id": "xcsh-docs:data-sources:secret_management_access:properties:access_info:tls_config:cert_params:tls_validation_params",
@@ -2427,13 +2378,7 @@
       }
     },
     {
-      "aliases": [
-        "access info tls config cert params tls validation params trusted ca",
-        "cert",
-        "certificate",
-        "existing certificates",
-        "tls certificates"
-      ],
+      "aliases": ["access info tls config cert params tls validation params trusted ca"],
       "body_bytes": 2478,
       "body_sha256": "sha256:90cb659bd9663f4e4bc0e16bd7a00b5701eb49c82d3e87536298a7be9efd3707",
       "capabilities": ["identity"],
@@ -2442,7 +2387,7 @@
         "xcsh-docs:data-sources:secret_management_access:properties:access_info:tls_config:cert_params:tls_validation_params:trusted_ca:trusted_ca_list"
       ],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -2464,7 +2409,7 @@
       "schema_path": ["access_info", "tls_config", "cert_params", "tls_validation_params", "trusted_ca"],
       "sections": [
         {
-          "aliases": ["cert", "certificate", "existing certificates", "tls certificates", "trusted ca list"],
+          "aliases": ["trusted ca list"],
           "anchor": "section",
           "description": "Reference to Root CA Certificate.",
           "document_id": "xcsh-docs:data-sources:secret_management_access:properties:access_info:tls_config:cert_params:tls_validation_params:trusted_ca:trusted_ca_list",
@@ -2497,20 +2442,14 @@
       }
     },
     {
-      "aliases": [
-        "access info tls config cert params tls validation params trusted ca trusted ca list",
-        "cert",
-        "certificate",
-        "existing certificates",
-        "tls certificates"
-      ],
+      "aliases": ["access info tls config cert params tls validation params trusted ca trusted ca list"],
       "body_bytes": 7661,
       "body_sha256": "sha256:fb2c7700e97545fd6077d48b212fd2909bb4cc8916790d4959cbd738e0cc5086",
       "capabilities": ["identity"],
       "category": "identity",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -2668,7 +2607,7 @@
       "category": "identity",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -2701,16 +2640,7 @@
       }
     },
     {
-      "aliases": [
-        "access info tls config common params",
-        "authentication",
-        "cert",
-        "certificate",
-        "credential setup",
-        "credentials",
-        "existing certificates",
-        "tls certificates"
-      ],
+      "aliases": ["access info tls config common params"],
       "body_bytes": 7897,
       "body_sha256": "sha256:2000eac3c74f85ffed0184acf078620504e81589f58f478f2610dee309b28032",
       "capabilities": ["identity"],
@@ -2720,7 +2650,7 @@
         "xcsh-docs:data-sources:secret_management_access:properties:access_info:tls_config:common_params:validation_params"
       ],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -2842,7 +2772,7 @@
         "xcsh-docs:data-sources:secret_management_access:properties:access_info:tls_config:common_params:tls_certificates:use_system_defaults"
       ],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -2892,7 +2822,7 @@
           "type": "object"
         },
         {
-          "aliases": ["cert", "certificate", "description spec", "existing certificates", "tls certificates"],
+          "aliases": ["description spec"],
           "anchor": "schema-access_info--tls_config--common_params--tls_certificates--description_spec",
           "description": "Description. Description for the certificate.",
           "document_id": "xcsh-docs:data-sources:secret_management_access:properties:access_info:tls_config:common_params:tls_certificates",
@@ -2960,20 +2890,14 @@
       }
     },
     {
-      "aliases": [
-        "access info tls config common params tls certificates custom hash algorithms",
-        "cert",
-        "certificate",
-        "existing certificates",
-        "tls certificates"
-      ],
+      "aliases": ["access info tls config common params tls certificates custom hash algorithms"],
       "body_bytes": 3336,
       "body_sha256": "sha256:2117241e30af371b9d4b30dbb1efa8df53049028696dc1b6ed11f490a2118b06",
       "capabilities": ["identity"],
       "category": "identity",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -3028,20 +2952,14 @@
       }
     },
     {
-      "aliases": [
-        "access info tls config common params tls certificates disable ocsp stapling",
-        "cert",
-        "certificate",
-        "existing certificates",
-        "tls certificates"
-      ],
+      "aliases": ["access info tls config common params tls certificates disable ocsp stapling"],
       "body_bytes": 2051,
       "body_sha256": "sha256:39200999190a31f2505a628d00290ee8becc1ff6abf6ef8492b90314e4f3421b",
       "capabilities": ["identity"],
       "category": "identity",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -3074,13 +2992,7 @@
       }
     },
     {
-      "aliases": [
-        "access info tls config common params tls certificates private key",
-        "cert",
-        "certificate",
-        "existing certificates",
-        "tls certificates"
-      ],
+      "aliases": ["access info tls config common params tls certificates private key"],
       "body_bytes": 3056,
       "body_sha256": "sha256:23f49331c8c7f13aa4887f26f040cd386ec1d0985d5f8f4a3853595a2b23d59b",
       "capabilities": ["identity"],
@@ -3090,7 +3002,7 @@
         "xcsh-docs:data-sources:secret_management_access:properties:access_info:tls_config:common_params:tls_certificates:private_key:clear_secret_info"
       ],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -3166,20 +3078,14 @@
       }
     },
     {
-      "aliases": [
-        "access info tls config common params tls certificates private key blindfold secret info",
-        "cert",
-        "certificate",
-        "existing certificates",
-        "tls certificates"
-      ],
+      "aliases": ["access info tls config common params tls certificates private key blindfold secret info"],
       "body_bytes": 5476,
       "body_sha256": "sha256:d248302fa004699ac12ea550347cabeb156940567eb1b6506fcb59f29c946eb9",
       "capabilities": ["identity"],
       "category": "identity",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -3208,7 +3114,7 @@
       ],
       "sections": [
         {
-          "aliases": ["backend servers", "decryption provider", "origin servers", "upstream servers"],
+          "aliases": ["decryption provider"],
           "anchor": "schema-access_info--tls_config--common_params--tls_certificates--private_key--blindfold_secret_info--decryption_provider",
           "description": "Name of the Secret Management Access object that contains information about the backend Secret Management service.",
           "document_id": "xcsh-docs:data-sources:secret_management_access:properties:access_info:tls_config:common_params:tls_certificates:private_key:blindfold_secret_info",
@@ -3286,20 +3192,14 @@
       }
     },
     {
-      "aliases": [
-        "access info tls config common params tls certificates private key clear secret info",
-        "cert",
-        "certificate",
-        "existing certificates",
-        "tls certificates"
-      ],
+      "aliases": ["access info tls config common params tls certificates private key clear secret info"],
       "body_bytes": 4327,
       "body_sha256": "sha256:092517ad17e61228a2dfd2163feb82bd7f986f4365afeb57cb7767291b3b5269",
       "capabilities": ["identity"],
       "category": "identity",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -3384,20 +3284,14 @@
       }
     },
     {
-      "aliases": [
-        "access info tls config common params tls certificates use system defaults",
-        "cert",
-        "certificate",
-        "existing certificates",
-        "tls certificates"
-      ],
+      "aliases": ["access info tls config common params tls certificates use system defaults"],
       "body_bytes": 2045,
       "body_sha256": "sha256:301fccc0c7e3fd7c5bb5dd3ccaa65de05da1389ba9877bd81e98a5c0512a38d1",
       "capabilities": ["identity"],
       "category": "identity",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -3439,7 +3333,7 @@
         "xcsh-docs:data-sources:secret_management_access:properties:access_info:tls_config:common_params:validation_params:trusted_ca"
       ],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -3461,7 +3355,7 @@
       "schema_path": ["access_info", "tls_config", "common_params", "validation_params"],
       "sections": [
         {
-          "aliases": ["cert", "certificate", "existing certificates", "skip hostname verification", "tls certificates"],
+          "aliases": ["skip hostname verification"],
           "anchor": "schema-access_info--tls_config--common_params--validation_params--skip_hostname_verification",
           "description": "When True, skip verification of hostname i.e. CN/Subject Alt Name of certificate is not matched to the connecting hostname.",
           "document_id": "xcsh-docs:data-sources:secret_management_access:properties:access_info:tls_config:common_params:validation_params",
@@ -3481,7 +3375,7 @@
           "type": "bool"
         },
         {
-          "aliases": ["cert", "certificate", "existing certificates", "tls certificates", "trusted ca"],
+          "aliases": ["trusted ca"],
           "anchor": "section",
           "description": "Reference to Root CA Certificate.",
           "document_id": "xcsh-docs:data-sources:secret_management_access:properties:access_info:tls_config:common_params:validation_params:trusted_ca",
@@ -3495,7 +3389,7 @@
           "type": "object"
         },
         {
-          "aliases": ["cert", "certificate", "existing certificates", "tls certificates", "trusted ca url"],
+          "aliases": ["trusted ca url"],
           "anchor": "schema-access_info--tls_config--common_params--validation_params--trusted_ca_url",
           "description": "Exclusive with Inline Root CA Certificate.",
           "document_id": "xcsh-docs:data-sources:secret_management_access:properties:access_info:tls_config:common_params:validation_params",
@@ -3509,7 +3403,7 @@
           "type": "string"
         },
         {
-          "aliases": ["cert", "certificate", "existing certificates", "tls certificates", "verify subject alt names"],
+          "aliases": ["verify subject alt names"],
           "anchor": "schema-access_info--tls_config--common_params--validation_params--verify_subject_alt_names",
           "description": "List of acceptable Subject Alt Names/CN in the peer's certificate. When skip_hostname_verification is false and verify_subject_alt_names is empty, the hostname of the peer will be used for matching against SAN/CN of peer's certificate.",
           "document_id": "xcsh-docs:data-sources:secret_management_access:properties:access_info:tls_config:common_params:validation_params",
@@ -3541,13 +3435,7 @@
       }
     },
     {
-      "aliases": [
-        "access info tls config common params validation params trusted ca",
-        "cert",
-        "certificate",
-        "existing certificates",
-        "tls certificates"
-      ],
+      "aliases": ["access info tls config common params validation params trusted ca"],
       "body_bytes": 2464,
       "body_sha256": "sha256:2f37c4d878c4c2350684393592fceaaac74d2b39d9e67b1054b5263fc1310195",
       "capabilities": ["identity"],
@@ -3556,7 +3444,7 @@
         "xcsh-docs:data-sources:secret_management_access:properties:access_info:tls_config:common_params:validation_params:trusted_ca:trusted_ca_list"
       ],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -3578,7 +3466,7 @@
       "schema_path": ["access_info", "tls_config", "common_params", "validation_params", "trusted_ca"],
       "sections": [
         {
-          "aliases": ["cert", "certificate", "existing certificates", "tls certificates", "trusted ca list"],
+          "aliases": ["trusted ca list"],
           "anchor": "section",
           "description": "Reference to Root CA Certificate.",
           "document_id": "xcsh-docs:data-sources:secret_management_access:properties:access_info:tls_config:common_params:validation_params:trusted_ca:trusted_ca_list",
@@ -3611,20 +3499,14 @@
       }
     },
     {
-      "aliases": [
-        "access info tls config common params validation params trusted ca trusted ca list",
-        "cert",
-        "certificate",
-        "existing certificates",
-        "tls certificates"
-      ],
+      "aliases": ["access info tls config common params validation params trusted ca trusted ca list"],
       "body_bytes": 7639,
       "body_sha256": "sha256:9c982c4b9189f756d5e17c18c58bb672ebe651b35baa8c3a48e884e743b695b3",
       "capabilities": ["identity"],
       "category": "identity",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -3782,7 +3664,7 @@
       "category": "identity",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -3822,7 +3704,7 @@
       "category": "identity",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -3862,7 +3744,7 @@
       "category": "identity",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -3902,7 +3784,7 @@
       "category": "identity",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -3935,7 +3817,7 @@
       }
     },
     {
-      "aliases": ["access info vault auth info", "authentication", "credential setup", "credentials"],
+      "aliases": ["access info vault auth info"],
       "body_bytes": 1978,
       "body_sha256": "sha256:16452847e39eaaa15e784f17fbeb460586855c64bbc7fdbf45460eec9cedeea8",
       "capabilities": ["identity"],
@@ -3945,7 +3827,7 @@
         "xcsh-docs:data-sources:secret_management_access:properties:access_info:vault_auth_info:token"
       ],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -3967,7 +3849,7 @@
       "schema_path": ["access_info", "vault_auth_info"],
       "sections": [
         {
-          "aliases": ["app role auth", "authentication", "credential setup", "credentials"],
+          "aliases": ["app role auth"],
           "anchor": "section",
           "description": "AppRoleAuthInfoType contains parameters for AppRole authentication in Hashicorp Vault.",
           "document_id": "xcsh-docs:data-sources:secret_management_access:properties:access_info:vault_auth_info:app_role_auth",
@@ -4007,7 +3889,7 @@
       }
     },
     {
-      "aliases": ["access info vault auth info app role auth", "authentication", "credential setup", "credentials"],
+      "aliases": ["access info vault auth info app role auth"],
       "body_bytes": 2486,
       "body_sha256": "sha256:c1dca4a246e60d322ec0c1d4f001eb1dc229ffbe8c334204cd4913537b9b1126",
       "capabilities": ["identity"],
@@ -4016,7 +3898,7 @@
         "xcsh-docs:data-sources:secret_management_access:properties:access_info:vault_auth_info:app_role_auth:secret_id"
       ],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -4038,7 +3920,7 @@
       "schema_path": ["access_info", "vault_auth_info", "app_role_auth"],
       "sections": [
         {
-          "aliases": ["authentication", "credential setup", "credentials", "role id"],
+          "aliases": ["role id"],
           "anchor": "schema-access_info--vault_auth_info--app_role_auth--role_id",
           "description": "Role-ID to be used for authentication.",
           "document_id": "xcsh-docs:data-sources:secret_management_access:properties:access_info:vault_auth_info:app_role_auth",
@@ -4088,7 +3970,7 @@
         "xcsh-docs:data-sources:secret_management_access:properties:access_info:vault_auth_info:app_role_auth:secret_id:clear_secret_info"
       ],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -4157,7 +4039,7 @@
       "category": "identity",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -4179,7 +4061,7 @@
       "schema_path": ["access_info", "vault_auth_info", "app_role_auth", "secret_id", "blindfold_secret_info"],
       "sections": [
         {
-          "aliases": ["backend servers", "decryption provider", "origin servers", "upstream servers"],
+          "aliases": ["decryption provider"],
           "anchor": "schema-access_info--vault_auth_info--app_role_auth--secret_id--blindfold_secret_info--decryption_provider",
           "description": "Name of the Secret Management Access object that contains information about the backend Secret Management service.",
           "document_id": "xcsh-docs:data-sources:secret_management_access:properties:access_info:vault_auth_info:app_role_auth:secret_id:blindfold_secret_info",
@@ -4261,7 +4143,7 @@
       "category": "identity",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -4340,7 +4222,7 @@
         "xcsh-docs:data-sources:secret_management_access:properties:access_info:vault_auth_info:token:clear_secret_info"
       ],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -4409,7 +4291,7 @@
       "category": "identity",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -4431,7 +4313,7 @@
       "schema_path": ["access_info", "vault_auth_info", "token", "blindfold_secret_info"],
       "sections": [
         {
-          "aliases": ["backend servers", "decryption provider", "origin servers", "upstream servers"],
+          "aliases": ["decryption provider"],
           "anchor": "schema-access_info--vault_auth_info--token--blindfold_secret_info--decryption_provider",
           "description": "Name of the Secret Management Access object that contains information about the backend Secret Management service.",
           "document_id": "xcsh-docs:data-sources:secret_management_access:properties:access_info:vault_auth_info:token:blindfold_secret_info",
@@ -4492,7 +4374,7 @@
       "category": "identity",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -4565,7 +4447,7 @@
         "xcsh-docs:data-sources:secret_management_access:properties:where:virtual_site"
       ],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -4652,7 +4534,7 @@
         "xcsh-docs:data-sources:secret_management_access:properties:where:site:ref"
       ],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -4749,7 +4631,7 @@
       "category": "identity",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -4789,7 +4671,7 @@
       "category": "identity",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -4829,7 +4711,7 @@
       "category": "identity",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -4940,7 +4822,7 @@
       "category": "identity",
       "child_ids": ["xcsh-docs:data-sources:secret_management_access:properties:where:virtual_network:ref"],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -4995,7 +4877,7 @@
       "category": "identity",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -5110,7 +4992,7 @@
         "xcsh-docs:data-sources:secret_management_access:properties:where:virtual_site:ref"
       ],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -5207,7 +5089,7 @@
       "category": "identity",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -5247,7 +5129,7 @@
       "category": "identity",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -5287,7 +5169,7 @@
       "category": "identity",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -5398,7 +5280,7 @@
       "category": "identity",
       "child_ids": ["xcsh-docs:data-sources:secret_management_access:example:data-source"],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -5438,7 +5320,7 @@
       "category": "identity",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"

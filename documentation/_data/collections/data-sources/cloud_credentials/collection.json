@@ -310,7 +310,7 @@
         "xcsh-docs:data-sources:cloud_credentials:examples"
       ],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -357,7 +357,7 @@
         "xcsh-docs:data-sources:cloud_credentials:properties:gcp_cred_file"
       ],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -407,7 +407,7 @@
           "type": "object"
         },
         {
-          "aliases": ["authentication", "aws secret key", "credential setup", "credentials"],
+          "aliases": ["aws secret key"],
           "anchor": "section",
           "description": "AWS Programmatic Access Credentials type.",
           "document_id": "xcsh-docs:data-sources:cloud_credentials:properties:aws_secret_key",
@@ -421,7 +421,7 @@
           "type": "object"
         },
         {
-          "aliases": ["authentication", "azure client secret", "credential setup", "credentials"],
+          "aliases": ["azure client secret"],
           "anchor": "section",
           "description": "Azure Credentials Client Secret type.",
           "document_id": "xcsh-docs:data-sources:cloud_credentials:properties:azure_client_secret",
@@ -435,16 +435,7 @@
           "type": "object"
         },
         {
-          "aliases": [
-            "authentication",
-            "azure pfx certificate",
-            "cert",
-            "certificate",
-            "credential setup",
-            "credentials",
-            "existing certificates",
-            "tls certificates"
-          ],
+          "aliases": ["azure pfx certificate"],
           "anchor": "section",
           "description": "Azure Credentials Client Certificate type.",
           "document_id": "xcsh-docs:data-sources:cloud_credentials:properties:azure_pfx_certificate",
@@ -472,7 +463,7 @@
           "type": "string"
         },
         {
-          "aliases": ["authentication", "credential setup", "credentials", "gcp cred file"],
+          "aliases": ["gcp cred file"],
           "anchor": "section",
           "description": "GCP Credentials type.",
           "document_id": "xcsh-docs:data-sources:cloud_credentials:properties:gcp_cred_file",
@@ -564,7 +555,7 @@
         "xcsh-docs:data-sources:cloud_credentials:properties:aws_assume_role:external_id_is_tenant_id"
       ],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -703,7 +694,7 @@
       "category": "infrastructure",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -743,7 +734,7 @@
       "category": "infrastructure",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -776,14 +767,14 @@
       }
     },
     {
-      "aliases": ["authentication", "aws secret key", "credential setup", "credentials"],
+      "aliases": ["aws secret key"],
       "body_bytes": 2205,
       "body_sha256": "sha256:97015bed8e856f2b735eac14d0859a66d461bbe1e1ec9b7bfebbc46c03459497",
       "capabilities": ["infrastructure"],
       "category": "infrastructure",
       "child_ids": ["xcsh-docs:data-sources:cloud_credentials:properties:aws_secret_key:secret_key"],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -855,7 +846,7 @@
         "xcsh-docs:data-sources:cloud_credentials:properties:aws_secret_key:secret_key:clear_secret_info"
       ],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -924,7 +915,7 @@
       "category": "infrastructure",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -946,7 +937,7 @@
       "schema_path": ["aws_secret_key", "secret_key", "blindfold_secret_info"],
       "sections": [
         {
-          "aliases": ["backend servers", "decryption provider", "origin servers", "upstream servers"],
+          "aliases": ["decryption provider"],
           "anchor": "schema-aws_secret_key--secret_key--blindfold_secret_info--decryption_provider",
           "description": "Name of the Secret Management Access object that contains information about the backend Secret Management service.",
           "document_id": "xcsh-docs:data-sources:cloud_credentials:properties:aws_secret_key:secret_key:blindfold_secret_info",
@@ -1007,7 +998,7 @@
       "category": "infrastructure",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -1069,14 +1060,14 @@
       }
     },
     {
-      "aliases": ["authentication", "azure client secret", "credential setup", "credentials"],
+      "aliases": ["azure client secret"],
       "body_bytes": 4019,
       "body_sha256": "sha256:489d206e67059448244cff396892e98d6ba84539314e7c5517b262be5d23cfe6",
       "capabilities": ["infrastructure"],
       "category": "infrastructure",
       "child_ids": ["xcsh-docs:data-sources:cloud_credentials:properties:azure_client_secret:client_secret"],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -1176,7 +1167,7 @@
         "xcsh-docs:data-sources:cloud_credentials:properties:azure_client_secret:client_secret:clear_secret_info"
       ],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -1245,7 +1236,7 @@
       "category": "infrastructure",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -1267,7 +1258,7 @@
       "schema_path": ["azure_client_secret", "client_secret", "blindfold_secret_info"],
       "sections": [
         {
-          "aliases": ["backend servers", "decryption provider", "origin servers", "upstream servers"],
+          "aliases": ["decryption provider"],
           "anchor": "schema-azure_client_secret--client_secret--blindfold_secret_info--decryption_provider",
           "description": "Name of the Secret Management Access object that contains information about the backend Secret Management service.",
           "document_id": "xcsh-docs:data-sources:cloud_credentials:properties:azure_client_secret:client_secret:blindfold_secret_info",
@@ -1328,7 +1319,7 @@
       "category": "infrastructure",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -1390,23 +1381,14 @@
       }
     },
     {
-      "aliases": [
-        "authentication",
-        "azure pfx certificate",
-        "cert",
-        "certificate",
-        "credential setup",
-        "credentials",
-        "existing certificates",
-        "tls certificates"
-      ],
+      "aliases": ["azure pfx certificate"],
       "body_bytes": 5492,
       "body_sha256": "sha256:df3fca7ed8c538a334d4cdaf79768c27dc5b6821c6e994bfc099e3b82092f92f",
       "capabilities": ["infrastructure"],
       "category": "infrastructure",
       "child_ids": ["xcsh-docs:data-sources:cloud_credentials:properties:azure_pfx_certificate:password"],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -1510,7 +1492,7 @@
       }
     },
     {
-      "aliases": ["azure pfx certificate password", "cert", "certificate", "existing certificates", "tls certificates"],
+      "aliases": ["azure pfx certificate password"],
       "body_bytes": 2094,
       "body_sha256": "sha256:c6b6ab4c33823e1e46d65c59dbe946ebd616ff5225fd6800d0e8e5a8efee3558",
       "capabilities": ["infrastructure"],
@@ -1520,7 +1502,7 @@
         "xcsh-docs:data-sources:cloud_credentials:properties:azure_pfx_certificate:password:clear_secret_info"
       ],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -1582,20 +1564,14 @@
       }
     },
     {
-      "aliases": [
-        "azure pfx certificate password blindfold secret info",
-        "cert",
-        "certificate",
-        "existing certificates",
-        "tls certificates"
-      ],
+      "aliases": ["azure pfx certificate password blindfold secret info"],
       "body_bytes": 4555,
       "body_sha256": "sha256:c615831efdf6b76ab04e98f08bb7e3597cc611c47abb4d7782607153a0578c87",
       "capabilities": ["infrastructure"],
       "category": "infrastructure",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -1617,7 +1593,7 @@
       "schema_path": ["azure_pfx_certificate", "password", "blindfold_secret_info"],
       "sections": [
         {
-          "aliases": ["backend servers", "decryption provider", "origin servers", "upstream servers"],
+          "aliases": ["decryption provider"],
           "anchor": "schema-azure_pfx_certificate--password--blindfold_secret_info--decryption_provider",
           "description": "Name of the Secret Management Access object that contains information about the backend Secret Management service.",
           "document_id": "xcsh-docs:data-sources:cloud_credentials:properties:azure_pfx_certificate:password:blindfold_secret_info",
@@ -1671,20 +1647,14 @@
       }
     },
     {
-      "aliases": [
-        "azure pfx certificate password clear secret info",
-        "cert",
-        "certificate",
-        "existing certificates",
-        "tls certificates"
-      ],
+      "aliases": ["azure pfx certificate password clear secret info"],
       "body_bytes": 3444,
       "body_sha256": "sha256:d6e7d528a894fb4ca7fbc5440253603e153bca936f05d4d4d9085471df0fe6f5",
       "capabilities": ["infrastructure"],
       "category": "infrastructure",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -1746,14 +1716,14 @@
       }
     },
     {
-      "aliases": ["authentication", "credential setup", "credentials", "gcp cred file"],
+      "aliases": ["gcp cred file"],
       "body_bytes": 1325,
       "body_sha256": "sha256:d41e0e6935cf9c30e30e9fe80f688ded01e2fc2346ceaf5c578cd9a08962f3ca",
       "capabilities": ["infrastructure"],
       "category": "infrastructure",
       "child_ids": ["xcsh-docs:data-sources:cloud_credentials:properties:gcp_cred_file:credential_file"],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -1811,7 +1781,7 @@
         "xcsh-docs:data-sources:cloud_credentials:properties:gcp_cred_file:credential_file:clear_secret_info"
       ],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -1873,19 +1843,14 @@
       }
     },
     {
-      "aliases": [
-        "authentication",
-        "credential setup",
-        "credentials",
-        "gcp cred file credential file blindfold secret info"
-      ],
+      "aliases": ["gcp cred file credential file blindfold secret info"],
       "body_bytes": 4530,
       "body_sha256": "sha256:5514ed042cd013bb1801d15a3d7e3a1968af44d33097ddc733639d26d17087e1",
       "capabilities": ["infrastructure"],
       "category": "infrastructure",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -1907,7 +1872,7 @@
       "schema_path": ["gcp_cred_file", "credential_file", "blindfold_secret_info"],
       "sections": [
         {
-          "aliases": ["backend servers", "decryption provider", "origin servers", "upstream servers"],
+          "aliases": ["decryption provider"],
           "anchor": "schema-gcp_cred_file--credential_file--blindfold_secret_info--decryption_provider",
           "description": "Name of the Secret Management Access object that contains information about the backend Secret Management service.",
           "document_id": "xcsh-docs:data-sources:cloud_credentials:properties:gcp_cred_file:credential_file:blindfold_secret_info",
@@ -1961,19 +1926,14 @@
       }
     },
     {
-      "aliases": [
-        "authentication",
-        "credential setup",
-        "credentials",
-        "gcp cred file credential file clear secret info"
-      ],
+      "aliases": ["gcp cred file credential file clear secret info"],
       "body_bytes": 3420,
       "body_sha256": "sha256:3e19ed3987bfaa90a1277c03ddd826a1653d2bb234db04435d3f5aa2c335fff4",
       "capabilities": ["infrastructure"],
       "category": "infrastructure",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -2042,7 +2002,7 @@
       "category": "infrastructure",
       "child_ids": ["xcsh-docs:data-sources:cloud_credentials:example:data-source"],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -2082,7 +2042,7 @@
       "category": "infrastructure",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"

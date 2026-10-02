@@ -335,7 +335,7 @@
       "category": "api-management",
       "child_ids": ["xcsh-docs:data-sources:api_testing:reference", "xcsh-docs:data-sources:api_testing:examples"],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -381,7 +381,7 @@
         "xcsh-docs:data-sources:api_testing:properties:every_week"
       ],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -445,7 +445,7 @@
           "type": "string"
         },
         {
-          "aliases": ["authentication", "credential setup", "credentials", "domains"],
+          "aliases": ["domains"],
           "anchor": "section",
           "description": "Add and configure testing domains and credentials.",
           "document_id": "xcsh-docs:data-sources:api_testing:properties:domains",
@@ -569,14 +569,14 @@
       }
     },
     {
-      "aliases": ["authentication", "credential setup", "credentials", "domains"],
+      "aliases": ["domains"],
       "body_bytes": 3348,
       "body_sha256": "sha256:50f4b8f21125cba6cdb4a0283f29d97b8178925fc2d81a4b3644a25132448420",
       "capabilities": ["api-management"],
       "category": "api-management",
       "child_ids": ["xcsh-docs:data-sources:api_testing:properties:domains:credentials"],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -666,7 +666,7 @@
         "xcsh-docs:data-sources:api_testing:properties:domains:credentials:standard"
       ],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -716,7 +716,7 @@
           "type": "object"
         },
         {
-          "aliases": ["authentication", "basic auth", "credential setup", "credentials"],
+          "aliases": ["basic auth"],
           "anchor": "section",
           "description": "Basic Authentication.",
           "document_id": "xcsh-docs:data-sources:api_testing:properties:domains:credentials:basic_auth",
@@ -798,14 +798,14 @@
       }
     },
     {
-      "aliases": ["authentication", "credential setup", "credentials", "domains credentials admin"],
+      "aliases": ["domains credentials admin"],
       "body_bytes": 1329,
       "body_sha256": "sha256:442a2f6cd1221946814a53432a26bb377941df10165b9412f58e6557edfce7c2",
       "capabilities": ["api-management"],
       "category": "api-management",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -838,14 +838,14 @@
       }
     },
     {
-      "aliases": ["authentication", "credential setup", "credentials", "domains credentials api key"],
+      "aliases": ["domains credentials api key"],
       "body_bytes": 2414,
       "body_sha256": "sha256:0a7af11c246488901e327e4592bdc0ba59a519c0ee7fd3b423ccf72a207595e6",
       "capabilities": ["api-management"],
       "category": "api-management",
       "child_ids": ["xcsh-docs:data-sources:api_testing:properties:domains:credentials:api_key:value"],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -907,7 +907,7 @@
       }
     },
     {
-      "aliases": ["authentication", "credential setup", "credentials", "domains credentials api key value"],
+      "aliases": ["domains credentials api key value"],
       "body_bytes": 2328,
       "body_sha256": "sha256:03aef5798bc79b41c6eb323c4f43bbf23f747962d34952574435924510d9e3d5",
       "capabilities": ["api-management"],
@@ -917,7 +917,7 @@
         "xcsh-docs:data-sources:api_testing:properties:domains:credentials:api_key:value:clear_secret_info"
       ],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -979,19 +979,14 @@
       }
     },
     {
-      "aliases": [
-        "authentication",
-        "credential setup",
-        "credentials",
-        "domains credentials api key value blindfold secret info"
-      ],
+      "aliases": ["domains credentials api key value blindfold secret info"],
       "body_bytes": 4804,
       "body_sha256": "sha256:9fa2fca7278665a1f9ac18b4684ead3cb2ff547b147ff792d58dc884e93bad4d",
       "capabilities": ["api-management"],
       "category": "api-management",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -1013,7 +1008,7 @@
       "schema_path": ["domains", "credentials", "api_key", "value", "blindfold_secret_info"],
       "sections": [
         {
-          "aliases": ["backend servers", "decryption provider", "origin servers", "upstream servers"],
+          "aliases": ["decryption provider"],
           "anchor": "schema-domains--credentials--api_key--value--blindfold_secret_info--decryption_provider",
           "description": "Name of the Secret Management Access object that contains information about the backend Secret Management service.",
           "document_id": "xcsh-docs:data-sources:api_testing:properties:domains:credentials:api_key:value:blindfold_secret_info",
@@ -1067,19 +1062,14 @@
       }
     },
     {
-      "aliases": [
-        "authentication",
-        "credential setup",
-        "credentials",
-        "domains credentials api key value clear secret info"
-      ],
+      "aliases": ["domains credentials api key value clear secret info"],
       "body_bytes": 3688,
       "body_sha256": "sha256:f233a43863ca952f1bf5b5a130e1680fc1870c7759e2fce8e498b940d5950261",
       "capabilities": ["api-management"],
       "category": "api-management",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -1141,14 +1131,14 @@
       }
     },
     {
-      "aliases": ["authentication", "credential setup", "credentials", "domains credentials basic auth"],
+      "aliases": ["domains credentials basic auth"],
       "body_bytes": 2657,
       "body_sha256": "sha256:2ae47c21c8ddf51e208eba1e4683c3de30612243abb2e5fb055d7991f6dd9ded",
       "capabilities": ["api-management"],
       "category": "api-management",
       "child_ids": ["xcsh-docs:data-sources:api_testing:properties:domains:credentials:basic_auth:password"],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -1210,7 +1200,7 @@
       }
     },
     {
-      "aliases": ["authentication", "credential setup", "credentials", "domains credentials basic auth password"],
+      "aliases": ["domains credentials basic auth password"],
       "body_bytes": 2388,
       "body_sha256": "sha256:dbcfde64f061ac5c959bf1ad7b96c0cc4d6a135bab2a0755cc014d5e95d036ac",
       "capabilities": ["api-management"],
@@ -1220,7 +1210,7 @@
         "xcsh-docs:data-sources:api_testing:properties:domains:credentials:basic_auth:password:clear_secret_info"
       ],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -1282,19 +1272,14 @@
       }
     },
     {
-      "aliases": [
-        "authentication",
-        "credential setup",
-        "credentials",
-        "domains credentials basic auth password blindfold secret info"
-      ],
+      "aliases": ["domains credentials basic auth password blindfold secret info"],
       "body_bytes": 4864,
       "body_sha256": "sha256:f0025ff4f2a0fb8a6caea5bb06ab756f2a78ec4d2512e0f1319a4e070efa7ad5",
       "capabilities": ["api-management"],
       "category": "api-management",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -1316,7 +1301,7 @@
       "schema_path": ["domains", "credentials", "basic_auth", "password", "blindfold_secret_info"],
       "sections": [
         {
-          "aliases": ["backend servers", "decryption provider", "origin servers", "upstream servers"],
+          "aliases": ["decryption provider"],
           "anchor": "schema-domains--credentials--basic_auth--password--blindfold_secret_info--decryption_provider",
           "description": "Name of the Secret Management Access object that contains information about the backend Secret Management service.",
           "document_id": "xcsh-docs:data-sources:api_testing:properties:domains:credentials:basic_auth:password:blindfold_secret_info",
@@ -1384,19 +1369,14 @@
       }
     },
     {
-      "aliases": [
-        "authentication",
-        "credential setup",
-        "credentials",
-        "domains credentials basic auth password clear secret info"
-      ],
+      "aliases": ["domains credentials basic auth password clear secret info"],
       "body_bytes": 3742,
       "body_sha256": "sha256:4da85e4196f42016f51c71636de358dc976ee7287a28e9aff5c097dcdde1064a",
       "capabilities": ["api-management"],
       "category": "api-management",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -1458,14 +1438,14 @@
       }
     },
     {
-      "aliases": ["authentication", "credential setup", "credentials", "domains credentials bearer token"],
+      "aliases": ["domains credentials bearer token"],
       "body_bytes": 1558,
       "body_sha256": "sha256:ed3f25c8eaf36dba0352077d59e90503da5947fa25afe5cb29a624f43d6de107",
       "capabilities": ["api-management"],
       "category": "api-management",
       "child_ids": ["xcsh-docs:data-sources:api_testing:properties:domains:credentials:bearer_token:token"],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -1513,7 +1493,7 @@
       }
     },
     {
-      "aliases": ["authentication", "credential setup", "credentials", "domains credentials bearer token token"],
+      "aliases": ["domains credentials bearer token token"],
       "body_bytes": 2388,
       "body_sha256": "sha256:42ef8890b7c2d06f0f4c36f8e62bfb0f7b5f212e8ca9054f27bc2e4a2716bab0",
       "capabilities": ["api-management"],
@@ -1523,7 +1503,7 @@
         "xcsh-docs:data-sources:api_testing:properties:domains:credentials:bearer_token:token:clear_secret_info"
       ],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -1585,19 +1565,14 @@
       }
     },
     {
-      "aliases": [
-        "authentication",
-        "credential setup",
-        "credentials",
-        "domains credentials bearer token token blindfold secret info"
-      ],
+      "aliases": ["domains credentials bearer token token blindfold secret info"],
       "body_bytes": 4859,
       "body_sha256": "sha256:d497c4622b35122d881008708a17b5ba4942b21f2dcfcf8d600fb7b511204af9",
       "capabilities": ["api-management"],
       "category": "api-management",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -1619,7 +1594,7 @@
       "schema_path": ["domains", "credentials", "bearer_token", "token", "blindfold_secret_info"],
       "sections": [
         {
-          "aliases": ["backend servers", "decryption provider", "origin servers", "upstream servers"],
+          "aliases": ["decryption provider"],
           "anchor": "schema-domains--credentials--bearer_token--token--blindfold_secret_info--decryption_provider",
           "description": "Name of the Secret Management Access object that contains information about the backend Secret Management service.",
           "document_id": "xcsh-docs:data-sources:api_testing:properties:domains:credentials:bearer_token:token:blindfold_secret_info",
@@ -1680,19 +1655,14 @@
       }
     },
     {
-      "aliases": [
-        "authentication",
-        "credential setup",
-        "credentials",
-        "domains credentials bearer token token clear secret info"
-      ],
+      "aliases": ["domains credentials bearer token token clear secret info"],
       "body_bytes": 3738,
       "body_sha256": "sha256:861ef1af29cfd29fd9a56156377d5c55c77d031a8d510e702101dddf58696532",
       "capabilities": ["api-management"],
       "category": "api-management",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -1754,22 +1724,14 @@
       }
     },
     {
-      "aliases": [
-        "authentication",
-        "credential setup",
-        "credentials",
-        "domains credentials login endpoint",
-        "login",
-        "login result",
-        "sign in"
-      ],
+      "aliases": ["domains credentials login endpoint", "login", "login result", "sign in"],
       "body_bytes": 4361,
       "body_sha256": "sha256:fefff8b6a71ebd6b61efc4a81c7b3ebd08cb6a6dd426b9dab338bcd99ddfaba0",
       "capabilities": ["api-management"],
       "category": "api-management",
       "child_ids": ["xcsh-docs:data-sources:api_testing:properties:domains:credentials:login_endpoint:json_payload"],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -1859,15 +1821,7 @@
       }
     },
     {
-      "aliases": [
-        "authentication",
-        "credential setup",
-        "credentials",
-        "domains credentials login endpoint json payload",
-        "login",
-        "login result",
-        "sign in"
-      ],
+      "aliases": ["domains credentials login endpoint json payload", "login", "login result", "sign in"],
       "body_bytes": 2468,
       "body_sha256": "sha256:40daa13281b88cfc18e73606c2e65374100c483216356273b89bc8ac8d8f5a78",
       "capabilities": ["api-management"],
@@ -1877,7 +1831,7 @@
         "xcsh-docs:data-sources:api_testing:properties:domains:credentials:login_endpoint:json_payload:clear_secret_info"
       ],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -1940,9 +1894,6 @@
     },
     {
       "aliases": [
-        "authentication",
-        "credential setup",
-        "credentials",
         "domains credentials login endpoint json payload blindfold secret info",
         "login",
         "login result",
@@ -1954,7 +1905,7 @@
       "category": "api-management",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -1976,7 +1927,7 @@
       "schema_path": ["domains", "credentials", "login_endpoint", "json_payload", "blindfold_secret_info"],
       "sections": [
         {
-          "aliases": ["backend servers", "decryption provider", "origin servers", "upstream servers"],
+          "aliases": ["decryption provider"],
           "anchor": "schema-domains--credentials--login_endpoint--json_payload--blindfold_secret_info--decryption_provider",
           "description": "Name of the Secret Management Access object that contains information about the backend Secret Management service.",
           "document_id": "xcsh-docs:data-sources:api_testing:properties:domains:credentials:login_endpoint:json_payload:blindfold_secret_info",
@@ -2052,9 +2003,6 @@
     },
     {
       "aliases": [
-        "authentication",
-        "credential setup",
-        "credentials",
         "domains credentials login endpoint json payload clear secret info",
         "login",
         "login result",
@@ -2066,7 +2014,7 @@
       "category": "api-management",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -2135,14 +2083,14 @@
       }
     },
     {
-      "aliases": ["authentication", "credential setup", "credentials", "domains credentials standard"],
+      "aliases": ["domains credentials standard"],
       "body_bytes": 1335,
       "body_sha256": "sha256:6aaad49bcd720e5d852211d73b8aac27369e562a1eeeba113f6def2ba002fae8",
       "capabilities": ["api-management"],
       "category": "api-management",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -2182,7 +2130,7 @@
       "category": "api-management",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -2222,7 +2170,7 @@
       "category": "api-management",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -2262,7 +2210,7 @@
       "category": "api-management",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -2302,7 +2250,7 @@
       "category": "api-management",
       "child_ids": ["xcsh-docs:data-sources:api_testing:example:data-source"],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -2342,7 +2290,7 @@
       "category": "api-management",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
