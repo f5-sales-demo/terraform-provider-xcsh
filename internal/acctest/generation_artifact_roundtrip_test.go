@@ -50,7 +50,7 @@ func TestGenerationArtifactRoundTrip(t *testing.T) {
 			runReleaseTestCommand(t, repo, nil, "git", "commit", "-qm", "fixture")
 			source := strings.TrimSpace(runReleaseTestCommand(t, repo, nil, "git", "rev-parse", "HEAD"))
 			writeReleaseTestFile(t, bin, "go", "#!/bin/sh\nif [ \"$1\" = env ]; then echo go1.25.13; else printf '\\tmod\\tgithub.com/hashicorp/terraform-plugin-docs\\tv0.25.0\\th1:fixture\\n'; fi\n", 0o700)
-			writeReleaseTestFile(t, bin, "terraform", "#!/bin/sh\necho 'Terraform v1.16.3'\n", 0o700)
+			writeReleaseTestFile(t, bin, "terraform", "#!/bin/sh\necho '{\"terraform_version\":\"1.16.3\"}'\n", 0o700)
 			writeReleaseTestFile(t, bin, "tfplugindocs", "#!/bin/sh\nexit 0\n", 0o700)
 			env := []string{"PATH=" + bin + string(os.PathListSeparator) + os.Getenv("PATH"), "RUNNER_TEMP=" + work, "GITHUB_RUN_ID=1", "GITHUB_RUN_ATTEMPT=1", "GO_PACKAGE_PARALLELISM=4"}
 			providerDigest := ""
