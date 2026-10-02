@@ -1014,6 +1014,13 @@
         "import existing resource",
         "adopt existing object"
       ]
+    },
+    {
+      "pattern": "bot defense advanced protection",
+      "aliases": [
+        "advanced bot defense",
+        "bot defense advanced protection"
+      ]
     }
   ]
 }

@@ -57,7 +57,7 @@
       "category": null,
       "child_ids": ["xcsh-docs:data-sources:addon_service:reference", "xcsh-docs:data-sources:addon_service:examples"],
       "classification": {
-        "rules_sha256": "sha256:98dbf5280bf8376a0c75c1391250db9db4ac0d293d42bdd831c20f7514925adb",
+        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -80,7 +80,7 @@
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/addon_service/index.txt",
       "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
-      "summary": "Retrieves information about an F5 Distributed Cloud Addon Service. Addon services are system-managed resources that provide additional functionality such as Bot Defense, Client Side Defense, and other security features. This data source allows you to query addon service details including tier requirements and activatio",
+      "summary": "Retrieves information about an F5 Distributed Cloud Addon Service. Addon services are system-managed resources that provide additional functionality such as Bot Defense, Client Side Defense, and other security features. This data source allows you to query addon service details including tier requirements and",
       "tasks": ["configuration"],
       "title": "xcsh_addon_service",
       "unresolved_relationships": [],
@@ -98,7 +98,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:98dbf5280bf8376a0c75c1391250db9db4ac0d293d42bdd831c20f7514925adb",
+        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -251,7 +251,7 @@
       "category": null,
       "child_ids": ["xcsh-docs:data-sources:addon_service:example:data-source"],
       "classification": {
-        "rules_sha256": "sha256:98dbf5280bf8376a0c75c1391250db9db4ac0d293d42bdd831c20f7514925adb",
+        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -291,7 +291,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:98dbf5280bf8376a0c75c1391250db9db4ac0d293d42bdd831c20f7514925adb",
+        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"

@@ -432,7 +432,7 @@
         "xcsh-docs:resources:policy_based_routing:timeouts"
       ],
       "classification": {
-        "rules_sha256": "sha256:98dbf5280bf8376a0c75c1391250db9db4ac0d293d42bdd831c20f7514925adb",
+        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -478,7 +478,7 @@
         "xcsh-docs:resources:policy_based_routing:properties:timeouts"
       ],
       "classification": {
-        "rules_sha256": "sha256:98dbf5280bf8376a0c75c1391250db9db4ac0d293d42bdd831c20f7514925adb",
+        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -564,7 +564,16 @@
           "max_items": null,
           "min_items": null,
           "nesting": "list",
-          "relationships": [],
+          "relationships": [
+            {
+              "anchor": "schema-forwarding_class_list--name",
+              "enforcement": "provider-schema",
+              "group": "forwarding_class_list:RequiredListObjectAttributes:name",
+              "source": "ast-validator:RequiredListObjectAttributes",
+              "target_id": "xcsh-docs:resources:policy_based_routing:properties:forwarding_class_list",
+              "type": "requires"
+            }
+          ],
           "schema_path": ["forwarding_class_list"],
           "syntax": "block",
           "type": "object"
@@ -722,7 +731,7 @@
       "category": "networking",
       "child_ids": ["xcsh-docs:resources:policy_based_routing:properties:forward_proxy_pbr:forward_proxy_pbr_rules"],
       "classification": {
-        "rules_sha256": "sha256:98dbf5280bf8376a0c75c1391250db9db4ac0d293d42bdd831c20f7514925adb",
+        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -752,7 +761,160 @@
           "max_items": null,
           "min_items": null,
           "nesting": "list",
-          "relationships": [],
+          "relationships": [
+            {
+              "anchor": "section",
+              "enforcement": "provider-schema",
+              "group": "forward_proxy_pbr.forward_proxy_pbr_rules:ConflictingListObjectAttributes:all_destinations,http_list",
+              "source": "ast-validator:ConflictingListObjectAttributes",
+              "target_id": "xcsh-docs:resources:policy_based_routing:properties:forward_proxy_pbr:forward_proxy_pbr_rules:all_destinations",
+              "type": "conflicts"
+            },
+            {
+              "anchor": "section",
+              "enforcement": "provider-schema",
+              "group": "forward_proxy_pbr.forward_proxy_pbr_rules:ConflictingListObjectAttributes:all_destinations,tls_list",
+              "source": "ast-validator:ConflictingListObjectAttributes",
+              "target_id": "xcsh-docs:resources:policy_based_routing:properties:forward_proxy_pbr:forward_proxy_pbr_rules:all_destinations",
+              "type": "conflicts"
+            },
+            {
+              "anchor": "section",
+              "enforcement": "provider-schema",
+              "group": "forward_proxy_pbr.forward_proxy_pbr_rules:ConflictingListObjectAttributes:all_sources,ip_prefix_set",
+              "source": "ast-validator:ConflictingListObjectAttributes",
+              "target_id": "xcsh-docs:resources:policy_based_routing:properties:forward_proxy_pbr:forward_proxy_pbr_rules:all_sources",
+              "type": "conflicts"
+            },
+            {
+              "anchor": "section",
+              "enforcement": "provider-schema",
+              "group": "forward_proxy_pbr.forward_proxy_pbr_rules:ConflictingListObjectAttributes:all_sources,label_selector",
+              "source": "ast-validator:ConflictingListObjectAttributes",
+              "target_id": "xcsh-docs:resources:policy_based_routing:properties:forward_proxy_pbr:forward_proxy_pbr_rules:all_sources",
+              "type": "conflicts"
+            },
+            {
+              "anchor": "section",
+              "enforcement": "provider-schema",
+              "group": "forward_proxy_pbr.forward_proxy_pbr_rules:ConflictingListObjectAttributes:all_sources,prefix_list",
+              "source": "ast-validator:ConflictingListObjectAttributes",
+              "target_id": "xcsh-docs:resources:policy_based_routing:properties:forward_proxy_pbr:forward_proxy_pbr_rules:all_sources",
+              "type": "conflicts"
+            },
+            {
+              "anchor": "section",
+              "enforcement": "provider-schema",
+              "group": "forward_proxy_pbr.forward_proxy_pbr_rules:ConflictingListObjectAttributes:all_destinations,http_list",
+              "source": "ast-validator:ConflictingListObjectAttributes",
+              "target_id": "xcsh-docs:resources:policy_based_routing:properties:forward_proxy_pbr:forward_proxy_pbr_rules:http_list",
+              "type": "conflicts"
+            },
+            {
+              "anchor": "section",
+              "enforcement": "provider-schema",
+              "group": "forward_proxy_pbr.forward_proxy_pbr_rules:ConflictingListObjectAttributes:http_list,tls_list",
+              "source": "ast-validator:ConflictingListObjectAttributes",
+              "target_id": "xcsh-docs:resources:policy_based_routing:properties:forward_proxy_pbr:forward_proxy_pbr_rules:http_list",
+              "type": "conflicts"
+            },
+            {
+              "anchor": "section",
+              "enforcement": "provider-schema",
+              "group": "forward_proxy_pbr.forward_proxy_pbr_rules:ConflictingListObjectAttributes:all_sources,ip_prefix_set",
+              "source": "ast-validator:ConflictingListObjectAttributes",
+              "target_id": "xcsh-docs:resources:policy_based_routing:properties:forward_proxy_pbr:forward_proxy_pbr_rules:ip_prefix_set",
+              "type": "conflicts"
+            },
+            {
+              "anchor": "section",
+              "enforcement": "provider-schema",
+              "group": "forward_proxy_pbr.forward_proxy_pbr_rules:ConflictingListObjectAttributes:ip_prefix_set,label_selector",
+              "source": "ast-validator:ConflictingListObjectAttributes",
+              "target_id": "xcsh-docs:resources:policy_based_routing:properties:forward_proxy_pbr:forward_proxy_pbr_rules:ip_prefix_set",
+              "type": "conflicts"
+            },
+            {
+              "anchor": "section",
+              "enforcement": "provider-schema",
+              "group": "forward_proxy_pbr.forward_proxy_pbr_rules:ConflictingListObjectAttributes:ip_prefix_set,prefix_list",
+              "source": "ast-validator:ConflictingListObjectAttributes",
+              "target_id": "xcsh-docs:resources:policy_based_routing:properties:forward_proxy_pbr:forward_proxy_pbr_rules:ip_prefix_set",
+              "type": "conflicts"
+            },
+            {
+              "anchor": "section",
+              "enforcement": "provider-schema",
+              "group": "forward_proxy_pbr.forward_proxy_pbr_rules:ConflictingListObjectAttributes:all_sources,label_selector",
+              "source": "ast-validator:ConflictingListObjectAttributes",
+              "target_id": "xcsh-docs:resources:policy_based_routing:properties:forward_proxy_pbr:forward_proxy_pbr_rules:label_selector",
+              "type": "conflicts"
+            },
+            {
+              "anchor": "section",
+              "enforcement": "provider-schema",
+              "group": "forward_proxy_pbr.forward_proxy_pbr_rules:ConflictingListObjectAttributes:ip_prefix_set,label_selector",
+              "source": "ast-validator:ConflictingListObjectAttributes",
+              "target_id": "xcsh-docs:resources:policy_based_routing:properties:forward_proxy_pbr:forward_proxy_pbr_rules:label_selector",
+              "type": "conflicts"
+            },
+            {
+              "anchor": "section",
+              "enforcement": "provider-schema",
+              "group": "forward_proxy_pbr.forward_proxy_pbr_rules:ConflictingListObjectAttributes:label_selector,prefix_list",
+              "source": "ast-validator:ConflictingListObjectAttributes",
+              "target_id": "xcsh-docs:resources:policy_based_routing:properties:forward_proxy_pbr:forward_proxy_pbr_rules:label_selector",
+              "type": "conflicts"
+            },
+            {
+              "anchor": "section",
+              "enforcement": "provider-schema",
+              "group": "forward_proxy_pbr.forward_proxy_pbr_rules:ConflictingListObjectAttributes:all_sources,prefix_list",
+              "source": "ast-validator:ConflictingListObjectAttributes",
+              "target_id": "xcsh-docs:resources:policy_based_routing:properties:forward_proxy_pbr:forward_proxy_pbr_rules:prefix_list",
+              "type": "conflicts"
+            },
+            {
+              "anchor": "section",
+              "enforcement": "provider-schema",
+              "group": "forward_proxy_pbr.forward_proxy_pbr_rules:ConflictingListObjectAttributes:ip_prefix_set,prefix_list",
+              "source": "ast-validator:ConflictingListObjectAttributes",
+              "target_id": "xcsh-docs:resources:policy_based_routing:properties:forward_proxy_pbr:forward_proxy_pbr_rules:prefix_list",
+              "type": "conflicts"
+            },
+            {
+              "anchor": "section",
+              "enforcement": "provider-schema",
+              "group": "forward_proxy_pbr.forward_proxy_pbr_rules:ConflictingListObjectAttributes:label_selector,prefix_list",
+              "source": "ast-validator:ConflictingListObjectAttributes",
+              "target_id": "xcsh-docs:resources:policy_based_routing:properties:forward_proxy_pbr:forward_proxy_pbr_rules:prefix_list",
+              "type": "conflicts"
+            },
+            {
+              "anchor": "section",
+              "enforcement": "provider-schema",
+              "group": "forward_proxy_pbr.forward_proxy_pbr_rules:ConflictingListObjectAttributes:all_destinations,tls_list",
+              "source": "ast-validator:ConflictingListObjectAttributes",
+              "target_id": "xcsh-docs:resources:policy_based_routing:properties:forward_proxy_pbr:forward_proxy_pbr_rules:tls_list",
+              "type": "conflicts"
+            },
+            {
+              "anchor": "section",
+              "enforcement": "provider-schema",
+              "group": "forward_proxy_pbr.forward_proxy_pbr_rules:ConflictingListObjectAttributes:http_list,tls_list",
+              "source": "ast-validator:ConflictingListObjectAttributes",
+              "target_id": "xcsh-docs:resources:policy_based_routing:properties:forward_proxy_pbr:forward_proxy_pbr_rules:tls_list",
+              "type": "conflicts"
+            },
+            {
+              "anchor": "section",
+              "enforcement": "provider-schema",
+              "group": "forward_proxy_pbr.forward_proxy_pbr_rules:RequiredListObjectAttributes:forwarding_class_list",
+              "source": "ast-validator:RequiredListObjectAttributes",
+              "target_id": "xcsh-docs:resources:policy_based_routing:properties:forward_proxy_pbr:forward_proxy_pbr_rules:forwarding_class_list",
+              "type": "requires"
+            }
+          ],
           "schema_path": ["forward_proxy_pbr", "forward_proxy_pbr_rules"],
           "syntax": "block",
           "type": "object"
@@ -787,7 +949,7 @@
         "xcsh-docs:resources:policy_based_routing:properties:forward_proxy_pbr:forward_proxy_pbr_rules:tls_list"
       ],
       "classification": {
-        "rules_sha256": "sha256:98dbf5280bf8376a0c75c1391250db9db4ac0d293d42bdd831c20f7514925adb",
+        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -803,7 +965,160 @@
       "provider_type": "resources",
       "registry_anchor": "canonical-1023022331001313-2101300112322121-1321113113010332-1211211323300300-1300220233000200-1322111330001221-2023000212123212-1222001323211312",
       "registry_path": "docs/guides/resources--policy_based_routing--reference--group-001.md",
-      "relationships": [],
+      "relationships": [
+        {
+          "anchor": "section",
+          "enforcement": "provider-schema",
+          "group": "forward_proxy_pbr.forward_proxy_pbr_rules:ConflictingListObjectAttributes:all_destinations,http_list",
+          "source": "ast-validator:ConflictingListObjectAttributes",
+          "target_id": "xcsh-docs:resources:policy_based_routing:properties:forward_proxy_pbr:forward_proxy_pbr_rules:all_destinations",
+          "type": "conflicts"
+        },
+        {
+          "anchor": "section",
+          "enforcement": "provider-schema",
+          "group": "forward_proxy_pbr.forward_proxy_pbr_rules:ConflictingListObjectAttributes:all_destinations,tls_list",
+          "source": "ast-validator:ConflictingListObjectAttributes",
+          "target_id": "xcsh-docs:resources:policy_based_routing:properties:forward_proxy_pbr:forward_proxy_pbr_rules:all_destinations",
+          "type": "conflicts"
+        },
+        {
+          "anchor": "section",
+          "enforcement": "provider-schema",
+          "group": "forward_proxy_pbr.forward_proxy_pbr_rules:ConflictingListObjectAttributes:all_sources,ip_prefix_set",
+          "source": "ast-validator:ConflictingListObjectAttributes",
+          "target_id": "xcsh-docs:resources:policy_based_routing:properties:forward_proxy_pbr:forward_proxy_pbr_rules:all_sources",
+          "type": "conflicts"
+        },
+        {
+          "anchor": "section",
+          "enforcement": "provider-schema",
+          "group": "forward_proxy_pbr.forward_proxy_pbr_rules:ConflictingListObjectAttributes:all_sources,label_selector",
+          "source": "ast-validator:ConflictingListObjectAttributes",
+          "target_id": "xcsh-docs:resources:policy_based_routing:properties:forward_proxy_pbr:forward_proxy_pbr_rules:all_sources",
+          "type": "conflicts"
+        },
+        {
+          "anchor": "section",
+          "enforcement": "provider-schema",
+          "group": "forward_proxy_pbr.forward_proxy_pbr_rules:ConflictingListObjectAttributes:all_sources,prefix_list",
+          "source": "ast-validator:ConflictingListObjectAttributes",
+          "target_id": "xcsh-docs:resources:policy_based_routing:properties:forward_proxy_pbr:forward_proxy_pbr_rules:all_sources",
+          "type": "conflicts"
+        },
+        {
+          "anchor": "section",
+          "enforcement": "provider-schema",
+          "group": "forward_proxy_pbr.forward_proxy_pbr_rules:ConflictingListObjectAttributes:all_destinations,http_list",
+          "source": "ast-validator:ConflictingListObjectAttributes",
+          "target_id": "xcsh-docs:resources:policy_based_routing:properties:forward_proxy_pbr:forward_proxy_pbr_rules:http_list",
+          "type": "conflicts"
+        },
+        {
+          "anchor": "section",
+          "enforcement": "provider-schema",
+          "group": "forward_proxy_pbr.forward_proxy_pbr_rules:ConflictingListObjectAttributes:http_list,tls_list",
+          "source": "ast-validator:ConflictingListObjectAttributes",
+          "target_id": "xcsh-docs:resources:policy_based_routing:properties:forward_proxy_pbr:forward_proxy_pbr_rules:http_list",
+          "type": "conflicts"
+        },
+        {
+          "anchor": "section",
+          "enforcement": "provider-schema",
+          "group": "forward_proxy_pbr.forward_proxy_pbr_rules:ConflictingListObjectAttributes:all_sources,ip_prefix_set",
+          "source": "ast-validator:ConflictingListObjectAttributes",
+          "target_id": "xcsh-docs:resources:policy_based_routing:properties:forward_proxy_pbr:forward_proxy_pbr_rules:ip_prefix_set",
+          "type": "conflicts"
+        },
+        {
+          "anchor": "section",
+          "enforcement": "provider-schema",
+          "group": "forward_proxy_pbr.forward_proxy_pbr_rules:ConflictingListObjectAttributes:ip_prefix_set,label_selector",
+          "source": "ast-validator:ConflictingListObjectAttributes",
+          "target_id": "xcsh-docs:resources:policy_based_routing:properties:forward_proxy_pbr:forward_proxy_pbr_rules:ip_prefix_set",
+          "type": "conflicts"
+        },
+        {
+          "anchor": "section",
+          "enforcement": "provider-schema",
+          "group": "forward_proxy_pbr.forward_proxy_pbr_rules:ConflictingListObjectAttributes:ip_prefix_set,prefix_list",
+          "source": "ast-validator:ConflictingListObjectAttributes",
+          "target_id": "xcsh-docs:resources:policy_based_routing:properties:forward_proxy_pbr:forward_proxy_pbr_rules:ip_prefix_set",
+          "type": "conflicts"
+        },
+        {
+          "anchor": "section",
+          "enforcement": "provider-schema",
+          "group": "forward_proxy_pbr.forward_proxy_pbr_rules:ConflictingListObjectAttributes:all_sources,label_selector",
+          "source": "ast-validator:ConflictingListObjectAttributes",
+          "target_id": "xcsh-docs:resources:policy_based_routing:properties:forward_proxy_pbr:forward_proxy_pbr_rules:label_selector",
+          "type": "conflicts"
+        },
+        {
+          "anchor": "section",
+          "enforcement": "provider-schema",
+          "group": "forward_proxy_pbr.forward_proxy_pbr_rules:ConflictingListObjectAttributes:ip_prefix_set,label_selector",
+          "source": "ast-validator:ConflictingListObjectAttributes",
+          "target_id": "xcsh-docs:resources:policy_based_routing:properties:forward_proxy_pbr:forward_proxy_pbr_rules:label_selector",
+          "type": "conflicts"
+        },
+        {
+          "anchor": "section",
+          "enforcement": "provider-schema",
+          "group": "forward_proxy_pbr.forward_proxy_pbr_rules:ConflictingListObjectAttributes:label_selector,prefix_list",
+          "source": "ast-validator:ConflictingListObjectAttributes",
+          "target_id": "xcsh-docs:resources:policy_based_routing:properties:forward_proxy_pbr:forward_proxy_pbr_rules:label_selector",
+          "type": "conflicts"
+        },
+        {
+          "anchor": "section",
+          "enforcement": "provider-schema",
+          "group": "forward_proxy_pbr.forward_proxy_pbr_rules:ConflictingListObjectAttributes:all_sources,prefix_list",
+          "source": "ast-validator:ConflictingListObjectAttributes",
+          "target_id": "xcsh-docs:resources:policy_based_routing:properties:forward_proxy_pbr:forward_proxy_pbr_rules:prefix_list",
+          "type": "conflicts"
+        },
+        {
+          "anchor": "section",
+          "enforcement": "provider-schema",
+          "group": "forward_proxy_pbr.forward_proxy_pbr_rules:ConflictingListObjectAttributes:ip_prefix_set,prefix_list",
+          "source": "ast-validator:ConflictingListObjectAttributes",
+          "target_id": "xcsh-docs:resources:policy_based_routing:properties:forward_proxy_pbr:forward_proxy_pbr_rules:prefix_list",
+          "type": "conflicts"
+        },
+        {
+          "anchor": "section",
+          "enforcement": "provider-schema",
+          "group": "forward_proxy_pbr.forward_proxy_pbr_rules:ConflictingListObjectAttributes:label_selector,prefix_list",
+          "source": "ast-validator:ConflictingListObjectAttributes",
+          "target_id": "xcsh-docs:resources:policy_based_routing:properties:forward_proxy_pbr:forward_proxy_pbr_rules:prefix_list",
+          "type": "conflicts"
+        },
+        {
+          "anchor": "section",
+          "enforcement": "provider-schema",
+          "group": "forward_proxy_pbr.forward_proxy_pbr_rules:ConflictingListObjectAttributes:all_destinations,tls_list",
+          "source": "ast-validator:ConflictingListObjectAttributes",
+          "target_id": "xcsh-docs:resources:policy_based_routing:properties:forward_proxy_pbr:forward_proxy_pbr_rules:tls_list",
+          "type": "conflicts"
+        },
+        {
+          "anchor": "section",
+          "enforcement": "provider-schema",
+          "group": "forward_proxy_pbr.forward_proxy_pbr_rules:ConflictingListObjectAttributes:http_list,tls_list",
+          "source": "ast-validator:ConflictingListObjectAttributes",
+          "target_id": "xcsh-docs:resources:policy_based_routing:properties:forward_proxy_pbr:forward_proxy_pbr_rules:tls_list",
+          "type": "conflicts"
+        },
+        {
+          "anchor": "section",
+          "enforcement": "provider-schema",
+          "group": "forward_proxy_pbr.forward_proxy_pbr_rules:RequiredListObjectAttributes:forwarding_class_list",
+          "source": "ast-validator:RequiredListObjectAttributes",
+          "target_id": "xcsh-docs:resources:policy_based_routing:properties:forward_proxy_pbr:forward_proxy_pbr_rules:forwarding_class_list",
+          "type": "requires"
+        }
+      ],
       "retrieval_version": 1,
       "role": "properties",
       "schema_path": ["forward_proxy_pbr", "forward_proxy_pbr_rules"],
@@ -845,7 +1160,16 @@
           "max_items": null,
           "min_items": null,
           "nesting": "list",
-          "relationships": [],
+          "relationships": [
+            {
+              "anchor": "schema-forward_proxy_pbr--forward_proxy_pbr_rules--forwarding_class_list--name",
+              "enforcement": "provider-schema",
+              "group": "forward_proxy_pbr.forward_proxy_pbr_rules.forwarding_class_list:RequiredListObjectAttributes:name",
+              "source": "ast-validator:RequiredListObjectAttributes",
+              "target_id": "xcsh-docs:resources:policy_based_routing:properties:forward_proxy_pbr:forward_proxy_pbr_rules:forwarding_class_list",
+              "type": "requires"
+            }
+          ],
           "schema_path": ["forward_proxy_pbr", "forward_proxy_pbr_rules", "forwarding_class_list"],
           "syntax": "block",
           "type": "object"
@@ -890,7 +1214,7 @@
         {
           "aliases": ["label selector"],
           "anchor": "section",
-          "description": "This type can be used to establish a 'selector reference' from one object(called selector) to a set of other objects(called selectees) based on the value of expressions. A label selector is a label query over a set of resources. An empty label selector matches all objects. A null label selector matches no objects. Labe",
+          "description": "This type can be used to establish a 'selector reference' from one object(called selector) to a set of other objects(called selectees) based on the value of expressions. A label selector is a label query over a set of resources. An empty label selector matches all objects. A null label selector matches no objects.",
           "document_id": "xcsh-docs:resources:policy_based_routing:properties:forward_proxy_pbr:forward_proxy_pbr_rules:label_selector",
           "flags": [],
           "max_items": null,
@@ -981,7 +1305,7 @@
       "category": "networking",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:98dbf5280bf8376a0c75c1391250db9db4ac0d293d42bdd831c20f7514925adb",
+        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -1021,7 +1345,7 @@
       "category": "networking",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:98dbf5280bf8376a0c75c1391250db9db4ac0d293d42bdd831c20f7514925adb",
+        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -1061,7 +1385,7 @@
       "category": "networking",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:98dbf5280bf8376a0c75c1391250db9db4ac0d293d42bdd831c20f7514925adb",
+        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -1077,7 +1401,16 @@
       "provider_type": "resources",
       "registry_anchor": "canonical-3202003211132023-2320222111022101-0022010202011201-0201113120211303-3013230122122020-3011223313322322-1203130113102210-3212131012330210",
       "registry_path": "docs/guides/resources--policy_based_routing--reference--group-001.md",
-      "relationships": [],
+      "relationships": [
+        {
+          "anchor": "schema-forward_proxy_pbr--forward_proxy_pbr_rules--forwarding_class_list--name",
+          "enforcement": "provider-schema",
+          "group": "forward_proxy_pbr.forward_proxy_pbr_rules.forwarding_class_list:RequiredListObjectAttributes:name",
+          "source": "ast-validator:RequiredListObjectAttributes",
+          "target_id": "xcsh-docs:resources:policy_based_routing:properties:forward_proxy_pbr:forward_proxy_pbr_rules:forwarding_class_list",
+          "type": "requires"
+        }
+      ],
       "retrieval_version": 1,
       "role": "properties",
       "schema_path": ["forward_proxy_pbr", "forward_proxy_pbr_rules", "forwarding_class_list"],
@@ -1146,7 +1479,7 @@
         "xcsh-docs:resources:policy_based_routing:properties:forward_proxy_pbr:forward_proxy_pbr_rules:http_list:http_list"
       ],
       "classification": {
-        "rules_sha256": "sha256:98dbf5280bf8376a0c75c1391250db9db4ac0d293d42bdd831c20f7514925adb",
+        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -1176,7 +1509,152 @@
           "max_items": null,
           "min_items": null,
           "nesting": "list",
-          "relationships": [],
+          "relationships": [
+            {
+              "anchor": "schema-forward_proxy_pbr--forward_proxy_pbr_rules--http_list--http_list--exact_value",
+              "enforcement": "provider-schema",
+              "group": "forward_proxy_pbr.forward_proxy_pbr_rules.http_list.http_list:ConflictingListObjectAttributes:exact_value,regex_value",
+              "source": "ast-validator:ConflictingListObjectAttributes",
+              "target_id": "xcsh-docs:resources:policy_based_routing:properties:forward_proxy_pbr:forward_proxy_pbr_rules:http_list:http_list",
+              "type": "conflicts"
+            },
+            {
+              "anchor": "schema-forward_proxy_pbr--forward_proxy_pbr_rules--http_list--http_list--exact_value",
+              "enforcement": "provider-schema",
+              "group": "forward_proxy_pbr.forward_proxy_pbr_rules.http_list.http_list:ConflictingListObjectAttributes:exact_value,suffix_value",
+              "source": "ast-validator:ConflictingListObjectAttributes",
+              "target_id": "xcsh-docs:resources:policy_based_routing:properties:forward_proxy_pbr:forward_proxy_pbr_rules:http_list:http_list",
+              "type": "conflicts"
+            },
+            {
+              "anchor": "schema-forward_proxy_pbr--forward_proxy_pbr_rules--http_list--http_list--path_exact_value",
+              "enforcement": "provider-schema",
+              "group": "forward_proxy_pbr.forward_proxy_pbr_rules.http_list.http_list:ConflictingListObjectAttributes:any_path,path_exact_value",
+              "source": "ast-validator:ConflictingListObjectAttributes",
+              "target_id": "xcsh-docs:resources:policy_based_routing:properties:forward_proxy_pbr:forward_proxy_pbr_rules:http_list:http_list",
+              "type": "conflicts"
+            },
+            {
+              "anchor": "schema-forward_proxy_pbr--forward_proxy_pbr_rules--http_list--http_list--path_exact_value",
+              "enforcement": "provider-schema",
+              "group": "forward_proxy_pbr.forward_proxy_pbr_rules.http_list.http_list:ConflictingListObjectAttributes:path_exact_value,path_prefix_value",
+              "source": "ast-validator:ConflictingListObjectAttributes",
+              "target_id": "xcsh-docs:resources:policy_based_routing:properties:forward_proxy_pbr:forward_proxy_pbr_rules:http_list:http_list",
+              "type": "conflicts"
+            },
+            {
+              "anchor": "schema-forward_proxy_pbr--forward_proxy_pbr_rules--http_list--http_list--path_exact_value",
+              "enforcement": "provider-schema",
+              "group": "forward_proxy_pbr.forward_proxy_pbr_rules.http_list.http_list:ConflictingListObjectAttributes:path_exact_value,path_regex_value",
+              "source": "ast-validator:ConflictingListObjectAttributes",
+              "target_id": "xcsh-docs:resources:policy_based_routing:properties:forward_proxy_pbr:forward_proxy_pbr_rules:http_list:http_list",
+              "type": "conflicts"
+            },
+            {
+              "anchor": "schema-forward_proxy_pbr--forward_proxy_pbr_rules--http_list--http_list--path_prefix_value",
+              "enforcement": "provider-schema",
+              "group": "forward_proxy_pbr.forward_proxy_pbr_rules.http_list.http_list:ConflictingListObjectAttributes:any_path,path_prefix_value",
+              "source": "ast-validator:ConflictingListObjectAttributes",
+              "target_id": "xcsh-docs:resources:policy_based_routing:properties:forward_proxy_pbr:forward_proxy_pbr_rules:http_list:http_list",
+              "type": "conflicts"
+            },
+            {
+              "anchor": "schema-forward_proxy_pbr--forward_proxy_pbr_rules--http_list--http_list--path_prefix_value",
+              "enforcement": "provider-schema",
+              "group": "forward_proxy_pbr.forward_proxy_pbr_rules.http_list.http_list:ConflictingListObjectAttributes:path_exact_value,path_prefix_value",
+              "source": "ast-validator:ConflictingListObjectAttributes",
+              "target_id": "xcsh-docs:resources:policy_based_routing:properties:forward_proxy_pbr:forward_proxy_pbr_rules:http_list:http_list",
+              "type": "conflicts"
+            },
+            {
+              "anchor": "schema-forward_proxy_pbr--forward_proxy_pbr_rules--http_list--http_list--path_prefix_value",
+              "enforcement": "provider-schema",
+              "group": "forward_proxy_pbr.forward_proxy_pbr_rules.http_list.http_list:ConflictingListObjectAttributes:path_prefix_value,path_regex_value",
+              "source": "ast-validator:ConflictingListObjectAttributes",
+              "target_id": "xcsh-docs:resources:policy_based_routing:properties:forward_proxy_pbr:forward_proxy_pbr_rules:http_list:http_list",
+              "type": "conflicts"
+            },
+            {
+              "anchor": "schema-forward_proxy_pbr--forward_proxy_pbr_rules--http_list--http_list--path_regex_value",
+              "enforcement": "provider-schema",
+              "group": "forward_proxy_pbr.forward_proxy_pbr_rules.http_list.http_list:ConflictingListObjectAttributes:any_path,path_regex_value",
+              "source": "ast-validator:ConflictingListObjectAttributes",
+              "target_id": "xcsh-docs:resources:policy_based_routing:properties:forward_proxy_pbr:forward_proxy_pbr_rules:http_list:http_list",
+              "type": "conflicts"
+            },
+            {
+              "anchor": "schema-forward_proxy_pbr--forward_proxy_pbr_rules--http_list--http_list--path_regex_value",
+              "enforcement": "provider-schema",
+              "group": "forward_proxy_pbr.forward_proxy_pbr_rules.http_list.http_list:ConflictingListObjectAttributes:path_exact_value,path_regex_value",
+              "source": "ast-validator:ConflictingListObjectAttributes",
+              "target_id": "xcsh-docs:resources:policy_based_routing:properties:forward_proxy_pbr:forward_proxy_pbr_rules:http_list:http_list",
+              "type": "conflicts"
+            },
+            {
+              "anchor": "schema-forward_proxy_pbr--forward_proxy_pbr_rules--http_list--http_list--path_regex_value",
+              "enforcement": "provider-schema",
+              "group": "forward_proxy_pbr.forward_proxy_pbr_rules.http_list.http_list:ConflictingListObjectAttributes:path_prefix_value,path_regex_value",
+              "source": "ast-validator:ConflictingListObjectAttributes",
+              "target_id": "xcsh-docs:resources:policy_based_routing:properties:forward_proxy_pbr:forward_proxy_pbr_rules:http_list:http_list",
+              "type": "conflicts"
+            },
+            {
+              "anchor": "schema-forward_proxy_pbr--forward_proxy_pbr_rules--http_list--http_list--regex_value",
+              "enforcement": "provider-schema",
+              "group": "forward_proxy_pbr.forward_proxy_pbr_rules.http_list.http_list:ConflictingListObjectAttributes:exact_value,regex_value",
+              "source": "ast-validator:ConflictingListObjectAttributes",
+              "target_id": "xcsh-docs:resources:policy_based_routing:properties:forward_proxy_pbr:forward_proxy_pbr_rules:http_list:http_list",
+              "type": "conflicts"
+            },
+            {
+              "anchor": "schema-forward_proxy_pbr--forward_proxy_pbr_rules--http_list--http_list--regex_value",
+              "enforcement": "provider-schema",
+              "group": "forward_proxy_pbr.forward_proxy_pbr_rules.http_list.http_list:ConflictingListObjectAttributes:regex_value,suffix_value",
+              "source": "ast-validator:ConflictingListObjectAttributes",
+              "target_id": "xcsh-docs:resources:policy_based_routing:properties:forward_proxy_pbr:forward_proxy_pbr_rules:http_list:http_list",
+              "type": "conflicts"
+            },
+            {
+              "anchor": "schema-forward_proxy_pbr--forward_proxy_pbr_rules--http_list--http_list--suffix_value",
+              "enforcement": "provider-schema",
+              "group": "forward_proxy_pbr.forward_proxy_pbr_rules.http_list.http_list:ConflictingListObjectAttributes:exact_value,suffix_value",
+              "source": "ast-validator:ConflictingListObjectAttributes",
+              "target_id": "xcsh-docs:resources:policy_based_routing:properties:forward_proxy_pbr:forward_proxy_pbr_rules:http_list:http_list",
+              "type": "conflicts"
+            },
+            {
+              "anchor": "schema-forward_proxy_pbr--forward_proxy_pbr_rules--http_list--http_list--suffix_value",
+              "enforcement": "provider-schema",
+              "group": "forward_proxy_pbr.forward_proxy_pbr_rules.http_list.http_list:ConflictingListObjectAttributes:regex_value,suffix_value",
+              "source": "ast-validator:ConflictingListObjectAttributes",
+              "target_id": "xcsh-docs:resources:policy_based_routing:properties:forward_proxy_pbr:forward_proxy_pbr_rules:http_list:http_list",
+              "type": "conflicts"
+            },
+            {
+              "anchor": "section",
+              "enforcement": "provider-schema",
+              "group": "forward_proxy_pbr.forward_proxy_pbr_rules.http_list.http_list:ConflictingListObjectAttributes:any_path,path_exact_value",
+              "source": "ast-validator:ConflictingListObjectAttributes",
+              "target_id": "xcsh-docs:resources:policy_based_routing:properties:forward_proxy_pbr:forward_proxy_pbr_rules:http_list:http_list:any_path",
+              "type": "conflicts"
+            },
+            {
+              "anchor": "section",
+              "enforcement": "provider-schema",
+              "group": "forward_proxy_pbr.forward_proxy_pbr_rules.http_list.http_list:ConflictingListObjectAttributes:any_path,path_prefix_value",
+              "source": "ast-validator:ConflictingListObjectAttributes",
+              "target_id": "xcsh-docs:resources:policy_based_routing:properties:forward_proxy_pbr:forward_proxy_pbr_rules:http_list:http_list:any_path",
+              "type": "conflicts"
+            },
+            {
+              "anchor": "section",
+              "enforcement": "provider-schema",
+              "group": "forward_proxy_pbr.forward_proxy_pbr_rules.http_list.http_list:ConflictingListObjectAttributes:any_path,path_regex_value",
+              "source": "ast-validator:ConflictingListObjectAttributes",
+              "target_id": "xcsh-docs:resources:policy_based_routing:properties:forward_proxy_pbr:forward_proxy_pbr_rules:http_list:http_list:any_path",
+              "type": "conflicts"
+            }
+          ],
           "schema_path": ["forward_proxy_pbr", "forward_proxy_pbr_rules", "http_list", "http_list"],
           "syntax": "block",
           "type": "object"
@@ -1203,7 +1681,7 @@
         "xcsh-docs:resources:policy_based_routing:properties:forward_proxy_pbr:forward_proxy_pbr_rules:http_list:http_list:any_path"
       ],
       "classification": {
-        "rules_sha256": "sha256:98dbf5280bf8376a0c75c1391250db9db4ac0d293d42bdd831c20f7514925adb",
+        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -1219,7 +1697,152 @@
       "provider_type": "resources",
       "registry_anchor": "canonical-1123213010023000-3323013000302211-1120100201010301-1301023110313303-1033031110300213-0200101203113303-0002303010330231-2333100020231111",
       "registry_path": "docs/guides/resources--policy_based_routing--reference--group-001.md",
-      "relationships": [],
+      "relationships": [
+        {
+          "anchor": "schema-forward_proxy_pbr--forward_proxy_pbr_rules--http_list--http_list--exact_value",
+          "enforcement": "provider-schema",
+          "group": "forward_proxy_pbr.forward_proxy_pbr_rules.http_list.http_list:ConflictingListObjectAttributes:exact_value,regex_value",
+          "source": "ast-validator:ConflictingListObjectAttributes",
+          "target_id": "xcsh-docs:resources:policy_based_routing:properties:forward_proxy_pbr:forward_proxy_pbr_rules:http_list:http_list",
+          "type": "conflicts"
+        },
+        {
+          "anchor": "schema-forward_proxy_pbr--forward_proxy_pbr_rules--http_list--http_list--exact_value",
+          "enforcement": "provider-schema",
+          "group": "forward_proxy_pbr.forward_proxy_pbr_rules.http_list.http_list:ConflictingListObjectAttributes:exact_value,suffix_value",
+          "source": "ast-validator:ConflictingListObjectAttributes",
+          "target_id": "xcsh-docs:resources:policy_based_routing:properties:forward_proxy_pbr:forward_proxy_pbr_rules:http_list:http_list",
+          "type": "conflicts"
+        },
+        {
+          "anchor": "schema-forward_proxy_pbr--forward_proxy_pbr_rules--http_list--http_list--path_exact_value",
+          "enforcement": "provider-schema",
+          "group": "forward_proxy_pbr.forward_proxy_pbr_rules.http_list.http_list:ConflictingListObjectAttributes:any_path,path_exact_value",
+          "source": "ast-validator:ConflictingListObjectAttributes",
+          "target_id": "xcsh-docs:resources:policy_based_routing:properties:forward_proxy_pbr:forward_proxy_pbr_rules:http_list:http_list",
+          "type": "conflicts"
+        },
+        {
+          "anchor": "schema-forward_proxy_pbr--forward_proxy_pbr_rules--http_list--http_list--path_exact_value",
+          "enforcement": "provider-schema",
+          "group": "forward_proxy_pbr.forward_proxy_pbr_rules.http_list.http_list:ConflictingListObjectAttributes:path_exact_value,path_prefix_value",
+          "source": "ast-validator:ConflictingListObjectAttributes",
+          "target_id": "xcsh-docs:resources:policy_based_routing:properties:forward_proxy_pbr:forward_proxy_pbr_rules:http_list:http_list",
+          "type": "conflicts"
+        },
+        {
+          "anchor": "schema-forward_proxy_pbr--forward_proxy_pbr_rules--http_list--http_list--path_exact_value",
+          "enforcement": "provider-schema",
+          "group": "forward_proxy_pbr.forward_proxy_pbr_rules.http_list.http_list:ConflictingListObjectAttributes:path_exact_value,path_regex_value",
+          "source": "ast-validator:ConflictingListObjectAttributes",
+          "target_id": "xcsh-docs:resources:policy_based_routing:properties:forward_proxy_pbr:forward_proxy_pbr_rules:http_list:http_list",
+          "type": "conflicts"
+        },
+        {
+          "anchor": "schema-forward_proxy_pbr--forward_proxy_pbr_rules--http_list--http_list--path_prefix_value",
+          "enforcement": "provider-schema",
+          "group": "forward_proxy_pbr.forward_proxy_pbr_rules.http_list.http_list:ConflictingListObjectAttributes:any_path,path_prefix_value",
+          "source": "ast-validator:ConflictingListObjectAttributes",
+          "target_id": "xcsh-docs:resources:policy_based_routing:properties:forward_proxy_pbr:forward_proxy_pbr_rules:http_list:http_list",
+          "type": "conflicts"
+        },
+        {
+          "anchor": "schema-forward_proxy_pbr--forward_proxy_pbr_rules--http_list--http_list--path_prefix_value",
+          "enforcement": "provider-schema",
+          "group": "forward_proxy_pbr.forward_proxy_pbr_rules.http_list.http_list:ConflictingListObjectAttributes:path_exact_value,path_prefix_value",
+          "source": "ast-validator:ConflictingListObjectAttributes",
+          "target_id": "xcsh-docs:resources:policy_based_routing:properties:forward_proxy_pbr:forward_proxy_pbr_rules:http_list:http_list",
+          "type": "conflicts"
+        },
+        {
+          "anchor": "schema-forward_proxy_pbr--forward_proxy_pbr_rules--http_list--http_list--path_prefix_value",
+          "enforcement": "provider-schema",
+          "group": "forward_proxy_pbr.forward_proxy_pbr_rules.http_list.http_list:ConflictingListObjectAttributes:path_prefix_value,path_regex_value",
+          "source": "ast-validator:ConflictingListObjectAttributes",
+          "target_id": "xcsh-docs:resources:policy_based_routing:properties:forward_proxy_pbr:forward_proxy_pbr_rules:http_list:http_list",
+          "type": "conflicts"
+        },
+        {
+          "anchor": "schema-forward_proxy_pbr--forward_proxy_pbr_rules--http_list--http_list--path_regex_value",
+          "enforcement": "provider-schema",
+          "group": "forward_proxy_pbr.forward_proxy_pbr_rules.http_list.http_list:ConflictingListObjectAttributes:any_path,path_regex_value",
+          "source": "ast-validator:ConflictingListObjectAttributes",
+          "target_id": "xcsh-docs:resources:policy_based_routing:properties:forward_proxy_pbr:forward_proxy_pbr_rules:http_list:http_list",
+          "type": "conflicts"
+        },
+        {
+          "anchor": "schema-forward_proxy_pbr--forward_proxy_pbr_rules--http_list--http_list--path_regex_value",
+          "enforcement": "provider-schema",
+          "group": "forward_proxy_pbr.forward_proxy_pbr_rules.http_list.http_list:ConflictingListObjectAttributes:path_exact_value,path_regex_value",
+          "source": "ast-validator:ConflictingListObjectAttributes",
+          "target_id": "xcsh-docs:resources:policy_based_routing:properties:forward_proxy_pbr:forward_proxy_pbr_rules:http_list:http_list",
+          "type": "conflicts"
+        },
+        {
+          "anchor": "schema-forward_proxy_pbr--forward_proxy_pbr_rules--http_list--http_list--path_regex_value",
+          "enforcement": "provider-schema",
+          "group": "forward_proxy_pbr.forward_proxy_pbr_rules.http_list.http_list:ConflictingListObjectAttributes:path_prefix_value,path_regex_value",
+          "source": "ast-validator:ConflictingListObjectAttributes",
+          "target_id": "xcsh-docs:resources:policy_based_routing:properties:forward_proxy_pbr:forward_proxy_pbr_rules:http_list:http_list",
+          "type": "conflicts"
+        },
+        {
+          "anchor": "schema-forward_proxy_pbr--forward_proxy_pbr_rules--http_list--http_list--regex_value",
+          "enforcement": "provider-schema",
+          "group": "forward_proxy_pbr.forward_proxy_pbr_rules.http_list.http_list:ConflictingListObjectAttributes:exact_value,regex_value",
+          "source": "ast-validator:ConflictingListObjectAttributes",
+          "target_id": "xcsh-docs:resources:policy_based_routing:properties:forward_proxy_pbr:forward_proxy_pbr_rules:http_list:http_list",
+          "type": "conflicts"
+        },
+        {
+          "anchor": "schema-forward_proxy_pbr--forward_proxy_pbr_rules--http_list--http_list--regex_value",
+          "enforcement": "provider-schema",
+          "group": "forward_proxy_pbr.forward_proxy_pbr_rules.http_list.http_list:ConflictingListObjectAttributes:regex_value,suffix_value",
+          "source": "ast-validator:ConflictingListObjectAttributes",
+          "target_id": "xcsh-docs:resources:policy_based_routing:properties:forward_proxy_pbr:forward_proxy_pbr_rules:http_list:http_list",
+          "type": "conflicts"
+        },
+        {
+          "anchor": "schema-forward_proxy_pbr--forward_proxy_pbr_rules--http_list--http_list--suffix_value",
+          "enforcement": "provider-schema",
+          "group": "forward_proxy_pbr.forward_proxy_pbr_rules.http_list.http_list:ConflictingListObjectAttributes:exact_value,suffix_value",
+          "source": "ast-validator:ConflictingListObjectAttributes",
+          "target_id": "xcsh-docs:resources:policy_based_routing:properties:forward_proxy_pbr:forward_proxy_pbr_rules:http_list:http_list",
+          "type": "conflicts"
+        },
+        {
+          "anchor": "schema-forward_proxy_pbr--forward_proxy_pbr_rules--http_list--http_list--suffix_value",
+          "enforcement": "provider-schema",
+          "group": "forward_proxy_pbr.forward_proxy_pbr_rules.http_list.http_list:ConflictingListObjectAttributes:regex_value,suffix_value",
+          "source": "ast-validator:ConflictingListObjectAttributes",
+          "target_id": "xcsh-docs:resources:policy_based_routing:properties:forward_proxy_pbr:forward_proxy_pbr_rules:http_list:http_list",
+          "type": "conflicts"
+        },
+        {
+          "anchor": "section",
+          "enforcement": "provider-schema",
+          "group": "forward_proxy_pbr.forward_proxy_pbr_rules.http_list.http_list:ConflictingListObjectAttributes:any_path,path_exact_value",
+          "source": "ast-validator:ConflictingListObjectAttributes",
+          "target_id": "xcsh-docs:resources:policy_based_routing:properties:forward_proxy_pbr:forward_proxy_pbr_rules:http_list:http_list:any_path",
+          "type": "conflicts"
+        },
+        {
+          "anchor": "section",
+          "enforcement": "provider-schema",
+          "group": "forward_proxy_pbr.forward_proxy_pbr_rules.http_list.http_list:ConflictingListObjectAttributes:any_path,path_prefix_value",
+          "source": "ast-validator:ConflictingListObjectAttributes",
+          "target_id": "xcsh-docs:resources:policy_based_routing:properties:forward_proxy_pbr:forward_proxy_pbr_rules:http_list:http_list:any_path",
+          "type": "conflicts"
+        },
+        {
+          "anchor": "section",
+          "enforcement": "provider-schema",
+          "group": "forward_proxy_pbr.forward_proxy_pbr_rules.http_list.http_list:ConflictingListObjectAttributes:any_path,path_regex_value",
+          "source": "ast-validator:ConflictingListObjectAttributes",
+          "target_id": "xcsh-docs:resources:policy_based_routing:properties:forward_proxy_pbr:forward_proxy_pbr_rules:http_list:http_list:any_path",
+          "type": "conflicts"
+        }
+      ],
       "retrieval_version": 1,
       "role": "properties",
       "schema_path": ["forward_proxy_pbr", "forward_proxy_pbr_rules", "http_list", "http_list"],
@@ -1348,7 +1971,7 @@
       "category": "networking",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:98dbf5280bf8376a0c75c1391250db9db4ac0d293d42bdd831c20f7514925adb",
+        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -1388,7 +2011,7 @@
       "category": "networking",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:98dbf5280bf8376a0c75c1391250db9db4ac0d293d42bdd831c20f7514925adb",
+        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -1480,7 +2103,7 @@
       "category": "networking",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:98dbf5280bf8376a0c75c1391250db9db4ac0d293d42bdd831c20f7514925adb",
+        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -1527,7 +2150,7 @@
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/policy_based_routing/properties/forward_proxy_pbr/forward_proxy_pbr_rules/label_selector/index.txt",
       "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
-      "summary": "This type can be used to establish a 'selector reference' from one object(called selector) to a set of other objects(called selectees) based on the value of expressions. A label selector is a label query over a set of resources. An empty label selector matches all objects. A null label selector matches no objects. Labe",
+      "summary": "This type can be used to establish a 'selector reference' from one object(called selector) to a set of other objects(called selectees) based on the value of expressions. A label selector is a label query over a set of resources. An empty label selector matches all objects. A null label selector matches no objects.",
       "tasks": ["configuration"],
       "title": "forward_proxy_pbr.forward_proxy_pbr_rules.label_selector",
       "upstream_identity": {
@@ -1544,7 +2167,7 @@
       "category": "networking",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:98dbf5280bf8376a0c75c1391250db9db4ac0d293d42bdd831c20f7514925adb",
+        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -1622,7 +2245,7 @@
       "category": "networking",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:98dbf5280bf8376a0c75c1391250db9db4ac0d293d42bdd831c20f7514925adb",
+        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -1679,7 +2302,7 @@
         "xcsh-docs:resources:policy_based_routing:properties:forward_proxy_pbr:forward_proxy_pbr_rules:tls_list:tls_list"
       ],
       "classification": {
-        "rules_sha256": "sha256:98dbf5280bf8376a0c75c1391250db9db4ac0d293d42bdd831c20f7514925adb",
+        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -1709,7 +2332,56 @@
           "max_items": null,
           "min_items": null,
           "nesting": "list",
-          "relationships": [],
+          "relationships": [
+            {
+              "anchor": "schema-forward_proxy_pbr--forward_proxy_pbr_rules--tls_list--tls_list--exact_value",
+              "enforcement": "provider-schema",
+              "group": "forward_proxy_pbr.forward_proxy_pbr_rules.tls_list.tls_list:ConflictingListObjectAttributes:exact_value,regex_value",
+              "source": "ast-validator:ConflictingListObjectAttributes",
+              "target_id": "xcsh-docs:resources:policy_based_routing:properties:forward_proxy_pbr:forward_proxy_pbr_rules:tls_list:tls_list",
+              "type": "conflicts"
+            },
+            {
+              "anchor": "schema-forward_proxy_pbr--forward_proxy_pbr_rules--tls_list--tls_list--exact_value",
+              "enforcement": "provider-schema",
+              "group": "forward_proxy_pbr.forward_proxy_pbr_rules.tls_list.tls_list:ConflictingListObjectAttributes:exact_value,suffix_value",
+              "source": "ast-validator:ConflictingListObjectAttributes",
+              "target_id": "xcsh-docs:resources:policy_based_routing:properties:forward_proxy_pbr:forward_proxy_pbr_rules:tls_list:tls_list",
+              "type": "conflicts"
+            },
+            {
+              "anchor": "schema-forward_proxy_pbr--forward_proxy_pbr_rules--tls_list--tls_list--regex_value",
+              "enforcement": "provider-schema",
+              "group": "forward_proxy_pbr.forward_proxy_pbr_rules.tls_list.tls_list:ConflictingListObjectAttributes:exact_value,regex_value",
+              "source": "ast-validator:ConflictingListObjectAttributes",
+              "target_id": "xcsh-docs:resources:policy_based_routing:properties:forward_proxy_pbr:forward_proxy_pbr_rules:tls_list:tls_list",
+              "type": "conflicts"
+            },
+            {
+              "anchor": "schema-forward_proxy_pbr--forward_proxy_pbr_rules--tls_list--tls_list--regex_value",
+              "enforcement": "provider-schema",
+              "group": "forward_proxy_pbr.forward_proxy_pbr_rules.tls_list.tls_list:ConflictingListObjectAttributes:regex_value,suffix_value",
+              "source": "ast-validator:ConflictingListObjectAttributes",
+              "target_id": "xcsh-docs:resources:policy_based_routing:properties:forward_proxy_pbr:forward_proxy_pbr_rules:tls_list:tls_list",
+              "type": "conflicts"
+            },
+            {
+              "anchor": "schema-forward_proxy_pbr--forward_proxy_pbr_rules--tls_list--tls_list--suffix_value",
+              "enforcement": "provider-schema",
+              "group": "forward_proxy_pbr.forward_proxy_pbr_rules.tls_list.tls_list:ConflictingListObjectAttributes:exact_value,suffix_value",
+              "source": "ast-validator:ConflictingListObjectAttributes",
+              "target_id": "xcsh-docs:resources:policy_based_routing:properties:forward_proxy_pbr:forward_proxy_pbr_rules:tls_list:tls_list",
+              "type": "conflicts"
+            },
+            {
+              "anchor": "schema-forward_proxy_pbr--forward_proxy_pbr_rules--tls_list--tls_list--suffix_value",
+              "enforcement": "provider-schema",
+              "group": "forward_proxy_pbr.forward_proxy_pbr_rules.tls_list.tls_list:ConflictingListObjectAttributes:regex_value,suffix_value",
+              "source": "ast-validator:ConflictingListObjectAttributes",
+              "target_id": "xcsh-docs:resources:policy_based_routing:properties:forward_proxy_pbr:forward_proxy_pbr_rules:tls_list:tls_list",
+              "type": "conflicts"
+            }
+          ],
           "schema_path": ["forward_proxy_pbr", "forward_proxy_pbr_rules", "tls_list", "tls_list"],
           "syntax": "block",
           "type": "object"
@@ -1734,7 +2406,7 @@
       "category": "networking",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:98dbf5280bf8376a0c75c1391250db9db4ac0d293d42bdd831c20f7514925adb",
+        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -1750,7 +2422,56 @@
       "provider_type": "resources",
       "registry_anchor": "canonical-3130302031320302-0222233202203000-3121302130000102-3320220210200113-3230000031210231-2223003213101331-0330103233123320-0030213233331322",
       "registry_path": "docs/guides/resources--policy_based_routing--reference--group-001.md",
-      "relationships": [],
+      "relationships": [
+        {
+          "anchor": "schema-forward_proxy_pbr--forward_proxy_pbr_rules--tls_list--tls_list--exact_value",
+          "enforcement": "provider-schema",
+          "group": "forward_proxy_pbr.forward_proxy_pbr_rules.tls_list.tls_list:ConflictingListObjectAttributes:exact_value,regex_value",
+          "source": "ast-validator:ConflictingListObjectAttributes",
+          "target_id": "xcsh-docs:resources:policy_based_routing:properties:forward_proxy_pbr:forward_proxy_pbr_rules:tls_list:tls_list",
+          "type": "conflicts"
+        },
+        {
+          "anchor": "schema-forward_proxy_pbr--forward_proxy_pbr_rules--tls_list--tls_list--exact_value",
+          "enforcement": "provider-schema",
+          "group": "forward_proxy_pbr.forward_proxy_pbr_rules.tls_list.tls_list:ConflictingListObjectAttributes:exact_value,suffix_value",
+          "source": "ast-validator:ConflictingListObjectAttributes",
+          "target_id": "xcsh-docs:resources:policy_based_routing:properties:forward_proxy_pbr:forward_proxy_pbr_rules:tls_list:tls_list",
+          "type": "conflicts"
+        },
+        {
+          "anchor": "schema-forward_proxy_pbr--forward_proxy_pbr_rules--tls_list--tls_list--regex_value",
+          "enforcement": "provider-schema",
+          "group": "forward_proxy_pbr.forward_proxy_pbr_rules.tls_list.tls_list:ConflictingListObjectAttributes:exact_value,regex_value",
+          "source": "ast-validator:ConflictingListObjectAttributes",
+          "target_id": "xcsh-docs:resources:policy_based_routing:properties:forward_proxy_pbr:forward_proxy_pbr_rules:tls_list:tls_list",
+          "type": "conflicts"
+        },
+        {
+          "anchor": "schema-forward_proxy_pbr--forward_proxy_pbr_rules--tls_list--tls_list--regex_value",
+          "enforcement": "provider-schema",
+          "group": "forward_proxy_pbr.forward_proxy_pbr_rules.tls_list.tls_list:ConflictingListObjectAttributes:regex_value,suffix_value",
+          "source": "ast-validator:ConflictingListObjectAttributes",
+          "target_id": "xcsh-docs:resources:policy_based_routing:properties:forward_proxy_pbr:forward_proxy_pbr_rules:tls_list:tls_list",
+          "type": "conflicts"
+        },
+        {
+          "anchor": "schema-forward_proxy_pbr--forward_proxy_pbr_rules--tls_list--tls_list--suffix_value",
+          "enforcement": "provider-schema",
+          "group": "forward_proxy_pbr.forward_proxy_pbr_rules.tls_list.tls_list:ConflictingListObjectAttributes:exact_value,suffix_value",
+          "source": "ast-validator:ConflictingListObjectAttributes",
+          "target_id": "xcsh-docs:resources:policy_based_routing:properties:forward_proxy_pbr:forward_proxy_pbr_rules:tls_list:tls_list",
+          "type": "conflicts"
+        },
+        {
+          "anchor": "schema-forward_proxy_pbr--forward_proxy_pbr_rules--tls_list--tls_list--suffix_value",
+          "enforcement": "provider-schema",
+          "group": "forward_proxy_pbr.forward_proxy_pbr_rules.tls_list.tls_list:ConflictingListObjectAttributes:regex_value,suffix_value",
+          "source": "ast-validator:ConflictingListObjectAttributes",
+          "target_id": "xcsh-docs:resources:policy_based_routing:properties:forward_proxy_pbr:forward_proxy_pbr_rules:tls_list:tls_list",
+          "type": "conflicts"
+        }
+      ],
       "retrieval_version": 1,
       "role": "properties",
       "schema_path": ["forward_proxy_pbr", "forward_proxy_pbr_rules", "tls_list", "tls_list"],
@@ -1817,7 +2538,7 @@
       "category": "networking",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:98dbf5280bf8376a0c75c1391250db9db4ac0d293d42bdd831c20f7514925adb",
+        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -1833,7 +2554,16 @@
       "provider_type": "resources",
       "registry_anchor": "canonical-0121322222312032-0032020022000211-3121023130103220-3220223120230220-0100013220100200-1102310203201121-2102103313201303-2121203111213300",
       "registry_path": "docs/guides/resources--policy_based_routing--reference--group-001.md",
-      "relationships": [],
+      "relationships": [
+        {
+          "anchor": "schema-forwarding_class_list--name",
+          "enforcement": "provider-schema",
+          "group": "forwarding_class_list:RequiredListObjectAttributes:name",
+          "source": "ast-validator:RequiredListObjectAttributes",
+          "target_id": "xcsh-docs:resources:policy_based_routing:properties:forwarding_class_list",
+          "type": "requires"
+        }
+      ],
       "retrieval_version": 1,
       "role": "properties",
       "schema_path": ["forwarding_class_list"],
@@ -1905,7 +2635,7 @@
         "xcsh-docs:resources:policy_based_routing:properties:network_pbr:prefix_list"
       ],
       "classification": {
-        "rules_sha256": "sha256:98dbf5280bf8376a0c75c1391250db9db4ac0d293d42bdd831c20f7514925adb",
+        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -1992,7 +2722,7 @@
         {
           "aliases": ["label selector"],
           "anchor": "section",
-          "description": "This type can be used to establish a 'selector reference' from one object(called selector) to a set of other objects(called selectees) based on the value of expressions. A label selector is a label query over a set of resources. An empty label selector matches all objects. A null label selector matches no objects. Labe",
+          "description": "This type can be used to establish a 'selector reference' from one object(called selector) to a set of other objects(called selectees) based on the value of expressions. A label selector is a label query over a set of resources. An empty label selector matches all objects. A null label selector matches no objects.",
           "document_id": "xcsh-docs:resources:policy_based_routing:properties:network_pbr:label_selector",
           "flags": [],
           "max_items": null,
@@ -2021,7 +2751,272 @@
           "max_items": null,
           "min_items": null,
           "nesting": "list",
-          "relationships": [],
+          "relationships": [
+            {
+              "anchor": "schema-network_pbr--network_pbr_rules--dns_name",
+              "enforcement": "provider-schema",
+              "group": "network_pbr.network_pbr_rules:ConflictingListObjectAttributes:any,dns_name",
+              "source": "ast-validator:ConflictingListObjectAttributes",
+              "target_id": "xcsh-docs:resources:policy_based_routing:properties:network_pbr:network_pbr_rules",
+              "type": "conflicts"
+            },
+            {
+              "anchor": "schema-network_pbr--network_pbr_rules--dns_name",
+              "enforcement": "provider-schema",
+              "group": "network_pbr.network_pbr_rules:ConflictingListObjectAttributes:dns_name,ip_prefix_set",
+              "source": "ast-validator:ConflictingListObjectAttributes",
+              "target_id": "xcsh-docs:resources:policy_based_routing:properties:network_pbr:network_pbr_rules",
+              "type": "conflicts"
+            },
+            {
+              "anchor": "schema-network_pbr--network_pbr_rules--dns_name",
+              "enforcement": "provider-schema",
+              "group": "network_pbr.network_pbr_rules:ConflictingListObjectAttributes:dns_name,prefix_list",
+              "source": "ast-validator:ConflictingListObjectAttributes",
+              "target_id": "xcsh-docs:resources:policy_based_routing:properties:network_pbr:network_pbr_rules",
+              "type": "conflicts"
+            },
+            {
+              "anchor": "section",
+              "enforcement": "provider-schema",
+              "group": "network_pbr.network_pbr_rules:ConflictingListObjectAttributes:all_tcp_traffic,all_traffic",
+              "source": "ast-validator:ConflictingListObjectAttributes",
+              "target_id": "xcsh-docs:resources:policy_based_routing:properties:network_pbr:network_pbr_rules:all_tcp_traffic",
+              "type": "conflicts"
+            },
+            {
+              "anchor": "section",
+              "enforcement": "provider-schema",
+              "group": "network_pbr.network_pbr_rules:ConflictingListObjectAttributes:all_tcp_traffic,all_udp_traffic",
+              "source": "ast-validator:ConflictingListObjectAttributes",
+              "target_id": "xcsh-docs:resources:policy_based_routing:properties:network_pbr:network_pbr_rules:all_tcp_traffic",
+              "type": "conflicts"
+            },
+            {
+              "anchor": "section",
+              "enforcement": "provider-schema",
+              "group": "network_pbr.network_pbr_rules:ConflictingListObjectAttributes:all_tcp_traffic,applications",
+              "source": "ast-validator:ConflictingListObjectAttributes",
+              "target_id": "xcsh-docs:resources:policy_based_routing:properties:network_pbr:network_pbr_rules:all_tcp_traffic",
+              "type": "conflicts"
+            },
+            {
+              "anchor": "section",
+              "enforcement": "provider-schema",
+              "group": "network_pbr.network_pbr_rules:ConflictingListObjectAttributes:all_tcp_traffic,protocol_port_range",
+              "source": "ast-validator:ConflictingListObjectAttributes",
+              "target_id": "xcsh-docs:resources:policy_based_routing:properties:network_pbr:network_pbr_rules:all_tcp_traffic",
+              "type": "conflicts"
+            },
+            {
+              "anchor": "section",
+              "enforcement": "provider-schema",
+              "group": "network_pbr.network_pbr_rules:ConflictingListObjectAttributes:all_tcp_traffic,all_traffic",
+              "source": "ast-validator:ConflictingListObjectAttributes",
+              "target_id": "xcsh-docs:resources:policy_based_routing:properties:network_pbr:network_pbr_rules:all_traffic",
+              "type": "conflicts"
+            },
+            {
+              "anchor": "section",
+              "enforcement": "provider-schema",
+              "group": "network_pbr.network_pbr_rules:ConflictingListObjectAttributes:all_traffic,all_udp_traffic",
+              "source": "ast-validator:ConflictingListObjectAttributes",
+              "target_id": "xcsh-docs:resources:policy_based_routing:properties:network_pbr:network_pbr_rules:all_traffic",
+              "type": "conflicts"
+            },
+            {
+              "anchor": "section",
+              "enforcement": "provider-schema",
+              "group": "network_pbr.network_pbr_rules:ConflictingListObjectAttributes:all_traffic,applications",
+              "source": "ast-validator:ConflictingListObjectAttributes",
+              "target_id": "xcsh-docs:resources:policy_based_routing:properties:network_pbr:network_pbr_rules:all_traffic",
+              "type": "conflicts"
+            },
+            {
+              "anchor": "section",
+              "enforcement": "provider-schema",
+              "group": "network_pbr.network_pbr_rules:ConflictingListObjectAttributes:all_traffic,protocol_port_range",
+              "source": "ast-validator:ConflictingListObjectAttributes",
+              "target_id": "xcsh-docs:resources:policy_based_routing:properties:network_pbr:network_pbr_rules:all_traffic",
+              "type": "conflicts"
+            },
+            {
+              "anchor": "section",
+              "enforcement": "provider-schema",
+              "group": "network_pbr.network_pbr_rules:ConflictingListObjectAttributes:all_tcp_traffic,all_udp_traffic",
+              "source": "ast-validator:ConflictingListObjectAttributes",
+              "target_id": "xcsh-docs:resources:policy_based_routing:properties:network_pbr:network_pbr_rules:all_udp_traffic",
+              "type": "conflicts"
+            },
+            {
+              "anchor": "section",
+              "enforcement": "provider-schema",
+              "group": "network_pbr.network_pbr_rules:ConflictingListObjectAttributes:all_traffic,all_udp_traffic",
+              "source": "ast-validator:ConflictingListObjectAttributes",
+              "target_id": "xcsh-docs:resources:policy_based_routing:properties:network_pbr:network_pbr_rules:all_udp_traffic",
+              "type": "conflicts"
+            },
+            {
+              "anchor": "section",
+              "enforcement": "provider-schema",
+              "group": "network_pbr.network_pbr_rules:ConflictingListObjectAttributes:all_udp_traffic,applications",
+              "source": "ast-validator:ConflictingListObjectAttributes",
+              "target_id": "xcsh-docs:resources:policy_based_routing:properties:network_pbr:network_pbr_rules:all_udp_traffic",
+              "type": "conflicts"
+            },
+            {
+              "anchor": "section",
+              "enforcement": "provider-schema",
+              "group": "network_pbr.network_pbr_rules:ConflictingListObjectAttributes:all_udp_traffic,protocol_port_range",
+              "source": "ast-validator:ConflictingListObjectAttributes",
+              "target_id": "xcsh-docs:resources:policy_based_routing:properties:network_pbr:network_pbr_rules:all_udp_traffic",
+              "type": "conflicts"
+            },
+            {
+              "anchor": "section",
+              "enforcement": "provider-schema",
+              "group": "network_pbr.network_pbr_rules:ConflictingListObjectAttributes:any,dns_name",
+              "source": "ast-validator:ConflictingListObjectAttributes",
+              "target_id": "xcsh-docs:resources:policy_based_routing:properties:network_pbr:network_pbr_rules:any",
+              "type": "conflicts"
+            },
+            {
+              "anchor": "section",
+              "enforcement": "provider-schema",
+              "group": "network_pbr.network_pbr_rules:ConflictingListObjectAttributes:any,ip_prefix_set",
+              "source": "ast-validator:ConflictingListObjectAttributes",
+              "target_id": "xcsh-docs:resources:policy_based_routing:properties:network_pbr:network_pbr_rules:any",
+              "type": "conflicts"
+            },
+            {
+              "anchor": "section",
+              "enforcement": "provider-schema",
+              "group": "network_pbr.network_pbr_rules:ConflictingListObjectAttributes:any,prefix_list",
+              "source": "ast-validator:ConflictingListObjectAttributes",
+              "target_id": "xcsh-docs:resources:policy_based_routing:properties:network_pbr:network_pbr_rules:any",
+              "type": "conflicts"
+            },
+            {
+              "anchor": "section",
+              "enforcement": "provider-schema",
+              "group": "network_pbr.network_pbr_rules:ConflictingListObjectAttributes:all_tcp_traffic,applications",
+              "source": "ast-validator:ConflictingListObjectAttributes",
+              "target_id": "xcsh-docs:resources:policy_based_routing:properties:network_pbr:network_pbr_rules:applications",
+              "type": "conflicts"
+            },
+            {
+              "anchor": "section",
+              "enforcement": "provider-schema",
+              "group": "network_pbr.network_pbr_rules:ConflictingListObjectAttributes:all_traffic,applications",
+              "source": "ast-validator:ConflictingListObjectAttributes",
+              "target_id": "xcsh-docs:resources:policy_based_routing:properties:network_pbr:network_pbr_rules:applications",
+              "type": "conflicts"
+            },
+            {
+              "anchor": "section",
+              "enforcement": "provider-schema",
+              "group": "network_pbr.network_pbr_rules:ConflictingListObjectAttributes:all_udp_traffic,applications",
+              "source": "ast-validator:ConflictingListObjectAttributes",
+              "target_id": "xcsh-docs:resources:policy_based_routing:properties:network_pbr:network_pbr_rules:applications",
+              "type": "conflicts"
+            },
+            {
+              "anchor": "section",
+              "enforcement": "provider-schema",
+              "group": "network_pbr.network_pbr_rules:ConflictingListObjectAttributes:applications,protocol_port_range",
+              "source": "ast-validator:ConflictingListObjectAttributes",
+              "target_id": "xcsh-docs:resources:policy_based_routing:properties:network_pbr:network_pbr_rules:applications",
+              "type": "conflicts"
+            },
+            {
+              "anchor": "section",
+              "enforcement": "provider-schema",
+              "group": "network_pbr.network_pbr_rules:ConflictingListObjectAttributes:any,ip_prefix_set",
+              "source": "ast-validator:ConflictingListObjectAttributes",
+              "target_id": "xcsh-docs:resources:policy_based_routing:properties:network_pbr:network_pbr_rules:ip_prefix_set",
+              "type": "conflicts"
+            },
+            {
+              "anchor": "section",
+              "enforcement": "provider-schema",
+              "group": "network_pbr.network_pbr_rules:ConflictingListObjectAttributes:dns_name,ip_prefix_set",
+              "source": "ast-validator:ConflictingListObjectAttributes",
+              "target_id": "xcsh-docs:resources:policy_based_routing:properties:network_pbr:network_pbr_rules:ip_prefix_set",
+              "type": "conflicts"
+            },
+            {
+              "anchor": "section",
+              "enforcement": "provider-schema",
+              "group": "network_pbr.network_pbr_rules:ConflictingListObjectAttributes:ip_prefix_set,prefix_list",
+              "source": "ast-validator:ConflictingListObjectAttributes",
+              "target_id": "xcsh-docs:resources:policy_based_routing:properties:network_pbr:network_pbr_rules:ip_prefix_set",
+              "type": "conflicts"
+            },
+            {
+              "anchor": "section",
+              "enforcement": "provider-schema",
+              "group": "network_pbr.network_pbr_rules:ConflictingListObjectAttributes:any,prefix_list",
+              "source": "ast-validator:ConflictingListObjectAttributes",
+              "target_id": "xcsh-docs:resources:policy_based_routing:properties:network_pbr:network_pbr_rules:prefix_list",
+              "type": "conflicts"
+            },
+            {
+              "anchor": "section",
+              "enforcement": "provider-schema",
+              "group": "network_pbr.network_pbr_rules:ConflictingListObjectAttributes:dns_name,prefix_list",
+              "source": "ast-validator:ConflictingListObjectAttributes",
+              "target_id": "xcsh-docs:resources:policy_based_routing:properties:network_pbr:network_pbr_rules:prefix_list",
+              "type": "conflicts"
+            },
+            {
+              "anchor": "section",
+              "enforcement": "provider-schema",
+              "group": "network_pbr.network_pbr_rules:ConflictingListObjectAttributes:ip_prefix_set,prefix_list",
+              "source": "ast-validator:ConflictingListObjectAttributes",
+              "target_id": "xcsh-docs:resources:policy_based_routing:properties:network_pbr:network_pbr_rules:prefix_list",
+              "type": "conflicts"
+            },
+            {
+              "anchor": "section",
+              "enforcement": "provider-schema",
+              "group": "network_pbr.network_pbr_rules:ConflictingListObjectAttributes:all_tcp_traffic,protocol_port_range",
+              "source": "ast-validator:ConflictingListObjectAttributes",
+              "target_id": "xcsh-docs:resources:policy_based_routing:properties:network_pbr:network_pbr_rules:protocol_port_range",
+              "type": "conflicts"
+            },
+            {
+              "anchor": "section",
+              "enforcement": "provider-schema",
+              "group": "network_pbr.network_pbr_rules:ConflictingListObjectAttributes:all_traffic,protocol_port_range",
+              "source": "ast-validator:ConflictingListObjectAttributes",
+              "target_id": "xcsh-docs:resources:policy_based_routing:properties:network_pbr:network_pbr_rules:protocol_port_range",
+              "type": "conflicts"
+            },
+            {
+              "anchor": "section",
+              "enforcement": "provider-schema",
+              "group": "network_pbr.network_pbr_rules:ConflictingListObjectAttributes:all_udp_traffic,protocol_port_range",
+              "source": "ast-validator:ConflictingListObjectAttributes",
+              "target_id": "xcsh-docs:resources:policy_based_routing:properties:network_pbr:network_pbr_rules:protocol_port_range",
+              "type": "conflicts"
+            },
+            {
+              "anchor": "section",
+              "enforcement": "provider-schema",
+              "group": "network_pbr.network_pbr_rules:ConflictingListObjectAttributes:applications,protocol_port_range",
+              "source": "ast-validator:ConflictingListObjectAttributes",
+              "target_id": "xcsh-docs:resources:policy_based_routing:properties:network_pbr:network_pbr_rules:protocol_port_range",
+              "type": "conflicts"
+            },
+            {
+              "anchor": "section",
+              "enforcement": "provider-schema",
+              "group": "network_pbr.network_pbr_rules:RequiredListObjectAttributes:forwarding_class_list",
+              "source": "ast-validator:RequiredListObjectAttributes",
+              "target_id": "xcsh-docs:resources:policy_based_routing:properties:network_pbr:network_pbr_rules:forwarding_class_list",
+              "type": "requires"
+            }
+          ],
           "schema_path": ["network_pbr", "network_pbr_rules"],
           "syntax": "block",
           "type": "object"
@@ -2060,7 +3055,7 @@
       "category": "networking",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:98dbf5280bf8376a0c75c1391250db9db4ac0d293d42bdd831c20f7514925adb",
+        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -2100,7 +3095,7 @@
       "category": "networking",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:98dbf5280bf8376a0c75c1391250db9db4ac0d293d42bdd831c20f7514925adb",
+        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -2147,7 +3142,7 @@
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/policy_based_routing/properties/network_pbr/label_selector/index.txt",
       "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
-      "summary": "This type can be used to establish a 'selector reference' from one object(called selector) to a set of other objects(called selectees) based on the value of expressions. A label selector is a label query over a set of resources. An empty label selector matches all objects. A null label selector matches no objects. Labe",
+      "summary": "This type can be used to establish a 'selector reference' from one object(called selector) to a set of other objects(called selectees) based on the value of expressions. A label selector is a label query over a set of resources. An empty label selector matches all objects. A null label selector matches no objects.",
       "tasks": ["configuration"],
       "title": "network_pbr.label_selector",
       "upstream_identity": {
@@ -2175,7 +3170,7 @@
         "xcsh-docs:resources:policy_based_routing:properties:network_pbr:network_pbr_rules:protocol_port_range"
       ],
       "classification": {
-        "rules_sha256": "sha256:98dbf5280bf8376a0c75c1391250db9db4ac0d293d42bdd831c20f7514925adb",
+        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -2191,7 +3186,272 @@
       "provider_type": "resources",
       "registry_anchor": "canonical-1333313200330032-3321032201303330-1002002123303122-3101012200333212-1032101131030110-1112013101010232-0110222033230303-1212302032133000",
       "registry_path": "docs/guides/resources--policy_based_routing--reference--group-001.md",
-      "relationships": [],
+      "relationships": [
+        {
+          "anchor": "schema-network_pbr--network_pbr_rules--dns_name",
+          "enforcement": "provider-schema",
+          "group": "network_pbr.network_pbr_rules:ConflictingListObjectAttributes:any,dns_name",
+          "source": "ast-validator:ConflictingListObjectAttributes",
+          "target_id": "xcsh-docs:resources:policy_based_routing:properties:network_pbr:network_pbr_rules",
+          "type": "conflicts"
+        },
+        {
+          "anchor": "schema-network_pbr--network_pbr_rules--dns_name",
+          "enforcement": "provider-schema",
+          "group": "network_pbr.network_pbr_rules:ConflictingListObjectAttributes:dns_name,ip_prefix_set",
+          "source": "ast-validator:ConflictingListObjectAttributes",
+          "target_id": "xcsh-docs:resources:policy_based_routing:properties:network_pbr:network_pbr_rules",
+          "type": "conflicts"
+        },
+        {
+          "anchor": "schema-network_pbr--network_pbr_rules--dns_name",
+          "enforcement": "provider-schema",
+          "group": "network_pbr.network_pbr_rules:ConflictingListObjectAttributes:dns_name,prefix_list",
+          "source": "ast-validator:ConflictingListObjectAttributes",
+          "target_id": "xcsh-docs:resources:policy_based_routing:properties:network_pbr:network_pbr_rules",
+          "type": "conflicts"
+        },
+        {
+          "anchor": "section",
+          "enforcement": "provider-schema",
+          "group": "network_pbr.network_pbr_rules:ConflictingListObjectAttributes:all_tcp_traffic,all_traffic",
+          "source": "ast-validator:ConflictingListObjectAttributes",
+          "target_id": "xcsh-docs:resources:policy_based_routing:properties:network_pbr:network_pbr_rules:all_tcp_traffic",
+          "type": "conflicts"
+        },
+        {
+          "anchor": "section",
+          "enforcement": "provider-schema",
+          "group": "network_pbr.network_pbr_rules:ConflictingListObjectAttributes:all_tcp_traffic,all_udp_traffic",
+          "source": "ast-validator:ConflictingListObjectAttributes",
+          "target_id": "xcsh-docs:resources:policy_based_routing:properties:network_pbr:network_pbr_rules:all_tcp_traffic",
+          "type": "conflicts"
+        },
+        {
+          "anchor": "section",
+          "enforcement": "provider-schema",
+          "group": "network_pbr.network_pbr_rules:ConflictingListObjectAttributes:all_tcp_traffic,applications",
+          "source": "ast-validator:ConflictingListObjectAttributes",
+          "target_id": "xcsh-docs:resources:policy_based_routing:properties:network_pbr:network_pbr_rules:all_tcp_traffic",
+          "type": "conflicts"
+        },
+        {
+          "anchor": "section",
+          "enforcement": "provider-schema",
+          "group": "network_pbr.network_pbr_rules:ConflictingListObjectAttributes:all_tcp_traffic,protocol_port_range",
+          "source": "ast-validator:ConflictingListObjectAttributes",
+          "target_id": "xcsh-docs:resources:policy_based_routing:properties:network_pbr:network_pbr_rules:all_tcp_traffic",
+          "type": "conflicts"
+        },
+        {
+          "anchor": "section",
+          "enforcement": "provider-schema",
+          "group": "network_pbr.network_pbr_rules:ConflictingListObjectAttributes:all_tcp_traffic,all_traffic",
+          "source": "ast-validator:ConflictingListObjectAttributes",
+          "target_id": "xcsh-docs:resources:policy_based_routing:properties:network_pbr:network_pbr_rules:all_traffic",
+          "type": "conflicts"
+        },
+        {
+          "anchor": "section",
+          "enforcement": "provider-schema",
+          "group": "network_pbr.network_pbr_rules:ConflictingListObjectAttributes:all_traffic,all_udp_traffic",
+          "source": "ast-validator:ConflictingListObjectAttributes",
+          "target_id": "xcsh-docs:resources:policy_based_routing:properties:network_pbr:network_pbr_rules:all_traffic",
+          "type": "conflicts"
+        },
+        {
+          "anchor": "section",
+          "enforcement": "provider-schema",
+          "group": "network_pbr.network_pbr_rules:ConflictingListObjectAttributes:all_traffic,applications",
+          "source": "ast-validator:ConflictingListObjectAttributes",
+          "target_id": "xcsh-docs:resources:policy_based_routing:properties:network_pbr:network_pbr_rules:all_traffic",
+          "type": "conflicts"
+        },
+        {
+          "anchor": "section",
+          "enforcement": "provider-schema",
+          "group": "network_pbr.network_pbr_rules:ConflictingListObjectAttributes:all_traffic,protocol_port_range",
+          "source": "ast-validator:ConflictingListObjectAttributes",
+          "target_id": "xcsh-docs:resources:policy_based_routing:properties:network_pbr:network_pbr_rules:all_traffic",
+          "type": "conflicts"
+        },
+        {
+          "anchor": "section",
+          "enforcement": "provider-schema",
+          "group": "network_pbr.network_pbr_rules:ConflictingListObjectAttributes:all_tcp_traffic,all_udp_traffic",
+          "source": "ast-validator:ConflictingListObjectAttributes",
+          "target_id": "xcsh-docs:resources:policy_based_routing:properties:network_pbr:network_pbr_rules:all_udp_traffic",
+          "type": "conflicts"
+        },
+        {
+          "anchor": "section",
+          "enforcement": "provider-schema",
+          "group": "network_pbr.network_pbr_rules:ConflictingListObjectAttributes:all_traffic,all_udp_traffic",
+          "source": "ast-validator:ConflictingListObjectAttributes",
+          "target_id": "xcsh-docs:resources:policy_based_routing:properties:network_pbr:network_pbr_rules:all_udp_traffic",
+          "type": "conflicts"
+        },
+        {
+          "anchor": "section",
+          "enforcement": "provider-schema",
+          "group": "network_pbr.network_pbr_rules:ConflictingListObjectAttributes:all_udp_traffic,applications",
+          "source": "ast-validator:ConflictingListObjectAttributes",
+          "target_id": "xcsh-docs:resources:policy_based_routing:properties:network_pbr:network_pbr_rules:all_udp_traffic",
+          "type": "conflicts"
+        },
+        {
+          "anchor": "section",
+          "enforcement": "provider-schema",
+          "group": "network_pbr.network_pbr_rules:ConflictingListObjectAttributes:all_udp_traffic,protocol_port_range",
+          "source": "ast-validator:ConflictingListObjectAttributes",
+          "target_id": "xcsh-docs:resources:policy_based_routing:properties:network_pbr:network_pbr_rules:all_udp_traffic",
+          "type": "conflicts"
+        },
+        {
+          "anchor": "section",
+          "enforcement": "provider-schema",
+          "group": "network_pbr.network_pbr_rules:ConflictingListObjectAttributes:any,dns_name",
+          "source": "ast-validator:ConflictingListObjectAttributes",
+          "target_id": "xcsh-docs:resources:policy_based_routing:properties:network_pbr:network_pbr_rules:any",
+          "type": "conflicts"
+        },
+        {
+          "anchor": "section",
+          "enforcement": "provider-schema",
+          "group": "network_pbr.network_pbr_rules:ConflictingListObjectAttributes:any,ip_prefix_set",
+          "source": "ast-validator:ConflictingListObjectAttributes",
+          "target_id": "xcsh-docs:resources:policy_based_routing:properties:network_pbr:network_pbr_rules:any",
+          "type": "conflicts"
+        },
+        {
+          "anchor": "section",
+          "enforcement": "provider-schema",
+          "group": "network_pbr.network_pbr_rules:ConflictingListObjectAttributes:any,prefix_list",
+          "source": "ast-validator:ConflictingListObjectAttributes",
+          "target_id": "xcsh-docs:resources:policy_based_routing:properties:network_pbr:network_pbr_rules:any",
+          "type": "conflicts"
+        },
+        {
+          "anchor": "section",
+          "enforcement": "provider-schema",
+          "group": "network_pbr.network_pbr_rules:ConflictingListObjectAttributes:all_tcp_traffic,applications",
+          "source": "ast-validator:ConflictingListObjectAttributes",
+          "target_id": "xcsh-docs:resources:policy_based_routing:properties:network_pbr:network_pbr_rules:applications",
+          "type": "conflicts"
+        },
+        {
+          "anchor": "section",
+          "enforcement": "provider-schema",
+          "group": "network_pbr.network_pbr_rules:ConflictingListObjectAttributes:all_traffic,applications",
+          "source": "ast-validator:ConflictingListObjectAttributes",
+          "target_id": "xcsh-docs:resources:policy_based_routing:properties:network_pbr:network_pbr_rules:applications",
+          "type": "conflicts"
+        },
+        {
+          "anchor": "section",
+          "enforcement": "provider-schema",
+          "group": "network_pbr.network_pbr_rules:ConflictingListObjectAttributes:all_udp_traffic,applications",
+          "source": "ast-validator:ConflictingListObjectAttributes",
+          "target_id": "xcsh-docs:resources:policy_based_routing:properties:network_pbr:network_pbr_rules:applications",
+          "type": "conflicts"
+        },
+        {
+          "anchor": "section",
+          "enforcement": "provider-schema",
+          "group": "network_pbr.network_pbr_rules:ConflictingListObjectAttributes:applications,protocol_port_range",
+          "source": "ast-validator:ConflictingListObjectAttributes",
+          "target_id": "xcsh-docs:resources:policy_based_routing:properties:network_pbr:network_pbr_rules:applications",
+          "type": "conflicts"
+        },
+        {
+          "anchor": "section",
+          "enforcement": "provider-schema",
+          "group": "network_pbr.network_pbr_rules:ConflictingListObjectAttributes:any,ip_prefix_set",
+          "source": "ast-validator:ConflictingListObjectAttributes",
+          "target_id": "xcsh-docs:resources:policy_based_routing:properties:network_pbr:network_pbr_rules:ip_prefix_set",
+          "type": "conflicts"
+        },
+        {
+          "anchor": "section",
+          "enforcement": "provider-schema",
+          "group": "network_pbr.network_pbr_rules:ConflictingListObjectAttributes:dns_name,ip_prefix_set",
+          "source": "ast-validator:ConflictingListObjectAttributes",
+          "target_id": "xcsh-docs:resources:policy_based_routing:properties:network_pbr:network_pbr_rules:ip_prefix_set",
+          "type": "conflicts"
+        },
+        {
+          "anchor": "section",
+          "enforcement": "provider-schema",
+          "group": "network_pbr.network_pbr_rules:ConflictingListObjectAttributes:ip_prefix_set,prefix_list",
+          "source": "ast-validator:ConflictingListObjectAttributes",
+          "target_id": "xcsh-docs:resources:policy_based_routing:properties:network_pbr:network_pbr_rules:ip_prefix_set",
+          "type": "conflicts"
+        },
+        {
+          "anchor": "section",
+          "enforcement": "provider-schema",
+          "group": "network_pbr.network_pbr_rules:ConflictingListObjectAttributes:any,prefix_list",
+          "source": "ast-validator:ConflictingListObjectAttributes",
+          "target_id": "xcsh-docs:resources:policy_based_routing:properties:network_pbr:network_pbr_rules:prefix_list",
+          "type": "conflicts"
+        },
+        {
+          "anchor": "section",
+          "enforcement": "provider-schema",
+          "group": "network_pbr.network_pbr_rules:ConflictingListObjectAttributes:dns_name,prefix_list",
+          "source": "ast-validator:ConflictingListObjectAttributes",
+          "target_id": "xcsh-docs:resources:policy_based_routing:properties:network_pbr:network_pbr_rules:prefix_list",
+          "type": "conflicts"
+        },
+        {
+          "anchor": "section",
+          "enforcement": "provider-schema",
+          "group": "network_pbr.network_pbr_rules:ConflictingListObjectAttributes:ip_prefix_set,prefix_list",
+          "source": "ast-validator:ConflictingListObjectAttributes",
+          "target_id": "xcsh-docs:resources:policy_based_routing:properties:network_pbr:network_pbr_rules:prefix_list",
+          "type": "conflicts"
+        },
+        {
+          "anchor": "section",
+          "enforcement": "provider-schema",
+          "group": "network_pbr.network_pbr_rules:ConflictingListObjectAttributes:all_tcp_traffic,protocol_port_range",
+          "source": "ast-validator:ConflictingListObjectAttributes",
+          "target_id": "xcsh-docs:resources:policy_based_routing:properties:network_pbr:network_pbr_rules:protocol_port_range",
+          "type": "conflicts"
+        },
+        {
+          "anchor": "section",
+          "enforcement": "provider-schema",
+          "group": "network_pbr.network_pbr_rules:ConflictingListObjectAttributes:all_traffic,protocol_port_range",
+          "source": "ast-validator:ConflictingListObjectAttributes",
+          "target_id": "xcsh-docs:resources:policy_based_routing:properties:network_pbr:network_pbr_rules:protocol_port_range",
+          "type": "conflicts"
+        },
+        {
+          "anchor": "section",
+          "enforcement": "provider-schema",
+          "group": "network_pbr.network_pbr_rules:ConflictingListObjectAttributes:all_udp_traffic,protocol_port_range",
+          "source": "ast-validator:ConflictingListObjectAttributes",
+          "target_id": "xcsh-docs:resources:policy_based_routing:properties:network_pbr:network_pbr_rules:protocol_port_range",
+          "type": "conflicts"
+        },
+        {
+          "anchor": "section",
+          "enforcement": "provider-schema",
+          "group": "network_pbr.network_pbr_rules:ConflictingListObjectAttributes:applications,protocol_port_range",
+          "source": "ast-validator:ConflictingListObjectAttributes",
+          "target_id": "xcsh-docs:resources:policy_based_routing:properties:network_pbr:network_pbr_rules:protocol_port_range",
+          "type": "conflicts"
+        },
+        {
+          "anchor": "section",
+          "enforcement": "provider-schema",
+          "group": "network_pbr.network_pbr_rules:RequiredListObjectAttributes:forwarding_class_list",
+          "source": "ast-validator:RequiredListObjectAttributes",
+          "target_id": "xcsh-docs:resources:policy_based_routing:properties:network_pbr:network_pbr_rules:forwarding_class_list",
+          "type": "requires"
+        }
+      ],
       "retrieval_version": 1,
       "role": "properties",
       "schema_path": ["network_pbr", "network_pbr_rules"],
@@ -2289,7 +3549,16 @@
           "max_items": null,
           "min_items": null,
           "nesting": "list",
-          "relationships": [],
+          "relationships": [
+            {
+              "anchor": "schema-network_pbr--network_pbr_rules--forwarding_class_list--name",
+              "enforcement": "provider-schema",
+              "group": "network_pbr.network_pbr_rules.forwarding_class_list:RequiredListObjectAttributes:name",
+              "source": "ast-validator:RequiredListObjectAttributes",
+              "target_id": "xcsh-docs:resources:policy_based_routing:properties:network_pbr:network_pbr_rules:forwarding_class_list",
+              "type": "requires"
+            }
+          ],
           "schema_path": ["network_pbr", "network_pbr_rules", "forwarding_class_list"],
           "syntax": "block",
           "type": "object"
@@ -2379,7 +3648,7 @@
       "category": "networking",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:98dbf5280bf8376a0c75c1391250db9db4ac0d293d42bdd831c20f7514925adb",
+        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -2419,7 +3688,7 @@
       "category": "networking",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:98dbf5280bf8376a0c75c1391250db9db4ac0d293d42bdd831c20f7514925adb",
+        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -2459,7 +3728,7 @@
       "category": "networking",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:98dbf5280bf8376a0c75c1391250db9db4ac0d293d42bdd831c20f7514925adb",
+        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -2499,7 +3768,7 @@
       "category": "networking",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:98dbf5280bf8376a0c75c1391250db9db4ac0d293d42bdd831c20f7514925adb",
+        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -2539,7 +3808,7 @@
       "category": "networking",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:98dbf5280bf8376a0c75c1391250db9db4ac0d293d42bdd831c20f7514925adb",
+        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -2594,7 +3863,7 @@
       "category": "networking",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:98dbf5280bf8376a0c75c1391250db9db4ac0d293d42bdd831c20f7514925adb",
+        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -2610,7 +3879,16 @@
       "provider_type": "resources",
       "registry_anchor": "canonical-0002033331210132-3311210233002012-0123313002133202-1112203310233222-0101133301103221-2232210122333100-3030230033303012-2310312132330320",
       "registry_path": "docs/guides/resources--policy_based_routing--reference--group-001.md",
-      "relationships": [],
+      "relationships": [
+        {
+          "anchor": "schema-network_pbr--network_pbr_rules--forwarding_class_list--name",
+          "enforcement": "provider-schema",
+          "group": "network_pbr.network_pbr_rules.forwarding_class_list:RequiredListObjectAttributes:name",
+          "source": "ast-validator:RequiredListObjectAttributes",
+          "target_id": "xcsh-docs:resources:policy_based_routing:properties:network_pbr:network_pbr_rules:forwarding_class_list",
+          "type": "requires"
+        }
+      ],
       "retrieval_version": 1,
       "role": "properties",
       "schema_path": ["network_pbr", "network_pbr_rules", "forwarding_class_list"],
@@ -2679,7 +3957,7 @@
         "xcsh-docs:resources:policy_based_routing:properties:network_pbr:network_pbr_rules:ip_prefix_set:ref"
       ],
       "classification": {
-        "rules_sha256": "sha256:98dbf5280bf8376a0c75c1391250db9db4ac0d293d42bdd831c20f7514925adb",
+        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -2734,7 +4012,7 @@
       "category": "networking",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:98dbf5280bf8376a0c75c1391250db9db4ac0d293d42bdd831c20f7514925adb",
+        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -2845,7 +4123,7 @@
       "category": "networking",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:98dbf5280bf8376a0c75c1391250db9db4ac0d293d42bdd831c20f7514925adb",
+        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -2923,7 +4201,7 @@
       "category": "networking",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:98dbf5280bf8376a0c75c1391250db9db4ac0d293d42bdd831c20f7514925adb",
+        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -2978,7 +4256,7 @@
       "category": "networking",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:98dbf5280bf8376a0c75c1391250db9db4ac0d293d42bdd831c20f7514925adb",
+        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -3047,7 +4325,7 @@
       "category": "networking",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:98dbf5280bf8376a0c75c1391250db9db4ac0d293d42bdd831c20f7514925adb",
+        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -3102,7 +4380,7 @@
       "category": "networking",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:98dbf5280bf8376a0c75c1391250db9db4ac0d293d42bdd831c20f7514925adb",
+        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -3199,7 +4477,7 @@
       "category": "networking",
       "child_ids": ["xcsh-docs:resources:policy_based_routing:example:resource"],
       "classification": {
-        "rules_sha256": "sha256:98dbf5280bf8376a0c75c1391250db9db4ac0d293d42bdd831c20f7514925adb",
+        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -3239,7 +4517,7 @@
       "category": "networking",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:98dbf5280bf8376a0c75c1391250db9db4ac0d293d42bdd831c20f7514925adb",
+        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -3286,7 +4564,7 @@
       "category": "networking",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:98dbf5280bf8376a0c75c1391250db9db4ac0d293d42bdd831c20f7514925adb",
+        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -3327,7 +4605,7 @@
       "category": "networking",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:98dbf5280bf8376a0c75c1391250db9db4ac0d293d42bdd831c20f7514925adb",
+        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"

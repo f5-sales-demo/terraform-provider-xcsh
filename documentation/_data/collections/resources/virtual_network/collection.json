@@ -167,7 +167,7 @@
         "xcsh-docs:resources:virtual_network:timeouts"
       ],
       "classification": {
-        "rules_sha256": "sha256:98dbf5280bf8376a0c75c1391250db9db4ac0d293d42bdd831c20f7514925adb",
+        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -222,7 +222,7 @@
         "xcsh-docs:resources:virtual_network:properties:timeouts"
       ],
       "classification": {
-        "rules_sha256": "sha256:98dbf5280bf8376a0c75c1391250db9db4ac0d293d42bdd831c20f7514925adb",
+        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -392,7 +392,88 @@
           "max_items": null,
           "min_items": null,
           "nesting": "list",
-          "relationships": [],
+          "relationships": [
+            {
+              "anchor": "schema-static_routes--ip_address",
+              "enforcement": "provider-schema",
+              "group": "static_routes:RequiredOneOfListObjectAttributes:default_gateway,ip_address,node_interface",
+              "source": "ast-validator:RequiredOneOfListObjectAttributes",
+              "target_id": "xcsh-docs:resources:virtual_network:properties:static_routes",
+              "type": "choice"
+            },
+            {
+              "anchor": "section",
+              "enforcement": "provider-schema",
+              "group": "static_routes:RequiredOneOfListObjectAttributes:default_gateway,ip_address,node_interface",
+              "source": "ast-validator:RequiredOneOfListObjectAttributes",
+              "target_id": "xcsh-docs:resources:virtual_network:properties:static_routes:default_gateway",
+              "type": "choice"
+            },
+            {
+              "anchor": "section",
+              "enforcement": "provider-schema",
+              "group": "static_routes:RequiredOneOfListObjectAttributes:default_gateway,ip_address,node_interface",
+              "source": "ast-validator:RequiredOneOfListObjectAttributes",
+              "target_id": "xcsh-docs:resources:virtual_network:properties:static_routes:node_interface",
+              "type": "choice"
+            },
+            {
+              "anchor": "schema-static_routes--ip_address",
+              "enforcement": "provider-schema",
+              "group": "static_routes:ConflictingListObjectAttributes:default_gateway,ip_address",
+              "source": "ast-validator:ConflictingListObjectAttributes",
+              "target_id": "xcsh-docs:resources:virtual_network:properties:static_routes",
+              "type": "conflicts"
+            },
+            {
+              "anchor": "schema-static_routes--ip_address",
+              "enforcement": "provider-schema",
+              "group": "static_routes:ConflictingListObjectAttributes:ip_address,node_interface",
+              "source": "ast-validator:ConflictingListObjectAttributes",
+              "target_id": "xcsh-docs:resources:virtual_network:properties:static_routes",
+              "type": "conflicts"
+            },
+            {
+              "anchor": "section",
+              "enforcement": "provider-schema",
+              "group": "static_routes:ConflictingListObjectAttributes:default_gateway,ip_address",
+              "source": "ast-validator:ConflictingListObjectAttributes",
+              "target_id": "xcsh-docs:resources:virtual_network:properties:static_routes:default_gateway",
+              "type": "conflicts"
+            },
+            {
+              "anchor": "section",
+              "enforcement": "provider-schema",
+              "group": "static_routes:ConflictingListObjectAttributes:default_gateway,node_interface",
+              "source": "ast-validator:ConflictingListObjectAttributes",
+              "target_id": "xcsh-docs:resources:virtual_network:properties:static_routes:default_gateway",
+              "type": "conflicts"
+            },
+            {
+              "anchor": "section",
+              "enforcement": "provider-schema",
+              "group": "static_routes:ConflictingListObjectAttributes:default_gateway,node_interface",
+              "source": "ast-validator:ConflictingListObjectAttributes",
+              "target_id": "xcsh-docs:resources:virtual_network:properties:static_routes:node_interface",
+              "type": "conflicts"
+            },
+            {
+              "anchor": "section",
+              "enforcement": "provider-schema",
+              "group": "static_routes:ConflictingListObjectAttributes:ip_address,node_interface",
+              "source": "ast-validator:ConflictingListObjectAttributes",
+              "target_id": "xcsh-docs:resources:virtual_network:properties:static_routes:node_interface",
+              "type": "conflicts"
+            },
+            {
+              "anchor": "schema-static_routes--ip_prefixes",
+              "enforcement": "provider-schema",
+              "group": "static_routes:RequiredListObjectAttributes:ip_prefixes",
+              "source": "ast-validator:RequiredListObjectAttributes",
+              "target_id": "xcsh-docs:resources:virtual_network:properties:static_routes",
+              "type": "requires"
+            }
+          ],
           "schema_path": ["static_routes"],
           "syntax": "block",
           "type": "object"
@@ -431,7 +512,7 @@
       "category": "networking",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:98dbf5280bf8376a0c75c1391250db9db4ac0d293d42bdd831c20f7514925adb",
+        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -471,7 +552,7 @@
       "category": "networking",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:98dbf5280bf8376a0c75c1391250db9db4ac0d293d42bdd831c20f7514925adb",
+        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -511,7 +592,7 @@
       "category": "networking",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:98dbf5280bf8376a0c75c1391250db9db4ac0d293d42bdd831c20f7514925adb",
+        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -554,7 +635,7 @@
         "xcsh-docs:resources:virtual_network:properties:static_routes:node_interface"
       ],
       "classification": {
-        "rules_sha256": "sha256:98dbf5280bf8376a0c75c1391250db9db4ac0d293d42bdd831c20f7514925adb",
+        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -570,7 +651,88 @@
       "provider_type": "resources",
       "registry_anchor": "canonical-2213023321010103-2233012001101320-3233300021131202-2111023330200032-0322011301321203-2230301113203323-0130330321331233-2010201022003011",
       "registry_path": "docs/guides/resources--virtual_network--reference--group-001.md",
-      "relationships": [],
+      "relationships": [
+        {
+          "anchor": "schema-static_routes--ip_address",
+          "enforcement": "provider-schema",
+          "group": "static_routes:RequiredOneOfListObjectAttributes:default_gateway,ip_address,node_interface",
+          "source": "ast-validator:RequiredOneOfListObjectAttributes",
+          "target_id": "xcsh-docs:resources:virtual_network:properties:static_routes",
+          "type": "choice"
+        },
+        {
+          "anchor": "section",
+          "enforcement": "provider-schema",
+          "group": "static_routes:RequiredOneOfListObjectAttributes:default_gateway,ip_address,node_interface",
+          "source": "ast-validator:RequiredOneOfListObjectAttributes",
+          "target_id": "xcsh-docs:resources:virtual_network:properties:static_routes:default_gateway",
+          "type": "choice"
+        },
+        {
+          "anchor": "section",
+          "enforcement": "provider-schema",
+          "group": "static_routes:RequiredOneOfListObjectAttributes:default_gateway,ip_address,node_interface",
+          "source": "ast-validator:RequiredOneOfListObjectAttributes",
+          "target_id": "xcsh-docs:resources:virtual_network:properties:static_routes:node_interface",
+          "type": "choice"
+        },
+        {
+          "anchor": "schema-static_routes--ip_address",
+          "enforcement": "provider-schema",
+          "group": "static_routes:ConflictingListObjectAttributes:default_gateway,ip_address",
+          "source": "ast-validator:ConflictingListObjectAttributes",
+          "target_id": "xcsh-docs:resources:virtual_network:properties:static_routes",
+          "type": "conflicts"
+        },
+        {
+          "anchor": "schema-static_routes--ip_address",
+          "enforcement": "provider-schema",
+          "group": "static_routes:ConflictingListObjectAttributes:ip_address,node_interface",
+          "source": "ast-validator:ConflictingListObjectAttributes",
+          "target_id": "xcsh-docs:resources:virtual_network:properties:static_routes",
+          "type": "conflicts"
+        },
+        {
+          "anchor": "section",
+          "enforcement": "provider-schema",
+          "group": "static_routes:ConflictingListObjectAttributes:default_gateway,ip_address",
+          "source": "ast-validator:ConflictingListObjectAttributes",
+          "target_id": "xcsh-docs:resources:virtual_network:properties:static_routes:default_gateway",
+          "type": "conflicts"
+        },
+        {
+          "anchor": "section",
+          "enforcement": "provider-schema",
+          "group": "static_routes:ConflictingListObjectAttributes:default_gateway,node_interface",
+          "source": "ast-validator:ConflictingListObjectAttributes",
+          "target_id": "xcsh-docs:resources:virtual_network:properties:static_routes:default_gateway",
+          "type": "conflicts"
+        },
+        {
+          "anchor": "section",
+          "enforcement": "provider-schema",
+          "group": "static_routes:ConflictingListObjectAttributes:default_gateway,node_interface",
+          "source": "ast-validator:ConflictingListObjectAttributes",
+          "target_id": "xcsh-docs:resources:virtual_network:properties:static_routes:node_interface",
+          "type": "conflicts"
+        },
+        {
+          "anchor": "section",
+          "enforcement": "provider-schema",
+          "group": "static_routes:ConflictingListObjectAttributes:ip_address,node_interface",
+          "source": "ast-validator:ConflictingListObjectAttributes",
+          "target_id": "xcsh-docs:resources:virtual_network:properties:static_routes:node_interface",
+          "type": "conflicts"
+        },
+        {
+          "anchor": "schema-static_routes--ip_prefixes",
+          "enforcement": "provider-schema",
+          "group": "static_routes:RequiredListObjectAttributes:ip_prefixes",
+          "source": "ast-validator:RequiredListObjectAttributes",
+          "target_id": "xcsh-docs:resources:virtual_network:properties:static_routes",
+          "type": "requires"
+        }
+      ],
       "retrieval_version": 1,
       "role": "properties",
       "schema_path": ["static_routes"],
@@ -665,7 +827,7 @@
       "category": "networking",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:98dbf5280bf8376a0c75c1391250db9db4ac0d293d42bdd831c20f7514925adb",
+        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -705,7 +867,7 @@
       "category": "networking",
       "child_ids": ["xcsh-docs:resources:virtual_network:properties:static_routes:node_interface:list"],
       "classification": {
-        "rules_sha256": "sha256:98dbf5280bf8376a0c75c1391250db9db4ac0d293d42bdd831c20f7514925adb",
+        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -760,7 +922,7 @@
       "category": "networking",
       "child_ids": ["xcsh-docs:resources:virtual_network:properties:static_routes:node_interface:list:interface"],
       "classification": {
-        "rules_sha256": "sha256:98dbf5280bf8376a0c75c1391250db9db4ac0d293d42bdd831c20f7514925adb",
+        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -829,7 +991,7 @@
       "category": "networking",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:98dbf5280bf8376a0c75c1391250db9db4ac0d293d42bdd831c20f7514925adb",
+        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -940,7 +1102,7 @@
       "category": "networking",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:98dbf5280bf8376a0c75c1391250db9db4ac0d293d42bdd831c20f7514925adb",
+        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -1037,7 +1199,7 @@
       "category": "networking",
       "child_ids": ["xcsh-docs:resources:virtual_network:example:resource"],
       "classification": {
-        "rules_sha256": "sha256:98dbf5280bf8376a0c75c1391250db9db4ac0d293d42bdd831c20f7514925adb",
+        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -1077,7 +1239,7 @@
       "category": "networking",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:98dbf5280bf8376a0c75c1391250db9db4ac0d293d42bdd831c20f7514925adb",
+        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -1124,7 +1286,7 @@
       "category": "networking",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:98dbf5280bf8376a0c75c1391250db9db4ac0d293d42bdd831c20f7514925adb",
+        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -1165,7 +1327,7 @@
       "category": "networking",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:98dbf5280bf8376a0c75c1391250db9db4ac0d293d42bdd831c20f7514925adb",
+        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"

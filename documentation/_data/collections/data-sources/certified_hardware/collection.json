@@ -265,7 +265,7 @@
         "xcsh-docs:data-sources:certified_hardware:examples"
       ],
       "classification": {
-        "rules_sha256": "sha256:98dbf5280bf8376a0c75c1391250db9db4ac0d293d42bdd831c20f7514925adb",
+        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -312,7 +312,7 @@
         "xcsh-docs:data-sources:certified_hardware:properties:vendor_model_list"
       ],
       "classification": {
-        "rules_sha256": "sha256:98dbf5280bf8376a0c75c1391250db9db4ac0d293d42bdd831c20f7514925adb",
+        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -462,7 +462,7 @@
         {
           "aliases": ["mem page size"],
           "anchor": "schema-mem_page_size",
-          "description": "Memory for packets buffers etc are allocated in blocks of pages. Size of each memory page is defined here. Invalid Page size Page size of 4KB Page size of 2MB Page size of 1GB. Possible values are `HARDWARE_MEM_PAGE_SIZE_INVALID`, `HARDWARE_MEM_PAGE_SIZE_4KB`, `HARDWARE_MEM_PAGE_SIZE_2MB`, `HARDWARE_MEM_PAGE_SIZE_1GB`.",
+          "description": "Memory for packets buffers etc are allocated in blocks of pages. Size of each memory page is defined here. Invalid Page size Page size of 4KB Page size of 2MB Page size of 1GB. Possible values are `HARDWARE_MEM_PAGE_SIZE_INVALID`, `HARDWARE_MEM_PAGE_SIZE_4KB`, `HARDWARE_MEM_PAGE_SIZE_2MB`,",
           "document_id": "xcsh-docs:data-sources:certified_hardware:reference",
           "flags": ["computed"],
           "max_items": null,
@@ -563,7 +563,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:98dbf5280bf8376a0c75c1391250db9db4ac0d293d42bdd831c20f7514925adb",
+        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -643,7 +643,7 @@
         {
           "aliases": ["type"],
           "anchor": "schema-devices--type",
-          "description": "Different type of devices supported Invalid device or device that's not supported Ethernet device VIRTIO device TUNTAP device LACP based bond interface External iSCSI devices supported Nvidia GPU device used for machine learning. Possible values are `HARDWARE_DEVICE_INVALID`, `HARDWARE_DEVICE_ETHERNET`, `HARDWARE_DEVIC",
+          "description": "Different type of devices supported Invalid device or device that's not supported Ethernet device VIRTIO device TUNTAP device LACP based bond interface External iSCSI devices supported Nvidia GPU device used for machine learning. Possible values are `HARDWARE_DEVICE_INVALID`, `HARDWARE_DEVICE_ETHERNET`,",
           "document_id": "xcsh-docs:data-sources:certified_hardware:properties:devices",
           "flags": ["computed"],
           "max_items": null,
@@ -657,7 +657,7 @@
         {
           "aliases": ["use"],
           "anchor": "schema-devices--use",
-          "description": "Defines how the device instance must be used If the device is owned by F5 Distributed Cloud software, it is available for users to configure as required Device reserved for internal use by F5 Distributed Cloud Node If the Network device is owned by VER, it is available for users to configure as.. Possible values are `H",
+          "description": "Defines how the device instance must be used If the device is owned by F5 Distributed Cloud software, it is available for users to configure as required Device reserved for internal use by F5 Distributed Cloud Node If the Network device is owned by VER, it is available for users to configure as.. Possible values are",
           "document_id": "xcsh-docs:data-sources:certified_hardware:properties:devices",
           "flags": ["computed"],
           "max_items": null,
@@ -692,7 +692,7 @@
         "xcsh-docs:data-sources:certified_hardware:properties:image_list:gcp"
       ],
       "classification": {
-        "rules_sha256": "sha256:98dbf5280bf8376a0c75c1391250db9db4ac0d293d42bdd831c20f7514925adb",
+        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -803,7 +803,7 @@
       "category": null,
       "child_ids": ["xcsh-docs:data-sources:certified_hardware:properties:image_list:aws:image_id"],
       "classification": {
-        "rules_sha256": "sha256:98dbf5280bf8376a0c75c1391250db9db4ac0d293d42bdd831c20f7514925adb",
+        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -858,7 +858,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:98dbf5280bf8376a0c75c1391250db9db4ac0d293d42bdd831c20f7514925adb",
+        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -930,7 +930,7 @@
         "xcsh-docs:data-sources:certified_hardware:properties:image_list:azure:marketplace"
       ],
       "classification": {
-        "rules_sha256": "sha256:98dbf5280bf8376a0c75c1391250db9db4ac0d293d42bdd831c20f7514925adb",
+        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -999,7 +999,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:98dbf5280bf8376a0c75c1391250db9db4ac0d293d42bdd831c20f7514925adb",
+        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -1054,7 +1054,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:98dbf5280bf8376a0c75c1391250db9db4ac0d293d42bdd831c20f7514925adb",
+        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -1165,7 +1165,7 @@
       "category": null,
       "child_ids": ["xcsh-docs:data-sources:certified_hardware:properties:image_list:gcp:image_id"],
       "classification": {
-        "rules_sha256": "sha256:98dbf5280bf8376a0c75c1391250db9db4ac0d293d42bdd831c20f7514925adb",
+        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -1220,7 +1220,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:98dbf5280bf8376a0c75c1391250db9db4ac0d293d42bdd831c20f7514925adb",
+        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -1275,7 +1275,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:98dbf5280bf8376a0c75c1391250db9db4ac0d293d42bdd831c20f7514925adb",
+        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -1400,7 +1400,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:98dbf5280bf8376a0c75c1391250db9db4ac0d293d42bdd831c20f7514925adb",
+        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -1469,7 +1469,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:98dbf5280bf8376a0c75c1391250db9db4ac0d293d42bdd831c20f7514925adb",
+        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -1538,7 +1538,7 @@
       "category": null,
       "child_ids": ["xcsh-docs:data-sources:certified_hardware:example:data-source"],
       "classification": {
-        "rules_sha256": "sha256:98dbf5280bf8376a0c75c1391250db9db4ac0d293d42bdd831c20f7514925adb",
+        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -1578,7 +1578,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:98dbf5280bf8376a0c75c1391250db9db4ac0d293d42bdd831c20f7514925adb",
+        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"

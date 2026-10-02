@@ -313,7 +313,7 @@
         "xcsh-docs:resources:cloud_link:timeouts"
       ],
       "classification": {
-        "rules_sha256": "sha256:98dbf5280bf8376a0c75c1391250db9db4ac0d293d42bdd831c20f7514925adb",
+        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -360,7 +360,7 @@
         "xcsh-docs:resources:cloud_link:properties:timeouts"
       ],
       "classification": {
-        "rules_sha256": "sha256:98dbf5280bf8376a0c75c1391250db9db4ac0d293d42bdd831c20f7514925adb",
+        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -581,7 +581,7 @@
         "xcsh-docs:resources:cloud_link:properties:aws:byoc"
       ],
       "classification": {
-        "rules_sha256": "sha256:98dbf5280bf8376a0c75c1391250db9db4ac0d293d42bdd831c20f7514925adb",
+        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -682,7 +682,7 @@
       "category": "infrastructure",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:98dbf5280bf8376a0c75c1391250db9db4ac0d293d42bdd831c20f7514925adb",
+        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -774,7 +774,7 @@
       "category": "infrastructure",
       "child_ids": ["xcsh-docs:resources:cloud_link:properties:aws:byoc:connections"],
       "classification": {
-        "rules_sha256": "sha256:98dbf5280bf8376a0c75c1391250db9db4ac0d293d42bdd831c20f7514925adb",
+        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -813,7 +813,56 @@
           "max_items": null,
           "min_items": null,
           "nesting": "list",
-          "relationships": [],
+          "relationships": [
+            {
+              "anchor": "schema-aws--byoc--connections--user_assigned_name",
+              "enforcement": "provider-schema",
+              "group": "aws.byoc.connections:ConflictingListObjectAttributes:system_generated_name,user_assigned_name",
+              "source": "ast-validator:ConflictingListObjectAttributes",
+              "target_id": "xcsh-docs:resources:cloud_link:properties:aws:byoc:connections",
+              "type": "conflicts"
+            },
+            {
+              "anchor": "section",
+              "enforcement": "provider-schema",
+              "group": "aws.byoc.connections:ConflictingListObjectAttributes:system_generated_name,user_assigned_name",
+              "source": "ast-validator:ConflictingListObjectAttributes",
+              "target_id": "xcsh-docs:resources:cloud_link:properties:aws:byoc:connections:system_generated_name",
+              "type": "conflicts"
+            },
+            {
+              "anchor": "schema-aws--byoc--connections--bgp_asn",
+              "enforcement": "provider-schema",
+              "group": "aws.byoc.connections:RequiredListObjectAttributes:bgp_asn,connection_id,region,vlan",
+              "source": "ast-validator:RequiredListObjectAttributes",
+              "target_id": "xcsh-docs:resources:cloud_link:properties:aws:byoc:connections",
+              "type": "requires"
+            },
+            {
+              "anchor": "schema-aws--byoc--connections--connection_id",
+              "enforcement": "provider-schema",
+              "group": "aws.byoc.connections:RequiredListObjectAttributes:bgp_asn,connection_id,region,vlan",
+              "source": "ast-validator:RequiredListObjectAttributes",
+              "target_id": "xcsh-docs:resources:cloud_link:properties:aws:byoc:connections",
+              "type": "requires"
+            },
+            {
+              "anchor": "schema-aws--byoc--connections--region",
+              "enforcement": "provider-schema",
+              "group": "aws.byoc.connections:RequiredListObjectAttributes:bgp_asn,connection_id,region,vlan",
+              "source": "ast-validator:RequiredListObjectAttributes",
+              "target_id": "xcsh-docs:resources:cloud_link:properties:aws:byoc:connections",
+              "type": "requires"
+            },
+            {
+              "anchor": "schema-aws--byoc--connections--vlan",
+              "enforcement": "provider-schema",
+              "group": "aws.byoc.connections:RequiredListObjectAttributes:bgp_asn,connection_id,region,vlan",
+              "source": "ast-validator:RequiredListObjectAttributes",
+              "target_id": "xcsh-docs:resources:cloud_link:properties:aws:byoc:connections",
+              "type": "requires"
+            }
+          ],
           "schema_path": ["aws", "byoc", "connections"],
           "syntax": "block",
           "type": "object"
@@ -843,7 +892,7 @@
         "xcsh-docs:resources:cloud_link:properties:aws:byoc:connections:system_generated_name"
       ],
       "classification": {
-        "rules_sha256": "sha256:98dbf5280bf8376a0c75c1391250db9db4ac0d293d42bdd831c20f7514925adb",
+        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -859,7 +908,56 @@
       "provider_type": "resources",
       "registry_anchor": "canonical-1023130221100320-0102323203033021-0313310312213332-2102300233220103-0233031333221203-1120322110031212-0121133300101023-3331230300212001",
       "registry_path": "docs/guides/resources--cloud_link--reference--group-001.md",
-      "relationships": [],
+      "relationships": [
+        {
+          "anchor": "schema-aws--byoc--connections--user_assigned_name",
+          "enforcement": "provider-schema",
+          "group": "aws.byoc.connections:ConflictingListObjectAttributes:system_generated_name,user_assigned_name",
+          "source": "ast-validator:ConflictingListObjectAttributes",
+          "target_id": "xcsh-docs:resources:cloud_link:properties:aws:byoc:connections",
+          "type": "conflicts"
+        },
+        {
+          "anchor": "section",
+          "enforcement": "provider-schema",
+          "group": "aws.byoc.connections:ConflictingListObjectAttributes:system_generated_name,user_assigned_name",
+          "source": "ast-validator:ConflictingListObjectAttributes",
+          "target_id": "xcsh-docs:resources:cloud_link:properties:aws:byoc:connections:system_generated_name",
+          "type": "conflicts"
+        },
+        {
+          "anchor": "schema-aws--byoc--connections--bgp_asn",
+          "enforcement": "provider-schema",
+          "group": "aws.byoc.connections:RequiredListObjectAttributes:bgp_asn,connection_id,region,vlan",
+          "source": "ast-validator:RequiredListObjectAttributes",
+          "target_id": "xcsh-docs:resources:cloud_link:properties:aws:byoc:connections",
+          "type": "requires"
+        },
+        {
+          "anchor": "schema-aws--byoc--connections--connection_id",
+          "enforcement": "provider-schema",
+          "group": "aws.byoc.connections:RequiredListObjectAttributes:bgp_asn,connection_id,region,vlan",
+          "source": "ast-validator:RequiredListObjectAttributes",
+          "target_id": "xcsh-docs:resources:cloud_link:properties:aws:byoc:connections",
+          "type": "requires"
+        },
+        {
+          "anchor": "schema-aws--byoc--connections--region",
+          "enforcement": "provider-schema",
+          "group": "aws.byoc.connections:RequiredListObjectAttributes:bgp_asn,connection_id,region,vlan",
+          "source": "ast-validator:RequiredListObjectAttributes",
+          "target_id": "xcsh-docs:resources:cloud_link:properties:aws:byoc:connections",
+          "type": "requires"
+        },
+        {
+          "anchor": "schema-aws--byoc--connections--vlan",
+          "enforcement": "provider-schema",
+          "group": "aws.byoc.connections:RequiredListObjectAttributes:bgp_asn,connection_id,region,vlan",
+          "source": "ast-validator:RequiredListObjectAttributes",
+          "target_id": "xcsh-docs:resources:cloud_link:properties:aws:byoc:connections",
+          "type": "requires"
+        }
+      ],
       "retrieval_version": 1,
       "role": "properties",
       "schema_path": ["aws", "byoc", "connections"],
@@ -1036,7 +1134,7 @@
         {
           "aliases": ["virtual interface type"],
           "anchor": "schema-aws--byoc--connections--virtual_interface_type",
-          "description": "Defines the type of virtual interface that needs to be configured on AWS - PRIVATE: Private A private virtual interface should be used to access an Amazon VPC using private IP addresses. - TRANSIT: Transit A transit virtual interface is a VLAN that transports traffic from a Direct Connect gateway to one or more transit",
+          "description": "Defines the type of virtual interface that needs to be configured on AWS - PRIVATE: Private A private virtual interface should be used to access an Amazon VPC using private IP addresses. - TRANSIT: Transit A transit virtual interface is a VLAN that transports traffic from a Direct Connect gateway to one or more",
           "document_id": "xcsh-docs:resources:cloud_link:properties:aws:byoc:connections",
           "flags": ["optional"],
           "max_items": null,
@@ -1084,7 +1182,7 @@
         "xcsh-docs:resources:cloud_link:properties:aws:byoc:connections:auth_key:clear_secret_info"
       ],
       "classification": {
-        "rules_sha256": "sha256:98dbf5280bf8376a0c75c1391250db9db4ac0d293d42bdd831c20f7514925adb",
+        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -1188,7 +1286,7 @@
       "category": "infrastructure",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:98dbf5280bf8376a0c75c1391250db9db4ac0d293d42bdd831c20f7514925adb",
+        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -1280,7 +1378,7 @@
       "category": "infrastructure",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:98dbf5280bf8376a0c75c1391250db9db4ac0d293d42bdd831c20f7514925adb",
+        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -1358,7 +1456,7 @@
       "category": "infrastructure",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:98dbf5280bf8376a0c75c1391250db9db4ac0d293d42bdd831c20f7514925adb",
+        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -1444,7 +1542,7 @@
       "category": "infrastructure",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:98dbf5280bf8376a0c75c1391250db9db4ac0d293d42bdd831c20f7514925adb",
+        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -1522,7 +1620,7 @@
       "category": "infrastructure",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:98dbf5280bf8376a0c75c1391250db9db4ac0d293d42bdd831c20f7514925adb",
+        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -1562,7 +1660,7 @@
       "category": "infrastructure",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:98dbf5280bf8376a0c75c1391250db9db4ac0d293d42bdd831c20f7514925adb",
+        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -1602,7 +1700,7 @@
       "category": "infrastructure",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:98dbf5280bf8376a0c75c1391250db9db4ac0d293d42bdd831c20f7514925adb",
+        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -1669,7 +1767,7 @@
         "xcsh-docs:resources:cloud_link:properties:gcp:gcp_cred"
       ],
       "classification": {
-        "rules_sha256": "sha256:98dbf5280bf8376a0c75c1391250db9db4ac0d293d42bdd831c20f7514925adb",
+        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -1756,7 +1854,7 @@
       "category": "infrastructure",
       "child_ids": ["xcsh-docs:resources:cloud_link:properties:gcp:byoc:connections"],
       "classification": {
-        "rules_sha256": "sha256:98dbf5280bf8376a0c75c1391250db9db4ac0d293d42bdd831c20f7514925adb",
+        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -1795,7 +1893,40 @@
           "max_items": null,
           "min_items": null,
           "nesting": "list",
-          "relationships": [],
+          "relationships": [
+            {
+              "anchor": "schema-gcp--byoc--connections--project",
+              "enforcement": "provider-schema",
+              "group": "gcp.byoc.connections:ConflictingListObjectAttributes:project,same_as_credential",
+              "source": "ast-validator:ConflictingListObjectAttributes",
+              "target_id": "xcsh-docs:resources:cloud_link:properties:gcp:byoc:connections",
+              "type": "conflicts"
+            },
+            {
+              "anchor": "section",
+              "enforcement": "provider-schema",
+              "group": "gcp.byoc.connections:ConflictingListObjectAttributes:project,same_as_credential",
+              "source": "ast-validator:ConflictingListObjectAttributes",
+              "target_id": "xcsh-docs:resources:cloud_link:properties:gcp:byoc:connections:same_as_credential",
+              "type": "conflicts"
+            },
+            {
+              "anchor": "schema-gcp--byoc--connections--interconnect_attachment_name",
+              "enforcement": "provider-schema",
+              "group": "gcp.byoc.connections:RequiredListObjectAttributes:interconnect_attachment_name,region",
+              "source": "ast-validator:RequiredListObjectAttributes",
+              "target_id": "xcsh-docs:resources:cloud_link:properties:gcp:byoc:connections",
+              "type": "requires"
+            },
+            {
+              "anchor": "schema-gcp--byoc--connections--region",
+              "enforcement": "provider-schema",
+              "group": "gcp.byoc.connections:RequiredListObjectAttributes:interconnect_attachment_name,region",
+              "source": "ast-validator:RequiredListObjectAttributes",
+              "target_id": "xcsh-docs:resources:cloud_link:properties:gcp:byoc:connections",
+              "type": "requires"
+            }
+          ],
           "schema_path": ["gcp", "byoc", "connections"],
           "syntax": "block",
           "type": "object"
@@ -1823,7 +1954,7 @@
         "xcsh-docs:resources:cloud_link:properties:gcp:byoc:connections:same_as_credential"
       ],
       "classification": {
-        "rules_sha256": "sha256:98dbf5280bf8376a0c75c1391250db9db4ac0d293d42bdd831c20f7514925adb",
+        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -1839,7 +1970,40 @@
       "provider_type": "resources",
       "registry_anchor": "canonical-3300300311011020-1232112233202120-3121231302233032-0323330120012132-1203212002211002-0212331312203112-2320223102010211-0101312032120201",
       "registry_path": "docs/guides/resources--cloud_link--reference--group-001.md",
-      "relationships": [],
+      "relationships": [
+        {
+          "anchor": "schema-gcp--byoc--connections--project",
+          "enforcement": "provider-schema",
+          "group": "gcp.byoc.connections:ConflictingListObjectAttributes:project,same_as_credential",
+          "source": "ast-validator:ConflictingListObjectAttributes",
+          "target_id": "xcsh-docs:resources:cloud_link:properties:gcp:byoc:connections",
+          "type": "conflicts"
+        },
+        {
+          "anchor": "section",
+          "enforcement": "provider-schema",
+          "group": "gcp.byoc.connections:ConflictingListObjectAttributes:project,same_as_credential",
+          "source": "ast-validator:ConflictingListObjectAttributes",
+          "target_id": "xcsh-docs:resources:cloud_link:properties:gcp:byoc:connections:same_as_credential",
+          "type": "conflicts"
+        },
+        {
+          "anchor": "schema-gcp--byoc--connections--interconnect_attachment_name",
+          "enforcement": "provider-schema",
+          "group": "gcp.byoc.connections:RequiredListObjectAttributes:interconnect_attachment_name,region",
+          "source": "ast-validator:RequiredListObjectAttributes",
+          "target_id": "xcsh-docs:resources:cloud_link:properties:gcp:byoc:connections",
+          "type": "requires"
+        },
+        {
+          "anchor": "schema-gcp--byoc--connections--region",
+          "enforcement": "provider-schema",
+          "group": "gcp.byoc.connections:RequiredListObjectAttributes:interconnect_attachment_name,region",
+          "source": "ast-validator:RequiredListObjectAttributes",
+          "target_id": "xcsh-docs:resources:cloud_link:properties:gcp:byoc:connections",
+          "type": "requires"
+        }
+      ],
       "retrieval_version": 1,
       "role": "properties",
       "schema_path": ["gcp", "byoc", "connections"],
@@ -1943,7 +2107,7 @@
       "category": "infrastructure",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:98dbf5280bf8376a0c75c1391250db9db4ac0d293d42bdd831c20f7514925adb",
+        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -2021,7 +2185,7 @@
       "category": "infrastructure",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:98dbf5280bf8376a0c75c1391250db9db4ac0d293d42bdd831c20f7514925adb",
+        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -2061,7 +2225,7 @@
       "category": "infrastructure",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:98dbf5280bf8376a0c75c1391250db9db4ac0d293d42bdd831c20f7514925adb",
+        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -2153,7 +2317,7 @@
       "category": "infrastructure",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:98dbf5280bf8376a0c75c1391250db9db4ac0d293d42bdd831c20f7514925adb",
+        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -2250,7 +2414,7 @@
       "category": "infrastructure",
       "child_ids": ["xcsh-docs:resources:cloud_link:example:resource"],
       "classification": {
-        "rules_sha256": "sha256:98dbf5280bf8376a0c75c1391250db9db4ac0d293d42bdd831c20f7514925adb",
+        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -2290,7 +2454,7 @@
       "category": "infrastructure",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:98dbf5280bf8376a0c75c1391250db9db4ac0d293d42bdd831c20f7514925adb",
+        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -2337,7 +2501,7 @@
       "category": "infrastructure",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:98dbf5280bf8376a0c75c1391250db9db4ac0d293d42bdd831c20f7514925adb",
+        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -2378,7 +2542,7 @@
       "category": "infrastructure",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:98dbf5280bf8376a0c75c1391250db9db4ac0d293d42bdd831c20f7514925adb",
+        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"

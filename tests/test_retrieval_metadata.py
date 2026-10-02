@@ -69,6 +69,28 @@ class RetrievalMetadataTests(unittest.TestCase):
         self.assertIn("login success", aliases)
         self.assertNotIn("benchmark", " ".join(aliases))
 
+    def test_summary_preserves_complete_words(self):
+        text = "complete " * 40
+        result = MODULE.summary(text, "fallback")
+        self.assertLessEqual(len(result), 320)
+        self.assertEqual(result.split()[-1], "complete")
+
+    def test_list_object_relationships(self):
+        coverage = {
+            "servers.address": {"document_id": "address", "anchor": "section"},
+            "servers.name": {"document_id": "name", "anchor": "section"},
+        }
+        result = MODULE.constraint_relationships(
+            ["servers"],
+            {
+                "Validators": 'validators.RequiredListObjectAttributes("address"), validators.ConflictingListObjectAttributes("address", "name"), validators.RequiredOneOfListObjectAttributes("address", "name")'
+            },
+            coverage,
+        )
+        self.assertEqual(
+            {r["type"] for r in result}, {"requires", "conflicts", "choice"}
+        )
+
     def test_relations_distinguish_schema_and_advice(self):
         coverage = {
             "tls.certificates": {"document_id": "cert", "anchor": "section"},

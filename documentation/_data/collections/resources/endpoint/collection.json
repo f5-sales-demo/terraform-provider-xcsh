@@ -299,7 +299,7 @@
         "xcsh-docs:resources:endpoint:timeouts"
       ],
       "classification": {
-        "rules_sha256": "sha256:98dbf5280bf8376a0c75c1391250db9db4ac0d293d42bdd831c20f7514925adb",
+        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
         "sources": ["receipt-pinned-upstream"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -346,7 +346,7 @@
         "xcsh-docs:resources:endpoint:properties:where"
       ],
       "classification": {
-        "rules_sha256": "sha256:98dbf5280bf8376a0c75c1391250db9db4ac0d293d42bdd831c20f7514925adb",
+        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
         "sources": ["receipt-pinned-upstream"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -628,7 +628,7 @@
         {
           "aliases": ["where"],
           "anchor": "section",
-          "description": "NetworkSiteRefSelector defines a union of reference to site or reference to virtual_network or reference to virtual_site It is used to determine virtual network using following rules * Direct reference to virtual_network object * Site local network when referring to site object * All site local networks for sites selec",
+          "description": "NetworkSiteRefSelector defines a union of reference to site or reference to virtual_network or reference to virtual_site It is used to determine virtual network using following rules * Direct reference to virtual_network object * Site local network when referring to site object * All site local networks for sites",
           "document_id": "xcsh-docs:resources:endpoint:properties:where",
           "flags": [],
           "max_items": null,
@@ -708,7 +708,7 @@
       "category": "networking",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:98dbf5280bf8376a0c75c1391250db9db4ac0d293d42bdd831c20f7514925adb",
+        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
         "sources": ["receipt-pinned-upstream"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -777,7 +777,7 @@
       "category": "networking",
       "child_ids": ["xcsh-docs:resources:endpoint:properties:service_info:service_selector"],
       "classification": {
-        "rules_sha256": "sha256:98dbf5280bf8376a0c75c1391250db9db4ac0d293d42bdd831c20f7514925adb",
+        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
         "sources": ["receipt-pinned-upstream"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -832,7 +832,7 @@
         {
           "aliases": ["service name"],
           "anchor": "schema-service_info--service_name",
-          "description": "Exclusive with Name of the service to discover with an optional namespace and cluster identifier. The format is service_name.namespace_name:cluster_identifier for K8s and service_name:cluster_identifier for Consul Endpoint will be discovered in all discovery objects where the cluster identifier matches. If cluster iden",
+          "description": "Exclusive with Name of the service to discover with an optional namespace and cluster identifier. The format is service_name.namespace_name:cluster_identifier for K8s and service_name:cluster_identifier for Consul Endpoint will be discovered in all discovery objects where the cluster identifier matches. If cluster",
           "document_id": "xcsh-docs:resources:endpoint:properties:service_info",
           "flags": ["optional"],
           "max_items": null,
@@ -846,7 +846,7 @@
         {
           "aliases": ["service selector"],
           "anchor": "section",
-          "description": "This type can be used to establish a 'selector reference' from one object(called selector) to a set of other objects(called selectees) based on the value of expressions. A label selector is a label query over a set of resources. An empty label selector matches all objects. A null label selector matches no objects. Labe",
+          "description": "This type can be used to establish a 'selector reference' from one object(called selector) to a set of other objects(called selectees) based on the value of expressions. A label selector is a label query over a set of resources. An empty label selector matches all objects. A null label selector matches no objects.",
           "document_id": "xcsh-docs:resources:endpoint:properties:service_info:service_selector",
           "flags": [],
           "max_items": null,
@@ -886,7 +886,7 @@
       "category": "networking",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:98dbf5280bf8376a0c75c1391250db9db4ac0d293d42bdd831c20f7514925adb",
+        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
         "sources": ["receipt-pinned-upstream"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -933,7 +933,7 @@
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/endpoint/properties/service_info/service_selector/index.txt",
       "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
-      "summary": "This type can be used to establish a 'selector reference' from one object(called selector) to a set of other objects(called selectees) based on the value of expressions. A label selector is a label query over a set of resources. An empty label selector matches all objects. A null label selector matches no objects. Labe",
+      "summary": "This type can be used to establish a 'selector reference' from one object(called selector) to a set of other objects(called selectees) based on the value of expressions. A label selector is a label query over a set of resources. An empty label selector matches all objects. A null label selector matches no objects.",
       "tasks": ["configuration"],
       "title": "service_info.service_selector",
       "upstream_identity": {
@@ -953,7 +953,7 @@
         "xcsh-docs:resources:endpoint:properties:snat_pool:snat_pool"
       ],
       "classification": {
-        "rules_sha256": "sha256:98dbf5280bf8376a0c75c1391250db9db4ac0d293d42bdd831c20f7514925adb",
+        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
         "sources": ["receipt-pinned-upstream"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -1039,7 +1039,7 @@
       "category": "networking",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:98dbf5280bf8376a0c75c1391250db9db4ac0d293d42bdd831c20f7514925adb",
+        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
         "sources": ["receipt-pinned-upstream"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -1079,7 +1079,7 @@
       "category": "networking",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:98dbf5280bf8376a0c75c1391250db9db4ac0d293d42bdd831c20f7514925adb",
+        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
         "sources": ["receipt-pinned-upstream"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -1134,7 +1134,7 @@
       "category": "networking",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:98dbf5280bf8376a0c75c1391250db9db4ac0d293d42bdd831c20f7514925adb",
+        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
         "sources": ["receipt-pinned-upstream"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -1235,7 +1235,7 @@
         "xcsh-docs:resources:endpoint:properties:where:virtual_site"
       ],
       "classification": {
-        "rules_sha256": "sha256:98dbf5280bf8376a0c75c1391250db9db4ac0d293d42bdd831c20f7514925adb",
+        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
         "sources": ["receipt-pinned-upstream"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -1409,7 +1409,7 @@
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/endpoint/properties/where/index.txt",
       "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
-      "summary": "NetworkSiteRefSelector defines a union of reference to site or reference to virtual_network or reference to virtual_site It is used to determine virtual network using following rules * Direct reference to virtual_network object * Site local network when referring to site object * All site local networks for sites selec",
+      "summary": "NetworkSiteRefSelector defines a union of reference to site or reference to virtual_network or reference to virtual_site It is used to determine virtual network using following rules * Direct reference to virtual_network object * Site local network when referring to site object * All site local networks for sites",
       "tasks": ["configuration"],
       "title": "where",
       "upstream_identity": {
@@ -1430,7 +1430,7 @@
         "xcsh-docs:resources:endpoint:properties:where:site:ref"
       ],
       "classification": {
-        "rules_sha256": "sha256:98dbf5280bf8376a0c75c1391250db9db4ac0d293d42bdd831c20f7514925adb",
+        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
         "sources": ["receipt-pinned-upstream"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -1507,7 +1507,7 @@
         {
           "aliases": ["network type"],
           "anchor": "schema-where--site--network_type",
-          "description": "Different types of virtual networks understood by the system Virtual-network of type VIRTUAL_NETWORK_SITE_LOCAL provides connectivity to public (outside) network. This is an insecure network and is connected to public internet via NAT Gateways/firwalls Virtual-network of this type is local to every site. Two virtual ne",
+          "description": "Different types of virtual networks understood by the system Virtual-network of type VIRTUAL_NETWORK_SITE_LOCAL provides connectivity to public (outside) network. This is an insecure network and is connected to public internet via NAT Gateways/firwalls Virtual-network of this type is local to every site. Two virtual",
           "document_id": "xcsh-docs:resources:endpoint:properties:where:site",
           "flags": ["optional"],
           "max_items": null,
@@ -1552,7 +1552,7 @@
       "category": "networking",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:98dbf5280bf8376a0c75c1391250db9db4ac0d293d42bdd831c20f7514925adb",
+        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
         "sources": ["receipt-pinned-upstream"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -1592,7 +1592,7 @@
       "category": "networking",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:98dbf5280bf8376a0c75c1391250db9db4ac0d293d42bdd831c20f7514925adb",
+        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
         "sources": ["receipt-pinned-upstream"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -1632,7 +1632,7 @@
       "category": "networking",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:98dbf5280bf8376a0c75c1391250db9db4ac0d293d42bdd831c20f7514925adb",
+        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
         "sources": ["receipt-pinned-upstream"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -1743,7 +1743,7 @@
       "category": "networking",
       "child_ids": ["xcsh-docs:resources:endpoint:properties:where:virtual_network:ref"],
       "classification": {
-        "rules_sha256": "sha256:98dbf5280bf8376a0c75c1391250db9db4ac0d293d42bdd831c20f7514925adb",
+        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
         "sources": ["receipt-pinned-upstream"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -1807,7 +1807,7 @@
       "category": "networking",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:98dbf5280bf8376a0c75c1391250db9db4ac0d293d42bdd831c20f7514925adb",
+        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
         "sources": ["receipt-pinned-upstream"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -1922,7 +1922,7 @@
         "xcsh-docs:resources:endpoint:properties:where:virtual_site:ref"
       ],
       "classification": {
-        "rules_sha256": "sha256:98dbf5280bf8376a0c75c1391250db9db4ac0d293d42bdd831c20f7514925adb",
+        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
         "sources": ["receipt-pinned-upstream"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -1999,7 +1999,7 @@
         {
           "aliases": ["network type"],
           "anchor": "schema-where--virtual_site--network_type",
-          "description": "Different types of virtual networks understood by the system Virtual-network of type VIRTUAL_NETWORK_SITE_LOCAL provides connectivity to public (outside) network. This is an insecure network and is connected to public internet via NAT Gateways/firwalls Virtual-network of this type is local to every site. Two virtual ne",
+          "description": "Different types of virtual networks understood by the system Virtual-network of type VIRTUAL_NETWORK_SITE_LOCAL provides connectivity to public (outside) network. This is an insecure network and is connected to public internet via NAT Gateways/firwalls Virtual-network of this type is local to every site. Two virtual",
           "document_id": "xcsh-docs:resources:endpoint:properties:where:virtual_site",
           "flags": ["optional"],
           "max_items": null,
@@ -2044,7 +2044,7 @@
       "category": "networking",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:98dbf5280bf8376a0c75c1391250db9db4ac0d293d42bdd831c20f7514925adb",
+        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
         "sources": ["receipt-pinned-upstream"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -2084,7 +2084,7 @@
       "category": "networking",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:98dbf5280bf8376a0c75c1391250db9db4ac0d293d42bdd831c20f7514925adb",
+        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
         "sources": ["receipt-pinned-upstream"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -2124,7 +2124,7 @@
       "category": "networking",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:98dbf5280bf8376a0c75c1391250db9db4ac0d293d42bdd831c20f7514925adb",
+        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
         "sources": ["receipt-pinned-upstream"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -2235,7 +2235,7 @@
       "category": "networking",
       "child_ids": ["xcsh-docs:resources:endpoint:example:resource"],
       "classification": {
-        "rules_sha256": "sha256:98dbf5280bf8376a0c75c1391250db9db4ac0d293d42bdd831c20f7514925adb",
+        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
         "sources": ["receipt-pinned-upstream"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -2275,7 +2275,7 @@
       "category": "networking",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:98dbf5280bf8376a0c75c1391250db9db4ac0d293d42bdd831c20f7514925adb",
+        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
         "sources": ["receipt-pinned-upstream"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -2322,7 +2322,7 @@
       "category": "networking",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:98dbf5280bf8376a0c75c1391250db9db4ac0d293d42bdd831c20f7514925adb",
+        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
         "sources": ["receipt-pinned-upstream"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -2363,7 +2363,7 @@
       "category": "networking",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:98dbf5280bf8376a0c75c1391250db9db4ac0d293d42bdd831c20f7514925adb",
+        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
         "sources": ["receipt-pinned-upstream"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"

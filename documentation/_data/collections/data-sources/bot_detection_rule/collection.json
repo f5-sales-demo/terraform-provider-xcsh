@@ -172,7 +172,7 @@
         "xcsh-docs:data-sources:bot_detection_rule:examples"
       ],
       "classification": {
-        "rules_sha256": "sha256:98dbf5280bf8376a0c75c1391250db9db4ac0d293d42bdd831c20f7514925adb",
+        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -213,7 +213,7 @@
       "category": null,
       "child_ids": ["xcsh-docs:data-sources:bot_detection_rule:properties:bot_detection_rule_configs_per_bot_infras"],
       "classification": {
-        "rules_sha256": "sha256:98dbf5280bf8376a0c75c1391250db9db4ac0d293d42bdd831c20f7514925adb",
+        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -433,7 +433,7 @@
         {
           "aliases": ["traffic type"],
           "anchor": "schema-traffic_type",
-          "description": "The type of traffic that is routed to and processed by this infrastructure (Web or Mobile). Only web traffic, including browser-based traffic from mobile devices, is routed through this Bot Defense infrastructure. Only mobile traffic from native mobile apps with the Bot Defense SDK are routed.. Possible values are `WEB",
+          "description": "The type of traffic that is routed to and processed by this infrastructure (Web or Mobile). Only web traffic, including browser-based traffic from mobile devices, is routed through this Bot Defense infrastructure. Only mobile traffic from native mobile apps with the Bot Defense SDK are routed.. Possible values are",
           "document_id": "xcsh-docs:data-sources:bot_detection_rule:reference",
           "flags": ["computed"],
           "max_items": null,
@@ -482,7 +482,7 @@
         "xcsh-docs:data-sources:bot_detection_rule:properties:bot_detection_rule_configs_per_bot_infras:region_rule_config"
       ],
       "classification": {
-        "rules_sha256": "sha256:98dbf5280bf8376a0c75c1391250db9db4ac0d293d42bdd831c20f7514925adb",
+        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -548,7 +548,7 @@
         {
           "aliases": ["bot infrastructure type"],
           "anchor": "schema-bot_detection_rule_configs_per_bot_infras--bot_infrastructure_type",
-          "description": "Type of the Bot Infrastructure - BOT_INFRA_TYPE_UNKNOWN: Unknown - BOT_INFRA_TYPE_CLOUD_HOSTED: F5 Cloud Hosted - BOT_INFRA_TYPE_HOSTED: F5 Hosted - BOT_INFRA_TYPE_ON_PREM: F5 On Premises - BOT_INFRA_TYPE_K8S_CLUSTER: Kubernetes Cluster. Possible values are `BOT_INFRA_TYPE_UNKNOWN`, `BOT_INFRA_TYPE_CLOUD_HOSTED`, `BOT_",
+          "description": "Type of the Bot Infrastructure - BOT_INFRA_TYPE_UNKNOWN: Unknown - BOT_INFRA_TYPE_CLOUD_HOSTED: F5 Cloud Hosted - BOT_INFRA_TYPE_HOSTED: F5 Hosted - BOT_INFRA_TYPE_ON_PREM: F5 On Premises - BOT_INFRA_TYPE_K8S_CLUSTER: Kubernetes Cluster. Possible values are `BOT_INFRA_TYPE_UNKNOWN`, `BOT_INFRA_TYPE_CLOUD_HOSTED`,",
           "document_id": "xcsh-docs:data-sources:bot_detection_rule:properties:bot_detection_rule_configs_per_bot_infras",
           "flags": ["computed"],
           "max_items": null,
@@ -562,7 +562,7 @@
         {
           "aliases": ["environment type"],
           "anchor": "schema-bot_detection_rule_configs_per_bot_infras--environment_type",
-          "description": "Identifies the environment as either Production or Testing. Production environments have two infrastructure regions in an Active-Active configuration where traffic is routed equally between the two regions. Test environments have a single infrastructure region. Possible values are `PRODUCTION`, `TESTING`. Defaults to `",
+          "description": "Identifies the environment as either Production or Testing. Production environments have two infrastructure regions in an Active-Active configuration where traffic is routed equally between the two regions. Test environments have a single infrastructure region. Possible values are `PRODUCTION`, `TESTING`. Defaults to",
           "document_id": "xcsh-docs:data-sources:bot_detection_rule:properties:bot_detection_rule_configs_per_bot_infras",
           "flags": ["computed"],
           "max_items": null,
@@ -621,7 +621,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:98dbf5280bf8376a0c75c1391250db9db4ac0d293d42bdd831c20f7514925adb",
+        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -680,7 +680,7 @@
         "xcsh-docs:data-sources:bot_detection_rule:properties:bot_detection_rule_configs_per_bot_infras:k8s_cluster_rule_config:target_k8s_cluster_rule_config"
       ],
       "classification": {
-        "rules_sha256": "sha256:98dbf5280bf8376a0c75c1391250db9db4ac0d293d42bdd831c20f7514925adb",
+        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -775,7 +775,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:98dbf5280bf8376a0c75c1391250db9db4ac0d293d42bdd831c20f7514925adb",
+        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -819,7 +819,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:98dbf5280bf8376a0c75c1391250db9db4ac0d293d42bdd831c20f7514925adb",
+        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -863,7 +863,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:98dbf5280bf8376a0c75c1391250db9db4ac0d293d42bdd831c20f7514925adb",
+        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -909,7 +909,7 @@
         "xcsh-docs:data-sources:bot_detection_rule:properties:bot_detection_rule_configs_per_bot_infras:region_rule_config:region_config"
       ],
       "classification": {
-        "rules_sha256": "sha256:98dbf5280bf8376a0c75c1391250db9db4ac0d293d42bdd831c20f7514925adb",
+        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -964,7 +964,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:98dbf5280bf8376a0c75c1391250db9db4ac0d293d42bdd831c20f7514925adb",
+        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -1004,7 +1004,7 @@
       "category": null,
       "child_ids": ["xcsh-docs:data-sources:bot_detection_rule:example:data-source"],
       "classification": {
-        "rules_sha256": "sha256:98dbf5280bf8376a0c75c1391250db9db4ac0d293d42bdd831c20f7514925adb",
+        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -1044,7 +1044,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:98dbf5280bf8376a0c75c1391250db9db4ac0d293d42bdd831c20f7514925adb",
+        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"

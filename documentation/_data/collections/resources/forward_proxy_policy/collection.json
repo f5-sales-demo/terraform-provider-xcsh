@@ -577,7 +577,7 @@
         "xcsh-docs:resources:forward_proxy_policy:timeouts"
       ],
       "classification": {
-        "rules_sha256": "sha256:98dbf5280bf8376a0c75c1391250db9db4ac0d293d42bdd831c20f7514925adb",
+        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -628,7 +628,7 @@
         "xcsh-docs:resources:forward_proxy_policy:properties:timeouts"
       ],
       "classification": {
-        "rules_sha256": "sha256:98dbf5280bf8376a0c75c1391250db9db4ac0d293d42bdd831c20f7514925adb",
+        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -941,7 +941,7 @@
         {
           "aliases": ["proxy label selector"],
           "anchor": "section",
-          "description": "This type can be used to establish a 'selector reference' from one object(called selector) to a set of other objects(called selectees) based on the value of expressions. A label selector is a label query over a set of resources. An empty label selector matches all objects. A null label selector matches no objects. Labe",
+          "description": "This type can be used to establish a 'selector reference' from one object(called selector) to a set of other objects(called selectees) based on the value of expressions. A label selector is a label query over a set of resources. An empty label selector matches all objects. A null label selector matches no objects.",
           "document_id": "xcsh-docs:resources:forward_proxy_policy:properties:proxy_label_selector",
           "flags": [],
           "max_items": null,
@@ -1018,7 +1018,7 @@
       "category": "networking",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:98dbf5280bf8376a0c75c1391250db9db4ac0d293d42bdd831c20f7514925adb",
+        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -1065,7 +1065,7 @@
         "xcsh-docs:resources:forward_proxy_policy:properties:allow_list:tls_list"
       ],
       "classification": {
-        "rules_sha256": "sha256:98dbf5280bf8376a0c75c1391250db9db4ac0d293d42bdd831c20f7514925adb",
+        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -1186,7 +1186,16 @@
           "max_items": null,
           "min_items": null,
           "nesting": "list",
-          "relationships": [],
+          "relationships": [
+            {
+              "anchor": "schema-allow_list--dest_list--port_ranges",
+              "enforcement": "provider-schema",
+              "group": "allow_list.dest_list:RequiredListObjectAttributes:port_ranges",
+              "source": "ast-validator:RequiredListObjectAttributes",
+              "target_id": "xcsh-docs:resources:forward_proxy_policy:properties:allow_list:dest_list",
+              "type": "requires"
+            }
+          ],
           "schema_path": ["allow_list", "dest_list"],
           "syntax": "block",
           "type": "object"
@@ -1200,7 +1209,152 @@
           "max_items": null,
           "min_items": null,
           "nesting": "list",
-          "relationships": [],
+          "relationships": [
+            {
+              "anchor": "schema-allow_list--http_list--exact_value",
+              "enforcement": "provider-schema",
+              "group": "allow_list.http_list:ConflictingListObjectAttributes:exact_value,regex_value",
+              "source": "ast-validator:ConflictingListObjectAttributes",
+              "target_id": "xcsh-docs:resources:forward_proxy_policy:properties:allow_list:http_list",
+              "type": "conflicts"
+            },
+            {
+              "anchor": "schema-allow_list--http_list--exact_value",
+              "enforcement": "provider-schema",
+              "group": "allow_list.http_list:ConflictingListObjectAttributes:exact_value,suffix_value",
+              "source": "ast-validator:ConflictingListObjectAttributes",
+              "target_id": "xcsh-docs:resources:forward_proxy_policy:properties:allow_list:http_list",
+              "type": "conflicts"
+            },
+            {
+              "anchor": "schema-allow_list--http_list--path_exact_value",
+              "enforcement": "provider-schema",
+              "group": "allow_list.http_list:ConflictingListObjectAttributes:any_path,path_exact_value",
+              "source": "ast-validator:ConflictingListObjectAttributes",
+              "target_id": "xcsh-docs:resources:forward_proxy_policy:properties:allow_list:http_list",
+              "type": "conflicts"
+            },
+            {
+              "anchor": "schema-allow_list--http_list--path_exact_value",
+              "enforcement": "provider-schema",
+              "group": "allow_list.http_list:ConflictingListObjectAttributes:path_exact_value,path_prefix_value",
+              "source": "ast-validator:ConflictingListObjectAttributes",
+              "target_id": "xcsh-docs:resources:forward_proxy_policy:properties:allow_list:http_list",
+              "type": "conflicts"
+            },
+            {
+              "anchor": "schema-allow_list--http_list--path_exact_value",
+              "enforcement": "provider-schema",
+              "group": "allow_list.http_list:ConflictingListObjectAttributes:path_exact_value,path_regex_value",
+              "source": "ast-validator:ConflictingListObjectAttributes",
+              "target_id": "xcsh-docs:resources:forward_proxy_policy:properties:allow_list:http_list",
+              "type": "conflicts"
+            },
+            {
+              "anchor": "schema-allow_list--http_list--path_prefix_value",
+              "enforcement": "provider-schema",
+              "group": "allow_list.http_list:ConflictingListObjectAttributes:any_path,path_prefix_value",
+              "source": "ast-validator:ConflictingListObjectAttributes",
+              "target_id": "xcsh-docs:resources:forward_proxy_policy:properties:allow_list:http_list",
+              "type": "conflicts"
+            },
+            {
+              "anchor": "schema-allow_list--http_list--path_prefix_value",
+              "enforcement": "provider-schema",
+              "group": "allow_list.http_list:ConflictingListObjectAttributes:path_exact_value,path_prefix_value",
+              "source": "ast-validator:ConflictingListObjectAttributes",
+              "target_id": "xcsh-docs:resources:forward_proxy_policy:properties:allow_list:http_list",
+              "type": "conflicts"
+            },
+            {
+              "anchor": "schema-allow_list--http_list--path_prefix_value",
+              "enforcement": "provider-schema",
+              "group": "allow_list.http_list:ConflictingListObjectAttributes:path_prefix_value,path_regex_value",
+              "source": "ast-validator:ConflictingListObjectAttributes",
+              "target_id": "xcsh-docs:resources:forward_proxy_policy:properties:allow_list:http_list",
+              "type": "conflicts"
+            },
+            {
+              "anchor": "schema-allow_list--http_list--path_regex_value",
+              "enforcement": "provider-schema",
+              "group": "allow_list.http_list:ConflictingListObjectAttributes:any_path,path_regex_value",
+              "source": "ast-validator:ConflictingListObjectAttributes",
+              "target_id": "xcsh-docs:resources:forward_proxy_policy:properties:allow_list:http_list",
+              "type": "conflicts"
+            },
+            {
+              "anchor": "schema-allow_list--http_list--path_regex_value",
+              "enforcement": "provider-schema",
+              "group": "allow_list.http_list:ConflictingListObjectAttributes:path_exact_value,path_regex_value",
+              "source": "ast-validator:ConflictingListObjectAttributes",
+              "target_id": "xcsh-docs:resources:forward_proxy_policy:properties:allow_list:http_list",
+              "type": "conflicts"
+            },
+            {
+              "anchor": "schema-allow_list--http_list--path_regex_value",
+              "enforcement": "provider-schema",
+              "group": "allow_list.http_list:ConflictingListObjectAttributes:path_prefix_value,path_regex_value",
+              "source": "ast-validator:ConflictingListObjectAttributes",
+              "target_id": "xcsh-docs:resources:forward_proxy_policy:properties:allow_list:http_list",
+              "type": "conflicts"
+            },
+            {
+              "anchor": "schema-allow_list--http_list--regex_value",
+              "enforcement": "provider-schema",
+              "group": "allow_list.http_list:ConflictingListObjectAttributes:exact_value,regex_value",
+              "source": "ast-validator:ConflictingListObjectAttributes",
+              "target_id": "xcsh-docs:resources:forward_proxy_policy:properties:allow_list:http_list",
+              "type": "conflicts"
+            },
+            {
+              "anchor": "schema-allow_list--http_list--regex_value",
+              "enforcement": "provider-schema",
+              "group": "allow_list.http_list:ConflictingListObjectAttributes:regex_value,suffix_value",
+              "source": "ast-validator:ConflictingListObjectAttributes",
+              "target_id": "xcsh-docs:resources:forward_proxy_policy:properties:allow_list:http_list",
+              "type": "conflicts"
+            },
+            {
+              "anchor": "schema-allow_list--http_list--suffix_value",
+              "enforcement": "provider-schema",
+              "group": "allow_list.http_list:ConflictingListObjectAttributes:exact_value,suffix_value",
+              "source": "ast-validator:ConflictingListObjectAttributes",
+              "target_id": "xcsh-docs:resources:forward_proxy_policy:properties:allow_list:http_list",
+              "type": "conflicts"
+            },
+            {
+              "anchor": "schema-allow_list--http_list--suffix_value",
+              "enforcement": "provider-schema",
+              "group": "allow_list.http_list:ConflictingListObjectAttributes:regex_value,suffix_value",
+              "source": "ast-validator:ConflictingListObjectAttributes",
+              "target_id": "xcsh-docs:resources:forward_proxy_policy:properties:allow_list:http_list",
+              "type": "conflicts"
+            },
+            {
+              "anchor": "section",
+              "enforcement": "provider-schema",
+              "group": "allow_list.http_list:ConflictingListObjectAttributes:any_path,path_exact_value",
+              "source": "ast-validator:ConflictingListObjectAttributes",
+              "target_id": "xcsh-docs:resources:forward_proxy_policy:properties:allow_list:http_list:any_path",
+              "type": "conflicts"
+            },
+            {
+              "anchor": "section",
+              "enforcement": "provider-schema",
+              "group": "allow_list.http_list:ConflictingListObjectAttributes:any_path,path_prefix_value",
+              "source": "ast-validator:ConflictingListObjectAttributes",
+              "target_id": "xcsh-docs:resources:forward_proxy_policy:properties:allow_list:http_list:any_path",
+              "type": "conflicts"
+            },
+            {
+              "anchor": "section",
+              "enforcement": "provider-schema",
+              "group": "allow_list.http_list:ConflictingListObjectAttributes:any_path,path_regex_value",
+              "source": "ast-validator:ConflictingListObjectAttributes",
+              "target_id": "xcsh-docs:resources:forward_proxy_policy:properties:allow_list:http_list:any_path",
+              "type": "conflicts"
+            }
+          ],
           "schema_path": ["allow_list", "http_list"],
           "syntax": "block",
           "type": "object"
@@ -1214,7 +1368,56 @@
           "max_items": null,
           "min_items": null,
           "nesting": "list",
-          "relationships": [],
+          "relationships": [
+            {
+              "anchor": "schema-allow_list--tls_list--exact_value",
+              "enforcement": "provider-schema",
+              "group": "allow_list.tls_list:ConflictingListObjectAttributes:exact_value,regex_value",
+              "source": "ast-validator:ConflictingListObjectAttributes",
+              "target_id": "xcsh-docs:resources:forward_proxy_policy:properties:allow_list:tls_list",
+              "type": "conflicts"
+            },
+            {
+              "anchor": "schema-allow_list--tls_list--exact_value",
+              "enforcement": "provider-schema",
+              "group": "allow_list.tls_list:ConflictingListObjectAttributes:exact_value,suffix_value",
+              "source": "ast-validator:ConflictingListObjectAttributes",
+              "target_id": "xcsh-docs:resources:forward_proxy_policy:properties:allow_list:tls_list",
+              "type": "conflicts"
+            },
+            {
+              "anchor": "schema-allow_list--tls_list--regex_value",
+              "enforcement": "provider-schema",
+              "group": "allow_list.tls_list:ConflictingListObjectAttributes:exact_value,regex_value",
+              "source": "ast-validator:ConflictingListObjectAttributes",
+              "target_id": "xcsh-docs:resources:forward_proxy_policy:properties:allow_list:tls_list",
+              "type": "conflicts"
+            },
+            {
+              "anchor": "schema-allow_list--tls_list--regex_value",
+              "enforcement": "provider-schema",
+              "group": "allow_list.tls_list:ConflictingListObjectAttributes:regex_value,suffix_value",
+              "source": "ast-validator:ConflictingListObjectAttributes",
+              "target_id": "xcsh-docs:resources:forward_proxy_policy:properties:allow_list:tls_list",
+              "type": "conflicts"
+            },
+            {
+              "anchor": "schema-allow_list--tls_list--suffix_value",
+              "enforcement": "provider-schema",
+              "group": "allow_list.tls_list:ConflictingListObjectAttributes:exact_value,suffix_value",
+              "source": "ast-validator:ConflictingListObjectAttributes",
+              "target_id": "xcsh-docs:resources:forward_proxy_policy:properties:allow_list:tls_list",
+              "type": "conflicts"
+            },
+            {
+              "anchor": "schema-allow_list--tls_list--suffix_value",
+              "enforcement": "provider-schema",
+              "group": "allow_list.tls_list:ConflictingListObjectAttributes:regex_value,suffix_value",
+              "source": "ast-validator:ConflictingListObjectAttributes",
+              "target_id": "xcsh-docs:resources:forward_proxy_policy:properties:allow_list:tls_list",
+              "type": "conflicts"
+            }
+          ],
           "schema_path": ["allow_list", "tls_list"],
           "syntax": "block",
           "type": "object"
@@ -1239,7 +1442,7 @@
       "category": "networking",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:98dbf5280bf8376a0c75c1391250db9db4ac0d293d42bdd831c20f7514925adb",
+        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -1279,7 +1482,7 @@
       "category": "networking",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:98dbf5280bf8376a0c75c1391250db9db4ac0d293d42bdd831c20f7514925adb",
+        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -1319,7 +1522,7 @@
       "category": "networking",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:98dbf5280bf8376a0c75c1391250db9db4ac0d293d42bdd831c20f7514925adb",
+        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -1359,7 +1562,7 @@
       "category": "networking",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:98dbf5280bf8376a0c75c1391250db9db4ac0d293d42bdd831c20f7514925adb",
+        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -1375,7 +1578,16 @@
       "provider_type": "resources",
       "registry_anchor": "canonical-2123133001021123-3312330013331222-1001231112320212-1022312231230113-1333210101311221-0200201221100320-0132310013032131-0003031010320120",
       "registry_path": "docs/guides/resources--forward_proxy_policy--reference--group-001.md",
-      "relationships": [],
+      "relationships": [
+        {
+          "anchor": "schema-allow_list--dest_list--port_ranges",
+          "enforcement": "provider-schema",
+          "group": "allow_list.dest_list:RequiredListObjectAttributes:port_ranges",
+          "source": "ast-validator:RequiredListObjectAttributes",
+          "target_id": "xcsh-docs:resources:forward_proxy_policy:properties:allow_list:dest_list",
+          "type": "requires"
+        }
+      ],
       "retrieval_version": 1,
       "role": "properties",
       "schema_path": ["allow_list", "dest_list"],
@@ -1442,7 +1654,7 @@
       "category": "networking",
       "child_ids": ["xcsh-docs:resources:forward_proxy_policy:properties:allow_list:http_list:any_path"],
       "classification": {
-        "rules_sha256": "sha256:98dbf5280bf8376a0c75c1391250db9db4ac0d293d42bdd831c20f7514925adb",
+        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -1458,7 +1670,152 @@
       "provider_type": "resources",
       "registry_anchor": "canonical-2310303221301111-0331133010332222-0321302332130310-1303130312022203-0013123232111121-3331330020111333-1320031200223001-0201212320121031",
       "registry_path": "docs/guides/resources--forward_proxy_policy--reference--group-001.md",
-      "relationships": [],
+      "relationships": [
+        {
+          "anchor": "schema-allow_list--http_list--exact_value",
+          "enforcement": "provider-schema",
+          "group": "allow_list.http_list:ConflictingListObjectAttributes:exact_value,regex_value",
+          "source": "ast-validator:ConflictingListObjectAttributes",
+          "target_id": "xcsh-docs:resources:forward_proxy_policy:properties:allow_list:http_list",
+          "type": "conflicts"
+        },
+        {
+          "anchor": "schema-allow_list--http_list--exact_value",
+          "enforcement": "provider-schema",
+          "group": "allow_list.http_list:ConflictingListObjectAttributes:exact_value,suffix_value",
+          "source": "ast-validator:ConflictingListObjectAttributes",
+          "target_id": "xcsh-docs:resources:forward_proxy_policy:properties:allow_list:http_list",
+          "type": "conflicts"
+        },
+        {
+          "anchor": "schema-allow_list--http_list--path_exact_value",
+          "enforcement": "provider-schema",
+          "group": "allow_list.http_list:ConflictingListObjectAttributes:any_path,path_exact_value",
+          "source": "ast-validator:ConflictingListObjectAttributes",
+          "target_id": "xcsh-docs:resources:forward_proxy_policy:properties:allow_list:http_list",
+          "type": "conflicts"
+        },
+        {
+          "anchor": "schema-allow_list--http_list--path_exact_value",
+          "enforcement": "provider-schema",
+          "group": "allow_list.http_list:ConflictingListObjectAttributes:path_exact_value,path_prefix_value",
+          "source": "ast-validator:ConflictingListObjectAttributes",
+          "target_id": "xcsh-docs:resources:forward_proxy_policy:properties:allow_list:http_list",
+          "type": "conflicts"
+        },
+        {
+          "anchor": "schema-allow_list--http_list--path_exact_value",
+          "enforcement": "provider-schema",
+          "group": "allow_list.http_list:ConflictingListObjectAttributes:path_exact_value,path_regex_value",
+          "source": "ast-validator:ConflictingListObjectAttributes",
+          "target_id": "xcsh-docs:resources:forward_proxy_policy:properties:allow_list:http_list",
+          "type": "conflicts"
+        },
+        {
+          "anchor": "schema-allow_list--http_list--path_prefix_value",
+          "enforcement": "provider-schema",
+          "group": "allow_list.http_list:ConflictingListObjectAttributes:any_path,path_prefix_value",
+          "source": "ast-validator:ConflictingListObjectAttributes",
+          "target_id": "xcsh-docs:resources:forward_proxy_policy:properties:allow_list:http_list",
+          "type": "conflicts"
+        },
+        {
+          "anchor": "schema-allow_list--http_list--path_prefix_value",
+          "enforcement": "provider-schema",
+          "group": "allow_list.http_list:ConflictingListObjectAttributes:path_exact_value,path_prefix_value",
+          "source": "ast-validator:ConflictingListObjectAttributes",
+          "target_id": "xcsh-docs:resources:forward_proxy_policy:properties:allow_list:http_list",
+          "type": "conflicts"
+        },
+        {
+          "anchor": "schema-allow_list--http_list--path_prefix_value",
+          "enforcement": "provider-schema",
+          "group": "allow_list.http_list:ConflictingListObjectAttributes:path_prefix_value,path_regex_value",
+          "source": "ast-validator:ConflictingListObjectAttributes",
+          "target_id": "xcsh-docs:resources:forward_proxy_policy:properties:allow_list:http_list",
+          "type": "conflicts"
+        },
+        {
+          "anchor": "schema-allow_list--http_list--path_regex_value",
+          "enforcement": "provider-schema",
+          "group": "allow_list.http_list:ConflictingListObjectAttributes:any_path,path_regex_value",
+          "source": "ast-validator:ConflictingListObjectAttributes",
+          "target_id": "xcsh-docs:resources:forward_proxy_policy:properties:allow_list:http_list",
+          "type": "conflicts"
+        },
+        {
+          "anchor": "schema-allow_list--http_list--path_regex_value",
+          "enforcement": "provider-schema",
+          "group": "allow_list.http_list:ConflictingListObjectAttributes:path_exact_value,path_regex_value",
+          "source": "ast-validator:ConflictingListObjectAttributes",
+          "target_id": "xcsh-docs:resources:forward_proxy_policy:properties:allow_list:http_list",
+          "type": "conflicts"
+        },
+        {
+          "anchor": "schema-allow_list--http_list--path_regex_value",
+          "enforcement": "provider-schema",
+          "group": "allow_list.http_list:ConflictingListObjectAttributes:path_prefix_value,path_regex_value",
+          "source": "ast-validator:ConflictingListObjectAttributes",
+          "target_id": "xcsh-docs:resources:forward_proxy_policy:properties:allow_list:http_list",
+          "type": "conflicts"
+        },
+        {
+          "anchor": "schema-allow_list--http_list--regex_value",
+          "enforcement": "provider-schema",
+          "group": "allow_list.http_list:ConflictingListObjectAttributes:exact_value,regex_value",
+          "source": "ast-validator:ConflictingListObjectAttributes",
+          "target_id": "xcsh-docs:resources:forward_proxy_policy:properties:allow_list:http_list",
+          "type": "conflicts"
+        },
+        {
+          "anchor": "schema-allow_list--http_list--regex_value",
+          "enforcement": "provider-schema",
+          "group": "allow_list.http_list:ConflictingListObjectAttributes:regex_value,suffix_value",
+          "source": "ast-validator:ConflictingListObjectAttributes",
+          "target_id": "xcsh-docs:resources:forward_proxy_policy:properties:allow_list:http_list",
+          "type": "conflicts"
+        },
+        {
+          "anchor": "schema-allow_list--http_list--suffix_value",
+          "enforcement": "provider-schema",
+          "group": "allow_list.http_list:ConflictingListObjectAttributes:exact_value,suffix_value",
+          "source": "ast-validator:ConflictingListObjectAttributes",
+          "target_id": "xcsh-docs:resources:forward_proxy_policy:properties:allow_list:http_list",
+          "type": "conflicts"
+        },
+        {
+          "anchor": "schema-allow_list--http_list--suffix_value",
+          "enforcement": "provider-schema",
+          "group": "allow_list.http_list:ConflictingListObjectAttributes:regex_value,suffix_value",
+          "source": "ast-validator:ConflictingListObjectAttributes",
+          "target_id": "xcsh-docs:resources:forward_proxy_policy:properties:allow_list:http_list",
+          "type": "conflicts"
+        },
+        {
+          "anchor": "section",
+          "enforcement": "provider-schema",
+          "group": "allow_list.http_list:ConflictingListObjectAttributes:any_path,path_exact_value",
+          "source": "ast-validator:ConflictingListObjectAttributes",
+          "target_id": "xcsh-docs:resources:forward_proxy_policy:properties:allow_list:http_list:any_path",
+          "type": "conflicts"
+        },
+        {
+          "anchor": "section",
+          "enforcement": "provider-schema",
+          "group": "allow_list.http_list:ConflictingListObjectAttributes:any_path,path_prefix_value",
+          "source": "ast-validator:ConflictingListObjectAttributes",
+          "target_id": "xcsh-docs:resources:forward_proxy_policy:properties:allow_list:http_list:any_path",
+          "type": "conflicts"
+        },
+        {
+          "anchor": "section",
+          "enforcement": "provider-schema",
+          "group": "allow_list.http_list:ConflictingListObjectAttributes:any_path,path_regex_value",
+          "source": "ast-validator:ConflictingListObjectAttributes",
+          "target_id": "xcsh-docs:resources:forward_proxy_policy:properties:allow_list:http_list:any_path",
+          "type": "conflicts"
+        }
+      ],
       "retrieval_version": 1,
       "role": "properties",
       "schema_path": ["allow_list", "http_list"],
@@ -1581,7 +1938,7 @@
       "category": "networking",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:98dbf5280bf8376a0c75c1391250db9db4ac0d293d42bdd831c20f7514925adb",
+        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -1621,7 +1978,7 @@
       "category": "networking",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:98dbf5280bf8376a0c75c1391250db9db4ac0d293d42bdd831c20f7514925adb",
+        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -1637,7 +1994,56 @@
       "provider_type": "resources",
       "registry_anchor": "canonical-2210220233212330-2121101130022310-2101231231222001-0223201021123312-3112220102330021-2120202030302111-2222203232332103-0133113122113112",
       "registry_path": "docs/guides/resources--forward_proxy_policy--reference--group-001.md",
-      "relationships": [],
+      "relationships": [
+        {
+          "anchor": "schema-allow_list--tls_list--exact_value",
+          "enforcement": "provider-schema",
+          "group": "allow_list.tls_list:ConflictingListObjectAttributes:exact_value,regex_value",
+          "source": "ast-validator:ConflictingListObjectAttributes",
+          "target_id": "xcsh-docs:resources:forward_proxy_policy:properties:allow_list:tls_list",
+          "type": "conflicts"
+        },
+        {
+          "anchor": "schema-allow_list--tls_list--exact_value",
+          "enforcement": "provider-schema",
+          "group": "allow_list.tls_list:ConflictingListObjectAttributes:exact_value,suffix_value",
+          "source": "ast-validator:ConflictingListObjectAttributes",
+          "target_id": "xcsh-docs:resources:forward_proxy_policy:properties:allow_list:tls_list",
+          "type": "conflicts"
+        },
+        {
+          "anchor": "schema-allow_list--tls_list--regex_value",
+          "enforcement": "provider-schema",
+          "group": "allow_list.tls_list:ConflictingListObjectAttributes:exact_value,regex_value",
+          "source": "ast-validator:ConflictingListObjectAttributes",
+          "target_id": "xcsh-docs:resources:forward_proxy_policy:properties:allow_list:tls_list",
+          "type": "conflicts"
+        },
+        {
+          "anchor": "schema-allow_list--tls_list--regex_value",
+          "enforcement": "provider-schema",
+          "group": "allow_list.tls_list:ConflictingListObjectAttributes:regex_value,suffix_value",
+          "source": "ast-validator:ConflictingListObjectAttributes",
+          "target_id": "xcsh-docs:resources:forward_proxy_policy:properties:allow_list:tls_list",
+          "type": "conflicts"
+        },
+        {
+          "anchor": "schema-allow_list--tls_list--suffix_value",
+          "enforcement": "provider-schema",
+          "group": "allow_list.tls_list:ConflictingListObjectAttributes:exact_value,suffix_value",
+          "source": "ast-validator:ConflictingListObjectAttributes",
+          "target_id": "xcsh-docs:resources:forward_proxy_policy:properties:allow_list:tls_list",
+          "type": "conflicts"
+        },
+        {
+          "anchor": "schema-allow_list--tls_list--suffix_value",
+          "enforcement": "provider-schema",
+          "group": "allow_list.tls_list:ConflictingListObjectAttributes:regex_value,suffix_value",
+          "source": "ast-validator:ConflictingListObjectAttributes",
+          "target_id": "xcsh-docs:resources:forward_proxy_policy:properties:allow_list:tls_list",
+          "type": "conflicts"
+        }
+      ],
       "retrieval_version": 1,
       "role": "properties",
       "schema_path": ["allow_list", "tls_list"],
@@ -1704,7 +2110,7 @@
       "category": "networking",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:98dbf5280bf8376a0c75c1391250db9db4ac0d293d42bdd831c20f7514925adb",
+        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -1751,7 +2157,7 @@
         "xcsh-docs:resources:forward_proxy_policy:properties:deny_list:tls_list"
       ],
       "classification": {
-        "rules_sha256": "sha256:98dbf5280bf8376a0c75c1391250db9db4ac0d293d42bdd831c20f7514925adb",
+        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -1872,7 +2278,16 @@
           "max_items": null,
           "min_items": null,
           "nesting": "list",
-          "relationships": [],
+          "relationships": [
+            {
+              "anchor": "schema-deny_list--dest_list--port_ranges",
+              "enforcement": "provider-schema",
+              "group": "deny_list.dest_list:RequiredListObjectAttributes:port_ranges",
+              "source": "ast-validator:RequiredListObjectAttributes",
+              "target_id": "xcsh-docs:resources:forward_proxy_policy:properties:deny_list:dest_list",
+              "type": "requires"
+            }
+          ],
           "schema_path": ["deny_list", "dest_list"],
           "syntax": "block",
           "type": "object"
@@ -1886,7 +2301,152 @@
           "max_items": null,
           "min_items": null,
           "nesting": "list",
-          "relationships": [],
+          "relationships": [
+            {
+              "anchor": "schema-deny_list--http_list--exact_value",
+              "enforcement": "provider-schema",
+              "group": "deny_list.http_list:ConflictingListObjectAttributes:exact_value,regex_value",
+              "source": "ast-validator:ConflictingListObjectAttributes",
+              "target_id": "xcsh-docs:resources:forward_proxy_policy:properties:deny_list:http_list",
+              "type": "conflicts"
+            },
+            {
+              "anchor": "schema-deny_list--http_list--exact_value",
+              "enforcement": "provider-schema",
+              "group": "deny_list.http_list:ConflictingListObjectAttributes:exact_value,suffix_value",
+              "source": "ast-validator:ConflictingListObjectAttributes",
+              "target_id": "xcsh-docs:resources:forward_proxy_policy:properties:deny_list:http_list",
+              "type": "conflicts"
+            },
+            {
+              "anchor": "schema-deny_list--http_list--path_exact_value",
+              "enforcement": "provider-schema",
+              "group": "deny_list.http_list:ConflictingListObjectAttributes:any_path,path_exact_value",
+              "source": "ast-validator:ConflictingListObjectAttributes",
+              "target_id": "xcsh-docs:resources:forward_proxy_policy:properties:deny_list:http_list",
+              "type": "conflicts"
+            },
+            {
+              "anchor": "schema-deny_list--http_list--path_exact_value",
+              "enforcement": "provider-schema",
+              "group": "deny_list.http_list:ConflictingListObjectAttributes:path_exact_value,path_prefix_value",
+              "source": "ast-validator:ConflictingListObjectAttributes",
+              "target_id": "xcsh-docs:resources:forward_proxy_policy:properties:deny_list:http_list",
+              "type": "conflicts"
+            },
+            {
+              "anchor": "schema-deny_list--http_list--path_exact_value",
+              "enforcement": "provider-schema",
+              "group": "deny_list.http_list:ConflictingListObjectAttributes:path_exact_value,path_regex_value",
+              "source": "ast-validator:ConflictingListObjectAttributes",
+              "target_id": "xcsh-docs:resources:forward_proxy_policy:properties:deny_list:http_list",
+              "type": "conflicts"
+            },
+            {
+              "anchor": "schema-deny_list--http_list--path_prefix_value",
+              "enforcement": "provider-schema",
+              "group": "deny_list.http_list:ConflictingListObjectAttributes:any_path,path_prefix_value",
+              "source": "ast-validator:ConflictingListObjectAttributes",
+              "target_id": "xcsh-docs:resources:forward_proxy_policy:properties:deny_list:http_list",
+              "type": "conflicts"
+            },
+            {
+              "anchor": "schema-deny_list--http_list--path_prefix_value",
+              "enforcement": "provider-schema",
+              "group": "deny_list.http_list:ConflictingListObjectAttributes:path_exact_value,path_prefix_value",
+              "source": "ast-validator:ConflictingListObjectAttributes",
+              "target_id": "xcsh-docs:resources:forward_proxy_policy:properties:deny_list:http_list",
+              "type": "conflicts"
+            },
+            {
+              "anchor": "schema-deny_list--http_list--path_prefix_value",
+              "enforcement": "provider-schema",
+              "group": "deny_list.http_list:ConflictingListObjectAttributes:path_prefix_value,path_regex_value",
+              "source": "ast-validator:ConflictingListObjectAttributes",
+              "target_id": "xcsh-docs:resources:forward_proxy_policy:properties:deny_list:http_list",
+              "type": "conflicts"
+            },
+            {
+              "anchor": "schema-deny_list--http_list--path_regex_value",
+              "enforcement": "provider-schema",
+              "group": "deny_list.http_list:ConflictingListObjectAttributes:any_path,path_regex_value",
+              "source": "ast-validator:ConflictingListObjectAttributes",
+              "target_id": "xcsh-docs:resources:forward_proxy_policy:properties:deny_list:http_list",
+              "type": "conflicts"
+            },
+            {
+              "anchor": "schema-deny_list--http_list--path_regex_value",
+              "enforcement": "provider-schema",
+              "group": "deny_list.http_list:ConflictingListObjectAttributes:path_exact_value,path_regex_value",
+              "source": "ast-validator:ConflictingListObjectAttributes",
+              "target_id": "xcsh-docs:resources:forward_proxy_policy:properties:deny_list:http_list",
+              "type": "conflicts"
+            },
+            {
+              "anchor": "schema-deny_list--http_list--path_regex_value",
+              "enforcement": "provider-schema",
+              "group": "deny_list.http_list:ConflictingListObjectAttributes:path_prefix_value,path_regex_value",
+              "source": "ast-validator:ConflictingListObjectAttributes",
+              "target_id": "xcsh-docs:resources:forward_proxy_policy:properties:deny_list:http_list",
+              "type": "conflicts"
+            },
+            {
+              "anchor": "schema-deny_list--http_list--regex_value",
+              "enforcement": "provider-schema",
+              "group": "deny_list.http_list:ConflictingListObjectAttributes:exact_value,regex_value",
+              "source": "ast-validator:ConflictingListObjectAttributes",
+              "target_id": "xcsh-docs:resources:forward_proxy_policy:properties:deny_list:http_list",
+              "type": "conflicts"
+            },
+            {
+              "anchor": "schema-deny_list--http_list--regex_value",
+              "enforcement": "provider-schema",
+              "group": "deny_list.http_list:ConflictingListObjectAttributes:regex_value,suffix_value",
+              "source": "ast-validator:ConflictingListObjectAttributes",
+              "target_id": "xcsh-docs:resources:forward_proxy_policy:properties:deny_list:http_list",
+              "type": "conflicts"
+            },
+            {
+              "anchor": "schema-deny_list--http_list--suffix_value",
+              "enforcement": "provider-schema",
+              "group": "deny_list.http_list:ConflictingListObjectAttributes:exact_value,suffix_value",
+              "source": "ast-validator:ConflictingListObjectAttributes",
+              "target_id": "xcsh-docs:resources:forward_proxy_policy:properties:deny_list:http_list",
+              "type": "conflicts"
+            },
+            {
+              "anchor": "schema-deny_list--http_list--suffix_value",
+              "enforcement": "provider-schema",
+              "group": "deny_list.http_list:ConflictingListObjectAttributes:regex_value,suffix_value",
+              "source": "ast-validator:ConflictingListObjectAttributes",
+              "target_id": "xcsh-docs:resources:forward_proxy_policy:properties:deny_list:http_list",
+              "type": "conflicts"
+            },
+            {
+              "anchor": "section",
+              "enforcement": "provider-schema",
+              "group": "deny_list.http_list:ConflictingListObjectAttributes:any_path,path_exact_value",
+              "source": "ast-validator:ConflictingListObjectAttributes",
+              "target_id": "xcsh-docs:resources:forward_proxy_policy:properties:deny_list:http_list:any_path",
+              "type": "conflicts"
+            },
+            {
+              "anchor": "section",
+              "enforcement": "provider-schema",
+              "group": "deny_list.http_list:ConflictingListObjectAttributes:any_path,path_prefix_value",
+              "source": "ast-validator:ConflictingListObjectAttributes",
+              "target_id": "xcsh-docs:resources:forward_proxy_policy:properties:deny_list:http_list:any_path",
+              "type": "conflicts"
+            },
+            {
+              "anchor": "section",
+              "enforcement": "provider-schema",
+              "group": "deny_list.http_list:ConflictingListObjectAttributes:any_path,path_regex_value",
+              "source": "ast-validator:ConflictingListObjectAttributes",
+              "target_id": "xcsh-docs:resources:forward_proxy_policy:properties:deny_list:http_list:any_path",
+              "type": "conflicts"
+            }
+          ],
           "schema_path": ["deny_list", "http_list"],
           "syntax": "block",
           "type": "object"
@@ -1900,7 +2460,56 @@
           "max_items": null,
           "min_items": null,
           "nesting": "list",
-          "relationships": [],
+          "relationships": [
+            {
+              "anchor": "schema-deny_list--tls_list--exact_value",
+              "enforcement": "provider-schema",
+              "group": "deny_list.tls_list:ConflictingListObjectAttributes:exact_value,regex_value",
+              "source": "ast-validator:ConflictingListObjectAttributes",
+              "target_id": "xcsh-docs:resources:forward_proxy_policy:properties:deny_list:tls_list",
+              "type": "conflicts"
+            },
+            {
+              "anchor": "schema-deny_list--tls_list--exact_value",
+              "enforcement": "provider-schema",
+              "group": "deny_list.tls_list:ConflictingListObjectAttributes:exact_value,suffix_value",
+              "source": "ast-validator:ConflictingListObjectAttributes",
+              "target_id": "xcsh-docs:resources:forward_proxy_policy:properties:deny_list:tls_list",
+              "type": "conflicts"
+            },
+            {
+              "anchor": "schema-deny_list--tls_list--regex_value",
+              "enforcement": "provider-schema",
+              "group": "deny_list.tls_list:ConflictingListObjectAttributes:exact_value,regex_value",
+              "source": "ast-validator:ConflictingListObjectAttributes",
+              "target_id": "xcsh-docs:resources:forward_proxy_policy:properties:deny_list:tls_list",
+              "type": "conflicts"
+            },
+            {
+              "anchor": "schema-deny_list--tls_list--regex_value",
+              "enforcement": "provider-schema",
+              "group": "deny_list.tls_list:ConflictingListObjectAttributes:regex_value,suffix_value",
+              "source": "ast-validator:ConflictingListObjectAttributes",
+              "target_id": "xcsh-docs:resources:forward_proxy_policy:properties:deny_list:tls_list",
+              "type": "conflicts"
+            },
+            {
+              "anchor": "schema-deny_list--tls_list--suffix_value",
+              "enforcement": "provider-schema",
+              "group": "deny_list.tls_list:ConflictingListObjectAttributes:exact_value,suffix_value",
+              "source": "ast-validator:ConflictingListObjectAttributes",
+              "target_id": "xcsh-docs:resources:forward_proxy_policy:properties:deny_list:tls_list",
+              "type": "conflicts"
+            },
+            {
+              "anchor": "schema-deny_list--tls_list--suffix_value",
+              "enforcement": "provider-schema",
+              "group": "deny_list.tls_list:ConflictingListObjectAttributes:regex_value,suffix_value",
+              "source": "ast-validator:ConflictingListObjectAttributes",
+              "target_id": "xcsh-docs:resources:forward_proxy_policy:properties:deny_list:tls_list",
+              "type": "conflicts"
+            }
+          ],
           "schema_path": ["deny_list", "tls_list"],
           "syntax": "block",
           "type": "object"
@@ -1925,7 +2534,7 @@
       "category": "networking",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:98dbf5280bf8376a0c75c1391250db9db4ac0d293d42bdd831c20f7514925adb",
+        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -1965,7 +2574,7 @@
       "category": "networking",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:98dbf5280bf8376a0c75c1391250db9db4ac0d293d42bdd831c20f7514925adb",
+        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -2005,7 +2614,7 @@
       "category": "networking",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:98dbf5280bf8376a0c75c1391250db9db4ac0d293d42bdd831c20f7514925adb",
+        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -2045,7 +2654,7 @@
       "category": "networking",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:98dbf5280bf8376a0c75c1391250db9db4ac0d293d42bdd831c20f7514925adb",
+        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -2061,7 +2670,16 @@
       "provider_type": "resources",
       "registry_anchor": "canonical-2021023221213120-2220230112212201-0313100222120123-1100030123122122-1000300112300300-1031311201022221-0220222331203131-2221231130321032",
       "registry_path": "docs/guides/resources--forward_proxy_policy--reference--group-001.md",
-      "relationships": [],
+      "relationships": [
+        {
+          "anchor": "schema-deny_list--dest_list--port_ranges",
+          "enforcement": "provider-schema",
+          "group": "deny_list.dest_list:RequiredListObjectAttributes:port_ranges",
+          "source": "ast-validator:RequiredListObjectAttributes",
+          "target_id": "xcsh-docs:resources:forward_proxy_policy:properties:deny_list:dest_list",
+          "type": "requires"
+        }
+      ],
       "retrieval_version": 1,
       "role": "properties",
       "schema_path": ["deny_list", "dest_list"],
@@ -2128,7 +2746,7 @@
       "category": "networking",
       "child_ids": ["xcsh-docs:resources:forward_proxy_policy:properties:deny_list:http_list:any_path"],
       "classification": {
-        "rules_sha256": "sha256:98dbf5280bf8376a0c75c1391250db9db4ac0d293d42bdd831c20f7514925adb",
+        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -2144,7 +2762,152 @@
       "provider_type": "resources",
       "registry_anchor": "canonical-3202121002221232-1001233131102222-3332221121223212-0111023100312303-2220221211222132-2312230221111030-0022112301033230-3001113000001013",
       "registry_path": "docs/guides/resources--forward_proxy_policy--reference--group-001.md",
-      "relationships": [],
+      "relationships": [
+        {
+          "anchor": "schema-deny_list--http_list--exact_value",
+          "enforcement": "provider-schema",
+          "group": "deny_list.http_list:ConflictingListObjectAttributes:exact_value,regex_value",
+          "source": "ast-validator:ConflictingListObjectAttributes",
+          "target_id": "xcsh-docs:resources:forward_proxy_policy:properties:deny_list:http_list",
+          "type": "conflicts"
+        },
+        {
+          "anchor": "schema-deny_list--http_list--exact_value",
+          "enforcement": "provider-schema",
+          "group": "deny_list.http_list:ConflictingListObjectAttributes:exact_value,suffix_value",
+          "source": "ast-validator:ConflictingListObjectAttributes",
+          "target_id": "xcsh-docs:resources:forward_proxy_policy:properties:deny_list:http_list",
+          "type": "conflicts"
+        },
+        {
+          "anchor": "schema-deny_list--http_list--path_exact_value",
+          "enforcement": "provider-schema",
+          "group": "deny_list.http_list:ConflictingListObjectAttributes:any_path,path_exact_value",
+          "source": "ast-validator:ConflictingListObjectAttributes",
+          "target_id": "xcsh-docs:resources:forward_proxy_policy:properties:deny_list:http_list",
+          "type": "conflicts"
+        },
+        {
+          "anchor": "schema-deny_list--http_list--path_exact_value",
+          "enforcement": "provider-schema",
+          "group": "deny_list.http_list:ConflictingListObjectAttributes:path_exact_value,path_prefix_value",
+          "source": "ast-validator:ConflictingListObjectAttributes",
+          "target_id": "xcsh-docs:resources:forward_proxy_policy:properties:deny_list:http_list",
+          "type": "conflicts"
+        },
+        {
+          "anchor": "schema-deny_list--http_list--path_exact_value",
+          "enforcement": "provider-schema",
+          "group": "deny_list.http_list:ConflictingListObjectAttributes:path_exact_value,path_regex_value",
+          "source": "ast-validator:ConflictingListObjectAttributes",
+          "target_id": "xcsh-docs:resources:forward_proxy_policy:properties:deny_list:http_list",
+          "type": "conflicts"
+        },
+        {
+          "anchor": "schema-deny_list--http_list--path_prefix_value",
+          "enforcement": "provider-schema",
+          "group": "deny_list.http_list:ConflictingListObjectAttributes:any_path,path_prefix_value",
+          "source": "ast-validator:ConflictingListObjectAttributes",
+          "target_id": "xcsh-docs:resources:forward_proxy_policy:properties:deny_list:http_list",
+          "type": "conflicts"
+        },
+        {
+          "anchor": "schema-deny_list--http_list--path_prefix_value",
+          "enforcement": "provider-schema",
+          "group": "deny_list.http_list:ConflictingListObjectAttributes:path_exact_value,path_prefix_value",
+          "source": "ast-validator:ConflictingListObjectAttributes",
+          "target_id": "xcsh-docs:resources:forward_proxy_policy:properties:deny_list:http_list",
+          "type": "conflicts"
+        },
+        {
+          "anchor": "schema-deny_list--http_list--path_prefix_value",
+          "enforcement": "provider-schema",
+          "group": "deny_list.http_list:ConflictingListObjectAttributes:path_prefix_value,path_regex_value",
+          "source": "ast-validator:ConflictingListObjectAttributes",
+          "target_id": "xcsh-docs:resources:forward_proxy_policy:properties:deny_list:http_list",
+          "type": "conflicts"
+        },
+        {
+          "anchor": "schema-deny_list--http_list--path_regex_value",
+          "enforcement": "provider-schema",
+          "group": "deny_list.http_list:ConflictingListObjectAttributes:any_path,path_regex_value",
+          "source": "ast-validator:ConflictingListObjectAttributes",
+          "target_id": "xcsh-docs:resources:forward_proxy_policy:properties:deny_list:http_list",
+          "type": "conflicts"
+        },
+        {
+          "anchor": "schema-deny_list--http_list--path_regex_value",
+          "enforcement": "provider-schema",
+          "group": "deny_list.http_list:ConflictingListObjectAttributes:path_exact_value,path_regex_value",
+          "source": "ast-validator:ConflictingListObjectAttributes",
+          "target_id": "xcsh-docs:resources:forward_proxy_policy:properties:deny_list:http_list",
+          "type": "conflicts"
+        },
+        {
+          "anchor": "schema-deny_list--http_list--path_regex_value",
+          "enforcement": "provider-schema",
+          "group": "deny_list.http_list:ConflictingListObjectAttributes:path_prefix_value,path_regex_value",
+          "source": "ast-validator:ConflictingListObjectAttributes",
+          "target_id": "xcsh-docs:resources:forward_proxy_policy:properties:deny_list:http_list",
+          "type": "conflicts"
+        },
+        {
+          "anchor": "schema-deny_list--http_list--regex_value",
+          "enforcement": "provider-schema",
+          "group": "deny_list.http_list:ConflictingListObjectAttributes:exact_value,regex_value",
+          "source": "ast-validator:ConflictingListObjectAttributes",
+          "target_id": "xcsh-docs:resources:forward_proxy_policy:properties:deny_list:http_list",
+          "type": "conflicts"
+        },
+        {
+          "anchor": "schema-deny_list--http_list--regex_value",
+          "enforcement": "provider-schema",
+          "group": "deny_list.http_list:ConflictingListObjectAttributes:regex_value,suffix_value",
+          "source": "ast-validator:ConflictingListObjectAttributes",
+          "target_id": "xcsh-docs:resources:forward_proxy_policy:properties:deny_list:http_list",
+          "type": "conflicts"
+        },
+        {
+          "anchor": "schema-deny_list--http_list--suffix_value",
+          "enforcement": "provider-schema",
+          "group": "deny_list.http_list:ConflictingListObjectAttributes:exact_value,suffix_value",
+          "source": "ast-validator:ConflictingListObjectAttributes",
+          "target_id": "xcsh-docs:resources:forward_proxy_policy:properties:deny_list:http_list",
+          "type": "conflicts"
+        },
+        {
+          "anchor": "schema-deny_list--http_list--suffix_value",
+          "enforcement": "provider-schema",
+          "group": "deny_list.http_list:ConflictingListObjectAttributes:regex_value,suffix_value",
+          "source": "ast-validator:ConflictingListObjectAttributes",
+          "target_id": "xcsh-docs:resources:forward_proxy_policy:properties:deny_list:http_list",
+          "type": "conflicts"
+        },
+        {
+          "anchor": "section",
+          "enforcement": "provider-schema",
+          "group": "deny_list.http_list:ConflictingListObjectAttributes:any_path,path_exact_value",
+          "source": "ast-validator:ConflictingListObjectAttributes",
+          "target_id": "xcsh-docs:resources:forward_proxy_policy:properties:deny_list:http_list:any_path",
+          "type": "conflicts"
+        },
+        {
+          "anchor": "section",
+          "enforcement": "provider-schema",
+          "group": "deny_list.http_list:ConflictingListObjectAttributes:any_path,path_prefix_value",
+          "source": "ast-validator:ConflictingListObjectAttributes",
+          "target_id": "xcsh-docs:resources:forward_proxy_policy:properties:deny_list:http_list:any_path",
+          "type": "conflicts"
+        },
+        {
+          "anchor": "section",
+          "enforcement": "provider-schema",
+          "group": "deny_list.http_list:ConflictingListObjectAttributes:any_path,path_regex_value",
+          "source": "ast-validator:ConflictingListObjectAttributes",
+          "target_id": "xcsh-docs:resources:forward_proxy_policy:properties:deny_list:http_list:any_path",
+          "type": "conflicts"
+        }
+      ],
       "retrieval_version": 1,
       "role": "properties",
       "schema_path": ["deny_list", "http_list"],
@@ -2267,7 +3030,7 @@
       "category": "networking",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:98dbf5280bf8376a0c75c1391250db9db4ac0d293d42bdd831c20f7514925adb",
+        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -2307,7 +3070,7 @@
       "category": "networking",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:98dbf5280bf8376a0c75c1391250db9db4ac0d293d42bdd831c20f7514925adb",
+        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -2323,7 +3086,56 @@
       "provider_type": "resources",
       "registry_anchor": "canonical-2030011123202013-2020022321113210-3000123000322103-0332101233032232-3031200322302233-3320333113121232-0103133001223023-3020331222230303",
       "registry_path": "docs/guides/resources--forward_proxy_policy--reference--group-001.md",
-      "relationships": [],
+      "relationships": [
+        {
+          "anchor": "schema-deny_list--tls_list--exact_value",
+          "enforcement": "provider-schema",
+          "group": "deny_list.tls_list:ConflictingListObjectAttributes:exact_value,regex_value",
+          "source": "ast-validator:ConflictingListObjectAttributes",
+          "target_id": "xcsh-docs:resources:forward_proxy_policy:properties:deny_list:tls_list",
+          "type": "conflicts"
+        },
+        {
+          "anchor": "schema-deny_list--tls_list--exact_value",
+          "enforcement": "provider-schema",
+          "group": "deny_list.tls_list:ConflictingListObjectAttributes:exact_value,suffix_value",
+          "source": "ast-validator:ConflictingListObjectAttributes",
+          "target_id": "xcsh-docs:resources:forward_proxy_policy:properties:deny_list:tls_list",
+          "type": "conflicts"
+        },
+        {
+          "anchor": "schema-deny_list--tls_list--regex_value",
+          "enforcement": "provider-schema",
+          "group": "deny_list.tls_list:ConflictingListObjectAttributes:exact_value,regex_value",
+          "source": "ast-validator:ConflictingListObjectAttributes",
+          "target_id": "xcsh-docs:resources:forward_proxy_policy:properties:deny_list:tls_list",
+          "type": "conflicts"
+        },
+        {
+          "anchor": "schema-deny_list--tls_list--regex_value",
+          "enforcement": "provider-schema",
+          "group": "deny_list.tls_list:ConflictingListObjectAttributes:regex_value,suffix_value",
+          "source": "ast-validator:ConflictingListObjectAttributes",
+          "target_id": "xcsh-docs:resources:forward_proxy_policy:properties:deny_list:tls_list",
+          "type": "conflicts"
+        },
+        {
+          "anchor": "schema-deny_list--tls_list--suffix_value",
+          "enforcement": "provider-schema",
+          "group": "deny_list.tls_list:ConflictingListObjectAttributes:exact_value,suffix_value",
+          "source": "ast-validator:ConflictingListObjectAttributes",
+          "target_id": "xcsh-docs:resources:forward_proxy_policy:properties:deny_list:tls_list",
+          "type": "conflicts"
+        },
+        {
+          "anchor": "schema-deny_list--tls_list--suffix_value",
+          "enforcement": "provider-schema",
+          "group": "deny_list.tls_list:ConflictingListObjectAttributes:regex_value,suffix_value",
+          "source": "ast-validator:ConflictingListObjectAttributes",
+          "target_id": "xcsh-docs:resources:forward_proxy_policy:properties:deny_list:tls_list",
+          "type": "conflicts"
+        }
+      ],
       "retrieval_version": 1,
       "role": "properties",
       "schema_path": ["deny_list", "tls_list"],
@@ -2390,7 +3202,7 @@
       "category": "networking",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:98dbf5280bf8376a0c75c1391250db9db4ac0d293d42bdd831c20f7514925adb",
+        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -2430,7 +3242,7 @@
       "category": "networking",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:98dbf5280bf8376a0c75c1391250db9db4ac0d293d42bdd831c20f7514925adb",
+        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -2522,7 +3334,7 @@
       "category": "networking",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:98dbf5280bf8376a0c75c1391250db9db4ac0d293d42bdd831c20f7514925adb",
+        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -2569,7 +3381,7 @@
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/forward_proxy_policy/properties/proxy_label_selector/index.txt",
       "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
-      "summary": "This type can be used to establish a 'selector reference' from one object(called selector) to a set of other objects(called selectees) based on the value of expressions. A label selector is a label query over a set of resources. An empty label selector matches all objects. A null label selector matches no objects. Labe",
+      "summary": "This type can be used to establish a 'selector reference' from one object(called selector) to a set of other objects(called selectees) based on the value of expressions. A label selector is a label query over a set of resources. An empty label selector matches all objects. A null label selector matches no objects.",
       "tasks": ["configuration"],
       "title": "proxy_label_selector",
       "upstream_identity": {
@@ -2586,7 +3398,7 @@
       "category": "networking",
       "child_ids": ["xcsh-docs:resources:forward_proxy_policy:properties:rule_list:rules"],
       "classification": {
-        "rules_sha256": "sha256:98dbf5280bf8376a0c75c1391250db9db4ac0d293d42bdd831c20f7514925adb",
+        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -2625,7 +3437,696 @@
           "max_items": null,
           "min_items": null,
           "nesting": "list",
-          "relationships": [],
+          "relationships": [
+            {
+              "anchor": "section",
+              "enforcement": "provider-schema",
+              "group": "rule_list.rules:ConflictingListObjectAttributes:all_destinations,dst_asn_list",
+              "source": "ast-validator:ConflictingListObjectAttributes",
+              "target_id": "xcsh-docs:resources:forward_proxy_policy:properties:rule_list:rules:all_destinations",
+              "type": "conflicts"
+            },
+            {
+              "anchor": "section",
+              "enforcement": "provider-schema",
+              "group": "rule_list.rules:ConflictingListObjectAttributes:all_destinations,dst_asn_set",
+              "source": "ast-validator:ConflictingListObjectAttributes",
+              "target_id": "xcsh-docs:resources:forward_proxy_policy:properties:rule_list:rules:all_destinations",
+              "type": "conflicts"
+            },
+            {
+              "anchor": "section",
+              "enforcement": "provider-schema",
+              "group": "rule_list.rules:ConflictingListObjectAttributes:all_destinations,dst_ip_prefix_set",
+              "source": "ast-validator:ConflictingListObjectAttributes",
+              "target_id": "xcsh-docs:resources:forward_proxy_policy:properties:rule_list:rules:all_destinations",
+              "type": "conflicts"
+            },
+            {
+              "anchor": "section",
+              "enforcement": "provider-schema",
+              "group": "rule_list.rules:ConflictingListObjectAttributes:all_destinations,dst_label_selector",
+              "source": "ast-validator:ConflictingListObjectAttributes",
+              "target_id": "xcsh-docs:resources:forward_proxy_policy:properties:rule_list:rules:all_destinations",
+              "type": "conflicts"
+            },
+            {
+              "anchor": "section",
+              "enforcement": "provider-schema",
+              "group": "rule_list.rules:ConflictingListObjectAttributes:all_destinations,dst_prefix_list",
+              "source": "ast-validator:ConflictingListObjectAttributes",
+              "target_id": "xcsh-docs:resources:forward_proxy_policy:properties:rule_list:rules:all_destinations",
+              "type": "conflicts"
+            },
+            {
+              "anchor": "section",
+              "enforcement": "provider-schema",
+              "group": "rule_list.rules:ConflictingListObjectAttributes:all_destinations,http_list",
+              "source": "ast-validator:ConflictingListObjectAttributes",
+              "target_id": "xcsh-docs:resources:forward_proxy_policy:properties:rule_list:rules:all_destinations",
+              "type": "conflicts"
+            },
+            {
+              "anchor": "section",
+              "enforcement": "provider-schema",
+              "group": "rule_list.rules:ConflictingListObjectAttributes:all_destinations,tls_list",
+              "source": "ast-validator:ConflictingListObjectAttributes",
+              "target_id": "xcsh-docs:resources:forward_proxy_policy:properties:rule_list:rules:all_destinations",
+              "type": "conflicts"
+            },
+            {
+              "anchor": "section",
+              "enforcement": "provider-schema",
+              "group": "rule_list.rules:ConflictingListObjectAttributes:all_destinations,url_category_list",
+              "source": "ast-validator:ConflictingListObjectAttributes",
+              "target_id": "xcsh-docs:resources:forward_proxy_policy:properties:rule_list:rules:all_destinations",
+              "type": "conflicts"
+            },
+            {
+              "anchor": "section",
+              "enforcement": "provider-schema",
+              "group": "rule_list.rules:ConflictingListObjectAttributes:all_sources,ip_prefix_set",
+              "source": "ast-validator:ConflictingListObjectAttributes",
+              "target_id": "xcsh-docs:resources:forward_proxy_policy:properties:rule_list:rules:all_sources",
+              "type": "conflicts"
+            },
+            {
+              "anchor": "section",
+              "enforcement": "provider-schema",
+              "group": "rule_list.rules:ConflictingListObjectAttributes:all_sources,label_selector",
+              "source": "ast-validator:ConflictingListObjectAttributes",
+              "target_id": "xcsh-docs:resources:forward_proxy_policy:properties:rule_list:rules:all_sources",
+              "type": "conflicts"
+            },
+            {
+              "anchor": "section",
+              "enforcement": "provider-schema",
+              "group": "rule_list.rules:ConflictingListObjectAttributes:all_sources,prefix_list",
+              "source": "ast-validator:ConflictingListObjectAttributes",
+              "target_id": "xcsh-docs:resources:forward_proxy_policy:properties:rule_list:rules:all_sources",
+              "type": "conflicts"
+            },
+            {
+              "anchor": "section",
+              "enforcement": "provider-schema",
+              "group": "rule_list.rules:ConflictingListObjectAttributes:all_destinations,dst_asn_list",
+              "source": "ast-validator:ConflictingListObjectAttributes",
+              "target_id": "xcsh-docs:resources:forward_proxy_policy:properties:rule_list:rules:dst_asn_list",
+              "type": "conflicts"
+            },
+            {
+              "anchor": "section",
+              "enforcement": "provider-schema",
+              "group": "rule_list.rules:ConflictingListObjectAttributes:dst_asn_list,dst_asn_set",
+              "source": "ast-validator:ConflictingListObjectAttributes",
+              "target_id": "xcsh-docs:resources:forward_proxy_policy:properties:rule_list:rules:dst_asn_list",
+              "type": "conflicts"
+            },
+            {
+              "anchor": "section",
+              "enforcement": "provider-schema",
+              "group": "rule_list.rules:ConflictingListObjectAttributes:dst_asn_list,dst_ip_prefix_set",
+              "source": "ast-validator:ConflictingListObjectAttributes",
+              "target_id": "xcsh-docs:resources:forward_proxy_policy:properties:rule_list:rules:dst_asn_list",
+              "type": "conflicts"
+            },
+            {
+              "anchor": "section",
+              "enforcement": "provider-schema",
+              "group": "rule_list.rules:ConflictingListObjectAttributes:dst_asn_list,dst_label_selector",
+              "source": "ast-validator:ConflictingListObjectAttributes",
+              "target_id": "xcsh-docs:resources:forward_proxy_policy:properties:rule_list:rules:dst_asn_list",
+              "type": "conflicts"
+            },
+            {
+              "anchor": "section",
+              "enforcement": "provider-schema",
+              "group": "rule_list.rules:ConflictingListObjectAttributes:dst_asn_list,dst_prefix_list",
+              "source": "ast-validator:ConflictingListObjectAttributes",
+              "target_id": "xcsh-docs:resources:forward_proxy_policy:properties:rule_list:rules:dst_asn_list",
+              "type": "conflicts"
+            },
+            {
+              "anchor": "section",
+              "enforcement": "provider-schema",
+              "group": "rule_list.rules:ConflictingListObjectAttributes:dst_asn_list,http_list",
+              "source": "ast-validator:ConflictingListObjectAttributes",
+              "target_id": "xcsh-docs:resources:forward_proxy_policy:properties:rule_list:rules:dst_asn_list",
+              "type": "conflicts"
+            },
+            {
+              "anchor": "section",
+              "enforcement": "provider-schema",
+              "group": "rule_list.rules:ConflictingListObjectAttributes:dst_asn_list,tls_list",
+              "source": "ast-validator:ConflictingListObjectAttributes",
+              "target_id": "xcsh-docs:resources:forward_proxy_policy:properties:rule_list:rules:dst_asn_list",
+              "type": "conflicts"
+            },
+            {
+              "anchor": "section",
+              "enforcement": "provider-schema",
+              "group": "rule_list.rules:ConflictingListObjectAttributes:dst_asn_list,url_category_list",
+              "source": "ast-validator:ConflictingListObjectAttributes",
+              "target_id": "xcsh-docs:resources:forward_proxy_policy:properties:rule_list:rules:dst_asn_list",
+              "type": "conflicts"
+            },
+            {
+              "anchor": "section",
+              "enforcement": "provider-schema",
+              "group": "rule_list.rules:ConflictingListObjectAttributes:all_destinations,dst_asn_set",
+              "source": "ast-validator:ConflictingListObjectAttributes",
+              "target_id": "xcsh-docs:resources:forward_proxy_policy:properties:rule_list:rules:dst_asn_set",
+              "type": "conflicts"
+            },
+            {
+              "anchor": "section",
+              "enforcement": "provider-schema",
+              "group": "rule_list.rules:ConflictingListObjectAttributes:dst_asn_list,dst_asn_set",
+              "source": "ast-validator:ConflictingListObjectAttributes",
+              "target_id": "xcsh-docs:resources:forward_proxy_policy:properties:rule_list:rules:dst_asn_set",
+              "type": "conflicts"
+            },
+            {
+              "anchor": "section",
+              "enforcement": "provider-schema",
+              "group": "rule_list.rules:ConflictingListObjectAttributes:dst_asn_set,dst_ip_prefix_set",
+              "source": "ast-validator:ConflictingListObjectAttributes",
+              "target_id": "xcsh-docs:resources:forward_proxy_policy:properties:rule_list:rules:dst_asn_set",
+              "type": "conflicts"
+            },
+            {
+              "anchor": "section",
+              "enforcement": "provider-schema",
+              "group": "rule_list.rules:ConflictingListObjectAttributes:dst_asn_set,dst_label_selector",
+              "source": "ast-validator:ConflictingListObjectAttributes",
+              "target_id": "xcsh-docs:resources:forward_proxy_policy:properties:rule_list:rules:dst_asn_set",
+              "type": "conflicts"
+            },
+            {
+              "anchor": "section",
+              "enforcement": "provider-schema",
+              "group": "rule_list.rules:ConflictingListObjectAttributes:dst_asn_set,dst_prefix_list",
+              "source": "ast-validator:ConflictingListObjectAttributes",
+              "target_id": "xcsh-docs:resources:forward_proxy_policy:properties:rule_list:rules:dst_asn_set",
+              "type": "conflicts"
+            },
+            {
+              "anchor": "section",
+              "enforcement": "provider-schema",
+              "group": "rule_list.rules:ConflictingListObjectAttributes:dst_asn_set,http_list",
+              "source": "ast-validator:ConflictingListObjectAttributes",
+              "target_id": "xcsh-docs:resources:forward_proxy_policy:properties:rule_list:rules:dst_asn_set",
+              "type": "conflicts"
+            },
+            {
+              "anchor": "section",
+              "enforcement": "provider-schema",
+              "group": "rule_list.rules:ConflictingListObjectAttributes:dst_asn_set,tls_list",
+              "source": "ast-validator:ConflictingListObjectAttributes",
+              "target_id": "xcsh-docs:resources:forward_proxy_policy:properties:rule_list:rules:dst_asn_set",
+              "type": "conflicts"
+            },
+            {
+              "anchor": "section",
+              "enforcement": "provider-schema",
+              "group": "rule_list.rules:ConflictingListObjectAttributes:dst_asn_set,url_category_list",
+              "source": "ast-validator:ConflictingListObjectAttributes",
+              "target_id": "xcsh-docs:resources:forward_proxy_policy:properties:rule_list:rules:dst_asn_set",
+              "type": "conflicts"
+            },
+            {
+              "anchor": "section",
+              "enforcement": "provider-schema",
+              "group": "rule_list.rules:ConflictingListObjectAttributes:all_destinations,dst_ip_prefix_set",
+              "source": "ast-validator:ConflictingListObjectAttributes",
+              "target_id": "xcsh-docs:resources:forward_proxy_policy:properties:rule_list:rules:dst_ip_prefix_set",
+              "type": "conflicts"
+            },
+            {
+              "anchor": "section",
+              "enforcement": "provider-schema",
+              "group": "rule_list.rules:ConflictingListObjectAttributes:dst_asn_list,dst_ip_prefix_set",
+              "source": "ast-validator:ConflictingListObjectAttributes",
+              "target_id": "xcsh-docs:resources:forward_proxy_policy:properties:rule_list:rules:dst_ip_prefix_set",
+              "type": "conflicts"
+            },
+            {
+              "anchor": "section",
+              "enforcement": "provider-schema",
+              "group": "rule_list.rules:ConflictingListObjectAttributes:dst_asn_set,dst_ip_prefix_set",
+              "source": "ast-validator:ConflictingListObjectAttributes",
+              "target_id": "xcsh-docs:resources:forward_proxy_policy:properties:rule_list:rules:dst_ip_prefix_set",
+              "type": "conflicts"
+            },
+            {
+              "anchor": "section",
+              "enforcement": "provider-schema",
+              "group": "rule_list.rules:ConflictingListObjectAttributes:dst_ip_prefix_set,dst_label_selector",
+              "source": "ast-validator:ConflictingListObjectAttributes",
+              "target_id": "xcsh-docs:resources:forward_proxy_policy:properties:rule_list:rules:dst_ip_prefix_set",
+              "type": "conflicts"
+            },
+            {
+              "anchor": "section",
+              "enforcement": "provider-schema",
+              "group": "rule_list.rules:ConflictingListObjectAttributes:dst_ip_prefix_set,dst_prefix_list",
+              "source": "ast-validator:ConflictingListObjectAttributes",
+              "target_id": "xcsh-docs:resources:forward_proxy_policy:properties:rule_list:rules:dst_ip_prefix_set",
+              "type": "conflicts"
+            },
+            {
+              "anchor": "section",
+              "enforcement": "provider-schema",
+              "group": "rule_list.rules:ConflictingListObjectAttributes:dst_ip_prefix_set,http_list",
+              "source": "ast-validator:ConflictingListObjectAttributes",
+              "target_id": "xcsh-docs:resources:forward_proxy_policy:properties:rule_list:rules:dst_ip_prefix_set",
+              "type": "conflicts"
+            },
+            {
+              "anchor": "section",
+              "enforcement": "provider-schema",
+              "group": "rule_list.rules:ConflictingListObjectAttributes:dst_ip_prefix_set,tls_list",
+              "source": "ast-validator:ConflictingListObjectAttributes",
+              "target_id": "xcsh-docs:resources:forward_proxy_policy:properties:rule_list:rules:dst_ip_prefix_set",
+              "type": "conflicts"
+            },
+            {
+              "anchor": "section",
+              "enforcement": "provider-schema",
+              "group": "rule_list.rules:ConflictingListObjectAttributes:dst_ip_prefix_set,url_category_list",
+              "source": "ast-validator:ConflictingListObjectAttributes",
+              "target_id": "xcsh-docs:resources:forward_proxy_policy:properties:rule_list:rules:dst_ip_prefix_set",
+              "type": "conflicts"
+            },
+            {
+              "anchor": "section",
+              "enforcement": "provider-schema",
+              "group": "rule_list.rules:ConflictingListObjectAttributes:all_destinations,dst_label_selector",
+              "source": "ast-validator:ConflictingListObjectAttributes",
+              "target_id": "xcsh-docs:resources:forward_proxy_policy:properties:rule_list:rules:dst_label_selector",
+              "type": "conflicts"
+            },
+            {
+              "anchor": "section",
+              "enforcement": "provider-schema",
+              "group": "rule_list.rules:ConflictingListObjectAttributes:dst_asn_list,dst_label_selector",
+              "source": "ast-validator:ConflictingListObjectAttributes",
+              "target_id": "xcsh-docs:resources:forward_proxy_policy:properties:rule_list:rules:dst_label_selector",
+              "type": "conflicts"
+            },
+            {
+              "anchor": "section",
+              "enforcement": "provider-schema",
+              "group": "rule_list.rules:ConflictingListObjectAttributes:dst_asn_set,dst_label_selector",
+              "source": "ast-validator:ConflictingListObjectAttributes",
+              "target_id": "xcsh-docs:resources:forward_proxy_policy:properties:rule_list:rules:dst_label_selector",
+              "type": "conflicts"
+            },
+            {
+              "anchor": "section",
+              "enforcement": "provider-schema",
+              "group": "rule_list.rules:ConflictingListObjectAttributes:dst_ip_prefix_set,dst_label_selector",
+              "source": "ast-validator:ConflictingListObjectAttributes",
+              "target_id": "xcsh-docs:resources:forward_proxy_policy:properties:rule_list:rules:dst_label_selector",
+              "type": "conflicts"
+            },
+            {
+              "anchor": "section",
+              "enforcement": "provider-schema",
+              "group": "rule_list.rules:ConflictingListObjectAttributes:dst_label_selector,dst_prefix_list",
+              "source": "ast-validator:ConflictingListObjectAttributes",
+              "target_id": "xcsh-docs:resources:forward_proxy_policy:properties:rule_list:rules:dst_label_selector",
+              "type": "conflicts"
+            },
+            {
+              "anchor": "section",
+              "enforcement": "provider-schema",
+              "group": "rule_list.rules:ConflictingListObjectAttributes:dst_label_selector,http_list",
+              "source": "ast-validator:ConflictingListObjectAttributes",
+              "target_id": "xcsh-docs:resources:forward_proxy_policy:properties:rule_list:rules:dst_label_selector",
+              "type": "conflicts"
+            },
+            {
+              "anchor": "section",
+              "enforcement": "provider-schema",
+              "group": "rule_list.rules:ConflictingListObjectAttributes:dst_label_selector,tls_list",
+              "source": "ast-validator:ConflictingListObjectAttributes",
+              "target_id": "xcsh-docs:resources:forward_proxy_policy:properties:rule_list:rules:dst_label_selector",
+              "type": "conflicts"
+            },
+            {
+              "anchor": "section",
+              "enforcement": "provider-schema",
+              "group": "rule_list.rules:ConflictingListObjectAttributes:dst_label_selector,url_category_list",
+              "source": "ast-validator:ConflictingListObjectAttributes",
+              "target_id": "xcsh-docs:resources:forward_proxy_policy:properties:rule_list:rules:dst_label_selector",
+              "type": "conflicts"
+            },
+            {
+              "anchor": "section",
+              "enforcement": "provider-schema",
+              "group": "rule_list.rules:ConflictingListObjectAttributes:all_destinations,dst_prefix_list",
+              "source": "ast-validator:ConflictingListObjectAttributes",
+              "target_id": "xcsh-docs:resources:forward_proxy_policy:properties:rule_list:rules:dst_prefix_list",
+              "type": "conflicts"
+            },
+            {
+              "anchor": "section",
+              "enforcement": "provider-schema",
+              "group": "rule_list.rules:ConflictingListObjectAttributes:dst_asn_list,dst_prefix_list",
+              "source": "ast-validator:ConflictingListObjectAttributes",
+              "target_id": "xcsh-docs:resources:forward_proxy_policy:properties:rule_list:rules:dst_prefix_list",
+              "type": "conflicts"
+            },
+            {
+              "anchor": "section",
+              "enforcement": "provider-schema",
+              "group": "rule_list.rules:ConflictingListObjectAttributes:dst_asn_set,dst_prefix_list",
+              "source": "ast-validator:ConflictingListObjectAttributes",
+              "target_id": "xcsh-docs:resources:forward_proxy_policy:properties:rule_list:rules:dst_prefix_list",
+              "type": "conflicts"
+            },
+            {
+              "anchor": "section",
+              "enforcement": "provider-schema",
+              "group": "rule_list.rules:ConflictingListObjectAttributes:dst_ip_prefix_set,dst_prefix_list",
+              "source": "ast-validator:ConflictingListObjectAttributes",
+              "target_id": "xcsh-docs:resources:forward_proxy_policy:properties:rule_list:rules:dst_prefix_list",
+              "type": "conflicts"
+            },
+            {
+              "anchor": "section",
+              "enforcement": "provider-schema",
+              "group": "rule_list.rules:ConflictingListObjectAttributes:dst_label_selector,dst_prefix_list",
+              "source": "ast-validator:ConflictingListObjectAttributes",
+              "target_id": "xcsh-docs:resources:forward_proxy_policy:properties:rule_list:rules:dst_prefix_list",
+              "type": "conflicts"
+            },
+            {
+              "anchor": "section",
+              "enforcement": "provider-schema",
+              "group": "rule_list.rules:ConflictingListObjectAttributes:dst_prefix_list,http_list",
+              "source": "ast-validator:ConflictingListObjectAttributes",
+              "target_id": "xcsh-docs:resources:forward_proxy_policy:properties:rule_list:rules:dst_prefix_list",
+              "type": "conflicts"
+            },
+            {
+              "anchor": "section",
+              "enforcement": "provider-schema",
+              "group": "rule_list.rules:ConflictingListObjectAttributes:dst_prefix_list,tls_list",
+              "source": "ast-validator:ConflictingListObjectAttributes",
+              "target_id": "xcsh-docs:resources:forward_proxy_policy:properties:rule_list:rules:dst_prefix_list",
+              "type": "conflicts"
+            },
+            {
+              "anchor": "section",
+              "enforcement": "provider-schema",
+              "group": "rule_list.rules:ConflictingListObjectAttributes:dst_prefix_list,url_category_list",
+              "source": "ast-validator:ConflictingListObjectAttributes",
+              "target_id": "xcsh-docs:resources:forward_proxy_policy:properties:rule_list:rules:dst_prefix_list",
+              "type": "conflicts"
+            },
+            {
+              "anchor": "section",
+              "enforcement": "provider-schema",
+              "group": "rule_list.rules:ConflictingListObjectAttributes:all_destinations,http_list",
+              "source": "ast-validator:ConflictingListObjectAttributes",
+              "target_id": "xcsh-docs:resources:forward_proxy_policy:properties:rule_list:rules:http_list",
+              "type": "conflicts"
+            },
+            {
+              "anchor": "section",
+              "enforcement": "provider-schema",
+              "group": "rule_list.rules:ConflictingListObjectAttributes:dst_asn_list,http_list",
+              "source": "ast-validator:ConflictingListObjectAttributes",
+              "target_id": "xcsh-docs:resources:forward_proxy_policy:properties:rule_list:rules:http_list",
+              "type": "conflicts"
+            },
+            {
+              "anchor": "section",
+              "enforcement": "provider-schema",
+              "group": "rule_list.rules:ConflictingListObjectAttributes:dst_asn_set,http_list",
+              "source": "ast-validator:ConflictingListObjectAttributes",
+              "target_id": "xcsh-docs:resources:forward_proxy_policy:properties:rule_list:rules:http_list",
+              "type": "conflicts"
+            },
+            {
+              "anchor": "section",
+              "enforcement": "provider-schema",
+              "group": "rule_list.rules:ConflictingListObjectAttributes:dst_ip_prefix_set,http_list",
+              "source": "ast-validator:ConflictingListObjectAttributes",
+              "target_id": "xcsh-docs:resources:forward_proxy_policy:properties:rule_list:rules:http_list",
+              "type": "conflicts"
+            },
+            {
+              "anchor": "section",
+              "enforcement": "provider-schema",
+              "group": "rule_list.rules:ConflictingListObjectAttributes:dst_label_selector,http_list",
+              "source": "ast-validator:ConflictingListObjectAttributes",
+              "target_id": "xcsh-docs:resources:forward_proxy_policy:properties:rule_list:rules:http_list",
+              "type": "conflicts"
+            },
+            {
+              "anchor": "section",
+              "enforcement": "provider-schema",
+              "group": "rule_list.rules:ConflictingListObjectAttributes:dst_prefix_list,http_list",
+              "source": "ast-validator:ConflictingListObjectAttributes",
+              "target_id": "xcsh-docs:resources:forward_proxy_policy:properties:rule_list:rules:http_list",
+              "type": "conflicts"
+            },
+            {
+              "anchor": "section",
+              "enforcement": "provider-schema",
+              "group": "rule_list.rules:ConflictingListObjectAttributes:http_list,tls_list",
+              "source": "ast-validator:ConflictingListObjectAttributes",
+              "target_id": "xcsh-docs:resources:forward_proxy_policy:properties:rule_list:rules:http_list",
+              "type": "conflicts"
+            },
+            {
+              "anchor": "section",
+              "enforcement": "provider-schema",
+              "group": "rule_list.rules:ConflictingListObjectAttributes:http_list,url_category_list",
+              "source": "ast-validator:ConflictingListObjectAttributes",
+              "target_id": "xcsh-docs:resources:forward_proxy_policy:properties:rule_list:rules:http_list",
+              "type": "conflicts"
+            },
+            {
+              "anchor": "section",
+              "enforcement": "provider-schema",
+              "group": "rule_list.rules:ConflictingListObjectAttributes:all_sources,ip_prefix_set",
+              "source": "ast-validator:ConflictingListObjectAttributes",
+              "target_id": "xcsh-docs:resources:forward_proxy_policy:properties:rule_list:rules:ip_prefix_set",
+              "type": "conflicts"
+            },
+            {
+              "anchor": "section",
+              "enforcement": "provider-schema",
+              "group": "rule_list.rules:ConflictingListObjectAttributes:ip_prefix_set,label_selector",
+              "source": "ast-validator:ConflictingListObjectAttributes",
+              "target_id": "xcsh-docs:resources:forward_proxy_policy:properties:rule_list:rules:ip_prefix_set",
+              "type": "conflicts"
+            },
+            {
+              "anchor": "section",
+              "enforcement": "provider-schema",
+              "group": "rule_list.rules:ConflictingListObjectAttributes:ip_prefix_set,prefix_list",
+              "source": "ast-validator:ConflictingListObjectAttributes",
+              "target_id": "xcsh-docs:resources:forward_proxy_policy:properties:rule_list:rules:ip_prefix_set",
+              "type": "conflicts"
+            },
+            {
+              "anchor": "section",
+              "enforcement": "provider-schema",
+              "group": "rule_list.rules:ConflictingListObjectAttributes:all_sources,label_selector",
+              "source": "ast-validator:ConflictingListObjectAttributes",
+              "target_id": "xcsh-docs:resources:forward_proxy_policy:properties:rule_list:rules:label_selector",
+              "type": "conflicts"
+            },
+            {
+              "anchor": "section",
+              "enforcement": "provider-schema",
+              "group": "rule_list.rules:ConflictingListObjectAttributes:ip_prefix_set,label_selector",
+              "source": "ast-validator:ConflictingListObjectAttributes",
+              "target_id": "xcsh-docs:resources:forward_proxy_policy:properties:rule_list:rules:label_selector",
+              "type": "conflicts"
+            },
+            {
+              "anchor": "section",
+              "enforcement": "provider-schema",
+              "group": "rule_list.rules:ConflictingListObjectAttributes:label_selector,prefix_list",
+              "source": "ast-validator:ConflictingListObjectAttributes",
+              "target_id": "xcsh-docs:resources:forward_proxy_policy:properties:rule_list:rules:label_selector",
+              "type": "conflicts"
+            },
+            {
+              "anchor": "section",
+              "enforcement": "provider-schema",
+              "group": "rule_list.rules:ConflictingListObjectAttributes:no_http_connect_port,port_matcher",
+              "source": "ast-validator:ConflictingListObjectAttributes",
+              "target_id": "xcsh-docs:resources:forward_proxy_policy:properties:rule_list:rules:no_http_connect_port",
+              "type": "conflicts"
+            },
+            {
+              "anchor": "section",
+              "enforcement": "provider-schema",
+              "group": "rule_list.rules:ConflictingListObjectAttributes:no_http_connect_port,port_matcher",
+              "source": "ast-validator:ConflictingListObjectAttributes",
+              "target_id": "xcsh-docs:resources:forward_proxy_policy:properties:rule_list:rules:port_matcher",
+              "type": "conflicts"
+            },
+            {
+              "anchor": "section",
+              "enforcement": "provider-schema",
+              "group": "rule_list.rules:ConflictingListObjectAttributes:all_sources,prefix_list",
+              "source": "ast-validator:ConflictingListObjectAttributes",
+              "target_id": "xcsh-docs:resources:forward_proxy_policy:properties:rule_list:rules:prefix_list",
+              "type": "conflicts"
+            },
+            {
+              "anchor": "section",
+              "enforcement": "provider-schema",
+              "group": "rule_list.rules:ConflictingListObjectAttributes:ip_prefix_set,prefix_list",
+              "source": "ast-validator:ConflictingListObjectAttributes",
+              "target_id": "xcsh-docs:resources:forward_proxy_policy:properties:rule_list:rules:prefix_list",
+              "type": "conflicts"
+            },
+            {
+              "anchor": "section",
+              "enforcement": "provider-schema",
+              "group": "rule_list.rules:ConflictingListObjectAttributes:label_selector,prefix_list",
+              "source": "ast-validator:ConflictingListObjectAttributes",
+              "target_id": "xcsh-docs:resources:forward_proxy_policy:properties:rule_list:rules:prefix_list",
+              "type": "conflicts"
+            },
+            {
+              "anchor": "section",
+              "enforcement": "provider-schema",
+              "group": "rule_list.rules:ConflictingListObjectAttributes:all_destinations,tls_list",
+              "source": "ast-validator:ConflictingListObjectAttributes",
+              "target_id": "xcsh-docs:resources:forward_proxy_policy:properties:rule_list:rules:tls_list",
+              "type": "conflicts"
+            },
+            {
+              "anchor": "section",
+              "enforcement": "provider-schema",
+              "group": "rule_list.rules:ConflictingListObjectAttributes:dst_asn_list,tls_list",
+              "source": "ast-validator:ConflictingListObjectAttributes",
+              "target_id": "xcsh-docs:resources:forward_proxy_policy:properties:rule_list:rules:tls_list",
+              "type": "conflicts"
+            },
+            {
+              "anchor": "section",
+              "enforcement": "provider-schema",
+              "group": "rule_list.rules:ConflictingListObjectAttributes:dst_asn_set,tls_list",
+              "source": "ast-validator:ConflictingListObjectAttributes",
+              "target_id": "xcsh-docs:resources:forward_proxy_policy:properties:rule_list:rules:tls_list",
+              "type": "conflicts"
+            },
+            {
+              "anchor": "section",
+              "enforcement": "provider-schema",
+              "group": "rule_list.rules:ConflictingListObjectAttributes:dst_ip_prefix_set,tls_list",
+              "source": "ast-validator:ConflictingListObjectAttributes",
+              "target_id": "xcsh-docs:resources:forward_proxy_policy:properties:rule_list:rules:tls_list",
+              "type": "conflicts"
+            },
+            {
+              "anchor": "section",
+              "enforcement": "provider-schema",
+              "group": "rule_list.rules:ConflictingListObjectAttributes:dst_label_selector,tls_list",
+              "source": "ast-validator:ConflictingListObjectAttributes",
+              "target_id": "xcsh-docs:resources:forward_proxy_policy:properties:rule_list:rules:tls_list",
+              "type": "conflicts"
+            },
+            {
+              "anchor": "section",
+              "enforcement": "provider-schema",
+              "group": "rule_list.rules:ConflictingListObjectAttributes:dst_prefix_list,tls_list",
+              "source": "ast-validator:ConflictingListObjectAttributes",
+              "target_id": "xcsh-docs:resources:forward_proxy_policy:properties:rule_list:rules:tls_list",
+              "type": "conflicts"
+            },
+            {
+              "anchor": "section",
+              "enforcement": "provider-schema",
+              "group": "rule_list.rules:ConflictingListObjectAttributes:http_list,tls_list",
+              "source": "ast-validator:ConflictingListObjectAttributes",
+              "target_id": "xcsh-docs:resources:forward_proxy_policy:properties:rule_list:rules:tls_list",
+              "type": "conflicts"
+            },
+            {
+              "anchor": "section",
+              "enforcement": "provider-schema",
+              "group": "rule_list.rules:ConflictingListObjectAttributes:tls_list,url_category_list",
+              "source": "ast-validator:ConflictingListObjectAttributes",
+              "target_id": "xcsh-docs:resources:forward_proxy_policy:properties:rule_list:rules:tls_list",
+              "type": "conflicts"
+            },
+            {
+              "anchor": "section",
+              "enforcement": "provider-schema",
+              "group": "rule_list.rules:ConflictingListObjectAttributes:all_destinations,url_category_list",
+              "source": "ast-validator:ConflictingListObjectAttributes",
+              "target_id": "xcsh-docs:resources:forward_proxy_policy:properties:rule_list:rules:url_category_list",
+              "type": "conflicts"
+            },
+            {
+              "anchor": "section",
+              "enforcement": "provider-schema",
+              "group": "rule_list.rules:ConflictingListObjectAttributes:dst_asn_list,url_category_list",
+              "source": "ast-validator:ConflictingListObjectAttributes",
+              "target_id": "xcsh-docs:resources:forward_proxy_policy:properties:rule_list:rules:url_category_list",
+              "type": "conflicts"
+            },
+            {
+              "anchor": "section",
+              "enforcement": "provider-schema",
+              "group": "rule_list.rules:ConflictingListObjectAttributes:dst_asn_set,url_category_list",
+              "source": "ast-validator:ConflictingListObjectAttributes",
+              "target_id": "xcsh-docs:resources:forward_proxy_policy:properties:rule_list:rules:url_category_list",
+              "type": "conflicts"
+            },
+            {
+              "anchor": "section",
+              "enforcement": "provider-schema",
+              "group": "rule_list.rules:ConflictingListObjectAttributes:dst_ip_prefix_set,url_category_list",
+              "source": "ast-validator:ConflictingListObjectAttributes",
+              "target_id": "xcsh-docs:resources:forward_proxy_policy:properties:rule_list:rules:url_category_list",
+              "type": "conflicts"
+            },
+            {
+              "anchor": "section",
+              "enforcement": "provider-schema",
+              "group": "rule_list.rules:ConflictingListObjectAttributes:dst_label_selector,url_category_list",
+              "source": "ast-validator:ConflictingListObjectAttributes",
+              "target_id": "xcsh-docs:resources:forward_proxy_policy:properties:rule_list:rules:url_category_list",
+              "type": "conflicts"
+            },
+            {
+              "anchor": "section",
+              "enforcement": "provider-schema",
+              "group": "rule_list.rules:ConflictingListObjectAttributes:dst_prefix_list,url_category_list",
+              "source": "ast-validator:ConflictingListObjectAttributes",
+              "target_id": "xcsh-docs:resources:forward_proxy_policy:properties:rule_list:rules:url_category_list",
+              "type": "conflicts"
+            },
+            {
+              "anchor": "section",
+              "enforcement": "provider-schema",
+              "group": "rule_list.rules:ConflictingListObjectAttributes:http_list,url_category_list",
+              "source": "ast-validator:ConflictingListObjectAttributes",
+              "target_id": "xcsh-docs:resources:forward_proxy_policy:properties:rule_list:rules:url_category_list",
+              "type": "conflicts"
+            },
+            {
+              "anchor": "section",
+              "enforcement": "provider-schema",
+              "group": "rule_list.rules:ConflictingListObjectAttributes:tls_list,url_category_list",
+              "source": "ast-validator:ConflictingListObjectAttributes",
+              "target_id": "xcsh-docs:resources:forward_proxy_policy:properties:rule_list:rules:url_category_list",
+              "type": "conflicts"
+            }
+          ],
           "schema_path": ["rule_list", "rules"],
           "syntax": "block",
           "type": "object"
@@ -2667,7 +4168,7 @@
         "xcsh-docs:resources:forward_proxy_policy:properties:rule_list:rules:url_category_list"
       ],
       "classification": {
-        "rules_sha256": "sha256:98dbf5280bf8376a0c75c1391250db9db4ac0d293d42bdd831c20f7514925adb",
+        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -2683,7 +4184,696 @@
       "provider_type": "resources",
       "registry_anchor": "canonical-2233222310220010-1302001131122113-2331222302021230-3133211001321300-2110130032212032-2111320023110111-2102100032323333-1012303112322330",
       "registry_path": "docs/guides/resources--forward_proxy_policy--reference--group-001.md",
-      "relationships": [],
+      "relationships": [
+        {
+          "anchor": "section",
+          "enforcement": "provider-schema",
+          "group": "rule_list.rules:ConflictingListObjectAttributes:all_destinations,dst_asn_list",
+          "source": "ast-validator:ConflictingListObjectAttributes",
+          "target_id": "xcsh-docs:resources:forward_proxy_policy:properties:rule_list:rules:all_destinations",
+          "type": "conflicts"
+        },
+        {
+          "anchor": "section",
+          "enforcement": "provider-schema",
+          "group": "rule_list.rules:ConflictingListObjectAttributes:all_destinations,dst_asn_set",
+          "source": "ast-validator:ConflictingListObjectAttributes",
+          "target_id": "xcsh-docs:resources:forward_proxy_policy:properties:rule_list:rules:all_destinations",
+          "type": "conflicts"
+        },
+        {
+          "anchor": "section",
+          "enforcement": "provider-schema",
+          "group": "rule_list.rules:ConflictingListObjectAttributes:all_destinations,dst_ip_prefix_set",
+          "source": "ast-validator:ConflictingListObjectAttributes",
+          "target_id": "xcsh-docs:resources:forward_proxy_policy:properties:rule_list:rules:all_destinations",
+          "type": "conflicts"
+        },
+        {
+          "anchor": "section",
+          "enforcement": "provider-schema",
+          "group": "rule_list.rules:ConflictingListObjectAttributes:all_destinations,dst_label_selector",
+          "source": "ast-validator:ConflictingListObjectAttributes",
+          "target_id": "xcsh-docs:resources:forward_proxy_policy:properties:rule_list:rules:all_destinations",
+          "type": "conflicts"
+        },
+        {
+          "anchor": "section",
+          "enforcement": "provider-schema",
+          "group": "rule_list.rules:ConflictingListObjectAttributes:all_destinations,dst_prefix_list",
+          "source": "ast-validator:ConflictingListObjectAttributes",
+          "target_id": "xcsh-docs:resources:forward_proxy_policy:properties:rule_list:rules:all_destinations",
+          "type": "conflicts"
+        },
+        {
+          "anchor": "section",
+          "enforcement": "provider-schema",
+          "group": "rule_list.rules:ConflictingListObjectAttributes:all_destinations,http_list",
+          "source": "ast-validator:ConflictingListObjectAttributes",
+          "target_id": "xcsh-docs:resources:forward_proxy_policy:properties:rule_list:rules:all_destinations",
+          "type": "conflicts"
+        },
+        {
+          "anchor": "section",
+          "enforcement": "provider-schema",
+          "group": "rule_list.rules:ConflictingListObjectAttributes:all_destinations,tls_list",
+          "source": "ast-validator:ConflictingListObjectAttributes",
+          "target_id": "xcsh-docs:resources:forward_proxy_policy:properties:rule_list:rules:all_destinations",
+          "type": "conflicts"
+        },
+        {
+          "anchor": "section",
+          "enforcement": "provider-schema",
+          "group": "rule_list.rules:ConflictingListObjectAttributes:all_destinations,url_category_list",
+          "source": "ast-validator:ConflictingListObjectAttributes",
+          "target_id": "xcsh-docs:resources:forward_proxy_policy:properties:rule_list:rules:all_destinations",
+          "type": "conflicts"
+        },
+        {
+          "anchor": "section",
+          "enforcement": "provider-schema",
+          "group": "rule_list.rules:ConflictingListObjectAttributes:all_sources,ip_prefix_set",
+          "source": "ast-validator:ConflictingListObjectAttributes",
+          "target_id": "xcsh-docs:resources:forward_proxy_policy:properties:rule_list:rules:all_sources",
+          "type": "conflicts"
+        },
+        {
+          "anchor": "section",
+          "enforcement": "provider-schema",
+          "group": "rule_list.rules:ConflictingListObjectAttributes:all_sources,label_selector",
+          "source": "ast-validator:ConflictingListObjectAttributes",
+          "target_id": "xcsh-docs:resources:forward_proxy_policy:properties:rule_list:rules:all_sources",
+          "type": "conflicts"
+        },
+        {
+          "anchor": "section",
+          "enforcement": "provider-schema",
+          "group": "rule_list.rules:ConflictingListObjectAttributes:all_sources,prefix_list",
+          "source": "ast-validator:ConflictingListObjectAttributes",
+          "target_id": "xcsh-docs:resources:forward_proxy_policy:properties:rule_list:rules:all_sources",
+          "type": "conflicts"
+        },
+        {
+          "anchor": "section",
+          "enforcement": "provider-schema",
+          "group": "rule_list.rules:ConflictingListObjectAttributes:all_destinations,dst_asn_list",
+          "source": "ast-validator:ConflictingListObjectAttributes",
+          "target_id": "xcsh-docs:resources:forward_proxy_policy:properties:rule_list:rules:dst_asn_list",
+          "type": "conflicts"
+        },
+        {
+          "anchor": "section",
+          "enforcement": "provider-schema",
+          "group": "rule_list.rules:ConflictingListObjectAttributes:dst_asn_list,dst_asn_set",
+          "source": "ast-validator:ConflictingListObjectAttributes",
+          "target_id": "xcsh-docs:resources:forward_proxy_policy:properties:rule_list:rules:dst_asn_list",
+          "type": "conflicts"
+        },
+        {
+          "anchor": "section",
+          "enforcement": "provider-schema",
+          "group": "rule_list.rules:ConflictingListObjectAttributes:dst_asn_list,dst_ip_prefix_set",
+          "source": "ast-validator:ConflictingListObjectAttributes",
+          "target_id": "xcsh-docs:resources:forward_proxy_policy:properties:rule_list:rules:dst_asn_list",
+          "type": "conflicts"
+        },
+        {
+          "anchor": "section",
+          "enforcement": "provider-schema",
+          "group": "rule_list.rules:ConflictingListObjectAttributes:dst_asn_list,dst_label_selector",
+          "source": "ast-validator:ConflictingListObjectAttributes",
+          "target_id": "xcsh-docs:resources:forward_proxy_policy:properties:rule_list:rules:dst_asn_list",
+          "type": "conflicts"
+        },
+        {
+          "anchor": "section",
+          "enforcement": "provider-schema",
+          "group": "rule_list.rules:ConflictingListObjectAttributes:dst_asn_list,dst_prefix_list",
+          "source": "ast-validator:ConflictingListObjectAttributes",
+          "target_id": "xcsh-docs:resources:forward_proxy_policy:properties:rule_list:rules:dst_asn_list",
+          "type": "conflicts"
+        },
+        {
+          "anchor": "section",
+          "enforcement": "provider-schema",
+          "group": "rule_list.rules:ConflictingListObjectAttributes:dst_asn_list,http_list",
+          "source": "ast-validator:ConflictingListObjectAttributes",
+          "target_id": "xcsh-docs:resources:forward_proxy_policy:properties:rule_list:rules:dst_asn_list",
+          "type": "conflicts"
+        },
+        {
+          "anchor": "section",
+          "enforcement": "provider-schema",
+          "group": "rule_list.rules:ConflictingListObjectAttributes:dst_asn_list,tls_list",
+          "source": "ast-validator:ConflictingListObjectAttributes",
+          "target_id": "xcsh-docs:resources:forward_proxy_policy:properties:rule_list:rules:dst_asn_list",
+          "type": "conflicts"
+        },
+        {
+          "anchor": "section",
+          "enforcement": "provider-schema",
+          "group": "rule_list.rules:ConflictingListObjectAttributes:dst_asn_list,url_category_list",
+          "source": "ast-validator:ConflictingListObjectAttributes",
+          "target_id": "xcsh-docs:resources:forward_proxy_policy:properties:rule_list:rules:dst_asn_list",
+          "type": "conflicts"
+        },
+        {
+          "anchor": "section",
+          "enforcement": "provider-schema",
+          "group": "rule_list.rules:ConflictingListObjectAttributes:all_destinations,dst_asn_set",
+          "source": "ast-validator:ConflictingListObjectAttributes",
+          "target_id": "xcsh-docs:resources:forward_proxy_policy:properties:rule_list:rules:dst_asn_set",
+          "type": "conflicts"
+        },
+        {
+          "anchor": "section",
+          "enforcement": "provider-schema",
+          "group": "rule_list.rules:ConflictingListObjectAttributes:dst_asn_list,dst_asn_set",
+          "source": "ast-validator:ConflictingListObjectAttributes",
+          "target_id": "xcsh-docs:resources:forward_proxy_policy:properties:rule_list:rules:dst_asn_set",
+          "type": "conflicts"
+        },
+        {
+          "anchor": "section",
+          "enforcement": "provider-schema",
+          "group": "rule_list.rules:ConflictingListObjectAttributes:dst_asn_set,dst_ip_prefix_set",
+          "source": "ast-validator:ConflictingListObjectAttributes",
+          "target_id": "xcsh-docs:resources:forward_proxy_policy:properties:rule_list:rules:dst_asn_set",
+          "type": "conflicts"
+        },
+        {
+          "anchor": "section",
+          "enforcement": "provider-schema",
+          "group": "rule_list.rules:ConflictingListObjectAttributes:dst_asn_set,dst_label_selector",
+          "source": "ast-validator:ConflictingListObjectAttributes",
+          "target_id": "xcsh-docs:resources:forward_proxy_policy:properties:rule_list:rules:dst_asn_set",
+          "type": "conflicts"
+        },
+        {
+          "anchor": "section",
+          "enforcement": "provider-schema",
+          "group": "rule_list.rules:ConflictingListObjectAttributes:dst_asn_set,dst_prefix_list",
+          "source": "ast-validator:ConflictingListObjectAttributes",
+          "target_id": "xcsh-docs:resources:forward_proxy_policy:properties:rule_list:rules:dst_asn_set",
+          "type": "conflicts"
+        },
+        {
+          "anchor": "section",
+          "enforcement": "provider-schema",
+          "group": "rule_list.rules:ConflictingListObjectAttributes:dst_asn_set,http_list",
+          "source": "ast-validator:ConflictingListObjectAttributes",
+          "target_id": "xcsh-docs:resources:forward_proxy_policy:properties:rule_list:rules:dst_asn_set",
+          "type": "conflicts"
+        },
+        {
+          "anchor": "section",
+          "enforcement": "provider-schema",
+          "group": "rule_list.rules:ConflictingListObjectAttributes:dst_asn_set,tls_list",
+          "source": "ast-validator:ConflictingListObjectAttributes",
+          "target_id": "xcsh-docs:resources:forward_proxy_policy:properties:rule_list:rules:dst_asn_set",
+          "type": "conflicts"
+        },
+        {
+          "anchor": "section",
+          "enforcement": "provider-schema",
+          "group": "rule_list.rules:ConflictingListObjectAttributes:dst_asn_set,url_category_list",
+          "source": "ast-validator:ConflictingListObjectAttributes",
+          "target_id": "xcsh-docs:resources:forward_proxy_policy:properties:rule_list:rules:dst_asn_set",
+          "type": "conflicts"
+        },
+        {
+          "anchor": "section",
+          "enforcement": "provider-schema",
+          "group": "rule_list.rules:ConflictingListObjectAttributes:all_destinations,dst_ip_prefix_set",
+          "source": "ast-validator:ConflictingListObjectAttributes",
+          "target_id": "xcsh-docs:resources:forward_proxy_policy:properties:rule_list:rules:dst_ip_prefix_set",
+          "type": "conflicts"
+        },
+        {
+          "anchor": "section",
+          "enforcement": "provider-schema",
+          "group": "rule_list.rules:ConflictingListObjectAttributes:dst_asn_list,dst_ip_prefix_set",
+          "source": "ast-validator:ConflictingListObjectAttributes",
+          "target_id": "xcsh-docs:resources:forward_proxy_policy:properties:rule_list:rules:dst_ip_prefix_set",
+          "type": "conflicts"
+        },
+        {
+          "anchor": "section",
+          "enforcement": "provider-schema",
+          "group": "rule_list.rules:ConflictingListObjectAttributes:dst_asn_set,dst_ip_prefix_set",
+          "source": "ast-validator:ConflictingListObjectAttributes",
+          "target_id": "xcsh-docs:resources:forward_proxy_policy:properties:rule_list:rules:dst_ip_prefix_set",
+          "type": "conflicts"
+        },
+        {
+          "anchor": "section",
+          "enforcement": "provider-schema",
+          "group": "rule_list.rules:ConflictingListObjectAttributes:dst_ip_prefix_set,dst_label_selector",
+          "source": "ast-validator:ConflictingListObjectAttributes",
+          "target_id": "xcsh-docs:resources:forward_proxy_policy:properties:rule_list:rules:dst_ip_prefix_set",
+          "type": "conflicts"
+        },
+        {
+          "anchor": "section",
+          "enforcement": "provider-schema",
+          "group": "rule_list.rules:ConflictingListObjectAttributes:dst_ip_prefix_set,dst_prefix_list",
+          "source": "ast-validator:ConflictingListObjectAttributes",
+          "target_id": "xcsh-docs:resources:forward_proxy_policy:properties:rule_list:rules:dst_ip_prefix_set",
+          "type": "conflicts"
+        },
+        {
+          "anchor": "section",
+          "enforcement": "provider-schema",
+          "group": "rule_list.rules:ConflictingListObjectAttributes:dst_ip_prefix_set,http_list",
+          "source": "ast-validator:ConflictingListObjectAttributes",
+          "target_id": "xcsh-docs:resources:forward_proxy_policy:properties:rule_list:rules:dst_ip_prefix_set",
+          "type": "conflicts"
+        },
+        {
+          "anchor": "section",
+          "enforcement": "provider-schema",
+          "group": "rule_list.rules:ConflictingListObjectAttributes:dst_ip_prefix_set,tls_list",
+          "source": "ast-validator:ConflictingListObjectAttributes",
+          "target_id": "xcsh-docs:resources:forward_proxy_policy:properties:rule_list:rules:dst_ip_prefix_set",
+          "type": "conflicts"
+        },
+        {
+          "anchor": "section",
+          "enforcement": "provider-schema",
+          "group": "rule_list.rules:ConflictingListObjectAttributes:dst_ip_prefix_set,url_category_list",
+          "source": "ast-validator:ConflictingListObjectAttributes",
+          "target_id": "xcsh-docs:resources:forward_proxy_policy:properties:rule_list:rules:dst_ip_prefix_set",
+          "type": "conflicts"
+        },
+        {
+          "anchor": "section",
+          "enforcement": "provider-schema",
+          "group": "rule_list.rules:ConflictingListObjectAttributes:all_destinations,dst_label_selector",
+          "source": "ast-validator:ConflictingListObjectAttributes",
+          "target_id": "xcsh-docs:resources:forward_proxy_policy:properties:rule_list:rules:dst_label_selector",
+          "type": "conflicts"
+        },
+        {
+          "anchor": "section",
+          "enforcement": "provider-schema",
+          "group": "rule_list.rules:ConflictingListObjectAttributes:dst_asn_list,dst_label_selector",
+          "source": "ast-validator:ConflictingListObjectAttributes",
+          "target_id": "xcsh-docs:resources:forward_proxy_policy:properties:rule_list:rules:dst_label_selector",
+          "type": "conflicts"
+        },
+        {
+          "anchor": "section",
+          "enforcement": "provider-schema",
+          "group": "rule_list.rules:ConflictingListObjectAttributes:dst_asn_set,dst_label_selector",
+          "source": "ast-validator:ConflictingListObjectAttributes",
+          "target_id": "xcsh-docs:resources:forward_proxy_policy:properties:rule_list:rules:dst_label_selector",
+          "type": "conflicts"
+        },
+        {
+          "anchor": "section",
+          "enforcement": "provider-schema",
+          "group": "rule_list.rules:ConflictingListObjectAttributes:dst_ip_prefix_set,dst_label_selector",
+          "source": "ast-validator:ConflictingListObjectAttributes",
+          "target_id": "xcsh-docs:resources:forward_proxy_policy:properties:rule_list:rules:dst_label_selector",
+          "type": "conflicts"
+        },
+        {
+          "anchor": "section",
+          "enforcement": "provider-schema",
+          "group": "rule_list.rules:ConflictingListObjectAttributes:dst_label_selector,dst_prefix_list",
+          "source": "ast-validator:ConflictingListObjectAttributes",
+          "target_id": "xcsh-docs:resources:forward_proxy_policy:properties:rule_list:rules:dst_label_selector",
+          "type": "conflicts"
+        },
+        {
+          "anchor": "section",
+          "enforcement": "provider-schema",
+          "group": "rule_list.rules:ConflictingListObjectAttributes:dst_label_selector,http_list",
+          "source": "ast-validator:ConflictingListObjectAttributes",
+          "target_id": "xcsh-docs:resources:forward_proxy_policy:properties:rule_list:rules:dst_label_selector",
+          "type": "conflicts"
+        },
+        {
+          "anchor": "section",
+          "enforcement": "provider-schema",
+          "group": "rule_list.rules:ConflictingListObjectAttributes:dst_label_selector,tls_list",
+          "source": "ast-validator:ConflictingListObjectAttributes",
+          "target_id": "xcsh-docs:resources:forward_proxy_policy:properties:rule_list:rules:dst_label_selector",
+          "type": "conflicts"
+        },
+        {
+          "anchor": "section",
+          "enforcement": "provider-schema",
+          "group": "rule_list.rules:ConflictingListObjectAttributes:dst_label_selector,url_category_list",
+          "source": "ast-validator:ConflictingListObjectAttributes",
+          "target_id": "xcsh-docs:resources:forward_proxy_policy:properties:rule_list:rules:dst_label_selector",
+          "type": "conflicts"
+        },
+        {
+          "anchor": "section",
+          "enforcement": "provider-schema",
+          "group": "rule_list.rules:ConflictingListObjectAttributes:all_destinations,dst_prefix_list",
+          "source": "ast-validator:ConflictingListObjectAttributes",
+          "target_id": "xcsh-docs:resources:forward_proxy_policy:properties:rule_list:rules:dst_prefix_list",
+          "type": "conflicts"
+        },
+        {
+          "anchor": "section",
+          "enforcement": "provider-schema",
+          "group": "rule_list.rules:ConflictingListObjectAttributes:dst_asn_list,dst_prefix_list",
+          "source": "ast-validator:ConflictingListObjectAttributes",
+          "target_id": "xcsh-docs:resources:forward_proxy_policy:properties:rule_list:rules:dst_prefix_list",
+          "type": "conflicts"
+        },
+        {
+          "anchor": "section",
+          "enforcement": "provider-schema",
+          "group": "rule_list.rules:ConflictingListObjectAttributes:dst_asn_set,dst_prefix_list",
+          "source": "ast-validator:ConflictingListObjectAttributes",
+          "target_id": "xcsh-docs:resources:forward_proxy_policy:properties:rule_list:rules:dst_prefix_list",
+          "type": "conflicts"
+        },
+        {
+          "anchor": "section",
+          "enforcement": "provider-schema",
+          "group": "rule_list.rules:ConflictingListObjectAttributes:dst_ip_prefix_set,dst_prefix_list",
+          "source": "ast-validator:ConflictingListObjectAttributes",
+          "target_id": "xcsh-docs:resources:forward_proxy_policy:properties:rule_list:rules:dst_prefix_list",
+          "type": "conflicts"
+        },
+        {
+          "anchor": "section",
+          "enforcement": "provider-schema",
+          "group": "rule_list.rules:ConflictingListObjectAttributes:dst_label_selector,dst_prefix_list",
+          "source": "ast-validator:ConflictingListObjectAttributes",
+          "target_id": "xcsh-docs:resources:forward_proxy_policy:properties:rule_list:rules:dst_prefix_list",
+          "type": "conflicts"
+        },
+        {
+          "anchor": "section",
+          "enforcement": "provider-schema",
+          "group": "rule_list.rules:ConflictingListObjectAttributes:dst_prefix_list,http_list",
+          "source": "ast-validator:ConflictingListObjectAttributes",
+          "target_id": "xcsh-docs:resources:forward_proxy_policy:properties:rule_list:rules:dst_prefix_list",
+          "type": "conflicts"
+        },
+        {
+          "anchor": "section",
+          "enforcement": "provider-schema",
+          "group": "rule_list.rules:ConflictingListObjectAttributes:dst_prefix_list,tls_list",
+          "source": "ast-validator:ConflictingListObjectAttributes",
+          "target_id": "xcsh-docs:resources:forward_proxy_policy:properties:rule_list:rules:dst_prefix_list",
+          "type": "conflicts"
+        },
+        {
+          "anchor": "section",
+          "enforcement": "provider-schema",
+          "group": "rule_list.rules:ConflictingListObjectAttributes:dst_prefix_list,url_category_list",
+          "source": "ast-validator:ConflictingListObjectAttributes",
+          "target_id": "xcsh-docs:resources:forward_proxy_policy:properties:rule_list:rules:dst_prefix_list",
+          "type": "conflicts"
+        },
+        {
+          "anchor": "section",
+          "enforcement": "provider-schema",
+          "group": "rule_list.rules:ConflictingListObjectAttributes:all_destinations,http_list",
+          "source": "ast-validator:ConflictingListObjectAttributes",
+          "target_id": "xcsh-docs:resources:forward_proxy_policy:properties:rule_list:rules:http_list",
+          "type": "conflicts"
+        },
+        {
+          "anchor": "section",
+          "enforcement": "provider-schema",
+          "group": "rule_list.rules:ConflictingListObjectAttributes:dst_asn_list,http_list",
+          "source": "ast-validator:ConflictingListObjectAttributes",
+          "target_id": "xcsh-docs:resources:forward_proxy_policy:properties:rule_list:rules:http_list",
+          "type": "conflicts"
+        },
+        {
+          "anchor": "section",
+          "enforcement": "provider-schema",
+          "group": "rule_list.rules:ConflictingListObjectAttributes:dst_asn_set,http_list",
+          "source": "ast-validator:ConflictingListObjectAttributes",
+          "target_id": "xcsh-docs:resources:forward_proxy_policy:properties:rule_list:rules:http_list",
+          "type": "conflicts"
+        },
+        {
+          "anchor": "section",
+          "enforcement": "provider-schema",
+          "group": "rule_list.rules:ConflictingListObjectAttributes:dst_ip_prefix_set,http_list",
+          "source": "ast-validator:ConflictingListObjectAttributes",
+          "target_id": "xcsh-docs:resources:forward_proxy_policy:properties:rule_list:rules:http_list",
+          "type": "conflicts"
+        },
+        {
+          "anchor": "section",
+          "enforcement": "provider-schema",
+          "group": "rule_list.rules:ConflictingListObjectAttributes:dst_label_selector,http_list",
+          "source": "ast-validator:ConflictingListObjectAttributes",
+          "target_id": "xcsh-docs:resources:forward_proxy_policy:properties:rule_list:rules:http_list",
+          "type": "conflicts"
+        },
+        {
+          "anchor": "section",
+          "enforcement": "provider-schema",
+          "group": "rule_list.rules:ConflictingListObjectAttributes:dst_prefix_list,http_list",
+          "source": "ast-validator:ConflictingListObjectAttributes",
+          "target_id": "xcsh-docs:resources:forward_proxy_policy:properties:rule_list:rules:http_list",
+          "type": "conflicts"
+        },
+        {
+          "anchor": "section",
+          "enforcement": "provider-schema",
+          "group": "rule_list.rules:ConflictingListObjectAttributes:http_list,tls_list",
+          "source": "ast-validator:ConflictingListObjectAttributes",
+          "target_id": "xcsh-docs:resources:forward_proxy_policy:properties:rule_list:rules:http_list",
+          "type": "conflicts"
+        },
+        {
+          "anchor": "section",
+          "enforcement": "provider-schema",
+          "group": "rule_list.rules:ConflictingListObjectAttributes:http_list,url_category_list",
+          "source": "ast-validator:ConflictingListObjectAttributes",
+          "target_id": "xcsh-docs:resources:forward_proxy_policy:properties:rule_list:rules:http_list",
+          "type": "conflicts"
+        },
+        {
+          "anchor": "section",
+          "enforcement": "provider-schema",
+          "group": "rule_list.rules:ConflictingListObjectAttributes:all_sources,ip_prefix_set",
+          "source": "ast-validator:ConflictingListObjectAttributes",
+          "target_id": "xcsh-docs:resources:forward_proxy_policy:properties:rule_list:rules:ip_prefix_set",
+          "type": "conflicts"
+        },
+        {
+          "anchor": "section",
+          "enforcement": "provider-schema",
+          "group": "rule_list.rules:ConflictingListObjectAttributes:ip_prefix_set,label_selector",
+          "source": "ast-validator:ConflictingListObjectAttributes",
+          "target_id": "xcsh-docs:resources:forward_proxy_policy:properties:rule_list:rules:ip_prefix_set",
+          "type": "conflicts"
+        },
+        {
+          "anchor": "section",
+          "enforcement": "provider-schema",
+          "group": "rule_list.rules:ConflictingListObjectAttributes:ip_prefix_set,prefix_list",
+          "source": "ast-validator:ConflictingListObjectAttributes",
+          "target_id": "xcsh-docs:resources:forward_proxy_policy:properties:rule_list:rules:ip_prefix_set",
+          "type": "conflicts"
+        },
+        {
+          "anchor": "section",
+          "enforcement": "provider-schema",
+          "group": "rule_list.rules:ConflictingListObjectAttributes:all_sources,label_selector",
+          "source": "ast-validator:ConflictingListObjectAttributes",
+          "target_id": "xcsh-docs:resources:forward_proxy_policy:properties:rule_list:rules:label_selector",
+          "type": "conflicts"
+        },
+        {
+          "anchor": "section",
+          "enforcement": "provider-schema",
+          "group": "rule_list.rules:ConflictingListObjectAttributes:ip_prefix_set,label_selector",
+          "source": "ast-validator:ConflictingListObjectAttributes",
+          "target_id": "xcsh-docs:resources:forward_proxy_policy:properties:rule_list:rules:label_selector",
+          "type": "conflicts"
+        },
+        {
+          "anchor": "section",
+          "enforcement": "provider-schema",
+          "group": "rule_list.rules:ConflictingListObjectAttributes:label_selector,prefix_list",
+          "source": "ast-validator:ConflictingListObjectAttributes",
+          "target_id": "xcsh-docs:resources:forward_proxy_policy:properties:rule_list:rules:label_selector",
+          "type": "conflicts"
+        },
+        {
+          "anchor": "section",
+          "enforcement": "provider-schema",
+          "group": "rule_list.rules:ConflictingListObjectAttributes:no_http_connect_port,port_matcher",
+          "source": "ast-validator:ConflictingListObjectAttributes",
+          "target_id": "xcsh-docs:resources:forward_proxy_policy:properties:rule_list:rules:no_http_connect_port",
+          "type": "conflicts"
+        },
+        {
+          "anchor": "section",
+          "enforcement": "provider-schema",
+          "group": "rule_list.rules:ConflictingListObjectAttributes:no_http_connect_port,port_matcher",
+          "source": "ast-validator:ConflictingListObjectAttributes",
+          "target_id": "xcsh-docs:resources:forward_proxy_policy:properties:rule_list:rules:port_matcher",
+          "type": "conflicts"
+        },
+        {
+          "anchor": "section",
+          "enforcement": "provider-schema",
+          "group": "rule_list.rules:ConflictingListObjectAttributes:all_sources,prefix_list",
+          "source": "ast-validator:ConflictingListObjectAttributes",
+          "target_id": "xcsh-docs:resources:forward_proxy_policy:properties:rule_list:rules:prefix_list",
+          "type": "conflicts"
+        },
+        {
+          "anchor": "section",
+          "enforcement": "provider-schema",
+          "group": "rule_list.rules:ConflictingListObjectAttributes:ip_prefix_set,prefix_list",
+          "source": "ast-validator:ConflictingListObjectAttributes",
+          "target_id": "xcsh-docs:resources:forward_proxy_policy:properties:rule_list:rules:prefix_list",
+          "type": "conflicts"
+        },
+        {
+          "anchor": "section",
+          "enforcement": "provider-schema",
+          "group": "rule_list.rules:ConflictingListObjectAttributes:label_selector,prefix_list",
+          "source": "ast-validator:ConflictingListObjectAttributes",
+          "target_id": "xcsh-docs:resources:forward_proxy_policy:properties:rule_list:rules:prefix_list",
+          "type": "conflicts"
+        },
+        {
+          "anchor": "section",
+          "enforcement": "provider-schema",
+          "group": "rule_list.rules:ConflictingListObjectAttributes:all_destinations,tls_list",
+          "source": "ast-validator:ConflictingListObjectAttributes",
+          "target_id": "xcsh-docs:resources:forward_proxy_policy:properties:rule_list:rules:tls_list",
+          "type": "conflicts"
+        },
+        {
+          "anchor": "section",
+          "enforcement": "provider-schema",
+          "group": "rule_list.rules:ConflictingListObjectAttributes:dst_asn_list,tls_list",
+          "source": "ast-validator:ConflictingListObjectAttributes",
+          "target_id": "xcsh-docs:resources:forward_proxy_policy:properties:rule_list:rules:tls_list",
+          "type": "conflicts"
+        },
+        {
+          "anchor": "section",
+          "enforcement": "provider-schema",
+          "group": "rule_list.rules:ConflictingListObjectAttributes:dst_asn_set,tls_list",
+          "source": "ast-validator:ConflictingListObjectAttributes",
+          "target_id": "xcsh-docs:resources:forward_proxy_policy:properties:rule_list:rules:tls_list",
+          "type": "conflicts"
+        },
+        {
+          "anchor": "section",
+          "enforcement": "provider-schema",
+          "group": "rule_list.rules:ConflictingListObjectAttributes:dst_ip_prefix_set,tls_list",
+          "source": "ast-validator:ConflictingListObjectAttributes",
+          "target_id": "xcsh-docs:resources:forward_proxy_policy:properties:rule_list:rules:tls_list",
+          "type": "conflicts"
+        },
+        {
+          "anchor": "section",
+          "enforcement": "provider-schema",
+          "group": "rule_list.rules:ConflictingListObjectAttributes:dst_label_selector,tls_list",
+          "source": "ast-validator:ConflictingListObjectAttributes",
+          "target_id": "xcsh-docs:resources:forward_proxy_policy:properties:rule_list:rules:tls_list",
+          "type": "conflicts"
+        },
+        {
+          "anchor": "section",
+          "enforcement": "provider-schema",
+          "group": "rule_list.rules:ConflictingListObjectAttributes:dst_prefix_list,tls_list",
+          "source": "ast-validator:ConflictingListObjectAttributes",
+          "target_id": "xcsh-docs:resources:forward_proxy_policy:properties:rule_list:rules:tls_list",
+          "type": "conflicts"
+        },
+        {
+          "anchor": "section",
+          "enforcement": "provider-schema",
+          "group": "rule_list.rules:ConflictingListObjectAttributes:http_list,tls_list",
+          "source": "ast-validator:ConflictingListObjectAttributes",
+          "target_id": "xcsh-docs:resources:forward_proxy_policy:properties:rule_list:rules:tls_list",
+          "type": "conflicts"
+        },
+        {
+          "anchor": "section",
+          "enforcement": "provider-schema",
+          "group": "rule_list.rules:ConflictingListObjectAttributes:tls_list,url_category_list",
+          "source": "ast-validator:ConflictingListObjectAttributes",
+          "target_id": "xcsh-docs:resources:forward_proxy_policy:properties:rule_list:rules:tls_list",
+          "type": "conflicts"
+        },
+        {
+          "anchor": "section",
+          "enforcement": "provider-schema",
+          "group": "rule_list.rules:ConflictingListObjectAttributes:all_destinations,url_category_list",
+          "source": "ast-validator:ConflictingListObjectAttributes",
+          "target_id": "xcsh-docs:resources:forward_proxy_policy:properties:rule_list:rules:url_category_list",
+          "type": "conflicts"
+        },
+        {
+          "anchor": "section",
+          "enforcement": "provider-schema",
+          "group": "rule_list.rules:ConflictingListObjectAttributes:dst_asn_list,url_category_list",
+          "source": "ast-validator:ConflictingListObjectAttributes",
+          "target_id": "xcsh-docs:resources:forward_proxy_policy:properties:rule_list:rules:url_category_list",
+          "type": "conflicts"
+        },
+        {
+          "anchor": "section",
+          "enforcement": "provider-schema",
+          "group": "rule_list.rules:ConflictingListObjectAttributes:dst_asn_set,url_category_list",
+          "source": "ast-validator:ConflictingListObjectAttributes",
+          "target_id": "xcsh-docs:resources:forward_proxy_policy:properties:rule_list:rules:url_category_list",
+          "type": "conflicts"
+        },
+        {
+          "anchor": "section",
+          "enforcement": "provider-schema",
+          "group": "rule_list.rules:ConflictingListObjectAttributes:dst_ip_prefix_set,url_category_list",
+          "source": "ast-validator:ConflictingListObjectAttributes",
+          "target_id": "xcsh-docs:resources:forward_proxy_policy:properties:rule_list:rules:url_category_list",
+          "type": "conflicts"
+        },
+        {
+          "anchor": "section",
+          "enforcement": "provider-schema",
+          "group": "rule_list.rules:ConflictingListObjectAttributes:dst_label_selector,url_category_list",
+          "source": "ast-validator:ConflictingListObjectAttributes",
+          "target_id": "xcsh-docs:resources:forward_proxy_policy:properties:rule_list:rules:url_category_list",
+          "type": "conflicts"
+        },
+        {
+          "anchor": "section",
+          "enforcement": "provider-schema",
+          "group": "rule_list.rules:ConflictingListObjectAttributes:dst_prefix_list,url_category_list",
+          "source": "ast-validator:ConflictingListObjectAttributes",
+          "target_id": "xcsh-docs:resources:forward_proxy_policy:properties:rule_list:rules:url_category_list",
+          "type": "conflicts"
+        },
+        {
+          "anchor": "section",
+          "enforcement": "provider-schema",
+          "group": "rule_list.rules:ConflictingListObjectAttributes:http_list,url_category_list",
+          "source": "ast-validator:ConflictingListObjectAttributes",
+          "target_id": "xcsh-docs:resources:forward_proxy_policy:properties:rule_list:rules:url_category_list",
+          "type": "conflicts"
+        },
+        {
+          "anchor": "section",
+          "enforcement": "provider-schema",
+          "group": "rule_list.rules:ConflictingListObjectAttributes:tls_list,url_category_list",
+          "source": "ast-validator:ConflictingListObjectAttributes",
+          "target_id": "xcsh-docs:resources:forward_proxy_policy:properties:rule_list:rules:url_category_list",
+          "type": "conflicts"
+        }
+      ],
       "retrieval_version": 1,
       "role": "properties",
       "schema_path": ["rule_list", "rules"],
@@ -2691,7 +4881,7 @@
         {
           "aliases": ["action"],
           "anchor": "schema-rule_list--rules--action",
-          "description": "The rule action determines the disposition of the input request API. If a policy matches a rule with an ALLOW action, the processing of the request proceeds forward. If it matches a rule with a DENY action, the processing of the request is terminated and an appropriate message/code returned to the originator. If it mat",
+          "description": "The rule action determines the disposition of the input request API. If a policy matches a rule with an ALLOW action, the processing of the request proceeds forward. If it matches a rule with a DENY action, the processing of the request is terminated and an appropriate message/code returned to the originator. If it",
           "document_id": "xcsh-docs:resources:forward_proxy_policy:properties:rule_list:rules",
           "flags": ["optional"],
           "max_items": null,
@@ -2802,7 +4992,7 @@
         {
           "aliases": ["dst label selector"],
           "anchor": "section",
-          "description": "This type can be used to establish a 'selector reference' from one object(called selector) to a set of other objects(called selectees) based on the value of expressions. A label selector is a label query over a set of resources. An empty label selector matches all objects. A null label selector matches no objects. Labe",
+          "description": "This type can be used to establish a 'selector reference' from one object(called selector) to a set of other objects(called selectees) based on the value of expressions. A label selector is a label query over a set of resources. An empty label selector matches all objects. A null label selector matches no objects.",
           "document_id": "xcsh-docs:resources:forward_proxy_policy:properties:rule_list:rules:dst_label_selector",
           "flags": [],
           "max_items": null,
@@ -2876,7 +5066,7 @@
         {
           "aliases": ["label selector"],
           "anchor": "section",
-          "description": "This type can be used to establish a 'selector reference' from one object(called selector) to a set of other objects(called selectees) based on the value of expressions. A label selector is a label query over a set of resources. An empty label selector matches all objects. A null label selector matches no objects. Labe",
+          "description": "This type can be used to establish a 'selector reference' from one object(called selector) to a set of other objects(called selectees) based on the value of expressions. A label selector is a label query over a set of resources. An empty label selector matches all objects. A null label selector matches no objects.",
           "document_id": "xcsh-docs:resources:forward_proxy_policy:properties:rule_list:rules:label_selector",
           "flags": [],
           "max_items": null,
@@ -3027,7 +5217,7 @@
       "category": "networking",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:98dbf5280bf8376a0c75c1391250db9db4ac0d293d42bdd831c20f7514925adb",
+        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -3067,7 +5257,7 @@
       "category": "networking",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:98dbf5280bf8376a0c75c1391250db9db4ac0d293d42bdd831c20f7514925adb",
+        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -3107,7 +5297,7 @@
       "category": "networking",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:98dbf5280bf8376a0c75c1391250db9db4ac0d293d42bdd831c20f7514925adb",
+        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -3171,7 +5361,7 @@
       "category": "networking",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:98dbf5280bf8376a0c75c1391250db9db4ac0d293d42bdd831c20f7514925adb",
+        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -3263,7 +5453,7 @@
       "category": "networking",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:98dbf5280bf8376a0c75c1391250db9db4ac0d293d42bdd831c20f7514925adb",
+        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -3355,7 +5545,7 @@
       "category": "networking",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:98dbf5280bf8376a0c75c1391250db9db4ac0d293d42bdd831c20f7514925adb",
+        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -3402,7 +5592,7 @@
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/forward_proxy_policy/properties/rule_list/rules/dst_label_selector/index.txt",
       "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
-      "summary": "This type can be used to establish a 'selector reference' from one object(called selector) to a set of other objects(called selectees) based on the value of expressions. A label selector is a label query over a set of resources. An empty label selector matches all objects. A null label selector matches no objects. Labe",
+      "summary": "This type can be used to establish a 'selector reference' from one object(called selector) to a set of other objects(called selectees) based on the value of expressions. A label selector is a label query over a set of resources. An empty label selector matches all objects. A null label selector matches no objects.",
       "tasks": ["configuration"],
       "title": "rule_list.rules.dst_label_selector",
       "upstream_identity": {
@@ -3419,7 +5609,7 @@
       "category": "networking",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:98dbf5280bf8376a0c75c1391250db9db4ac0d293d42bdd831c20f7514925adb",
+        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -3474,7 +5664,7 @@
       "category": "networking",
       "child_ids": ["xcsh-docs:resources:forward_proxy_policy:properties:rule_list:rules:http_list:http_list"],
       "classification": {
-        "rules_sha256": "sha256:98dbf5280bf8376a0c75c1391250db9db4ac0d293d42bdd831c20f7514925adb",
+        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -3504,7 +5694,152 @@
           "max_items": null,
           "min_items": null,
           "nesting": "list",
-          "relationships": [],
+          "relationships": [
+            {
+              "anchor": "schema-rule_list--rules--http_list--http_list--exact_value",
+              "enforcement": "provider-schema",
+              "group": "rule_list.rules.http_list.http_list:ConflictingListObjectAttributes:exact_value,regex_value",
+              "source": "ast-validator:ConflictingListObjectAttributes",
+              "target_id": "xcsh-docs:resources:forward_proxy_policy:properties:rule_list:rules:http_list:http_list",
+              "type": "conflicts"
+            },
+            {
+              "anchor": "schema-rule_list--rules--http_list--http_list--exact_value",
+              "enforcement": "provider-schema",
+              "group": "rule_list.rules.http_list.http_list:ConflictingListObjectAttributes:exact_value,suffix_value",
+              "source": "ast-validator:ConflictingListObjectAttributes",
+              "target_id": "xcsh-docs:resources:forward_proxy_policy:properties:rule_list:rules:http_list:http_list",
+              "type": "conflicts"
+            },
+            {
+              "anchor": "schema-rule_list--rules--http_list--http_list--path_exact_value",
+              "enforcement": "provider-schema",
+              "group": "rule_list.rules.http_list.http_list:ConflictingListObjectAttributes:any_path,path_exact_value",
+              "source": "ast-validator:ConflictingListObjectAttributes",
+              "target_id": "xcsh-docs:resources:forward_proxy_policy:properties:rule_list:rules:http_list:http_list",
+              "type": "conflicts"
+            },
+            {
+              "anchor": "schema-rule_list--rules--http_list--http_list--path_exact_value",
+              "enforcement": "provider-schema",
+              "group": "rule_list.rules.http_list.http_list:ConflictingListObjectAttributes:path_exact_value,path_prefix_value",
+              "source": "ast-validator:ConflictingListObjectAttributes",
+              "target_id": "xcsh-docs:resources:forward_proxy_policy:properties:rule_list:rules:http_list:http_list",
+              "type": "conflicts"
+            },
+            {
+              "anchor": "schema-rule_list--rules--http_list--http_list--path_exact_value",
+              "enforcement": "provider-schema",
+              "group": "rule_list.rules.http_list.http_list:ConflictingListObjectAttributes:path_exact_value,path_regex_value",
+              "source": "ast-validator:ConflictingListObjectAttributes",
+              "target_id": "xcsh-docs:resources:forward_proxy_policy:properties:rule_list:rules:http_list:http_list",
+              "type": "conflicts"
+            },
+            {
+              "anchor": "schema-rule_list--rules--http_list--http_list--path_prefix_value",
+              "enforcement": "provider-schema",
+              "group": "rule_list.rules.http_list.http_list:ConflictingListObjectAttributes:any_path,path_prefix_value",
+              "source": "ast-validator:ConflictingListObjectAttributes",
+              "target_id": "xcsh-docs:resources:forward_proxy_policy:properties:rule_list:rules:http_list:http_list",
+              "type": "conflicts"
+            },
+            {
+              "anchor": "schema-rule_list--rules--http_list--http_list--path_prefix_value",
+              "enforcement": "provider-schema",
+              "group": "rule_list.rules.http_list.http_list:ConflictingListObjectAttributes:path_exact_value,path_prefix_value",
+              "source": "ast-validator:ConflictingListObjectAttributes",
+              "target_id": "xcsh-docs:resources:forward_proxy_policy:properties:rule_list:rules:http_list:http_list",
+              "type": "conflicts"
+            },
+            {
+              "anchor": "schema-rule_list--rules--http_list--http_list--path_prefix_value",
+              "enforcement": "provider-schema",
+              "group": "rule_list.rules.http_list.http_list:ConflictingListObjectAttributes:path_prefix_value,path_regex_value",
+              "source": "ast-validator:ConflictingListObjectAttributes",
+              "target_id": "xcsh-docs:resources:forward_proxy_policy:properties:rule_list:rules:http_list:http_list",
+              "type": "conflicts"
+            },
+            {
+              "anchor": "schema-rule_list--rules--http_list--http_list--path_regex_value",
+              "enforcement": "provider-schema",
+              "group": "rule_list.rules.http_list.http_list:ConflictingListObjectAttributes:any_path,path_regex_value",
+              "source": "ast-validator:ConflictingListObjectAttributes",
+              "target_id": "xcsh-docs:resources:forward_proxy_policy:properties:rule_list:rules:http_list:http_list",
+              "type": "conflicts"
+            },
+            {
+              "anchor": "schema-rule_list--rules--http_list--http_list--path_regex_value",
+              "enforcement": "provider-schema",
+              "group": "rule_list.rules.http_list.http_list:ConflictingListObjectAttributes:path_exact_value,path_regex_value",
+              "source": "ast-validator:ConflictingListObjectAttributes",
+              "target_id": "xcsh-docs:resources:forward_proxy_policy:properties:rule_list:rules:http_list:http_list",
+              "type": "conflicts"
+            },
+            {
+              "anchor": "schema-rule_list--rules--http_list--http_list--path_regex_value",
+              "enforcement": "provider-schema",
+              "group": "rule_list.rules.http_list.http_list:ConflictingListObjectAttributes:path_prefix_value,path_regex_value",
+              "source": "ast-validator:ConflictingListObjectAttributes",
+              "target_id": "xcsh-docs:resources:forward_proxy_policy:properties:rule_list:rules:http_list:http_list",
+              "type": "conflicts"
+            },
+            {
+              "anchor": "schema-rule_list--rules--http_list--http_list--regex_value",
+              "enforcement": "provider-schema",
+              "group": "rule_list.rules.http_list.http_list:ConflictingListObjectAttributes:exact_value,regex_value",
+              "source": "ast-validator:ConflictingListObjectAttributes",
+              "target_id": "xcsh-docs:resources:forward_proxy_policy:properties:rule_list:rules:http_list:http_list",
+              "type": "conflicts"
+            },
+            {
+              "anchor": "schema-rule_list--rules--http_list--http_list--regex_value",
+              "enforcement": "provider-schema",
+              "group": "rule_list.rules.http_list.http_list:ConflictingListObjectAttributes:regex_value,suffix_value",
+              "source": "ast-validator:ConflictingListObjectAttributes",
+              "target_id": "xcsh-docs:resources:forward_proxy_policy:properties:rule_list:rules:http_list:http_list",
+              "type": "conflicts"
+            },
+            {
+              "anchor": "schema-rule_list--rules--http_list--http_list--suffix_value",
+              "enforcement": "provider-schema",
+              "group": "rule_list.rules.http_list.http_list:ConflictingListObjectAttributes:exact_value,suffix_value",
+              "source": "ast-validator:ConflictingListObjectAttributes",
+              "target_id": "xcsh-docs:resources:forward_proxy_policy:properties:rule_list:rules:http_list:http_list",
+              "type": "conflicts"
+            },
+            {
+              "anchor": "schema-rule_list--rules--http_list--http_list--suffix_value",
+              "enforcement": "provider-schema",
+              "group": "rule_list.rules.http_list.http_list:ConflictingListObjectAttributes:regex_value,suffix_value",
+              "source": "ast-validator:ConflictingListObjectAttributes",
+              "target_id": "xcsh-docs:resources:forward_proxy_policy:properties:rule_list:rules:http_list:http_list",
+              "type": "conflicts"
+            },
+            {
+              "anchor": "section",
+              "enforcement": "provider-schema",
+              "group": "rule_list.rules.http_list.http_list:ConflictingListObjectAttributes:any_path,path_exact_value",
+              "source": "ast-validator:ConflictingListObjectAttributes",
+              "target_id": "xcsh-docs:resources:forward_proxy_policy:properties:rule_list:rules:http_list:http_list:any_path",
+              "type": "conflicts"
+            },
+            {
+              "anchor": "section",
+              "enforcement": "provider-schema",
+              "group": "rule_list.rules.http_list.http_list:ConflictingListObjectAttributes:any_path,path_prefix_value",
+              "source": "ast-validator:ConflictingListObjectAttributes",
+              "target_id": "xcsh-docs:resources:forward_proxy_policy:properties:rule_list:rules:http_list:http_list:any_path",
+              "type": "conflicts"
+            },
+            {
+              "anchor": "section",
+              "enforcement": "provider-schema",
+              "group": "rule_list.rules.http_list.http_list:ConflictingListObjectAttributes:any_path,path_regex_value",
+              "source": "ast-validator:ConflictingListObjectAttributes",
+              "target_id": "xcsh-docs:resources:forward_proxy_policy:properties:rule_list:rules:http_list:http_list:any_path",
+              "type": "conflicts"
+            }
+          ],
           "schema_path": ["rule_list", "rules", "http_list", "http_list"],
           "syntax": "block",
           "type": "object"
@@ -3529,7 +5864,7 @@
       "category": "networking",
       "child_ids": ["xcsh-docs:resources:forward_proxy_policy:properties:rule_list:rules:http_list:http_list:any_path"],
       "classification": {
-        "rules_sha256": "sha256:98dbf5280bf8376a0c75c1391250db9db4ac0d293d42bdd831c20f7514925adb",
+        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -3545,7 +5880,152 @@
       "provider_type": "resources",
       "registry_anchor": "canonical-2233313011311201-0112331132232311-1302312313130130-3213111133013310-0221230302221331-2221103121012302-0200000031133101-1313303121032132",
       "registry_path": "docs/guides/resources--forward_proxy_policy--reference--group-001.md",
-      "relationships": [],
+      "relationships": [
+        {
+          "anchor": "schema-rule_list--rules--http_list--http_list--exact_value",
+          "enforcement": "provider-schema",
+          "group": "rule_list.rules.http_list.http_list:ConflictingListObjectAttributes:exact_value,regex_value",
+          "source": "ast-validator:ConflictingListObjectAttributes",
+          "target_id": "xcsh-docs:resources:forward_proxy_policy:properties:rule_list:rules:http_list:http_list",
+          "type": "conflicts"
+        },
+        {
+          "anchor": "schema-rule_list--rules--http_list--http_list--exact_value",
+          "enforcement": "provider-schema",
+          "group": "rule_list.rules.http_list.http_list:ConflictingListObjectAttributes:exact_value,suffix_value",
+          "source": "ast-validator:ConflictingListObjectAttributes",
+          "target_id": "xcsh-docs:resources:forward_proxy_policy:properties:rule_list:rules:http_list:http_list",
+          "type": "conflicts"
+        },
+        {
+          "anchor": "schema-rule_list--rules--http_list--http_list--path_exact_value",
+          "enforcement": "provider-schema",
+          "group": "rule_list.rules.http_list.http_list:ConflictingListObjectAttributes:any_path,path_exact_value",
+          "source": "ast-validator:ConflictingListObjectAttributes",
+          "target_id": "xcsh-docs:resources:forward_proxy_policy:properties:rule_list:rules:http_list:http_list",
+          "type": "conflicts"
+        },
+        {
+          "anchor": "schema-rule_list--rules--http_list--http_list--path_exact_value",
+          "enforcement": "provider-schema",
+          "group": "rule_list.rules.http_list.http_list:ConflictingListObjectAttributes:path_exact_value,path_prefix_value",
+          "source": "ast-validator:ConflictingListObjectAttributes",
+          "target_id": "xcsh-docs:resources:forward_proxy_policy:properties:rule_list:rules:http_list:http_list",
+          "type": "conflicts"
+        },
+        {
+          "anchor": "schema-rule_list--rules--http_list--http_list--path_exact_value",
+          "enforcement": "provider-schema",
+          "group": "rule_list.rules.http_list.http_list:ConflictingListObjectAttributes:path_exact_value,path_regex_value",
+          "source": "ast-validator:ConflictingListObjectAttributes",
+          "target_id": "xcsh-docs:resources:forward_proxy_policy:properties:rule_list:rules:http_list:http_list",
+          "type": "conflicts"
+        },
+        {
+          "anchor": "schema-rule_list--rules--http_list--http_list--path_prefix_value",
+          "enforcement": "provider-schema",
+          "group": "rule_list.rules.http_list.http_list:ConflictingListObjectAttributes:any_path,path_prefix_value",
+          "source": "ast-validator:ConflictingListObjectAttributes",
+          "target_id": "xcsh-docs:resources:forward_proxy_policy:properties:rule_list:rules:http_list:http_list",
+          "type": "conflicts"
+        },
+        {
+          "anchor": "schema-rule_list--rules--http_list--http_list--path_prefix_value",
+          "enforcement": "provider-schema",
+          "group": "rule_list.rules.http_list.http_list:ConflictingListObjectAttributes:path_exact_value,path_prefix_value",
+          "source": "ast-validator:ConflictingListObjectAttributes",
+          "target_id": "xcsh-docs:resources:forward_proxy_policy:properties:rule_list:rules:http_list:http_list",
+          "type": "conflicts"
+        },
+        {
+          "anchor": "schema-rule_list--rules--http_list--http_list--path_prefix_value",
+          "enforcement": "provider-schema",
+          "group": "rule_list.rules.http_list.http_list:ConflictingListObjectAttributes:path_prefix_value,path_regex_value",
+          "source": "ast-validator:ConflictingListObjectAttributes",
+          "target_id": "xcsh-docs:resources:forward_proxy_policy:properties:rule_list:rules:http_list:http_list",
+          "type": "conflicts"
+        },
+        {
+          "anchor": "schema-rule_list--rules--http_list--http_list--path_regex_value",
+          "enforcement": "provider-schema",
+          "group": "rule_list.rules.http_list.http_list:ConflictingListObjectAttributes:any_path,path_regex_value",
+          "source": "ast-validator:ConflictingListObjectAttributes",
+          "target_id": "xcsh-docs:resources:forward_proxy_policy:properties:rule_list:rules:http_list:http_list",
+          "type": "conflicts"
+        },
+        {
+          "anchor": "schema-rule_list--rules--http_list--http_list--path_regex_value",
+          "enforcement": "provider-schema",
+          "group": "rule_list.rules.http_list.http_list:ConflictingListObjectAttributes:path_exact_value,path_regex_value",
+          "source": "ast-validator:ConflictingListObjectAttributes",
+          "target_id": "xcsh-docs:resources:forward_proxy_policy:properties:rule_list:rules:http_list:http_list",
+          "type": "conflicts"
+        },
+        {
+          "anchor": "schema-rule_list--rules--http_list--http_list--path_regex_value",
+          "enforcement": "provider-schema",
+          "group": "rule_list.rules.http_list.http_list:ConflictingListObjectAttributes:path_prefix_value,path_regex_value",
+          "source": "ast-validator:ConflictingListObjectAttributes",
+          "target_id": "xcsh-docs:resources:forward_proxy_policy:properties:rule_list:rules:http_list:http_list",
+          "type": "conflicts"
+        },
+        {
+          "anchor": "schema-rule_list--rules--http_list--http_list--regex_value",
+          "enforcement": "provider-schema",
+          "group": "rule_list.rules.http_list.http_list:ConflictingListObjectAttributes:exact_value,regex_value",
+          "source": "ast-validator:ConflictingListObjectAttributes",
+          "target_id": "xcsh-docs:resources:forward_proxy_policy:properties:rule_list:rules:http_list:http_list",
+          "type": "conflicts"
+        },
+        {
+          "anchor": "schema-rule_list--rules--http_list--http_list--regex_value",
+          "enforcement": "provider-schema",
+          "group": "rule_list.rules.http_list.http_list:ConflictingListObjectAttributes:regex_value,suffix_value",
+          "source": "ast-validator:ConflictingListObjectAttributes",
+          "target_id": "xcsh-docs:resources:forward_proxy_policy:properties:rule_list:rules:http_list:http_list",
+          "type": "conflicts"
+        },
+        {
+          "anchor": "schema-rule_list--rules--http_list--http_list--suffix_value",
+          "enforcement": "provider-schema",
+          "group": "rule_list.rules.http_list.http_list:ConflictingListObjectAttributes:exact_value,suffix_value",
+          "source": "ast-validator:ConflictingListObjectAttributes",
+          "target_id": "xcsh-docs:resources:forward_proxy_policy:properties:rule_list:rules:http_list:http_list",
+          "type": "conflicts"
+        },
+        {
+          "anchor": "schema-rule_list--rules--http_list--http_list--suffix_value",
+          "enforcement": "provider-schema",
+          "group": "rule_list.rules.http_list.http_list:ConflictingListObjectAttributes:regex_value,suffix_value",
+          "source": "ast-validator:ConflictingListObjectAttributes",
+          "target_id": "xcsh-docs:resources:forward_proxy_policy:properties:rule_list:rules:http_list:http_list",
+          "type": "conflicts"
+        },
+        {
+          "anchor": "section",
+          "enforcement": "provider-schema",
+          "group": "rule_list.rules.http_list.http_list:ConflictingListObjectAttributes:any_path,path_exact_value",
+          "source": "ast-validator:ConflictingListObjectAttributes",
+          "target_id": "xcsh-docs:resources:forward_proxy_policy:properties:rule_list:rules:http_list:http_list:any_path",
+          "type": "conflicts"
+        },
+        {
+          "anchor": "section",
+          "enforcement": "provider-schema",
+          "group": "rule_list.rules.http_list.http_list:ConflictingListObjectAttributes:any_path,path_prefix_value",
+          "source": "ast-validator:ConflictingListObjectAttributes",
+          "target_id": "xcsh-docs:resources:forward_proxy_policy:properties:rule_list:rules:http_list:http_list:any_path",
+          "type": "conflicts"
+        },
+        {
+          "anchor": "section",
+          "enforcement": "provider-schema",
+          "group": "rule_list.rules.http_list.http_list:ConflictingListObjectAttributes:any_path,path_regex_value",
+          "source": "ast-validator:ConflictingListObjectAttributes",
+          "target_id": "xcsh-docs:resources:forward_proxy_policy:properties:rule_list:rules:http_list:http_list:any_path",
+          "type": "conflicts"
+        }
+      ],
       "retrieval_version": 1,
       "role": "properties",
       "schema_path": ["rule_list", "rules", "http_list", "http_list"],
@@ -3668,7 +6148,7 @@
       "category": "networking",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:98dbf5280bf8376a0c75c1391250db9db4ac0d293d42bdd831c20f7514925adb",
+        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -3708,7 +6188,7 @@
       "category": "networking",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:98dbf5280bf8376a0c75c1391250db9db4ac0d293d42bdd831c20f7514925adb",
+        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -3800,7 +6280,7 @@
       "category": "networking",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:98dbf5280bf8376a0c75c1391250db9db4ac0d293d42bdd831c20f7514925adb",
+        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -3847,7 +6327,7 @@
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/forward_proxy_policy/properties/rule_list/rules/label_selector/index.txt",
       "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
-      "summary": "This type can be used to establish a 'selector reference' from one object(called selector) to a set of other objects(called selectees) based on the value of expressions. A label selector is a label query over a set of resources. An empty label selector matches all objects. A null label selector matches no objects. Labe",
+      "summary": "This type can be used to establish a 'selector reference' from one object(called selector) to a set of other objects(called selectees) based on the value of expressions. A label selector is a label query over a set of resources. An empty label selector matches all objects. A null label selector matches no objects.",
       "tasks": ["configuration"],
       "title": "rule_list.rules.label_selector",
       "upstream_identity": {
@@ -3864,7 +6344,7 @@
       "category": "networking",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:98dbf5280bf8376a0c75c1391250db9db4ac0d293d42bdd831c20f7514925adb",
+        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -3942,7 +6422,7 @@
       "category": "networking",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:98dbf5280bf8376a0c75c1391250db9db4ac0d293d42bdd831c20f7514925adb",
+        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -3982,7 +6462,7 @@
       "category": "networking",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:98dbf5280bf8376a0c75c1391250db9db4ac0d293d42bdd831c20f7514925adb",
+        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -4060,7 +6540,7 @@
       "category": "networking",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:98dbf5280bf8376a0c75c1391250db9db4ac0d293d42bdd831c20f7514925adb",
+        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -4115,7 +6595,7 @@
       "category": "networking",
       "child_ids": ["xcsh-docs:resources:forward_proxy_policy:properties:rule_list:rules:tls_list:tls_list"],
       "classification": {
-        "rules_sha256": "sha256:98dbf5280bf8376a0c75c1391250db9db4ac0d293d42bdd831c20f7514925adb",
+        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -4145,7 +6625,56 @@
           "max_items": null,
           "min_items": null,
           "nesting": "list",
-          "relationships": [],
+          "relationships": [
+            {
+              "anchor": "schema-rule_list--rules--tls_list--tls_list--exact_value",
+              "enforcement": "provider-schema",
+              "group": "rule_list.rules.tls_list.tls_list:ConflictingListObjectAttributes:exact_value,regex_value",
+              "source": "ast-validator:ConflictingListObjectAttributes",
+              "target_id": "xcsh-docs:resources:forward_proxy_policy:properties:rule_list:rules:tls_list:tls_list",
+              "type": "conflicts"
+            },
+            {
+              "anchor": "schema-rule_list--rules--tls_list--tls_list--exact_value",
+              "enforcement": "provider-schema",
+              "group": "rule_list.rules.tls_list.tls_list:ConflictingListObjectAttributes:exact_value,suffix_value",
+              "source": "ast-validator:ConflictingListObjectAttributes",
+              "target_id": "xcsh-docs:resources:forward_proxy_policy:properties:rule_list:rules:tls_list:tls_list",
+              "type": "conflicts"
+            },
+            {
+              "anchor": "schema-rule_list--rules--tls_list--tls_list--regex_value",
+              "enforcement": "provider-schema",
+              "group": "rule_list.rules.tls_list.tls_list:ConflictingListObjectAttributes:exact_value,regex_value",
+              "source": "ast-validator:ConflictingListObjectAttributes",
+              "target_id": "xcsh-docs:resources:forward_proxy_policy:properties:rule_list:rules:tls_list:tls_list",
+              "type": "conflicts"
+            },
+            {
+              "anchor": "schema-rule_list--rules--tls_list--tls_list--regex_value",
+              "enforcement": "provider-schema",
+              "group": "rule_list.rules.tls_list.tls_list:ConflictingListObjectAttributes:regex_value,suffix_value",
+              "source": "ast-validator:ConflictingListObjectAttributes",
+              "target_id": "xcsh-docs:resources:forward_proxy_policy:properties:rule_list:rules:tls_list:tls_list",
+              "type": "conflicts"
+            },
+            {
+              "anchor": "schema-rule_list--rules--tls_list--tls_list--suffix_value",
+              "enforcement": "provider-schema",
+              "group": "rule_list.rules.tls_list.tls_list:ConflictingListObjectAttributes:exact_value,suffix_value",
+              "source": "ast-validator:ConflictingListObjectAttributes",
+              "target_id": "xcsh-docs:resources:forward_proxy_policy:properties:rule_list:rules:tls_list:tls_list",
+              "type": "conflicts"
+            },
+            {
+              "anchor": "schema-rule_list--rules--tls_list--tls_list--suffix_value",
+              "enforcement": "provider-schema",
+              "group": "rule_list.rules.tls_list.tls_list:ConflictingListObjectAttributes:regex_value,suffix_value",
+              "source": "ast-validator:ConflictingListObjectAttributes",
+              "target_id": "xcsh-docs:resources:forward_proxy_policy:properties:rule_list:rules:tls_list:tls_list",
+              "type": "conflicts"
+            }
+          ],
           "schema_path": ["rule_list", "rules", "tls_list", "tls_list"],
           "syntax": "block",
           "type": "object"
@@ -4170,7 +6699,7 @@
       "category": "networking",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:98dbf5280bf8376a0c75c1391250db9db4ac0d293d42bdd831c20f7514925adb",
+        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -4186,7 +6715,56 @@
       "provider_type": "resources",
       "registry_anchor": "canonical-1133323022102133-0031321013011302-2333300131111211-1232030103102131-3021311322113232-2331003013012020-3122100212320020-2220113100303010",
       "registry_path": "docs/guides/resources--forward_proxy_policy--reference--group-002.md",
-      "relationships": [],
+      "relationships": [
+        {
+          "anchor": "schema-rule_list--rules--tls_list--tls_list--exact_value",
+          "enforcement": "provider-schema",
+          "group": "rule_list.rules.tls_list.tls_list:ConflictingListObjectAttributes:exact_value,regex_value",
+          "source": "ast-validator:ConflictingListObjectAttributes",
+          "target_id": "xcsh-docs:resources:forward_proxy_policy:properties:rule_list:rules:tls_list:tls_list",
+          "type": "conflicts"
+        },
+        {
+          "anchor": "schema-rule_list--rules--tls_list--tls_list--exact_value",
+          "enforcement": "provider-schema",
+          "group": "rule_list.rules.tls_list.tls_list:ConflictingListObjectAttributes:exact_value,suffix_value",
+          "source": "ast-validator:ConflictingListObjectAttributes",
+          "target_id": "xcsh-docs:resources:forward_proxy_policy:properties:rule_list:rules:tls_list:tls_list",
+          "type": "conflicts"
+        },
+        {
+          "anchor": "schema-rule_list--rules--tls_list--tls_list--regex_value",
+          "enforcement": "provider-schema",
+          "group": "rule_list.rules.tls_list.tls_list:ConflictingListObjectAttributes:exact_value,regex_value",
+          "source": "ast-validator:ConflictingListObjectAttributes",
+          "target_id": "xcsh-docs:resources:forward_proxy_policy:properties:rule_list:rules:tls_list:tls_list",
+          "type": "conflicts"
+        },
+        {
+          "anchor": "schema-rule_list--rules--tls_list--tls_list--regex_value",
+          "enforcement": "provider-schema",
+          "group": "rule_list.rules.tls_list.tls_list:ConflictingListObjectAttributes:regex_value,suffix_value",
+          "source": "ast-validator:ConflictingListObjectAttributes",
+          "target_id": "xcsh-docs:resources:forward_proxy_policy:properties:rule_list:rules:tls_list:tls_list",
+          "type": "conflicts"
+        },
+        {
+          "anchor": "schema-rule_list--rules--tls_list--tls_list--suffix_value",
+          "enforcement": "provider-schema",
+          "group": "rule_list.rules.tls_list.tls_list:ConflictingListObjectAttributes:exact_value,suffix_value",
+          "source": "ast-validator:ConflictingListObjectAttributes",
+          "target_id": "xcsh-docs:resources:forward_proxy_policy:properties:rule_list:rules:tls_list:tls_list",
+          "type": "conflicts"
+        },
+        {
+          "anchor": "schema-rule_list--rules--tls_list--tls_list--suffix_value",
+          "enforcement": "provider-schema",
+          "group": "rule_list.rules.tls_list.tls_list:ConflictingListObjectAttributes:regex_value,suffix_value",
+          "source": "ast-validator:ConflictingListObjectAttributes",
+          "target_id": "xcsh-docs:resources:forward_proxy_policy:properties:rule_list:rules:tls_list:tls_list",
+          "type": "conflicts"
+        }
+      ],
       "retrieval_version": 1,
       "role": "properties",
       "schema_path": ["rule_list", "rules", "tls_list", "tls_list"],
@@ -4253,7 +6831,7 @@
       "category": "networking",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:98dbf5280bf8376a0c75c1391250db9db4ac0d293d42bdd831c20f7514925adb",
+        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -4317,7 +6895,7 @@
       "category": "networking",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:98dbf5280bf8376a0c75c1391250db9db4ac0d293d42bdd831c20f7514925adb",
+        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -4414,7 +6992,7 @@
       "category": "networking",
       "child_ids": ["xcsh-docs:resources:forward_proxy_policy:example:resource"],
       "classification": {
-        "rules_sha256": "sha256:98dbf5280bf8376a0c75c1391250db9db4ac0d293d42bdd831c20f7514925adb",
+        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -4454,7 +7032,7 @@
       "category": "networking",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:98dbf5280bf8376a0c75c1391250db9db4ac0d293d42bdd831c20f7514925adb",
+        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -4501,7 +7079,7 @@
       "category": "networking",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:98dbf5280bf8376a0c75c1391250db9db4ac0d293d42bdd831c20f7514925adb",
+        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -4542,7 +7120,7 @@
       "category": "networking",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:98dbf5280bf8376a0c75c1391250db9db4ac0d293d42bdd831c20f7514925adb",
+        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"

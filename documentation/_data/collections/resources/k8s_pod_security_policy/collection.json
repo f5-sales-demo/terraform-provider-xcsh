@@ -352,7 +352,7 @@
         "xcsh-docs:resources:k8s_pod_security_policy:timeouts"
       ],
       "classification": {
-        "rules_sha256": "sha256:98dbf5280bf8376a0c75c1391250db9db4ac0d293d42bdd831c20f7514925adb",
+        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -396,7 +396,7 @@
         "xcsh-docs:resources:k8s_pod_security_policy:properties:timeouts"
       ],
       "classification": {
-        "rules_sha256": "sha256:98dbf5280bf8376a0c75c1391250db9db4ac0d293d42bdd831c20f7514925adb",
+        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -708,7 +708,7 @@
         "xcsh-docs:resources:k8s_pod_security_policy:properties:psp_spec:supplemental_groups"
       ],
       "classification": {
-        "rules_sha256": "sha256:98dbf5280bf8376a0c75c1391250db9db4ac0d293d42bdd831c20f7514925adb",
+        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -916,7 +916,16 @@
           "max_items": null,
           "min_items": null,
           "nesting": "list",
-          "relationships": [],
+          "relationships": [
+            {
+              "anchor": "schema-psp_spec--allowed_host_paths--path_prefix",
+              "enforcement": "provider-schema",
+              "group": "psp_spec.allowed_host_paths:RequiredListObjectAttributes:path_prefix",
+              "source": "ast-validator:RequiredListObjectAttributes",
+              "target_id": "xcsh-docs:resources:k8s_pod_security_policy:properties:psp_spec:allowed_host_paths",
+              "type": "requires"
+            }
+          ],
           "schema_path": ["psp_spec", "allowed_host_paths"],
           "syntax": "block",
           "type": "object"
@@ -1359,7 +1368,7 @@
       "category": "container",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:98dbf5280bf8376a0c75c1391250db9db4ac0d293d42bdd831c20f7514925adb",
+        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -1423,7 +1432,7 @@
       "category": "container",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:98dbf5280bf8376a0c75c1391250db9db4ac0d293d42bdd831c20f7514925adb",
+        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -1439,7 +1448,16 @@
       "provider_type": "resources",
       "registry_anchor": "canonical-2333000103132100-2333300322022233-3102303231332032-1323133112130033-1003320033111122-1311000322012202-2312012021200312-3102122310133210",
       "registry_path": "docs/guides/resources--k8s_pod_security_policy--reference--group-001.md",
-      "relationships": [],
+      "relationships": [
+        {
+          "anchor": "schema-psp_spec--allowed_host_paths--path_prefix",
+          "enforcement": "provider-schema",
+          "group": "psp_spec.allowed_host_paths:RequiredListObjectAttributes:path_prefix",
+          "source": "ast-validator:RequiredListObjectAttributes",
+          "target_id": "xcsh-docs:resources:k8s_pod_security_policy:properties:psp_spec:allowed_host_paths",
+          "type": "requires"
+        }
+      ],
       "retrieval_version": 1,
       "role": "properties",
       "schema_path": ["psp_spec", "allowed_host_paths"],
@@ -1492,7 +1510,7 @@
       "category": "container",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:98dbf5280bf8376a0c75c1391250db9db4ac0d293d42bdd831c20f7514925adb",
+        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -1556,7 +1574,7 @@
       "category": "container",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:98dbf5280bf8376a0c75c1391250db9db4ac0d293d42bdd831c20f7514925adb",
+        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -1622,7 +1640,7 @@
         "xcsh-docs:resources:k8s_pod_security_policy:properties:psp_spec:fs_group_strategy_options:id_ranges"
       ],
       "classification": {
-        "rules_sha256": "sha256:98dbf5280bf8376a0c75c1391250db9db4ac0d293d42bdd831c20f7514925adb",
+        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -1661,7 +1679,24 @@
           "max_items": null,
           "min_items": null,
           "nesting": "list",
-          "relationships": [],
+          "relationships": [
+            {
+              "anchor": "schema-psp_spec--fs_group_strategy_options--id_ranges--max_id",
+              "enforcement": "provider-schema",
+              "group": "psp_spec.fs_group_strategy_options.id_ranges:RequiredListObjectAttributes:max_id,min_id",
+              "source": "ast-validator:RequiredListObjectAttributes",
+              "target_id": "xcsh-docs:resources:k8s_pod_security_policy:properties:psp_spec:fs_group_strategy_options:id_ranges",
+              "type": "requires"
+            },
+            {
+              "anchor": "schema-psp_spec--fs_group_strategy_options--id_ranges--min_id",
+              "enforcement": "provider-schema",
+              "group": "psp_spec.fs_group_strategy_options.id_ranges:RequiredListObjectAttributes:max_id,min_id",
+              "source": "ast-validator:RequiredListObjectAttributes",
+              "target_id": "xcsh-docs:resources:k8s_pod_security_policy:properties:psp_spec:fs_group_strategy_options:id_ranges",
+              "type": "requires"
+            }
+          ],
           "schema_path": ["psp_spec", "fs_group_strategy_options", "id_ranges"],
           "syntax": "block",
           "type": "object"
@@ -1700,7 +1735,7 @@
       "category": "container",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:98dbf5280bf8376a0c75c1391250db9db4ac0d293d42bdd831c20f7514925adb",
+        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -1716,7 +1751,24 @@
       "provider_type": "resources",
       "registry_anchor": "canonical-1213222223311331-2131213310331112-1121113031221200-0333023102323233-3333312231232231-2210203032110022-3032230000333300-1230101333213020",
       "registry_path": "docs/guides/resources--k8s_pod_security_policy--reference--group-001.md",
-      "relationships": [],
+      "relationships": [
+        {
+          "anchor": "schema-psp_spec--fs_group_strategy_options--id_ranges--max_id",
+          "enforcement": "provider-schema",
+          "group": "psp_spec.fs_group_strategy_options.id_ranges:RequiredListObjectAttributes:max_id,min_id",
+          "source": "ast-validator:RequiredListObjectAttributes",
+          "target_id": "xcsh-docs:resources:k8s_pod_security_policy:properties:psp_spec:fs_group_strategy_options:id_ranges",
+          "type": "requires"
+        },
+        {
+          "anchor": "schema-psp_spec--fs_group_strategy_options--id_ranges--min_id",
+          "enforcement": "provider-schema",
+          "group": "psp_spec.fs_group_strategy_options.id_ranges:RequiredListObjectAttributes:max_id,min_id",
+          "source": "ast-validator:RequiredListObjectAttributes",
+          "target_id": "xcsh-docs:resources:k8s_pod_security_policy:properties:psp_spec:fs_group_strategy_options:id_ranges",
+          "type": "requires"
+        }
+      ],
       "retrieval_version": 1,
       "role": "properties",
       "schema_path": ["psp_spec", "fs_group_strategy_options", "id_ranges"],
@@ -1769,7 +1821,7 @@
       "category": "container",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:98dbf5280bf8376a0c75c1391250db9db4ac0d293d42bdd831c20f7514925adb",
+        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -1809,7 +1861,7 @@
       "category": "container",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:98dbf5280bf8376a0c75c1391250db9db4ac0d293d42bdd831c20f7514925adb",
+        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -1849,7 +1901,7 @@
       "category": "container",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:98dbf5280bf8376a0c75c1391250db9db4ac0d293d42bdd831c20f7514925adb",
+        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -1889,7 +1941,7 @@
       "category": "container",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:98dbf5280bf8376a0c75c1391250db9db4ac0d293d42bdd831c20f7514925adb",
+        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -1929,7 +1981,7 @@
       "category": "container",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:98dbf5280bf8376a0c75c1391250db9db4ac0d293d42bdd831c20f7514925adb",
+        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -1969,7 +2021,7 @@
       "category": "container",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:98dbf5280bf8376a0c75c1391250db9db4ac0d293d42bdd831c20f7514925adb",
+        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -2009,7 +2061,7 @@
       "category": "container",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:98dbf5280bf8376a0c75c1391250db9db4ac0d293d42bdd831c20f7514925adb",
+        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -2049,7 +2101,7 @@
       "category": "container",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:98dbf5280bf8376a0c75c1391250db9db4ac0d293d42bdd831c20f7514925adb",
+        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -2089,7 +2141,7 @@
       "category": "container",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:98dbf5280bf8376a0c75c1391250db9db4ac0d293d42bdd831c20f7514925adb",
+        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -2129,7 +2181,7 @@
       "category": "container",
       "child_ids": ["xcsh-docs:resources:k8s_pod_security_policy:properties:psp_spec:run_as_group:id_ranges"],
       "classification": {
-        "rules_sha256": "sha256:98dbf5280bf8376a0c75c1391250db9db4ac0d293d42bdd831c20f7514925adb",
+        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -2168,7 +2220,24 @@
           "max_items": null,
           "min_items": null,
           "nesting": "list",
-          "relationships": [],
+          "relationships": [
+            {
+              "anchor": "schema-psp_spec--run_as_group--id_ranges--max_id",
+              "enforcement": "provider-schema",
+              "group": "psp_spec.run_as_group.id_ranges:RequiredListObjectAttributes:max_id,min_id",
+              "source": "ast-validator:RequiredListObjectAttributes",
+              "target_id": "xcsh-docs:resources:k8s_pod_security_policy:properties:psp_spec:run_as_group:id_ranges",
+              "type": "requires"
+            },
+            {
+              "anchor": "schema-psp_spec--run_as_group--id_ranges--min_id",
+              "enforcement": "provider-schema",
+              "group": "psp_spec.run_as_group.id_ranges:RequiredListObjectAttributes:max_id,min_id",
+              "source": "ast-validator:RequiredListObjectAttributes",
+              "target_id": "xcsh-docs:resources:k8s_pod_security_policy:properties:psp_spec:run_as_group:id_ranges",
+              "type": "requires"
+            }
+          ],
           "schema_path": ["psp_spec", "run_as_group", "id_ranges"],
           "syntax": "block",
           "type": "object"
@@ -2207,7 +2276,7 @@
       "category": "container",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:98dbf5280bf8376a0c75c1391250db9db4ac0d293d42bdd831c20f7514925adb",
+        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -2223,7 +2292,24 @@
       "provider_type": "resources",
       "registry_anchor": "canonical-2333233330121101-3002122021112322-1003022201300012-2032110011113132-2232203132331300-3111321113333321-3113333211032310-3302200203203130",
       "registry_path": "docs/guides/resources--k8s_pod_security_policy--reference--group-001.md",
-      "relationships": [],
+      "relationships": [
+        {
+          "anchor": "schema-psp_spec--run_as_group--id_ranges--max_id",
+          "enforcement": "provider-schema",
+          "group": "psp_spec.run_as_group.id_ranges:RequiredListObjectAttributes:max_id,min_id",
+          "source": "ast-validator:RequiredListObjectAttributes",
+          "target_id": "xcsh-docs:resources:k8s_pod_security_policy:properties:psp_spec:run_as_group:id_ranges",
+          "type": "requires"
+        },
+        {
+          "anchor": "schema-psp_spec--run_as_group--id_ranges--min_id",
+          "enforcement": "provider-schema",
+          "group": "psp_spec.run_as_group.id_ranges:RequiredListObjectAttributes:max_id,min_id",
+          "source": "ast-validator:RequiredListObjectAttributes",
+          "target_id": "xcsh-docs:resources:k8s_pod_security_policy:properties:psp_spec:run_as_group:id_ranges",
+          "type": "requires"
+        }
+      ],
       "retrieval_version": 1,
       "role": "properties",
       "schema_path": ["psp_spec", "run_as_group", "id_ranges"],
@@ -2276,7 +2362,7 @@
       "category": "container",
       "child_ids": ["xcsh-docs:resources:k8s_pod_security_policy:properties:psp_spec:run_as_user:id_ranges"],
       "classification": {
-        "rules_sha256": "sha256:98dbf5280bf8376a0c75c1391250db9db4ac0d293d42bdd831c20f7514925adb",
+        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -2315,7 +2401,24 @@
           "max_items": null,
           "min_items": null,
           "nesting": "list",
-          "relationships": [],
+          "relationships": [
+            {
+              "anchor": "schema-psp_spec--run_as_user--id_ranges--max_id",
+              "enforcement": "provider-schema",
+              "group": "psp_spec.run_as_user.id_ranges:RequiredListObjectAttributes:max_id,min_id",
+              "source": "ast-validator:RequiredListObjectAttributes",
+              "target_id": "xcsh-docs:resources:k8s_pod_security_policy:properties:psp_spec:run_as_user:id_ranges",
+              "type": "requires"
+            },
+            {
+              "anchor": "schema-psp_spec--run_as_user--id_ranges--min_id",
+              "enforcement": "provider-schema",
+              "group": "psp_spec.run_as_user.id_ranges:RequiredListObjectAttributes:max_id,min_id",
+              "source": "ast-validator:RequiredListObjectAttributes",
+              "target_id": "xcsh-docs:resources:k8s_pod_security_policy:properties:psp_spec:run_as_user:id_ranges",
+              "type": "requires"
+            }
+          ],
           "schema_path": ["psp_spec", "run_as_user", "id_ranges"],
           "syntax": "block",
           "type": "object"
@@ -2354,7 +2457,7 @@
       "category": "container",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:98dbf5280bf8376a0c75c1391250db9db4ac0d293d42bdd831c20f7514925adb",
+        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -2370,7 +2473,24 @@
       "provider_type": "resources",
       "registry_anchor": "canonical-1232013232033210-0321313213303012-2211320012213301-0330112212220012-3102033031001321-1330002000131200-0000200213012122-2220023010301121",
       "registry_path": "docs/guides/resources--k8s_pod_security_policy--reference--group-001.md",
-      "relationships": [],
+      "relationships": [
+        {
+          "anchor": "schema-psp_spec--run_as_user--id_ranges--max_id",
+          "enforcement": "provider-schema",
+          "group": "psp_spec.run_as_user.id_ranges:RequiredListObjectAttributes:max_id,min_id",
+          "source": "ast-validator:RequiredListObjectAttributes",
+          "target_id": "xcsh-docs:resources:k8s_pod_security_policy:properties:psp_spec:run_as_user:id_ranges",
+          "type": "requires"
+        },
+        {
+          "anchor": "schema-psp_spec--run_as_user--id_ranges--min_id",
+          "enforcement": "provider-schema",
+          "group": "psp_spec.run_as_user.id_ranges:RequiredListObjectAttributes:max_id,min_id",
+          "source": "ast-validator:RequiredListObjectAttributes",
+          "target_id": "xcsh-docs:resources:k8s_pod_security_policy:properties:psp_spec:run_as_user:id_ranges",
+          "type": "requires"
+        }
+      ],
       "retrieval_version": 1,
       "role": "properties",
       "schema_path": ["psp_spec", "run_as_user", "id_ranges"],
@@ -2423,7 +2543,7 @@
       "category": "container",
       "child_ids": ["xcsh-docs:resources:k8s_pod_security_policy:properties:psp_spec:supplemental_groups:id_ranges"],
       "classification": {
-        "rules_sha256": "sha256:98dbf5280bf8376a0c75c1391250db9db4ac0d293d42bdd831c20f7514925adb",
+        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -2462,7 +2582,24 @@
           "max_items": null,
           "min_items": null,
           "nesting": "list",
-          "relationships": [],
+          "relationships": [
+            {
+              "anchor": "schema-psp_spec--supplemental_groups--id_ranges--max_id",
+              "enforcement": "provider-schema",
+              "group": "psp_spec.supplemental_groups.id_ranges:RequiredListObjectAttributes:max_id,min_id",
+              "source": "ast-validator:RequiredListObjectAttributes",
+              "target_id": "xcsh-docs:resources:k8s_pod_security_policy:properties:psp_spec:supplemental_groups:id_ranges",
+              "type": "requires"
+            },
+            {
+              "anchor": "schema-psp_spec--supplemental_groups--id_ranges--min_id",
+              "enforcement": "provider-schema",
+              "group": "psp_spec.supplemental_groups.id_ranges:RequiredListObjectAttributes:max_id,min_id",
+              "source": "ast-validator:RequiredListObjectAttributes",
+              "target_id": "xcsh-docs:resources:k8s_pod_security_policy:properties:psp_spec:supplemental_groups:id_ranges",
+              "type": "requires"
+            }
+          ],
           "schema_path": ["psp_spec", "supplemental_groups", "id_ranges"],
           "syntax": "block",
           "type": "object"
@@ -2501,7 +2638,7 @@
       "category": "container",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:98dbf5280bf8376a0c75c1391250db9db4ac0d293d42bdd831c20f7514925adb",
+        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -2517,7 +2654,24 @@
       "provider_type": "resources",
       "registry_anchor": "canonical-3201111331020301-0321203222222222-3030211031010121-0131023303302002-1003333330320321-1131220111023023-2321122030120121-0033230301231332",
       "registry_path": "docs/guides/resources--k8s_pod_security_policy--reference--group-001.md",
-      "relationships": [],
+      "relationships": [
+        {
+          "anchor": "schema-psp_spec--supplemental_groups--id_ranges--max_id",
+          "enforcement": "provider-schema",
+          "group": "psp_spec.supplemental_groups.id_ranges:RequiredListObjectAttributes:max_id,min_id",
+          "source": "ast-validator:RequiredListObjectAttributes",
+          "target_id": "xcsh-docs:resources:k8s_pod_security_policy:properties:psp_spec:supplemental_groups:id_ranges",
+          "type": "requires"
+        },
+        {
+          "anchor": "schema-psp_spec--supplemental_groups--id_ranges--min_id",
+          "enforcement": "provider-schema",
+          "group": "psp_spec.supplemental_groups.id_ranges:RequiredListObjectAttributes:max_id,min_id",
+          "source": "ast-validator:RequiredListObjectAttributes",
+          "target_id": "xcsh-docs:resources:k8s_pod_security_policy:properties:psp_spec:supplemental_groups:id_ranges",
+          "type": "requires"
+        }
+      ],
       "retrieval_version": 1,
       "role": "properties",
       "schema_path": ["psp_spec", "supplemental_groups", "id_ranges"],
@@ -2570,7 +2724,7 @@
       "category": "container",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:98dbf5280bf8376a0c75c1391250db9db4ac0d293d42bdd831c20f7514925adb",
+        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -2667,7 +2821,7 @@
       "category": "container",
       "child_ids": ["xcsh-docs:resources:k8s_pod_security_policy:example:resource"],
       "classification": {
-        "rules_sha256": "sha256:98dbf5280bf8376a0c75c1391250db9db4ac0d293d42bdd831c20f7514925adb",
+        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -2707,7 +2861,7 @@
       "category": "container",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:98dbf5280bf8376a0c75c1391250db9db4ac0d293d42bdd831c20f7514925adb",
+        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -2754,7 +2908,7 @@
       "category": "container",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:98dbf5280bf8376a0c75c1391250db9db4ac0d293d42bdd831c20f7514925adb",
+        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -2795,7 +2949,7 @@
       "category": "container",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:98dbf5280bf8376a0c75c1391250db9db4ac0d293d42bdd831c20f7514925adb",
+        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"

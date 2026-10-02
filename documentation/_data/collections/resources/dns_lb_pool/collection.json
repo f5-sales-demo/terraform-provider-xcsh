@@ -347,7 +347,7 @@
         "xcsh-docs:resources:dns_lb_pool:timeouts"
       ],
       "classification": {
-        "rules_sha256": "sha256:98dbf5280bf8376a0c75c1391250db9db4ac0d293d42bdd831c20f7514925adb",
+        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -396,7 +396,7 @@
         "xcsh-docs:resources:dns_lb_pool:properties:use_rrset_ttl"
       ],
       "classification": {
-        "rules_sha256": "sha256:98dbf5280bf8376a0c75c1391250db9db4ac0d293d42bdd831c20f7514925adb",
+        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -607,7 +607,7 @@
         {
           "aliases": ["load balancing mode"],
           "anchor": "schema-load_balancing_mode",
-          "description": "- ROUND_ROBIN: Round-Robin Round Robin will ensure random equal distribution of requests among all pool members in a pool. - RATIO_MEMBER: Ratio-Member Ratio-Member performs load balancing of requests across the pool members based on the ratio assigned to each pool member - STATIC_PERSIST: Static-Persist The Static Per",
+          "description": "- ROUND_ROBIN: Round-Robin Round Robin will ensure random equal distribution of requests among all pool members in a pool. - RATIO_MEMBER: Ratio-Member Ratio-Member performs load balancing of requests across the pool members based on the ratio assigned to each pool member - STATIC_PERSIST: Static-Persist The Static",
           "document_id": "xcsh-docs:resources:dns_lb_pool:reference",
           "flags": ["optional", "computed"],
           "max_items": null,
@@ -774,7 +774,7 @@
         "xcsh-docs:resources:dns_lb_pool:properties:a_pool:members"
       ],
       "classification": {
-        "rules_sha256": "sha256:98dbf5280bf8376a0c75c1391250db9db4ac0d293d42bdd831c20f7514925adb",
+        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -888,7 +888,16 @@
           "max_items": null,
           "min_items": null,
           "nesting": "list",
-          "relationships": [],
+          "relationships": [
+            {
+              "anchor": "schema-a_pool--members--ip_endpoint",
+              "enforcement": "provider-schema",
+              "group": "a_pool.members:RequiredListObjectAttributes:ip_endpoint",
+              "source": "ast-validator:RequiredListObjectAttributes",
+              "target_id": "xcsh-docs:resources:dns_lb_pool:properties:a_pool:members",
+              "type": "requires"
+            }
+          ],
           "schema_path": ["a_pool", "members"],
           "syntax": "block",
           "type": "object"
@@ -913,7 +922,7 @@
       "category": "dns",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:98dbf5280bf8376a0c75c1391250db9db4ac0d293d42bdd831c20f7514925adb",
+        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -953,7 +962,7 @@
       "category": "dns",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:98dbf5280bf8376a0c75c1391250db9db4ac0d293d42bdd831c20f7514925adb",
+        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -1045,7 +1054,7 @@
       "category": "dns",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:98dbf5280bf8376a0c75c1391250db9db4ac0d293d42bdd831c20f7514925adb",
+        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -1061,7 +1070,16 @@
       "provider_type": "resources",
       "registry_anchor": "canonical-2122022111130320-0001001323110101-3210200302200311-2323100330302110-0013332212221000-3332301300232022-2211213222110222-1102213000320130",
       "registry_path": "docs/guides/resources--dns_lb_pool--reference--group-001.md",
-      "relationships": [],
+      "relationships": [
+        {
+          "anchor": "schema-a_pool--members--ip_endpoint",
+          "enforcement": "provider-schema",
+          "group": "a_pool.members:RequiredListObjectAttributes:ip_endpoint",
+          "source": "ast-validator:RequiredListObjectAttributes",
+          "target_id": "xcsh-docs:resources:dns_lb_pool:properties:a_pool:members",
+          "type": "requires"
+        }
+      ],
       "retrieval_version": 1,
       "role": "properties",
       "schema_path": ["a_pool", "members"],
@@ -1156,7 +1174,7 @@
       "category": "dns",
       "child_ids": ["xcsh-docs:resources:dns_lb_pool:properties:aaaa_pool:members"],
       "classification": {
-        "rules_sha256": "sha256:98dbf5280bf8376a0c75c1391250db9db4ac0d293d42bdd831c20f7514925adb",
+        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -1217,7 +1235,16 @@
           "max_items": null,
           "min_items": null,
           "nesting": "list",
-          "relationships": [],
+          "relationships": [
+            {
+              "anchor": "schema-aaaa_pool--members--ip_endpoint",
+              "enforcement": "provider-schema",
+              "group": "aaaa_pool.members:RequiredListObjectAttributes:ip_endpoint",
+              "source": "ast-validator:RequiredListObjectAttributes",
+              "target_id": "xcsh-docs:resources:dns_lb_pool:properties:aaaa_pool:members",
+              "type": "requires"
+            }
+          ],
           "schema_path": ["aaaa_pool", "members"],
           "syntax": "block",
           "type": "object"
@@ -1242,7 +1269,7 @@
       "category": "dns",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:98dbf5280bf8376a0c75c1391250db9db4ac0d293d42bdd831c20f7514925adb",
+        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -1258,7 +1285,16 @@
       "provider_type": "resources",
       "registry_anchor": "canonical-2211031203232202-2210321003132211-0301303333203323-2312120220221020-0111000122011332-2010012000313200-0132321112312312-1303031000331121",
       "registry_path": "docs/guides/resources--dns_lb_pool--reference--group-001.md",
-      "relationships": [],
+      "relationships": [
+        {
+          "anchor": "schema-aaaa_pool--members--ip_endpoint",
+          "enforcement": "provider-schema",
+          "group": "aaaa_pool.members:RequiredListObjectAttributes:ip_endpoint",
+          "source": "ast-validator:RequiredListObjectAttributes",
+          "target_id": "xcsh-docs:resources:dns_lb_pool:properties:aaaa_pool:members",
+          "type": "requires"
+        }
+      ],
       "retrieval_version": 1,
       "role": "properties",
       "schema_path": ["aaaa_pool", "members"],
@@ -1357,7 +1393,7 @@
         "xcsh-docs:resources:dns_lb_pool:properties:cname_pool:members"
       ],
       "classification": {
-        "rules_sha256": "sha256:98dbf5280bf8376a0c75c1391250db9db4ac0d293d42bdd831c20f7514925adb",
+        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -1449,7 +1485,16 @@
           "max_items": null,
           "min_items": null,
           "nesting": "list",
-          "relationships": [],
+          "relationships": [
+            {
+              "anchor": "schema-cname_pool--members--domain",
+              "enforcement": "provider-schema",
+              "group": "cname_pool.members:RequiredListObjectAttributes:domain",
+              "source": "ast-validator:RequiredListObjectAttributes",
+              "target_id": "xcsh-docs:resources:dns_lb_pool:properties:cname_pool:members",
+              "type": "requires"
+            }
+          ],
           "schema_path": ["cname_pool", "members"],
           "syntax": "block",
           "type": "object"
@@ -1474,7 +1519,7 @@
       "category": "dns",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:98dbf5280bf8376a0c75c1391250db9db4ac0d293d42bdd831c20f7514925adb",
+        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -1514,7 +1559,7 @@
       "category": "dns",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:98dbf5280bf8376a0c75c1391250db9db4ac0d293d42bdd831c20f7514925adb",
+        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -1606,7 +1651,7 @@
       "category": "dns",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:98dbf5280bf8376a0c75c1391250db9db4ac0d293d42bdd831c20f7514925adb",
+        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -1622,7 +1667,16 @@
       "provider_type": "resources",
       "registry_anchor": "canonical-1201013212131122-1333312112201001-1233033132210330-1122201133023222-1200233333310033-0023320210210233-2211213313311002-3302101302303120",
       "registry_path": "docs/guides/resources--dns_lb_pool--reference--group-001.md",
-      "relationships": [],
+      "relationships": [
+        {
+          "anchor": "schema-cname_pool--members--domain",
+          "enforcement": "provider-schema",
+          "group": "cname_pool.members:RequiredListObjectAttributes:domain",
+          "source": "ast-validator:RequiredListObjectAttributes",
+          "target_id": "xcsh-docs:resources:dns_lb_pool:properties:cname_pool:members",
+          "type": "requires"
+        }
+      ],
       "retrieval_version": 1,
       "role": "properties",
       "schema_path": ["cname_pool", "members"],
@@ -1717,7 +1771,7 @@
       "category": "dns",
       "child_ids": ["xcsh-docs:resources:dns_lb_pool:properties:mx_pool:members"],
       "classification": {
-        "rules_sha256": "sha256:98dbf5280bf8376a0c75c1391250db9db4ac0d293d42bdd831c20f7514925adb",
+        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -1778,7 +1832,16 @@
           "max_items": null,
           "min_items": null,
           "nesting": "list",
-          "relationships": [],
+          "relationships": [
+            {
+              "anchor": "schema-mx_pool--members--domain",
+              "enforcement": "provider-schema",
+              "group": "mx_pool.members:RequiredListObjectAttributes:domain",
+              "source": "ast-validator:RequiredListObjectAttributes",
+              "target_id": "xcsh-docs:resources:dns_lb_pool:properties:mx_pool:members",
+              "type": "requires"
+            }
+          ],
           "schema_path": ["mx_pool", "members"],
           "syntax": "block",
           "type": "object"
@@ -1803,7 +1866,7 @@
       "category": "dns",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:98dbf5280bf8376a0c75c1391250db9db4ac0d293d42bdd831c20f7514925adb",
+        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -1819,7 +1882,16 @@
       "provider_type": "resources",
       "registry_anchor": "canonical-3102332222023330-2212221133033033-1010313321202203-2230023330301010-1133121222312112-3101020211302122-3323300231003121-0222103330303023",
       "registry_path": "docs/guides/resources--dns_lb_pool--reference--group-001.md",
-      "relationships": [],
+      "relationships": [
+        {
+          "anchor": "schema-mx_pool--members--domain",
+          "enforcement": "provider-schema",
+          "group": "mx_pool.members:RequiredListObjectAttributes:domain",
+          "source": "ast-validator:RequiredListObjectAttributes",
+          "target_id": "xcsh-docs:resources:dns_lb_pool:properties:mx_pool:members",
+          "type": "requires"
+        }
+      ],
       "retrieval_version": 1,
       "role": "properties",
       "schema_path": ["mx_pool", "members"],
@@ -1900,7 +1972,7 @@
       "category": "dns",
       "child_ids": ["xcsh-docs:resources:dns_lb_pool:properties:srv_pool:members"],
       "classification": {
-        "rules_sha256": "sha256:98dbf5280bf8376a0c75c1391250db9db4ac0d293d42bdd831c20f7514925adb",
+        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -1961,7 +2033,40 @@
           "max_items": null,
           "min_items": null,
           "nesting": "list",
-          "relationships": [],
+          "relationships": [
+            {
+              "anchor": "schema-srv_pool--members--port",
+              "enforcement": "provider-schema",
+              "group": "srv_pool.members:RequiredListObjectAttributes:port,priority,target,weight",
+              "source": "ast-validator:RequiredListObjectAttributes",
+              "target_id": "xcsh-docs:resources:dns_lb_pool:properties:srv_pool:members",
+              "type": "requires"
+            },
+            {
+              "anchor": "schema-srv_pool--members--priority",
+              "enforcement": "provider-schema",
+              "group": "srv_pool.members:RequiredListObjectAttributes:port,priority,target,weight",
+              "source": "ast-validator:RequiredListObjectAttributes",
+              "target_id": "xcsh-docs:resources:dns_lb_pool:properties:srv_pool:members",
+              "type": "requires"
+            },
+            {
+              "anchor": "schema-srv_pool--members--target",
+              "enforcement": "provider-schema",
+              "group": "srv_pool.members:RequiredListObjectAttributes:port,priority,target,weight",
+              "source": "ast-validator:RequiredListObjectAttributes",
+              "target_id": "xcsh-docs:resources:dns_lb_pool:properties:srv_pool:members",
+              "type": "requires"
+            },
+            {
+              "anchor": "schema-srv_pool--members--weight",
+              "enforcement": "provider-schema",
+              "group": "srv_pool.members:RequiredListObjectAttributes:port,priority,target,weight",
+              "source": "ast-validator:RequiredListObjectAttributes",
+              "target_id": "xcsh-docs:resources:dns_lb_pool:properties:srv_pool:members",
+              "type": "requires"
+            }
+          ],
           "schema_path": ["srv_pool", "members"],
           "syntax": "block",
           "type": "object"
@@ -1986,7 +2091,7 @@
       "category": "dns",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:98dbf5280bf8376a0c75c1391250db9db4ac0d293d42bdd831c20f7514925adb",
+        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -2002,7 +2107,40 @@
       "provider_type": "resources",
       "registry_anchor": "canonical-2222100011301023-2013331101303131-0100021202102233-2232032010003231-1111232023232301-3013023232233113-2110301003003233-1333220210322232",
       "registry_path": "docs/guides/resources--dns_lb_pool--reference--group-001.md",
-      "relationships": [],
+      "relationships": [
+        {
+          "anchor": "schema-srv_pool--members--port",
+          "enforcement": "provider-schema",
+          "group": "srv_pool.members:RequiredListObjectAttributes:port,priority,target,weight",
+          "source": "ast-validator:RequiredListObjectAttributes",
+          "target_id": "xcsh-docs:resources:dns_lb_pool:properties:srv_pool:members",
+          "type": "requires"
+        },
+        {
+          "anchor": "schema-srv_pool--members--priority",
+          "enforcement": "provider-schema",
+          "group": "srv_pool.members:RequiredListObjectAttributes:port,priority,target,weight",
+          "source": "ast-validator:RequiredListObjectAttributes",
+          "target_id": "xcsh-docs:resources:dns_lb_pool:properties:srv_pool:members",
+          "type": "requires"
+        },
+        {
+          "anchor": "schema-srv_pool--members--target",
+          "enforcement": "provider-schema",
+          "group": "srv_pool.members:RequiredListObjectAttributes:port,priority,target,weight",
+          "source": "ast-validator:RequiredListObjectAttributes",
+          "target_id": "xcsh-docs:resources:dns_lb_pool:properties:srv_pool:members",
+          "type": "requires"
+        },
+        {
+          "anchor": "schema-srv_pool--members--weight",
+          "enforcement": "provider-schema",
+          "group": "srv_pool.members:RequiredListObjectAttributes:port,priority,target,weight",
+          "source": "ast-validator:RequiredListObjectAttributes",
+          "target_id": "xcsh-docs:resources:dns_lb_pool:properties:srv_pool:members",
+          "type": "requires"
+        }
+      ],
       "retrieval_version": 1,
       "role": "properties",
       "schema_path": ["srv_pool", "members"],
@@ -2125,7 +2263,7 @@
       "category": "dns",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:98dbf5280bf8376a0c75c1391250db9db4ac0d293d42bdd831c20f7514925adb",
+        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -2222,7 +2360,7 @@
       "category": "dns",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:98dbf5280bf8376a0c75c1391250db9db4ac0d293d42bdd831c20f7514925adb",
+        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -2262,7 +2400,7 @@
       "category": "dns",
       "child_ids": ["xcsh-docs:resources:dns_lb_pool:example:resource"],
       "classification": {
-        "rules_sha256": "sha256:98dbf5280bf8376a0c75c1391250db9db4ac0d293d42bdd831c20f7514925adb",
+        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -2302,7 +2440,7 @@
       "category": "dns",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:98dbf5280bf8376a0c75c1391250db9db4ac0d293d42bdd831c20f7514925adb",
+        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -2349,7 +2487,7 @@
       "category": "dns",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:98dbf5280bf8376a0c75c1391250db9db4ac0d293d42bdd831c20f7514925adb",
+        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -2390,7 +2528,7 @@
       "category": "dns",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:98dbf5280bf8376a0c75c1391250db9db4ac0d293d42bdd831c20f7514925adb",
+        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"

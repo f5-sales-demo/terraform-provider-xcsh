@@ -80,7 +80,7 @@
         "xcsh-docs:data-sources:site_registration:examples"
       ],
       "classification": {
-        "rules_sha256": "sha256:98dbf5280bf8376a0c75c1391250db9db4ac0d293d42bdd831c20f7514925adb",
+        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -103,7 +103,7 @@
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/site_registration/index.txt",
       "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
-      "summary": "Resolves the runtime registration of a site's Customer Edge (CE) node in F5 Distributed Cloud. A registration is named `r-<uuid>`, **not** after the site it belongs to, so it cannot be read by site name. This data source lists the registrations belonging to a site and returns the one that matches, giving you the name t",
+      "summary": "Resolves the runtime registration of a site's Customer Edge (CE) node in F5 Distributed Cloud. A registration is named `r-<uuid>`, **not** after the site it belongs to, so it cannot be read by site name. This data source lists the registrations belonging to a site and returns the one that matches, giving you the name",
       "tasks": ["configuration"],
       "title": "xcsh_site_registration",
       "unresolved_relationships": [],
@@ -121,7 +121,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:98dbf5280bf8376a0c75c1391250db9db4ac0d293d42bdd831c20f7514925adb",
+        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -330,7 +330,7 @@
       "category": null,
       "child_ids": ["xcsh-docs:data-sources:site_registration:example:data-source"],
       "classification": {
-        "rules_sha256": "sha256:98dbf5280bf8376a0c75c1391250db9db4ac0d293d42bdd831c20f7514925adb",
+        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -370,7 +370,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:98dbf5280bf8376a0c75c1391250db9db4ac0d293d42bdd831c20f7514925adb",
+        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"

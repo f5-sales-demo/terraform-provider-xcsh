@@ -192,7 +192,7 @@
         "xcsh-docs:resources:bot_defense_app_infrastructure:timeouts"
       ],
       "classification": {
-        "rules_sha256": "sha256:98dbf5280bf8376a0c75c1391250db9db4ac0d293d42bdd831c20f7514925adb",
+        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -237,7 +237,7 @@
         "xcsh-docs:resources:bot_defense_app_infrastructure:properties:timeouts"
       ],
       "classification": {
-        "rules_sha256": "sha256:98dbf5280bf8376a0c75c1391250db9db4ac0d293d42bdd831c20f7514925adb",
+        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -499,7 +499,7 @@
         "xcsh-docs:resources:bot_defense_app_infrastructure:properties:cloud_hosted:ingress"
       ],
       "classification": {
-        "rules_sha256": "sha256:98dbf5280bf8376a0c75c1391250db9db4ac0d293d42bdd831c20f7514925adb",
+        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -554,7 +554,16 @@
           "max_items": null,
           "min_items": null,
           "nesting": "list",
-          "relationships": [],
+          "relationships": [
+            {
+              "anchor": "schema-cloud_hosted--egress--ip_address",
+              "enforcement": "provider-schema",
+              "group": "cloud_hosted.egress:RequiredListObjectAttributes:ip_address",
+              "source": "ast-validator:RequiredListObjectAttributes",
+              "target_id": "xcsh-docs:resources:bot_defense_app_infrastructure:properties:cloud_hosted:egress",
+              "type": "requires"
+            }
+          ],
           "schema_path": ["cloud_hosted", "egress"],
           "syntax": "block",
           "type": "object"
@@ -582,7 +591,24 @@
           "max_items": null,
           "min_items": null,
           "nesting": "list",
-          "relationships": [],
+          "relationships": [
+            {
+              "anchor": "schema-cloud_hosted--ingress--host_name",
+              "enforcement": "provider-schema",
+              "group": "cloud_hosted.ingress:ConflictingListObjectAttributes:host_name,ip_address",
+              "source": "ast-validator:ConflictingListObjectAttributes",
+              "target_id": "xcsh-docs:resources:bot_defense_app_infrastructure:properties:cloud_hosted:ingress",
+              "type": "conflicts"
+            },
+            {
+              "anchor": "schema-cloud_hosted--ingress--ip_address",
+              "enforcement": "provider-schema",
+              "group": "cloud_hosted.ingress:ConflictingListObjectAttributes:host_name,ip_address",
+              "source": "ast-validator:ConflictingListObjectAttributes",
+              "target_id": "xcsh-docs:resources:bot_defense_app_infrastructure:properties:cloud_hosted:ingress",
+              "type": "conflicts"
+            }
+          ],
           "schema_path": ["cloud_hosted", "ingress"],
           "syntax": "block",
           "type": "object"
@@ -621,7 +647,7 @@
       "category": "security",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:98dbf5280bf8376a0c75c1391250db9db4ac0d293d42bdd831c20f7514925adb",
+        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -637,7 +663,16 @@
       "provider_type": "resources",
       "registry_anchor": "canonical-1032211213322112-1123203302133331-0222032003202003-0300011103313101-2323133203233331-2022231221300201-1101332032013222-0023010001213102",
       "registry_path": "docs/guides/resources--bot_defense_app_infrastructure--reference--group-001.md",
-      "relationships": [],
+      "relationships": [
+        {
+          "anchor": "schema-cloud_hosted--egress--ip_address",
+          "enforcement": "provider-schema",
+          "group": "cloud_hosted.egress:RequiredListObjectAttributes:ip_address",
+          "source": "ast-validator:RequiredListObjectAttributes",
+          "target_id": "xcsh-docs:resources:bot_defense_app_infrastructure:properties:cloud_hosted:egress",
+          "type": "requires"
+        }
+      ],
       "retrieval_version": 1,
       "role": "properties",
       "schema_path": ["cloud_hosted", "egress"],
@@ -659,7 +694,7 @@
         {
           "aliases": ["location"],
           "anchor": "schema-cloud_hosted--egress--location",
-          "description": "Region location AWS_AP_NORTHEAST_1 AWS_AP_NORTHEAST_3 AWS_AP_SOUTH_1 AWS_AP_SOUTH_2 AWS_AP_SOUTHEAST_1 AWS_AP_SOUTHEAST_2 AWS_AP_SOUTHEAST_3 AWS_EU_CENTRAL_1 AWS_EU_NORTH_1 AWS_EU_WEST_1 AWS_ME_SOUTH_1 AWS_SA_EAST_1 AWS_US_EAST_1 AWS_US_EAST_2 AWS_US_WEST_1 AWS_US_WEST_2 GCP_ASIA_EAST_1 GCP_ASIA_EAST_2 GCP_ASIA_NORTHEA",
+          "description": "Region location AWS_AP_NORTHEAST_1 AWS_AP_NORTHEAST_3 AWS_AP_SOUTH_1 AWS_AP_SOUTH_2 AWS_AP_SOUTHEAST_1 AWS_AP_SOUTHEAST_2 AWS_AP_SOUTHEAST_3 AWS_EU_CENTRAL_1 AWS_EU_NORTH_1 AWS_EU_WEST_1 AWS_ME_SOUTH_1 AWS_SA_EAST_1 AWS_US_EAST_1 AWS_US_EAST_2 AWS_US_WEST_1 AWS_US_WEST_2 GCP_ASIA_EAST_1 GCP_ASIA_EAST_2",
           "document_id": "xcsh-docs:resources:bot_defense_app_infrastructure:properties:cloud_hosted:egress",
           "flags": ["optional"],
           "max_items": null,
@@ -690,7 +725,7 @@
       "category": "security",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:98dbf5280bf8376a0c75c1391250db9db4ac0d293d42bdd831c20f7514925adb",
+        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -706,7 +741,24 @@
       "provider_type": "resources",
       "registry_anchor": "canonical-3323023203121020-1200022222333233-0223323033211020-2303112221023011-2210033112200111-3303132212020330-3310132103213223-3001033201233303",
       "registry_path": "docs/guides/resources--bot_defense_app_infrastructure--reference--group-001.md",
-      "relationships": [],
+      "relationships": [
+        {
+          "anchor": "schema-cloud_hosted--ingress--host_name",
+          "enforcement": "provider-schema",
+          "group": "cloud_hosted.ingress:ConflictingListObjectAttributes:host_name,ip_address",
+          "source": "ast-validator:ConflictingListObjectAttributes",
+          "target_id": "xcsh-docs:resources:bot_defense_app_infrastructure:properties:cloud_hosted:ingress",
+          "type": "conflicts"
+        },
+        {
+          "anchor": "schema-cloud_hosted--ingress--ip_address",
+          "enforcement": "provider-schema",
+          "group": "cloud_hosted.ingress:ConflictingListObjectAttributes:host_name,ip_address",
+          "source": "ast-validator:ConflictingListObjectAttributes",
+          "target_id": "xcsh-docs:resources:bot_defense_app_infrastructure:properties:cloud_hosted:ingress",
+          "type": "conflicts"
+        }
+      ],
       "retrieval_version": 1,
       "role": "properties",
       "schema_path": ["cloud_hosted", "ingress"],
@@ -742,7 +794,7 @@
         {
           "aliases": ["location"],
           "anchor": "schema-cloud_hosted--ingress--location",
-          "description": "Region location AWS_AP_NORTHEAST_1 AWS_AP_NORTHEAST_3 AWS_AP_SOUTH_1 AWS_AP_SOUTH_2 AWS_AP_SOUTHEAST_1 AWS_AP_SOUTHEAST_2 AWS_AP_SOUTHEAST_3 AWS_EU_CENTRAL_1 AWS_EU_NORTH_1 AWS_EU_WEST_1 AWS_ME_SOUTH_1 AWS_SA_EAST_1 AWS_US_EAST_1 AWS_US_EAST_2 AWS_US_WEST_1 AWS_US_WEST_2 GCP_ASIA_EAST_1 GCP_ASIA_EAST_2 GCP_ASIA_NORTHEA",
+          "description": "Region location AWS_AP_NORTHEAST_1 AWS_AP_NORTHEAST_3 AWS_AP_SOUTH_1 AWS_AP_SOUTH_2 AWS_AP_SOUTHEAST_1 AWS_AP_SOUTHEAST_2 AWS_AP_SOUTHEAST_3 AWS_EU_CENTRAL_1 AWS_EU_NORTH_1 AWS_EU_WEST_1 AWS_ME_SOUTH_1 AWS_SA_EAST_1 AWS_US_EAST_1 AWS_US_EAST_2 AWS_US_WEST_1 AWS_US_WEST_2 GCP_ASIA_EAST_1 GCP_ASIA_EAST_2",
           "document_id": "xcsh-docs:resources:bot_defense_app_infrastructure:properties:cloud_hosted:ingress",
           "flags": ["optional"],
           "max_items": null,
@@ -776,7 +828,7 @@
         "xcsh-docs:resources:bot_defense_app_infrastructure:properties:data_center_hosted:ingress"
       ],
       "classification": {
-        "rules_sha256": "sha256:98dbf5280bf8376a0c75c1391250db9db4ac0d293d42bdd831c20f7514925adb",
+        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -831,7 +883,16 @@
           "max_items": null,
           "min_items": null,
           "nesting": "list",
-          "relationships": [],
+          "relationships": [
+            {
+              "anchor": "schema-data_center_hosted--egress--ip_address",
+              "enforcement": "provider-schema",
+              "group": "data_center_hosted.egress:RequiredListObjectAttributes:ip_address",
+              "source": "ast-validator:RequiredListObjectAttributes",
+              "target_id": "xcsh-docs:resources:bot_defense_app_infrastructure:properties:data_center_hosted:egress",
+              "type": "requires"
+            }
+          ],
           "schema_path": ["data_center_hosted", "egress"],
           "syntax": "block",
           "type": "object"
@@ -859,7 +920,24 @@
           "max_items": null,
           "min_items": null,
           "nesting": "list",
-          "relationships": [],
+          "relationships": [
+            {
+              "anchor": "schema-data_center_hosted--ingress--host_name",
+              "enforcement": "provider-schema",
+              "group": "data_center_hosted.ingress:ConflictingListObjectAttributes:host_name,ip_address",
+              "source": "ast-validator:ConflictingListObjectAttributes",
+              "target_id": "xcsh-docs:resources:bot_defense_app_infrastructure:properties:data_center_hosted:ingress",
+              "type": "conflicts"
+            },
+            {
+              "anchor": "schema-data_center_hosted--ingress--ip_address",
+              "enforcement": "provider-schema",
+              "group": "data_center_hosted.ingress:ConflictingListObjectAttributes:host_name,ip_address",
+              "source": "ast-validator:ConflictingListObjectAttributes",
+              "target_id": "xcsh-docs:resources:bot_defense_app_infrastructure:properties:data_center_hosted:ingress",
+              "type": "conflicts"
+            }
+          ],
           "schema_path": ["data_center_hosted", "ingress"],
           "syntax": "block",
           "type": "object"
@@ -898,7 +976,7 @@
       "category": "security",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:98dbf5280bf8376a0c75c1391250db9db4ac0d293d42bdd831c20f7514925adb",
+        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -914,7 +992,16 @@
       "provider_type": "resources",
       "registry_anchor": "canonical-0332101112212130-0312320021033012-1033103101113012-0010013311221313-1002002033323323-3130233333012311-2311232022033230-0002033121020211",
       "registry_path": "docs/guides/resources--bot_defense_app_infrastructure--reference--group-001.md",
-      "relationships": [],
+      "relationships": [
+        {
+          "anchor": "schema-data_center_hosted--egress--ip_address",
+          "enforcement": "provider-schema",
+          "group": "data_center_hosted.egress:RequiredListObjectAttributes:ip_address",
+          "source": "ast-validator:RequiredListObjectAttributes",
+          "target_id": "xcsh-docs:resources:bot_defense_app_infrastructure:properties:data_center_hosted:egress",
+          "type": "requires"
+        }
+      ],
       "retrieval_version": 1,
       "role": "properties",
       "schema_path": ["data_center_hosted", "egress"],
@@ -936,7 +1023,7 @@
         {
           "aliases": ["location"],
           "anchor": "schema-data_center_hosted--egress--location",
-          "description": "Region location AWS_AP_NORTHEAST_1 AWS_AP_NORTHEAST_3 AWS_AP_SOUTH_1 AWS_AP_SOUTH_2 AWS_AP_SOUTHEAST_1 AWS_AP_SOUTHEAST_2 AWS_AP_SOUTHEAST_3 AWS_EU_CENTRAL_1 AWS_EU_NORTH_1 AWS_EU_WEST_1 AWS_ME_SOUTH_1 AWS_SA_EAST_1 AWS_US_EAST_1 AWS_US_EAST_2 AWS_US_WEST_1 AWS_US_WEST_2 GCP_ASIA_EAST_1 GCP_ASIA_EAST_2 GCP_ASIA_NORTHEA",
+          "description": "Region location AWS_AP_NORTHEAST_1 AWS_AP_NORTHEAST_3 AWS_AP_SOUTH_1 AWS_AP_SOUTH_2 AWS_AP_SOUTHEAST_1 AWS_AP_SOUTHEAST_2 AWS_AP_SOUTHEAST_3 AWS_EU_CENTRAL_1 AWS_EU_NORTH_1 AWS_EU_WEST_1 AWS_ME_SOUTH_1 AWS_SA_EAST_1 AWS_US_EAST_1 AWS_US_EAST_2 AWS_US_WEST_1 AWS_US_WEST_2 GCP_ASIA_EAST_1 GCP_ASIA_EAST_2",
           "document_id": "xcsh-docs:resources:bot_defense_app_infrastructure:properties:data_center_hosted:egress",
           "flags": ["optional"],
           "max_items": null,
@@ -967,7 +1054,7 @@
       "category": "security",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:98dbf5280bf8376a0c75c1391250db9db4ac0d293d42bdd831c20f7514925adb",
+        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -983,7 +1070,24 @@
       "provider_type": "resources",
       "registry_anchor": "canonical-2201323113322321-0111313113001200-3002101003101212-3023123033010000-0213232310310000-2320212310002211-3102121222313331-0303213032101330",
       "registry_path": "docs/guides/resources--bot_defense_app_infrastructure--reference--group-001.md",
-      "relationships": [],
+      "relationships": [
+        {
+          "anchor": "schema-data_center_hosted--ingress--host_name",
+          "enforcement": "provider-schema",
+          "group": "data_center_hosted.ingress:ConflictingListObjectAttributes:host_name,ip_address",
+          "source": "ast-validator:ConflictingListObjectAttributes",
+          "target_id": "xcsh-docs:resources:bot_defense_app_infrastructure:properties:data_center_hosted:ingress",
+          "type": "conflicts"
+        },
+        {
+          "anchor": "schema-data_center_hosted--ingress--ip_address",
+          "enforcement": "provider-schema",
+          "group": "data_center_hosted.ingress:ConflictingListObjectAttributes:host_name,ip_address",
+          "source": "ast-validator:ConflictingListObjectAttributes",
+          "target_id": "xcsh-docs:resources:bot_defense_app_infrastructure:properties:data_center_hosted:ingress",
+          "type": "conflicts"
+        }
+      ],
       "retrieval_version": 1,
       "role": "properties",
       "schema_path": ["data_center_hosted", "ingress"],
@@ -1019,7 +1123,7 @@
         {
           "aliases": ["location"],
           "anchor": "schema-data_center_hosted--ingress--location",
-          "description": "Region location AWS_AP_NORTHEAST_1 AWS_AP_NORTHEAST_3 AWS_AP_SOUTH_1 AWS_AP_SOUTH_2 AWS_AP_SOUTHEAST_1 AWS_AP_SOUTHEAST_2 AWS_AP_SOUTHEAST_3 AWS_EU_CENTRAL_1 AWS_EU_NORTH_1 AWS_EU_WEST_1 AWS_ME_SOUTH_1 AWS_SA_EAST_1 AWS_US_EAST_1 AWS_US_EAST_2 AWS_US_WEST_1 AWS_US_WEST_2 GCP_ASIA_EAST_1 GCP_ASIA_EAST_2 GCP_ASIA_NORTHEA",
+          "description": "Region location AWS_AP_NORTHEAST_1 AWS_AP_NORTHEAST_3 AWS_AP_SOUTH_1 AWS_AP_SOUTH_2 AWS_AP_SOUTHEAST_1 AWS_AP_SOUTHEAST_2 AWS_AP_SOUTHEAST_3 AWS_EU_CENTRAL_1 AWS_EU_NORTH_1 AWS_EU_WEST_1 AWS_ME_SOUTH_1 AWS_SA_EAST_1 AWS_US_EAST_1 AWS_US_EAST_2 AWS_US_WEST_1 AWS_US_WEST_2 GCP_ASIA_EAST_1 GCP_ASIA_EAST_2",
           "document_id": "xcsh-docs:resources:bot_defense_app_infrastructure:properties:data_center_hosted:ingress",
           "flags": ["optional"],
           "max_items": null,
@@ -1050,7 +1154,7 @@
       "category": "security",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:98dbf5280bf8376a0c75c1391250db9db4ac0d293d42bdd831c20f7514925adb",
+        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -1147,7 +1251,7 @@
       "category": "security",
       "child_ids": ["xcsh-docs:resources:bot_defense_app_infrastructure:example:resource"],
       "classification": {
-        "rules_sha256": "sha256:98dbf5280bf8376a0c75c1391250db9db4ac0d293d42bdd831c20f7514925adb",
+        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -1187,7 +1291,7 @@
       "category": "security",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:98dbf5280bf8376a0c75c1391250db9db4ac0d293d42bdd831c20f7514925adb",
+        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -1234,7 +1338,7 @@
       "category": "security",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:98dbf5280bf8376a0c75c1391250db9db4ac0d293d42bdd831c20f7514925adb",
+        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -1275,7 +1379,7 @@
       "category": "security",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:98dbf5280bf8376a0c75c1391250db9db4ac0d293d42bdd831c20f7514925adb",
+        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"

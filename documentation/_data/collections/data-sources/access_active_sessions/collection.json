@@ -170,7 +170,7 @@
         "xcsh-docs:data-sources:access_active_sessions:examples"
       ],
       "classification": {
-        "rules_sha256": "sha256:98dbf5280bf8376a0c75c1391250db9db4ac0d293d42bdd831c20f7514925adb",
+        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -211,7 +211,7 @@
       "category": null,
       "child_ids": ["xcsh-docs:data-sources:access_active_sessions:properties:items"],
       "classification": {
-        "rules_sha256": "sha256:98dbf5280bf8376a0c75c1391250db9db4ac0d293d42bdd831c20f7514925adb",
+        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -445,7 +445,7 @@
         {
           "aliases": ["status"],
           "anchor": "schema-status",
-          "description": "Filter sessions by status. If not specified, returns sessions with all statuses. Return sessions with any status (default when no status filter is specified) Filter for sessions with pending status Filter for sessions with established status. Possible values are `ANY`, `PENDING_ONLY`, `ESTABLISHED_ONLY`. Defaults to `A",
+          "description": "Filter sessions by status. If not specified, returns sessions with all statuses. Return sessions with any status (default when no status filter is specified) Filter for sessions with pending status Filter for sessions with established status. Possible values are `ANY`, `PENDING_ONLY`, `ESTABLISHED_ONLY`. Defaults to",
           "document_id": "xcsh-docs:data-sources:access_active_sessions:reference",
           "flags": ["optional"],
           "max_items": null,
@@ -532,7 +532,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:98dbf5280bf8376a0c75c1391250db9db4ac0d293d42bdd831c20f7514925adb",
+        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -713,7 +713,7 @@
       "category": null,
       "child_ids": ["xcsh-docs:data-sources:access_active_sessions:example:data-source"],
       "classification": {
-        "rules_sha256": "sha256:98dbf5280bf8376a0c75c1391250db9db4ac0d293d42bdd831c20f7514925adb",
+        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -753,7 +753,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:98dbf5280bf8376a0c75c1391250db9db4ac0d293d42bdd831c20f7514925adb",
+        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"

@@ -1330,6 +1330,22 @@ def generate(root, schema_path, constraints_path):
         if version not in ("Version: 2.5.6", "2.5.6"):
             raise ValueError("documentation formatter must be Biome 2.5.6")
     for relative, text in list(outputs.items()):
+        # Large machine catalogs retain compact deterministic JSON, avoiding
+        # repeated indentation bytes and GitHub single-file storage limits.
+        if relative in (
+            "documentation/terraform-llms-index.json",
+            "documentation/_data/terraform-llms-index.json",
+        ):
+            outputs[relative] = (
+                json.dumps(
+                    json.loads(text),
+                    sort_keys=True,
+                    separators=(",", ":"),
+                    ensure_ascii=False,
+                )
+                + "\n"
+            )
+            continue
         if relative.endswith(".json"):
             formatted = subprocess.run(  # noqa: S603 - generated path and verified formatter
                 [

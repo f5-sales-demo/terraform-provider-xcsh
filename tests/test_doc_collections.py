@@ -312,8 +312,17 @@ class CollectionTests(unittest.TestCase):
             for shard in projection["section_manifests"]
             for section in json.loads((ROOT / shard["path"]).read_text())["sections"]
         }
-        self.assertEqual(represented, {identifier for identifier, page in pages.items() if page["role"] != "navigation"})
-        self.assertEqual(sum(page["role"] == "navigation" for page in pages.values()), 5)
+        self.assertEqual(
+            represented,
+            {
+                identifier
+                for identifier, page in pages.items()
+                if page["role"] != "navigation"
+            },
+        )
+        self.assertEqual(
+            sum(page["role"] == "navigation" for page in pages.values()), 5
+        )
         self.assertTrue(
             any(page["provider_type"] == "provider" for page in pages.values())
         )
@@ -391,8 +400,12 @@ class CollectionTests(unittest.TestCase):
             route.append(current)
             current = pages.get(current["parent_id"])
         route.reverse()
-        self.assertEqual(route[0]["id"], DOCS.stable_id("provider", "xcsh", "navigation"))
-        fundamentals = next(page for page in route if page["id"] == collection["fundamentals_id"])
+        self.assertEqual(
+            route[0]["id"], DOCS.stable_id("provider", "xcsh", "navigation")
+        )
+        fundamentals = next(
+            page for page in route if page["id"] == collection["fundamentals_id"]
+        )
         self.assertLess(fundamentals["body_bytes"], 8192)
         for parent, child in pairwise(route):
             self.assertIn(child["id"], parent["child_ids"])

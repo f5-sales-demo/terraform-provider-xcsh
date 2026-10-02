@@ -28,7 +28,8 @@ def summary(description, fallback):
     """Keep useful prose, excluding validator annotations and markup."""
     prose = re.sub(r"\[[^\]]*\]", "", description)
     prose = re.sub(r"\s+", " ", prose).strip()
-    return (prose or fallback)[:320]
+    text = prose or fallback
+    return text if len(text) <= 320 else text[:320].rsplit(" ", 1)[0]
 
 
 class RetrievalRules:
@@ -43,7 +44,7 @@ class RetrievalRules:
                 json.dumps(data, sort_keys=True, separators=(",", ":")).encode()
             ).hexdigest()
         )
-        seen = {}
+        seen: dict[tuple, dict] = {}
         for rule in self.rules:
             key = (
                 rule.get("provider_type", "*"),
@@ -75,9 +76,10 @@ class RetrievalRules:
         category = (
             re.sub(r"[^a-z0-9]+", "-", upstream_category.lower()).strip("-") or None
         )
-        category = {"platform": "administration", "operations": "monitoring"}.get(
-            category, category
-        )
+        if category == "platform":
+            category = "administration"
+        elif category == "operations":
+            category = "monitoring"
         if category not in CATEGORIES:
             category = None
         capabilities, tasks, sources = set(), set(), []
@@ -142,6 +144,9 @@ def constraint_relationships(schema_path, constraints, coverage):
     text = constraints.get("Validators", "")
     for validator, relation in [
         ("RequiredObjectAttributes", "requires"),
+        ("RequiredListObjectAttributes", "requires"),
+        ("RequiredOneOfListObjectAttributes", "choice"),
+        ("ConflictingListObjectAttributes", "conflicts"),
         ("ConflictingObjectAttributes", "conflicts"),
         ("ExactlyOneOf", "choice"),
         ("AtLeastOneOf", "choice"),

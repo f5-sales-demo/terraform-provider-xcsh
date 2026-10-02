@@ -162,7 +162,7 @@
         "xcsh-docs:resources:user_identification:timeouts"
       ],
       "classification": {
-        "rules_sha256": "sha256:98dbf5280bf8376a0c75c1391250db9db4ac0d293d42bdd831c20f7514925adb",
+        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -206,7 +206,7 @@
         "xcsh-docs:resources:user_identification:properties:timeouts"
       ],
       "classification": {
-        "rules_sha256": "sha256:98dbf5280bf8376a0c75c1391250db9db4ac0d293d42bdd831c20f7514925adb",
+        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -334,7 +334,1688 @@
           "max_items": null,
           "min_items": null,
           "nesting": "list",
-          "relationships": [],
+          "relationships": [
+            {
+              "anchor": "schema-rules--cookie_name",
+              "enforcement": "provider-schema",
+              "group": "rules:ConflictingListObjectAttributes:client_asn,cookie_name",
+              "source": "ast-validator:ConflictingListObjectAttributes",
+              "target_id": "xcsh-docs:resources:user_identification:properties:rules",
+              "type": "conflicts"
+            },
+            {
+              "anchor": "schema-rules--cookie_name",
+              "enforcement": "provider-schema",
+              "group": "rules:ConflictingListObjectAttributes:client_city,cookie_name",
+              "source": "ast-validator:ConflictingListObjectAttributes",
+              "target_id": "xcsh-docs:resources:user_identification:properties:rules",
+              "type": "conflicts"
+            },
+            {
+              "anchor": "schema-rules--cookie_name",
+              "enforcement": "provider-schema",
+              "group": "rules:ConflictingListObjectAttributes:client_country,cookie_name",
+              "source": "ast-validator:ConflictingListObjectAttributes",
+              "target_id": "xcsh-docs:resources:user_identification:properties:rules",
+              "type": "conflicts"
+            },
+            {
+              "anchor": "schema-rules--cookie_name",
+              "enforcement": "provider-schema",
+              "group": "rules:ConflictingListObjectAttributes:client_ip,cookie_name",
+              "source": "ast-validator:ConflictingListObjectAttributes",
+              "target_id": "xcsh-docs:resources:user_identification:properties:rules",
+              "type": "conflicts"
+            },
+            {
+              "anchor": "schema-rules--cookie_name",
+              "enforcement": "provider-schema",
+              "group": "rules:ConflictingListObjectAttributes:client_region,cookie_name",
+              "source": "ast-validator:ConflictingListObjectAttributes",
+              "target_id": "xcsh-docs:resources:user_identification:properties:rules",
+              "type": "conflicts"
+            },
+            {
+              "anchor": "schema-rules--cookie_name",
+              "enforcement": "provider-schema",
+              "group": "rules:ConflictingListObjectAttributes:cookie_name,http_header_name",
+              "source": "ast-validator:ConflictingListObjectAttributes",
+              "target_id": "xcsh-docs:resources:user_identification:properties:rules",
+              "type": "conflicts"
+            },
+            {
+              "anchor": "schema-rules--cookie_name",
+              "enforcement": "provider-schema",
+              "group": "rules:ConflictingListObjectAttributes:cookie_name,ip_and_http_header_name",
+              "source": "ast-validator:ConflictingListObjectAttributes",
+              "target_id": "xcsh-docs:resources:user_identification:properties:rules",
+              "type": "conflicts"
+            },
+            {
+              "anchor": "schema-rules--cookie_name",
+              "enforcement": "provider-schema",
+              "group": "rules:ConflictingListObjectAttributes:cookie_name,ip_and_ja4_tls_fingerprint",
+              "source": "ast-validator:ConflictingListObjectAttributes",
+              "target_id": "xcsh-docs:resources:user_identification:properties:rules",
+              "type": "conflicts"
+            },
+            {
+              "anchor": "schema-rules--cookie_name",
+              "enforcement": "provider-schema",
+              "group": "rules:ConflictingListObjectAttributes:cookie_name,ip_and_tls_fingerprint",
+              "source": "ast-validator:ConflictingListObjectAttributes",
+              "target_id": "xcsh-docs:resources:user_identification:properties:rules",
+              "type": "conflicts"
+            },
+            {
+              "anchor": "schema-rules--cookie_name",
+              "enforcement": "provider-schema",
+              "group": "rules:ConflictingListObjectAttributes:cookie_name,ja4_tls_fingerprint",
+              "source": "ast-validator:ConflictingListObjectAttributes",
+              "target_id": "xcsh-docs:resources:user_identification:properties:rules",
+              "type": "conflicts"
+            },
+            {
+              "anchor": "schema-rules--cookie_name",
+              "enforcement": "provider-schema",
+              "group": "rules:ConflictingListObjectAttributes:cookie_name,jwt_claim_name",
+              "source": "ast-validator:ConflictingListObjectAttributes",
+              "target_id": "xcsh-docs:resources:user_identification:properties:rules",
+              "type": "conflicts"
+            },
+            {
+              "anchor": "schema-rules--cookie_name",
+              "enforcement": "provider-schema",
+              "group": "rules:ConflictingListObjectAttributes:cookie_name,none",
+              "source": "ast-validator:ConflictingListObjectAttributes",
+              "target_id": "xcsh-docs:resources:user_identification:properties:rules",
+              "type": "conflicts"
+            },
+            {
+              "anchor": "schema-rules--cookie_name",
+              "enforcement": "provider-schema",
+              "group": "rules:ConflictingListObjectAttributes:cookie_name,query_param_key",
+              "source": "ast-validator:ConflictingListObjectAttributes",
+              "target_id": "xcsh-docs:resources:user_identification:properties:rules",
+              "type": "conflicts"
+            },
+            {
+              "anchor": "schema-rules--cookie_name",
+              "enforcement": "provider-schema",
+              "group": "rules:ConflictingListObjectAttributes:cookie_name,tls_fingerprint",
+              "source": "ast-validator:ConflictingListObjectAttributes",
+              "target_id": "xcsh-docs:resources:user_identification:properties:rules",
+              "type": "conflicts"
+            },
+            {
+              "anchor": "schema-rules--http_header_name",
+              "enforcement": "provider-schema",
+              "group": "rules:ConflictingListObjectAttributes:client_asn,http_header_name",
+              "source": "ast-validator:ConflictingListObjectAttributes",
+              "target_id": "xcsh-docs:resources:user_identification:properties:rules",
+              "type": "conflicts"
+            },
+            {
+              "anchor": "schema-rules--http_header_name",
+              "enforcement": "provider-schema",
+              "group": "rules:ConflictingListObjectAttributes:client_city,http_header_name",
+              "source": "ast-validator:ConflictingListObjectAttributes",
+              "target_id": "xcsh-docs:resources:user_identification:properties:rules",
+              "type": "conflicts"
+            },
+            {
+              "anchor": "schema-rules--http_header_name",
+              "enforcement": "provider-schema",
+              "group": "rules:ConflictingListObjectAttributes:client_country,http_header_name",
+              "source": "ast-validator:ConflictingListObjectAttributes",
+              "target_id": "xcsh-docs:resources:user_identification:properties:rules",
+              "type": "conflicts"
+            },
+            {
+              "anchor": "schema-rules--http_header_name",
+              "enforcement": "provider-schema",
+              "group": "rules:ConflictingListObjectAttributes:client_ip,http_header_name",
+              "source": "ast-validator:ConflictingListObjectAttributes",
+              "target_id": "xcsh-docs:resources:user_identification:properties:rules",
+              "type": "conflicts"
+            },
+            {
+              "anchor": "schema-rules--http_header_name",
+              "enforcement": "provider-schema",
+              "group": "rules:ConflictingListObjectAttributes:client_region,http_header_name",
+              "source": "ast-validator:ConflictingListObjectAttributes",
+              "target_id": "xcsh-docs:resources:user_identification:properties:rules",
+              "type": "conflicts"
+            },
+            {
+              "anchor": "schema-rules--http_header_name",
+              "enforcement": "provider-schema",
+              "group": "rules:ConflictingListObjectAttributes:cookie_name,http_header_name",
+              "source": "ast-validator:ConflictingListObjectAttributes",
+              "target_id": "xcsh-docs:resources:user_identification:properties:rules",
+              "type": "conflicts"
+            },
+            {
+              "anchor": "schema-rules--http_header_name",
+              "enforcement": "provider-schema",
+              "group": "rules:ConflictingListObjectAttributes:http_header_name,ip_and_http_header_name",
+              "source": "ast-validator:ConflictingListObjectAttributes",
+              "target_id": "xcsh-docs:resources:user_identification:properties:rules",
+              "type": "conflicts"
+            },
+            {
+              "anchor": "schema-rules--http_header_name",
+              "enforcement": "provider-schema",
+              "group": "rules:ConflictingListObjectAttributes:http_header_name,ip_and_ja4_tls_fingerprint",
+              "source": "ast-validator:ConflictingListObjectAttributes",
+              "target_id": "xcsh-docs:resources:user_identification:properties:rules",
+              "type": "conflicts"
+            },
+            {
+              "anchor": "schema-rules--http_header_name",
+              "enforcement": "provider-schema",
+              "group": "rules:ConflictingListObjectAttributes:http_header_name,ip_and_tls_fingerprint",
+              "source": "ast-validator:ConflictingListObjectAttributes",
+              "target_id": "xcsh-docs:resources:user_identification:properties:rules",
+              "type": "conflicts"
+            },
+            {
+              "anchor": "schema-rules--http_header_name",
+              "enforcement": "provider-schema",
+              "group": "rules:ConflictingListObjectAttributes:http_header_name,ja4_tls_fingerprint",
+              "source": "ast-validator:ConflictingListObjectAttributes",
+              "target_id": "xcsh-docs:resources:user_identification:properties:rules",
+              "type": "conflicts"
+            },
+            {
+              "anchor": "schema-rules--http_header_name",
+              "enforcement": "provider-schema",
+              "group": "rules:ConflictingListObjectAttributes:http_header_name,jwt_claim_name",
+              "source": "ast-validator:ConflictingListObjectAttributes",
+              "target_id": "xcsh-docs:resources:user_identification:properties:rules",
+              "type": "conflicts"
+            },
+            {
+              "anchor": "schema-rules--http_header_name",
+              "enforcement": "provider-schema",
+              "group": "rules:ConflictingListObjectAttributes:http_header_name,none",
+              "source": "ast-validator:ConflictingListObjectAttributes",
+              "target_id": "xcsh-docs:resources:user_identification:properties:rules",
+              "type": "conflicts"
+            },
+            {
+              "anchor": "schema-rules--http_header_name",
+              "enforcement": "provider-schema",
+              "group": "rules:ConflictingListObjectAttributes:http_header_name,query_param_key",
+              "source": "ast-validator:ConflictingListObjectAttributes",
+              "target_id": "xcsh-docs:resources:user_identification:properties:rules",
+              "type": "conflicts"
+            },
+            {
+              "anchor": "schema-rules--http_header_name",
+              "enforcement": "provider-schema",
+              "group": "rules:ConflictingListObjectAttributes:http_header_name,tls_fingerprint",
+              "source": "ast-validator:ConflictingListObjectAttributes",
+              "target_id": "xcsh-docs:resources:user_identification:properties:rules",
+              "type": "conflicts"
+            },
+            {
+              "anchor": "schema-rules--ip_and_http_header_name",
+              "enforcement": "provider-schema",
+              "group": "rules:ConflictingListObjectAttributes:client_asn,ip_and_http_header_name",
+              "source": "ast-validator:ConflictingListObjectAttributes",
+              "target_id": "xcsh-docs:resources:user_identification:properties:rules",
+              "type": "conflicts"
+            },
+            {
+              "anchor": "schema-rules--ip_and_http_header_name",
+              "enforcement": "provider-schema",
+              "group": "rules:ConflictingListObjectAttributes:client_city,ip_and_http_header_name",
+              "source": "ast-validator:ConflictingListObjectAttributes",
+              "target_id": "xcsh-docs:resources:user_identification:properties:rules",
+              "type": "conflicts"
+            },
+            {
+              "anchor": "schema-rules--ip_and_http_header_name",
+              "enforcement": "provider-schema",
+              "group": "rules:ConflictingListObjectAttributes:client_country,ip_and_http_header_name",
+              "source": "ast-validator:ConflictingListObjectAttributes",
+              "target_id": "xcsh-docs:resources:user_identification:properties:rules",
+              "type": "conflicts"
+            },
+            {
+              "anchor": "schema-rules--ip_and_http_header_name",
+              "enforcement": "provider-schema",
+              "group": "rules:ConflictingListObjectAttributes:client_ip,ip_and_http_header_name",
+              "source": "ast-validator:ConflictingListObjectAttributes",
+              "target_id": "xcsh-docs:resources:user_identification:properties:rules",
+              "type": "conflicts"
+            },
+            {
+              "anchor": "schema-rules--ip_and_http_header_name",
+              "enforcement": "provider-schema",
+              "group": "rules:ConflictingListObjectAttributes:client_region,ip_and_http_header_name",
+              "source": "ast-validator:ConflictingListObjectAttributes",
+              "target_id": "xcsh-docs:resources:user_identification:properties:rules",
+              "type": "conflicts"
+            },
+            {
+              "anchor": "schema-rules--ip_and_http_header_name",
+              "enforcement": "provider-schema",
+              "group": "rules:ConflictingListObjectAttributes:cookie_name,ip_and_http_header_name",
+              "source": "ast-validator:ConflictingListObjectAttributes",
+              "target_id": "xcsh-docs:resources:user_identification:properties:rules",
+              "type": "conflicts"
+            },
+            {
+              "anchor": "schema-rules--ip_and_http_header_name",
+              "enforcement": "provider-schema",
+              "group": "rules:ConflictingListObjectAttributes:http_header_name,ip_and_http_header_name",
+              "source": "ast-validator:ConflictingListObjectAttributes",
+              "target_id": "xcsh-docs:resources:user_identification:properties:rules",
+              "type": "conflicts"
+            },
+            {
+              "anchor": "schema-rules--ip_and_http_header_name",
+              "enforcement": "provider-schema",
+              "group": "rules:ConflictingListObjectAttributes:ip_and_http_header_name,ip_and_ja4_tls_fingerprint",
+              "source": "ast-validator:ConflictingListObjectAttributes",
+              "target_id": "xcsh-docs:resources:user_identification:properties:rules",
+              "type": "conflicts"
+            },
+            {
+              "anchor": "schema-rules--ip_and_http_header_name",
+              "enforcement": "provider-schema",
+              "group": "rules:ConflictingListObjectAttributes:ip_and_http_header_name,ip_and_tls_fingerprint",
+              "source": "ast-validator:ConflictingListObjectAttributes",
+              "target_id": "xcsh-docs:resources:user_identification:properties:rules",
+              "type": "conflicts"
+            },
+            {
+              "anchor": "schema-rules--ip_and_http_header_name",
+              "enforcement": "provider-schema",
+              "group": "rules:ConflictingListObjectAttributes:ip_and_http_header_name,ja4_tls_fingerprint",
+              "source": "ast-validator:ConflictingListObjectAttributes",
+              "target_id": "xcsh-docs:resources:user_identification:properties:rules",
+              "type": "conflicts"
+            },
+            {
+              "anchor": "schema-rules--ip_and_http_header_name",
+              "enforcement": "provider-schema",
+              "group": "rules:ConflictingListObjectAttributes:ip_and_http_header_name,jwt_claim_name",
+              "source": "ast-validator:ConflictingListObjectAttributes",
+              "target_id": "xcsh-docs:resources:user_identification:properties:rules",
+              "type": "conflicts"
+            },
+            {
+              "anchor": "schema-rules--ip_and_http_header_name",
+              "enforcement": "provider-schema",
+              "group": "rules:ConflictingListObjectAttributes:ip_and_http_header_name,none",
+              "source": "ast-validator:ConflictingListObjectAttributes",
+              "target_id": "xcsh-docs:resources:user_identification:properties:rules",
+              "type": "conflicts"
+            },
+            {
+              "anchor": "schema-rules--ip_and_http_header_name",
+              "enforcement": "provider-schema",
+              "group": "rules:ConflictingListObjectAttributes:ip_and_http_header_name,query_param_key",
+              "source": "ast-validator:ConflictingListObjectAttributes",
+              "target_id": "xcsh-docs:resources:user_identification:properties:rules",
+              "type": "conflicts"
+            },
+            {
+              "anchor": "schema-rules--ip_and_http_header_name",
+              "enforcement": "provider-schema",
+              "group": "rules:ConflictingListObjectAttributes:ip_and_http_header_name,tls_fingerprint",
+              "source": "ast-validator:ConflictingListObjectAttributes",
+              "target_id": "xcsh-docs:resources:user_identification:properties:rules",
+              "type": "conflicts"
+            },
+            {
+              "anchor": "schema-rules--jwt_claim_name",
+              "enforcement": "provider-schema",
+              "group": "rules:ConflictingListObjectAttributes:client_asn,jwt_claim_name",
+              "source": "ast-validator:ConflictingListObjectAttributes",
+              "target_id": "xcsh-docs:resources:user_identification:properties:rules",
+              "type": "conflicts"
+            },
+            {
+              "anchor": "schema-rules--jwt_claim_name",
+              "enforcement": "provider-schema",
+              "group": "rules:ConflictingListObjectAttributes:client_city,jwt_claim_name",
+              "source": "ast-validator:ConflictingListObjectAttributes",
+              "target_id": "xcsh-docs:resources:user_identification:properties:rules",
+              "type": "conflicts"
+            },
+            {
+              "anchor": "schema-rules--jwt_claim_name",
+              "enforcement": "provider-schema",
+              "group": "rules:ConflictingListObjectAttributes:client_country,jwt_claim_name",
+              "source": "ast-validator:ConflictingListObjectAttributes",
+              "target_id": "xcsh-docs:resources:user_identification:properties:rules",
+              "type": "conflicts"
+            },
+            {
+              "anchor": "schema-rules--jwt_claim_name",
+              "enforcement": "provider-schema",
+              "group": "rules:ConflictingListObjectAttributes:client_ip,jwt_claim_name",
+              "source": "ast-validator:ConflictingListObjectAttributes",
+              "target_id": "xcsh-docs:resources:user_identification:properties:rules",
+              "type": "conflicts"
+            },
+            {
+              "anchor": "schema-rules--jwt_claim_name",
+              "enforcement": "provider-schema",
+              "group": "rules:ConflictingListObjectAttributes:client_region,jwt_claim_name",
+              "source": "ast-validator:ConflictingListObjectAttributes",
+              "target_id": "xcsh-docs:resources:user_identification:properties:rules",
+              "type": "conflicts"
+            },
+            {
+              "anchor": "schema-rules--jwt_claim_name",
+              "enforcement": "provider-schema",
+              "group": "rules:ConflictingListObjectAttributes:cookie_name,jwt_claim_name",
+              "source": "ast-validator:ConflictingListObjectAttributes",
+              "target_id": "xcsh-docs:resources:user_identification:properties:rules",
+              "type": "conflicts"
+            },
+            {
+              "anchor": "schema-rules--jwt_claim_name",
+              "enforcement": "provider-schema",
+              "group": "rules:ConflictingListObjectAttributes:http_header_name,jwt_claim_name",
+              "source": "ast-validator:ConflictingListObjectAttributes",
+              "target_id": "xcsh-docs:resources:user_identification:properties:rules",
+              "type": "conflicts"
+            },
+            {
+              "anchor": "schema-rules--jwt_claim_name",
+              "enforcement": "provider-schema",
+              "group": "rules:ConflictingListObjectAttributes:ip_and_http_header_name,jwt_claim_name",
+              "source": "ast-validator:ConflictingListObjectAttributes",
+              "target_id": "xcsh-docs:resources:user_identification:properties:rules",
+              "type": "conflicts"
+            },
+            {
+              "anchor": "schema-rules--jwt_claim_name",
+              "enforcement": "provider-schema",
+              "group": "rules:ConflictingListObjectAttributes:ip_and_ja4_tls_fingerprint,jwt_claim_name",
+              "source": "ast-validator:ConflictingListObjectAttributes",
+              "target_id": "xcsh-docs:resources:user_identification:properties:rules",
+              "type": "conflicts"
+            },
+            {
+              "anchor": "schema-rules--jwt_claim_name",
+              "enforcement": "provider-schema",
+              "group": "rules:ConflictingListObjectAttributes:ip_and_tls_fingerprint,jwt_claim_name",
+              "source": "ast-validator:ConflictingListObjectAttributes",
+              "target_id": "xcsh-docs:resources:user_identification:properties:rules",
+              "type": "conflicts"
+            },
+            {
+              "anchor": "schema-rules--jwt_claim_name",
+              "enforcement": "provider-schema",
+              "group": "rules:ConflictingListObjectAttributes:ja4_tls_fingerprint,jwt_claim_name",
+              "source": "ast-validator:ConflictingListObjectAttributes",
+              "target_id": "xcsh-docs:resources:user_identification:properties:rules",
+              "type": "conflicts"
+            },
+            {
+              "anchor": "schema-rules--jwt_claim_name",
+              "enforcement": "provider-schema",
+              "group": "rules:ConflictingListObjectAttributes:jwt_claim_name,none",
+              "source": "ast-validator:ConflictingListObjectAttributes",
+              "target_id": "xcsh-docs:resources:user_identification:properties:rules",
+              "type": "conflicts"
+            },
+            {
+              "anchor": "schema-rules--jwt_claim_name",
+              "enforcement": "provider-schema",
+              "group": "rules:ConflictingListObjectAttributes:jwt_claim_name,query_param_key",
+              "source": "ast-validator:ConflictingListObjectAttributes",
+              "target_id": "xcsh-docs:resources:user_identification:properties:rules",
+              "type": "conflicts"
+            },
+            {
+              "anchor": "schema-rules--jwt_claim_name",
+              "enforcement": "provider-schema",
+              "group": "rules:ConflictingListObjectAttributes:jwt_claim_name,tls_fingerprint",
+              "source": "ast-validator:ConflictingListObjectAttributes",
+              "target_id": "xcsh-docs:resources:user_identification:properties:rules",
+              "type": "conflicts"
+            },
+            {
+              "anchor": "schema-rules--query_param_key",
+              "enforcement": "provider-schema",
+              "group": "rules:ConflictingListObjectAttributes:client_asn,query_param_key",
+              "source": "ast-validator:ConflictingListObjectAttributes",
+              "target_id": "xcsh-docs:resources:user_identification:properties:rules",
+              "type": "conflicts"
+            },
+            {
+              "anchor": "schema-rules--query_param_key",
+              "enforcement": "provider-schema",
+              "group": "rules:ConflictingListObjectAttributes:client_city,query_param_key",
+              "source": "ast-validator:ConflictingListObjectAttributes",
+              "target_id": "xcsh-docs:resources:user_identification:properties:rules",
+              "type": "conflicts"
+            },
+            {
+              "anchor": "schema-rules--query_param_key",
+              "enforcement": "provider-schema",
+              "group": "rules:ConflictingListObjectAttributes:client_country,query_param_key",
+              "source": "ast-validator:ConflictingListObjectAttributes",
+              "target_id": "xcsh-docs:resources:user_identification:properties:rules",
+              "type": "conflicts"
+            },
+            {
+              "anchor": "schema-rules--query_param_key",
+              "enforcement": "provider-schema",
+              "group": "rules:ConflictingListObjectAttributes:client_ip,query_param_key",
+              "source": "ast-validator:ConflictingListObjectAttributes",
+              "target_id": "xcsh-docs:resources:user_identification:properties:rules",
+              "type": "conflicts"
+            },
+            {
+              "anchor": "schema-rules--query_param_key",
+              "enforcement": "provider-schema",
+              "group": "rules:ConflictingListObjectAttributes:client_region,query_param_key",
+              "source": "ast-validator:ConflictingListObjectAttributes",
+              "target_id": "xcsh-docs:resources:user_identification:properties:rules",
+              "type": "conflicts"
+            },
+            {
+              "anchor": "schema-rules--query_param_key",
+              "enforcement": "provider-schema",
+              "group": "rules:ConflictingListObjectAttributes:cookie_name,query_param_key",
+              "source": "ast-validator:ConflictingListObjectAttributes",
+              "target_id": "xcsh-docs:resources:user_identification:properties:rules",
+              "type": "conflicts"
+            },
+            {
+              "anchor": "schema-rules--query_param_key",
+              "enforcement": "provider-schema",
+              "group": "rules:ConflictingListObjectAttributes:http_header_name,query_param_key",
+              "source": "ast-validator:ConflictingListObjectAttributes",
+              "target_id": "xcsh-docs:resources:user_identification:properties:rules",
+              "type": "conflicts"
+            },
+            {
+              "anchor": "schema-rules--query_param_key",
+              "enforcement": "provider-schema",
+              "group": "rules:ConflictingListObjectAttributes:ip_and_http_header_name,query_param_key",
+              "source": "ast-validator:ConflictingListObjectAttributes",
+              "target_id": "xcsh-docs:resources:user_identification:properties:rules",
+              "type": "conflicts"
+            },
+            {
+              "anchor": "schema-rules--query_param_key",
+              "enforcement": "provider-schema",
+              "group": "rules:ConflictingListObjectAttributes:ip_and_ja4_tls_fingerprint,query_param_key",
+              "source": "ast-validator:ConflictingListObjectAttributes",
+              "target_id": "xcsh-docs:resources:user_identification:properties:rules",
+              "type": "conflicts"
+            },
+            {
+              "anchor": "schema-rules--query_param_key",
+              "enforcement": "provider-schema",
+              "group": "rules:ConflictingListObjectAttributes:ip_and_tls_fingerprint,query_param_key",
+              "source": "ast-validator:ConflictingListObjectAttributes",
+              "target_id": "xcsh-docs:resources:user_identification:properties:rules",
+              "type": "conflicts"
+            },
+            {
+              "anchor": "schema-rules--query_param_key",
+              "enforcement": "provider-schema",
+              "group": "rules:ConflictingListObjectAttributes:ja4_tls_fingerprint,query_param_key",
+              "source": "ast-validator:ConflictingListObjectAttributes",
+              "target_id": "xcsh-docs:resources:user_identification:properties:rules",
+              "type": "conflicts"
+            },
+            {
+              "anchor": "schema-rules--query_param_key",
+              "enforcement": "provider-schema",
+              "group": "rules:ConflictingListObjectAttributes:jwt_claim_name,query_param_key",
+              "source": "ast-validator:ConflictingListObjectAttributes",
+              "target_id": "xcsh-docs:resources:user_identification:properties:rules",
+              "type": "conflicts"
+            },
+            {
+              "anchor": "schema-rules--query_param_key",
+              "enforcement": "provider-schema",
+              "group": "rules:ConflictingListObjectAttributes:none,query_param_key",
+              "source": "ast-validator:ConflictingListObjectAttributes",
+              "target_id": "xcsh-docs:resources:user_identification:properties:rules",
+              "type": "conflicts"
+            },
+            {
+              "anchor": "schema-rules--query_param_key",
+              "enforcement": "provider-schema",
+              "group": "rules:ConflictingListObjectAttributes:query_param_key,tls_fingerprint",
+              "source": "ast-validator:ConflictingListObjectAttributes",
+              "target_id": "xcsh-docs:resources:user_identification:properties:rules",
+              "type": "conflicts"
+            },
+            {
+              "anchor": "section",
+              "enforcement": "provider-schema",
+              "group": "rules:ConflictingListObjectAttributes:client_asn,client_city",
+              "source": "ast-validator:ConflictingListObjectAttributes",
+              "target_id": "xcsh-docs:resources:user_identification:properties:rules:client_asn",
+              "type": "conflicts"
+            },
+            {
+              "anchor": "section",
+              "enforcement": "provider-schema",
+              "group": "rules:ConflictingListObjectAttributes:client_asn,client_country",
+              "source": "ast-validator:ConflictingListObjectAttributes",
+              "target_id": "xcsh-docs:resources:user_identification:properties:rules:client_asn",
+              "type": "conflicts"
+            },
+            {
+              "anchor": "section",
+              "enforcement": "provider-schema",
+              "group": "rules:ConflictingListObjectAttributes:client_asn,client_ip",
+              "source": "ast-validator:ConflictingListObjectAttributes",
+              "target_id": "xcsh-docs:resources:user_identification:properties:rules:client_asn",
+              "type": "conflicts"
+            },
+            {
+              "anchor": "section",
+              "enforcement": "provider-schema",
+              "group": "rules:ConflictingListObjectAttributes:client_asn,client_region",
+              "source": "ast-validator:ConflictingListObjectAttributes",
+              "target_id": "xcsh-docs:resources:user_identification:properties:rules:client_asn",
+              "type": "conflicts"
+            },
+            {
+              "anchor": "section",
+              "enforcement": "provider-schema",
+              "group": "rules:ConflictingListObjectAttributes:client_asn,cookie_name",
+              "source": "ast-validator:ConflictingListObjectAttributes",
+              "target_id": "xcsh-docs:resources:user_identification:properties:rules:client_asn",
+              "type": "conflicts"
+            },
+            {
+              "anchor": "section",
+              "enforcement": "provider-schema",
+              "group": "rules:ConflictingListObjectAttributes:client_asn,http_header_name",
+              "source": "ast-validator:ConflictingListObjectAttributes",
+              "target_id": "xcsh-docs:resources:user_identification:properties:rules:client_asn",
+              "type": "conflicts"
+            },
+            {
+              "anchor": "section",
+              "enforcement": "provider-schema",
+              "group": "rules:ConflictingListObjectAttributes:client_asn,ip_and_http_header_name",
+              "source": "ast-validator:ConflictingListObjectAttributes",
+              "target_id": "xcsh-docs:resources:user_identification:properties:rules:client_asn",
+              "type": "conflicts"
+            },
+            {
+              "anchor": "section",
+              "enforcement": "provider-schema",
+              "group": "rules:ConflictingListObjectAttributes:client_asn,ip_and_ja4_tls_fingerprint",
+              "source": "ast-validator:ConflictingListObjectAttributes",
+              "target_id": "xcsh-docs:resources:user_identification:properties:rules:client_asn",
+              "type": "conflicts"
+            },
+            {
+              "anchor": "section",
+              "enforcement": "provider-schema",
+              "group": "rules:ConflictingListObjectAttributes:client_asn,ip_and_tls_fingerprint",
+              "source": "ast-validator:ConflictingListObjectAttributes",
+              "target_id": "xcsh-docs:resources:user_identification:properties:rules:client_asn",
+              "type": "conflicts"
+            },
+            {
+              "anchor": "section",
+              "enforcement": "provider-schema",
+              "group": "rules:ConflictingListObjectAttributes:client_asn,ja4_tls_fingerprint",
+              "source": "ast-validator:ConflictingListObjectAttributes",
+              "target_id": "xcsh-docs:resources:user_identification:properties:rules:client_asn",
+              "type": "conflicts"
+            },
+            {
+              "anchor": "section",
+              "enforcement": "provider-schema",
+              "group": "rules:ConflictingListObjectAttributes:client_asn,jwt_claim_name",
+              "source": "ast-validator:ConflictingListObjectAttributes",
+              "target_id": "xcsh-docs:resources:user_identification:properties:rules:client_asn",
+              "type": "conflicts"
+            },
+            {
+              "anchor": "section",
+              "enforcement": "provider-schema",
+              "group": "rules:ConflictingListObjectAttributes:client_asn,none",
+              "source": "ast-validator:ConflictingListObjectAttributes",
+              "target_id": "xcsh-docs:resources:user_identification:properties:rules:client_asn",
+              "type": "conflicts"
+            },
+            {
+              "anchor": "section",
+              "enforcement": "provider-schema",
+              "group": "rules:ConflictingListObjectAttributes:client_asn,query_param_key",
+              "source": "ast-validator:ConflictingListObjectAttributes",
+              "target_id": "xcsh-docs:resources:user_identification:properties:rules:client_asn",
+              "type": "conflicts"
+            },
+            {
+              "anchor": "section",
+              "enforcement": "provider-schema",
+              "group": "rules:ConflictingListObjectAttributes:client_asn,tls_fingerprint",
+              "source": "ast-validator:ConflictingListObjectAttributes",
+              "target_id": "xcsh-docs:resources:user_identification:properties:rules:client_asn",
+              "type": "conflicts"
+            },
+            {
+              "anchor": "section",
+              "enforcement": "provider-schema",
+              "group": "rules:ConflictingListObjectAttributes:client_asn,client_city",
+              "source": "ast-validator:ConflictingListObjectAttributes",
+              "target_id": "xcsh-docs:resources:user_identification:properties:rules:client_city",
+              "type": "conflicts"
+            },
+            {
+              "anchor": "section",
+              "enforcement": "provider-schema",
+              "group": "rules:ConflictingListObjectAttributes:client_city,client_country",
+              "source": "ast-validator:ConflictingListObjectAttributes",
+              "target_id": "xcsh-docs:resources:user_identification:properties:rules:client_city",
+              "type": "conflicts"
+            },
+            {
+              "anchor": "section",
+              "enforcement": "provider-schema",
+              "group": "rules:ConflictingListObjectAttributes:client_city,client_ip",
+              "source": "ast-validator:ConflictingListObjectAttributes",
+              "target_id": "xcsh-docs:resources:user_identification:properties:rules:client_city",
+              "type": "conflicts"
+            },
+            {
+              "anchor": "section",
+              "enforcement": "provider-schema",
+              "group": "rules:ConflictingListObjectAttributes:client_city,client_region",
+              "source": "ast-validator:ConflictingListObjectAttributes",
+              "target_id": "xcsh-docs:resources:user_identification:properties:rules:client_city",
+              "type": "conflicts"
+            },
+            {
+              "anchor": "section",
+              "enforcement": "provider-schema",
+              "group": "rules:ConflictingListObjectAttributes:client_city,cookie_name",
+              "source": "ast-validator:ConflictingListObjectAttributes",
+              "target_id": "xcsh-docs:resources:user_identification:properties:rules:client_city",
+              "type": "conflicts"
+            },
+            {
+              "anchor": "section",
+              "enforcement": "provider-schema",
+              "group": "rules:ConflictingListObjectAttributes:client_city,http_header_name",
+              "source": "ast-validator:ConflictingListObjectAttributes",
+              "target_id": "xcsh-docs:resources:user_identification:properties:rules:client_city",
+              "type": "conflicts"
+            },
+            {
+              "anchor": "section",
+              "enforcement": "provider-schema",
+              "group": "rules:ConflictingListObjectAttributes:client_city,ip_and_http_header_name",
+              "source": "ast-validator:ConflictingListObjectAttributes",
+              "target_id": "xcsh-docs:resources:user_identification:properties:rules:client_city",
+              "type": "conflicts"
+            },
+            {
+              "anchor": "section",
+              "enforcement": "provider-schema",
+              "group": "rules:ConflictingListObjectAttributes:client_city,ip_and_ja4_tls_fingerprint",
+              "source": "ast-validator:ConflictingListObjectAttributes",
+              "target_id": "xcsh-docs:resources:user_identification:properties:rules:client_city",
+              "type": "conflicts"
+            },
+            {
+              "anchor": "section",
+              "enforcement": "provider-schema",
+              "group": "rules:ConflictingListObjectAttributes:client_city,ip_and_tls_fingerprint",
+              "source": "ast-validator:ConflictingListObjectAttributes",
+              "target_id": "xcsh-docs:resources:user_identification:properties:rules:client_city",
+              "type": "conflicts"
+            },
+            {
+              "anchor": "section",
+              "enforcement": "provider-schema",
+              "group": "rules:ConflictingListObjectAttributes:client_city,ja4_tls_fingerprint",
+              "source": "ast-validator:ConflictingListObjectAttributes",
+              "target_id": "xcsh-docs:resources:user_identification:properties:rules:client_city",
+              "type": "conflicts"
+            },
+            {
+              "anchor": "section",
+              "enforcement": "provider-schema",
+              "group": "rules:ConflictingListObjectAttributes:client_city,jwt_claim_name",
+              "source": "ast-validator:ConflictingListObjectAttributes",
+              "target_id": "xcsh-docs:resources:user_identification:properties:rules:client_city",
+              "type": "conflicts"
+            },
+            {
+              "anchor": "section",
+              "enforcement": "provider-schema",
+              "group": "rules:ConflictingListObjectAttributes:client_city,none",
+              "source": "ast-validator:ConflictingListObjectAttributes",
+              "target_id": "xcsh-docs:resources:user_identification:properties:rules:client_city",
+              "type": "conflicts"
+            },
+            {
+              "anchor": "section",
+              "enforcement": "provider-schema",
+              "group": "rules:ConflictingListObjectAttributes:client_city,query_param_key",
+              "source": "ast-validator:ConflictingListObjectAttributes",
+              "target_id": "xcsh-docs:resources:user_identification:properties:rules:client_city",
+              "type": "conflicts"
+            },
+            {
+              "anchor": "section",
+              "enforcement": "provider-schema",
+              "group": "rules:ConflictingListObjectAttributes:client_city,tls_fingerprint",
+              "source": "ast-validator:ConflictingListObjectAttributes",
+              "target_id": "xcsh-docs:resources:user_identification:properties:rules:client_city",
+              "type": "conflicts"
+            },
+            {
+              "anchor": "section",
+              "enforcement": "provider-schema",
+              "group": "rules:ConflictingListObjectAttributes:client_asn,client_country",
+              "source": "ast-validator:ConflictingListObjectAttributes",
+              "target_id": "xcsh-docs:resources:user_identification:properties:rules:client_country",
+              "type": "conflicts"
+            },
+            {
+              "anchor": "section",
+              "enforcement": "provider-schema",
+              "group": "rules:ConflictingListObjectAttributes:client_city,client_country",
+              "source": "ast-validator:ConflictingListObjectAttributes",
+              "target_id": "xcsh-docs:resources:user_identification:properties:rules:client_country",
+              "type": "conflicts"
+            },
+            {
+              "anchor": "section",
+              "enforcement": "provider-schema",
+              "group": "rules:ConflictingListObjectAttributes:client_country,client_ip",
+              "source": "ast-validator:ConflictingListObjectAttributes",
+              "target_id": "xcsh-docs:resources:user_identification:properties:rules:client_country",
+              "type": "conflicts"
+            },
+            {
+              "anchor": "section",
+              "enforcement": "provider-schema",
+              "group": "rules:ConflictingListObjectAttributes:client_country,client_region",
+              "source": "ast-validator:ConflictingListObjectAttributes",
+              "target_id": "xcsh-docs:resources:user_identification:properties:rules:client_country",
+              "type": "conflicts"
+            },
+            {
+              "anchor": "section",
+              "enforcement": "provider-schema",
+              "group": "rules:ConflictingListObjectAttributes:client_country,cookie_name",
+              "source": "ast-validator:ConflictingListObjectAttributes",
+              "target_id": "xcsh-docs:resources:user_identification:properties:rules:client_country",
+              "type": "conflicts"
+            },
+            {
+              "anchor": "section",
+              "enforcement": "provider-schema",
+              "group": "rules:ConflictingListObjectAttributes:client_country,http_header_name",
+              "source": "ast-validator:ConflictingListObjectAttributes",
+              "target_id": "xcsh-docs:resources:user_identification:properties:rules:client_country",
+              "type": "conflicts"
+            },
+            {
+              "anchor": "section",
+              "enforcement": "provider-schema",
+              "group": "rules:ConflictingListObjectAttributes:client_country,ip_and_http_header_name",
+              "source": "ast-validator:ConflictingListObjectAttributes",
+              "target_id": "xcsh-docs:resources:user_identification:properties:rules:client_country",
+              "type": "conflicts"
+            },
+            {
+              "anchor": "section",
+              "enforcement": "provider-schema",
+              "group": "rules:ConflictingListObjectAttributes:client_country,ip_and_ja4_tls_fingerprint",
+              "source": "ast-validator:ConflictingListObjectAttributes",
+              "target_id": "xcsh-docs:resources:user_identification:properties:rules:client_country",
+              "type": "conflicts"
+            },
+            {
+              "anchor": "section",
+              "enforcement": "provider-schema",
+              "group": "rules:ConflictingListObjectAttributes:client_country,ip_and_tls_fingerprint",
+              "source": "ast-validator:ConflictingListObjectAttributes",
+              "target_id": "xcsh-docs:resources:user_identification:properties:rules:client_country",
+              "type": "conflicts"
+            },
+            {
+              "anchor": "section",
+              "enforcement": "provider-schema",
+              "group": "rules:ConflictingListObjectAttributes:client_country,ja4_tls_fingerprint",
+              "source": "ast-validator:ConflictingListObjectAttributes",
+              "target_id": "xcsh-docs:resources:user_identification:properties:rules:client_country",
+              "type": "conflicts"
+            },
+            {
+              "anchor": "section",
+              "enforcement": "provider-schema",
+              "group": "rules:ConflictingListObjectAttributes:client_country,jwt_claim_name",
+              "source": "ast-validator:ConflictingListObjectAttributes",
+              "target_id": "xcsh-docs:resources:user_identification:properties:rules:client_country",
+              "type": "conflicts"
+            },
+            {
+              "anchor": "section",
+              "enforcement": "provider-schema",
+              "group": "rules:ConflictingListObjectAttributes:client_country,none",
+              "source": "ast-validator:ConflictingListObjectAttributes",
+              "target_id": "xcsh-docs:resources:user_identification:properties:rules:client_country",
+              "type": "conflicts"
+            },
+            {
+              "anchor": "section",
+              "enforcement": "provider-schema",
+              "group": "rules:ConflictingListObjectAttributes:client_country,query_param_key",
+              "source": "ast-validator:ConflictingListObjectAttributes",
+              "target_id": "xcsh-docs:resources:user_identification:properties:rules:client_country",
+              "type": "conflicts"
+            },
+            {
+              "anchor": "section",
+              "enforcement": "provider-schema",
+              "group": "rules:ConflictingListObjectAttributes:client_country,tls_fingerprint",
+              "source": "ast-validator:ConflictingListObjectAttributes",
+              "target_id": "xcsh-docs:resources:user_identification:properties:rules:client_country",
+              "type": "conflicts"
+            },
+            {
+              "anchor": "section",
+              "enforcement": "provider-schema",
+              "group": "rules:ConflictingListObjectAttributes:client_asn,client_ip",
+              "source": "ast-validator:ConflictingListObjectAttributes",
+              "target_id": "xcsh-docs:resources:user_identification:properties:rules:client_ip",
+              "type": "conflicts"
+            },
+            {
+              "anchor": "section",
+              "enforcement": "provider-schema",
+              "group": "rules:ConflictingListObjectAttributes:client_city,client_ip",
+              "source": "ast-validator:ConflictingListObjectAttributes",
+              "target_id": "xcsh-docs:resources:user_identification:properties:rules:client_ip",
+              "type": "conflicts"
+            },
+            {
+              "anchor": "section",
+              "enforcement": "provider-schema",
+              "group": "rules:ConflictingListObjectAttributes:client_country,client_ip",
+              "source": "ast-validator:ConflictingListObjectAttributes",
+              "target_id": "xcsh-docs:resources:user_identification:properties:rules:client_ip",
+              "type": "conflicts"
+            },
+            {
+              "anchor": "section",
+              "enforcement": "provider-schema",
+              "group": "rules:ConflictingListObjectAttributes:client_ip,client_region",
+              "source": "ast-validator:ConflictingListObjectAttributes",
+              "target_id": "xcsh-docs:resources:user_identification:properties:rules:client_ip",
+              "type": "conflicts"
+            },
+            {
+              "anchor": "section",
+              "enforcement": "provider-schema",
+              "group": "rules:ConflictingListObjectAttributes:client_ip,cookie_name",
+              "source": "ast-validator:ConflictingListObjectAttributes",
+              "target_id": "xcsh-docs:resources:user_identification:properties:rules:client_ip",
+              "type": "conflicts"
+            },
+            {
+              "anchor": "section",
+              "enforcement": "provider-schema",
+              "group": "rules:ConflictingListObjectAttributes:client_ip,http_header_name",
+              "source": "ast-validator:ConflictingListObjectAttributes",
+              "target_id": "xcsh-docs:resources:user_identification:properties:rules:client_ip",
+              "type": "conflicts"
+            },
+            {
+              "anchor": "section",
+              "enforcement": "provider-schema",
+              "group": "rules:ConflictingListObjectAttributes:client_ip,ip_and_http_header_name",
+              "source": "ast-validator:ConflictingListObjectAttributes",
+              "target_id": "xcsh-docs:resources:user_identification:properties:rules:client_ip",
+              "type": "conflicts"
+            },
+            {
+              "anchor": "section",
+              "enforcement": "provider-schema",
+              "group": "rules:ConflictingListObjectAttributes:client_ip,ip_and_ja4_tls_fingerprint",
+              "source": "ast-validator:ConflictingListObjectAttributes",
+              "target_id": "xcsh-docs:resources:user_identification:properties:rules:client_ip",
+              "type": "conflicts"
+            },
+            {
+              "anchor": "section",
+              "enforcement": "provider-schema",
+              "group": "rules:ConflictingListObjectAttributes:client_ip,ip_and_tls_fingerprint",
+              "source": "ast-validator:ConflictingListObjectAttributes",
+              "target_id": "xcsh-docs:resources:user_identification:properties:rules:client_ip",
+              "type": "conflicts"
+            },
+            {
+              "anchor": "section",
+              "enforcement": "provider-schema",
+              "group": "rules:ConflictingListObjectAttributes:client_ip,ja4_tls_fingerprint",
+              "source": "ast-validator:ConflictingListObjectAttributes",
+              "target_id": "xcsh-docs:resources:user_identification:properties:rules:client_ip",
+              "type": "conflicts"
+            },
+            {
+              "anchor": "section",
+              "enforcement": "provider-schema",
+              "group": "rules:ConflictingListObjectAttributes:client_ip,jwt_claim_name",
+              "source": "ast-validator:ConflictingListObjectAttributes",
+              "target_id": "xcsh-docs:resources:user_identification:properties:rules:client_ip",
+              "type": "conflicts"
+            },
+            {
+              "anchor": "section",
+              "enforcement": "provider-schema",
+              "group": "rules:ConflictingListObjectAttributes:client_ip,none",
+              "source": "ast-validator:ConflictingListObjectAttributes",
+              "target_id": "xcsh-docs:resources:user_identification:properties:rules:client_ip",
+              "type": "conflicts"
+            },
+            {
+              "anchor": "section",
+              "enforcement": "provider-schema",
+              "group": "rules:ConflictingListObjectAttributes:client_ip,query_param_key",
+              "source": "ast-validator:ConflictingListObjectAttributes",
+              "target_id": "xcsh-docs:resources:user_identification:properties:rules:client_ip",
+              "type": "conflicts"
+            },
+            {
+              "anchor": "section",
+              "enforcement": "provider-schema",
+              "group": "rules:ConflictingListObjectAttributes:client_ip,tls_fingerprint",
+              "source": "ast-validator:ConflictingListObjectAttributes",
+              "target_id": "xcsh-docs:resources:user_identification:properties:rules:client_ip",
+              "type": "conflicts"
+            },
+            {
+              "anchor": "section",
+              "enforcement": "provider-schema",
+              "group": "rules:ConflictingListObjectAttributes:client_asn,client_region",
+              "source": "ast-validator:ConflictingListObjectAttributes",
+              "target_id": "xcsh-docs:resources:user_identification:properties:rules:client_region",
+              "type": "conflicts"
+            },
+            {
+              "anchor": "section",
+              "enforcement": "provider-schema",
+              "group": "rules:ConflictingListObjectAttributes:client_city,client_region",
+              "source": "ast-validator:ConflictingListObjectAttributes",
+              "target_id": "xcsh-docs:resources:user_identification:properties:rules:client_region",
+              "type": "conflicts"
+            },
+            {
+              "anchor": "section",
+              "enforcement": "provider-schema",
+              "group": "rules:ConflictingListObjectAttributes:client_country,client_region",
+              "source": "ast-validator:ConflictingListObjectAttributes",
+              "target_id": "xcsh-docs:resources:user_identification:properties:rules:client_region",
+              "type": "conflicts"
+            },
+            {
+              "anchor": "section",
+              "enforcement": "provider-schema",
+              "group": "rules:ConflictingListObjectAttributes:client_ip,client_region",
+              "source": "ast-validator:ConflictingListObjectAttributes",
+              "target_id": "xcsh-docs:resources:user_identification:properties:rules:client_region",
+              "type": "conflicts"
+            },
+            {
+              "anchor": "section",
+              "enforcement": "provider-schema",
+              "group": "rules:ConflictingListObjectAttributes:client_region,cookie_name",
+              "source": "ast-validator:ConflictingListObjectAttributes",
+              "target_id": "xcsh-docs:resources:user_identification:properties:rules:client_region",
+              "type": "conflicts"
+            },
+            {
+              "anchor": "section",
+              "enforcement": "provider-schema",
+              "group": "rules:ConflictingListObjectAttributes:client_region,http_header_name",
+              "source": "ast-validator:ConflictingListObjectAttributes",
+              "target_id": "xcsh-docs:resources:user_identification:properties:rules:client_region",
+              "type": "conflicts"
+            },
+            {
+              "anchor": "section",
+              "enforcement": "provider-schema",
+              "group": "rules:ConflictingListObjectAttributes:client_region,ip_and_http_header_name",
+              "source": "ast-validator:ConflictingListObjectAttributes",
+              "target_id": "xcsh-docs:resources:user_identification:properties:rules:client_region",
+              "type": "conflicts"
+            },
+            {
+              "anchor": "section",
+              "enforcement": "provider-schema",
+              "group": "rules:ConflictingListObjectAttributes:client_region,ip_and_ja4_tls_fingerprint",
+              "source": "ast-validator:ConflictingListObjectAttributes",
+              "target_id": "xcsh-docs:resources:user_identification:properties:rules:client_region",
+              "type": "conflicts"
+            },
+            {
+              "anchor": "section",
+              "enforcement": "provider-schema",
+              "group": "rules:ConflictingListObjectAttributes:client_region,ip_and_tls_fingerprint",
+              "source": "ast-validator:ConflictingListObjectAttributes",
+              "target_id": "xcsh-docs:resources:user_identification:properties:rules:client_region",
+              "type": "conflicts"
+            },
+            {
+              "anchor": "section",
+              "enforcement": "provider-schema",
+              "group": "rules:ConflictingListObjectAttributes:client_region,ja4_tls_fingerprint",
+              "source": "ast-validator:ConflictingListObjectAttributes",
+              "target_id": "xcsh-docs:resources:user_identification:properties:rules:client_region",
+              "type": "conflicts"
+            },
+            {
+              "anchor": "section",
+              "enforcement": "provider-schema",
+              "group": "rules:ConflictingListObjectAttributes:client_region,jwt_claim_name",
+              "source": "ast-validator:ConflictingListObjectAttributes",
+              "target_id": "xcsh-docs:resources:user_identification:properties:rules:client_region",
+              "type": "conflicts"
+            },
+            {
+              "anchor": "section",
+              "enforcement": "provider-schema",
+              "group": "rules:ConflictingListObjectAttributes:client_region,none",
+              "source": "ast-validator:ConflictingListObjectAttributes",
+              "target_id": "xcsh-docs:resources:user_identification:properties:rules:client_region",
+              "type": "conflicts"
+            },
+            {
+              "anchor": "section",
+              "enforcement": "provider-schema",
+              "group": "rules:ConflictingListObjectAttributes:client_region,query_param_key",
+              "source": "ast-validator:ConflictingListObjectAttributes",
+              "target_id": "xcsh-docs:resources:user_identification:properties:rules:client_region",
+              "type": "conflicts"
+            },
+            {
+              "anchor": "section",
+              "enforcement": "provider-schema",
+              "group": "rules:ConflictingListObjectAttributes:client_region,tls_fingerprint",
+              "source": "ast-validator:ConflictingListObjectAttributes",
+              "target_id": "xcsh-docs:resources:user_identification:properties:rules:client_region",
+              "type": "conflicts"
+            },
+            {
+              "anchor": "section",
+              "enforcement": "provider-schema",
+              "group": "rules:ConflictingListObjectAttributes:client_asn,ip_and_ja4_tls_fingerprint",
+              "source": "ast-validator:ConflictingListObjectAttributes",
+              "target_id": "xcsh-docs:resources:user_identification:properties:rules:ip_and_ja4_tls_fingerprint",
+              "type": "conflicts"
+            },
+            {
+              "anchor": "section",
+              "enforcement": "provider-schema",
+              "group": "rules:ConflictingListObjectAttributes:client_city,ip_and_ja4_tls_fingerprint",
+              "source": "ast-validator:ConflictingListObjectAttributes",
+              "target_id": "xcsh-docs:resources:user_identification:properties:rules:ip_and_ja4_tls_fingerprint",
+              "type": "conflicts"
+            },
+            {
+              "anchor": "section",
+              "enforcement": "provider-schema",
+              "group": "rules:ConflictingListObjectAttributes:client_country,ip_and_ja4_tls_fingerprint",
+              "source": "ast-validator:ConflictingListObjectAttributes",
+              "target_id": "xcsh-docs:resources:user_identification:properties:rules:ip_and_ja4_tls_fingerprint",
+              "type": "conflicts"
+            },
+            {
+              "anchor": "section",
+              "enforcement": "provider-schema",
+              "group": "rules:ConflictingListObjectAttributes:client_ip,ip_and_ja4_tls_fingerprint",
+              "source": "ast-validator:ConflictingListObjectAttributes",
+              "target_id": "xcsh-docs:resources:user_identification:properties:rules:ip_and_ja4_tls_fingerprint",
+              "type": "conflicts"
+            },
+            {
+              "anchor": "section",
+              "enforcement": "provider-schema",
+              "group": "rules:ConflictingListObjectAttributes:client_region,ip_and_ja4_tls_fingerprint",
+              "source": "ast-validator:ConflictingListObjectAttributes",
+              "target_id": "xcsh-docs:resources:user_identification:properties:rules:ip_and_ja4_tls_fingerprint",
+              "type": "conflicts"
+            },
+            {
+              "anchor": "section",
+              "enforcement": "provider-schema",
+              "group": "rules:ConflictingListObjectAttributes:cookie_name,ip_and_ja4_tls_fingerprint",
+              "source": "ast-validator:ConflictingListObjectAttributes",
+              "target_id": "xcsh-docs:resources:user_identification:properties:rules:ip_and_ja4_tls_fingerprint",
+              "type": "conflicts"
+            },
+            {
+              "anchor": "section",
+              "enforcement": "provider-schema",
+              "group": "rules:ConflictingListObjectAttributes:http_header_name,ip_and_ja4_tls_fingerprint",
+              "source": "ast-validator:ConflictingListObjectAttributes",
+              "target_id": "xcsh-docs:resources:user_identification:properties:rules:ip_and_ja4_tls_fingerprint",
+              "type": "conflicts"
+            },
+            {
+              "anchor": "section",
+              "enforcement": "provider-schema",
+              "group": "rules:ConflictingListObjectAttributes:ip_and_http_header_name,ip_and_ja4_tls_fingerprint",
+              "source": "ast-validator:ConflictingListObjectAttributes",
+              "target_id": "xcsh-docs:resources:user_identification:properties:rules:ip_and_ja4_tls_fingerprint",
+              "type": "conflicts"
+            },
+            {
+              "anchor": "section",
+              "enforcement": "provider-schema",
+              "group": "rules:ConflictingListObjectAttributes:ip_and_ja4_tls_fingerprint,ip_and_tls_fingerprint",
+              "source": "ast-validator:ConflictingListObjectAttributes",
+              "target_id": "xcsh-docs:resources:user_identification:properties:rules:ip_and_ja4_tls_fingerprint",
+              "type": "conflicts"
+            },
+            {
+              "anchor": "section",
+              "enforcement": "provider-schema",
+              "group": "rules:ConflictingListObjectAttributes:ip_and_ja4_tls_fingerprint,ja4_tls_fingerprint",
+              "source": "ast-validator:ConflictingListObjectAttributes",
+              "target_id": "xcsh-docs:resources:user_identification:properties:rules:ip_and_ja4_tls_fingerprint",
+              "type": "conflicts"
+            },
+            {
+              "anchor": "section",
+              "enforcement": "provider-schema",
+              "group": "rules:ConflictingListObjectAttributes:ip_and_ja4_tls_fingerprint,jwt_claim_name",
+              "source": "ast-validator:ConflictingListObjectAttributes",
+              "target_id": "xcsh-docs:resources:user_identification:properties:rules:ip_and_ja4_tls_fingerprint",
+              "type": "conflicts"
+            },
+            {
+              "anchor": "section",
+              "enforcement": "provider-schema",
+              "group": "rules:ConflictingListObjectAttributes:ip_and_ja4_tls_fingerprint,none",
+              "source": "ast-validator:ConflictingListObjectAttributes",
+              "target_id": "xcsh-docs:resources:user_identification:properties:rules:ip_and_ja4_tls_fingerprint",
+              "type": "conflicts"
+            },
+            {
+              "anchor": "section",
+              "enforcement": "provider-schema",
+              "group": "rules:ConflictingListObjectAttributes:ip_and_ja4_tls_fingerprint,query_param_key",
+              "source": "ast-validator:ConflictingListObjectAttributes",
+              "target_id": "xcsh-docs:resources:user_identification:properties:rules:ip_and_ja4_tls_fingerprint",
+              "type": "conflicts"
+            },
+            {
+              "anchor": "section",
+              "enforcement": "provider-schema",
+              "group": "rules:ConflictingListObjectAttributes:ip_and_ja4_tls_fingerprint,tls_fingerprint",
+              "source": "ast-validator:ConflictingListObjectAttributes",
+              "target_id": "xcsh-docs:resources:user_identification:properties:rules:ip_and_ja4_tls_fingerprint",
+              "type": "conflicts"
+            },
+            {
+              "anchor": "section",
+              "enforcement": "provider-schema",
+              "group": "rules:ConflictingListObjectAttributes:client_asn,ip_and_tls_fingerprint",
+              "source": "ast-validator:ConflictingListObjectAttributes",
+              "target_id": "xcsh-docs:resources:user_identification:properties:rules:ip_and_tls_fingerprint",
+              "type": "conflicts"
+            },
+            {
+              "anchor": "section",
+              "enforcement": "provider-schema",
+              "group": "rules:ConflictingListObjectAttributes:client_city,ip_and_tls_fingerprint",
+              "source": "ast-validator:ConflictingListObjectAttributes",
+              "target_id": "xcsh-docs:resources:user_identification:properties:rules:ip_and_tls_fingerprint",
+              "type": "conflicts"
+            },
+            {
+              "anchor": "section",
+              "enforcement": "provider-schema",
+              "group": "rules:ConflictingListObjectAttributes:client_country,ip_and_tls_fingerprint",
+              "source": "ast-validator:ConflictingListObjectAttributes",
+              "target_id": "xcsh-docs:resources:user_identification:properties:rules:ip_and_tls_fingerprint",
+              "type": "conflicts"
+            },
+            {
+              "anchor": "section",
+              "enforcement": "provider-schema",
+              "group": "rules:ConflictingListObjectAttributes:client_ip,ip_and_tls_fingerprint",
+              "source": "ast-validator:ConflictingListObjectAttributes",
+              "target_id": "xcsh-docs:resources:user_identification:properties:rules:ip_and_tls_fingerprint",
+              "type": "conflicts"
+            },
+            {
+              "anchor": "section",
+              "enforcement": "provider-schema",
+              "group": "rules:ConflictingListObjectAttributes:client_region,ip_and_tls_fingerprint",
+              "source": "ast-validator:ConflictingListObjectAttributes",
+              "target_id": "xcsh-docs:resources:user_identification:properties:rules:ip_and_tls_fingerprint",
+              "type": "conflicts"
+            },
+            {
+              "anchor": "section",
+              "enforcement": "provider-schema",
+              "group": "rules:ConflictingListObjectAttributes:cookie_name,ip_and_tls_fingerprint",
+              "source": "ast-validator:ConflictingListObjectAttributes",
+              "target_id": "xcsh-docs:resources:user_identification:properties:rules:ip_and_tls_fingerprint",
+              "type": "conflicts"
+            },
+            {
+              "anchor": "section",
+              "enforcement": "provider-schema",
+              "group": "rules:ConflictingListObjectAttributes:http_header_name,ip_and_tls_fingerprint",
+              "source": "ast-validator:ConflictingListObjectAttributes",
+              "target_id": "xcsh-docs:resources:user_identification:properties:rules:ip_and_tls_fingerprint",
+              "type": "conflicts"
+            },
+            {
+              "anchor": "section",
+              "enforcement": "provider-schema",
+              "group": "rules:ConflictingListObjectAttributes:ip_and_http_header_name,ip_and_tls_fingerprint",
+              "source": "ast-validator:ConflictingListObjectAttributes",
+              "target_id": "xcsh-docs:resources:user_identification:properties:rules:ip_and_tls_fingerprint",
+              "type": "conflicts"
+            },
+            {
+              "anchor": "section",
+              "enforcement": "provider-schema",
+              "group": "rules:ConflictingListObjectAttributes:ip_and_ja4_tls_fingerprint,ip_and_tls_fingerprint",
+              "source": "ast-validator:ConflictingListObjectAttributes",
+              "target_id": "xcsh-docs:resources:user_identification:properties:rules:ip_and_tls_fingerprint",
+              "type": "conflicts"
+            },
+            {
+              "anchor": "section",
+              "enforcement": "provider-schema",
+              "group": "rules:ConflictingListObjectAttributes:ip_and_tls_fingerprint,ja4_tls_fingerprint",
+              "source": "ast-validator:ConflictingListObjectAttributes",
+              "target_id": "xcsh-docs:resources:user_identification:properties:rules:ip_and_tls_fingerprint",
+              "type": "conflicts"
+            },
+            {
+              "anchor": "section",
+              "enforcement": "provider-schema",
+              "group": "rules:ConflictingListObjectAttributes:ip_and_tls_fingerprint,jwt_claim_name",
+              "source": "ast-validator:ConflictingListObjectAttributes",
+              "target_id": "xcsh-docs:resources:user_identification:properties:rules:ip_and_tls_fingerprint",
+              "type": "conflicts"
+            },
+            {
+              "anchor": "section",
+              "enforcement": "provider-schema",
+              "group": "rules:ConflictingListObjectAttributes:ip_and_tls_fingerprint,none",
+              "source": "ast-validator:ConflictingListObjectAttributes",
+              "target_id": "xcsh-docs:resources:user_identification:properties:rules:ip_and_tls_fingerprint",
+              "type": "conflicts"
+            },
+            {
+              "anchor": "section",
+              "enforcement": "provider-schema",
+              "group": "rules:ConflictingListObjectAttributes:ip_and_tls_fingerprint,query_param_key",
+              "source": "ast-validator:ConflictingListObjectAttributes",
+              "target_id": "xcsh-docs:resources:user_identification:properties:rules:ip_and_tls_fingerprint",
+              "type": "conflicts"
+            },
+            {
+              "anchor": "section",
+              "enforcement": "provider-schema",
+              "group": "rules:ConflictingListObjectAttributes:ip_and_tls_fingerprint,tls_fingerprint",
+              "source": "ast-validator:ConflictingListObjectAttributes",
+              "target_id": "xcsh-docs:resources:user_identification:properties:rules:ip_and_tls_fingerprint",
+              "type": "conflicts"
+            },
+            {
+              "anchor": "section",
+              "enforcement": "provider-schema",
+              "group": "rules:ConflictingListObjectAttributes:client_asn,ja4_tls_fingerprint",
+              "source": "ast-validator:ConflictingListObjectAttributes",
+              "target_id": "xcsh-docs:resources:user_identification:properties:rules:ja4_tls_fingerprint",
+              "type": "conflicts"
+            },
+            {
+              "anchor": "section",
+              "enforcement": "provider-schema",
+              "group": "rules:ConflictingListObjectAttributes:client_city,ja4_tls_fingerprint",
+              "source": "ast-validator:ConflictingListObjectAttributes",
+              "target_id": "xcsh-docs:resources:user_identification:properties:rules:ja4_tls_fingerprint",
+              "type": "conflicts"
+            },
+            {
+              "anchor": "section",
+              "enforcement": "provider-schema",
+              "group": "rules:ConflictingListObjectAttributes:client_country,ja4_tls_fingerprint",
+              "source": "ast-validator:ConflictingListObjectAttributes",
+              "target_id": "xcsh-docs:resources:user_identification:properties:rules:ja4_tls_fingerprint",
+              "type": "conflicts"
+            },
+            {
+              "anchor": "section",
+              "enforcement": "provider-schema",
+              "group": "rules:ConflictingListObjectAttributes:client_ip,ja4_tls_fingerprint",
+              "source": "ast-validator:ConflictingListObjectAttributes",
+              "target_id": "xcsh-docs:resources:user_identification:properties:rules:ja4_tls_fingerprint",
+              "type": "conflicts"
+            },
+            {
+              "anchor": "section",
+              "enforcement": "provider-schema",
+              "group": "rules:ConflictingListObjectAttributes:client_region,ja4_tls_fingerprint",
+              "source": "ast-validator:ConflictingListObjectAttributes",
+              "target_id": "xcsh-docs:resources:user_identification:properties:rules:ja4_tls_fingerprint",
+              "type": "conflicts"
+            },
+            {
+              "anchor": "section",
+              "enforcement": "provider-schema",
+              "group": "rules:ConflictingListObjectAttributes:cookie_name,ja4_tls_fingerprint",
+              "source": "ast-validator:ConflictingListObjectAttributes",
+              "target_id": "xcsh-docs:resources:user_identification:properties:rules:ja4_tls_fingerprint",
+              "type": "conflicts"
+            },
+            {
+              "anchor": "section",
+              "enforcement": "provider-schema",
+              "group": "rules:ConflictingListObjectAttributes:http_header_name,ja4_tls_fingerprint",
+              "source": "ast-validator:ConflictingListObjectAttributes",
+              "target_id": "xcsh-docs:resources:user_identification:properties:rules:ja4_tls_fingerprint",
+              "type": "conflicts"
+            },
+            {
+              "anchor": "section",
+              "enforcement": "provider-schema",
+              "group": "rules:ConflictingListObjectAttributes:ip_and_http_header_name,ja4_tls_fingerprint",
+              "source": "ast-validator:ConflictingListObjectAttributes",
+              "target_id": "xcsh-docs:resources:user_identification:properties:rules:ja4_tls_fingerprint",
+              "type": "conflicts"
+            },
+            {
+              "anchor": "section",
+              "enforcement": "provider-schema",
+              "group": "rules:ConflictingListObjectAttributes:ip_and_ja4_tls_fingerprint,ja4_tls_fingerprint",
+              "source": "ast-validator:ConflictingListObjectAttributes",
+              "target_id": "xcsh-docs:resources:user_identification:properties:rules:ja4_tls_fingerprint",
+              "type": "conflicts"
+            },
+            {
+              "anchor": "section",
+              "enforcement": "provider-schema",
+              "group": "rules:ConflictingListObjectAttributes:ip_and_tls_fingerprint,ja4_tls_fingerprint",
+              "source": "ast-validator:ConflictingListObjectAttributes",
+              "target_id": "xcsh-docs:resources:user_identification:properties:rules:ja4_tls_fingerprint",
+              "type": "conflicts"
+            },
+            {
+              "anchor": "section",
+              "enforcement": "provider-schema",
+              "group": "rules:ConflictingListObjectAttributes:ja4_tls_fingerprint,jwt_claim_name",
+              "source": "ast-validator:ConflictingListObjectAttributes",
+              "target_id": "xcsh-docs:resources:user_identification:properties:rules:ja4_tls_fingerprint",
+              "type": "conflicts"
+            },
+            {
+              "anchor": "section",
+              "enforcement": "provider-schema",
+              "group": "rules:ConflictingListObjectAttributes:ja4_tls_fingerprint,none",
+              "source": "ast-validator:ConflictingListObjectAttributes",
+              "target_id": "xcsh-docs:resources:user_identification:properties:rules:ja4_tls_fingerprint",
+              "type": "conflicts"
+            },
+            {
+              "anchor": "section",
+              "enforcement": "provider-schema",
+              "group": "rules:ConflictingListObjectAttributes:ja4_tls_fingerprint,query_param_key",
+              "source": "ast-validator:ConflictingListObjectAttributes",
+              "target_id": "xcsh-docs:resources:user_identification:properties:rules:ja4_tls_fingerprint",
+              "type": "conflicts"
+            },
+            {
+              "anchor": "section",
+              "enforcement": "provider-schema",
+              "group": "rules:ConflictingListObjectAttributes:ja4_tls_fingerprint,tls_fingerprint",
+              "source": "ast-validator:ConflictingListObjectAttributes",
+              "target_id": "xcsh-docs:resources:user_identification:properties:rules:ja4_tls_fingerprint",
+              "type": "conflicts"
+            },
+            {
+              "anchor": "section",
+              "enforcement": "provider-schema",
+              "group": "rules:ConflictingListObjectAttributes:client_asn,none",
+              "source": "ast-validator:ConflictingListObjectAttributes",
+              "target_id": "xcsh-docs:resources:user_identification:properties:rules:none",
+              "type": "conflicts"
+            },
+            {
+              "anchor": "section",
+              "enforcement": "provider-schema",
+              "group": "rules:ConflictingListObjectAttributes:client_city,none",
+              "source": "ast-validator:ConflictingListObjectAttributes",
+              "target_id": "xcsh-docs:resources:user_identification:properties:rules:none",
+              "type": "conflicts"
+            },
+            {
+              "anchor": "section",
+              "enforcement": "provider-schema",
+              "group": "rules:ConflictingListObjectAttributes:client_country,none",
+              "source": "ast-validator:ConflictingListObjectAttributes",
+              "target_id": "xcsh-docs:resources:user_identification:properties:rules:none",
+              "type": "conflicts"
+            },
+            {
+              "anchor": "section",
+              "enforcement": "provider-schema",
+              "group": "rules:ConflictingListObjectAttributes:client_ip,none",
+              "source": "ast-validator:ConflictingListObjectAttributes",
+              "target_id": "xcsh-docs:resources:user_identification:properties:rules:none",
+              "type": "conflicts"
+            },
+            {
+              "anchor": "section",
+              "enforcement": "provider-schema",
+              "group": "rules:ConflictingListObjectAttributes:client_region,none",
+              "source": "ast-validator:ConflictingListObjectAttributes",
+              "target_id": "xcsh-docs:resources:user_identification:properties:rules:none",
+              "type": "conflicts"
+            },
+            {
+              "anchor": "section",
+              "enforcement": "provider-schema",
+              "group": "rules:ConflictingListObjectAttributes:cookie_name,none",
+              "source": "ast-validator:ConflictingListObjectAttributes",
+              "target_id": "xcsh-docs:resources:user_identification:properties:rules:none",
+              "type": "conflicts"
+            },
+            {
+              "anchor": "section",
+              "enforcement": "provider-schema",
+              "group": "rules:ConflictingListObjectAttributes:http_header_name,none",
+              "source": "ast-validator:ConflictingListObjectAttributes",
+              "target_id": "xcsh-docs:resources:user_identification:properties:rules:none",
+              "type": "conflicts"
+            },
+            {
+              "anchor": "section",
+              "enforcement": "provider-schema",
+              "group": "rules:ConflictingListObjectAttributes:ip_and_http_header_name,none",
+              "source": "ast-validator:ConflictingListObjectAttributes",
+              "target_id": "xcsh-docs:resources:user_identification:properties:rules:none",
+              "type": "conflicts"
+            },
+            {
+              "anchor": "section",
+              "enforcement": "provider-schema",
+              "group": "rules:ConflictingListObjectAttributes:ip_and_ja4_tls_fingerprint,none",
+              "source": "ast-validator:ConflictingListObjectAttributes",
+              "target_id": "xcsh-docs:resources:user_identification:properties:rules:none",
+              "type": "conflicts"
+            },
+            {
+              "anchor": "section",
+              "enforcement": "provider-schema",
+              "group": "rules:ConflictingListObjectAttributes:ip_and_tls_fingerprint,none",
+              "source": "ast-validator:ConflictingListObjectAttributes",
+              "target_id": "xcsh-docs:resources:user_identification:properties:rules:none",
+              "type": "conflicts"
+            },
+            {
+              "anchor": "section",
+              "enforcement": "provider-schema",
+              "group": "rules:ConflictingListObjectAttributes:ja4_tls_fingerprint,none",
+              "source": "ast-validator:ConflictingListObjectAttributes",
+              "target_id": "xcsh-docs:resources:user_identification:properties:rules:none",
+              "type": "conflicts"
+            },
+            {
+              "anchor": "section",
+              "enforcement": "provider-schema",
+              "group": "rules:ConflictingListObjectAttributes:jwt_claim_name,none",
+              "source": "ast-validator:ConflictingListObjectAttributes",
+              "target_id": "xcsh-docs:resources:user_identification:properties:rules:none",
+              "type": "conflicts"
+            },
+            {
+              "anchor": "section",
+              "enforcement": "provider-schema",
+              "group": "rules:ConflictingListObjectAttributes:none,query_param_key",
+              "source": "ast-validator:ConflictingListObjectAttributes",
+              "target_id": "xcsh-docs:resources:user_identification:properties:rules:none",
+              "type": "conflicts"
+            },
+            {
+              "anchor": "section",
+              "enforcement": "provider-schema",
+              "group": "rules:ConflictingListObjectAttributes:none,tls_fingerprint",
+              "source": "ast-validator:ConflictingListObjectAttributes",
+              "target_id": "xcsh-docs:resources:user_identification:properties:rules:none",
+              "type": "conflicts"
+            },
+            {
+              "anchor": "section",
+              "enforcement": "provider-schema",
+              "group": "rules:ConflictingListObjectAttributes:client_asn,tls_fingerprint",
+              "source": "ast-validator:ConflictingListObjectAttributes",
+              "target_id": "xcsh-docs:resources:user_identification:properties:rules:tls_fingerprint",
+              "type": "conflicts"
+            },
+            {
+              "anchor": "section",
+              "enforcement": "provider-schema",
+              "group": "rules:ConflictingListObjectAttributes:client_city,tls_fingerprint",
+              "source": "ast-validator:ConflictingListObjectAttributes",
+              "target_id": "xcsh-docs:resources:user_identification:properties:rules:tls_fingerprint",
+              "type": "conflicts"
+            },
+            {
+              "anchor": "section",
+              "enforcement": "provider-schema",
+              "group": "rules:ConflictingListObjectAttributes:client_country,tls_fingerprint",
+              "source": "ast-validator:ConflictingListObjectAttributes",
+              "target_id": "xcsh-docs:resources:user_identification:properties:rules:tls_fingerprint",
+              "type": "conflicts"
+            },
+            {
+              "anchor": "section",
+              "enforcement": "provider-schema",
+              "group": "rules:ConflictingListObjectAttributes:client_ip,tls_fingerprint",
+              "source": "ast-validator:ConflictingListObjectAttributes",
+              "target_id": "xcsh-docs:resources:user_identification:properties:rules:tls_fingerprint",
+              "type": "conflicts"
+            },
+            {
+              "anchor": "section",
+              "enforcement": "provider-schema",
+              "group": "rules:ConflictingListObjectAttributes:client_region,tls_fingerprint",
+              "source": "ast-validator:ConflictingListObjectAttributes",
+              "target_id": "xcsh-docs:resources:user_identification:properties:rules:tls_fingerprint",
+              "type": "conflicts"
+            },
+            {
+              "anchor": "section",
+              "enforcement": "provider-schema",
+              "group": "rules:ConflictingListObjectAttributes:cookie_name,tls_fingerprint",
+              "source": "ast-validator:ConflictingListObjectAttributes",
+              "target_id": "xcsh-docs:resources:user_identification:properties:rules:tls_fingerprint",
+              "type": "conflicts"
+            },
+            {
+              "anchor": "section",
+              "enforcement": "provider-schema",
+              "group": "rules:ConflictingListObjectAttributes:http_header_name,tls_fingerprint",
+              "source": "ast-validator:ConflictingListObjectAttributes",
+              "target_id": "xcsh-docs:resources:user_identification:properties:rules:tls_fingerprint",
+              "type": "conflicts"
+            },
+            {
+              "anchor": "section",
+              "enforcement": "provider-schema",
+              "group": "rules:ConflictingListObjectAttributes:ip_and_http_header_name,tls_fingerprint",
+              "source": "ast-validator:ConflictingListObjectAttributes",
+              "target_id": "xcsh-docs:resources:user_identification:properties:rules:tls_fingerprint",
+              "type": "conflicts"
+            },
+            {
+              "anchor": "section",
+              "enforcement": "provider-schema",
+              "group": "rules:ConflictingListObjectAttributes:ip_and_ja4_tls_fingerprint,tls_fingerprint",
+              "source": "ast-validator:ConflictingListObjectAttributes",
+              "target_id": "xcsh-docs:resources:user_identification:properties:rules:tls_fingerprint",
+              "type": "conflicts"
+            },
+            {
+              "anchor": "section",
+              "enforcement": "provider-schema",
+              "group": "rules:ConflictingListObjectAttributes:ip_and_tls_fingerprint,tls_fingerprint",
+              "source": "ast-validator:ConflictingListObjectAttributes",
+              "target_id": "xcsh-docs:resources:user_identification:properties:rules:tls_fingerprint",
+              "type": "conflicts"
+            },
+            {
+              "anchor": "section",
+              "enforcement": "provider-schema",
+              "group": "rules:ConflictingListObjectAttributes:ja4_tls_fingerprint,tls_fingerprint",
+              "source": "ast-validator:ConflictingListObjectAttributes",
+              "target_id": "xcsh-docs:resources:user_identification:properties:rules:tls_fingerprint",
+              "type": "conflicts"
+            },
+            {
+              "anchor": "section",
+              "enforcement": "provider-schema",
+              "group": "rules:ConflictingListObjectAttributes:jwt_claim_name,tls_fingerprint",
+              "source": "ast-validator:ConflictingListObjectAttributes",
+              "target_id": "xcsh-docs:resources:user_identification:properties:rules:tls_fingerprint",
+              "type": "conflicts"
+            },
+            {
+              "anchor": "section",
+              "enforcement": "provider-schema",
+              "group": "rules:ConflictingListObjectAttributes:none,tls_fingerprint",
+              "source": "ast-validator:ConflictingListObjectAttributes",
+              "target_id": "xcsh-docs:resources:user_identification:properties:rules:tls_fingerprint",
+              "type": "conflicts"
+            },
+            {
+              "anchor": "section",
+              "enforcement": "provider-schema",
+              "group": "rules:ConflictingListObjectAttributes:query_param_key,tls_fingerprint",
+              "source": "ast-validator:ConflictingListObjectAttributes",
+              "target_id": "xcsh-docs:resources:user_identification:properties:rules:tls_fingerprint",
+              "type": "conflicts"
+            }
+          ],
           "schema_path": ["rules"],
           "syntax": "block",
           "type": "object"
@@ -384,7 +2065,7 @@
         "xcsh-docs:resources:user_identification:properties:rules:tls_fingerprint"
       ],
       "classification": {
-        "rules_sha256": "sha256:98dbf5280bf8376a0c75c1391250db9db4ac0d293d42bdd831c20f7514925adb",
+        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -400,7 +2081,1688 @@
       "provider_type": "resources",
       "registry_anchor": "canonical-1012211320301032-3320202022331132-2112102302331031-2123331232332232-2322320133010011-1301021031230003-2202201001032002-1132320133000203",
       "registry_path": "docs/guides/resources--user_identification--reference--group-001.md",
-      "relationships": [],
+      "relationships": [
+        {
+          "anchor": "schema-rules--cookie_name",
+          "enforcement": "provider-schema",
+          "group": "rules:ConflictingListObjectAttributes:client_asn,cookie_name",
+          "source": "ast-validator:ConflictingListObjectAttributes",
+          "target_id": "xcsh-docs:resources:user_identification:properties:rules",
+          "type": "conflicts"
+        },
+        {
+          "anchor": "schema-rules--cookie_name",
+          "enforcement": "provider-schema",
+          "group": "rules:ConflictingListObjectAttributes:client_city,cookie_name",
+          "source": "ast-validator:ConflictingListObjectAttributes",
+          "target_id": "xcsh-docs:resources:user_identification:properties:rules",
+          "type": "conflicts"
+        },
+        {
+          "anchor": "schema-rules--cookie_name",
+          "enforcement": "provider-schema",
+          "group": "rules:ConflictingListObjectAttributes:client_country,cookie_name",
+          "source": "ast-validator:ConflictingListObjectAttributes",
+          "target_id": "xcsh-docs:resources:user_identification:properties:rules",
+          "type": "conflicts"
+        },
+        {
+          "anchor": "schema-rules--cookie_name",
+          "enforcement": "provider-schema",
+          "group": "rules:ConflictingListObjectAttributes:client_ip,cookie_name",
+          "source": "ast-validator:ConflictingListObjectAttributes",
+          "target_id": "xcsh-docs:resources:user_identification:properties:rules",
+          "type": "conflicts"
+        },
+        {
+          "anchor": "schema-rules--cookie_name",
+          "enforcement": "provider-schema",
+          "group": "rules:ConflictingListObjectAttributes:client_region,cookie_name",
+          "source": "ast-validator:ConflictingListObjectAttributes",
+          "target_id": "xcsh-docs:resources:user_identification:properties:rules",
+          "type": "conflicts"
+        },
+        {
+          "anchor": "schema-rules--cookie_name",
+          "enforcement": "provider-schema",
+          "group": "rules:ConflictingListObjectAttributes:cookie_name,http_header_name",
+          "source": "ast-validator:ConflictingListObjectAttributes",
+          "target_id": "xcsh-docs:resources:user_identification:properties:rules",
+          "type": "conflicts"
+        },
+        {
+          "anchor": "schema-rules--cookie_name",
+          "enforcement": "provider-schema",
+          "group": "rules:ConflictingListObjectAttributes:cookie_name,ip_and_http_header_name",
+          "source": "ast-validator:ConflictingListObjectAttributes",
+          "target_id": "xcsh-docs:resources:user_identification:properties:rules",
+          "type": "conflicts"
+        },
+        {
+          "anchor": "schema-rules--cookie_name",
+          "enforcement": "provider-schema",
+          "group": "rules:ConflictingListObjectAttributes:cookie_name,ip_and_ja4_tls_fingerprint",
+          "source": "ast-validator:ConflictingListObjectAttributes",
+          "target_id": "xcsh-docs:resources:user_identification:properties:rules",
+          "type": "conflicts"
+        },
+        {
+          "anchor": "schema-rules--cookie_name",
+          "enforcement": "provider-schema",
+          "group": "rules:ConflictingListObjectAttributes:cookie_name,ip_and_tls_fingerprint",
+          "source": "ast-validator:ConflictingListObjectAttributes",
+          "target_id": "xcsh-docs:resources:user_identification:properties:rules",
+          "type": "conflicts"
+        },
+        {
+          "anchor": "schema-rules--cookie_name",
+          "enforcement": "provider-schema",
+          "group": "rules:ConflictingListObjectAttributes:cookie_name,ja4_tls_fingerprint",
+          "source": "ast-validator:ConflictingListObjectAttributes",
+          "target_id": "xcsh-docs:resources:user_identification:properties:rules",
+          "type": "conflicts"
+        },
+        {
+          "anchor": "schema-rules--cookie_name",
+          "enforcement": "provider-schema",
+          "group": "rules:ConflictingListObjectAttributes:cookie_name,jwt_claim_name",
+          "source": "ast-validator:ConflictingListObjectAttributes",
+          "target_id": "xcsh-docs:resources:user_identification:properties:rules",
+          "type": "conflicts"
+        },
+        {
+          "anchor": "schema-rules--cookie_name",
+          "enforcement": "provider-schema",
+          "group": "rules:ConflictingListObjectAttributes:cookie_name,none",
+          "source": "ast-validator:ConflictingListObjectAttributes",
+          "target_id": "xcsh-docs:resources:user_identification:properties:rules",
+          "type": "conflicts"
+        },
+        {
+          "anchor": "schema-rules--cookie_name",
+          "enforcement": "provider-schema",
+          "group": "rules:ConflictingListObjectAttributes:cookie_name,query_param_key",
+          "source": "ast-validator:ConflictingListObjectAttributes",
+          "target_id": "xcsh-docs:resources:user_identification:properties:rules",
+          "type": "conflicts"
+        },
+        {
+          "anchor": "schema-rules--cookie_name",
+          "enforcement": "provider-schema",
+          "group": "rules:ConflictingListObjectAttributes:cookie_name,tls_fingerprint",
+          "source": "ast-validator:ConflictingListObjectAttributes",
+          "target_id": "xcsh-docs:resources:user_identification:properties:rules",
+          "type": "conflicts"
+        },
+        {
+          "anchor": "schema-rules--http_header_name",
+          "enforcement": "provider-schema",
+          "group": "rules:ConflictingListObjectAttributes:client_asn,http_header_name",
+          "source": "ast-validator:ConflictingListObjectAttributes",
+          "target_id": "xcsh-docs:resources:user_identification:properties:rules",
+          "type": "conflicts"
+        },
+        {
+          "anchor": "schema-rules--http_header_name",
+          "enforcement": "provider-schema",
+          "group": "rules:ConflictingListObjectAttributes:client_city,http_header_name",
+          "source": "ast-validator:ConflictingListObjectAttributes",
+          "target_id": "xcsh-docs:resources:user_identification:properties:rules",
+          "type": "conflicts"
+        },
+        {
+          "anchor": "schema-rules--http_header_name",
+          "enforcement": "provider-schema",
+          "group": "rules:ConflictingListObjectAttributes:client_country,http_header_name",
+          "source": "ast-validator:ConflictingListObjectAttributes",
+          "target_id": "xcsh-docs:resources:user_identification:properties:rules",
+          "type": "conflicts"
+        },
+        {
+          "anchor": "schema-rules--http_header_name",
+          "enforcement": "provider-schema",
+          "group": "rules:ConflictingListObjectAttributes:client_ip,http_header_name",
+          "source": "ast-validator:ConflictingListObjectAttributes",
+          "target_id": "xcsh-docs:resources:user_identification:properties:rules",
+          "type": "conflicts"
+        },
+        {
+          "anchor": "schema-rules--http_header_name",
+          "enforcement": "provider-schema",
+          "group": "rules:ConflictingListObjectAttributes:client_region,http_header_name",
+          "source": "ast-validator:ConflictingListObjectAttributes",
+          "target_id": "xcsh-docs:resources:user_identification:properties:rules",
+          "type": "conflicts"
+        },
+        {
+          "anchor": "schema-rules--http_header_name",
+          "enforcement": "provider-schema",
+          "group": "rules:ConflictingListObjectAttributes:cookie_name,http_header_name",
+          "source": "ast-validator:ConflictingListObjectAttributes",
+          "target_id": "xcsh-docs:resources:user_identification:properties:rules",
+          "type": "conflicts"
+        },
+        {
+          "anchor": "schema-rules--http_header_name",
+          "enforcement": "provider-schema",
+          "group": "rules:ConflictingListObjectAttributes:http_header_name,ip_and_http_header_name",
+          "source": "ast-validator:ConflictingListObjectAttributes",
+          "target_id": "xcsh-docs:resources:user_identification:properties:rules",
+          "type": "conflicts"
+        },
+        {
+          "anchor": "schema-rules--http_header_name",
+          "enforcement": "provider-schema",
+          "group": "rules:ConflictingListObjectAttributes:http_header_name,ip_and_ja4_tls_fingerprint",
+          "source": "ast-validator:ConflictingListObjectAttributes",
+          "target_id": "xcsh-docs:resources:user_identification:properties:rules",
+          "type": "conflicts"
+        },
+        {
+          "anchor": "schema-rules--http_header_name",
+          "enforcement": "provider-schema",
+          "group": "rules:ConflictingListObjectAttributes:http_header_name,ip_and_tls_fingerprint",
+          "source": "ast-validator:ConflictingListObjectAttributes",
+          "target_id": "xcsh-docs:resources:user_identification:properties:rules",
+          "type": "conflicts"
+        },
+        {
+          "anchor": "schema-rules--http_header_name",
+          "enforcement": "provider-schema",
+          "group": "rules:ConflictingListObjectAttributes:http_header_name,ja4_tls_fingerprint",
+          "source": "ast-validator:ConflictingListObjectAttributes",
+          "target_id": "xcsh-docs:resources:user_identification:properties:rules",
+          "type": "conflicts"
+        },
+        {
+          "anchor": "schema-rules--http_header_name",
+          "enforcement": "provider-schema",
+          "group": "rules:ConflictingListObjectAttributes:http_header_name,jwt_claim_name",
+          "source": "ast-validator:ConflictingListObjectAttributes",
+          "target_id": "xcsh-docs:resources:user_identification:properties:rules",
+          "type": "conflicts"
+        },
+        {
+          "anchor": "schema-rules--http_header_name",
+          "enforcement": "provider-schema",
+          "group": "rules:ConflictingListObjectAttributes:http_header_name,none",
+          "source": "ast-validator:ConflictingListObjectAttributes",
+          "target_id": "xcsh-docs:resources:user_identification:properties:rules",
+          "type": "conflicts"
+        },
+        {
+          "anchor": "schema-rules--http_header_name",
+          "enforcement": "provider-schema",
+          "group": "rules:ConflictingListObjectAttributes:http_header_name,query_param_key",
+          "source": "ast-validator:ConflictingListObjectAttributes",
+          "target_id": "xcsh-docs:resources:user_identification:properties:rules",
+          "type": "conflicts"
+        },
+        {
+          "anchor": "schema-rules--http_header_name",
+          "enforcement": "provider-schema",
+          "group": "rules:ConflictingListObjectAttributes:http_header_name,tls_fingerprint",
+          "source": "ast-validator:ConflictingListObjectAttributes",
+          "target_id": "xcsh-docs:resources:user_identification:properties:rules",
+          "type": "conflicts"
+        },
+        {
+          "anchor": "schema-rules--ip_and_http_header_name",
+          "enforcement": "provider-schema",
+          "group": "rules:ConflictingListObjectAttributes:client_asn,ip_and_http_header_name",
+          "source": "ast-validator:ConflictingListObjectAttributes",
+          "target_id": "xcsh-docs:resources:user_identification:properties:rules",
+          "type": "conflicts"
+        },
+        {
+          "anchor": "schema-rules--ip_and_http_header_name",
+          "enforcement": "provider-schema",
+          "group": "rules:ConflictingListObjectAttributes:client_city,ip_and_http_header_name",
+          "source": "ast-validator:ConflictingListObjectAttributes",
+          "target_id": "xcsh-docs:resources:user_identification:properties:rules",
+          "type": "conflicts"
+        },
+        {
+          "anchor": "schema-rules--ip_and_http_header_name",
+          "enforcement": "provider-schema",
+          "group": "rules:ConflictingListObjectAttributes:client_country,ip_and_http_header_name",
+          "source": "ast-validator:ConflictingListObjectAttributes",
+          "target_id": "xcsh-docs:resources:user_identification:properties:rules",
+          "type": "conflicts"
+        },
+        {
+          "anchor": "schema-rules--ip_and_http_header_name",
+          "enforcement": "provider-schema",
+          "group": "rules:ConflictingListObjectAttributes:client_ip,ip_and_http_header_name",
+          "source": "ast-validator:ConflictingListObjectAttributes",
+          "target_id": "xcsh-docs:resources:user_identification:properties:rules",
+          "type": "conflicts"
+        },
+        {
+          "anchor": "schema-rules--ip_and_http_header_name",
+          "enforcement": "provider-schema",
+          "group": "rules:ConflictingListObjectAttributes:client_region,ip_and_http_header_name",
+          "source": "ast-validator:ConflictingListObjectAttributes",
+          "target_id": "xcsh-docs:resources:user_identification:properties:rules",
+          "type": "conflicts"
+        },
+        {
+          "anchor": "schema-rules--ip_and_http_header_name",
+          "enforcement": "provider-schema",
+          "group": "rules:ConflictingListObjectAttributes:cookie_name,ip_and_http_header_name",
+          "source": "ast-validator:ConflictingListObjectAttributes",
+          "target_id": "xcsh-docs:resources:user_identification:properties:rules",
+          "type": "conflicts"
+        },
+        {
+          "anchor": "schema-rules--ip_and_http_header_name",
+          "enforcement": "provider-schema",
+          "group": "rules:ConflictingListObjectAttributes:http_header_name,ip_and_http_header_name",
+          "source": "ast-validator:ConflictingListObjectAttributes",
+          "target_id": "xcsh-docs:resources:user_identification:properties:rules",
+          "type": "conflicts"
+        },
+        {
+          "anchor": "schema-rules--ip_and_http_header_name",
+          "enforcement": "provider-schema",
+          "group": "rules:ConflictingListObjectAttributes:ip_and_http_header_name,ip_and_ja4_tls_fingerprint",
+          "source": "ast-validator:ConflictingListObjectAttributes",
+          "target_id": "xcsh-docs:resources:user_identification:properties:rules",
+          "type": "conflicts"
+        },
+        {
+          "anchor": "schema-rules--ip_and_http_header_name",
+          "enforcement": "provider-schema",
+          "group": "rules:ConflictingListObjectAttributes:ip_and_http_header_name,ip_and_tls_fingerprint",
+          "source": "ast-validator:ConflictingListObjectAttributes",
+          "target_id": "xcsh-docs:resources:user_identification:properties:rules",
+          "type": "conflicts"
+        },
+        {
+          "anchor": "schema-rules--ip_and_http_header_name",
+          "enforcement": "provider-schema",
+          "group": "rules:ConflictingListObjectAttributes:ip_and_http_header_name,ja4_tls_fingerprint",
+          "source": "ast-validator:ConflictingListObjectAttributes",
+          "target_id": "xcsh-docs:resources:user_identification:properties:rules",
+          "type": "conflicts"
+        },
+        {
+          "anchor": "schema-rules--ip_and_http_header_name",
+          "enforcement": "provider-schema",
+          "group": "rules:ConflictingListObjectAttributes:ip_and_http_header_name,jwt_claim_name",
+          "source": "ast-validator:ConflictingListObjectAttributes",
+          "target_id": "xcsh-docs:resources:user_identification:properties:rules",
+          "type": "conflicts"
+        },
+        {
+          "anchor": "schema-rules--ip_and_http_header_name",
+          "enforcement": "provider-schema",
+          "group": "rules:ConflictingListObjectAttributes:ip_and_http_header_name,none",
+          "source": "ast-validator:ConflictingListObjectAttributes",
+          "target_id": "xcsh-docs:resources:user_identification:properties:rules",
+          "type": "conflicts"
+        },
+        {
+          "anchor": "schema-rules--ip_and_http_header_name",
+          "enforcement": "provider-schema",
+          "group": "rules:ConflictingListObjectAttributes:ip_and_http_header_name,query_param_key",
+          "source": "ast-validator:ConflictingListObjectAttributes",
+          "target_id": "xcsh-docs:resources:user_identification:properties:rules",
+          "type": "conflicts"
+        },
+        {
+          "anchor": "schema-rules--ip_and_http_header_name",
+          "enforcement": "provider-schema",
+          "group": "rules:ConflictingListObjectAttributes:ip_and_http_header_name,tls_fingerprint",
+          "source": "ast-validator:ConflictingListObjectAttributes",
+          "target_id": "xcsh-docs:resources:user_identification:properties:rules",
+          "type": "conflicts"
+        },
+        {
+          "anchor": "schema-rules--jwt_claim_name",
+          "enforcement": "provider-schema",
+          "group": "rules:ConflictingListObjectAttributes:client_asn,jwt_claim_name",
+          "source": "ast-validator:ConflictingListObjectAttributes",
+          "target_id": "xcsh-docs:resources:user_identification:properties:rules",
+          "type": "conflicts"
+        },
+        {
+          "anchor": "schema-rules--jwt_claim_name",
+          "enforcement": "provider-schema",
+          "group": "rules:ConflictingListObjectAttributes:client_city,jwt_claim_name",
+          "source": "ast-validator:ConflictingListObjectAttributes",
+          "target_id": "xcsh-docs:resources:user_identification:properties:rules",
+          "type": "conflicts"
+        },
+        {
+          "anchor": "schema-rules--jwt_claim_name",
+          "enforcement": "provider-schema",
+          "group": "rules:ConflictingListObjectAttributes:client_country,jwt_claim_name",
+          "source": "ast-validator:ConflictingListObjectAttributes",
+          "target_id": "xcsh-docs:resources:user_identification:properties:rules",
+          "type": "conflicts"
+        },
+        {
+          "anchor": "schema-rules--jwt_claim_name",
+          "enforcement": "provider-schema",
+          "group": "rules:ConflictingListObjectAttributes:client_ip,jwt_claim_name",
+          "source": "ast-validator:ConflictingListObjectAttributes",
+          "target_id": "xcsh-docs:resources:user_identification:properties:rules",
+          "type": "conflicts"
+        },
+        {
+          "anchor": "schema-rules--jwt_claim_name",
+          "enforcement": "provider-schema",
+          "group": "rules:ConflictingListObjectAttributes:client_region,jwt_claim_name",
+          "source": "ast-validator:ConflictingListObjectAttributes",
+          "target_id": "xcsh-docs:resources:user_identification:properties:rules",
+          "type": "conflicts"
+        },
+        {
+          "anchor": "schema-rules--jwt_claim_name",
+          "enforcement": "provider-schema",
+          "group": "rules:ConflictingListObjectAttributes:cookie_name,jwt_claim_name",
+          "source": "ast-validator:ConflictingListObjectAttributes",
+          "target_id": "xcsh-docs:resources:user_identification:properties:rules",
+          "type": "conflicts"
+        },
+        {
+          "anchor": "schema-rules--jwt_claim_name",
+          "enforcement": "provider-schema",
+          "group": "rules:ConflictingListObjectAttributes:http_header_name,jwt_claim_name",
+          "source": "ast-validator:ConflictingListObjectAttributes",
+          "target_id": "xcsh-docs:resources:user_identification:properties:rules",
+          "type": "conflicts"
+        },
+        {
+          "anchor": "schema-rules--jwt_claim_name",
+          "enforcement": "provider-schema",
+          "group": "rules:ConflictingListObjectAttributes:ip_and_http_header_name,jwt_claim_name",
+          "source": "ast-validator:ConflictingListObjectAttributes",
+          "target_id": "xcsh-docs:resources:user_identification:properties:rules",
+          "type": "conflicts"
+        },
+        {
+          "anchor": "schema-rules--jwt_claim_name",
+          "enforcement": "provider-schema",
+          "group": "rules:ConflictingListObjectAttributes:ip_and_ja4_tls_fingerprint,jwt_claim_name",
+          "source": "ast-validator:ConflictingListObjectAttributes",
+          "target_id": "xcsh-docs:resources:user_identification:properties:rules",
+          "type": "conflicts"
+        },
+        {
+          "anchor": "schema-rules--jwt_claim_name",
+          "enforcement": "provider-schema",
+          "group": "rules:ConflictingListObjectAttributes:ip_and_tls_fingerprint,jwt_claim_name",
+          "source": "ast-validator:ConflictingListObjectAttributes",
+          "target_id": "xcsh-docs:resources:user_identification:properties:rules",
+          "type": "conflicts"
+        },
+        {
+          "anchor": "schema-rules--jwt_claim_name",
+          "enforcement": "provider-schema",
+          "group": "rules:ConflictingListObjectAttributes:ja4_tls_fingerprint,jwt_claim_name",
+          "source": "ast-validator:ConflictingListObjectAttributes",
+          "target_id": "xcsh-docs:resources:user_identification:properties:rules",
+          "type": "conflicts"
+        },
+        {
+          "anchor": "schema-rules--jwt_claim_name",
+          "enforcement": "provider-schema",
+          "group": "rules:ConflictingListObjectAttributes:jwt_claim_name,none",
+          "source": "ast-validator:ConflictingListObjectAttributes",
+          "target_id": "xcsh-docs:resources:user_identification:properties:rules",
+          "type": "conflicts"
+        },
+        {
+          "anchor": "schema-rules--jwt_claim_name",
+          "enforcement": "provider-schema",
+          "group": "rules:ConflictingListObjectAttributes:jwt_claim_name,query_param_key",
+          "source": "ast-validator:ConflictingListObjectAttributes",
+          "target_id": "xcsh-docs:resources:user_identification:properties:rules",
+          "type": "conflicts"
+        },
+        {
+          "anchor": "schema-rules--jwt_claim_name",
+          "enforcement": "provider-schema",
+          "group": "rules:ConflictingListObjectAttributes:jwt_claim_name,tls_fingerprint",
+          "source": "ast-validator:ConflictingListObjectAttributes",
+          "target_id": "xcsh-docs:resources:user_identification:properties:rules",
+          "type": "conflicts"
+        },
+        {
+          "anchor": "schema-rules--query_param_key",
+          "enforcement": "provider-schema",
+          "group": "rules:ConflictingListObjectAttributes:client_asn,query_param_key",
+          "source": "ast-validator:ConflictingListObjectAttributes",
+          "target_id": "xcsh-docs:resources:user_identification:properties:rules",
+          "type": "conflicts"
+        },
+        {
+          "anchor": "schema-rules--query_param_key",
+          "enforcement": "provider-schema",
+          "group": "rules:ConflictingListObjectAttributes:client_city,query_param_key",
+          "source": "ast-validator:ConflictingListObjectAttributes",
+          "target_id": "xcsh-docs:resources:user_identification:properties:rules",
+          "type": "conflicts"
+        },
+        {
+          "anchor": "schema-rules--query_param_key",
+          "enforcement": "provider-schema",
+          "group": "rules:ConflictingListObjectAttributes:client_country,query_param_key",
+          "source": "ast-validator:ConflictingListObjectAttributes",
+          "target_id": "xcsh-docs:resources:user_identification:properties:rules",
+          "type": "conflicts"
+        },
+        {
+          "anchor": "schema-rules--query_param_key",
+          "enforcement": "provider-schema",
+          "group": "rules:ConflictingListObjectAttributes:client_ip,query_param_key",
+          "source": "ast-validator:ConflictingListObjectAttributes",
+          "target_id": "xcsh-docs:resources:user_identification:properties:rules",
+          "type": "conflicts"
+        },
+        {
+          "anchor": "schema-rules--query_param_key",
+          "enforcement": "provider-schema",
+          "group": "rules:ConflictingListObjectAttributes:client_region,query_param_key",
+          "source": "ast-validator:ConflictingListObjectAttributes",
+          "target_id": "xcsh-docs:resources:user_identification:properties:rules",
+          "type": "conflicts"
+        },
+        {
+          "anchor": "schema-rules--query_param_key",
+          "enforcement": "provider-schema",
+          "group": "rules:ConflictingListObjectAttributes:cookie_name,query_param_key",
+          "source": "ast-validator:ConflictingListObjectAttributes",
+          "target_id": "xcsh-docs:resources:user_identification:properties:rules",
+          "type": "conflicts"
+        },
+        {
+          "anchor": "schema-rules--query_param_key",
+          "enforcement": "provider-schema",
+          "group": "rules:ConflictingListObjectAttributes:http_header_name,query_param_key",
+          "source": "ast-validator:ConflictingListObjectAttributes",
+          "target_id": "xcsh-docs:resources:user_identification:properties:rules",
+          "type": "conflicts"
+        },
+        {
+          "anchor": "schema-rules--query_param_key",
+          "enforcement": "provider-schema",
+          "group": "rules:ConflictingListObjectAttributes:ip_and_http_header_name,query_param_key",
+          "source": "ast-validator:ConflictingListObjectAttributes",
+          "target_id": "xcsh-docs:resources:user_identification:properties:rules",
+          "type": "conflicts"
+        },
+        {
+          "anchor": "schema-rules--query_param_key",
+          "enforcement": "provider-schema",
+          "group": "rules:ConflictingListObjectAttributes:ip_and_ja4_tls_fingerprint,query_param_key",
+          "source": "ast-validator:ConflictingListObjectAttributes",
+          "target_id": "xcsh-docs:resources:user_identification:properties:rules",
+          "type": "conflicts"
+        },
+        {
+          "anchor": "schema-rules--query_param_key",
+          "enforcement": "provider-schema",
+          "group": "rules:ConflictingListObjectAttributes:ip_and_tls_fingerprint,query_param_key",
+          "source": "ast-validator:ConflictingListObjectAttributes",
+          "target_id": "xcsh-docs:resources:user_identification:properties:rules",
+          "type": "conflicts"
+        },
+        {
+          "anchor": "schema-rules--query_param_key",
+          "enforcement": "provider-schema",
+          "group": "rules:ConflictingListObjectAttributes:ja4_tls_fingerprint,query_param_key",
+          "source": "ast-validator:ConflictingListObjectAttributes",
+          "target_id": "xcsh-docs:resources:user_identification:properties:rules",
+          "type": "conflicts"
+        },
+        {
+          "anchor": "schema-rules--query_param_key",
+          "enforcement": "provider-schema",
+          "group": "rules:ConflictingListObjectAttributes:jwt_claim_name,query_param_key",
+          "source": "ast-validator:ConflictingListObjectAttributes",
+          "target_id": "xcsh-docs:resources:user_identification:properties:rules",
+          "type": "conflicts"
+        },
+        {
+          "anchor": "schema-rules--query_param_key",
+          "enforcement": "provider-schema",
+          "group": "rules:ConflictingListObjectAttributes:none,query_param_key",
+          "source": "ast-validator:ConflictingListObjectAttributes",
+          "target_id": "xcsh-docs:resources:user_identification:properties:rules",
+          "type": "conflicts"
+        },
+        {
+          "anchor": "schema-rules--query_param_key",
+          "enforcement": "provider-schema",
+          "group": "rules:ConflictingListObjectAttributes:query_param_key,tls_fingerprint",
+          "source": "ast-validator:ConflictingListObjectAttributes",
+          "target_id": "xcsh-docs:resources:user_identification:properties:rules",
+          "type": "conflicts"
+        },
+        {
+          "anchor": "section",
+          "enforcement": "provider-schema",
+          "group": "rules:ConflictingListObjectAttributes:client_asn,client_city",
+          "source": "ast-validator:ConflictingListObjectAttributes",
+          "target_id": "xcsh-docs:resources:user_identification:properties:rules:client_asn",
+          "type": "conflicts"
+        },
+        {
+          "anchor": "section",
+          "enforcement": "provider-schema",
+          "group": "rules:ConflictingListObjectAttributes:client_asn,client_country",
+          "source": "ast-validator:ConflictingListObjectAttributes",
+          "target_id": "xcsh-docs:resources:user_identification:properties:rules:client_asn",
+          "type": "conflicts"
+        },
+        {
+          "anchor": "section",
+          "enforcement": "provider-schema",
+          "group": "rules:ConflictingListObjectAttributes:client_asn,client_ip",
+          "source": "ast-validator:ConflictingListObjectAttributes",
+          "target_id": "xcsh-docs:resources:user_identification:properties:rules:client_asn",
+          "type": "conflicts"
+        },
+        {
+          "anchor": "section",
+          "enforcement": "provider-schema",
+          "group": "rules:ConflictingListObjectAttributes:client_asn,client_region",
+          "source": "ast-validator:ConflictingListObjectAttributes",
+          "target_id": "xcsh-docs:resources:user_identification:properties:rules:client_asn",
+          "type": "conflicts"
+        },
+        {
+          "anchor": "section",
+          "enforcement": "provider-schema",
+          "group": "rules:ConflictingListObjectAttributes:client_asn,cookie_name",
+          "source": "ast-validator:ConflictingListObjectAttributes",
+          "target_id": "xcsh-docs:resources:user_identification:properties:rules:client_asn",
+          "type": "conflicts"
+        },
+        {
+          "anchor": "section",
+          "enforcement": "provider-schema",
+          "group": "rules:ConflictingListObjectAttributes:client_asn,http_header_name",
+          "source": "ast-validator:ConflictingListObjectAttributes",
+          "target_id": "xcsh-docs:resources:user_identification:properties:rules:client_asn",
+          "type": "conflicts"
+        },
+        {
+          "anchor": "section",
+          "enforcement": "provider-schema",
+          "group": "rules:ConflictingListObjectAttributes:client_asn,ip_and_http_header_name",
+          "source": "ast-validator:ConflictingListObjectAttributes",
+          "target_id": "xcsh-docs:resources:user_identification:properties:rules:client_asn",
+          "type": "conflicts"
+        },
+        {
+          "anchor": "section",
+          "enforcement": "provider-schema",
+          "group": "rules:ConflictingListObjectAttributes:client_asn,ip_and_ja4_tls_fingerprint",
+          "source": "ast-validator:ConflictingListObjectAttributes",
+          "target_id": "xcsh-docs:resources:user_identification:properties:rules:client_asn",
+          "type": "conflicts"
+        },
+        {
+          "anchor": "section",
+          "enforcement": "provider-schema",
+          "group": "rules:ConflictingListObjectAttributes:client_asn,ip_and_tls_fingerprint",
+          "source": "ast-validator:ConflictingListObjectAttributes",
+          "target_id": "xcsh-docs:resources:user_identification:properties:rules:client_asn",
+          "type": "conflicts"
+        },
+        {
+          "anchor": "section",
+          "enforcement": "provider-schema",
+          "group": "rules:ConflictingListObjectAttributes:client_asn,ja4_tls_fingerprint",
+          "source": "ast-validator:ConflictingListObjectAttributes",
+          "target_id": "xcsh-docs:resources:user_identification:properties:rules:client_asn",
+          "type": "conflicts"
+        },
+        {
+          "anchor": "section",
+          "enforcement": "provider-schema",
+          "group": "rules:ConflictingListObjectAttributes:client_asn,jwt_claim_name",
+          "source": "ast-validator:ConflictingListObjectAttributes",
+          "target_id": "xcsh-docs:resources:user_identification:properties:rules:client_asn",
+          "type": "conflicts"
+        },
+        {
+          "anchor": "section",
+          "enforcement": "provider-schema",
+          "group": "rules:ConflictingListObjectAttributes:client_asn,none",
+          "source": "ast-validator:ConflictingListObjectAttributes",
+          "target_id": "xcsh-docs:resources:user_identification:properties:rules:client_asn",
+          "type": "conflicts"
+        },
+        {
+          "anchor": "section",
+          "enforcement": "provider-schema",
+          "group": "rules:ConflictingListObjectAttributes:client_asn,query_param_key",
+          "source": "ast-validator:ConflictingListObjectAttributes",
+          "target_id": "xcsh-docs:resources:user_identification:properties:rules:client_asn",
+          "type": "conflicts"
+        },
+        {
+          "anchor": "section",
+          "enforcement": "provider-schema",
+          "group": "rules:ConflictingListObjectAttributes:client_asn,tls_fingerprint",
+          "source": "ast-validator:ConflictingListObjectAttributes",
+          "target_id": "xcsh-docs:resources:user_identification:properties:rules:client_asn",
+          "type": "conflicts"
+        },
+        {
+          "anchor": "section",
+          "enforcement": "provider-schema",
+          "group": "rules:ConflictingListObjectAttributes:client_asn,client_city",
+          "source": "ast-validator:ConflictingListObjectAttributes",
+          "target_id": "xcsh-docs:resources:user_identification:properties:rules:client_city",
+          "type": "conflicts"
+        },
+        {
+          "anchor": "section",
+          "enforcement": "provider-schema",
+          "group": "rules:ConflictingListObjectAttributes:client_city,client_country",
+          "source": "ast-validator:ConflictingListObjectAttributes",
+          "target_id": "xcsh-docs:resources:user_identification:properties:rules:client_city",
+          "type": "conflicts"
+        },
+        {
+          "anchor": "section",
+          "enforcement": "provider-schema",
+          "group": "rules:ConflictingListObjectAttributes:client_city,client_ip",
+          "source": "ast-validator:ConflictingListObjectAttributes",
+          "target_id": "xcsh-docs:resources:user_identification:properties:rules:client_city",
+          "type": "conflicts"
+        },
+        {
+          "anchor": "section",
+          "enforcement": "provider-schema",
+          "group": "rules:ConflictingListObjectAttributes:client_city,client_region",
+          "source": "ast-validator:ConflictingListObjectAttributes",
+          "target_id": "xcsh-docs:resources:user_identification:properties:rules:client_city",
+          "type": "conflicts"
+        },
+        {
+          "anchor": "section",
+          "enforcement": "provider-schema",
+          "group": "rules:ConflictingListObjectAttributes:client_city,cookie_name",
+          "source": "ast-validator:ConflictingListObjectAttributes",
+          "target_id": "xcsh-docs:resources:user_identification:properties:rules:client_city",
+          "type": "conflicts"
+        },
+        {
+          "anchor": "section",
+          "enforcement": "provider-schema",
+          "group": "rules:ConflictingListObjectAttributes:client_city,http_header_name",
+          "source": "ast-validator:ConflictingListObjectAttributes",
+          "target_id": "xcsh-docs:resources:user_identification:properties:rules:client_city",
+          "type": "conflicts"
+        },
+        {
+          "anchor": "section",
+          "enforcement": "provider-schema",
+          "group": "rules:ConflictingListObjectAttributes:client_city,ip_and_http_header_name",
+          "source": "ast-validator:ConflictingListObjectAttributes",
+          "target_id": "xcsh-docs:resources:user_identification:properties:rules:client_city",
+          "type": "conflicts"
+        },
+        {
+          "anchor": "section",
+          "enforcement": "provider-schema",
+          "group": "rules:ConflictingListObjectAttributes:client_city,ip_and_ja4_tls_fingerprint",
+          "source": "ast-validator:ConflictingListObjectAttributes",
+          "target_id": "xcsh-docs:resources:user_identification:properties:rules:client_city",
+          "type": "conflicts"
+        },
+        {
+          "anchor": "section",
+          "enforcement": "provider-schema",
+          "group": "rules:ConflictingListObjectAttributes:client_city,ip_and_tls_fingerprint",
+          "source": "ast-validator:ConflictingListObjectAttributes",
+          "target_id": "xcsh-docs:resources:user_identification:properties:rules:client_city",
+          "type": "conflicts"
+        },
+        {
+          "anchor": "section",
+          "enforcement": "provider-schema",
+          "group": "rules:ConflictingListObjectAttributes:client_city,ja4_tls_fingerprint",
+          "source": "ast-validator:ConflictingListObjectAttributes",
+          "target_id": "xcsh-docs:resources:user_identification:properties:rules:client_city",
+          "type": "conflicts"
+        },
+        {
+          "anchor": "section",
+          "enforcement": "provider-schema",
+          "group": "rules:ConflictingListObjectAttributes:client_city,jwt_claim_name",
+          "source": "ast-validator:ConflictingListObjectAttributes",
+          "target_id": "xcsh-docs:resources:user_identification:properties:rules:client_city",
+          "type": "conflicts"
+        },
+        {
+          "anchor": "section",
+          "enforcement": "provider-schema",
+          "group": "rules:ConflictingListObjectAttributes:client_city,none",
+          "source": "ast-validator:ConflictingListObjectAttributes",
+          "target_id": "xcsh-docs:resources:user_identification:properties:rules:client_city",
+          "type": "conflicts"
+        },
+        {
+          "anchor": "section",
+          "enforcement": "provider-schema",
+          "group": "rules:ConflictingListObjectAttributes:client_city,query_param_key",
+          "source": "ast-validator:ConflictingListObjectAttributes",
+          "target_id": "xcsh-docs:resources:user_identification:properties:rules:client_city",
+          "type": "conflicts"
+        },
+        {
+          "anchor": "section",
+          "enforcement": "provider-schema",
+          "group": "rules:ConflictingListObjectAttributes:client_city,tls_fingerprint",
+          "source": "ast-validator:ConflictingListObjectAttributes",
+          "target_id": "xcsh-docs:resources:user_identification:properties:rules:client_city",
+          "type": "conflicts"
+        },
+        {
+          "anchor": "section",
+          "enforcement": "provider-schema",
+          "group": "rules:ConflictingListObjectAttributes:client_asn,client_country",
+          "source": "ast-validator:ConflictingListObjectAttributes",
+          "target_id": "xcsh-docs:resources:user_identification:properties:rules:client_country",
+          "type": "conflicts"
+        },
+        {
+          "anchor": "section",
+          "enforcement": "provider-schema",
+          "group": "rules:ConflictingListObjectAttributes:client_city,client_country",
+          "source": "ast-validator:ConflictingListObjectAttributes",
+          "target_id": "xcsh-docs:resources:user_identification:properties:rules:client_country",
+          "type": "conflicts"
+        },
+        {
+          "anchor": "section",
+          "enforcement": "provider-schema",
+          "group": "rules:ConflictingListObjectAttributes:client_country,client_ip",
+          "source": "ast-validator:ConflictingListObjectAttributes",
+          "target_id": "xcsh-docs:resources:user_identification:properties:rules:client_country",
+          "type": "conflicts"
+        },
+        {
+          "anchor": "section",
+          "enforcement": "provider-schema",
+          "group": "rules:ConflictingListObjectAttributes:client_country,client_region",
+          "source": "ast-validator:ConflictingListObjectAttributes",
+          "target_id": "xcsh-docs:resources:user_identification:properties:rules:client_country",
+          "type": "conflicts"
+        },
+        {
+          "anchor": "section",
+          "enforcement": "provider-schema",
+          "group": "rules:ConflictingListObjectAttributes:client_country,cookie_name",
+          "source": "ast-validator:ConflictingListObjectAttributes",
+          "target_id": "xcsh-docs:resources:user_identification:properties:rules:client_country",
+          "type": "conflicts"
+        },
+        {
+          "anchor": "section",
+          "enforcement": "provider-schema",
+          "group": "rules:ConflictingListObjectAttributes:client_country,http_header_name",
+          "source": "ast-validator:ConflictingListObjectAttributes",
+          "target_id": "xcsh-docs:resources:user_identification:properties:rules:client_country",
+          "type": "conflicts"
+        },
+        {
+          "anchor": "section",
+          "enforcement": "provider-schema",
+          "group": "rules:ConflictingListObjectAttributes:client_country,ip_and_http_header_name",
+          "source": "ast-validator:ConflictingListObjectAttributes",
+          "target_id": "xcsh-docs:resources:user_identification:properties:rules:client_country",
+          "type": "conflicts"
+        },
+        {
+          "anchor": "section",
+          "enforcement": "provider-schema",
+          "group": "rules:ConflictingListObjectAttributes:client_country,ip_and_ja4_tls_fingerprint",
+          "source": "ast-validator:ConflictingListObjectAttributes",
+          "target_id": "xcsh-docs:resources:user_identification:properties:rules:client_country",
+          "type": "conflicts"
+        },
+        {
+          "anchor": "section",
+          "enforcement": "provider-schema",
+          "group": "rules:ConflictingListObjectAttributes:client_country,ip_and_tls_fingerprint",
+          "source": "ast-validator:ConflictingListObjectAttributes",
+          "target_id": "xcsh-docs:resources:user_identification:properties:rules:client_country",
+          "type": "conflicts"
+        },
+        {
+          "anchor": "section",
+          "enforcement": "provider-schema",
+          "group": "rules:ConflictingListObjectAttributes:client_country,ja4_tls_fingerprint",
+          "source": "ast-validator:ConflictingListObjectAttributes",
+          "target_id": "xcsh-docs:resources:user_identification:properties:rules:client_country",
+          "type": "conflicts"
+        },
+        {
+          "anchor": "section",
+          "enforcement": "provider-schema",
+          "group": "rules:ConflictingListObjectAttributes:client_country,jwt_claim_name",
+          "source": "ast-validator:ConflictingListObjectAttributes",
+          "target_id": "xcsh-docs:resources:user_identification:properties:rules:client_country",
+          "type": "conflicts"
+        },
+        {
+          "anchor": "section",
+          "enforcement": "provider-schema",
+          "group": "rules:ConflictingListObjectAttributes:client_country,none",
+          "source": "ast-validator:ConflictingListObjectAttributes",
+          "target_id": "xcsh-docs:resources:user_identification:properties:rules:client_country",
+          "type": "conflicts"
+        },
+        {
+          "anchor": "section",
+          "enforcement": "provider-schema",
+          "group": "rules:ConflictingListObjectAttributes:client_country,query_param_key",
+          "source": "ast-validator:ConflictingListObjectAttributes",
+          "target_id": "xcsh-docs:resources:user_identification:properties:rules:client_country",
+          "type": "conflicts"
+        },
+        {
+          "anchor": "section",
+          "enforcement": "provider-schema",
+          "group": "rules:ConflictingListObjectAttributes:client_country,tls_fingerprint",
+          "source": "ast-validator:ConflictingListObjectAttributes",
+          "target_id": "xcsh-docs:resources:user_identification:properties:rules:client_country",
+          "type": "conflicts"
+        },
+        {
+          "anchor": "section",
+          "enforcement": "provider-schema",
+          "group": "rules:ConflictingListObjectAttributes:client_asn,client_ip",
+          "source": "ast-validator:ConflictingListObjectAttributes",
+          "target_id": "xcsh-docs:resources:user_identification:properties:rules:client_ip",
+          "type": "conflicts"
+        },
+        {
+          "anchor": "section",
+          "enforcement": "provider-schema",
+          "group": "rules:ConflictingListObjectAttributes:client_city,client_ip",
+          "source": "ast-validator:ConflictingListObjectAttributes",
+          "target_id": "xcsh-docs:resources:user_identification:properties:rules:client_ip",
+          "type": "conflicts"
+        },
+        {
+          "anchor": "section",
+          "enforcement": "provider-schema",
+          "group": "rules:ConflictingListObjectAttributes:client_country,client_ip",
+          "source": "ast-validator:ConflictingListObjectAttributes",
+          "target_id": "xcsh-docs:resources:user_identification:properties:rules:client_ip",
+          "type": "conflicts"
+        },
+        {
+          "anchor": "section",
+          "enforcement": "provider-schema",
+          "group": "rules:ConflictingListObjectAttributes:client_ip,client_region",
+          "source": "ast-validator:ConflictingListObjectAttributes",
+          "target_id": "xcsh-docs:resources:user_identification:properties:rules:client_ip",
+          "type": "conflicts"
+        },
+        {
+          "anchor": "section",
+          "enforcement": "provider-schema",
+          "group": "rules:ConflictingListObjectAttributes:client_ip,cookie_name",
+          "source": "ast-validator:ConflictingListObjectAttributes",
+          "target_id": "xcsh-docs:resources:user_identification:properties:rules:client_ip",
+          "type": "conflicts"
+        },
+        {
+          "anchor": "section",
+          "enforcement": "provider-schema",
+          "group": "rules:ConflictingListObjectAttributes:client_ip,http_header_name",
+          "source": "ast-validator:ConflictingListObjectAttributes",
+          "target_id": "xcsh-docs:resources:user_identification:properties:rules:client_ip",
+          "type": "conflicts"
+        },
+        {
+          "anchor": "section",
+          "enforcement": "provider-schema",
+          "group": "rules:ConflictingListObjectAttributes:client_ip,ip_and_http_header_name",
+          "source": "ast-validator:ConflictingListObjectAttributes",
+          "target_id": "xcsh-docs:resources:user_identification:properties:rules:client_ip",
+          "type": "conflicts"
+        },
+        {
+          "anchor": "section",
+          "enforcement": "provider-schema",
+          "group": "rules:ConflictingListObjectAttributes:client_ip,ip_and_ja4_tls_fingerprint",
+          "source": "ast-validator:ConflictingListObjectAttributes",
+          "target_id": "xcsh-docs:resources:user_identification:properties:rules:client_ip",
+          "type": "conflicts"
+        },
+        {
+          "anchor": "section",
+          "enforcement": "provider-schema",
+          "group": "rules:ConflictingListObjectAttributes:client_ip,ip_and_tls_fingerprint",
+          "source": "ast-validator:ConflictingListObjectAttributes",
+          "target_id": "xcsh-docs:resources:user_identification:properties:rules:client_ip",
+          "type": "conflicts"
+        },
+        {
+          "anchor": "section",
+          "enforcement": "provider-schema",
+          "group": "rules:ConflictingListObjectAttributes:client_ip,ja4_tls_fingerprint",
+          "source": "ast-validator:ConflictingListObjectAttributes",
+          "target_id": "xcsh-docs:resources:user_identification:properties:rules:client_ip",
+          "type": "conflicts"
+        },
+        {
+          "anchor": "section",
+          "enforcement": "provider-schema",
+          "group": "rules:ConflictingListObjectAttributes:client_ip,jwt_claim_name",
+          "source": "ast-validator:ConflictingListObjectAttributes",
+          "target_id": "xcsh-docs:resources:user_identification:properties:rules:client_ip",
+          "type": "conflicts"
+        },
+        {
+          "anchor": "section",
+          "enforcement": "provider-schema",
+          "group": "rules:ConflictingListObjectAttributes:client_ip,none",
+          "source": "ast-validator:ConflictingListObjectAttributes",
+          "target_id": "xcsh-docs:resources:user_identification:properties:rules:client_ip",
+          "type": "conflicts"
+        },
+        {
+          "anchor": "section",
+          "enforcement": "provider-schema",
+          "group": "rules:ConflictingListObjectAttributes:client_ip,query_param_key",
+          "source": "ast-validator:ConflictingListObjectAttributes",
+          "target_id": "xcsh-docs:resources:user_identification:properties:rules:client_ip",
+          "type": "conflicts"
+        },
+        {
+          "anchor": "section",
+          "enforcement": "provider-schema",
+          "group": "rules:ConflictingListObjectAttributes:client_ip,tls_fingerprint",
+          "source": "ast-validator:ConflictingListObjectAttributes",
+          "target_id": "xcsh-docs:resources:user_identification:properties:rules:client_ip",
+          "type": "conflicts"
+        },
+        {
+          "anchor": "section",
+          "enforcement": "provider-schema",
+          "group": "rules:ConflictingListObjectAttributes:client_asn,client_region",
+          "source": "ast-validator:ConflictingListObjectAttributes",
+          "target_id": "xcsh-docs:resources:user_identification:properties:rules:client_region",
+          "type": "conflicts"
+        },
+        {
+          "anchor": "section",
+          "enforcement": "provider-schema",
+          "group": "rules:ConflictingListObjectAttributes:client_city,client_region",
+          "source": "ast-validator:ConflictingListObjectAttributes",
+          "target_id": "xcsh-docs:resources:user_identification:properties:rules:client_region",
+          "type": "conflicts"
+        },
+        {
+          "anchor": "section",
+          "enforcement": "provider-schema",
+          "group": "rules:ConflictingListObjectAttributes:client_country,client_region",
+          "source": "ast-validator:ConflictingListObjectAttributes",
+          "target_id": "xcsh-docs:resources:user_identification:properties:rules:client_region",
+          "type": "conflicts"
+        },
+        {
+          "anchor": "section",
+          "enforcement": "provider-schema",
+          "group": "rules:ConflictingListObjectAttributes:client_ip,client_region",
+          "source": "ast-validator:ConflictingListObjectAttributes",
+          "target_id": "xcsh-docs:resources:user_identification:properties:rules:client_region",
+          "type": "conflicts"
+        },
+        {
+          "anchor": "section",
+          "enforcement": "provider-schema",
+          "group": "rules:ConflictingListObjectAttributes:client_region,cookie_name",
+          "source": "ast-validator:ConflictingListObjectAttributes",
+          "target_id": "xcsh-docs:resources:user_identification:properties:rules:client_region",
+          "type": "conflicts"
+        },
+        {
+          "anchor": "section",
+          "enforcement": "provider-schema",
+          "group": "rules:ConflictingListObjectAttributes:client_region,http_header_name",
+          "source": "ast-validator:ConflictingListObjectAttributes",
+          "target_id": "xcsh-docs:resources:user_identification:properties:rules:client_region",
+          "type": "conflicts"
+        },
+        {
+          "anchor": "section",
+          "enforcement": "provider-schema",
+          "group": "rules:ConflictingListObjectAttributes:client_region,ip_and_http_header_name",
+          "source": "ast-validator:ConflictingListObjectAttributes",
+          "target_id": "xcsh-docs:resources:user_identification:properties:rules:client_region",
+          "type": "conflicts"
+        },
+        {
+          "anchor": "section",
+          "enforcement": "provider-schema",
+          "group": "rules:ConflictingListObjectAttributes:client_region,ip_and_ja4_tls_fingerprint",
+          "source": "ast-validator:ConflictingListObjectAttributes",
+          "target_id": "xcsh-docs:resources:user_identification:properties:rules:client_region",
+          "type": "conflicts"
+        },
+        {
+          "anchor": "section",
+          "enforcement": "provider-schema",
+          "group": "rules:ConflictingListObjectAttributes:client_region,ip_and_tls_fingerprint",
+          "source": "ast-validator:ConflictingListObjectAttributes",
+          "target_id": "xcsh-docs:resources:user_identification:properties:rules:client_region",
+          "type": "conflicts"
+        },
+        {
+          "anchor": "section",
+          "enforcement": "provider-schema",
+          "group": "rules:ConflictingListObjectAttributes:client_region,ja4_tls_fingerprint",
+          "source": "ast-validator:ConflictingListObjectAttributes",
+          "target_id": "xcsh-docs:resources:user_identification:properties:rules:client_region",
+          "type": "conflicts"
+        },
+        {
+          "anchor": "section",
+          "enforcement": "provider-schema",
+          "group": "rules:ConflictingListObjectAttributes:client_region,jwt_claim_name",
+          "source": "ast-validator:ConflictingListObjectAttributes",
+          "target_id": "xcsh-docs:resources:user_identification:properties:rules:client_region",
+          "type": "conflicts"
+        },
+        {
+          "anchor": "section",
+          "enforcement": "provider-schema",
+          "group": "rules:ConflictingListObjectAttributes:client_region,none",
+          "source": "ast-validator:ConflictingListObjectAttributes",
+          "target_id": "xcsh-docs:resources:user_identification:properties:rules:client_region",
+          "type": "conflicts"
+        },
+        {
+          "anchor": "section",
+          "enforcement": "provider-schema",
+          "group": "rules:ConflictingListObjectAttributes:client_region,query_param_key",
+          "source": "ast-validator:ConflictingListObjectAttributes",
+          "target_id": "xcsh-docs:resources:user_identification:properties:rules:client_region",
+          "type": "conflicts"
+        },
+        {
+          "anchor": "section",
+          "enforcement": "provider-schema",
+          "group": "rules:ConflictingListObjectAttributes:client_region,tls_fingerprint",
+          "source": "ast-validator:ConflictingListObjectAttributes",
+          "target_id": "xcsh-docs:resources:user_identification:properties:rules:client_region",
+          "type": "conflicts"
+        },
+        {
+          "anchor": "section",
+          "enforcement": "provider-schema",
+          "group": "rules:ConflictingListObjectAttributes:client_asn,ip_and_ja4_tls_fingerprint",
+          "source": "ast-validator:ConflictingListObjectAttributes",
+          "target_id": "xcsh-docs:resources:user_identification:properties:rules:ip_and_ja4_tls_fingerprint",
+          "type": "conflicts"
+        },
+        {
+          "anchor": "section",
+          "enforcement": "provider-schema",
+          "group": "rules:ConflictingListObjectAttributes:client_city,ip_and_ja4_tls_fingerprint",
+          "source": "ast-validator:ConflictingListObjectAttributes",
+          "target_id": "xcsh-docs:resources:user_identification:properties:rules:ip_and_ja4_tls_fingerprint",
+          "type": "conflicts"
+        },
+        {
+          "anchor": "section",
+          "enforcement": "provider-schema",
+          "group": "rules:ConflictingListObjectAttributes:client_country,ip_and_ja4_tls_fingerprint",
+          "source": "ast-validator:ConflictingListObjectAttributes",
+          "target_id": "xcsh-docs:resources:user_identification:properties:rules:ip_and_ja4_tls_fingerprint",
+          "type": "conflicts"
+        },
+        {
+          "anchor": "section",
+          "enforcement": "provider-schema",
+          "group": "rules:ConflictingListObjectAttributes:client_ip,ip_and_ja4_tls_fingerprint",
+          "source": "ast-validator:ConflictingListObjectAttributes",
+          "target_id": "xcsh-docs:resources:user_identification:properties:rules:ip_and_ja4_tls_fingerprint",
+          "type": "conflicts"
+        },
+        {
+          "anchor": "section",
+          "enforcement": "provider-schema",
+          "group": "rules:ConflictingListObjectAttributes:client_region,ip_and_ja4_tls_fingerprint",
+          "source": "ast-validator:ConflictingListObjectAttributes",
+          "target_id": "xcsh-docs:resources:user_identification:properties:rules:ip_and_ja4_tls_fingerprint",
+          "type": "conflicts"
+        },
+        {
+          "anchor": "section",
+          "enforcement": "provider-schema",
+          "group": "rules:ConflictingListObjectAttributes:cookie_name,ip_and_ja4_tls_fingerprint",
+          "source": "ast-validator:ConflictingListObjectAttributes",
+          "target_id": "xcsh-docs:resources:user_identification:properties:rules:ip_and_ja4_tls_fingerprint",
+          "type": "conflicts"
+        },
+        {
+          "anchor": "section",
+          "enforcement": "provider-schema",
+          "group": "rules:ConflictingListObjectAttributes:http_header_name,ip_and_ja4_tls_fingerprint",
+          "source": "ast-validator:ConflictingListObjectAttributes",
+          "target_id": "xcsh-docs:resources:user_identification:properties:rules:ip_and_ja4_tls_fingerprint",
+          "type": "conflicts"
+        },
+        {
+          "anchor": "section",
+          "enforcement": "provider-schema",
+          "group": "rules:ConflictingListObjectAttributes:ip_and_http_header_name,ip_and_ja4_tls_fingerprint",
+          "source": "ast-validator:ConflictingListObjectAttributes",
+          "target_id": "xcsh-docs:resources:user_identification:properties:rules:ip_and_ja4_tls_fingerprint",
+          "type": "conflicts"
+        },
+        {
+          "anchor": "section",
+          "enforcement": "provider-schema",
+          "group": "rules:ConflictingListObjectAttributes:ip_and_ja4_tls_fingerprint,ip_and_tls_fingerprint",
+          "source": "ast-validator:ConflictingListObjectAttributes",
+          "target_id": "xcsh-docs:resources:user_identification:properties:rules:ip_and_ja4_tls_fingerprint",
+          "type": "conflicts"
+        },
+        {
+          "anchor": "section",
+          "enforcement": "provider-schema",
+          "group": "rules:ConflictingListObjectAttributes:ip_and_ja4_tls_fingerprint,ja4_tls_fingerprint",
+          "source": "ast-validator:ConflictingListObjectAttributes",
+          "target_id": "xcsh-docs:resources:user_identification:properties:rules:ip_and_ja4_tls_fingerprint",
+          "type": "conflicts"
+        },
+        {
+          "anchor": "section",
+          "enforcement": "provider-schema",
+          "group": "rules:ConflictingListObjectAttributes:ip_and_ja4_tls_fingerprint,jwt_claim_name",
+          "source": "ast-validator:ConflictingListObjectAttributes",
+          "target_id": "xcsh-docs:resources:user_identification:properties:rules:ip_and_ja4_tls_fingerprint",
+          "type": "conflicts"
+        },
+        {
+          "anchor": "section",
+          "enforcement": "provider-schema",
+          "group": "rules:ConflictingListObjectAttributes:ip_and_ja4_tls_fingerprint,none",
+          "source": "ast-validator:ConflictingListObjectAttributes",
+          "target_id": "xcsh-docs:resources:user_identification:properties:rules:ip_and_ja4_tls_fingerprint",
+          "type": "conflicts"
+        },
+        {
+          "anchor": "section",
+          "enforcement": "provider-schema",
+          "group": "rules:ConflictingListObjectAttributes:ip_and_ja4_tls_fingerprint,query_param_key",
+          "source": "ast-validator:ConflictingListObjectAttributes",
+          "target_id": "xcsh-docs:resources:user_identification:properties:rules:ip_and_ja4_tls_fingerprint",
+          "type": "conflicts"
+        },
+        {
+          "anchor": "section",
+          "enforcement": "provider-schema",
+          "group": "rules:ConflictingListObjectAttributes:ip_and_ja4_tls_fingerprint,tls_fingerprint",
+          "source": "ast-validator:ConflictingListObjectAttributes",
+          "target_id": "xcsh-docs:resources:user_identification:properties:rules:ip_and_ja4_tls_fingerprint",
+          "type": "conflicts"
+        },
+        {
+          "anchor": "section",
+          "enforcement": "provider-schema",
+          "group": "rules:ConflictingListObjectAttributes:client_asn,ip_and_tls_fingerprint",
+          "source": "ast-validator:ConflictingListObjectAttributes",
+          "target_id": "xcsh-docs:resources:user_identification:properties:rules:ip_and_tls_fingerprint",
+          "type": "conflicts"
+        },
+        {
+          "anchor": "section",
+          "enforcement": "provider-schema",
+          "group": "rules:ConflictingListObjectAttributes:client_city,ip_and_tls_fingerprint",
+          "source": "ast-validator:ConflictingListObjectAttributes",
+          "target_id": "xcsh-docs:resources:user_identification:properties:rules:ip_and_tls_fingerprint",
+          "type": "conflicts"
+        },
+        {
+          "anchor": "section",
+          "enforcement": "provider-schema",
+          "group": "rules:ConflictingListObjectAttributes:client_country,ip_and_tls_fingerprint",
+          "source": "ast-validator:ConflictingListObjectAttributes",
+          "target_id": "xcsh-docs:resources:user_identification:properties:rules:ip_and_tls_fingerprint",
+          "type": "conflicts"
+        },
+        {
+          "anchor": "section",
+          "enforcement": "provider-schema",
+          "group": "rules:ConflictingListObjectAttributes:client_ip,ip_and_tls_fingerprint",
+          "source": "ast-validator:ConflictingListObjectAttributes",
+          "target_id": "xcsh-docs:resources:user_identification:properties:rules:ip_and_tls_fingerprint",
+          "type": "conflicts"
+        },
+        {
+          "anchor": "section",
+          "enforcement": "provider-schema",
+          "group": "rules:ConflictingListObjectAttributes:client_region,ip_and_tls_fingerprint",
+          "source": "ast-validator:ConflictingListObjectAttributes",
+          "target_id": "xcsh-docs:resources:user_identification:properties:rules:ip_and_tls_fingerprint",
+          "type": "conflicts"
+        },
+        {
+          "anchor": "section",
+          "enforcement": "provider-schema",
+          "group": "rules:ConflictingListObjectAttributes:cookie_name,ip_and_tls_fingerprint",
+          "source": "ast-validator:ConflictingListObjectAttributes",
+          "target_id": "xcsh-docs:resources:user_identification:properties:rules:ip_and_tls_fingerprint",
+          "type": "conflicts"
+        },
+        {
+          "anchor": "section",
+          "enforcement": "provider-schema",
+          "group": "rules:ConflictingListObjectAttributes:http_header_name,ip_and_tls_fingerprint",
+          "source": "ast-validator:ConflictingListObjectAttributes",
+          "target_id": "xcsh-docs:resources:user_identification:properties:rules:ip_and_tls_fingerprint",
+          "type": "conflicts"
+        },
+        {
+          "anchor": "section",
+          "enforcement": "provider-schema",
+          "group": "rules:ConflictingListObjectAttributes:ip_and_http_header_name,ip_and_tls_fingerprint",
+          "source": "ast-validator:ConflictingListObjectAttributes",
+          "target_id": "xcsh-docs:resources:user_identification:properties:rules:ip_and_tls_fingerprint",
+          "type": "conflicts"
+        },
+        {
+          "anchor": "section",
+          "enforcement": "provider-schema",
+          "group": "rules:ConflictingListObjectAttributes:ip_and_ja4_tls_fingerprint,ip_and_tls_fingerprint",
+          "source": "ast-validator:ConflictingListObjectAttributes",
+          "target_id": "xcsh-docs:resources:user_identification:properties:rules:ip_and_tls_fingerprint",
+          "type": "conflicts"
+        },
+        {
+          "anchor": "section",
+          "enforcement": "provider-schema",
+          "group": "rules:ConflictingListObjectAttributes:ip_and_tls_fingerprint,ja4_tls_fingerprint",
+          "source": "ast-validator:ConflictingListObjectAttributes",
+          "target_id": "xcsh-docs:resources:user_identification:properties:rules:ip_and_tls_fingerprint",
+          "type": "conflicts"
+        },
+        {
+          "anchor": "section",
+          "enforcement": "provider-schema",
+          "group": "rules:ConflictingListObjectAttributes:ip_and_tls_fingerprint,jwt_claim_name",
+          "source": "ast-validator:ConflictingListObjectAttributes",
+          "target_id": "xcsh-docs:resources:user_identification:properties:rules:ip_and_tls_fingerprint",
+          "type": "conflicts"
+        },
+        {
+          "anchor": "section",
+          "enforcement": "provider-schema",
+          "group": "rules:ConflictingListObjectAttributes:ip_and_tls_fingerprint,none",
+          "source": "ast-validator:ConflictingListObjectAttributes",
+          "target_id": "xcsh-docs:resources:user_identification:properties:rules:ip_and_tls_fingerprint",
+          "type": "conflicts"
+        },
+        {
+          "anchor": "section",
+          "enforcement": "provider-schema",
+          "group": "rules:ConflictingListObjectAttributes:ip_and_tls_fingerprint,query_param_key",
+          "source": "ast-validator:ConflictingListObjectAttributes",
+          "target_id": "xcsh-docs:resources:user_identification:properties:rules:ip_and_tls_fingerprint",
+          "type": "conflicts"
+        },
+        {
+          "anchor": "section",
+          "enforcement": "provider-schema",
+          "group": "rules:ConflictingListObjectAttributes:ip_and_tls_fingerprint,tls_fingerprint",
+          "source": "ast-validator:ConflictingListObjectAttributes",
+          "target_id": "xcsh-docs:resources:user_identification:properties:rules:ip_and_tls_fingerprint",
+          "type": "conflicts"
+        },
+        {
+          "anchor": "section",
+          "enforcement": "provider-schema",
+          "group": "rules:ConflictingListObjectAttributes:client_asn,ja4_tls_fingerprint",
+          "source": "ast-validator:ConflictingListObjectAttributes",
+          "target_id": "xcsh-docs:resources:user_identification:properties:rules:ja4_tls_fingerprint",
+          "type": "conflicts"
+        },
+        {
+          "anchor": "section",
+          "enforcement": "provider-schema",
+          "group": "rules:ConflictingListObjectAttributes:client_city,ja4_tls_fingerprint",
+          "source": "ast-validator:ConflictingListObjectAttributes",
+          "target_id": "xcsh-docs:resources:user_identification:properties:rules:ja4_tls_fingerprint",
+          "type": "conflicts"
+        },
+        {
+          "anchor": "section",
+          "enforcement": "provider-schema",
+          "group": "rules:ConflictingListObjectAttributes:client_country,ja4_tls_fingerprint",
+          "source": "ast-validator:ConflictingListObjectAttributes",
+          "target_id": "xcsh-docs:resources:user_identification:properties:rules:ja4_tls_fingerprint",
+          "type": "conflicts"
+        },
+        {
+          "anchor": "section",
+          "enforcement": "provider-schema",
+          "group": "rules:ConflictingListObjectAttributes:client_ip,ja4_tls_fingerprint",
+          "source": "ast-validator:ConflictingListObjectAttributes",
+          "target_id": "xcsh-docs:resources:user_identification:properties:rules:ja4_tls_fingerprint",
+          "type": "conflicts"
+        },
+        {
+          "anchor": "section",
+          "enforcement": "provider-schema",
+          "group": "rules:ConflictingListObjectAttributes:client_region,ja4_tls_fingerprint",
+          "source": "ast-validator:ConflictingListObjectAttributes",
+          "target_id": "xcsh-docs:resources:user_identification:properties:rules:ja4_tls_fingerprint",
+          "type": "conflicts"
+        },
+        {
+          "anchor": "section",
+          "enforcement": "provider-schema",
+          "group": "rules:ConflictingListObjectAttributes:cookie_name,ja4_tls_fingerprint",
+          "source": "ast-validator:ConflictingListObjectAttributes",
+          "target_id": "xcsh-docs:resources:user_identification:properties:rules:ja4_tls_fingerprint",
+          "type": "conflicts"
+        },
+        {
+          "anchor": "section",
+          "enforcement": "provider-schema",
+          "group": "rules:ConflictingListObjectAttributes:http_header_name,ja4_tls_fingerprint",
+          "source": "ast-validator:ConflictingListObjectAttributes",
+          "target_id": "xcsh-docs:resources:user_identification:properties:rules:ja4_tls_fingerprint",
+          "type": "conflicts"
+        },
+        {
+          "anchor": "section",
+          "enforcement": "provider-schema",
+          "group": "rules:ConflictingListObjectAttributes:ip_and_http_header_name,ja4_tls_fingerprint",
+          "source": "ast-validator:ConflictingListObjectAttributes",
+          "target_id": "xcsh-docs:resources:user_identification:properties:rules:ja4_tls_fingerprint",
+          "type": "conflicts"
+        },
+        {
+          "anchor": "section",
+          "enforcement": "provider-schema",
+          "group": "rules:ConflictingListObjectAttributes:ip_and_ja4_tls_fingerprint,ja4_tls_fingerprint",
+          "source": "ast-validator:ConflictingListObjectAttributes",
+          "target_id": "xcsh-docs:resources:user_identification:properties:rules:ja4_tls_fingerprint",
+          "type": "conflicts"
+        },
+        {
+          "anchor": "section",
+          "enforcement": "provider-schema",
+          "group": "rules:ConflictingListObjectAttributes:ip_and_tls_fingerprint,ja4_tls_fingerprint",
+          "source": "ast-validator:ConflictingListObjectAttributes",
+          "target_id": "xcsh-docs:resources:user_identification:properties:rules:ja4_tls_fingerprint",
+          "type": "conflicts"
+        },
+        {
+          "anchor": "section",
+          "enforcement": "provider-schema",
+          "group": "rules:ConflictingListObjectAttributes:ja4_tls_fingerprint,jwt_claim_name",
+          "source": "ast-validator:ConflictingListObjectAttributes",
+          "target_id": "xcsh-docs:resources:user_identification:properties:rules:ja4_tls_fingerprint",
+          "type": "conflicts"
+        },
+        {
+          "anchor": "section",
+          "enforcement": "provider-schema",
+          "group": "rules:ConflictingListObjectAttributes:ja4_tls_fingerprint,none",
+          "source": "ast-validator:ConflictingListObjectAttributes",
+          "target_id": "xcsh-docs:resources:user_identification:properties:rules:ja4_tls_fingerprint",
+          "type": "conflicts"
+        },
+        {
+          "anchor": "section",
+          "enforcement": "provider-schema",
+          "group": "rules:ConflictingListObjectAttributes:ja4_tls_fingerprint,query_param_key",
+          "source": "ast-validator:ConflictingListObjectAttributes",
+          "target_id": "xcsh-docs:resources:user_identification:properties:rules:ja4_tls_fingerprint",
+          "type": "conflicts"
+        },
+        {
+          "anchor": "section",
+          "enforcement": "provider-schema",
+          "group": "rules:ConflictingListObjectAttributes:ja4_tls_fingerprint,tls_fingerprint",
+          "source": "ast-validator:ConflictingListObjectAttributes",
+          "target_id": "xcsh-docs:resources:user_identification:properties:rules:ja4_tls_fingerprint",
+          "type": "conflicts"
+        },
+        {
+          "anchor": "section",
+          "enforcement": "provider-schema",
+          "group": "rules:ConflictingListObjectAttributes:client_asn,none",
+          "source": "ast-validator:ConflictingListObjectAttributes",
+          "target_id": "xcsh-docs:resources:user_identification:properties:rules:none",
+          "type": "conflicts"
+        },
+        {
+          "anchor": "section",
+          "enforcement": "provider-schema",
+          "group": "rules:ConflictingListObjectAttributes:client_city,none",
+          "source": "ast-validator:ConflictingListObjectAttributes",
+          "target_id": "xcsh-docs:resources:user_identification:properties:rules:none",
+          "type": "conflicts"
+        },
+        {
+          "anchor": "section",
+          "enforcement": "provider-schema",
+          "group": "rules:ConflictingListObjectAttributes:client_country,none",
+          "source": "ast-validator:ConflictingListObjectAttributes",
+          "target_id": "xcsh-docs:resources:user_identification:properties:rules:none",
+          "type": "conflicts"
+        },
+        {
+          "anchor": "section",
+          "enforcement": "provider-schema",
+          "group": "rules:ConflictingListObjectAttributes:client_ip,none",
+          "source": "ast-validator:ConflictingListObjectAttributes",
+          "target_id": "xcsh-docs:resources:user_identification:properties:rules:none",
+          "type": "conflicts"
+        },
+        {
+          "anchor": "section",
+          "enforcement": "provider-schema",
+          "group": "rules:ConflictingListObjectAttributes:client_region,none",
+          "source": "ast-validator:ConflictingListObjectAttributes",
+          "target_id": "xcsh-docs:resources:user_identification:properties:rules:none",
+          "type": "conflicts"
+        },
+        {
+          "anchor": "section",
+          "enforcement": "provider-schema",
+          "group": "rules:ConflictingListObjectAttributes:cookie_name,none",
+          "source": "ast-validator:ConflictingListObjectAttributes",
+          "target_id": "xcsh-docs:resources:user_identification:properties:rules:none",
+          "type": "conflicts"
+        },
+        {
+          "anchor": "section",
+          "enforcement": "provider-schema",
+          "group": "rules:ConflictingListObjectAttributes:http_header_name,none",
+          "source": "ast-validator:ConflictingListObjectAttributes",
+          "target_id": "xcsh-docs:resources:user_identification:properties:rules:none",
+          "type": "conflicts"
+        },
+        {
+          "anchor": "section",
+          "enforcement": "provider-schema",
+          "group": "rules:ConflictingListObjectAttributes:ip_and_http_header_name,none",
+          "source": "ast-validator:ConflictingListObjectAttributes",
+          "target_id": "xcsh-docs:resources:user_identification:properties:rules:none",
+          "type": "conflicts"
+        },
+        {
+          "anchor": "section",
+          "enforcement": "provider-schema",
+          "group": "rules:ConflictingListObjectAttributes:ip_and_ja4_tls_fingerprint,none",
+          "source": "ast-validator:ConflictingListObjectAttributes",
+          "target_id": "xcsh-docs:resources:user_identification:properties:rules:none",
+          "type": "conflicts"
+        },
+        {
+          "anchor": "section",
+          "enforcement": "provider-schema",
+          "group": "rules:ConflictingListObjectAttributes:ip_and_tls_fingerprint,none",
+          "source": "ast-validator:ConflictingListObjectAttributes",
+          "target_id": "xcsh-docs:resources:user_identification:properties:rules:none",
+          "type": "conflicts"
+        },
+        {
+          "anchor": "section",
+          "enforcement": "provider-schema",
+          "group": "rules:ConflictingListObjectAttributes:ja4_tls_fingerprint,none",
+          "source": "ast-validator:ConflictingListObjectAttributes",
+          "target_id": "xcsh-docs:resources:user_identification:properties:rules:none",
+          "type": "conflicts"
+        },
+        {
+          "anchor": "section",
+          "enforcement": "provider-schema",
+          "group": "rules:ConflictingListObjectAttributes:jwt_claim_name,none",
+          "source": "ast-validator:ConflictingListObjectAttributes",
+          "target_id": "xcsh-docs:resources:user_identification:properties:rules:none",
+          "type": "conflicts"
+        },
+        {
+          "anchor": "section",
+          "enforcement": "provider-schema",
+          "group": "rules:ConflictingListObjectAttributes:none,query_param_key",
+          "source": "ast-validator:ConflictingListObjectAttributes",
+          "target_id": "xcsh-docs:resources:user_identification:properties:rules:none",
+          "type": "conflicts"
+        },
+        {
+          "anchor": "section",
+          "enforcement": "provider-schema",
+          "group": "rules:ConflictingListObjectAttributes:none,tls_fingerprint",
+          "source": "ast-validator:ConflictingListObjectAttributes",
+          "target_id": "xcsh-docs:resources:user_identification:properties:rules:none",
+          "type": "conflicts"
+        },
+        {
+          "anchor": "section",
+          "enforcement": "provider-schema",
+          "group": "rules:ConflictingListObjectAttributes:client_asn,tls_fingerprint",
+          "source": "ast-validator:ConflictingListObjectAttributes",
+          "target_id": "xcsh-docs:resources:user_identification:properties:rules:tls_fingerprint",
+          "type": "conflicts"
+        },
+        {
+          "anchor": "section",
+          "enforcement": "provider-schema",
+          "group": "rules:ConflictingListObjectAttributes:client_city,tls_fingerprint",
+          "source": "ast-validator:ConflictingListObjectAttributes",
+          "target_id": "xcsh-docs:resources:user_identification:properties:rules:tls_fingerprint",
+          "type": "conflicts"
+        },
+        {
+          "anchor": "section",
+          "enforcement": "provider-schema",
+          "group": "rules:ConflictingListObjectAttributes:client_country,tls_fingerprint",
+          "source": "ast-validator:ConflictingListObjectAttributes",
+          "target_id": "xcsh-docs:resources:user_identification:properties:rules:tls_fingerprint",
+          "type": "conflicts"
+        },
+        {
+          "anchor": "section",
+          "enforcement": "provider-schema",
+          "group": "rules:ConflictingListObjectAttributes:client_ip,tls_fingerprint",
+          "source": "ast-validator:ConflictingListObjectAttributes",
+          "target_id": "xcsh-docs:resources:user_identification:properties:rules:tls_fingerprint",
+          "type": "conflicts"
+        },
+        {
+          "anchor": "section",
+          "enforcement": "provider-schema",
+          "group": "rules:ConflictingListObjectAttributes:client_region,tls_fingerprint",
+          "source": "ast-validator:ConflictingListObjectAttributes",
+          "target_id": "xcsh-docs:resources:user_identification:properties:rules:tls_fingerprint",
+          "type": "conflicts"
+        },
+        {
+          "anchor": "section",
+          "enforcement": "provider-schema",
+          "group": "rules:ConflictingListObjectAttributes:cookie_name,tls_fingerprint",
+          "source": "ast-validator:ConflictingListObjectAttributes",
+          "target_id": "xcsh-docs:resources:user_identification:properties:rules:tls_fingerprint",
+          "type": "conflicts"
+        },
+        {
+          "anchor": "section",
+          "enforcement": "provider-schema",
+          "group": "rules:ConflictingListObjectAttributes:http_header_name,tls_fingerprint",
+          "source": "ast-validator:ConflictingListObjectAttributes",
+          "target_id": "xcsh-docs:resources:user_identification:properties:rules:tls_fingerprint",
+          "type": "conflicts"
+        },
+        {
+          "anchor": "section",
+          "enforcement": "provider-schema",
+          "group": "rules:ConflictingListObjectAttributes:ip_and_http_header_name,tls_fingerprint",
+          "source": "ast-validator:ConflictingListObjectAttributes",
+          "target_id": "xcsh-docs:resources:user_identification:properties:rules:tls_fingerprint",
+          "type": "conflicts"
+        },
+        {
+          "anchor": "section",
+          "enforcement": "provider-schema",
+          "group": "rules:ConflictingListObjectAttributes:ip_and_ja4_tls_fingerprint,tls_fingerprint",
+          "source": "ast-validator:ConflictingListObjectAttributes",
+          "target_id": "xcsh-docs:resources:user_identification:properties:rules:tls_fingerprint",
+          "type": "conflicts"
+        },
+        {
+          "anchor": "section",
+          "enforcement": "provider-schema",
+          "group": "rules:ConflictingListObjectAttributes:ip_and_tls_fingerprint,tls_fingerprint",
+          "source": "ast-validator:ConflictingListObjectAttributes",
+          "target_id": "xcsh-docs:resources:user_identification:properties:rules:tls_fingerprint",
+          "type": "conflicts"
+        },
+        {
+          "anchor": "section",
+          "enforcement": "provider-schema",
+          "group": "rules:ConflictingListObjectAttributes:ja4_tls_fingerprint,tls_fingerprint",
+          "source": "ast-validator:ConflictingListObjectAttributes",
+          "target_id": "xcsh-docs:resources:user_identification:properties:rules:tls_fingerprint",
+          "type": "conflicts"
+        },
+        {
+          "anchor": "section",
+          "enforcement": "provider-schema",
+          "group": "rules:ConflictingListObjectAttributes:jwt_claim_name,tls_fingerprint",
+          "source": "ast-validator:ConflictingListObjectAttributes",
+          "target_id": "xcsh-docs:resources:user_identification:properties:rules:tls_fingerprint",
+          "type": "conflicts"
+        },
+        {
+          "anchor": "section",
+          "enforcement": "provider-schema",
+          "group": "rules:ConflictingListObjectAttributes:none,tls_fingerprint",
+          "source": "ast-validator:ConflictingListObjectAttributes",
+          "target_id": "xcsh-docs:resources:user_identification:properties:rules:tls_fingerprint",
+          "type": "conflicts"
+        },
+        {
+          "anchor": "section",
+          "enforcement": "provider-schema",
+          "group": "rules:ConflictingListObjectAttributes:query_param_key,tls_fingerprint",
+          "source": "ast-validator:ConflictingListObjectAttributes",
+          "target_id": "xcsh-docs:resources:user_identification:properties:rules:tls_fingerprint",
+          "type": "conflicts"
+        }
+      ],
       "retrieval_version": 1,
       "role": "properties",
       "schema_path": ["rules"],
@@ -635,7 +3997,7 @@
       "category": "security",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:98dbf5280bf8376a0c75c1391250db9db4ac0d293d42bdd831c20f7514925adb",
+        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -675,7 +4037,7 @@
       "category": "security",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:98dbf5280bf8376a0c75c1391250db9db4ac0d293d42bdd831c20f7514925adb",
+        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -715,7 +4077,7 @@
       "category": "security",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:98dbf5280bf8376a0c75c1391250db9db4ac0d293d42bdd831c20f7514925adb",
+        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -755,7 +4117,7 @@
       "category": "security",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:98dbf5280bf8376a0c75c1391250db9db4ac0d293d42bdd831c20f7514925adb",
+        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -795,7 +4157,7 @@
       "category": "security",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:98dbf5280bf8376a0c75c1391250db9db4ac0d293d42bdd831c20f7514925adb",
+        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -835,7 +4197,7 @@
       "category": "security",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:98dbf5280bf8376a0c75c1391250db9db4ac0d293d42bdd831c20f7514925adb",
+        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -875,7 +4237,7 @@
       "category": "security",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:98dbf5280bf8376a0c75c1391250db9db4ac0d293d42bdd831c20f7514925adb",
+        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -915,7 +4277,7 @@
       "category": "security",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:98dbf5280bf8376a0c75c1391250db9db4ac0d293d42bdd831c20f7514925adb",
+        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -955,7 +4317,7 @@
       "category": "security",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:98dbf5280bf8376a0c75c1391250db9db4ac0d293d42bdd831c20f7514925adb",
+        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -995,7 +4357,7 @@
       "category": "security",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:98dbf5280bf8376a0c75c1391250db9db4ac0d293d42bdd831c20f7514925adb",
+        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -1035,7 +4397,7 @@
       "category": "security",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:98dbf5280bf8376a0c75c1391250db9db4ac0d293d42bdd831c20f7514925adb",
+        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -1142,7 +4504,7 @@
         "xcsh-docs:resources:user_identification:example:with-rules"
       ],
       "classification": {
-        "rules_sha256": "sha256:98dbf5280bf8376a0c75c1391250db9db4ac0d293d42bdd831c20f7514925adb",
+        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -1182,7 +4544,7 @@
       "category": "security",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:98dbf5280bf8376a0c75c1391250db9db4ac0d293d42bdd831c20f7514925adb",
+        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -1229,7 +4591,7 @@
       "category": "security",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:98dbf5280bf8376a0c75c1391250db9db4ac0d293d42bdd831c20f7514925adb",
+        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -1276,7 +4638,7 @@
       "category": "security",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:98dbf5280bf8376a0c75c1391250db9db4ac0d293d42bdd831c20f7514925adb",
+        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -1323,7 +4685,7 @@
       "category": "security",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:98dbf5280bf8376a0c75c1391250db9db4ac0d293d42bdd831c20f7514925adb",
+        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -1370,7 +4732,7 @@
       "category": "security",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:98dbf5280bf8376a0c75c1391250db9db4ac0d293d42bdd831c20f7514925adb",
+        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -1417,7 +4779,7 @@
       "category": "security",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:98dbf5280bf8376a0c75c1391250db9db4ac0d293d42bdd831c20f7514925adb",
+        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -1464,7 +4826,7 @@
       "category": "security",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:98dbf5280bf8376a0c75c1391250db9db4ac0d293d42bdd831c20f7514925adb",
+        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -1511,7 +4873,7 @@
       "category": "security",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:98dbf5280bf8376a0c75c1391250db9db4ac0d293d42bdd831c20f7514925adb",
+        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -1558,7 +4920,7 @@
       "category": "security",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:98dbf5280bf8376a0c75c1391250db9db4ac0d293d42bdd831c20f7514925adb",
+        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -1605,7 +4967,7 @@
       "category": "security",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:98dbf5280bf8376a0c75c1391250db9db4ac0d293d42bdd831c20f7514925adb",
+        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -1646,7 +5008,7 @@
       "category": "security",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:98dbf5280bf8376a0c75c1391250db9db4ac0d293d42bdd831c20f7514925adb",
+        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"

@@ -272,7 +272,7 @@
         "xcsh-docs:resources:waf_exclusion_policy:timeouts"
       ],
       "classification": {
-        "rules_sha256": "sha256:98dbf5280bf8376a0c75c1391250db9db4ac0d293d42bdd831c20f7514925adb",
+        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -316,7 +316,7 @@
         "xcsh-docs:resources:waf_exclusion_policy:properties:waf_exclusion_rules"
       ],
       "classification": {
-        "rules_sha256": "sha256:98dbf5280bf8376a0c75c1391250db9db4ac0d293d42bdd831c20f7514925adb",
+        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -458,7 +458,120 @@
           "max_items": null,
           "min_items": null,
           "nesting": "list",
-          "relationships": [],
+          "relationships": [
+            {
+              "anchor": "schema-waf_exclusion_rules--exact_value",
+              "enforcement": "provider-schema",
+              "group": "waf_exclusion_rules:ConflictingListObjectAttributes:any_domain,exact_value",
+              "source": "ast-validator:ConflictingListObjectAttributes",
+              "target_id": "xcsh-docs:resources:waf_exclusion_policy:properties:waf_exclusion_rules",
+              "type": "conflicts"
+            },
+            {
+              "anchor": "schema-waf_exclusion_rules--exact_value",
+              "enforcement": "provider-schema",
+              "group": "waf_exclusion_rules:ConflictingListObjectAttributes:exact_value,suffix_value",
+              "source": "ast-validator:ConflictingListObjectAttributes",
+              "target_id": "xcsh-docs:resources:waf_exclusion_policy:properties:waf_exclusion_rules",
+              "type": "conflicts"
+            },
+            {
+              "anchor": "schema-waf_exclusion_rules--path_prefix",
+              "enforcement": "provider-schema",
+              "group": "waf_exclusion_rules:ConflictingListObjectAttributes:any_path,path_prefix",
+              "source": "ast-validator:ConflictingListObjectAttributes",
+              "target_id": "xcsh-docs:resources:waf_exclusion_policy:properties:waf_exclusion_rules",
+              "type": "conflicts"
+            },
+            {
+              "anchor": "schema-waf_exclusion_rules--path_prefix",
+              "enforcement": "provider-schema",
+              "group": "waf_exclusion_rules:ConflictingListObjectAttributes:path_prefix,path_regex",
+              "source": "ast-validator:ConflictingListObjectAttributes",
+              "target_id": "xcsh-docs:resources:waf_exclusion_policy:properties:waf_exclusion_rules",
+              "type": "conflicts"
+            },
+            {
+              "anchor": "schema-waf_exclusion_rules--path_regex",
+              "enforcement": "provider-schema",
+              "group": "waf_exclusion_rules:ConflictingListObjectAttributes:any_path,path_regex",
+              "source": "ast-validator:ConflictingListObjectAttributes",
+              "target_id": "xcsh-docs:resources:waf_exclusion_policy:properties:waf_exclusion_rules",
+              "type": "conflicts"
+            },
+            {
+              "anchor": "schema-waf_exclusion_rules--path_regex",
+              "enforcement": "provider-schema",
+              "group": "waf_exclusion_rules:ConflictingListObjectAttributes:path_prefix,path_regex",
+              "source": "ast-validator:ConflictingListObjectAttributes",
+              "target_id": "xcsh-docs:resources:waf_exclusion_policy:properties:waf_exclusion_rules",
+              "type": "conflicts"
+            },
+            {
+              "anchor": "schema-waf_exclusion_rules--suffix_value",
+              "enforcement": "provider-schema",
+              "group": "waf_exclusion_rules:ConflictingListObjectAttributes:any_domain,suffix_value",
+              "source": "ast-validator:ConflictingListObjectAttributes",
+              "target_id": "xcsh-docs:resources:waf_exclusion_policy:properties:waf_exclusion_rules",
+              "type": "conflicts"
+            },
+            {
+              "anchor": "schema-waf_exclusion_rules--suffix_value",
+              "enforcement": "provider-schema",
+              "group": "waf_exclusion_rules:ConflictingListObjectAttributes:exact_value,suffix_value",
+              "source": "ast-validator:ConflictingListObjectAttributes",
+              "target_id": "xcsh-docs:resources:waf_exclusion_policy:properties:waf_exclusion_rules",
+              "type": "conflicts"
+            },
+            {
+              "anchor": "section",
+              "enforcement": "provider-schema",
+              "group": "waf_exclusion_rules:ConflictingListObjectAttributes:any_domain,exact_value",
+              "source": "ast-validator:ConflictingListObjectAttributes",
+              "target_id": "xcsh-docs:resources:waf_exclusion_policy:properties:waf_exclusion_rules:any_domain",
+              "type": "conflicts"
+            },
+            {
+              "anchor": "section",
+              "enforcement": "provider-schema",
+              "group": "waf_exclusion_rules:ConflictingListObjectAttributes:any_domain,suffix_value",
+              "source": "ast-validator:ConflictingListObjectAttributes",
+              "target_id": "xcsh-docs:resources:waf_exclusion_policy:properties:waf_exclusion_rules:any_domain",
+              "type": "conflicts"
+            },
+            {
+              "anchor": "section",
+              "enforcement": "provider-schema",
+              "group": "waf_exclusion_rules:ConflictingListObjectAttributes:any_path,path_prefix",
+              "source": "ast-validator:ConflictingListObjectAttributes",
+              "target_id": "xcsh-docs:resources:waf_exclusion_policy:properties:waf_exclusion_rules:any_path",
+              "type": "conflicts"
+            },
+            {
+              "anchor": "section",
+              "enforcement": "provider-schema",
+              "group": "waf_exclusion_rules:ConflictingListObjectAttributes:any_path,path_regex",
+              "source": "ast-validator:ConflictingListObjectAttributes",
+              "target_id": "xcsh-docs:resources:waf_exclusion_policy:properties:waf_exclusion_rules:any_path",
+              "type": "conflicts"
+            },
+            {
+              "anchor": "section",
+              "enforcement": "provider-schema",
+              "group": "waf_exclusion_rules:ConflictingListObjectAttributes:app_firewall_detection_control,waf_skip_processing",
+              "source": "ast-validator:ConflictingListObjectAttributes",
+              "target_id": "xcsh-docs:resources:waf_exclusion_policy:properties:waf_exclusion_rules:app_firewall_detection_control",
+              "type": "conflicts"
+            },
+            {
+              "anchor": "section",
+              "enforcement": "provider-schema",
+              "group": "waf_exclusion_rules:ConflictingListObjectAttributes:app_firewall_detection_control,waf_skip_processing",
+              "source": "ast-validator:ConflictingListObjectAttributes",
+              "target_id": "xcsh-docs:resources:waf_exclusion_policy:properties:waf_exclusion_rules:waf_skip_processing",
+              "type": "conflicts"
+            }
+          ],
           "schema_path": ["waf_exclusion_rules"],
           "syntax": "block",
           "type": "object"
@@ -483,7 +596,7 @@
       "category": "security",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:98dbf5280bf8376a0c75c1391250db9db4ac0d293d42bdd831c20f7514925adb",
+        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -586,7 +699,7 @@
         "xcsh-docs:resources:waf_exclusion_policy:properties:waf_exclusion_rules:waf_skip_processing"
       ],
       "classification": {
-        "rules_sha256": "sha256:98dbf5280bf8376a0c75c1391250db9db4ac0d293d42bdd831c20f7514925adb",
+        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -602,7 +715,120 @@
       "provider_type": "resources",
       "registry_anchor": "canonical-0322320101202230-2231013321001031-0201113210112101-3002102211332203-0013201213213233-2211232131201233-1132103130123231-2100101032201012",
       "registry_path": "docs/guides/resources--waf_exclusion_policy--reference--group-001.md",
-      "relationships": [],
+      "relationships": [
+        {
+          "anchor": "schema-waf_exclusion_rules--exact_value",
+          "enforcement": "provider-schema",
+          "group": "waf_exclusion_rules:ConflictingListObjectAttributes:any_domain,exact_value",
+          "source": "ast-validator:ConflictingListObjectAttributes",
+          "target_id": "xcsh-docs:resources:waf_exclusion_policy:properties:waf_exclusion_rules",
+          "type": "conflicts"
+        },
+        {
+          "anchor": "schema-waf_exclusion_rules--exact_value",
+          "enforcement": "provider-schema",
+          "group": "waf_exclusion_rules:ConflictingListObjectAttributes:exact_value,suffix_value",
+          "source": "ast-validator:ConflictingListObjectAttributes",
+          "target_id": "xcsh-docs:resources:waf_exclusion_policy:properties:waf_exclusion_rules",
+          "type": "conflicts"
+        },
+        {
+          "anchor": "schema-waf_exclusion_rules--path_prefix",
+          "enforcement": "provider-schema",
+          "group": "waf_exclusion_rules:ConflictingListObjectAttributes:any_path,path_prefix",
+          "source": "ast-validator:ConflictingListObjectAttributes",
+          "target_id": "xcsh-docs:resources:waf_exclusion_policy:properties:waf_exclusion_rules",
+          "type": "conflicts"
+        },
+        {
+          "anchor": "schema-waf_exclusion_rules--path_prefix",
+          "enforcement": "provider-schema",
+          "group": "waf_exclusion_rules:ConflictingListObjectAttributes:path_prefix,path_regex",
+          "source": "ast-validator:ConflictingListObjectAttributes",
+          "target_id": "xcsh-docs:resources:waf_exclusion_policy:properties:waf_exclusion_rules",
+          "type": "conflicts"
+        },
+        {
+          "anchor": "schema-waf_exclusion_rules--path_regex",
+          "enforcement": "provider-schema",
+          "group": "waf_exclusion_rules:ConflictingListObjectAttributes:any_path,path_regex",
+          "source": "ast-validator:ConflictingListObjectAttributes",
+          "target_id": "xcsh-docs:resources:waf_exclusion_policy:properties:waf_exclusion_rules",
+          "type": "conflicts"
+        },
+        {
+          "anchor": "schema-waf_exclusion_rules--path_regex",
+          "enforcement": "provider-schema",
+          "group": "waf_exclusion_rules:ConflictingListObjectAttributes:path_prefix,path_regex",
+          "source": "ast-validator:ConflictingListObjectAttributes",
+          "target_id": "xcsh-docs:resources:waf_exclusion_policy:properties:waf_exclusion_rules",
+          "type": "conflicts"
+        },
+        {
+          "anchor": "schema-waf_exclusion_rules--suffix_value",
+          "enforcement": "provider-schema",
+          "group": "waf_exclusion_rules:ConflictingListObjectAttributes:any_domain,suffix_value",
+          "source": "ast-validator:ConflictingListObjectAttributes",
+          "target_id": "xcsh-docs:resources:waf_exclusion_policy:properties:waf_exclusion_rules",
+          "type": "conflicts"
+        },
+        {
+          "anchor": "schema-waf_exclusion_rules--suffix_value",
+          "enforcement": "provider-schema",
+          "group": "waf_exclusion_rules:ConflictingListObjectAttributes:exact_value,suffix_value",
+          "source": "ast-validator:ConflictingListObjectAttributes",
+          "target_id": "xcsh-docs:resources:waf_exclusion_policy:properties:waf_exclusion_rules",
+          "type": "conflicts"
+        },
+        {
+          "anchor": "section",
+          "enforcement": "provider-schema",
+          "group": "waf_exclusion_rules:ConflictingListObjectAttributes:any_domain,exact_value",
+          "source": "ast-validator:ConflictingListObjectAttributes",
+          "target_id": "xcsh-docs:resources:waf_exclusion_policy:properties:waf_exclusion_rules:any_domain",
+          "type": "conflicts"
+        },
+        {
+          "anchor": "section",
+          "enforcement": "provider-schema",
+          "group": "waf_exclusion_rules:ConflictingListObjectAttributes:any_domain,suffix_value",
+          "source": "ast-validator:ConflictingListObjectAttributes",
+          "target_id": "xcsh-docs:resources:waf_exclusion_policy:properties:waf_exclusion_rules:any_domain",
+          "type": "conflicts"
+        },
+        {
+          "anchor": "section",
+          "enforcement": "provider-schema",
+          "group": "waf_exclusion_rules:ConflictingListObjectAttributes:any_path,path_prefix",
+          "source": "ast-validator:ConflictingListObjectAttributes",
+          "target_id": "xcsh-docs:resources:waf_exclusion_policy:properties:waf_exclusion_rules:any_path",
+          "type": "conflicts"
+        },
+        {
+          "anchor": "section",
+          "enforcement": "provider-schema",
+          "group": "waf_exclusion_rules:ConflictingListObjectAttributes:any_path,path_regex",
+          "source": "ast-validator:ConflictingListObjectAttributes",
+          "target_id": "xcsh-docs:resources:waf_exclusion_policy:properties:waf_exclusion_rules:any_path",
+          "type": "conflicts"
+        },
+        {
+          "anchor": "section",
+          "enforcement": "provider-schema",
+          "group": "waf_exclusion_rules:ConflictingListObjectAttributes:app_firewall_detection_control,waf_skip_processing",
+          "source": "ast-validator:ConflictingListObjectAttributes",
+          "target_id": "xcsh-docs:resources:waf_exclusion_policy:properties:waf_exclusion_rules:app_firewall_detection_control",
+          "type": "conflicts"
+        },
+        {
+          "anchor": "section",
+          "enforcement": "provider-schema",
+          "group": "waf_exclusion_rules:ConflictingListObjectAttributes:app_firewall_detection_control,waf_skip_processing",
+          "source": "ast-validator:ConflictingListObjectAttributes",
+          "target_id": "xcsh-docs:resources:waf_exclusion_policy:properties:waf_exclusion_rules:waf_skip_processing",
+          "type": "conflicts"
+        }
+      ],
       "retrieval_version": 1,
       "role": "properties",
       "schema_path": ["waf_exclusion_rules"],
@@ -790,7 +1016,7 @@
       "category": "security",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:98dbf5280bf8376a0c75c1391250db9db4ac0d293d42bdd831c20f7514925adb",
+        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -830,7 +1056,7 @@
       "category": "security",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:98dbf5280bf8376a0c75c1391250db9db4ac0d293d42bdd831c20f7514925adb",
+        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -875,7 +1101,7 @@
         "xcsh-docs:resources:waf_exclusion_policy:properties:waf_exclusion_rules:app_firewall_detection_control:exclude_violation_contexts"
       ],
       "classification": {
-        "rules_sha256": "sha256:98dbf5280bf8376a0c75c1391250db9db4ac0d293d42bdd831c20f7514925adb",
+        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -919,7 +1145,16 @@
           "max_items": null,
           "min_items": null,
           "nesting": "list",
-          "relationships": [],
+          "relationships": [
+            {
+              "anchor": "schema-waf_exclusion_rules--app_firewall_detection_control--exclude_bot_name_contexts--bot_name",
+              "enforcement": "provider-schema",
+              "group": "waf_exclusion_rules.app_firewall_detection_control.exclude_bot_name_contexts:RequiredListObjectAttributes:bot_name",
+              "source": "ast-validator:RequiredListObjectAttributes",
+              "target_id": "xcsh-docs:resources:waf_exclusion_policy:properties:waf_exclusion_rules:app_firewall_detection_control:exclude_bot_name_contexts",
+              "type": "requires"
+            }
+          ],
           "schema_path": ["waf_exclusion_rules", "app_firewall_detection_control", "exclude_bot_name_contexts"],
           "syntax": "block",
           "type": "object"
@@ -933,7 +1168,16 @@
           "max_items": null,
           "min_items": null,
           "nesting": "list",
-          "relationships": [],
+          "relationships": [
+            {
+              "anchor": "schema-waf_exclusion_rules--app_firewall_detection_control--exclude_signature_contexts--signature_id",
+              "enforcement": "provider-schema",
+              "group": "waf_exclusion_rules.app_firewall_detection_control.exclude_signature_contexts:RequiredListObjectAttributes:signature_id",
+              "source": "ast-validator:RequiredListObjectAttributes",
+              "target_id": "xcsh-docs:resources:waf_exclusion_policy:properties:waf_exclusion_rules:app_firewall_detection_control:exclude_signature_contexts",
+              "type": "requires"
+            }
+          ],
           "schema_path": ["waf_exclusion_rules", "app_firewall_detection_control", "exclude_signature_contexts"],
           "syntax": "block",
           "type": "object"
@@ -972,7 +1216,7 @@
       "category": "security",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:98dbf5280bf8376a0c75c1391250db9db4ac0d293d42bdd831c20f7514925adb",
+        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -1070,7 +1314,7 @@
       "category": "security",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:98dbf5280bf8376a0c75c1391250db9db4ac0d293d42bdd831c20f7514925adb",
+        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -1086,7 +1330,16 @@
       "provider_type": "resources",
       "registry_anchor": "canonical-2023312020310013-0223003320122301-3302023002030222-3221000023213303-1213233220000111-2003211211003301-0232203033320200-1310220320231132",
       "registry_path": "docs/guides/resources--waf_exclusion_policy--reference--group-001.md",
-      "relationships": [],
+      "relationships": [
+        {
+          "anchor": "schema-waf_exclusion_rules--app_firewall_detection_control--exclude_bot_name_contexts--bot_name",
+          "enforcement": "provider-schema",
+          "group": "waf_exclusion_rules.app_firewall_detection_control.exclude_bot_name_contexts:RequiredListObjectAttributes:bot_name",
+          "source": "ast-validator:RequiredListObjectAttributes",
+          "target_id": "xcsh-docs:resources:waf_exclusion_policy:properties:waf_exclusion_rules:app_firewall_detection_control:exclude_bot_name_contexts",
+          "type": "requires"
+        }
+      ],
       "retrieval_version": 1,
       "role": "properties",
       "schema_path": ["waf_exclusion_rules", "app_firewall_detection_control", "exclude_bot_name_contexts"],
@@ -1130,7 +1383,7 @@
       "category": "security",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:98dbf5280bf8376a0c75c1391250db9db4ac0d293d42bdd831c20f7514925adb",
+        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -1146,7 +1399,16 @@
       "provider_type": "resources",
       "registry_anchor": "canonical-1230032303210112-2223112101330230-0001013102313322-0212121030010122-0332122123222130-2303132023312331-3300322011100022-2100120012211320",
       "registry_path": "docs/guides/resources--waf_exclusion_policy--reference--group-001.md",
-      "relationships": [],
+      "relationships": [
+        {
+          "anchor": "schema-waf_exclusion_rules--app_firewall_detection_control--exclude_signature_contexts--signature_id",
+          "enforcement": "provider-schema",
+          "group": "waf_exclusion_rules.app_firewall_detection_control.exclude_signature_contexts:RequiredListObjectAttributes:signature_id",
+          "source": "ast-validator:RequiredListObjectAttributes",
+          "target_id": "xcsh-docs:resources:waf_exclusion_policy:properties:waf_exclusion_rules:app_firewall_detection_control:exclude_signature_contexts",
+          "type": "requires"
+        }
+      ],
       "retrieval_version": 1,
       "role": "properties",
       "schema_path": ["waf_exclusion_rules", "app_firewall_detection_control", "exclude_signature_contexts"],
@@ -1154,7 +1416,7 @@
         {
           "aliases": ["context"],
           "anchor": "schema-waf_exclusion_rules--app_firewall_detection_control--exclude_signature_contexts--context",
-          "description": "The available contexts for Exclusion rules. - CONTEXT_ANY: CONTEXT_ANY Detection will be excluded for all contexts. - CONTEXT_BODY: CONTEXT_BODY Detection will be excluded for the request body. - CONTEXT_REQUEST: CONTEXT_REQUEST Detection will be excluded for the request. - CONTEXT_RESPONSE: CONTEXT_RESPONSE - CONTEXT_",
+          "description": "The available contexts for Exclusion rules. - CONTEXT_ANY: CONTEXT_ANY Detection will be excluded for all contexts. - CONTEXT_BODY: CONTEXT_BODY Detection will be excluded for the request body. - CONTEXT_REQUEST: CONTEXT_REQUEST Detection will be excluded for the request. - CONTEXT_RESPONSE: CONTEXT_RESPONSE -",
           "document_id": "xcsh-docs:resources:waf_exclusion_policy:properties:waf_exclusion_rules:app_firewall_detection_control:exclude_signature_contexts",
           "flags": ["optional"],
           "max_items": null,
@@ -1228,7 +1490,7 @@
       "category": "security",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:98dbf5280bf8376a0c75c1391250db9db4ac0d293d42bdd831c20f7514925adb",
+        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -1252,7 +1514,7 @@
         {
           "aliases": ["context"],
           "anchor": "schema-waf_exclusion_rules--app_firewall_detection_control--exclude_violation_contexts--context",
-          "description": "The available contexts for Exclusion rules. - CONTEXT_ANY: CONTEXT_ANY Detection will be excluded for all contexts. - CONTEXT_BODY: CONTEXT_BODY Detection will be excluded for the request body. - CONTEXT_REQUEST: CONTEXT_REQUEST Detection will be excluded for the request. - CONTEXT_RESPONSE: CONTEXT_RESPONSE - CONTEXT_",
+          "description": "The available contexts for Exclusion rules. - CONTEXT_ANY: CONTEXT_ANY Detection will be excluded for all contexts. - CONTEXT_BODY: CONTEXT_BODY Detection will be excluded for the request body. - CONTEXT_REQUEST: CONTEXT_REQUEST Detection will be excluded for the request. - CONTEXT_RESPONSE: CONTEXT_RESPONSE -",
           "document_id": "xcsh-docs:resources:waf_exclusion_policy:properties:waf_exclusion_rules:app_firewall_detection_control:exclude_violation_contexts",
           "flags": ["optional"],
           "max_items": null,
@@ -1290,7 +1552,7 @@
         {
           "aliases": ["exclude violation"],
           "anchor": "schema-waf_exclusion_rules--app_firewall_detection_control--exclude_violation_contexts--exclude_violation",
-          "description": "List of all supported Violation Types VIOL_NONE VIOL_FILETYPE VIOL_METHOD VIOL_MANDATORY_HEADER VIOL_HTTP_RESPONSE_STATUS VIOL_REQUEST_MAX_LENGTH VIOL_FILE_UPLOAD VIOL_FILE_UPLOAD_IN_BODY VIOL_XML_MALFORMED VIOL_JSON_MALFORMED VIOL_ASM_COOKIE_MODIFIED VIOL_HTTP_PROTOCOL_MULTIPLE_HOST_HEADERS VIOL_HTTP_PROTOCOL_BAD_HOST",
+          "description": "List of all supported Violation Types VIOL_NONE VIOL_FILETYPE VIOL_METHOD VIOL_MANDATORY_HEADER VIOL_HTTP_RESPONSE_STATUS VIOL_REQUEST_MAX_LENGTH VIOL_FILE_UPLOAD VIOL_FILE_UPLOAD_IN_BODY VIOL_XML_MALFORMED VIOL_JSON_MALFORMED VIOL_ASM_COOKIE_MODIFIED VIOL_HTTP_PROTOCOL_MULTIPLE_HOST_HEADERS",
           "document_id": "xcsh-docs:resources:waf_exclusion_policy:properties:waf_exclusion_rules:app_firewall_detection_control:exclude_violation_contexts",
           "flags": ["optional"],
           "max_items": null,
@@ -1326,7 +1588,7 @@
       "category": "security",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:98dbf5280bf8376a0c75c1391250db9db4ac0d293d42bdd831c20f7514925adb",
+        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -1404,7 +1666,7 @@
       "category": "security",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:98dbf5280bf8376a0c75c1391250db9db4ac0d293d42bdd831c20f7514925adb",
+        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -1444,7 +1706,7 @@
       "category": "security",
       "child_ids": ["xcsh-docs:resources:waf_exclusion_policy:example:resource"],
       "classification": {
-        "rules_sha256": "sha256:98dbf5280bf8376a0c75c1391250db9db4ac0d293d42bdd831c20f7514925adb",
+        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -1484,7 +1746,7 @@
       "category": "security",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:98dbf5280bf8376a0c75c1391250db9db4ac0d293d42bdd831c20f7514925adb",
+        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -1531,7 +1793,7 @@
       "category": "security",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:98dbf5280bf8376a0c75c1391250db9db4ac0d293d42bdd831c20f7514925adb",
+        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -1572,7 +1834,7 @@
       "category": "security",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:98dbf5280bf8376a0c75c1391250db9db4ac0d293d42bdd831c20f7514925adb",
+        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"

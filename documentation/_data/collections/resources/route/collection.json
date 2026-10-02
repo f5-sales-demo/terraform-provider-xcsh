@@ -1163,7 +1163,7 @@
         "xcsh-docs:resources:route:timeouts"
       ],
       "classification": {
-        "rules_sha256": "sha256:98dbf5280bf8376a0c75c1391250db9db4ac0d293d42bdd831c20f7514925adb",
+        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -1204,7 +1204,7 @@
       "category": "networking",
       "child_ids": ["xcsh-docs:resources:route:properties:routes", "xcsh-docs:resources:route:properties:timeouts"],
       "classification": {
-        "rules_sha256": "sha256:98dbf5280bf8376a0c75c1391250db9db4ac0d293d42bdd831c20f7514925adb",
+        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -1332,7 +1332,88 @@
           "max_items": null,
           "min_items": null,
           "nesting": "list",
-          "relationships": [],
+          "relationships": [
+            {
+              "anchor": "section",
+              "enforcement": "provider-schema",
+              "group": "routes:ConflictingListObjectAttributes:bot_defense_javascript_injection,inherited_bot_defense_javascript_injection",
+              "source": "ast-validator:ConflictingListObjectAttributes",
+              "target_id": "xcsh-docs:resources:route:properties:routes:bot_defense_javascript_injection",
+              "type": "conflicts"
+            },
+            {
+              "anchor": "section",
+              "enforcement": "provider-schema",
+              "group": "routes:ConflictingListObjectAttributes:bot_defense_javascript_injection,inherited_bot_defense_javascript_injection",
+              "source": "ast-validator:ConflictingListObjectAttributes",
+              "target_id": "xcsh-docs:resources:route:properties:routes:inherited_bot_defense_javascript_injection",
+              "type": "conflicts"
+            },
+            {
+              "anchor": "section",
+              "enforcement": "provider-schema",
+              "group": "routes:ConflictingListObjectAttributes:inherited_waf_exclusion,waf_exclusion_policy",
+              "source": "ast-validator:ConflictingListObjectAttributes",
+              "target_id": "xcsh-docs:resources:route:properties:routes:inherited_waf_exclusion",
+              "type": "conflicts"
+            },
+            {
+              "anchor": "section",
+              "enforcement": "provider-schema",
+              "group": "routes:ConflictingListObjectAttributes:route_destination,route_direct_response",
+              "source": "ast-validator:ConflictingListObjectAttributes",
+              "target_id": "xcsh-docs:resources:route:properties:routes:route_destination",
+              "type": "conflicts"
+            },
+            {
+              "anchor": "section",
+              "enforcement": "provider-schema",
+              "group": "routes:ConflictingListObjectAttributes:route_destination,route_redirect",
+              "source": "ast-validator:ConflictingListObjectAttributes",
+              "target_id": "xcsh-docs:resources:route:properties:routes:route_destination",
+              "type": "conflicts"
+            },
+            {
+              "anchor": "section",
+              "enforcement": "provider-schema",
+              "group": "routes:ConflictingListObjectAttributes:route_destination,route_direct_response",
+              "source": "ast-validator:ConflictingListObjectAttributes",
+              "target_id": "xcsh-docs:resources:route:properties:routes:route_direct_response",
+              "type": "conflicts"
+            },
+            {
+              "anchor": "section",
+              "enforcement": "provider-schema",
+              "group": "routes:ConflictingListObjectAttributes:route_direct_response,route_redirect",
+              "source": "ast-validator:ConflictingListObjectAttributes",
+              "target_id": "xcsh-docs:resources:route:properties:routes:route_direct_response",
+              "type": "conflicts"
+            },
+            {
+              "anchor": "section",
+              "enforcement": "provider-schema",
+              "group": "routes:ConflictingListObjectAttributes:route_destination,route_redirect",
+              "source": "ast-validator:ConflictingListObjectAttributes",
+              "target_id": "xcsh-docs:resources:route:properties:routes:route_redirect",
+              "type": "conflicts"
+            },
+            {
+              "anchor": "section",
+              "enforcement": "provider-schema",
+              "group": "routes:ConflictingListObjectAttributes:route_direct_response,route_redirect",
+              "source": "ast-validator:ConflictingListObjectAttributes",
+              "target_id": "xcsh-docs:resources:route:properties:routes:route_redirect",
+              "type": "conflicts"
+            },
+            {
+              "anchor": "section",
+              "enforcement": "provider-schema",
+              "group": "routes:ConflictingListObjectAttributes:inherited_waf_exclusion,waf_exclusion_policy",
+              "source": "ast-validator:ConflictingListObjectAttributes",
+              "target_id": "xcsh-docs:resources:route:properties:routes:waf_exclusion_policy",
+              "type": "conflicts"
+            }
+          ],
           "schema_path": ["routes"],
           "syntax": "block",
           "type": "object"
@@ -1386,7 +1467,7 @@
         "xcsh-docs:resources:route:properties:routes:waf_type"
       ],
       "classification": {
-        "rules_sha256": "sha256:98dbf5280bf8376a0c75c1391250db9db4ac0d293d42bdd831c20f7514925adb",
+        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -1402,7 +1483,88 @@
       "provider_type": "resources",
       "registry_anchor": "canonical-3123120021213101-3123232233023211-0220000122002101-2303300120130232-3310221113321032-1122210133233232-3320330200321212-2120210203132130",
       "registry_path": "docs/guides/resources--route--reference--group-001.md",
-      "relationships": [],
+      "relationships": [
+        {
+          "anchor": "section",
+          "enforcement": "provider-schema",
+          "group": "routes:ConflictingListObjectAttributes:bot_defense_javascript_injection,inherited_bot_defense_javascript_injection",
+          "source": "ast-validator:ConflictingListObjectAttributes",
+          "target_id": "xcsh-docs:resources:route:properties:routes:bot_defense_javascript_injection",
+          "type": "conflicts"
+        },
+        {
+          "anchor": "section",
+          "enforcement": "provider-schema",
+          "group": "routes:ConflictingListObjectAttributes:bot_defense_javascript_injection,inherited_bot_defense_javascript_injection",
+          "source": "ast-validator:ConflictingListObjectAttributes",
+          "target_id": "xcsh-docs:resources:route:properties:routes:inherited_bot_defense_javascript_injection",
+          "type": "conflicts"
+        },
+        {
+          "anchor": "section",
+          "enforcement": "provider-schema",
+          "group": "routes:ConflictingListObjectAttributes:inherited_waf_exclusion,waf_exclusion_policy",
+          "source": "ast-validator:ConflictingListObjectAttributes",
+          "target_id": "xcsh-docs:resources:route:properties:routes:inherited_waf_exclusion",
+          "type": "conflicts"
+        },
+        {
+          "anchor": "section",
+          "enforcement": "provider-schema",
+          "group": "routes:ConflictingListObjectAttributes:route_destination,route_direct_response",
+          "source": "ast-validator:ConflictingListObjectAttributes",
+          "target_id": "xcsh-docs:resources:route:properties:routes:route_destination",
+          "type": "conflicts"
+        },
+        {
+          "anchor": "section",
+          "enforcement": "provider-schema",
+          "group": "routes:ConflictingListObjectAttributes:route_destination,route_redirect",
+          "source": "ast-validator:ConflictingListObjectAttributes",
+          "target_id": "xcsh-docs:resources:route:properties:routes:route_destination",
+          "type": "conflicts"
+        },
+        {
+          "anchor": "section",
+          "enforcement": "provider-schema",
+          "group": "routes:ConflictingListObjectAttributes:route_destination,route_direct_response",
+          "source": "ast-validator:ConflictingListObjectAttributes",
+          "target_id": "xcsh-docs:resources:route:properties:routes:route_direct_response",
+          "type": "conflicts"
+        },
+        {
+          "anchor": "section",
+          "enforcement": "provider-schema",
+          "group": "routes:ConflictingListObjectAttributes:route_direct_response,route_redirect",
+          "source": "ast-validator:ConflictingListObjectAttributes",
+          "target_id": "xcsh-docs:resources:route:properties:routes:route_direct_response",
+          "type": "conflicts"
+        },
+        {
+          "anchor": "section",
+          "enforcement": "provider-schema",
+          "group": "routes:ConflictingListObjectAttributes:route_destination,route_redirect",
+          "source": "ast-validator:ConflictingListObjectAttributes",
+          "target_id": "xcsh-docs:resources:route:properties:routes:route_redirect",
+          "type": "conflicts"
+        },
+        {
+          "anchor": "section",
+          "enforcement": "provider-schema",
+          "group": "routes:ConflictingListObjectAttributes:route_direct_response,route_redirect",
+          "source": "ast-validator:ConflictingListObjectAttributes",
+          "target_id": "xcsh-docs:resources:route:properties:routes:route_redirect",
+          "type": "conflicts"
+        },
+        {
+          "anchor": "section",
+          "enforcement": "provider-schema",
+          "group": "routes:ConflictingListObjectAttributes:inherited_waf_exclusion,waf_exclusion_policy",
+          "source": "ast-validator:ConflictingListObjectAttributes",
+          "target_id": "xcsh-docs:resources:route:properties:routes:waf_exclusion_policy",
+          "type": "conflicts"
+        }
+      ],
       "retrieval_version": 1,
       "role": "properties",
       "schema_path": ["routes"],
@@ -1495,7 +1657,32 @@
           "max_items": null,
           "min_items": null,
           "nesting": "list",
-          "relationships": [],
+          "relationships": [
+            {
+              "anchor": "schema-routes--request_cookies_to_add--value",
+              "enforcement": "provider-schema",
+              "group": "routes.request_cookies_to_add:ConflictingListObjectAttributes:secret_value,value",
+              "source": "ast-validator:ConflictingListObjectAttributes",
+              "target_id": "xcsh-docs:resources:route:properties:routes:request_cookies_to_add",
+              "type": "conflicts"
+            },
+            {
+              "anchor": "section",
+              "enforcement": "provider-schema",
+              "group": "routes.request_cookies_to_add:ConflictingListObjectAttributes:secret_value,value",
+              "source": "ast-validator:ConflictingListObjectAttributes",
+              "target_id": "xcsh-docs:resources:route:properties:routes:request_cookies_to_add:secret_value",
+              "type": "conflicts"
+            },
+            {
+              "anchor": "schema-routes--request_cookies_to_add--name",
+              "enforcement": "provider-schema",
+              "group": "routes.request_cookies_to_add:RequiredListObjectAttributes:name",
+              "source": "ast-validator:RequiredListObjectAttributes",
+              "target_id": "xcsh-docs:resources:route:properties:routes:request_cookies_to_add",
+              "type": "requires"
+            }
+          ],
           "schema_path": ["routes", "request_cookies_to_add"],
           "syntax": "block",
           "type": "object"
@@ -1523,7 +1710,32 @@
           "max_items": null,
           "min_items": null,
           "nesting": "list",
-          "relationships": [],
+          "relationships": [
+            {
+              "anchor": "schema-routes--request_headers_to_add--value",
+              "enforcement": "provider-schema",
+              "group": "routes.request_headers_to_add:ConflictingListObjectAttributes:secret_value,value",
+              "source": "ast-validator:ConflictingListObjectAttributes",
+              "target_id": "xcsh-docs:resources:route:properties:routes:request_headers_to_add",
+              "type": "conflicts"
+            },
+            {
+              "anchor": "section",
+              "enforcement": "provider-schema",
+              "group": "routes.request_headers_to_add:ConflictingListObjectAttributes:secret_value,value",
+              "source": "ast-validator:ConflictingListObjectAttributes",
+              "target_id": "xcsh-docs:resources:route:properties:routes:request_headers_to_add:secret_value",
+              "type": "conflicts"
+            },
+            {
+              "anchor": "schema-routes--request_headers_to_add--name",
+              "enforcement": "provider-schema",
+              "group": "routes.request_headers_to_add:RequiredListObjectAttributes:name",
+              "source": "ast-validator:RequiredListObjectAttributes",
+              "target_id": "xcsh-docs:resources:route:properties:routes:request_headers_to_add",
+              "type": "requires"
+            }
+          ],
           "schema_path": ["routes", "request_headers_to_add"],
           "syntax": "block",
           "type": "object"
@@ -1551,7 +1763,272 @@
           "max_items": null,
           "min_items": null,
           "nesting": "list",
-          "relationships": [],
+          "relationships": [
+            {
+              "anchor": "schema-routes--response_cookies_to_add--add_domain",
+              "enforcement": "provider-schema",
+              "group": "routes.response_cookies_to_add:ConflictingListObjectAttributes:add_domain,ignore_domain",
+              "source": "ast-validator:ConflictingListObjectAttributes",
+              "target_id": "xcsh-docs:resources:route:properties:routes:response_cookies_to_add",
+              "type": "conflicts"
+            },
+            {
+              "anchor": "schema-routes--response_cookies_to_add--add_expiry",
+              "enforcement": "provider-schema",
+              "group": "routes.response_cookies_to_add:ConflictingListObjectAttributes:add_expiry,ignore_expiry",
+              "source": "ast-validator:ConflictingListObjectAttributes",
+              "target_id": "xcsh-docs:resources:route:properties:routes:response_cookies_to_add",
+              "type": "conflicts"
+            },
+            {
+              "anchor": "schema-routes--response_cookies_to_add--add_path",
+              "enforcement": "provider-schema",
+              "group": "routes.response_cookies_to_add:ConflictingListObjectAttributes:add_path,ignore_path",
+              "source": "ast-validator:ConflictingListObjectAttributes",
+              "target_id": "xcsh-docs:resources:route:properties:routes:response_cookies_to_add",
+              "type": "conflicts"
+            },
+            {
+              "anchor": "schema-routes--response_cookies_to_add--max_age_value",
+              "enforcement": "provider-schema",
+              "group": "routes.response_cookies_to_add:ConflictingListObjectAttributes:ignore_max_age,max_age_value",
+              "source": "ast-validator:ConflictingListObjectAttributes",
+              "target_id": "xcsh-docs:resources:route:properties:routes:response_cookies_to_add",
+              "type": "conflicts"
+            },
+            {
+              "anchor": "schema-routes--response_cookies_to_add--value",
+              "enforcement": "provider-schema",
+              "group": "routes.response_cookies_to_add:ConflictingListObjectAttributes:ignore_value,value",
+              "source": "ast-validator:ConflictingListObjectAttributes",
+              "target_id": "xcsh-docs:resources:route:properties:routes:response_cookies_to_add",
+              "type": "conflicts"
+            },
+            {
+              "anchor": "schema-routes--response_cookies_to_add--value",
+              "enforcement": "provider-schema",
+              "group": "routes.response_cookies_to_add:ConflictingListObjectAttributes:secret_value,value",
+              "source": "ast-validator:ConflictingListObjectAttributes",
+              "target_id": "xcsh-docs:resources:route:properties:routes:response_cookies_to_add",
+              "type": "conflicts"
+            },
+            {
+              "anchor": "section",
+              "enforcement": "provider-schema",
+              "group": "routes.response_cookies_to_add:ConflictingListObjectAttributes:add_httponly,ignore_httponly",
+              "source": "ast-validator:ConflictingListObjectAttributes",
+              "target_id": "xcsh-docs:resources:route:properties:routes:response_cookies_to_add:add_httponly",
+              "type": "conflicts"
+            },
+            {
+              "anchor": "section",
+              "enforcement": "provider-schema",
+              "group": "routes.response_cookies_to_add:ConflictingListObjectAttributes:add_partitioned,ignore_partitioned",
+              "source": "ast-validator:ConflictingListObjectAttributes",
+              "target_id": "xcsh-docs:resources:route:properties:routes:response_cookies_to_add:add_partitioned",
+              "type": "conflicts"
+            },
+            {
+              "anchor": "section",
+              "enforcement": "provider-schema",
+              "group": "routes.response_cookies_to_add:ConflictingListObjectAttributes:add_secure,ignore_secure",
+              "source": "ast-validator:ConflictingListObjectAttributes",
+              "target_id": "xcsh-docs:resources:route:properties:routes:response_cookies_to_add:add_secure",
+              "type": "conflicts"
+            },
+            {
+              "anchor": "section",
+              "enforcement": "provider-schema",
+              "group": "routes.response_cookies_to_add:ConflictingListObjectAttributes:add_domain,ignore_domain",
+              "source": "ast-validator:ConflictingListObjectAttributes",
+              "target_id": "xcsh-docs:resources:route:properties:routes:response_cookies_to_add:ignore_domain",
+              "type": "conflicts"
+            },
+            {
+              "anchor": "section",
+              "enforcement": "provider-schema",
+              "group": "routes.response_cookies_to_add:ConflictingListObjectAttributes:add_expiry,ignore_expiry",
+              "source": "ast-validator:ConflictingListObjectAttributes",
+              "target_id": "xcsh-docs:resources:route:properties:routes:response_cookies_to_add:ignore_expiry",
+              "type": "conflicts"
+            },
+            {
+              "anchor": "section",
+              "enforcement": "provider-schema",
+              "group": "routes.response_cookies_to_add:ConflictingListObjectAttributes:add_httponly,ignore_httponly",
+              "source": "ast-validator:ConflictingListObjectAttributes",
+              "target_id": "xcsh-docs:resources:route:properties:routes:response_cookies_to_add:ignore_httponly",
+              "type": "conflicts"
+            },
+            {
+              "anchor": "section",
+              "enforcement": "provider-schema",
+              "group": "routes.response_cookies_to_add:ConflictingListObjectAttributes:ignore_max_age,max_age_value",
+              "source": "ast-validator:ConflictingListObjectAttributes",
+              "target_id": "xcsh-docs:resources:route:properties:routes:response_cookies_to_add:ignore_max_age",
+              "type": "conflicts"
+            },
+            {
+              "anchor": "section",
+              "enforcement": "provider-schema",
+              "group": "routes.response_cookies_to_add:ConflictingListObjectAttributes:add_partitioned,ignore_partitioned",
+              "source": "ast-validator:ConflictingListObjectAttributes",
+              "target_id": "xcsh-docs:resources:route:properties:routes:response_cookies_to_add:ignore_partitioned",
+              "type": "conflicts"
+            },
+            {
+              "anchor": "section",
+              "enforcement": "provider-schema",
+              "group": "routes.response_cookies_to_add:ConflictingListObjectAttributes:add_path,ignore_path",
+              "source": "ast-validator:ConflictingListObjectAttributes",
+              "target_id": "xcsh-docs:resources:route:properties:routes:response_cookies_to_add:ignore_path",
+              "type": "conflicts"
+            },
+            {
+              "anchor": "section",
+              "enforcement": "provider-schema",
+              "group": "routes.response_cookies_to_add:ConflictingListObjectAttributes:ignore_samesite,samesite_lax",
+              "source": "ast-validator:ConflictingListObjectAttributes",
+              "target_id": "xcsh-docs:resources:route:properties:routes:response_cookies_to_add:ignore_samesite",
+              "type": "conflicts"
+            },
+            {
+              "anchor": "section",
+              "enforcement": "provider-schema",
+              "group": "routes.response_cookies_to_add:ConflictingListObjectAttributes:ignore_samesite,samesite_none",
+              "source": "ast-validator:ConflictingListObjectAttributes",
+              "target_id": "xcsh-docs:resources:route:properties:routes:response_cookies_to_add:ignore_samesite",
+              "type": "conflicts"
+            },
+            {
+              "anchor": "section",
+              "enforcement": "provider-schema",
+              "group": "routes.response_cookies_to_add:ConflictingListObjectAttributes:ignore_samesite,samesite_strict",
+              "source": "ast-validator:ConflictingListObjectAttributes",
+              "target_id": "xcsh-docs:resources:route:properties:routes:response_cookies_to_add:ignore_samesite",
+              "type": "conflicts"
+            },
+            {
+              "anchor": "section",
+              "enforcement": "provider-schema",
+              "group": "routes.response_cookies_to_add:ConflictingListObjectAttributes:add_secure,ignore_secure",
+              "source": "ast-validator:ConflictingListObjectAttributes",
+              "target_id": "xcsh-docs:resources:route:properties:routes:response_cookies_to_add:ignore_secure",
+              "type": "conflicts"
+            },
+            {
+              "anchor": "section",
+              "enforcement": "provider-schema",
+              "group": "routes.response_cookies_to_add:ConflictingListObjectAttributes:ignore_value,secret_value",
+              "source": "ast-validator:ConflictingListObjectAttributes",
+              "target_id": "xcsh-docs:resources:route:properties:routes:response_cookies_to_add:ignore_value",
+              "type": "conflicts"
+            },
+            {
+              "anchor": "section",
+              "enforcement": "provider-schema",
+              "group": "routes.response_cookies_to_add:ConflictingListObjectAttributes:ignore_value,value",
+              "source": "ast-validator:ConflictingListObjectAttributes",
+              "target_id": "xcsh-docs:resources:route:properties:routes:response_cookies_to_add:ignore_value",
+              "type": "conflicts"
+            },
+            {
+              "anchor": "section",
+              "enforcement": "provider-schema",
+              "group": "routes.response_cookies_to_add:ConflictingListObjectAttributes:ignore_samesite,samesite_lax",
+              "source": "ast-validator:ConflictingListObjectAttributes",
+              "target_id": "xcsh-docs:resources:route:properties:routes:response_cookies_to_add:samesite_lax",
+              "type": "conflicts"
+            },
+            {
+              "anchor": "section",
+              "enforcement": "provider-schema",
+              "group": "routes.response_cookies_to_add:ConflictingListObjectAttributes:samesite_lax,samesite_none",
+              "source": "ast-validator:ConflictingListObjectAttributes",
+              "target_id": "xcsh-docs:resources:route:properties:routes:response_cookies_to_add:samesite_lax",
+              "type": "conflicts"
+            },
+            {
+              "anchor": "section",
+              "enforcement": "provider-schema",
+              "group": "routes.response_cookies_to_add:ConflictingListObjectAttributes:samesite_lax,samesite_strict",
+              "source": "ast-validator:ConflictingListObjectAttributes",
+              "target_id": "xcsh-docs:resources:route:properties:routes:response_cookies_to_add:samesite_lax",
+              "type": "conflicts"
+            },
+            {
+              "anchor": "section",
+              "enforcement": "provider-schema",
+              "group": "routes.response_cookies_to_add:ConflictingListObjectAttributes:ignore_samesite,samesite_none",
+              "source": "ast-validator:ConflictingListObjectAttributes",
+              "target_id": "xcsh-docs:resources:route:properties:routes:response_cookies_to_add:samesite_none",
+              "type": "conflicts"
+            },
+            {
+              "anchor": "section",
+              "enforcement": "provider-schema",
+              "group": "routes.response_cookies_to_add:ConflictingListObjectAttributes:samesite_lax,samesite_none",
+              "source": "ast-validator:ConflictingListObjectAttributes",
+              "target_id": "xcsh-docs:resources:route:properties:routes:response_cookies_to_add:samesite_none",
+              "type": "conflicts"
+            },
+            {
+              "anchor": "section",
+              "enforcement": "provider-schema",
+              "group": "routes.response_cookies_to_add:ConflictingListObjectAttributes:samesite_none,samesite_strict",
+              "source": "ast-validator:ConflictingListObjectAttributes",
+              "target_id": "xcsh-docs:resources:route:properties:routes:response_cookies_to_add:samesite_none",
+              "type": "conflicts"
+            },
+            {
+              "anchor": "section",
+              "enforcement": "provider-schema",
+              "group": "routes.response_cookies_to_add:ConflictingListObjectAttributes:ignore_samesite,samesite_strict",
+              "source": "ast-validator:ConflictingListObjectAttributes",
+              "target_id": "xcsh-docs:resources:route:properties:routes:response_cookies_to_add:samesite_strict",
+              "type": "conflicts"
+            },
+            {
+              "anchor": "section",
+              "enforcement": "provider-schema",
+              "group": "routes.response_cookies_to_add:ConflictingListObjectAttributes:samesite_lax,samesite_strict",
+              "source": "ast-validator:ConflictingListObjectAttributes",
+              "target_id": "xcsh-docs:resources:route:properties:routes:response_cookies_to_add:samesite_strict",
+              "type": "conflicts"
+            },
+            {
+              "anchor": "section",
+              "enforcement": "provider-schema",
+              "group": "routes.response_cookies_to_add:ConflictingListObjectAttributes:samesite_none,samesite_strict",
+              "source": "ast-validator:ConflictingListObjectAttributes",
+              "target_id": "xcsh-docs:resources:route:properties:routes:response_cookies_to_add:samesite_strict",
+              "type": "conflicts"
+            },
+            {
+              "anchor": "section",
+              "enforcement": "provider-schema",
+              "group": "routes.response_cookies_to_add:ConflictingListObjectAttributes:ignore_value,secret_value",
+              "source": "ast-validator:ConflictingListObjectAttributes",
+              "target_id": "xcsh-docs:resources:route:properties:routes:response_cookies_to_add:secret_value",
+              "type": "conflicts"
+            },
+            {
+              "anchor": "section",
+              "enforcement": "provider-schema",
+              "group": "routes.response_cookies_to_add:ConflictingListObjectAttributes:secret_value,value",
+              "source": "ast-validator:ConflictingListObjectAttributes",
+              "target_id": "xcsh-docs:resources:route:properties:routes:response_cookies_to_add:secret_value",
+              "type": "conflicts"
+            },
+            {
+              "anchor": "schema-routes--response_cookies_to_add--name",
+              "enforcement": "provider-schema",
+              "group": "routes.response_cookies_to_add:RequiredListObjectAttributes:name",
+              "source": "ast-validator:RequiredListObjectAttributes",
+              "target_id": "xcsh-docs:resources:route:properties:routes:response_cookies_to_add",
+              "type": "requires"
+            }
+          ],
           "schema_path": ["routes", "response_cookies_to_add"],
           "syntax": "block",
           "type": "object"
@@ -1579,7 +2056,32 @@
           "max_items": null,
           "min_items": null,
           "nesting": "list",
-          "relationships": [],
+          "relationships": [
+            {
+              "anchor": "schema-routes--response_headers_to_add--value",
+              "enforcement": "provider-schema",
+              "group": "routes.response_headers_to_add:ConflictingListObjectAttributes:secret_value,value",
+              "source": "ast-validator:ConflictingListObjectAttributes",
+              "target_id": "xcsh-docs:resources:route:properties:routes:response_headers_to_add",
+              "type": "conflicts"
+            },
+            {
+              "anchor": "section",
+              "enforcement": "provider-schema",
+              "group": "routes.response_headers_to_add:ConflictingListObjectAttributes:secret_value,value",
+              "source": "ast-validator:ConflictingListObjectAttributes",
+              "target_id": "xcsh-docs:resources:route:properties:routes:response_headers_to_add:secret_value",
+              "type": "conflicts"
+            },
+            {
+              "anchor": "schema-routes--response_headers_to_add--name",
+              "enforcement": "provider-schema",
+              "group": "routes.response_headers_to_add:RequiredListObjectAttributes:name",
+              "source": "ast-validator:RequiredListObjectAttributes",
+              "target_id": "xcsh-docs:resources:route:properties:routes:response_headers_to_add",
+              "type": "requires"
+            }
+          ],
           "schema_path": ["routes", "response_headers_to_add"],
           "syntax": "block",
           "type": "object"
@@ -1891,7 +2393,7 @@
       "category": "networking",
       "child_ids": ["xcsh-docs:resources:route:properties:routes:bot_defense_javascript_injection:javascript_tags"],
       "classification": {
-        "rules_sha256": "sha256:98dbf5280bf8376a0c75c1391250db9db4ac0d293d42bdd831c20f7514925adb",
+        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -1944,7 +2446,16 @@
           "max_items": null,
           "min_items": null,
           "nesting": "list",
-          "relationships": [],
+          "relationships": [
+            {
+              "anchor": "schema-routes--bot_defense_javascript_injection--javascript_tags--javascript_url",
+              "enforcement": "provider-schema",
+              "group": "routes.bot_defense_javascript_injection.javascript_tags:RequiredListObjectAttributes:javascript_url",
+              "source": "ast-validator:RequiredListObjectAttributes",
+              "target_id": "xcsh-docs:resources:route:properties:routes:bot_defense_javascript_injection:javascript_tags",
+              "type": "requires"
+            }
+          ],
           "schema_path": ["routes", "bot_defense_javascript_injection", "javascript_tags"],
           "syntax": "block",
           "type": "object"
@@ -1971,7 +2482,7 @@
         "xcsh-docs:resources:route:properties:routes:bot_defense_javascript_injection:javascript_tags:tag_attributes"
       ],
       "classification": {
-        "rules_sha256": "sha256:98dbf5280bf8376a0c75c1391250db9db4ac0d293d42bdd831c20f7514925adb",
+        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -1987,7 +2498,16 @@
       "provider_type": "resources",
       "registry_anchor": "canonical-3023111011302212-1023013120020122-1221033020111230-2330123312100111-2120120303302011-0100200230213023-2323312001110330-1202333223230313",
       "registry_path": "docs/guides/resources--route--reference--group-001.md",
-      "relationships": [],
+      "relationships": [
+        {
+          "anchor": "schema-routes--bot_defense_javascript_injection--javascript_tags--javascript_url",
+          "enforcement": "provider-schema",
+          "group": "routes.bot_defense_javascript_injection.javascript_tags:RequiredListObjectAttributes:javascript_url",
+          "source": "ast-validator:RequiredListObjectAttributes",
+          "target_id": "xcsh-docs:resources:route:properties:routes:bot_defense_javascript_injection:javascript_tags",
+          "type": "requires"
+        }
+      ],
       "retrieval_version": 1,
       "role": "properties",
       "schema_path": ["routes", "bot_defense_javascript_injection", "javascript_tags"],
@@ -2040,7 +2560,7 @@
       "category": "networking",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:98dbf5280bf8376a0c75c1391250db9db4ac0d293d42bdd831c20f7514925adb",
+        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -2121,7 +2641,7 @@
       "category": "networking",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:98dbf5280bf8376a0c75c1391250db9db4ac0d293d42bdd831c20f7514925adb",
+        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -2161,7 +2681,7 @@
       "category": "networking",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:98dbf5280bf8376a0c75c1391250db9db4ac0d293d42bdd831c20f7514925adb",
+        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -2206,7 +2726,7 @@
         "xcsh-docs:resources:route:properties:routes:match:query_params"
       ],
       "classification": {
-        "rules_sha256": "sha256:98dbf5280bf8376a0c75c1391250db9db4ac0d293d42bdd831c20f7514925adb",
+        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -2236,7 +2756,64 @@
           "max_items": null,
           "min_items": null,
           "nesting": "list",
-          "relationships": [],
+          "relationships": [
+            {
+              "anchor": "schema-routes--match--headers--exact",
+              "enforcement": "provider-schema",
+              "group": "routes.match.headers:ConflictingListObjectAttributes:exact,presence",
+              "source": "ast-validator:ConflictingListObjectAttributes",
+              "target_id": "xcsh-docs:resources:route:properties:routes:match:headers",
+              "type": "conflicts"
+            },
+            {
+              "anchor": "schema-routes--match--headers--exact",
+              "enforcement": "provider-schema",
+              "group": "routes.match.headers:ConflictingListObjectAttributes:exact,regex",
+              "source": "ast-validator:ConflictingListObjectAttributes",
+              "target_id": "xcsh-docs:resources:route:properties:routes:match:headers",
+              "type": "conflicts"
+            },
+            {
+              "anchor": "schema-routes--match--headers--presence",
+              "enforcement": "provider-schema",
+              "group": "routes.match.headers:ConflictingListObjectAttributes:exact,presence",
+              "source": "ast-validator:ConflictingListObjectAttributes",
+              "target_id": "xcsh-docs:resources:route:properties:routes:match:headers",
+              "type": "conflicts"
+            },
+            {
+              "anchor": "schema-routes--match--headers--presence",
+              "enforcement": "provider-schema",
+              "group": "routes.match.headers:ConflictingListObjectAttributes:presence,regex",
+              "source": "ast-validator:ConflictingListObjectAttributes",
+              "target_id": "xcsh-docs:resources:route:properties:routes:match:headers",
+              "type": "conflicts"
+            },
+            {
+              "anchor": "schema-routes--match--headers--regex",
+              "enforcement": "provider-schema",
+              "group": "routes.match.headers:ConflictingListObjectAttributes:exact,regex",
+              "source": "ast-validator:ConflictingListObjectAttributes",
+              "target_id": "xcsh-docs:resources:route:properties:routes:match:headers",
+              "type": "conflicts"
+            },
+            {
+              "anchor": "schema-routes--match--headers--regex",
+              "enforcement": "provider-schema",
+              "group": "routes.match.headers:ConflictingListObjectAttributes:presence,regex",
+              "source": "ast-validator:ConflictingListObjectAttributes",
+              "target_id": "xcsh-docs:resources:route:properties:routes:match:headers",
+              "type": "conflicts"
+            },
+            {
+              "anchor": "schema-routes--match--headers--name",
+              "enforcement": "provider-schema",
+              "group": "routes.match.headers:RequiredListObjectAttributes:name",
+              "source": "ast-validator:RequiredListObjectAttributes",
+              "target_id": "xcsh-docs:resources:route:properties:routes:match:headers",
+              "type": "requires"
+            }
+          ],
           "schema_path": ["routes", "match", "headers"],
           "syntax": "block",
           "type": "object"
@@ -2390,7 +2967,32 @@
           "max_items": null,
           "min_items": null,
           "nesting": "list",
-          "relationships": [],
+          "relationships": [
+            {
+              "anchor": "schema-routes--match--query_params--exact",
+              "enforcement": "provider-schema",
+              "group": "routes.match.query_params:ConflictingListObjectAttributes:exact,regex",
+              "source": "ast-validator:ConflictingListObjectAttributes",
+              "target_id": "xcsh-docs:resources:route:properties:routes:match:query_params",
+              "type": "conflicts"
+            },
+            {
+              "anchor": "schema-routes--match--query_params--regex",
+              "enforcement": "provider-schema",
+              "group": "routes.match.query_params:ConflictingListObjectAttributes:exact,regex",
+              "source": "ast-validator:ConflictingListObjectAttributes",
+              "target_id": "xcsh-docs:resources:route:properties:routes:match:query_params",
+              "type": "conflicts"
+            },
+            {
+              "anchor": "schema-routes--match--query_params--key",
+              "enforcement": "provider-schema",
+              "group": "routes.match.query_params:RequiredListObjectAttributes:key",
+              "source": "ast-validator:RequiredListObjectAttributes",
+              "target_id": "xcsh-docs:resources:route:properties:routes:match:query_params",
+              "type": "requires"
+            }
+          ],
           "schema_path": ["routes", "match", "query_params"],
           "syntax": "block",
           "type": "object"
@@ -2415,7 +3017,7 @@
       "category": "networking",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:98dbf5280bf8376a0c75c1391250db9db4ac0d293d42bdd831c20f7514925adb",
+        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -2431,7 +3033,64 @@
       "provider_type": "resources",
       "registry_anchor": "canonical-1231001332220321-3202001223021011-1122010000110133-0332120211030122-2020003311013111-3330112211131113-1211310101122121-2022023230321200",
       "registry_path": "docs/guides/resources--route--reference--group-001.md",
-      "relationships": [],
+      "relationships": [
+        {
+          "anchor": "schema-routes--match--headers--exact",
+          "enforcement": "provider-schema",
+          "group": "routes.match.headers:ConflictingListObjectAttributes:exact,presence",
+          "source": "ast-validator:ConflictingListObjectAttributes",
+          "target_id": "xcsh-docs:resources:route:properties:routes:match:headers",
+          "type": "conflicts"
+        },
+        {
+          "anchor": "schema-routes--match--headers--exact",
+          "enforcement": "provider-schema",
+          "group": "routes.match.headers:ConflictingListObjectAttributes:exact,regex",
+          "source": "ast-validator:ConflictingListObjectAttributes",
+          "target_id": "xcsh-docs:resources:route:properties:routes:match:headers",
+          "type": "conflicts"
+        },
+        {
+          "anchor": "schema-routes--match--headers--presence",
+          "enforcement": "provider-schema",
+          "group": "routes.match.headers:ConflictingListObjectAttributes:exact,presence",
+          "source": "ast-validator:ConflictingListObjectAttributes",
+          "target_id": "xcsh-docs:resources:route:properties:routes:match:headers",
+          "type": "conflicts"
+        },
+        {
+          "anchor": "schema-routes--match--headers--presence",
+          "enforcement": "provider-schema",
+          "group": "routes.match.headers:ConflictingListObjectAttributes:presence,regex",
+          "source": "ast-validator:ConflictingListObjectAttributes",
+          "target_id": "xcsh-docs:resources:route:properties:routes:match:headers",
+          "type": "conflicts"
+        },
+        {
+          "anchor": "schema-routes--match--headers--regex",
+          "enforcement": "provider-schema",
+          "group": "routes.match.headers:ConflictingListObjectAttributes:exact,regex",
+          "source": "ast-validator:ConflictingListObjectAttributes",
+          "target_id": "xcsh-docs:resources:route:properties:routes:match:headers",
+          "type": "conflicts"
+        },
+        {
+          "anchor": "schema-routes--match--headers--regex",
+          "enforcement": "provider-schema",
+          "group": "routes.match.headers:ConflictingListObjectAttributes:presence,regex",
+          "source": "ast-validator:ConflictingListObjectAttributes",
+          "target_id": "xcsh-docs:resources:route:properties:routes:match:headers",
+          "type": "conflicts"
+        },
+        {
+          "anchor": "schema-routes--match--headers--name",
+          "enforcement": "provider-schema",
+          "group": "routes.match.headers:RequiredListObjectAttributes:name",
+          "source": "ast-validator:RequiredListObjectAttributes",
+          "target_id": "xcsh-docs:resources:route:properties:routes:match:headers",
+          "type": "requires"
+        }
+      ],
       "retrieval_version": 1,
       "role": "properties",
       "schema_path": ["routes", "match", "headers"],
@@ -2526,7 +3185,7 @@
       "category": "networking",
       "child_ids": ["xcsh-docs:resources:route:properties:routes:match:incoming_port:no_port_match"],
       "classification": {
-        "rules_sha256": "sha256:98dbf5280bf8376a0c75c1391250db9db4ac0d293d42bdd831c20f7514925adb",
+        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -2658,7 +3317,7 @@
       "category": "networking",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:98dbf5280bf8376a0c75c1391250db9db4ac0d293d42bdd831c20f7514925adb",
+        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -2698,7 +3357,7 @@
       "category": "networking",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:98dbf5280bf8376a0c75c1391250db9db4ac0d293d42bdd831c20f7514925adb",
+        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -2830,7 +3489,7 @@
       "category": "networking",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:98dbf5280bf8376a0c75c1391250db9db4ac0d293d42bdd831c20f7514925adb",
+        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -2846,7 +3505,32 @@
       "provider_type": "resources",
       "registry_anchor": "canonical-1032010033330232-3103322230120112-2313232022223123-1323210231121313-2320232301003303-1100122121022210-1010012121021221-3021120211000212",
       "registry_path": "docs/guides/resources--route--reference--group-001.md",
-      "relationships": [],
+      "relationships": [
+        {
+          "anchor": "schema-routes--match--query_params--exact",
+          "enforcement": "provider-schema",
+          "group": "routes.match.query_params:ConflictingListObjectAttributes:exact,regex",
+          "source": "ast-validator:ConflictingListObjectAttributes",
+          "target_id": "xcsh-docs:resources:route:properties:routes:match:query_params",
+          "type": "conflicts"
+        },
+        {
+          "anchor": "schema-routes--match--query_params--regex",
+          "enforcement": "provider-schema",
+          "group": "routes.match.query_params:ConflictingListObjectAttributes:exact,regex",
+          "source": "ast-validator:ConflictingListObjectAttributes",
+          "target_id": "xcsh-docs:resources:route:properties:routes:match:query_params",
+          "type": "conflicts"
+        },
+        {
+          "anchor": "schema-routes--match--query_params--key",
+          "enforcement": "provider-schema",
+          "group": "routes.match.query_params:RequiredListObjectAttributes:key",
+          "source": "ast-validator:RequiredListObjectAttributes",
+          "target_id": "xcsh-docs:resources:route:properties:routes:match:query_params",
+          "type": "requires"
+        }
+      ],
       "retrieval_version": 1,
       "role": "properties",
       "schema_path": ["routes", "match", "query_params"],
@@ -2913,7 +3597,7 @@
       "category": "networking",
       "child_ids": ["xcsh-docs:resources:route:properties:routes:request_cookies_to_add:secret_value"],
       "classification": {
-        "rules_sha256": "sha256:98dbf5280bf8376a0c75c1391250db9db4ac0d293d42bdd831c20f7514925adb",
+        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -2929,7 +3613,32 @@
       "provider_type": "resources",
       "registry_anchor": "canonical-1222311103011223-2023210230230212-3221022312223230-2011000303333233-2201120130230001-0322033000011011-0012020012001121-1313001212301020",
       "registry_path": "docs/guides/resources--route--reference--group-001.md",
-      "relationships": [],
+      "relationships": [
+        {
+          "anchor": "schema-routes--request_cookies_to_add--value",
+          "enforcement": "provider-schema",
+          "group": "routes.request_cookies_to_add:ConflictingListObjectAttributes:secret_value,value",
+          "source": "ast-validator:ConflictingListObjectAttributes",
+          "target_id": "xcsh-docs:resources:route:properties:routes:request_cookies_to_add",
+          "type": "conflicts"
+        },
+        {
+          "anchor": "section",
+          "enforcement": "provider-schema",
+          "group": "routes.request_cookies_to_add:ConflictingListObjectAttributes:secret_value,value",
+          "source": "ast-validator:ConflictingListObjectAttributes",
+          "target_id": "xcsh-docs:resources:route:properties:routes:request_cookies_to_add:secret_value",
+          "type": "conflicts"
+        },
+        {
+          "anchor": "schema-routes--request_cookies_to_add--name",
+          "enforcement": "provider-schema",
+          "group": "routes.request_cookies_to_add:RequiredListObjectAttributes:name",
+          "source": "ast-validator:RequiredListObjectAttributes",
+          "target_id": "xcsh-docs:resources:route:properties:routes:request_cookies_to_add",
+          "type": "requires"
+        }
+      ],
       "retrieval_version": 1,
       "role": "properties",
       "schema_path": ["routes", "request_cookies_to_add"],
@@ -3030,7 +3739,7 @@
         "xcsh-docs:resources:route:properties:routes:request_cookies_to_add:secret_value:clear_secret_info"
       ],
       "classification": {
-        "rules_sha256": "sha256:98dbf5280bf8376a0c75c1391250db9db4ac0d293d42bdd831c20f7514925adb",
+        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -3134,7 +3843,7 @@
       "category": "networking",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:98dbf5280bf8376a0c75c1391250db9db4ac0d293d42bdd831c20f7514925adb",
+        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -3238,7 +3947,7 @@
       "category": "networking",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:98dbf5280bf8376a0c75c1391250db9db4ac0d293d42bdd831c20f7514925adb",
+        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -3316,7 +4025,7 @@
       "category": "networking",
       "child_ids": ["xcsh-docs:resources:route:properties:routes:request_headers_to_add:secret_value"],
       "classification": {
-        "rules_sha256": "sha256:98dbf5280bf8376a0c75c1391250db9db4ac0d293d42bdd831c20f7514925adb",
+        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -3332,7 +4041,32 @@
       "provider_type": "resources",
       "registry_anchor": "canonical-3110130201033312-1313023321233221-3201132303201121-3020210012322131-2100011331031103-0301020201111323-0032131300201003-1021223233210133",
       "registry_path": "docs/guides/resources--route--reference--group-001.md",
-      "relationships": [],
+      "relationships": [
+        {
+          "anchor": "schema-routes--request_headers_to_add--value",
+          "enforcement": "provider-schema",
+          "group": "routes.request_headers_to_add:ConflictingListObjectAttributes:secret_value,value",
+          "source": "ast-validator:ConflictingListObjectAttributes",
+          "target_id": "xcsh-docs:resources:route:properties:routes:request_headers_to_add",
+          "type": "conflicts"
+        },
+        {
+          "anchor": "section",
+          "enforcement": "provider-schema",
+          "group": "routes.request_headers_to_add:ConflictingListObjectAttributes:secret_value,value",
+          "source": "ast-validator:ConflictingListObjectAttributes",
+          "target_id": "xcsh-docs:resources:route:properties:routes:request_headers_to_add:secret_value",
+          "type": "conflicts"
+        },
+        {
+          "anchor": "schema-routes--request_headers_to_add--name",
+          "enforcement": "provider-schema",
+          "group": "routes.request_headers_to_add:RequiredListObjectAttributes:name",
+          "source": "ast-validator:RequiredListObjectAttributes",
+          "target_id": "xcsh-docs:resources:route:properties:routes:request_headers_to_add",
+          "type": "requires"
+        }
+      ],
       "retrieval_version": 1,
       "role": "properties",
       "schema_path": ["routes", "request_headers_to_add"],
@@ -3433,7 +4167,7 @@
         "xcsh-docs:resources:route:properties:routes:request_headers_to_add:secret_value:clear_secret_info"
       ],
       "classification": {
-        "rules_sha256": "sha256:98dbf5280bf8376a0c75c1391250db9db4ac0d293d42bdd831c20f7514925adb",
+        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -3537,7 +4271,7 @@
       "category": "networking",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:98dbf5280bf8376a0c75c1391250db9db4ac0d293d42bdd831c20f7514925adb",
+        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -3641,7 +4375,7 @@
       "category": "networking",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:98dbf5280bf8376a0c75c1391250db9db4ac0d293d42bdd831c20f7514925adb",
+        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -3736,7 +4470,7 @@
         "xcsh-docs:resources:route:properties:routes:response_cookies_to_add:secret_value"
       ],
       "classification": {
-        "rules_sha256": "sha256:98dbf5280bf8376a0c75c1391250db9db4ac0d293d42bdd831c20f7514925adb",
+        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -3752,7 +4486,272 @@
       "provider_type": "resources",
       "registry_anchor": "canonical-1012103221102121-0311302110220133-3312032210222233-2321211003121320-3110000121321323-2231112320331231-3120130302021121-2113210223220100",
       "registry_path": "docs/guides/resources--route--reference--group-001.md",
-      "relationships": [],
+      "relationships": [
+        {
+          "anchor": "schema-routes--response_cookies_to_add--add_domain",
+          "enforcement": "provider-schema",
+          "group": "routes.response_cookies_to_add:ConflictingListObjectAttributes:add_domain,ignore_domain",
+          "source": "ast-validator:ConflictingListObjectAttributes",
+          "target_id": "xcsh-docs:resources:route:properties:routes:response_cookies_to_add",
+          "type": "conflicts"
+        },
+        {
+          "anchor": "schema-routes--response_cookies_to_add--add_expiry",
+          "enforcement": "provider-schema",
+          "group": "routes.response_cookies_to_add:ConflictingListObjectAttributes:add_expiry,ignore_expiry",
+          "source": "ast-validator:ConflictingListObjectAttributes",
+          "target_id": "xcsh-docs:resources:route:properties:routes:response_cookies_to_add",
+          "type": "conflicts"
+        },
+        {
+          "anchor": "schema-routes--response_cookies_to_add--add_path",
+          "enforcement": "provider-schema",
+          "group": "routes.response_cookies_to_add:ConflictingListObjectAttributes:add_path,ignore_path",
+          "source": "ast-validator:ConflictingListObjectAttributes",
+          "target_id": "xcsh-docs:resources:route:properties:routes:response_cookies_to_add",
+          "type": "conflicts"
+        },
+        {
+          "anchor": "schema-routes--response_cookies_to_add--max_age_value",
+          "enforcement": "provider-schema",
+          "group": "routes.response_cookies_to_add:ConflictingListObjectAttributes:ignore_max_age,max_age_value",
+          "source": "ast-validator:ConflictingListObjectAttributes",
+          "target_id": "xcsh-docs:resources:route:properties:routes:response_cookies_to_add",
+          "type": "conflicts"
+        },
+        {
+          "anchor": "schema-routes--response_cookies_to_add--value",
+          "enforcement": "provider-schema",
+          "group": "routes.response_cookies_to_add:ConflictingListObjectAttributes:ignore_value,value",
+          "source": "ast-validator:ConflictingListObjectAttributes",
+          "target_id": "xcsh-docs:resources:route:properties:routes:response_cookies_to_add",
+          "type": "conflicts"
+        },
+        {
+          "anchor": "schema-routes--response_cookies_to_add--value",
+          "enforcement": "provider-schema",
+          "group": "routes.response_cookies_to_add:ConflictingListObjectAttributes:secret_value,value",
+          "source": "ast-validator:ConflictingListObjectAttributes",
+          "target_id": "xcsh-docs:resources:route:properties:routes:response_cookies_to_add",
+          "type": "conflicts"
+        },
+        {
+          "anchor": "section",
+          "enforcement": "provider-schema",
+          "group": "routes.response_cookies_to_add:ConflictingListObjectAttributes:add_httponly,ignore_httponly",
+          "source": "ast-validator:ConflictingListObjectAttributes",
+          "target_id": "xcsh-docs:resources:route:properties:routes:response_cookies_to_add:add_httponly",
+          "type": "conflicts"
+        },
+        {
+          "anchor": "section",
+          "enforcement": "provider-schema",
+          "group": "routes.response_cookies_to_add:ConflictingListObjectAttributes:add_partitioned,ignore_partitioned",
+          "source": "ast-validator:ConflictingListObjectAttributes",
+          "target_id": "xcsh-docs:resources:route:properties:routes:response_cookies_to_add:add_partitioned",
+          "type": "conflicts"
+        },
+        {
+          "anchor": "section",
+          "enforcement": "provider-schema",
+          "group": "routes.response_cookies_to_add:ConflictingListObjectAttributes:add_secure,ignore_secure",
+          "source": "ast-validator:ConflictingListObjectAttributes",
+          "target_id": "xcsh-docs:resources:route:properties:routes:response_cookies_to_add:add_secure",
+          "type": "conflicts"
+        },
+        {
+          "anchor": "section",
+          "enforcement": "provider-schema",
+          "group": "routes.response_cookies_to_add:ConflictingListObjectAttributes:add_domain,ignore_domain",
+          "source": "ast-validator:ConflictingListObjectAttributes",
+          "target_id": "xcsh-docs:resources:route:properties:routes:response_cookies_to_add:ignore_domain",
+          "type": "conflicts"
+        },
+        {
+          "anchor": "section",
+          "enforcement": "provider-schema",
+          "group": "routes.response_cookies_to_add:ConflictingListObjectAttributes:add_expiry,ignore_expiry",
+          "source": "ast-validator:ConflictingListObjectAttributes",
+          "target_id": "xcsh-docs:resources:route:properties:routes:response_cookies_to_add:ignore_expiry",
+          "type": "conflicts"
+        },
+        {
+          "anchor": "section",
+          "enforcement": "provider-schema",
+          "group": "routes.response_cookies_to_add:ConflictingListObjectAttributes:add_httponly,ignore_httponly",
+          "source": "ast-validator:ConflictingListObjectAttributes",
+          "target_id": "xcsh-docs:resources:route:properties:routes:response_cookies_to_add:ignore_httponly",
+          "type": "conflicts"
+        },
+        {
+          "anchor": "section",
+          "enforcement": "provider-schema",
+          "group": "routes.response_cookies_to_add:ConflictingListObjectAttributes:ignore_max_age,max_age_value",
+          "source": "ast-validator:ConflictingListObjectAttributes",
+          "target_id": "xcsh-docs:resources:route:properties:routes:response_cookies_to_add:ignore_max_age",
+          "type": "conflicts"
+        },
+        {
+          "anchor": "section",
+          "enforcement": "provider-schema",
+          "group": "routes.response_cookies_to_add:ConflictingListObjectAttributes:add_partitioned,ignore_partitioned",
+          "source": "ast-validator:ConflictingListObjectAttributes",
+          "target_id": "xcsh-docs:resources:route:properties:routes:response_cookies_to_add:ignore_partitioned",
+          "type": "conflicts"
+        },
+        {
+          "anchor": "section",
+          "enforcement": "provider-schema",
+          "group": "routes.response_cookies_to_add:ConflictingListObjectAttributes:add_path,ignore_path",
+          "source": "ast-validator:ConflictingListObjectAttributes",
+          "target_id": "xcsh-docs:resources:route:properties:routes:response_cookies_to_add:ignore_path",
+          "type": "conflicts"
+        },
+        {
+          "anchor": "section",
+          "enforcement": "provider-schema",
+          "group": "routes.response_cookies_to_add:ConflictingListObjectAttributes:ignore_samesite,samesite_lax",
+          "source": "ast-validator:ConflictingListObjectAttributes",
+          "target_id": "xcsh-docs:resources:route:properties:routes:response_cookies_to_add:ignore_samesite",
+          "type": "conflicts"
+        },
+        {
+          "anchor": "section",
+          "enforcement": "provider-schema",
+          "group": "routes.response_cookies_to_add:ConflictingListObjectAttributes:ignore_samesite,samesite_none",
+          "source": "ast-validator:ConflictingListObjectAttributes",
+          "target_id": "xcsh-docs:resources:route:properties:routes:response_cookies_to_add:ignore_samesite",
+          "type": "conflicts"
+        },
+        {
+          "anchor": "section",
+          "enforcement": "provider-schema",
+          "group": "routes.response_cookies_to_add:ConflictingListObjectAttributes:ignore_samesite,samesite_strict",
+          "source": "ast-validator:ConflictingListObjectAttributes",
+          "target_id": "xcsh-docs:resources:route:properties:routes:response_cookies_to_add:ignore_samesite",
+          "type": "conflicts"
+        },
+        {
+          "anchor": "section",
+          "enforcement": "provider-schema",
+          "group": "routes.response_cookies_to_add:ConflictingListObjectAttributes:add_secure,ignore_secure",
+          "source": "ast-validator:ConflictingListObjectAttributes",
+          "target_id": "xcsh-docs:resources:route:properties:routes:response_cookies_to_add:ignore_secure",
+          "type": "conflicts"
+        },
+        {
+          "anchor": "section",
+          "enforcement": "provider-schema",
+          "group": "routes.response_cookies_to_add:ConflictingListObjectAttributes:ignore_value,secret_value",
+          "source": "ast-validator:ConflictingListObjectAttributes",
+          "target_id": "xcsh-docs:resources:route:properties:routes:response_cookies_to_add:ignore_value",
+          "type": "conflicts"
+        },
+        {
+          "anchor": "section",
+          "enforcement": "provider-schema",
+          "group": "routes.response_cookies_to_add:ConflictingListObjectAttributes:ignore_value,value",
+          "source": "ast-validator:ConflictingListObjectAttributes",
+          "target_id": "xcsh-docs:resources:route:properties:routes:response_cookies_to_add:ignore_value",
+          "type": "conflicts"
+        },
+        {
+          "anchor": "section",
+          "enforcement": "provider-schema",
+          "group": "routes.response_cookies_to_add:ConflictingListObjectAttributes:ignore_samesite,samesite_lax",
+          "source": "ast-validator:ConflictingListObjectAttributes",
+          "target_id": "xcsh-docs:resources:route:properties:routes:response_cookies_to_add:samesite_lax",
+          "type": "conflicts"
+        },
+        {
+          "anchor": "section",
+          "enforcement": "provider-schema",
+          "group": "routes.response_cookies_to_add:ConflictingListObjectAttributes:samesite_lax,samesite_none",
+          "source": "ast-validator:ConflictingListObjectAttributes",
+          "target_id": "xcsh-docs:resources:route:properties:routes:response_cookies_to_add:samesite_lax",
+          "type": "conflicts"
+        },
+        {
+          "anchor": "section",
+          "enforcement": "provider-schema",
+          "group": "routes.response_cookies_to_add:ConflictingListObjectAttributes:samesite_lax,samesite_strict",
+          "source": "ast-validator:ConflictingListObjectAttributes",
+          "target_id": "xcsh-docs:resources:route:properties:routes:response_cookies_to_add:samesite_lax",
+          "type": "conflicts"
+        },
+        {
+          "anchor": "section",
+          "enforcement": "provider-schema",
+          "group": "routes.response_cookies_to_add:ConflictingListObjectAttributes:ignore_samesite,samesite_none",
+          "source": "ast-validator:ConflictingListObjectAttributes",
+          "target_id": "xcsh-docs:resources:route:properties:routes:response_cookies_to_add:samesite_none",
+          "type": "conflicts"
+        },
+        {
+          "anchor": "section",
+          "enforcement": "provider-schema",
+          "group": "routes.response_cookies_to_add:ConflictingListObjectAttributes:samesite_lax,samesite_none",
+          "source": "ast-validator:ConflictingListObjectAttributes",
+          "target_id": "xcsh-docs:resources:route:properties:routes:response_cookies_to_add:samesite_none",
+          "type": "conflicts"
+        },
+        {
+          "anchor": "section",
+          "enforcement": "provider-schema",
+          "group": "routes.response_cookies_to_add:ConflictingListObjectAttributes:samesite_none,samesite_strict",
+          "source": "ast-validator:ConflictingListObjectAttributes",
+          "target_id": "xcsh-docs:resources:route:properties:routes:response_cookies_to_add:samesite_none",
+          "type": "conflicts"
+        },
+        {
+          "anchor": "section",
+          "enforcement": "provider-schema",
+          "group": "routes.response_cookies_to_add:ConflictingListObjectAttributes:ignore_samesite,samesite_strict",
+          "source": "ast-validator:ConflictingListObjectAttributes",
+          "target_id": "xcsh-docs:resources:route:properties:routes:response_cookies_to_add:samesite_strict",
+          "type": "conflicts"
+        },
+        {
+          "anchor": "section",
+          "enforcement": "provider-schema",
+          "group": "routes.response_cookies_to_add:ConflictingListObjectAttributes:samesite_lax,samesite_strict",
+          "source": "ast-validator:ConflictingListObjectAttributes",
+          "target_id": "xcsh-docs:resources:route:properties:routes:response_cookies_to_add:samesite_strict",
+          "type": "conflicts"
+        },
+        {
+          "anchor": "section",
+          "enforcement": "provider-schema",
+          "group": "routes.response_cookies_to_add:ConflictingListObjectAttributes:samesite_none,samesite_strict",
+          "source": "ast-validator:ConflictingListObjectAttributes",
+          "target_id": "xcsh-docs:resources:route:properties:routes:response_cookies_to_add:samesite_strict",
+          "type": "conflicts"
+        },
+        {
+          "anchor": "section",
+          "enforcement": "provider-schema",
+          "group": "routes.response_cookies_to_add:ConflictingListObjectAttributes:ignore_value,secret_value",
+          "source": "ast-validator:ConflictingListObjectAttributes",
+          "target_id": "xcsh-docs:resources:route:properties:routes:response_cookies_to_add:secret_value",
+          "type": "conflicts"
+        },
+        {
+          "anchor": "section",
+          "enforcement": "provider-schema",
+          "group": "routes.response_cookies_to_add:ConflictingListObjectAttributes:secret_value,value",
+          "source": "ast-validator:ConflictingListObjectAttributes",
+          "target_id": "xcsh-docs:resources:route:properties:routes:response_cookies_to_add:secret_value",
+          "type": "conflicts"
+        },
+        {
+          "anchor": "schema-routes--response_cookies_to_add--name",
+          "enforcement": "provider-schema",
+          "group": "routes.response_cookies_to_add:RequiredListObjectAttributes:name",
+          "source": "ast-validator:RequiredListObjectAttributes",
+          "target_id": "xcsh-docs:resources:route:properties:routes:response_cookies_to_add",
+          "type": "requires"
+        }
+      ],
       "retrieval_version": 1,
       "role": "properties",
       "schema_path": ["routes", "response_cookies_to_add"],
@@ -4116,7 +5115,7 @@
       "category": "networking",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:98dbf5280bf8376a0c75c1391250db9db4ac0d293d42bdd831c20f7514925adb",
+        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -4156,7 +5155,7 @@
       "category": "networking",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:98dbf5280bf8376a0c75c1391250db9db4ac0d293d42bdd831c20f7514925adb",
+        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -4196,7 +5195,7 @@
       "category": "networking",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:98dbf5280bf8376a0c75c1391250db9db4ac0d293d42bdd831c20f7514925adb",
+        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -4236,7 +5235,7 @@
       "category": "networking",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:98dbf5280bf8376a0c75c1391250db9db4ac0d293d42bdd831c20f7514925adb",
+        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -4276,7 +5275,7 @@
       "category": "networking",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:98dbf5280bf8376a0c75c1391250db9db4ac0d293d42bdd831c20f7514925adb",
+        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -4316,7 +5315,7 @@
       "category": "networking",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:98dbf5280bf8376a0c75c1391250db9db4ac0d293d42bdd831c20f7514925adb",
+        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -4356,7 +5355,7 @@
       "category": "networking",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:98dbf5280bf8376a0c75c1391250db9db4ac0d293d42bdd831c20f7514925adb",
+        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -4396,7 +5395,7 @@
       "category": "networking",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:98dbf5280bf8376a0c75c1391250db9db4ac0d293d42bdd831c20f7514925adb",
+        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -4436,7 +5435,7 @@
       "category": "networking",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:98dbf5280bf8376a0c75c1391250db9db4ac0d293d42bdd831c20f7514925adb",
+        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -4476,7 +5475,7 @@
       "category": "networking",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:98dbf5280bf8376a0c75c1391250db9db4ac0d293d42bdd831c20f7514925adb",
+        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -4516,7 +5515,7 @@
       "category": "networking",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:98dbf5280bf8376a0c75c1391250db9db4ac0d293d42bdd831c20f7514925adb",
+        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -4556,7 +5555,7 @@
       "category": "networking",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:98dbf5280bf8376a0c75c1391250db9db4ac0d293d42bdd831c20f7514925adb",
+        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -4596,7 +5595,7 @@
       "category": "networking",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:98dbf5280bf8376a0c75c1391250db9db4ac0d293d42bdd831c20f7514925adb",
+        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -4636,7 +5635,7 @@
       "category": "networking",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:98dbf5280bf8376a0c75c1391250db9db4ac0d293d42bdd831c20f7514925adb",
+        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -4676,7 +5675,7 @@
       "category": "networking",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:98dbf5280bf8376a0c75c1391250db9db4ac0d293d42bdd831c20f7514925adb",
+        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -4719,7 +5718,7 @@
         "xcsh-docs:resources:route:properties:routes:response_cookies_to_add:secret_value:clear_secret_info"
       ],
       "classification": {
-        "rules_sha256": "sha256:98dbf5280bf8376a0c75c1391250db9db4ac0d293d42bdd831c20f7514925adb",
+        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -4823,7 +5822,7 @@
       "category": "networking",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:98dbf5280bf8376a0c75c1391250db9db4ac0d293d42bdd831c20f7514925adb",
+        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -4927,7 +5926,7 @@
       "category": "networking",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:98dbf5280bf8376a0c75c1391250db9db4ac0d293d42bdd831c20f7514925adb",
+        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -5005,7 +6004,7 @@
       "category": "networking",
       "child_ids": ["xcsh-docs:resources:route:properties:routes:response_headers_to_add:secret_value"],
       "classification": {
-        "rules_sha256": "sha256:98dbf5280bf8376a0c75c1391250db9db4ac0d293d42bdd831c20f7514925adb",
+        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -5021,7 +6020,32 @@
       "provider_type": "resources",
       "registry_anchor": "canonical-1033033030111003-2022222120022003-1123301032332002-1313030103020021-3112122133001003-0321311203111100-2123212000030110-2132031210122220",
       "registry_path": "docs/guides/resources--route--reference--group-002.md",
-      "relationships": [],
+      "relationships": [
+        {
+          "anchor": "schema-routes--response_headers_to_add--value",
+          "enforcement": "provider-schema",
+          "group": "routes.response_headers_to_add:ConflictingListObjectAttributes:secret_value,value",
+          "source": "ast-validator:ConflictingListObjectAttributes",
+          "target_id": "xcsh-docs:resources:route:properties:routes:response_headers_to_add",
+          "type": "conflicts"
+        },
+        {
+          "anchor": "section",
+          "enforcement": "provider-schema",
+          "group": "routes.response_headers_to_add:ConflictingListObjectAttributes:secret_value,value",
+          "source": "ast-validator:ConflictingListObjectAttributes",
+          "target_id": "xcsh-docs:resources:route:properties:routes:response_headers_to_add:secret_value",
+          "type": "conflicts"
+        },
+        {
+          "anchor": "schema-routes--response_headers_to_add--name",
+          "enforcement": "provider-schema",
+          "group": "routes.response_headers_to_add:RequiredListObjectAttributes:name",
+          "source": "ast-validator:RequiredListObjectAttributes",
+          "target_id": "xcsh-docs:resources:route:properties:routes:response_headers_to_add",
+          "type": "requires"
+        }
+      ],
       "retrieval_version": 1,
       "role": "properties",
       "schema_path": ["routes", "response_headers_to_add"],
@@ -5122,7 +6146,7 @@
         "xcsh-docs:resources:route:properties:routes:response_headers_to_add:secret_value:clear_secret_info"
       ],
       "classification": {
-        "rules_sha256": "sha256:98dbf5280bf8376a0c75c1391250db9db4ac0d293d42bdd831c20f7514925adb",
+        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -5226,7 +6250,7 @@
       "category": "networking",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:98dbf5280bf8376a0c75c1391250db9db4ac0d293d42bdd831c20f7514925adb",
+        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -5330,7 +6354,7 @@
       "category": "networking",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:98dbf5280bf8376a0c75c1391250db9db4ac0d293d42bdd831c20f7514925adb",
+        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -5423,7 +6447,7 @@
         "xcsh-docs:resources:route:properties:routes:route_destination:web_socket_config"
       ],
       "classification": {
-        "rules_sha256": "sha256:98dbf5280bf8376a0c75c1391250db9db4ac0d293d42bdd831c20f7514925adb",
+        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -5518,7 +6542,7 @@
         {
           "aliases": ["buffer policy"],
           "anchor": "section",
-          "description": "Some upstream applications are not capable of handling streamed data. This config enables buffering the entire request before sending to upstream application. We can specify the maximum buffer size and buffer interval with this config. Buffering can be enabled and disabled at VirtualHost and Route levels Route level bu",
+          "description": "Some upstream applications are not capable of handling streamed data. This config enables buffering the entire request before sending to upstream application. We can specify the maximum buffer size and buffer interval with this config. Buffering can be enabled and disabled at VirtualHost and Route levels Route level",
           "document_id": "xcsh-docs:resources:route:properties:routes:route_destination:buffer_policy",
           "flags": [],
           "max_items": null,
@@ -5539,7 +6563,7 @@
             "upstream servers"
           ],
           "anchor": "section",
-          "description": "Cross-Origin Resource Sharing requests configuration specified at Virtual-host or Route level. Route level configuration takes precedence. An example of an Cross origin HTTP request GET /resources/public-data/ HTTP/1.1 Host: bar.other User-Agent: Mozilla/5.0 (Macintosh; U; Intel MAC OS X 10.5; en-US; rv:1.9.1b3pre) Gec",
+          "description": "Cross-Origin Resource Sharing requests configuration specified at Virtual-host or Route level. Route level configuration takes precedence. An example of an Cross origin HTTP request GET /resources/public-data/ HTTP/1.1 Host: bar.other User-Agent: Mozilla/5.0 (Macintosh; U; Intel MAC OS X 10.5; en-US; rv:1.9.1b3pre)",
           "document_id": "xcsh-docs:resources:route:properties:routes:route_destination:cors_policy",
           "flags": [],
           "max_items": null,
@@ -5553,7 +6577,7 @@
         {
           "aliases": ["backend servers", "csrf policy", "origin servers", "upstream servers"],
           "anchor": "section",
-          "description": "To mitigate CSRF attack , the policy checks where a request is coming from to determine if the request's origin is the same as its destination.the policy relies on two pieces of information used in determining if a request originated from the same host. 1. The origin that caused the user agent to issue the request (sou",
+          "description": "To mitigate CSRF attack , the policy checks where a request is coming from to determine if the request's origin is the same as its destination.the policy relies on two pieces of information used in determining if a request originated from the same host. 1. The origin that caused the user agent to issue the request",
           "document_id": "xcsh-docs:resources:route:properties:routes:route_destination:csrf_policy",
           "flags": [],
           "max_items": null,
@@ -5616,13 +6640,22 @@
         {
           "aliases": ["destinations"],
           "anchor": "section",
-          "description": "When requests have to distributed among multiple upstream clusters, multiple destinations are configured, each having its own cluster and weight. Traffic is distributed among clusters based on the weight configured. Example: destinations: - cluster: - kind: F5 xc.vega.cfg.adc.cluster.object uid: cluster-1 weight: 20 - ",
+          "description": "When requests have to distributed among multiple upstream clusters, multiple destinations are configured, each having its own cluster and weight. Traffic is distributed among clusters based on the weight configured. Example: destinations: - cluster: - kind: F5 xc.vega.cfg.adc.cluster.object uid: cluster-1 weight: 20 -",
           "document_id": "xcsh-docs:resources:route:properties:routes:route_destination:destinations",
           "flags": [],
           "max_items": null,
           "min_items": null,
           "nesting": "list",
-          "relationships": [],
+          "relationships": [
+            {
+              "anchor": "section",
+              "enforcement": "provider-schema",
+              "group": "routes.route_destination.destinations:RequiredListObjectAttributes:cluster",
+              "source": "ast-validator:RequiredListObjectAttributes",
+              "target_id": "xcsh-docs:resources:route:properties:routes:route_destination:destinations:cluster",
+              "type": "requires"
+            }
+          ],
           "schema_path": ["routes", "route_destination", "destinations"],
           "syntax": "block",
           "type": "object"
@@ -5644,7 +6677,7 @@
         {
           "aliases": ["endpoint subsets"],
           "anchor": "section",
-          "description": "Upstream cluster may be configured to divide its endpoints into subsets based on metadata attached to the endpoints. Routes may then specify the metadata that a endpoint must match in order to be selected by the load balancer Labels field of endpoint object's metadata is used for subset matching. For endpoint's which a",
+          "description": "Upstream cluster may be configured to divide its endpoints into subsets based on metadata attached to the endpoints. Routes may then specify the metadata that a endpoint must match in order to be selected by the load balancer Labels field of endpoint object's metadata is used for subset matching. For endpoint's which",
           "document_id": "xcsh-docs:resources:route:properties:routes:route_destination:endpoint_subsets",
           "flags": [],
           "max_items": null,
@@ -5664,7 +6697,56 @@
           "max_items": null,
           "min_items": null,
           "nesting": "list",
-          "relationships": [],
+          "relationships": [
+            {
+              "anchor": "schema-routes--route_destination--hash_policy--header_name",
+              "enforcement": "provider-schema",
+              "group": "routes.route_destination.hash_policy:ConflictingListObjectAttributes:cookie,header_name",
+              "source": "ast-validator:ConflictingListObjectAttributes",
+              "target_id": "xcsh-docs:resources:route:properties:routes:route_destination:hash_policy",
+              "type": "conflicts"
+            },
+            {
+              "anchor": "schema-routes--route_destination--hash_policy--header_name",
+              "enforcement": "provider-schema",
+              "group": "routes.route_destination.hash_policy:ConflictingListObjectAttributes:header_name,source_ip",
+              "source": "ast-validator:ConflictingListObjectAttributes",
+              "target_id": "xcsh-docs:resources:route:properties:routes:route_destination:hash_policy",
+              "type": "conflicts"
+            },
+            {
+              "anchor": "schema-routes--route_destination--hash_policy--source_ip",
+              "enforcement": "provider-schema",
+              "group": "routes.route_destination.hash_policy:ConflictingListObjectAttributes:cookie,source_ip",
+              "source": "ast-validator:ConflictingListObjectAttributes",
+              "target_id": "xcsh-docs:resources:route:properties:routes:route_destination:hash_policy",
+              "type": "conflicts"
+            },
+            {
+              "anchor": "schema-routes--route_destination--hash_policy--source_ip",
+              "enforcement": "provider-schema",
+              "group": "routes.route_destination.hash_policy:ConflictingListObjectAttributes:header_name,source_ip",
+              "source": "ast-validator:ConflictingListObjectAttributes",
+              "target_id": "xcsh-docs:resources:route:properties:routes:route_destination:hash_policy",
+              "type": "conflicts"
+            },
+            {
+              "anchor": "section",
+              "enforcement": "provider-schema",
+              "group": "routes.route_destination.hash_policy:ConflictingListObjectAttributes:cookie,header_name",
+              "source": "ast-validator:ConflictingListObjectAttributes",
+              "target_id": "xcsh-docs:resources:route:properties:routes:route_destination:hash_policy:cookie",
+              "type": "conflicts"
+            },
+            {
+              "anchor": "section",
+              "enforcement": "provider-schema",
+              "group": "routes.route_destination.hash_policy:ConflictingListObjectAttributes:cookie,source_ip",
+              "source": "ast-validator:ConflictingListObjectAttributes",
+              "target_id": "xcsh-docs:resources:route:properties:routes:route_destination:hash_policy:cookie",
+              "type": "conflicts"
+            }
+          ],
           "schema_path": ["routes", "route_destination", "hash_policy"],
           "syntax": "block",
           "type": "object"
@@ -5686,7 +6768,7 @@
         {
           "aliases": ["mirror policy"],
           "anchor": "section",
-          "description": "MirrorPolicy is used for shadowing traffic from one cluster to another. The approach used is \"fire and forget\", meaning it will not wait for the shadow cluster to respond before returning the response from the primary cluster. All normal statistics are collected for the shadow cluster making this feature useful for tes",
+          "description": "MirrorPolicy is used for shadowing traffic from one cluster to another. The approach used is \"fire and forget\", meaning it will not wait for the shadow cluster to respond before returning the response from the primary cluster. All normal statistics are collected for the shadow cluster making this feature useful for",
           "document_id": "xcsh-docs:resources:route:properties:routes:route_destination:mirror_policy",
           "flags": [],
           "max_items": null,
@@ -5709,7 +6791,7 @@
         {
           "aliases": ["prefix rewrite"],
           "anchor": "schema-routes--route_destination--prefix_rewrite",
-          "description": "Exclusive with prefix_rewrite indicates that during forwarding, the matched prefix (or path) should be swapped with its value. When using regex path matching, the entire path (not including the query string) will be swapped with this value. This option allows application URLs to be rooted at a different path from those",
+          "description": "Exclusive with prefix_rewrite indicates that during forwarding, the matched prefix (or path) should be swapped with its value. When using regex path matching, the entire path (not including the query string) will be swapped with this value. This option allows application URLs to be rooted at a different path from",
           "document_id": "xcsh-docs:resources:route:properties:routes:route_destination",
           "flags": ["optional"],
           "max_items": null,
@@ -5851,7 +6933,7 @@
         {
           "aliases": ["spdy config"],
           "anchor": "section",
-          "description": "Request headers of such upgrade looks like below 'connection', 'Upgrade' 'upgrade', 'SPDY/3.1' Configuration to allow UPGRADE of connection to SPDY and any additional tuning With configuration to allow SPDY upgrade, ADC will produce following response 'HTTP/1.1 101 Switching Protocols 'Upgrade': 'SPDY/3.1' 'Connection'",
+          "description": "Request headers of such upgrade looks like below 'connection', 'Upgrade' 'upgrade', 'SPDY/3.1' Configuration to allow UPGRADE of connection to SPDY and any additional tuning With configuration to allow SPDY upgrade, ADC will produce following response 'HTTP/1.1 101 Switching Protocols 'Upgrade': 'SPDY/3.1'",
           "document_id": "xcsh-docs:resources:route:properties:routes:route_destination:spdy_config",
           "flags": [],
           "max_items": null,
@@ -5910,7 +6992,7 @@
       "category": "networking",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:98dbf5280bf8376a0c75c1391250db9db4ac0d293d42bdd831c20f7514925adb",
+        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -5962,7 +7044,7 @@
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/route/properties/routes/route_destination/buffer_policy/index.txt",
       "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
-      "summary": "Some upstream applications are not capable of handling streamed data. This config enables buffering the entire request before sending to upstream application. We can specify the maximum buffer size and buffer interval with this config. Buffering can be enabled and disabled at VirtualHost and Route levels Route level bu",
+      "summary": "Some upstream applications are not capable of handling streamed data. This config enables buffering the entire request before sending to upstream application. We can specify the maximum buffer size and buffer interval with this config. Buffering can be enabled and disabled at VirtualHost and Route levels Route level",
       "tasks": ["configuration"],
       "title": "routes.route_destination.buffer_policy",
       "upstream_identity": {
@@ -5986,7 +7068,7 @@
       "category": "networking",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:98dbf5280bf8376a0c75c1391250db9db4ac0d293d42bdd831c20f7514925adb",
+        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -6122,7 +7204,7 @@
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/route/properties/routes/route_destination/cors_policy/index.txt",
       "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
-      "summary": "Cross-Origin Resource Sharing requests configuration specified at Virtual-host or Route level. Route level configuration takes precedence. An example of an Cross origin HTTP request GET /resources/public-data/ HTTP/1.1 Host: bar.other User-Agent: Mozilla/5.0 (Macintosh; U; Intel MAC OS X 10.5; en-US; rv:1.9.1b3pre) Gec",
+      "summary": "Cross-Origin Resource Sharing requests configuration specified at Virtual-host or Route level. Route level configuration takes precedence. An example of an Cross origin HTTP request GET /resources/public-data/ HTTP/1.1 Host: bar.other User-Agent: Mozilla/5.0 (Macintosh; U; Intel MAC OS X 10.5; en-US; rv:1.9.1b3pre)",
       "tasks": ["configuration"],
       "title": "routes.route_destination.cors_policy",
       "upstream_identity": {
@@ -6143,7 +7225,7 @@
         "xcsh-docs:resources:route:properties:routes:route_destination:csrf_policy:disabled"
       ],
       "classification": {
-        "rules_sha256": "sha256:98dbf5280bf8376a0c75c1391250db9db4ac0d293d42bdd831c20f7514925adb",
+        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -6267,7 +7349,7 @@
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/route/properties/routes/route_destination/csrf_policy/index.txt",
       "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
-      "summary": "To mitigate CSRF attack , the policy checks where a request is coming from to determine if the request's origin is the same as its destination.the policy relies on two pieces of information used in determining if a request originated from the same host. 1. The origin that caused the user agent to issue the request (sou",
+      "summary": "To mitigate CSRF attack , the policy checks where a request is coming from to determine if the request's origin is the same as its destination.the policy relies on two pieces of information used in determining if a request originated from the same host. 1. The origin that caused the user agent to issue the request",
       "tasks": ["configuration"],
       "title": "routes.route_destination.csrf_policy",
       "upstream_identity": {
@@ -6284,7 +7366,7 @@
       "category": "networking",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:98dbf5280bf8376a0c75c1391250db9db4ac0d293d42bdd831c20f7514925adb",
+        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -6324,7 +7406,7 @@
       "category": "networking",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:98dbf5280bf8376a0c75c1391250db9db4ac0d293d42bdd831c20f7514925adb",
+        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -6388,7 +7470,7 @@
       "category": "networking",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:98dbf5280bf8376a0c75c1391250db9db4ac0d293d42bdd831c20f7514925adb",
+        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -6431,7 +7513,7 @@
         "xcsh-docs:resources:route:properties:routes:route_destination:destinations:endpoint_subsets"
       ],
       "classification": {
-        "rules_sha256": "sha256:98dbf5280bf8376a0c75c1391250db9db4ac0d293d42bdd831c20f7514925adb",
+        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -6447,7 +7529,16 @@
       "provider_type": "resources",
       "registry_anchor": "canonical-2033310032010003-2013013212023023-3331003021220120-3211312230110102-0332232123000011-2322023233233003-2010313220111220-3203133211033012",
       "registry_path": "docs/guides/resources--route--reference--group-002.md",
-      "relationships": [],
+      "relationships": [
+        {
+          "anchor": "section",
+          "enforcement": "provider-schema",
+          "group": "routes.route_destination.destinations:RequiredListObjectAttributes:cluster",
+          "source": "ast-validator:RequiredListObjectAttributes",
+          "target_id": "xcsh-docs:resources:route:properties:routes:route_destination:destinations:cluster",
+          "type": "requires"
+        }
+      ],
       "retrieval_version": 1,
       "role": "properties",
       "schema_path": ["routes", "route_destination", "destinations"],
@@ -6469,7 +7560,7 @@
         {
           "aliases": ["endpoint subsets"],
           "anchor": "section",
-          "description": "Upstream cluster may be configured to divide its endpoints into subsets based on metadata attached to the endpoints. Routes may then specify the metadata that a endpoint must match in order to be selected by the load balancer Labels field of endpoint object's metadata is used for subset matching. For endpoints which ar",
+          "description": "Upstream cluster may be configured to divide its endpoints into subsets based on metadata attached to the endpoints. Routes may then specify the metadata that a endpoint must match in order to be selected by the load balancer Labels field of endpoint object's metadata is used for subset matching. For endpoints which",
           "document_id": "xcsh-docs:resources:route:properties:routes:route_destination:destinations:endpoint_subsets",
           "flags": [],
           "max_items": null,
@@ -6483,7 +7574,7 @@
         {
           "aliases": ["priority"],
           "anchor": "schema-routes--route_destination--destinations--priority",
-          "description": "Priority of this cluster, valid only with multiple destinations are configured. Value of 0 will make the cluster as lowest priority upstream cluster Priority of 1 means highest priority and is considered active. When active cluster is not available, lower priority clusters are made active as per the increasing priority",
+          "description": "Priority of this cluster, valid only with multiple destinations are configured. Value of 0 will make the cluster as lowest priority upstream cluster Priority of 1 means highest priority and is considered active. When active cluster is not available, lower priority clusters are made active as per the increasing",
           "document_id": "xcsh-docs:resources:route:properties:routes:route_destination:destinations",
           "flags": ["optional"],
           "max_items": null,
@@ -6497,7 +7588,7 @@
         {
           "aliases": ["weight"],
           "anchor": "schema-routes--route_destination--destinations--weight",
-          "description": "When requests have to distributed among multiple upstream clusters, multiple destinations are configured, each having its own cluster and weight. Traffic is distributed among clusters based on the weight configured. Example: destinations: - cluster: - kind: F5 xc.vega.cfg.adc.cluster.object uid: cluster-1 weight: 20 - ",
+          "description": "When requests have to distributed among multiple upstream clusters, multiple destinations are configured, each having its own cluster and weight. Traffic is distributed among clusters based on the weight configured. Example: destinations: - cluster: - kind: F5 xc.vega.cfg.adc.cluster.object uid: cluster-1 weight: 20 -",
           "document_id": "xcsh-docs:resources:route:properties:routes:route_destination:destinations",
           "flags": ["optional"],
           "max_items": null,
@@ -6511,7 +7602,7 @@
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/route/properties/routes/route_destination/destinations/index.txt",
       "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
-      "summary": "When requests have to distributed among multiple upstream clusters, multiple destinations are configured, each having its own cluster and weight. Traffic is distributed among clusters based on the weight configured. Example: destinations: - cluster: - kind: F5 xc.vega.cfg.adc.cluster.object uid: cluster-1 weight: 20 - ",
+      "summary": "When requests have to distributed among multiple upstream clusters, multiple destinations are configured, each having its own cluster and weight. Traffic is distributed among clusters based on the weight configured. Example: destinations: - cluster: - kind: F5 xc.vega.cfg.adc.cluster.object uid: cluster-1 weight: 20 -",
       "tasks": ["configuration"],
       "title": "routes.route_destination.destinations",
       "upstream_identity": {
@@ -6528,7 +7619,7 @@
       "category": "networking",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:98dbf5280bf8376a0c75c1391250db9db4ac0d293d42bdd831c20f7514925adb",
+        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -6639,7 +7730,7 @@
       "category": "networking",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:98dbf5280bf8376a0c75c1391250db9db4ac0d293d42bdd831c20f7514925adb",
+        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -6662,7 +7753,7 @@
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/route/properties/routes/route_destination/destinations/endpoint_subsets/index.txt",
       "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
-      "summary": "Upstream cluster may be configured to divide its endpoints into subsets based on metadata attached to the endpoints. Routes may then specify the metadata that a endpoint must match in order to be selected by the load balancer Labels field of endpoint object's metadata is used for subset matching. For endpoints which ar",
+      "summary": "Upstream cluster may be configured to divide its endpoints into subsets based on metadata attached to the endpoints. Routes may then specify the metadata that a endpoint must match in order to be selected by the load balancer Labels field of endpoint object's metadata is used for subset matching. For endpoints which",
       "tasks": ["configuration"],
       "title": "routes.route_destination.destinations.endpoint_subsets",
       "upstream_identity": {
@@ -6679,7 +7770,7 @@
       "category": "networking",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:98dbf5280bf8376a0c75c1391250db9db4ac0d293d42bdd831c20f7514925adb",
+        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -6719,7 +7810,7 @@
       "category": "networking",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:98dbf5280bf8376a0c75c1391250db9db4ac0d293d42bdd831c20f7514925adb",
+        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -6742,7 +7833,7 @@
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/route/properties/routes/route_destination/endpoint_subsets/index.txt",
       "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
-      "summary": "Upstream cluster may be configured to divide its endpoints into subsets based on metadata attached to the endpoints. Routes may then specify the metadata that a endpoint must match in order to be selected by the load balancer Labels field of endpoint object's metadata is used for subset matching. For endpoint's which a",
+      "summary": "Upstream cluster may be configured to divide its endpoints into subsets based on metadata attached to the endpoints. Routes may then specify the metadata that a endpoint must match in order to be selected by the load balancer Labels field of endpoint object's metadata is used for subset matching. For endpoint's which",
       "tasks": ["configuration"],
       "title": "routes.route_destination.endpoint_subsets",
       "upstream_identity": {
@@ -6759,7 +7850,7 @@
       "category": "networking",
       "child_ids": ["xcsh-docs:resources:route:properties:routes:route_destination:hash_policy:cookie"],
       "classification": {
-        "rules_sha256": "sha256:98dbf5280bf8376a0c75c1391250db9db4ac0d293d42bdd831c20f7514925adb",
+        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -6775,7 +7866,56 @@
       "provider_type": "resources",
       "registry_anchor": "canonical-3011213001211130-3002130231011332-0021321333220210-3110310201022102-0211011003113300-2330021322000203-3323130012211301-3113313111302123",
       "registry_path": "docs/guides/resources--route--reference--group-002.md",
-      "relationships": [],
+      "relationships": [
+        {
+          "anchor": "schema-routes--route_destination--hash_policy--header_name",
+          "enforcement": "provider-schema",
+          "group": "routes.route_destination.hash_policy:ConflictingListObjectAttributes:cookie,header_name",
+          "source": "ast-validator:ConflictingListObjectAttributes",
+          "target_id": "xcsh-docs:resources:route:properties:routes:route_destination:hash_policy",
+          "type": "conflicts"
+        },
+        {
+          "anchor": "schema-routes--route_destination--hash_policy--header_name",
+          "enforcement": "provider-schema",
+          "group": "routes.route_destination.hash_policy:ConflictingListObjectAttributes:header_name,source_ip",
+          "source": "ast-validator:ConflictingListObjectAttributes",
+          "target_id": "xcsh-docs:resources:route:properties:routes:route_destination:hash_policy",
+          "type": "conflicts"
+        },
+        {
+          "anchor": "schema-routes--route_destination--hash_policy--source_ip",
+          "enforcement": "provider-schema",
+          "group": "routes.route_destination.hash_policy:ConflictingListObjectAttributes:cookie,source_ip",
+          "source": "ast-validator:ConflictingListObjectAttributes",
+          "target_id": "xcsh-docs:resources:route:properties:routes:route_destination:hash_policy",
+          "type": "conflicts"
+        },
+        {
+          "anchor": "schema-routes--route_destination--hash_policy--source_ip",
+          "enforcement": "provider-schema",
+          "group": "routes.route_destination.hash_policy:ConflictingListObjectAttributes:header_name,source_ip",
+          "source": "ast-validator:ConflictingListObjectAttributes",
+          "target_id": "xcsh-docs:resources:route:properties:routes:route_destination:hash_policy",
+          "type": "conflicts"
+        },
+        {
+          "anchor": "section",
+          "enforcement": "provider-schema",
+          "group": "routes.route_destination.hash_policy:ConflictingListObjectAttributes:cookie,header_name",
+          "source": "ast-validator:ConflictingListObjectAttributes",
+          "target_id": "xcsh-docs:resources:route:properties:routes:route_destination:hash_policy:cookie",
+          "type": "conflicts"
+        },
+        {
+          "anchor": "section",
+          "enforcement": "provider-schema",
+          "group": "routes.route_destination.hash_policy:ConflictingListObjectAttributes:cookie,source_ip",
+          "source": "ast-validator:ConflictingListObjectAttributes",
+          "target_id": "xcsh-docs:resources:route:properties:routes:route_destination:hash_policy:cookie",
+          "type": "conflicts"
+        }
+      ],
       "retrieval_version": 1,
       "role": "properties",
       "schema_path": ["routes", "route_destination", "hash_policy"],
@@ -6783,7 +7923,7 @@
         {
           "aliases": ["cookie"],
           "anchor": "section",
-          "description": "Two types of cookie affinity: 1. Passive. Takes a cookie that's present in the cookies header and hashes on its value. 2. Generated. Generates and sets a cookie with an expiration (TTL) on the first request from the client in its response to the client, based on the endpoint the request gets sent to. The client then pr",
+          "description": "Two types of cookie affinity: 1. Passive. Takes a cookie that's present in the cookies header and hashes on its value. 2. Generated. Generates and sets a cookie with an expiration (TTL) on the first request from the client in its response to the client, based on the endpoint the request gets sent to. The client then",
           "document_id": "xcsh-docs:resources:route:properties:routes:route_destination:hash_policy:cookie",
           "flags": [],
           "max_items": null,
@@ -7002,7 +8142,7 @@
         "xcsh-docs:resources:route:properties:routes:route_destination:hash_policy:cookie:samesite_strict"
       ],
       "classification": {
-        "rules_sha256": "sha256:98dbf5280bf8376a0c75c1391250db9db4ac0d293d42bdd831c20f7514925adb",
+        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -7317,7 +8457,7 @@
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/route/properties/routes/route_destination/hash_policy/cookie/index.txt",
       "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
-      "summary": "Two types of cookie affinity: 1. Passive. Takes a cookie that's present in the cookies header and hashes on its value. 2. Generated. Generates and sets a cookie with an expiration (TTL) on the first request from the client in its response to the client, based on the endpoint the request gets sent to. The client then pr",
+      "summary": "Two types of cookie affinity: 1. Passive. Takes a cookie that's present in the cookies header and hashes on its value. 2. Generated. Generates and sets a cookie with an expiration (TTL) on the first request from the client in its response to the client, based on the endpoint the request gets sent to. The client then",
       "tasks": ["configuration"],
       "title": "routes.route_destination.hash_policy.cookie",
       "upstream_identity": {
@@ -7334,7 +8474,7 @@
       "category": "networking",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:98dbf5280bf8376a0c75c1391250db9db4ac0d293d42bdd831c20f7514925adb",
+        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -7374,7 +8514,7 @@
       "category": "networking",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:98dbf5280bf8376a0c75c1391250db9db4ac0d293d42bdd831c20f7514925adb",
+        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -7414,7 +8554,7 @@
       "category": "networking",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:98dbf5280bf8376a0c75c1391250db9db4ac0d293d42bdd831c20f7514925adb",
+        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -7454,7 +8594,7 @@
       "category": "networking",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:98dbf5280bf8376a0c75c1391250db9db4ac0d293d42bdd831c20f7514925adb",
+        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -7494,7 +8634,7 @@
       "category": "networking",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:98dbf5280bf8376a0c75c1391250db9db4ac0d293d42bdd831c20f7514925adb",
+        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -7534,7 +8674,7 @@
       "category": "networking",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:98dbf5280bf8376a0c75c1391250db9db4ac0d293d42bdd831c20f7514925adb",
+        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -7574,7 +8714,7 @@
       "category": "networking",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:98dbf5280bf8376a0c75c1391250db9db4ac0d293d42bdd831c20f7514925adb",
+        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -7614,7 +8754,7 @@
       "category": "networking",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:98dbf5280bf8376a0c75c1391250db9db4ac0d293d42bdd831c20f7514925adb",
+        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -7657,7 +8797,7 @@
         "xcsh-docs:resources:route:properties:routes:route_destination:mirror_policy:percent"
       ],
       "classification": {
-        "rules_sha256": "sha256:98dbf5280bf8376a0c75c1391250db9db4ac0d293d42bdd831c20f7514925adb",
+        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -7727,7 +8867,7 @@
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/route/properties/routes/route_destination/mirror_policy/index.txt",
       "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
-      "summary": "MirrorPolicy is used for shadowing traffic from one cluster to another. The approach used is \"fire and forget\", meaning it will not wait for the shadow cluster to respond before returning the response from the primary cluster. All normal statistics are collected for the shadow cluster making this feature useful for tes",
+      "summary": "MirrorPolicy is used for shadowing traffic from one cluster to another. The approach used is \"fire and forget\", meaning it will not wait for the shadow cluster to respond before returning the response from the primary cluster. All normal statistics are collected for the shadow cluster making this feature useful for",
       "tasks": ["configuration"],
       "title": "routes.route_destination.mirror_policy",
       "upstream_identity": {
@@ -7744,7 +8884,7 @@
       "category": "networking",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:98dbf5280bf8376a0c75c1391250db9db4ac0d293d42bdd831c20f7514925adb",
+        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -7855,7 +8995,7 @@
       "category": "networking",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:98dbf5280bf8376a0c75c1391250db9db4ac0d293d42bdd831c20f7514925adb",
+        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -7936,7 +9076,7 @@
         "xcsh-docs:resources:route:properties:routes:route_destination:query_params:retain_all_params"
       ],
       "classification": {
-        "rules_sha256": "sha256:98dbf5280bf8376a0c75c1391250db9db4ac0d293d42bdd831c20f7514925adb",
+        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -8068,7 +9208,7 @@
       "category": "networking",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:98dbf5280bf8376a0c75c1391250db9db4ac0d293d42bdd831c20f7514925adb",
+        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -8108,7 +9248,7 @@
       "category": "networking",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:98dbf5280bf8376a0c75c1391250db9db4ac0d293d42bdd831c20f7514925adb",
+        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -8148,7 +9288,7 @@
       "category": "networking",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:98dbf5280bf8376a0c75c1391250db9db4ac0d293d42bdd831c20f7514925adb",
+        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -8217,7 +9357,7 @@
       "category": "networking",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:98dbf5280bf8376a0c75c1391250db9db4ac0d293d42bdd831c20f7514925adb",
+        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -8257,7 +9397,7 @@
       "category": "networking",
       "child_ids": ["xcsh-docs:resources:route:properties:routes:route_destination:retry_policy:back_off"],
       "classification": {
-        "rules_sha256": "sha256:98dbf5280bf8376a0c75c1391250db9db4ac0d293d42bdd831c20f7514925adb",
+        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -8346,7 +9486,7 @@
         {
           "aliases": ["duration", "operation timeout", "retry condition"],
           "anchor": "schema-routes--route_destination--retry_policy--retry_condition",
-          "description": "Specifies the conditions under which retry takes place. Retries can be on different types of condition depending on application requirements. For example, network failure, all 5xx response codes, idempotent 4xx response codes, etc The possible values are \"5xx\" : Retry will be done if the upstream server responds with a",
+          "description": "Specifies the conditions under which retry takes place. Retries can be on different types of condition depending on application requirements. For example, network failure, all 5xx response codes, idempotent 4xx response codes, etc The possible values are \"5xx\" : Retry will be done if the upstream server responds with",
           "document_id": "xcsh-docs:resources:route:properties:routes:route_destination:retry_policy",
           "flags": ["optional"],
           "max_items": null,
@@ -8377,7 +9517,7 @@
       "category": "networking",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:98dbf5280bf8376a0c75c1391250db9db4ac0d293d42bdd831c20f7514925adb",
+        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -8446,7 +9586,7 @@
       "category": "networking",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:98dbf5280bf8376a0c75c1391250db9db4ac0d293d42bdd831c20f7514925adb",
+        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -8484,7 +9624,7 @@
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/route/properties/routes/route_destination/spdy_config/index.txt",
       "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
-      "summary": "Request headers of such upgrade looks like below 'connection', 'Upgrade' 'upgrade', 'SPDY/3.1' Configuration to allow UPGRADE of connection to SPDY and any additional tuning With configuration to allow SPDY upgrade, ADC will produce following response 'HTTP/1.1 101 Switching Protocols 'Upgrade': 'SPDY/3.1' 'Connection'",
+      "summary": "Request headers of such upgrade looks like below 'connection', 'Upgrade' 'upgrade', 'SPDY/3.1' Configuration to allow UPGRADE of connection to SPDY and any additional tuning With configuration to allow SPDY upgrade, ADC will produce following response 'HTTP/1.1 101 Switching Protocols 'Upgrade': 'SPDY/3.1'",
       "tasks": ["configuration"],
       "title": "routes.route_destination.spdy_config",
       "upstream_identity": {
@@ -8501,7 +9641,7 @@
       "category": "networking",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:98dbf5280bf8376a0c75c1391250db9db4ac0d293d42bdd831c20f7514925adb",
+        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -8556,7 +9696,7 @@
       "category": "networking",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:98dbf5280bf8376a0c75c1391250db9db4ac0d293d42bdd831c20f7514925adb",
+        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -8637,7 +9777,7 @@
         "xcsh-docs:resources:route:properties:routes:route_redirect:retain_all_params"
       ],
       "classification": {
-        "rules_sha256": "sha256:98dbf5280bf8376a0c75c1391250db9db4ac0d293d42bdd831c20f7514925adb",
+        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -8855,7 +9995,7 @@
       "category": "networking",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:98dbf5280bf8376a0c75c1391250db9db4ac0d293d42bdd831c20f7514925adb",
+        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -8895,7 +10035,7 @@
       "category": "networking",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:98dbf5280bf8376a0c75c1391250db9db4ac0d293d42bdd831c20f7514925adb",
+        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -8935,7 +10075,7 @@
       "category": "networking",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:98dbf5280bf8376a0c75c1391250db9db4ac0d293d42bdd831c20f7514925adb",
+        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -8990,7 +10130,7 @@
       "category": "networking",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:98dbf5280bf8376a0c75c1391250db9db4ac0d293d42bdd831c20f7514925adb",
+        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -9086,7 +10226,7 @@
         "xcsh-docs:resources:route:properties:routes:waf_type:inherit_waf"
       ],
       "classification": {
-        "rules_sha256": "sha256:98dbf5280bf8376a0c75c1391250db9db4ac0d293d42bdd831c20f7514925adb",
+        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -9227,7 +10367,7 @@
       "category": "networking",
       "child_ids": ["xcsh-docs:resources:route:properties:routes:waf_type:app_firewall:app_firewall"],
       "classification": {
-        "rules_sha256": "sha256:98dbf5280bf8376a0c75c1391250db9db4ac0d293d42bdd831c20f7514925adb",
+        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -9291,7 +10431,7 @@
       "category": "networking",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:98dbf5280bf8376a0c75c1391250db9db4ac0d293d42bdd831c20f7514925adb",
+        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -9402,7 +10542,7 @@
       "category": "networking",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:98dbf5280bf8376a0c75c1391250db9db4ac0d293d42bdd831c20f7514925adb",
+        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -9442,7 +10582,7 @@
       "category": "networking",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:98dbf5280bf8376a0c75c1391250db9db4ac0d293d42bdd831c20f7514925adb",
+        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -9482,7 +10622,7 @@
       "category": "networking",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:98dbf5280bf8376a0c75c1391250db9db4ac0d293d42bdd831c20f7514925adb",
+        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -9579,7 +10719,7 @@
       "category": "networking",
       "child_ids": ["xcsh-docs:resources:route:example:resource"],
       "classification": {
-        "rules_sha256": "sha256:98dbf5280bf8376a0c75c1391250db9db4ac0d293d42bdd831c20f7514925adb",
+        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -9619,7 +10759,7 @@
       "category": "networking",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:98dbf5280bf8376a0c75c1391250db9db4ac0d293d42bdd831c20f7514925adb",
+        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -9666,7 +10806,7 @@
       "category": "networking",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:98dbf5280bf8376a0c75c1391250db9db4ac0d293d42bdd831c20f7514925adb",
+        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -9707,7 +10847,7 @@
       "category": "networking",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:98dbf5280bf8376a0c75c1391250db9db4ac0d293d42bdd831c20f7514925adb",
+        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"

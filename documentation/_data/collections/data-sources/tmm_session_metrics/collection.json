@@ -140,7 +140,7 @@
         "xcsh-docs:data-sources:tmm_session_metrics:examples"
       ],
       "classification": {
-        "rules_sha256": "sha256:98dbf5280bf8376a0c75c1391250db9db4ac0d293d42bdd831c20f7514925adb",
+        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -184,7 +184,7 @@
         "xcsh-docs:data-sources:tmm_session_metrics:properties:label_filter"
       ],
       "classification": {
-        "rules_sha256": "sha256:98dbf5280bf8376a0c75c1391250db9db4ac0d293d42bdd831c20f7514925adb",
+        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -236,7 +236,7 @@
         {
           "aliases": ["field selector"],
           "anchor": "schema-field_selector",
-          "description": "Select fields to be returned in the response. Field_selector is used to specify the fields to be returned in the response, thereby limiting the amount of data returned in the response. Possible values are `METRIC_TYPE_NONE`, `METRIC_TYPE_ACTIVE`, `METRIC_TYPE_ALLOWED`, `METRIC_TYPE_DENIED`, `METRIC_TYPE_TOTAL`, `METRIC",
+          "description": "Select fields to be returned in the response. Field_selector is used to specify the fields to be returned in the response, thereby limiting the amount of data returned in the response. Possible values are `METRIC_TYPE_NONE`, `METRIC_TYPE_ACTIVE`, `METRIC_TYPE_ALLOWED`, `METRIC_TYPE_DENIED`, `METRIC_TYPE_TOTAL`,",
           "document_id": "xcsh-docs:data-sources:tmm_session_metrics:reference",
           "flags": ["optional"],
           "max_items": null,
@@ -351,7 +351,7 @@
       "category": null,
       "child_ids": ["xcsh-docs:data-sources:tmm_session_metrics:properties:data:metric"],
       "classification": {
-        "rules_sha256": "sha256:98dbf5280bf8376a0c75c1391250db9db4ac0d293d42bdd831c20f7514925adb",
+        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -389,7 +389,7 @@
         {
           "aliases": ["type"],
           "anchor": "schema-data--type",
-          "description": "X-displayName: TMM Session Metric Type' FieldSelector specifies the metrics that can be queried for virtual servers. Indicates field not being set x-unit: 'count' Total number of active sessions x-unit: 'count' Total number of allowed sessions x-unit: 'count' Total number of denied Session.. Possible values are `METRIC",
+          "description": "X-displayName: TMM Session Metric Type' FieldSelector specifies the metrics that can be queried for virtual servers. Indicates field not being set x-unit: 'count' Total number of active sessions x-unit: 'count' Total number of allowed sessions x-unit: 'count' Total number of denied Session.. Possible values are",
           "document_id": "xcsh-docs:data-sources:tmm_session_metrics:properties:data",
           "flags": ["computed"],
           "max_items": null,
@@ -403,7 +403,7 @@
         {
           "aliases": ["unit"],
           "anchor": "schema-data--unit",
-          "description": "UnitType is enumeration of units for scalar fields. Possible values are `UNIT_MILLISECONDS`, `UNIT_SECONDS`, `UNIT_MINUTES`, `UNIT_HOURS`, `UNIT_DAYS`, `UNIT_BYTES`, `UNIT_KBYTES`, `UNIT_MBYTES`, `UNIT_GBYTES`, `UNIT_TBYTES`, `UNIT_KIBIBYTES`, `UNIT_MIBIBYTES`, `UNIT_GIBIBYTES`, `UNIT_TEBIBYTES`, `UNIT_BITS_PER_SECOND`",
+          "description": "UnitType is enumeration of units for scalar fields. Possible values are `UNIT_MILLISECONDS`, `UNIT_SECONDS`, `UNIT_MINUTES`, `UNIT_HOURS`, `UNIT_DAYS`, `UNIT_BYTES`, `UNIT_KBYTES`, `UNIT_MBYTES`, `UNIT_GBYTES`, `UNIT_TBYTES`, `UNIT_KIBIBYTES`, `UNIT_MIBIBYTES`, `UNIT_GIBIBYTES`, `UNIT_TEBIBYTES`,",
           "document_id": "xcsh-docs:data-sources:tmm_session_metrics:properties:data",
           "flags": ["computed"],
           "max_items": null,
@@ -437,7 +437,7 @@
         "xcsh-docs:data-sources:tmm_session_metrics:properties:data:metric:value"
       ],
       "classification": {
-        "rules_sha256": "sha256:98dbf5280bf8376a0c75c1391250db9db4ac0d293d42bdd831c20f7514925adb",
+        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -506,7 +506,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:98dbf5280bf8376a0c75c1391250db9db4ac0d293d42bdd831c20f7514925adb",
+        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -546,7 +546,7 @@
       "category": null,
       "child_ids": ["xcsh-docs:data-sources:tmm_session_metrics:properties:data:metric:value:trend_value"],
       "classification": {
-        "rules_sha256": "sha256:98dbf5280bf8376a0c75c1391250db9db4ac0d293d42bdd831c20f7514925adb",
+        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -629,7 +629,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:98dbf5280bf8376a0c75c1391250db9db4ac0d293d42bdd831c20f7514925adb",
+        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -726,7 +726,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:98dbf5280bf8376a0c75c1391250db9db4ac0d293d42bdd831c20f7514925adb",
+        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -750,7 +750,7 @@
         {
           "aliases": ["label"],
           "anchor": "schema-label_filter--label",
-          "description": "Metrics used to construct the session metrics are tagged with these labels and therefore the metrics can be sliced and diced based on one or more of these labels. Indicates the field not being set Identifies the workspace where the service is deployed Identifies the virtual server. Possible values are `METRIC_LABEL_NON",
+          "description": "Metrics used to construct the session metrics are tagged with these labels and therefore the metrics can be sliced and diced based on one or more of these labels. Indicates the field not being set Identifies the workspace where the service is deployed Identifies the virtual server. Possible values are",
           "document_id": "xcsh-docs:data-sources:tmm_session_metrics:properties:label_filter",
           "flags": ["optional"],
           "max_items": null,
@@ -809,7 +809,7 @@
       "category": null,
       "child_ids": ["xcsh-docs:data-sources:tmm_session_metrics:example:data-source"],
       "classification": {
-        "rules_sha256": "sha256:98dbf5280bf8376a0c75c1391250db9db4ac0d293d42bdd831c20f7514925adb",
+        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -849,7 +849,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:98dbf5280bf8376a0c75c1391250db9db4ac0d293d42bdd831c20f7514925adb",
+        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
