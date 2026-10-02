@@ -69,7 +69,10 @@ import (
 	{{- if .HasConcurrencyToken}}
 	xcsherrors "github.com/f5-sales-demo/terraform-provider-xcsh/internal/errors"
 	{{- end}}
-	inttimeouts "github.com/f5-sales-demo/terraform-provider-xcsh/internal/timeouts"
+ {{- if .ImmutableOneOfGroups}}
+ "github.com/f5-sales-demo/terraform-provider-xcsh/internal/planmodifiers"
+ {{- end}}
+ inttimeouts "github.com/f5-sales-demo/terraform-provider-xcsh/internal/timeouts"
 	"github.com/f5-sales-demo/terraform-provider-xcsh/internal/validators"
 )
 
@@ -343,8 +346,17 @@ func (r *{{.TitleCase}}Resource) ModifyPlan(ctx context.Context, req resource.Mo
 		return
 	}
 
-	if req.State.Raw.IsNull() {
-		var plan {{.TitleCase}}ResourceModel
+ if req.State.Raw.IsNull() {
+ {{- if .ImmutableOneOfGroups}}
+  // Inspect only the name: unknown nested settings do not affect selection.
+  var name types.String
+  resp.Diagnostics.Append(req.Plan.GetAttribute(ctx, path.Root("name"), &name)...)
+  if resp.Diagnostics.HasError() { return }
+  if name.IsUnknown() {
+   resp.Diagnostics.AddWarning("Unknown Resource Name", "The resource name is not yet known. This may affect planning for dependent resources.")
+  }
+ {{- else}}
+  var plan {{.TitleCase}}ResourceModel
 		resp.Diagnostics.Append(req.Plan.Get(ctx, &plan)...)
 		if resp.Diagnostics.HasError() {
 			return
@@ -356,7 +368,11 @@ func (r *{{.TitleCase}}Resource) ModifyPlan(ctx context.Context, req resource.Mo
 				"The resource name is not yet known. This may affect planning for dependent resources.",
 			)
 		}
+ {{- end}}
 	}
+{{- range $group, $members := .ImmutableOneOfGroups}}
+ planmodifiers.RequireImmutableOneOfSelection(ctx, req, resp, "{{$group}}", []string{ {{range $members}}"{{.}}",{{end}} })
+{{- end}}
 {{- if eq .Name "securemesh_site_v2"}}
 
 	if !req.State.Raw.IsNull() {

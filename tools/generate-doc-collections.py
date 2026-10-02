@@ -232,6 +232,17 @@ class Specs:
                 roots.update(value.get("properties", {}))
         return metadata, roots, schemas, identity
 
+    def immutable_oneof_groups(self, name):
+        groups = {}
+        for key, value in self.schemas.items():
+            if key.endswith(f"{name}CreateSpecType"):
+                groups.update(
+                    self.resolve(value, self.schemas).get(
+                        "x-f5xc-immutable-oneof-groups", {}
+                    )
+                )
+        return groups
+
     def field(self, roots, schemas, path):
         value = {"properties": roots}
         for segment in path:
@@ -486,6 +497,10 @@ class Collection:
                 "Timeouts",
                 "fundamentals",
             )
+        if self.kind == "resources" and getattr(
+            self.specs, "immutable_oneof_groups", lambda _name: {}
+        )(self.name):
+            self.add("lifecycle", (), "lifecycle/index.md", "Lifecycle", "fundamentals")
         if self.kind in ("actions", "ephemeral-resources"):
             self.add("lifecycle", (), "lifecycle/index.md", "Lifecycle", "fundamentals")
 
@@ -753,7 +768,27 @@ class Collection:
                 + ". Use Terraform duration strings such as `30m`.\n"
             )
         elif role == "lifecycle":
-            if self.kind == "actions":
+            if self.kind == "resources":
+                for group, members in sorted(
+                    self.specs.immutable_oneof_groups(self.name).items()
+                ):
+                    links = ", ".join(
+                        self.link(
+                            stable_id(self.kind, self.name, "properties", (member,))
+                        )
+                        for member in members
+                    )
+                    lines.append(
+                        f"Changing the {group} selection between {links}, including an omitted selection, requires recreation and may interrupt service. "
+                        "F5 Distributed Cloud cannot change this type selection in place. Certificate rotation and other supported settings within the same selected type remain updates.\n"
+                    )
+                lines.append(
+                    "Terraform identifies the affected type blocks as **must be replaced**. Unknown block presence requires replacement when unchanged selection cannot be proven; unknown child settings alone do not. Recommendations do not establish API defaults.\n"
+                )
+                lines.append(
+                    "Use `lifecycle { prevent_destroy = true }` to reject replacement before remote writes. Terraform controls replacement ordering: its default destroys before creating; `create_before_destroy` requests creation first, which may fail if XC requires a unique name. Plan a maintenance window or use a distinct name for a staged migration.\n"
+                )
+            elif self.kind == "actions":
                 lines.append(
                     "Invoke this action using Terraform action triggers or `terraform apply -invoke`. The action executes its documented operation; it does not maintain a resource lifecycle. Inspect asynchronous operations separately where described by the API.\n"
                 )

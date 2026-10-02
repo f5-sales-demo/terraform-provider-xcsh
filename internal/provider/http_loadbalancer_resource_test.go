@@ -806,8 +806,7 @@ func TestAccHTTPLoadBalancerResource_switchProtocol(t *testing.T) {
 	acctest.PreCheck(t)
 
 	resourceName := "xcsh_http_loadbalancer.test"
-	rName1 := acctest.RandomName("tf-acc-test-lb")
-	rName2 := acctest.RandomName("tf-acc-test-lb")
+	rName := acctest.RandomName("tf-acc-test-lb")
 
 	resource.ParallelTest(t, resource.TestCase{
 		PreCheck:                 func() { acctest.PreCheck(t) },
@@ -815,11 +814,11 @@ func TestAccHTTPLoadBalancerResource_switchProtocol(t *testing.T) {
 		CheckDestroy:             acctest.CheckResourceDestroyed("xcsh_http_loadbalancer"),
 		Steps: []resource.TestStep{
 			{
-				Config: testAccHTTPLoadBalancerConfig_basicSystem(rName1),
+				Config: testAccHTTPLoadBalancerConfig_basicSystem(rName),
 				Check:  acctest.CheckResourceExists(resourceName),
 			},
 			{
-				Config: testAccHTTPLBConfig_httpsAutoCertSystem(rName2),
+				Config: testAccHTTPLBConfig_httpsAutoCertSystem(rName),
 				Check:  acctest.CheckResourceExists(resourceName),
 				ConfigPlanChecks: resource.ConfigPlanChecks{
 					PreApply: []plancheck.PlanCheck{

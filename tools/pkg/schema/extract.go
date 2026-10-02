@@ -459,6 +459,26 @@ func ExtractResourceSchema(spec *openapi.Spec, resourceName string, extractAPIPa
 	// Extract OneOf groups from x-ves-oneof-field annotations
 	oneOfGroups := ExtractOneOfGroups(spec, createSpecKey)
 
+	immutableMembers := make(map[string]bool)
+	for group, members := range createSpec.XF5XCImmutableOneOfGroups {
+		if len(members) < 2 {
+			return nil, fmt.Errorf("immutable oneof group %s requires at least two members", group)
+		}
+		seen := make(map[string]bool)
+		for _, member := range members {
+			property, exists := createSpec.Properties[member]
+			if !exists || seen[member] || immutableMembers[member] {
+				return nil, fmt.Errorf("invalid immutable oneof member %s in %s", member, group)
+			}
+			attribute := ConvertToTerraformAttribute(member, property, false, "", spec)
+			if !attribute.IsBlock || attribute.NestedBlockType == "list" {
+				return nil, fmt.Errorf("immutable oneof member %s must be a single block", member)
+			}
+			seen[member] = true
+			immutableMembers[member] = true
+		}
+	}
+
 	// Create reverse mapping: field -> group name + all fields in group
 	// Also track which field should get the constraint (first alphabetically)
 	fieldToOneOf := make(map[string][]string)
@@ -493,8 +513,11 @@ func ExtractResourceSchema(spec *openapi.Spec, resourceName string, extractAPIPa
 		attr := ConvertToTerraformAttribute(propName, propSchema, requiredSet[propName], "", spec)
 		// Add OneOf constraint hint to description only for the first field in each group
 		// Include group name for AI-friendly default recommendations
-		if len(oneOfFields) > 1 && fieldIsFirst[propName] {
+		if len(oneOfFields) > 1 && fieldIsFirst[propName] && !immutableMembers[propName] {
 			attr.Description = description.AddOneOfConstraintWithGroup(attr.Description, groupName, oneOfFields)
+		}
+		if immutableMembers[propName] {
+			attr.Description += " Changing this type selection requires recreation and may interrupt service. Supported settings within the same selected type remain updatable."
 		}
 		attributes = append(attributes, attr)
 	}
@@ -734,6 +757,7 @@ func ExtractResourceSchema(spec *openapi.Spec, resourceName string, extractAPIPa
 		HasNamespaceInPath:          hasNamespace,
 		Description:                 resourceDescription,
 		Attributes:                  attributes,
+		ImmutableOneOfGroups:        createSpec.XF5XCImmutableOneOfGroups,
 		OneOfGroups:                 oneOfGroups, // Now properly preserving extracted OneOf groups
 		ExampleUsage:                exampleUsage,
 		APIDocsURL:                  apiDocsURL,
