@@ -3,6 +3,18 @@
   "sections": [
     {
       "canonical_id": "xcsh-docs:resources:proxy:properties:http_proxy:more_option:response_headers_to_add:secret_value:clear_secret_info",
+      "section_id": "xcsh-docs:resources:proxy:properties:http_proxy:more_option:response_headers_to_add:secret_value:clear_secret_info:section:4",
+      "source_sha256": "sha256:daef6cc83a9491835c21c2981a3f2ea8da48ac30ea93cdadf5ea2d0de85e9fd0",
+      "source_bytes": 1788,
+      "canonical_source_sha256": "sha256:83d1b49e89518bafff99338663d304dcb5e9c0fffb6057ea0f7218807f66e7ea",
+      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/resources/proxy/properties/http_proxy/more_option/response_headers_to_add/secret_value/clear_secret_info/",
+      "anchor": "canonical-2000121030112232-0013123310320232-3213212100100013-1301012211130300-2020301233203011-1002232013010202-2110201312131132-0013331120303113",
+      "anchor_map": [],
+      "mode": "embedded",
+      "registry_path": "docs/guides/resources--proxy--reference--group-004.md"
+    },
+    {
+      "canonical_id": "xcsh-docs:resources:proxy:properties:http_proxy:more_option:response_headers_to_add:secret_value:clear_secret_info",
       "section_id": "xcsh-docs:resources:proxy:properties:http_proxy:more_option:response_headers_to_add:secret_value:clear_secret_info:section:5",
       "source_sha256": "sha256:8104aa6909aaac1537258d22edfb1b884dbf6f7dfa31c9af291bd2e76a0173bc",
       "source_bytes": 313,
@@ -7926,23 +7938,6 @@
         [
           "schema-infra--hw_info--cpu--model",
           "canonical-0212330332011212-3001100110202322-0221330132310203-2003301113232211-3322001321311333-3030331230101102-1002332302020232-2103323000101103"
-        ]
-      ],
-      "mode": "embedded",
-      "registry_path": "docs/guides/resources--registration--reference--group-001.md"
-    },
-    {
-      "canonical_id": "xcsh-docs:resources:registration:properties:infra:hw_info:cpu",
-      "section_id": "xcsh-docs:resources:registration:properties:infra:hw_info:cpu:section:6",
-      "source_sha256": "sha256:92c37c66ee9c1148386505aa49c5ec737cf047107d9c535805d6ce55663614e1",
-      "source_bytes": 564,
-      "canonical_source_sha256": "sha256:dd98dc640ea9a22a45b0dab0c93a28017b041630b76252233a6b2f634f3f61e9",
-      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/resources/registration/properties/infra/hw_info/cpu/",
-      "anchor": "canonical-2300211122022231-0313012330002231-2301133221021233-1121010300300300-1202331301233130-1213210133022202-1113333230033332-0300303011123300",
-      "anchor_map": [
-        [
-          "schema-infra--hw_info--cpu--speed",
-          "canonical-0230012313033133-1003033333230213-1223030210002003-2223033132302320-1110010120313320-1220023323103233-3301233231220311-1101103013111320"
         ]
       ],
       "mode": "embedded",

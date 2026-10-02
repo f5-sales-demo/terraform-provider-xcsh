@@ -295,240 +295,1138 @@
   },
   "pages": [
     {
-      "aliases": [],
+      "aliases": ["alert policy"],
       "body_bytes": 1531,
       "body_sha256": "sha256:1fa081dc8debe2d30e50d332245f9cd5c66248f31424b36d433516fd1e698916",
+      "capabilities": ["monitoring"],
+      "category": "monitoring",
       "child_ids": [
         "xcsh-docs:resources:alert_policy:reference",
         "xcsh-docs:resources:alert_policy:examples",
         "xcsh-docs:resources:alert_policy:import",
         "xcsh-docs:resources:alert_policy:timeouts"
       ],
+      "classification": {
+        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "sources": ["receipt-pinned-upstream", "reviewed-rule"],
+        "status": "resolved",
+        "upstream_category_source": "receipt-pinned-resource"
+      },
       "collection_id": "xcsh-docs:resources:alert_policy:collection",
       "completeness": "complete",
       "id": "xcsh-docs:resources:alert_policy:fundamentals",
-      "parent_id": null,
+      "parent_id": "xcsh-docs:resources:xcsh:navigation",
       "path": "documentation/resources/alert_policy/index.md",
+      "product": "distributed-cloud",
       "provider_name": "alert_policy",
       "provider_schema_digest": "sha256:e63a07e98b4893c041a6f79be7e19c64babfe543fc6847c17641037e084e1c7c",
       "provider_type": "resources",
       "registry_anchor": "canonical-1131112113200013-1111133122303310-3323002103120120-3332003320311212-2230020100302130-3333100100222023-1233003312313110-1031321030030100",
       "registry_path": "docs/resources/alert_policy.md",
+      "relationships": [],
+      "retrieval_version": 1,
       "role": "fundamentals",
       "schema_path": [],
+      "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/alert_policy/index.txt",
-      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
-      "summary": "xcsh_alert_policy for xcsh_alert_policy.",
+      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "summary": "Manages new Alert Policy Object in F5 Distributed Cloud.",
+      "tasks": ["configuration"],
       "title": "xcsh_alert_policy",
+      "unresolved_relationships": [],
       "upstream_identity": {
-        "release_tag": "v9.0.0",
+        "release_tag": "v9.0.1",
         "schema_components": ["alert_policyCreateRequest"],
-        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
       }
     },
     {
-      "aliases": [],
+      "aliases": ["alert policy"],
       "body_bytes": 18876,
       "body_sha256": "sha256:37df70b2276d7da5317260d24ff619b8173ed483aa0582c57a4fa2fe26c180b2",
+      "capabilities": ["monitoring"],
+      "category": "monitoring",
       "child_ids": [
         "xcsh-docs:resources:alert_policy:properties:notification_parameters",
         "xcsh-docs:resources:alert_policy:properties:receivers",
         "xcsh-docs:resources:alert_policy:properties:routes",
         "xcsh-docs:resources:alert_policy:properties:timeouts"
       ],
+      "classification": {
+        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "sources": ["receipt-pinned-upstream", "reviewed-rule"],
+        "status": "resolved",
+        "upstream_category_source": "receipt-pinned-resource"
+      },
       "collection_id": "xcsh-docs:resources:alert_policy:collection",
       "completeness": "complete",
       "id": "xcsh-docs:resources:alert_policy:reference",
       "parent_id": "xcsh-docs:resources:alert_policy:fundamentals",
       "path": "documentation/resources/alert_policy/properties/index.md",
+      "product": "distributed-cloud",
       "provider_name": "alert_policy",
       "provider_schema_digest": "sha256:e63a07e98b4893c041a6f79be7e19c64babfe543fc6847c17641037e084e1c7c",
       "provider_type": "resources",
       "registry_anchor": "canonical-0313231030203220-0020221223300020-0330020213312031-2003313201130301-0220021112010310-2120231231002201-0120232133233211-2002302212201122",
       "registry_path": "docs/guides/resources--alert_policy--reference--group-001.md",
+      "relationships": [],
+      "retrieval_version": 1,
       "role": "reference",
       "schema_path": [],
+      "sections": [
+        {
+          "aliases": ["annotations"],
+          "anchor": "schema-annotations",
+          "description": "Annotations is an unstructured key value map stored with a resource that may be set by external tools to store and retrieve arbitrary metadata. They are not queryable and should be preserved when modifying objects.",
+          "document_id": "xcsh-docs:resources:alert_policy:reference",
+          "flags": ["optional"],
+          "max_items": null,
+          "min_items": null,
+          "nesting": null,
+          "relationships": [],
+          "schema_path": ["annotations"],
+          "syntax": "attribute",
+          "type": "map"
+        },
+        {
+          "aliases": ["description"],
+          "anchor": "schema-description",
+          "description": "Human readable description for the object.",
+          "document_id": "xcsh-docs:resources:alert_policy:reference",
+          "flags": ["optional"],
+          "max_items": null,
+          "min_items": null,
+          "nesting": null,
+          "relationships": [],
+          "schema_path": ["description"],
+          "syntax": "attribute",
+          "type": "string"
+        },
+        {
+          "aliases": ["disable"],
+          "anchor": "schema-disable",
+          "description": "A value of true will administratively disable the object.",
+          "document_id": "xcsh-docs:resources:alert_policy:reference",
+          "flags": ["optional"],
+          "max_items": null,
+          "min_items": null,
+          "nesting": null,
+          "relationships": [],
+          "schema_path": ["disable"],
+          "syntax": "attribute",
+          "type": "bool"
+        },
+        {
+          "aliases": ["id"],
+          "anchor": "schema-id",
+          "description": "Unique identifier for the resource.",
+          "document_id": "xcsh-docs:resources:alert_policy:reference",
+          "flags": ["computed"],
+          "max_items": null,
+          "min_items": null,
+          "nesting": null,
+          "relationships": [],
+          "schema_path": ["id"],
+          "syntax": "attribute",
+          "type": "string"
+        },
+        {
+          "aliases": ["labels"],
+          "anchor": "schema-labels",
+          "description": "Map of string keys and values that can be used to organize and categorize (scope and select) objects as chosen by the user. Values specified here will be used by selector expression.",
+          "document_id": "xcsh-docs:resources:alert_policy:reference",
+          "flags": ["optional"],
+          "max_items": null,
+          "min_items": null,
+          "nesting": null,
+          "relationships": [],
+          "schema_path": ["labels"],
+          "syntax": "attribute",
+          "type": "map"
+        },
+        {
+          "aliases": ["name"],
+          "anchor": "schema-name",
+          "description": "This is the name of configuration object. It has to be unique within the namespace. It can only be specified during create API and cannot be changed during replace API. The value of name has to follow DNS-1035 format.",
+          "document_id": "xcsh-docs:resources:alert_policy:reference",
+          "flags": ["required"],
+          "max_items": null,
+          "min_items": null,
+          "nesting": null,
+          "relationships": [],
+          "schema_path": ["name"],
+          "syntax": "attribute",
+          "type": "string"
+        },
+        {
+          "aliases": ["namespace"],
+          "anchor": "schema-namespace",
+          "description": "This defines the workspace within which each the configuration object is to be created. Must be a DNS_LABEL format. For a namespace object itself, namespace value will be \"\"",
+          "document_id": "xcsh-docs:resources:alert_policy:reference",
+          "flags": ["required"],
+          "max_items": null,
+          "min_items": null,
+          "nesting": null,
+          "relationships": [],
+          "schema_path": ["namespace"],
+          "syntax": "attribute",
+          "type": "string"
+        },
+        {
+          "aliases": ["notification parameters"],
+          "anchor": "section",
+          "description": "Set of notification parameters to decide how and when the alert notifications should be sent to the receivers.",
+          "document_id": "xcsh-docs:resources:alert_policy:properties:notification_parameters",
+          "flags": [],
+          "max_items": null,
+          "min_items": null,
+          "nesting": "single",
+          "relationships": [
+            {
+              "anchor": "section",
+              "enforcement": "provider-schema",
+              "group": "notification_parameters:ConflictingObjectAttributes:custom,default",
+              "source": "ast-validator:ConflictingObjectAttributes",
+              "target_id": "xcsh-docs:resources:alert_policy:properties:notification_parameters:custom",
+              "type": "conflicts"
+            },
+            {
+              "anchor": "section",
+              "enforcement": "provider-schema",
+              "group": "notification_parameters:ConflictingObjectAttributes:custom,individual",
+              "source": "ast-validator:ConflictingObjectAttributes",
+              "target_id": "xcsh-docs:resources:alert_policy:properties:notification_parameters:custom",
+              "type": "conflicts"
+            },
+            {
+              "anchor": "section",
+              "enforcement": "provider-schema",
+              "group": "notification_parameters:ConflictingObjectAttributes:custom,ves_io_group",
+              "source": "ast-validator:ConflictingObjectAttributes",
+              "target_id": "xcsh-docs:resources:alert_policy:properties:notification_parameters:custom",
+              "type": "conflicts"
+            },
+            {
+              "anchor": "section",
+              "enforcement": "provider-schema",
+              "group": "notification_parameters:ConflictingObjectAttributes:custom,default",
+              "source": "ast-validator:ConflictingObjectAttributes",
+              "target_id": "xcsh-docs:resources:alert_policy:properties:notification_parameters:default",
+              "type": "conflicts"
+            },
+            {
+              "anchor": "section",
+              "enforcement": "provider-schema",
+              "group": "notification_parameters:ConflictingObjectAttributes:default,individual",
+              "source": "ast-validator:ConflictingObjectAttributes",
+              "target_id": "xcsh-docs:resources:alert_policy:properties:notification_parameters:default",
+              "type": "conflicts"
+            },
+            {
+              "anchor": "section",
+              "enforcement": "provider-schema",
+              "group": "notification_parameters:ConflictingObjectAttributes:default,ves_io_group",
+              "source": "ast-validator:ConflictingObjectAttributes",
+              "target_id": "xcsh-docs:resources:alert_policy:properties:notification_parameters:default",
+              "type": "conflicts"
+            },
+            {
+              "anchor": "section",
+              "enforcement": "provider-schema",
+              "group": "notification_parameters:ConflictingObjectAttributes:custom,individual",
+              "source": "ast-validator:ConflictingObjectAttributes",
+              "target_id": "xcsh-docs:resources:alert_policy:properties:notification_parameters:individual",
+              "type": "conflicts"
+            },
+            {
+              "anchor": "section",
+              "enforcement": "provider-schema",
+              "group": "notification_parameters:ConflictingObjectAttributes:default,individual",
+              "source": "ast-validator:ConflictingObjectAttributes",
+              "target_id": "xcsh-docs:resources:alert_policy:properties:notification_parameters:individual",
+              "type": "conflicts"
+            },
+            {
+              "anchor": "section",
+              "enforcement": "provider-schema",
+              "group": "notification_parameters:ConflictingObjectAttributes:individual,ves_io_group",
+              "source": "ast-validator:ConflictingObjectAttributes",
+              "target_id": "xcsh-docs:resources:alert_policy:properties:notification_parameters:individual",
+              "type": "conflicts"
+            },
+            {
+              "anchor": "section",
+              "enforcement": "provider-schema",
+              "group": "notification_parameters:ConflictingObjectAttributes:custom,ves_io_group",
+              "source": "ast-validator:ConflictingObjectAttributes",
+              "target_id": "xcsh-docs:resources:alert_policy:properties:notification_parameters:ves_io_group",
+              "type": "conflicts"
+            },
+            {
+              "anchor": "section",
+              "enforcement": "provider-schema",
+              "group": "notification_parameters:ConflictingObjectAttributes:default,ves_io_group",
+              "source": "ast-validator:ConflictingObjectAttributes",
+              "target_id": "xcsh-docs:resources:alert_policy:properties:notification_parameters:ves_io_group",
+              "type": "conflicts"
+            },
+            {
+              "anchor": "section",
+              "enforcement": "provider-schema",
+              "group": "notification_parameters:ConflictingObjectAttributes:individual,ves_io_group",
+              "source": "ast-validator:ConflictingObjectAttributes",
+              "target_id": "xcsh-docs:resources:alert_policy:properties:notification_parameters:ves_io_group",
+              "type": "conflicts"
+            }
+          ],
+          "schema_path": ["notification_parameters"],
+          "syntax": "block",
+          "type": "object"
+        },
+        {
+          "aliases": ["receivers"],
+          "anchor": "section",
+          "description": "List of Alert Receivers where the alerts will be sent.",
+          "document_id": "xcsh-docs:resources:alert_policy:properties:receivers",
+          "flags": [],
+          "max_items": null,
+          "min_items": null,
+          "nesting": "list",
+          "relationships": [],
+          "schema_path": ["receivers"],
+          "syntax": "block",
+          "type": "object"
+        },
+        {
+          "aliases": ["routes"],
+          "anchor": "section",
+          "description": "Set of routes to match the incoming alert. The routes are evaluated in the specified order and terminates on the first match.",
+          "document_id": "xcsh-docs:resources:alert_policy:properties:routes",
+          "flags": [],
+          "max_items": null,
+          "min_items": null,
+          "nesting": "list",
+          "relationships": [
+            {
+              "anchor": "schema-routes--alertname",
+              "enforcement": "provider-schema",
+              "group": "routes:ConflictingListObjectAttributes:alertname,alertname_regex",
+              "source": "ast-validator:ConflictingListObjectAttributes",
+              "target_id": "xcsh-docs:resources:alert_policy:properties:routes",
+              "type": "conflicts"
+            },
+            {
+              "anchor": "schema-routes--alertname",
+              "enforcement": "provider-schema",
+              "group": "routes:ConflictingListObjectAttributes:alertname,any",
+              "source": "ast-validator:ConflictingListObjectAttributes",
+              "target_id": "xcsh-docs:resources:alert_policy:properties:routes",
+              "type": "conflicts"
+            },
+            {
+              "anchor": "schema-routes--alertname",
+              "enforcement": "provider-schema",
+              "group": "routes:ConflictingListObjectAttributes:alertname,custom",
+              "source": "ast-validator:ConflictingListObjectAttributes",
+              "target_id": "xcsh-docs:resources:alert_policy:properties:routes",
+              "type": "conflicts"
+            },
+            {
+              "anchor": "schema-routes--alertname",
+              "enforcement": "provider-schema",
+              "group": "routes:ConflictingListObjectAttributes:alertname,group",
+              "source": "ast-validator:ConflictingListObjectAttributes",
+              "target_id": "xcsh-docs:resources:alert_policy:properties:routes",
+              "type": "conflicts"
+            },
+            {
+              "anchor": "schema-routes--alertname",
+              "enforcement": "provider-schema",
+              "group": "routes:ConflictingListObjectAttributes:alertname,severity",
+              "source": "ast-validator:ConflictingListObjectAttributes",
+              "target_id": "xcsh-docs:resources:alert_policy:properties:routes",
+              "type": "conflicts"
+            },
+            {
+              "anchor": "schema-routes--alertname_regex",
+              "enforcement": "provider-schema",
+              "group": "routes:ConflictingListObjectAttributes:alertname,alertname_regex",
+              "source": "ast-validator:ConflictingListObjectAttributes",
+              "target_id": "xcsh-docs:resources:alert_policy:properties:routes",
+              "type": "conflicts"
+            },
+            {
+              "anchor": "schema-routes--alertname_regex",
+              "enforcement": "provider-schema",
+              "group": "routes:ConflictingListObjectAttributes:alertname_regex,any",
+              "source": "ast-validator:ConflictingListObjectAttributes",
+              "target_id": "xcsh-docs:resources:alert_policy:properties:routes",
+              "type": "conflicts"
+            },
+            {
+              "anchor": "schema-routes--alertname_regex",
+              "enforcement": "provider-schema",
+              "group": "routes:ConflictingListObjectAttributes:alertname_regex,custom",
+              "source": "ast-validator:ConflictingListObjectAttributes",
+              "target_id": "xcsh-docs:resources:alert_policy:properties:routes",
+              "type": "conflicts"
+            },
+            {
+              "anchor": "schema-routes--alertname_regex",
+              "enforcement": "provider-schema",
+              "group": "routes:ConflictingListObjectAttributes:alertname_regex,group",
+              "source": "ast-validator:ConflictingListObjectAttributes",
+              "target_id": "xcsh-docs:resources:alert_policy:properties:routes",
+              "type": "conflicts"
+            },
+            {
+              "anchor": "schema-routes--alertname_regex",
+              "enforcement": "provider-schema",
+              "group": "routes:ConflictingListObjectAttributes:alertname_regex,severity",
+              "source": "ast-validator:ConflictingListObjectAttributes",
+              "target_id": "xcsh-docs:resources:alert_policy:properties:routes",
+              "type": "conflicts"
+            },
+            {
+              "anchor": "section",
+              "enforcement": "provider-schema",
+              "group": "routes:ConflictingListObjectAttributes:alertname,any",
+              "source": "ast-validator:ConflictingListObjectAttributes",
+              "target_id": "xcsh-docs:resources:alert_policy:properties:routes:any",
+              "type": "conflicts"
+            },
+            {
+              "anchor": "section",
+              "enforcement": "provider-schema",
+              "group": "routes:ConflictingListObjectAttributes:alertname_regex,any",
+              "source": "ast-validator:ConflictingListObjectAttributes",
+              "target_id": "xcsh-docs:resources:alert_policy:properties:routes:any",
+              "type": "conflicts"
+            },
+            {
+              "anchor": "section",
+              "enforcement": "provider-schema",
+              "group": "routes:ConflictingListObjectAttributes:any,custom",
+              "source": "ast-validator:ConflictingListObjectAttributes",
+              "target_id": "xcsh-docs:resources:alert_policy:properties:routes:any",
+              "type": "conflicts"
+            },
+            {
+              "anchor": "section",
+              "enforcement": "provider-schema",
+              "group": "routes:ConflictingListObjectAttributes:any,group",
+              "source": "ast-validator:ConflictingListObjectAttributes",
+              "target_id": "xcsh-docs:resources:alert_policy:properties:routes:any",
+              "type": "conflicts"
+            },
+            {
+              "anchor": "section",
+              "enforcement": "provider-schema",
+              "group": "routes:ConflictingListObjectAttributes:any,severity",
+              "source": "ast-validator:ConflictingListObjectAttributes",
+              "target_id": "xcsh-docs:resources:alert_policy:properties:routes:any",
+              "type": "conflicts"
+            },
+            {
+              "anchor": "section",
+              "enforcement": "provider-schema",
+              "group": "routes:ConflictingListObjectAttributes:alertname,custom",
+              "source": "ast-validator:ConflictingListObjectAttributes",
+              "target_id": "xcsh-docs:resources:alert_policy:properties:routes:custom",
+              "type": "conflicts"
+            },
+            {
+              "anchor": "section",
+              "enforcement": "provider-schema",
+              "group": "routes:ConflictingListObjectAttributes:alertname_regex,custom",
+              "source": "ast-validator:ConflictingListObjectAttributes",
+              "target_id": "xcsh-docs:resources:alert_policy:properties:routes:custom",
+              "type": "conflicts"
+            },
+            {
+              "anchor": "section",
+              "enforcement": "provider-schema",
+              "group": "routes:ConflictingListObjectAttributes:any,custom",
+              "source": "ast-validator:ConflictingListObjectAttributes",
+              "target_id": "xcsh-docs:resources:alert_policy:properties:routes:custom",
+              "type": "conflicts"
+            },
+            {
+              "anchor": "section",
+              "enforcement": "provider-schema",
+              "group": "routes:ConflictingListObjectAttributes:custom,group",
+              "source": "ast-validator:ConflictingListObjectAttributes",
+              "target_id": "xcsh-docs:resources:alert_policy:properties:routes:custom",
+              "type": "conflicts"
+            },
+            {
+              "anchor": "section",
+              "enforcement": "provider-schema",
+              "group": "routes:ConflictingListObjectAttributes:custom,severity",
+              "source": "ast-validator:ConflictingListObjectAttributes",
+              "target_id": "xcsh-docs:resources:alert_policy:properties:routes:custom",
+              "type": "conflicts"
+            },
+            {
+              "anchor": "section",
+              "enforcement": "provider-schema",
+              "group": "routes:ConflictingListObjectAttributes:dont_send,send",
+              "source": "ast-validator:ConflictingListObjectAttributes",
+              "target_id": "xcsh-docs:resources:alert_policy:properties:routes:dont_send",
+              "type": "conflicts"
+            },
+            {
+              "anchor": "section",
+              "enforcement": "provider-schema",
+              "group": "routes:ConflictingListObjectAttributes:alertname,group",
+              "source": "ast-validator:ConflictingListObjectAttributes",
+              "target_id": "xcsh-docs:resources:alert_policy:properties:routes:group",
+              "type": "conflicts"
+            },
+            {
+              "anchor": "section",
+              "enforcement": "provider-schema",
+              "group": "routes:ConflictingListObjectAttributes:alertname_regex,group",
+              "source": "ast-validator:ConflictingListObjectAttributes",
+              "target_id": "xcsh-docs:resources:alert_policy:properties:routes:group",
+              "type": "conflicts"
+            },
+            {
+              "anchor": "section",
+              "enforcement": "provider-schema",
+              "group": "routes:ConflictingListObjectAttributes:any,group",
+              "source": "ast-validator:ConflictingListObjectAttributes",
+              "target_id": "xcsh-docs:resources:alert_policy:properties:routes:group",
+              "type": "conflicts"
+            },
+            {
+              "anchor": "section",
+              "enforcement": "provider-schema",
+              "group": "routes:ConflictingListObjectAttributes:custom,group",
+              "source": "ast-validator:ConflictingListObjectAttributes",
+              "target_id": "xcsh-docs:resources:alert_policy:properties:routes:group",
+              "type": "conflicts"
+            },
+            {
+              "anchor": "section",
+              "enforcement": "provider-schema",
+              "group": "routes:ConflictingListObjectAttributes:group,severity",
+              "source": "ast-validator:ConflictingListObjectAttributes",
+              "target_id": "xcsh-docs:resources:alert_policy:properties:routes:group",
+              "type": "conflicts"
+            },
+            {
+              "anchor": "section",
+              "enforcement": "provider-schema",
+              "group": "routes:ConflictingListObjectAttributes:dont_send,send",
+              "source": "ast-validator:ConflictingListObjectAttributes",
+              "target_id": "xcsh-docs:resources:alert_policy:properties:routes:send",
+              "type": "conflicts"
+            },
+            {
+              "anchor": "section",
+              "enforcement": "provider-schema",
+              "group": "routes:ConflictingListObjectAttributes:alertname,severity",
+              "source": "ast-validator:ConflictingListObjectAttributes",
+              "target_id": "xcsh-docs:resources:alert_policy:properties:routes:severity",
+              "type": "conflicts"
+            },
+            {
+              "anchor": "section",
+              "enforcement": "provider-schema",
+              "group": "routes:ConflictingListObjectAttributes:alertname_regex,severity",
+              "source": "ast-validator:ConflictingListObjectAttributes",
+              "target_id": "xcsh-docs:resources:alert_policy:properties:routes:severity",
+              "type": "conflicts"
+            },
+            {
+              "anchor": "section",
+              "enforcement": "provider-schema",
+              "group": "routes:ConflictingListObjectAttributes:any,severity",
+              "source": "ast-validator:ConflictingListObjectAttributes",
+              "target_id": "xcsh-docs:resources:alert_policy:properties:routes:severity",
+              "type": "conflicts"
+            },
+            {
+              "anchor": "section",
+              "enforcement": "provider-schema",
+              "group": "routes:ConflictingListObjectAttributes:custom,severity",
+              "source": "ast-validator:ConflictingListObjectAttributes",
+              "target_id": "xcsh-docs:resources:alert_policy:properties:routes:severity",
+              "type": "conflicts"
+            },
+            {
+              "anchor": "section",
+              "enforcement": "provider-schema",
+              "group": "routes:ConflictingListObjectAttributes:group,severity",
+              "source": "ast-validator:ConflictingListObjectAttributes",
+              "target_id": "xcsh-docs:resources:alert_policy:properties:routes:severity",
+              "type": "conflicts"
+            }
+          ],
+          "schema_path": ["routes"],
+          "syntax": "block",
+          "type": "object"
+        },
+        {
+          "aliases": ["duration", "operation timeout", "timeouts"],
+          "anchor": "section",
+          "description": "timeouts",
+          "document_id": "xcsh-docs:resources:alert_policy:properties:timeouts",
+          "flags": [],
+          "max_items": null,
+          "min_items": null,
+          "nesting": "single",
+          "relationships": [],
+          "schema_path": ["timeouts"],
+          "syntax": "block",
+          "type": "object"
+        }
+      ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/alert_policy/properties/index.txt",
-      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
       "summary": "Property reference for xcsh_alert_policy.",
+      "tasks": ["configuration"],
       "title": "Property reference",
       "upstream_identity": {
-        "release_tag": "v9.0.0",
+        "release_tag": "v9.0.1",
         "schema_components": ["alert_policyCreateRequest"],
-        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
       }
     },
     {
-      "aliases": [],
+      "aliases": ["notification parameters"],
       "body_bytes": 7611,
       "body_sha256": "sha256:0459da58dd2353bc2dbb059fb5b9647451f589d61933100578bb0cac2a3b13bc",
+      "capabilities": ["monitoring"],
+      "category": "monitoring",
       "child_ids": [
         "xcsh-docs:resources:alert_policy:properties:notification_parameters:custom",
         "xcsh-docs:resources:alert_policy:properties:notification_parameters:default",
         "xcsh-docs:resources:alert_policy:properties:notification_parameters:individual",
         "xcsh-docs:resources:alert_policy:properties:notification_parameters:ves_io_group"
       ],
+      "classification": {
+        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "sources": ["receipt-pinned-upstream", "reviewed-rule"],
+        "status": "resolved",
+        "upstream_category_source": "receipt-pinned-resource"
+      },
       "collection_id": "xcsh-docs:resources:alert_policy:collection",
       "completeness": "complete",
       "id": "xcsh-docs:resources:alert_policy:properties:notification_parameters",
       "parent_id": "xcsh-docs:resources:alert_policy:reference",
       "path": "documentation/resources/alert_policy/properties/notification_parameters/index.md",
+      "product": "distributed-cloud",
       "provider_name": "alert_policy",
       "provider_schema_digest": "sha256:e63a07e98b4893c041a6f79be7e19c64babfe543fc6847c17641037e084e1c7c",
       "provider_type": "resources",
       "registry_anchor": "canonical-2302223211220010-3133333223123323-0320311202331210-3230201211033133-0220001322010300-2323033221331022-2321110220123020-0201210012212021",
       "registry_path": "docs/guides/resources--alert_policy--reference--group-001.md",
+      "relationships": [
+        {
+          "anchor": "section",
+          "enforcement": "provider-schema",
+          "group": "notification_parameters:ConflictingObjectAttributes:custom,default",
+          "source": "ast-validator:ConflictingObjectAttributes",
+          "target_id": "xcsh-docs:resources:alert_policy:properties:notification_parameters:custom",
+          "type": "conflicts"
+        },
+        {
+          "anchor": "section",
+          "enforcement": "provider-schema",
+          "group": "notification_parameters:ConflictingObjectAttributes:custom,individual",
+          "source": "ast-validator:ConflictingObjectAttributes",
+          "target_id": "xcsh-docs:resources:alert_policy:properties:notification_parameters:custom",
+          "type": "conflicts"
+        },
+        {
+          "anchor": "section",
+          "enforcement": "provider-schema",
+          "group": "notification_parameters:ConflictingObjectAttributes:custom,ves_io_group",
+          "source": "ast-validator:ConflictingObjectAttributes",
+          "target_id": "xcsh-docs:resources:alert_policy:properties:notification_parameters:custom",
+          "type": "conflicts"
+        },
+        {
+          "anchor": "section",
+          "enforcement": "provider-schema",
+          "group": "notification_parameters:ConflictingObjectAttributes:custom,default",
+          "source": "ast-validator:ConflictingObjectAttributes",
+          "target_id": "xcsh-docs:resources:alert_policy:properties:notification_parameters:default",
+          "type": "conflicts"
+        },
+        {
+          "anchor": "section",
+          "enforcement": "provider-schema",
+          "group": "notification_parameters:ConflictingObjectAttributes:default,individual",
+          "source": "ast-validator:ConflictingObjectAttributes",
+          "target_id": "xcsh-docs:resources:alert_policy:properties:notification_parameters:default",
+          "type": "conflicts"
+        },
+        {
+          "anchor": "section",
+          "enforcement": "provider-schema",
+          "group": "notification_parameters:ConflictingObjectAttributes:default,ves_io_group",
+          "source": "ast-validator:ConflictingObjectAttributes",
+          "target_id": "xcsh-docs:resources:alert_policy:properties:notification_parameters:default",
+          "type": "conflicts"
+        },
+        {
+          "anchor": "section",
+          "enforcement": "provider-schema",
+          "group": "notification_parameters:ConflictingObjectAttributes:custom,individual",
+          "source": "ast-validator:ConflictingObjectAttributes",
+          "target_id": "xcsh-docs:resources:alert_policy:properties:notification_parameters:individual",
+          "type": "conflicts"
+        },
+        {
+          "anchor": "section",
+          "enforcement": "provider-schema",
+          "group": "notification_parameters:ConflictingObjectAttributes:default,individual",
+          "source": "ast-validator:ConflictingObjectAttributes",
+          "target_id": "xcsh-docs:resources:alert_policy:properties:notification_parameters:individual",
+          "type": "conflicts"
+        },
+        {
+          "anchor": "section",
+          "enforcement": "provider-schema",
+          "group": "notification_parameters:ConflictingObjectAttributes:individual,ves_io_group",
+          "source": "ast-validator:ConflictingObjectAttributes",
+          "target_id": "xcsh-docs:resources:alert_policy:properties:notification_parameters:individual",
+          "type": "conflicts"
+        },
+        {
+          "anchor": "section",
+          "enforcement": "provider-schema",
+          "group": "notification_parameters:ConflictingObjectAttributes:custom,ves_io_group",
+          "source": "ast-validator:ConflictingObjectAttributes",
+          "target_id": "xcsh-docs:resources:alert_policy:properties:notification_parameters:ves_io_group",
+          "type": "conflicts"
+        },
+        {
+          "anchor": "section",
+          "enforcement": "provider-schema",
+          "group": "notification_parameters:ConflictingObjectAttributes:default,ves_io_group",
+          "source": "ast-validator:ConflictingObjectAttributes",
+          "target_id": "xcsh-docs:resources:alert_policy:properties:notification_parameters:ves_io_group",
+          "type": "conflicts"
+        },
+        {
+          "anchor": "section",
+          "enforcement": "provider-schema",
+          "group": "notification_parameters:ConflictingObjectAttributes:individual,ves_io_group",
+          "source": "ast-validator:ConflictingObjectAttributes",
+          "target_id": "xcsh-docs:resources:alert_policy:properties:notification_parameters:ves_io_group",
+          "type": "conflicts"
+        }
+      ],
+      "retrieval_version": 1,
       "role": "properties",
       "schema_path": ["notification_parameters"],
+      "sections": [
+        {
+          "aliases": ["custom"],
+          "anchor": "section",
+          "description": "Specify list of custom labels to group/aggregate the alerts.",
+          "document_id": "xcsh-docs:resources:alert_policy:properties:notification_parameters:custom",
+          "flags": [],
+          "max_items": null,
+          "min_items": null,
+          "nesting": "single",
+          "relationships": [],
+          "schema_path": ["notification_parameters", "custom"],
+          "syntax": "block",
+          "type": "object"
+        },
+        {
+          "aliases": ["default"],
+          "anchor": "section",
+          "description": "This can be used for messages where no values are needed.",
+          "document_id": "xcsh-docs:resources:alert_policy:properties:notification_parameters:default",
+          "flags": ["optional"],
+          "max_items": null,
+          "min_items": null,
+          "nesting": null,
+          "relationships": [],
+          "schema_path": ["notification_parameters", "default"],
+          "syntax": "attribute",
+          "type": "object"
+        },
+        {
+          "aliases": ["group interval"],
+          "anchor": "schema-notification_parameters--group_interval",
+          "description": "Group Interval is used to specify how long to wait before sending a notification about new alerts that are added to the group for which an initial notification has already been sent. Format: , where s - seconds, m - minutes, h - hours, d - days If not specified, group_interval defaults to \"1m\"",
+          "document_id": "xcsh-docs:resources:alert_policy:properties:notification_parameters",
+          "flags": ["optional"],
+          "max_items": null,
+          "min_items": null,
+          "nesting": null,
+          "relationships": [],
+          "schema_path": ["notification_parameters", "group_interval"],
+          "syntax": "attribute",
+          "type": "string"
+        },
+        {
+          "aliases": ["group wait"],
+          "anchor": "schema-notification_parameters--group_wait",
+          "description": "Time value used to specify how long to initially wait for an inhibiting alert to arrive or collect more alerts for the same group. Format: , where s - seconds, m - minutes, h - hours, d - days If not specified, group_wait defaults to \"30s\"",
+          "document_id": "xcsh-docs:resources:alert_policy:properties:notification_parameters",
+          "flags": ["optional"],
+          "max_items": null,
+          "min_items": null,
+          "nesting": null,
+          "relationships": [],
+          "schema_path": ["notification_parameters", "group_wait"],
+          "syntax": "attribute",
+          "type": "string"
+        },
+        {
+          "aliases": ["individual"],
+          "anchor": "section",
+          "description": "This can be used for messages where no values are needed.",
+          "document_id": "xcsh-docs:resources:alert_policy:properties:notification_parameters:individual",
+          "flags": ["optional"],
+          "max_items": null,
+          "min_items": null,
+          "nesting": null,
+          "relationships": [],
+          "schema_path": ["notification_parameters", "individual"],
+          "syntax": "attribute",
+          "type": "object"
+        },
+        {
+          "aliases": ["login success", "repeat interval", "succeeded", "success", "successful"],
+          "anchor": "schema-notification_parameters--repeat_interval",
+          "description": "Repeat Interval is used to specify how long to wait before sending a notification again if it has already been sent successfully. Format: , where s - seconds, m - minutes, h - hours, d - days If not specified, group_interval defaults to \"4h\"",
+          "document_id": "xcsh-docs:resources:alert_policy:properties:notification_parameters",
+          "flags": ["optional"],
+          "max_items": null,
+          "min_items": null,
+          "nesting": null,
+          "relationships": [],
+          "schema_path": ["notification_parameters", "repeat_interval"],
+          "syntax": "attribute",
+          "type": "string"
+        },
+        {
+          "aliases": ["ves io group"],
+          "anchor": "section",
+          "description": "This can be used for messages where no values are needed.",
+          "document_id": "xcsh-docs:resources:alert_policy:properties:notification_parameters:ves_io_group",
+          "flags": ["optional"],
+          "max_items": null,
+          "min_items": null,
+          "nesting": null,
+          "relationships": [],
+          "schema_path": ["notification_parameters", "ves_io_group"],
+          "syntax": "attribute",
+          "type": "object"
+        }
+      ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/alert_policy/properties/notification_parameters/index.txt",
-      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
-      "summary": "notification_parameters for xcsh_alert_policy.",
+      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "summary": "Set of notification parameters to decide how and when the alert notifications should be sent to the receivers.",
+      "tasks": ["configuration"],
       "title": "notification_parameters",
       "upstream_identity": {
-        "release_tag": "v9.0.0",
+        "release_tag": "v9.0.1",
         "schema_components": ["alert_policyCreateRequest"],
-        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
       }
     },
     {
-      "aliases": [],
+      "aliases": ["notification parameters custom"],
       "body_bytes": 2448,
       "body_sha256": "sha256:a00391d16064cd71c8a4e0a4cf18f76e9d9f03847b527afa0e113aedbb6842ea",
+      "capabilities": ["monitoring"],
+      "category": "monitoring",
       "child_ids": [],
+      "classification": {
+        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "sources": ["receipt-pinned-upstream", "reviewed-rule"],
+        "status": "resolved",
+        "upstream_category_source": "receipt-pinned-resource"
+      },
       "collection_id": "xcsh-docs:resources:alert_policy:collection",
       "completeness": "complete",
       "id": "xcsh-docs:resources:alert_policy:properties:notification_parameters:custom",
       "parent_id": "xcsh-docs:resources:alert_policy:properties:notification_parameters",
       "path": "documentation/resources/alert_policy/properties/notification_parameters/custom/index.md",
+      "product": "distributed-cloud",
       "provider_name": "alert_policy",
       "provider_schema_digest": "sha256:e63a07e98b4893c041a6f79be7e19c64babfe543fc6847c17641037e084e1c7c",
       "provider_type": "resources",
       "registry_anchor": "canonical-3113333100001232-1201212313303031-0121102133332311-2231102000302312-2033011323111100-3332002323232120-1021202100212120-3331103121103022",
       "registry_path": "docs/guides/resources--alert_policy--reference--group-001.md",
+      "relationships": [],
+      "retrieval_version": 1,
       "role": "properties",
       "schema_path": ["notification_parameters", "custom"],
+      "sections": [
+        {
+          "aliases": ["labels"],
+          "anchor": "schema-notification_parameters--custom--labels",
+          "description": "Name of labels to group/aggregate the alerts.",
+          "document_id": "xcsh-docs:resources:alert_policy:properties:notification_parameters:custom",
+          "flags": ["optional"],
+          "max_items": null,
+          "min_items": null,
+          "nesting": null,
+          "relationships": [],
+          "schema_path": ["notification_parameters", "custom", "labels"],
+          "syntax": "attribute",
+          "type": "list"
+        }
+      ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/alert_policy/properties/notification_parameters/custom/index.txt",
-      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
-      "summary": "notification_parameters.custom for xcsh_alert_policy.",
+      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "summary": "Specify list of custom labels to group/aggregate the alerts.",
+      "tasks": ["configuration"],
       "title": "notification_parameters.custom",
       "upstream_identity": {
-        "release_tag": "v9.0.0",
+        "release_tag": "v9.0.1",
         "schema_components": ["alert_policyCreateRequest"],
-        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
       }
     },
     {
-      "aliases": [],
+      "aliases": ["notification parameters default"],
       "body_bytes": 1285,
       "body_sha256": "sha256:09aab7d36fd5c5741df648a0d84738ad0cefd05d4d6411f0eba19342c2c4cad9",
+      "capabilities": ["monitoring"],
+      "category": "monitoring",
       "child_ids": [],
+      "classification": {
+        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "sources": ["receipt-pinned-upstream", "reviewed-rule"],
+        "status": "resolved",
+        "upstream_category_source": "receipt-pinned-resource"
+      },
       "collection_id": "xcsh-docs:resources:alert_policy:collection",
       "completeness": "complete",
       "id": "xcsh-docs:resources:alert_policy:properties:notification_parameters:default",
       "parent_id": "xcsh-docs:resources:alert_policy:properties:notification_parameters",
       "path": "documentation/resources/alert_policy/properties/notification_parameters/default/index.md",
+      "product": "distributed-cloud",
       "provider_name": "alert_policy",
       "provider_schema_digest": "sha256:e63a07e98b4893c041a6f79be7e19c64babfe543fc6847c17641037e084e1c7c",
       "provider_type": "resources",
       "registry_anchor": "canonical-2123120301301120-3113010213203313-2220210202320102-0302201203112102-1333203130012323-3112010320233112-0102122320020203-3003231132010032",
       "registry_path": "docs/guides/resources--alert_policy--reference--group-001.md",
+      "relationships": [],
+      "retrieval_version": 1,
       "role": "properties",
       "schema_path": ["notification_parameters", "default"],
+      "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/alert_policy/properties/notification_parameters/default/index.txt",
-      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
-      "summary": "notification_parameters.default for xcsh_alert_policy.",
+      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "summary": "This can be used for messages where no values are needed.",
+      "tasks": ["configuration"],
       "title": "notification_parameters.default",
       "upstream_identity": {
-        "release_tag": "v9.0.0",
+        "release_tag": "v9.0.1",
         "schema_components": ["alert_policyCreateRequest"],
-        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
       }
     },
     {
-      "aliases": [],
+      "aliases": ["notification parameters individual"],
       "body_bytes": 1294,
       "body_sha256": "sha256:ff4c7804c1547d8e7ca6452b17007f12b98d0759ba998c1ef98fa1afe7a319f3",
+      "capabilities": ["monitoring"],
+      "category": "monitoring",
       "child_ids": [],
+      "classification": {
+        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "sources": ["receipt-pinned-upstream", "reviewed-rule"],
+        "status": "resolved",
+        "upstream_category_source": "receipt-pinned-resource"
+      },
       "collection_id": "xcsh-docs:resources:alert_policy:collection",
       "completeness": "complete",
       "id": "xcsh-docs:resources:alert_policy:properties:notification_parameters:individual",
       "parent_id": "xcsh-docs:resources:alert_policy:properties:notification_parameters",
       "path": "documentation/resources/alert_policy/properties/notification_parameters/individual/index.md",
+      "product": "distributed-cloud",
       "provider_name": "alert_policy",
       "provider_schema_digest": "sha256:e63a07e98b4893c041a6f79be7e19c64babfe543fc6847c17641037e084e1c7c",
       "provider_type": "resources",
       "registry_anchor": "canonical-2211120302112020-2121111212221001-0323321313030302-2110113300311111-1103130100012331-2210312223322113-2010232200332201-3131330131202133",
       "registry_path": "docs/guides/resources--alert_policy--reference--group-001.md",
+      "relationships": [],
+      "retrieval_version": 1,
       "role": "properties",
       "schema_path": ["notification_parameters", "individual"],
+      "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/alert_policy/properties/notification_parameters/individual/index.txt",
-      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
-      "summary": "notification_parameters.individual for xcsh_alert_policy.",
+      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "summary": "This can be used for messages where no values are needed.",
+      "tasks": ["configuration"],
       "title": "notification_parameters.individual",
       "upstream_identity": {
-        "release_tag": "v9.0.0",
+        "release_tag": "v9.0.1",
         "schema_components": ["alert_policyCreateRequest"],
-        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
       }
     },
     {
-      "aliases": [],
+      "aliases": ["notification parameters ves io group"],
       "body_bytes": 1323,
       "body_sha256": "sha256:5843feec5ab7b9f93bb52cbe6b9ba9a95dc39f063629d0653a7da83e87445637",
+      "capabilities": ["monitoring"],
+      "category": "monitoring",
       "child_ids": [],
+      "classification": {
+        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "sources": ["receipt-pinned-upstream", "reviewed-rule"],
+        "status": "resolved",
+        "upstream_category_source": "receipt-pinned-resource"
+      },
       "collection_id": "xcsh-docs:resources:alert_policy:collection",
       "completeness": "complete",
       "id": "xcsh-docs:resources:alert_policy:properties:notification_parameters:ves_io_group",
       "parent_id": "xcsh-docs:resources:alert_policy:properties:notification_parameters",
       "path": "documentation/resources/alert_policy/properties/notification_parameters/ves_io_group/index.md",
+      "product": "distributed-cloud",
       "provider_name": "alert_policy",
       "provider_schema_digest": "sha256:e63a07e98b4893c041a6f79be7e19c64babfe543fc6847c17641037e084e1c7c",
       "provider_type": "resources",
       "registry_anchor": "canonical-2110212131113322-0322002230203220-2301312221121132-2300121212231030-1121333202131201-1120031310210111-1333012212113113-2133032123031100",
       "registry_path": "docs/guides/resources--alert_policy--reference--group-001.md",
+      "relationships": [],
+      "retrieval_version": 1,
       "role": "properties",
       "schema_path": ["notification_parameters", "ves_io_group"],
+      "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/alert_policy/properties/notification_parameters/ves_io_group/index.txt",
-      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
-      "summary": "notification_parameters.ves_io_group for xcsh_alert_policy.",
+      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "summary": "This can be used for messages where no values are needed.",
+      "tasks": ["configuration"],
       "title": "notification_parameters.ves_io_group",
       "upstream_identity": {
-        "release_tag": "v9.0.0",
+        "release_tag": "v9.0.1",
         "schema_components": ["alert_policyCreateRequest"],
-        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
       }
     },
     {
-      "aliases": [],
+      "aliases": ["receivers"],
       "body_bytes": 6367,
       "body_sha256": "sha256:04896cb3a967a00972e8912d069759659256bcb937c424f43021edcc1e77ec0e",
+      "capabilities": ["monitoring"],
+      "category": "monitoring",
       "child_ids": [],
+      "classification": {
+        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "sources": ["receipt-pinned-upstream", "reviewed-rule"],
+        "status": "resolved",
+        "upstream_category_source": "receipt-pinned-resource"
+      },
       "collection_id": "xcsh-docs:resources:alert_policy:collection",
       "completeness": "complete",
       "id": "xcsh-docs:resources:alert_policy:properties:receivers",
       "parent_id": "xcsh-docs:resources:alert_policy:reference",
       "path": "documentation/resources/alert_policy/properties/receivers/index.md",
+      "product": "distributed-cloud",
       "provider_name": "alert_policy",
       "provider_schema_digest": "sha256:e63a07e98b4893c041a6f79be7e19c64babfe543fc6847c17641037e084e1c7c",
       "provider_type": "resources",
       "registry_anchor": "canonical-3131322330100230-2131122213031210-1231122112211222-3020300103001122-2130202110300030-0001002122021021-2210020203303312-2111210332131202",
       "registry_path": "docs/guides/resources--alert_policy--reference--group-001.md",
+      "relationships": [],
+      "retrieval_version": 1,
       "role": "properties",
       "schema_path": ["receivers"],
+      "sections": [
+        {
+          "aliases": ["kind"],
+          "anchor": "schema-receivers--kind",
+          "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then kind will hold the referred object's kind (e.g. \"route\")",
+          "document_id": "xcsh-docs:resources:alert_policy:properties:receivers",
+          "flags": ["computed"],
+          "max_items": null,
+          "min_items": null,
+          "nesting": null,
+          "relationships": [],
+          "schema_path": ["receivers", "kind"],
+          "syntax": "attribute",
+          "type": "string"
+        },
+        {
+          "aliases": ["name"],
+          "anchor": "schema-receivers--name",
+          "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.",
+          "document_id": "xcsh-docs:resources:alert_policy:properties:receivers",
+          "flags": ["optional"],
+          "max_items": null,
+          "min_items": null,
+          "nesting": null,
+          "relationships": [],
+          "schema_path": ["receivers", "name"],
+          "syntax": "attribute",
+          "type": "string"
+        },
+        {
+          "aliases": ["namespace"],
+          "anchor": "schema-receivers--namespace",
+          "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace.",
+          "document_id": "xcsh-docs:resources:alert_policy:properties:receivers",
+          "flags": ["optional", "computed"],
+          "max_items": null,
+          "min_items": null,
+          "nesting": null,
+          "relationships": [],
+          "schema_path": ["receivers", "namespace"],
+          "syntax": "attribute",
+          "type": "string"
+        },
+        {
+          "aliases": ["tenant"],
+          "anchor": "schema-receivers--tenant",
+          "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant.",
+          "document_id": "xcsh-docs:resources:alert_policy:properties:receivers",
+          "flags": ["computed"],
+          "max_items": null,
+          "min_items": null,
+          "nesting": null,
+          "relationships": [],
+          "schema_path": ["receivers", "tenant"],
+          "syntax": "attribute",
+          "type": "string"
+        },
+        {
+          "aliases": ["uid"],
+          "anchor": "schema-receivers--uid",
+          "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then uid will hold the referred object's(e.g. Route's) uid.",
+          "document_id": "xcsh-docs:resources:alert_policy:properties:receivers",
+          "flags": ["computed"],
+          "max_items": null,
+          "min_items": null,
+          "nesting": null,
+          "relationships": [],
+          "schema_path": ["receivers", "uid"],
+          "syntax": "attribute",
+          "type": "string"
+        }
+      ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/alert_policy/properties/receivers/index.txt",
-      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
-      "summary": "receivers for xcsh_alert_policy.",
+      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "summary": "List of Alert Receivers where the alerts will be sent.",
+      "tasks": ["configuration"],
       "title": "receivers",
       "upstream_identity": {
-        "release_tag": "v9.0.0",
+        "release_tag": "v9.0.1",
         "schema_components": ["alert_policyCreateRequest"],
-        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
       }
     },
     {
-      "aliases": [],
+      "aliases": ["routes"],
       "body_bytes": 13768,
       "body_sha256": "sha256:f4a5a588645af0ee97251476bd6e1325c2662d1123300a016c12c30d83c06bb6",
+      "capabilities": ["monitoring"],
+      "category": "monitoring",
       "child_ids": [
         "xcsh-docs:resources:alert_policy:properties:routes:any",
         "xcsh-docs:resources:alert_policy:properties:routes:custom",
@@ -538,502 +1436,1767 @@
         "xcsh-docs:resources:alert_policy:properties:routes:send",
         "xcsh-docs:resources:alert_policy:properties:routes:severity"
       ],
+      "classification": {
+        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "sources": ["receipt-pinned-upstream", "reviewed-rule"],
+        "status": "resolved",
+        "upstream_category_source": "receipt-pinned-resource"
+      },
       "collection_id": "xcsh-docs:resources:alert_policy:collection",
       "completeness": "complete",
       "id": "xcsh-docs:resources:alert_policy:properties:routes",
       "parent_id": "xcsh-docs:resources:alert_policy:reference",
       "path": "documentation/resources/alert_policy/properties/routes/index.md",
+      "product": "distributed-cloud",
       "provider_name": "alert_policy",
       "provider_schema_digest": "sha256:e63a07e98b4893c041a6f79be7e19c64babfe543fc6847c17641037e084e1c7c",
       "provider_type": "resources",
       "registry_anchor": "canonical-2130320122111321-3211321113022113-2302033210311013-2320311313020000-0321211210311022-2301210032020133-2200131112233201-3001032100200033",
       "registry_path": "docs/guides/resources--alert_policy--reference--group-001.md",
+      "relationships": [
+        {
+          "anchor": "schema-routes--alertname",
+          "enforcement": "provider-schema",
+          "group": "routes:ConflictingListObjectAttributes:alertname,alertname_regex",
+          "source": "ast-validator:ConflictingListObjectAttributes",
+          "target_id": "xcsh-docs:resources:alert_policy:properties:routes",
+          "type": "conflicts"
+        },
+        {
+          "anchor": "schema-routes--alertname",
+          "enforcement": "provider-schema",
+          "group": "routes:ConflictingListObjectAttributes:alertname,any",
+          "source": "ast-validator:ConflictingListObjectAttributes",
+          "target_id": "xcsh-docs:resources:alert_policy:properties:routes",
+          "type": "conflicts"
+        },
+        {
+          "anchor": "schema-routes--alertname",
+          "enforcement": "provider-schema",
+          "group": "routes:ConflictingListObjectAttributes:alertname,custom",
+          "source": "ast-validator:ConflictingListObjectAttributes",
+          "target_id": "xcsh-docs:resources:alert_policy:properties:routes",
+          "type": "conflicts"
+        },
+        {
+          "anchor": "schema-routes--alertname",
+          "enforcement": "provider-schema",
+          "group": "routes:ConflictingListObjectAttributes:alertname,group",
+          "source": "ast-validator:ConflictingListObjectAttributes",
+          "target_id": "xcsh-docs:resources:alert_policy:properties:routes",
+          "type": "conflicts"
+        },
+        {
+          "anchor": "schema-routes--alertname",
+          "enforcement": "provider-schema",
+          "group": "routes:ConflictingListObjectAttributes:alertname,severity",
+          "source": "ast-validator:ConflictingListObjectAttributes",
+          "target_id": "xcsh-docs:resources:alert_policy:properties:routes",
+          "type": "conflicts"
+        },
+        {
+          "anchor": "schema-routes--alertname_regex",
+          "enforcement": "provider-schema",
+          "group": "routes:ConflictingListObjectAttributes:alertname,alertname_regex",
+          "source": "ast-validator:ConflictingListObjectAttributes",
+          "target_id": "xcsh-docs:resources:alert_policy:properties:routes",
+          "type": "conflicts"
+        },
+        {
+          "anchor": "schema-routes--alertname_regex",
+          "enforcement": "provider-schema",
+          "group": "routes:ConflictingListObjectAttributes:alertname_regex,any",
+          "source": "ast-validator:ConflictingListObjectAttributes",
+          "target_id": "xcsh-docs:resources:alert_policy:properties:routes",
+          "type": "conflicts"
+        },
+        {
+          "anchor": "schema-routes--alertname_regex",
+          "enforcement": "provider-schema",
+          "group": "routes:ConflictingListObjectAttributes:alertname_regex,custom",
+          "source": "ast-validator:ConflictingListObjectAttributes",
+          "target_id": "xcsh-docs:resources:alert_policy:properties:routes",
+          "type": "conflicts"
+        },
+        {
+          "anchor": "schema-routes--alertname_regex",
+          "enforcement": "provider-schema",
+          "group": "routes:ConflictingListObjectAttributes:alertname_regex,group",
+          "source": "ast-validator:ConflictingListObjectAttributes",
+          "target_id": "xcsh-docs:resources:alert_policy:properties:routes",
+          "type": "conflicts"
+        },
+        {
+          "anchor": "schema-routes--alertname_regex",
+          "enforcement": "provider-schema",
+          "group": "routes:ConflictingListObjectAttributes:alertname_regex,severity",
+          "source": "ast-validator:ConflictingListObjectAttributes",
+          "target_id": "xcsh-docs:resources:alert_policy:properties:routes",
+          "type": "conflicts"
+        },
+        {
+          "anchor": "section",
+          "enforcement": "provider-schema",
+          "group": "routes:ConflictingListObjectAttributes:alertname,any",
+          "source": "ast-validator:ConflictingListObjectAttributes",
+          "target_id": "xcsh-docs:resources:alert_policy:properties:routes:any",
+          "type": "conflicts"
+        },
+        {
+          "anchor": "section",
+          "enforcement": "provider-schema",
+          "group": "routes:ConflictingListObjectAttributes:alertname_regex,any",
+          "source": "ast-validator:ConflictingListObjectAttributes",
+          "target_id": "xcsh-docs:resources:alert_policy:properties:routes:any",
+          "type": "conflicts"
+        },
+        {
+          "anchor": "section",
+          "enforcement": "provider-schema",
+          "group": "routes:ConflictingListObjectAttributes:any,custom",
+          "source": "ast-validator:ConflictingListObjectAttributes",
+          "target_id": "xcsh-docs:resources:alert_policy:properties:routes:any",
+          "type": "conflicts"
+        },
+        {
+          "anchor": "section",
+          "enforcement": "provider-schema",
+          "group": "routes:ConflictingListObjectAttributes:any,group",
+          "source": "ast-validator:ConflictingListObjectAttributes",
+          "target_id": "xcsh-docs:resources:alert_policy:properties:routes:any",
+          "type": "conflicts"
+        },
+        {
+          "anchor": "section",
+          "enforcement": "provider-schema",
+          "group": "routes:ConflictingListObjectAttributes:any,severity",
+          "source": "ast-validator:ConflictingListObjectAttributes",
+          "target_id": "xcsh-docs:resources:alert_policy:properties:routes:any",
+          "type": "conflicts"
+        },
+        {
+          "anchor": "section",
+          "enforcement": "provider-schema",
+          "group": "routes:ConflictingListObjectAttributes:alertname,custom",
+          "source": "ast-validator:ConflictingListObjectAttributes",
+          "target_id": "xcsh-docs:resources:alert_policy:properties:routes:custom",
+          "type": "conflicts"
+        },
+        {
+          "anchor": "section",
+          "enforcement": "provider-schema",
+          "group": "routes:ConflictingListObjectAttributes:alertname_regex,custom",
+          "source": "ast-validator:ConflictingListObjectAttributes",
+          "target_id": "xcsh-docs:resources:alert_policy:properties:routes:custom",
+          "type": "conflicts"
+        },
+        {
+          "anchor": "section",
+          "enforcement": "provider-schema",
+          "group": "routes:ConflictingListObjectAttributes:any,custom",
+          "source": "ast-validator:ConflictingListObjectAttributes",
+          "target_id": "xcsh-docs:resources:alert_policy:properties:routes:custom",
+          "type": "conflicts"
+        },
+        {
+          "anchor": "section",
+          "enforcement": "provider-schema",
+          "group": "routes:ConflictingListObjectAttributes:custom,group",
+          "source": "ast-validator:ConflictingListObjectAttributes",
+          "target_id": "xcsh-docs:resources:alert_policy:properties:routes:custom",
+          "type": "conflicts"
+        },
+        {
+          "anchor": "section",
+          "enforcement": "provider-schema",
+          "group": "routes:ConflictingListObjectAttributes:custom,severity",
+          "source": "ast-validator:ConflictingListObjectAttributes",
+          "target_id": "xcsh-docs:resources:alert_policy:properties:routes:custom",
+          "type": "conflicts"
+        },
+        {
+          "anchor": "section",
+          "enforcement": "provider-schema",
+          "group": "routes:ConflictingListObjectAttributes:dont_send,send",
+          "source": "ast-validator:ConflictingListObjectAttributes",
+          "target_id": "xcsh-docs:resources:alert_policy:properties:routes:dont_send",
+          "type": "conflicts"
+        },
+        {
+          "anchor": "section",
+          "enforcement": "provider-schema",
+          "group": "routes:ConflictingListObjectAttributes:alertname,group",
+          "source": "ast-validator:ConflictingListObjectAttributes",
+          "target_id": "xcsh-docs:resources:alert_policy:properties:routes:group",
+          "type": "conflicts"
+        },
+        {
+          "anchor": "section",
+          "enforcement": "provider-schema",
+          "group": "routes:ConflictingListObjectAttributes:alertname_regex,group",
+          "source": "ast-validator:ConflictingListObjectAttributes",
+          "target_id": "xcsh-docs:resources:alert_policy:properties:routes:group",
+          "type": "conflicts"
+        },
+        {
+          "anchor": "section",
+          "enforcement": "provider-schema",
+          "group": "routes:ConflictingListObjectAttributes:any,group",
+          "source": "ast-validator:ConflictingListObjectAttributes",
+          "target_id": "xcsh-docs:resources:alert_policy:properties:routes:group",
+          "type": "conflicts"
+        },
+        {
+          "anchor": "section",
+          "enforcement": "provider-schema",
+          "group": "routes:ConflictingListObjectAttributes:custom,group",
+          "source": "ast-validator:ConflictingListObjectAttributes",
+          "target_id": "xcsh-docs:resources:alert_policy:properties:routes:group",
+          "type": "conflicts"
+        },
+        {
+          "anchor": "section",
+          "enforcement": "provider-schema",
+          "group": "routes:ConflictingListObjectAttributes:group,severity",
+          "source": "ast-validator:ConflictingListObjectAttributes",
+          "target_id": "xcsh-docs:resources:alert_policy:properties:routes:group",
+          "type": "conflicts"
+        },
+        {
+          "anchor": "section",
+          "enforcement": "provider-schema",
+          "group": "routes:ConflictingListObjectAttributes:dont_send,send",
+          "source": "ast-validator:ConflictingListObjectAttributes",
+          "target_id": "xcsh-docs:resources:alert_policy:properties:routes:send",
+          "type": "conflicts"
+        },
+        {
+          "anchor": "section",
+          "enforcement": "provider-schema",
+          "group": "routes:ConflictingListObjectAttributes:alertname,severity",
+          "source": "ast-validator:ConflictingListObjectAttributes",
+          "target_id": "xcsh-docs:resources:alert_policy:properties:routes:severity",
+          "type": "conflicts"
+        },
+        {
+          "anchor": "section",
+          "enforcement": "provider-schema",
+          "group": "routes:ConflictingListObjectAttributes:alertname_regex,severity",
+          "source": "ast-validator:ConflictingListObjectAttributes",
+          "target_id": "xcsh-docs:resources:alert_policy:properties:routes:severity",
+          "type": "conflicts"
+        },
+        {
+          "anchor": "section",
+          "enforcement": "provider-schema",
+          "group": "routes:ConflictingListObjectAttributes:any,severity",
+          "source": "ast-validator:ConflictingListObjectAttributes",
+          "target_id": "xcsh-docs:resources:alert_policy:properties:routes:severity",
+          "type": "conflicts"
+        },
+        {
+          "anchor": "section",
+          "enforcement": "provider-schema",
+          "group": "routes:ConflictingListObjectAttributes:custom,severity",
+          "source": "ast-validator:ConflictingListObjectAttributes",
+          "target_id": "xcsh-docs:resources:alert_policy:properties:routes:severity",
+          "type": "conflicts"
+        },
+        {
+          "anchor": "section",
+          "enforcement": "provider-schema",
+          "group": "routes:ConflictingListObjectAttributes:group,severity",
+          "source": "ast-validator:ConflictingListObjectAttributes",
+          "target_id": "xcsh-docs:resources:alert_policy:properties:routes:severity",
+          "type": "conflicts"
+        }
+      ],
+      "retrieval_version": 1,
       "role": "properties",
       "schema_path": ["routes"],
+      "sections": [
+        {
+          "aliases": ["alertname", "cert", "certificate", "existing certificates", "tls certificates"],
+          "anchor": "schema-routes--alertname",
+          "description": "List of Alert Names Customer tunnel interface down Physical Interface down Tunnel Interfaces to Customer Site Down Virtual Host server error Virtual Host client error Service Health Low Service Unavailable Virtual Host server error Virtual Host client error Endpoint Healthcheck failure Synthetic monitor health",
+          "document_id": "xcsh-docs:resources:alert_policy:properties:routes",
+          "flags": ["optional"],
+          "max_items": null,
+          "min_items": null,
+          "nesting": null,
+          "relationships": [],
+          "schema_path": ["routes", "alertname"],
+          "syntax": "attribute",
+          "type": "string"
+        },
+        {
+          "aliases": ["alertname regex"],
+          "anchor": "schema-routes--alertname_regex",
+          "description": "Exclusive with Regular Expression match for the alertname.",
+          "document_id": "xcsh-docs:resources:alert_policy:properties:routes",
+          "flags": ["optional"],
+          "max_items": null,
+          "min_items": null,
+          "nesting": null,
+          "relationships": [],
+          "schema_path": ["routes", "alertname_regex"],
+          "syntax": "attribute",
+          "type": "string"
+        },
+        {
+          "aliases": ["any"],
+          "anchor": "section",
+          "description": "This can be used for messages where no values are needed.",
+          "document_id": "xcsh-docs:resources:alert_policy:properties:routes:any",
+          "flags": ["optional"],
+          "max_items": null,
+          "min_items": null,
+          "nesting": null,
+          "relationships": [],
+          "schema_path": ["routes", "any"],
+          "syntax": "attribute",
+          "type": "object"
+        },
+        {
+          "aliases": ["custom"],
+          "anchor": "section",
+          "description": "A set of matchers an alert has to fulfill to match the route.",
+          "document_id": "xcsh-docs:resources:alert_policy:properties:routes:custom",
+          "flags": [],
+          "max_items": null,
+          "min_items": null,
+          "nesting": "single",
+          "relationships": [],
+          "schema_path": ["routes", "custom"],
+          "syntax": "block",
+          "type": "object"
+        },
+        {
+          "aliases": ["dont send"],
+          "anchor": "section",
+          "description": "This can be used for messages where no values are needed.",
+          "document_id": "xcsh-docs:resources:alert_policy:properties:routes:dont_send",
+          "flags": ["optional"],
+          "max_items": null,
+          "min_items": null,
+          "nesting": null,
+          "relationships": [],
+          "schema_path": ["routes", "dont_send"],
+          "syntax": "attribute",
+          "type": "object"
+        },
+        {
+          "aliases": ["group"],
+          "anchor": "section",
+          "description": "Select one or more known group names to match the incoming alert.",
+          "document_id": "xcsh-docs:resources:alert_policy:properties:routes:group",
+          "flags": [],
+          "max_items": null,
+          "min_items": null,
+          "nesting": "single",
+          "relationships": [],
+          "schema_path": ["routes", "group"],
+          "syntax": "block",
+          "type": "object"
+        },
+        {
+          "aliases": ["notification parameters"],
+          "anchor": "section",
+          "description": "Set of notification parameters to decide how and when the alert notifications should be sent to the receivers.",
+          "document_id": "xcsh-docs:resources:alert_policy:properties:routes:notification_parameters",
+          "flags": [],
+          "max_items": null,
+          "min_items": null,
+          "nesting": "single",
+          "relationships": [
+            {
+              "anchor": "section",
+              "enforcement": "provider-schema",
+              "group": "routes.notification_parameters:ConflictingObjectAttributes:custom,default",
+              "source": "ast-validator:ConflictingObjectAttributes",
+              "target_id": "xcsh-docs:resources:alert_policy:properties:routes:notification_parameters:custom",
+              "type": "conflicts"
+            },
+            {
+              "anchor": "section",
+              "enforcement": "provider-schema",
+              "group": "routes.notification_parameters:ConflictingObjectAttributes:custom,individual",
+              "source": "ast-validator:ConflictingObjectAttributes",
+              "target_id": "xcsh-docs:resources:alert_policy:properties:routes:notification_parameters:custom",
+              "type": "conflicts"
+            },
+            {
+              "anchor": "section",
+              "enforcement": "provider-schema",
+              "group": "routes.notification_parameters:ConflictingObjectAttributes:custom,ves_io_group",
+              "source": "ast-validator:ConflictingObjectAttributes",
+              "target_id": "xcsh-docs:resources:alert_policy:properties:routes:notification_parameters:custom",
+              "type": "conflicts"
+            },
+            {
+              "anchor": "section",
+              "enforcement": "provider-schema",
+              "group": "routes.notification_parameters:ConflictingObjectAttributes:custom,default",
+              "source": "ast-validator:ConflictingObjectAttributes",
+              "target_id": "xcsh-docs:resources:alert_policy:properties:routes:notification_parameters:default",
+              "type": "conflicts"
+            },
+            {
+              "anchor": "section",
+              "enforcement": "provider-schema",
+              "group": "routes.notification_parameters:ConflictingObjectAttributes:default,individual",
+              "source": "ast-validator:ConflictingObjectAttributes",
+              "target_id": "xcsh-docs:resources:alert_policy:properties:routes:notification_parameters:default",
+              "type": "conflicts"
+            },
+            {
+              "anchor": "section",
+              "enforcement": "provider-schema",
+              "group": "routes.notification_parameters:ConflictingObjectAttributes:default,ves_io_group",
+              "source": "ast-validator:ConflictingObjectAttributes",
+              "target_id": "xcsh-docs:resources:alert_policy:properties:routes:notification_parameters:default",
+              "type": "conflicts"
+            },
+            {
+              "anchor": "section",
+              "enforcement": "provider-schema",
+              "group": "routes.notification_parameters:ConflictingObjectAttributes:custom,individual",
+              "source": "ast-validator:ConflictingObjectAttributes",
+              "target_id": "xcsh-docs:resources:alert_policy:properties:routes:notification_parameters:individual",
+              "type": "conflicts"
+            },
+            {
+              "anchor": "section",
+              "enforcement": "provider-schema",
+              "group": "routes.notification_parameters:ConflictingObjectAttributes:default,individual",
+              "source": "ast-validator:ConflictingObjectAttributes",
+              "target_id": "xcsh-docs:resources:alert_policy:properties:routes:notification_parameters:individual",
+              "type": "conflicts"
+            },
+            {
+              "anchor": "section",
+              "enforcement": "provider-schema",
+              "group": "routes.notification_parameters:ConflictingObjectAttributes:individual,ves_io_group",
+              "source": "ast-validator:ConflictingObjectAttributes",
+              "target_id": "xcsh-docs:resources:alert_policy:properties:routes:notification_parameters:individual",
+              "type": "conflicts"
+            },
+            {
+              "anchor": "section",
+              "enforcement": "provider-schema",
+              "group": "routes.notification_parameters:ConflictingObjectAttributes:custom,ves_io_group",
+              "source": "ast-validator:ConflictingObjectAttributes",
+              "target_id": "xcsh-docs:resources:alert_policy:properties:routes:notification_parameters:ves_io_group",
+              "type": "conflicts"
+            },
+            {
+              "anchor": "section",
+              "enforcement": "provider-schema",
+              "group": "routes.notification_parameters:ConflictingObjectAttributes:default,ves_io_group",
+              "source": "ast-validator:ConflictingObjectAttributes",
+              "target_id": "xcsh-docs:resources:alert_policy:properties:routes:notification_parameters:ves_io_group",
+              "type": "conflicts"
+            },
+            {
+              "anchor": "section",
+              "enforcement": "provider-schema",
+              "group": "routes.notification_parameters:ConflictingObjectAttributes:individual,ves_io_group",
+              "source": "ast-validator:ConflictingObjectAttributes",
+              "target_id": "xcsh-docs:resources:alert_policy:properties:routes:notification_parameters:ves_io_group",
+              "type": "conflicts"
+            }
+          ],
+          "schema_path": ["routes", "notification_parameters"],
+          "syntax": "block",
+          "type": "object"
+        },
+        {
+          "aliases": ["send"],
+          "anchor": "section",
+          "description": "This can be used for messages where no values are needed.",
+          "document_id": "xcsh-docs:resources:alert_policy:properties:routes:send",
+          "flags": ["optional"],
+          "max_items": null,
+          "min_items": null,
+          "nesting": null,
+          "relationships": [],
+          "schema_path": ["routes", "send"],
+          "syntax": "attribute",
+          "type": "object"
+        },
+        {
+          "aliases": ["severity"],
+          "anchor": "section",
+          "description": "Select one or more severity levels to match the incoming alert.",
+          "document_id": "xcsh-docs:resources:alert_policy:properties:routes:severity",
+          "flags": [],
+          "max_items": null,
+          "min_items": null,
+          "nesting": "single",
+          "relationships": [],
+          "schema_path": ["routes", "severity"],
+          "syntax": "block",
+          "type": "object"
+        }
+      ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/alert_policy/properties/routes/index.txt",
-      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
-      "summary": "routes for xcsh_alert_policy.",
+      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "summary": "Set of routes to match the incoming alert. The routes are evaluated in the specified order and terminates on the first match.",
+      "tasks": ["configuration"],
       "title": "routes",
       "upstream_identity": {
-        "release_tag": "v9.0.0",
+        "release_tag": "v9.0.1",
         "schema_components": ["alert_policyCreateRequest"],
-        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
       }
     },
     {
-      "aliases": [],
+      "aliases": ["routes any"],
       "body_bytes": 1171,
       "body_sha256": "sha256:b208d0d397bc8329e27d0f1e9eb3ba711c1edcf8ac2d8ebeeb32149d8ca2bc84",
+      "capabilities": ["monitoring"],
+      "category": "monitoring",
       "child_ids": [],
+      "classification": {
+        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "sources": ["receipt-pinned-upstream", "reviewed-rule"],
+        "status": "resolved",
+        "upstream_category_source": "receipt-pinned-resource"
+      },
       "collection_id": "xcsh-docs:resources:alert_policy:collection",
       "completeness": "complete",
       "id": "xcsh-docs:resources:alert_policy:properties:routes:any",
       "parent_id": "xcsh-docs:resources:alert_policy:properties:routes",
       "path": "documentation/resources/alert_policy/properties/routes/any/index.md",
+      "product": "distributed-cloud",
       "provider_name": "alert_policy",
       "provider_schema_digest": "sha256:e63a07e98b4893c041a6f79be7e19c64babfe543fc6847c17641037e084e1c7c",
       "provider_type": "resources",
       "registry_anchor": "canonical-1132320103011322-1331023221321120-3300230121112023-2131300020333333-0230023203002101-3132021113323113-2113330320002322-3133220322301333",
       "registry_path": "docs/guides/resources--alert_policy--reference--group-001.md",
+      "relationships": [],
+      "retrieval_version": 1,
       "role": "properties",
       "schema_path": ["routes", "any"],
+      "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/alert_policy/properties/routes/any/index.txt",
-      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
-      "summary": "routes.any for xcsh_alert_policy.",
+      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "summary": "This can be used for messages where no values are needed.",
+      "tasks": ["configuration"],
       "title": "routes.any",
       "upstream_identity": {
-        "release_tag": "v9.0.0",
+        "release_tag": "v9.0.1",
         "schema_components": ["alert_policyCreateRequest"],
-        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
       }
     },
     {
-      "aliases": [],
+      "aliases": ["routes custom"],
       "body_bytes": 2425,
       "body_sha256": "sha256:f4a9e5afa15b6430bc9e517bd123553019410803364ef15f861f85d9b0817436",
+      "capabilities": ["monitoring"],
+      "category": "monitoring",
       "child_ids": [
         "xcsh-docs:resources:alert_policy:properties:routes:custom:alertlabel",
         "xcsh-docs:resources:alert_policy:properties:routes:custom:alertname",
         "xcsh-docs:resources:alert_policy:properties:routes:custom:group",
         "xcsh-docs:resources:alert_policy:properties:routes:custom:severity"
       ],
+      "classification": {
+        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "sources": ["receipt-pinned-upstream", "reviewed-rule"],
+        "status": "resolved",
+        "upstream_category_source": "receipt-pinned-resource"
+      },
       "collection_id": "xcsh-docs:resources:alert_policy:collection",
       "completeness": "complete",
       "id": "xcsh-docs:resources:alert_policy:properties:routes:custom",
       "parent_id": "xcsh-docs:resources:alert_policy:properties:routes",
       "path": "documentation/resources/alert_policy/properties/routes/custom/index.md",
+      "product": "distributed-cloud",
       "provider_name": "alert_policy",
       "provider_schema_digest": "sha256:e63a07e98b4893c041a6f79be7e19c64babfe543fc6847c17641037e084e1c7c",
       "provider_type": "resources",
       "registry_anchor": "canonical-3230201200300110-3010211222100103-3201230231102031-1213011103213132-0310132223101002-0010233123332210-2030021202212202-3031020303123101",
       "registry_path": "docs/guides/resources--alert_policy--reference--group-001.md",
+      "relationships": [],
+      "retrieval_version": 1,
       "role": "properties",
       "schema_path": ["routes", "custom"],
+      "sections": [
+        {
+          "aliases": ["alertlabel"],
+          "anchor": "section",
+          "description": "AlertLabel to configure the alert policy rule.",
+          "document_id": "xcsh-docs:resources:alert_policy:properties:routes:custom:alertlabel",
+          "flags": [],
+          "max_items": null,
+          "min_items": null,
+          "nesting": "single",
+          "relationships": [],
+          "schema_path": ["routes", "custom", "alertlabel"],
+          "syntax": "block",
+          "type": "object"
+        },
+        {
+          "aliases": ["alertname"],
+          "anchor": "section",
+          "description": "Label Matcher.",
+          "document_id": "xcsh-docs:resources:alert_policy:properties:routes:custom:alertname",
+          "flags": [],
+          "max_items": null,
+          "min_items": null,
+          "nesting": "single",
+          "relationships": [
+            {
+              "anchor": "schema-routes--custom--alertname--exact_match",
+              "enforcement": "provider-schema",
+              "group": "routes.custom.alertname:ConflictingObjectAttributes:exact_match,regex_match",
+              "source": "ast-validator:ConflictingObjectAttributes",
+              "target_id": "xcsh-docs:resources:alert_policy:properties:routes:custom:alertname",
+              "type": "conflicts"
+            },
+            {
+              "anchor": "schema-routes--custom--alertname--regex_match",
+              "enforcement": "provider-schema",
+              "group": "routes.custom.alertname:ConflictingObjectAttributes:exact_match,regex_match",
+              "source": "ast-validator:ConflictingObjectAttributes",
+              "target_id": "xcsh-docs:resources:alert_policy:properties:routes:custom:alertname",
+              "type": "conflicts"
+            }
+          ],
+          "schema_path": ["routes", "custom", "alertname"],
+          "syntax": "block",
+          "type": "object"
+        },
+        {
+          "aliases": ["group"],
+          "anchor": "section",
+          "description": "Label Matcher.",
+          "document_id": "xcsh-docs:resources:alert_policy:properties:routes:custom:group",
+          "flags": [],
+          "max_items": null,
+          "min_items": null,
+          "nesting": "single",
+          "relationships": [
+            {
+              "anchor": "schema-routes--custom--group--exact_match",
+              "enforcement": "provider-schema",
+              "group": "routes.custom.group:ConflictingObjectAttributes:exact_match,regex_match",
+              "source": "ast-validator:ConflictingObjectAttributes",
+              "target_id": "xcsh-docs:resources:alert_policy:properties:routes:custom:group",
+              "type": "conflicts"
+            },
+            {
+              "anchor": "schema-routes--custom--group--regex_match",
+              "enforcement": "provider-schema",
+              "group": "routes.custom.group:ConflictingObjectAttributes:exact_match,regex_match",
+              "source": "ast-validator:ConflictingObjectAttributes",
+              "target_id": "xcsh-docs:resources:alert_policy:properties:routes:custom:group",
+              "type": "conflicts"
+            }
+          ],
+          "schema_path": ["routes", "custom", "group"],
+          "syntax": "block",
+          "type": "object"
+        },
+        {
+          "aliases": ["severity"],
+          "anchor": "section",
+          "description": "Label Matcher.",
+          "document_id": "xcsh-docs:resources:alert_policy:properties:routes:custom:severity",
+          "flags": [],
+          "max_items": null,
+          "min_items": null,
+          "nesting": "single",
+          "relationships": [
+            {
+              "anchor": "schema-routes--custom--severity--exact_match",
+              "enforcement": "provider-schema",
+              "group": "routes.custom.severity:ConflictingObjectAttributes:exact_match,regex_match",
+              "source": "ast-validator:ConflictingObjectAttributes",
+              "target_id": "xcsh-docs:resources:alert_policy:properties:routes:custom:severity",
+              "type": "conflicts"
+            },
+            {
+              "anchor": "schema-routes--custom--severity--regex_match",
+              "enforcement": "provider-schema",
+              "group": "routes.custom.severity:ConflictingObjectAttributes:exact_match,regex_match",
+              "source": "ast-validator:ConflictingObjectAttributes",
+              "target_id": "xcsh-docs:resources:alert_policy:properties:routes:custom:severity",
+              "type": "conflicts"
+            }
+          ],
+          "schema_path": ["routes", "custom", "severity"],
+          "syntax": "block",
+          "type": "object"
+        }
+      ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/alert_policy/properties/routes/custom/index.txt",
-      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
-      "summary": "routes.custom for xcsh_alert_policy.",
+      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "summary": "A set of matchers an alert has to fulfill to match the route.",
+      "tasks": ["configuration"],
       "title": "routes.custom",
       "upstream_identity": {
-        "release_tag": "v9.0.0",
+        "release_tag": "v9.0.1",
         "schema_components": ["alert_policyCreateRequest"],
-        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
       }
     },
     {
-      "aliases": [],
+      "aliases": ["routes custom alertlabel"],
       "body_bytes": 1843,
       "body_sha256": "sha256:b6ae8479064ffbf4ab9addd338248c561adb08728e76a164ecbeb332d71a22a3",
+      "capabilities": ["monitoring"],
+      "category": "monitoring",
       "child_ids": [],
+      "classification": {
+        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "sources": ["receipt-pinned-upstream", "reviewed-rule"],
+        "status": "resolved",
+        "upstream_category_source": "receipt-pinned-resource"
+      },
       "collection_id": "xcsh-docs:resources:alert_policy:collection",
       "completeness": "complete",
       "id": "xcsh-docs:resources:alert_policy:properties:routes:custom:alertlabel",
       "parent_id": "xcsh-docs:resources:alert_policy:properties:routes:custom",
       "path": "documentation/resources/alert_policy/properties/routes/custom/alertlabel/index.md",
+      "product": "distributed-cloud",
       "provider_name": "alert_policy",
       "provider_schema_digest": "sha256:e63a07e98b4893c041a6f79be7e19c64babfe543fc6847c17641037e084e1c7c",
       "provider_type": "resources",
       "registry_anchor": "canonical-3213201222132211-0321212210121103-3111320003000323-2223331023233323-1201003002012201-2103021113203132-3312110213031123-0203211132311101",
       "registry_path": "docs/guides/resources--alert_policy--reference--group-001.md",
+      "relationships": [],
+      "retrieval_version": 1,
       "role": "properties",
       "schema_path": ["routes", "custom", "alertlabel"],
+      "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/alert_policy/properties/routes/custom/alertlabel/index.txt",
-      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
-      "summary": "routes.custom.alertlabel for xcsh_alert_policy.",
+      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "summary": "AlertLabel to configure the alert policy rule.",
+      "tasks": ["configuration"],
       "title": "routes.custom.alertlabel",
       "upstream_identity": {
-        "release_tag": "v9.0.0",
+        "release_tag": "v9.0.1",
         "schema_components": ["alert_policyCreateRequest"],
-        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
       }
     },
     {
-      "aliases": [],
+      "aliases": ["routes custom alertname"],
       "body_bytes": 2890,
       "body_sha256": "sha256:513d4fd648ecabcc40418b58401287170092e8408178816d7870ad5af5c0f4d5",
+      "capabilities": ["monitoring"],
+      "category": "monitoring",
       "child_ids": [],
+      "classification": {
+        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "sources": ["receipt-pinned-upstream", "reviewed-rule"],
+        "status": "resolved",
+        "upstream_category_source": "receipt-pinned-resource"
+      },
       "collection_id": "xcsh-docs:resources:alert_policy:collection",
       "completeness": "complete",
       "id": "xcsh-docs:resources:alert_policy:properties:routes:custom:alertname",
       "parent_id": "xcsh-docs:resources:alert_policy:properties:routes:custom",
       "path": "documentation/resources/alert_policy/properties/routes/custom/alertname/index.md",
+      "product": "distributed-cloud",
       "provider_name": "alert_policy",
       "provider_schema_digest": "sha256:e63a07e98b4893c041a6f79be7e19c64babfe543fc6847c17641037e084e1c7c",
       "provider_type": "resources",
       "registry_anchor": "canonical-2020012332312022-1230112312111312-3111233110312222-2330002312011311-1201320303221211-1321231121320122-1301033130033020-3233100021113303",
       "registry_path": "docs/guides/resources--alert_policy--reference--group-001.md",
+      "relationships": [
+        {
+          "anchor": "schema-routes--custom--alertname--exact_match",
+          "enforcement": "provider-schema",
+          "group": "routes.custom.alertname:ConflictingObjectAttributes:exact_match,regex_match",
+          "source": "ast-validator:ConflictingObjectAttributes",
+          "target_id": "xcsh-docs:resources:alert_policy:properties:routes:custom:alertname",
+          "type": "conflicts"
+        },
+        {
+          "anchor": "schema-routes--custom--alertname--regex_match",
+          "enforcement": "provider-schema",
+          "group": "routes.custom.alertname:ConflictingObjectAttributes:exact_match,regex_match",
+          "source": "ast-validator:ConflictingObjectAttributes",
+          "target_id": "xcsh-docs:resources:alert_policy:properties:routes:custom:alertname",
+          "type": "conflicts"
+        }
+      ],
+      "retrieval_version": 1,
       "role": "properties",
       "schema_path": ["routes", "custom", "alertname"],
+      "sections": [
+        {
+          "aliases": ["exact match"],
+          "anchor": "schema-routes--custom--alertname--exact_match",
+          "description": "Exclusive with Equality match value for the label.",
+          "document_id": "xcsh-docs:resources:alert_policy:properties:routes:custom:alertname",
+          "flags": ["optional"],
+          "max_items": null,
+          "min_items": null,
+          "nesting": null,
+          "relationships": [],
+          "schema_path": ["routes", "custom", "alertname", "exact_match"],
+          "syntax": "attribute",
+          "type": "string"
+        },
+        {
+          "aliases": ["regex match"],
+          "anchor": "schema-routes--custom--alertname--regex_match",
+          "description": "Exclusive with Regular expression match value for the label.",
+          "document_id": "xcsh-docs:resources:alert_policy:properties:routes:custom:alertname",
+          "flags": ["optional"],
+          "max_items": null,
+          "min_items": null,
+          "nesting": null,
+          "relationships": [],
+          "schema_path": ["routes", "custom", "alertname", "regex_match"],
+          "syntax": "attribute",
+          "type": "string"
+        }
+      ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/alert_policy/properties/routes/custom/alertname/index.txt",
-      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
-      "summary": "routes.custom.alertname for xcsh_alert_policy.",
+      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "summary": "Label Matcher.",
+      "tasks": ["configuration"],
       "title": "routes.custom.alertname",
       "upstream_identity": {
-        "release_tag": "v9.0.0",
+        "release_tag": "v9.0.1",
         "schema_components": ["alert_policyCreateRequest"],
-        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
       }
     },
     {
-      "aliases": [],
+      "aliases": ["routes custom group"],
       "body_bytes": 2870,
       "body_sha256": "sha256:78b053170d108f5aea898e30fc203846f09d8e287415b01d3e77d5b70b2507f4",
+      "capabilities": ["monitoring"],
+      "category": "monitoring",
       "child_ids": [],
+      "classification": {
+        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "sources": ["receipt-pinned-upstream", "reviewed-rule"],
+        "status": "resolved",
+        "upstream_category_source": "receipt-pinned-resource"
+      },
       "collection_id": "xcsh-docs:resources:alert_policy:collection",
       "completeness": "complete",
       "id": "xcsh-docs:resources:alert_policy:properties:routes:custom:group",
       "parent_id": "xcsh-docs:resources:alert_policy:properties:routes:custom",
       "path": "documentation/resources/alert_policy/properties/routes/custom/group/index.md",
+      "product": "distributed-cloud",
       "provider_name": "alert_policy",
       "provider_schema_digest": "sha256:e63a07e98b4893c041a6f79be7e19c64babfe543fc6847c17641037e084e1c7c",
       "provider_type": "resources",
       "registry_anchor": "canonical-2011010113021203-2333000210101230-3032311201110303-1013211322323222-1113220300312112-0201232013320033-3012310221102211-0031001203003130",
       "registry_path": "docs/guides/resources--alert_policy--reference--group-001.md",
+      "relationships": [
+        {
+          "anchor": "schema-routes--custom--group--exact_match",
+          "enforcement": "provider-schema",
+          "group": "routes.custom.group:ConflictingObjectAttributes:exact_match,regex_match",
+          "source": "ast-validator:ConflictingObjectAttributes",
+          "target_id": "xcsh-docs:resources:alert_policy:properties:routes:custom:group",
+          "type": "conflicts"
+        },
+        {
+          "anchor": "schema-routes--custom--group--regex_match",
+          "enforcement": "provider-schema",
+          "group": "routes.custom.group:ConflictingObjectAttributes:exact_match,regex_match",
+          "source": "ast-validator:ConflictingObjectAttributes",
+          "target_id": "xcsh-docs:resources:alert_policy:properties:routes:custom:group",
+          "type": "conflicts"
+        }
+      ],
+      "retrieval_version": 1,
       "role": "properties",
       "schema_path": ["routes", "custom", "group"],
+      "sections": [
+        {
+          "aliases": ["exact match"],
+          "anchor": "schema-routes--custom--group--exact_match",
+          "description": "Exclusive with Equality match value for the label.",
+          "document_id": "xcsh-docs:resources:alert_policy:properties:routes:custom:group",
+          "flags": ["optional"],
+          "max_items": null,
+          "min_items": null,
+          "nesting": null,
+          "relationships": [],
+          "schema_path": ["routes", "custom", "group", "exact_match"],
+          "syntax": "attribute",
+          "type": "string"
+        },
+        {
+          "aliases": ["regex match"],
+          "anchor": "schema-routes--custom--group--regex_match",
+          "description": "Exclusive with Regular expression match value for the label.",
+          "document_id": "xcsh-docs:resources:alert_policy:properties:routes:custom:group",
+          "flags": ["optional"],
+          "max_items": null,
+          "min_items": null,
+          "nesting": null,
+          "relationships": [],
+          "schema_path": ["routes", "custom", "group", "regex_match"],
+          "syntax": "attribute",
+          "type": "string"
+        }
+      ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/alert_policy/properties/routes/custom/group/index.txt",
-      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
-      "summary": "routes.custom.group for xcsh_alert_policy.",
+      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "summary": "Label Matcher.",
+      "tasks": ["configuration"],
       "title": "routes.custom.group",
       "upstream_identity": {
-        "release_tag": "v9.0.0",
+        "release_tag": "v9.0.1",
         "schema_components": ["alert_policyCreateRequest"],
-        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
       }
     },
     {
-      "aliases": [],
+      "aliases": ["routes custom severity"],
       "body_bytes": 2885,
       "body_sha256": "sha256:376216c70c68ebca48770d9409783f34ce7e357449aca150349468b27eebf1f8",
+      "capabilities": ["monitoring"],
+      "category": "monitoring",
       "child_ids": [],
+      "classification": {
+        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "sources": ["receipt-pinned-upstream", "reviewed-rule"],
+        "status": "resolved",
+        "upstream_category_source": "receipt-pinned-resource"
+      },
       "collection_id": "xcsh-docs:resources:alert_policy:collection",
       "completeness": "complete",
       "id": "xcsh-docs:resources:alert_policy:properties:routes:custom:severity",
       "parent_id": "xcsh-docs:resources:alert_policy:properties:routes:custom",
       "path": "documentation/resources/alert_policy/properties/routes/custom/severity/index.md",
+      "product": "distributed-cloud",
       "provider_name": "alert_policy",
       "provider_schema_digest": "sha256:e63a07e98b4893c041a6f79be7e19c64babfe543fc6847c17641037e084e1c7c",
       "provider_type": "resources",
       "registry_anchor": "canonical-3010333121102303-1101131221000001-0131322123023133-0130331133201303-2021210233033132-3200213201213312-0002312032003303-1232113323213003",
       "registry_path": "docs/guides/resources--alert_policy--reference--group-001.md",
+      "relationships": [
+        {
+          "anchor": "schema-routes--custom--severity--exact_match",
+          "enforcement": "provider-schema",
+          "group": "routes.custom.severity:ConflictingObjectAttributes:exact_match,regex_match",
+          "source": "ast-validator:ConflictingObjectAttributes",
+          "target_id": "xcsh-docs:resources:alert_policy:properties:routes:custom:severity",
+          "type": "conflicts"
+        },
+        {
+          "anchor": "schema-routes--custom--severity--regex_match",
+          "enforcement": "provider-schema",
+          "group": "routes.custom.severity:ConflictingObjectAttributes:exact_match,regex_match",
+          "source": "ast-validator:ConflictingObjectAttributes",
+          "target_id": "xcsh-docs:resources:alert_policy:properties:routes:custom:severity",
+          "type": "conflicts"
+        }
+      ],
+      "retrieval_version": 1,
       "role": "properties",
       "schema_path": ["routes", "custom", "severity"],
+      "sections": [
+        {
+          "aliases": ["exact match"],
+          "anchor": "schema-routes--custom--severity--exact_match",
+          "description": "Exclusive with Equality match value for the label.",
+          "document_id": "xcsh-docs:resources:alert_policy:properties:routes:custom:severity",
+          "flags": ["optional"],
+          "max_items": null,
+          "min_items": null,
+          "nesting": null,
+          "relationships": [],
+          "schema_path": ["routes", "custom", "severity", "exact_match"],
+          "syntax": "attribute",
+          "type": "string"
+        },
+        {
+          "aliases": ["regex match"],
+          "anchor": "schema-routes--custom--severity--regex_match",
+          "description": "Exclusive with Regular expression match value for the label.",
+          "document_id": "xcsh-docs:resources:alert_policy:properties:routes:custom:severity",
+          "flags": ["optional"],
+          "max_items": null,
+          "min_items": null,
+          "nesting": null,
+          "relationships": [],
+          "schema_path": ["routes", "custom", "severity", "regex_match"],
+          "syntax": "attribute",
+          "type": "string"
+        }
+      ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/alert_policy/properties/routes/custom/severity/index.txt",
-      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
-      "summary": "routes.custom.severity for xcsh_alert_policy.",
+      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "summary": "Label Matcher.",
+      "tasks": ["configuration"],
       "title": "routes.custom.severity",
       "upstream_identity": {
-        "release_tag": "v9.0.0",
+        "release_tag": "v9.0.1",
         "schema_components": ["alert_policyCreateRequest"],
-        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
       }
     },
     {
-      "aliases": [],
+      "aliases": ["routes dont send"],
       "body_bytes": 1189,
       "body_sha256": "sha256:ebbbbcf855855e51752aba7be5420d0573d91c84de8e0d1f69373854d3429466",
+      "capabilities": ["monitoring"],
+      "category": "monitoring",
       "child_ids": [],
+      "classification": {
+        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "sources": ["receipt-pinned-upstream", "reviewed-rule"],
+        "status": "resolved",
+        "upstream_category_source": "receipt-pinned-resource"
+      },
       "collection_id": "xcsh-docs:resources:alert_policy:collection",
       "completeness": "complete",
       "id": "xcsh-docs:resources:alert_policy:properties:routes:dont_send",
       "parent_id": "xcsh-docs:resources:alert_policy:properties:routes",
       "path": "documentation/resources/alert_policy/properties/routes/dont_send/index.md",
+      "product": "distributed-cloud",
       "provider_name": "alert_policy",
       "provider_schema_digest": "sha256:e63a07e98b4893c041a6f79be7e19c64babfe543fc6847c17641037e084e1c7c",
       "provider_type": "resources",
       "registry_anchor": "canonical-2033132130120130-2013330110222211-2312223032330102-0121311331303313-2000211203133311-3311213221211212-0311012112221233-1331210210232012",
       "registry_path": "docs/guides/resources--alert_policy--reference--group-001.md",
+      "relationships": [],
+      "retrieval_version": 1,
       "role": "properties",
       "schema_path": ["routes", "dont_send"],
+      "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/alert_policy/properties/routes/dont_send/index.txt",
-      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
-      "summary": "routes.dont_send for xcsh_alert_policy.",
+      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "summary": "This can be used for messages where no values are needed.",
+      "tasks": ["configuration"],
       "title": "routes.dont_send",
       "upstream_identity": {
-        "release_tag": "v9.0.0",
+        "release_tag": "v9.0.1",
         "schema_components": ["alert_policyCreateRequest"],
-        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
       }
     },
     {
-      "aliases": [],
+      "aliases": ["routes group"],
       "body_bytes": 2043,
       "body_sha256": "sha256:5c8e1ad53bcf95295686a8d073b533b29993e10de7375a01a684846da60da248",
+      "capabilities": ["monitoring"],
+      "category": "monitoring",
       "child_ids": [],
+      "classification": {
+        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "sources": ["receipt-pinned-upstream", "reviewed-rule"],
+        "status": "resolved",
+        "upstream_category_source": "receipt-pinned-resource"
+      },
       "collection_id": "xcsh-docs:resources:alert_policy:collection",
       "completeness": "complete",
       "id": "xcsh-docs:resources:alert_policy:properties:routes:group",
       "parent_id": "xcsh-docs:resources:alert_policy:properties:routes",
       "path": "documentation/resources/alert_policy/properties/routes/group/index.md",
+      "product": "distributed-cloud",
       "provider_name": "alert_policy",
       "provider_schema_digest": "sha256:e63a07e98b4893c041a6f79be7e19c64babfe543fc6847c17641037e084e1c7c",
       "provider_type": "resources",
       "registry_anchor": "canonical-3121013101212101-0131111102203233-0331001313303122-3302030133103131-2133310232203033-0331232102021310-3300003021111333-2222330132002220",
       "registry_path": "docs/guides/resources--alert_policy--reference--group-001.md",
+      "relationships": [],
+      "retrieval_version": 1,
       "role": "properties",
       "schema_path": ["routes", "group"],
+      "sections": [
+        {
+          "aliases": ["groups"],
+          "anchor": "schema-routes--group--groups",
+          "description": "Name of groups to match the alert.",
+          "document_id": "xcsh-docs:resources:alert_policy:properties:routes:group",
+          "flags": ["optional"],
+          "max_items": null,
+          "min_items": null,
+          "nesting": null,
+          "relationships": [],
+          "schema_path": ["routes", "group", "groups"],
+          "syntax": "attribute",
+          "type": "list"
+        }
+      ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/alert_policy/properties/routes/group/index.txt",
-      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
-      "summary": "routes.group for xcsh_alert_policy.",
+      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "summary": "Select one or more known group names to match the incoming alert.",
+      "tasks": ["configuration"],
       "title": "routes.group",
       "upstream_identity": {
-        "release_tag": "v9.0.0",
+        "release_tag": "v9.0.1",
         "schema_components": ["alert_policyCreateRequest"],
-        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
       }
     },
     {
-      "aliases": [],
+      "aliases": ["routes notification parameters"],
       "body_bytes": 7838,
       "body_sha256": "sha256:e6a3a0e55872d5ed15a77cbec123549d288088c33c63c81dbe1d903bd7daba69",
+      "capabilities": ["monitoring"],
+      "category": "monitoring",
       "child_ids": [
         "xcsh-docs:resources:alert_policy:properties:routes:notification_parameters:custom",
         "xcsh-docs:resources:alert_policy:properties:routes:notification_parameters:default",
         "xcsh-docs:resources:alert_policy:properties:routes:notification_parameters:individual",
         "xcsh-docs:resources:alert_policy:properties:routes:notification_parameters:ves_io_group"
       ],
+      "classification": {
+        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "sources": ["receipt-pinned-upstream", "reviewed-rule"],
+        "status": "resolved",
+        "upstream_category_source": "receipt-pinned-resource"
+      },
       "collection_id": "xcsh-docs:resources:alert_policy:collection",
       "completeness": "complete",
       "id": "xcsh-docs:resources:alert_policy:properties:routes:notification_parameters",
       "parent_id": "xcsh-docs:resources:alert_policy:properties:routes",
       "path": "documentation/resources/alert_policy/properties/routes/notification_parameters/index.md",
+      "product": "distributed-cloud",
       "provider_name": "alert_policy",
       "provider_schema_digest": "sha256:e63a07e98b4893c041a6f79be7e19c64babfe543fc6847c17641037e084e1c7c",
       "provider_type": "resources",
       "registry_anchor": "canonical-1132102222000120-1312023210212021-2212103031202003-2303010133130331-2001130111201011-0311320332230320-2230201020303103-2220332311321331",
       "registry_path": "docs/guides/resources--alert_policy--reference--group-001.md",
+      "relationships": [
+        {
+          "anchor": "section",
+          "enforcement": "provider-schema",
+          "group": "routes.notification_parameters:ConflictingObjectAttributes:custom,default",
+          "source": "ast-validator:ConflictingObjectAttributes",
+          "target_id": "xcsh-docs:resources:alert_policy:properties:routes:notification_parameters:custom",
+          "type": "conflicts"
+        },
+        {
+          "anchor": "section",
+          "enforcement": "provider-schema",
+          "group": "routes.notification_parameters:ConflictingObjectAttributes:custom,individual",
+          "source": "ast-validator:ConflictingObjectAttributes",
+          "target_id": "xcsh-docs:resources:alert_policy:properties:routes:notification_parameters:custom",
+          "type": "conflicts"
+        },
+        {
+          "anchor": "section",
+          "enforcement": "provider-schema",
+          "group": "routes.notification_parameters:ConflictingObjectAttributes:custom,ves_io_group",
+          "source": "ast-validator:ConflictingObjectAttributes",
+          "target_id": "xcsh-docs:resources:alert_policy:properties:routes:notification_parameters:custom",
+          "type": "conflicts"
+        },
+        {
+          "anchor": "section",
+          "enforcement": "provider-schema",
+          "group": "routes.notification_parameters:ConflictingObjectAttributes:custom,default",
+          "source": "ast-validator:ConflictingObjectAttributes",
+          "target_id": "xcsh-docs:resources:alert_policy:properties:routes:notification_parameters:default",
+          "type": "conflicts"
+        },
+        {
+          "anchor": "section",
+          "enforcement": "provider-schema",
+          "group": "routes.notification_parameters:ConflictingObjectAttributes:default,individual",
+          "source": "ast-validator:ConflictingObjectAttributes",
+          "target_id": "xcsh-docs:resources:alert_policy:properties:routes:notification_parameters:default",
+          "type": "conflicts"
+        },
+        {
+          "anchor": "section",
+          "enforcement": "provider-schema",
+          "group": "routes.notification_parameters:ConflictingObjectAttributes:default,ves_io_group",
+          "source": "ast-validator:ConflictingObjectAttributes",
+          "target_id": "xcsh-docs:resources:alert_policy:properties:routes:notification_parameters:default",
+          "type": "conflicts"
+        },
+        {
+          "anchor": "section",
+          "enforcement": "provider-schema",
+          "group": "routes.notification_parameters:ConflictingObjectAttributes:custom,individual",
+          "source": "ast-validator:ConflictingObjectAttributes",
+          "target_id": "xcsh-docs:resources:alert_policy:properties:routes:notification_parameters:individual",
+          "type": "conflicts"
+        },
+        {
+          "anchor": "section",
+          "enforcement": "provider-schema",
+          "group": "routes.notification_parameters:ConflictingObjectAttributes:default,individual",
+          "source": "ast-validator:ConflictingObjectAttributes",
+          "target_id": "xcsh-docs:resources:alert_policy:properties:routes:notification_parameters:individual",
+          "type": "conflicts"
+        },
+        {
+          "anchor": "section",
+          "enforcement": "provider-schema",
+          "group": "routes.notification_parameters:ConflictingObjectAttributes:individual,ves_io_group",
+          "source": "ast-validator:ConflictingObjectAttributes",
+          "target_id": "xcsh-docs:resources:alert_policy:properties:routes:notification_parameters:individual",
+          "type": "conflicts"
+        },
+        {
+          "anchor": "section",
+          "enforcement": "provider-schema",
+          "group": "routes.notification_parameters:ConflictingObjectAttributes:custom,ves_io_group",
+          "source": "ast-validator:ConflictingObjectAttributes",
+          "target_id": "xcsh-docs:resources:alert_policy:properties:routes:notification_parameters:ves_io_group",
+          "type": "conflicts"
+        },
+        {
+          "anchor": "section",
+          "enforcement": "provider-schema",
+          "group": "routes.notification_parameters:ConflictingObjectAttributes:default,ves_io_group",
+          "source": "ast-validator:ConflictingObjectAttributes",
+          "target_id": "xcsh-docs:resources:alert_policy:properties:routes:notification_parameters:ves_io_group",
+          "type": "conflicts"
+        },
+        {
+          "anchor": "section",
+          "enforcement": "provider-schema",
+          "group": "routes.notification_parameters:ConflictingObjectAttributes:individual,ves_io_group",
+          "source": "ast-validator:ConflictingObjectAttributes",
+          "target_id": "xcsh-docs:resources:alert_policy:properties:routes:notification_parameters:ves_io_group",
+          "type": "conflicts"
+        }
+      ],
+      "retrieval_version": 1,
       "role": "properties",
       "schema_path": ["routes", "notification_parameters"],
+      "sections": [
+        {
+          "aliases": ["custom"],
+          "anchor": "section",
+          "description": "Specify list of custom labels to group/aggregate the alerts.",
+          "document_id": "xcsh-docs:resources:alert_policy:properties:routes:notification_parameters:custom",
+          "flags": [],
+          "max_items": null,
+          "min_items": null,
+          "nesting": "single",
+          "relationships": [],
+          "schema_path": ["routes", "notification_parameters", "custom"],
+          "syntax": "block",
+          "type": "object"
+        },
+        {
+          "aliases": ["default"],
+          "anchor": "section",
+          "description": "This can be used for messages where no values are needed.",
+          "document_id": "xcsh-docs:resources:alert_policy:properties:routes:notification_parameters:default",
+          "flags": ["optional"],
+          "max_items": null,
+          "min_items": null,
+          "nesting": null,
+          "relationships": [],
+          "schema_path": ["routes", "notification_parameters", "default"],
+          "syntax": "attribute",
+          "type": "object"
+        },
+        {
+          "aliases": ["group interval"],
+          "anchor": "schema-routes--notification_parameters--group_interval",
+          "description": "Group Interval is used to specify how long to wait before sending a notification about new alerts that are added to the group for which an initial notification has already been sent. Format: , where s - seconds, m - minutes, h - hours, d - days If not specified, group_interval defaults to \"1m\"",
+          "document_id": "xcsh-docs:resources:alert_policy:properties:routes:notification_parameters",
+          "flags": ["optional"],
+          "max_items": null,
+          "min_items": null,
+          "nesting": null,
+          "relationships": [],
+          "schema_path": ["routes", "notification_parameters", "group_interval"],
+          "syntax": "attribute",
+          "type": "string"
+        },
+        {
+          "aliases": ["group wait"],
+          "anchor": "schema-routes--notification_parameters--group_wait",
+          "description": "Time value used to specify how long to initially wait for an inhibiting alert to arrive or collect more alerts for the same group. Format: , where s - seconds, m - minutes, h - hours, d - days If not specified, group_wait defaults to \"30s\"",
+          "document_id": "xcsh-docs:resources:alert_policy:properties:routes:notification_parameters",
+          "flags": ["optional"],
+          "max_items": null,
+          "min_items": null,
+          "nesting": null,
+          "relationships": [],
+          "schema_path": ["routes", "notification_parameters", "group_wait"],
+          "syntax": "attribute",
+          "type": "string"
+        },
+        {
+          "aliases": ["individual"],
+          "anchor": "section",
+          "description": "This can be used for messages where no values are needed.",
+          "document_id": "xcsh-docs:resources:alert_policy:properties:routes:notification_parameters:individual",
+          "flags": ["optional"],
+          "max_items": null,
+          "min_items": null,
+          "nesting": null,
+          "relationships": [],
+          "schema_path": ["routes", "notification_parameters", "individual"],
+          "syntax": "attribute",
+          "type": "object"
+        },
+        {
+          "aliases": ["login success", "repeat interval", "succeeded", "success", "successful"],
+          "anchor": "schema-routes--notification_parameters--repeat_interval",
+          "description": "Repeat Interval is used to specify how long to wait before sending a notification again if it has already been sent successfully. Format: , where s - seconds, m - minutes, h - hours, d - days If not specified, group_interval defaults to \"4h\"",
+          "document_id": "xcsh-docs:resources:alert_policy:properties:routes:notification_parameters",
+          "flags": ["optional"],
+          "max_items": null,
+          "min_items": null,
+          "nesting": null,
+          "relationships": [],
+          "schema_path": ["routes", "notification_parameters", "repeat_interval"],
+          "syntax": "attribute",
+          "type": "string"
+        },
+        {
+          "aliases": ["ves io group"],
+          "anchor": "section",
+          "description": "This can be used for messages where no values are needed.",
+          "document_id": "xcsh-docs:resources:alert_policy:properties:routes:notification_parameters:ves_io_group",
+          "flags": ["optional"],
+          "max_items": null,
+          "min_items": null,
+          "nesting": null,
+          "relationships": [],
+          "schema_path": ["routes", "notification_parameters", "ves_io_group"],
+          "syntax": "attribute",
+          "type": "object"
+        }
+      ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/alert_policy/properties/routes/notification_parameters/index.txt",
-      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
-      "summary": "routes.notification_parameters for xcsh_alert_policy.",
+      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "summary": "Set of notification parameters to decide how and when the alert notifications should be sent to the receivers.",
+      "tasks": ["configuration"],
       "title": "routes.notification_parameters",
       "upstream_identity": {
-        "release_tag": "v9.0.0",
+        "release_tag": "v9.0.1",
         "schema_components": ["alert_policyCreateRequest"],
-        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
       }
     },
     {
-      "aliases": [],
+      "aliases": ["routes notification parameters custom"],
       "body_bytes": 2608,
       "body_sha256": "sha256:da5d2d3ad2a92f2ad7519c0d4463dec55e8976f5c080c889388355ebc9599a94",
+      "capabilities": ["monitoring"],
+      "category": "monitoring",
       "child_ids": [],
+      "classification": {
+        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "sources": ["receipt-pinned-upstream", "reviewed-rule"],
+        "status": "resolved",
+        "upstream_category_source": "receipt-pinned-resource"
+      },
       "collection_id": "xcsh-docs:resources:alert_policy:collection",
       "completeness": "complete",
       "id": "xcsh-docs:resources:alert_policy:properties:routes:notification_parameters:custom",
       "parent_id": "xcsh-docs:resources:alert_policy:properties:routes:notification_parameters",
       "path": "documentation/resources/alert_policy/properties/routes/notification_parameters/custom/index.md",
+      "product": "distributed-cloud",
       "provider_name": "alert_policy",
       "provider_schema_digest": "sha256:e63a07e98b4893c041a6f79be7e19c64babfe543fc6847c17641037e084e1c7c",
       "provider_type": "resources",
       "registry_anchor": "canonical-3213323001131022-3011101233110210-2011023022003012-3000121111232231-3223321212203220-3211102101212011-0200222201223020-3300020113113011",
       "registry_path": "docs/guides/resources--alert_policy--reference--group-001.md",
+      "relationships": [],
+      "retrieval_version": 1,
       "role": "properties",
       "schema_path": ["routes", "notification_parameters", "custom"],
+      "sections": [
+        {
+          "aliases": ["labels"],
+          "anchor": "schema-routes--notification_parameters--custom--labels",
+          "description": "Name of labels to group/aggregate the alerts.",
+          "document_id": "xcsh-docs:resources:alert_policy:properties:routes:notification_parameters:custom",
+          "flags": ["optional"],
+          "max_items": null,
+          "min_items": null,
+          "nesting": null,
+          "relationships": [],
+          "schema_path": ["routes", "notification_parameters", "custom", "labels"],
+          "syntax": "attribute",
+          "type": "list"
+        }
+      ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/alert_policy/properties/routes/notification_parameters/custom/index.txt",
-      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
-      "summary": "routes.notification_parameters.custom for xcsh_alert_policy.",
+      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "summary": "Specify list of custom labels to group/aggregate the alerts.",
+      "tasks": ["configuration"],
       "title": "routes.notification_parameters.custom",
       "upstream_identity": {
-        "release_tag": "v9.0.0",
+        "release_tag": "v9.0.1",
         "schema_components": ["alert_policyCreateRequest"],
-        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
       }
     },
     {
-      "aliases": [],
+      "aliases": ["routes notification parameters default"],
       "body_bytes": 1437,
       "body_sha256": "sha256:dad09a3e4184f9a33f27a846b418b3ed92b378e8293d44104d042d350f4f0971",
+      "capabilities": ["monitoring"],
+      "category": "monitoring",
       "child_ids": [],
+      "classification": {
+        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "sources": ["receipt-pinned-upstream", "reviewed-rule"],
+        "status": "resolved",
+        "upstream_category_source": "receipt-pinned-resource"
+      },
       "collection_id": "xcsh-docs:resources:alert_policy:collection",
       "completeness": "complete",
       "id": "xcsh-docs:resources:alert_policy:properties:routes:notification_parameters:default",
       "parent_id": "xcsh-docs:resources:alert_policy:properties:routes:notification_parameters",
       "path": "documentation/resources/alert_policy/properties/routes/notification_parameters/default/index.md",
+      "product": "distributed-cloud",
       "provider_name": "alert_policy",
       "provider_schema_digest": "sha256:e63a07e98b4893c041a6f79be7e19c64babfe543fc6847c17641037e084e1c7c",
       "provider_type": "resources",
       "registry_anchor": "canonical-1300112330323001-1320223033102300-0210310100122033-0112133021103330-2031320131313330-3000220230303320-2012320132123012-0123033320021302",
       "registry_path": "docs/guides/resources--alert_policy--reference--group-001.md",
+      "relationships": [],
+      "retrieval_version": 1,
       "role": "properties",
       "schema_path": ["routes", "notification_parameters", "default"],
+      "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/alert_policy/properties/routes/notification_parameters/default/index.txt",
-      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
-      "summary": "routes.notification_parameters.default for xcsh_alert_policy.",
+      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "summary": "This can be used for messages where no values are needed.",
+      "tasks": ["configuration"],
       "title": "routes.notification_parameters.default",
       "upstream_identity": {
-        "release_tag": "v9.0.0",
+        "release_tag": "v9.0.1",
         "schema_components": ["alert_policyCreateRequest"],
-        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
       }
     },
     {
-      "aliases": [],
+      "aliases": ["routes notification parameters individual"],
       "body_bytes": 1446,
       "body_sha256": "sha256:33e5dc36e6ae4094191773c85d995aec4e8a66f0cfdfe114c78979262f9b0a3b",
+      "capabilities": ["monitoring"],
+      "category": "monitoring",
       "child_ids": [],
+      "classification": {
+        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "sources": ["receipt-pinned-upstream", "reviewed-rule"],
+        "status": "resolved",
+        "upstream_category_source": "receipt-pinned-resource"
+      },
       "collection_id": "xcsh-docs:resources:alert_policy:collection",
       "completeness": "complete",
       "id": "xcsh-docs:resources:alert_policy:properties:routes:notification_parameters:individual",
       "parent_id": "xcsh-docs:resources:alert_policy:properties:routes:notification_parameters",
       "path": "documentation/resources/alert_policy/properties/routes/notification_parameters/individual/index.md",
+      "product": "distributed-cloud",
       "provider_name": "alert_policy",
       "provider_schema_digest": "sha256:e63a07e98b4893c041a6f79be7e19c64babfe543fc6847c17641037e084e1c7c",
       "provider_type": "resources",
       "registry_anchor": "canonical-2313311003320030-3113122200311303-1211111233221231-2213112322222321-1333302222030020-1013230333231121-1013222121332023-2310330223302223",
       "registry_path": "docs/guides/resources--alert_policy--reference--group-001.md",
+      "relationships": [],
+      "retrieval_version": 1,
       "role": "properties",
       "schema_path": ["routes", "notification_parameters", "individual"],
+      "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/alert_policy/properties/routes/notification_parameters/individual/index.txt",
-      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
-      "summary": "routes.notification_parameters.individual for xcsh_alert_policy.",
+      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "summary": "This can be used for messages where no values are needed.",
+      "tasks": ["configuration"],
       "title": "routes.notification_parameters.individual",
       "upstream_identity": {
-        "release_tag": "v9.0.0",
+        "release_tag": "v9.0.1",
         "schema_components": ["alert_policyCreateRequest"],
-        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
       }
     },
     {
-      "aliases": [],
+      "aliases": ["routes notification parameters ves io group"],
       "body_bytes": 1475,
       "body_sha256": "sha256:8868df0df40b73f4a49c13980f8b0dd989ee2a0449ecaa173ea544be6d62180d",
+      "capabilities": ["monitoring"],
+      "category": "monitoring",
       "child_ids": [],
+      "classification": {
+        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "sources": ["receipt-pinned-upstream", "reviewed-rule"],
+        "status": "resolved",
+        "upstream_category_source": "receipt-pinned-resource"
+      },
       "collection_id": "xcsh-docs:resources:alert_policy:collection",
       "completeness": "complete",
       "id": "xcsh-docs:resources:alert_policy:properties:routes:notification_parameters:ves_io_group",
       "parent_id": "xcsh-docs:resources:alert_policy:properties:routes:notification_parameters",
       "path": "documentation/resources/alert_policy/properties/routes/notification_parameters/ves_io_group/index.md",
+      "product": "distributed-cloud",
       "provider_name": "alert_policy",
       "provider_schema_digest": "sha256:e63a07e98b4893c041a6f79be7e19c64babfe543fc6847c17641037e084e1c7c",
       "provider_type": "resources",
       "registry_anchor": "canonical-2012331301013322-0212101002121031-0301201032012321-3210000221311300-1303301323302001-0021101321010231-0123013223131200-3013213003320023",
       "registry_path": "docs/guides/resources--alert_policy--reference--group-001.md",
+      "relationships": [],
+      "retrieval_version": 1,
       "role": "properties",
       "schema_path": ["routes", "notification_parameters", "ves_io_group"],
+      "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/alert_policy/properties/routes/notification_parameters/ves_io_group/index.txt",
-      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
-      "summary": "routes.notification_parameters.ves_io_group for xcsh_alert_policy.",
+      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "summary": "This can be used for messages where no values are needed.",
+      "tasks": ["configuration"],
       "title": "routes.notification_parameters.ves_io_group",
       "upstream_identity": {
-        "release_tag": "v9.0.0",
+        "release_tag": "v9.0.1",
         "schema_components": ["alert_policyCreateRequest"],
-        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
       }
     },
     {
-      "aliases": [],
+      "aliases": ["routes send"],
       "body_bytes": 1174,
       "body_sha256": "sha256:634926366975e383355ff0fd6d6a8eca3ab9b51b20bc86af11066a38f9589e22",
+      "capabilities": ["monitoring"],
+      "category": "monitoring",
       "child_ids": [],
+      "classification": {
+        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "sources": ["receipt-pinned-upstream", "reviewed-rule"],
+        "status": "resolved",
+        "upstream_category_source": "receipt-pinned-resource"
+      },
       "collection_id": "xcsh-docs:resources:alert_policy:collection",
       "completeness": "complete",
       "id": "xcsh-docs:resources:alert_policy:properties:routes:send",
       "parent_id": "xcsh-docs:resources:alert_policy:properties:routes",
       "path": "documentation/resources/alert_policy/properties/routes/send/index.md",
+      "product": "distributed-cloud",
       "provider_name": "alert_policy",
       "provider_schema_digest": "sha256:e63a07e98b4893c041a6f79be7e19c64babfe543fc6847c17641037e084e1c7c",
       "provider_type": "resources",
       "registry_anchor": "canonical-2110310313011121-1112331112232321-2332311130112102-0101233330303222-2032322323223301-3100321320112112-0230232022322233-1202023210320223",
       "registry_path": "docs/guides/resources--alert_policy--reference--group-001.md",
+      "relationships": [],
+      "retrieval_version": 1,
       "role": "properties",
       "schema_path": ["routes", "send"],
+      "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/alert_policy/properties/routes/send/index.txt",
-      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
-      "summary": "routes.send for xcsh_alert_policy.",
+      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "summary": "This can be used for messages where no values are needed.",
+      "tasks": ["configuration"],
       "title": "routes.send",
       "upstream_identity": {
-        "release_tag": "v9.0.0",
+        "release_tag": "v9.0.1",
         "schema_components": ["alert_policyCreateRequest"],
-        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
       }
     },
     {
-      "aliases": [],
+      "aliases": ["routes severity"],
       "body_bytes": 1623,
       "body_sha256": "sha256:0136443d52ef14cb3893c3d95175f2ff3fc495b7cabcda2f1cc28afa87b9a50d",
+      "capabilities": ["monitoring"],
+      "category": "monitoring",
       "child_ids": [],
+      "classification": {
+        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "sources": ["receipt-pinned-upstream", "reviewed-rule"],
+        "status": "resolved",
+        "upstream_category_source": "receipt-pinned-resource"
+      },
       "collection_id": "xcsh-docs:resources:alert_policy:collection",
       "completeness": "complete",
       "id": "xcsh-docs:resources:alert_policy:properties:routes:severity",
       "parent_id": "xcsh-docs:resources:alert_policy:properties:routes",
       "path": "documentation/resources/alert_policy/properties/routes/severity/index.md",
+      "product": "distributed-cloud",
       "provider_name": "alert_policy",
       "provider_schema_digest": "sha256:e63a07e98b4893c041a6f79be7e19c64babfe543fc6847c17641037e084e1c7c",
       "provider_type": "resources",
       "registry_anchor": "canonical-2033001201101022-2221131331322322-1113222133113330-3211223030232202-3033130223101322-3133000201133203-3000131300220330-1023330031001313",
       "registry_path": "docs/guides/resources--alert_policy--reference--group-001.md",
+      "relationships": [],
+      "retrieval_version": 1,
       "role": "properties",
       "schema_path": ["routes", "severity"],
+      "sections": [
+        {
+          "aliases": ["severities"],
+          "anchor": "schema-routes--severity--severities",
+          "description": "List of severity levels.",
+          "document_id": "xcsh-docs:resources:alert_policy:properties:routes:severity",
+          "flags": ["optional"],
+          "max_items": null,
+          "min_items": null,
+          "nesting": null,
+          "relationships": [],
+          "schema_path": ["routes", "severity", "severities"],
+          "syntax": "attribute",
+          "type": "list"
+        }
+      ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/alert_policy/properties/routes/severity/index.txt",
-      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
-      "summary": "routes.severity for xcsh_alert_policy.",
+      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "summary": "Select one or more severity levels to match the incoming alert.",
+      "tasks": ["configuration"],
       "title": "routes.severity",
       "upstream_identity": {
-        "release_tag": "v9.0.0",
+        "release_tag": "v9.0.1",
         "schema_components": ["alert_policyCreateRequest"],
-        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
       }
     },
     {
-      "aliases": [],
+      "aliases": ["duration", "operation timeout", "timeouts"],
       "body_bytes": 2231,
       "body_sha256": "sha256:c2f34881f1caf103142fc40f5dbe9c191b9a7032f2dd30a43e747f053a017c17",
+      "capabilities": ["monitoring"],
+      "category": "monitoring",
       "child_ids": [],
+      "classification": {
+        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "sources": ["receipt-pinned-upstream", "reviewed-rule"],
+        "status": "resolved",
+        "upstream_category_source": "receipt-pinned-resource"
+      },
       "collection_id": "xcsh-docs:resources:alert_policy:collection",
       "completeness": "complete",
       "id": "xcsh-docs:resources:alert_policy:properties:timeouts",
       "parent_id": "xcsh-docs:resources:alert_policy:reference",
       "path": "documentation/resources/alert_policy/properties/timeouts/index.md",
+      "product": "distributed-cloud",
       "provider_name": "alert_policy",
       "provider_schema_digest": "sha256:e63a07e98b4893c041a6f79be7e19c64babfe543fc6847c17641037e084e1c7c",
       "provider_type": "resources",
       "registry_anchor": "canonical-0232311332023021-1302331123211130-1333333130122230-1313103331111032-3302231011300011-1002113030003001-1130133123122213-2330301331133121",
       "registry_path": "docs/guides/resources--alert_policy--reference--group-001.md",
+      "relationships": [],
+      "retrieval_version": 1,
       "role": "properties",
       "schema_path": ["timeouts"],
+      "sections": [
+        {
+          "aliases": ["create"],
+          "anchor": "schema-timeouts--create",
+          "description": "A string that can be (https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as \"30s\" or \"2h45m\". Valid time units are \"s\" (seconds), \"m\" (minutes), \"h\" (hours).",
+          "document_id": "xcsh-docs:resources:alert_policy:properties:timeouts",
+          "flags": ["optional"],
+          "max_items": null,
+          "min_items": null,
+          "nesting": null,
+          "relationships": [],
+          "schema_path": ["timeouts", "create"],
+          "syntax": "attribute",
+          "type": "string"
+        },
+        {
+          "aliases": ["delete", "duration", "operation timeout"],
+          "anchor": "schema-timeouts--delete",
+          "description": "A string that can be (https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as \"30s\" or \"2h45m\". Valid time units are \"s\" (seconds), \"m\" (minutes), \"h\" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.",
+          "document_id": "xcsh-docs:resources:alert_policy:properties:timeouts",
+          "flags": ["optional"],
+          "max_items": null,
+          "min_items": null,
+          "nesting": null,
+          "relationships": [],
+          "schema_path": ["timeouts", "delete"],
+          "syntax": "attribute",
+          "type": "string"
+        },
+        {
+          "aliases": ["read"],
+          "anchor": "schema-timeouts--read",
+          "description": "A string that can be (https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as \"30s\" or \"2h45m\". Valid time units are \"s\" (seconds), \"m\" (minutes), \"h\" (hours). Read operations occur during any refresh or planning operation when refresh is enabled.",
+          "document_id": "xcsh-docs:resources:alert_policy:properties:timeouts",
+          "flags": ["optional"],
+          "max_items": null,
+          "min_items": null,
+          "nesting": null,
+          "relationships": [],
+          "schema_path": ["timeouts", "read"],
+          "syntax": "attribute",
+          "type": "string"
+        },
+        {
+          "aliases": ["update"],
+          "anchor": "schema-timeouts--update",
+          "description": "A string that can be (https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as \"30s\" or \"2h45m\". Valid time units are \"s\" (seconds), \"m\" (minutes), \"h\" (hours).",
+          "document_id": "xcsh-docs:resources:alert_policy:properties:timeouts",
+          "flags": ["optional"],
+          "max_items": null,
+          "min_items": null,
+          "nesting": null,
+          "relationships": [],
+          "schema_path": ["timeouts", "update"],
+          "syntax": "attribute",
+          "type": "string"
+        }
+      ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/alert_policy/properties/timeouts/index.txt",
-      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
       "summary": "timeouts for xcsh_alert_policy.",
+      "tasks": ["configuration"],
       "title": "timeouts",
       "upstream_identity": {
-        "release_tag": "v9.0.0",
+        "release_tag": "v9.0.1",
         "schema_components": ["alert_policyCreateRequest"],
-        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
       }
     },
     {
-      "aliases": [],
+      "aliases": ["alert policy"],
       "body_bytes": 633,
       "body_sha256": "sha256:78748985d6815346df4e00f74dab285b5356c749a458907ef1cff1a593bb8822",
+      "capabilities": ["monitoring"],
+      "category": "monitoring",
       "child_ids": ["xcsh-docs:resources:alert_policy:example:resource"],
+      "classification": {
+        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "sources": ["receipt-pinned-upstream", "reviewed-rule"],
+        "status": "resolved",
+        "upstream_category_source": "receipt-pinned-resource"
+      },
       "collection_id": "xcsh-docs:resources:alert_policy:collection",
       "completeness": "complete",
       "id": "xcsh-docs:resources:alert_policy:examples",
       "parent_id": "xcsh-docs:resources:alert_policy:fundamentals",
       "path": "documentation/resources/alert_policy/examples/index.md",
+      "product": "distributed-cloud",
       "provider_name": "alert_policy",
       "provider_schema_digest": "sha256:e63a07e98b4893c041a6f79be7e19c64babfe543fc6847c17641037e084e1c7c",
       "provider_type": "resources",
       "registry_anchor": "canonical-0203231323102311-3112102032120023-3022320002010022-1132233023231020-3202031330311210-1313302001121023-0323003222313312-3133221332223323",
       "registry_path": "docs/guides/resources--alert_policy--examples--group-001.md",
+      "relationships": [],
+      "retrieval_version": 1,
       "role": "examples",
       "schema_path": [],
+      "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/alert_policy/examples/index.txt",
-      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
       "summary": "Examples for xcsh_alert_policy.",
+      "tasks": ["configuration"],
       "title": "Examples",
       "upstream_identity": {
-        "release_tag": "v9.0.0",
+        "release_tag": "v9.0.1",
         "schema_components": ["alert_policyCreateRequest"],
-        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
       }
     },
     {
-      "aliases": [],
+      "aliases": ["resource"],
       "body_bytes": 1233,
       "body_sha256": "sha256:2570f56a5f0015836bdb9887fd8eba4a1105cfc31a6b82250f197187395c36be",
+      "capabilities": ["monitoring"],
+      "category": "monitoring",
       "child_ids": [],
+      "classification": {
+        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "sources": ["receipt-pinned-upstream", "reviewed-rule"],
+        "status": "resolved",
+        "upstream_category_source": "receipt-pinned-resource"
+      },
       "collection_id": "xcsh-docs:resources:alert_policy:collection",
       "completeness": "complete",
       "evidence": {
@@ -1046,76 +3209,107 @@
       "id": "xcsh-docs:resources:alert_policy:example:resource",
       "parent_id": "xcsh-docs:resources:alert_policy:examples",
       "path": "documentation/resources/alert_policy/examples/resource/index.md",
+      "product": "distributed-cloud",
       "provider_name": "alert_policy",
       "provider_schema_digest": "sha256:e63a07e98b4893c041a6f79be7e19c64babfe543fc6847c17641037e084e1c7c",
       "provider_type": "resources",
       "registry_anchor": "canonical-1222003231100012-1132113102332331-2310331010301201-1020303102110002-3222210113331200-3021303323321120-0222023310120020-1101032113332303",
       "registry_path": "docs/guides/resources--alert_policy--examples--group-001.md",
+      "relationships": [],
+      "retrieval_version": 1,
       "role": "example",
       "schema_path": ["resource"],
+      "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/alert_policy/examples/resource/index.txt",
-      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
       "summary": "Resource for xcsh_alert_policy.",
+      "tasks": ["configuration"],
       "title": "Resource",
       "upstream_identity": {
-        "release_tag": "v9.0.0",
+        "release_tag": "v9.0.1",
         "schema_components": ["alert_policyCreateRequest"],
-        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
       }
     },
     {
-      "aliases": [],
+      "aliases": ["alert policy"],
       "body_bytes": 480,
       "body_sha256": "sha256:c595a39dadfb1f8dd33a1084b289441cebce0e4699335b53287bbf8b03e0e0c0",
+      "capabilities": ["monitoring"],
+      "category": "monitoring",
       "child_ids": [],
+      "classification": {
+        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "sources": ["receipt-pinned-upstream", "reviewed-rule"],
+        "status": "resolved",
+        "upstream_category_source": "receipt-pinned-resource"
+      },
       "collection_id": "xcsh-docs:resources:alert_policy:collection",
       "completeness": "complete",
       "id": "xcsh-docs:resources:alert_policy:import",
       "import_guidance": "Import using the `namespace/name` identifier format.",
       "parent_id": "xcsh-docs:resources:alert_policy:fundamentals",
       "path": "documentation/resources/alert_policy/lifecycle/import/index.md",
+      "product": "distributed-cloud",
       "provider_name": "alert_policy",
       "provider_schema_digest": "sha256:e63a07e98b4893c041a6f79be7e19c64babfe543fc6847c17641037e084e1c7c",
       "provider_type": "resources",
       "registry_anchor": "canonical-0021033122131031-2200011312112322-0213213033232022-1222031301113112-3221011320012321-1120121003133020-0331123133032132-0011203012301301",
       "registry_path": "docs/guides/resources--alert_policy--lifecycle--group-001.md",
+      "relationships": [],
+      "retrieval_version": 1,
       "role": "import",
       "schema_path": [],
+      "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/alert_policy/lifecycle/import/index.txt",
-      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
       "summary": "Import for xcsh_alert_policy.",
+      "tasks": ["import"],
       "title": "Import",
       "upstream_identity": {
-        "release_tag": "v9.0.0",
+        "release_tag": "v9.0.1",
         "schema_components": ["alert_policyCreateRequest"],
-        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
       }
     },
     {
-      "aliases": [],
+      "aliases": ["alert policy"],
       "body_bytes": 568,
       "body_sha256": "sha256:d59d38bf2c8711ba77dc475e0b26965659ada8974884392df4e7c171964e2184",
+      "capabilities": ["monitoring"],
+      "category": "monitoring",
       "child_ids": [],
+      "classification": {
+        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "sources": ["receipt-pinned-upstream", "reviewed-rule"],
+        "status": "resolved",
+        "upstream_category_source": "receipt-pinned-resource"
+      },
       "collection_id": "xcsh-docs:resources:alert_policy:collection",
       "completeness": "complete",
       "id": "xcsh-docs:resources:alert_policy:timeouts",
       "parent_id": "xcsh-docs:resources:alert_policy:fundamentals",
       "path": "documentation/resources/alert_policy/lifecycle/timeouts/index.md",
+      "product": "distributed-cloud",
       "provider_name": "alert_policy",
       "provider_schema_digest": "sha256:e63a07e98b4893c041a6f79be7e19c64babfe543fc6847c17641037e084e1c7c",
       "provider_type": "resources",
       "registry_anchor": "canonical-2231223311131012-1112302323232200-0122211100210311-0321303123030232-1332121023331221-2122323011331113-1230322202330230-3301321132001122",
       "registry_path": "docs/guides/resources--alert_policy--lifecycle--group-001.md",
+      "relationships": [],
+      "retrieval_version": 1,
       "role": "timeouts",
       "schema_path": [],
+      "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/alert_policy/lifecycle/timeouts/index.txt",
-      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
       "summary": "Timeouts for xcsh_alert_policy.",
+      "tasks": ["lifecycle"],
       "title": "Timeouts",
       "upstream_identity": {
-        "release_tag": "v9.0.0",
+        "release_tag": "v9.0.1",
         "schema_components": ["alert_policyCreateRequest"],
-        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
       }
     }
   ],

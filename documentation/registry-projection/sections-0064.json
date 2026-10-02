@@ -3,6 +3,18 @@
   "sections": [
     {
       "canonical_id": "xcsh-docs:resources:securemesh_site_v2:properties:block_all_services",
+      "section_id": "xcsh-docs:resources:securemesh_site_v2:properties:block_all_services:section:0",
+      "source_sha256": "sha256:197d41522a9dd286cb9805a03d8a5bd782cc3f3fd95ea854bf2dfc326e83e50c",
+      "source_bytes": 99,
+      "canonical_source_sha256": "sha256:3a569e87e713b47549cffd52f6389f4b0dfe36b771c62c703b5c929c61576326",
+      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/resources/securemesh_site_v2/properties/block_all_services/",
+      "anchor": "canonical-0213320123112011-2202110211322101-0013303221220031-1312221223201333-2013012110330312-2222232103123133-2323003000320332-2232323130313122",
+      "anchor_map": [],
+      "mode": "embedded",
+      "registry_path": "docs/guides/resources--securemesh_site_v2--reference--group-006.md"
+    },
+    {
+      "canonical_id": "xcsh-docs:resources:securemesh_site_v2:properties:block_all_services",
       "section_id": "xcsh-docs:resources:securemesh_site_v2:properties:block_all_services:section:1",
       "source_sha256": "sha256:3707db47f6f24289bd0ad24f80cf747ffa73ebffb13107f4cfe8b0a494531b66",
       "source_bytes": 1138,
@@ -6932,23 +6944,6 @@
       "anchor_map": [],
       "mode": "embedded",
       "registry_path": "docs/guides/resources--securemesh_site_v2--reference--group-008.md"
-    },
-    {
-      "canonical_id": "xcsh-docs:resources:securemesh_site_v2:properties:equinix:not_managed:node_list:interface_list:ipv6_auto_config:router:dns_config",
-      "section_id": "xcsh-docs:resources:securemesh_site_v2:properties:equinix:not_managed:node_list:interface_list:ipv6_auto_config:router:dns_config:section:1",
-      "source_sha256": "sha256:06f4c907326f721a6832c3f5446af2f6b264b8de813b64e1f57fdf8e48176001",
-      "source_bytes": 2104,
-      "canonical_source_sha256": "sha256:f4d1ecb8549763ad0e5618702e0d33b1d77c930289b2cd323fcab297dbb292bc",
-      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/resources/securemesh_site_v2/properties/equinix/not_managed/node_list/interface_list/ipv6_auto_config/router/dns_config/",
-      "anchor": "canonical-3311301003203333-1223030123003101-1232011300102312-3030211031033210-2001022303232222-3302300212103123-3322302031010330-2122230033001330",
-      "anchor_map": [
-        [
-          "section",
-          "canonical-3102333320320033-3233023212222000-1200212212201233-0022123103331332-0222013210030320-1320323333231313-2011133232033312-1200323132202132"
-        ]
-      ],
-      "mode": "embedded",
-      "registry_path": "docs/guides/resources--securemesh_site_v2--reference--group-009.md"
     }
   ]
 }

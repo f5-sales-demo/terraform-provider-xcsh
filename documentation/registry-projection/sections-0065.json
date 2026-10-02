@@ -3,6 +3,23 @@
   "sections": [
     {
       "canonical_id": "xcsh-docs:resources:securemesh_site_v2:properties:equinix:not_managed:node_list:interface_list:ipv6_auto_config:router:dns_config",
+      "section_id": "xcsh-docs:resources:securemesh_site_v2:properties:equinix:not_managed:node_list:interface_list:ipv6_auto_config:router:dns_config:section:1",
+      "source_sha256": "sha256:06f4c907326f721a6832c3f5446af2f6b264b8de813b64e1f57fdf8e48176001",
+      "source_bytes": 2104,
+      "canonical_source_sha256": "sha256:f4d1ecb8549763ad0e5618702e0d33b1d77c930289b2cd323fcab297dbb292bc",
+      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/resources/securemesh_site_v2/properties/equinix/not_managed/node_list/interface_list/ipv6_auto_config/router/dns_config/",
+      "anchor": "canonical-3311301003203333-1223030123003101-1232011300102312-3030211031033210-2001022303232222-3302300212103123-3322302031010330-2122230033001330",
+      "anchor_map": [
+        [
+          "section",
+          "canonical-3102333320320033-3233023212222000-1200212212201233-0022123103331332-0222013210030320-1320323333231313-2011133232033312-1200323132202132"
+        ]
+      ],
+      "mode": "embedded",
+      "registry_path": "docs/guides/resources--securemesh_site_v2--reference--group-009.md"
+    },
+    {
+      "canonical_id": "xcsh-docs:resources:securemesh_site_v2:properties:equinix:not_managed:node_list:interface_list:ipv6_auto_config:router:dns_config",
       "section_id": "xcsh-docs:resources:securemesh_site_v2:properties:equinix:not_managed:node_list:interface_list:ipv6_auto_config:router:dns_config:section:2",
       "source_sha256": "sha256:fdc09afbabd32f5a18c81475f8bb881aa2d64b64a8ca783a817cab298904b450",
       "source_bytes": 504,
@@ -6661,18 +6678,6 @@
       "canonical_source_sha256": "sha256:3519cc04016b5bffc6ccfda8db52a0300e9b642c9f79c3f6f8e3d4189cea83a7",
       "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/resources/securemesh_site_v2/properties/kvm/not_managed/node_list/interface_list/ipv6_auto_config/router/dns_config/local_dns/first_address/",
       "anchor": "canonical-3311101030321300-1303031201030331-2213310021103023-3210020210312123-3320013210312031-2123213210313101-1123010211230012-1132333013021303",
-      "anchor_map": [],
-      "mode": "embedded",
-      "registry_path": "docs/guides/resources--securemesh_site_v2--reference--group-011.md"
-    },
-    {
-      "canonical_id": "xcsh-docs:resources:securemesh_site_v2:properties:kvm:not_managed:node_list:interface_list:ipv6_auto_config:router:dns_config:local_dns:first_address",
-      "section_id": "xcsh-docs:resources:securemesh_site_v2:properties:kvm:not_managed:node_list:interface_list:ipv6_auto_config:router:dns_config:local_dns:first_address:section:3",
-      "source_sha256": "sha256:f92cc8cbb284b8d962ef6c90b7892aa6c1b89c7f0e0c8cc76a997f088a2f5473",
-      "source_bytes": 404,
-      "canonical_source_sha256": "sha256:3519cc04016b5bffc6ccfda8db52a0300e9b642c9f79c3f6f8e3d4189cea83a7",
-      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/resources/securemesh_site_v2/properties/kvm/not_managed/node_list/interface_list/ipv6_auto_config/router/dns_config/local_dns/first_address/",
-      "anchor": "canonical-3202203301000100-0030111310122002-0120020230022203-2132002322320302-0330113221113303-0311312100003201-1130210031203131-0021111233020110",
       "anchor_map": [],
       "mode": "embedded",
       "registry_path": "docs/guides/resources--securemesh_site_v2--reference--group-011.md"

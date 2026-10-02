@@ -3,6 +3,18 @@
   "sections": [
     {
       "canonical_id": "xcsh-docs:resources:voltstack_site:reference",
+      "section_id": "xcsh-docs:resources:voltstack_site:reference:section:0",
+      "source_sha256": "sha256:197d41522a9dd286cb9805a03d8a5bd782cc3f3fd95ea854bf2dfc326e83e50c",
+      "source_bytes": 99,
+      "canonical_source_sha256": "sha256:903ea22db092250092fe1252f76d7fce68bed823e3dc79231dfbdab9b4d4d1db",
+      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/resources/voltstack_site/properties/",
+      "anchor": "canonical-2303313130303000-1321333232312030-2110222133201202-1121003303213312-0221012033213113-0321333012001121-3323103113212202-1012112312220111",
+      "anchor_map": [],
+      "mode": "embedded",
+      "registry_path": "docs/guides/resources--voltstack_site--reference--group-001.md"
+    },
+    {
+      "canonical_id": "xcsh-docs:resources:voltstack_site:reference",
       "section_id": "xcsh-docs:resources:voltstack_site:reference:section:1",
       "source_sha256": "sha256:49f49beff865afba6598a21b9337d249d73efaceda28c169da78c7bf4c93c39d",
       "source_bytes": 165,

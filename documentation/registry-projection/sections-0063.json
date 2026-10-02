@@ -3,6 +3,18 @@
   "sections": [
     {
       "canonical_id": "xcsh-docs:resources:securemesh_site_v2:properties:aws:not_managed:node_list:interface_list:static_ipv6_address:cluster_static_ip",
+      "section_id": "xcsh-docs:resources:securemesh_site_v2:properties:aws:not_managed:node_list:interface_list:static_ipv6_address:cluster_static_ip:section:3",
+      "source_sha256": "sha256:d678ae6cc441e337551b775a325a997c7cadd50656a61960ede6b082587cf735",
+      "source_bytes": 707,
+      "canonical_source_sha256": "sha256:efb9961d3791939770c37c35c27f6ca4dff4597f98d989735039fbe4c655ae91",
+      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/resources/securemesh_site_v2/properties/aws/not_managed/node_list/interface_list/static_ipv6_address/cluster_static_ip/",
+      "anchor": "canonical-1120031132112100-3121302321122312-2123113121120203-1230222213021010-1310113213130302-1003021010233312-1322321023312210-1013102131000232",
+      "anchor_map": [],
+      "mode": "embedded",
+      "registry_path": "docs/guides/resources--securemesh_site_v2--reference--group-004.md"
+    },
+    {
+      "canonical_id": "xcsh-docs:resources:securemesh_site_v2:properties:aws:not_managed:node_list:interface_list:static_ipv6_address:cluster_static_ip",
       "section_id": "xcsh-docs:resources:securemesh_site_v2:properties:aws:not_managed:node_list:interface_list:static_ipv6_address:cluster_static_ip:section:4",
       "source_sha256": "sha256:fd7c232b381879d639cc1e5ecfb6864d372ea4b9e8750f0a4d3595a83a85b49d",
       "source_bytes": 354,
@@ -6606,18 +6618,6 @@
       "canonical_source_sha256": "sha256:dc8448b955d05df93db001af878bc69cfab1a4eac23592160bde049cdbb9b2b1",
       "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/resources/securemesh_site_v2/properties/baremetal/not_managed/node_list/interface_list/vlan_interface/",
       "anchor": "canonical-0310123231001100-3010021033133102-3122122223033131-0011331100012223-3001202230102303-0303331211200023-0030031133212230-3120200320211211",
-      "anchor_map": [],
-      "mode": "embedded",
-      "registry_path": "docs/guides/resources--securemesh_site_v2--reference--group-006.md"
-    },
-    {
-      "canonical_id": "xcsh-docs:resources:securemesh_site_v2:properties:block_all_services",
-      "section_id": "xcsh-docs:resources:securemesh_site_v2:properties:block_all_services:section:0",
-      "source_sha256": "sha256:197d41522a9dd286cb9805a03d8a5bd782cc3f3fd95ea854bf2dfc326e83e50c",
-      "source_bytes": 99,
-      "canonical_source_sha256": "sha256:3a569e87e713b47549cffd52f6389f4b0dfe36b771c62c703b5c929c61576326",
-      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/resources/securemesh_site_v2/properties/block_all_services/",
-      "anchor": "canonical-0213320123112011-2202110211322101-0013303221220031-1312221223201333-2013012110330312-2222232103123133-2323003000320332-2232323130313122",
       "anchor_map": [],
       "mode": "embedded",
       "registry_path": "docs/guides/resources--securemesh_site_v2--reference--group-006.md"

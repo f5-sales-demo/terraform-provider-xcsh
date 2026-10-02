@@ -2,6 +2,30 @@
   "schema_version": 1,
   "sections": [
     {
+      "canonical_id": "xcsh-docs:resources:k8s_cluster:properties:use_custom_psp_list",
+      "section_id": "xcsh-docs:resources:k8s_cluster:properties:use_custom_psp_list:section:3",
+      "source_sha256": "sha256:0fb52579bee5b98e2a484496adb36341f87c41a438b30715621a28e151a1f71f",
+      "source_bytes": 409,
+      "canonical_source_sha256": "sha256:e5bfcc376bc59a04f87e05ae4f44c6feca3b3299c3e1b0859ec9a4748d5ab451",
+      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/resources/k8s_cluster/properties/use_custom_psp_list/",
+      "anchor": "canonical-0231232312312222-3330201132232311-1201103123033201-0130211320331310-0210310121130132-1211323220203222-3132200313100012-3133201010333003",
+      "anchor_map": [],
+      "mode": "embedded",
+      "registry_path": "docs/guides/resources--k8s_cluster--reference--group-001.md"
+    },
+    {
+      "canonical_id": "xcsh-docs:resources:k8s_cluster:properties:use_custom_psp_list:pod_security_policies",
+      "section_id": "xcsh-docs:resources:k8s_cluster:properties:use_custom_psp_list:pod_security_policies:section:0",
+      "source_sha256": "sha256:197d41522a9dd286cb9805a03d8a5bd782cc3f3fd95ea854bf2dfc326e83e50c",
+      "source_bytes": 99,
+      "canonical_source_sha256": "sha256:578828a342c80bd49c5cc09312e99c157988a63fa9910e98a0095aac4ce40c09",
+      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/resources/k8s_cluster/properties/use_custom_psp_list/pod_security_policies/",
+      "anchor": "canonical-0212111212212021-3011323230102122-1202310001220202-2301303321012313-3012020123012013-1311002120232123-2113012331010033-0321020003333003",
+      "anchor_map": [],
+      "mode": "embedded",
+      "registry_path": "docs/guides/resources--k8s_cluster--reference--group-001.md"
+    },
+    {
       "canonical_id": "xcsh-docs:resources:k8s_cluster:properties:use_custom_psp_list:pod_security_policies",
       "section_id": "xcsh-docs:resources:k8s_cluster:properties:use_custom_psp_list:pod_security_policies:section:1",
       "source_sha256": "sha256:0adcf1a555510b79c2c9ad8edb16edc9221014fbdccdef8b437c176f03120411",
@@ -7733,40 +7757,6 @@
         [
           "schema-timeouts--delete",
           "canonical-3213220323103223-0320202210331210-2132101130131003-2311211011020023-1302003232121100-2111300003132033-1112212002131000-3210220201010221"
-        ]
-      ],
-      "mode": "embedded",
-      "registry_path": "docs/guides/resources--malicious_user_mitigation--reference--group-001.md"
-    },
-    {
-      "canonical_id": "xcsh-docs:resources:malicious_user_mitigation:properties:timeouts",
-      "section_id": "xcsh-docs:resources:malicious_user_mitigation:properties:timeouts:section:4",
-      "source_sha256": "sha256:c439dc5bf09a99b580691986e03a32ea90ef303a0e502cd0c132fc45691d02f1",
-      "source_bytes": 437,
-      "canonical_source_sha256": "sha256:80b3413f62189861790e427d27df5c0f3d38d5cdef149d37f82433524ffd9200",
-      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/resources/malicious_user_mitigation/properties/timeouts/",
-      "anchor": "canonical-1021320213301312-3020303133333300-3212033101300312-1013330330232033-0233323133311223-1132322133300011-1332200221322022-3113230011102323",
-      "anchor_map": [
-        [
-          "schema-timeouts--read",
-          "canonical-1332110120031020-0021300310302231-3033021123203112-2101312312223103-2021120020223210-0222033223212320-2111113300233203-2003011102133222"
-        ]
-      ],
-      "mode": "embedded",
-      "registry_path": "docs/guides/resources--malicious_user_mitigation--reference--group-001.md"
-    },
-    {
-      "canonical_id": "xcsh-docs:resources:malicious_user_mitigation:properties:timeouts",
-      "section_id": "xcsh-docs:resources:malicious_user_mitigation:properties:timeouts:section:5",
-      "source_sha256": "sha256:b04cc505bd11b39906bce6f7b489c97691881e998ebf10afe094610bb9a88ddd",
-      "source_bytes": 396,
-      "canonical_source_sha256": "sha256:80b3413f62189861790e427d27df5c0f3d38d5cdef149d37f82433524ffd9200",
-      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/resources/malicious_user_mitigation/properties/timeouts/",
-      "anchor": "canonical-2320003222013123-1212111033012111-1113001230110223-0101110223130031-2233103101131311-1002311120221331-0210003002010320-3303113120312133",
-      "anchor_map": [
-        [
-          "schema-timeouts--update",
-          "canonical-0203022210120231-2212311232000330-0322222131023311-3102123201000103-2001331312323021-3322320110332030-3211203022022323-3333001300312120"
         ]
       ],
       "mode": "embedded",

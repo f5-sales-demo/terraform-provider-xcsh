@@ -3,6 +3,23 @@
   "sections": [
     {
       "canonical_id": "xcsh-docs:resources:registration:properties:infra:hw_info:cpu",
+      "section_id": "xcsh-docs:resources:registration:properties:infra:hw_info:cpu:section:6",
+      "source_sha256": "sha256:92c37c66ee9c1148386505aa49c5ec737cf047107d9c535805d6ce55663614e1",
+      "source_bytes": 564,
+      "canonical_source_sha256": "sha256:dd98dc640ea9a22a45b0dab0c93a28017b041630b76252233a6b2f634f3f61e9",
+      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/resources/registration/properties/infra/hw_info/cpu/",
+      "anchor": "canonical-2300211122022231-0313012330002231-2301133221021233-1121010300300300-1202331301233130-1213210133022202-1113333230033332-0300303011123300",
+      "anchor_map": [
+        [
+          "schema-infra--hw_info--cpu--speed",
+          "canonical-0230012313033133-1003033333230213-1223030210002003-2223033132302320-1110010120313320-1220023323103233-3301233231220311-1101103013111320"
+        ]
+      ],
+      "mode": "embedded",
+      "registry_path": "docs/guides/resources--registration--reference--group-001.md"
+    },
+    {
+      "canonical_id": "xcsh-docs:resources:registration:properties:infra:hw_info:cpu",
       "section_id": "xcsh-docs:resources:registration:properties:infra:hw_info:cpu:section:7",
       "source_sha256": "sha256:5f0438ef1cbe1366da2571ffe02ce98168d2238f514da7daed911eba8f8e6924",
       "source_bytes": 352,
@@ -7882,18 +7899,6 @@
       "canonical_source_sha256": "sha256:26ec88bff7bd1bf33e09d17f44ca9c4a99389edcc2f9ff92e3f413ed5f4a7cc5",
       "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/resources/route/properties/routes/route_destination/mirror_policy/",
       "anchor": "canonical-1102221031123203-1123213201320032-3031333311000121-0111201322323111-2000010233300100-1210103131333201-0302210021001222-3010221033022003",
-      "anchor_map": [],
-      "mode": "embedded",
-      "registry_path": "docs/guides/resources--route--reference--group-002.md"
-    },
-    {
-      "canonical_id": "xcsh-docs:resources:route:properties:routes:route_destination:mirror_policy:cluster",
-      "section_id": "xcsh-docs:resources:route:properties:routes:route_destination:mirror_policy:cluster:section:0",
-      "source_sha256": "sha256:197d41522a9dd286cb9805a03d8a5bd782cc3f3fd95ea854bf2dfc326e83e50c",
-      "source_bytes": 99,
-      "canonical_source_sha256": "sha256:9f4c4034b2fc4e0f73d6bb4682ce52927812b1c8db7df808c5808f261c95458e",
-      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/resources/route/properties/routes/route_destination/mirror_policy/cluster/",
-      "anchor": "canonical-1220211122332310-1233121021033213-1300133022222333-3300333321020331-1131130320311031-3333131332101303-1223130101222032-3301112330021022",
       "anchor_map": [],
       "mode": "embedded",
       "registry_path": "docs/guides/resources--route--reference--group-002.md"

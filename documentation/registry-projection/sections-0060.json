@@ -3,6 +3,18 @@
   "sections": [
     {
       "canonical_id": "xcsh-docs:resources:route:properties:routes:route_destination:mirror_policy:cluster",
+      "section_id": "xcsh-docs:resources:route:properties:routes:route_destination:mirror_policy:cluster:section:0",
+      "source_sha256": "sha256:197d41522a9dd286cb9805a03d8a5bd782cc3f3fd95ea854bf2dfc326e83e50c",
+      "source_bytes": 99,
+      "canonical_source_sha256": "sha256:9f4c4034b2fc4e0f73d6bb4682ce52927812b1c8db7df808c5808f261c95458e",
+      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/resources/route/properties/routes/route_destination/mirror_policy/cluster/",
+      "anchor": "canonical-1220211122332310-1233121021033213-1300133022222333-3300333321020331-1131130320311031-3333131332101303-1223130101222032-3301112330021022",
+      "anchor_map": [],
+      "mode": "embedded",
+      "registry_path": "docs/guides/resources--route--reference--group-002.md"
+    },
+    {
+      "canonical_id": "xcsh-docs:resources:route:properties:routes:route_destination:mirror_policy:cluster",
       "section_id": "xcsh-docs:resources:route:properties:routes:route_destination:mirror_policy:cluster:section:1",
       "source_sha256": "sha256:429ddcc5b1485fb6e8ea477a79bceb39652677704f69b8aa5351fd456901f99a",
       "source_bytes": 1859,
@@ -7376,18 +7388,6 @@
       "canonical_source_sha256": "sha256:9c54e953489d9cbc3c5e8930191adb9fe708950c8efdb183901db451e43573cc",
       "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/resources/securemesh_site/properties/bond_device_list/bond_devices/active_backup/",
       "anchor": "canonical-2323020320313331-0131111032212220-1023000120310002-3310300001310033-3322211303311311-0002203332110012-0022122131022022-1322210323323103",
-      "anchor_map": [],
-      "mode": "embedded",
-      "registry_path": "docs/guides/resources--securemesh_site--reference--group-001.md"
-    },
-    {
-      "canonical_id": "xcsh-docs:resources:securemesh_site:properties:bond_device_list:bond_devices:lacp",
-      "section_id": "xcsh-docs:resources:securemesh_site:properties:bond_device_list:bond_devices:lacp:section:0",
-      "source_sha256": "sha256:197d41522a9dd286cb9805a03d8a5bd782cc3f3fd95ea854bf2dfc326e83e50c",
-      "source_bytes": 99,
-      "canonical_source_sha256": "sha256:2297ac17fb993c253a5a0d49f1bcc4bdb36f3722143cdbf1b561cc8af4bc1f7f",
-      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/resources/securemesh_site/properties/bond_device_list/bond_devices/lacp/",
-      "anchor": "canonical-2130022013330121-0121222312233022-3032200323232120-1301002202301202-0032301220312010-3102101030120311-3210033133320221-3101012023011311",
       "anchor_map": [],
       "mode": "embedded",
       "registry_path": "docs/guides/resources--securemesh_site--reference--group-001.md"

@@ -2,6 +2,30 @@
   "schema_version": 1,
   "sections": [
     {
+      "canonical_id": "xcsh-docs:resources:nfv_service:properties:https_management:advertise_on_sli_vip:tls_certificates",
+      "section_id": "xcsh-docs:resources:nfv_service:properties:https_management:advertise_on_sli_vip:tls_certificates:section:5",
+      "source_sha256": "sha256:7e095b1f7c6192b2b650f74245a10ebcc4ef0a79c07a59be962b08d38ab6aa24",
+      "source_bytes": 1261,
+      "canonical_source_sha256": "sha256:c5fcf5b67355ddb6b02dfd290078fef35071bfffab1d8ddb3afbc93cf3f88643",
+      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/resources/nfv_service/properties/https_management/advertise_on_sli_vip/tls_certificates/",
+      "anchor": "canonical-2131112230300020-1013203213213310-2122230132300023-0333330013033210-1011013200013232-2313011011100210-2020213222310010-2023210121233331",
+      "anchor_map": [],
+      "mode": "embedded",
+      "registry_path": "docs/guides/resources--nfv_service--reference--group-002.md"
+    },
+    {
+      "canonical_id": "xcsh-docs:resources:nfv_service:properties:https_management:advertise_on_sli_vip:tls_certificates:custom_hash_algorithms",
+      "section_id": "xcsh-docs:resources:nfv_service:properties:https_management:advertise_on_sli_vip:tls_certificates:custom_hash_algorithms:section:0",
+      "source_sha256": "sha256:197d41522a9dd286cb9805a03d8a5bd782cc3f3fd95ea854bf2dfc326e83e50c",
+      "source_bytes": 99,
+      "canonical_source_sha256": "sha256:ae7e93435f79564f4e43e0dafa69f0ae3c333ff47e6a21afa776cf36ea7bb067",
+      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/resources/nfv_service/properties/https_management/advertise_on_sli_vip/tls_certificates/custom_hash_algorithms/",
+      "anchor": "canonical-2221022101033013-3013303203011113-3001220231312133-3121021223310301-1310020313330110-0120012022312220-1210032301023211-3333303310021112",
+      "anchor_map": [],
+      "mode": "embedded",
+      "registry_path": "docs/guides/resources--nfv_service--reference--group-002.md"
+    },
+    {
       "canonical_id": "xcsh-docs:resources:nfv_service:properties:https_management:advertise_on_sli_vip:tls_certificates:custom_hash_algorithms",
       "section_id": "xcsh-docs:resources:nfv_service:properties:https_management:advertise_on_sli_vip:tls_certificates:custom_hash_algorithms:section:1",
       "source_sha256": "sha256:0553b4cc18476125c54886d1c3cf2f029f95a21f3a7cd432d3183d77ec3c6461",
@@ -6958,23 +6982,6 @@
       "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/resources/nfv_service/properties/palo_alto_fw_service/service_nodes/nodes/mgmt_subnet/",
       "anchor": "canonical-0222303002200312-3130302121233131-2332100130121300-0133023030330132-0212222011321323-3033211102023111-3011002002221003-2310321222323120",
       "anchor_map": [],
-      "mode": "embedded",
-      "registry_path": "docs/guides/resources--nfv_service--reference--group-004.md"
-    },
-    {
-      "canonical_id": "xcsh-docs:resources:nfv_service:properties:palo_alto_fw_service:service_nodes:nodes:mgmt_subnet",
-      "section_id": "xcsh-docs:resources:nfv_service:properties:palo_alto_fw_service:service_nodes:nodes:mgmt_subnet:section:1",
-      "source_sha256": "sha256:db686000cb1316082c6973bd0f2cb2bd2e4421ef1bb969a1eb752b69d785f197",
-      "source_bytes": 1514,
-      "canonical_source_sha256": "sha256:d85bd41a989cea9981b140263b927368bff8c9049e22a0dc39319645c7279931",
-      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/resources/nfv_service/properties/palo_alto_fw_service/service_nodes/nodes/mgmt_subnet/",
-      "anchor": "canonical-0200011310120030-0233112321313200-2213132301230201-0300001320212113-3011011122030103-0330001222211321-3203203312123313-3133113300013120",
-      "anchor_map": [
-        [
-          "section",
-          "canonical-3300303212211100-3223222323322012-2221330302221020-1010123222300000-2103132230233001-2303221320100120-3223300103122320-2032122021331300"
-        ]
-      ],
       "mode": "embedded",
       "registry_path": "docs/guides/resources--nfv_service--reference--group-004.md"
     }

@@ -3,6 +3,18 @@
   "sections": [
     {
       "canonical_id": "xcsh-docs:resources:origin_pool:properties:upstream_conn_pool_reuse_type:enable_conn_pool_reuse",
+      "section_id": "xcsh-docs:resources:origin_pool:properties:upstream_conn_pool_reuse_type:enable_conn_pool_reuse:section:0",
+      "source_sha256": "sha256:197d41522a9dd286cb9805a03d8a5bd782cc3f3fd95ea854bf2dfc326e83e50c",
+      "source_bytes": 99,
+      "canonical_source_sha256": "sha256:ff884624aeba86a3a496bd930baf1e7745b3ffad3f415b2fa65cb6a97ccd9b58",
+      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/resources/origin_pool/properties/upstream_conn_pool_reuse_type/enable_conn_pool_reuse/",
+      "anchor": "canonical-3131222111103001-1022113210301001-2003220322321311-2101301230133010-3001313222333012-1033323302303222-3113132123323330-0121133313120301",
+      "anchor_map": [],
+      "mode": "embedded",
+      "registry_path": "docs/guides/resources--origin_pool--reference--group-003.md"
+    },
+    {
+      "canonical_id": "xcsh-docs:resources:origin_pool:properties:upstream_conn_pool_reuse_type:enable_conn_pool_reuse",
       "section_id": "xcsh-docs:resources:origin_pool:properties:upstream_conn_pool_reuse_type:enable_conn_pool_reuse:section:1",
       "source_sha256": "sha256:c031ce87adaa6cb0e385b4ba190d36c1a770411b96b03b9c54e06b10e80b051b",
       "source_bytes": 928,
@@ -7524,18 +7536,6 @@
       "canonical_source_sha256": "sha256:871f3764714004ffc1d2665108921cfda164ee6b45d2367c572da37f4ffae1ce",
       "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/resources/protected_application/properties/cloudflare/protected_endpoints/mobile_client/",
       "anchor": "canonical-2102110301213233-1200030300213120-0130311130121011-3003303331210110-0320222032020202-2303113300312030-0033100213133222-3322013111123020",
-      "anchor_map": [],
-      "mode": "embedded",
-      "registry_path": "docs/guides/resources--protected_application--reference--group-002.md"
-    },
-    {
-      "canonical_id": "xcsh-docs:resources:protected_application:properties:cloudflare:protected_endpoints:mobile_client",
-      "section_id": "xcsh-docs:resources:protected_application:properties:cloudflare:protected_endpoints:mobile_client:section:3",
-      "source_sha256": "sha256:46de3c7866ced3e099a399ef888752154d751cfc8e9e52e0f580ce316220656c",
-      "source_bytes": 723,
-      "canonical_source_sha256": "sha256:871f3764714004ffc1d2665108921cfda164ee6b45d2367c572da37f4ffae1ce",
-      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/resources/protected_application/properties/cloudflare/protected_endpoints/mobile_client/",
-      "anchor": "canonical-1113212113201312-2013310131001302-3110122121230223-1022233130210112-1102112331031312-0202210332213233-3013301100133220-2232122222213320",
       "anchor_map": [],
       "mode": "embedded",
       "registry_path": "docs/guides/resources--protected_application--reference--group-002.md"

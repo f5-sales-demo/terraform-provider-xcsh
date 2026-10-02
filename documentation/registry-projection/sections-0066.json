@@ -2,6 +2,18 @@
   "schema_version": 1,
   "sections": [
     {
+      "canonical_id": "xcsh-docs:resources:securemesh_site_v2:properties:kvm:not_managed:node_list:interface_list:ipv6_auto_config:router:dns_config:local_dns:first_address",
+      "section_id": "xcsh-docs:resources:securemesh_site_v2:properties:kvm:not_managed:node_list:interface_list:ipv6_auto_config:router:dns_config:local_dns:first_address:section:3",
+      "source_sha256": "sha256:f92cc8cbb284b8d962ef6c90b7892aa6c1b89c7f0e0c8cc76a997f088a2f5473",
+      "source_bytes": 404,
+      "canonical_source_sha256": "sha256:3519cc04016b5bffc6ccfda8db52a0300e9b642c9f79c3f6f8e3d4189cea83a7",
+      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/resources/securemesh_site_v2/properties/kvm/not_managed/node_list/interface_list/ipv6_auto_config/router/dns_config/local_dns/first_address/",
+      "anchor": "canonical-3202203301000100-0030111310122002-0120020230022203-2132002322320302-0330113221113303-0311312100003201-1130210031203131-0021111233020110",
+      "anchor_map": [],
+      "mode": "embedded",
+      "registry_path": "docs/guides/resources--securemesh_site_v2--reference--group-011.md"
+    },
+    {
       "canonical_id": "xcsh-docs:resources:securemesh_site_v2:properties:kvm:not_managed:node_list:interface_list:ipv6_auto_config:router:dns_config:local_dns:last_address",
       "section_id": "xcsh-docs:resources:securemesh_site_v2:properties:kvm:not_managed:node_list:interface_list:ipv6_auto_config:router:dns_config:local_dns:last_address:section:0",
       "source_sha256": "sha256:197d41522a9dd286cb9805a03d8a5bd782cc3f3fd95ea854bf2dfc326e83e50c",
@@ -6798,18 +6810,6 @@
           "canonical-3112023121011322-3203010223211332-0333100313022110-1200130120201322-1021023101033203-2222003332031102-2031320213322321-2231031300121013"
         ]
       ],
-      "mode": "embedded",
-      "registry_path": "docs/guides/resources--securemesh_site_v2--reference--group-013.md"
-    },
-    {
-      "canonical_id": "xcsh-docs:resources:securemesh_site_v2:properties:nutanix:not_managed:node_list:interface_list:ipv6_auto_config:router:stateful:interface_ip_map",
-      "section_id": "xcsh-docs:resources:securemesh_site_v2:properties:nutanix:not_managed:node_list:interface_list:ipv6_auto_config:router:stateful:interface_ip_map:section:3",
-      "source_sha256": "sha256:9b4285690e6330d58d0377f3e1a72458b566078214e59ebd6d49faa0949d66ca",
-      "source_bytes": 866,
-      "canonical_source_sha256": "sha256:c092de5f0763b07cdaa162f99d189ddecbb07ea23eea8aaf7acf46737ddc2176",
-      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/resources/securemesh_site_v2/properties/nutanix/not_managed/node_list/interface_list/ipv6_auto_config/router/stateful/interface_ip_map/",
-      "anchor": "canonical-0033213230302011-1222033330021330-1330331002210232-0110312123223000-1333000022000023-0130100133210312-1220033311202121-2101201122220033",
-      "anchor_map": [],
       "mode": "embedded",
       "registry_path": "docs/guides/resources--securemesh_site_v2--reference--group-013.md"
     }

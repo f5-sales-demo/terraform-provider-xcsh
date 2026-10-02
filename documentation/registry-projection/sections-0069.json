@@ -3,6 +3,18 @@
   "sections": [
     {
       "canonical_id": "xcsh-docs:resources:securemesh_site_v2:properties:software_settings:waf_signatures",
+      "section_id": "xcsh-docs:resources:securemesh_site_v2:properties:software_settings:waf_signatures:section:0",
+      "source_sha256": "sha256:197d41522a9dd286cb9805a03d8a5bd782cc3f3fd95ea854bf2dfc326e83e50c",
+      "source_bytes": 99,
+      "canonical_source_sha256": "sha256:78fcb5f62b901d91285f74b9e18cbbcb07c024cd30f03028fab0ff4dcdc845c7",
+      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/resources/securemesh_site_v2/properties/software_settings/waf_signatures/",
+      "anchor": "canonical-0010013231031330-1121200000030022-2121223331000232-0001101321233133-3012232310002232-1123032033001322-2001130231000322-2233301113322031",
+      "anchor_map": [],
+      "mode": "embedded",
+      "registry_path": "docs/guides/resources--securemesh_site_v2--reference--group-017.md"
+    },
+    {
+      "canonical_id": "xcsh-docs:resources:securemesh_site_v2:properties:software_settings:waf_signatures",
       "section_id": "xcsh-docs:resources:securemesh_site_v2:properties:software_settings:waf_signatures:section:1",
       "source_sha256": "sha256:b35177de1927a08f5f0d112c76e9088c42146c7e278ab8a7f0f10b874694a130",
       "source_bytes": 1446,
@@ -7305,23 +7317,6 @@
       "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/resources/service_policy/properties/rule_list/rules/spec/any_asn/",
       "anchor": "canonical-3022103210312210-3010031330131113-2130110221003111-2021012020002312-2331332221031223-0112303222232021-0003300100022103-1230223102001233",
       "anchor_map": [],
-      "mode": "embedded",
-      "registry_path": "docs/guides/resources--service_policy--reference--group-002.md"
-    },
-    {
-      "canonical_id": "xcsh-docs:resources:service_policy:properties:rule_list:rules:spec:any_asn",
-      "section_id": "xcsh-docs:resources:service_policy:properties:rule_list:rules:spec:any_asn:section:1",
-      "source_sha256": "sha256:c013425469f114d5481b1e0970e6a4ec0be1c5467fa157e5819b957a5b9f8d79",
-      "source_bytes": 1074,
-      "canonical_source_sha256": "sha256:0f7c804ce052ba35a36d834c626df9a28d4b0d2ab2a0feb8ad13ce9c8ae6c47f",
-      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/resources/service_policy/properties/rule_list/rules/spec/any_asn/",
-      "anchor": "canonical-0323121023013222-3302001011203103-3300312032000123-0131331010210030-3201130323322202-3211323323030011-2132333133221212-0301220001231201",
-      "anchor_map": [
-        [
-          "section",
-          "canonical-3201031031122211-3121221200332103-2000210302033231-3110022213222232-2101203221223023-0111310320201312-3002013310322000-3303311333202223"
-        ]
-      ],
       "mode": "embedded",
       "registry_path": "docs/guides/resources--service_policy--reference--group-002.md"
     }

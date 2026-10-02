@@ -170,351 +170,1262 @@
   },
   "pages": [
     {
-      "aliases": [],
+      "aliases": ["cloud user account"],
       "body_bytes": 1686,
       "body_sha256": "sha256:584f2ebf1b8fa473a137297e0787d9aecff70137b3e6258dfac9714bac8c4880",
+      "capabilities": ["identity"],
+      "category": "identity",
       "child_ids": [
         "xcsh-docs:resources:cloud_user_account:reference",
         "xcsh-docs:resources:cloud_user_account:examples",
         "xcsh-docs:resources:cloud_user_account:import",
         "xcsh-docs:resources:cloud_user_account:timeouts"
       ],
+      "classification": {
+        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "sources": ["reviewed-rule"],
+        "status": "resolved",
+        "upstream_category_source": "receipt-pinned-domain"
+      },
       "collection_id": "xcsh-docs:resources:cloud_user_account:collection",
       "completeness": "complete",
       "id": "xcsh-docs:resources:cloud_user_account:fundamentals",
-      "parent_id": null,
+      "parent_id": "xcsh-docs:resources:xcsh:navigation",
       "path": "documentation/resources/cloud_user_account/index.md",
+      "product": "distributed-cloud",
       "provider_name": "cloud_user_account",
       "provider_schema_digest": "sha256:e63a07e98b4893c041a6f79be7e19c64babfe543fc6847c17641037e084e1c7c",
       "provider_type": "resources",
       "registry_anchor": "canonical-1031132021211202-3000130330113323-2203111122011131-3322201313323003-2113322122001212-2031120103110031-3122331032002130-0200201122101321",
       "registry_path": "docs/resources/cloud_user_account.md",
+      "relationships": [],
+      "retrieval_version": 1,
       "role": "fundamentals",
       "schema_path": [],
+      "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/cloud_user_account/index.txt",
-      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
-      "summary": "xcsh_cloud_user_account for xcsh_cloud_user_account.",
+      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "summary": "Manages a Cloud User Account resource in F5 Distributed Cloud for cloud user account object create specifications. configuration.",
+      "tasks": ["configuration"],
       "title": "xcsh_cloud_user_account",
+      "unresolved_relationships": [],
       "upstream_identity": {
-        "release_tag": "v9.0.0",
+        "release_tag": "v9.0.1",
         "schema_components": ["cloud_user_accountCreateRequest"],
-        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
       }
     },
     {
-      "aliases": [],
+      "aliases": ["cloud user account"],
       "body_bytes": 15023,
       "body_sha256": "sha256:fb0741758bd973d8ae0b23f0563f572815b7d897f64fd22c9500efe6fe4c036b",
+      "capabilities": ["identity"],
+      "category": "identity",
       "child_ids": [
         "xcsh-docs:resources:cloud_user_account:properties:aws_provider",
         "xcsh-docs:resources:cloud_user_account:properties:timeouts"
       ],
+      "classification": {
+        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "sources": ["reviewed-rule"],
+        "status": "resolved",
+        "upstream_category_source": "receipt-pinned-domain"
+      },
       "collection_id": "xcsh-docs:resources:cloud_user_account:collection",
       "completeness": "complete",
       "id": "xcsh-docs:resources:cloud_user_account:reference",
       "parent_id": "xcsh-docs:resources:cloud_user_account:fundamentals",
       "path": "documentation/resources/cloud_user_account/properties/index.md",
+      "product": "distributed-cloud",
       "provider_name": "cloud_user_account",
       "provider_schema_digest": "sha256:e63a07e98b4893c041a6f79be7e19c64babfe543fc6847c17641037e084e1c7c",
       "provider_type": "resources",
       "registry_anchor": "canonical-3120211002101200-1032113201021233-1220320323313131-0212322201031232-0233112321202013-1303123010311023-0111001022220010-3320211201030303",
       "registry_path": "docs/guides/resources--cloud_user_account--reference--group-001.md",
+      "relationships": [],
+      "retrieval_version": 1,
       "role": "reference",
       "schema_path": [],
+      "sections": [
+        {
+          "aliases": ["annotations"],
+          "anchor": "schema-annotations",
+          "description": "Annotations is an unstructured key value map stored with a resource that may be set by external tools to store and retrieve arbitrary metadata. They are not queryable and should be preserved when modifying objects.",
+          "document_id": "xcsh-docs:resources:cloud_user_account:reference",
+          "flags": ["optional"],
+          "max_items": null,
+          "min_items": null,
+          "nesting": null,
+          "relationships": [],
+          "schema_path": ["annotations"],
+          "syntax": "attribute",
+          "type": "map"
+        },
+        {
+          "aliases": ["aws provider"],
+          "anchor": "section",
+          "description": "Create AWS Provider Type.",
+          "document_id": "xcsh-docs:resources:cloud_user_account:properties:aws_provider",
+          "flags": [],
+          "max_items": null,
+          "min_items": null,
+          "nesting": "single",
+          "relationships": [
+            {
+              "anchor": "section",
+              "enforcement": "provider-schema",
+              "group": "aws_provider:ConflictingObjectAttributes:aws_assume_role,aws_secret_key",
+              "source": "ast-validator:ConflictingObjectAttributes",
+              "target_id": "xcsh-docs:resources:cloud_user_account:properties:aws_provider:aws_assume_role",
+              "type": "conflicts"
+            },
+            {
+              "anchor": "section",
+              "enforcement": "provider-schema",
+              "group": "aws_provider:ConflictingObjectAttributes:aws_assume_role,aws_secret_key",
+              "source": "ast-validator:ConflictingObjectAttributes",
+              "target_id": "xcsh-docs:resources:cloud_user_account:properties:aws_provider:aws_secret_key",
+              "type": "conflicts"
+            },
+            {
+              "anchor": "schema-aws_provider--aws_account_number",
+              "enforcement": "provider-schema",
+              "group": "aws_provider:RequiredObjectAttributes:aws_account_number",
+              "source": "ast-validator:RequiredObjectAttributes",
+              "target_id": "xcsh-docs:resources:cloud_user_account:properties:aws_provider",
+              "type": "requires"
+            }
+          ],
+          "schema_path": ["aws_provider"],
+          "syntax": "block",
+          "type": "object"
+        },
+        {
+          "aliases": ["description"],
+          "anchor": "schema-description",
+          "description": "Human readable description for the object.",
+          "document_id": "xcsh-docs:resources:cloud_user_account:reference",
+          "flags": ["optional"],
+          "max_items": null,
+          "min_items": null,
+          "nesting": null,
+          "relationships": [],
+          "schema_path": ["description"],
+          "syntax": "attribute",
+          "type": "string"
+        },
+        {
+          "aliases": ["disable"],
+          "anchor": "schema-disable",
+          "description": "A value of true will administratively disable the object.",
+          "document_id": "xcsh-docs:resources:cloud_user_account:reference",
+          "flags": ["optional"],
+          "max_items": null,
+          "min_items": null,
+          "nesting": null,
+          "relationships": [],
+          "schema_path": ["disable"],
+          "syntax": "attribute",
+          "type": "bool"
+        },
+        {
+          "aliases": ["id"],
+          "anchor": "schema-id",
+          "description": "Unique identifier for the resource.",
+          "document_id": "xcsh-docs:resources:cloud_user_account:reference",
+          "flags": ["computed"],
+          "max_items": null,
+          "min_items": null,
+          "nesting": null,
+          "relationships": [],
+          "schema_path": ["id"],
+          "syntax": "attribute",
+          "type": "string"
+        },
+        {
+          "aliases": ["labels"],
+          "anchor": "schema-labels",
+          "description": "Map of string keys and values that can be used to organize and categorize (scope and select) objects as chosen by the user. Values specified here will be used by selector expression.",
+          "document_id": "xcsh-docs:resources:cloud_user_account:reference",
+          "flags": ["optional"],
+          "max_items": null,
+          "min_items": null,
+          "nesting": null,
+          "relationships": [],
+          "schema_path": ["labels"],
+          "syntax": "attribute",
+          "type": "map"
+        },
+        {
+          "aliases": ["name"],
+          "anchor": "schema-name",
+          "description": "This is the name of configuration object. It has to be unique within the namespace. It can only be specified during create API and cannot be changed during replace API. The value of name has to follow DNS-1035 format.",
+          "document_id": "xcsh-docs:resources:cloud_user_account:reference",
+          "flags": ["required"],
+          "max_items": null,
+          "min_items": null,
+          "nesting": null,
+          "relationships": [],
+          "schema_path": ["name"],
+          "syntax": "attribute",
+          "type": "string"
+        },
+        {
+          "aliases": ["namespace"],
+          "anchor": "schema-namespace",
+          "description": "This defines the workspace within which each the configuration object is to be created. Must be a DNS_LABEL format. For a namespace object itself, namespace value will be \"\"",
+          "document_id": "xcsh-docs:resources:cloud_user_account:reference",
+          "flags": ["required"],
+          "max_items": null,
+          "min_items": null,
+          "nesting": null,
+          "relationships": [],
+          "schema_path": ["namespace"],
+          "syntax": "attribute",
+          "type": "string"
+        },
+        {
+          "aliases": ["duration", "operation timeout", "timeouts"],
+          "anchor": "section",
+          "description": "timeouts",
+          "document_id": "xcsh-docs:resources:cloud_user_account:properties:timeouts",
+          "flags": [],
+          "max_items": null,
+          "min_items": null,
+          "nesting": "single",
+          "relationships": [],
+          "schema_path": ["timeouts"],
+          "syntax": "block",
+          "type": "object"
+        }
+      ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/cloud_user_account/properties/index.txt",
-      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
       "summary": "Property reference for xcsh_cloud_user_account.",
+      "tasks": ["configuration"],
       "title": "Property reference",
       "upstream_identity": {
-        "release_tag": "v9.0.0",
+        "release_tag": "v9.0.1",
         "schema_components": ["cloud_user_accountCreateRequest"],
-        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
       }
     },
     {
-      "aliases": [],
+      "aliases": ["aws provider"],
       "body_bytes": 3025,
       "body_sha256": "sha256:d8f8072e35b2f377c03ea3c90c6c326af70e38947a7ca688c2284de4448f165b",
+      "capabilities": ["identity"],
+      "category": "identity",
       "child_ids": [
         "xcsh-docs:resources:cloud_user_account:properties:aws_provider:aws_assume_role",
         "xcsh-docs:resources:cloud_user_account:properties:aws_provider:aws_secret_key"
       ],
+      "classification": {
+        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "sources": ["reviewed-rule"],
+        "status": "resolved",
+        "upstream_category_source": "receipt-pinned-domain"
+      },
       "collection_id": "xcsh-docs:resources:cloud_user_account:collection",
       "completeness": "complete",
       "id": "xcsh-docs:resources:cloud_user_account:properties:aws_provider",
       "parent_id": "xcsh-docs:resources:cloud_user_account:reference",
       "path": "documentation/resources/cloud_user_account/properties/aws_provider/index.md",
+      "product": "distributed-cloud",
       "provider_name": "cloud_user_account",
       "provider_schema_digest": "sha256:e63a07e98b4893c041a6f79be7e19c64babfe543fc6847c17641037e084e1c7c",
       "provider_type": "resources",
       "registry_anchor": "canonical-0012012233031021-3100322321221333-2032113331301133-3312231010011311-1132101332122101-0022323230302012-2330201031132100-3032303003121110",
       "registry_path": "docs/guides/resources--cloud_user_account--reference--group-001.md",
+      "relationships": [
+        {
+          "anchor": "section",
+          "enforcement": "provider-schema",
+          "group": "aws_provider:ConflictingObjectAttributes:aws_assume_role,aws_secret_key",
+          "source": "ast-validator:ConflictingObjectAttributes",
+          "target_id": "xcsh-docs:resources:cloud_user_account:properties:aws_provider:aws_assume_role",
+          "type": "conflicts"
+        },
+        {
+          "anchor": "section",
+          "enforcement": "provider-schema",
+          "group": "aws_provider:ConflictingObjectAttributes:aws_assume_role,aws_secret_key",
+          "source": "ast-validator:ConflictingObjectAttributes",
+          "target_id": "xcsh-docs:resources:cloud_user_account:properties:aws_provider:aws_secret_key",
+          "type": "conflicts"
+        },
+        {
+          "anchor": "schema-aws_provider--aws_account_number",
+          "enforcement": "provider-schema",
+          "group": "aws_provider:RequiredObjectAttributes:aws_account_number",
+          "source": "ast-validator:RequiredObjectAttributes",
+          "target_id": "xcsh-docs:resources:cloud_user_account:properties:aws_provider",
+          "type": "requires"
+        }
+      ],
+      "retrieval_version": 1,
       "role": "properties",
       "schema_path": ["aws_provider"],
+      "sections": [
+        {
+          "aliases": ["aws account number"],
+          "anchor": "schema-aws_provider--aws_account_number",
+          "description": "12 Digit Account Number.",
+          "document_id": "xcsh-docs:resources:cloud_user_account:properties:aws_provider",
+          "flags": ["optional"],
+          "max_items": null,
+          "min_items": null,
+          "nesting": null,
+          "relationships": [],
+          "schema_path": ["aws_provider", "aws_account_number"],
+          "syntax": "attribute",
+          "type": "string"
+        },
+        {
+          "aliases": ["aws assume role"],
+          "anchor": "section",
+          "description": "AWS Assume Role to Handle Delegated Access.",
+          "document_id": "xcsh-docs:resources:cloud_user_account:properties:aws_provider:aws_assume_role",
+          "flags": [],
+          "max_items": null,
+          "min_items": null,
+          "nesting": "single",
+          "relationships": [
+            {
+              "anchor": "schema-aws_provider--aws_assume_role--custom_external_id",
+              "enforcement": "provider-schema",
+              "group": "aws_provider.aws_assume_role:ConflictingObjectAttributes:custom_external_id,external_id_is_optional",
+              "source": "ast-validator:ConflictingObjectAttributes",
+              "target_id": "xcsh-docs:resources:cloud_user_account:properties:aws_provider:aws_assume_role",
+              "type": "conflicts"
+            },
+            {
+              "anchor": "schema-aws_provider--aws_assume_role--custom_external_id",
+              "enforcement": "provider-schema",
+              "group": "aws_provider.aws_assume_role:ConflictingObjectAttributes:custom_external_id,external_id_is_tenant_id",
+              "source": "ast-validator:ConflictingObjectAttributes",
+              "target_id": "xcsh-docs:resources:cloud_user_account:properties:aws_provider:aws_assume_role",
+              "type": "conflicts"
+            },
+            {
+              "anchor": "section",
+              "enforcement": "provider-schema",
+              "group": "aws_provider.aws_assume_role:ConflictingObjectAttributes:custom_external_id,external_id_is_optional",
+              "source": "ast-validator:ConflictingObjectAttributes",
+              "target_id": "xcsh-docs:resources:cloud_user_account:properties:aws_provider:aws_assume_role:external_id_is_optional",
+              "type": "conflicts"
+            },
+            {
+              "anchor": "section",
+              "enforcement": "provider-schema",
+              "group": "aws_provider.aws_assume_role:ConflictingObjectAttributes:external_id_is_optional,external_id_is_tenant_id",
+              "source": "ast-validator:ConflictingObjectAttributes",
+              "target_id": "xcsh-docs:resources:cloud_user_account:properties:aws_provider:aws_assume_role:external_id_is_optional",
+              "type": "conflicts"
+            },
+            {
+              "anchor": "section",
+              "enforcement": "provider-schema",
+              "group": "aws_provider.aws_assume_role:ConflictingObjectAttributes:custom_external_id,external_id_is_tenant_id",
+              "source": "ast-validator:ConflictingObjectAttributes",
+              "target_id": "xcsh-docs:resources:cloud_user_account:properties:aws_provider:aws_assume_role:external_id_is_tenant_id",
+              "type": "conflicts"
+            },
+            {
+              "anchor": "section",
+              "enforcement": "provider-schema",
+              "group": "aws_provider.aws_assume_role:ConflictingObjectAttributes:external_id_is_optional,external_id_is_tenant_id",
+              "source": "ast-validator:ConflictingObjectAttributes",
+              "target_id": "xcsh-docs:resources:cloud_user_account:properties:aws_provider:aws_assume_role:external_id_is_tenant_id",
+              "type": "conflicts"
+            },
+            {
+              "anchor": "schema-aws_provider--aws_assume_role--duration_seconds",
+              "enforcement": "provider-schema",
+              "group": "aws_provider.aws_assume_role:RequiredObjectAttributes:duration_seconds,role_arn,session_name",
+              "source": "ast-validator:RequiredObjectAttributes",
+              "target_id": "xcsh-docs:resources:cloud_user_account:properties:aws_provider:aws_assume_role",
+              "type": "requires"
+            },
+            {
+              "anchor": "schema-aws_provider--aws_assume_role--role_arn",
+              "enforcement": "provider-schema",
+              "group": "aws_provider.aws_assume_role:RequiredObjectAttributes:duration_seconds,role_arn,session_name",
+              "source": "ast-validator:RequiredObjectAttributes",
+              "target_id": "xcsh-docs:resources:cloud_user_account:properties:aws_provider:aws_assume_role",
+              "type": "requires"
+            },
+            {
+              "anchor": "schema-aws_provider--aws_assume_role--session_name",
+              "enforcement": "provider-schema",
+              "group": "aws_provider.aws_assume_role:RequiredObjectAttributes:duration_seconds,role_arn,session_name",
+              "source": "ast-validator:RequiredObjectAttributes",
+              "target_id": "xcsh-docs:resources:cloud_user_account:properties:aws_provider:aws_assume_role",
+              "type": "requires"
+            }
+          ],
+          "schema_path": ["aws_provider", "aws_assume_role"],
+          "syntax": "block",
+          "type": "object"
+        },
+        {
+          "aliases": ["authentication", "aws secret key", "credential setup", "credentials"],
+          "anchor": "section",
+          "description": "AWS Programmatic Access Credentials type.",
+          "document_id": "xcsh-docs:resources:cloud_user_account:properties:aws_provider:aws_secret_key",
+          "flags": [],
+          "max_items": null,
+          "min_items": null,
+          "nesting": "single",
+          "relationships": [
+            {
+              "anchor": "schema-aws_provider--aws_secret_key--access_key",
+              "enforcement": "provider-schema",
+              "group": "aws_provider.aws_secret_key:RequiredObjectAttributes:access_key",
+              "source": "ast-validator:RequiredObjectAttributes",
+              "target_id": "xcsh-docs:resources:cloud_user_account:properties:aws_provider:aws_secret_key",
+              "type": "requires"
+            }
+          ],
+          "schema_path": ["aws_provider", "aws_secret_key"],
+          "syntax": "block",
+          "type": "object"
+        }
+      ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/cloud_user_account/properties/aws_provider/index.txt",
-      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
-      "summary": "aws_provider for xcsh_cloud_user_account.",
+      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "summary": "Create AWS Provider Type.",
+      "tasks": ["configuration"],
       "title": "aws_provider",
       "upstream_identity": {
-        "release_tag": "v9.0.0",
+        "release_tag": "v9.0.1",
         "schema_components": ["cloud_user_accountCreateRequest"],
-        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
       }
     },
     {
-      "aliases": [],
+      "aliases": ["aws provider aws assume role"],
       "body_bytes": 8710,
       "body_sha256": "sha256:cfdb96b4ad0cbeb334aabac1dec9a5a226ef1c8d5091fa26cfcf4f5d2d514e17",
+      "capabilities": ["identity"],
+      "category": "identity",
       "child_ids": [
         "xcsh-docs:resources:cloud_user_account:properties:aws_provider:aws_assume_role:external_id_is_optional",
         "xcsh-docs:resources:cloud_user_account:properties:aws_provider:aws_assume_role:external_id_is_tenant_id"
       ],
+      "classification": {
+        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "sources": ["reviewed-rule"],
+        "status": "resolved",
+        "upstream_category_source": "receipt-pinned-domain"
+      },
       "collection_id": "xcsh-docs:resources:cloud_user_account:collection",
       "completeness": "complete",
       "id": "xcsh-docs:resources:cloud_user_account:properties:aws_provider:aws_assume_role",
       "parent_id": "xcsh-docs:resources:cloud_user_account:properties:aws_provider",
       "path": "documentation/resources/cloud_user_account/properties/aws_provider/aws_assume_role/index.md",
+      "product": "distributed-cloud",
       "provider_name": "cloud_user_account",
       "provider_schema_digest": "sha256:e63a07e98b4893c041a6f79be7e19c64babfe543fc6847c17641037e084e1c7c",
       "provider_type": "resources",
       "registry_anchor": "canonical-0203122032220210-0210012000031000-3100110332321333-1031003211333210-3230132231332023-0000321022123333-3332133100122113-0033301221200031",
       "registry_path": "docs/guides/resources--cloud_user_account--reference--group-001.md",
+      "relationships": [
+        {
+          "anchor": "schema-aws_provider--aws_assume_role--custom_external_id",
+          "enforcement": "provider-schema",
+          "group": "aws_provider.aws_assume_role:ConflictingObjectAttributes:custom_external_id,external_id_is_optional",
+          "source": "ast-validator:ConflictingObjectAttributes",
+          "target_id": "xcsh-docs:resources:cloud_user_account:properties:aws_provider:aws_assume_role",
+          "type": "conflicts"
+        },
+        {
+          "anchor": "schema-aws_provider--aws_assume_role--custom_external_id",
+          "enforcement": "provider-schema",
+          "group": "aws_provider.aws_assume_role:ConflictingObjectAttributes:custom_external_id,external_id_is_tenant_id",
+          "source": "ast-validator:ConflictingObjectAttributes",
+          "target_id": "xcsh-docs:resources:cloud_user_account:properties:aws_provider:aws_assume_role",
+          "type": "conflicts"
+        },
+        {
+          "anchor": "section",
+          "enforcement": "provider-schema",
+          "group": "aws_provider.aws_assume_role:ConflictingObjectAttributes:custom_external_id,external_id_is_optional",
+          "source": "ast-validator:ConflictingObjectAttributes",
+          "target_id": "xcsh-docs:resources:cloud_user_account:properties:aws_provider:aws_assume_role:external_id_is_optional",
+          "type": "conflicts"
+        },
+        {
+          "anchor": "section",
+          "enforcement": "provider-schema",
+          "group": "aws_provider.aws_assume_role:ConflictingObjectAttributes:external_id_is_optional,external_id_is_tenant_id",
+          "source": "ast-validator:ConflictingObjectAttributes",
+          "target_id": "xcsh-docs:resources:cloud_user_account:properties:aws_provider:aws_assume_role:external_id_is_optional",
+          "type": "conflicts"
+        },
+        {
+          "anchor": "section",
+          "enforcement": "provider-schema",
+          "group": "aws_provider.aws_assume_role:ConflictingObjectAttributes:custom_external_id,external_id_is_tenant_id",
+          "source": "ast-validator:ConflictingObjectAttributes",
+          "target_id": "xcsh-docs:resources:cloud_user_account:properties:aws_provider:aws_assume_role:external_id_is_tenant_id",
+          "type": "conflicts"
+        },
+        {
+          "anchor": "section",
+          "enforcement": "provider-schema",
+          "group": "aws_provider.aws_assume_role:ConflictingObjectAttributes:external_id_is_optional,external_id_is_tenant_id",
+          "source": "ast-validator:ConflictingObjectAttributes",
+          "target_id": "xcsh-docs:resources:cloud_user_account:properties:aws_provider:aws_assume_role:external_id_is_tenant_id",
+          "type": "conflicts"
+        },
+        {
+          "anchor": "schema-aws_provider--aws_assume_role--duration_seconds",
+          "enforcement": "provider-schema",
+          "group": "aws_provider.aws_assume_role:RequiredObjectAttributes:duration_seconds,role_arn,session_name",
+          "source": "ast-validator:RequiredObjectAttributes",
+          "target_id": "xcsh-docs:resources:cloud_user_account:properties:aws_provider:aws_assume_role",
+          "type": "requires"
+        },
+        {
+          "anchor": "schema-aws_provider--aws_assume_role--role_arn",
+          "enforcement": "provider-schema",
+          "group": "aws_provider.aws_assume_role:RequiredObjectAttributes:duration_seconds,role_arn,session_name",
+          "source": "ast-validator:RequiredObjectAttributes",
+          "target_id": "xcsh-docs:resources:cloud_user_account:properties:aws_provider:aws_assume_role",
+          "type": "requires"
+        },
+        {
+          "anchor": "schema-aws_provider--aws_assume_role--session_name",
+          "enforcement": "provider-schema",
+          "group": "aws_provider.aws_assume_role:RequiredObjectAttributes:duration_seconds,role_arn,session_name",
+          "source": "ast-validator:RequiredObjectAttributes",
+          "target_id": "xcsh-docs:resources:cloud_user_account:properties:aws_provider:aws_assume_role",
+          "type": "requires"
+        }
+      ],
+      "retrieval_version": 1,
       "role": "properties",
       "schema_path": ["aws_provider", "aws_assume_role"],
+      "sections": [
+        {
+          "aliases": ["custom external id"],
+          "anchor": "schema-aws_provider--aws_assume_role--custom_external_id",
+          "description": "Exclusive with External ID is Custom ID.",
+          "document_id": "xcsh-docs:resources:cloud_user_account:properties:aws_provider:aws_assume_role",
+          "flags": ["optional"],
+          "max_items": null,
+          "min_items": null,
+          "nesting": null,
+          "relationships": [],
+          "schema_path": ["aws_provider", "aws_assume_role", "custom_external_id"],
+          "syntax": "attribute",
+          "type": "string"
+        },
+        {
+          "aliases": ["duration seconds"],
+          "anchor": "schema-aws_provider--aws_assume_role--duration_seconds",
+          "description": "The duration, in seconds of the role session.",
+          "document_id": "xcsh-docs:resources:cloud_user_account:properties:aws_provider:aws_assume_role",
+          "flags": ["optional"],
+          "max_items": null,
+          "min_items": null,
+          "nesting": null,
+          "relationships": [],
+          "schema_path": ["aws_provider", "aws_assume_role", "duration_seconds"],
+          "syntax": "attribute",
+          "type": "number"
+        },
+        {
+          "aliases": ["external id is optional"],
+          "anchor": "section",
+          "description": "This can be used for messages where no values are needed.",
+          "document_id": "xcsh-docs:resources:cloud_user_account:properties:aws_provider:aws_assume_role:external_id_is_optional",
+          "flags": ["optional"],
+          "max_items": null,
+          "min_items": null,
+          "nesting": null,
+          "relationships": [],
+          "schema_path": ["aws_provider", "aws_assume_role", "external_id_is_optional"],
+          "syntax": "attribute",
+          "type": "object"
+        },
+        {
+          "aliases": ["external id is tenant id"],
+          "anchor": "section",
+          "description": "This can be used for messages where no values are needed.",
+          "document_id": "xcsh-docs:resources:cloud_user_account:properties:aws_provider:aws_assume_role:external_id_is_tenant_id",
+          "flags": ["optional"],
+          "max_items": null,
+          "min_items": null,
+          "nesting": null,
+          "relationships": [],
+          "schema_path": ["aws_provider", "aws_assume_role", "external_id_is_tenant_id"],
+          "syntax": "attribute",
+          "type": "object"
+        },
+        {
+          "aliases": ["role arn"],
+          "anchor": "schema-aws_provider--aws_assume_role--role_arn",
+          "description": "IAM Role ARN to assume the role.",
+          "document_id": "xcsh-docs:resources:cloud_user_account:properties:aws_provider:aws_assume_role",
+          "flags": ["optional"],
+          "max_items": null,
+          "min_items": null,
+          "nesting": null,
+          "relationships": [],
+          "schema_path": ["aws_provider", "aws_assume_role", "role_arn"],
+          "syntax": "attribute",
+          "type": "string"
+        },
+        {
+          "aliases": ["session name"],
+          "anchor": "schema-aws_provider--aws_assume_role--session_name",
+          "description": "Use the role session name to uniquely identify a session, which will be used for deploy, monitor from F5XC console.",
+          "document_id": "xcsh-docs:resources:cloud_user_account:properties:aws_provider:aws_assume_role",
+          "flags": ["optional"],
+          "max_items": null,
+          "min_items": null,
+          "nesting": null,
+          "relationships": [],
+          "schema_path": ["aws_provider", "aws_assume_role", "session_name"],
+          "syntax": "attribute",
+          "type": "string"
+        },
+        {
+          "aliases": ["session tags"],
+          "anchor": "schema-aws_provider--aws_assume_role--session_tags",
+          "description": "Session tags are key-value pair attributes that you pass when you assume an IAM role.",
+          "document_id": "xcsh-docs:resources:cloud_user_account:properties:aws_provider:aws_assume_role",
+          "flags": ["optional"],
+          "max_items": null,
+          "min_items": null,
+          "nesting": null,
+          "relationships": [],
+          "schema_path": ["aws_provider", "aws_assume_role", "session_tags"],
+          "syntax": "attribute",
+          "type": "map"
+        }
+      ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/cloud_user_account/properties/aws_provider/aws_assume_role/index.txt",
-      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
-      "summary": "aws_provider.aws_assume_role for xcsh_cloud_user_account.",
+      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "summary": "AWS Assume Role to Handle Delegated Access.",
+      "tasks": ["configuration"],
       "title": "aws_provider.aws_assume_role",
       "upstream_identity": {
-        "release_tag": "v9.0.0",
+        "release_tag": "v9.0.1",
         "schema_components": ["cloud_user_accountCreateRequest"],
-        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
       }
     },
     {
-      "aliases": [],
+      "aliases": ["aws provider aws assume role external id is optional"],
       "body_bytes": 1567,
       "body_sha256": "sha256:5da90b7eb893991169261bd1558767c5f368629bb2ed90caa797640d2db9198a",
+      "capabilities": ["identity"],
+      "category": "identity",
       "child_ids": [],
+      "classification": {
+        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "sources": ["reviewed-rule"],
+        "status": "resolved",
+        "upstream_category_source": "receipt-pinned-domain"
+      },
       "collection_id": "xcsh-docs:resources:cloud_user_account:collection",
       "completeness": "complete",
       "id": "xcsh-docs:resources:cloud_user_account:properties:aws_provider:aws_assume_role:external_id_is_optional",
       "parent_id": "xcsh-docs:resources:cloud_user_account:properties:aws_provider:aws_assume_role",
       "path": "documentation/resources/cloud_user_account/properties/aws_provider/aws_assume_role/external_id_is_optional/index.md",
+      "product": "distributed-cloud",
       "provider_name": "cloud_user_account",
       "provider_schema_digest": "sha256:e63a07e98b4893c041a6f79be7e19c64babfe543fc6847c17641037e084e1c7c",
       "provider_type": "resources",
       "registry_anchor": "canonical-0111331230012032-3300101331303302-0102302032121321-1132003103313323-0231031210303310-0003123003123011-2221210012032123-1000330030113332",
       "registry_path": "docs/guides/resources--cloud_user_account--reference--group-001.md",
+      "relationships": [],
+      "retrieval_version": 1,
       "role": "properties",
       "schema_path": ["aws_provider", "aws_assume_role", "external_id_is_optional"],
+      "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/cloud_user_account/properties/aws_provider/aws_assume_role/external_id_is_optional/index.txt",
-      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
-      "summary": "aws_provider.aws_assume_role.external_id_is_optional for xcsh_cloud_user_account.",
+      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "summary": "This can be used for messages where no values are needed.",
+      "tasks": ["configuration"],
       "title": "aws_provider.aws_assume_role.external_id_is_optional",
       "upstream_identity": {
-        "release_tag": "v9.0.0",
+        "release_tag": "v9.0.1",
         "schema_components": ["cloud_user_accountCreateRequest"],
-        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
       }
     },
     {
-      "aliases": [],
+      "aliases": ["aws provider aws assume role external id is tenant id"],
       "body_bytes": 1536,
       "body_sha256": "sha256:9996b530219df5786ca4fc198ff3e68196696e954162dd5786c65c404493f667",
+      "capabilities": ["identity"],
+      "category": "identity",
       "child_ids": [],
+      "classification": {
+        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "sources": ["reviewed-rule"],
+        "status": "resolved",
+        "upstream_category_source": "receipt-pinned-domain"
+      },
       "collection_id": "xcsh-docs:resources:cloud_user_account:collection",
       "completeness": "complete",
       "id": "xcsh-docs:resources:cloud_user_account:properties:aws_provider:aws_assume_role:external_id_is_tenant_id",
       "parent_id": "xcsh-docs:resources:cloud_user_account:properties:aws_provider:aws_assume_role",
       "path": "documentation/resources/cloud_user_account/properties/aws_provider/aws_assume_role/external_id_is_tenant_id/index.md",
+      "product": "distributed-cloud",
       "provider_name": "cloud_user_account",
       "provider_schema_digest": "sha256:e63a07e98b4893c041a6f79be7e19c64babfe543fc6847c17641037e084e1c7c",
       "provider_type": "resources",
       "registry_anchor": "canonical-2333223212133110-1003021331020013-2212033203133211-0121301122012121-2230110212200112-2033303011223300-0203022312322123-0100133101311120",
       "registry_path": "docs/guides/resources--cloud_user_account--reference--group-001.md",
+      "relationships": [],
+      "retrieval_version": 1,
       "role": "properties",
       "schema_path": ["aws_provider", "aws_assume_role", "external_id_is_tenant_id"],
+      "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/cloud_user_account/properties/aws_provider/aws_assume_role/external_id_is_tenant_id/index.txt",
-      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
-      "summary": "aws_provider.aws_assume_role.external_id_is_tenant_id for xcsh_cloud_user_account.",
+      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "summary": "This can be used for messages where no values are needed.",
+      "tasks": ["configuration"],
       "title": "aws_provider.aws_assume_role.external_id_is_tenant_id",
       "upstream_identity": {
-        "release_tag": "v9.0.0",
+        "release_tag": "v9.0.1",
         "schema_components": ["cloud_user_accountCreateRequest"],
-        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
       }
     },
     {
-      "aliases": [],
+      "aliases": ["authentication", "aws provider aws secret key", "credential setup", "credentials"],
       "body_bytes": 2819,
       "body_sha256": "sha256:e30aedcb188d698580a8dc635abdbaf700878f2502892db9f11bd4a7a704cf61",
+      "capabilities": ["identity"],
+      "category": "identity",
       "child_ids": ["xcsh-docs:resources:cloud_user_account:properties:aws_provider:aws_secret_key:secret_key"],
+      "classification": {
+        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "sources": ["reviewed-rule"],
+        "status": "resolved",
+        "upstream_category_source": "receipt-pinned-domain"
+      },
       "collection_id": "xcsh-docs:resources:cloud_user_account:collection",
       "completeness": "complete",
       "id": "xcsh-docs:resources:cloud_user_account:properties:aws_provider:aws_secret_key",
       "parent_id": "xcsh-docs:resources:cloud_user_account:properties:aws_provider",
       "path": "documentation/resources/cloud_user_account/properties/aws_provider/aws_secret_key/index.md",
+      "product": "distributed-cloud",
       "provider_name": "cloud_user_account",
       "provider_schema_digest": "sha256:e63a07e98b4893c041a6f79be7e19c64babfe543fc6847c17641037e084e1c7c",
       "provider_type": "resources",
       "registry_anchor": "canonical-3210120310120211-1033322231223001-3203001032300111-3111213102301102-0100132230013100-1012330113030302-1102203301011011-1232122300323130",
       "registry_path": "docs/guides/resources--cloud_user_account--reference--group-001.md",
+      "relationships": [
+        {
+          "anchor": "schema-aws_provider--aws_secret_key--access_key",
+          "enforcement": "provider-schema",
+          "group": "aws_provider.aws_secret_key:RequiredObjectAttributes:access_key",
+          "source": "ast-validator:RequiredObjectAttributes",
+          "target_id": "xcsh-docs:resources:cloud_user_account:properties:aws_provider:aws_secret_key",
+          "type": "requires"
+        }
+      ],
+      "retrieval_version": 1,
       "role": "properties",
       "schema_path": ["aws_provider", "aws_secret_key"],
+      "sections": [
+        {
+          "aliases": ["access key"],
+          "anchor": "schema-aws_provider--aws_secret_key--access_key",
+          "description": "Access key ID for your AWS account.",
+          "document_id": "xcsh-docs:resources:cloud_user_account:properties:aws_provider:aws_secret_key",
+          "flags": ["optional"],
+          "max_items": null,
+          "min_items": null,
+          "nesting": null,
+          "relationships": [],
+          "schema_path": ["aws_provider", "aws_secret_key", "access_key"],
+          "syntax": "attribute",
+          "type": "string"
+        },
+        {
+          "aliases": ["secret key"],
+          "anchor": "section",
+          "description": "SecretType is used in an object to indicate a sensitive/confidential field.",
+          "document_id": "xcsh-docs:resources:cloud_user_account:properties:aws_provider:aws_secret_key:secret_key",
+          "flags": [],
+          "max_items": null,
+          "min_items": null,
+          "nesting": "single",
+          "relationships": [
+            {
+              "anchor": "section",
+              "enforcement": "provider-schema",
+              "group": "aws_provider.aws_secret_key.secret_key:ConflictingObjectAttributes:blindfold_secret_info,clear_secret_info",
+              "source": "ast-validator:ConflictingObjectAttributes",
+              "target_id": "xcsh-docs:resources:cloud_user_account:properties:aws_provider:aws_secret_key:secret_key:blindfold_secret_info",
+              "type": "conflicts"
+            },
+            {
+              "anchor": "section",
+              "enforcement": "provider-schema",
+              "group": "aws_provider.aws_secret_key.secret_key:ConflictingObjectAttributes:blindfold_secret_info,clear_secret_info",
+              "source": "ast-validator:ConflictingObjectAttributes",
+              "target_id": "xcsh-docs:resources:cloud_user_account:properties:aws_provider:aws_secret_key:secret_key:clear_secret_info",
+              "type": "conflicts"
+            }
+          ],
+          "schema_path": ["aws_provider", "aws_secret_key", "secret_key"],
+          "syntax": "block",
+          "type": "object"
+        }
+      ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/cloud_user_account/properties/aws_provider/aws_secret_key/index.txt",
-      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
-      "summary": "aws_provider.aws_secret_key for xcsh_cloud_user_account.",
+      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "summary": "AWS Programmatic Access Credentials type.",
+      "tasks": ["configuration"],
       "title": "aws_provider.aws_secret_key",
       "upstream_identity": {
-        "release_tag": "v9.0.0",
+        "release_tag": "v9.0.1",
         "schema_components": ["cloud_user_accountCreateRequest"],
-        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
       }
     },
     {
-      "aliases": [],
+      "aliases": ["aws provider aws secret key secret key"],
       "body_bytes": 2601,
       "body_sha256": "sha256:f783a8c141519993d98de6b161ff71991551ba22c11721b8ad72018da9ee9c44",
+      "capabilities": ["identity"],
+      "category": "identity",
       "child_ids": [
         "xcsh-docs:resources:cloud_user_account:properties:aws_provider:aws_secret_key:secret_key:blindfold_secret_info",
         "xcsh-docs:resources:cloud_user_account:properties:aws_provider:aws_secret_key:secret_key:clear_secret_info"
       ],
+      "classification": {
+        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "sources": ["reviewed-rule"],
+        "status": "resolved",
+        "upstream_category_source": "receipt-pinned-domain"
+      },
       "collection_id": "xcsh-docs:resources:cloud_user_account:collection",
       "completeness": "complete",
       "id": "xcsh-docs:resources:cloud_user_account:properties:aws_provider:aws_secret_key:secret_key",
       "parent_id": "xcsh-docs:resources:cloud_user_account:properties:aws_provider:aws_secret_key",
       "path": "documentation/resources/cloud_user_account/properties/aws_provider/aws_secret_key/secret_key/index.md",
+      "product": "distributed-cloud",
       "provider_name": "cloud_user_account",
       "provider_schema_digest": "sha256:e63a07e98b4893c041a6f79be7e19c64babfe543fc6847c17641037e084e1c7c",
       "provider_type": "resources",
       "registry_anchor": "canonical-2001221302332211-2120100113112113-0332202130220011-0122302022011012-2013320011211203-2112222032103022-3201233201320212-1222131110323002",
       "registry_path": "docs/guides/resources--cloud_user_account--reference--group-001.md",
+      "relationships": [
+        {
+          "anchor": "section",
+          "enforcement": "provider-schema",
+          "group": "aws_provider.aws_secret_key.secret_key:ConflictingObjectAttributes:blindfold_secret_info,clear_secret_info",
+          "source": "ast-validator:ConflictingObjectAttributes",
+          "target_id": "xcsh-docs:resources:cloud_user_account:properties:aws_provider:aws_secret_key:secret_key:blindfold_secret_info",
+          "type": "conflicts"
+        },
+        {
+          "anchor": "section",
+          "enforcement": "provider-schema",
+          "group": "aws_provider.aws_secret_key.secret_key:ConflictingObjectAttributes:blindfold_secret_info,clear_secret_info",
+          "source": "ast-validator:ConflictingObjectAttributes",
+          "target_id": "xcsh-docs:resources:cloud_user_account:properties:aws_provider:aws_secret_key:secret_key:clear_secret_info",
+          "type": "conflicts"
+        }
+      ],
+      "retrieval_version": 1,
       "role": "properties",
       "schema_path": ["aws_provider", "aws_secret_key", "secret_key"],
+      "sections": [
+        {
+          "aliases": ["blindfold secret info"],
+          "anchor": "section",
+          "description": "BlindfoldSecretInfoType specifies information about the Secret managed by F5XC Secret Management.",
+          "document_id": "xcsh-docs:resources:cloud_user_account:properties:aws_provider:aws_secret_key:secret_key:blindfold_secret_info",
+          "flags": [],
+          "max_items": null,
+          "min_items": null,
+          "nesting": "single",
+          "relationships": [
+            {
+              "anchor": "schema-aws_provider--aws_secret_key--secret_key--blindfold_secret_info--location",
+              "enforcement": "provider-schema",
+              "group": "aws_provider.aws_secret_key.secret_key.blindfold_secret_info:RequiredObjectAttributes:location",
+              "source": "ast-validator:RequiredObjectAttributes",
+              "target_id": "xcsh-docs:resources:cloud_user_account:properties:aws_provider:aws_secret_key:secret_key:blindfold_secret_info",
+              "type": "requires"
+            }
+          ],
+          "schema_path": ["aws_provider", "aws_secret_key", "secret_key", "blindfold_secret_info"],
+          "syntax": "block",
+          "type": "object"
+        },
+        {
+          "aliases": ["clear secret info"],
+          "anchor": "section",
+          "description": "ClearSecretInfoType specifies information about the Secret that is not encrypted.",
+          "document_id": "xcsh-docs:resources:cloud_user_account:properties:aws_provider:aws_secret_key:secret_key:clear_secret_info",
+          "flags": [],
+          "max_items": null,
+          "min_items": null,
+          "nesting": "single",
+          "relationships": [
+            {
+              "anchor": "schema-aws_provider--aws_secret_key--secret_key--clear_secret_info--url",
+              "enforcement": "provider-schema",
+              "group": "aws_provider.aws_secret_key.secret_key.clear_secret_info:RequiredObjectAttributes:url",
+              "source": "ast-validator:RequiredObjectAttributes",
+              "target_id": "xcsh-docs:resources:cloud_user_account:properties:aws_provider:aws_secret_key:secret_key:clear_secret_info",
+              "type": "requires"
+            }
+          ],
+          "schema_path": ["aws_provider", "aws_secret_key", "secret_key", "clear_secret_info"],
+          "syntax": "block",
+          "type": "object"
+        }
+      ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/cloud_user_account/properties/aws_provider/aws_secret_key/secret_key/index.txt",
-      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
-      "summary": "aws_provider.aws_secret_key.secret_key for xcsh_cloud_user_account.",
+      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "summary": "SecretType is used in an object to indicate a sensitive/confidential field.",
+      "tasks": ["configuration"],
       "title": "aws_provider.aws_secret_key.secret_key",
       "upstream_identity": {
-        "release_tag": "v9.0.0",
+        "release_tag": "v9.0.1",
         "schema_components": ["cloud_user_accountCreateRequest"],
-        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
       }
     },
     {
-      "aliases": [],
+      "aliases": ["aws provider aws secret key secret key blindfold secret info"],
       "body_bytes": 5182,
       "body_sha256": "sha256:9bfdefb35a8eae71381eff8fdf5dca7d496a6b2a7d6aa7b178ae98a61606ea7b",
+      "capabilities": ["identity"],
+      "category": "identity",
       "child_ids": [],
+      "classification": {
+        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "sources": ["reviewed-rule"],
+        "status": "resolved",
+        "upstream_category_source": "receipt-pinned-domain"
+      },
       "collection_id": "xcsh-docs:resources:cloud_user_account:collection",
       "completeness": "complete",
       "id": "xcsh-docs:resources:cloud_user_account:properties:aws_provider:aws_secret_key:secret_key:blindfold_secret_info",
       "parent_id": "xcsh-docs:resources:cloud_user_account:properties:aws_provider:aws_secret_key:secret_key",
       "path": "documentation/resources/cloud_user_account/properties/aws_provider/aws_secret_key/secret_key/blindfold_secret_info/index.md",
+      "product": "distributed-cloud",
       "provider_name": "cloud_user_account",
       "provider_schema_digest": "sha256:e63a07e98b4893c041a6f79be7e19c64babfe543fc6847c17641037e084e1c7c",
       "provider_type": "resources",
       "registry_anchor": "canonical-0031333121202102-1230320232132103-2300023311220330-3111331100113333-3130032020332200-2300012222130123-2301302130002310-1120023001231000",
       "registry_path": "docs/guides/resources--cloud_user_account--reference--group-001.md",
+      "relationships": [
+        {
+          "anchor": "schema-aws_provider--aws_secret_key--secret_key--blindfold_secret_info--location",
+          "enforcement": "provider-schema",
+          "group": "aws_provider.aws_secret_key.secret_key.blindfold_secret_info:RequiredObjectAttributes:location",
+          "source": "ast-validator:RequiredObjectAttributes",
+          "target_id": "xcsh-docs:resources:cloud_user_account:properties:aws_provider:aws_secret_key:secret_key:blindfold_secret_info",
+          "type": "requires"
+        }
+      ],
+      "retrieval_version": 1,
       "role": "properties",
       "schema_path": ["aws_provider", "aws_secret_key", "secret_key", "blindfold_secret_info"],
+      "sections": [
+        {
+          "aliases": ["backend servers", "decryption provider", "origin servers", "upstream servers"],
+          "anchor": "schema-aws_provider--aws_secret_key--secret_key--blindfold_secret_info--decryption_provider",
+          "description": "Name of the Secret Management Access object that contains information about the backend Secret Management service.",
+          "document_id": "xcsh-docs:resources:cloud_user_account:properties:aws_provider:aws_secret_key:secret_key:blindfold_secret_info",
+          "flags": ["optional"],
+          "max_items": null,
+          "min_items": null,
+          "nesting": null,
+          "relationships": [],
+          "schema_path": [
+            "aws_provider",
+            "aws_secret_key",
+            "secret_key",
+            "blindfold_secret_info",
+            "decryption_provider"
+          ],
+          "syntax": "attribute",
+          "type": "string"
+        },
+        {
+          "aliases": ["location"],
+          "anchor": "schema-aws_provider--aws_secret_key--secret_key--blindfold_secret_info--location",
+          "description": "Location is the uri_ref. It could be in URL format for string:/// Or it could be a path if the store provider is an HTTP/HTTPS location.",
+          "document_id": "xcsh-docs:resources:cloud_user_account:properties:aws_provider:aws_secret_key:secret_key:blindfold_secret_info",
+          "flags": ["optional", "sensitive"],
+          "max_items": null,
+          "min_items": null,
+          "nesting": null,
+          "relationships": [],
+          "schema_path": ["aws_provider", "aws_secret_key", "secret_key", "blindfold_secret_info", "location"],
+          "syntax": "attribute",
+          "type": "string"
+        },
+        {
+          "aliases": ["store provider"],
+          "anchor": "schema-aws_provider--aws_secret_key--secret_key--blindfold_secret_info--store_provider",
+          "description": "Name of the Secret Management Access object that contains information about the store to GET encrypted bytes This field needs to be provided only if the URL scheme is not string:///.",
+          "document_id": "xcsh-docs:resources:cloud_user_account:properties:aws_provider:aws_secret_key:secret_key:blindfold_secret_info",
+          "flags": ["optional"],
+          "max_items": null,
+          "min_items": null,
+          "nesting": null,
+          "relationships": [],
+          "schema_path": ["aws_provider", "aws_secret_key", "secret_key", "blindfold_secret_info", "store_provider"],
+          "syntax": "attribute",
+          "type": "string"
+        }
+      ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/cloud_user_account/properties/aws_provider/aws_secret_key/secret_key/blindfold_secret_info/index.txt",
-      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
-      "summary": "aws_provider.aws_secret_key.secret_key.blindfold_secret_info for xcsh_cloud_user_account.",
+      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "summary": "BlindfoldSecretInfoType specifies information about the Secret managed by F5XC Secret Management.",
+      "tasks": ["configuration"],
       "title": "aws_provider.aws_secret_key.secret_key.blindfold_secret_info",
       "upstream_identity": {
-        "release_tag": "v9.0.0",
+        "release_tag": "v9.0.1",
         "schema_components": ["cloud_user_accountCreateRequest"],
-        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
       }
     },
     {
-      "aliases": [],
+      "aliases": ["aws provider aws secret key secret key clear secret info"],
       "body_bytes": 4053,
       "body_sha256": "sha256:5fcdf733f3fb8b88a5278efa7a66ce281e16e0c8d4070acda7e3f611ab7b72f0",
+      "capabilities": ["identity"],
+      "category": "identity",
       "child_ids": [],
+      "classification": {
+        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "sources": ["reviewed-rule"],
+        "status": "resolved",
+        "upstream_category_source": "receipt-pinned-domain"
+      },
       "collection_id": "xcsh-docs:resources:cloud_user_account:collection",
       "completeness": "complete",
       "id": "xcsh-docs:resources:cloud_user_account:properties:aws_provider:aws_secret_key:secret_key:clear_secret_info",
       "parent_id": "xcsh-docs:resources:cloud_user_account:properties:aws_provider:aws_secret_key:secret_key",
       "path": "documentation/resources/cloud_user_account/properties/aws_provider/aws_secret_key/secret_key/clear_secret_info/index.md",
+      "product": "distributed-cloud",
       "provider_name": "cloud_user_account",
       "provider_schema_digest": "sha256:e63a07e98b4893c041a6f79be7e19c64babfe543fc6847c17641037e084e1c7c",
       "provider_type": "resources",
       "registry_anchor": "canonical-1133313101003120-3013100103310303-2231312031111233-0222222011322110-3233320133321320-2211032113123301-1002331322322331-2320323030303113",
       "registry_path": "docs/guides/resources--cloud_user_account--reference--group-001.md",
+      "relationships": [
+        {
+          "anchor": "schema-aws_provider--aws_secret_key--secret_key--clear_secret_info--url",
+          "enforcement": "provider-schema",
+          "group": "aws_provider.aws_secret_key.secret_key.clear_secret_info:RequiredObjectAttributes:url",
+          "source": "ast-validator:RequiredObjectAttributes",
+          "target_id": "xcsh-docs:resources:cloud_user_account:properties:aws_provider:aws_secret_key:secret_key:clear_secret_info",
+          "type": "requires"
+        }
+      ],
+      "retrieval_version": 1,
       "role": "properties",
       "schema_path": ["aws_provider", "aws_secret_key", "secret_key", "clear_secret_info"],
+      "sections": [
+        {
+          "aliases": ["provider ref"],
+          "anchor": "schema-aws_provider--aws_secret_key--secret_key--clear_secret_info--provider_ref",
+          "description": "Name of the Secret Management Access object that contains information about the store to GET encrypted bytes This field needs to be provided only if the URL scheme is not string:///.",
+          "document_id": "xcsh-docs:resources:cloud_user_account:properties:aws_provider:aws_secret_key:secret_key:clear_secret_info",
+          "flags": ["optional"],
+          "max_items": null,
+          "min_items": null,
+          "nesting": null,
+          "relationships": [],
+          "schema_path": ["aws_provider", "aws_secret_key", "secret_key", "clear_secret_info", "provider_ref"],
+          "syntax": "attribute",
+          "type": "string"
+        },
+        {
+          "aliases": ["url"],
+          "anchor": "schema-aws_provider--aws_secret_key--secret_key--clear_secret_info--url",
+          "description": "URL of the secret. Currently supported URL schemes is string:///. For string:/// scheme, Secret needs to be encoded Base64 format. When asked for this secret, caller will GET Secret bytes after Base64 decoding.",
+          "document_id": "xcsh-docs:resources:cloud_user_account:properties:aws_provider:aws_secret_key:secret_key:clear_secret_info",
+          "flags": ["optional", "sensitive"],
+          "max_items": null,
+          "min_items": null,
+          "nesting": null,
+          "relationships": [],
+          "schema_path": ["aws_provider", "aws_secret_key", "secret_key", "clear_secret_info", "url"],
+          "syntax": "attribute",
+          "type": "string"
+        }
+      ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/cloud_user_account/properties/aws_provider/aws_secret_key/secret_key/clear_secret_info/index.txt",
-      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
-      "summary": "aws_provider.aws_secret_key.secret_key.clear_secret_info for xcsh_cloud_user_account.",
+      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
+      "summary": "ClearSecretInfoType specifies information about the Secret that is not encrypted.",
+      "tasks": ["configuration"],
       "title": "aws_provider.aws_secret_key.secret_key.clear_secret_info",
       "upstream_identity": {
-        "release_tag": "v9.0.0",
+        "release_tag": "v9.0.1",
         "schema_components": ["cloud_user_accountCreateRequest"],
-        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
       }
     },
     {
-      "aliases": [],
+      "aliases": ["duration", "operation timeout", "timeouts"],
       "body_bytes": 2267,
       "body_sha256": "sha256:26ac028259eac80066a63d177ca6375f2f00b7ca787b1e784df9551bcc8f9218",
+      "capabilities": ["identity"],
+      "category": "identity",
       "child_ids": [],
+      "classification": {
+        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "sources": ["reviewed-rule"],
+        "status": "resolved",
+        "upstream_category_source": "receipt-pinned-domain"
+      },
       "collection_id": "xcsh-docs:resources:cloud_user_account:collection",
       "completeness": "complete",
       "id": "xcsh-docs:resources:cloud_user_account:properties:timeouts",
       "parent_id": "xcsh-docs:resources:cloud_user_account:reference",
       "path": "documentation/resources/cloud_user_account/properties/timeouts/index.md",
+      "product": "distributed-cloud",
       "provider_name": "cloud_user_account",
       "provider_schema_digest": "sha256:e63a07e98b4893c041a6f79be7e19c64babfe543fc6847c17641037e084e1c7c",
       "provider_type": "resources",
       "registry_anchor": "canonical-0221113313211300-2231231022211031-3221203221120320-0031001120313020-3123202310330231-1322011032313320-0320332131030022-2003021023203233",
       "registry_path": "docs/guides/resources--cloud_user_account--reference--group-001.md",
+      "relationships": [],
+      "retrieval_version": 1,
       "role": "properties",
       "schema_path": ["timeouts"],
+      "sections": [
+        {
+          "aliases": ["create"],
+          "anchor": "schema-timeouts--create",
+          "description": "A string that can be (https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as \"30s\" or \"2h45m\". Valid time units are \"s\" (seconds), \"m\" (minutes), \"h\" (hours).",
+          "document_id": "xcsh-docs:resources:cloud_user_account:properties:timeouts",
+          "flags": ["optional"],
+          "max_items": null,
+          "min_items": null,
+          "nesting": null,
+          "relationships": [],
+          "schema_path": ["timeouts", "create"],
+          "syntax": "attribute",
+          "type": "string"
+        },
+        {
+          "aliases": ["delete", "duration", "operation timeout"],
+          "anchor": "schema-timeouts--delete",
+          "description": "A string that can be (https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as \"30s\" or \"2h45m\". Valid time units are \"s\" (seconds), \"m\" (minutes), \"h\" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.",
+          "document_id": "xcsh-docs:resources:cloud_user_account:properties:timeouts",
+          "flags": ["optional"],
+          "max_items": null,
+          "min_items": null,
+          "nesting": null,
+          "relationships": [],
+          "schema_path": ["timeouts", "delete"],
+          "syntax": "attribute",
+          "type": "string"
+        },
+        {
+          "aliases": ["read"],
+          "anchor": "schema-timeouts--read",
+          "description": "A string that can be (https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as \"30s\" or \"2h45m\". Valid time units are \"s\" (seconds), \"m\" (minutes), \"h\" (hours). Read operations occur during any refresh or planning operation when refresh is enabled.",
+          "document_id": "xcsh-docs:resources:cloud_user_account:properties:timeouts",
+          "flags": ["optional"],
+          "max_items": null,
+          "min_items": null,
+          "nesting": null,
+          "relationships": [],
+          "schema_path": ["timeouts", "read"],
+          "syntax": "attribute",
+          "type": "string"
+        },
+        {
+          "aliases": ["update"],
+          "anchor": "schema-timeouts--update",
+          "description": "A string that can be (https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as \"30s\" or \"2h45m\". Valid time units are \"s\" (seconds), \"m\" (minutes), \"h\" (hours).",
+          "document_id": "xcsh-docs:resources:cloud_user_account:properties:timeouts",
+          "flags": ["optional"],
+          "max_items": null,
+          "min_items": null,
+          "nesting": null,
+          "relationships": [],
+          "schema_path": ["timeouts", "update"],
+          "syntax": "attribute",
+          "type": "string"
+        }
+      ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/cloud_user_account/properties/timeouts/index.txt",
-      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
       "summary": "timeouts for xcsh_cloud_user_account.",
+      "tasks": ["configuration"],
       "title": "timeouts",
       "upstream_identity": {
-        "release_tag": "v9.0.0",
+        "release_tag": "v9.0.1",
         "schema_components": ["cloud_user_accountCreateRequest"],
-        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
       }
     },
     {
-      "aliases": [],
+      "aliases": ["cloud user account"],
       "body_bytes": 669,
       "body_sha256": "sha256:51ae612d98af4b85ca715e6472a625c9acf7b7d0a26cff2f17a3c0d2dbe6253c",
+      "capabilities": ["identity"],
+      "category": "identity",
       "child_ids": ["xcsh-docs:resources:cloud_user_account:example:resource"],
+      "classification": {
+        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "sources": ["reviewed-rule"],
+        "status": "resolved",
+        "upstream_category_source": "receipt-pinned-domain"
+      },
       "collection_id": "xcsh-docs:resources:cloud_user_account:collection",
       "completeness": "complete",
       "id": "xcsh-docs:resources:cloud_user_account:examples",
       "parent_id": "xcsh-docs:resources:cloud_user_account:fundamentals",
       "path": "documentation/resources/cloud_user_account/examples/index.md",
+      "product": "distributed-cloud",
       "provider_name": "cloud_user_account",
       "provider_schema_digest": "sha256:e63a07e98b4893c041a6f79be7e19c64babfe543fc6847c17641037e084e1c7c",
       "provider_type": "resources",
       "registry_anchor": "canonical-1201010100032201-3121233112123000-2101330232023112-1331201022311202-1331232332031200-3132300021332320-3012231020101202-0111122311221301",
       "registry_path": "docs/guides/resources--cloud_user_account--examples--group-001.md",
+      "relationships": [],
+      "retrieval_version": 1,
       "role": "examples",
       "schema_path": [],
+      "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/cloud_user_account/examples/index.txt",
-      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
       "summary": "Examples for xcsh_cloud_user_account.",
+      "tasks": ["configuration"],
       "title": "Examples",
       "upstream_identity": {
-        "release_tag": "v9.0.0",
+        "release_tag": "v9.0.1",
         "schema_components": ["cloud_user_accountCreateRequest"],
-        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
       }
     },
     {
-      "aliases": [],
+      "aliases": ["resource"],
       "body_bytes": 1355,
       "body_sha256": "sha256:61249fa6d3e82df03b360685ff82b559783be96cb54a9dfc205b161b7ef1a83c",
+      "capabilities": ["identity"],
+      "category": "identity",
       "child_ids": [],
+      "classification": {
+        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "sources": ["reviewed-rule"],
+        "status": "resolved",
+        "upstream_category_source": "receipt-pinned-domain"
+      },
       "collection_id": "xcsh-docs:resources:cloud_user_account:collection",
       "completeness": "complete",
       "evidence": {
@@ -527,76 +1438,107 @@
       "id": "xcsh-docs:resources:cloud_user_account:example:resource",
       "parent_id": "xcsh-docs:resources:cloud_user_account:examples",
       "path": "documentation/resources/cloud_user_account/examples/resource/index.md",
+      "product": "distributed-cloud",
       "provider_name": "cloud_user_account",
       "provider_schema_digest": "sha256:e63a07e98b4893c041a6f79be7e19c64babfe543fc6847c17641037e084e1c7c",
       "provider_type": "resources",
       "registry_anchor": "canonical-3320102201013303-0323232301333013-3022133202021203-2001003031233102-1100302300311030-2013113123333033-2021303002213021-1123010131030010",
       "registry_path": "docs/guides/resources--cloud_user_account--examples--group-001.md",
+      "relationships": [],
+      "retrieval_version": 1,
       "role": "example",
       "schema_path": ["resource"],
+      "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/cloud_user_account/examples/resource/index.txt",
-      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
       "summary": "Resource for xcsh_cloud_user_account.",
+      "tasks": ["configuration"],
       "title": "Resource",
       "upstream_identity": {
-        "release_tag": "v9.0.0",
+        "release_tag": "v9.0.1",
         "schema_components": ["cloud_user_accountCreateRequest"],
-        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
       }
     },
     {
-      "aliases": [],
+      "aliases": ["cloud user account"],
       "body_bytes": 510,
       "body_sha256": "sha256:843708ce3ed54b5f2fd794a282db7c58b275522f13dcf058dd1f8cb1faf8d87a",
+      "capabilities": ["identity"],
+      "category": "identity",
       "child_ids": [],
+      "classification": {
+        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "sources": ["reviewed-rule"],
+        "status": "resolved",
+        "upstream_category_source": "receipt-pinned-domain"
+      },
       "collection_id": "xcsh-docs:resources:cloud_user_account:collection",
       "completeness": "complete",
       "id": "xcsh-docs:resources:cloud_user_account:import",
       "import_guidance": "Import using the `namespace/name` identifier format.",
       "parent_id": "xcsh-docs:resources:cloud_user_account:fundamentals",
       "path": "documentation/resources/cloud_user_account/lifecycle/import/index.md",
+      "product": "distributed-cloud",
       "provider_name": "cloud_user_account",
       "provider_schema_digest": "sha256:e63a07e98b4893c041a6f79be7e19c64babfe543fc6847c17641037e084e1c7c",
       "provider_type": "resources",
       "registry_anchor": "canonical-3201120320023322-0133231032231320-1222233130132021-2211030001331102-3101023332001003-2022030322301001-2200000132022010-1133230210131223",
       "registry_path": "docs/guides/resources--cloud_user_account--lifecycle--group-001.md",
+      "relationships": [],
+      "retrieval_version": 1,
       "role": "import",
       "schema_path": [],
+      "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/cloud_user_account/lifecycle/import/index.txt",
-      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
       "summary": "Import for xcsh_cloud_user_account.",
+      "tasks": ["import"],
       "title": "Import",
       "upstream_identity": {
-        "release_tag": "v9.0.0",
+        "release_tag": "v9.0.1",
         "schema_components": ["cloud_user_accountCreateRequest"],
-        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
       }
     },
     {
-      "aliases": [],
+      "aliases": ["cloud user account"],
       "body_bytes": 598,
       "body_sha256": "sha256:0dacda7ae9fb00ead7a5b83643b52b2d6067507388b1cf28435e76a7367ad3e9",
+      "capabilities": ["identity"],
+      "category": "identity",
       "child_ids": [],
+      "classification": {
+        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "sources": ["reviewed-rule"],
+        "status": "resolved",
+        "upstream_category_source": "receipt-pinned-domain"
+      },
       "collection_id": "xcsh-docs:resources:cloud_user_account:collection",
       "completeness": "complete",
       "id": "xcsh-docs:resources:cloud_user_account:timeouts",
       "parent_id": "xcsh-docs:resources:cloud_user_account:fundamentals",
       "path": "documentation/resources/cloud_user_account/lifecycle/timeouts/index.md",
+      "product": "distributed-cloud",
       "provider_name": "cloud_user_account",
       "provider_schema_digest": "sha256:e63a07e98b4893c041a6f79be7e19c64babfe543fc6847c17641037e084e1c7c",
       "provider_type": "resources",
       "registry_anchor": "canonical-3021311123021021-1232011023331221-1133112020230020-0320122303201100-1102130212021200-3300003133022100-0301203212200310-2320223000311203",
       "registry_path": "docs/guides/resources--cloud_user_account--lifecycle--group-001.md",
+      "relationships": [],
+      "retrieval_version": 1,
       "role": "timeouts",
       "schema_path": [],
+      "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/cloud_user_account/lifecycle/timeouts/index.txt",
-      "spec_pin_digest": "sha256:5236cddd67bd603b0ce9bb70d82e356a161a3be971d90fc60eb8119dfb833774",
+      "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
       "summary": "Timeouts for xcsh_cloud_user_account.",
+      "tasks": ["lifecycle"],
       "title": "Timeouts",
       "upstream_identity": {
-        "release_tag": "v9.0.0",
+        "release_tag": "v9.0.1",
         "schema_components": ["cloud_user_accountCreateRequest"],
-        "target_commit": "f95183046197e6547a3ea123e324f53126eae440"
+        "target_commit": "158db014109f2a838b95bccd8eb1870a39f8ca71"
       }
     }
   ],
