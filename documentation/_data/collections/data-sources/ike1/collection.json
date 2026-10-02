@@ -93,7 +93,7 @@
       "category": null,
       "child_ids": ["xcsh-docs:data-sources:ike1:reference", "xcsh-docs:data-sources:ike1:examples"],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -105,7 +105,7 @@
       "path": "documentation/data-sources/ike1/index.md",
       "product": "distributed-cloud",
       "provider_name": "ike1",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-2112011122002111-1121301111312122-3021231213103111-3131302213110331-0301300202011011-1200320222013102-3321012020321333-1000030102103313",
       "registry_path": "docs/data-sources/ike1.md",
@@ -141,7 +141,7 @@
         "xcsh-docs:data-sources:ike1:properties:use_default_keylifetime"
       ],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -153,7 +153,7 @@
       "path": "documentation/data-sources/ike1/properties/index.md",
       "product": "distributed-cloud",
       "provider_name": "ike1",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-2113121021131213-0322330121000333-0232103301210212-3101112300210032-3102213101322310-0311031112112121-1311322002110322-0313010312330013",
       "registry_path": "docs/guides/data-sources--ike1--reference--group-001.md",
@@ -350,7 +350,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -362,7 +362,7 @@
       "path": "documentation/data-sources/ike1/properties/ike_keylifetime_hours/index.md",
       "product": "distributed-cloud",
       "provider_name": "ike1",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-0120031312130031-1132223331220200-2133100030100121-0103222320230321-2330021313322301-1133110020212231-1210023022223030-0330011111032200",
       "registry_path": "docs/guides/data-sources--ike1--reference--group-001.md",
@@ -405,7 +405,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -417,7 +417,7 @@
       "path": "documentation/data-sources/ike1/properties/ike_keylifetime_minutes/index.md",
       "product": "distributed-cloud",
       "provider_name": "ike1",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-1232302301313123-3223222122302102-1230332113313122-1100330332201202-0220101233231221-0310100100101201-0122221302202320-2112001111213211",
       "registry_path": "docs/guides/data-sources--ike1--reference--group-001.md",
@@ -460,7 +460,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -472,7 +472,7 @@
       "path": "documentation/data-sources/ike1/properties/reauth_disabled/index.md",
       "product": "distributed-cloud",
       "provider_name": "ike1",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-3033312231301021-1312332110313310-0022003320203320-3311113320322230-2303310002023031-0303231333300103-2003132232103312-3130230321003312",
       "registry_path": "docs/guides/data-sources--ike1--reference--group-001.md",
@@ -500,7 +500,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -512,7 +512,7 @@
       "path": "documentation/data-sources/ike1/properties/reauth_timeout_days/index.md",
       "product": "distributed-cloud",
       "provider_name": "ike1",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-2133111320003023-0122010212102113-2210003202133112-0212222121011111-1232101211020212-3120030011222322-1002232301311221-2221301000112022",
       "registry_path": "docs/guides/data-sources--ike1--reference--group-001.md",
@@ -555,7 +555,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -567,7 +567,7 @@
       "path": "documentation/data-sources/ike1/properties/reauth_timeout_hours/index.md",
       "product": "distributed-cloud",
       "provider_name": "ike1",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-0102013100100030-1300321120331131-2201302003323321-1202312123020013-2030320331100303-3113331330013120-3010003022023213-1032000312002110",
       "registry_path": "docs/guides/data-sources--ike1--reference--group-001.md",
@@ -610,7 +610,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -622,7 +622,7 @@
       "path": "documentation/data-sources/ike1/properties/use_default_keylifetime/index.md",
       "product": "distributed-cloud",
       "provider_name": "ike1",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-0002111212321313-2201102133212333-2133110002001112-1330111101010232-0003303210302032-2233112300001020-0221021111213102-2211102133202210",
       "registry_path": "docs/guides/data-sources--ike1--reference--group-001.md",
@@ -650,7 +650,7 @@
       "category": null,
       "child_ids": ["xcsh-docs:data-sources:ike1:example:data-source"],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -662,7 +662,7 @@
       "path": "documentation/data-sources/ike1/examples/index.md",
       "product": "distributed-cloud",
       "provider_name": "ike1",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-3132332313110102-2301103110101323-3013231113332213-2101031223111032-3332331103131323-1221301031101331-1200200320022232-2002033021333210",
       "registry_path": "docs/guides/data-sources--ike1--examples--group-001.md",
@@ -690,7 +690,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -709,7 +709,7 @@
       "path": "documentation/data-sources/ike1/examples/data-source/index.md",
       "product": "distributed-cloud",
       "provider_name": "ike1",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-3022001323333201-2001223231333011-3210311031311210-3033232202212002-0021323023202230-2002021111130230-3113133000002103-0213310311101300",
       "registry_path": "docs/guides/data-sources--ike1--examples--group-001.md",

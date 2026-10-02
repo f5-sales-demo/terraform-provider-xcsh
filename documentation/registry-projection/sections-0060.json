@@ -2,6 +2,324 @@
   "schema_version": 1,
   "sections": [
     {
+      "canonical_id": "xcsh-docs:resources:route:properties:routes:route_destination:hash_policy:cookie:ignore_samesite",
+      "section_id": "xcsh-docs:resources:route:properties:routes:route_destination:hash_policy:cookie:ignore_samesite:section:0",
+      "source_sha256": "sha256:197d41522a9dd286cb9805a03d8a5bd782cc3f3fd95ea854bf2dfc326e83e50c",
+      "source_bytes": 99,
+      "canonical_source_sha256": "sha256:7027839d633bf533f9304393e195dafc509d2c5d124372199743bda695835ac2",
+      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/resources/route/properties/routes/route_destination/hash_policy/cookie/ignore_samesite/",
+      "anchor": "canonical-3223131201231103-3112020020012100-1131110222001221-1122002001320332-3322212020002332-0232202331111333-2020301001111123-1001312110322223",
+      "anchor_map": [],
+      "mode": "embedded",
+      "registry_path": "docs/guides/resources--route--reference--group-002.md"
+    },
+    {
+      "canonical_id": "xcsh-docs:resources:route:properties:routes:route_destination:hash_policy:cookie:ignore_samesite",
+      "section_id": "xcsh-docs:resources:route:properties:routes:route_destination:hash_policy:cookie:ignore_samesite:section:1",
+      "source_sha256": "sha256:ee86a8e1ae70ea37179f1d7d4eda9c16c702824761fd164ebe517a5d0b9ca01d",
+      "source_bytes": 1311,
+      "canonical_source_sha256": "sha256:7027839d633bf533f9304393e195dafc509d2c5d124372199743bda695835ac2",
+      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/resources/route/properties/routes/route_destination/hash_policy/cookie/ignore_samesite/",
+      "anchor": "canonical-2331311121003321-1033020110212123-1211333133212313-3323013310113013-2310213012020231-2310123320010231-2110303232230001-0213322030020221",
+      "anchor_map": [
+        [
+          "section",
+          "canonical-1012302222333022-1131133020203313-2232202232122013-1000020011323330-1112331233330311-0013231230132112-3101322231300311-2003101212321101"
+        ]
+      ],
+      "mode": "embedded",
+      "registry_path": "docs/guides/resources--route--reference--group-002.md"
+    },
+    {
+      "canonical_id": "xcsh-docs:resources:route:properties:routes:route_destination:hash_policy:cookie:ignore_samesite",
+      "section_id": "xcsh-docs:resources:route:properties:routes:route_destination:hash_policy:cookie:ignore_samesite:section:2",
+      "source_sha256": "sha256:0d4398201e18f9ddb2ea00ceed6d3256755ea4d008d849d1cec42dab5c55f1b5",
+      "source_bytes": 94,
+      "canonical_source_sha256": "sha256:7027839d633bf533f9304393e195dafc509d2c5d124372199743bda695835ac2",
+      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/resources/route/properties/routes/route_destination/hash_policy/cookie/ignore_samesite/",
+      "anchor": "canonical-1110101111333230-3231222131023020-2210213132301312-2323110230022131-1032231100030120-3032220233103112-3313002222323310-2332130131103310",
+      "anchor_map": [],
+      "mode": "embedded",
+      "registry_path": "docs/guides/resources--route--reference--group-002.md"
+    },
+    {
+      "canonical_id": "xcsh-docs:resources:route:properties:routes:route_destination:hash_policy:cookie:ignore_samesite",
+      "section_id": "xcsh-docs:resources:route:properties:routes:route_destination:hash_policy:cookie:ignore_samesite:section:3",
+      "source_sha256": "sha256:2d8a08b1997937a246d53611c2b0a76bff459381ac105c4f155022dd2983fdd9",
+      "source_bytes": 281,
+      "canonical_source_sha256": "sha256:7027839d633bf533f9304393e195dafc509d2c5d124372199743bda695835ac2",
+      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/resources/route/properties/routes/route_destination/hash_policy/cookie/ignore_samesite/",
+      "anchor": "canonical-0300220210213312-0212011121323020-0102313230203023-0123301333100010-3223002002122230-2100332121120323-1100310102203020-3111211132002331",
+      "anchor_map": [],
+      "mode": "embedded",
+      "registry_path": "docs/guides/resources--route--reference--group-002.md"
+    },
+    {
+      "canonical_id": "xcsh-docs:resources:route:properties:routes:route_destination:hash_policy:cookie:ignore_secure",
+      "section_id": "xcsh-docs:resources:route:properties:routes:route_destination:hash_policy:cookie:ignore_secure:section:0",
+      "source_sha256": "sha256:197d41522a9dd286cb9805a03d8a5bd782cc3f3fd95ea854bf2dfc326e83e50c",
+      "source_bytes": 99,
+      "canonical_source_sha256": "sha256:b5f3f3c7b375cf88678dbe1d07ecceaea5d6acf5e29d82853aca3aa67f6ceacd",
+      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/resources/route/properties/routes/route_destination/hash_policy/cookie/ignore_secure/",
+      "anchor": "canonical-0011130100332212-3300100231300302-2122123223100101-1303032001132310-3033010210113223-2331110222023032-3002032021032001-2322030130323230",
+      "anchor_map": [],
+      "mode": "embedded",
+      "registry_path": "docs/guides/resources--route--reference--group-002.md"
+    },
+    {
+      "canonical_id": "xcsh-docs:resources:route:properties:routes:route_destination:hash_policy:cookie:ignore_secure",
+      "section_id": "xcsh-docs:resources:route:properties:routes:route_destination:hash_policy:cookie:ignore_secure:section:1",
+      "source_sha256": "sha256:12a462778c99b102153ffb150578b787e3aceb8cdcfe84dd373c194ad4265f93",
+      "source_bytes": 1305,
+      "canonical_source_sha256": "sha256:b5f3f3c7b375cf88678dbe1d07ecceaea5d6acf5e29d82853aca3aa67f6ceacd",
+      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/resources/route/properties/routes/route_destination/hash_policy/cookie/ignore_secure/",
+      "anchor": "canonical-1131031232321033-1113122002133101-0331210023100331-2002121122313001-1123302223220102-1321033112112021-2301201300111003-2211210111201211",
+      "anchor_map": [
+        [
+          "section",
+          "canonical-0000320013100001-3302102311111101-2111213111133302-2303200023233131-0230001001211200-2100030310112220-3311010000220332-2030201312100113"
+        ]
+      ],
+      "mode": "embedded",
+      "registry_path": "docs/guides/resources--route--reference--group-002.md"
+    },
+    {
+      "canonical_id": "xcsh-docs:resources:route:properties:routes:route_destination:hash_policy:cookie:ignore_secure",
+      "section_id": "xcsh-docs:resources:route:properties:routes:route_destination:hash_policy:cookie:ignore_secure:section:2",
+      "source_sha256": "sha256:0d4398201e18f9ddb2ea00ceed6d3256755ea4d008d849d1cec42dab5c55f1b5",
+      "source_bytes": 94,
+      "canonical_source_sha256": "sha256:b5f3f3c7b375cf88678dbe1d07ecceaea5d6acf5e29d82853aca3aa67f6ceacd",
+      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/resources/route/properties/routes/route_destination/hash_policy/cookie/ignore_secure/",
+      "anchor": "canonical-0230311112210011-2030003310331201-3111130211300312-0120212031111213-3200233231103313-0313203302212031-3310213321223101-0312120312311120",
+      "anchor_map": [],
+      "mode": "embedded",
+      "registry_path": "docs/guides/resources--route--reference--group-002.md"
+    },
+    {
+      "canonical_id": "xcsh-docs:resources:route:properties:routes:route_destination:hash_policy:cookie:ignore_secure",
+      "section_id": "xcsh-docs:resources:route:properties:routes:route_destination:hash_policy:cookie:ignore_secure:section:3",
+      "source_sha256": "sha256:2d8a08b1997937a246d53611c2b0a76bff459381ac105c4f155022dd2983fdd9",
+      "source_bytes": 281,
+      "canonical_source_sha256": "sha256:b5f3f3c7b375cf88678dbe1d07ecceaea5d6acf5e29d82853aca3aa67f6ceacd",
+      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/resources/route/properties/routes/route_destination/hash_policy/cookie/ignore_secure/",
+      "anchor": "canonical-1210131021202001-3002110132020310-3300333101202323-1013130210331111-0310032302213011-3300010312230333-2201102313003333-1111230020313103",
+      "anchor_map": [],
+      "mode": "embedded",
+      "registry_path": "docs/guides/resources--route--reference--group-002.md"
+    },
+    {
+      "canonical_id": "xcsh-docs:resources:route:properties:routes:route_destination:hash_policy:cookie:samesite_lax",
+      "section_id": "xcsh-docs:resources:route:properties:routes:route_destination:hash_policy:cookie:samesite_lax:section:0",
+      "source_sha256": "sha256:197d41522a9dd286cb9805a03d8a5bd782cc3f3fd95ea854bf2dfc326e83e50c",
+      "source_bytes": 99,
+      "canonical_source_sha256": "sha256:f85230be4a6602cf9a39c9d5a71d39e1eaea13febba692663468a1707b30398e",
+      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/resources/route/properties/routes/route_destination/hash_policy/cookie/samesite_lax/",
+      "anchor": "canonical-0330022013103032-3312123211210022-0220100001032323-1232302301033311-3322102231220223-0003033002123112-0130212200111323-0011313112122003",
+      "anchor_map": [],
+      "mode": "embedded",
+      "registry_path": "docs/guides/resources--route--reference--group-002.md"
+    },
+    {
+      "canonical_id": "xcsh-docs:resources:route:properties:routes:route_destination:hash_policy:cookie:samesite_lax",
+      "section_id": "xcsh-docs:resources:route:properties:routes:route_destination:hash_policy:cookie:samesite_lax:section:1",
+      "source_sha256": "sha256:1060266ed7d3f76a0e554483e74c37176aa0712d6e49d49864e72450434b79f6",
+      "source_bytes": 1302,
+      "canonical_source_sha256": "sha256:f85230be4a6602cf9a39c9d5a71d39e1eaea13febba692663468a1707b30398e",
+      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/resources/route/properties/routes/route_destination/hash_policy/cookie/samesite_lax/",
+      "anchor": "canonical-1320320232220001-2011200230123313-1332310103133111-0321000201101210-0110031132211132-1331120221122022-0320330022011202-0102101322311211",
+      "anchor_map": [
+        [
+          "section",
+          "canonical-2220033133323022-3322202332100320-2113110323303100-3301321122303303-3321212030133232-2102332122321132-1021131012021213-3302332002123220"
+        ]
+      ],
+      "mode": "embedded",
+      "registry_path": "docs/guides/resources--route--reference--group-002.md"
+    },
+    {
+      "canonical_id": "xcsh-docs:resources:route:properties:routes:route_destination:hash_policy:cookie:samesite_lax",
+      "section_id": "xcsh-docs:resources:route:properties:routes:route_destination:hash_policy:cookie:samesite_lax:section:2",
+      "source_sha256": "sha256:0d4398201e18f9ddb2ea00ceed6d3256755ea4d008d849d1cec42dab5c55f1b5",
+      "source_bytes": 94,
+      "canonical_source_sha256": "sha256:f85230be4a6602cf9a39c9d5a71d39e1eaea13febba692663468a1707b30398e",
+      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/resources/route/properties/routes/route_destination/hash_policy/cookie/samesite_lax/",
+      "anchor": "canonical-0130100121130023-3321333012002110-3032000312121302-3102310021101023-3032300101001102-0011310030303232-1003022231230031-1101300120202023",
+      "anchor_map": [],
+      "mode": "embedded",
+      "registry_path": "docs/guides/resources--route--reference--group-002.md"
+    },
+    {
+      "canonical_id": "xcsh-docs:resources:route:properties:routes:route_destination:hash_policy:cookie:samesite_lax",
+      "section_id": "xcsh-docs:resources:route:properties:routes:route_destination:hash_policy:cookie:samesite_lax:section:3",
+      "source_sha256": "sha256:2d8a08b1997937a246d53611c2b0a76bff459381ac105c4f155022dd2983fdd9",
+      "source_bytes": 281,
+      "canonical_source_sha256": "sha256:f85230be4a6602cf9a39c9d5a71d39e1eaea13febba692663468a1707b30398e",
+      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/resources/route/properties/routes/route_destination/hash_policy/cookie/samesite_lax/",
+      "anchor": "canonical-3210033321031201-0321331201130030-2231223232103003-3313331031102121-3113331130320013-1032102130133012-1323312010103123-0113321033301123",
+      "anchor_map": [],
+      "mode": "embedded",
+      "registry_path": "docs/guides/resources--route--reference--group-002.md"
+    },
+    {
+      "canonical_id": "xcsh-docs:resources:route:properties:routes:route_destination:hash_policy:cookie:samesite_none",
+      "section_id": "xcsh-docs:resources:route:properties:routes:route_destination:hash_policy:cookie:samesite_none:section:0",
+      "source_sha256": "sha256:197d41522a9dd286cb9805a03d8a5bd782cc3f3fd95ea854bf2dfc326e83e50c",
+      "source_bytes": 99,
+      "canonical_source_sha256": "sha256:d7555bbaf3bdbda65b7ec5002469e771e3b11968f7236b6781d84e84f3c45dd4",
+      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/resources/route/properties/routes/route_destination/hash_policy/cookie/samesite_none/",
+      "anchor": "canonical-2201011232132012-3110112110233133-3301231010203102-0303320332030033-2220301300312022-0111110011313111-2201101121202313-3133120221031201",
+      "anchor_map": [],
+      "mode": "embedded",
+      "registry_path": "docs/guides/resources--route--reference--group-002.md"
+    },
+    {
+      "canonical_id": "xcsh-docs:resources:route:properties:routes:route_destination:hash_policy:cookie:samesite_none",
+      "section_id": "xcsh-docs:resources:route:properties:routes:route_destination:hash_policy:cookie:samesite_none:section:1",
+      "source_sha256": "sha256:cfff2343cba89dbbf40f33e5514cd8e4fd664d2dfa595c7334567327c660154a",
+      "source_bytes": 1305,
+      "canonical_source_sha256": "sha256:d7555bbaf3bdbda65b7ec5002469e771e3b11968f7236b6781d84e84f3c45dd4",
+      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/resources/route/properties/routes/route_destination/hash_policy/cookie/samesite_none/",
+      "anchor": "canonical-3202322202132002-0313121333112301-3132033231011121-2301132201033203-2002110231301021-0130021003212313-2001023133311223-1120223132010332",
+      "anchor_map": [
+        [
+          "section",
+          "canonical-3132323303320010-2000331232023100-1232330132301001-0330031100201322-3310230111121302-0003330111320100-1221301031020112-0313031212230021"
+        ]
+      ],
+      "mode": "embedded",
+      "registry_path": "docs/guides/resources--route--reference--group-002.md"
+    },
+    {
+      "canonical_id": "xcsh-docs:resources:route:properties:routes:route_destination:hash_policy:cookie:samesite_none",
+      "section_id": "xcsh-docs:resources:route:properties:routes:route_destination:hash_policy:cookie:samesite_none:section:2",
+      "source_sha256": "sha256:0d4398201e18f9ddb2ea00ceed6d3256755ea4d008d849d1cec42dab5c55f1b5",
+      "source_bytes": 94,
+      "canonical_source_sha256": "sha256:d7555bbaf3bdbda65b7ec5002469e771e3b11968f7236b6781d84e84f3c45dd4",
+      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/resources/route/properties/routes/route_destination/hash_policy/cookie/samesite_none/",
+      "anchor": "canonical-2313320202110230-0023001022333303-2020021302230230-2112210200223222-1121021120013232-2113300203212212-2310212003203111-3222332132122322",
+      "anchor_map": [],
+      "mode": "embedded",
+      "registry_path": "docs/guides/resources--route--reference--group-002.md"
+    },
+    {
+      "canonical_id": "xcsh-docs:resources:route:properties:routes:route_destination:hash_policy:cookie:samesite_none",
+      "section_id": "xcsh-docs:resources:route:properties:routes:route_destination:hash_policy:cookie:samesite_none:section:3",
+      "source_sha256": "sha256:2d8a08b1997937a246d53611c2b0a76bff459381ac105c4f155022dd2983fdd9",
+      "source_bytes": 281,
+      "canonical_source_sha256": "sha256:d7555bbaf3bdbda65b7ec5002469e771e3b11968f7236b6781d84e84f3c45dd4",
+      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/resources/route/properties/routes/route_destination/hash_policy/cookie/samesite_none/",
+      "anchor": "canonical-2020220233300301-0321120002230021-0000101130313200-2231112233131331-1120003311131102-3222021201220010-0103111132331001-1130030220313321",
+      "anchor_map": [],
+      "mode": "embedded",
+      "registry_path": "docs/guides/resources--route--reference--group-002.md"
+    },
+    {
+      "canonical_id": "xcsh-docs:resources:route:properties:routes:route_destination:hash_policy:cookie:samesite_strict",
+      "section_id": "xcsh-docs:resources:route:properties:routes:route_destination:hash_policy:cookie:samesite_strict:section:0",
+      "source_sha256": "sha256:197d41522a9dd286cb9805a03d8a5bd782cc3f3fd95ea854bf2dfc326e83e50c",
+      "source_bytes": 99,
+      "canonical_source_sha256": "sha256:c3c578df203712094a65f31c2eacddc7c203d51e459398e945d373bdcc386b7f",
+      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/resources/route/properties/routes/route_destination/hash_policy/cookie/samesite_strict/",
+      "anchor": "canonical-2020131323033213-0301333210023221-1002031200003031-2001230130111230-2233132233221110-0213230023200021-1320332023011013-0312100101121001",
+      "anchor_map": [],
+      "mode": "embedded",
+      "registry_path": "docs/guides/resources--route--reference--group-002.md"
+    },
+    {
+      "canonical_id": "xcsh-docs:resources:route:properties:routes:route_destination:hash_policy:cookie:samesite_strict",
+      "section_id": "xcsh-docs:resources:route:properties:routes:route_destination:hash_policy:cookie:samesite_strict:section:1",
+      "source_sha256": "sha256:1d6fb98475df64bf930831d94aea10f0f6055164d6bb76f39717525a4a5471f7",
+      "source_bytes": 1311,
+      "canonical_source_sha256": "sha256:c3c578df203712094a65f31c2eacddc7c203d51e459398e945d373bdcc386b7f",
+      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/resources/route/properties/routes/route_destination/hash_policy/cookie/samesite_strict/",
+      "anchor": "canonical-3120311133133123-0203301211310110-2213130013203002-0323033113300111-2233100110220001-2020031023023300-1313332100130021-0033320030031312",
+      "anchor_map": [
+        [
+          "section",
+          "canonical-2001031230200211-1300113322313300-0111300330102032-0022121202310311-3003200013310030-2100313223231131-2230222032022010-1322002120123202"
+        ]
+      ],
+      "mode": "embedded",
+      "registry_path": "docs/guides/resources--route--reference--group-002.md"
+    },
+    {
+      "canonical_id": "xcsh-docs:resources:route:properties:routes:route_destination:hash_policy:cookie:samesite_strict",
+      "section_id": "xcsh-docs:resources:route:properties:routes:route_destination:hash_policy:cookie:samesite_strict:section:2",
+      "source_sha256": "sha256:0d4398201e18f9ddb2ea00ceed6d3256755ea4d008d849d1cec42dab5c55f1b5",
+      "source_bytes": 94,
+      "canonical_source_sha256": "sha256:c3c578df203712094a65f31c2eacddc7c203d51e459398e945d373bdcc386b7f",
+      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/resources/route/properties/routes/route_destination/hash_policy/cookie/samesite_strict/",
+      "anchor": "canonical-0013332321003333-3122210301221113-0002202211202112-3032121320121131-3332331212110300-1010200012301111-1320123322030331-1300211030300321",
+      "anchor_map": [],
+      "mode": "embedded",
+      "registry_path": "docs/guides/resources--route--reference--group-002.md"
+    },
+    {
+      "canonical_id": "xcsh-docs:resources:route:properties:routes:route_destination:hash_policy:cookie:samesite_strict",
+      "section_id": "xcsh-docs:resources:route:properties:routes:route_destination:hash_policy:cookie:samesite_strict:section:3",
+      "source_sha256": "sha256:2d8a08b1997937a246d53611c2b0a76bff459381ac105c4f155022dd2983fdd9",
+      "source_bytes": 281,
+      "canonical_source_sha256": "sha256:c3c578df203712094a65f31c2eacddc7c203d51e459398e945d373bdcc386b7f",
+      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/resources/route/properties/routes/route_destination/hash_policy/cookie/samesite_strict/",
+      "anchor": "canonical-0111311100033221-2311132333232221-3001331131123012-0032332023010321-1232011331323122-0022231202231320-0330332300010213-1011010021113222",
+      "anchor_map": [],
+      "mode": "embedded",
+      "registry_path": "docs/guides/resources--route--reference--group-002.md"
+    },
+    {
+      "canonical_id": "xcsh-docs:resources:route:properties:routes:route_destination:mirror_policy",
+      "section_id": "xcsh-docs:resources:route:properties:routes:route_destination:mirror_policy:section:0",
+      "source_sha256": "sha256:197d41522a9dd286cb9805a03d8a5bd782cc3f3fd95ea854bf2dfc326e83e50c",
+      "source_bytes": 99,
+      "canonical_source_sha256": "sha256:26ec88bff7bd1bf33e09d17f44ca9c4a99389edcc2f9ff92e3f413ed5f4a7cc5",
+      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/resources/route/properties/routes/route_destination/mirror_policy/",
+      "anchor": "canonical-1312110103201222-3211323013120213-1220232003210122-1333011320200321-0302110311030231-3120313321230312-0300310313300210-1231213001201021",
+      "anchor_map": [],
+      "mode": "embedded",
+      "registry_path": "docs/guides/resources--route--reference--group-002.md"
+    },
+    {
+      "canonical_id": "xcsh-docs:resources:route:properties:routes:route_destination:mirror_policy",
+      "section_id": "xcsh-docs:resources:route:properties:routes:route_destination:mirror_policy:section:1",
+      "source_sha256": "sha256:0daecac4c41d8a885fac4bc39e1da99dcd3de62ef7bd1155ea0dcfe6379def69",
+      "source_bytes": 1697,
+      "canonical_source_sha256": "sha256:26ec88bff7bd1bf33e09d17f44ca9c4a99389edcc2f9ff92e3f413ed5f4a7cc5",
+      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/resources/route/properties/routes/route_destination/mirror_policy/",
+      "anchor": "canonical-3133221133130223-3121323031321200-2001303031221130-2130032130320203-1300022311203221-3220223300320000-2001020222201233-3110012113031222",
+      "anchor_map": [
+        [
+          "section",
+          "canonical-3103103220332022-3301230001230003-3012303123110101-2223301012122202-2211031023332111-2001013323223200-3231310322021311-1122013113121022"
+        ]
+      ],
+      "mode": "embedded",
+      "registry_path": "docs/guides/resources--route--reference--group-002.md"
+    },
+    {
+      "canonical_id": "xcsh-docs:resources:route:properties:routes:route_destination:mirror_policy",
+      "section_id": "xcsh-docs:resources:route:properties:routes:route_destination:mirror_policy:section:2",
+      "source_sha256": "sha256:ba3542783dbf9718a2193bf41622d54d3433a91201ec5f8d343bece1efb74a97",
+      "source_bytes": 376,
+      "canonical_source_sha256": "sha256:26ec88bff7bd1bf33e09d17f44ca9c4a99389edcc2f9ff92e3f413ed5f4a7cc5",
+      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/resources/route/properties/routes/route_destination/mirror_policy/",
+      "anchor": "canonical-3303203020131313-3030031203331233-2311213123010201-2231321233031223-3122130003013110-2021013103120211-3213201030312312-2212203330002120",
+      "anchor_map": [],
+      "mode": "embedded",
+      "registry_path": "docs/guides/resources--route--reference--group-002.md"
+    },
+    {
+      "canonical_id": "xcsh-docs:resources:route:properties:routes:route_destination:mirror_policy",
+      "section_id": "xcsh-docs:resources:route:properties:routes:route_destination:mirror_policy:section:3",
+      "source_sha256": "sha256:24c51b803397044ad978fc539f59f04f776c02ce250d48578e2120c2147f6038",
+      "source_bytes": 609,
+      "canonical_source_sha256": "sha256:26ec88bff7bd1bf33e09d17f44ca9c4a99389edcc2f9ff92e3f413ed5f4a7cc5",
+      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/resources/route/properties/routes/route_destination/mirror_policy/",
+      "anchor": "canonical-1102221031123203-1123213201320032-3031333311000121-0111201322323111-2000010233300100-1210103131333201-0302210021001222-3010221033022003",
+      "anchor_map": [],
+      "mode": "embedded",
+      "registry_path": "docs/guides/resources--route--reference--group-002.md"
+    },
+    {
       "canonical_id": "xcsh-docs:resources:route:properties:routes:route_destination:mirror_policy:cluster",
       "section_id": "xcsh-docs:resources:route:properties:routes:route_destination:mirror_policy:cluster:section:0",
       "source_sha256": "sha256:197d41522a9dd286cb9805a03d8a5bd782cc3f3fd95ea854bf2dfc326e83e50c",
@@ -7055,339 +7373,6 @@
       "canonical_source_sha256": "sha256:ed2317e546a06e9aa95dfcf6f67df37a4c10d86eda37111bbaf5eed89437a6a5",
       "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/resources/securemesh_site/properties/blocked_services/blocked_service/dns/",
       "anchor": "canonical-1203111312113331-3103013301012103-1133013100230211-0110322303131230-2102320010223211-1111210011323300-0233123120010002-2302110033321200",
-      "anchor_map": [],
-      "mode": "embedded",
-      "registry_path": "docs/guides/resources--securemesh_site--reference--group-001.md"
-    },
-    {
-      "canonical_id": "xcsh-docs:resources:securemesh_site:properties:blocked_services:blocked_service:ssh",
-      "section_id": "xcsh-docs:resources:securemesh_site:properties:blocked_services:blocked_service:ssh:section:0",
-      "source_sha256": "sha256:197d41522a9dd286cb9805a03d8a5bd782cc3f3fd95ea854bf2dfc326e83e50c",
-      "source_bytes": 99,
-      "canonical_source_sha256": "sha256:6bd96e9e71f8d93b0dd38d0c12595a59ffc40e9027015f320940bacfa5f543dc",
-      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/resources/securemesh_site/properties/blocked_services/blocked_service/ssh/",
-      "anchor": "canonical-0013103301301213-0120311013023020-2331001023323220-1212103211321220-3012022330000220-2203310110322113-2103103303233000-1232111213210111",
-      "anchor_map": [],
-      "mode": "embedded",
-      "registry_path": "docs/guides/resources--securemesh_site--reference--group-001.md"
-    },
-    {
-      "canonical_id": "xcsh-docs:resources:securemesh_site:properties:blocked_services:blocked_service:ssh",
-      "section_id": "xcsh-docs:resources:securemesh_site:properties:blocked_services:blocked_service:ssh:section:1",
-      "source_sha256": "sha256:ef062b8fa9253e34058f9b0b68c28ff7328d4b009017d5488e42f3dfc4b90046",
-      "source_bytes": 999,
-      "canonical_source_sha256": "sha256:6bd96e9e71f8d93b0dd38d0c12595a59ffc40e9027015f320940bacfa5f543dc",
-      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/resources/securemesh_site/properties/blocked_services/blocked_service/ssh/",
-      "anchor": "canonical-2331322102312133-1202103012310233-2210010310222103-3222000231121333-2001201120111322-0200302322202303-1330220132201033-2220032121122223",
-      "anchor_map": [
-        [
-          "section",
-          "canonical-0021010212112212-3331101013231022-0123033331001212-0032101223003132-3201302230103303-1132310221210121-3031212201103030-2022320220213122"
-        ]
-      ],
-      "mode": "embedded",
-      "registry_path": "docs/guides/resources--securemesh_site--reference--group-001.md"
-    },
-    {
-      "canonical_id": "xcsh-docs:resources:securemesh_site:properties:blocked_services:blocked_service:ssh",
-      "section_id": "xcsh-docs:resources:securemesh_site:properties:blocked_services:blocked_service:ssh:section:2",
-      "source_sha256": "sha256:0d4398201e18f9ddb2ea00ceed6d3256755ea4d008d849d1cec42dab5c55f1b5",
-      "source_bytes": 94,
-      "canonical_source_sha256": "sha256:6bd96e9e71f8d93b0dd38d0c12595a59ffc40e9027015f320940bacfa5f543dc",
-      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/resources/securemesh_site/properties/blocked_services/blocked_service/ssh/",
-      "anchor": "canonical-2202220230102330-2320330320111130-3131102120301033-2301311011211011-2003020211313211-3023020032233100-0223120312230133-1300212322132000",
-      "anchor_map": [],
-      "mode": "embedded",
-      "registry_path": "docs/guides/resources--securemesh_site--reference--group-001.md"
-    },
-    {
-      "canonical_id": "xcsh-docs:resources:securemesh_site:properties:blocked_services:blocked_service:ssh",
-      "section_id": "xcsh-docs:resources:securemesh_site:properties:blocked_services:blocked_service:ssh:section:3",
-      "source_sha256": "sha256:dde12ab6ffac75c1dda419d5586d6ecde1637bf6c2716cc0ee27c5e264772004",
-      "source_bytes": 289,
-      "canonical_source_sha256": "sha256:6bd96e9e71f8d93b0dd38d0c12595a59ffc40e9027015f320940bacfa5f543dc",
-      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/resources/securemesh_site/properties/blocked_services/blocked_service/ssh/",
-      "anchor": "canonical-0323221001101323-1133102201231001-3330002330011331-1001033321000132-0220011202322230-1330100013020311-1203330102130131-2123323120200223",
-      "anchor_map": [],
-      "mode": "embedded",
-      "registry_path": "docs/guides/resources--securemesh_site--reference--group-001.md"
-    },
-    {
-      "canonical_id": "xcsh-docs:resources:securemesh_site:properties:blocked_services:blocked_service:web_user_interface",
-      "section_id": "xcsh-docs:resources:securemesh_site:properties:blocked_services:blocked_service:web_user_interface:section:0",
-      "source_sha256": "sha256:197d41522a9dd286cb9805a03d8a5bd782cc3f3fd95ea854bf2dfc326e83e50c",
-      "source_bytes": 99,
-      "canonical_source_sha256": "sha256:7be7368352d63be130e4f1b3e8942eea6a506221338f4ccbe09cb9102a8eb279",
-      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/resources/securemesh_site/properties/blocked_services/blocked_service/web_user_interface/",
-      "anchor": "canonical-0103302313130002-0102120211202113-2212131220002211-1311123213013103-3213311033101121-0002311302131300-2113302212012023-0203133330011222",
-      "anchor_map": [],
-      "mode": "embedded",
-      "registry_path": "docs/guides/resources--securemesh_site--reference--group-001.md"
-    },
-    {
-      "canonical_id": "xcsh-docs:resources:securemesh_site:properties:blocked_services:blocked_service:web_user_interface",
-      "section_id": "xcsh-docs:resources:securemesh_site:properties:blocked_services:blocked_service:web_user_interface:section:1",
-      "source_sha256": "sha256:5ea4be4ac5b0ac617fc117623a699156de7f767ee44cec00d61bce1f67529106",
-      "source_bytes": 1044,
-      "canonical_source_sha256": "sha256:7be7368352d63be130e4f1b3e8942eea6a506221338f4ccbe09cb9102a8eb279",
-      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/resources/securemesh_site/properties/blocked_services/blocked_service/web_user_interface/",
-      "anchor": "canonical-2032313131311122-0332110011201020-1022332010322023-3130023320311300-1002303201332131-1032210133233130-0301311130201133-0113111021111002",
-      "anchor_map": [
-        [
-          "section",
-          "canonical-0330033130303123-1003100130333232-2221022303222022-1022011211331033-2332222022032021-1213212200210103-2322220321132011-3233131222211210"
-        ]
-      ],
-      "mode": "embedded",
-      "registry_path": "docs/guides/resources--securemesh_site--reference--group-001.md"
-    },
-    {
-      "canonical_id": "xcsh-docs:resources:securemesh_site:properties:blocked_services:blocked_service:web_user_interface",
-      "section_id": "xcsh-docs:resources:securemesh_site:properties:blocked_services:blocked_service:web_user_interface:section:2",
-      "source_sha256": "sha256:0d4398201e18f9ddb2ea00ceed6d3256755ea4d008d849d1cec42dab5c55f1b5",
-      "source_bytes": 94,
-      "canonical_source_sha256": "sha256:7be7368352d63be130e4f1b3e8942eea6a506221338f4ccbe09cb9102a8eb279",
-      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/resources/securemesh_site/properties/blocked_services/blocked_service/web_user_interface/",
-      "anchor": "canonical-0130323203333202-0311332311200020-2231311021211320-2022310203323023-1011123220013310-2231303100312302-3001330023021031-2022100101233222",
-      "anchor_map": [],
-      "mode": "embedded",
-      "registry_path": "docs/guides/resources--securemesh_site--reference--group-001.md"
-    },
-    {
-      "canonical_id": "xcsh-docs:resources:securemesh_site:properties:blocked_services:blocked_service:web_user_interface",
-      "section_id": "xcsh-docs:resources:securemesh_site:properties:blocked_services:blocked_service:web_user_interface:section:3",
-      "source_sha256": "sha256:dde12ab6ffac75c1dda419d5586d6ecde1637bf6c2716cc0ee27c5e264772004",
-      "source_bytes": 289,
-      "canonical_source_sha256": "sha256:7be7368352d63be130e4f1b3e8942eea6a506221338f4ccbe09cb9102a8eb279",
-      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/resources/securemesh_site/properties/blocked_services/blocked_service/web_user_interface/",
-      "anchor": "canonical-1031003131310203-1011303133131223-0103020100111033-3130311200222100-0303103322222103-2020001131000032-3211231210133322-2210301323032023",
-      "anchor_map": [],
-      "mode": "embedded",
-      "registry_path": "docs/guides/resources--securemesh_site--reference--group-001.md"
-    },
-    {
-      "canonical_id": "xcsh-docs:resources:securemesh_site:properties:bond_device_list",
-      "section_id": "xcsh-docs:resources:securemesh_site:properties:bond_device_list:section:0",
-      "source_sha256": "sha256:197d41522a9dd286cb9805a03d8a5bd782cc3f3fd95ea854bf2dfc326e83e50c",
-      "source_bytes": 99,
-      "canonical_source_sha256": "sha256:a54f083d57b7cee43562e0cd0bfba648d2b29e4ab21cd4e38b22bb778fe4b680",
-      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/resources/securemesh_site/properties/bond_device_list/",
-      "anchor": "canonical-2310121302213102-1031133011333231-3013111001301100-3012112113020110-3203213233333032-3113030101223330-0221130332031101-3133030202011232",
-      "anchor_map": [],
-      "mode": "embedded",
-      "registry_path": "docs/guides/resources--securemesh_site--reference--group-001.md"
-    },
-    {
-      "canonical_id": "xcsh-docs:resources:securemesh_site:properties:bond_device_list",
-      "section_id": "xcsh-docs:resources:securemesh_site:properties:bond_device_list:section:1",
-      "source_sha256": "sha256:37375c66ef34f9aa4859a31c0954d3315abff66855652a7cdfdbb0c6e546b3a9",
-      "source_bytes": 1364,
-      "canonical_source_sha256": "sha256:a54f083d57b7cee43562e0cd0bfba648d2b29e4ab21cd4e38b22bb778fe4b680",
-      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/resources/securemesh_site/properties/bond_device_list/",
-      "anchor": "canonical-0121303011331011-3032102123013231-2113300203202121-2202331213100233-3313330202321231-0213010113232333-1321121121323133-0323212300210220",
-      "anchor_map": [
-        [
-          "section",
-          "canonical-2200121111110131-1232233011211322-2200022100310221-3010233332001312-0230321231201201-2003033310002110-1113333310122311-0211303103120030"
-        ]
-      ],
-      "mode": "embedded",
-      "registry_path": "docs/guides/resources--securemesh_site--reference--group-001.md"
-    },
-    {
-      "canonical_id": "xcsh-docs:resources:securemesh_site:properties:bond_device_list",
-      "section_id": "xcsh-docs:resources:securemesh_site:properties:bond_device_list:section:2",
-      "source_sha256": "sha256:529b2e2fab3d119d2861bc09e58028cb8e30af885ac38aee558923d70ca8fd8b",
-      "source_bytes": 197,
-      "canonical_source_sha256": "sha256:a54f083d57b7cee43562e0cd0bfba648d2b29e4ab21cd4e38b22bb778fe4b680",
-      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/resources/securemesh_site/properties/bond_device_list/",
-      "anchor": "canonical-2300303301120301-2213330130233313-1312013012133322-2133011102302132-0133321122103012-3020103322120022-2122030022021220-3303321301000023",
-      "anchor_map": [],
-      "mode": "embedded",
-      "registry_path": "docs/guides/resources--securemesh_site--reference--group-001.md"
-    },
-    {
-      "canonical_id": "xcsh-docs:resources:securemesh_site:properties:bond_device_list",
-      "section_id": "xcsh-docs:resources:securemesh_site:properties:bond_device_list:section:3",
-      "source_sha256": "sha256:3cefd42214408546ba4110fe40ac26ba7f903a468df473f3573249780b724649",
-      "source_bytes": 401,
-      "canonical_source_sha256": "sha256:a54f083d57b7cee43562e0cd0bfba648d2b29e4ab21cd4e38b22bb778fe4b680",
-      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/resources/securemesh_site/properties/bond_device_list/",
-      "anchor": "canonical-1101303023200332-0220011112000012-2133131300011021-0120301101312311-0322123210333201-1023231122123020-3321031002313123-3022330300001310",
-      "anchor_map": [],
-      "mode": "embedded",
-      "registry_path": "docs/guides/resources--securemesh_site--reference--group-001.md"
-    },
-    {
-      "canonical_id": "xcsh-docs:resources:securemesh_site:properties:bond_device_list:bond_devices",
-      "section_id": "xcsh-docs:resources:securemesh_site:properties:bond_device_list:bond_devices:section:0",
-      "source_sha256": "sha256:197d41522a9dd286cb9805a03d8a5bd782cc3f3fd95ea854bf2dfc326e83e50c",
-      "source_bytes": 99,
-      "canonical_source_sha256": "sha256:79e64eae68f6b66345e778c8c85d7d585b411bbdba42603778fab5f138fe2fa2",
-      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/resources/securemesh_site/properties/bond_device_list/bond_devices/",
-      "anchor": "canonical-2212332322110213-1123101002212023-1022123223203330-0212132232120110-3203102332130310-2301101333131011-0032233030021313-0331310110202200",
-      "anchor_map": [],
-      "mode": "embedded",
-      "registry_path": "docs/guides/resources--securemesh_site--reference--group-001.md"
-    },
-    {
-      "canonical_id": "xcsh-docs:resources:securemesh_site:properties:bond_device_list:bond_devices",
-      "section_id": "xcsh-docs:resources:securemesh_site:properties:bond_device_list:bond_devices:section:1",
-      "source_sha256": "sha256:c8adac56efa045aa2fe6b37c1e0aa78bb8c4a8afcdab2c082b77ca308d85232d",
-      "source_bytes": 1968,
-      "canonical_source_sha256": "sha256:79e64eae68f6b66345e778c8c85d7d585b411bbdba42603778fab5f138fe2fa2",
-      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/resources/securemesh_site/properties/bond_device_list/bond_devices/",
-      "anchor": "canonical-2012101333320222-2112111213310131-1212020012221332-0111030302312301-1231210101213102-1211032332320313-1022110030333233-2330111013001132",
-      "anchor_map": [
-        [
-          "section",
-          "canonical-3002022202303211-1000130111031023-1233132202111210-1330202322233210-3212202113332210-3011200111211131-3221212100103303-3301232132320203"
-        ]
-      ],
-      "mode": "embedded",
-      "registry_path": "docs/guides/resources--securemesh_site--reference--group-001.md"
-    },
-    {
-      "canonical_id": "xcsh-docs:resources:securemesh_site:properties:bond_device_list:bond_devices",
-      "section_id": "xcsh-docs:resources:securemesh_site:properties:bond_device_list:bond_devices:section:2",
-      "source_sha256": "sha256:0debb341e1e540cc373a6849177bbcdbda2d1f3259a97268bae3c74713b1ba09",
-      "source_bytes": 273,
-      "canonical_source_sha256": "sha256:79e64eae68f6b66345e778c8c85d7d585b411bbdba42603778fab5f138fe2fa2",
-      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/resources/securemesh_site/properties/bond_device_list/bond_devices/",
-      "anchor": "canonical-0133232202311301-0003312201223230-2030121303112300-1332332233310011-2123021311100033-2033132130303111-0003121030301013-0320110212133323",
-      "anchor_map": [
-        [
-          "schema-bond_device_list--bond_devices--devices",
-          "canonical-3300202223202001-1122012313201200-3031322000321111-1201322203221201-1101012132103113-2200223011110202-3222211312103012-2033032000112233"
-        ]
-      ],
-      "mode": "embedded",
-      "registry_path": "docs/guides/resources--securemesh_site--reference--group-001.md"
-    },
-    {
-      "canonical_id": "xcsh-docs:resources:securemesh_site:properties:bond_device_list:bond_devices",
-      "section_id": "xcsh-docs:resources:securemesh_site:properties:bond_device_list:bond_devices:section:3",
-      "source_sha256": "sha256:cb245df3d3710505223c84ab7d0e56fb689c34097dc101cd005b802ea134eb5f",
-      "source_bytes": 1605,
-      "canonical_source_sha256": "sha256:79e64eae68f6b66345e778c8c85d7d585b411bbdba42603778fab5f138fe2fa2",
-      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/resources/securemesh_site/properties/bond_device_list/bond_devices/",
-      "anchor": "canonical-1101111221112112-3020031122032323-0320110311202012-3231310302100000-2202033123330312-3131022301332223-0030301330331322-0032121300023100",
-      "anchor_map": [
-        [
-          "schema-bond_device_list--bond_devices--link_polling_interval",
-          "canonical-3110133020122311-1211301023211121-3331022120310121-2200222132211230-0012312212103130-0333313132300012-1013121102100321-2022110001333200"
-        ]
-      ],
-      "mode": "embedded",
-      "registry_path": "docs/guides/resources--securemesh_site--reference--group-001.md"
-    },
-    {
-      "canonical_id": "xcsh-docs:resources:securemesh_site:properties:bond_device_list:bond_devices",
-      "section_id": "xcsh-docs:resources:securemesh_site:properties:bond_device_list:bond_devices:section:4",
-      "source_sha256": "sha256:0d160cfa4b6f0f28cd5ceae1eb16e6282ff94a2f8c4ad3be7deb9c1b35c85358",
-      "source_bytes": 1207,
-      "canonical_source_sha256": "sha256:79e64eae68f6b66345e778c8c85d7d585b411bbdba42603778fab5f138fe2fa2",
-      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/resources/securemesh_site/properties/bond_device_list/bond_devices/",
-      "anchor": "canonical-2211112311111112-3310010003122231-1001012102101100-1011211210010100-2122221310000101-2213322322012010-1133012233311222-1210210300112232",
-      "anchor_map": [
-        [
-          "schema-bond_device_list--bond_devices--link_up_delay",
-          "canonical-1223222333323002-0013021331201222-0133311101102332-0021322302110312-0130310203003101-0232211003203310-0121032221333312-3020233111113132"
-        ]
-      ],
-      "mode": "embedded",
-      "registry_path": "docs/guides/resources--securemesh_site--reference--group-001.md"
-    },
-    {
-      "canonical_id": "xcsh-docs:resources:securemesh_site:properties:bond_device_list:bond_devices",
-      "section_id": "xcsh-docs:resources:securemesh_site:properties:bond_device_list:bond_devices:section:5",
-      "source_sha256": "sha256:e1376ad8b3ca33fe15c8d86ea8c1bd03b74613fbb226b4d41af35b5440c4d449",
-      "source_bytes": 1103,
-      "canonical_source_sha256": "sha256:79e64eae68f6b66345e778c8c85d7d585b411bbdba42603778fab5f138fe2fa2",
-      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/resources/securemesh_site/properties/bond_device_list/bond_devices/",
-      "anchor": "canonical-0002302022231021-0202101233302102-0333133022320321-3201211133122230-3213302110021212-0120102112313112-3322222302122231-3221330011101310",
-      "anchor_map": [
-        [
-          "schema-bond_device_list--bond_devices--name",
-          "canonical-3132211300333023-1313000201333032-0211320231131102-2222013320100203-3300322011133100-2110003113030223-3031320202200010-0110220100130300"
-        ]
-      ],
-      "mode": "embedded",
-      "registry_path": "docs/guides/resources--securemesh_site--reference--group-001.md"
-    },
-    {
-      "canonical_id": "xcsh-docs:resources:securemesh_site:properties:bond_device_list:bond_devices",
-      "section_id": "xcsh-docs:resources:securemesh_site:properties:bond_device_list:bond_devices:section:6",
-      "source_sha256": "sha256:11e076ad1108ed437533b44dfd32908e49226b6d308da0c713be405780d98222",
-      "source_bytes": 1580,
-      "canonical_source_sha256": "sha256:79e64eae68f6b66345e778c8c85d7d585b411bbdba42603778fab5f138fe2fa2",
-      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/resources/securemesh_site/properties/bond_device_list/bond_devices/",
-      "anchor": "canonical-0133021003320103-2332121111010201-0122033101231331-0313203021011201-0021211122003123-2123002110013131-1101332231020013-2230121202010220",
-      "anchor_map": [],
-      "mode": "embedded",
-      "registry_path": "docs/guides/resources--securemesh_site--reference--group-001.md"
-    },
-    {
-      "canonical_id": "xcsh-docs:resources:securemesh_site:properties:bond_device_list:bond_devices",
-      "section_id": "xcsh-docs:resources:securemesh_site:properties:bond_device_list:bond_devices:section:7",
-      "source_sha256": "sha256:a80cd14f6f9ef21bcb5fba8ec48c3ee3da7bd4af9ba48bedf1b2f1e3adfbe9c0",
-      "source_bytes": 613,
-      "canonical_source_sha256": "sha256:79e64eae68f6b66345e778c8c85d7d585b411bbdba42603778fab5f138fe2fa2",
-      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/resources/securemesh_site/properties/bond_device_list/bond_devices/",
-      "anchor": "canonical-3301310032222001-3123320010011230-2210031100131012-1103201010213302-1023331031211222-2010122112311122-0212031130233201-1131012021311201",
-      "anchor_map": [],
-      "mode": "embedded",
-      "registry_path": "docs/guides/resources--securemesh_site--reference--group-001.md"
-    },
-    {
-      "canonical_id": "xcsh-docs:resources:securemesh_site:properties:bond_device_list:bond_devices:active_backup",
-      "section_id": "xcsh-docs:resources:securemesh_site:properties:bond_device_list:bond_devices:active_backup:section:0",
-      "source_sha256": "sha256:197d41522a9dd286cb9805a03d8a5bd782cc3f3fd95ea854bf2dfc326e83e50c",
-      "source_bytes": 99,
-      "canonical_source_sha256": "sha256:9c54e953489d9cbc3c5e8930191adb9fe708950c8efdb183901db451e43573cc",
-      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/resources/securemesh_site/properties/bond_device_list/bond_devices/active_backup/",
-      "anchor": "canonical-3230002130021211-1230122212100121-3112010002021102-2301002201313123-1331221220111200-0211303031220302-1030011010332121-0131132010223022",
-      "anchor_map": [],
-      "mode": "embedded",
-      "registry_path": "docs/guides/resources--securemesh_site--reference--group-001.md"
-    },
-    {
-      "canonical_id": "xcsh-docs:resources:securemesh_site:properties:bond_device_list:bond_devices:active_backup",
-      "section_id": "xcsh-docs:resources:securemesh_site:properties:bond_device_list:bond_devices:active_backup:section:1",
-      "source_sha256": "sha256:453b9e8f0f6830bbe754ad7bfaa6d4e1f2066031f7db4cf0208cc684f75ff979",
-      "source_bytes": 1041,
-      "canonical_source_sha256": "sha256:9c54e953489d9cbc3c5e8930191adb9fe708950c8efdb183901db451e43573cc",
-      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/resources/securemesh_site/properties/bond_device_list/bond_devices/active_backup/",
-      "anchor": "canonical-2103231001312130-0131003000212001-1212000201203021-0320333033310300-3222330231121333-1033221033120323-3130011100220330-0110001123131313",
-      "anchor_map": [
-        [
-          "section",
-          "canonical-1013010322301133-2213221213300231-0020123112203103-3322303112321123-3022203211023020-0021211121122113-1300322032112302-3102312102300323"
-        ]
-      ],
-      "mode": "embedded",
-      "registry_path": "docs/guides/resources--securemesh_site--reference--group-001.md"
-    },
-    {
-      "canonical_id": "xcsh-docs:resources:securemesh_site:properties:bond_device_list:bond_devices:active_backup",
-      "section_id": "xcsh-docs:resources:securemesh_site:properties:bond_device_list:bond_devices:active_backup:section:2",
-      "source_sha256": "sha256:0d4398201e18f9ddb2ea00ceed6d3256755ea4d008d849d1cec42dab5c55f1b5",
-      "source_bytes": 94,
-      "canonical_source_sha256": "sha256:9c54e953489d9cbc3c5e8930191adb9fe708950c8efdb183901db451e43573cc",
-      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/resources/securemesh_site/properties/bond_device_list/bond_devices/active_backup/",
-      "anchor": "canonical-0021113313320220-0030021233130100-3113012320213033-1301023210020122-3211103231020030-2033111011210220-1030122321220012-3303220012310322",
-      "anchor_map": [],
-      "mode": "embedded",
-      "registry_path": "docs/guides/resources--securemesh_site--reference--group-001.md"
-    },
-    {
-      "canonical_id": "xcsh-docs:resources:securemesh_site:properties:bond_device_list:bond_devices:active_backup",
-      "section_id": "xcsh-docs:resources:securemesh_site:properties:bond_device_list:bond_devices:active_backup:section:3",
-      "source_sha256": "sha256:157a4ba48289db9dfdcf9f6c0041b02970d41125fd8600d29137ead728e9aa54",
-      "source_bytes": 283,
-      "canonical_source_sha256": "sha256:9c54e953489d9cbc3c5e8930191adb9fe708950c8efdb183901db451e43573cc",
-      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/resources/securemesh_site/properties/bond_device_list/bond_devices/active_backup/",
-      "anchor": "canonical-2323020320313331-0131111032212220-1023000120310002-3310300001310033-3322211303311311-0002203332110012-0022122131022022-1322210323323103",
       "anchor_map": [],
       "mode": "embedded",
       "registry_path": "docs/guides/resources--securemesh_site--reference--group-001.md"

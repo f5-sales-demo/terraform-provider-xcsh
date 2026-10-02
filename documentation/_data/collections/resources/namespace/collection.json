@@ -78,7 +78,7 @@
         "xcsh-docs:resources:namespace:timeouts"
       ],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -90,7 +90,7 @@
       "path": "documentation/resources/namespace/index.md",
       "product": "distributed-cloud",
       "provider_name": "namespace",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "resources",
       "registry_anchor": "canonical-1131103113212120-1020211231300120-1030023112132023-3013023011120122-0313023322131212-0001202033301111-3031320130100032-1113113021202310",
       "registry_path": "docs/resources/namespace.md",
@@ -119,7 +119,7 @@
       "category": "administration",
       "child_ids": ["xcsh-docs:resources:namespace:properties:timeouts"],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -131,7 +131,7 @@
       "path": "documentation/resources/namespace/properties/index.md",
       "product": "distributed-cloud",
       "provider_name": "namespace",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "resources",
       "registry_anchor": "canonical-0021301131013303-1333120321233220-3113022223110333-0100200232103001-3111031002202300-3231113102202033-3022100133111131-1310313032202230",
       "registry_path": "docs/guides/resources--namespace--reference--group-001.md",
@@ -272,7 +272,7 @@
       "category": "administration",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -284,7 +284,7 @@
       "path": "documentation/resources/namespace/properties/timeouts/index.md",
       "product": "distributed-cloud",
       "provider_name": "namespace",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "resources",
       "registry_anchor": "canonical-0203233120222131-2232012210111320-3130211030311013-1023303031311323-3001220332231330-2231030022323030-2013223000003000-0222133020031200",
       "registry_path": "docs/guides/resources--namespace--reference--group-001.md",
@@ -369,7 +369,7 @@
       "category": "administration",
       "child_ids": ["xcsh-docs:resources:namespace:example:resource"],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -381,7 +381,7 @@
       "path": "documentation/resources/namespace/examples/index.md",
       "product": "distributed-cloud",
       "provider_name": "namespace",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "resources",
       "registry_anchor": "canonical-0123202330031033-0303010003032300-1110000210011033-0332010112301132-1111030222330030-0220310211111100-2310320200233000-2302132023320230",
       "registry_path": "docs/guides/resources--namespace--examples--group-001.md",
@@ -409,7 +409,7 @@
       "category": "administration",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -428,7 +428,7 @@
       "path": "documentation/resources/namespace/examples/resource/index.md",
       "product": "distributed-cloud",
       "provider_name": "namespace",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "resources",
       "registry_anchor": "canonical-1000320232300203-3003333110003100-1310301310102123-3031221121110122-1122112210013322-2320202220323123-0003330023101033-2000233332213300",
       "registry_path": "docs/guides/resources--namespace--examples--group-001.md",
@@ -456,7 +456,7 @@
       "category": "administration",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -469,7 +469,7 @@
       "path": "documentation/resources/namespace/lifecycle/import/index.md",
       "product": "distributed-cloud",
       "provider_name": "namespace",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "resources",
       "registry_anchor": "canonical-0320000300030320-2021002123203112-0303313311033303-1233033211003313-1002122203320111-2330321121202110-2211110330123011-3002101211000321",
       "registry_path": "docs/guides/resources--namespace--lifecycle--group-001.md",
@@ -497,7 +497,7 @@
       "category": "administration",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -509,7 +509,7 @@
       "path": "documentation/resources/namespace/lifecycle/timeouts/index.md",
       "product": "distributed-cloud",
       "provider_name": "namespace",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "resources",
       "registry_anchor": "canonical-0223221203320003-2000300231233123-3232211333113211-1112120132223333-1223220000033010-3221002110303210-0103320300120112-0222300021311101",
       "registry_path": "docs/guides/resources--namespace--lifecycle--group-001.md",

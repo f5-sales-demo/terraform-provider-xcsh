@@ -2,6 +2,424 @@
   "schema_version": 1,
   "sections": [
     {
+      "canonical_id": "xcsh-docs:data-sources:service_policy:properties:rule_list:rules:spec:http_method",
+      "section_id": "xcsh-docs:data-sources:service_policy:properties:rule_list:rules:spec:http_method:section:3",
+      "source_sha256": "sha256:c2d82c95446f4e4419545f8241984742b103bc02716f835c1bac8dad2053d119",
+      "source_bytes": 395,
+      "canonical_source_sha256": "sha256:49ac810ab72776a7e26345134b1dfa103eef1c1ffcff6c63b25673962b164af2",
+      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/service_policy/properties/rule_list/rules/spec/http_method/",
+      "anchor": "canonical-2313312212331310-1213111120210103-3002003131011221-1222331132102033-0222011201101221-0102323033030333-3111033020001213-3133020313321102",
+      "anchor_map": [
+        [
+          "schema-rule_list--rules--spec--http_method--methods",
+          "canonical-1112232112123232-1033332002021200-0313002233110322-1123010013230230-3203010331222302-1020001133220012-3013102202320232-1012312320233133"
+        ]
+      ],
+      "mode": "embedded",
+      "registry_path": "docs/guides/data-sources--service_policy--reference--group-002.md"
+    },
+    {
+      "canonical_id": "xcsh-docs:data-sources:service_policy:properties:rule_list:rules:spec:http_method",
+      "section_id": "xcsh-docs:data-sources:service_policy:properties:rule_list:rules:spec:http_method:section:4",
+      "source_sha256": "sha256:5d2544848d4e4cfaab5e689cc1c1d0a16cb61150d9d496fda2ad90d78c037853",
+      "source_bytes": 1288,
+      "canonical_source_sha256": "sha256:49ac810ab72776a7e26345134b1dfa103eef1c1ffcff6c63b25673962b164af2",
+      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/service_policy/properties/rule_list/rules/spec/http_method/",
+      "anchor": "canonical-0330031201303010-2133203132001103-3302201130221301-0231213120302201-2200022320101132-3021333103013000-3102122100013000-0300322113100232",
+      "anchor_map": [],
+      "mode": "embedded",
+      "registry_path": "docs/guides/data-sources--service_policy--reference--group-002.md"
+    },
+    {
+      "canonical_id": "xcsh-docs:data-sources:service_policy:properties:rule_list:rules:spec:http_method",
+      "section_id": "xcsh-docs:data-sources:service_policy:properties:rule_list:rules:spec:http_method:section:5",
+      "source_sha256": "sha256:27badefecd851fcda430e4c1f9ffc81d6bc8dcfa33837c4b1bd6115f58fae576",
+      "source_bytes": 268,
+      "canonical_source_sha256": "sha256:49ac810ab72776a7e26345134b1dfa103eef1c1ffcff6c63b25673962b164af2",
+      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/service_policy/properties/rule_list/rules/spec/http_method/",
+      "anchor": "canonical-2023303100003322-1001320023321313-2320112213311120-1113011000001113-2310200031002122-2311223231321032-3313103010311311-1300333203312013",
+      "anchor_map": [],
+      "mode": "embedded",
+      "registry_path": "docs/guides/data-sources--service_policy--reference--group-002.md"
+    },
+    {
+      "canonical_id": "xcsh-docs:data-sources:service_policy:properties:rule_list:rules:spec:ip_matcher",
+      "section_id": "xcsh-docs:data-sources:service_policy:properties:rule_list:rules:spec:ip_matcher:section:0",
+      "source_sha256": "sha256:197d41522a9dd286cb9805a03d8a5bd782cc3f3fd95ea854bf2dfc326e83e50c",
+      "source_bytes": 99,
+      "canonical_source_sha256": "sha256:32cac7e367f23ae8246c486f7c243fc9c70bcb3f79267dc7305556062b9449a3",
+      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/service_policy/properties/rule_list/rules/spec/ip_matcher/",
+      "anchor": "canonical-3001311313101200-0111313102213231-0330101313233022-0210001223230123-2232331303200003-2213132112112331-2233022233020222-3112013102100001",
+      "anchor_map": [],
+      "mode": "embedded",
+      "registry_path": "docs/guides/data-sources--service_policy--reference--group-002.md"
+    },
+    {
+      "canonical_id": "xcsh-docs:data-sources:service_policy:properties:rule_list:rules:spec:ip_matcher",
+      "section_id": "xcsh-docs:data-sources:service_policy:properties:rule_list:rules:spec:ip_matcher:section:1",
+      "source_sha256": "sha256:58a44f359835d2aa4e9c8ca40508f7c3a42917bf3b7f9b1edef70bef51f04697",
+      "source_bytes": 1216,
+      "canonical_source_sha256": "sha256:32cac7e367f23ae8246c486f7c243fc9c70bcb3f79267dc7305556062b9449a3",
+      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/service_policy/properties/rule_list/rules/spec/ip_matcher/",
+      "anchor": "canonical-0020302111110011-3232013132220332-0302213012002033-1003331011332200-0311232200001102-0020010100312131-2020211133023330-1120332203133201",
+      "anchor_map": [
+        [
+          "section",
+          "canonical-1331103032030102-2202002232213222-1121220301103201-1312101033120123-2222122002112213-3011010203232302-2120300023201203-1221230211311001"
+        ]
+      ],
+      "mode": "embedded",
+      "registry_path": "docs/guides/data-sources--service_policy--reference--group-002.md"
+    },
+    {
+      "canonical_id": "xcsh-docs:data-sources:service_policy:properties:rule_list:rules:spec:ip_matcher",
+      "section_id": "xcsh-docs:data-sources:service_policy:properties:rule_list:rules:spec:ip_matcher:section:2",
+      "source_sha256": "sha256:d4474659875c15fb3ac70fff4d32c9a312846c64f6691ef7157ea1f85cbeaa50",
+      "source_bytes": 94,
+      "canonical_source_sha256": "sha256:32cac7e367f23ae8246c486f7c243fc9c70bcb3f79267dc7305556062b9449a3",
+      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/service_policy/properties/rule_list/rules/spec/ip_matcher/",
+      "anchor": "canonical-0222013303101131-2033233020212312-3313120032230330-1133120110123133-2100313310313202-3102130312120100-2211211213322001-2312031130130220",
+      "anchor_map": [
+        [
+          "schema-rule_list--rules--spec--ip_matcher--invert_matcher",
+          "canonical-3310210102200031-3113013002201213-2030322331233002-2033200311013101-0000103132112123-0002301231302331-3331202331311030-0301223131302313"
+        ]
+      ],
+      "mode": "embedded",
+      "registry_path": "docs/guides/data-sources--service_policy--reference--group-002.md"
+    },
+    {
+      "canonical_id": "xcsh-docs:data-sources:service_policy:properties:rule_list:rules:spec:ip_matcher",
+      "section_id": "xcsh-docs:data-sources:service_policy:properties:rule_list:rules:spec:ip_matcher:section:3",
+      "source_sha256": "sha256:aea25e2748b766994e01976d04c5d80f9ed5f0384a3f1aeba7e8ea4a23062db7",
+      "source_bytes": 515,
+      "canonical_source_sha256": "sha256:32cac7e367f23ae8246c486f7c243fc9c70bcb3f79267dc7305556062b9449a3",
+      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/service_policy/properties/rule_list/rules/spec/ip_matcher/",
+      "anchor": "canonical-1133021300332301-0222131121133112-3201020200233301-0302311010132031-1333200012221112-1213110231202313-2310123210131000-3113320202300200",
+      "anchor_map": [],
+      "mode": "embedded",
+      "registry_path": "docs/guides/data-sources--service_policy--reference--group-002.md"
+    },
+    {
+      "canonical_id": "xcsh-docs:data-sources:service_policy:properties:rule_list:rules:spec:ip_matcher",
+      "section_id": "xcsh-docs:data-sources:service_policy:properties:rule_list:rules:spec:ip_matcher:section:4",
+      "source_sha256": "sha256:7496225db10044fda5bcb17ea9790f0687605c9e3a2d9aaff118a58a78677d32",
+      "source_bytes": 457,
+      "canonical_source_sha256": "sha256:32cac7e367f23ae8246c486f7c243fc9c70bcb3f79267dc7305556062b9449a3",
+      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/service_policy/properties/rule_list/rules/spec/ip_matcher/",
+      "anchor": "canonical-0210303020202122-0113023313023111-2232120103101310-0332023300303023-0230033011303231-3002002200331002-2203321310102312-0100023000310020",
+      "anchor_map": [],
+      "mode": "embedded",
+      "registry_path": "docs/guides/data-sources--service_policy--reference--group-002.md"
+    },
+    {
+      "canonical_id": "xcsh-docs:data-sources:service_policy:properties:rule_list:rules:spec:ip_matcher:prefix_sets",
+      "section_id": "xcsh-docs:data-sources:service_policy:properties:rule_list:rules:spec:ip_matcher:prefix_sets:section:0",
+      "source_sha256": "sha256:197d41522a9dd286cb9805a03d8a5bd782cc3f3fd95ea854bf2dfc326e83e50c",
+      "source_bytes": 99,
+      "canonical_source_sha256": "sha256:a30c37f096e23b536614c9dee028f53d414c294075c344e48755485171277427",
+      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/service_policy/properties/rule_list/rules/spec/ip_matcher/prefix_sets/",
+      "anchor": "canonical-3202231202123333-2110110232001130-1131033132311212-2020131100002112-3310111023003233-0203301303212202-3100123112303020-3333230020323313",
+      "anchor_map": [],
+      "mode": "embedded",
+      "registry_path": "docs/guides/data-sources--service_policy--reference--group-002.md"
+    },
+    {
+      "canonical_id": "xcsh-docs:data-sources:service_policy:properties:rule_list:rules:spec:ip_matcher:prefix_sets",
+      "section_id": "xcsh-docs:data-sources:service_policy:properties:rule_list:rules:spec:ip_matcher:prefix_sets:section:1",
+      "source_sha256": "sha256:317baf9a1cc83a45cf083fedb6b854bdd26c39822f2c47074659aba03e777a2e",
+      "source_bytes": 1795,
+      "canonical_source_sha256": "sha256:a30c37f096e23b536614c9dee028f53d414c294075c344e48755485171277427",
+      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/service_policy/properties/rule_list/rules/spec/ip_matcher/prefix_sets/",
+      "anchor": "canonical-2011101002111230-2113122332003321-2321233222103110-3013020312012102-1133020003100312-0120121121321013-1320123022133202-2302131122133322",
+      "anchor_map": [
+        [
+          "section",
+          "canonical-0330011200233103-1103220323320011-1311331221001120-0211020322101330-3032112322011203-2003120203331101-3020030130023113-3230221113002313"
+        ]
+      ],
+      "mode": "embedded",
+      "registry_path": "docs/guides/data-sources--service_policy--reference--group-002.md"
+    },
+    {
+      "canonical_id": "xcsh-docs:data-sources:service_policy:properties:rule_list:rules:spec:ip_matcher:prefix_sets",
+      "section_id": "xcsh-docs:data-sources:service_policy:properties:rule_list:rules:spec:ip_matcher:prefix_sets:section:2",
+      "source_sha256": "sha256:b34a3ac8d317e7fa4b4edeb2d1a3d231259511c815b9dc79b252bd9ff6c490e2",
+      "source_bytes": 97,
+      "canonical_source_sha256": "sha256:a30c37f096e23b536614c9dee028f53d414c294075c344e48755485171277427",
+      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/service_policy/properties/rule_list/rules/spec/ip_matcher/prefix_sets/",
+      "anchor": "canonical-1031102000210321-2333313320102031-2033313123322213-0210022320233033-2210230321001030-2313310221331002-2101001233312302-0011302233230321",
+      "anchor_map": [
+        [
+          "schema-rule_list--rules--spec--ip_matcher--prefix_sets--kind",
+          "canonical-2322013233111133-1011230113131320-2111220110130101-1002020122033333-3122113211323310-2203021121123311-0233021020313210-3313103223230132"
+        ]
+      ],
+      "mode": "embedded",
+      "registry_path": "docs/guides/data-sources--service_policy--reference--group-002.md"
+    },
+    {
+      "canonical_id": "xcsh-docs:data-sources:service_policy:properties:rule_list:rules:spec:ip_matcher:prefix_sets",
+      "section_id": "xcsh-docs:data-sources:service_policy:properties:rule_list:rules:spec:ip_matcher:prefix_sets:section:3",
+      "source_sha256": "sha256:6ba4ec07cd9f7a882dc19cb171bb0c25a3df43cca5005476ae62dcce5d248a49",
+      "source_bytes": 842,
+      "canonical_source_sha256": "sha256:a30c37f096e23b536614c9dee028f53d414c294075c344e48755485171277427",
+      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/service_policy/properties/rule_list/rules/spec/ip_matcher/prefix_sets/",
+      "anchor": "canonical-3330103220210003-1310233122333201-3220301230131310-0031103102323331-3033110121210311-2021100000010332-0310221103003301-0032002223322103",
+      "anchor_map": [
+        [
+          "schema-rule_list--rules--spec--ip_matcher--prefix_sets--name",
+          "canonical-0330301031313300-3211323220200013-0331221123012112-3001311010313330-0001010300100130-1322232313103100-3331321000223200-1023221322132102"
+        ]
+      ],
+      "mode": "embedded",
+      "registry_path": "docs/guides/data-sources--service_policy--reference--group-002.md"
+    },
+    {
+      "canonical_id": "xcsh-docs:data-sources:service_policy:properties:rule_list:rules:spec:ip_matcher:prefix_sets",
+      "section_id": "xcsh-docs:data-sources:service_policy:properties:rule_list:rules:spec:ip_matcher:prefix_sets:section:4",
+      "source_sha256": "sha256:1778d1a16dd9bb1f54c0ffc1c86ebbd4379a0b50fd88d1f89de9b8fd8957afaa",
+      "source_bytes": 846,
+      "canonical_source_sha256": "sha256:a30c37f096e23b536614c9dee028f53d414c294075c344e48755485171277427",
+      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/service_policy/properties/rule_list/rules/spec/ip_matcher/prefix_sets/",
+      "anchor": "canonical-2130312102121120-3031200111003203-2303303100102312-1001130100312113-0132301300310031-0013101122122003-0303321330031302-1023300133113200",
+      "anchor_map": [
+        [
+          "schema-rule_list--rules--spec--ip_matcher--prefix_sets--namespace",
+          "canonical-3001031222221102-2221000130030010-3320022311220221-2212010013103330-1103103331101111-1322020012303333-1230210213020203-2131210213330011"
+        ]
+      ],
+      "mode": "embedded",
+      "registry_path": "docs/guides/data-sources--service_policy--reference--group-002.md"
+    },
+    {
+      "canonical_id": "xcsh-docs:data-sources:service_policy:properties:rule_list:rules:spec:ip_matcher:prefix_sets",
+      "section_id": "xcsh-docs:data-sources:service_policy:properties:rule_list:rules:spec:ip_matcher:prefix_sets:section:5",
+      "source_sha256": "sha256:0f85fb6a42b73a019fc9268219a48e4322b284c40f4bfab6556811ac991c6408",
+      "source_bytes": 1380,
+      "canonical_source_sha256": "sha256:a30c37f096e23b536614c9dee028f53d414c294075c344e48755485171277427",
+      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/service_policy/properties/rule_list/rules/spec/ip_matcher/prefix_sets/",
+      "anchor": "canonical-3133331203100330-2313322120103200-2312130321221201-2010010113301012-0222321231030303-2113233200323121-3113123100130121-0002322032223312",
+      "anchor_map": [
+        [
+          "schema-rule_list--rules--spec--ip_matcher--prefix_sets--tenant",
+          "canonical-2121201132222230-1333213120120023-1233233012012311-3013220323021210-1310301301333321-2312012331003210-2123022211332323-0123210312032101"
+        ]
+      ],
+      "mode": "embedded",
+      "registry_path": "docs/guides/data-sources--service_policy--reference--group-002.md"
+    },
+    {
+      "canonical_id": "xcsh-docs:data-sources:service_policy:properties:rule_list:rules:spec:ip_matcher:prefix_sets",
+      "section_id": "xcsh-docs:data-sources:service_policy:properties:rule_list:rules:spec:ip_matcher:prefix_sets:section:6",
+      "source_sha256": "sha256:fbc8eba2c3ea4fd51cca13501d6e3ecb93e40d112f6635e345f95259cb8afa10",
+      "source_bytes": 850,
+      "canonical_source_sha256": "sha256:a30c37f096e23b536614c9dee028f53d414c294075c344e48755485171277427",
+      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/service_policy/properties/rule_list/rules/spec/ip_matcher/prefix_sets/",
+      "anchor": "canonical-3123323121010133-3111112002123322-2120120321010300-1100311120301033-0310101112302220-2023112011131120-0101221322301333-0313030310011312",
+      "anchor_map": [
+        [
+          "schema-rule_list--rules--spec--ip_matcher--prefix_sets--uid",
+          "canonical-0122311311233032-1022010012320301-2033020203222131-3122321101330203-3301300201003220-0210103122311300-2331133000333332-1233220301211333"
+        ]
+      ],
+      "mode": "embedded",
+      "registry_path": "docs/guides/data-sources--service_policy--reference--group-002.md"
+    },
+    {
+      "canonical_id": "xcsh-docs:data-sources:service_policy:properties:rule_list:rules:spec:ip_matcher:prefix_sets",
+      "section_id": "xcsh-docs:data-sources:service_policy:properties:rule_list:rules:spec:ip_matcher:prefix_sets:section:7",
+      "source_sha256": "sha256:3dea66bd5fa6de0d55133711dfe4a5ffcb3217e0a89d5332adcc5472146ef4c9",
+      "source_bytes": 761,
+      "canonical_source_sha256": "sha256:a30c37f096e23b536614c9dee028f53d414c294075c344e48755485171277427",
+      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/service_policy/properties/rule_list/rules/spec/ip_matcher/prefix_sets/",
+      "anchor": "canonical-0103300202221130-2131123102212201-3213010302001001-3120100332022002-3211301130133200-1200211012210203-1301220020120020-0123020201101221",
+      "anchor_map": [],
+      "mode": "embedded",
+      "registry_path": "docs/guides/data-sources--service_policy--reference--group-002.md"
+    },
+    {
+      "canonical_id": "xcsh-docs:data-sources:service_policy:properties:rule_list:rules:spec:ip_matcher:prefix_sets",
+      "section_id": "xcsh-docs:data-sources:service_policy:properties:rule_list:rules:spec:ip_matcher:prefix_sets:section:8",
+      "source_sha256": "sha256:ea40d788dee9330ae7efc13e0cdcbe962ff8f25e1661c68c37a9bfce14412115",
+      "source_bytes": 290,
+      "canonical_source_sha256": "sha256:a30c37f096e23b536614c9dee028f53d414c294075c344e48755485171277427",
+      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/service_policy/properties/rule_list/rules/spec/ip_matcher/prefix_sets/",
+      "anchor": "canonical-1301130213113301-0232002120131231-2012323103002113-1301130113320211-3011123320321223-1002302103131202-0011333000330233-0121232120302230",
+      "anchor_map": [],
+      "mode": "embedded",
+      "registry_path": "docs/guides/data-sources--service_policy--reference--group-002.md"
+    },
+    {
+      "canonical_id": "xcsh-docs:data-sources:service_policy:properties:rule_list:rules:spec:ip_prefix_list",
+      "section_id": "xcsh-docs:data-sources:service_policy:properties:rule_list:rules:spec:ip_prefix_list:section:0",
+      "source_sha256": "sha256:197d41522a9dd286cb9805a03d8a5bd782cc3f3fd95ea854bf2dfc326e83e50c",
+      "source_bytes": 99,
+      "canonical_source_sha256": "sha256:f6c15c28a31867b881293162abec62d9bcb6eeba5e9ee2246360f45b805c5c93",
+      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/service_policy/properties/rule_list/rules/spec/ip_prefix_list/",
+      "anchor": "canonical-1133021322231212-2103223100112132-2212113321333203-0113233322020010-0003213320223311-3112100133213021-3323011012332312-1123001232301321",
+      "anchor_map": [],
+      "mode": "embedded",
+      "registry_path": "docs/guides/data-sources--service_policy--reference--group-002.md"
+    },
+    {
+      "canonical_id": "xcsh-docs:data-sources:service_policy:properties:rule_list:rules:spec:ip_prefix_list",
+      "section_id": "xcsh-docs:data-sources:service_policy:properties:rule_list:rules:spec:ip_prefix_list:section:1",
+      "source_sha256": "sha256:ada831c3d10aea116f47c35f3f348dfaefd229a0d508fc22d470df7c7b8b0513",
+      "source_bytes": 990,
+      "canonical_source_sha256": "sha256:f6c15c28a31867b881293162abec62d9bcb6eeba5e9ee2246360f45b805c5c93",
+      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/service_policy/properties/rule_list/rules/spec/ip_prefix_list/",
+      "anchor": "canonical-3231101303322131-0130121003333210-3132310001212303-3003210223020012-0012211322010301-1122201133020222-1030223031101001-3031230102020312",
+      "anchor_map": [
+        [
+          "section",
+          "canonical-0332320110133201-3103032311222213-2312021222023232-0330203300133120-1232221103000032-0021300000103213-2220330322332103-1101231122101103"
+        ]
+      ],
+      "mode": "embedded",
+      "registry_path": "docs/guides/data-sources--service_policy--reference--group-002.md"
+    },
+    {
+      "canonical_id": "xcsh-docs:data-sources:service_policy:properties:rule_list:rules:spec:ip_prefix_list",
+      "section_id": "xcsh-docs:data-sources:service_policy:properties:rule_list:rules:spec:ip_prefix_list:section:2",
+      "source_sha256": "sha256:191f66445cb2504a48d3c95e688ead36e1ec46c9f48928036c3c7cec2b807837",
+      "source_bytes": 96,
+      "canonical_source_sha256": "sha256:f6c15c28a31867b881293162abec62d9bcb6eeba5e9ee2246360f45b805c5c93",
+      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/service_policy/properties/rule_list/rules/spec/ip_prefix_list/",
+      "anchor": "canonical-0233031313320122-0222333301213230-1311000222130002-3002133331302112-0102131020310330-0003013022020112-0312001322022002-2010313303303221",
+      "anchor_map": [
+        [
+          "schema-rule_list--rules--spec--ip_prefix_list--invert_match",
+          "canonical-3020222320221332-3211131100011233-0233021301301223-3120032112132122-2322120322302233-2032302202303103-2332021132210330-0103123213331131"
+        ]
+      ],
+      "mode": "embedded",
+      "registry_path": "docs/guides/data-sources--service_policy--reference--group-002.md"
+    },
+    {
+      "canonical_id": "xcsh-docs:data-sources:service_policy:properties:rule_list:rules:spec:ip_prefix_list",
+      "section_id": "xcsh-docs:data-sources:service_policy:properties:rule_list:rules:spec:ip_prefix_list:section:3",
+      "source_sha256": "sha256:cb830795b13645769dc6b07e8929bc9ecd2ffa68e09e192f19b56d672ec19d01",
+      "source_bytes": 398,
+      "canonical_source_sha256": "sha256:f6c15c28a31867b881293162abec62d9bcb6eeba5e9ee2246360f45b805c5c93",
+      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/service_policy/properties/rule_list/rules/spec/ip_prefix_list/",
+      "anchor": "canonical-2032021013330122-2002313213123232-2023000330132213-3230020300310033-1133113312313132-2132212033123200-2000310321023300-0100103002231032",
+      "anchor_map": [
+        [
+          "schema-rule_list--rules--spec--ip_prefix_list--ip_prefixes",
+          "canonical-0333212333332103-3030131233230322-3332112111013110-0013032331201233-2132232001000230-2332021221012113-0313130323113332-0122133333332230"
+        ]
+      ],
+      "mode": "embedded",
+      "registry_path": "docs/guides/data-sources--service_policy--reference--group-002.md"
+    },
+    {
+      "canonical_id": "xcsh-docs:data-sources:service_policy:properties:rule_list:rules:spec:ip_prefix_list",
+      "section_id": "xcsh-docs:data-sources:service_policy:properties:rule_list:rules:spec:ip_prefix_list:section:4",
+      "source_sha256": "sha256:d390c685ae58590be93f2787af8394974182ff5f15eb27c640df9168b5a463da",
+      "source_bytes": 1196,
+      "canonical_source_sha256": "sha256:f6c15c28a31867b881293162abec62d9bcb6eeba5e9ee2246360f45b805c5c93",
+      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/service_policy/properties/rule_list/rules/spec/ip_prefix_list/",
+      "anchor": "canonical-3200111001212201-2221320032011033-2312022132213112-2122033033333000-3003021132032032-2303303222100033-1301223111233002-2113000000032323",
+      "anchor_map": [],
+      "mode": "embedded",
+      "registry_path": "docs/guides/data-sources--service_policy--reference--group-002.md"
+    },
+    {
+      "canonical_id": "xcsh-docs:data-sources:service_policy:properties:rule_list:rules:spec:ip_prefix_list",
+      "section_id": "xcsh-docs:data-sources:service_policy:properties:rule_list:rules:spec:ip_prefix_list:section:5",
+      "source_sha256": "sha256:27badefecd851fcda430e4c1f9ffc81d6bc8dcfa33837c4b1bd6115f58fae576",
+      "source_bytes": 268,
+      "canonical_source_sha256": "sha256:f6c15c28a31867b881293162abec62d9bcb6eeba5e9ee2246360f45b805c5c93",
+      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/service_policy/properties/rule_list/rules/spec/ip_prefix_list/",
+      "anchor": "canonical-1132033133331223-1331210202331100-3122023022210010-3332130220002012-0323010021130120-1010310320310023-2001123320330021-0031010133030200",
+      "anchor_map": [],
+      "mode": "embedded",
+      "registry_path": "docs/guides/data-sources--service_policy--reference--group-002.md"
+    },
+    {
+      "canonical_id": "xcsh-docs:data-sources:service_policy:properties:rule_list:rules:spec:ip_threat_category_list",
+      "section_id": "xcsh-docs:data-sources:service_policy:properties:rule_list:rules:spec:ip_threat_category_list:section:0",
+      "source_sha256": "sha256:197d41522a9dd286cb9805a03d8a5bd782cc3f3fd95ea854bf2dfc326e83e50c",
+      "source_bytes": 99,
+      "canonical_source_sha256": "sha256:d81b83b98f2827b7dc11bb71644cc6c82ff6d52e7700ab107b6217ee72f36a16",
+      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/service_policy/properties/rule_list/rules/spec/ip_threat_category_list/",
+      "anchor": "canonical-0213001221332012-0333230020030103-1200211310131211-0231323331103203-2310310332330330-3313312022312012-1302033120012331-0021212310222310",
+      "anchor_map": [],
+      "mode": "embedded",
+      "registry_path": "docs/guides/data-sources--service_policy--reference--group-002.md"
+    },
+    {
+      "canonical_id": "xcsh-docs:data-sources:service_policy:properties:rule_list:rules:spec:ip_threat_category_list",
+      "section_id": "xcsh-docs:data-sources:service_policy:properties:rule_list:rules:spec:ip_threat_category_list:section:1",
+      "source_sha256": "sha256:fdfb88032d7255439a2d3fa8abbddf90914778a769baba6b0e42d0a1d5d76e04",
+      "source_bytes": 1078,
+      "canonical_source_sha256": "sha256:d81b83b98f2827b7dc11bb71644cc6c82ff6d52e7700ab107b6217ee72f36a16",
+      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/service_policy/properties/rule_list/rules/spec/ip_threat_category_list/",
+      "anchor": "canonical-1022310001321202-3321010120203002-1111102311122203-2033013213200301-3121230221022300-3100120312103213-1202312133011301-3332003130322300",
+      "anchor_map": [
+        [
+          "section",
+          "canonical-0332320111030232-3310113121200022-1031330203210102-2212203332210312-3201012132323000-0200201001103023-0210310132323111-3010331010001100"
+        ]
+      ],
+      "mode": "embedded",
+      "registry_path": "docs/guides/data-sources--service_policy--reference--group-002.md"
+    },
+    {
+      "canonical_id": "xcsh-docs:data-sources:service_policy:properties:rule_list:rules:spec:ip_threat_category_list",
+      "section_id": "xcsh-docs:data-sources:service_policy:properties:rule_list:rules:spec:ip_threat_category_list:section:2",
+      "source_sha256": "sha256:e0d50a2c5a9241145c837c215d5195f65cf7ee1ae663a45b1826d070f397d171",
+      "source_bytes": 113,
+      "canonical_source_sha256": "sha256:d81b83b98f2827b7dc11bb71644cc6c82ff6d52e7700ab107b6217ee72f36a16",
+      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/service_policy/properties/rule_list/rules/spec/ip_threat_category_list/",
+      "anchor": "canonical-0100031100313033-3002211120220331-0100322221211102-3221021003111201-3301022300323100-3100101232223031-3301323032303101-0113332332321103",
+      "anchor_map": [
+        [
+          "schema-rule_list--rules--spec--ip_threat_category_list--ip_threat_categories",
+          "canonical-2102010000011313-1231113311132130-1000300113122132-2132213113111123-1310321100110133-1220232223110023-1310101201212000-0201222211103130"
+        ]
+      ],
+      "mode": "embedded",
+      "registry_path": "docs/guides/data-sources--service_policy--reference--group-002.md"
+    },
+    {
+      "canonical_id": "xcsh-docs:data-sources:service_policy:properties:rule_list:rules:spec:ip_threat_category_list",
+      "section_id": "xcsh-docs:data-sources:service_policy:properties:rule_list:rules:spec:ip_threat_category_list:section:3",
+      "source_sha256": "sha256:6a7b5f6eafb921df8cdd343b77c1f6a6ae6c7cede8adb142f6ac316b0e840e17",
+      "source_bytes": 1602,
+      "canonical_source_sha256": "sha256:d81b83b98f2827b7dc11bb71644cc6c82ff6d52e7700ab107b6217ee72f36a16",
+      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/service_policy/properties/rule_list/rules/spec/ip_threat_category_list/",
+      "anchor": "canonical-1123203212001030-3301202013333121-1232000012132123-1020232120321130-1223333002322013-1323333300031311-0033232303031001-2022012202311330",
+      "anchor_map": [],
+      "mode": "embedded",
+      "registry_path": "docs/guides/data-sources--service_policy--reference--group-002.md"
+    },
+    {
+      "canonical_id": "xcsh-docs:data-sources:service_policy:properties:rule_list:rules:spec:ip_threat_category_list",
+      "section_id": "xcsh-docs:data-sources:service_policy:properties:rule_list:rules:spec:ip_threat_category_list:section:4",
+      "source_sha256": "sha256:27badefecd851fcda430e4c1f9ffc81d6bc8dcfa33837c4b1bd6115f58fae576",
+      "source_bytes": 268,
+      "canonical_source_sha256": "sha256:d81b83b98f2827b7dc11bb71644cc6c82ff6d52e7700ab107b6217ee72f36a16",
+      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/service_policy/properties/rule_list/rules/spec/ip_threat_category_list/",
+      "anchor": "canonical-3300230313333130-3123122002211200-2001233020011321-2113132121111123-1203131313220031-1330032230102003-2323132210232231-2002210331200102",
+      "anchor_map": [],
+      "mode": "embedded",
+      "registry_path": "docs/guides/data-sources--service_policy--reference--group-002.md"
+    },
+    {
+      "canonical_id": "xcsh-docs:data-sources:service_policy:properties:rule_list:rules:spec:ja4_tls_fingerprint",
+      "section_id": "xcsh-docs:data-sources:service_policy:properties:rule_list:rules:spec:ja4_tls_fingerprint:section:0",
+      "source_sha256": "sha256:197d41522a9dd286cb9805a03d8a5bd782cc3f3fd95ea854bf2dfc326e83e50c",
+      "source_bytes": 99,
+      "canonical_source_sha256": "sha256:467dfbead3bb4e8666377b5e077d91372eeb0afc6ad49ce0b58f737da038fccc",
+      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/service_policy/properties/rule_list/rules/spec/ja4_tls_fingerprint/",
+      "anchor": "canonical-0020023013210332-1201130101003103-1003112321233212-2120210311320132-0321330033001332-2103123112111112-1013321012220033-1032311101122303",
+      "anchor_map": [],
+      "mode": "embedded",
+      "registry_path": "docs/guides/data-sources--service_policy--reference--group-002.md"
+    },
+    {
       "canonical_id": "xcsh-docs:data-sources:service_policy:properties:rule_list:rules:spec:ja4_tls_fingerprint",
       "section_id": "xcsh-docs:data-sources:service_policy:properties:rule_list:rules:spec:ja4_tls_fingerprint:section:1",
       "source_sha256": "sha256:d79f5f156eeacdec6215ad19fa71f6aa438101a90731e9264b48a43a439c1520",
@@ -7022,448 +7440,6 @@
           "canonical-2311313133011303-3332310211130130-0201203330202201-1300002230232211-0002001110301003-2323210233001032-3201002301122202-0121200000031030"
         ]
       ],
-      "mode": "embedded",
-      "registry_path": "docs/guides/data-sources--service_policy_rule--reference--group-002.md"
-    },
-    {
-      "canonical_id": "xcsh-docs:data-sources:service_policy_rule:properties:path",
-      "section_id": "xcsh-docs:data-sources:service_policy_rule:properties:path:section:7",
-      "source_sha256": "sha256:f2ee044510f57e428b26ca0828409e591e1b9351e2a00f63776138f61142d0ef",
-      "source_bytes": 1412,
-      "canonical_source_sha256": "sha256:7b82a7557f4c313ae40d475a395e29f009820a60f53f0d57fab4366d24b10279",
-      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/service_policy_rule/properties/path/",
-      "anchor": "canonical-2020022111320030-0010311220203003-3332203233302312-0320311132112201-1101021230012100-1210333110212232-2333232120211303-3133313301133001",
-      "anchor_map": [
-        [
-          "schema-path--suffix_values",
-          "canonical-1222230001213311-0322221330330021-2013011220303322-0002110130221311-0221001011101022-2230231000332100-1302022031220301-2022211030222111"
-        ]
-      ],
-      "mode": "embedded",
-      "registry_path": "docs/guides/data-sources--service_policy_rule--reference--group-002.md"
-    },
-    {
-      "canonical_id": "xcsh-docs:data-sources:service_policy_rule:properties:path",
-      "section_id": "xcsh-docs:data-sources:service_policy_rule:properties:path:section:8",
-      "source_sha256": "sha256:637bcc931597b20391ed54f75a820d199e90596f2021574ea535920790821173",
-      "source_bytes": 1282,
-      "canonical_source_sha256": "sha256:7b82a7557f4c313ae40d475a395e29f009820a60f53f0d57fab4366d24b10279",
-      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/service_policy_rule/properties/path/",
-      "anchor": "canonical-0301102332310330-3112122131211213-2021102322133202-1313030100013002-1023122201220221-3211230121023133-1303103110122132-3220122010102132",
-      "anchor_map": [
-        [
-          "schema-path--transformers",
-          "canonical-0123102202300202-3231310213302101-3230011013211232-0303202020230313-1310020313203131-0130000132320312-3201220320000200-3231200022221202"
-        ]
-      ],
-      "mode": "embedded",
-      "registry_path": "docs/guides/data-sources--service_policy_rule--reference--group-002.md"
-    },
-    {
-      "canonical_id": "xcsh-docs:data-sources:service_policy_rule:properties:path",
-      "section_id": "xcsh-docs:data-sources:service_policy_rule:properties:path:section:9",
-      "source_sha256": "sha256:06fe75e301c36fd39337e5814bf22d3911eb50e6d781079a902a525500d0801c",
-      "source_bytes": 1339,
-      "canonical_source_sha256": "sha256:7b82a7557f4c313ae40d475a395e29f009820a60f53f0d57fab4366d24b10279",
-      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/service_policy_rule/properties/path/",
-      "anchor": "canonical-0011223132022301-0033222221322220-1322122230333202-2302220311211331-1313320001010133-2013022330110133-2211111213203132-2000011333010211",
-      "anchor_map": [],
-      "mode": "embedded",
-      "registry_path": "docs/guides/data-sources--service_policy_rule--reference--group-002.md"
-    },
-    {
-      "canonical_id": "xcsh-docs:data-sources:service_policy_rule:properties:path",
-      "section_id": "xcsh-docs:data-sources:service_policy_rule:properties:path:section:10",
-      "source_sha256": "sha256:244fa1a92fb2f4596007c899f0430e4c83eaa001fc6e04430c46821ff8a62e83",
-      "source_bytes": 260,
-      "canonical_source_sha256": "sha256:7b82a7557f4c313ae40d475a395e29f009820a60f53f0d57fab4366d24b10279",
-      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/service_policy_rule/properties/path/",
-      "anchor": "canonical-3113112320203120-2311333010020232-2133222132130122-3030310320122130-1013302222023020-2002212003131231-3011013313302331-0330102120220123",
-      "anchor_map": [],
-      "mode": "embedded",
-      "registry_path": "docs/guides/data-sources--service_policy_rule--reference--group-002.md"
-    },
-    {
-      "canonical_id": "xcsh-docs:data-sources:service_policy_rule:properties:port_matcher",
-      "section_id": "xcsh-docs:data-sources:service_policy_rule:properties:port_matcher:section:0",
-      "source_sha256": "sha256:197d41522a9dd286cb9805a03d8a5bd782cc3f3fd95ea854bf2dfc326e83e50c",
-      "source_bytes": 99,
-      "canonical_source_sha256": "sha256:26bbaad4a308d6e1fc314ca8f4e51f332bcb66cbd7bfb0488e51678c2a977fff",
-      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/service_policy_rule/properties/port_matcher/",
-      "anchor": "canonical-2101210020323103-3303202202131321-1133232111123110-1302223220031001-1031030010123130-1010013200001221-1302232103001023-1320212133031120",
-      "anchor_map": [],
-      "mode": "embedded",
-      "registry_path": "docs/guides/data-sources--service_policy_rule--reference--group-002.md"
-    },
-    {
-      "canonical_id": "xcsh-docs:data-sources:service_policy_rule:properties:port_matcher",
-      "section_id": "xcsh-docs:data-sources:service_policy_rule:properties:port_matcher:section:1",
-      "source_sha256": "sha256:7d2c53c189d469d6a89b2f6d80c1d8b0035541a5879499ac227bd56ea6179325",
-      "source_bytes": 1017,
-      "canonical_source_sha256": "sha256:26bbaad4a308d6e1fc314ca8f4e51f332bcb66cbd7bfb0488e51678c2a977fff",
-      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/service_policy_rule/properties/port_matcher/",
-      "anchor": "canonical-0110312220032211-1120012011113000-3310133033333021-0130202310211223-3100333232103102-0102120310111113-1100232303310132-2121103200032112",
-      "anchor_map": [
-        [
-          "section",
-          "canonical-0131213012220100-3233021322333010-0232201212000122-1202123103003121-0133002011221000-3020313202313003-1303103303310102-0011031113301112"
-        ]
-      ],
-      "mode": "embedded",
-      "registry_path": "docs/guides/data-sources--service_policy_rule--reference--group-002.md"
-    },
-    {
-      "canonical_id": "xcsh-docs:data-sources:service_policy_rule:properties:port_matcher",
-      "section_id": "xcsh-docs:data-sources:service_policy_rule:properties:port_matcher:section:2",
-      "source_sha256": "sha256:756147c16cfced99fe4427594518b9909f647a1d28234211cd4b626ef40b92d9",
-      "source_bytes": 72,
-      "canonical_source_sha256": "sha256:26bbaad4a308d6e1fc314ca8f4e51f332bcb66cbd7bfb0488e51678c2a977fff",
-      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/service_policy_rule/properties/port_matcher/",
-      "anchor": "canonical-1322320233123301-3203203331010312-2321110312200212-1130222300003321-0231201331210221-2331211302121333-3123333033303312-3333022000022131",
-      "anchor_map": [
-        [
-          "schema-port_matcher--invert_matcher",
-          "canonical-3330332300030201-2203330233023021-0002032132001020-2012201330321203-1020331230110211-1222103030122130-2321312211030033-3131103112310113"
-        ]
-      ],
-      "mode": "embedded",
-      "registry_path": "docs/guides/data-sources--service_policy_rule--reference--group-002.md"
-    },
-    {
-      "canonical_id": "xcsh-docs:data-sources:service_policy_rule:properties:port_matcher",
-      "section_id": "xcsh-docs:data-sources:service_policy_rule:properties:port_matcher:section:3",
-      "source_sha256": "sha256:2803dedaae219625680e93453a08a3e0d0f3413e37f15b844a3a529a7b10c6a9",
-      "source_bytes": 368,
-      "canonical_source_sha256": "sha256:26bbaad4a308d6e1fc314ca8f4e51f332bcb66cbd7bfb0488e51678c2a977fff",
-      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/service_policy_rule/properties/port_matcher/",
-      "anchor": "canonical-3313020033212011-0102000012020002-3232130220103003-2112322233003333-3223333133133122-3323000022031330-1110320303121120-3223223210120133",
-      "anchor_map": [
-        [
-          "schema-port_matcher--ports",
-          "canonical-3101130102333312-2110110312330220-3020123011133333-0233110000213322-1222311330211123-0101303232310120-0122121013221113-3020002312112110"
-        ]
-      ],
-      "mode": "embedded",
-      "registry_path": "docs/guides/data-sources--service_policy_rule--reference--group-002.md"
-    },
-    {
-      "canonical_id": "xcsh-docs:data-sources:service_policy_rule:properties:port_matcher",
-      "section_id": "xcsh-docs:data-sources:service_policy_rule:properties:port_matcher:section:4",
-      "source_sha256": "sha256:3b1951f3130c08667b08956a71dcb8cc33135268590c33dc0ee958d939a4193c",
-      "source_bytes": 1432,
-      "canonical_source_sha256": "sha256:26bbaad4a308d6e1fc314ca8f4e51f332bcb66cbd7bfb0488e51678c2a977fff",
-      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/service_policy_rule/properties/port_matcher/",
-      "anchor": "canonical-0122200223001131-1023003330103113-0322023211333000-1312331223312301-2030211201010312-3113203320101001-3121233031020102-0301133130202310",
-      "anchor_map": [],
-      "mode": "embedded",
-      "registry_path": "docs/guides/data-sources--service_policy_rule--reference--group-002.md"
-    },
-    {
-      "canonical_id": "xcsh-docs:data-sources:service_policy_rule:properties:port_matcher",
-      "section_id": "xcsh-docs:data-sources:service_policy_rule:properties:port_matcher:section:5",
-      "source_sha256": "sha256:244fa1a92fb2f4596007c899f0430e4c83eaa001fc6e04430c46821ff8a62e83",
-      "source_bytes": 260,
-      "canonical_source_sha256": "sha256:26bbaad4a308d6e1fc314ca8f4e51f332bcb66cbd7bfb0488e51678c2a977fff",
-      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/service_policy_rule/properties/port_matcher/",
-      "anchor": "canonical-3110223300213321-3301333001112022-3230323231001310-0122310101322132-3003300121300121-1102200301022132-1003232310110320-0022103021033300",
-      "anchor_map": [],
-      "mode": "embedded",
-      "registry_path": "docs/guides/data-sources--service_policy_rule--reference--group-002.md"
-    },
-    {
-      "canonical_id": "xcsh-docs:data-sources:service_policy_rule:properties:query_params",
-      "section_id": "xcsh-docs:data-sources:service_policy_rule:properties:query_params:section:0",
-      "source_sha256": "sha256:197d41522a9dd286cb9805a03d8a5bd782cc3f3fd95ea854bf2dfc326e83e50c",
-      "source_bytes": 99,
-      "canonical_source_sha256": "sha256:fcfd0cdae4e2b1b86f5d881fcec40d0bf83fc98a9da9b437a6f94d37b8680867",
-      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/service_policy_rule/properties/query_params/",
-      "anchor": "canonical-0010003202113012-3010221330311030-1033010003322312-0003011202030230-0310211010032310-1130310201331200-0130002311302322-3313032310023203",
-      "anchor_map": [],
-      "mode": "embedded",
-      "registry_path": "docs/guides/data-sources--service_policy_rule--reference--group-002.md"
-    },
-    {
-      "canonical_id": "xcsh-docs:data-sources:service_policy_rule:properties:query_params",
-      "section_id": "xcsh-docs:data-sources:service_policy_rule:properties:query_params:section:1",
-      "source_sha256": "sha256:03f98ea0fab6b4728750f70ecdc5bbf19d6ed8709850f2e7b367f7b729d98b6a",
-      "source_bytes": 1664,
-      "canonical_source_sha256": "sha256:fcfd0cdae4e2b1b86f5d881fcec40d0bf83fc98a9da9b437a6f94d37b8680867",
-      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/service_policy_rule/properties/query_params/",
-      "anchor": "canonical-0212331311311303-0321322311230213-1201232202012013-2213132130222221-2132032230320210-1030013032233203-2202113100332202-0312123133111322",
-      "anchor_map": [
-        [
-          "section",
-          "canonical-0110022223012231-1011022222022021-1231213210021012-2020023231312213-0120003203031103-1110212020200121-1320200132312313-1310013021311300"
-        ]
-      ],
-      "mode": "embedded",
-      "registry_path": "docs/guides/data-sources--service_policy_rule--reference--group-002.md"
-    },
-    {
-      "canonical_id": "xcsh-docs:data-sources:service_policy_rule:properties:query_params",
-      "section_id": "xcsh-docs:data-sources:service_policy_rule:properties:query_params:section:2",
-      "source_sha256": "sha256:f99d2345f1e5f2efc52045bab1a78065bf248e5c14383c21084c29db55f3d5d3",
-      "source_bytes": 440,
-      "canonical_source_sha256": "sha256:fcfd0cdae4e2b1b86f5d881fcec40d0bf83fc98a9da9b437a6f94d37b8680867",
-      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/service_policy_rule/properties/query_params/",
-      "anchor": "canonical-2100333011300110-0021200200230121-0312201333333101-3120032300320331-0000320113322332-1202010221221010-2011233323031310-2030312001223132",
-      "anchor_map": [
-        [
-          "schema-query_params--invert_matcher",
-          "canonical-1103033200210122-3201213211221303-2230013333312012-1222031203122022-2022101301223122-2330130211320000-2021230222233110-2301132123331121"
-        ]
-      ],
-      "mode": "embedded",
-      "registry_path": "docs/guides/data-sources--service_policy_rule--reference--group-002.md"
-    },
-    {
-      "canonical_id": "xcsh-docs:data-sources:service_policy_rule:properties:query_params",
-      "section_id": "xcsh-docs:data-sources:service_policy_rule:properties:query_params:section:3",
-      "source_sha256": "sha256:7cabf5a206a67d8a2b456e8fa55c2cd28804f3a0e9799ea956b4606e7bc4f104",
-      "source_bytes": 539,
-      "canonical_source_sha256": "sha256:fcfd0cdae4e2b1b86f5d881fcec40d0bf83fc98a9da9b437a6f94d37b8680867",
-      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/service_policy_rule/properties/query_params/",
-      "anchor": "canonical-3313110021012103-2233212133313000-1031111133032031-1013203202012122-0032103112011203-0123120032101032-1320322300230333-3111301111323010",
-      "anchor_map": [
-        [
-          "schema-query_params--key",
-          "canonical-0312121020113322-3203333312133313-1203103311320333-3121102221233032-3201130110310000-0000311232031333-3002323232211121-3023333131220320"
-        ]
-      ],
-      "mode": "embedded",
-      "registry_path": "docs/guides/data-sources--service_policy_rule--reference--group-002.md"
-    },
-    {
-      "canonical_id": "xcsh-docs:data-sources:service_policy_rule:properties:query_params",
-      "section_id": "xcsh-docs:data-sources:service_policy_rule:properties:query_params:section:4",
-      "source_sha256": "sha256:e3b801b2575234635c5265e513e9917be3faa03bf10ee498072b7992fba2dc5d",
-      "source_bytes": 934,
-      "canonical_source_sha256": "sha256:fcfd0cdae4e2b1b86f5d881fcec40d0bf83fc98a9da9b437a6f94d37b8680867",
-      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/service_policy_rule/properties/query_params/",
-      "anchor": "canonical-0302312011131023-2003313122301313-1100201020212110-2103312321303203-3330300131132202-0130302302313221-1313212023332320-1311322300132231",
-      "anchor_map": [],
-      "mode": "embedded",
-      "registry_path": "docs/guides/data-sources--service_policy_rule--reference--group-002.md"
-    },
-    {
-      "canonical_id": "xcsh-docs:data-sources:service_policy_rule:properties:query_params",
-      "section_id": "xcsh-docs:data-sources:service_policy_rule:properties:query_params:section:5",
-      "source_sha256": "sha256:c66c8700cd1ad7a947842998245effbeeffbb89eb0a9bca9a85bb2383021365c",
-      "source_bytes": 730,
-      "canonical_source_sha256": "sha256:fcfd0cdae4e2b1b86f5d881fcec40d0bf83fc98a9da9b437a6f94d37b8680867",
-      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/service_policy_rule/properties/query_params/",
-      "anchor": "canonical-3102323313013011-2030132333212312-1101212331200201-2112213223120331-2333332101010003-0030113123123303-2120011222113302-0302303203013010",
-      "anchor_map": [],
-      "mode": "embedded",
-      "registry_path": "docs/guides/data-sources--service_policy_rule--reference--group-002.md"
-    },
-    {
-      "canonical_id": "xcsh-docs:data-sources:service_policy_rule:properties:query_params:check_not_present",
-      "section_id": "xcsh-docs:data-sources:service_policy_rule:properties:query_params:check_not_present:section:0",
-      "source_sha256": "sha256:197d41522a9dd286cb9805a03d8a5bd782cc3f3fd95ea854bf2dfc326e83e50c",
-      "source_bytes": 99,
-      "canonical_source_sha256": "sha256:b613716657421bfefe1b459fa5e89fdfa0981572390a10597e5d7c3bf4427241",
-      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/service_policy_rule/properties/query_params/check_not_present/",
-      "anchor": "canonical-3220033332213100-2033312120023122-2231132332010002-2033031303113023-2132212313323222-1001212132301000-1210033320000312-2101012002123022",
-      "anchor_map": [],
-      "mode": "embedded",
-      "registry_path": "docs/guides/data-sources--service_policy_rule--reference--group-002.md"
-    },
-    {
-      "canonical_id": "xcsh-docs:data-sources:service_policy_rule:properties:query_params:check_not_present",
-      "section_id": "xcsh-docs:data-sources:service_policy_rule:properties:query_params:check_not_present:section:1",
-      "source_sha256": "sha256:72ee7dd35d5d8604cc83b17b0b3cbc0fe4ba2c39e840f7e39634e296cf172963",
-      "source_bytes": 821,
-      "canonical_source_sha256": "sha256:b613716657421bfefe1b459fa5e89fdfa0981572390a10597e5d7c3bf4427241",
-      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/service_policy_rule/properties/query_params/check_not_present/",
-      "anchor": "canonical-2321200321121313-3300202221200130-0021121210002031-0210320332112211-3102312012222020-0203321331102311-2212333212020231-0330212320123001",
-      "anchor_map": [
-        [
-          "section",
-          "canonical-3011101203123210-1300300210101020-3321130320311201-3310230230131332-2213302110000323-0122201221030113-2011323332311220-3000300112000112"
-        ]
-      ],
-      "mode": "embedded",
-      "registry_path": "docs/guides/data-sources--service_policy_rule--reference--group-002.md"
-    },
-    {
-      "canonical_id": "xcsh-docs:data-sources:service_policy_rule:properties:query_params:check_not_present",
-      "section_id": "xcsh-docs:data-sources:service_policy_rule:properties:query_params:check_not_present:section:2",
-      "source_sha256": "sha256:0d4398201e18f9ddb2ea00ceed6d3256755ea4d008d849d1cec42dab5c55f1b5",
-      "source_bytes": 94,
-      "canonical_source_sha256": "sha256:b613716657421bfefe1b459fa5e89fdfa0981572390a10597e5d7c3bf4427241",
-      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/service_policy_rule/properties/query_params/check_not_present/",
-      "anchor": "canonical-2330323302002300-0123223101203201-1120022320031211-1333000201131132-0231201221100103-1030300101233210-1301101131032233-0032202220333112",
-      "anchor_map": [],
-      "mode": "embedded",
-      "registry_path": "docs/guides/data-sources--service_policy_rule--reference--group-002.md"
-    },
-    {
-      "canonical_id": "xcsh-docs:data-sources:service_policy_rule:properties:query_params:check_not_present",
-      "section_id": "xcsh-docs:data-sources:service_policy_rule:properties:query_params:check_not_present:section:3",
-      "source_sha256": "sha256:f26568e5db4329e91fe546d3f959430505beca4708197a6cb517b50a7aaef364",
-      "source_bytes": 267,
-      "canonical_source_sha256": "sha256:b613716657421bfefe1b459fa5e89fdfa0981572390a10597e5d7c3bf4427241",
-      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/service_policy_rule/properties/query_params/check_not_present/",
-      "anchor": "canonical-2321113233212333-1213100130023021-1112331121013131-2212212203200003-0113301133021032-0210123231212302-2132101110121221-2220332332012022",
-      "anchor_map": [],
-      "mode": "embedded",
-      "registry_path": "docs/guides/data-sources--service_policy_rule--reference--group-002.md"
-    },
-    {
-      "canonical_id": "xcsh-docs:data-sources:service_policy_rule:properties:query_params:check_present",
-      "section_id": "xcsh-docs:data-sources:service_policy_rule:properties:query_params:check_present:section:0",
-      "source_sha256": "sha256:197d41522a9dd286cb9805a03d8a5bd782cc3f3fd95ea854bf2dfc326e83e50c",
-      "source_bytes": 99,
-      "canonical_source_sha256": "sha256:f277178de8e0b29d304412a6e720eb6c52c26e75e7749b6651a689869ff70713",
-      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/service_policy_rule/properties/query_params/check_present/",
-      "anchor": "canonical-2330013133300202-1312212010221301-2102030201103121-3303231100230202-0000303311230222-0002320123000121-2011023000302222-1332232020022211",
-      "anchor_map": [],
-      "mode": "embedded",
-      "registry_path": "docs/guides/data-sources--service_policy_rule--reference--group-002.md"
-    },
-    {
-      "canonical_id": "xcsh-docs:data-sources:service_policy_rule:properties:query_params:check_present",
-      "section_id": "xcsh-docs:data-sources:service_policy_rule:properties:query_params:check_present:section:1",
-      "source_sha256": "sha256:f3d98968bd3c5629c931ad1ee68b2f94e1658f8db907868509a370c2c1b4b127",
-      "source_bytes": 809,
-      "canonical_source_sha256": "sha256:f277178de8e0b29d304412a6e720eb6c52c26e75e7749b6651a689869ff70713",
-      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/service_policy_rule/properties/query_params/check_present/",
-      "anchor": "canonical-2121233012312123-1020203202320231-3323001230102313-0110213301320111-0220001032313010-2113230020022131-0230300210211001-0211020220312223",
-      "anchor_map": [
-        [
-          "section",
-          "canonical-1002312133133323-0223313003230001-3331200333031002-1332121010001221-2012123200022211-2211201002322331-3223232333131320-1303131103120003"
-        ]
-      ],
-      "mode": "embedded",
-      "registry_path": "docs/guides/data-sources--service_policy_rule--reference--group-002.md"
-    },
-    {
-      "canonical_id": "xcsh-docs:data-sources:service_policy_rule:properties:query_params:check_present",
-      "section_id": "xcsh-docs:data-sources:service_policy_rule:properties:query_params:check_present:section:2",
-      "source_sha256": "sha256:0d4398201e18f9ddb2ea00ceed6d3256755ea4d008d849d1cec42dab5c55f1b5",
-      "source_bytes": 94,
-      "canonical_source_sha256": "sha256:f277178de8e0b29d304412a6e720eb6c52c26e75e7749b6651a689869ff70713",
-      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/service_policy_rule/properties/query_params/check_present/",
-      "anchor": "canonical-3223321312301202-1011302113200013-3323012110322031-2221103123001333-3122130031020012-0020222130011220-1212021320203020-1020210313003020",
-      "anchor_map": [],
-      "mode": "embedded",
-      "registry_path": "docs/guides/data-sources--service_policy_rule--reference--group-002.md"
-    },
-    {
-      "canonical_id": "xcsh-docs:data-sources:service_policy_rule:properties:query_params:check_present",
-      "section_id": "xcsh-docs:data-sources:service_policy_rule:properties:query_params:check_present:section:3",
-      "source_sha256": "sha256:f26568e5db4329e91fe546d3f959430505beca4708197a6cb517b50a7aaef364",
-      "source_bytes": 267,
-      "canonical_source_sha256": "sha256:f277178de8e0b29d304412a6e720eb6c52c26e75e7749b6651a689869ff70713",
-      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/service_policy_rule/properties/query_params/check_present/",
-      "anchor": "canonical-3023313311132202-1220021133203331-1233201101103130-1310312112320010-1311030001113013-0103203311212123-0020222111332213-2133312023013132",
-      "anchor_map": [],
-      "mode": "embedded",
-      "registry_path": "docs/guides/data-sources--service_policy_rule--reference--group-002.md"
-    },
-    {
-      "canonical_id": "xcsh-docs:data-sources:service_policy_rule:properties:query_params:item",
-      "section_id": "xcsh-docs:data-sources:service_policy_rule:properties:query_params:item:section:0",
-      "source_sha256": "sha256:197d41522a9dd286cb9805a03d8a5bd782cc3f3fd95ea854bf2dfc326e83e50c",
-      "source_bytes": 99,
-      "canonical_source_sha256": "sha256:7875313fa5e24e1eeae49926903eefa06978d188faf216c046ca9faff9e0decd",
-      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/service_policy_rule/properties/query_params/item/",
-      "anchor": "canonical-3133001330323313-2012212130033223-1311101230031121-0231002310113211-3111102301030122-2300120031010000-0310221131132102-0302320330303002",
-      "anchor_map": [],
-      "mode": "embedded",
-      "registry_path": "docs/guides/data-sources--service_policy_rule--reference--group-002.md"
-    },
-    {
-      "canonical_id": "xcsh-docs:data-sources:service_policy_rule:properties:query_params:item",
-      "section_id": "xcsh-docs:data-sources:service_policy_rule:properties:query_params:item:section:1",
-      "source_sha256": "sha256:9ea909d41835d11d640c550321a7e0fe3513a009724d2434d630895e2675d2d6",
-      "source_bytes": 1170,
-      "canonical_source_sha256": "sha256:7875313fa5e24e1eeae49926903eefa06978d188faf216c046ca9faff9e0decd",
-      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/service_policy_rule/properties/query_params/item/",
-      "anchor": "canonical-1001313021121202-2103033310122110-1203221120001320-3010303002331202-3311022221310203-3232323112100213-2102032003220330-0002031123113230",
-      "anchor_map": [
-        [
-          "section",
-          "canonical-0330101112120322-3333133122212133-2332122021103233-1322100002311122-3333313123111132-1133023013130202-0221213301303033-2102321000311213"
-        ]
-      ],
-      "mode": "embedded",
-      "registry_path": "docs/guides/data-sources--service_policy_rule--reference--group-002.md"
-    },
-    {
-      "canonical_id": "xcsh-docs:data-sources:service_policy_rule:properties:query_params:item",
-      "section_id": "xcsh-docs:data-sources:service_policy_rule:properties:query_params:item:section:2",
-      "source_sha256": "sha256:6a2c75c979002e2b8e8e77d5107722e11ba75ca7ce96990aa102511e0a4477e7",
-      "source_bytes": 76,
-      "canonical_source_sha256": "sha256:7875313fa5e24e1eeae49926903eefa06978d188faf216c046ca9faff9e0decd",
-      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/service_policy_rule/properties/query_params/item/",
-      "anchor": "canonical-1220201202012003-0030211021332300-0333020322220003-3133303231022221-2003323331321122-2210331201121132-1122111301311202-3313032033113202",
-      "anchor_map": [
-        [
-          "schema-query_params--item--exact_values",
-          "canonical-0233120011232212-2331113232020021-3322333002132232-1133021001021230-3210112012102013-2212101320301333-1120222012313232-2232020233211120"
-        ]
-      ],
-      "mode": "embedded",
-      "registry_path": "docs/guides/data-sources--service_policy_rule--reference--group-002.md"
-    },
-    {
-      "canonical_id": "xcsh-docs:data-sources:service_policy_rule:properties:query_params:item",
-      "section_id": "xcsh-docs:data-sources:service_policy_rule:properties:query_params:item:section:3",
-      "source_sha256": "sha256:8844fab5740997b07c807c5e39ae2d9559c57fadd09b4a4556064891e1b4abb1",
-      "source_bytes": 1265,
-      "canonical_source_sha256": "sha256:7875313fa5e24e1eeae49926903eefa06978d188faf216c046ca9faff9e0decd",
-      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/service_policy_rule/properties/query_params/item/",
-      "anchor": "canonical-0323011033120131-0020203101231133-1102110000000130-3302110133223103-3122020113120011-1002013210221301-3032000021023132-3210031310210203",
-      "anchor_map": [
-        [
-          "schema-query_params--item--regex_values",
-          "canonical-1131323033011300-2123101133231321-3221130011313103-3132232220303320-3331131121200131-0002313032300221-2033320002333012-1331313001110000"
-        ]
-      ],
-      "mode": "embedded",
-      "registry_path": "docs/guides/data-sources--service_policy_rule--reference--group-002.md"
-    },
-    {
-      "canonical_id": "xcsh-docs:data-sources:service_policy_rule:properties:query_params:item",
-      "section_id": "xcsh-docs:data-sources:service_policy_rule:properties:query_params:item:section:4",
-      "source_sha256": "sha256:a9a219ef7e28b5ae13afaec4dcd12b8a50f5de2fd72a6c33f96202110dccbc00",
-      "source_bytes": 1405,
-      "canonical_source_sha256": "sha256:7875313fa5e24e1eeae49926903eefa06978d188faf216c046ca9faff9e0decd",
-      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/service_policy_rule/properties/query_params/item/",
-      "anchor": "canonical-0110221213232012-0003113030230101-0102112133300032-3322000303210320-3132020332322001-0110300022033133-1213323320130211-0013001023101032",
-      "anchor_map": [
-        [
-          "schema-query_params--item--transformers",
-          "canonical-0300320221022220-3000131220203013-1103213222132210-2120301022320023-2123003333033112-1000032112123101-0000111222300023-1001002002122313"
-        ]
-      ],
-      "mode": "embedded",
-      "registry_path": "docs/guides/data-sources--service_policy_rule--reference--group-002.md"
-    },
-    {
-      "canonical_id": "xcsh-docs:data-sources:service_policy_rule:properties:query_params:item",
-      "section_id": "xcsh-docs:data-sources:service_policy_rule:properties:query_params:item:section:5",
-      "source_sha256": "sha256:06fe75e301c36fd39337e5814bf22d3911eb50e6d781079a902a525500d0801c",
-      "source_bytes": 1339,
-      "canonical_source_sha256": "sha256:7875313fa5e24e1eeae49926903eefa06978d188faf216c046ca9faff9e0decd",
-      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/service_policy_rule/properties/query_params/item/",
-      "anchor": "canonical-0001130233013212-3230122033110322-3120310111000010-2103233030313022-3213201220231303-0021012320222001-0331001203122111-2223311020102112",
-      "anchor_map": [],
-      "mode": "embedded",
-      "registry_path": "docs/guides/data-sources--service_policy_rule--reference--group-002.md"
-    },
-    {
-      "canonical_id": "xcsh-docs:data-sources:service_policy_rule:properties:query_params:item",
-      "section_id": "xcsh-docs:data-sources:service_policy_rule:properties:query_params:item:section:6",
-      "source_sha256": "sha256:f26568e5db4329e91fe546d3f959430505beca4708197a6cb517b50a7aaef364",
-      "source_bytes": 267,
-      "canonical_source_sha256": "sha256:7875313fa5e24e1eeae49926903eefa06978d188faf216c046ca9faff9e0decd",
-      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/service_policy_rule/properties/query_params/item/",
-      "anchor": "canonical-0313230230002001-0133002120322102-1302330112233322-3121301201022121-1133201212003032-0110230213101031-1221302010131103-0003121023031102",
-      "anchor_map": [],
       "mode": "embedded",
       "registry_path": "docs/guides/data-sources--service_policy_rule--reference--group-002.md"
     }

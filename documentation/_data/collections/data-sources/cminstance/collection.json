@@ -147,7 +147,7 @@
       "category": null,
       "child_ids": ["xcsh-docs:data-sources:cminstance:reference", "xcsh-docs:data-sources:cminstance:examples"],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -159,7 +159,7 @@
       "path": "documentation/data-sources/cminstance/index.md",
       "product": "distributed-cloud",
       "provider_name": "cminstance",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-0002331230202011-3212203300130123-1211123012101021-2203230131300312-2133023023220023-3111001023122322-0012003002331212-3011011010021020",
       "registry_path": "docs/data-sources/cminstance.md",
@@ -192,7 +192,7 @@
         "xcsh-docs:data-sources:cminstance:properties:password"
       ],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -204,7 +204,7 @@
       "path": "documentation/data-sources/cminstance/properties/index.md",
       "product": "distributed-cloud",
       "provider_name": "cminstance",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-3021233103221211-3000330212303311-3123011101210133-2233111111213112-2200323123322113-3330123132032201-0000230310101123-2230201321203202",
       "registry_path": "docs/guides/data-sources--cminstance--reference--group-001.md",
@@ -390,7 +390,7 @@
         "xcsh-docs:data-sources:cminstance:properties:api_token:clear_secret_info"
       ],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -402,7 +402,7 @@
       "path": "documentation/data-sources/cminstance/properties/api_token/index.md",
       "product": "distributed-cloud",
       "provider_name": "cminstance",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-2122011332310321-2012020322322212-2103013120112311-1301000111201000-3210011003323231-1202212322022311-0001312112333103-1011331210231031",
       "registry_path": "docs/guides/data-sources--cminstance--reference--group-001.md",
@@ -452,14 +452,14 @@
       }
     },
     {
-      "aliases": ["api token blindfold secret info", "authentication", "credential setup", "credentials"],
+      "aliases": ["api token blindfold secret info"],
       "body_bytes": 4166,
       "body_sha256": "sha256:2eb08b0caee59addd317a0d0cf36595771b22fccad1dd69dfdf29e279caa7828",
       "capabilities": [],
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -471,7 +471,7 @@
       "path": "documentation/data-sources/cminstance/properties/api_token/blindfold_secret_info/index.md",
       "product": "distributed-cloud",
       "provider_name": "cminstance",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-0030312203301333-2111213232003200-0320113212211311-2321000123301011-3033203333000131-0303332211330110-2203311001133332-2202303110302221",
       "registry_path": "docs/guides/data-sources--cminstance--reference--group-001.md",
@@ -481,7 +481,7 @@
       "schema_path": ["api_token", "blindfold_secret_info"],
       "sections": [
         {
-          "aliases": ["backend servers", "decryption provider", "origin servers", "upstream servers"],
+          "aliases": ["decryption provider"],
           "anchor": "schema-api_token--blindfold_secret_info--decryption_provider",
           "description": "Name of the Secret Management Access object that contains information about the backend Secret Management service.",
           "document_id": "xcsh-docs:data-sources:cminstance:properties:api_token:blindfold_secret_info",
@@ -535,14 +535,14 @@
       }
     },
     {
-      "aliases": ["api token clear secret info", "authentication", "credential setup", "credentials"],
+      "aliases": ["api token clear secret info"],
       "body_bytes": 3077,
       "body_sha256": "sha256:cf0b6c424d6daf98535c449ea43374642476f72d7c4e949f7d37e2b28074afc0",
       "capabilities": [],
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -554,7 +554,7 @@
       "path": "documentation/data-sources/cminstance/properties/api_token/clear_secret_info/index.md",
       "product": "distributed-cloud",
       "provider_name": "cminstance",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-3033022130110220-2333320220110233-0313333202133102-1133302010330010-3012310010010232-3212311020100000-1021223320021223-2233303312100320",
       "registry_path": "docs/guides/data-sources--cminstance--reference--group-001.md",
@@ -611,7 +611,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -623,7 +623,7 @@
       "path": "documentation/data-sources/cminstance/properties/ip/index.md",
       "product": "distributed-cloud",
       "provider_name": "cminstance",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-0330120303210200-1132021301220102-0312131322232112-1133122030220320-2203003331333221-0221002022303031-2220220300100212-0232002201101111",
       "registry_path": "docs/guides/data-sources--cminstance--reference--group-001.md",
@@ -669,7 +669,7 @@
         "xcsh-docs:data-sources:cminstance:properties:password:clear_secret_info"
       ],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -681,7 +681,7 @@
       "path": "documentation/data-sources/cminstance/properties/password/index.md",
       "product": "distributed-cloud",
       "provider_name": "cminstance",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-1322111331201233-3313303002011133-2023312201301311-0330011002333312-0223110211233200-0010213202031321-1023122120220031-0213320030103121",
       "registry_path": "docs/guides/data-sources--cminstance--reference--group-001.md",
@@ -738,7 +738,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -750,7 +750,7 @@
       "path": "documentation/data-sources/cminstance/properties/password/blindfold_secret_info/index.md",
       "product": "distributed-cloud",
       "provider_name": "cminstance",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-1010111322030023-2303132122020322-1221022133322033-0132312012101202-2211120010330213-3013213010000330-3210032000220122-0323211313113103",
       "registry_path": "docs/guides/data-sources--cminstance--reference--group-001.md",
@@ -760,7 +760,7 @@
       "schema_path": ["password", "blindfold_secret_info"],
       "sections": [
         {
-          "aliases": ["backend servers", "decryption provider", "origin servers", "upstream servers"],
+          "aliases": ["decryption provider"],
           "anchor": "schema-password--blindfold_secret_info--decryption_provider",
           "description": "Name of the Secret Management Access object that contains information about the backend Secret Management service.",
           "document_id": "xcsh-docs:data-sources:cminstance:properties:password:blindfold_secret_info",
@@ -821,7 +821,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -833,7 +833,7 @@
       "path": "documentation/data-sources/cminstance/properties/password/clear_secret_info/index.md",
       "product": "distributed-cloud",
       "provider_name": "cminstance",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-0032113001311202-1303000030003130-3102321013000012-0110310030002223-3131332311120332-2131320301213020-3213113133223320-1001121330001300",
       "registry_path": "docs/guides/data-sources--cminstance--reference--group-001.md",
@@ -890,7 +890,7 @@
       "category": null,
       "child_ids": ["xcsh-docs:data-sources:cminstance:example:data-source"],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -902,7 +902,7 @@
       "path": "documentation/data-sources/cminstance/examples/index.md",
       "product": "distributed-cloud",
       "provider_name": "cminstance",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-2213332301233130-3302331022010303-2123033122303330-2001220110232311-3121111202200321-3232321201300311-0122300113032220-2021013313103203",
       "registry_path": "docs/guides/data-sources--cminstance--examples--group-001.md",
@@ -930,7 +930,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -949,7 +949,7 @@
       "path": "documentation/data-sources/cminstance/examples/data-source/index.md",
       "product": "distributed-cloud",
       "provider_name": "cminstance",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-1303001130110232-3311203011112302-0331320312021002-2222332203313102-1300223231331331-2122011210121101-2121012030322331-2030110303322011",
       "registry_path": "docs/guides/data-sources--cminstance--examples--group-001.md",

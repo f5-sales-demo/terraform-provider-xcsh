@@ -80,14 +80,14 @@
   },
   "pages": [
     {
-      "aliases": ["backend servers", "origin servers", "public ip", "upstream servers"],
+      "aliases": ["public ip"],
       "body_bytes": 1406,
       "body_sha256": "sha256:79211e99c1f1aa0867a406e7209e9095a5da36263e4f3cd3516252f0a096f015",
       "capabilities": [],
       "category": null,
       "child_ids": ["xcsh-docs:data-sources:public_ip:reference", "xcsh-docs:data-sources:public_ip:examples"],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -99,7 +99,7 @@
       "path": "documentation/data-sources/public_ip/index.md",
       "product": "distributed-cloud",
       "provider_name": "public_ip",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-1031112030301010-2311310020031031-2211013213012022-1133000123132320-1321011231003203-2132100011003132-1013002332020322-0201311232021222",
       "registry_path": "docs/data-sources/public_ip.md",
@@ -128,7 +128,7 @@
       "category": null,
       "child_ids": ["xcsh-docs:data-sources:public_ip:properties:virtual_sites"],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -140,7 +140,7 @@
       "path": "documentation/data-sources/public_ip/properties/index.md",
       "product": "distributed-cloud",
       "provider_name": "public_ip",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-1320331200230230-1110321111312310-1320320001202310-3322211120133022-3333120310113022-0300120302121212-2210030111311112-1221332130113230",
       "registry_path": "docs/guides/data-sources--public_ip--reference--group-001.md",
@@ -295,7 +295,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -307,7 +307,7 @@
       "path": "documentation/data-sources/public_ip/properties/virtual_sites/index.md",
       "product": "distributed-cloud",
       "provider_name": "public_ip",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-1303110011102131-1300130201030111-1022310333311310-1013111130333311-2103023123002012-1203012012233220-2332111101330023-2232232031101120",
       "registry_path": "docs/guides/data-sources--public_ip--reference--group-001.md",
@@ -406,7 +406,7 @@
       "category": null,
       "child_ids": ["xcsh-docs:data-sources:public_ip:example:data-source"],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -418,7 +418,7 @@
       "path": "documentation/data-sources/public_ip/examples/index.md",
       "product": "distributed-cloud",
       "provider_name": "public_ip",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-1212333320001102-0203132121132100-2013320123101220-2103330233200323-3331232102031102-2300100221033032-3000232033221101-3010310211300333",
       "registry_path": "docs/guides/data-sources--public_ip--examples--group-001.md",
@@ -446,7 +446,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -465,7 +465,7 @@
       "path": "documentation/data-sources/public_ip/examples/data-source/index.md",
       "product": "distributed-cloud",
       "provider_name": "public_ip",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-2222001222003213-2122001223202112-0013211320323330-2122030312130011-1020202330211320-2122303320102033-2022122111200311-0013303122122100",
       "registry_path": "docs/guides/data-sources--public_ip--examples--group-001.md",

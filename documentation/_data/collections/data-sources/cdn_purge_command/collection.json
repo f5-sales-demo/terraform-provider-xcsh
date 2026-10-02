@@ -100,7 +100,7 @@
         "xcsh-docs:data-sources:cdn_purge_command:examples"
       ],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -112,7 +112,7 @@
       "path": "documentation/data-sources/cdn_purge_command/index.md",
       "product": "distributed-cloud",
       "provider_name": "cdn_purge_command",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-1231330310300330-1311110203001010-3201101112230313-3011303001322021-2233001121001013-3002302102130103-3111000011322002-2220332233122201",
       "registry_path": "docs/data-sources/cdn_purge_command.md",
@@ -146,7 +146,7 @@
         "xcsh-docs:data-sources:cdn_purge_command:properties:virtual_host"
       ],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -158,7 +158,7 @@
       "path": "documentation/data-sources/cdn_purge_command/properties/index.md",
       "product": "distributed-cloud",
       "provider_name": "cdn_purge_command",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-2333230322013111-3233211221333000-1330202200011321-1003000031212213-1200303112020123-3333032203113133-3010313323203233-1003330132300032",
       "registry_path": "docs/guides/data-sources--cdn_purge_command--reference--group-001.md",
@@ -369,7 +369,7 @@
       "category": "cdn",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -381,7 +381,7 @@
       "path": "documentation/data-sources/cdn_purge_command/properties/hard_purge/index.md",
       "product": "distributed-cloud",
       "provider_name": "cdn_purge_command",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-1003131013121223-0332023003220032-3022202203233103-2003100031213200-2033002123001211-1213330131031020-1010213010312013-0201320013312023",
       "registry_path": "docs/guides/data-sources--cdn_purge_command--reference--group-001.md",
@@ -409,7 +409,7 @@
       "category": "cdn",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -421,7 +421,7 @@
       "path": "documentation/data-sources/cdn_purge_command/properties/purge_all/index.md",
       "product": "distributed-cloud",
       "provider_name": "cdn_purge_command",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-1110200333022131-0022021320031113-3022010120211113-0030122203213222-3030300331111322-0000130302332111-3212101112130203-3020031303213210",
       "registry_path": "docs/guides/data-sources--cdn_purge_command--reference--group-001.md",
@@ -449,7 +449,7 @@
       "category": "cdn",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -461,7 +461,7 @@
       "path": "documentation/data-sources/cdn_purge_command/properties/soft_purge/index.md",
       "product": "distributed-cloud",
       "provider_name": "cdn_purge_command",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-3323103323002133-2030122033201133-2130111320202220-3303103332223211-2122030310101013-3313333310133332-0100331122032233-2111001123100310",
       "registry_path": "docs/guides/data-sources--cdn_purge_command--reference--group-001.md",
@@ -489,7 +489,7 @@
       "category": "cdn",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -501,7 +501,7 @@
       "path": "documentation/data-sources/cdn_purge_command/properties/virtual_host/index.md",
       "product": "distributed-cloud",
       "provider_name": "cdn_purge_command",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-2330132311010220-0012200333222002-0333103013030112-1123120311123102-1012331100303020-0321113100133132-3230121033002032-0013030210133122",
       "registry_path": "docs/guides/data-sources--cdn_purge_command--reference--group-001.md",
@@ -572,7 +572,7 @@
       "category": "cdn",
       "child_ids": ["xcsh-docs:data-sources:cdn_purge_command:example:data-source"],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -584,7 +584,7 @@
       "path": "documentation/data-sources/cdn_purge_command/examples/index.md",
       "product": "distributed-cloud",
       "provider_name": "cdn_purge_command",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-2122121333200302-2331113010221332-2131222102331332-1212022030030013-0300301001103103-1111302312103002-1313003100101122-0210003320133232",
       "registry_path": "docs/guides/data-sources--cdn_purge_command--examples--group-001.md",
@@ -612,7 +612,7 @@
       "category": "cdn",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -631,7 +631,7 @@
       "path": "documentation/data-sources/cdn_purge_command/examples/data-source/index.md",
       "product": "distributed-cloud",
       "provider_name": "cdn_purge_command",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-2211013302231123-0023210003112102-1111023330301123-0320113021003123-2323130002101121-2233213301221312-1231320333301230-0031221111310032",
       "registry_path": "docs/guides/data-sources--cdn_purge_command--examples--group-001.md",

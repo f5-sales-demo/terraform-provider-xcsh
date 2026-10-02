@@ -95,7 +95,7 @@
         "xcsh-docs:data-sources:oidc_oauth_discovery:examples"
       ],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -107,7 +107,7 @@
       "path": "documentation/data-sources/oidc_oauth_discovery/index.md",
       "product": "distributed-cloud",
       "provider_name": "oidc_oauth_discovery",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-1212212133022200-1202310302030030-1123103212311111-3102001300103310-0102100100032330-3310033310100102-1213021002223010-3132011230221122",
       "registry_path": "docs/data-sources/oidc_oauth_discovery.md",
@@ -139,7 +139,7 @@
         "xcsh-docs:data-sources:oidc_oauth_discovery:properties:trusted_ca"
       ],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -151,7 +151,7 @@
       "path": "documentation/data-sources/oidc_oauth_discovery/properties/index.md",
       "product": "distributed-cloud",
       "provider_name": "oidc_oauth_discovery",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-2000200023102030-2300333232322203-1113221101011222-0232203102332013-0201033112023021-3021031133133122-2122002130231000-3102322223332022",
       "registry_path": "docs/guides/data-sources--oidc_oauth_discovery--reference--group-001.md",
@@ -306,7 +306,7 @@
       "category": "identity",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -318,7 +318,7 @@
       "path": "documentation/data-sources/oidc_oauth_discovery/properties/auto_jwt_config_name/index.md",
       "product": "distributed-cloud",
       "provider_name": "oidc_oauth_discovery",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-0013212121222002-1310101023313011-3212003231333223-3320310123122212-2022332332232310-0300023320231133-1030310021300221-3032222122231332",
       "registry_path": "docs/guides/data-sources--oidc_oauth_discovery--reference--group-001.md",
@@ -389,7 +389,7 @@
       "category": "identity",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -401,7 +401,7 @@
       "path": "documentation/data-sources/oidc_oauth_discovery/properties/trusted_ca/index.md",
       "product": "distributed-cloud",
       "provider_name": "oidc_oauth_discovery",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-1302122032032220-3022320230120132-3201001221301121-1320002321321032-2030333321032011-1310332331020231-0233330332012001-1303301321010113",
       "registry_path": "docs/guides/data-sources--oidc_oauth_discovery--reference--group-001.md",
@@ -472,7 +472,7 @@
       "category": "identity",
       "child_ids": ["xcsh-docs:data-sources:oidc_oauth_discovery:example:data-source"],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -484,7 +484,7 @@
       "path": "documentation/data-sources/oidc_oauth_discovery/examples/index.md",
       "product": "distributed-cloud",
       "provider_name": "oidc_oauth_discovery",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-3101302130120123-0223201112000011-3300033320013211-0000131221321003-1320311131121223-0001003132213223-1313133333323201-0121321211022220",
       "registry_path": "docs/guides/data-sources--oidc_oauth_discovery--examples--group-001.md",
@@ -512,7 +512,7 @@
       "category": "identity",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -531,7 +531,7 @@
       "path": "documentation/data-sources/oidc_oauth_discovery/examples/data-source/index.md",
       "product": "distributed-cloud",
       "provider_name": "oidc_oauth_discovery",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-0023303322201221-1101130221112332-1003310322131303-1310210330333031-0122200230000202-0020020100013300-3230230112031031-0303232301311133",
       "registry_path": "docs/guides/data-sources--oidc_oauth_discovery--examples--group-001.md",

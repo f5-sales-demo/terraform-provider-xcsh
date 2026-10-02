@@ -90,7 +90,7 @@
         "xcsh-docs:data-sources:device_intelligence_high_risk_transactions:examples"
       ],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -102,7 +102,7 @@
       "path": "documentation/data-sources/device_intelligence_high_risk_transactions/index.md",
       "product": "distributed-cloud",
       "provider_name": "device_intelligence_high_risk_transactions",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-2323323100323133-2031230011120020-3320233202222001-1321322211033211-2221211100303331-0220103011323320-1220023022213033-0133011203321103",
       "registry_path": "docs/data-sources/device_intelligence_high_risk_transactions.md",
@@ -134,7 +134,7 @@
         "xcsh-docs:data-sources:device_intelligence_high_risk_transactions:properties:time_series_results"
       ],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -146,7 +146,7 @@
       "path": "documentation/data-sources/device_intelligence_high_risk_transactions/properties/index.md",
       "product": "distributed-cloud",
       "provider_name": "device_intelligence_high_risk_transactions",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-2030120313301233-0221233133100221-0201300032331331-1120303000311221-2203033322111232-1001320313023121-2003030130133011-0112310120123222",
       "registry_path": "docs/guides/data-sources--device_intelligence_high_risk_transactions--reference--group-001.md",
@@ -247,7 +247,7 @@
         "xcsh-docs:data-sources:device_intelligence_high_risk_transactions:properties:filters:global_filters"
       ],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -259,7 +259,7 @@
       "path": "documentation/data-sources/device_intelligence_high_risk_transactions/properties/filters/index.md",
       "product": "distributed-cloud",
       "provider_name": "device_intelligence_high_risk_transactions",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-0120311103201323-2121130021000132-1100232131301313-3310103321303130-0301013313302333-3012120221111210-2320103212303230-3320322231310011",
       "registry_path": "docs/guides/data-sources--device_intelligence_high_risk_transactions--reference--group-001.md",
@@ -316,7 +316,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -328,7 +328,7 @@
       "path": "documentation/data-sources/device_intelligence_high_risk_transactions/properties/filters/global_filters/index.md",
       "product": "distributed-cloud",
       "provider_name": "device_intelligence_high_risk_transactions",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-1031110220102322-1132022331000100-2321101123013321-3300210203002202-3031033010003200-2001000000021103-0323130000102223-1013330033032233",
       "registry_path": "docs/guides/data-sources--device_intelligence_high_risk_transactions--reference--group-001.md",
@@ -401,7 +401,7 @@
         "xcsh-docs:data-sources:device_intelligence_high_risk_transactions:properties:time_series_results:time_series"
       ],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -413,7 +413,7 @@
       "path": "documentation/data-sources/device_intelligence_high_risk_transactions/properties/time_series_results/index.md",
       "product": "distributed-cloud",
       "provider_name": "device_intelligence_high_risk_transactions",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-1302300303113012-0021110302030233-3333102210111132-1313202330311232-3220230301100221-3131210133121012-0223331023211203-0301303003330001",
       "registry_path": "docs/guides/data-sources--device_intelligence_high_risk_transactions--reference--group-001.md",
@@ -470,7 +470,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -482,7 +482,7 @@
       "path": "documentation/data-sources/device_intelligence_high_risk_transactions/properties/time_series_results/time_series/index.md",
       "product": "distributed-cloud",
       "provider_name": "device_intelligence_high_risk_transactions",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-1103330333220221-1330301211031103-2300031012001033-1321100232023320-3102010201013032-3301230000320123-0013032102112133-0131033330033331",
       "registry_path": "docs/guides/data-sources--device_intelligence_high_risk_transactions--reference--group-001.md",
@@ -539,7 +539,7 @@
       "category": null,
       "child_ids": ["xcsh-docs:data-sources:device_intelligence_high_risk_transactions:example:data-source"],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -551,7 +551,7 @@
       "path": "documentation/data-sources/device_intelligence_high_risk_transactions/examples/index.md",
       "product": "distributed-cloud",
       "provider_name": "device_intelligence_high_risk_transactions",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-3121121231202203-1222331330323322-0010113213332323-0013113322300003-2012220033012023-3000220331121012-0110111221211231-2202330013302322",
       "registry_path": "docs/guides/data-sources--device_intelligence_high_risk_transactions--examples--group-001.md",
@@ -579,7 +579,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -598,7 +598,7 @@
       "path": "documentation/data-sources/device_intelligence_high_risk_transactions/examples/data-source/index.md",
       "product": "distributed-cloud",
       "provider_name": "device_intelligence_high_risk_transactions",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-2100102113233300-3021213113221123-0102013001111213-1133302320301201-0103131300021130-2310120022222123-2111031203210122-2223202131030332",
       "registry_path": "docs/guides/data-sources--device_intelligence_high_risk_transactions--examples--group-001.md",

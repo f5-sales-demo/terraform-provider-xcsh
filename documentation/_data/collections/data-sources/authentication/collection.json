@@ -245,7 +245,7 @@
         "xcsh-docs:data-sources:authentication:examples"
       ],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -257,7 +257,7 @@
       "path": "documentation/data-sources/authentication/index.md",
       "product": "distributed-cloud",
       "provider_name": "authentication",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-3330131022001332-3012131003233201-0203110311220323-2121221200223033-3213320331001200-2020031013302300-0110311123332221-2120122213100103",
       "registry_path": "docs/data-sources/authentication.md",
@@ -289,7 +289,7 @@
         "xcsh-docs:data-sources:authentication:properties:oidc_auth"
       ],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -301,7 +301,7 @@
       "path": "documentation/data-sources/authentication/properties/index.md",
       "product": "distributed-cloud",
       "provider_name": "authentication",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-2002323222211220-0230023001010221-0122022322200120-0100003312210032-3002222000120032-3021211330022230-1032122111002303-1111303000311210",
       "registry_path": "docs/guides/data-sources--authentication--reference--group-001.md",
@@ -325,7 +325,7 @@
           "type": "map"
         },
         {
-          "aliases": ["authentication", "cookie params", "credential setup", "credentials"],
+          "aliases": ["cookie params"],
           "anchor": "section",
           "description": "Specifies different cookie related config parameters for authentication.",
           "document_id": "xcsh-docs:data-sources:authentication:properties:cookie_params",
@@ -435,7 +435,7 @@
       }
     },
     {
-      "aliases": ["authentication", "cookie params", "credential setup", "credentials"],
+      "aliases": ["cookie params"],
       "body_bytes": 5405,
       "body_sha256": "sha256:f431bfc7ba63f4008480406687b0c40931d56d2407d8c708c23b7b732ed97d5c",
       "capabilities": ["identity"],
@@ -445,7 +445,7 @@
         "xcsh-docs:data-sources:authentication:properties:cookie_params:kms_key_hmac"
       ],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -457,7 +457,7 @@
       "path": "documentation/data-sources/authentication/properties/cookie_params/index.md",
       "product": "distributed-cloud",
       "provider_name": "authentication",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-1300021200300133-3100001310211100-2030223301303321-2302101322131100-3223222311000313-2113212332213331-0112020123202230-1120121332232333",
       "registry_path": "docs/guides/data-sources--authentication--reference--group-001.md",
@@ -559,7 +559,7 @@
         "xcsh-docs:data-sources:authentication:properties:cookie_params:auth_hmac:sec_key"
       ],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -571,7 +571,7 @@
       "path": "documentation/data-sources/authentication/properties/cookie_params/auth_hmac/index.md",
       "product": "distributed-cloud",
       "provider_name": "authentication",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-2303222302130330-3012122012220000-3131320001202302-2323313002202101-3000120022013222-3010101312301201-2131303332100031-3011220001023323",
       "registry_path": "docs/guides/data-sources--authentication--reference--group-001.md",
@@ -659,7 +659,7 @@
         "xcsh-docs:data-sources:authentication:properties:cookie_params:auth_hmac:prim_key:clear_secret_info"
       ],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -671,7 +671,7 @@
       "path": "documentation/data-sources/authentication/properties/cookie_params/auth_hmac/prim_key/index.md",
       "product": "distributed-cloud",
       "provider_name": "authentication",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-3321032301130201-0113110300133310-0201011031110333-1220021311320202-2203301321130321-0222123101311323-1013312121311031-1302112212300011",
       "registry_path": "docs/guides/data-sources--authentication--reference--group-001.md",
@@ -728,7 +728,7 @@
       "category": "identity",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -740,7 +740,7 @@
       "path": "documentation/data-sources/authentication/properties/cookie_params/auth_hmac/prim_key/blindfold_secret_info/index.md",
       "product": "distributed-cloud",
       "provider_name": "authentication",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-1333102221213011-3332010220211130-3333222211011222-2210123203013312-1333131331120203-2112320301111223-0311113330221112-0211031002012100",
       "registry_path": "docs/guides/data-sources--authentication--reference--group-001.md",
@@ -750,7 +750,7 @@
       "schema_path": ["cookie_params", "auth_hmac", "prim_key", "blindfold_secret_info"],
       "sections": [
         {
-          "aliases": ["backend servers", "decryption provider", "origin servers", "upstream servers"],
+          "aliases": ["decryption provider"],
           "anchor": "schema-cookie_params--auth_hmac--prim_key--blindfold_secret_info--decryption_provider",
           "description": "Name of the Secret Management Access object that contains information about the backend Secret Management service.",
           "document_id": "xcsh-docs:data-sources:authentication:properties:cookie_params:auth_hmac:prim_key:blindfold_secret_info",
@@ -811,7 +811,7 @@
       "category": "identity",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -823,7 +823,7 @@
       "path": "documentation/data-sources/authentication/properties/cookie_params/auth_hmac/prim_key/clear_secret_info/index.md",
       "product": "distributed-cloud",
       "provider_name": "authentication",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-0102110320223032-2203201201021032-1202311003111222-2122212030011010-3210202133223300-2320030020231322-2001122013330101-2211121021210303",
       "registry_path": "docs/guides/data-sources--authentication--reference--group-001.md",
@@ -883,7 +883,7 @@
         "xcsh-docs:data-sources:authentication:properties:cookie_params:auth_hmac:sec_key:clear_secret_info"
       ],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -895,7 +895,7 @@
       "path": "documentation/data-sources/authentication/properties/cookie_params/auth_hmac/sec_key/index.md",
       "product": "distributed-cloud",
       "provider_name": "authentication",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-0233322220022012-2130111323222131-2221113230111320-1310210030132213-2233232313033201-0211130320131123-3123320311322201-1001100311222201",
       "registry_path": "docs/guides/data-sources--authentication--reference--group-001.md",
@@ -952,7 +952,7 @@
       "category": "identity",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -964,7 +964,7 @@
       "path": "documentation/data-sources/authentication/properties/cookie_params/auth_hmac/sec_key/blindfold_secret_info/index.md",
       "product": "distributed-cloud",
       "provider_name": "authentication",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-2100013302203110-0013232130231223-1210201331333101-2120233002013021-3013031120230320-1203102201333203-1020000200032222-3212112301023022",
       "registry_path": "docs/guides/data-sources--authentication--reference--group-001.md",
@@ -974,7 +974,7 @@
       "schema_path": ["cookie_params", "auth_hmac", "sec_key", "blindfold_secret_info"],
       "sections": [
         {
-          "aliases": ["backend servers", "decryption provider", "origin servers", "upstream servers"],
+          "aliases": ["decryption provider"],
           "anchor": "schema-cookie_params--auth_hmac--sec_key--blindfold_secret_info--decryption_provider",
           "description": "Name of the Secret Management Access object that contains information about the backend Secret Management service.",
           "document_id": "xcsh-docs:data-sources:authentication:properties:cookie_params:auth_hmac:sec_key:blindfold_secret_info",
@@ -1035,7 +1035,7 @@
       "category": "identity",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -1047,7 +1047,7 @@
       "path": "documentation/data-sources/authentication/properties/cookie_params/auth_hmac/sec_key/clear_secret_info/index.md",
       "product": "distributed-cloud",
       "provider_name": "authentication",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-3021203302103031-1010001303211213-1113212300120201-3210123022220322-0023101031032121-1012200322302030-3133031113201003-2330330312232003",
       "registry_path": "docs/guides/data-sources--authentication--reference--group-001.md",
@@ -1104,7 +1104,7 @@
       "category": "identity",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -1116,7 +1116,7 @@
       "path": "documentation/data-sources/authentication/properties/cookie_params/kms_key_hmac/index.md",
       "product": "distributed-cloud",
       "provider_name": "authentication",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-1122032132211133-3221102303211012-3310003020230231-2020330020233321-2301211333312333-2220222021012130-3120332310133212-1100101331103330",
       "registry_path": "docs/guides/data-sources--authentication--reference--group-001.md",
@@ -1147,7 +1147,7 @@
         "xcsh-docs:data-sources:authentication:properties:oidc_auth:oidc_auth_params"
       ],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -1159,7 +1159,7 @@
       "path": "documentation/data-sources/authentication/properties/oidc_auth/index.md",
       "product": "distributed-cloud",
       "provider_name": "authentication",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-0031110023022323-1212131130130231-2113110302012310-3311202301313322-2312132012100201-2323221103000200-2310003300131031-0221311313011123",
       "registry_path": "docs/guides/data-sources--authentication--reference--group-001.md",
@@ -1211,7 +1211,7 @@
           "type": "string"
         },
         {
-          "aliases": ["authentication", "credential setup", "credentials", "oidc well known config url"],
+          "aliases": ["oidc well known config url"],
           "anchor": "schema-oidc_auth--oidc_well_known_config_url",
           "description": "Exclusive with An OIDC well-known configuration URL that will be used to fetch authentication related endpoints.",
           "document_id": "xcsh-docs:data-sources:authentication:properties:oidc_auth",
@@ -1247,7 +1247,7 @@
         "xcsh-docs:data-sources:authentication:properties:oidc_auth:client_secret:clear_secret_info"
       ],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -1259,7 +1259,7 @@
       "path": "documentation/data-sources/authentication/properties/oidc_auth/client_secret/index.md",
       "product": "distributed-cloud",
       "provider_name": "authentication",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-3230011212002033-3231130123201030-0221202213110032-1110301332101132-3330101221132121-1033323000113201-1033122020221130-2030100331302021",
       "registry_path": "docs/guides/data-sources--authentication--reference--group-001.md",
@@ -1316,7 +1316,7 @@
       "category": "identity",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -1328,7 +1328,7 @@
       "path": "documentation/data-sources/authentication/properties/oidc_auth/client_secret/blindfold_secret_info/index.md",
       "product": "distributed-cloud",
       "provider_name": "authentication",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-3001030121221333-3120302031320123-1103310332130203-0231203102212223-3221331002020220-2230310030121203-1001223231100233-3202101332012320",
       "registry_path": "docs/guides/data-sources--authentication--reference--group-001.md",
@@ -1338,7 +1338,7 @@
       "schema_path": ["oidc_auth", "client_secret", "blindfold_secret_info"],
       "sections": [
         {
-          "aliases": ["backend servers", "decryption provider", "origin servers", "upstream servers"],
+          "aliases": ["decryption provider"],
           "anchor": "schema-oidc_auth--client_secret--blindfold_secret_info--decryption_provider",
           "description": "Name of the Secret Management Access object that contains information about the backend Secret Management service.",
           "document_id": "xcsh-docs:data-sources:authentication:properties:oidc_auth:client_secret:blindfold_secret_info",
@@ -1399,7 +1399,7 @@
       "category": "identity",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -1411,7 +1411,7 @@
       "path": "documentation/data-sources/authentication/properties/oidc_auth/client_secret/clear_secret_info/index.md",
       "product": "distributed-cloud",
       "provider_name": "authentication",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-1201103321223230-0311223321303011-0101311130031021-1113102222112123-3131213202203133-1331202301310303-2101221330330031-2211123101300333",
       "registry_path": "docs/guides/data-sources--authentication--reference--group-001.md",
@@ -1468,7 +1468,7 @@
       "category": "identity",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -1480,7 +1480,7 @@
       "path": "documentation/data-sources/authentication/properties/oidc_auth/oidc_auth_params/index.md",
       "product": "distributed-cloud",
       "provider_name": "authentication",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-1221330010102002-2102120122013232-1202123012303113-0312030123202321-0102003103331033-0213013330332320-1012102300010132-2232213123132012",
       "registry_path": "docs/guides/data-sources--authentication--reference--group-001.md",
@@ -1551,7 +1551,7 @@
       "category": "identity",
       "child_ids": ["xcsh-docs:data-sources:authentication:example:data-source"],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -1563,7 +1563,7 @@
       "path": "documentation/data-sources/authentication/examples/index.md",
       "product": "distributed-cloud",
       "provider_name": "authentication",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-3311100333131130-3203031113312032-0213122233111110-1002111313031302-0000011213332103-0001333330310320-1333121200120313-0112111020223000",
       "registry_path": "docs/guides/data-sources--authentication--examples--group-001.md",
@@ -1591,7 +1591,7 @@
       "category": "identity",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -1610,7 +1610,7 @@
       "path": "documentation/data-sources/authentication/examples/data-source/index.md",
       "product": "distributed-cloud",
       "provider_name": "authentication",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-0123220332103303-1322311321030321-3231001223333000-0323201230010231-0332330330200220-0233121310120303-3123121322311302-3301120023202033",
       "registry_path": "docs/guides/data-sources--authentication--examples--group-001.md",

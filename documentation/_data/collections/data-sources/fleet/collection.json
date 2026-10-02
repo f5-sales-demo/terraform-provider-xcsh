@@ -3496,7 +3496,7 @@
       "category": null,
       "child_ids": ["xcsh-docs:data-sources:fleet:reference", "xcsh-docs:data-sources:fleet:examples"],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -3508,7 +3508,7 @@
       "path": "documentation/data-sources/fleet/index.md",
       "product": "distributed-cloud",
       "provider_name": "fleet",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-3310302123210330-1013130130202112-0123313311102020-0303231032231002-2231010331133332-0313232311211100-2132313003203002-0320222110330222",
       "registry_path": "docs/data-sources/fleet.md",
@@ -3575,7 +3575,7 @@
         "xcsh-docs:data-sources:fleet:properties:usb_policy"
       ],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -3587,7 +3587,7 @@
       "path": "documentation/data-sources/fleet/properties/index.md",
       "product": "distributed-cloud",
       "provider_name": "fleet",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-1100111312003010-3321033322231203-3323022200221200-0231312313122201-2212100012020313-0101321123001001-0322312212313331-2013003202313021",
       "registry_path": "docs/guides/data-sources--fleet--reference--group-001.md",
@@ -4274,7 +4274,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -4286,7 +4286,7 @@
       "path": "documentation/data-sources/fleet/properties/allow_all_usb/index.md",
       "product": "distributed-cloud",
       "provider_name": "fleet",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-1020303212333102-1221132312100331-1230301230330311-0322102012012202-2302112223332023-1131133311222203-0200222121232321-1312210000123110",
       "registry_path": "docs/guides/data-sources--fleet--reference--group-001.md",
@@ -4318,7 +4318,7 @@
         "xcsh-docs:data-sources:fleet:properties:blocked_services:web_user_interface"
       ],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -4330,7 +4330,7 @@
       "path": "documentation/data-sources/fleet/properties/blocked_services/index.md",
       "product": "distributed-cloud",
       "provider_name": "fleet",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-2003013010222032-0231112013202331-2201001123333132-3030101330330213-0200210113111232-3323123102012112-0310000103030013-1100222131113031",
       "registry_path": "docs/guides/data-sources--fleet--reference--group-001.md",
@@ -4415,7 +4415,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -4427,7 +4427,7 @@
       "path": "documentation/data-sources/fleet/properties/blocked_services/dns/index.md",
       "product": "distributed-cloud",
       "provider_name": "fleet",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-2020131323013200-0022030321000000-1103112001121002-2233320223300313-0010211002131013-0020000122233112-3221030031332100-1001113021203113",
       "registry_path": "docs/guides/data-sources--fleet--reference--group-001.md",
@@ -4455,7 +4455,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -4467,7 +4467,7 @@
       "path": "documentation/data-sources/fleet/properties/blocked_services/ssh/index.md",
       "product": "distributed-cloud",
       "provider_name": "fleet",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-0010321313313123-1232322310312033-3202300133302310-0103210121331230-2113322030013310-0312101302001320-3311211021023121-2033032200231213",
       "registry_path": "docs/guides/data-sources--fleet--reference--group-002.md",
@@ -4495,7 +4495,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -4507,7 +4507,7 @@
       "path": "documentation/data-sources/fleet/properties/blocked_services/web_user_interface/index.md",
       "product": "distributed-cloud",
       "provider_name": "fleet",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-2012003100030131-1012333011300111-3230002230002232-0221030100230232-0031202121232202-0012001120113311-3223332301102022-1012100311101001",
       "registry_path": "docs/guides/data-sources--fleet--reference--group-002.md",
@@ -4535,7 +4535,7 @@
       "category": null,
       "child_ids": ["xcsh-docs:data-sources:fleet:properties:bond_device_list:bond_devices"],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -4547,7 +4547,7 @@
       "path": "documentation/data-sources/fleet/properties/bond_device_list/index.md",
       "product": "distributed-cloud",
       "provider_name": "fleet",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-1211330203133133-0100030312311131-2320023111103033-3211001101101231-2100331200213120-3133220022001023-1132231031111302-0113330202110213",
       "registry_path": "docs/guides/data-sources--fleet--reference--group-002.md",
@@ -4593,7 +4593,7 @@
         "xcsh-docs:data-sources:fleet:properties:bond_device_list:bond_devices:lacp"
       ],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -4605,7 +4605,7 @@
       "path": "documentation/data-sources/fleet/properties/bond_device_list/bond_devices/index.md",
       "product": "distributed-cloud",
       "provider_name": "fleet",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-3123232301320012-1320101211002101-1320321033221102-0222320002231010-3302020312102031-3201121211312332-2032022112202201-3030031333001001",
       "registry_path": "docs/guides/data-sources--fleet--reference--group-002.md",
@@ -4718,7 +4718,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -4730,7 +4730,7 @@
       "path": "documentation/data-sources/fleet/properties/bond_device_list/bond_devices/active_backup/index.md",
       "product": "distributed-cloud",
       "provider_name": "fleet",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-0112030301033001-1231312003110030-3001331003122311-2130300031033002-3023331132011130-1203113000200320-0002000022011201-0321311211032132",
       "registry_path": "docs/guides/data-sources--fleet--reference--group-002.md",
@@ -4758,7 +4758,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -4770,7 +4770,7 @@
       "path": "documentation/data-sources/fleet/properties/bond_device_list/bond_devices/lacp/index.md",
       "product": "distributed-cloud",
       "provider_name": "fleet",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-1310203023031223-0020020212201211-0320233131200022-2101112313111021-2212233112110130-2230003120030113-1200121301220330-0213011022032322",
       "registry_path": "docs/guides/data-sources--fleet--reference--group-002.md",
@@ -4813,7 +4813,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -4825,7 +4825,7 @@
       "path": "documentation/data-sources/fleet/properties/dc_cluster_group/index.md",
       "product": "distributed-cloud",
       "provider_name": "fleet",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-2112312321330302-1211021232313121-2331211202132011-1132132332222033-2303221021220203-0002022311322203-1311030023321330-2133303232003230",
       "registry_path": "docs/guides/data-sources--fleet--reference--group-002.md",
@@ -4896,7 +4896,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -4908,7 +4908,7 @@
       "path": "documentation/data-sources/fleet/properties/dc_cluster_group_inside/index.md",
       "product": "distributed-cloud",
       "provider_name": "fleet",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-1011213321333020-0122213232122233-3330203123313132-1102003220000100-0310311103303310-1021233230221210-2033031202202022-0212001013131023",
       "registry_path": "docs/guides/data-sources--fleet--reference--group-002.md",
@@ -4979,7 +4979,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -4991,7 +4991,7 @@
       "path": "documentation/data-sources/fleet/properties/default_config/index.md",
       "product": "distributed-cloud",
       "provider_name": "fleet",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-1232232122223230-0300310232023033-2100332200122130-0211200101321332-0000311133222122-0230121123110011-0201012012212022-1221302112223212",
       "registry_path": "docs/guides/data-sources--fleet--reference--group-002.md",
@@ -5019,7 +5019,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -5031,7 +5031,7 @@
       "path": "documentation/data-sources/fleet/properties/default_sriov_interface/index.md",
       "product": "distributed-cloud",
       "provider_name": "fleet",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-1033001023033030-3300110122022001-2102101121002010-0102011111321302-3323110310023332-2112010011212302-1110320322001132-3102320123230202",
       "registry_path": "docs/guides/data-sources--fleet--reference--group-002.md",
@@ -5059,7 +5059,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -5071,7 +5071,7 @@
       "path": "documentation/data-sources/fleet/properties/default_storage_class/index.md",
       "product": "distributed-cloud",
       "provider_name": "fleet",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-2130302203111131-3121312201232200-1002223322032001-3203202102210303-3010121002122122-3101131223332203-1300222311301312-0311213113232021",
       "registry_path": "docs/guides/data-sources--fleet--reference--group-002.md",
@@ -5099,7 +5099,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -5111,7 +5111,7 @@
       "path": "documentation/data-sources/fleet/properties/deny_all_usb/index.md",
       "product": "distributed-cloud",
       "provider_name": "fleet",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-0022132120103110-3011033030320022-2121100111221111-1030322032011211-2033202230113022-0112303030121313-2001001200312221-3320303123030211",
       "registry_path": "docs/guides/data-sources--fleet--reference--group-002.md",
@@ -5139,7 +5139,7 @@
       "category": null,
       "child_ids": ["xcsh-docs:data-sources:fleet:properties:device_list:devices"],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -5151,7 +5151,7 @@
       "path": "documentation/data-sources/fleet/properties/device_list/index.md",
       "product": "distributed-cloud",
       "provider_name": "fleet",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-0322000310332200-0133003311233211-2200301200221003-0000110213122330-0302212202302221-1101312120312330-2230321020131013-1021211013301323",
       "registry_path": "docs/guides/data-sources--fleet--reference--group-002.md",
@@ -5194,7 +5194,7 @@
       "category": null,
       "child_ids": ["xcsh-docs:data-sources:fleet:properties:device_list:devices:network_device"],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -5206,7 +5206,7 @@
       "path": "documentation/data-sources/fleet/properties/device_list/devices/index.md",
       "product": "distributed-cloud",
       "provider_name": "fleet",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-1133210223332000-2033333100133222-2032211012031033-1121222303321200-2020320210223013-3113313013313321-1123023331003311-0012002233233132",
       "registry_path": "docs/guides/data-sources--fleet--reference--group-002.md",
@@ -5277,7 +5277,7 @@
       "category": null,
       "child_ids": ["xcsh-docs:data-sources:fleet:properties:device_list:devices:network_device:interface"],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -5289,7 +5289,7 @@
       "path": "documentation/data-sources/fleet/properties/device_list/devices/network_device/index.md",
       "product": "distributed-cloud",
       "provider_name": "fleet",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-2131311101003331-0110112131012232-1121310012222213-1000103201021121-0000131232300330-1023322300032223-3331100203312202-0321013001002303",
       "registry_path": "docs/guides/data-sources--fleet--reference--group-002.md",
@@ -5346,7 +5346,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -5358,7 +5358,7 @@
       "path": "documentation/data-sources/fleet/properties/device_list/devices/network_device/interface/index.md",
       "product": "distributed-cloud",
       "provider_name": "fleet",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-1312312011333320-1223003020211321-2312013101231302-1313020202003122-1310102323123131-3130331232001013-0321213321002211-2033031203300131",
       "registry_path": "docs/guides/data-sources--fleet--reference--group-002.md",
@@ -5457,7 +5457,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -5469,7 +5469,7 @@
       "path": "documentation/data-sources/fleet/properties/disable_gpu/index.md",
       "product": "distributed-cloud",
       "provider_name": "fleet",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-3130311131301002-1132033103331133-1202332201233213-1132213322011332-1011320123020311-1201320333323002-1310223001230020-3202103331012201",
       "registry_path": "docs/guides/data-sources--fleet--reference--group-002.md",
@@ -5497,7 +5497,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -5509,7 +5509,7 @@
       "path": "documentation/data-sources/fleet/properties/disable_log_anonymization/index.md",
       "product": "distributed-cloud",
       "provider_name": "fleet",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-3010223011012221-3311031211012022-3113130032121323-1100233121200201-0022032322131333-2221122020212113-3102311212332322-0230212232301232",
       "registry_path": "docs/guides/data-sources--fleet--reference--group-002.md",
@@ -5537,7 +5537,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -5549,7 +5549,7 @@
       "path": "documentation/data-sources/fleet/properties/disable_vm/index.md",
       "product": "distributed-cloud",
       "provider_name": "fleet",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-2330100011232133-1230010220110222-3001003032121133-1003303230211323-1100022022303001-2010203310213123-3103022122231203-2212333211200002",
       "registry_path": "docs/guides/data-sources--fleet--reference--group-002.md",
@@ -5577,7 +5577,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -5589,7 +5589,7 @@
       "path": "documentation/data-sources/fleet/properties/enable_gpu/index.md",
       "product": "distributed-cloud",
       "provider_name": "fleet",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-0310032200331023-2331221302202203-1333300101031103-0203100200300220-1121123020003110-1003110222120021-1121322210111332-3303112011011320",
       "registry_path": "docs/guides/data-sources--fleet--reference--group-002.md",
@@ -5617,7 +5617,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -5629,7 +5629,7 @@
       "path": "documentation/data-sources/fleet/properties/enable_log_anonymization/index.md",
       "product": "distributed-cloud",
       "provider_name": "fleet",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-3203031033330322-1321112310121322-1323220113000022-0203131210113200-3313302013102112-3331202022212031-1303313212001010-2303130111320221",
       "registry_path": "docs/guides/data-sources--fleet--reference--group-002.md",
@@ -5657,7 +5657,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -5669,7 +5669,7 @@
       "path": "documentation/data-sources/fleet/properties/enable_vgpu/index.md",
       "product": "distributed-cloud",
       "provider_name": "fleet",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-1031101321301121-1232330032312323-3013110201310103-1201113000102302-0300000320123233-2021130001313132-3302020232203232-0020323013122323",
       "registry_path": "docs/guides/data-sources--fleet--reference--group-002.md",
@@ -5740,7 +5740,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -5752,7 +5752,7 @@
       "path": "documentation/data-sources/fleet/properties/enable_vm/index.md",
       "product": "distributed-cloud",
       "provider_name": "fleet",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-1113110323023002-3202020020033032-2102002213011000-1322112033032223-2201001310100103-1213132303120023-2331011300313031-1330120012301000",
       "registry_path": "docs/guides/data-sources--fleet--reference--group-002.md",
@@ -5780,7 +5780,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -5792,7 +5792,7 @@
       "path": "documentation/data-sources/fleet/properties/inside_virtual_network/index.md",
       "product": "distributed-cloud",
       "provider_name": "fleet",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-3110033202301221-0230011123210012-2230320123132312-3130002012323300-0300203022111202-3130003001220313-3021313002211102-2012002112213210",
       "registry_path": "docs/guides/data-sources--fleet--reference--group-002.md",
@@ -5891,7 +5891,7 @@
       "category": null,
       "child_ids": ["xcsh-docs:data-sources:fleet:properties:interface_list:interfaces"],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -5903,7 +5903,7 @@
       "path": "documentation/data-sources/fleet/properties/interface_list/index.md",
       "product": "distributed-cloud",
       "provider_name": "fleet",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-2331132030231322-2323132333102123-2223312302310133-2010010233221210-0131002013222232-2213320220213201-2023231030021312-1122032020022121",
       "registry_path": "docs/guides/data-sources--fleet--reference--group-002.md",
@@ -5946,7 +5946,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -5958,7 +5958,7 @@
       "path": "documentation/data-sources/fleet/properties/interface_list/interfaces/index.md",
       "product": "distributed-cloud",
       "provider_name": "fleet",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-1102130202010121-1133013312301120-1020100311013010-3303033030002301-0223003020301100-2331122023032010-1213111320302132-0310023231112130",
       "registry_path": "docs/guides/data-sources--fleet--reference--group-002.md",
@@ -6032,7 +6032,7 @@
         "xcsh-docs:data-sources:fleet:properties:kubernetes_upgrade_drain:enable_upgrade_drain"
       ],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -6044,7 +6044,7 @@
       "path": "documentation/data-sources/fleet/properties/kubernetes_upgrade_drain/index.md",
       "product": "distributed-cloud",
       "provider_name": "fleet",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-2102203213212232-2121010023212310-1000010030032213-0112022300111120-1031323232020023-0321132223313110-0333211122013003-3212333331332202",
       "registry_path": "docs/guides/data-sources--fleet--reference--group-002.md",
@@ -6101,7 +6101,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -6113,7 +6113,7 @@
       "path": "documentation/data-sources/fleet/properties/kubernetes_upgrade_drain/disable_upgrade_drain/index.md",
       "product": "distributed-cloud",
       "provider_name": "fleet",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-1323110113130032-0020020232201033-1303133103030111-1030103202303012-1022102103331011-2223011222332032-2111301313110333-3010002101322321",
       "registry_path": "docs/guides/data-sources--fleet--reference--group-002.md",
@@ -6144,7 +6144,7 @@
         "xcsh-docs:data-sources:fleet:properties:kubernetes_upgrade_drain:enable_upgrade_drain:enable_vega_upgrade_mode"
       ],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -6156,7 +6156,7 @@
       "path": "documentation/data-sources/fleet/properties/kubernetes_upgrade_drain/enable_upgrade_drain/index.md",
       "product": "distributed-cloud",
       "provider_name": "fleet",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-2020202322122121-0301213322112023-1200231220013230-1213110032212022-0020110313021203-0301321002011320-0213122310211123-3312311322330122",
       "registry_path": "docs/guides/data-sources--fleet--reference--group-002.md",
@@ -6255,7 +6255,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -6267,7 +6267,7 @@
       "path": "documentation/data-sources/fleet/properties/kubernetes_upgrade_drain/enable_upgrade_drain/disable_vega_upgrade_mode/index.md",
       "product": "distributed-cloud",
       "provider_name": "fleet",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-2031120212133131-1003322331000313-3212232023220022-1310221031321202-1022023000313320-3101022122032203-1221303222232233-1320131031230322",
       "registry_path": "docs/guides/data-sources--fleet--reference--group-002.md",
@@ -6295,7 +6295,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -6307,7 +6307,7 @@
       "path": "documentation/data-sources/fleet/properties/kubernetes_upgrade_drain/enable_upgrade_drain/enable_vega_upgrade_mode/index.md",
       "product": "distributed-cloud",
       "provider_name": "fleet",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-1003100330021331-2120313030331331-0101220331302323-3000113021030003-1200220322032332-0030120003032320-1222213113121022-2223200210333210",
       "registry_path": "docs/guides/data-sources--fleet--reference--group-002.md",
@@ -6335,7 +6335,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -6347,7 +6347,7 @@
       "path": "documentation/data-sources/fleet/properties/log_receiver/index.md",
       "product": "distributed-cloud",
       "provider_name": "fleet",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-1201301010102220-2100130021022310-3332321023231220-2333030020220310-0033013130102022-0331111133203220-2213203023002022-0313201111201132",
       "registry_path": "docs/guides/data-sources--fleet--reference--group-002.md",
@@ -6418,7 +6418,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -6430,7 +6430,7 @@
       "path": "documentation/data-sources/fleet/properties/logs_streaming_disabled/index.md",
       "product": "distributed-cloud",
       "provider_name": "fleet",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-2021310223321313-2033131211212111-0113103022232333-2010100020021011-3113131010131303-2321233323330001-0200120122003231-3232132212231033",
       "registry_path": "docs/guides/data-sources--fleet--reference--group-002.md",
@@ -6458,7 +6458,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -6470,7 +6470,7 @@
       "path": "documentation/data-sources/fleet/properties/network_connectors/index.md",
       "product": "distributed-cloud",
       "provider_name": "fleet",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-3123211022312221-3200100111011110-1201100232001010-1230100331220302-0013301221331213-2220233203231132-0121230201000122-1132010113102123",
       "registry_path": "docs/guides/data-sources--fleet--reference--group-002.md",
@@ -6569,7 +6569,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -6581,7 +6581,7 @@
       "path": "documentation/data-sources/fleet/properties/network_firewall/index.md",
       "product": "distributed-cloud",
       "provider_name": "fleet",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-3321202220211332-1233100100233320-2030101201021220-1310201200230102-1011003120311131-2130232230230210-1022110013030131-2000202132233333",
       "registry_path": "docs/guides/data-sources--fleet--reference--group-002.md",
@@ -6680,7 +6680,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -6692,7 +6692,7 @@
       "path": "documentation/data-sources/fleet/properties/no_bond_devices/index.md",
       "product": "distributed-cloud",
       "provider_name": "fleet",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-3231300102332313-2132132030313103-2122021022212031-2022211230213122-2030000022032311-3110302202102103-0002101133113121-0021030121221122",
       "registry_path": "docs/guides/data-sources--fleet--reference--group-002.md",
@@ -6720,7 +6720,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -6732,7 +6732,7 @@
       "path": "documentation/data-sources/fleet/properties/no_dc_cluster_group/index.md",
       "product": "distributed-cloud",
       "provider_name": "fleet",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-0221310033011230-1200213332232320-3131023300031210-3031133012130331-3132110111231213-0210320332210001-3122322022310032-1303302321010011",
       "registry_path": "docs/guides/data-sources--fleet--reference--group-002.md",
@@ -6760,7 +6760,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -6772,7 +6772,7 @@
       "path": "documentation/data-sources/fleet/properties/no_storage_device/index.md",
       "product": "distributed-cloud",
       "provider_name": "fleet",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-1232113232310321-1222130032123323-3333333031011322-2101300132000023-0210131112003320-0023322310102202-2231301313303232-3221202133012133",
       "registry_path": "docs/guides/data-sources--fleet--reference--group-002.md",
@@ -6800,7 +6800,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -6812,7 +6812,7 @@
       "path": "documentation/data-sources/fleet/properties/no_storage_interfaces/index.md",
       "product": "distributed-cloud",
       "provider_name": "fleet",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-1301230210330122-2303332032010312-0200323323023201-0033133101310013-0102213033032231-1113332131230030-1221133003003300-1310300203130100",
       "registry_path": "docs/guides/data-sources--fleet--reference--group-002.md",
@@ -6840,7 +6840,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -6852,7 +6852,7 @@
       "path": "documentation/data-sources/fleet/properties/no_storage_static_routes/index.md",
       "product": "distributed-cloud",
       "provider_name": "fleet",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-3330102102110003-0233200221011033-0302123300312033-1211200102221301-1102322220013301-0112121232210100-2232012022332013-3230220321322303",
       "registry_path": "docs/guides/data-sources--fleet--reference--group-002.md",
@@ -6880,7 +6880,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -6892,7 +6892,7 @@
       "path": "documentation/data-sources/fleet/properties/outside_virtual_network/index.md",
       "product": "distributed-cloud",
       "provider_name": "fleet",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-3322003033013013-1301210121021213-1130031120131113-3200101322001310-3222130102023200-3232303313121331-2133321132323111-0011301020200212",
       "registry_path": "docs/guides/data-sources--fleet--reference--group-002.md",
@@ -6994,7 +6994,7 @@
         "xcsh-docs:data-sources:fleet:properties:performance_enhancement_mode:perf_mode_l7_enhanced"
       ],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -7006,7 +7006,7 @@
       "path": "documentation/data-sources/fleet/properties/performance_enhancement_mode/index.md",
       "product": "distributed-cloud",
       "provider_name": "fleet",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-3133211021322020-2332213213103301-1020331030301223-1210200321112330-0230022112123011-2002100233113211-0213202312111002-0031301033032211",
       "registry_path": "docs/guides/data-sources--fleet--reference--group-002.md",
@@ -7066,7 +7066,7 @@
         "xcsh-docs:data-sources:fleet:properties:performance_enhancement_mode:perf_mode_l3_enhanced:no_jumbo"
       ],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -7078,7 +7078,7 @@
       "path": "documentation/data-sources/fleet/properties/performance_enhancement_mode/perf_mode_l3_enhanced/index.md",
       "product": "distributed-cloud",
       "provider_name": "fleet",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-3021110002200101-1213011132122310-0300001332022133-2233232313023203-0101212120331023-0313122023033000-0333103212002110-2032300111001303",
       "registry_path": "docs/guides/data-sources--fleet--reference--group-002.md",
@@ -7135,7 +7135,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -7147,7 +7147,7 @@
       "path": "documentation/data-sources/fleet/properties/performance_enhancement_mode/perf_mode_l3_enhanced/jumbo/index.md",
       "product": "distributed-cloud",
       "provider_name": "fleet",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-0120102200122013-3333103212201200-1200031023301313-0003111022010123-0111132323331012-1033310002203010-1031123223203111-3210122303013212",
       "registry_path": "docs/guides/data-sources--fleet--reference--group-002.md",
@@ -7175,7 +7175,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -7187,7 +7187,7 @@
       "path": "documentation/data-sources/fleet/properties/performance_enhancement_mode/perf_mode_l3_enhanced/no_jumbo/index.md",
       "product": "distributed-cloud",
       "provider_name": "fleet",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-2130103323333220-3332320311023023-3102132032213223-2131301020010131-0313323220213302-1132233332022130-3021213203333123-3231110110223123",
       "registry_path": "docs/guides/data-sources--fleet--reference--group-002.md",
@@ -7218,7 +7218,7 @@
         "xcsh-docs:data-sources:fleet:properties:performance_enhancement_mode:perf_mode_l7_enhanced:jumbo_enabled"
       ],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -7230,7 +7230,7 @@
       "path": "documentation/data-sources/fleet/properties/performance_enhancement_mode/perf_mode_l7_enhanced/index.md",
       "product": "distributed-cloud",
       "provider_name": "fleet",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-2100321330111130-0122101110332312-1203131320322323-1321032201332323-0312310300023333-3200302022110021-0130113231022310-0103223230031112",
       "registry_path": "docs/guides/data-sources--fleet--reference--group-002.md",
@@ -7287,7 +7287,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -7299,7 +7299,7 @@
       "path": "documentation/data-sources/fleet/properties/performance_enhancement_mode/perf_mode_l7_enhanced/jumbo_disabled/index.md",
       "product": "distributed-cloud",
       "provider_name": "fleet",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-2331113020033010-3211213002011303-0210110012000333-3301121123221220-2122233303232000-1333131131333223-2211311010310000-3202203203112230",
       "registry_path": "docs/guides/data-sources--fleet--reference--group-002.md",
@@ -7327,7 +7327,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -7339,7 +7339,7 @@
       "path": "documentation/data-sources/fleet/properties/performance_enhancement_mode/perf_mode_l7_enhanced/jumbo_enabled/index.md",
       "product": "distributed-cloud",
       "provider_name": "fleet",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-2123322333012003-0011121010223221-0330003103003322-2230231212210222-0123102200301202-0231111132210000-0112303223201321-1212013103033213",
       "registry_path": "docs/guides/data-sources--fleet--reference--group-002.md",
@@ -7367,7 +7367,7 @@
       "category": null,
       "child_ids": ["xcsh-docs:data-sources:fleet:properties:sriov_interfaces:sriov_interface"],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -7379,7 +7379,7 @@
       "path": "documentation/data-sources/fleet/properties/sriov_interfaces/index.md",
       "product": "distributed-cloud",
       "provider_name": "fleet",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-1132110120003111-0323103313100123-2113310212200301-0133232320111330-0030220003213233-1113311012021102-1212011223322232-3112201313103010",
       "registry_path": "docs/guides/data-sources--fleet--reference--group-002.md",
@@ -7422,7 +7422,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -7434,7 +7434,7 @@
       "path": "documentation/data-sources/fleet/properties/sriov_interfaces/sriov_interface/index.md",
       "product": "distributed-cloud",
       "provider_name": "fleet",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-2223101330132323-2330122331131311-3303222222011201-3323323003030300-0301222013303320-1221121032013123-3311232310000023-0203302130002122",
       "registry_path": "docs/guides/data-sources--fleet--reference--group-002.md",
@@ -7505,7 +7505,7 @@
       "category": null,
       "child_ids": ["xcsh-docs:data-sources:fleet:properties:storage_class_list:storage_classes"],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -7517,7 +7517,7 @@
       "path": "documentation/data-sources/fleet/properties/storage_class_list/index.md",
       "product": "distributed-cloud",
       "provider_name": "fleet",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-2023110232112222-3321330312213101-2201202331303111-2221322320001110-1303303110032013-3100010023303012-0321310033103202-3032223021313121",
       "registry_path": "docs/guides/data-sources--fleet--reference--group-002.md",
@@ -7565,7 +7565,7 @@
         "xcsh-docs:data-sources:fleet:properties:storage_class_list:storage_classes:pure_service_orchestrator"
       ],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -7577,7 +7577,7 @@
       "path": "documentation/data-sources/fleet/properties/storage_class_list/storage_classes/index.md",
       "product": "distributed-cloud",
       "provider_name": "fleet",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-3332030213120331-3133123310112000-0030211332231133-1313131033100011-1002001323111021-1322321023132033-3130112202202101-3033013311323132",
       "registry_path": "docs/guides/data-sources--fleet--reference--group-002.md",
@@ -7760,7 +7760,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -7772,7 +7772,7 @@
       "path": "documentation/data-sources/fleet/properties/storage_class_list/storage_classes/custom_storage/index.md",
       "product": "distributed-cloud",
       "provider_name": "fleet",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-2103321033310323-1310131123321333-2300302113222311-2310303100322231-3113121032232312-3231121210000222-0332213021113221-2333213221121311",
       "registry_path": "docs/guides/data-sources--fleet--reference--group-002.md",
@@ -7815,7 +7815,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -7827,7 +7827,7 @@
       "path": "documentation/data-sources/fleet/properties/storage_class_list/storage_classes/hpe_storage/index.md",
       "product": "distributed-cloud",
       "provider_name": "fleet",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-3333203230031011-0233113121012323-1123220010320122-2133332333202030-1232013102011013-2321333201202303-1132300001011033-0000212113113222",
       "registry_path": "docs/guides/data-sources--fleet--reference--group-002.md",
@@ -7879,7 +7879,7 @@
           "type": "bool"
         },
         {
-          "aliases": ["backend servers", "description spec", "origin servers", "upstream servers"],
+          "aliases": ["description spec"],
           "anchor": "schema-storage_class_list--storage_classes--hpe_storage--description_spec",
           "description": "The SecretName parameter is used to identify name of secret to identify backend storage's auth information.",
           "document_id": "xcsh-docs:data-sources:fleet:properties:storage_class_list:storage_classes:hpe_storage",
@@ -8005,7 +8005,7 @@
           "type": "string"
         },
         {
-          "aliases": ["backend servers", "origin servers", "secret name", "upstream servers"],
+          "aliases": ["secret name"],
           "anchor": "schema-storage_class_list--storage_classes--hpe_storage--secret_name",
           "description": "The SecretName parameter is used to identify name of secret to identify backend storage's auth information.",
           "document_id": "xcsh-docs:data-sources:fleet:properties:storage_class_list:storage_classes:hpe_storage",
@@ -8082,7 +8082,7 @@
         "xcsh-docs:data-sources:fleet:properties:storage_class_list:storage_classes:netapp_trident:selector"
       ],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -8094,7 +8094,7 @@
       "path": "documentation/data-sources/fleet/properties/storage_class_list/storage_classes/netapp_trident/index.md",
       "product": "distributed-cloud",
       "provider_name": "fleet",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-2203313120110100-3230202300332001-2221002111100231-0300101000123331-3101321212203303-2333320001101321-0131102322311203-0002311222210022",
       "registry_path": "docs/guides/data-sources--fleet--reference--group-002.md",
@@ -8151,7 +8151,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -8163,7 +8163,7 @@
       "path": "documentation/data-sources/fleet/properties/storage_class_list/storage_classes/netapp_trident/selector/index.md",
       "product": "distributed-cloud",
       "provider_name": "fleet",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-2220110333231123-0331223110210132-1332010323112022-2230113220023112-0222100120211312-0303011321223312-1232321003030230-2010103200321031",
       "registry_path": "docs/guides/data-sources--fleet--reference--group-002.md",
@@ -8191,7 +8191,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -8203,7 +8203,7 @@
       "path": "documentation/data-sources/fleet/properties/storage_class_list/storage_classes/pure_service_orchestrator/index.md",
       "product": "distributed-cloud",
       "provider_name": "fleet",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-3302302030332001-0200211312303013-3212010111223010-3000023122000101-1130200321102230-3233233220320311-0023000311222222-3320302013313202",
       "registry_path": "docs/guides/data-sources--fleet--reference--group-002.md",
@@ -8274,7 +8274,7 @@
       "category": null,
       "child_ids": ["xcsh-docs:data-sources:fleet:properties:storage_device_list:storage_devices"],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -8286,7 +8286,7 @@
       "path": "documentation/data-sources/fleet/properties/storage_device_list/index.md",
       "product": "distributed-cloud",
       "provider_name": "fleet",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-2203120030033203-2032323000023021-1211113020233233-3010321330312301-3231230033331312-3132222101232013-1033011222003031-1331202320031021",
       "registry_path": "docs/guides/data-sources--fleet--reference--group-002.md",
@@ -8334,7 +8334,7 @@
         "xcsh-docs:data-sources:fleet:properties:storage_device_list:storage_devices:pure_service_orchestrator"
       ],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -8346,7 +8346,7 @@
       "path": "documentation/data-sources/fleet/properties/storage_device_list/storage_devices/index.md",
       "product": "distributed-cloud",
       "provider_name": "fleet",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-2032223221033232-1222013030202102-0212323232123023-3231330112103313-1020231233021030-0133312302201010-2330111032210001-2111001101130211",
       "registry_path": "docs/guides/data-sources--fleet--reference--group-002.md",
@@ -8459,7 +8459,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -8471,7 +8471,7 @@
       "path": "documentation/data-sources/fleet/properties/storage_device_list/storage_devices/custom_storage/index.md",
       "product": "distributed-cloud",
       "provider_name": "fleet",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-0310213111231111-3222002011210000-0212333331311103-1200300310333020-0103023300323110-2031031010200112-0211222020002331-3130330102011000",
       "registry_path": "docs/guides/data-sources--fleet--reference--group-002.md",
@@ -8502,7 +8502,7 @@
         "xcsh-docs:data-sources:fleet:properties:storage_device_list:storage_devices:hpe_storage:password"
       ],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -8514,7 +8514,7 @@
       "path": "documentation/data-sources/fleet/properties/storage_device_list/storage_devices/hpe_storage/index.md",
       "product": "distributed-cloud",
       "provider_name": "fleet",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-3203031320022332-0223333222103200-2303232321210132-1210230200210302-1322120232020302-2110111133231300-0103102022030212-0203300323220111",
       "registry_path": "docs/guides/data-sources--fleet--reference--group-003.md",
@@ -8644,7 +8644,7 @@
         "xcsh-docs:data-sources:fleet:properties:storage_device_list:storage_devices:hpe_storage:iscsi_chap_password:clear_secret_info"
       ],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -8656,7 +8656,7 @@
       "path": "documentation/data-sources/fleet/properties/storage_device_list/storage_devices/hpe_storage/iscsi_chap_password/index.md",
       "product": "distributed-cloud",
       "provider_name": "fleet",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-2011133210003233-3131330213022333-1301302221301320-0331302020103111-1130013021301311-0223101011022203-2333310310111200-1313002103033111",
       "registry_path": "docs/guides/data-sources--fleet--reference--group-003.md",
@@ -8725,7 +8725,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -8737,7 +8737,7 @@
       "path": "documentation/data-sources/fleet/properties/storage_device_list/storage_devices/hpe_storage/iscsi_chap_password/blindfold_secret_info/index.md",
       "product": "distributed-cloud",
       "provider_name": "fleet",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-3300021311030112-0210120120101232-2333200121311000-2023123300221321-1110331011131132-1020130220212120-0120200321200012-2011022331022022",
       "registry_path": "docs/guides/data-sources--fleet--reference--group-003.md",
@@ -8753,7 +8753,7 @@
       ],
       "sections": [
         {
-          "aliases": ["backend servers", "decryption provider", "origin servers", "upstream servers"],
+          "aliases": ["decryption provider"],
           "anchor": "schema-storage_device_list--storage_devices--hpe_storage--iscsi_chap_password--blindfold_secret_info--decryption_provider",
           "description": "Name of the Secret Management Access object that contains information about the backend Secret Management service.",
           "document_id": "xcsh-docs:data-sources:fleet:properties:storage_device_list:storage_devices:hpe_storage:iscsi_chap_password:blindfold_secret_info",
@@ -8835,7 +8835,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -8847,7 +8847,7 @@
       "path": "documentation/data-sources/fleet/properties/storage_device_list/storage_devices/hpe_storage/iscsi_chap_password/clear_secret_info/index.md",
       "product": "distributed-cloud",
       "provider_name": "fleet",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-0131300100122032-2130120010221130-3212110320101213-2000021321321023-0222111012211232-2031123113300133-2132113313131112-0232202213321332",
       "registry_path": "docs/guides/data-sources--fleet--reference--group-003.md",
@@ -8927,7 +8927,7 @@
         "xcsh-docs:data-sources:fleet:properties:storage_device_list:storage_devices:hpe_storage:password:clear_secret_info"
       ],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -8939,7 +8939,7 @@
       "path": "documentation/data-sources/fleet/properties/storage_device_list/storage_devices/hpe_storage/password/index.md",
       "product": "distributed-cloud",
       "provider_name": "fleet",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-1121120011223221-2200323302012231-1222012300231133-3120111033031022-0210303130321210-2320103330323021-3103002202230203-3131013302202130",
       "registry_path": "docs/guides/data-sources--fleet--reference--group-003.md",
@@ -8996,7 +8996,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -9008,7 +9008,7 @@
       "path": "documentation/data-sources/fleet/properties/storage_device_list/storage_devices/hpe_storage/password/blindfold_secret_info/index.md",
       "product": "distributed-cloud",
       "provider_name": "fleet",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-0232130221121111-1223103201032122-3332221222133123-3012113112033200-0211033023311001-0211332330102000-0201210202331011-3220222021110002",
       "registry_path": "docs/guides/data-sources--fleet--reference--group-003.md",
@@ -9018,7 +9018,7 @@
       "schema_path": ["storage_device_list", "storage_devices", "hpe_storage", "password", "blindfold_secret_info"],
       "sections": [
         {
-          "aliases": ["backend servers", "decryption provider", "origin servers", "upstream servers"],
+          "aliases": ["decryption provider"],
           "anchor": "schema-storage_device_list--storage_devices--hpe_storage--password--blindfold_secret_info--decryption_provider",
           "description": "Name of the Secret Management Access object that contains information about the backend Secret Management service.",
           "document_id": "xcsh-docs:data-sources:fleet:properties:storage_device_list:storage_devices:hpe_storage:password:blindfold_secret_info",
@@ -9100,7 +9100,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -9112,7 +9112,7 @@
       "path": "documentation/data-sources/fleet/properties/storage_device_list/storage_devices/hpe_storage/password/clear_secret_info/index.md",
       "product": "distributed-cloud",
       "provider_name": "fleet",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-0130012033220110-0203211303002303-1313210113223103-1201210110022023-1002131232200332-2233130102010010-3132130111120002-0111021202233113",
       "registry_path": "docs/guides/data-sources--fleet--reference--group-003.md",
@@ -9186,7 +9186,7 @@
         "xcsh-docs:data-sources:fleet:properties:storage_device_list:storage_devices:netapp_trident:netapp_backend_ontap_san"
       ],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -9198,7 +9198,7 @@
       "path": "documentation/data-sources/fleet/properties/storage_device_list/storage_devices/netapp_trident/index.md",
       "product": "distributed-cloud",
       "provider_name": "fleet",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-3021312102012130-3321123001122010-2000002210023333-1120212201212033-3201013023101330-0211123300211123-0032120323300320-0031033232231321",
       "registry_path": "docs/guides/data-sources--fleet--reference--group-003.md",
@@ -9266,7 +9266,7 @@
         "xcsh-docs:data-sources:fleet:properties:storage_device_list:storage_devices:netapp_trident:netapp_backend_ontap_nas:volume_defaults"
       ],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -9278,7 +9278,7 @@
       "path": "documentation/data-sources/fleet/properties/storage_device_list/storage_devices/netapp_trident/netapp_backend_ontap_nas/index.md",
       "product": "distributed-cloud",
       "provider_name": "fleet",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-2233200200220103-0221020102010211-2022202313031323-0313221223321323-0113130210031322-2012300313300312-0022110121232021-2131310032303133",
       "registry_path": "docs/guides/data-sources--fleet--reference--group-003.md",
@@ -9348,7 +9348,7 @@
           "type": "string"
         },
         {
-          "aliases": ["cert", "certificate", "client certificate", "existing certificates", "tls certificates"],
+          "aliases": ["client certificate"],
           "anchor": "schema-storage_device_list--storage_devices--netapp_trident--netapp_backend_ontap_nas--client_certificate",
           "description": "Please Enter Base64-encoded value of client certificate. Used for certificate-based auth.",
           "document_id": "xcsh-docs:data-sources:fleet:properties:storage_device_list:storage_devices:netapp_trident:netapp_backend_ontap_nas",
@@ -9388,7 +9388,7 @@
           "type": "object"
         },
         {
-          "aliases": ["backend servers", "data lif dns name", "origin servers", "upstream servers"],
+          "aliases": ["data lif dns name"],
           "anchor": "schema-storage_device_list--storage_devices--netapp_trident--netapp_backend_ontap_nas--data_lif_dns_name",
           "description": "Exclusive with Backend Data LIF IP Address's IP address is discovered using DNS name resolution. The name given here is fully qualified domain name.",
           "document_id": "xcsh-docs:data-sources:fleet:properties:storage_device_list:storage_devices:netapp_trident:netapp_backend_ontap_nas",
@@ -9408,7 +9408,7 @@
           "type": "string"
         },
         {
-          "aliases": ["backend servers", "data lif ip", "origin servers", "upstream servers"],
+          "aliases": ["data lif ip"],
           "anchor": "schema-storage_device_list--storage_devices--netapp_trident--netapp_backend_ontap_nas--data_lif_ip",
           "description": "Exclusive with Backend Data LIF IP Address is reachable at the given IP address.",
           "document_id": "xcsh-docs:data-sources:fleet:properties:storage_device_list:storage_devices:netapp_trident:netapp_backend_ontap_nas",
@@ -9488,7 +9488,7 @@
           "type": "string"
         },
         {
-          "aliases": ["backend servers", "management lif dns name", "origin servers", "upstream servers"],
+          "aliases": ["management lif dns name"],
           "anchor": "schema-storage_device_list--storage_devices--netapp_trident--netapp_backend_ontap_nas--management_lif_dns_name",
           "description": "Exclusive with Backend Management LIF IP Address's IP address is discovered using DNS name resolution. The name given here is fully qualified domain name.",
           "document_id": "xcsh-docs:data-sources:fleet:properties:storage_device_list:storage_devices:netapp_trident:netapp_backend_ontap_nas",
@@ -9508,7 +9508,7 @@
           "type": "string"
         },
         {
-          "aliases": ["backend servers", "management lif ip", "origin servers", "upstream servers"],
+          "aliases": ["management lif ip"],
           "anchor": "schema-storage_device_list--storage_devices--netapp_trident--netapp_backend_ontap_nas--management_lif_ip",
           "description": "Exclusive with Backend Management LIF IP Address is reachable at the given IP address.",
           "document_id": "xcsh-docs:data-sources:fleet:properties:storage_device_list:storage_devices:netapp_trident:netapp_backend_ontap_nas",
@@ -9608,7 +9608,7 @@
           "type": "object"
         },
         {
-          "aliases": ["backend servers", "origin servers", "storage driver name", "upstream servers"],
+          "aliases": ["storage driver name"],
           "anchor": "schema-storage_device_list--storage_devices--netapp_trident--netapp_backend_ontap_nas--storage_driver_name",
           "description": "Configuration of Backend Name.",
           "document_id": "xcsh-docs:data-sources:fleet:properties:storage_device_list:storage_devices:netapp_trident:netapp_backend_ontap_nas",
@@ -9668,7 +9668,7 @@
           "type": "string"
         },
         {
-          "aliases": ["cert", "certificate", "existing certificates", "tls certificates", "trusted ca certificate"],
+          "aliases": ["trusted ca certificate"],
           "anchor": "schema-storage_device_list--storage_devices--netapp_trident--netapp_backend_ontap_nas--trusted_ca_certificate",
           "description": "Please Enter Base64-encoded value of trusted CA certificate. Optional. Used for certificate-based auth..",
           "document_id": "xcsh-docs:data-sources:fleet:properties:storage_device_list:storage_devices:netapp_trident:netapp_backend_ontap_nas",
@@ -9740,19 +9740,14 @@
       }
     },
     {
-      "aliases": [
-        "backend servers",
-        "origin servers",
-        "storage device list storage devices netapp trident netapp backend ontap nas auto export cidrs",
-        "upstream servers"
-      ],
+      "aliases": ["storage device list storage devices netapp trident netapp backend ontap nas auto export cidrs"],
       "body_bytes": 3032,
       "body_sha256": "sha256:8b665836884ca48fd4440ca1dfb40574c74caa090f6685fab33905b85a29ce45",
       "capabilities": [],
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -9764,7 +9759,7 @@
       "path": "documentation/data-sources/fleet/properties/storage_device_list/storage_devices/netapp_trident/netapp_backend_ontap_nas/auto_export_cidrs/index.md",
       "product": "distributed-cloud",
       "provider_name": "fleet",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-3113120030020313-1132100122323130-1130312112201311-3233031212003201-2311312103330310-1001203133331302-1223332101303331-3202012131011033",
       "registry_path": "docs/guides/data-sources--fleet--reference--group-003.md",
@@ -9813,12 +9808,7 @@
       }
     },
     {
-      "aliases": [
-        "backend servers",
-        "origin servers",
-        "storage device list storage devices netapp trident netapp backend ontap nas client private key",
-        "upstream servers"
-      ],
+      "aliases": ["storage device list storage devices netapp trident netapp backend ontap nas client private key"],
       "body_bytes": 3180,
       "body_sha256": "sha256:e8fad66f34d80b5660461c24fac11530a03b2084dd3497ed267aee65bf165505",
       "capabilities": [],
@@ -9828,7 +9818,7 @@
         "xcsh-docs:data-sources:fleet:properties:storage_device_list:storage_devices:netapp_trident:netapp_backend_ontap_nas:client_private_key:clear_secret_info"
       ],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -9840,7 +9830,7 @@
       "path": "documentation/data-sources/fleet/properties/storage_device_list/storage_devices/netapp_trident/netapp_backend_ontap_nas/client_private_key/index.md",
       "product": "distributed-cloud",
       "provider_name": "fleet",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-0100130312032100-0131313301301121-2230100323023301-2031022012110133-0102122311030123-3121233311203313-3100002020303213-1202010013011213",
       "registry_path": "docs/guides/data-sources--fleet--reference--group-003.md",
@@ -9911,10 +9901,7 @@
     },
     {
       "aliases": [
-        "backend servers",
-        "origin servers",
-        "storage device list storage devices netapp trident netapp backend ontap nas client private key blindfold secret info",
-        "upstream servers"
+        "storage device list storage devices netapp trident netapp backend ontap nas client private key blindfold secret info"
       ],
       "body_bytes": 5642,
       "body_sha256": "sha256:1374cd1eff7f19e3a8a4ec304fe24382f6e26ed7f072809ab0674e24d32932d1",
@@ -9922,7 +9909,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -9934,7 +9921,7 @@
       "path": "documentation/data-sources/fleet/properties/storage_device_list/storage_devices/netapp_trident/netapp_backend_ontap_nas/client_private_key/blindfold_secret_info/index.md",
       "product": "distributed-cloud",
       "provider_name": "fleet",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-3301232302303033-1230110300113201-1202000003222232-1202332230320113-2203001331333023-1233213001321013-2213302102102121-1231313100210302",
       "registry_path": "docs/guides/data-sources--fleet--reference--group-003.md",
@@ -9951,7 +9938,7 @@
       ],
       "sections": [
         {
-          "aliases": ["backend servers", "decryption provider", "origin servers", "upstream servers"],
+          "aliases": ["decryption provider"],
           "anchor": "schema-storage_device_list--storage_devices--netapp_trident--netapp_backend_ontap_nas--client_private_key--blindfold_secret_info--decryption_provider",
           "description": "Name of the Secret Management Access object that contains information about the backend Secret Management service.",
           "document_id": "xcsh-docs:data-sources:fleet:properties:storage_device_list:storage_devices:netapp_trident:netapp_backend_ontap_nas:client_private_key:blindfold_secret_info",
@@ -10030,10 +10017,7 @@
     },
     {
       "aliases": [
-        "backend servers",
-        "origin servers",
-        "storage device list storage devices netapp trident netapp backend ontap nas client private key clear secret info",
-        "upstream servers"
+        "storage device list storage devices netapp trident netapp backend ontap nas client private key clear secret info"
       ],
       "body_bytes": 4464,
       "body_sha256": "sha256:1e3130ebcfa47c450a5ef5aec9cf8e51e3a8408f07f57c46f261e744d1e65750",
@@ -10041,7 +10025,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -10053,7 +10037,7 @@
       "path": "documentation/data-sources/fleet/properties/storage_device_list/storage_devices/netapp_trident/netapp_backend_ontap_nas/client_private_key/clear_secret_info/index.md",
       "product": "distributed-cloud",
       "provider_name": "fleet",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-2223120110212013-1333023221011333-2320332030300203-0020211013323313-1332233000122311-1212112012322013-1331203213320121-2312002122022220",
       "registry_path": "docs/guides/data-sources--fleet--reference--group-003.md",
@@ -10126,12 +10110,7 @@
       }
     },
     {
-      "aliases": [
-        "backend servers",
-        "origin servers",
-        "storage device list storage devices netapp trident netapp backend ontap nas password",
-        "upstream servers"
-      ],
+      "aliases": ["storage device list storage devices netapp trident netapp backend ontap nas password"],
       "body_bytes": 3100,
       "body_sha256": "sha256:b7674599886b1c457892c689620706797c1cb6a6aa1a2048db74275601f2327d",
       "capabilities": [],
@@ -10141,7 +10120,7 @@
         "xcsh-docs:data-sources:fleet:properties:storage_device_list:storage_devices:netapp_trident:netapp_backend_ontap_nas:password:clear_secret_info"
       ],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -10153,7 +10132,7 @@
       "path": "documentation/data-sources/fleet/properties/storage_device_list/storage_devices/netapp_trident/netapp_backend_ontap_nas/password/index.md",
       "product": "distributed-cloud",
       "provider_name": "fleet",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-2111022122333231-1020223333303033-3133230013103111-0100210323332213-1002022333132012-2031131203001201-3222003120130130-2112332322021200",
       "registry_path": "docs/guides/data-sources--fleet--reference--group-003.md",
@@ -10224,10 +10203,7 @@
     },
     {
       "aliases": [
-        "backend servers",
-        "origin servers",
-        "storage device list storage devices netapp trident netapp backend ontap nas password blindfold secret info",
-        "upstream servers"
+        "storage device list storage devices netapp trident netapp backend ontap nas password blindfold secret info"
       ],
       "body_bytes": 5552,
       "body_sha256": "sha256:06867da8b0be092f2ba503d721e68a6bbce3ebb00820cdb4db25476b866c67af",
@@ -10235,7 +10211,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -10247,7 +10223,7 @@
       "path": "documentation/data-sources/fleet/properties/storage_device_list/storage_devices/netapp_trident/netapp_backend_ontap_nas/password/blindfold_secret_info/index.md",
       "product": "distributed-cloud",
       "provider_name": "fleet",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-0133033201021033-3323220103331213-2133010000231320-2321212112323001-1222222102230011-3003012022312013-2000310022310102-2122321232321121",
       "registry_path": "docs/guides/data-sources--fleet--reference--group-003.md",
@@ -10264,7 +10240,7 @@
       ],
       "sections": [
         {
-          "aliases": ["backend servers", "decryption provider", "origin servers", "upstream servers"],
+          "aliases": ["decryption provider"],
           "anchor": "schema-storage_device_list--storage_devices--netapp_trident--netapp_backend_ontap_nas--password--blindfold_secret_info--decryption_provider",
           "description": "Name of the Secret Management Access object that contains information about the backend Secret Management service.",
           "document_id": "xcsh-docs:data-sources:fleet:properties:storage_device_list:storage_devices:netapp_trident:netapp_backend_ontap_nas:password:blindfold_secret_info",
@@ -10343,10 +10319,7 @@
     },
     {
       "aliases": [
-        "backend servers",
-        "origin servers",
-        "storage device list storage devices netapp trident netapp backend ontap nas password clear secret info",
-        "upstream servers"
+        "storage device list storage devices netapp trident netapp backend ontap nas password clear secret info"
       ],
       "body_bytes": 4384,
       "body_sha256": "sha256:e44267e75433eb721777b09bf3be75fa9c6df7b7046fb720ef40cb488491b7d2",
@@ -10354,7 +10327,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -10366,7 +10339,7 @@
       "path": "documentation/data-sources/fleet/properties/storage_device_list/storage_devices/netapp_trident/netapp_backend_ontap_nas/password/clear_secret_info/index.md",
       "product": "distributed-cloud",
       "provider_name": "fleet",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-0032221332011333-1012012111123231-0332010233101131-1200212030322313-2122331111212210-2033013012133301-3003333000211101-1032300121212131",
       "registry_path": "docs/guides/data-sources--fleet--reference--group-003.md",
@@ -10439,12 +10412,7 @@
       }
     },
     {
-      "aliases": [
-        "backend servers",
-        "origin servers",
-        "storage device list storage devices netapp trident netapp backend ontap nas storage",
-        "upstream servers"
-      ],
+      "aliases": ["storage device list storage devices netapp trident netapp backend ontap nas storage"],
       "body_bytes": 4815,
       "body_sha256": "sha256:27f1dd3dded166a025ca40fe3fcdd3450e96fe6d936137977d07ab47258dac5f",
       "capabilities": [],
@@ -10453,7 +10421,7 @@
         "xcsh-docs:data-sources:fleet:properties:storage_device_list:storage_devices:netapp_trident:netapp_backend_ontap_nas:storage:volume_defaults"
       ],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -10465,7 +10433,7 @@
       "path": "documentation/data-sources/fleet/properties/storage_device_list/storage_devices/netapp_trident/netapp_backend_ontap_nas/storage/index.md",
       "product": "distributed-cloud",
       "provider_name": "fleet",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-2110120020013122-0302220310310103-1003013222131120-1301111323321323-2112112320103320-0131001012111321-0012200230303231-1111121213230133",
       "registry_path": "docs/guides/data-sources--fleet--reference--group-003.md",
@@ -10557,10 +10525,7 @@
     },
     {
       "aliases": [
-        "backend servers",
-        "origin servers",
-        "storage device list storage devices netapp trident netapp backend ontap nas storage volume defaults",
-        "upstream servers"
+        "storage device list storage devices netapp trident netapp backend ontap nas storage volume defaults"
       ],
       "body_bytes": 11642,
       "body_sha256": "sha256:ecd945399ce7916dab78b844f4b6d58d9d4a26331e23aa3b9f653d45ce210771",
@@ -10570,7 +10535,7 @@
         "xcsh-docs:data-sources:fleet:properties:storage_device_list:storage_devices:netapp_trident:netapp_backend_ontap_nas:storage:volume_defaults:no_qos"
       ],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -10582,7 +10547,7 @@
       "path": "documentation/data-sources/fleet/properties/storage_device_list/storage_devices/netapp_trident/netapp_backend_ontap_nas/storage/volume_defaults/index.md",
       "product": "distributed-cloud",
       "provider_name": "fleet",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-1211033321203322-2132121023112301-1231232232311122-2110303320220002-0122310010221301-3323203132223102-1121213222001002-1103112012220111",
       "registry_path": "docs/guides/data-sources--fleet--reference--group-003.md",
@@ -10898,10 +10863,7 @@
     },
     {
       "aliases": [
-        "backend servers",
-        "origin servers",
-        "storage device list storage devices netapp trident netapp backend ontap nas storage volume defaults no qos",
-        "upstream servers"
+        "storage device list storage devices netapp trident netapp backend ontap nas storage volume defaults no qos"
       ],
       "body_bytes": 2649,
       "body_sha256": "sha256:f30889d49ff0482fae7d7126213d7dd3acbd27d89d8ab3eac5906230f65fa744",
@@ -10909,7 +10871,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -10921,7 +10883,7 @@
       "path": "documentation/data-sources/fleet/properties/storage_device_list/storage_devices/netapp_trident/netapp_backend_ontap_nas/storage/volume_defaults/no_qos/index.md",
       "product": "distributed-cloud",
       "provider_name": "fleet",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-3113121113310310-2213300013020110-3121130113032000-0201301203122212-1202103110001302-2031103010102301-0200203322033132-3030200300000132",
       "registry_path": "docs/guides/data-sources--fleet--reference--group-003.md",
@@ -10950,12 +10912,7 @@
       }
     },
     {
-      "aliases": [
-        "backend servers",
-        "origin servers",
-        "storage device list storage devices netapp trident netapp backend ontap nas volume defaults",
-        "upstream servers"
-      ],
+      "aliases": ["storage device list storage devices netapp trident netapp backend ontap nas volume defaults"],
       "body_bytes": 11218,
       "body_sha256": "sha256:6ec47f01840754ebb4888933916cc46a2ae9818af1108943503c2dc9950e5a75",
       "capabilities": [],
@@ -10964,7 +10921,7 @@
         "xcsh-docs:data-sources:fleet:properties:storage_device_list:storage_devices:netapp_trident:netapp_backend_ontap_nas:volume_defaults:no_qos"
       ],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -10976,7 +10933,7 @@
       "path": "documentation/data-sources/fleet/properties/storage_device_list/storage_devices/netapp_trident/netapp_backend_ontap_nas/volume_defaults/index.md",
       "product": "distributed-cloud",
       "provider_name": "fleet",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-1031002301120210-1211113332013001-0221212030021230-1213323311322101-0103111130010301-1132312332210131-1123103220103002-1121031232101023",
       "registry_path": "docs/guides/data-sources--fleet--reference--group-003.md",
@@ -11277,19 +11234,14 @@
       }
     },
     {
-      "aliases": [
-        "backend servers",
-        "origin servers",
-        "storage device list storage devices netapp trident netapp backend ontap nas volume defaults no qos",
-        "upstream servers"
-      ],
+      "aliases": ["storage device list storage devices netapp trident netapp backend ontap nas volume defaults no qos"],
       "body_bytes": 2341,
       "body_sha256": "sha256:164a7fde24c80cddb2dfe00a4b591c028feceb31bc686102e1ce00d410d7daa4",
       "capabilities": [],
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -11301,7 +11253,7 @@
       "path": "documentation/data-sources/fleet/properties/storage_device_list/storage_devices/netapp_trident/netapp_backend_ontap_nas/volume_defaults/no_qos/index.md",
       "product": "distributed-cloud",
       "provider_name": "fleet",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-2201230221322113-3100212201331313-2122002222033101-0232333201101302-2223232110333230-1323231320121001-0133012121022011-3011221133303100",
       "registry_path": "docs/guides/data-sources--fleet--reference--group-003.md",
@@ -11348,7 +11300,7 @@
         "xcsh-docs:data-sources:fleet:properties:storage_device_list:storage_devices:netapp_trident:netapp_backend_ontap_san:volume_defaults"
       ],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -11360,7 +11312,7 @@
       "path": "documentation/data-sources/fleet/properties/storage_device_list/storage_devices/netapp_trident/netapp_backend_ontap_san/index.md",
       "product": "distributed-cloud",
       "provider_name": "fleet",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-0223322303130221-1133222011231031-1230103011210112-0000011301133323-2032213310102002-1001222330231002-2331301223111213-2031331232310330",
       "registry_path": "docs/guides/data-sources--fleet--reference--group-003.md",
@@ -11370,7 +11322,7 @@
       "schema_path": ["storage_device_list", "storage_devices", "netapp_trident", "netapp_backend_ontap_san"],
       "sections": [
         {
-          "aliases": ["cert", "certificate", "client certificate", "existing certificates", "tls certificates"],
+          "aliases": ["client certificate"],
           "anchor": "schema-storage_device_list--storage_devices--netapp_trident--netapp_backend_ontap_san--client_certificate",
           "description": "Please Enter Base64-encoded value of client certificate. Used for certificate-based auth.",
           "document_id": "xcsh-docs:data-sources:fleet:properties:storage_device_list:storage_devices:netapp_trident:netapp_backend_ontap_san",
@@ -11410,7 +11362,7 @@
           "type": "object"
         },
         {
-          "aliases": ["backend servers", "data lif dns name", "origin servers", "upstream servers"],
+          "aliases": ["data lif dns name"],
           "anchor": "schema-storage_device_list--storage_devices--netapp_trident--netapp_backend_ontap_san--data_lif_dns_name",
           "description": "Exclusive with Backend Data LIF IP Address's IP address is discovered using DNS name resolution. The name given here is fully qualified domain name.",
           "document_id": "xcsh-docs:data-sources:fleet:properties:storage_device_list:storage_devices:netapp_trident:netapp_backend_ontap_san",
@@ -11430,7 +11382,7 @@
           "type": "string"
         },
         {
-          "aliases": ["backend servers", "data lif ip", "origin servers", "upstream servers"],
+          "aliases": ["data lif ip"],
           "anchor": "schema-storage_device_list--storage_devices--netapp_trident--netapp_backend_ontap_san--data_lif_ip",
           "description": "Exclusive with Backend Data LIF IP Address is reachable at the given IP address.",
           "document_id": "xcsh-docs:data-sources:fleet:properties:storage_device_list:storage_devices:netapp_trident:netapp_backend_ontap_san",
@@ -11530,7 +11482,7 @@
           "type": "number"
         },
         {
-          "aliases": ["backend servers", "management lif dns name", "origin servers", "upstream servers"],
+          "aliases": ["management lif dns name"],
           "anchor": "schema-storage_device_list--storage_devices--netapp_trident--netapp_backend_ontap_san--management_lif_dns_name",
           "description": "Exclusive with Backend Management LIF IP Address's IP address is discovered using DNS name resolution. The name given here is fully qualified domain name.",
           "document_id": "xcsh-docs:data-sources:fleet:properties:storage_device_list:storage_devices:netapp_trident:netapp_backend_ontap_san",
@@ -11550,7 +11502,7 @@
           "type": "string"
         },
         {
-          "aliases": ["backend servers", "management lif ip", "origin servers", "upstream servers"],
+          "aliases": ["management lif ip"],
           "anchor": "schema-storage_device_list--storage_devices--netapp_trident--netapp_backend_ontap_san--management_lif_ip",
           "description": "Exclusive with Backend Management LIF IP Address is reachable at the given IP address.",
           "document_id": "xcsh-docs:data-sources:fleet:properties:storage_device_list:storage_devices:netapp_trident:netapp_backend_ontap_san",
@@ -11650,7 +11602,7 @@
           "type": "object"
         },
         {
-          "aliases": ["backend servers", "origin servers", "storage driver name", "upstream servers"],
+          "aliases": ["storage driver name"],
           "anchor": "schema-storage_device_list--storage_devices--netapp_trident--netapp_backend_ontap_san--storage_driver_name",
           "description": "Configuration of Backend Name.",
           "document_id": "xcsh-docs:data-sources:fleet:properties:storage_device_list:storage_devices:netapp_trident:netapp_backend_ontap_san",
@@ -11710,7 +11662,7 @@
           "type": "string"
         },
         {
-          "aliases": ["cert", "certificate", "existing certificates", "tls certificates", "trusted ca certificate"],
+          "aliases": ["trusted ca certificate"],
           "anchor": "schema-storage_device_list--storage_devices--netapp_trident--netapp_backend_ontap_san--trusted_ca_certificate",
           "description": "Please Enter Base64-encoded value of trusted CA certificate. Optional. Used for certificate-based auth..",
           "document_id": "xcsh-docs:data-sources:fleet:properties:storage_device_list:storage_devices:netapp_trident:netapp_backend_ontap_san",
@@ -11730,7 +11682,7 @@
           "type": "string"
         },
         {
-          "aliases": ["backend servers", "origin servers", "upstream servers", "use chap"],
+          "aliases": ["use chap"],
           "anchor": "section",
           "description": "Device NetApp Backend ONTAP SAN CHAP configuration OPTIONS for enabled CHAP.",
           "document_id": "xcsh-docs:data-sources:fleet:properties:storage_device_list:storage_devices:netapp_trident:netapp_backend_ontap_san:use_chap",
@@ -11802,12 +11754,7 @@
       }
     },
     {
-      "aliases": [
-        "backend servers",
-        "origin servers",
-        "storage device list storage devices netapp trident netapp backend ontap san client private key",
-        "upstream servers"
-      ],
+      "aliases": ["storage device list storage devices netapp trident netapp backend ontap san client private key"],
       "body_bytes": 3180,
       "body_sha256": "sha256:7a94c4cd3b93b5a0c54cba6fb808ea64b42d6e1e04779e1afcd0cf48e4738b74",
       "capabilities": [],
@@ -11817,7 +11764,7 @@
         "xcsh-docs:data-sources:fleet:properties:storage_device_list:storage_devices:netapp_trident:netapp_backend_ontap_san:client_private_key:clear_secret_info"
       ],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -11829,7 +11776,7 @@
       "path": "documentation/data-sources/fleet/properties/storage_device_list/storage_devices/netapp_trident/netapp_backend_ontap_san/client_private_key/index.md",
       "product": "distributed-cloud",
       "provider_name": "fleet",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-1302022310332322-2210300011312230-0302201131212100-2011210313122032-0300202010231330-3313111122220121-0333031121210010-3322300012301302",
       "registry_path": "docs/guides/data-sources--fleet--reference--group-003.md",
@@ -11900,10 +11847,7 @@
     },
     {
       "aliases": [
-        "backend servers",
-        "origin servers",
-        "storage device list storage devices netapp trident netapp backend ontap san client private key blindfold secret info",
-        "upstream servers"
+        "storage device list storage devices netapp trident netapp backend ontap san client private key blindfold secret info"
       ],
       "body_bytes": 5642,
       "body_sha256": "sha256:c563f6a9fd8635ca28e5dc76a38e08b01ec91e274f6a6025cf53fa1a93be8919",
@@ -11911,7 +11855,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -11923,7 +11867,7 @@
       "path": "documentation/data-sources/fleet/properties/storage_device_list/storage_devices/netapp_trident/netapp_backend_ontap_san/client_private_key/blindfold_secret_info/index.md",
       "product": "distributed-cloud",
       "provider_name": "fleet",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-3222030100002311-0011211111301020-1200320221123312-1020200020121232-0322000012302113-1203030000200313-1021010202032220-2222030133030010",
       "registry_path": "docs/guides/data-sources--fleet--reference--group-003.md",
@@ -11940,7 +11884,7 @@
       ],
       "sections": [
         {
-          "aliases": ["backend servers", "decryption provider", "origin servers", "upstream servers"],
+          "aliases": ["decryption provider"],
           "anchor": "schema-storage_device_list--storage_devices--netapp_trident--netapp_backend_ontap_san--client_private_key--blindfold_secret_info--decryption_provider",
           "description": "Name of the Secret Management Access object that contains information about the backend Secret Management service.",
           "document_id": "xcsh-docs:data-sources:fleet:properties:storage_device_list:storage_devices:netapp_trident:netapp_backend_ontap_san:client_private_key:blindfold_secret_info",
@@ -12019,10 +11963,7 @@
     },
     {
       "aliases": [
-        "backend servers",
-        "origin servers",
-        "storage device list storage devices netapp trident netapp backend ontap san client private key clear secret info",
-        "upstream servers"
+        "storage device list storage devices netapp trident netapp backend ontap san client private key clear secret info"
       ],
       "body_bytes": 4464,
       "body_sha256": "sha256:eb3bdd7673334353269296d1ca66b46a7d9d8183674d2f83faa91d04b5be2f47",
@@ -12030,7 +11971,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -12042,7 +11983,7 @@
       "path": "documentation/data-sources/fleet/properties/storage_device_list/storage_devices/netapp_trident/netapp_backend_ontap_san/client_private_key/clear_secret_info/index.md",
       "product": "distributed-cloud",
       "provider_name": "fleet",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-3221203331201322-2001320000331111-2011101102210002-1121330001202201-3002200013300231-3111332102131332-0022013300100031-2012302021332301",
       "registry_path": "docs/guides/data-sources--fleet--reference--group-003.md",
@@ -12115,19 +12056,14 @@
       }
     },
     {
-      "aliases": [
-        "backend servers",
-        "origin servers",
-        "storage device list storage devices netapp trident netapp backend ontap san no chap",
-        "upstream servers"
-      ],
+      "aliases": ["storage device list storage devices netapp trident netapp backend ontap san no chap"],
       "body_bytes": 2003,
       "body_sha256": "sha256:99d3f6371e939530660ceb86c4cb8b71dbf7beffdfecf2b7c5287d32c6e7c740",
       "capabilities": [],
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -12139,7 +12075,7 @@
       "path": "documentation/data-sources/fleet/properties/storage_device_list/storage_devices/netapp_trident/netapp_backend_ontap_san/no_chap/index.md",
       "product": "distributed-cloud",
       "provider_name": "fleet",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-3313201320201133-2313002020200110-1323011320323131-2311012102232011-1201313313233301-0323203012311221-2032102101000000-1203131310313310",
       "registry_path": "docs/guides/data-sources--fleet--reference--group-003.md",
@@ -12166,12 +12102,7 @@
       }
     },
     {
-      "aliases": [
-        "backend servers",
-        "origin servers",
-        "storage device list storage devices netapp trident netapp backend ontap san password",
-        "upstream servers"
-      ],
+      "aliases": ["storage device list storage devices netapp trident netapp backend ontap san password"],
       "body_bytes": 3100,
       "body_sha256": "sha256:06d5e7835fff2e071d891e9b263d005cbc0ebb770aad1238b80c2b191a6eb6a8",
       "capabilities": [],
@@ -12181,7 +12112,7 @@
         "xcsh-docs:data-sources:fleet:properties:storage_device_list:storage_devices:netapp_trident:netapp_backend_ontap_san:password:clear_secret_info"
       ],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -12193,7 +12124,7 @@
       "path": "documentation/data-sources/fleet/properties/storage_device_list/storage_devices/netapp_trident/netapp_backend_ontap_san/password/index.md",
       "product": "distributed-cloud",
       "provider_name": "fleet",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-1120102000102001-2032321311131031-1110201233301132-2222110002303111-1003233110303022-0232203211001321-3022023132001121-0023311012331213",
       "registry_path": "docs/guides/data-sources--fleet--reference--group-003.md",
@@ -12264,10 +12195,7 @@
     },
     {
       "aliases": [
-        "backend servers",
-        "origin servers",
-        "storage device list storage devices netapp trident netapp backend ontap san password blindfold secret info",
-        "upstream servers"
+        "storage device list storage devices netapp trident netapp backend ontap san password blindfold secret info"
       ],
       "body_bytes": 5552,
       "body_sha256": "sha256:779979255384bdc5a605dd82d5070aa89adeb2c28357d9e89ad61ae43d9d659b",
@@ -12275,7 +12203,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -12287,7 +12215,7 @@
       "path": "documentation/data-sources/fleet/properties/storage_device_list/storage_devices/netapp_trident/netapp_backend_ontap_san/password/blindfold_secret_info/index.md",
       "product": "distributed-cloud",
       "provider_name": "fleet",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-3133112300100001-2200211002101323-2112032312301132-1032203130010222-3100032002101311-0212023330122312-3012221231200212-0103213130302323",
       "registry_path": "docs/guides/data-sources--fleet--reference--group-003.md",
@@ -12304,7 +12232,7 @@
       ],
       "sections": [
         {
-          "aliases": ["backend servers", "decryption provider", "origin servers", "upstream servers"],
+          "aliases": ["decryption provider"],
           "anchor": "schema-storage_device_list--storage_devices--netapp_trident--netapp_backend_ontap_san--password--blindfold_secret_info--decryption_provider",
           "description": "Name of the Secret Management Access object that contains information about the backend Secret Management service.",
           "document_id": "xcsh-docs:data-sources:fleet:properties:storage_device_list:storage_devices:netapp_trident:netapp_backend_ontap_san:password:blindfold_secret_info",
@@ -12383,10 +12311,7 @@
     },
     {
       "aliases": [
-        "backend servers",
-        "origin servers",
-        "storage device list storage devices netapp trident netapp backend ontap san password clear secret info",
-        "upstream servers"
+        "storage device list storage devices netapp trident netapp backend ontap san password clear secret info"
       ],
       "body_bytes": 4384,
       "body_sha256": "sha256:a2f865f16dea300f46f18569666a36a68415874ecf68883f15a98234cdd97884",
@@ -12394,7 +12319,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -12406,7 +12331,7 @@
       "path": "documentation/data-sources/fleet/properties/storage_device_list/storage_devices/netapp_trident/netapp_backend_ontap_san/password/clear_secret_info/index.md",
       "product": "distributed-cloud",
       "provider_name": "fleet",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-3102200112033112-2132102311221003-0031231023020300-2333323202030130-0103122031133233-2223001132020233-0121102213220120-3000003302100031",
       "registry_path": "docs/guides/data-sources--fleet--reference--group-003.md",
@@ -12479,12 +12404,7 @@
       }
     },
     {
-      "aliases": [
-        "backend servers",
-        "origin servers",
-        "storage device list storage devices netapp trident netapp backend ontap san storage",
-        "upstream servers"
-      ],
+      "aliases": ["storage device list storage devices netapp trident netapp backend ontap san storage"],
       "body_bytes": 4815,
       "body_sha256": "sha256:5d3af11624d2f5bef7f64f37568c5bf78d872e4971a23beabbea9a33c8f1bbf2",
       "capabilities": [],
@@ -12493,7 +12413,7 @@
         "xcsh-docs:data-sources:fleet:properties:storage_device_list:storage_devices:netapp_trident:netapp_backend_ontap_san:storage:volume_defaults"
       ],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -12505,7 +12425,7 @@
       "path": "documentation/data-sources/fleet/properties/storage_device_list/storage_devices/netapp_trident/netapp_backend_ontap_san/storage/index.md",
       "product": "distributed-cloud",
       "provider_name": "fleet",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-0203301222213122-0311200133322320-2330230003102220-0010021312213121-1003010303003013-1100202112013010-1112331202022330-1012101223313000",
       "registry_path": "docs/guides/data-sources--fleet--reference--group-003.md",
@@ -12597,10 +12517,7 @@
     },
     {
       "aliases": [
-        "backend servers",
-        "origin servers",
-        "storage device list storage devices netapp trident netapp backend ontap san storage volume defaults",
-        "upstream servers"
+        "storage device list storage devices netapp trident netapp backend ontap san storage volume defaults"
       ],
       "body_bytes": 11642,
       "body_sha256": "sha256:558199594f4899b2adab7873a60793f86899dd3442c45170e86a68d3212cf04a",
@@ -12610,7 +12527,7 @@
         "xcsh-docs:data-sources:fleet:properties:storage_device_list:storage_devices:netapp_trident:netapp_backend_ontap_san:storage:volume_defaults:no_qos"
       ],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -12622,7 +12539,7 @@
       "path": "documentation/data-sources/fleet/properties/storage_device_list/storage_devices/netapp_trident/netapp_backend_ontap_san/storage/volume_defaults/index.md",
       "product": "distributed-cloud",
       "provider_name": "fleet",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-0100022222011211-1020313330202211-0130320331202011-1032331232231310-1221120203231123-2000021330110310-2302032001301201-2122232132023331",
       "registry_path": "docs/guides/data-sources--fleet--reference--group-003.md",
@@ -12938,10 +12855,7 @@
     },
     {
       "aliases": [
-        "backend servers",
-        "origin servers",
-        "storage device list storage devices netapp trident netapp backend ontap san storage volume defaults no qos",
-        "upstream servers"
+        "storage device list storage devices netapp trident netapp backend ontap san storage volume defaults no qos"
       ],
       "body_bytes": 2649,
       "body_sha256": "sha256:b2ccec7ca83b7369daca387c008209cd4f40f0279d6bf73066b019ae53b8a30a",
@@ -12949,7 +12863,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -12961,7 +12875,7 @@
       "path": "documentation/data-sources/fleet/properties/storage_device_list/storage_devices/netapp_trident/netapp_backend_ontap_san/storage/volume_defaults/no_qos/index.md",
       "product": "distributed-cloud",
       "provider_name": "fleet",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-2033121012023220-2332020112110101-0321031031111313-3200123113133023-2100333003111122-2133231032311332-3013313230331031-2230330130112112",
       "registry_path": "docs/guides/data-sources--fleet--reference--group-003.md",
@@ -12990,12 +12904,7 @@
       }
     },
     {
-      "aliases": [
-        "backend servers",
-        "origin servers",
-        "storage device list storage devices netapp trident netapp backend ontap san use chap",
-        "upstream servers"
-      ],
+      "aliases": ["storage device list storage devices netapp trident netapp backend ontap san use chap"],
       "body_bytes": 5034,
       "body_sha256": "sha256:b2c02cf0af3c8521900ce5e7aa45d062335092a4a61ef281505b536b0ddc4180",
       "capabilities": [],
@@ -13005,7 +12914,7 @@
         "xcsh-docs:data-sources:fleet:properties:storage_device_list:storage_devices:netapp_trident:netapp_backend_ontap_san:use_chap:chap_target_initiator_secret"
       ],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -13017,7 +12926,7 @@
       "path": "documentation/data-sources/fleet/properties/storage_device_list/storage_devices/netapp_trident/netapp_backend_ontap_san/use_chap/index.md",
       "product": "distributed-cloud",
       "provider_name": "fleet",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-3032230231202013-3203021200032120-3001221132331021-0310010001010202-1202210101021232-1311113001032110-2231130122032322-1023203010122223",
       "registry_path": "docs/guides/data-sources--fleet--reference--group-003.md",
@@ -13130,10 +13039,7 @@
     },
     {
       "aliases": [
-        "backend servers",
-        "origin servers",
-        "storage device list storage devices netapp trident netapp backend ontap san use chap chap initiator secret",
-        "upstream servers"
+        "storage device list storage devices netapp trident netapp backend ontap san use chap chap initiator secret"
       ],
       "body_bytes": 3556,
       "body_sha256": "sha256:cc93be7b926ffe36705a277a92f58a4a36ae64f036723390d4004afbb15f7229",
@@ -13144,7 +13050,7 @@
         "xcsh-docs:data-sources:fleet:properties:storage_device_list:storage_devices:netapp_trident:netapp_backend_ontap_san:use_chap:chap_initiator_secret:clear_secret_info"
       ],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -13156,7 +13062,7 @@
       "path": "documentation/data-sources/fleet/properties/storage_device_list/storage_devices/netapp_trident/netapp_backend_ontap_san/use_chap/chap_initiator_secret/index.md",
       "product": "distributed-cloud",
       "provider_name": "fleet",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-2222302212123213-1032300331301122-3210031123122321-2010312311333111-1323331323202131-0103320000013002-2310212230020120-1210311133011322",
       "registry_path": "docs/guides/data-sources--fleet--reference--group-003.md",
@@ -13230,10 +13136,7 @@
     },
     {
       "aliases": [
-        "backend servers",
-        "origin servers",
-        "storage device list storage devices netapp trident netapp backend ontap san use chap chap initiator secret blindfold secret info",
-        "upstream servers"
+        "storage device list storage devices netapp trident netapp backend ontap san use chap chap initiator secret blindfold secret info"
       ],
       "body_bytes": 6015,
       "body_sha256": "sha256:069e53d25f46ff36f5444d2fd7dc5dde284f1f230c1f29698f6419ad0a2cf926",
@@ -13241,7 +13144,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -13253,7 +13156,7 @@
       "path": "documentation/data-sources/fleet/properties/storage_device_list/storage_devices/netapp_trident/netapp_backend_ontap_san/use_chap/chap_initiator_secret/blindfold_secret_info/index.md",
       "product": "distributed-cloud",
       "provider_name": "fleet",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-2020211030320032-0322010313303130-0100222030313123-2032033001123011-1213103330003331-1320230100311212-0131130132220300-1021102203013301",
       "registry_path": "docs/guides/data-sources--fleet--reference--group-003.md",
@@ -13271,7 +13174,7 @@
       ],
       "sections": [
         {
-          "aliases": ["backend servers", "decryption provider", "origin servers", "upstream servers"],
+          "aliases": ["decryption provider"],
           "anchor": "schema-storage_device_list--storage_devices--netapp_trident--netapp_backend_ontap_san--use_chap--chap_initiator_secret--blindfold_secret_info--decryption_provider",
           "description": "Name of the Secret Management Access object that contains information about the backend Secret Management service.",
           "document_id": "xcsh-docs:data-sources:fleet:properties:storage_device_list:storage_devices:netapp_trident:netapp_backend_ontap_san:use_chap:chap_initiator_secret:blindfold_secret_info",
@@ -13353,10 +13256,7 @@
     },
     {
       "aliases": [
-        "backend servers",
-        "origin servers",
-        "storage device list storage devices netapp trident netapp backend ontap san use chap chap initiator secret clear secret info",
-        "upstream servers"
+        "storage device list storage devices netapp trident netapp backend ontap san use chap chap initiator secret clear secret info"
       ],
       "body_bytes": 4824,
       "body_sha256": "sha256:e98437e427d6c9ae1aac773de238a22f05b1feded71eb1f1211a03cf7fac5bfe",
@@ -13364,7 +13264,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -13376,7 +13276,7 @@
       "path": "documentation/data-sources/fleet/properties/storage_device_list/storage_devices/netapp_trident/netapp_backend_ontap_san/use_chap/chap_initiator_secret/clear_secret_info/index.md",
       "product": "distributed-cloud",
       "provider_name": "fleet",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-0112301002112002-2212002033302312-3101021132222000-0102320320013121-2303232230000130-3001211103013021-2032311020113303-0002202113300332",
       "registry_path": "docs/guides/data-sources--fleet--reference--group-003.md",
@@ -13453,10 +13353,7 @@
     },
     {
       "aliases": [
-        "backend servers",
-        "origin servers",
-        "storage device list storage devices netapp trident netapp backend ontap san use chap chap target initiator secret",
-        "upstream servers"
+        "storage device list storage devices netapp trident netapp backend ontap san use chap chap target initiator secret"
       ],
       "body_bytes": 3612,
       "body_sha256": "sha256:dc40663c6722f03e39160aa1610e34338b5958e53b2a03c6e0e830919dbf1dc4",
@@ -13467,7 +13364,7 @@
         "xcsh-docs:data-sources:fleet:properties:storage_device_list:storage_devices:netapp_trident:netapp_backend_ontap_san:use_chap:chap_target_initiator_secret:clear_secret_info"
       ],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -13479,7 +13376,7 @@
       "path": "documentation/data-sources/fleet/properties/storage_device_list/storage_devices/netapp_trident/netapp_backend_ontap_san/use_chap/chap_target_initiator_secret/index.md",
       "product": "distributed-cloud",
       "provider_name": "fleet",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-3310332213203121-2032233103313131-0111301002333130-3323212301221301-3320230030331300-2033210302113211-1123113110010333-1310330231220030",
       "registry_path": "docs/guides/data-sources--fleet--reference--group-004.md",
@@ -13553,10 +13450,7 @@
     },
     {
       "aliases": [
-        "backend servers",
-        "origin servers",
-        "storage device list storage devices netapp trident netapp backend ontap san use chap chap target initiator secret blindfold secret info",
-        "upstream servers"
+        "storage device list storage devices netapp trident netapp backend ontap san use chap chap target initiator secret blindfold secret info"
       ],
       "body_bytes": 6078,
       "body_sha256": "sha256:fd8c691a160945c316fa2092d0936c0527903c2f988ecd5f14f177edcb994419",
@@ -13564,7 +13458,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -13576,7 +13470,7 @@
       "path": "documentation/data-sources/fleet/properties/storage_device_list/storage_devices/netapp_trident/netapp_backend_ontap_san/use_chap/chap_target_initiator_secret/blindfold_secret_info/index.md",
       "product": "distributed-cloud",
       "provider_name": "fleet",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-3322321230331020-0100100110023131-0111023101130232-3213312223203302-2201122113320010-2230002030222100-2312221020031100-1011330023231132",
       "registry_path": "docs/guides/data-sources--fleet--reference--group-004.md",
@@ -13594,7 +13488,7 @@
       ],
       "sections": [
         {
-          "aliases": ["backend servers", "decryption provider", "origin servers", "upstream servers"],
+          "aliases": ["decryption provider"],
           "anchor": "schema-storage_device_list--storage_devices--netapp_trident--netapp_backend_ontap_san--use_chap--chap_target_initiator_secret--blindfold_secret_info--decryption_provider",
           "description": "Name of the Secret Management Access object that contains information about the backend Secret Management service.",
           "document_id": "xcsh-docs:data-sources:fleet:properties:storage_device_list:storage_devices:netapp_trident:netapp_backend_ontap_san:use_chap:chap_target_initiator_secret:blindfold_secret_info",
@@ -13676,10 +13570,7 @@
     },
     {
       "aliases": [
-        "backend servers",
-        "origin servers",
-        "storage device list storage devices netapp trident netapp backend ontap san use chap chap target initiator secret clear secret info",
-        "upstream servers"
+        "storage device list storage devices netapp trident netapp backend ontap san use chap chap target initiator secret clear secret info"
       ],
       "body_bytes": 4880,
       "body_sha256": "sha256:347909cc941d5c2d9923a23d09b9df93ef41294ba35e19b5ec778ca2531e3887",
@@ -13687,7 +13578,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -13699,7 +13590,7 @@
       "path": "documentation/data-sources/fleet/properties/storage_device_list/storage_devices/netapp_trident/netapp_backend_ontap_san/use_chap/chap_target_initiator_secret/clear_secret_info/index.md",
       "product": "distributed-cloud",
       "provider_name": "fleet",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-1310022120000032-1223310030013111-2232132100112231-2213123112022221-2012011031030031-3221030232210233-1030312121231330-0210300320102301",
       "registry_path": "docs/guides/data-sources--fleet--reference--group-004.md",
@@ -13775,12 +13666,7 @@
       }
     },
     {
-      "aliases": [
-        "backend servers",
-        "origin servers",
-        "storage device list storage devices netapp trident netapp backend ontap san volume defaults",
-        "upstream servers"
-      ],
+      "aliases": ["storage device list storage devices netapp trident netapp backend ontap san volume defaults"],
       "body_bytes": 11218,
       "body_sha256": "sha256:0ce5191413e568014321441f8014fbabc980ad0d2f57d2237a7936ef8f16ee02",
       "capabilities": [],
@@ -13789,7 +13675,7 @@
         "xcsh-docs:data-sources:fleet:properties:storage_device_list:storage_devices:netapp_trident:netapp_backend_ontap_san:volume_defaults:no_qos"
       ],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -13801,7 +13687,7 @@
       "path": "documentation/data-sources/fleet/properties/storage_device_list/storage_devices/netapp_trident/netapp_backend_ontap_san/volume_defaults/index.md",
       "product": "distributed-cloud",
       "provider_name": "fleet",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-0312231301000023-1223223123130323-1300021202220113-1200230003223230-0121123321012302-1111201303220322-3001223112113203-2120323230132130",
       "registry_path": "docs/guides/data-sources--fleet--reference--group-004.md",
@@ -14102,19 +13988,14 @@
       }
     },
     {
-      "aliases": [
-        "backend servers",
-        "origin servers",
-        "storage device list storage devices netapp trident netapp backend ontap san volume defaults no qos",
-        "upstream servers"
-      ],
+      "aliases": ["storage device list storage devices netapp trident netapp backend ontap san volume defaults no qos"],
       "body_bytes": 2341,
       "body_sha256": "sha256:ba10c2a8570b3465a74fe0fc1df36a6001218e0dd450c8db4c7e5daaad04f95d",
       "capabilities": [],
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -14126,7 +14007,7 @@
       "path": "documentation/data-sources/fleet/properties/storage_device_list/storage_devices/netapp_trident/netapp_backend_ontap_san/volume_defaults/no_qos/index.md",
       "product": "distributed-cloud",
       "provider_name": "fleet",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-0112010323101023-2331002330103032-1223131001001030-0221301023032130-0013032111330233-1231122211211221-0032203001033102-2302001301303210",
       "registry_path": "docs/guides/data-sources--fleet--reference--group-004.md",
@@ -14163,7 +14044,7 @@
         "xcsh-docs:data-sources:fleet:properties:storage_device_list:storage_devices:pure_service_orchestrator:arrays"
       ],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -14175,7 +14056,7 @@
       "path": "documentation/data-sources/fleet/properties/storage_device_list/storage_devices/pure_service_orchestrator/index.md",
       "product": "distributed-cloud",
       "provider_name": "fleet",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-0232331033131323-1012000032222131-3103231213311210-3202202123003123-3003333321120112-1102302232131101-2330131202301013-1332210310100022",
       "registry_path": "docs/guides/data-sources--fleet--reference--group-004.md",
@@ -14273,7 +14154,7 @@
         "xcsh-docs:data-sources:fleet:properties:storage_device_list:storage_devices:pure_service_orchestrator:arrays:flash_blade"
       ],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -14285,7 +14166,7 @@
       "path": "documentation/data-sources/fleet/properties/storage_device_list/storage_devices/pure_service_orchestrator/arrays/index.md",
       "product": "distributed-cloud",
       "provider_name": "fleet",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-2022021200123133-1012311022310131-2011001032320220-1011211211021301-3032232301200012-2111121022022131-3102103001000323-2322001003132223",
       "registry_path": "docs/guides/data-sources--fleet--reference--group-004.md",
@@ -14356,7 +14237,7 @@
         "xcsh-docs:data-sources:fleet:properties:storage_device_list:storage_devices:pure_service_orchestrator:arrays:flash_array:flash_arrays"
       ],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -14368,7 +14249,7 @@
       "path": "documentation/data-sources/fleet/properties/storage_device_list/storage_devices/pure_service_orchestrator/arrays/flash_array/index.md",
       "product": "distributed-cloud",
       "provider_name": "fleet",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-3100333230102320-2201210300121102-1332331302002131-1233110231203031-3013323101032112-2023313222111010-1131233313003323-0221211230200313",
       "registry_path": "docs/guides/data-sources--fleet--reference--group-004.md",
@@ -14546,7 +14427,7 @@
         "xcsh-docs:data-sources:fleet:properties:storage_device_list:storage_devices:pure_service_orchestrator:arrays:flash_array:flash_arrays:api_token"
       ],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -14558,7 +14439,7 @@
       "path": "documentation/data-sources/fleet/properties/storage_device_list/storage_devices/pure_service_orchestrator/arrays/flash_array/flash_arrays/index.md",
       "product": "distributed-cloud",
       "provider_name": "fleet",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-3302231123231130-1200133220000322-1120123000331211-2120021120300333-0312210101021321-3311211303232112-3012230333112203-3302201320332102",
       "registry_path": "docs/guides/data-sources--fleet--reference--group-004.md",
@@ -14690,7 +14571,7 @@
         "xcsh-docs:data-sources:fleet:properties:storage_device_list:storage_devices:pure_service_orchestrator:arrays:flash_array:flash_arrays:api_token:clear_secret_info"
       ],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -14702,7 +14583,7 @@
       "path": "documentation/data-sources/fleet/properties/storage_device_list/storage_devices/pure_service_orchestrator/arrays/flash_array/flash_arrays/api_token/index.md",
       "product": "distributed-cloud",
       "provider_name": "fleet",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-3321023201313323-3303221121321200-2200021032301011-3013011202132111-3220321023021033-2022001332013210-2231012012223321-3222320330103321",
       "registry_path": "docs/guides/data-sources--fleet--reference--group-004.md",
@@ -14779,9 +14660,6 @@
     },
     {
       "aliases": [
-        "authentication",
-        "credential setup",
-        "credentials",
         "storage device list storage devices pure service orchestrator arrays flash array flash arrays api token blindfold secret info"
       ],
       "body_bytes": 6271,
@@ -14790,7 +14668,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -14802,7 +14680,7 @@
       "path": "documentation/data-sources/fleet/properties/storage_device_list/storage_devices/pure_service_orchestrator/arrays/flash_array/flash_arrays/api_token/blindfold_secret_info/index.md",
       "product": "distributed-cloud",
       "provider_name": "fleet",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-0101333221021310-3111321213132322-1332102111332101-2000231131021001-3230121032302101-0131122211220312-2021023333201121-2310302303030320",
       "registry_path": "docs/guides/data-sources--fleet--reference--group-004.md",
@@ -14821,7 +14699,7 @@
       ],
       "sections": [
         {
-          "aliases": ["backend servers", "decryption provider", "origin servers", "upstream servers"],
+          "aliases": ["decryption provider"],
           "anchor": "schema-storage_device_list--storage_devices--pure_service_orchestrator--arrays--flash_array--flash_arrays--api_token--blindfold_secret_info--decryption_provider",
           "description": "Name of the Secret Management Access object that contains information about the backend Secret Management service.",
           "document_id": "xcsh-docs:data-sources:fleet:properties:storage_device_list:storage_devices:pure_service_orchestrator:arrays:flash_array:flash_arrays:api_token:blindfold_secret_info",
@@ -14906,9 +14784,6 @@
     },
     {
       "aliases": [
-        "authentication",
-        "credential setup",
-        "credentials",
         "storage device list storage devices pure service orchestrator arrays flash array flash arrays api token clear secret info"
       ],
       "body_bytes": 5082,
@@ -14917,7 +14792,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -14929,7 +14804,7 @@
       "path": "documentation/data-sources/fleet/properties/storage_device_list/storage_devices/pure_service_orchestrator/arrays/flash_array/flash_arrays/api_token/clear_secret_info/index.md",
       "product": "distributed-cloud",
       "provider_name": "fleet",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-3330220222201321-1021033010023002-1000120201020120-2012312101103123-0200202233223112-1322120311312223-2332003311111013-0113001001311222",
       "registry_path": "docs/guides/data-sources--fleet--reference--group-004.md",
@@ -15017,7 +14892,7 @@
         "xcsh-docs:data-sources:fleet:properties:storage_device_list:storage_devices:pure_service_orchestrator:arrays:flash_blade:flash_blades"
       ],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -15029,7 +14904,7 @@
       "path": "documentation/data-sources/fleet/properties/storage_device_list/storage_devices/pure_service_orchestrator/arrays/flash_blade/index.md",
       "product": "distributed-cloud",
       "provider_name": "fleet",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-2032231100232113-1121332300210032-2300122032301201-1022223222230332-0320022001320313-0322210021221233-1130002200302111-0110333133311303",
       "registry_path": "docs/guides/data-sources--fleet--reference--group-004.md",
@@ -15123,7 +14998,7 @@
         "xcsh-docs:data-sources:fleet:properties:storage_device_list:storage_devices:pure_service_orchestrator:arrays:flash_blade:flash_blades:api_token"
       ],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -15135,7 +15010,7 @@
       "path": "documentation/data-sources/fleet/properties/storage_device_list/storage_devices/pure_service_orchestrator/arrays/flash_blade/flash_blades/index.md",
       "product": "distributed-cloud",
       "provider_name": "fleet",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-3330123332213122-0311333303020203-2100301133303321-2131232010222233-1100023113000033-3113311212320100-1102102332012100-0222103102231330",
       "registry_path": "docs/guides/data-sources--fleet--reference--group-004.md",
@@ -15311,7 +15186,7 @@
         "xcsh-docs:data-sources:fleet:properties:storage_device_list:storage_devices:pure_service_orchestrator:arrays:flash_blade:flash_blades:api_token:clear_secret_info"
       ],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -15323,7 +15198,7 @@
       "path": "documentation/data-sources/fleet/properties/storage_device_list/storage_devices/pure_service_orchestrator/arrays/flash_blade/flash_blades/api_token/index.md",
       "product": "distributed-cloud",
       "provider_name": "fleet",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-0120031312202210-1213230232032302-3221130111010021-1123100131110111-2100101020033100-0310021321221020-0012013030020321-2020100103212223",
       "registry_path": "docs/guides/data-sources--fleet--reference--group-004.md",
@@ -15400,9 +15275,6 @@
     },
     {
       "aliases": [
-        "authentication",
-        "credential setup",
-        "credentials",
         "storage device list storage devices pure service orchestrator arrays flash blade flash blades api token blindfold secret info"
       ],
       "body_bytes": 6271,
@@ -15411,7 +15283,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -15423,7 +15295,7 @@
       "path": "documentation/data-sources/fleet/properties/storage_device_list/storage_devices/pure_service_orchestrator/arrays/flash_blade/flash_blades/api_token/blindfold_secret_info/index.md",
       "product": "distributed-cloud",
       "provider_name": "fleet",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-2333102332103103-1110001013122020-1102332123133211-2133121132100030-1100202030011331-3323300101312320-3013011312302131-1020010311121322",
       "registry_path": "docs/guides/data-sources--fleet--reference--group-004.md",
@@ -15442,7 +15314,7 @@
       ],
       "sections": [
         {
-          "aliases": ["backend servers", "decryption provider", "origin servers", "upstream servers"],
+          "aliases": ["decryption provider"],
           "anchor": "schema-storage_device_list--storage_devices--pure_service_orchestrator--arrays--flash_blade--flash_blades--api_token--blindfold_secret_info--decryption_provider",
           "description": "Name of the Secret Management Access object that contains information about the backend Secret Management service.",
           "document_id": "xcsh-docs:data-sources:fleet:properties:storage_device_list:storage_devices:pure_service_orchestrator:arrays:flash_blade:flash_blades:api_token:blindfold_secret_info",
@@ -15527,9 +15399,6 @@
     },
     {
       "aliases": [
-        "authentication",
-        "credential setup",
-        "credentials",
         "storage device list storage devices pure service orchestrator arrays flash blade flash blades api token clear secret info"
       ],
       "body_bytes": 5082,
@@ -15538,7 +15407,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -15550,7 +15419,7 @@
       "path": "documentation/data-sources/fleet/properties/storage_device_list/storage_devices/pure_service_orchestrator/arrays/flash_blade/flash_blades/api_token/clear_secret_info/index.md",
       "product": "distributed-cloud",
       "provider_name": "fleet",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-0322013121102330-2231012313300203-1112311002132201-3321010010320213-1221030023112200-0021012100023330-0130023031203211-2322330031223302",
       "registry_path": "docs/guides/data-sources--fleet--reference--group-004.md",
@@ -15636,7 +15505,7 @@
       "category": null,
       "child_ids": ["xcsh-docs:data-sources:fleet:properties:storage_interface_list:interfaces"],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -15648,7 +15517,7 @@
       "path": "documentation/data-sources/fleet/properties/storage_interface_list/index.md",
       "product": "distributed-cloud",
       "provider_name": "fleet",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-1332201313101100-2300203232300003-3203012102133211-1111001020322331-3011023323013302-0102200332002030-0003133323233202-2131113031033200",
       "registry_path": "docs/guides/data-sources--fleet--reference--group-004.md",
@@ -15691,7 +15560,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -15703,7 +15572,7 @@
       "path": "documentation/data-sources/fleet/properties/storage_interface_list/interfaces/index.md",
       "product": "distributed-cloud",
       "provider_name": "fleet",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-2033322200112100-2130213320101310-2230111211133032-2103331223111023-0200333312020201-1020302212030332-0231123132030110-2203122202333330",
       "registry_path": "docs/guides/data-sources--fleet--reference--group-004.md",
@@ -15774,7 +15643,7 @@
       "category": null,
       "child_ids": ["xcsh-docs:data-sources:fleet:properties:storage_static_routes:storage_routes"],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -15786,7 +15655,7 @@
       "path": "documentation/data-sources/fleet/properties/storage_static_routes/index.md",
       "product": "distributed-cloud",
       "provider_name": "fleet",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-2122200211031101-0310202002203113-1003213330032121-3020122111123030-1110020002232312-1321211020300222-1230230232002021-3132001113201300",
       "registry_path": "docs/guides/data-sources--fleet--reference--group-004.md",
@@ -15833,7 +15702,7 @@
         "xcsh-docs:data-sources:fleet:properties:storage_static_routes:storage_routes:subnets"
       ],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -15845,7 +15714,7 @@
       "path": "documentation/data-sources/fleet/properties/storage_static_routes/storage_routes/index.md",
       "product": "distributed-cloud",
       "provider_name": "fleet",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-3330321223102110-2223112202210110-1100312321211232-2212230012130201-1020231212020133-1302332032122201-2030131220013312-0310330030133110",
       "registry_path": "docs/guides/data-sources--fleet--reference--group-004.md",
@@ -15930,7 +15799,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -15942,7 +15811,7 @@
       "path": "documentation/data-sources/fleet/properties/storage_static_routes/storage_routes/labels/index.md",
       "product": "distributed-cloud",
       "provider_name": "fleet",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-2333322330302012-3111121113301032-1013103232322112-0231022000222301-2313120302310130-2020010130032321-0112300013211020-1302031132120021",
       "registry_path": "docs/guides/data-sources--fleet--reference--group-004.md",
@@ -15973,7 +15842,7 @@
         "xcsh-docs:data-sources:fleet:properties:storage_static_routes:storage_routes:nexthop:nexthop_address"
       ],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -15985,7 +15854,7 @@
       "path": "documentation/data-sources/fleet/properties/storage_static_routes/storage_routes/nexthop/index.md",
       "product": "distributed-cloud",
       "provider_name": "fleet",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-2300310022230112-0312031201003113-0031001300232212-2032120302303013-0011333313112022-0300131011132000-0313323203013231-2020030103023000",
       "registry_path": "docs/guides/data-sources--fleet--reference--group-004.md",
@@ -16056,7 +15925,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -16068,7 +15937,7 @@
       "path": "documentation/data-sources/fleet/properties/storage_static_routes/storage_routes/nexthop/interface/index.md",
       "product": "distributed-cloud",
       "provider_name": "fleet",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-3000023121020110-0012320102123202-2331230130030331-1223220011332102-2133301101233130-3332220022023312-2032222003102112-3123121021332302",
       "registry_path": "docs/guides/data-sources--fleet--reference--group-004.md",
@@ -16171,7 +16040,7 @@
         "xcsh-docs:data-sources:fleet:properties:storage_static_routes:storage_routes:nexthop:nexthop_address:ipv6"
       ],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -16183,7 +16052,7 @@
       "path": "documentation/data-sources/fleet/properties/storage_static_routes/storage_routes/nexthop/nexthop_address/index.md",
       "product": "distributed-cloud",
       "provider_name": "fleet",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-0133113223233112-2133220231303223-1313211122221213-3222103010003321-3212220031020101-3332102130123013-0120121330221102-1323133103022312",
       "registry_path": "docs/guides/data-sources--fleet--reference--group-004.md",
@@ -16257,7 +16126,7 @@
         "xcsh-docs:data-sources:fleet:properties:storage_static_routes:storage_routes:nexthop:nexthop_address:dual_stack:ipv6"
       ],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -16269,7 +16138,7 @@
       "path": "documentation/data-sources/fleet/properties/storage_static_routes/storage_routes/nexthop/nexthop_address/dual_stack/index.md",
       "product": "distributed-cloud",
       "provider_name": "fleet",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-2301223133112311-2000202212230202-1202322323023311-0210223000310120-3222233322231210-1311332211322211-2310111023212312-3102211221223033",
       "registry_path": "docs/guides/data-sources--fleet--reference--group-004.md",
@@ -16340,7 +16209,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -16352,7 +16221,7 @@
       "path": "documentation/data-sources/fleet/properties/storage_static_routes/storage_routes/nexthop/nexthop_address/dual_stack/ipv4/index.md",
       "product": "distributed-cloud",
       "provider_name": "fleet",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-1211023231012201-1301320231100000-1321021223020323-3332012322121331-1302122322213022-2212230133103320-0320110133121011-2223212112002302",
       "registry_path": "docs/guides/data-sources--fleet--reference--group-004.md",
@@ -16403,7 +16272,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -16415,7 +16284,7 @@
       "path": "documentation/data-sources/fleet/properties/storage_static_routes/storage_routes/nexthop/nexthop_address/dual_stack/ipv6/index.md",
       "product": "distributed-cloud",
       "provider_name": "fleet",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-2011021111102013-3023110120202033-0331312021311220-1123332323023030-1220322032013232-2210203012032320-1210230133222310-0120020131233230",
       "registry_path": "docs/guides/data-sources--fleet--reference--group-004.md",
@@ -16466,7 +16335,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -16478,7 +16347,7 @@
       "path": "documentation/data-sources/fleet/properties/storage_static_routes/storage_routes/nexthop/nexthop_address/ipv4/index.md",
       "product": "distributed-cloud",
       "provider_name": "fleet",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-1203230330233330-0320331023002231-0012122030311100-3112313322120232-1203113223020201-3033112121033312-1031200202331201-2321200330101200",
       "registry_path": "docs/guides/data-sources--fleet--reference--group-004.md",
@@ -16521,7 +16390,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -16533,7 +16402,7 @@
       "path": "documentation/data-sources/fleet/properties/storage_static_routes/storage_routes/nexthop/nexthop_address/ipv6/index.md",
       "product": "distributed-cloud",
       "provider_name": "fleet",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-0300332322220010-0132002021012213-1323101311003021-1232221222232332-3223212333122100-3312321023311121-3323201230133223-2201330333332321",
       "registry_path": "docs/guides/data-sources--fleet--reference--group-004.md",
@@ -16579,7 +16448,7 @@
         "xcsh-docs:data-sources:fleet:properties:storage_static_routes:storage_routes:subnets:ipv6"
       ],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -16591,7 +16460,7 @@
       "path": "documentation/data-sources/fleet/properties/storage_static_routes/storage_routes/subnets/index.md",
       "product": "distributed-cloud",
       "provider_name": "fleet",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-3221013101022303-0031020003333031-1030012032322102-2001322333132322-0323001032121312-3112313131203323-0220202103032320-2230222202110303",
       "registry_path": "docs/guides/data-sources--fleet--reference--group-004.md",
@@ -16648,7 +16517,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -16660,7 +16529,7 @@
       "path": "documentation/data-sources/fleet/properties/storage_static_routes/storage_routes/subnets/ipv4/index.md",
       "product": "distributed-cloud",
       "provider_name": "fleet",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-1132211300313231-3232222201233203-0221010020302300-3323323100303012-2223321212111321-1130121030332303-1000311123133212-3333130120132012",
       "registry_path": "docs/guides/data-sources--fleet--reference--group-004.md",
@@ -16717,7 +16586,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -16729,7 +16598,7 @@
       "path": "documentation/data-sources/fleet/properties/storage_static_routes/storage_routes/subnets/ipv6/index.md",
       "product": "distributed-cloud",
       "provider_name": "fleet",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-1311003212203132-3330033022230231-0100323000203331-0023132223330130-2131030223221112-1223012010100231-2203010313311022-2010130333101313",
       "registry_path": "docs/guides/data-sources--fleet--reference--group-004.md",
@@ -16786,7 +16655,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -16798,7 +16667,7 @@
       "path": "documentation/data-sources/fleet/properties/usb_policy/index.md",
       "product": "distributed-cloud",
       "provider_name": "fleet",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-2132300120030302-2100113132002202-2230322111111011-2301031030022032-0303102003030130-2111000030223010-1011003201131323-2230112300300113",
       "registry_path": "docs/guides/data-sources--fleet--reference--group-004.md",
@@ -16869,7 +16738,7 @@
       "category": null,
       "child_ids": ["xcsh-docs:data-sources:fleet:example:data-source"],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -16881,7 +16750,7 @@
       "path": "documentation/data-sources/fleet/examples/index.md",
       "product": "distributed-cloud",
       "provider_name": "fleet",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-1223103321010323-0231100030013302-1233302032200110-0210031301212220-2100122330323123-0310212333032022-2010022133220121-0100330002231213",
       "registry_path": "docs/guides/data-sources--fleet--examples--group-001.md",
@@ -16909,7 +16778,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -16928,7 +16797,7 @@
       "path": "documentation/data-sources/fleet/examples/data-source/index.md",
       "product": "distributed-cloud",
       "provider_name": "fleet",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-1323010013013231-3003101211233233-3010120120301000-0230121132123333-1331011333002031-1211102213323202-2302012333020033-2033013320121233",
       "registry_path": "docs/guides/data-sources--fleet--examples--group-001.md",

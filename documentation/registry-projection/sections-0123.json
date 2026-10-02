@@ -2,6 +2,417 @@
   "schema_version": 1,
   "sections": [
     {
+      "canonical_id": "xcsh-docs:data-sources:certified_hardware:properties:image_list:gcp",
+      "section_id": "xcsh-docs:data-sources:certified_hardware:properties:image_list:gcp:section:0",
+      "source_sha256": "sha256:197d41522a9dd286cb9805a03d8a5bd782cc3f3fd95ea854bf2dfc326e83e50c",
+      "source_bytes": 99,
+      "canonical_source_sha256": "sha256:e31248d9ce40b3e0b50112163dd162bf0794382115244770cdd7f0b7031f28b9",
+      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/certified_hardware/properties/image_list/gcp/",
+      "anchor": "canonical-1220230221302310-0030120303133231-1131211320100232-3220033133222133-1021023020300313-3023133000310100-1231223203131132-2301011103213310",
+      "anchor_map": [],
+      "mode": "embedded",
+      "registry_path": "docs/guides/data-sources--certified_hardware--reference--group-001.md"
+    },
+    {
+      "canonical_id": "xcsh-docs:data-sources:certified_hardware:properties:image_list:gcp",
+      "section_id": "xcsh-docs:data-sources:certified_hardware:properties:image_list:gcp:section:1",
+      "source_sha256": "sha256:f4fe37ec6eea515470e141e03ad9221abe23c2e5bf85b3951048dd665036abf9",
+      "source_bytes": 502,
+      "canonical_source_sha256": "sha256:e31248d9ce40b3e0b50112163dd162bf0794382115244770cdd7f0b7031f28b9",
+      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/certified_hardware/properties/image_list/gcp/",
+      "anchor": "canonical-1121222101122102-2002213233132311-3123103001223231-3222302130100223-1311221030201300-1310011321222111-0231210201102213-3123012230003231",
+      "anchor_map": [
+        [
+          "section",
+          "canonical-3220321012103102-2000001110022111-0111013312233001-2322301031120110-1131133112010220-0231323112220233-3102201211202003-0311003202320212"
+        ]
+      ],
+      "mode": "embedded",
+      "registry_path": "docs/guides/data-sources--certified_hardware--reference--group-001.md"
+    },
+    {
+      "canonical_id": "xcsh-docs:data-sources:certified_hardware:properties:image_list:gcp",
+      "section_id": "xcsh-docs:data-sources:certified_hardware:properties:image_list:gcp:section:2",
+      "source_sha256": "sha256:e4331601c2a3b25e93c909166d1b9c28f50eaa59686c54851262adba83702bc6",
+      "source_bytes": 193,
+      "canonical_source_sha256": "sha256:e31248d9ce40b3e0b50112163dd162bf0794382115244770cdd7f0b7031f28b9",
+      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/certified_hardware/properties/image_list/gcp/",
+      "anchor": "canonical-3203101222102202-3112200233200212-3210020131311022-3212022121232330-3122133321301301-0023303102203021-2121303213010030-1033301010301023",
+      "anchor_map": [],
+      "mode": "embedded",
+      "registry_path": "docs/guides/data-sources--certified_hardware--reference--group-001.md"
+    },
+    {
+      "canonical_id": "xcsh-docs:data-sources:certified_hardware:properties:image_list:gcp",
+      "section_id": "xcsh-docs:data-sources:certified_hardware:properties:image_list:gcp:section:3",
+      "source_sha256": "sha256:96624b8d8995564d52a2ee9948b80e82708c4773c9298970f456fe54f0819c54",
+      "source_bytes": 413,
+      "canonical_source_sha256": "sha256:e31248d9ce40b3e0b50112163dd162bf0794382115244770cdd7f0b7031f28b9",
+      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/certified_hardware/properties/image_list/gcp/",
+      "anchor": "canonical-3200132002012112-3132120301313211-1310233023000022-1330023232320131-2210100010100221-3101110110232220-0320201231322233-2131032213113120",
+      "anchor_map": [],
+      "mode": "embedded",
+      "registry_path": "docs/guides/data-sources--certified_hardware--reference--group-001.md"
+    },
+    {
+      "canonical_id": "xcsh-docs:data-sources:certified_hardware:properties:image_list:gcp:image_id",
+      "section_id": "xcsh-docs:data-sources:certified_hardware:properties:image_list:gcp:image_id:section:0",
+      "source_sha256": "sha256:197d41522a9dd286cb9805a03d8a5bd782cc3f3fd95ea854bf2dfc326e83e50c",
+      "source_bytes": 99,
+      "canonical_source_sha256": "sha256:7179c369c6aa6a2868b29264852dc22da21c3a3d252f17c809ef581fd2938de3",
+      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/certified_hardware/properties/image_list/gcp/image_id/",
+      "anchor": "canonical-3033202020003210-3010202300103121-1011313220320023-2220233201221103-0033003022303230-1302303023321332-2320313112210121-0322110203220310",
+      "anchor_map": [],
+      "mode": "embedded",
+      "registry_path": "docs/guides/data-sources--certified_hardware--reference--group-001.md"
+    },
+    {
+      "canonical_id": "xcsh-docs:data-sources:certified_hardware:properties:image_list:gcp:image_id",
+      "section_id": "xcsh-docs:data-sources:certified_hardware:properties:image_list:gcp:image_id:section:1",
+      "source_sha256": "sha256:0e3557760510a2df26e70e7a90d0055308a7b8cd5c032088184d42c2fb0178fe",
+      "source_bytes": 653,
+      "canonical_source_sha256": "sha256:7179c369c6aa6a2868b29264852dc22da21c3a3d252f17c809ef581fd2938de3",
+      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/certified_hardware/properties/image_list/gcp/image_id/",
+      "anchor": "canonical-1020022013130013-3103303313222320-3033102023213231-1001332312322021-1001031102203123-2112031131011300-1111120032113231-3032132333321212",
+      "anchor_map": [
+        [
+          "section",
+          "canonical-1322202223323331-1033102031322313-0012213130222130-0223223003231120-0100130313121213-1033211133200300-2133110320332203-2032231031101302"
+        ]
+      ],
+      "mode": "embedded",
+      "registry_path": "docs/guides/data-sources--certified_hardware--reference--group-001.md"
+    },
+    {
+      "canonical_id": "xcsh-docs:data-sources:certified_hardware:properties:image_list:gcp:image_id",
+      "section_id": "xcsh-docs:data-sources:certified_hardware:properties:image_list:gcp:image_id:section:2",
+      "source_sha256": "sha256:c8e07656d05de19464c6c895bc6aaecf9474f2998eebf4bcb703becf930c7a4f",
+      "source_bytes": 79,
+      "canonical_source_sha256": "sha256:7179c369c6aa6a2868b29264852dc22da21c3a3d252f17c809ef581fd2938de3",
+      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/certified_hardware/properties/image_list/gcp/image_id/",
+      "anchor": "canonical-3300100310020003-1001311003113302-3222331101121133-2120201021313331-1202131202323210-2322123330211003-2302203323200030-1020121112111031",
+      "anchor_map": [
+        [
+          "schema-image_list--gcp--image_id--image_id",
+          "canonical-3133113110301030-0131310113121102-1103211032033222-3300133200121302-0213001311131011-3120231311300003-0230323133312210-0022231200323011"
+        ]
+      ],
+      "mode": "embedded",
+      "registry_path": "docs/guides/data-sources--certified_hardware--reference--group-001.md"
+    },
+    {
+      "canonical_id": "xcsh-docs:data-sources:certified_hardware:properties:image_list:gcp:image_id",
+      "section_id": "xcsh-docs:data-sources:certified_hardware:properties:image_list:gcp:image_id:section:3",
+      "source_sha256": "sha256:8e4db79c4e4778c81ba18a19a6c553a20a63eb3370a8a31a67b14ad71ee3ef7e",
+      "source_bytes": 79,
+      "canonical_source_sha256": "sha256:7179c369c6aa6a2868b29264852dc22da21c3a3d252f17c809ef581fd2938de3",
+      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/certified_hardware/properties/image_list/gcp/image_id/",
+      "anchor": "canonical-3001300210021332-0121123021011200-0032132233023312-0132103220212120-2220201032102232-1233303221120031-3313020122311203-1120313321213213",
+      "anchor_map": [],
+      "mode": "embedded",
+      "registry_path": "docs/guides/data-sources--certified_hardware--reference--group-001.md"
+    },
+    {
+      "canonical_id": "xcsh-docs:data-sources:certified_hardware:properties:image_list:gcp:image_id",
+      "section_id": "xcsh-docs:data-sources:certified_hardware:properties:image_list:gcp:image_id:section:4",
+      "source_sha256": "sha256:f0e225fa26f7ba82249350773dd755f24b001f1dd47f4b8a2c0b4e5050a1a0bd",
+      "source_bytes": 268,
+      "canonical_source_sha256": "sha256:7179c369c6aa6a2868b29264852dc22da21c3a3d252f17c809ef581fd2938de3",
+      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/certified_hardware/properties/image_list/gcp/image_id/",
+      "anchor": "canonical-1112220013323202-3322130331002320-0323111022200012-0233302320203300-2110020102033222-1120021333101023-2001311311322323-2100321323023101",
+      "anchor_map": [],
+      "mode": "embedded",
+      "registry_path": "docs/guides/data-sources--certified_hardware--reference--group-001.md"
+    },
+    {
+      "canonical_id": "xcsh-docs:data-sources:certified_hardware:properties:internal_usb_device_rule",
+      "section_id": "xcsh-docs:data-sources:certified_hardware:properties:internal_usb_device_rule:section:0",
+      "source_sha256": "sha256:197d41522a9dd286cb9805a03d8a5bd782cc3f3fd95ea854bf2dfc326e83e50c",
+      "source_bytes": 99,
+      "canonical_source_sha256": "sha256:a091993a3916c0ebc6c4d61077606be53b69ef2d2428eca711c5647b3ace9f45",
+      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/certified_hardware/properties/internal_usb_device_rule/",
+      "anchor": "canonical-3001313320012012-1233202130023210-1212001121232030-1232021103332333-0212331312033303-1020321011122021-1210110331030331-3132113111230010",
+      "anchor_map": [],
+      "mode": "embedded",
+      "registry_path": "docs/guides/data-sources--certified_hardware--reference--group-001.md"
+    },
+    {
+      "canonical_id": "xcsh-docs:data-sources:certified_hardware:properties:internal_usb_device_rule",
+      "section_id": "xcsh-docs:data-sources:certified_hardware:properties:internal_usb_device_rule:section:1",
+      "source_sha256": "sha256:b26fbe96406f93ca295bfd8f761f94b1d8fecb1b5a72099ecda8346e0f785b61",
+      "source_bytes": 408,
+      "canonical_source_sha256": "sha256:a091993a3916c0ebc6c4d61077606be53b69ef2d2428eca711c5647b3ace9f45",
+      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/certified_hardware/properties/internal_usb_device_rule/",
+      "anchor": "canonical-0003121121321102-3311230232021032-2103321301130233-1010122000010200-3223110300130300-3312202133010300-3221233130303213-1030002223020001",
+      "anchor_map": [
+        [
+          "section",
+          "canonical-1033330112232120-0113022300301031-0132311000000213-2002330230233100-2131233313121311-3200233100311131-0311032113112210-3302103222232003"
+        ]
+      ],
+      "mode": "embedded",
+      "registry_path": "docs/guides/data-sources--certified_hardware--reference--group-001.md"
+    },
+    {
+      "canonical_id": "xcsh-docs:data-sources:certified_hardware:properties:internal_usb_device_rule",
+      "section_id": "xcsh-docs:data-sources:certified_hardware:properties:internal_usb_device_rule:section:2",
+      "source_sha256": "sha256:29ff60e7becc5d8d8f85ddbf874d7b1f3c015c9e2df98833c42f04dc1301f688",
+      "source_bytes": 84,
+      "canonical_source_sha256": "sha256:a091993a3916c0ebc6c4d61077606be53b69ef2d2428eca711c5647b3ace9f45",
+      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/certified_hardware/properties/internal_usb_device_rule/",
+      "anchor": "canonical-3320123100223321-0300133303301021-1331023000200213-1210223212101222-3303132002333032-0010111121110323-1332212330311311-2012302132032201",
+      "anchor_map": [
+        [
+          "schema-internal_usb_device_rule--b_device_class",
+          "canonical-3312101323300033-2330300102012120-2131010333202133-3202110030302302-3212131202020112-2033312212230110-0003212010022101-1033333122213023"
+        ]
+      ],
+      "mode": "embedded",
+      "registry_path": "docs/guides/data-sources--certified_hardware--reference--group-001.md"
+    },
+    {
+      "canonical_id": "xcsh-docs:data-sources:certified_hardware:properties:internal_usb_device_rule",
+      "section_id": "xcsh-docs:data-sources:certified_hardware:properties:internal_usb_device_rule:section:3",
+      "source_sha256": "sha256:eca4711f77bcde279dc2419dde279bc66ce500cb1d0dabd38d9a8c13bdc22380",
+      "source_bytes": 157,
+      "canonical_source_sha256": "sha256:a091993a3916c0ebc6c4d61077606be53b69ef2d2428eca711c5647b3ace9f45",
+      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/certified_hardware/properties/internal_usb_device_rule/",
+      "anchor": "canonical-1001010031332302-0031332303010133-3312212020112322-0220100021321322-3303110030101123-2322332010130323-1321322003332003-3111000101311031",
+      "anchor_map": [
+        [
+          "schema-internal_usb_device_rule--b_device_protocol",
+          "canonical-1323322030322233-3011110332310231-3212111203200112-2112311323110332-3023220233223331-1031223132031032-3120201002230233-2030313010303300"
+        ]
+      ],
+      "mode": "embedded",
+      "registry_path": "docs/guides/data-sources--certified_hardware--reference--group-001.md"
+    },
+    {
+      "canonical_id": "xcsh-docs:data-sources:certified_hardware:properties:internal_usb_device_rule",
+      "section_id": "xcsh-docs:data-sources:certified_hardware:properties:internal_usb_device_rule:section:4",
+      "source_sha256": "sha256:f32515313d00aec6725fb5d8a112a9b49fe83aae4a822c33dac5d24ee8e287cb",
+      "source_bytes": 180,
+      "canonical_source_sha256": "sha256:a091993a3916c0ebc6c4d61077606be53b69ef2d2428eca711c5647b3ace9f45",
+      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/certified_hardware/properties/internal_usb_device_rule/",
+      "anchor": "canonical-2211210202020031-0221022201330000-2033311002310031-1221112321302021-3223320011133022-1113303023022211-2221121023101013-3130133021210323",
+      "anchor_map": [
+        [
+          "schema-internal_usb_device_rule--b_device_sub_class",
+          "canonical-1323311000223121-3320120303030233-3021332111200113-1202011233303000-2011231320213121-3030011021000313-3311112121100310-1303331101222322"
+        ]
+      ],
+      "mode": "embedded",
+      "registry_path": "docs/guides/data-sources--certified_hardware--reference--group-001.md"
+    },
+    {
+      "canonical_id": "xcsh-docs:data-sources:certified_hardware:properties:internal_usb_device_rule",
+      "section_id": "xcsh-docs:data-sources:certified_hardware:properties:internal_usb_device_rule:section:5",
+      "source_sha256": "sha256:6fb6eb612aea5495633e9a4fe8d081ef1f8d498b86a9dc62897d49b569f228da",
+      "source_bytes": 168,
+      "canonical_source_sha256": "sha256:a091993a3916c0ebc6c4d61077606be53b69ef2d2428eca711c5647b3ace9f45",
+      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/certified_hardware/properties/internal_usb_device_rule/",
+      "anchor": "canonical-3103132333123333-0200020222202002-0313020113313120-3020033323220203-1102332233001301-1332201232210031-1023233232222321-0020000203200230",
+      "anchor_map": [
+        [
+          "schema-internal_usb_device_rule--i_serial",
+          "canonical-1031002322303102-3023200231013230-2111000201213122-0330002023033013-1023033223002012-1121330211301012-2230301322010121-1200031002211300"
+        ]
+      ],
+      "mode": "embedded",
+      "registry_path": "docs/guides/data-sources--certified_hardware--reference--group-001.md"
+    },
+    {
+      "canonical_id": "xcsh-docs:data-sources:certified_hardware:properties:internal_usb_device_rule",
+      "section_id": "xcsh-docs:data-sources:certified_hardware:properties:internal_usb_device_rule:section:6",
+      "source_sha256": "sha256:6ec7557e4804be4a1a64b730f473957c0cc58a396f1fe3d4987afd925878ea99",
+      "source_bytes": 153,
+      "canonical_source_sha256": "sha256:a091993a3916c0ebc6c4d61077606be53b69ef2d2428eca711c5647b3ace9f45",
+      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/certified_hardware/properties/internal_usb_device_rule/",
+      "anchor": "canonical-2222110211032221-2112330303033222-2303232213030330-0013323122312322-0123033100321001-1021002111322022-0333223130212310-2010313111013100",
+      "anchor_map": [
+        [
+          "schema-internal_usb_device_rule--id_product",
+          "canonical-3100000330010100-1100030332102301-2222200110233123-0032130321112011-1320003320321021-1313220130100001-3330000023021001-2012202201101010"
+        ]
+      ],
+      "mode": "embedded",
+      "registry_path": "docs/guides/data-sources--certified_hardware--reference--group-001.md"
+    },
+    {
+      "canonical_id": "xcsh-docs:data-sources:certified_hardware:properties:internal_usb_device_rule",
+      "section_id": "xcsh-docs:data-sources:certified_hardware:properties:internal_usb_device_rule:section:7",
+      "source_sha256": "sha256:13d5df713bfa40f113775a9dd863a9bb050cf214298e3c8b9329eb8d3439c218",
+      "source_bytes": 158,
+      "canonical_source_sha256": "sha256:a091993a3916c0ebc6c4d61077606be53b69ef2d2428eca711c5647b3ace9f45",
+      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/certified_hardware/properties/internal_usb_device_rule/",
+      "anchor": "canonical-1021213320101210-0112231302201032-2030232120232323-0213321030102313-3113013322020223-2022133233002330-1012311030213331-3221230122131013",
+      "anchor_map": [
+        [
+          "schema-internal_usb_device_rule--id_vendor",
+          "canonical-0112202233231330-1220201021023010-0101232013200020-1333321303101002-0030012230023130-0301023020232133-0212123012001301-0101231320110102"
+        ]
+      ],
+      "mode": "embedded",
+      "registry_path": "docs/guides/data-sources--certified_hardware--reference--group-001.md"
+    },
+    {
+      "canonical_id": "xcsh-docs:data-sources:certified_hardware:properties:internal_usb_device_rule",
+      "section_id": "xcsh-docs:data-sources:certified_hardware:properties:internal_usb_device_rule:section:8",
+      "source_sha256": "sha256:cc27fe79d20f9ba51511c3bfc183f5a0efd94a770c443d270c0237e3c2e044c1",
+      "source_bytes": 105,
+      "canonical_source_sha256": "sha256:a091993a3916c0ebc6c4d61077606be53b69ef2d2428eca711c5647b3ace9f45",
+      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/certified_hardware/properties/internal_usb_device_rule/",
+      "anchor": "canonical-3320321230133031-2321203011303221-2110131132203212-3023330122300200-0100221020322131-1233200313320110-1201203102010223-0103032223332031",
+      "anchor_map": [],
+      "mode": "embedded",
+      "registry_path": "docs/guides/data-sources--certified_hardware--reference--group-001.md"
+    },
+    {
+      "canonical_id": "xcsh-docs:data-sources:certified_hardware:properties:internal_usb_device_rule",
+      "section_id": "xcsh-docs:data-sources:certified_hardware:properties:internal_usb_device_rule:section:9",
+      "source_sha256": "sha256:b0ccd74b4ead264a38e2c47ca4aa55c98453166a7b9a42a64b4f83b487fab5f8",
+      "source_bytes": 257,
+      "canonical_source_sha256": "sha256:a091993a3916c0ebc6c4d61077606be53b69ef2d2428eca711c5647b3ace9f45",
+      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/certified_hardware/properties/internal_usb_device_rule/",
+      "anchor": "canonical-2320302301100011-2202032001301233-0232133232132103-2322201223023002-0121312332111321-1101331010032132-3123323303130101-2231013110211313",
+      "anchor_map": [],
+      "mode": "embedded",
+      "registry_path": "docs/guides/data-sources--certified_hardware--reference--group-001.md"
+    },
+    {
+      "canonical_id": "xcsh-docs:data-sources:certified_hardware:properties:numa_mem",
+      "section_id": "xcsh-docs:data-sources:certified_hardware:properties:numa_mem:section:0",
+      "source_sha256": "sha256:197d41522a9dd286cb9805a03d8a5bd782cc3f3fd95ea854bf2dfc326e83e50c",
+      "source_bytes": 99,
+      "canonical_source_sha256": "sha256:aff39fdfc64356fef5b03999c8bc9bce2018a95d193e618d78951e03fe463aad",
+      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/certified_hardware/properties/numa_mem/",
+      "anchor": "canonical-2330233232230001-2320121010311121-0321011030100311-3021331102302000-0130032123111310-0033312132220332-3000213332113201-0111301333202103",
+      "anchor_map": [],
+      "mode": "embedded",
+      "registry_path": "docs/guides/data-sources--certified_hardware--reference--group-001.md"
+    },
+    {
+      "canonical_id": "xcsh-docs:data-sources:certified_hardware:properties:numa_mem",
+      "section_id": "xcsh-docs:data-sources:certified_hardware:properties:numa_mem:section:1",
+      "source_sha256": "sha256:af41db67a08bfbc0874a67d11da43ca28a9b785dd5ac6123712c3be388c9927f",
+      "source_bytes": 485,
+      "canonical_source_sha256": "sha256:aff39fdfc64356fef5b03999c8bc9bce2018a95d193e618d78951e03fe463aad",
+      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/certified_hardware/properties/numa_mem/",
+      "anchor": "canonical-3031003021023322-0133002323233222-3000112232332013-3312110303103122-3132213130103200-3222032332211003-3201320030020030-2032023323013211",
+      "anchor_map": [
+        [
+          "section",
+          "canonical-0310301221101013-3012120202301033-3013101212230231-0300213112122003-2101330020221321-0230132100232212-3131303033102320-0221223113230203"
+        ]
+      ],
+      "mode": "embedded",
+      "registry_path": "docs/guides/data-sources--certified_hardware--reference--group-001.md"
+    },
+    {
+      "canonical_id": "xcsh-docs:data-sources:certified_hardware:properties:numa_mem",
+      "section_id": "xcsh-docs:data-sources:certified_hardware:properties:numa_mem:section:2",
+      "source_sha256": "sha256:b56e3bc4b617b630933fab7d27f15414599a1b43a5e244f800ba16caeaa85aff",
+      "source_bytes": 60,
+      "canonical_source_sha256": "sha256:aff39fdfc64356fef5b03999c8bc9bce2018a95d193e618d78951e03fe463aad",
+      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/certified_hardware/properties/numa_mem/",
+      "anchor": "canonical-3030322120030221-1101213302021202-0023321321123320-3313320310111131-1023133032221123-2101100112001101-3023133211030133-3111221001131230",
+      "anchor_map": [
+        [
+          "schema-numa_mem--memory",
+          "canonical-3100232310333023-1012222033223100-2203123102220313-1231320123202021-1310123213331130-2001202132113312-1220002303110123-0231210131231030"
+        ]
+      ],
+      "mode": "embedded",
+      "registry_path": "docs/guides/data-sources--certified_hardware--reference--group-001.md"
+    },
+    {
+      "canonical_id": "xcsh-docs:data-sources:certified_hardware:properties:numa_mem",
+      "section_id": "xcsh-docs:data-sources:certified_hardware:properties:numa_mem:section:3",
+      "source_sha256": "sha256:e145f7e40bb4f75e246c9c589d8a898ed7cb176a0e92ffa007895884273b0dc3",
+      "source_bytes": 155,
+      "canonical_source_sha256": "sha256:aff39fdfc64356fef5b03999c8bc9bce2018a95d193e618d78951e03fe463aad",
+      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/certified_hardware/properties/numa_mem/",
+      "anchor": "canonical-3103232012113011-2103022032121302-0012220221232323-1131221233001033-1121223022120001-3233112322113102-3011322010102003-2333231320122333",
+      "anchor_map": [
+        [
+          "schema-numa_mem--node",
+          "canonical-1122212121011021-1102133202113021-1122230220013332-1223132320133111-3000031313320313-3011212022021001-2012012310130200-1323301130330032"
+        ]
+      ],
+      "mode": "embedded",
+      "registry_path": "docs/guides/data-sources--certified_hardware--reference--group-001.md"
+    },
+    {
+      "canonical_id": "xcsh-docs:data-sources:certified_hardware:properties:numa_mem",
+      "section_id": "xcsh-docs:data-sources:certified_hardware:properties:numa_mem:section:4",
+      "source_sha256": "sha256:9a0468a61205b606355a7fcdf7ea063729105917fc7e17714e46da9b9b251f0c",
+      "source_bytes": 94,
+      "canonical_source_sha256": "sha256:aff39fdfc64356fef5b03999c8bc9bce2018a95d193e618d78951e03fe463aad",
+      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/certified_hardware/properties/numa_mem/",
+      "anchor": "canonical-0010001132311022-0310120322000232-1312212223333122-0013022110122220-2211221103130213-2101221310033101-1232331312203313-1100001133301233",
+      "anchor_map": [],
+      "mode": "embedded",
+      "registry_path": "docs/guides/data-sources--certified_hardware--reference--group-001.md"
+    },
+    {
+      "canonical_id": "xcsh-docs:data-sources:certified_hardware:properties:numa_mem",
+      "section_id": "xcsh-docs:data-sources:certified_hardware:properties:numa_mem:section:5",
+      "source_sha256": "sha256:b0ccd74b4ead264a38e2c47ca4aa55c98453166a7b9a42a64b4f83b487fab5f8",
+      "source_bytes": 257,
+      "canonical_source_sha256": "sha256:aff39fdfc64356fef5b03999c8bc9bce2018a95d193e618d78951e03fe463aad",
+      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/certified_hardware/properties/numa_mem/",
+      "anchor": "canonical-3301112121322120-1202203022302001-0202300002111012-2102103232332212-2023121111200001-1013310322121112-1231322032230011-1001112221200221",
+      "anchor_map": [],
+      "mode": "embedded",
+      "registry_path": "docs/guides/data-sources--certified_hardware--reference--group-001.md"
+    },
+    {
+      "canonical_id": "xcsh-docs:data-sources:certified_hardware:properties:vendor_model_list",
+      "section_id": "xcsh-docs:data-sources:certified_hardware:properties:vendor_model_list:section:0",
+      "source_sha256": "sha256:197d41522a9dd286cb9805a03d8a5bd782cc3f3fd95ea854bf2dfc326e83e50c",
+      "source_bytes": 99,
+      "canonical_source_sha256": "sha256:1a48e1d8203ccd2e553e263f4519f055f171356228a14fca9fc074314068deeb",
+      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/certified_hardware/properties/vendor_model_list/",
+      "anchor": "canonical-1210110121010203-3220102133233012-0133010210100132-0022020322110100-1301123111120033-0220003210120331-3020311203330112-0103022201331031",
+      "anchor_map": [],
+      "mode": "embedded",
+      "registry_path": "docs/guides/data-sources--certified_hardware--reference--group-001.md"
+    },
+    {
+      "canonical_id": "xcsh-docs:data-sources:certified_hardware:properties:vendor_model_list",
+      "section_id": "xcsh-docs:data-sources:certified_hardware:properties:vendor_model_list:section:1",
+      "source_sha256": "sha256:9dfd649d318ae0bba13890ff9c339e8b699facbea4401c7be36a7a8193fa314d",
+      "source_bytes": 421,
+      "canonical_source_sha256": "sha256:1a48e1d8203ccd2e553e263f4519f055f171356228a14fca9fc074314068deeb",
+      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/certified_hardware/properties/vendor_model_list/",
+      "anchor": "canonical-1011220322111001-2212200101332131-0333001133112311-3213201013212202-2013210223300230-3010000032132330-1010121202211021-2113002222231010",
+      "anchor_map": [
+        [
+          "section",
+          "canonical-0103313000130303-0032121020323022-1302012031112031-1002223010020233-1033012223130212-0221010033233310-0123013223033111-1103211013220230"
+        ]
+      ],
+      "mode": "embedded",
+      "registry_path": "docs/guides/data-sources--certified_hardware--reference--group-001.md"
+    },
+    {
+      "canonical_id": "xcsh-docs:data-sources:certified_hardware:properties:vendor_model_list",
+      "section_id": "xcsh-docs:data-sources:certified_hardware:properties:vendor_model_list:section:2",
+      "source_sha256": "sha256:27fbb2b10cba34c99ee8b63cc9d2a3e38678ad05a78796392de75658586cd00d",
+      "source_bytes": 68,
+      "canonical_source_sha256": "sha256:1a48e1d8203ccd2e553e263f4519f055f171356228a14fca9fc074314068deeb",
+      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/certified_hardware/properties/vendor_model_list/",
+      "anchor": "canonical-3123113302022232-2221203021113032-0223302000112123-0300211312220311-3201331311222123-1103020021110222-0010202303122023-2311031130100231",
+      "anchor_map": [
+        [
+          "schema-vendor_model_list--model",
+          "canonical-2330023303001303-0221001013331011-2221330311333122-3201022321102021-2022030031231130-0031300002310321-3000121222300310-3112002023101021"
+        ]
+      ],
+      "mode": "embedded",
+      "registry_path": "docs/guides/data-sources--certified_hardware--reference--group-001.md"
+    },
+    {
       "canonical_id": "xcsh-docs:data-sources:certified_hardware:properties:vendor_model_list",
       "section_id": "xcsh-docs:data-sources:certified_hardware:properties:vendor_model_list:section:3",
       "source_sha256": "sha256:c2f8cb9294c232f916d2334137c31aadc58402a4bd1bdf6cefe81856aefe8b12",
@@ -7301,375 +7712,6 @@
       ],
       "mode": "embedded",
       "registry_path": "docs/guides/data-sources--cloud_user_account--reference--group-001.md"
-    },
-    {
-      "canonical_id": "xcsh-docs:data-sources:cloud_user_account:properties:aws_provider:aws_secret_key",
-      "section_id": "xcsh-docs:data-sources:cloud_user_account:properties:aws_provider:aws_secret_key:section:2",
-      "source_sha256": "sha256:39f6592e779d2e7f4345321088c06ac9b3bb2b6aa5e9ee14cfbb0839721d1d1b",
-      "source_bytes": 84,
-      "canonical_source_sha256": "sha256:b126a794896eefda388d131a8ce7b013bac7e8adae6d14bc5980d3bc0f40b0b6",
-      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/cloud_user_account/properties/aws_provider/aws_secret_key/",
-      "anchor": "canonical-2122331112113012-2020001133221031-2022323102303032-2032133223302102-1000102312003030-2202032302120313-3022322331200012-2132133201330222",
-      "anchor_map": [
-        [
-          "schema-aws_provider--aws_secret_key--access_key",
-          "canonical-3210322022021110-3113221023210122-2110031211010223-2230011201330131-0021232202122330-3320300213233232-3030122213303331-2322313230213002"
-        ]
-      ],
-      "mode": "embedded",
-      "registry_path": "docs/guides/data-sources--cloud_user_account--reference--group-001.md"
-    },
-    {
-      "canonical_id": "xcsh-docs:data-sources:cloud_user_account:properties:aws_provider:aws_secret_key",
-      "section_id": "xcsh-docs:data-sources:cloud_user_account:properties:aws_provider:aws_secret_key:section:3",
-      "source_sha256": "sha256:aadb117349a09372d81fec1b469dad312f70da6de70bf4f2425677ded7409b63",
-      "source_bytes": 1082,
-      "canonical_source_sha256": "sha256:b126a794896eefda388d131a8ce7b013bac7e8adae6d14bc5980d3bc0f40b0b6",
-      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/cloud_user_account/properties/aws_provider/aws_secret_key/",
-      "anchor": "canonical-2112110030022020-3201111103302312-2020102001212102-0033022003123300-1221320122300223-2321230130021002-1312211220033221-2130233211003102",
-      "anchor_map": [],
-      "mode": "embedded",
-      "registry_path": "docs/guides/data-sources--cloud_user_account--reference--group-001.md"
-    },
-    {
-      "canonical_id": "xcsh-docs:data-sources:cloud_user_account:properties:aws_provider:aws_secret_key",
-      "section_id": "xcsh-docs:data-sources:cloud_user_account:properties:aws_provider:aws_secret_key:section:4",
-      "source_sha256": "sha256:57d4e7148e430a0dd99cb1e14fc4823e6148be7091d3995455d9c1e8a3e032ed",
-      "source_bytes": 447,
-      "canonical_source_sha256": "sha256:b126a794896eefda388d131a8ce7b013bac7e8adae6d14bc5980d3bc0f40b0b6",
-      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/cloud_user_account/properties/aws_provider/aws_secret_key/",
-      "anchor": "canonical-0031121031323001-3330133201031212-3322002030120233-1102020213303220-1110113221211020-1021202032323031-2102000132120231-1130230332221312",
-      "anchor_map": [],
-      "mode": "embedded",
-      "registry_path": "docs/guides/data-sources--cloud_user_account--reference--group-001.md"
-    },
-    {
-      "canonical_id": "xcsh-docs:data-sources:cloud_user_account:properties:aws_provider:aws_secret_key:secret_key",
-      "section_id": "xcsh-docs:data-sources:cloud_user_account:properties:aws_provider:aws_secret_key:secret_key:section:0",
-      "source_sha256": "sha256:197d41522a9dd286cb9805a03d8a5bd782cc3f3fd95ea854bf2dfc326e83e50c",
-      "source_bytes": 99,
-      "canonical_source_sha256": "sha256:6d79d9e3ad36797abdd75b46934d0d6c24e6ce2aaa6e0f6886ea9eb7d7514c30",
-      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/cloud_user_account/properties/aws_provider/aws_secret_key/secret_key/",
-      "anchor": "canonical-2201123032031030-3313132200301120-3003330322021010-0313203203031020-1133033322002321-3133033310333203-1103133012332130-0212002320112023",
-      "anchor_map": [],
-      "mode": "embedded",
-      "registry_path": "docs/guides/data-sources--cloud_user_account--reference--group-001.md"
-    },
-    {
-      "canonical_id": "xcsh-docs:data-sources:cloud_user_account:properties:aws_provider:aws_secret_key:secret_key",
-      "section_id": "xcsh-docs:data-sources:cloud_user_account:properties:aws_provider:aws_secret_key:secret_key:section:1",
-      "source_sha256": "sha256:89a18114ad2564ccb44f4720098db9ad3dd099bea5a2d4947c038d33fb78e236",
-      "source_bytes": 1029,
-      "canonical_source_sha256": "sha256:6d79d9e3ad36797abdd75b46934d0d6c24e6ce2aaa6e0f6886ea9eb7d7514c30",
-      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/cloud_user_account/properties/aws_provider/aws_secret_key/secret_key/",
-      "anchor": "canonical-1002122210213031-2330011033321333-0110221112312332-2122013121313313-2130300023313010-3103322112003031-0130032232302332-1030211010302133",
-      "anchor_map": [
-        [
-          "section",
-          "canonical-1231122010313213-1020221021233332-0110230010111031-1223002330303123-2002322033121333-3300301011013032-3322213010031032-0103211212123301"
-        ]
-      ],
-      "mode": "embedded",
-      "registry_path": "docs/guides/data-sources--cloud_user_account--reference--group-001.md"
-    },
-    {
-      "canonical_id": "xcsh-docs:data-sources:cloud_user_account:properties:aws_provider:aws_secret_key:secret_key",
-      "section_id": "xcsh-docs:data-sources:cloud_user_account:properties:aws_provider:aws_secret_key:secret_key:section:2",
-      "source_sha256": "sha256:28efe6f652d595bbf76e546b556e6ee719b554b3f1fb9a2363c620dfdc186e0b",
-      "source_bytes": 456,
-      "canonical_source_sha256": "sha256:6d79d9e3ad36797abdd75b46934d0d6c24e6ce2aaa6e0f6886ea9eb7d7514c30",
-      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/cloud_user_account/properties/aws_provider/aws_secret_key/secret_key/",
-      "anchor": "canonical-2032113300103111-1330202112302202-0022103100132132-3123331201030033-3202013233011221-2303103303020123-1210223001011031-2131113011131203",
-      "anchor_map": [],
-      "mode": "embedded",
-      "registry_path": "docs/guides/data-sources--cloud_user_account--reference--group-001.md"
-    },
-    {
-      "canonical_id": "xcsh-docs:data-sources:cloud_user_account:properties:aws_provider:aws_secret_key:secret_key",
-      "section_id": "xcsh-docs:data-sources:cloud_user_account:properties:aws_provider:aws_secret_key:secret_key:section:3",
-      "source_sha256": "sha256:2b30a52ac91e5da6027a05da44a65e25de0ba16ca583e74ce9fe8fd2f53aeef7",
-      "source_bytes": 740,
-      "canonical_source_sha256": "sha256:6d79d9e3ad36797abdd75b46934d0d6c24e6ce2aaa6e0f6886ea9eb7d7514c30",
-      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/cloud_user_account/properties/aws_provider/aws_secret_key/secret_key/",
-      "anchor": "canonical-3233032223201212-2030130202102000-3310101200110210-3000002132120133-0001030033003332-2230322300232230-1100121110000110-1001020321230311",
-      "anchor_map": [],
-      "mode": "embedded",
-      "registry_path": "docs/guides/data-sources--cloud_user_account--reference--group-001.md"
-    },
-    {
-      "canonical_id": "xcsh-docs:data-sources:cloud_user_account:properties:aws_provider:aws_secret_key:secret_key:blindfold_secret_info",
-      "section_id": "xcsh-docs:data-sources:cloud_user_account:properties:aws_provider:aws_secret_key:secret_key:blindfold_secret_info:section:0",
-      "source_sha256": "sha256:197d41522a9dd286cb9805a03d8a5bd782cc3f3fd95ea854bf2dfc326e83e50c",
-      "source_bytes": 99,
-      "canonical_source_sha256": "sha256:2c55aaa44112960c6308840b7cadadef0a5c42fd978dcf9869af330298f82fb3",
-      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/cloud_user_account/properties/aws_provider/aws_secret_key/secret_key/blindfold_secret_info/",
-      "anchor": "canonical-1211102001222132-0200202012121113-2212011211322031-1113023322232200-0033233131323210-0010220302322310-3201212301012323-0121322012101112",
-      "anchor_map": [],
-      "mode": "embedded",
-      "registry_path": "docs/guides/data-sources--cloud_user_account--reference--group-001.md"
-    },
-    {
-      "canonical_id": "xcsh-docs:data-sources:cloud_user_account:properties:aws_provider:aws_secret_key:secret_key:blindfold_secret_info",
-      "section_id": "xcsh-docs:data-sources:cloud_user_account:properties:aws_provider:aws_secret_key:secret_key:blindfold_secret_info:section:1",
-      "source_sha256": "sha256:ea58e10a3aea81196ee593bd4810e5d47272aaa5233f4320d1bdd766721f9daa",
-      "source_bytes": 1184,
-      "canonical_source_sha256": "sha256:2c55aaa44112960c6308840b7cadadef0a5c42fd978dcf9869af330298f82fb3",
-      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/cloud_user_account/properties/aws_provider/aws_secret_key/secret_key/blindfold_secret_info/",
-      "anchor": "canonical-3211110331000013-3333013300312020-3013322122201231-0333030200012223-3301310210222332-2012103303303321-2010220223102332-1121102011222302",
-      "anchor_map": [
-        [
-          "section",
-          "canonical-3130003222000321-2101302212003320-0000312133302231-2222123333110010-2033131332011302-3323210320203023-2032323201200212-1113301303211220"
-        ]
-      ],
-      "mode": "embedded",
-      "registry_path": "docs/guides/data-sources--cloud_user_account--reference--group-001.md"
-    },
-    {
-      "canonical_id": "xcsh-docs:data-sources:cloud_user_account:properties:aws_provider:aws_secret_key:secret_key:blindfold_secret_info",
-      "section_id": "xcsh-docs:data-sources:cloud_user_account:properties:aws_provider:aws_secret_key:secret_key:blindfold_secret_info:section:2",
-      "source_sha256": "sha256:cc8f6f9c1824a9d47686fb36a7518368e7edc3b88c7b086343d794cfea531d79",
-      "source_bytes": 128,
-      "canonical_source_sha256": "sha256:2c55aaa44112960c6308840b7cadadef0a5c42fd978dcf9869af330298f82fb3",
-      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/cloud_user_account/properties/aws_provider/aws_secret_key/secret_key/blindfold_secret_info/",
-      "anchor": "canonical-1021333233112020-0133012331030031-1122133212111320-2222110323031300-1320331213203200-0100323203210111-1222333221310132-3033313302010132",
-      "anchor_map": [
-        [
-          "schema-aws_provider--aws_secret_key--secret_key--blindfold_secret_info--decryption_provider",
-          "canonical-2030322320222211-3002201110330131-2003320000012333-2130001121320333-0023221320330001-0102102200311220-1312120001010330-1133012210323301"
-        ]
-      ],
-      "mode": "embedded",
-      "registry_path": "docs/guides/data-sources--cloud_user_account--reference--group-001.md"
-    },
-    {
-      "canonical_id": "xcsh-docs:data-sources:cloud_user_account:properties:aws_provider:aws_secret_key:secret_key:blindfold_secret_info",
-      "section_id": "xcsh-docs:data-sources:cloud_user_account:properties:aws_provider:aws_secret_key:secret_key:blindfold_secret_info:section:3",
-      "source_sha256": "sha256:c41e4b364d8a335203b35ba72739bfe8c63cbbb8abfdbf889ea31419c0153ef6",
-      "source_bytes": 689,
-      "canonical_source_sha256": "sha256:2c55aaa44112960c6308840b7cadadef0a5c42fd978dcf9869af330298f82fb3",
-      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/cloud_user_account/properties/aws_provider/aws_secret_key/secret_key/blindfold_secret_info/",
-      "anchor": "canonical-3112213320310111-2110331102222131-3012302000330203-2112323030213320-2330000321133300-2011331201202232-0123222021301100-2022113102323230",
-      "anchor_map": [
-        [
-          "schema-aws_provider--aws_secret_key--secret_key--blindfold_secret_info--location",
-          "canonical-1301311320013002-2111303001332310-0333020033110311-1333320123230323-3001132311333021-2123133232213132-2101323223210303-2330313303200220"
-        ]
-      ],
-      "mode": "embedded",
-      "registry_path": "docs/guides/data-sources--cloud_user_account--reference--group-001.md"
-    },
-    {
-      "canonical_id": "xcsh-docs:data-sources:cloud_user_account:properties:aws_provider:aws_secret_key:secret_key:blindfold_secret_info",
-      "section_id": "xcsh-docs:data-sources:cloud_user_account:properties:aws_provider:aws_secret_key:secret_key:blindfold_secret_info:section:4",
-      "source_sha256": "sha256:a5af6c71e6bd9f5974bebe88ddbd39eabe17677b60c1ecd6ed547b351fc226d3",
-      "source_bytes": 1501,
-      "canonical_source_sha256": "sha256:2c55aaa44112960c6308840b7cadadef0a5c42fd978dcf9869af330298f82fb3",
-      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/cloud_user_account/properties/aws_provider/aws_secret_key/secret_key/blindfold_secret_info/",
-      "anchor": "canonical-2121111101320010-0311312110211122-2033302120311311-1200301033101311-2102031300300022-0301101211310223-3321022312132330-1111212213200002",
-      "anchor_map": [
-        [
-          "schema-aws_provider--aws_secret_key--secret_key--blindfold_secret_info--store_provider",
-          "canonical-1100332313100122-2123322102222202-0010021013212030-2032201122000111-3331120000201131-3221312032112121-1021220002123133-0023000032110221"
-        ]
-      ],
-      "mode": "embedded",
-      "registry_path": "docs/guides/data-sources--cloud_user_account--reference--group-001.md"
-    },
-    {
-      "canonical_id": "xcsh-docs:data-sources:cloud_user_account:properties:aws_provider:aws_secret_key:secret_key:blindfold_secret_info",
-      "section_id": "xcsh-docs:data-sources:cloud_user_account:properties:aws_provider:aws_secret_key:secret_key:blindfold_secret_info:section:5",
-      "source_sha256": "sha256:0831ef4cb04eefb8921cebf23ca01bfb82b2b337f17b7b99e0910bdf1f5f2d25",
-      "source_bytes": 864,
-      "canonical_source_sha256": "sha256:2c55aaa44112960c6308840b7cadadef0a5c42fd978dcf9869af330298f82fb3",
-      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/cloud_user_account/properties/aws_provider/aws_secret_key/secret_key/blindfold_secret_info/",
-      "anchor": "canonical-0232131322213131-0322220321132300-3122000131102030-3013020020031300-3333123001221232-1101213010311113-0110113302121102-3120003001123011",
-      "anchor_map": [],
-      "mode": "embedded",
-      "registry_path": "docs/guides/data-sources--cloud_user_account--reference--group-001.md"
-    },
-    {
-      "canonical_id": "xcsh-docs:data-sources:cloud_user_account:properties:aws_provider:aws_secret_key:secret_key:blindfold_secret_info",
-      "section_id": "xcsh-docs:data-sources:cloud_user_account:properties:aws_provider:aws_secret_key:secret_key:blindfold_secret_info:section:6",
-      "source_sha256": "sha256:f34a7903023a33bf8607ef6aa04d3ef5094de0e33ed9735d34795eb902f83820",
-      "source_bytes": 316,
-      "canonical_source_sha256": "sha256:2c55aaa44112960c6308840b7cadadef0a5c42fd978dcf9869af330298f82fb3",
-      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/cloud_user_account/properties/aws_provider/aws_secret_key/secret_key/blindfold_secret_info/",
-      "anchor": "canonical-2330201333322313-2222100111333312-1310121130223310-2002302010323023-2310121330031310-0021121031221213-2102232201210103-2010311003210101",
-      "anchor_map": [],
-      "mode": "embedded",
-      "registry_path": "docs/guides/data-sources--cloud_user_account--reference--group-001.md"
-    },
-    {
-      "canonical_id": "xcsh-docs:data-sources:cloud_user_account:properties:aws_provider:aws_secret_key:secret_key:clear_secret_info",
-      "section_id": "xcsh-docs:data-sources:cloud_user_account:properties:aws_provider:aws_secret_key:secret_key:clear_secret_info:section:0",
-      "source_sha256": "sha256:197d41522a9dd286cb9805a03d8a5bd782cc3f3fd95ea854bf2dfc326e83e50c",
-      "source_bytes": 99,
-      "canonical_source_sha256": "sha256:cbd91749b32cbfdd9f303e534dcffc1f3f84a21ca91b05d54ab34bb9b3f82ede",
-      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/cloud_user_account/properties/aws_provider/aws_secret_key/secret_key/clear_secret_info/",
-      "anchor": "canonical-3013012200302331-1310101220122301-0303010001103030-3010323111332130-0330032313231320-3022121201001033-0111013303312311-1010231211221332",
-      "anchor_map": [],
-      "mode": "embedded",
-      "registry_path": "docs/guides/data-sources--cloud_user_account--reference--group-001.md"
-    },
-    {
-      "canonical_id": "xcsh-docs:data-sources:cloud_user_account:properties:aws_provider:aws_secret_key:secret_key:clear_secret_info",
-      "section_id": "xcsh-docs:data-sources:cloud_user_account:properties:aws_provider:aws_secret_key:secret_key:clear_secret_info:section:1",
-      "source_sha256": "sha256:cf498601dc7fb91d93c706e0b44810ec3a45f9a9de1ff0496a4f82dd4113a580",
-      "source_bytes": 1160,
-      "canonical_source_sha256": "sha256:cbd91749b32cbfdd9f303e534dcffc1f3f84a21ca91b05d54ab34bb9b3f82ede",
-      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/cloud_user_account/properties/aws_provider/aws_secret_key/secret_key/clear_secret_info/",
-      "anchor": "canonical-2132112001022020-0320030333131222-3300213132320232-3033011103013021-3003201131221133-2102210012131111-2100333123200121-3222323021013301",
-      "anchor_map": [
-        [
-          "section",
-          "canonical-2330221202021112-3120131013123032-3120132020202100-2011321003000013-1012331123212013-2321202012201210-1100121000302200-2103302233230102"
-        ]
-      ],
-      "mode": "embedded",
-      "registry_path": "docs/guides/data-sources--cloud_user_account--reference--group-001.md"
-    },
-    {
-      "canonical_id": "xcsh-docs:data-sources:cloud_user_account:properties:aws_provider:aws_secret_key:secret_key:clear_secret_info",
-      "section_id": "xcsh-docs:data-sources:cloud_user_account:properties:aws_provider:aws_secret_key:secret_key:clear_secret_info:section:2",
-      "source_sha256": "sha256:cf47c65d74e116f7890a0a39e881cff178f84f36df101d153e9916f368dc6920",
-      "source_bytes": 117,
-      "canonical_source_sha256": "sha256:cbd91749b32cbfdd9f303e534dcffc1f3f84a21ca91b05d54ab34bb9b3f82ede",
-      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/cloud_user_account/properties/aws_provider/aws_secret_key/secret_key/clear_secret_info/",
-      "anchor": "canonical-1011100223120221-1232112023013023-3031213223001002-1311122320021131-1210223033333322-1200133313331301-3303230020201031-0012231233110011",
-      "anchor_map": [
-        [
-          "schema-aws_provider--aws_secret_key--secret_key--clear_secret_info--provider_ref",
-          "canonical-3211111021001220-1033130202223320-0100000022133223-2001303233310203-1101132211120221-0020213121010103-0112021301230030-1201120103330330"
-        ]
-      ],
-      "mode": "embedded",
-      "registry_path": "docs/guides/data-sources--cloud_user_account--reference--group-001.md"
-    },
-    {
-      "canonical_id": "xcsh-docs:data-sources:cloud_user_account:properties:aws_provider:aws_secret_key:secret_key:clear_secret_info",
-      "section_id": "xcsh-docs:data-sources:cloud_user_account:properties:aws_provider:aws_secret_key:secret_key:clear_secret_info:section:3",
-      "source_sha256": "sha256:8f1985dcf9a200846c9c44396f72242c0928d1a5020867aa1b8e9be271cde35e",
-      "source_bytes": 326,
-      "canonical_source_sha256": "sha256:cbd91749b32cbfdd9f303e534dcffc1f3f84a21ca91b05d54ab34bb9b3f82ede",
-      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/cloud_user_account/properties/aws_provider/aws_secret_key/secret_key/clear_secret_info/",
-      "anchor": "canonical-1303200302112122-2312311330322213-3000002331223223-2310302201033011-0000010111203221-0121123310100020-0202310000320213-3111023003201030",
-      "anchor_map": [
-        [
-          "schema-aws_provider--aws_secret_key--secret_key--clear_secret_info--url",
-          "canonical-2030101221330320-1031322133302121-0201233011003331-2032023001013232-3301120230210220-1202021122210130-2122031330233310-0201022203023121"
-        ]
-      ],
-      "mode": "embedded",
-      "registry_path": "docs/guides/data-sources--cloud_user_account--reference--group-001.md"
-    },
-    {
-      "canonical_id": "xcsh-docs:data-sources:cloud_user_account:properties:aws_provider:aws_secret_key:secret_key:clear_secret_info",
-      "section_id": "xcsh-docs:data-sources:cloud_user_account:properties:aws_provider:aws_secret_key:secret_key:clear_secret_info:section:4",
-      "source_sha256": "sha256:0712655acd3c24569c397e0e8e5c9052a3b39a9869e5e242174f6fca32b82fea",
-      "source_bytes": 1643,
-      "canonical_source_sha256": "sha256:cbd91749b32cbfdd9f303e534dcffc1f3f84a21ca91b05d54ab34bb9b3f82ede",
-      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/cloud_user_account/properties/aws_provider/aws_secret_key/secret_key/clear_secret_info/",
-      "anchor": "canonical-3323310333312022-0313232333112203-2002021300231100-2132023210232300-2332123221102332-0321211330221022-1020233333021332-3222332210331110",
-      "anchor_map": [],
-      "mode": "embedded",
-      "registry_path": "docs/guides/data-sources--cloud_user_account--reference--group-001.md"
-    },
-    {
-      "canonical_id": "xcsh-docs:data-sources:cloud_user_account:properties:aws_provider:aws_secret_key:secret_key:clear_secret_info",
-      "section_id": "xcsh-docs:data-sources:cloud_user_account:properties:aws_provider:aws_secret_key:secret_key:clear_secret_info:section:5",
-      "source_sha256": "sha256:f34a7903023a33bf8607ef6aa04d3ef5094de0e33ed9735d34795eb902f83820",
-      "source_bytes": 316,
-      "canonical_source_sha256": "sha256:cbd91749b32cbfdd9f303e534dcffc1f3f84a21ca91b05d54ab34bb9b3f82ede",
-      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/cloud_user_account/properties/aws_provider/aws_secret_key/secret_key/clear_secret_info/",
-      "anchor": "canonical-1231033033201031-1330231023123213-2112112111121230-0313233202012220-2321113311222021-0003223203233313-3300332330211133-3332332000122000",
-      "anchor_map": [],
-      "mode": "embedded",
-      "registry_path": "docs/guides/data-sources--cloud_user_account--reference--group-001.md"
-    },
-    {
-      "canonical_id": "xcsh-docs:data-sources:cloud_user_account:examples",
-      "section_id": "xcsh-docs:data-sources:cloud_user_account:examples:section:0",
-      "source_sha256": "sha256:197d41522a9dd286cb9805a03d8a5bd782cc3f3fd95ea854bf2dfc326e83e50c",
-      "source_bytes": 99,
-      "canonical_source_sha256": "sha256:4896f7d59758551bd8a0f8a171e89094a802c39bbb17b22be58206ce25881fe4",
-      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/cloud_user_account/examples/",
-      "anchor": "canonical-1123022031022212-3210322222220211-3221011130302320-0003311301312322-2122213221222103-0021320102020113-1330120011222112-0023310231123313",
-      "anchor_map": [],
-      "mode": "embedded",
-      "registry_path": "docs/guides/data-sources--cloud_user_account--examples--group-001.md"
-    },
-    {
-      "canonical_id": "xcsh-docs:data-sources:cloud_user_account:examples",
-      "section_id": "xcsh-docs:data-sources:cloud_user_account:examples:section:1",
-      "source_sha256": "sha256:9eb8685ee3a03f9b97dae77d96317a90b9eaf0bd49b5b2dfa4900dcf2f4916da",
-      "source_bytes": 156,
-      "canonical_source_sha256": "sha256:4896f7d59758551bd8a0f8a171e89094a802c39bbb17b22be58206ce25881fe4",
-      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/cloud_user_account/examples/",
-      "anchor": "canonical-3022323120031221-0202211121322030-2332110132310101-0113023002330300-0323133123211100-3203101123000203-2230331312312223-1231331313120132",
-      "anchor_map": [],
-      "mode": "embedded",
-      "registry_path": "docs/guides/data-sources--cloud_user_account--examples--group-001.md"
-    },
-    {
-      "canonical_id": "xcsh-docs:data-sources:cloud_user_account:examples",
-      "section_id": "xcsh-docs:data-sources:cloud_user_account:examples:section:2",
-      "source_sha256": "sha256:83445027fa7af30cbb082ed7b67ecd3c098854ce5f5836811df23c86ee69ee1a",
-      "source_bytes": 178,
-      "canonical_source_sha256": "sha256:4896f7d59758551bd8a0f8a171e89094a802c39bbb17b22be58206ce25881fe4",
-      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/cloud_user_account/examples/",
-      "anchor": "canonical-1223203203330011-1132023021331112-3132112333331123-0231031133122133-1101232313031013-1330121001112000-0003030203001022-1332220202102031",
-      "anchor_map": [],
-      "mode": "embedded",
-      "registry_path": "docs/guides/data-sources--cloud_user_account--examples--group-001.md"
-    },
-    {
-      "canonical_id": "xcsh-docs:data-sources:cloud_user_account:examples",
-      "section_id": "xcsh-docs:data-sources:cloud_user_account:examples:section:3",
-      "source_sha256": "sha256:c91eeb2b174c756babd5451ca735db9dc3c8bb22d9268628ad7441fc90b9a669",
-      "source_bytes": 260,
-      "canonical_source_sha256": "sha256:4896f7d59758551bd8a0f8a171e89094a802c39bbb17b22be58206ce25881fe4",
-      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/cloud_user_account/examples/",
-      "anchor": "canonical-1312310312000012-1222233212122113-1332312332220000-0303030101332100-0030012102331202-1220223131213200-3333022012211202-3230131232310211",
-      "anchor_map": [],
-      "mode": "embedded",
-      "registry_path": "docs/guides/data-sources--cloud_user_account--examples--group-001.md"
-    },
-    {
-      "canonical_id": "xcsh-docs:data-sources:cloud_user_account:example:data-source",
-      "section_id": "xcsh-docs:data-sources:cloud_user_account:example:data-source:section:0",
-      "source_sha256": "sha256:197d41522a9dd286cb9805a03d8a5bd782cc3f3fd95ea854bf2dfc326e83e50c",
-      "source_bytes": 99,
-      "canonical_source_sha256": "sha256:f8b6ad0728b36527031e32de64eee76d0f62445f7cee4768d3305de228bb7eed",
-      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/cloud_user_account/examples/data-source/",
-      "anchor": "canonical-0320012310310023-2232332310013003-0010130032332200-0303302101222303-2002231232020011-1311312300232133-2201330011113332-3321030110103222",
-      "anchor_map": [],
-      "mode": "embedded",
-      "registry_path": "docs/guides/data-sources--cloud_user_account--examples--group-001.md"
-    },
-    {
-      "canonical_id": "xcsh-docs:data-sources:cloud_user_account:example:data-source",
-      "section_id": "xcsh-docs:data-sources:cloud_user_account:example:data-source:section:1",
-      "source_sha256": "sha256:78837cb0a5c5ce6deef25ea04d0c80f353009c91baabddbc769105b8b16af1b5",
-      "source_bytes": 1011,
-      "canonical_source_sha256": "sha256:f8b6ad0728b36527031e32de64eee76d0f62445f7cee4768d3305de228bb7eed",
-      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/cloud_user_account/examples/data-source/",
-      "anchor": "canonical-1102021222133230-1213012230300300-0133123101111031-2213011133112110-1211223331113303-2213313113112123-1103302202031033-2132032211322202",
-      "anchor_map": [],
-      "mode": "embedded",
-      "registry_path": "docs/guides/data-sources--cloud_user_account--examples--group-001.md"
-    },
-    {
-      "canonical_id": "xcsh-docs:data-sources:cloud_user_account:example:data-source",
-      "section_id": "xcsh-docs:data-sources:cloud_user_account:example:data-source:section:2",
-      "source_sha256": "sha256:e2bd123bbbc21930f3a17406fe315336487f274ed8c151f978d8df599734b418",
-      "source_bytes": 245,
-      "canonical_source_sha256": "sha256:f8b6ad0728b36527031e32de64eee76d0f62445f7cee4768d3305de228bb7eed",
-      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/cloud_user_account/examples/data-source/",
-      "anchor": "canonical-0111010120110330-1031023313332132-0332101100010003-2010020021103320-1220130222003332-1312112312223222-3112310101201211-2312212011000100",
-      "anchor_map": [],
-      "mode": "embedded",
-      "registry_path": "docs/guides/data-sources--cloud_user_account--examples--group-001.md"
     }
   ]
 }

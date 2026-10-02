@@ -31,7 +31,7 @@
         "xcsh-docs:actions:access_active_sessions_terminate:lifecycle"
       ],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -43,7 +43,7 @@
       "path": "documentation/actions/access_active_sessions_terminate/index.md",
       "product": "distributed-cloud",
       "provider_name": "access_active_sessions_terminate",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "actions",
       "registry_anchor": "canonical-2232333201313313-0211033213132122-1112020213103320-3212121022102212-1220232111200021-2230200120313012-2130013111233211-1310221022123111",
       "registry_path": "docs/actions/access_active_sessions_terminate.md",
@@ -72,7 +72,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -84,7 +84,7 @@
       "path": "documentation/actions/access_active_sessions_terminate/properties/index.md",
       "product": "distributed-cloud",
       "provider_name": "access_active_sessions_terminate",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "actions",
       "registry_anchor": "canonical-1011310031122232-1101123230020033-3121112303102021-3303203200231201-2030111000030313-0022320120213221-2333100310201032-0210322102310330",
       "registry_path": "docs/guides/actions--access_active_sessions_terminate--reference--group-001.md",
@@ -141,7 +141,7 @@
       "category": null,
       "child_ids": ["xcsh-docs:actions:access_active_sessions_terminate:example:action"],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -153,7 +153,7 @@
       "path": "documentation/actions/access_active_sessions_terminate/examples/index.md",
       "product": "distributed-cloud",
       "provider_name": "access_active_sessions_terminate",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "actions",
       "registry_anchor": "canonical-1233211303213321-3101030230133003-1313322330111221-1220211022000320-3122330010001302-0000122213122000-2213020333311111-1103212212202312",
       "registry_path": "docs/guides/actions--access_active_sessions_terminate--examples--group-001.md",
@@ -181,7 +181,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -200,7 +200,7 @@
       "path": "documentation/actions/access_active_sessions_terminate/examples/action/index.md",
       "product": "distributed-cloud",
       "provider_name": "access_active_sessions_terminate",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "actions",
       "registry_anchor": "canonical-0323022220300023-0020313113010222-2300010131030002-0211131012302230-2213331102112032-2023220223020302-0230331230022310-0020130211311311",
       "registry_path": "docs/guides/actions--access_active_sessions_terminate--examples--group-001.md",
@@ -228,7 +228,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -240,7 +240,7 @@
       "path": "documentation/actions/access_active_sessions_terminate/lifecycle/index.md",
       "product": "distributed-cloud",
       "provider_name": "access_active_sessions_terminate",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "actions",
       "registry_anchor": "canonical-3312120011223001-0313020321201221-3033001230232021-0211132333013010-0323313100022300-1112023303322203-3133212221022112-2213321013203221",
       "registry_path": "docs/guides/actions--access_active_sessions_terminate--lifecycle--group-001.md",

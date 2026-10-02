@@ -55,7 +55,7 @@
         "xcsh-docs:data-sources:network_global_controller_sso_egress:examples"
       ],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -67,7 +67,7 @@
       "path": "documentation/data-sources/network_global_controller_sso_egress/index.md",
       "product": "distributed-cloud",
       "provider_name": "network_global_controller_sso_egress",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-0312323020200211-1203202133322020-0021231103030131-3121030331030302-1102330101113213-3300113123100001-1202022320202320-2331132003123002",
       "registry_path": "docs/data-sources/network_global_controller_sso_egress.md",
@@ -96,7 +96,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -108,7 +108,7 @@
       "path": "documentation/data-sources/network_global_controller_sso_egress/properties/index.md",
       "product": "distributed-cloud",
       "provider_name": "network_global_controller_sso_egress",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-3003322331121130-3222331001000333-2211002302211022-1222320311122100-3201133312312100-1030203313320022-0120013131302332-2021000013120000",
       "registry_path": "docs/guides/data-sources--network_global_controller_sso_egress--reference--group-001.md",
@@ -235,7 +235,7 @@
       "category": null,
       "child_ids": ["xcsh-docs:data-sources:network_global_controller_sso_egress:example:data-source"],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -247,7 +247,7 @@
       "path": "documentation/data-sources/network_global_controller_sso_egress/examples/index.md",
       "product": "distributed-cloud",
       "provider_name": "network_global_controller_sso_egress",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-1330212023033012-1303023012013222-0112221202020303-1011102330201000-3003322221102203-3310100311110131-1111331310003200-2210323333000232",
       "registry_path": "docs/guides/data-sources--network_global_controller_sso_egress--examples--group-001.md",
@@ -275,7 +275,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -294,7 +294,7 @@
       "path": "documentation/data-sources/network_global_controller_sso_egress/examples/data-source/index.md",
       "product": "distributed-cloud",
       "provider_name": "network_global_controller_sso_egress",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-1200211013301333-1222212313103000-2302100211003332-3011222110113330-2123221303110130-3332332310330221-3221212022321122-0313131012302212",
       "registry_path": "docs/guides/data-sources--network_global_controller_sso_egress--examples--group-001.md",

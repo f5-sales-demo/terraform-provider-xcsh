@@ -1141,7 +1141,7 @@
         "xcsh-docs:resources:origin_pool:timeouts"
       ],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -1153,7 +1153,7 @@
       "path": "documentation/resources/origin_pool/index.md",
       "product": "distributed-cloud",
       "provider_name": "origin_pool",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "resources",
       "registry_anchor": "canonical-1300222123211010-0221103312033303-3103220201011310-0312202100212232-2132331032032202-3102123303123231-2302302300131121-2101021333132222",
       "registry_path": "docs/resources/origin_pool.md",
@@ -1201,7 +1201,7 @@
         "xcsh-docs:resources:origin_pool:properties:use_tls"
       ],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -1213,7 +1213,7 @@
       "path": "documentation/resources/origin_pool/properties/index.md",
       "product": "distributed-cloud",
       "provider_name": "origin_pool",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "resources",
       "registry_anchor": "canonical-3212012302103133-0133102110013031-2131221222021021-2000212221110230-2323033002013033-2112321312312211-0213033122012333-3133112201301013",
       "registry_path": "docs/guides/resources--origin_pool--reference--group-001.md",
@@ -1223,7 +1223,7 @@
       "schema_path": [],
       "sections": [
         {
-          "aliases": ["advanced options", "backend servers", "origin servers", "upstream servers"],
+          "aliases": ["advanced options"],
           "anchor": "section",
           "description": "Configure Advanced OPTIONS for origin pool.",
           "document_id": "xcsh-docs:resources:origin_pool:properties:advanced_options",
@@ -1611,7 +1611,7 @@
           "type": "object"
         },
         {
-          "aliases": ["backend servers", "loadbalancer algorithm", "origin servers", "upstream servers"],
+          "aliases": ["loadbalancer algorithm"],
           "anchor": "schema-loadbalancer_algorithm",
           "description": "Different load balancing algorithms supported When a connection to a endpoint in an upstream cluster is required, the load balancer uses loadbalancer_algorithm to determine which host is selected. - ROUND_ROBIN: ROUND_ROBIN Policy in which each healthy/available upstream endpoint is selected in round robin order. -",
           "document_id": "xcsh-docs:resources:origin_pool:reference",
@@ -2694,7 +2694,7 @@
       }
     },
     {
-      "aliases": ["advanced options", "backend servers", "origin servers", "upstream servers"],
+      "aliases": ["advanced options"],
       "body_bytes": 14675,
       "body_sha256": "sha256:fa9a5b2b3b294df7fabff119be1b94716372808b04e6d8ae7fa97a67e91b29e2",
       "capabilities": ["load-balancing"],
@@ -2719,7 +2719,7 @@
         "xcsh-docs:resources:origin_pool:properties:advanced_options:proxy_protocol_v2"
       ],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -2731,7 +2731,7 @@
       "path": "documentation/resources/origin_pool/properties/advanced_options/index.md",
       "product": "distributed-cloud",
       "provider_name": "origin_pool",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "resources",
       "registry_anchor": "canonical-1023311220110031-0231320022131021-0033212101303010-3313122003030112-0232231312233323-0112101220121031-0120211031032111-3200312011212231",
       "registry_path": "docs/guides/resources--origin_pool--reference--group-001.md",
@@ -3106,7 +3106,7 @@
           "type": "object"
         },
         {
-          "aliases": ["backend servers", "enable subsets", "origin servers", "upstream servers"],
+          "aliases": ["enable subsets"],
           "anchor": "section",
           "description": "Configure subset OPTIONS for origin pool.",
           "document_id": "xcsh-docs:resources:origin_pool:properties:advanced_options:enable_subsets",
@@ -3219,7 +3219,7 @@
           "type": "number"
         },
         {
-          "aliases": ["backend servers", "max requests per connection", "origin servers", "upstream servers"],
+          "aliases": ["max requests per connection"],
           "anchor": "schema-advanced_options--max_requests_per_connection",
           "description": "Exclusive with Sets the maximum number of requests allowed per connection to the origin server. Enter a value >=1 to define the request limit per connection.",
           "document_id": "xcsh-docs:resources:origin_pool:properties:advanced_options",
@@ -3336,7 +3336,7 @@
       "category": "load-balancing",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -3348,7 +3348,7 @@
       "path": "documentation/resources/origin_pool/properties/advanced_options/auto_http_config/index.md",
       "product": "distributed-cloud",
       "provider_name": "origin_pool",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "resources",
       "registry_anchor": "canonical-3331110012302303-2330201011230023-3123103101203032-3003211202201210-0012201112120222-1212013010223121-0010202022300122-3210301122110302",
       "registry_path": "docs/guides/resources--origin_pool--reference--group-001.md",
@@ -3376,7 +3376,7 @@
       "category": "load-balancing",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -3388,7 +3388,7 @@
       "path": "documentation/resources/origin_pool/properties/advanced_options/circuit_breaker/index.md",
       "product": "distributed-cloud",
       "provider_name": "origin_pool",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "resources",
       "registry_anchor": "canonical-0033113010002302-1233333120200310-2012223323210222-3313302231001230-3301111232102122-3311103200320333-0330213023110303-0113203212020020",
       "registry_path": "docs/guides/resources--origin_pool--reference--group-001.md",
@@ -3487,7 +3487,7 @@
       "category": "load-balancing",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -3499,7 +3499,7 @@
       "path": "documentation/resources/origin_pool/properties/advanced_options/default_circuit_breaker/index.md",
       "product": "distributed-cloud",
       "provider_name": "origin_pool",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "resources",
       "registry_anchor": "canonical-3101120010020013-3330113221002001-2220200100231320-1133013223213133-0022122002312331-3303231030210132-0013132132200000-0212213313333311",
       "registry_path": "docs/guides/resources--origin_pool--reference--group-001.md",
@@ -3527,7 +3527,7 @@
       "category": "load-balancing",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -3539,7 +3539,7 @@
       "path": "documentation/resources/origin_pool/properties/advanced_options/disable_circuit_breaker/index.md",
       "product": "distributed-cloud",
       "provider_name": "origin_pool",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "resources",
       "registry_anchor": "canonical-1000203102031302-1012300312210303-1320311100001012-3003220233033001-0221232232101100-1230211123332100-3300113033201021-3122130231222211",
       "registry_path": "docs/guides/resources--origin_pool--reference--group-001.md",
@@ -3567,7 +3567,7 @@
       "category": "load-balancing",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -3579,7 +3579,7 @@
       "path": "documentation/resources/origin_pool/properties/advanced_options/disable_lb_source_ip_persistence/index.md",
       "product": "distributed-cloud",
       "provider_name": "origin_pool",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "resources",
       "registry_anchor": "canonical-1110033310111221-0311103030303223-3211303210220123-3033011120133100-2031102313201310-2302221330013212-2211323331302113-2330023011311230",
       "registry_path": "docs/guides/resources--origin_pool--reference--group-001.md",
@@ -3607,7 +3607,7 @@
       "category": "load-balancing",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -3619,7 +3619,7 @@
       "path": "documentation/resources/origin_pool/properties/advanced_options/disable_outlier_detection/index.md",
       "product": "distributed-cloud",
       "provider_name": "origin_pool",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "resources",
       "registry_anchor": "canonical-0303111031121330-3030232011000130-3000031202321210-3313200311012320-0233221123302133-3200321002133322-3222232213001122-3301202011203131",
       "registry_path": "docs/guides/resources--origin_pool--reference--group-001.md",
@@ -3647,7 +3647,7 @@
       "category": "load-balancing",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -3659,7 +3659,7 @@
       "path": "documentation/resources/origin_pool/properties/advanced_options/disable_proxy_protocol/index.md",
       "product": "distributed-cloud",
       "provider_name": "origin_pool",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "resources",
       "registry_anchor": "canonical-2213300033233331-3203002012201223-1020300032131122-3110201221031120-1233033311101332-1000313131023221-2131220002000133-2000301223322131",
       "registry_path": "docs/guides/resources--origin_pool--reference--group-001.md",
@@ -3687,7 +3687,7 @@
       "category": "load-balancing",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -3699,7 +3699,7 @@
       "path": "documentation/resources/origin_pool/properties/advanced_options/disable_subsets/index.md",
       "product": "distributed-cloud",
       "provider_name": "origin_pool",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "resources",
       "registry_anchor": "canonical-0132102210122311-3313023112101111-2013130010001303-0031232103110330-3010201102310202-2032033320210210-0303113213130210-3301233212211230",
       "registry_path": "docs/guides/resources--origin_pool--reference--group-001.md",
@@ -3727,7 +3727,7 @@
       "category": "load-balancing",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -3739,7 +3739,7 @@
       "path": "documentation/resources/origin_pool/properties/advanced_options/enable_lb_source_ip_persistence/index.md",
       "product": "distributed-cloud",
       "provider_name": "origin_pool",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "resources",
       "registry_anchor": "canonical-0003003221233012-1310223021303120-2211013133202102-3001322232012120-0123301231303010-2022223113222201-3311201000011110-0230022321023230",
       "registry_path": "docs/guides/resources--origin_pool--reference--group-001.md",
@@ -3760,7 +3760,7 @@
       }
     },
     {
-      "aliases": ["advanced options enable subsets", "backend servers", "origin servers", "upstream servers"],
+      "aliases": ["advanced options enable subsets"],
       "body_bytes": 3191,
       "body_sha256": "sha256:11841b58f71f3e68cb236ac0297db458d3169cab5a1b233ea355fa055847e8a2",
       "capabilities": ["load-balancing"],
@@ -3772,7 +3772,7 @@
         "xcsh-docs:resources:origin_pool:properties:advanced_options:enable_subsets:fail_request"
       ],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -3784,7 +3784,7 @@
       "path": "documentation/resources/origin_pool/properties/advanced_options/enable_subsets/index.md",
       "product": "distributed-cloud",
       "provider_name": "origin_pool",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "resources",
       "registry_anchor": "canonical-0122100002013231-2001203221223231-3110322321022003-1321210303333102-0312031012103102-3213111211122031-3001333210101120-3103332213211103",
       "registry_path": "docs/guides/resources--origin_pool--reference--group-001.md",
@@ -3935,7 +3935,7 @@
       "category": "load-balancing",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -3947,7 +3947,7 @@
       "path": "documentation/resources/origin_pool/properties/advanced_options/enable_subsets/any_endpoint/index.md",
       "product": "distributed-cloud",
       "provider_name": "origin_pool",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "resources",
       "registry_anchor": "canonical-1121303203301233-0330131022131321-2331213130301012-3101333030030020-3301212310113020-3023213033120033-3011120312103120-0222120021211220",
       "registry_path": "docs/guides/resources--origin_pool--reference--group-001.md",
@@ -3977,7 +3977,7 @@
         "xcsh-docs:resources:origin_pool:properties:advanced_options:enable_subsets:default_subset:default_subset"
       ],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -3989,7 +3989,7 @@
       "path": "documentation/resources/origin_pool/properties/advanced_options/enable_subsets/default_subset/index.md",
       "product": "distributed-cloud",
       "provider_name": "origin_pool",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "resources",
       "registry_anchor": "canonical-1321103031213013-0311223021230033-3212121130120222-0002212110223121-3110121312032001-3131302223131121-0332000321202300-3020010030013333",
       "registry_path": "docs/guides/resources--origin_pool--reference--group-001.md",
@@ -4032,7 +4032,7 @@
       "category": "load-balancing",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -4044,7 +4044,7 @@
       "path": "documentation/resources/origin_pool/properties/advanced_options/enable_subsets/default_subset/default_subset/index.md",
       "product": "distributed-cloud",
       "provider_name": "origin_pool",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "resources",
       "registry_anchor": "canonical-3201201213002301-3203310321121111-0111211221202232-0312321103313130-1222132231232200-2202002113302312-2033010222031010-1232011321332002",
       "registry_path": "docs/guides/resources--origin_pool--reference--group-001.md",
@@ -4072,7 +4072,7 @@
       "category": "load-balancing",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -4084,7 +4084,7 @@
       "path": "documentation/resources/origin_pool/properties/advanced_options/enable_subsets/endpoint_subsets/index.md",
       "product": "distributed-cloud",
       "provider_name": "origin_pool",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "resources",
       "registry_anchor": "canonical-3333211223132133-1132232010121131-3323222002121213-3033230302120322-2231132313021333-3130333231100130-3002003220033303-1223300032102121",
       "registry_path": "docs/guides/resources--origin_pool--reference--group-001.md",
@@ -4136,7 +4136,7 @@
       "category": "load-balancing",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -4148,7 +4148,7 @@
       "path": "documentation/resources/origin_pool/properties/advanced_options/enable_subsets/fail_request/index.md",
       "product": "distributed-cloud",
       "provider_name": "origin_pool",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "resources",
       "registry_anchor": "canonical-2220010100211223-2000310001213033-0103311300112330-2311301203323102-2032301030100221-2120123031202322-1202102232221010-3123322123111330",
       "registry_path": "docs/guides/resources--origin_pool--reference--group-001.md",
@@ -4176,7 +4176,7 @@
       "category": "load-balancing",
       "child_ids": ["xcsh-docs:resources:origin_pool:properties:advanced_options:http1_config:header_transformation"],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -4188,7 +4188,7 @@
       "path": "documentation/resources/origin_pool/properties/advanced_options/http1_config/index.md",
       "product": "distributed-cloud",
       "provider_name": "origin_pool",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "resources",
       "registry_anchor": "canonical-1120132330211033-0012321110310010-0011021112300002-3030000212012022-2333301001233332-2022230020331222-0113112211030310-1322332201011000",
       "registry_path": "docs/guides/resources--origin_pool--reference--group-001.md",
@@ -4284,7 +4284,7 @@
         "xcsh-docs:resources:origin_pool:properties:advanced_options:http1_config:header_transformation:proper_case_header_transformation"
       ],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -4296,7 +4296,7 @@
       "path": "documentation/resources/origin_pool/properties/advanced_options/http1_config/header_transformation/index.md",
       "product": "distributed-cloud",
       "provider_name": "origin_pool",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "resources",
       "registry_anchor": "canonical-2303031223333310-0232131331321322-3223230333233112-3131212303323012-3113232223013321-1010312321321233-0032313121131111-1033120330313113",
       "registry_path": "docs/guides/resources--origin_pool--reference--group-001.md",
@@ -4426,7 +4426,7 @@
       "category": "load-balancing",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -4438,7 +4438,7 @@
       "path": "documentation/resources/origin_pool/properties/advanced_options/http1_config/header_transformation/default_header_transformation/index.md",
       "product": "distributed-cloud",
       "provider_name": "origin_pool",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "resources",
       "registry_anchor": "canonical-0000101230130110-2020003133003030-3312202133003231-0031122321123201-1010011102103130-3103201233223100-1023100311130223-0003000120213322",
       "registry_path": "docs/guides/resources--origin_pool--reference--group-001.md",
@@ -4466,7 +4466,7 @@
       "category": "load-balancing",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -4478,7 +4478,7 @@
       "path": "documentation/resources/origin_pool/properties/advanced_options/http1_config/header_transformation/preserve_case_header_transformation/index.md",
       "product": "distributed-cloud",
       "provider_name": "origin_pool",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "resources",
       "registry_anchor": "canonical-0330021003111221-1332122300203310-0123000012003123-0223121210122230-3231211101203232-2312110300330112-2123001120301023-3030102300123220",
       "registry_path": "docs/guides/resources--origin_pool--reference--group-001.md",
@@ -4511,7 +4511,7 @@
       "category": "load-balancing",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -4523,7 +4523,7 @@
       "path": "documentation/resources/origin_pool/properties/advanced_options/http1_config/header_transformation/proper_case_header_transformation/index.md",
       "product": "distributed-cloud",
       "provider_name": "origin_pool",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "resources",
       "registry_anchor": "canonical-2321111301112201-3001110011210122-0311313321332031-2210310131221130-3123323313022111-1231012212212200-2322313302312102-2231011113000111",
       "registry_path": "docs/guides/resources--origin_pool--reference--group-001.md",
@@ -4551,7 +4551,7 @@
       "category": "load-balancing",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -4563,7 +4563,7 @@
       "path": "documentation/resources/origin_pool/properties/advanced_options/http2_options/index.md",
       "product": "distributed-cloud",
       "provider_name": "origin_pool",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "resources",
       "registry_anchor": "canonical-3110221330232310-0033030320300111-0032333121300122-2203022202112131-2002121100333022-3130111233223112-1030012232320323-0122011120320120",
       "registry_path": "docs/guides/resources--origin_pool--reference--group-001.md",
@@ -4606,7 +4606,7 @@
       "category": "load-balancing",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -4618,7 +4618,7 @@
       "path": "documentation/resources/origin_pool/properties/advanced_options/no_panic_threshold/index.md",
       "product": "distributed-cloud",
       "provider_name": "origin_pool",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "resources",
       "registry_anchor": "canonical-0202112120201020-0312010230000131-1100030322023231-3232212311110032-1220210322222103-2332221300001302-3110032302100201-0210013330221330",
       "registry_path": "docs/guides/resources--origin_pool--reference--group-001.md",
@@ -4646,7 +4646,7 @@
       "category": "load-balancing",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -4658,7 +4658,7 @@
       "path": "documentation/resources/origin_pool/properties/advanced_options/no_request_limit_per_connection/index.md",
       "product": "distributed-cloud",
       "provider_name": "origin_pool",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "resources",
       "registry_anchor": "canonical-1330213333313110-3100031301022021-2123130200313332-3201013222020131-2223030121213030-2220120203131331-1221101000313013-1112103003000113",
       "registry_path": "docs/guides/resources--origin_pool--reference--group-001.md",
@@ -4686,7 +4686,7 @@
       "category": "load-balancing",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -4698,7 +4698,7 @@
       "path": "documentation/resources/origin_pool/properties/advanced_options/outlier_detection/index.md",
       "product": "distributed-cloud",
       "provider_name": "origin_pool",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "resources",
       "registry_anchor": "canonical-3000232203110021-1031230213122011-1123333023221112-2112132033221221-0233111301322212-1122212030103130-0001131010111133-3133220123103122",
       "registry_path": "docs/guides/resources--origin_pool--reference--group-001.md",
@@ -4797,7 +4797,7 @@
       "category": "load-balancing",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -4809,7 +4809,7 @@
       "path": "documentation/resources/origin_pool/properties/advanced_options/proxy_protocol_v1/index.md",
       "product": "distributed-cloud",
       "provider_name": "origin_pool",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "resources",
       "registry_anchor": "canonical-2231302013311332-2302020300210101-3013021032120300-1322020323111001-1021312211133123-0001210223111212-2210221303330123-2132302330031012",
       "registry_path": "docs/guides/resources--origin_pool--reference--group-001.md",
@@ -4837,7 +4837,7 @@
       "category": "load-balancing",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -4849,7 +4849,7 @@
       "path": "documentation/resources/origin_pool/properties/advanced_options/proxy_protocol_v2/index.md",
       "product": "distributed-cloud",
       "provider_name": "origin_pool",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "resources",
       "registry_anchor": "canonical-0320031013302220-3332100213221311-2123202301102332-2010033001202221-1032332013201311-3211112203311011-3001213113311213-2320133302110011",
       "registry_path": "docs/guides/resources--origin_pool--reference--group-001.md",
@@ -4877,7 +4877,7 @@
       "category": "load-balancing",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -4889,7 +4889,7 @@
       "path": "documentation/resources/origin_pool/properties/automatic_port/index.md",
       "product": "distributed-cloud",
       "provider_name": "origin_pool",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "resources",
       "registry_anchor": "canonical-1112022203223032-3323221233013132-1121203303031132-1021300130303111-2312333020233311-1132310003313023-1330012320112102-3213232312123011",
       "registry_path": "docs/guides/resources--origin_pool--reference--group-001.md",
@@ -4917,7 +4917,7 @@
       "category": "load-balancing",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -4929,7 +4929,7 @@
       "path": "documentation/resources/origin_pool/properties/healthcheck/index.md",
       "product": "distributed-cloud",
       "provider_name": "origin_pool",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "resources",
       "registry_anchor": "canonical-0220303133013032-2302323323212323-0311200001213123-3021130113330311-2212330212003003-3231310310300112-2222012213121021-0030322010120013",
       "registry_path": "docs/guides/resources--origin_pool--reference--group-001.md",
@@ -5009,7 +5009,7 @@
       "category": "load-balancing",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -5021,7 +5021,7 @@
       "path": "documentation/resources/origin_pool/properties/lb_port/index.md",
       "product": "distributed-cloud",
       "provider_name": "origin_pool",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "resources",
       "registry_anchor": "canonical-0020300233212120-1303102312023111-0212101131203331-1302022110112113-0033130113202023-0130301212232010-1022111220323023-0020230101001100",
       "registry_path": "docs/guides/resources--origin_pool--reference--group-001.md",
@@ -5049,7 +5049,7 @@
       "category": "load-balancing",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -5061,7 +5061,7 @@
       "path": "documentation/resources/origin_pool/properties/no_tls/index.md",
       "product": "distributed-cloud",
       "provider_name": "origin_pool",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "resources",
       "registry_anchor": "canonical-3232201211033121-2320120332221003-2102323230100223-1300312333300223-3332330230003310-0213003320030302-3013211011131001-3021000212231031",
       "registry_path": "docs/guides/resources--origin_pool--reference--group-001.md",
@@ -5100,7 +5100,7 @@
         "xcsh-docs:resources:origin_pool:properties:origin_servers:vn_private_name"
       ],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -5112,7 +5112,7 @@
       "path": "documentation/resources/origin_pool/properties/origin_servers/index.md",
       "product": "distributed-cloud",
       "provider_name": "origin_pool",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "resources",
       "registry_anchor": "canonical-3213210211103302-0113102102311332-3301020313122313-2300311021121330-3110303331323010-3002302023032312-3331303322001030-2133000010210120",
       "registry_path": "docs/guides/resources--origin_pool--reference--group-001.md",
@@ -5843,7 +5843,7 @@
       "schema_path": ["origin_servers"],
       "sections": [
         {
-          "aliases": ["backend servers", "cbip service", "origin servers", "upstream servers"],
+          "aliases": ["cbip service"],
           "anchor": "section",
           "description": "Specify origin server with Classic BIG-IP Service (Virtual Server)",
           "document_id": "xcsh-docs:resources:origin_pool:properties:origin_servers:cbip_service",
@@ -5866,7 +5866,7 @@
           "type": "object"
         },
         {
-          "aliases": ["backend servers", "consul service", "origin servers", "upstream servers"],
+          "aliases": ["consul service"],
           "anchor": "section",
           "description": "Specify origin server with HashiCorp Consul service name and site information.",
           "document_id": "xcsh-docs:resources:origin_pool:properties:origin_servers:consul_service",
@@ -5905,7 +5905,7 @@
           "type": "object"
         },
         {
-          "aliases": ["backend servers", "custom endpoint object", "origin servers", "upstream servers"],
+          "aliases": ["custom endpoint object"],
           "anchor": "section",
           "description": "Specify origin server with a reference to endpoint object.",
           "document_id": "xcsh-docs:resources:origin_pool:properties:origin_servers:custom_endpoint_object",
@@ -5919,7 +5919,7 @@
           "type": "object"
         },
         {
-          "aliases": ["backend servers", "k8s service", "origin servers", "upstream servers"],
+          "aliases": ["k8s service"],
           "anchor": "section",
           "description": "Specify origin server with K8s service name and site information.",
           "document_id": "xcsh-docs:resources:origin_pool:properties:origin_servers:k8s_service",
@@ -5982,7 +5982,7 @@
           "type": "object"
         },
         {
-          "aliases": ["backend servers", "labels", "origin servers", "upstream servers"],
+          "aliases": ["labels"],
           "anchor": "schema-origin_servers--labels",
           "description": "Add Labels for this origin server, these labels can be used to form subset.",
           "document_id": "xcsh-docs:resources:origin_pool:properties:origin_servers",
@@ -5996,7 +5996,7 @@
           "type": "map"
         },
         {
-          "aliases": ["backend servers", "origin servers", "private ip", "upstream servers"],
+          "aliases": ["private ip"],
           "anchor": "section",
           "description": "Specify origin server with private or public IP address and site information.",
           "document_id": "xcsh-docs:resources:origin_pool:properties:origin_servers:private_ip",
@@ -6059,7 +6059,7 @@
           "type": "object"
         },
         {
-          "aliases": ["backend servers", "origin servers", "private name", "upstream servers"],
+          "aliases": ["private name"],
           "anchor": "section",
           "description": "Specify origin server with private or public DNS name and site information.",
           "document_id": "xcsh-docs:resources:origin_pool:properties:origin_servers:private_name",
@@ -6130,7 +6130,7 @@
           "type": "object"
         },
         {
-          "aliases": ["backend servers", "origin servers", "public ip", "upstream servers"],
+          "aliases": ["public ip"],
           "anchor": "section",
           "description": "Specify origin server with public IP address.",
           "document_id": "xcsh-docs:resources:origin_pool:properties:origin_servers:public_ip",
@@ -6144,7 +6144,7 @@
           "type": "object"
         },
         {
-          "aliases": ["backend servers", "origin servers", "public name", "upstream servers"],
+          "aliases": ["public name"],
           "anchor": "section",
           "description": "Specify origin server with public DNS name.",
           "document_id": "xcsh-docs:resources:origin_pool:properties:origin_servers:public_name",
@@ -6167,7 +6167,7 @@
           "type": "object"
         },
         {
-          "aliases": ["backend servers", "origin servers", "upstream servers", "vn private ip"],
+          "aliases": ["vn private ip"],
           "anchor": "section",
           "description": "Specify origin server with IP on Virtual Network.",
           "document_id": "xcsh-docs:resources:origin_pool:properties:origin_servers:vn_private_ip",
@@ -6181,7 +6181,7 @@
           "type": "object"
         },
         {
-          "aliases": ["backend servers", "origin servers", "upstream servers", "vn private name"],
+          "aliases": ["vn private name"],
           "anchor": "section",
           "description": "Specify origin server with DNS name on Virtual Network.",
           "document_id": "xcsh-docs:resources:origin_pool:properties:origin_servers:vn_private_name",
@@ -6216,14 +6216,14 @@
       }
     },
     {
-      "aliases": ["backend servers", "origin servers", "origin servers cbip service", "upstream servers"],
+      "aliases": ["origin servers cbip service"],
       "body_bytes": 2213,
       "body_sha256": "sha256:ba1ee89ac4d8bac9052c01e3f4639e052a6539f6eb98c8cc1ac0957b122a47fe",
       "capabilities": ["load-balancing", "load-balancing.backend-servers"],
       "category": "load-balancing",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -6235,7 +6235,7 @@
       "path": "documentation/resources/origin_pool/properties/origin_servers/cbip_service/index.md",
       "product": "distributed-cloud",
       "provider_name": "origin_pool",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "resources",
       "registry_anchor": "canonical-1010331102312323-2231313310123113-1310231000100331-3110100312012302-3331111003312110-2102012030220303-1220320003131210-3032300320110001",
       "registry_path": "docs/guides/resources--origin_pool--reference--group-002.md",
@@ -6254,7 +6254,7 @@
       "schema_path": ["origin_servers", "cbip_service"],
       "sections": [
         {
-          "aliases": ["backend servers", "origin servers", "service name", "upstream servers"],
+          "aliases": ["service name"],
           "anchor": "schema-origin_servers--cbip_service--service_name",
           "description": "Name of the discovered Classic BIG-IP virtual server to be used as origin.",
           "document_id": "xcsh-docs:resources:origin_pool:properties:origin_servers:cbip_service",
@@ -6280,7 +6280,7 @@
       }
     },
     {
-      "aliases": ["backend servers", "origin servers", "origin servers consul service", "upstream servers"],
+      "aliases": ["origin servers consul service"],
       "body_bytes": 3959,
       "body_sha256": "sha256:da771733171cf7b78593175fc61f1dbd8dbf114cad1ed255b6729c627f3eacce",
       "capabilities": ["load-balancing", "load-balancing.backend-servers"],
@@ -6292,7 +6292,7 @@
         "xcsh-docs:resources:origin_pool:properties:origin_servers:consul_service:snat_pool"
       ],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -6304,7 +6304,7 @@
       "path": "documentation/resources/origin_pool/properties/origin_servers/consul_service/index.md",
       "product": "distributed-cloud",
       "provider_name": "origin_pool",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "resources",
       "registry_anchor": "canonical-3213211103303131-0231121111132123-2203320211303212-3333220121203231-1310101322112130-2012321333303031-3200113301012210-0120330123110331",
       "registry_path": "docs/guides/resources--origin_pool--reference--group-002.md",
@@ -6367,7 +6367,7 @@
           "type": "object"
         },
         {
-          "aliases": ["backend servers", "origin servers", "service name", "upstream servers"],
+          "aliases": ["service name"],
           "anchor": "schema-origin_servers--consul_service--service_name",
           "description": "Consul service name of this origin server will be listed, including cluster-ID. The format is servicename:cluster-ID.",
           "document_id": "xcsh-docs:resources:origin_pool:properties:origin_servers:consul_service",
@@ -6455,19 +6455,14 @@
       }
     },
     {
-      "aliases": [
-        "backend servers",
-        "origin servers",
-        "origin servers consul service inside network",
-        "upstream servers"
-      ],
+      "aliases": ["origin servers consul service inside network"],
       "body_bytes": 1485,
       "body_sha256": "sha256:338a02b73c56ddcc3659e40c1b526424dc19cdde4201f20ef8267106d7f9688a",
       "capabilities": ["load-balancing", "load-balancing.backend-servers"],
       "category": "load-balancing",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -6479,7 +6474,7 @@
       "path": "documentation/resources/origin_pool/properties/origin_servers/consul_service/inside_network/index.md",
       "product": "distributed-cloud",
       "provider_name": "origin_pool",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "resources",
       "registry_anchor": "canonical-1022100230111330-3022300312122303-2132133132302213-2122332200123032-2213020330200203-3213021210010112-0121223021212031-0122222223110311",
       "registry_path": "docs/guides/resources--origin_pool--reference--group-002.md",
@@ -6500,19 +6495,14 @@
       }
     },
     {
-      "aliases": [
-        "backend servers",
-        "origin servers",
-        "origin servers consul service outside network",
-        "upstream servers"
-      ],
+      "aliases": ["origin servers consul service outside network"],
       "body_bytes": 1489,
       "body_sha256": "sha256:8521c0dec49dd881187d2e577995f3ca44fddf869e43eaa2343f0df4aa1b28a8",
       "capabilities": ["load-balancing", "load-balancing.backend-servers"],
       "category": "load-balancing",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -6524,7 +6514,7 @@
       "path": "documentation/resources/origin_pool/properties/origin_servers/consul_service/outside_network/index.md",
       "product": "distributed-cloud",
       "provider_name": "origin_pool",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "resources",
       "registry_anchor": "canonical-0120120323322100-1121111000013303-3122320303023003-3132333221212132-2133011220232110-1130011012010320-2302311321001210-1203333312313133",
       "registry_path": "docs/guides/resources--origin_pool--reference--group-002.md",
@@ -6545,12 +6535,7 @@
       }
     },
     {
-      "aliases": [
-        "backend servers",
-        "origin servers",
-        "origin servers consul service site locator",
-        "upstream servers"
-      ],
+      "aliases": ["origin servers consul service site locator"],
       "body_bytes": 2497,
       "body_sha256": "sha256:d070c81499e3ef91d855ee1d3152e70155e01cbccdd646a32f142cc4daf4574a",
       "capabilities": ["load-balancing", "load-balancing.backend-servers"],
@@ -6560,7 +6545,7 @@
         "xcsh-docs:resources:origin_pool:properties:origin_servers:consul_service:site_locator:virtual_site"
       ],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -6572,7 +6557,7 @@
       "path": "documentation/resources/origin_pool/properties/origin_servers/consul_service/site_locator/index.md",
       "product": "distributed-cloud",
       "provider_name": "origin_pool",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "resources",
       "registry_anchor": "canonical-1312101201231112-0002322310011331-1110023112333331-3121231133013002-1301120200102100-0321023313111333-3320211030210200-0131101300310123",
       "registry_path": "docs/guides/resources--origin_pool--reference--group-002.md",
@@ -6657,19 +6642,14 @@
       }
     },
     {
-      "aliases": [
-        "backend servers",
-        "origin servers",
-        "origin servers consul service site locator site",
-        "upstream servers"
-      ],
+      "aliases": ["origin servers consul service site locator site"],
       "body_bytes": 6527,
       "body_sha256": "sha256:fb5c5e95c65ff540d6a247a1bf20af88137353ec4e65b879efbf24fc535716a4",
       "capabilities": ["load-balancing", "load-balancing.backend-servers"],
       "category": "load-balancing",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -6681,7 +6661,7 @@
       "path": "documentation/resources/origin_pool/properties/origin_servers/consul_service/site_locator/site/index.md",
       "product": "distributed-cloud",
       "provider_name": "origin_pool",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "resources",
       "registry_anchor": "canonical-3001002303122033-1023221130211231-3322312210110112-0220222332023231-0032302101213030-0013122331030312-3310120323321201-3231132211322033",
       "registry_path": "docs/guides/resources--origin_pool--reference--group-002.md",
@@ -6754,19 +6734,14 @@
       }
     },
     {
-      "aliases": [
-        "backend servers",
-        "origin servers",
-        "origin servers consul service site locator virtual site",
-        "upstream servers"
-      ],
+      "aliases": ["origin servers consul service site locator virtual site"],
       "body_bytes": 6575,
       "body_sha256": "sha256:38798380b89cf6fc9fea6eb647f7f134d718ff4a439ecbbff4203138c260d8c6",
       "capabilities": ["load-balancing", "load-balancing.backend-servers"],
       "category": "load-balancing",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -6778,7 +6753,7 @@
       "path": "documentation/resources/origin_pool/properties/origin_servers/consul_service/site_locator/virtual_site/index.md",
       "product": "distributed-cloud",
       "provider_name": "origin_pool",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "resources",
       "registry_anchor": "canonical-0300103323003203-3201321001103133-0110200012122022-2311312330000332-2001323230310032-2332333011100303-0212110200230323-2331012020113330",
       "registry_path": "docs/guides/resources--origin_pool--reference--group-002.md",
@@ -6851,7 +6826,7 @@
       }
     },
     {
-      "aliases": ["backend servers", "origin servers", "origin servers consul service snat pool", "upstream servers"],
+      "aliases": ["origin servers consul service snat pool"],
       "body_bytes": 2442,
       "body_sha256": "sha256:c858f9c1879a90ea8836f32bd05f8504b1cc9bffb4747b8d8716f86c90a37b3a",
       "capabilities": ["load-balancing", "load-balancing.backend-servers"],
@@ -6861,7 +6836,7 @@
         "xcsh-docs:resources:origin_pool:properties:origin_servers:consul_service:snat_pool:snat_pool"
       ],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -6873,7 +6848,7 @@
       "path": "documentation/resources/origin_pool/properties/origin_servers/consul_service/snat_pool/index.md",
       "product": "distributed-cloud",
       "provider_name": "origin_pool",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "resources",
       "registry_anchor": "canonical-0122132301110200-1020030232012211-1022022322333032-3321101001220302-2112322220211303-1213200030003121-0103212313232122-0313012103320203",
       "registry_path": "docs/guides/resources--origin_pool--reference--group-002.md",
@@ -6940,19 +6915,14 @@
       }
     },
     {
-      "aliases": [
-        "backend servers",
-        "origin servers",
-        "origin servers consul service snat pool no snat pool",
-        "upstream servers"
-      ],
+      "aliases": ["origin servers consul service snat pool no snat pool"],
       "body_bytes": 1692,
       "body_sha256": "sha256:07d5d1c5fc00727bd32a17dfb827c6ee0524f174606342f4f2341b8e81c34f0c",
       "capabilities": ["load-balancing", "load-balancing.backend-servers"],
       "category": "load-balancing",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -6964,7 +6934,7 @@
       "path": "documentation/resources/origin_pool/properties/origin_servers/consul_service/snat_pool/no_snat_pool/index.md",
       "product": "distributed-cloud",
       "provider_name": "origin_pool",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "resources",
       "registry_anchor": "canonical-1311301202032301-0010131323121321-3023220101220133-1303221300230203-0331201203223102-0020103130221031-2032003303012010-0220233221133320",
       "registry_path": "docs/guides/resources--origin_pool--reference--group-002.md",
@@ -6985,19 +6955,14 @@
       }
     },
     {
-      "aliases": [
-        "backend servers",
-        "origin servers",
-        "origin servers consul service snat pool snat pool",
-        "upstream servers"
-      ],
+      "aliases": ["origin servers consul service snat pool snat pool"],
       "body_bytes": 2822,
       "body_sha256": "sha256:566260e2fb1f1f57f24782612d82be14821975ed6ab73ef285e9df3d6045dc42",
       "capabilities": ["load-balancing", "load-balancing.backend-servers"],
       "category": "load-balancing",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -7009,7 +6974,7 @@
       "path": "documentation/resources/origin_pool/properties/origin_servers/consul_service/snat_pool/snat_pool/index.md",
       "product": "distributed-cloud",
       "provider_name": "origin_pool",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "resources",
       "registry_anchor": "canonical-0110020331220233-1201321101022232-0300121022312111-2222310201003030-3302110201020011-3202132230010200-1010330121130302-2023031233211302",
       "registry_path": "docs/guides/resources--origin_pool--reference--group-002.md",
@@ -7045,14 +7010,14 @@
       }
     },
     {
-      "aliases": ["backend servers", "origin servers", "origin servers custom endpoint object", "upstream servers"],
+      "aliases": ["origin servers custom endpoint object"],
       "body_bytes": 1588,
       "body_sha256": "sha256:18adbc32683aa09f73982d82e40e9356d9aa13f894622742763662b92af584a3",
       "capabilities": ["load-balancing", "load-balancing.backend-servers"],
       "category": "load-balancing",
       "child_ids": ["xcsh-docs:resources:origin_pool:properties:origin_servers:custom_endpoint_object:endpoint"],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -7064,7 +7029,7 @@
       "path": "documentation/resources/origin_pool/properties/origin_servers/custom_endpoint_object/index.md",
       "product": "distributed-cloud",
       "provider_name": "origin_pool",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "resources",
       "registry_anchor": "canonical-1013001331311011-2021321010021121-0102302220012123-3123220033111332-2222001121311212-2212111320022231-0232110210110023-2030010232123321",
       "registry_path": "docs/guides/resources--origin_pool--reference--group-002.md",
@@ -7109,19 +7074,14 @@
       }
     },
     {
-      "aliases": [
-        "backend servers",
-        "origin servers",
-        "origin servers custom endpoint object endpoint",
-        "upstream servers"
-      ],
+      "aliases": ["origin servers custom endpoint object endpoint"],
       "body_bytes": 6348,
       "body_sha256": "sha256:f035faed1d8fa0ee5cb773d1e8f64dca537127687778a725dfb636602174bc44",
       "capabilities": ["load-balancing", "load-balancing.backend-servers"],
       "category": "load-balancing",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -7133,7 +7093,7 @@
       "path": "documentation/resources/origin_pool/properties/origin_servers/custom_endpoint_object/endpoint/index.md",
       "product": "distributed-cloud",
       "provider_name": "origin_pool",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "resources",
       "registry_anchor": "canonical-0323112201323111-2303311221000332-3212210303320022-1112320113010011-1130220013100022-0103333330220020-2003313100112011-1132200331103122",
       "registry_path": "docs/guides/resources--origin_pool--reference--group-002.md",
@@ -7206,7 +7166,7 @@
       }
     },
     {
-      "aliases": ["backend servers", "origin servers", "origin servers k8s service", "upstream servers"],
+      "aliases": ["origin servers k8s service"],
       "body_bytes": 5732,
       "body_sha256": "sha256:c4cc7cbb8149c9c728055bd375b576cf07bcfc5cfb58d92f6ec334b68f54c312",
       "capabilities": ["load-balancing", "load-balancing.backend-servers"],
@@ -7219,7 +7179,7 @@
         "xcsh-docs:resources:origin_pool:properties:origin_servers:k8s_service:vk8s_networks"
       ],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -7231,7 +7191,7 @@
       "path": "documentation/resources/origin_pool/properties/origin_servers/k8s_service/index.md",
       "product": "distributed-cloud",
       "provider_name": "origin_pool",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "resources",
       "registry_anchor": "canonical-2000133232313121-0012133003021110-2020130000113133-3222221313310322-1112103023033022-3023021201311203-3003323121302310-2122200312303300",
       "registry_path": "docs/guides/resources--origin_pool--reference--group-002.md",
@@ -7332,7 +7292,7 @@
           "type": "string"
         },
         {
-          "aliases": ["backend servers", "origin servers", "service name", "upstream servers"],
+          "aliases": ["service name"],
           "anchor": "schema-origin_servers--k8s_service--service_name",
           "description": "Exclusive with K8s service name of the origin server will be listed, including the namespace and cluster-ID. For vK8s services, you need to enter a string with the format servicename.namespace:example-namespace\"frontend\", namespace is \"speedtest\" and cluster-ID is \"prod\", then you will enter \"frontend.speedtest:prod\".",
           "document_id": "xcsh-docs:resources:origin_pool:properties:origin_servers:k8s_service",
@@ -7434,14 +7394,14 @@
       }
     },
     {
-      "aliases": ["backend servers", "origin servers", "origin servers k8s service inside network", "upstream servers"],
+      "aliases": ["origin servers k8s service inside network"],
       "body_bytes": 1467,
       "body_sha256": "sha256:e5a8e6d81d2fe23a44ae11c5a552ff69f784eb4895b3e0eb5101e7906aca7379",
       "capabilities": ["load-balancing", "load-balancing.backend-servers"],
       "category": "load-balancing",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -7453,7 +7413,7 @@
       "path": "documentation/resources/origin_pool/properties/origin_servers/k8s_service/inside_network/index.md",
       "product": "distributed-cloud",
       "provider_name": "origin_pool",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "resources",
       "registry_anchor": "canonical-0001033333001312-1110000223233102-1301013231111010-2202132121010201-0001211300033022-1122123130321202-1323202300302333-1310032301322011",
       "registry_path": "docs/guides/resources--origin_pool--reference--group-002.md",
@@ -7474,19 +7434,14 @@
       }
     },
     {
-      "aliases": [
-        "backend servers",
-        "origin servers",
-        "origin servers k8s service outside network",
-        "upstream servers"
-      ],
+      "aliases": ["origin servers k8s service outside network"],
       "body_bytes": 1471,
       "body_sha256": "sha256:cea7505a66e05cd2823f6bc16fb1f047c4e0e344ab6e2f630670c34b9032f338",
       "capabilities": ["load-balancing", "load-balancing.backend-servers"],
       "category": "load-balancing",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -7498,7 +7453,7 @@
       "path": "documentation/resources/origin_pool/properties/origin_servers/k8s_service/outside_network/index.md",
       "product": "distributed-cloud",
       "provider_name": "origin_pool",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "resources",
       "registry_anchor": "canonical-2032033302122022-1103111020001001-2303301333213001-3102322130322113-3113231020002223-3033131021221332-2021231222100202-3011311100002022",
       "registry_path": "docs/guides/resources--origin_pool--reference--group-002.md",
@@ -7519,7 +7474,7 @@
       }
     },
     {
-      "aliases": ["backend servers", "origin servers", "origin servers k8s service site locator", "upstream servers"],
+      "aliases": ["origin servers k8s service site locator"],
       "body_bytes": 2461,
       "body_sha256": "sha256:85c85f054e1d05398d5292955153cfe4c3f4c2074d25a8aa674bf2dc832d2307",
       "capabilities": ["load-balancing", "load-balancing.backend-servers"],
@@ -7529,7 +7484,7 @@
         "xcsh-docs:resources:origin_pool:properties:origin_servers:k8s_service:site_locator:virtual_site"
       ],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -7541,7 +7496,7 @@
       "path": "documentation/resources/origin_pool/properties/origin_servers/k8s_service/site_locator/index.md",
       "product": "distributed-cloud",
       "provider_name": "origin_pool",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "resources",
       "registry_anchor": "canonical-3332302001200033-1220112003110233-0022130323331023-3131130131013222-1033121010101012-2023030012220332-1102301113320022-2113123012211320",
       "registry_path": "docs/guides/resources--origin_pool--reference--group-002.md",
@@ -7626,19 +7581,14 @@
       }
     },
     {
-      "aliases": [
-        "backend servers",
-        "origin servers",
-        "origin servers k8s service site locator site",
-        "upstream servers"
-      ],
+      "aliases": ["origin servers k8s service site locator site"],
       "body_bytes": 6494,
       "body_sha256": "sha256:810da231546e5713c1ebfeae40639662f2426a6a9c63b5ef1281dd977db4523e",
       "capabilities": ["load-balancing", "load-balancing.backend-servers"],
       "category": "load-balancing",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -7650,7 +7600,7 @@
       "path": "documentation/resources/origin_pool/properties/origin_servers/k8s_service/site_locator/site/index.md",
       "product": "distributed-cloud",
       "provider_name": "origin_pool",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "resources",
       "registry_anchor": "canonical-3100133211320001-3312100030232320-3031301010230301-3330030203200230-0033031210223320-2010200033333010-3223011122110301-3320211111203031",
       "registry_path": "docs/guides/resources--origin_pool--reference--group-002.md",
@@ -7723,19 +7673,14 @@
       }
     },
     {
-      "aliases": [
-        "backend servers",
-        "origin servers",
-        "origin servers k8s service site locator virtual site",
-        "upstream servers"
-      ],
+      "aliases": ["origin servers k8s service site locator virtual site"],
       "body_bytes": 6542,
       "body_sha256": "sha256:86633e636a99227400686a7a924c42764714f7dafb9328835cc9ab097dacce53",
       "capabilities": ["load-balancing", "load-balancing.backend-servers"],
       "category": "load-balancing",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -7747,7 +7692,7 @@
       "path": "documentation/resources/origin_pool/properties/origin_servers/k8s_service/site_locator/virtual_site/index.md",
       "product": "distributed-cloud",
       "provider_name": "origin_pool",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "resources",
       "registry_anchor": "canonical-0022302012110203-2130330132230330-3101130123013031-2332313300310132-0313113133213110-3100010223101033-2233301002233221-1303300221201021",
       "registry_path": "docs/guides/resources--origin_pool--reference--group-002.md",
@@ -7820,7 +7765,7 @@
       }
     },
     {
-      "aliases": ["backend servers", "origin servers", "origin servers k8s service snat pool", "upstream servers"],
+      "aliases": ["origin servers k8s service snat pool"],
       "body_bytes": 2406,
       "body_sha256": "sha256:5dbc023906674e96af3e7318a4bed16fa723bb323b837f3093629959b0169c44",
       "capabilities": ["load-balancing", "load-balancing.backend-servers"],
@@ -7830,7 +7775,7 @@
         "xcsh-docs:resources:origin_pool:properties:origin_servers:k8s_service:snat_pool:snat_pool"
       ],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -7842,7 +7787,7 @@
       "path": "documentation/resources/origin_pool/properties/origin_servers/k8s_service/snat_pool/index.md",
       "product": "distributed-cloud",
       "provider_name": "origin_pool",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "resources",
       "registry_anchor": "canonical-2201230313322101-1312003232333023-0103301123101322-2112130013322233-1332230303023002-1110333220300031-2210012332300023-3202121221332102",
       "registry_path": "docs/guides/resources--origin_pool--reference--group-002.md",
@@ -7909,19 +7854,14 @@
       }
     },
     {
-      "aliases": [
-        "backend servers",
-        "origin servers",
-        "origin servers k8s service snat pool no snat pool",
-        "upstream servers"
-      ],
+      "aliases": ["origin servers k8s service snat pool no snat pool"],
       "body_bytes": 1668,
       "body_sha256": "sha256:00105fff7c60cc8ec04808bf14da4e00365015326cd786a8bd669d4ee94f000d",
       "capabilities": ["load-balancing", "load-balancing.backend-servers"],
       "category": "load-balancing",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -7933,7 +7873,7 @@
       "path": "documentation/resources/origin_pool/properties/origin_servers/k8s_service/snat_pool/no_snat_pool/index.md",
       "product": "distributed-cloud",
       "provider_name": "origin_pool",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "resources",
       "registry_anchor": "canonical-3120030123300002-3302220202331111-2130210203032133-1210003121120212-1331220113313303-3023331330303323-2302302121321021-1131001030133123",
       "registry_path": "docs/guides/resources--origin_pool--reference--group-002.md",
@@ -7954,19 +7894,14 @@
       }
     },
     {
-      "aliases": [
-        "backend servers",
-        "origin servers",
-        "origin servers k8s service snat pool snat pool",
-        "upstream servers"
-      ],
+      "aliases": ["origin servers k8s service snat pool snat pool"],
       "body_bytes": 2795,
       "body_sha256": "sha256:69675e58c037975e1727c7e349df261f5611ba9e573fe7b0b1eb71ce1225fd74",
       "capabilities": ["load-balancing", "load-balancing.backend-servers"],
       "category": "load-balancing",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -7978,7 +7913,7 @@
       "path": "documentation/resources/origin_pool/properties/origin_servers/k8s_service/snat_pool/snat_pool/index.md",
       "product": "distributed-cloud",
       "provider_name": "origin_pool",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "resources",
       "registry_anchor": "canonical-0203100021110200-1222213130002321-1303223321201100-1222003111122102-3031102313132102-2212033122301233-3100012230012301-3221313203112130",
       "registry_path": "docs/guides/resources--origin_pool--reference--group-002.md",
@@ -8014,14 +7949,14 @@
       }
     },
     {
-      "aliases": ["backend servers", "origin servers", "origin servers k8s service vk8s networks", "upstream servers"],
+      "aliases": ["origin servers k8s service vk8s networks"],
       "body_bytes": 1463,
       "body_sha256": "sha256:a59359fe19c829dd587724d24779caee1deab4f7e91cc4ddf914b8d2736297d8",
       "capabilities": ["load-balancing", "load-balancing.backend-servers"],
       "category": "load-balancing",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -8033,7 +7968,7 @@
       "path": "documentation/resources/origin_pool/properties/origin_servers/k8s_service/vk8s_networks/index.md",
       "product": "distributed-cloud",
       "provider_name": "origin_pool",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "resources",
       "registry_anchor": "canonical-2010112100222333-2130310003111231-1311320001103301-0331012012231200-3121203332212212-1103022100102313-2310201311120330-2120010221201230",
       "registry_path": "docs/guides/resources--origin_pool--reference--group-002.md",
@@ -8054,7 +7989,7 @@
       }
     },
     {
-      "aliases": ["backend servers", "origin servers", "origin servers private ip", "upstream servers"],
+      "aliases": ["origin servers private ip"],
       "body_bytes": 4433,
       "body_sha256": "sha256:09cc5fa79f60b4528e6dbfd1b206e08687be982e13efbd8262b3c4f8fe5a6ccf",
       "capabilities": ["load-balancing", "load-balancing.backend-servers"],
@@ -8067,7 +8002,7 @@
         "xcsh-docs:resources:origin_pool:properties:origin_servers:private_ip:snat_pool"
       ],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -8079,7 +8014,7 @@
       "path": "documentation/resources/origin_pool/properties/origin_servers/private_ip/index.md",
       "product": "distributed-cloud",
       "provider_name": "origin_pool",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "resources",
       "registry_anchor": "canonical-0230123122031010-0231002312323012-1310211030230020-2100002130223132-3313222333000000-0212233130001122-3202122200300023-1011131120231003",
       "registry_path": "docs/guides/resources--origin_pool--reference--group-002.md",
@@ -8277,14 +8212,14 @@
       }
     },
     {
-      "aliases": ["backend servers", "origin servers", "origin servers private ip inside network", "upstream servers"],
+      "aliases": ["origin servers private ip inside network"],
       "body_bytes": 1461,
       "body_sha256": "sha256:4f75eae860a4288aa4da2237cc642511b2c252e7c577c48d28914f3e975e824f",
       "capabilities": ["load-balancing", "load-balancing.backend-servers"],
       "category": "load-balancing",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -8296,7 +8231,7 @@
       "path": "documentation/resources/origin_pool/properties/origin_servers/private_ip/inside_network/index.md",
       "product": "distributed-cloud",
       "provider_name": "origin_pool",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "resources",
       "registry_anchor": "canonical-2333033312003333-2020012201210130-2333321300102023-2223301201133333-1131320133122101-3322011331100320-1203013102230121-3220223120201200",
       "registry_path": "docs/guides/resources--origin_pool--reference--group-002.md",
@@ -8317,14 +8252,14 @@
       }
     },
     {
-      "aliases": ["backend servers", "origin servers", "origin servers private ip outside network", "upstream servers"],
+      "aliases": ["origin servers private ip outside network"],
       "body_bytes": 1465,
       "body_sha256": "sha256:12d03e76812a27be489962fe18eab0c4d06c6246dfb5147f69f85ff995d52a36",
       "capabilities": ["load-balancing", "load-balancing.backend-servers"],
       "category": "load-balancing",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -8336,7 +8271,7 @@
       "path": "documentation/resources/origin_pool/properties/origin_servers/private_ip/outside_network/index.md",
       "product": "distributed-cloud",
       "provider_name": "origin_pool",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "resources",
       "registry_anchor": "canonical-2332312302210220-3001332333131122-1100220121131321-2233230013312312-2320320220221301-1130102233012220-2120000130122303-2120113222003130",
       "registry_path": "docs/guides/resources--origin_pool--reference--group-002.md",
@@ -8357,14 +8292,14 @@
       }
     },
     {
-      "aliases": ["backend servers", "origin servers", "origin servers private ip segment", "upstream servers"],
+      "aliases": ["origin servers private ip segment"],
       "body_bytes": 6234,
       "body_sha256": "sha256:c9baa58857185b6588954df169727c812a138f2bf4497e493fc9dbd681bec15d",
       "capabilities": ["load-balancing", "load-balancing.backend-servers"],
       "category": "load-balancing",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -8376,7 +8311,7 @@
       "path": "documentation/resources/origin_pool/properties/origin_servers/private_ip/segment/index.md",
       "product": "distributed-cloud",
       "provider_name": "origin_pool",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "resources",
       "registry_anchor": "canonical-3330110221310112-1110312123133100-2123130300111320-2011312003131331-2323030230133212-2300303013130222-3200300203112331-0000030201112330",
       "registry_path": "docs/guides/resources--origin_pool--reference--group-002.md",
@@ -8449,7 +8384,7 @@
       }
     },
     {
-      "aliases": ["backend servers", "origin servers", "origin servers private ip site locator", "upstream servers"],
+      "aliases": ["origin servers private ip site locator"],
       "body_bytes": 2449,
       "body_sha256": "sha256:5aa7a1c5fcc03567ea411e94f31ec10b97c03b782c3a2227295b11ac949259a8",
       "capabilities": ["load-balancing", "load-balancing.backend-servers"],
@@ -8459,7 +8394,7 @@
         "xcsh-docs:resources:origin_pool:properties:origin_servers:private_ip:site_locator:virtual_site"
       ],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -8471,7 +8406,7 @@
       "path": "documentation/resources/origin_pool/properties/origin_servers/private_ip/site_locator/index.md",
       "product": "distributed-cloud",
       "provider_name": "origin_pool",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "resources",
       "registry_anchor": "canonical-1000032120021203-1313202131313321-2332131231320103-1101202113310332-1231010321113221-0311211102202130-1302223110320022-1103003330102200",
       "registry_path": "docs/guides/resources--origin_pool--reference--group-002.md",
@@ -8556,19 +8491,14 @@
       }
     },
     {
-      "aliases": [
-        "backend servers",
-        "origin servers",
-        "origin servers private ip site locator site",
-        "upstream servers"
-      ],
+      "aliases": ["origin servers private ip site locator site"],
       "body_bytes": 6483,
       "body_sha256": "sha256:05381e36afa9622d9c504dc82ae167a51f0478c39fd7bed42332b4c4977829d4",
       "capabilities": ["load-balancing", "load-balancing.backend-servers"],
       "category": "load-balancing",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -8580,7 +8510,7 @@
       "path": "documentation/resources/origin_pool/properties/origin_servers/private_ip/site_locator/site/index.md",
       "product": "distributed-cloud",
       "provider_name": "origin_pool",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "resources",
       "registry_anchor": "canonical-0033003220302032-1233233113310201-1221132212023222-0023132332022003-3233200113230112-0210031031003020-1120331220022312-1302013132002100",
       "registry_path": "docs/guides/resources--origin_pool--reference--group-002.md",
@@ -8653,19 +8583,14 @@
       }
     },
     {
-      "aliases": [
-        "backend servers",
-        "origin servers",
-        "origin servers private ip site locator virtual site",
-        "upstream servers"
-      ],
+      "aliases": ["origin servers private ip site locator virtual site"],
       "body_bytes": 6531,
       "body_sha256": "sha256:812adf0f423b4c3082a8b32424496ef45648807b78c977a2aa15bacede991052",
       "capabilities": ["load-balancing", "load-balancing.backend-servers"],
       "category": "load-balancing",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -8677,7 +8602,7 @@
       "path": "documentation/resources/origin_pool/properties/origin_servers/private_ip/site_locator/virtual_site/index.md",
       "product": "distributed-cloud",
       "provider_name": "origin_pool",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "resources",
       "registry_anchor": "canonical-2333130022331103-1112130211201220-0203022112321012-1323001330210201-2223232033131220-1223103200121120-2323132201200131-1232331312223321",
       "registry_path": "docs/guides/resources--origin_pool--reference--group-002.md",
@@ -8750,7 +8675,7 @@
       }
     },
     {
-      "aliases": ["backend servers", "origin servers", "origin servers private ip snat pool", "upstream servers"],
+      "aliases": ["origin servers private ip snat pool"],
       "body_bytes": 2394,
       "body_sha256": "sha256:70334df0138288f90c0e801fa63fc68ff461bfcd2d723eda08afce2c997d6875",
       "capabilities": ["load-balancing", "load-balancing.backend-servers"],
@@ -8760,7 +8685,7 @@
         "xcsh-docs:resources:origin_pool:properties:origin_servers:private_ip:snat_pool:snat_pool"
       ],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -8772,7 +8697,7 @@
       "path": "documentation/resources/origin_pool/properties/origin_servers/private_ip/snat_pool/index.md",
       "product": "distributed-cloud",
       "provider_name": "origin_pool",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "resources",
       "registry_anchor": "canonical-2203322130130331-0013113233122110-1033001232011010-2112001333020221-3201120301003311-0110310200231311-3321002311100001-1022132122001012",
       "registry_path": "docs/guides/resources--origin_pool--reference--group-002.md",
@@ -8839,19 +8764,14 @@
       }
     },
     {
-      "aliases": [
-        "backend servers",
-        "origin servers",
-        "origin servers private ip snat pool no snat pool",
-        "upstream servers"
-      ],
+      "aliases": ["origin servers private ip snat pool no snat pool"],
       "body_bytes": 1660,
       "body_sha256": "sha256:843ecdb2ebd22e49b778cdf58f86ca55375eb027b0a6f932a568dcd9351fab9e",
       "capabilities": ["load-balancing", "load-balancing.backend-servers"],
       "category": "load-balancing",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -8863,7 +8783,7 @@
       "path": "documentation/resources/origin_pool/properties/origin_servers/private_ip/snat_pool/no_snat_pool/index.md",
       "product": "distributed-cloud",
       "provider_name": "origin_pool",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "resources",
       "registry_anchor": "canonical-2223123321310311-0022101202202202-2313330102010022-2220011122020023-1030013111210103-1122131100131311-1000123233211222-1311201133113313",
       "registry_path": "docs/guides/resources--origin_pool--reference--group-002.md",
@@ -8884,19 +8804,14 @@
       }
     },
     {
-      "aliases": [
-        "backend servers",
-        "origin servers",
-        "origin servers private ip snat pool snat pool",
-        "upstream servers"
-      ],
+      "aliases": ["origin servers private ip snat pool snat pool"],
       "body_bytes": 2786,
       "body_sha256": "sha256:0f95295c7645649f10026396766aebf068dd4aea1714f5ca4ad00f1ea233aa10",
       "capabilities": ["load-balancing", "load-balancing.backend-servers"],
       "category": "load-balancing",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -8908,7 +8823,7 @@
       "path": "documentation/resources/origin_pool/properties/origin_servers/private_ip/snat_pool/snat_pool/index.md",
       "product": "distributed-cloud",
       "provider_name": "origin_pool",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "resources",
       "registry_anchor": "canonical-0223213203101123-1313311203312233-1030000202323301-1000222111110203-0212020020331110-0120321020133203-1022120113221100-3331221220332032",
       "registry_path": "docs/guides/resources--origin_pool--reference--group-002.md",
@@ -8944,7 +8859,7 @@
       }
     },
     {
-      "aliases": ["backend servers", "origin servers", "origin servers private name", "upstream servers"],
+      "aliases": ["origin servers private name"],
       "body_bytes": 6162,
       "body_sha256": "sha256:9ebfde5cd600d18b7466c6d0a6d704a6aa0e5bb3354ef323f5d08ac15d5964b3",
       "capabilities": ["load-balancing", "load-balancing.backend-servers"],
@@ -8957,7 +8872,7 @@
         "xcsh-docs:resources:origin_pool:properties:origin_servers:private_name:snat_pool"
       ],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -8969,7 +8884,7 @@
       "path": "documentation/resources/origin_pool/properties/origin_servers/private_name/index.md",
       "product": "distributed-cloud",
       "provider_name": "origin_pool",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "resources",
       "registry_anchor": "canonical-1133022131320232-3123302201233302-1212311001131130-2012010123333133-0102031133330232-1000330202203203-2203003330013202-1120202100000323",
       "registry_path": "docs/guides/resources--origin_pool--reference--group-002.md",
@@ -9189,19 +9104,14 @@
       }
     },
     {
-      "aliases": [
-        "backend servers",
-        "origin servers",
-        "origin servers private name inside network",
-        "upstream servers"
-      ],
+      "aliases": ["origin servers private name inside network"],
       "body_bytes": 1473,
       "body_sha256": "sha256:2b045e0d8c61a0ca99a6a3fe38095b40f78119f3ab243593a8857fb451338df5",
       "capabilities": ["load-balancing", "load-balancing.backend-servers"],
       "category": "load-balancing",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -9213,7 +9123,7 @@
       "path": "documentation/resources/origin_pool/properties/origin_servers/private_name/inside_network/index.md",
       "product": "distributed-cloud",
       "provider_name": "origin_pool",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "resources",
       "registry_anchor": "canonical-2203123102332202-2332013300310111-3022033222313002-2213133113121032-1122013013203332-2023020212333100-3023233133301122-0311232310323331",
       "registry_path": "docs/guides/resources--origin_pool--reference--group-002.md",
@@ -9234,19 +9144,14 @@
       }
     },
     {
-      "aliases": [
-        "backend servers",
-        "origin servers",
-        "origin servers private name outside network",
-        "upstream servers"
-      ],
+      "aliases": ["origin servers private name outside network"],
       "body_bytes": 1477,
       "body_sha256": "sha256:8e88fe5b7a5a430db69d59e565b7ce12e2c5c280095d01c89441783d060c5007",
       "capabilities": ["load-balancing", "load-balancing.backend-servers"],
       "category": "load-balancing",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -9258,7 +9163,7 @@
       "path": "documentation/resources/origin_pool/properties/origin_servers/private_name/outside_network/index.md",
       "product": "distributed-cloud",
       "provider_name": "origin_pool",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "resources",
       "registry_anchor": "canonical-3120201313033031-2111011302310031-3230023222102013-3032031102130021-1212010010233033-0030201131221331-0112102022203121-1231311201021120",
       "registry_path": "docs/guides/resources--origin_pool--reference--group-002.md",
@@ -9279,14 +9184,14 @@
       }
     },
     {
-      "aliases": ["backend servers", "origin servers", "origin servers private name segment", "upstream servers"],
+      "aliases": ["origin servers private name segment"],
       "body_bytes": 6252,
       "body_sha256": "sha256:f612261e2d86c0e27898cd5b96ce46e7d55ae9e535f5dc81dadee3ec8bf97d95",
       "capabilities": ["load-balancing", "load-balancing.backend-servers"],
       "category": "load-balancing",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -9298,7 +9203,7 @@
       "path": "documentation/resources/origin_pool/properties/origin_servers/private_name/segment/index.md",
       "product": "distributed-cloud",
       "provider_name": "origin_pool",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "resources",
       "registry_anchor": "canonical-1200322213030001-3020120330301111-1323013131020133-1113202333233202-1000222302203230-1223201032001001-3323222331313231-1020213223310111",
       "registry_path": "docs/guides/resources--origin_pool--reference--group-002.md",
@@ -9371,7 +9276,7 @@
       }
     },
     {
-      "aliases": ["backend servers", "origin servers", "origin servers private name site locator", "upstream servers"],
+      "aliases": ["origin servers private name site locator"],
       "body_bytes": 2473,
       "body_sha256": "sha256:009f3d541716b100beaccb5edc595cb31549f56733d8918e09f0f54360044bda",
       "capabilities": ["load-balancing", "load-balancing.backend-servers"],
@@ -9381,7 +9286,7 @@
         "xcsh-docs:resources:origin_pool:properties:origin_servers:private_name:site_locator:virtual_site"
       ],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -9393,7 +9298,7 @@
       "path": "documentation/resources/origin_pool/properties/origin_servers/private_name/site_locator/index.md",
       "product": "distributed-cloud",
       "provider_name": "origin_pool",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "resources",
       "registry_anchor": "canonical-0212303223003130-1332322112033213-1131000022003312-2202112033132223-0122030223312100-3230301312001113-2030313001123011-1232322003133222",
       "registry_path": "docs/guides/resources--origin_pool--reference--group-002.md",
@@ -9478,19 +9383,14 @@
       }
     },
     {
-      "aliases": [
-        "backend servers",
-        "origin servers",
-        "origin servers private name site locator site",
-        "upstream servers"
-      ],
+      "aliases": ["origin servers private name site locator site"],
       "body_bytes": 6505,
       "body_sha256": "sha256:4282531e699c0a10fd063e49ca4ec58ad6b04217ac5e1fd4a4c2bed007c9507a",
       "capabilities": ["load-balancing", "load-balancing.backend-servers"],
       "category": "load-balancing",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -9502,7 +9402,7 @@
       "path": "documentation/resources/origin_pool/properties/origin_servers/private_name/site_locator/site/index.md",
       "product": "distributed-cloud",
       "provider_name": "origin_pool",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "resources",
       "registry_anchor": "canonical-3202010311011020-1202031221320113-3122030101221230-2200102322211100-2123330202232233-3001123100320133-3112032000130220-0233002310102130",
       "registry_path": "docs/guides/resources--origin_pool--reference--group-002.md",
@@ -9575,19 +9475,14 @@
       }
     },
     {
-      "aliases": [
-        "backend servers",
-        "origin servers",
-        "origin servers private name site locator virtual site",
-        "upstream servers"
-      ],
+      "aliases": ["origin servers private name site locator virtual site"],
       "body_bytes": 6553,
       "body_sha256": "sha256:e7e3d76f8a64dd8160d13a76cd994202d61bf663b80aeb4bcd54270c0e6928bd",
       "capabilities": ["load-balancing", "load-balancing.backend-servers"],
       "category": "load-balancing",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -9599,7 +9494,7 @@
       "path": "documentation/resources/origin_pool/properties/origin_servers/private_name/site_locator/virtual_site/index.md",
       "product": "distributed-cloud",
       "provider_name": "origin_pool",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "resources",
       "registry_anchor": "canonical-0310120101132210-0322321121303212-2123011032321233-0312231230321133-2231302322012302-2001330223222303-0223221321130131-3023110131010102",
       "registry_path": "docs/guides/resources--origin_pool--reference--group-002.md",
@@ -9672,7 +9567,7 @@
       }
     },
     {
-      "aliases": ["backend servers", "origin servers", "origin servers private name snat pool", "upstream servers"],
+      "aliases": ["origin servers private name snat pool"],
       "body_bytes": 2418,
       "body_sha256": "sha256:2cc185cdd33242b31b3afc7acb0005b09647152695b334fe0ce8e2b97e9fd731",
       "capabilities": ["load-balancing", "load-balancing.backend-servers"],
@@ -9682,7 +9577,7 @@
         "xcsh-docs:resources:origin_pool:properties:origin_servers:private_name:snat_pool:snat_pool"
       ],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -9694,7 +9589,7 @@
       "path": "documentation/resources/origin_pool/properties/origin_servers/private_name/snat_pool/index.md",
       "product": "distributed-cloud",
       "provider_name": "origin_pool",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "resources",
       "registry_anchor": "canonical-0321112302111110-2332032022123300-3223231331023321-2023012232200220-1111231331321130-2333013103212300-2310131332030223-2112023131320203",
       "registry_path": "docs/guides/resources--origin_pool--reference--group-002.md",
@@ -9761,19 +9656,14 @@
       }
     },
     {
-      "aliases": [
-        "backend servers",
-        "origin servers",
-        "origin servers private name snat pool no snat pool",
-        "upstream servers"
-      ],
+      "aliases": ["origin servers private name snat pool no snat pool"],
       "body_bytes": 1676,
       "body_sha256": "sha256:063906e911774dd19df7c2bdac1013f521cc8b69b5e2ab88cb784d6e4d0bc3bf",
       "capabilities": ["load-balancing", "load-balancing.backend-servers"],
       "category": "load-balancing",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -9785,7 +9675,7 @@
       "path": "documentation/resources/origin_pool/properties/origin_servers/private_name/snat_pool/no_snat_pool/index.md",
       "product": "distributed-cloud",
       "provider_name": "origin_pool",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "resources",
       "registry_anchor": "canonical-3130023221023210-3020131101000132-2331203133232103-1230023310301102-2223220110200130-0220200112120302-3310132133311233-3200112023312112",
       "registry_path": "docs/guides/resources--origin_pool--reference--group-002.md",
@@ -9806,19 +9696,14 @@
       }
     },
     {
-      "aliases": [
-        "backend servers",
-        "origin servers",
-        "origin servers private name snat pool snat pool",
-        "upstream servers"
-      ],
+      "aliases": ["origin servers private name snat pool snat pool"],
       "body_bytes": 2804,
       "body_sha256": "sha256:92033cba4aa790bb18a7c1aeb7e796875d49d3f06d6f4f00cae454752f5ad8a4",
       "capabilities": ["load-balancing", "load-balancing.backend-servers"],
       "category": "load-balancing",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -9830,7 +9715,7 @@
       "path": "documentation/resources/origin_pool/properties/origin_servers/private_name/snat_pool/snat_pool/index.md",
       "product": "distributed-cloud",
       "provider_name": "origin_pool",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "resources",
       "registry_anchor": "canonical-2221131331021133-1131233031222100-2123110022013001-1003330121330001-2001002310023110-1111101220230032-3332220113200220-3133303312002021",
       "registry_path": "docs/guides/resources--origin_pool--reference--group-002.md",
@@ -9866,14 +9751,14 @@
       }
     },
     {
-      "aliases": ["backend servers", "origin servers", "origin servers public ip", "upstream servers"],
+      "aliases": ["origin servers public ip"],
       "body_bytes": 2226,
       "body_sha256": "sha256:0e4c65c75e067220678c116ae75fd9b010daa14c8e553aa8b8fd3e1d5f893f4c",
       "capabilities": ["load-balancing", "load-balancing.backend-servers"],
       "category": "load-balancing",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -9885,7 +9770,7 @@
       "path": "documentation/resources/origin_pool/properties/origin_servers/public_ip/index.md",
       "product": "distributed-cloud",
       "provider_name": "origin_pool",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "resources",
       "registry_anchor": "canonical-2012202102220023-2022233311031000-2131130202320231-1200001300020311-2032322312323113-2110322301123032-3132132030003331-0200031213133012",
       "registry_path": "docs/guides/resources--origin_pool--reference--group-002.md",
@@ -9921,14 +9806,14 @@
       }
     },
     {
-      "aliases": ["backend servers", "origin servers", "origin servers public name", "upstream servers"],
+      "aliases": ["origin servers public name"],
       "body_bytes": 4212,
       "body_sha256": "sha256:3cf132c02cd078af7cba9632648ff4c1e1b9540644652791277992a3d51d0bd5",
       "capabilities": ["load-balancing", "load-balancing.backend-servers"],
       "category": "load-balancing",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -9940,7 +9825,7 @@
       "path": "documentation/resources/origin_pool/properties/origin_servers/public_name/index.md",
       "product": "distributed-cloud",
       "provider_name": "origin_pool",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "resources",
       "registry_anchor": "canonical-0101123032132221-2211032101001201-1000311221111203-2133111213011322-0333020102301313-3100023301322230-0212222321323322-2203130310321323",
       "registry_path": "docs/guides/resources--origin_pool--reference--group-002.md",
@@ -9999,14 +9884,14 @@
       }
     },
     {
-      "aliases": ["backend servers", "origin servers", "origin servers vn private ip", "upstream servers"],
+      "aliases": ["origin servers vn private ip"],
       "body_bytes": 2608,
       "body_sha256": "sha256:28090c04175ec2f342646687159e2b0fd8c4315603f40a66235a791e9e7f8c12",
       "capabilities": ["load-balancing", "load-balancing.backend-servers"],
       "category": "load-balancing",
       "child_ids": ["xcsh-docs:resources:origin_pool:properties:origin_servers:vn_private_ip:virtual_network"],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -10018,7 +9903,7 @@
       "path": "documentation/resources/origin_pool/properties/origin_servers/vn_private_ip/index.md",
       "product": "distributed-cloud",
       "provider_name": "origin_pool",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "resources",
       "registry_anchor": "canonical-2130122232222011-2300321030110011-1031031023222200-1001031200312013-2120002123011312-1310133101323000-3001103213310123-2023322321313313",
       "registry_path": "docs/guides/resources--origin_pool--reference--group-002.md",
@@ -10077,19 +9962,14 @@
       }
     },
     {
-      "aliases": [
-        "backend servers",
-        "origin servers",
-        "origin servers vn private ip virtual network",
-        "upstream servers"
-      ],
+      "aliases": ["origin servers vn private ip virtual network"],
       "body_bytes": 6309,
       "body_sha256": "sha256:53894c6bfe11df4caabe5af4496d5b14d5fdea9c23cf93fb80564be2c822226e",
       "capabilities": ["load-balancing", "load-balancing.backend-servers"],
       "category": "load-balancing",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -10101,7 +9981,7 @@
       "path": "documentation/resources/origin_pool/properties/origin_servers/vn_private_ip/virtual_network/index.md",
       "product": "distributed-cloud",
       "provider_name": "origin_pool",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "resources",
       "registry_anchor": "canonical-3122100030131322-0113010211030321-3203333130200133-1111310203002032-0020302020200012-0010322030112332-3310313213332211-3231002332012330",
       "registry_path": "docs/guides/resources--origin_pool--reference--group-002.md",
@@ -10174,14 +10054,14 @@
       }
     },
     {
-      "aliases": ["backend servers", "origin servers", "origin servers vn private name", "upstream servers"],
+      "aliases": ["origin servers vn private name"],
       "body_bytes": 3168,
       "body_sha256": "sha256:68ed4f2d29576358462891bdf16523396eecd56edcd41647541516934846545d",
       "capabilities": ["load-balancing", "load-balancing.backend-servers"],
       "category": "load-balancing",
       "child_ids": ["xcsh-docs:resources:origin_pool:properties:origin_servers:vn_private_name:private_network"],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -10193,7 +10073,7 @@
       "path": "documentation/resources/origin_pool/properties/origin_servers/vn_private_name/index.md",
       "product": "distributed-cloud",
       "provider_name": "origin_pool",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "resources",
       "registry_anchor": "canonical-1013210030120200-0300013133323110-0211222301220003-2111231123223232-2130003221211000-0010213100230320-3322112211323121-2102120111321112",
       "registry_path": "docs/guides/resources--origin_pool--reference--group-002.md",
@@ -10261,19 +10141,14 @@
       }
     },
     {
-      "aliases": [
-        "backend servers",
-        "origin servers",
-        "origin servers vn private name private network",
-        "upstream servers"
-      ],
+      "aliases": ["origin servers vn private name private network"],
       "body_bytes": 6327,
       "body_sha256": "sha256:c42b3ba5915d226cf4a8f2e369c7aef21a428f41d29880ae69154761d4c4bcb7",
       "capabilities": ["load-balancing", "load-balancing.backend-servers"],
       "category": "load-balancing",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -10285,7 +10160,7 @@
       "path": "documentation/resources/origin_pool/properties/origin_servers/vn_private_name/private_network/index.md",
       "product": "distributed-cloud",
       "provider_name": "origin_pool",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "resources",
       "registry_anchor": "canonical-3313202330121310-0332121101021311-0020212111023330-2010022013100332-0131010011102330-1300031011320320-3223132122001110-3220213212120000",
       "registry_path": "docs/guides/resources--origin_pool--reference--group-002.md",
@@ -10365,7 +10240,7 @@
       "category": "load-balancing",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -10377,7 +10252,7 @@
       "path": "documentation/resources/origin_pool/properties/same_as_endpoint_port/index.md",
       "product": "distributed-cloud",
       "provider_name": "origin_pool",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "resources",
       "registry_anchor": "canonical-3110220132232202-3223311123032232-3333333030113010-2133200310011011-3010332223210221-3113000210333321-1221001103212033-0210001201112033",
       "registry_path": "docs/guides/resources--origin_pool--reference--group-002.md",
@@ -10405,7 +10280,7 @@
       "category": "load-balancing",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -10417,7 +10292,7 @@
       "path": "documentation/resources/origin_pool/properties/timeouts/index.md",
       "product": "distributed-cloud",
       "provider_name": "origin_pool",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "resources",
       "registry_anchor": "canonical-1322321330320022-2021311033121221-0210313231232031-3331330210233122-2333300130103032-3230223313322102-2023330330022001-1110122123303032",
       "registry_path": "docs/guides/resources--origin_pool--reference--group-002.md",
@@ -10505,7 +10380,7 @@
         "xcsh-docs:resources:origin_pool:properties:upstream_conn_pool_reuse_type:enable_conn_pool_reuse"
       ],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -10517,7 +10392,7 @@
       "path": "documentation/resources/origin_pool/properties/upstream_conn_pool_reuse_type/index.md",
       "product": "distributed-cloud",
       "provider_name": "origin_pool",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "resources",
       "registry_anchor": "canonical-2110330210320132-2322030312200020-2112323000003130-3200322302113022-0330212202312000-2122312023332311-1230210101310023-3020210011330320",
       "registry_path": "docs/guides/resources--origin_pool--reference--group-003.md",
@@ -10591,7 +10466,7 @@
       "category": "load-balancing",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -10603,7 +10478,7 @@
       "path": "documentation/resources/origin_pool/properties/upstream_conn_pool_reuse_type/disable_conn_pool_reuse/index.md",
       "product": "distributed-cloud",
       "provider_name": "origin_pool",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "resources",
       "registry_anchor": "canonical-0333220323011211-3002123102021320-3000100303102013-1201002102221100-3121001022112320-0330121330301200-1020213332211223-0312133001222323",
       "registry_path": "docs/guides/resources--origin_pool--reference--group-003.md",
@@ -10631,7 +10506,7 @@
       "category": "load-balancing",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -10643,7 +10518,7 @@
       "path": "documentation/resources/origin_pool/properties/upstream_conn_pool_reuse_type/enable_conn_pool_reuse/index.md",
       "product": "distributed-cloud",
       "provider_name": "origin_pool",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "resources",
       "registry_anchor": "canonical-3131222111103001-1022113210301001-2003220322321311-2101301230133010-3001313222333012-1033323302303222-3113132123323330-0121133313120301",
       "registry_path": "docs/guides/resources--origin_pool--reference--group-003.md",
@@ -10683,7 +10558,7 @@
         "xcsh-docs:resources:origin_pool:properties:use_tls:volterra_trusted_ca"
       ],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -10695,7 +10570,7 @@
       "path": "documentation/resources/origin_pool/properties/use_tls/index.md",
       "product": "distributed-cloud",
       "provider_name": "origin_pool",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "resources",
       "registry_anchor": "canonical-0120300213231231-1220111330332003-0132322111012203-1003133000222320-0301223123302330-2321023020333113-0032332321003313-1233232210333133",
       "registry_path": "docs/guides/resources--origin_pool--reference--group-003.md",
@@ -11121,7 +10996,7 @@
           "type": "object"
         },
         {
-          "aliases": ["cert", "certificate", "existing certificates", "tls certificates", "use mtls"],
+          "aliases": ["use mtls"],
           "anchor": "section",
           "description": "MTLS Client Certificate.",
           "document_id": "xcsh-docs:resources:origin_pool:properties:use_tls:use_mtls",
@@ -11231,7 +11106,7 @@
       "category": "load-balancing",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -11243,7 +11118,7 @@
       "path": "documentation/resources/origin_pool/properties/use_tls/default_session_key_caching/index.md",
       "product": "distributed-cloud",
       "provider_name": "origin_pool",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "resources",
       "registry_anchor": "canonical-3123111322223130-2113231002312322-2021111203021000-2221013312223310-1330300113321002-0023103113202103-2200320023203012-2100211113110032",
       "registry_path": "docs/guides/resources--origin_pool--reference--group-003.md",
@@ -11271,7 +11146,7 @@
       "category": "load-balancing",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -11283,7 +11158,7 @@
       "path": "documentation/resources/origin_pool/properties/use_tls/disable_session_key_caching/index.md",
       "product": "distributed-cloud",
       "provider_name": "origin_pool",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "resources",
       "registry_anchor": "canonical-0231110120222102-3131002013331211-2033120103001302-0200303313101013-0110101211131112-2230120011012022-0333010030130311-3003202112111112",
       "registry_path": "docs/guides/resources--origin_pool--reference--group-003.md",
@@ -11311,7 +11186,7 @@
       "category": "load-balancing",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -11323,7 +11198,7 @@
       "path": "documentation/resources/origin_pool/properties/use_tls/disable_sni/index.md",
       "product": "distributed-cloud",
       "provider_name": "origin_pool",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "resources",
       "registry_anchor": "canonical-2311231331030322-0130021030000103-0232213212020223-2002202301113003-2232100021031011-2301222221032322-1112230231312120-2003313001133103",
       "registry_path": "docs/guides/resources--origin_pool--reference--group-003.md",
@@ -11351,7 +11226,7 @@
       "category": "load-balancing",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -11363,7 +11238,7 @@
       "path": "documentation/resources/origin_pool/properties/use_tls/no_mtls/index.md",
       "product": "distributed-cloud",
       "provider_name": "origin_pool",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "resources",
       "registry_anchor": "canonical-1020313213111330-2202000101202102-0120200210030112-2323310203330012-1213220013320322-3032000023223012-0120133301120131-2122220311110221",
       "registry_path": "docs/guides/resources--origin_pool--reference--group-003.md",
@@ -11391,7 +11266,7 @@
       "category": "load-balancing",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -11403,7 +11278,7 @@
       "path": "documentation/resources/origin_pool/properties/use_tls/skip_server_verification/index.md",
       "product": "distributed-cloud",
       "provider_name": "origin_pool",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "resources",
       "registry_anchor": "canonical-0102332020023212-1113031013000102-1232320111330022-1303001202020211-2121331221103003-2023022213211102-2323031210232300-1021020203331201",
       "registry_path": "docs/guides/resources--origin_pool--reference--group-003.md",
@@ -11436,7 +11311,7 @@
         "xcsh-docs:resources:origin_pool:properties:use_tls:tls_config:medium_security"
       ],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -11448,7 +11323,7 @@
       "path": "documentation/resources/origin_pool/properties/use_tls/tls_config/index.md",
       "product": "distributed-cloud",
       "provider_name": "origin_pool",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "resources",
       "registry_anchor": "canonical-1112222132222202-3113101010112012-2301033031100332-1302203012210011-1202110221111220-2012033212332201-1202112331303003-3201200232221131",
       "registry_path": "docs/guides/resources--origin_pool--reference--group-003.md",
@@ -11639,7 +11514,7 @@
       "category": "load-balancing",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -11651,7 +11526,7 @@
       "path": "documentation/resources/origin_pool/properties/use_tls/tls_config/custom_security/index.md",
       "product": "distributed-cloud",
       "provider_name": "origin_pool",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "resources",
       "registry_anchor": "canonical-3321220300323330-2011010022013312-3223331223303132-1321323020132210-3213103013213101-1222330223012211-3320101022222330-3122312021321231",
       "registry_path": "docs/guides/resources--origin_pool--reference--group-003.md",
@@ -11731,7 +11606,7 @@
       "category": "load-balancing",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -11743,7 +11618,7 @@
       "path": "documentation/resources/origin_pool/properties/use_tls/tls_config/default_security/index.md",
       "product": "distributed-cloud",
       "provider_name": "origin_pool",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "resources",
       "registry_anchor": "canonical-0010312130132201-0000033312203031-1330213232320210-3223020302013121-1122301103331002-1313101011110111-1312203122120132-1000132012313312",
       "registry_path": "docs/guides/resources--origin_pool--reference--group-003.md",
@@ -11771,7 +11646,7 @@
       "category": "load-balancing",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -11783,7 +11658,7 @@
       "path": "documentation/resources/origin_pool/properties/use_tls/tls_config/low_security/index.md",
       "product": "distributed-cloud",
       "provider_name": "origin_pool",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "resources",
       "registry_anchor": "canonical-2112232222000230-2202322132200020-1311102031112203-1313302300230002-2212023020201330-1020012331320010-1022320203311321-1211131311200110",
       "registry_path": "docs/guides/resources--origin_pool--reference--group-003.md",
@@ -11811,7 +11686,7 @@
       "category": "load-balancing",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -11823,7 +11698,7 @@
       "path": "documentation/resources/origin_pool/properties/use_tls/tls_config/medium_security/index.md",
       "product": "distributed-cloud",
       "provider_name": "origin_pool",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "resources",
       "registry_anchor": "canonical-3313302220222212-1100021000102303-2330332310012332-1332212023201003-3011302302000011-0332220203323323-0312122331230232-0210023210120221",
       "registry_path": "docs/guides/resources--origin_pool--reference--group-003.md",
@@ -11851,7 +11726,7 @@
       "category": "load-balancing",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -11863,7 +11738,7 @@
       "path": "documentation/resources/origin_pool/properties/use_tls/use_host_header_as_sni/index.md",
       "product": "distributed-cloud",
       "provider_name": "origin_pool",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "resources",
       "registry_anchor": "canonical-3320212303200311-1302210200012223-1223330320011323-0032131002221211-3123001022122222-2330223333111000-2211103232202111-1032322131022022",
       "registry_path": "docs/guides/resources--origin_pool--reference--group-003.md",
@@ -11884,14 +11759,14 @@
       }
     },
     {
-      "aliases": ["cert", "certificate", "existing certificates", "tls certificates", "use tls use mtls"],
+      "aliases": ["use tls use mtls"],
       "body_bytes": 1661,
       "body_sha256": "sha256:17d178ac6efec940c9b3555f50cf1cdd89d6b8ea4b9aa5fe5303f4e18d5f58c7",
       "capabilities": ["load-balancing"],
       "category": "load-balancing",
       "child_ids": ["xcsh-docs:resources:origin_pool:properties:use_tls:use_mtls:tls_certificates"],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -11903,7 +11778,7 @@
       "path": "documentation/resources/origin_pool/properties/use_tls/use_mtls/index.md",
       "product": "distributed-cloud",
       "provider_name": "origin_pool",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "resources",
       "registry_anchor": "canonical-1120222222033012-2312123120002033-1111012231100123-0022300321132031-1012231010221201-0202330220031110-1332122100233330-3222113110201011",
       "registry_path": "docs/guides/resources--origin_pool--reference--group-003.md",
@@ -12023,7 +11898,7 @@
         "xcsh-docs:resources:origin_pool:properties:use_tls:use_mtls:tls_certificates:use_system_defaults"
       ],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -12035,7 +11910,7 @@
       "path": "documentation/resources/origin_pool/properties/use_tls/use_mtls/tls_certificates/index.md",
       "product": "distributed-cloud",
       "provider_name": "origin_pool",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "resources",
       "registry_anchor": "canonical-3110323203232332-1133011302100203-3022100131002020-2323322113213222-2100030010302202-0001013131230231-0323112011203133-0313303000312320",
       "registry_path": "docs/guides/resources--origin_pool--reference--group-003.md",
@@ -12139,7 +12014,7 @@
           "type": "object"
         },
         {
-          "aliases": ["cert", "certificate", "description spec", "existing certificates", "tls certificates"],
+          "aliases": ["description spec"],
           "anchor": "schema-use_tls--use_mtls--tls_certificates--description_spec",
           "description": "Description. Description for the certificate.",
           "document_id": "xcsh-docs:resources:origin_pool:properties:use_tls:use_mtls:tls_certificates",
@@ -12224,20 +12099,14 @@
       }
     },
     {
-      "aliases": [
-        "cert",
-        "certificate",
-        "existing certificates",
-        "tls certificates",
-        "use tls use mtls tls certificates custom hash algorithms"
-      ],
+      "aliases": ["use tls use mtls tls certificates custom hash algorithms"],
       "body_bytes": 3271,
       "body_sha256": "sha256:ac46f0ddf3cb59e1afa62937d4932b30fd6487dc0e22dd25f5416ad933233784",
       "capabilities": ["load-balancing"],
       "category": "load-balancing",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -12249,7 +12118,7 @@
       "path": "documentation/resources/origin_pool/properties/use_tls/use_mtls/tls_certificates/custom_hash_algorithms/index.md",
       "product": "distributed-cloud",
       "provider_name": "origin_pool",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "resources",
       "registry_anchor": "canonical-2202201331300211-2223113011101021-2230232031101313-3320210222212322-2320120330232023-3311301020001300-0001123200002210-3133121001210210",
       "registry_path": "docs/guides/resources--origin_pool--reference--group-003.md",
@@ -12294,20 +12163,14 @@
       }
     },
     {
-      "aliases": [
-        "cert",
-        "certificate",
-        "existing certificates",
-        "tls certificates",
-        "use tls use mtls tls certificates disable ocsp stapling"
-      ],
+      "aliases": ["use tls use mtls tls certificates disable ocsp stapling"],
       "body_bytes": 1652,
       "body_sha256": "sha256:8187dc605e6a4c9e5c6a1418869d8d4cd84054e9da29e18f699c0f7706b3fa33",
       "capabilities": ["load-balancing"],
       "category": "load-balancing",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -12319,7 +12182,7 @@
       "path": "documentation/resources/origin_pool/properties/use_tls/use_mtls/tls_certificates/disable_ocsp_stapling/index.md",
       "product": "distributed-cloud",
       "provider_name": "origin_pool",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "resources",
       "registry_anchor": "canonical-2001300233233210-3100202223023232-0211131310311312-1300020331133133-2010310112330200-2222202113022230-2213023222332303-3320223201331222",
       "registry_path": "docs/guides/resources--origin_pool--reference--group-003.md",
@@ -12340,13 +12203,7 @@
       }
     },
     {
-      "aliases": [
-        "cert",
-        "certificate",
-        "existing certificates",
-        "tls certificates",
-        "use tls use mtls tls certificates private key"
-      ],
+      "aliases": ["use tls use mtls tls certificates private key"],
       "body_bytes": 2717,
       "body_sha256": "sha256:5ffb9ea904913eac81421fa7ffd1c48c266ba8343170505f00cd86873f23e8db",
       "capabilities": ["load-balancing"],
@@ -12356,7 +12213,7 @@
         "xcsh-docs:resources:origin_pool:properties:use_tls:use_mtls:tls_certificates:private_key:clear_secret_info"
       ],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -12368,7 +12225,7 @@
       "path": "documentation/resources/origin_pool/properties/use_tls/use_mtls/tls_certificates/private_key/index.md",
       "product": "distributed-cloud",
       "provider_name": "origin_pool",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "resources",
       "registry_anchor": "canonical-3113313001013311-3301020000020230-0113331133101031-2333002303322011-0321223332133002-0313202012121001-3102010030122110-2303221132303312",
       "registry_path": "docs/guides/resources--origin_pool--reference--group-003.md",
@@ -12453,20 +12310,14 @@
       }
     },
     {
-      "aliases": [
-        "cert",
-        "certificate",
-        "existing certificates",
-        "tls certificates",
-        "use tls use mtls tls certificates private key blindfold secret info"
-      ],
+      "aliases": ["use tls use mtls tls certificates private key blindfold secret info"],
       "body_bytes": 5316,
       "body_sha256": "sha256:0e8b4632ce895e1ed80b472511ae258b9024d59a1615f78a34eb69acbdaf1319",
       "capabilities": ["load-balancing"],
       "category": "load-balancing",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -12478,7 +12329,7 @@
       "path": "documentation/resources/origin_pool/properties/use_tls/use_mtls/tls_certificates/private_key/blindfold_secret_info/index.md",
       "product": "distributed-cloud",
       "provider_name": "origin_pool",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "resources",
       "registry_anchor": "canonical-2232321113220211-3021203013022313-0103003330222203-1320101212320233-2102003030032200-2112310121230223-0321133201110130-3112221230223000",
       "registry_path": "docs/guides/resources--origin_pool--reference--group-003.md",
@@ -12497,7 +12348,7 @@
       "schema_path": ["use_tls", "use_mtls", "tls_certificates", "private_key", "blindfold_secret_info"],
       "sections": [
         {
-          "aliases": ["backend servers", "decryption provider", "origin servers", "upstream servers"],
+          "aliases": ["decryption provider"],
           "anchor": "schema-use_tls--use_mtls--tls_certificates--private_key--blindfold_secret_info--decryption_provider",
           "description": "Name of the Secret Management Access object that contains information about the backend Secret Management service.",
           "document_id": "xcsh-docs:resources:origin_pool:properties:use_tls:use_mtls:tls_certificates:private_key:blindfold_secret_info",
@@ -12572,20 +12423,14 @@
       }
     },
     {
-      "aliases": [
-        "cert",
-        "certificate",
-        "existing certificates",
-        "tls certificates",
-        "use tls use mtls tls certificates private key clear secret info"
-      ],
+      "aliases": ["use tls use mtls tls certificates private key clear secret info"],
       "body_bytes": 4179,
       "body_sha256": "sha256:4584df21238ca1386b5b763cc24a1a105f13c4a85c783f0e9fb5940002cffc37",
       "capabilities": ["load-balancing"],
       "category": "load-balancing",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -12597,7 +12442,7 @@
       "path": "documentation/resources/origin_pool/properties/use_tls/use_mtls/tls_certificates/private_key/clear_secret_info/index.md",
       "product": "distributed-cloud",
       "provider_name": "origin_pool",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "resources",
       "registry_anchor": "canonical-1212011202233101-3332323031211311-1202332113313113-2110231000330301-3003121233113330-1010203302100333-0003231332212333-2130000310102000",
       "registry_path": "docs/guides/resources--origin_pool--reference--group-003.md",
@@ -12663,20 +12508,14 @@
       }
     },
     {
-      "aliases": [
-        "cert",
-        "certificate",
-        "existing certificates",
-        "tls certificates",
-        "use tls use mtls tls certificates use system defaults"
-      ],
+      "aliases": ["use tls use mtls tls certificates use system defaults"],
       "body_bytes": 1644,
       "body_sha256": "sha256:51dcf1960ec83207c7c3a70483fa8b025d4188174bedaef5a705fc4afe2295a1",
       "capabilities": ["load-balancing"],
       "category": "load-balancing",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -12688,7 +12527,7 @@
       "path": "documentation/resources/origin_pool/properties/use_tls/use_mtls/tls_certificates/use_system_defaults/index.md",
       "product": "distributed-cloud",
       "provider_name": "origin_pool",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "resources",
       "registry_anchor": "canonical-1132223131001013-2000112132212113-2112311231033010-0202003212322031-3101112131010220-0031313121102311-2023003320113022-1211330122030113",
       "registry_path": "docs/guides/resources--origin_pool--reference--group-003.md",
@@ -12716,7 +12555,7 @@
       "category": "load-balancing",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -12728,7 +12567,7 @@
       "path": "documentation/resources/origin_pool/properties/use_tls/use_mtls_obj/index.md",
       "product": "distributed-cloud",
       "provider_name": "origin_pool",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "resources",
       "registry_anchor": "canonical-1100000211323212-3202110010310330-3033130000112230-3222111010321321-1333210130131112-1111210130020333-2222310120300310-1221330010012110",
       "registry_path": "docs/guides/resources--origin_pool--reference--group-003.md",
@@ -12808,7 +12647,7 @@
       "category": "load-balancing",
       "child_ids": ["xcsh-docs:resources:origin_pool:properties:use_tls:use_server_verification:trusted_ca"],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -12820,7 +12659,7 @@
       "path": "documentation/resources/origin_pool/properties/use_tls/use_server_verification/index.md",
       "product": "distributed-cloud",
       "provider_name": "origin_pool",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "resources",
       "registry_anchor": "canonical-3000330133311333-2312222030122331-0220231200123233-1320011200021220-0002310301112001-0231020200121203-2330012211110321-3000301310100002",
       "registry_path": "docs/guides/resources--origin_pool--reference--group-003.md",
@@ -12870,16 +12709,7 @@
           "type": "object"
         },
         {
-          "aliases": [
-            "backend servers",
-            "cert",
-            "certificate",
-            "existing certificates",
-            "origin servers",
-            "tls certificates",
-            "trusted ca url",
-            "upstream servers"
-          ],
+          "aliases": ["trusted ca url"],
           "anchor": "schema-use_tls--use_server_verification--trusted_ca_url",
           "description": "Exclusive with Upload a Root CA Certificate specifically for this Origin Pool for verification of server's certificate.",
           "document_id": "xcsh-docs:resources:origin_pool:properties:use_tls:use_server_verification",
@@ -12912,7 +12742,7 @@
       "category": "load-balancing",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -12924,7 +12754,7 @@
       "path": "documentation/resources/origin_pool/properties/use_tls/use_server_verification/trusted_ca/index.md",
       "product": "distributed-cloud",
       "provider_name": "origin_pool",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "resources",
       "registry_anchor": "canonical-0120132103213330-1221300320110330-2321301033111133-2013000231030120-3331212310220231-0131231033221131-2002231222231110-2310012232111211",
       "registry_path": "docs/guides/resources--origin_pool--reference--group-003.md",
@@ -13004,7 +12834,7 @@
       "category": "load-balancing",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -13016,7 +12846,7 @@
       "path": "documentation/resources/origin_pool/properties/use_tls/volterra_trusted_ca/index.md",
       "product": "distributed-cloud",
       "provider_name": "origin_pool",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "resources",
       "registry_anchor": "canonical-0303020022031131-2122331331231202-2331332210010010-1201301230030123-0022302320133221-2300002131320312-3100230312312211-2111020303131110",
       "registry_path": "docs/guides/resources--origin_pool--reference--group-003.md",
@@ -13052,7 +12882,7 @@
         "xcsh-docs:resources:origin_pool:example:with-labels"
       ],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -13064,7 +12894,7 @@
       "path": "documentation/resources/origin_pool/examples/index.md",
       "product": "distributed-cloud",
       "provider_name": "origin_pool",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "resources",
       "registry_anchor": "canonical-0000311122100023-3302033101223232-1212303232002022-2202323221002012-2312220110133231-0212131003330311-3211202222332020-3322333102120030",
       "registry_path": "docs/guides/resources--origin_pool--examples--group-001.md",
@@ -13092,7 +12922,7 @@
       "category": "load-balancing",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -13111,7 +12941,7 @@
       "path": "documentation/resources/origin_pool/examples/labels-update/index.md",
       "product": "distributed-cloud",
       "provider_name": "origin_pool",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "resources",
       "registry_anchor": "canonical-1121331123332011-0030013012030301-0323033030212313-1123120031123301-2213300211123332-1312212023121130-1033012130222210-3320011010230103",
       "registry_path": "docs/guides/resources--origin_pool--examples--group-001.md",
@@ -13139,7 +12969,7 @@
       "category": "load-balancing",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -13158,7 +12988,7 @@
       "path": "documentation/resources/origin_pool/examples/multiple-origins/index.md",
       "product": "distributed-cloud",
       "provider_name": "origin_pool",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "resources",
       "registry_anchor": "canonical-3233022010022103-0131333231223300-2112303032010131-2303302301330233-2232110202113013-3300113312232223-3100330113013101-1232322222220303",
       "registry_path": "docs/guides/resources--origin_pool--examples--group-001.md",
@@ -13186,7 +13016,7 @@
       "category": "load-balancing",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -13205,7 +13035,7 @@
       "path": "documentation/resources/origin_pool/examples/nested-labels/index.md",
       "product": "distributed-cloud",
       "provider_name": "origin_pool",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "resources",
       "registry_anchor": "canonical-2012132311320030-0222302331123230-3111030023131032-0022302033301311-3302201233221101-2031232202313322-1010131321002110-2000223021131332",
       "registry_path": "docs/guides/resources--origin_pool--examples--group-001.md",
@@ -13233,7 +13063,7 @@
       "category": "load-balancing",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -13252,7 +13082,7 @@
       "path": "documentation/resources/origin_pool/examples/port/index.md",
       "product": "distributed-cloud",
       "provider_name": "origin_pool",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "resources",
       "registry_anchor": "canonical-2033033132020302-1000101012303013-0301322021333133-2131303012132211-2211011303031212-1233013200323322-0313223000323133-0212103003310103",
       "registry_path": "docs/guides/resources--origin_pool--examples--group-001.md",
@@ -13280,7 +13110,7 @@
       "category": "load-balancing",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -13299,7 +13129,7 @@
       "path": "documentation/resources/origin_pool/examples/public-ip/index.md",
       "product": "distributed-cloud",
       "provider_name": "origin_pool",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "resources",
       "registry_anchor": "canonical-0130130230222231-2122330321101001-3002302010012230-3310302321220300-3103121001032121-0223122131022201-2022032000120302-0001031222111212",
       "registry_path": "docs/guides/resources--origin_pool--examples--group-001.md",
@@ -13327,7 +13157,7 @@
       "category": "load-balancing",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -13346,7 +13176,7 @@
       "path": "documentation/resources/origin_pool/examples/resource/index.md",
       "product": "distributed-cloud",
       "provider_name": "origin_pool",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "resources",
       "registry_anchor": "canonical-2030033210101022-2320311212030202-0001133120032331-1201133130223313-1320023002203021-0000300133122232-3112200112030310-3313211330330102",
       "registry_path": "docs/guides/resources--origin_pool--examples--group-001.md",
@@ -13374,7 +13204,7 @@
       "category": "load-balancing",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -13393,7 +13223,7 @@
       "path": "documentation/resources/origin_pool/examples/with-labels/index.md",
       "product": "distributed-cloud",
       "provider_name": "origin_pool",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "resources",
       "registry_anchor": "canonical-2311121333023321-0221132131023221-1102302002223221-2320012302100233-0020022101223001-1023222202000033-2322203032102330-3002213122132033",
       "registry_path": "docs/guides/resources--origin_pool--examples--group-001.md",
@@ -13421,7 +13251,7 @@
       "category": "load-balancing",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -13434,7 +13264,7 @@
       "path": "documentation/resources/origin_pool/lifecycle/import/index.md",
       "product": "distributed-cloud",
       "provider_name": "origin_pool",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "resources",
       "registry_anchor": "canonical-0131233233010320-2210122211033302-1313031331011222-0232223230333231-2013323113332310-1213133202312123-0102221103222303-2021130232003233",
       "registry_path": "docs/guides/resources--origin_pool--lifecycle--group-001.md",
@@ -13462,7 +13292,7 @@
       "category": "load-balancing",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -13474,7 +13304,7 @@
       "path": "documentation/resources/origin_pool/lifecycle/timeouts/index.md",
       "product": "distributed-cloud",
       "provider_name": "origin_pool",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "resources",
       "registry_anchor": "canonical-0212313030122302-0102202012132131-0133203121302213-3222132223330033-0312123203032231-1332000122012233-1103232200303321-0113120332101203",
       "registry_path": "docs/guides/resources--origin_pool--lifecycle--group-001.md",

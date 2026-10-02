@@ -2,6 +2,274 @@
   "schema_version": 1,
   "sections": [
     {
+      "canonical_id": "xcsh-docs:resources:voltstack_site:properties:custom_storage_config:storage_interface_list:storage_interfaces:storage_interface:static_ip:node_static_ip",
+      "section_id": "xcsh-docs:resources:voltstack_site:properties:custom_storage_config:storage_interface_list:storage_interfaces:storage_interface:static_ip:node_static_ip:section:4",
+      "source_sha256": "sha256:9667d607f6f32e4f4dca100c2badc2645beb74fa2a2df216076aed902ff6ea07",
+      "source_bytes": 259,
+      "canonical_source_sha256": "sha256:93f904d4ce58920d026299c3bfae8c780eb88d6464226f156b6124abb33c574a",
+      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/resources/voltstack_site/properties/custom_storage_config/storage_interface_list/storage_interfaces/storage_interface/static_ip/node_static_ip/",
+      "anchor": "canonical-1031001103030231-1333111132020232-1003133121233013-3102102331001120-0020010232222113-2230203103231101-2100012221112011-2220323331002222",
+      "anchor_map": [
+        [
+          "schema-custom_storage_config--storage_interface_list--storage_interfaces--storage_interface--static_ip--node_static_ip--ip_address",
+          "canonical-3311200320013003-1312030013032132-0210221113323131-1233330010110122-1132321311130320-2131331230023231-0120321010312222-0100203102200200"
+        ]
+      ],
+      "mode": "embedded",
+      "registry_path": "docs/guides/resources--voltstack_site--reference--group-008.md"
+    },
+    {
+      "canonical_id": "xcsh-docs:resources:voltstack_site:properties:custom_storage_config:storage_interface_list:storage_interfaces:storage_interface:static_ip:node_static_ip",
+      "section_id": "xcsh-docs:resources:voltstack_site:properties:custom_storage_config:storage_interface_list:storage_interfaces:storage_interface:static_ip:node_static_ip:section:5",
+      "source_sha256": "sha256:2e6ee7290ae35bc11544b17abca22223f608ffd2f4f4ea5ae49ee68a8a253fd3",
+      "source_bytes": 1175,
+      "canonical_source_sha256": "sha256:93f904d4ce58920d026299c3bfae8c780eb88d6464226f156b6124abb33c574a",
+      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/resources/voltstack_site/properties/custom_storage_config/storage_interface_list/storage_interfaces/storage_interface/static_ip/node_static_ip/",
+      "anchor": "canonical-0122111011022310-1113323230321110-1021222131101232-1021013012200010-1003023033232222-3003300113011003-0001000011132033-3011233100232013",
+      "anchor_map": [],
+      "mode": "embedded",
+      "registry_path": "docs/guides/resources--voltstack_site--reference--group-008.md"
+    },
+    {
+      "canonical_id": "xcsh-docs:resources:voltstack_site:properties:custom_storage_config:storage_interface_list:storage_interfaces:storage_interface:static_ip:node_static_ip",
+      "section_id": "xcsh-docs:resources:voltstack_site:properties:custom_storage_config:storage_interface_list:storage_interfaces:storage_interface:static_ip:node_static_ip:section:6",
+      "source_sha256": "sha256:8841b91b45c424a4b3b8741bb3d97e2230d96e22f6161f18c5fa2a301aba1202",
+      "source_bytes": 404,
+      "canonical_source_sha256": "sha256:93f904d4ce58920d026299c3bfae8c780eb88d6464226f156b6124abb33c574a",
+      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/resources/voltstack_site/properties/custom_storage_config/storage_interface_list/storage_interfaces/storage_interface/static_ip/node_static_ip/",
+      "anchor": "canonical-1202033123333311-1213103330222322-0331203132020010-2300331310231333-2222111023321202-0122332301230332-0313211211321213-2022232201200232",
+      "anchor_map": [],
+      "mode": "embedded",
+      "registry_path": "docs/guides/resources--voltstack_site--reference--group-008.md"
+    },
+    {
+      "canonical_id": "xcsh-docs:resources:voltstack_site:properties:custom_storage_config:storage_interface_list:storage_interfaces:storage_interface:static_ipv6_address",
+      "section_id": "xcsh-docs:resources:voltstack_site:properties:custom_storage_config:storage_interface_list:storage_interfaces:storage_interface:static_ipv6_address:section:0",
+      "source_sha256": "sha256:197d41522a9dd286cb9805a03d8a5bd782cc3f3fd95ea854bf2dfc326e83e50c",
+      "source_bytes": 99,
+      "canonical_source_sha256": "sha256:e342adf6796656f2c3d604f08da50994a140b0b45774095d7a6a21baa5be9b56",
+      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/resources/voltstack_site/properties/custom_storage_config/storage_interface_list/storage_interfaces/storage_interface/static_ipv6_address/",
+      "anchor": "canonical-3200300220203231-3023330333022333-3222222223230021-2200301322031220-2002330223023112-3221031232322100-2223212103201111-3333020321210313",
+      "anchor_map": [],
+      "mode": "embedded",
+      "registry_path": "docs/guides/resources--voltstack_site--reference--group-008.md"
+    },
+    {
+      "canonical_id": "xcsh-docs:resources:voltstack_site:properties:custom_storage_config:storage_interface_list:storage_interfaces:storage_interface:static_ipv6_address",
+      "section_id": "xcsh-docs:resources:voltstack_site:properties:custom_storage_config:storage_interface_list:storage_interfaces:storage_interface:static_ipv6_address:section:1",
+      "source_sha256": "sha256:30d980f56948720eec28e541cfe5a232589932282e685a15355eb94ea310baa4",
+      "source_bytes": 2003,
+      "canonical_source_sha256": "sha256:e342adf6796656f2c3d604f08da50994a140b0b45774095d7a6a21baa5be9b56",
+      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/resources/voltstack_site/properties/custom_storage_config/storage_interface_list/storage_interfaces/storage_interface/static_ipv6_address/",
+      "anchor": "canonical-1031112033331221-2301020103202221-0310110311000220-3101010202231303-3301301032102221-2220123311101032-2132032311232320-1130131122211033",
+      "anchor_map": [
+        [
+          "section",
+          "canonical-3012033303102132-1123332021013333-0300131333020131-2103101001312230-3103230120202021-3213032010221023-2122001130312332-1221200033130330"
+        ]
+      ],
+      "mode": "embedded",
+      "registry_path": "docs/guides/resources--voltstack_site--reference--group-008.md"
+    },
+    {
+      "canonical_id": "xcsh-docs:resources:voltstack_site:properties:custom_storage_config:storage_interface_list:storage_interfaces:storage_interface:static_ipv6_address",
+      "section_id": "xcsh-docs:resources:voltstack_site:properties:custom_storage_config:storage_interface_list:storage_interfaces:storage_interface:static_ipv6_address:section:2",
+      "source_sha256": "sha256:3db87592f34f2f2f62e0570371fca5354487540177284a85ed1cdf37da763dc6",
+      "source_bytes": 554,
+      "canonical_source_sha256": "sha256:e342adf6796656f2c3d604f08da50994a140b0b45774095d7a6a21baa5be9b56",
+      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/resources/voltstack_site/properties/custom_storage_config/storage_interface_list/storage_interfaces/storage_interface/static_ipv6_address/",
+      "anchor": "canonical-1133120101223003-0302301213132200-3103003120000332-2120121231330122-1321001030203211-2202210300130210-2233023003223302-0022101112302033",
+      "anchor_map": [],
+      "mode": "embedded",
+      "registry_path": "docs/guides/resources--voltstack_site--reference--group-008.md"
+    },
+    {
+      "canonical_id": "xcsh-docs:resources:voltstack_site:properties:custom_storage_config:storage_interface_list:storage_interfaces:storage_interface:static_ipv6_address",
+      "section_id": "xcsh-docs:resources:voltstack_site:properties:custom_storage_config:storage_interface_list:storage_interfaces:storage_interface:static_ipv6_address:section:3",
+      "source_sha256": "sha256:2cbdd0e78a99a3303cded58610fc01e0332b9be99b896102429ccb15ae77cf07",
+      "source_bytes": 1054,
+      "canonical_source_sha256": "sha256:e342adf6796656f2c3d604f08da50994a140b0b45774095d7a6a21baa5be9b56",
+      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/resources/voltstack_site/properties/custom_storage_config/storage_interface_list/storage_interfaces/storage_interface/static_ipv6_address/",
+      "anchor": "canonical-2330213132013000-2202011310133122-1132310100231121-1010001130220300-1020200231001211-0101032130010332-0201123113121222-3331112230010020",
+      "anchor_map": [],
+      "mode": "embedded",
+      "registry_path": "docs/guides/resources--voltstack_site--reference--group-008.md"
+    },
+    {
+      "canonical_id": "xcsh-docs:resources:voltstack_site:properties:custom_storage_config:storage_interface_list:storage_interfaces:storage_interface:static_ipv6_address:cluster_static_ip",
+      "section_id": "xcsh-docs:resources:voltstack_site:properties:custom_storage_config:storage_interface_list:storage_interfaces:storage_interface:static_ipv6_address:cluster_static_ip:section:0",
+      "source_sha256": "sha256:197d41522a9dd286cb9805a03d8a5bd782cc3f3fd95ea854bf2dfc326e83e50c",
+      "source_bytes": 99,
+      "canonical_source_sha256": "sha256:e91d971ea98c43eb15861a6b0430b536495e034cfe5cf71551bd2060a2a456e8",
+      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/resources/voltstack_site/properties/custom_storage_config/storage_interface_list/storage_interfaces/storage_interface/static_ipv6_address/cluster_static_ip/",
+      "anchor": "canonical-0013212312003003-1102020323021121-3221022332032133-3021322221230222-3032203033112333-1000311203201203-3030013000113211-2103131120112233",
+      "anchor_map": [],
+      "mode": "embedded",
+      "registry_path": "docs/guides/resources--voltstack_site--reference--group-008.md"
+    },
+    {
+      "canonical_id": "xcsh-docs:resources:voltstack_site:properties:custom_storage_config:storage_interface_list:storage_interfaces:storage_interface:static_ipv6_address:cluster_static_ip",
+      "section_id": "xcsh-docs:resources:voltstack_site:properties:custom_storage_config:storage_interface_list:storage_interfaces:storage_interface:static_ipv6_address:cluster_static_ip:section:1",
+      "source_sha256": "sha256:3a70d5837ca857cb45b23cc440a565890fa3ccbbb5c59752ffdaa1b5e56f6d19",
+      "source_bytes": 2001,
+      "canonical_source_sha256": "sha256:e91d971ea98c43eb15861a6b0430b536495e034cfe5cf71551bd2060a2a456e8",
+      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/resources/voltstack_site/properties/custom_storage_config/storage_interface_list/storage_interfaces/storage_interface/static_ipv6_address/cluster_static_ip/",
+      "anchor": "canonical-1203302211101322-0110033321222223-3110003010011212-0012230220022331-2001213030300301-2123122000132211-2230013313102221-2023302013031302",
+      "anchor_map": [
+        [
+          "section",
+          "canonical-2133222100321133-2323003033233033-3013223113121100-3231331203230123-2032203333331110-2000200220323130-2022230312130321-2311022222320300"
+        ]
+      ],
+      "mode": "embedded",
+      "registry_path": "docs/guides/resources--voltstack_site--reference--group-008.md"
+    },
+    {
+      "canonical_id": "xcsh-docs:resources:voltstack_site:properties:custom_storage_config:storage_interface_list:storage_interfaces:storage_interface:static_ipv6_address:cluster_static_ip",
+      "section_id": "xcsh-docs:resources:voltstack_site:properties:custom_storage_config:storage_interface_list:storage_interfaces:storage_interface:static_ipv6_address:cluster_static_ip:section:2",
+      "source_sha256": "sha256:3d1c64ae839389c591f6223bde0288c51f20d718c970c804376e02c1533d6b1d",
+      "source_bytes": 186,
+      "canonical_source_sha256": "sha256:e91d971ea98c43eb15861a6b0430b536495e034cfe5cf71551bd2060a2a456e8",
+      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/resources/voltstack_site/properties/custom_storage_config/storage_interface_list/storage_interfaces/storage_interface/static_ipv6_address/cluster_static_ip/",
+      "anchor": "canonical-2320233132211303-0311321113122012-0201101312011200-3011312310032113-0323220233231333-3321212122232311-0231220332232100-2231302230022222",
+      "anchor_map": [
+        [
+          "schema-custom_storage_config--storage_interface_list--storage_interfaces--storage_interface--static_ipv6_address--cluster_static_ip--interface_ip_map",
+          "canonical-0311002000211330-2112332200132100-1312220002213310-0212333201332313-1233332031022110-0030233200332030-0212302231013312-3112020102312102"
+        ]
+      ],
+      "mode": "embedded",
+      "registry_path": "docs/guides/resources--voltstack_site--reference--group-008.md"
+    },
+    {
+      "canonical_id": "xcsh-docs:resources:voltstack_site:properties:custom_storage_config:storage_interface_list:storage_interfaces:storage_interface:static_ipv6_address:cluster_static_ip",
+      "section_id": "xcsh-docs:resources:voltstack_site:properties:custom_storage_config:storage_interface_list:storage_interfaces:storage_interface:static_ipv6_address:cluster_static_ip:section:3",
+      "source_sha256": "sha256:d678ae6cc441e337551b775a325a997c7cadd50656a61960ede6b082587cf735",
+      "source_bytes": 707,
+      "canonical_source_sha256": "sha256:e91d971ea98c43eb15861a6b0430b536495e034cfe5cf71551bd2060a2a456e8",
+      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/resources/voltstack_site/properties/custom_storage_config/storage_interface_list/storage_interfaces/storage_interface/static_ipv6_address/cluster_static_ip/",
+      "anchor": "canonical-0102010132212011-3210311332002012-1112222121121210-0031302323333111-3010331010110300-3312012132103320-2110300022013321-3323221012012213",
+      "anchor_map": [],
+      "mode": "embedded",
+      "registry_path": "docs/guides/resources--voltstack_site--reference--group-008.md"
+    },
+    {
+      "canonical_id": "xcsh-docs:resources:voltstack_site:properties:custom_storage_config:storage_interface_list:storage_interfaces:storage_interface:static_ipv6_address:cluster_static_ip",
+      "section_id": "xcsh-docs:resources:voltstack_site:properties:custom_storage_config:storage_interface_list:storage_interfaces:storage_interface:static_ipv6_address:cluster_static_ip:section:4",
+      "source_sha256": "sha256:b9a80a3a62a1bb53dac2e905f80d37448deb2a466e57d6c641d3f5f387e9fead",
+      "source_bytes": 424,
+      "canonical_source_sha256": "sha256:e91d971ea98c43eb15861a6b0430b536495e034cfe5cf71551bd2060a2a456e8",
+      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/resources/voltstack_site/properties/custom_storage_config/storage_interface_list/storage_interfaces/storage_interface/static_ipv6_address/cluster_static_ip/",
+      "anchor": "canonical-3003310232111301-1203131223230321-2133103021101230-2130333320230321-0030121230201310-2202230222210221-1303301012120032-1012001210001012",
+      "anchor_map": [],
+      "mode": "embedded",
+      "registry_path": "docs/guides/resources--voltstack_site--reference--group-009.md"
+    },
+    {
+      "canonical_id": "xcsh-docs:resources:voltstack_site:properties:custom_storage_config:storage_interface_list:storage_interfaces:storage_interface:static_ipv6_address:node_static_ip",
+      "section_id": "xcsh-docs:resources:voltstack_site:properties:custom_storage_config:storage_interface_list:storage_interfaces:storage_interface:static_ipv6_address:node_static_ip:section:0",
+      "source_sha256": "sha256:197d41522a9dd286cb9805a03d8a5bd782cc3f3fd95ea854bf2dfc326e83e50c",
+      "source_bytes": 99,
+      "canonical_source_sha256": "sha256:5f5ea801ce9edcb857912585b8e31dba9e87ca649f586eb38c99633d81779d46",
+      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/resources/voltstack_site/properties/custom_storage_config/storage_interface_list/storage_interfaces/storage_interface/static_ipv6_address/node_static_ip/",
+      "anchor": "canonical-0312001133021311-0320010220010200-1322020010323302-2013203211021333-0303100302013312-2133321231003233-1011013013113312-3200122310012002",
+      "anchor_map": [],
+      "mode": "embedded",
+      "registry_path": "docs/guides/resources--voltstack_site--reference--group-009.md"
+    },
+    {
+      "canonical_id": "xcsh-docs:resources:voltstack_site:properties:custom_storage_config:storage_interface_list:storage_interfaces:storage_interface:static_ipv6_address:node_static_ip",
+      "section_id": "xcsh-docs:resources:voltstack_site:properties:custom_storage_config:storage_interface_list:storage_interfaces:storage_interface:static_ipv6_address:node_static_ip:section:1",
+      "source_sha256": "sha256:b50284fe4bc3f7006136491d946b2e589c86493c51d5dab08dfe667462a969b0",
+      "source_bytes": 2140,
+      "canonical_source_sha256": "sha256:5f5ea801ce9edcb857912585b8e31dba9e87ca649f586eb38c99633d81779d46",
+      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/resources/voltstack_site/properties/custom_storage_config/storage_interface_list/storage_interfaces/storage_interface/static_ipv6_address/node_static_ip/",
+      "anchor": "canonical-1320132033300010-2323130301201120-0010101102211032-1130320131033220-0103001120021121-3222202012212302-0231232322202130-2113100231333031",
+      "anchor_map": [
+        [
+          "section",
+          "canonical-3000300102213323-1313013123230201-3111302100133221-0112333020033121-2321000321122123-2321023332023202-1321021033021003-2322203110213121"
+        ]
+      ],
+      "mode": "embedded",
+      "registry_path": "docs/guides/resources--voltstack_site--reference--group-009.md"
+    },
+    {
+      "canonical_id": "xcsh-docs:resources:voltstack_site:properties:custom_storage_config:storage_interface_list:storage_interfaces:storage_interface:static_ipv6_address:node_static_ip",
+      "section_id": "xcsh-docs:resources:voltstack_site:properties:custom_storage_config:storage_interface_list:storage_interfaces:storage_interface:static_ipv6_address:node_static_ip:section:2",
+      "source_sha256": "sha256:380e2d982c72ee3c9d275dd9c13a3becd4a10894d77ba27b1493abdce13b4e4e",
+      "source_bytes": 177,
+      "canonical_source_sha256": "sha256:5f5ea801ce9edcb857912585b8e31dba9e87ca649f586eb38c99633d81779d46",
+      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/resources/voltstack_site/properties/custom_storage_config/storage_interface_list/storage_interfaces/storage_interface/static_ipv6_address/node_static_ip/",
+      "anchor": "canonical-2013233033213302-3211111130123033-2022002030110212-3030001032130132-2021112030332311-2120202333310321-1321100303033102-0202220322320112",
+      "anchor_map": [
+        [
+          "schema-custom_storage_config--storage_interface_list--storage_interfaces--storage_interface--static_ipv6_address--node_static_ip--default_gw",
+          "canonical-3211201123033000-0013220003132313-2321300332003120-0022310012022302-3131110332322031-3120020232132020-1113010032030223-1330322012310322"
+        ]
+      ],
+      "mode": "embedded",
+      "registry_path": "docs/guides/resources--voltstack_site--reference--group-009.md"
+    },
+    {
+      "canonical_id": "xcsh-docs:resources:voltstack_site:properties:custom_storage_config:storage_interface_list:storage_interfaces:storage_interface:static_ipv6_address:node_static_ip",
+      "section_id": "xcsh-docs:resources:voltstack_site:properties:custom_storage_config:storage_interface_list:storage_interfaces:storage_interface:static_ipv6_address:node_static_ip:section:3",
+      "source_sha256": "sha256:3a17a06cb55ac963333229e8eca571bd61b6c2826911d9188db861ab35148113",
+      "source_bytes": 1107,
+      "canonical_source_sha256": "sha256:5f5ea801ce9edcb857912585b8e31dba9e87ca649f586eb38c99633d81779d46",
+      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/resources/voltstack_site/properties/custom_storage_config/storage_interface_list/storage_interfaces/storage_interface/static_ipv6_address/node_static_ip/",
+      "anchor": "canonical-3031333111220131-1221131200122023-3300132302012300-2312210130333013-2331222133131310-1321121010100310-3010330210113313-0311210133230232",
+      "anchor_map": [
+        [
+          "schema-custom_storage_config--storage_interface_list--storage_interfaces--storage_interface--static_ipv6_address--node_static_ip--dns_server",
+          "canonical-3312000133323021-1121111213230110-3313302322120220-3231223033120201-0033212312323112-3302011210232300-0113123021011322-2022133220302132"
+        ]
+      ],
+      "mode": "embedded",
+      "registry_path": "docs/guides/resources--voltstack_site--reference--group-009.md"
+    },
+    {
+      "canonical_id": "xcsh-docs:resources:voltstack_site:properties:custom_storage_config:storage_interface_list:storage_interfaces:storage_interface:static_ipv6_address:node_static_ip",
+      "section_id": "xcsh-docs:resources:voltstack_site:properties:custom_storage_config:storage_interface_list:storage_interfaces:storage_interface:static_ipv6_address:node_static_ip:section:4",
+      "source_sha256": "sha256:44f2488259ad37d23f7776bf4dfcc0aeea15351f38dd26c49fe02b62c413abdf",
+      "source_bytes": 269,
+      "canonical_source_sha256": "sha256:5f5ea801ce9edcb857912585b8e31dba9e87ca649f586eb38c99633d81779d46",
+      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/resources/voltstack_site/properties/custom_storage_config/storage_interface_list/storage_interfaces/storage_interface/static_ipv6_address/node_static_ip/",
+      "anchor": "canonical-2321211110300301-0120101223031221-3020132200132211-0333003101222113-0202130013113303-0133333320013223-1210113011101230-1013333132021132",
+      "anchor_map": [
+        [
+          "schema-custom_storage_config--storage_interface_list--storage_interfaces--storage_interface--static_ipv6_address--node_static_ip--ip_address",
+          "canonical-2110222301230113-1122121031111001-0132100230002020-1310231320331002-3223100221213122-0001313023333323-1030221123003133-1213210231020110"
+        ]
+      ],
+      "mode": "embedded",
+      "registry_path": "docs/guides/resources--voltstack_site--reference--group-009.md"
+    },
+    {
+      "canonical_id": "xcsh-docs:resources:voltstack_site:properties:custom_storage_config:storage_interface_list:storage_interfaces:storage_interface:static_ipv6_address:node_static_ip",
+      "section_id": "xcsh-docs:resources:voltstack_site:properties:custom_storage_config:storage_interface_list:storage_interfaces:storage_interface:static_ipv6_address:node_static_ip:section:5",
+      "source_sha256": "sha256:2e6ee7290ae35bc11544b17abca22223f608ffd2f4f4ea5ae49ee68a8a253fd3",
+      "source_bytes": 1175,
+      "canonical_source_sha256": "sha256:5f5ea801ce9edcb857912585b8e31dba9e87ca649f586eb38c99633d81779d46",
+      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/resources/voltstack_site/properties/custom_storage_config/storage_interface_list/storage_interfaces/storage_interface/static_ipv6_address/node_static_ip/",
+      "anchor": "canonical-3231111133333012-0032200131332121-2002123131133133-1123202312112103-0113231202032203-0211102301031002-0310202120232302-3320323131212030",
+      "anchor_map": [],
+      "mode": "embedded",
+      "registry_path": "docs/guides/resources--voltstack_site--reference--group-009.md"
+    },
+    {
+      "canonical_id": "xcsh-docs:resources:voltstack_site:properties:custom_storage_config:storage_interface_list:storage_interfaces:storage_interface:static_ipv6_address:node_static_ip",
+      "section_id": "xcsh-docs:resources:voltstack_site:properties:custom_storage_config:storage_interface_list:storage_interfaces:storage_interface:static_ipv6_address:node_static_ip:section:6",
+      "source_sha256": "sha256:b9a80a3a62a1bb53dac2e905f80d37448deb2a466e57d6c641d3f5f387e9fead",
+      "source_bytes": 424,
+      "canonical_source_sha256": "sha256:5f5ea801ce9edcb857912585b8e31dba9e87ca649f586eb38c99633d81779d46",
+      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/resources/voltstack_site/properties/custom_storage_config/storage_interface_list/storage_interfaces/storage_interface/static_ipv6_address/node_static_ip/",
+      "anchor": "canonical-0223011221312120-1321210133130113-1310110122330133-2333033021231200-2201110121222310-3133112321133302-0123122102110001-1120311100023103",
+      "anchor_map": [],
+      "mode": "embedded",
+      "registry_path": "docs/guides/resources--voltstack_site--reference--group-009.md"
+    },
+    {
       "canonical_id": "xcsh-docs:resources:voltstack_site:properties:custom_storage_config:storage_interface_list:storage_interfaces:storage_interface:storage_network",
       "section_id": "xcsh-docs:resources:voltstack_site:properties:custom_storage_config:storage_interface_list:storage_interfaces:storage_interface:storage_network:section:0",
       "source_sha256": "sha256:197d41522a9dd286cb9805a03d8a5bd782cc3f3fd95ea854bf2dfc326e83e50c",
@@ -7111,376 +7379,6 @@
           "canonical-1310131331021023-2322330121011010-1120313121112300-3013131021123311-2132112111222023-1213333311002220-2210133031310112-2320021130103013"
         ]
       ],
-      "mode": "embedded",
-      "registry_path": "docs/guides/resources--workload--reference--group-004.md"
-    },
-    {
-      "canonical_id": "xcsh-docs:resources:workload:properties:job:configuration:parameters:file",
-      "section_id": "xcsh-docs:resources:workload:properties:job:configuration:parameters:file:section:5",
-      "source_sha256": "sha256:539c23d67a6de1839624540d3f766ed764c6770b009417d948469c86e54c1503",
-      "source_bytes": 999,
-      "canonical_source_sha256": "sha256:0e6d8cc7d29c272c0853c76eacce1f13922f2e9ffc5810e25411307758ee019a",
-      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/resources/workload/properties/job/configuration/parameters/file/",
-      "anchor": "canonical-2100120330233310-0102033231223032-3320133000003100-2233001220222013-2103202212301032-3211010300130111-3132331201003321-1003203120131102",
-      "anchor_map": [],
-      "mode": "embedded",
-      "registry_path": "docs/guides/resources--workload--reference--group-004.md"
-    },
-    {
-      "canonical_id": "xcsh-docs:resources:workload:properties:job:configuration:parameters:file",
-      "section_id": "xcsh-docs:resources:workload:properties:job:configuration:parameters:file:section:6",
-      "source_sha256": "sha256:4f5b715107f17b08aa6a92ed278dea8bc02b970050025e105fe669a5deb3cfc5",
-      "source_bytes": 432,
-      "canonical_source_sha256": "sha256:0e6d8cc7d29c272c0853c76eacce1f13922f2e9ffc5810e25411307758ee019a",
-      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/resources/workload/properties/job/configuration/parameters/file/",
-      "anchor": "canonical-2130132032110022-0112133122331110-3203230230303320-3200002133101233-1232201030223331-3301321103313300-1003213223021230-0210120131201333",
-      "anchor_map": [],
-      "mode": "embedded",
-      "registry_path": "docs/guides/resources--workload--reference--group-004.md"
-    },
-    {
-      "canonical_id": "xcsh-docs:resources:workload:properties:job:configuration:parameters:file:mount",
-      "section_id": "xcsh-docs:resources:workload:properties:job:configuration:parameters:file:mount:section:0",
-      "source_sha256": "sha256:197d41522a9dd286cb9805a03d8a5bd782cc3f3fd95ea854bf2dfc326e83e50c",
-      "source_bytes": 99,
-      "canonical_source_sha256": "sha256:a7aeb188b8a2f8f51a97dc8daea39fd6686dfd8a82a029973c81a10b3dfed42f",
-      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/resources/workload/properties/job/configuration/parameters/file/mount/",
-      "anchor": "canonical-2331113221220301-1322100003320203-1113020310000033-2022330033033032-1210122220301030-0111013332301012-0033111123011222-0213233112122132",
-      "anchor_map": [],
-      "mode": "embedded",
-      "registry_path": "docs/guides/resources--workload--reference--group-004.md"
-    },
-    {
-      "canonical_id": "xcsh-docs:resources:workload:properties:job:configuration:parameters:file:mount",
-      "section_id": "xcsh-docs:resources:workload:properties:job:configuration:parameters:file:mount:section:1",
-      "source_sha256": "sha256:3c6b27a726c8b281267088bbffde864c9adac9cf0c1a5a84e15635a065a28d88",
-      "source_bytes": 1398,
-      "canonical_source_sha256": "sha256:a7aeb188b8a2f8f51a97dc8daea39fd6686dfd8a82a029973c81a10b3dfed42f",
-      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/resources/workload/properties/job/configuration/parameters/file/mount/",
-      "anchor": "canonical-1231110302002130-3102100200003122-0203030322031111-2031212112210331-1001330122212132-3203102330012021-2030301231320012-1210201022332333",
-      "anchor_map": [
-        [
-          "section",
-          "canonical-2201032011101231-2000032220331011-2200131012021230-2223203320123222-1100101013213131-2303231133301303-1200121013111213-3033033132010113"
-        ]
-      ],
-      "mode": "embedded",
-      "registry_path": "docs/guides/resources--workload--reference--group-004.md"
-    },
-    {
-      "canonical_id": "xcsh-docs:resources:workload:properties:job:configuration:parameters:file:mount",
-      "section_id": "xcsh-docs:resources:workload:properties:job:configuration:parameters:file:mount:section:2",
-      "source_sha256": "sha256:44c4c4f338a3d7bd2c11a0433c384391eb88bf43859e511159e312cabed3eb87",
-      "source_bytes": 93,
-      "canonical_source_sha256": "sha256:a7aeb188b8a2f8f51a97dc8daea39fd6686dfd8a82a029973c81a10b3dfed42f",
-      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/resources/workload/properties/job/configuration/parameters/file/mount/",
-      "anchor": "canonical-2131000312203203-2131011102201121-1331231331310220-1133333023101023-0202113130332213-3113102110233033-1202232121211223-3110230210111230",
-      "anchor_map": [
-        [
-          "schema-job--configuration--parameters--file--mount--mode",
-          "canonical-3303102003111231-1033033202012202-2110101200220020-2102101100220320-0021201322313133-2333102133102313-1010002000003323-1121023131232113"
-        ]
-      ],
-      "mode": "embedded",
-      "registry_path": "docs/guides/resources--workload--reference--group-004.md"
-    },
-    {
-      "canonical_id": "xcsh-docs:resources:workload:properties:job:configuration:parameters:file:mount",
-      "section_id": "xcsh-docs:resources:workload:properties:job:configuration:parameters:file:mount:section:3",
-      "source_sha256": "sha256:6bc274f787610b105cd18830ab021680885be67fdb0b7a6a3326f157d55d20d1",
-      "source_bytes": 1250,
-      "canonical_source_sha256": "sha256:a7aeb188b8a2f8f51a97dc8daea39fd6686dfd8a82a029973c81a10b3dfed42f",
-      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/resources/workload/properties/job/configuration/parameters/file/mount/",
-      "anchor": "canonical-0230211102301301-1013111323030210-2022000131002230-1200231231011113-2102021013230122-2033212332312001-3230221232200113-1013110330222220",
-      "anchor_map": [
-        [
-          "schema-job--configuration--parameters--file--mount--mount_path",
-          "canonical-1231131032233322-3330311313133120-0103013333230130-1200002131311321-3321021123002221-3332113233322222-1033010012000110-3203213003303113"
-        ]
-      ],
-      "mode": "embedded",
-      "registry_path": "docs/guides/resources--workload--reference--group-004.md"
-    },
-    {
-      "canonical_id": "xcsh-docs:resources:workload:properties:job:configuration:parameters:file:mount",
-      "section_id": "xcsh-docs:resources:workload:properties:job:configuration:parameters:file:mount:section:4",
-      "source_sha256": "sha256:a2393a06eef188a3fe019d2aa2f9c9ff12f6205f8624434badb449e2956efe78",
-      "source_bytes": 1224,
-      "canonical_source_sha256": "sha256:a7aeb188b8a2f8f51a97dc8daea39fd6686dfd8a82a029973c81a10b3dfed42f",
-      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/resources/workload/properties/job/configuration/parameters/file/mount/",
-      "anchor": "canonical-2210223021210131-0313223021111101-2103030203121101-0233200011220021-1033123322102113-2131133120130230-0303300300203310-1233322113122021",
-      "anchor_map": [
-        [
-          "schema-job--configuration--parameters--file--mount--sub_path",
-          "canonical-0310202333212112-1100321121002032-1321211330121103-0211321103213113-1033110030002030-3210213001213320-0003203130003121-3020003130200332"
-        ]
-      ],
-      "mode": "embedded",
-      "registry_path": "docs/guides/resources--workload--reference--group-004.md"
-    },
-    {
-      "canonical_id": "xcsh-docs:resources:workload:properties:job:configuration:parameters:file:mount",
-      "section_id": "xcsh-docs:resources:workload:properties:job:configuration:parameters:file:mount:section:5",
-      "source_sha256": "sha256:969222aa3cb6b174100e8a76f7e11b6db174613f7c06ec69afd4b0610947e900",
-      "source_bytes": 1055,
-      "canonical_source_sha256": "sha256:a7aeb188b8a2f8f51a97dc8daea39fd6686dfd8a82a029973c81a10b3dfed42f",
-      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/resources/workload/properties/job/configuration/parameters/file/mount/",
-      "anchor": "canonical-1113203112121012-0003210021202300-0222111132200233-0023012220001213-2102321101011222-2331211112013100-3010110000112013-3021212232330020",
-      "anchor_map": [],
-      "mode": "embedded",
-      "registry_path": "docs/guides/resources--workload--reference--group-004.md"
-    },
-    {
-      "canonical_id": "xcsh-docs:resources:workload:properties:job:configuration:parameters:file:mount",
-      "section_id": "xcsh-docs:resources:workload:properties:job:configuration:parameters:file:mount:section:6",
-      "source_sha256": "sha256:52a16ebef30dc09009544d6c02270b3bce014a99a2e065ab98b2fb3c33ca5eb5",
-      "source_bytes": 270,
-      "canonical_source_sha256": "sha256:a7aeb188b8a2f8f51a97dc8daea39fd6686dfd8a82a029973c81a10b3dfed42f",
-      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/resources/workload/properties/job/configuration/parameters/file/mount/",
-      "anchor": "canonical-0311331131022033-3113211011301201-1010101132213311-3212203001003332-0330110232033221-1003311302201022-1031130312121233-3123323221202302",
-      "anchor_map": [],
-      "mode": "embedded",
-      "registry_path": "docs/guides/resources--workload--reference--group-004.md"
-    },
-    {
-      "canonical_id": "xcsh-docs:resources:workload:properties:job:containers",
-      "section_id": "xcsh-docs:resources:workload:properties:job:containers:section:0",
-      "source_sha256": "sha256:197d41522a9dd286cb9805a03d8a5bd782cc3f3fd95ea854bf2dfc326e83e50c",
-      "source_bytes": 99,
-      "canonical_source_sha256": "sha256:157eddd68c93fe3a05ff40d300dd76634adc34cb75185ecbd6f2a7af81dc9b31",
-      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/resources/workload/properties/job/containers/",
-      "anchor": "canonical-2002301323122233-0221102100003021-3013132233211233-3012203030111110-1222020112111222-3222330102102021-2002120323232230-2011302203232120",
-      "anchor_map": [],
-      "mode": "embedded",
-      "registry_path": "docs/guides/resources--workload--reference--group-004.md"
-    },
-    {
-      "canonical_id": "xcsh-docs:resources:workload:properties:job:containers",
-      "section_id": "xcsh-docs:resources:workload:properties:job:containers:section:1",
-      "source_sha256": "sha256:108fd4f0dba685bdbc4d64b6555ec01c5cd492a9a21b4e750878f2b151e7a1a3",
-      "source_bytes": 1737,
-      "canonical_source_sha256": "sha256:157eddd68c93fe3a05ff40d300dd76634adc34cb75185ecbd6f2a7af81dc9b31",
-      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/resources/workload/properties/job/containers/",
-      "anchor": "canonical-3200302132100200-3322232120111213-1120320101103302-2123212130110000-0112301222133022-1211330332111112-1013301222230331-2301130310031020",
-      "anchor_map": [
-        [
-          "section",
-          "canonical-0022331000322022-2222011110323221-1010030133012221-0310300103102222-0203023130223102-3123133110233202-0130330332303102-2213323200030312"
-        ]
-      ],
-      "mode": "embedded",
-      "registry_path": "docs/guides/resources--workload--reference--group-004.md"
-    },
-    {
-      "canonical_id": "xcsh-docs:resources:workload:properties:job:containers",
-      "section_id": "xcsh-docs:resources:workload:properties:job:containers:section:2",
-      "source_sha256": "sha256:dd69e70af6a9c51337635bef7affcd85bcb3939d2199f4e6c98d4b1df76bf4f1",
-      "source_bytes": 65,
-      "canonical_source_sha256": "sha256:157eddd68c93fe3a05ff40d300dd76634adc34cb75185ecbd6f2a7af81dc9b31",
-      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/resources/workload/properties/job/containers/",
-      "anchor": "canonical-2200223223322301-1223300002000023-1003133203331322-2103033212111011-2001122110012301-0201031021303002-0202111301001021-2100110220000031",
-      "anchor_map": [
-        [
-          "schema-job--containers--args",
-          "canonical-1220133012012323-2210223110132013-0023300212213101-2112302001221300-0311200101023031-1313032022321210-2033012112002202-1301000322220301"
-        ]
-      ],
-      "mode": "embedded",
-      "registry_path": "docs/guides/resources--workload--reference--group-004.md"
-    },
-    {
-      "canonical_id": "xcsh-docs:resources:workload:properties:job:containers",
-      "section_id": "xcsh-docs:resources:workload:properties:job:containers:section:3",
-      "source_sha256": "sha256:dcb7db739d07aa8c71065c5c318a7fe3a072e66b8381f7611bfa29a454b17930",
-      "source_bytes": 931,
-      "canonical_source_sha256": "sha256:157eddd68c93fe3a05ff40d300dd76634adc34cb75185ecbd6f2a7af81dc9b31",
-      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/resources/workload/properties/job/containers/",
-      "anchor": "canonical-3310312012332010-3330222211021231-0232333100121322-2203010312322223-2300332230102201-1133102202120200-3322111300132221-0001113320112132",
-      "anchor_map": [
-        [
-          "schema-job--containers--command",
-          "canonical-2312303030211331-1033000000213113-3233011313013123-0001101330321233-3121231203110003-2102120010333023-0002133311320300-1213233020103032"
-        ]
-      ],
-      "mode": "embedded",
-      "registry_path": "docs/guides/resources--workload--reference--group-004.md"
-    },
-    {
-      "canonical_id": "xcsh-docs:resources:workload:properties:job:containers",
-      "section_id": "xcsh-docs:resources:workload:properties:job:containers:section:4",
-      "source_sha256": "sha256:521955fa80a4f4f0cc39a3c34b8b504680246a0723a817040a80074942f82fb9",
-      "source_bytes": 1269,
-      "canonical_source_sha256": "sha256:157eddd68c93fe3a05ff40d300dd76634adc34cb75185ecbd6f2a7af81dc9b31",
-      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/resources/workload/properties/job/containers/",
-      "anchor": "canonical-3230220001103002-0123020331321122-1302312322300030-3302031023020131-3100230130023132-3123210330323133-2010121031122331-0133312111322011",
-      "anchor_map": [
-        [
-          "schema-job--containers--flavor",
-          "canonical-1202320113001202-0202330120213322-2113302232002200-0302330220121232-3300120030133001-0311110020032132-1011311312023213-0222012131323122"
-        ]
-      ],
-      "mode": "embedded",
-      "registry_path": "docs/guides/resources--workload--reference--group-004.md"
-    },
-    {
-      "canonical_id": "xcsh-docs:resources:workload:properties:job:containers",
-      "section_id": "xcsh-docs:resources:workload:properties:job:containers:section:5",
-      "source_sha256": "sha256:929a0fa945c3aa19437bb89f33a5a3e496b56308485c382991f3b5f9eda10f1c",
-      "source_bytes": 1809,
-      "canonical_source_sha256": "sha256:157eddd68c93fe3a05ff40d300dd76634adc34cb75185ecbd6f2a7af81dc9b31",
-      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/resources/workload/properties/job/containers/",
-      "anchor": "canonical-3311010133222222-3212213021302121-0003320011300013-0023003033023113-3211113033110113-2021103231111211-0000130220323331-1311011212033221",
-      "anchor_map": [
-        [
-          "schema-job--containers--init_container",
-          "canonical-1211003003023010-1113030123103302-1032120121222311-1120022120211000-1212100310330133-0212303202023232-3321101203230333-3211100033210313"
-        ]
-      ],
-      "mode": "embedded",
-      "registry_path": "docs/guides/resources--workload--reference--group-004.md"
-    },
-    {
-      "canonical_id": "xcsh-docs:resources:workload:properties:job:containers",
-      "section_id": "xcsh-docs:resources:workload:properties:job:containers:section:6",
-      "source_sha256": "sha256:0f58b6582d3c8442b11cae255f7cccf12563c04f1160ad78d4a9e254091be195",
-      "source_bytes": 530,
-      "canonical_source_sha256": "sha256:157eddd68c93fe3a05ff40d300dd76634adc34cb75185ecbd6f2a7af81dc9b31",
-      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/resources/workload/properties/job/containers/",
-      "anchor": "canonical-3021032203032133-2100020003203233-1010332210120303-3320303210113222-3130323202323112-1132300030023130-3333300123103000-2130200110301220",
-      "anchor_map": [
-        [
-          "schema-job--containers--name",
-          "canonical-3232300203320133-0220022323130023-3020111301331232-2210301223100121-3310130112023131-1203331132223131-3123320113300131-0112100020022112"
-        ]
-      ],
-      "mode": "embedded",
-      "registry_path": "docs/guides/resources--workload--reference--group-004.md"
-    },
-    {
-      "canonical_id": "xcsh-docs:resources:workload:properties:job:containers",
-      "section_id": "xcsh-docs:resources:workload:properties:job:containers:section:7",
-      "source_sha256": "sha256:32c9561a991197397bd5660946c6c85271cda5ece2d2957236752b2094033990",
-      "source_bytes": 1731,
-      "canonical_source_sha256": "sha256:157eddd68c93fe3a05ff40d300dd76634adc34cb75185ecbd6f2a7af81dc9b31",
-      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/resources/workload/properties/job/containers/",
-      "anchor": "canonical-0220230123213223-0120100303233111-1021222331212321-1302203333330312-0211003203023320-3321322320130033-0110301023023020-0110213102130332",
-      "anchor_map": [],
-      "mode": "embedded",
-      "registry_path": "docs/guides/resources--workload--reference--group-004.md"
-    },
-    {
-      "canonical_id": "xcsh-docs:resources:workload:properties:job:containers",
-      "section_id": "xcsh-docs:resources:workload:properties:job:containers:section:8",
-      "source_sha256": "sha256:2ce96a4c763b21f3b05c4440248f2cebadc54b3655513789b8a7420e60e49dd4",
-      "source_bytes": 952,
-      "canonical_source_sha256": "sha256:157eddd68c93fe3a05ff40d300dd76634adc34cb75185ecbd6f2a7af81dc9b31",
-      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/resources/workload/properties/job/containers/",
-      "anchor": "canonical-3011303000103333-1323201300120010-3012123233033222-0121032302113022-2133211303331331-2203111322010312-1201302101010300-1033313113201210",
-      "anchor_map": [],
-      "mode": "embedded",
-      "registry_path": "docs/guides/resources--workload--reference--group-004.md"
-    },
-    {
-      "canonical_id": "xcsh-docs:resources:workload:properties:job:containers:custom_flavor",
-      "section_id": "xcsh-docs:resources:workload:properties:job:containers:custom_flavor:section:0",
-      "source_sha256": "sha256:197d41522a9dd286cb9805a03d8a5bd782cc3f3fd95ea854bf2dfc326e83e50c",
-      "source_bytes": 99,
-      "canonical_source_sha256": "sha256:343db83607540f9cf8e3e348a2dc7b0ecbefd7ddda60afcfc4cc1f2c643bc96f",
-      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/resources/workload/properties/job/containers/custom_flavor/",
-      "anchor": "canonical-2231333022311310-0233102222122013-3203120233330202-1110332013202112-2022012230330001-1230211132111031-0031030220323312-3222321201021120",
-      "anchor_map": [],
-      "mode": "embedded",
-      "registry_path": "docs/guides/resources--workload--reference--group-004.md"
-    },
-    {
-      "canonical_id": "xcsh-docs:resources:workload:properties:job:containers:custom_flavor",
-      "section_id": "xcsh-docs:resources:workload:properties:job:containers:custom_flavor:section:1",
-      "source_sha256": "sha256:1a6e4dcd23a736e13b34a75e5897ffe3499c034c6e6d577b0f87d88ce5a93ec6",
-      "source_bytes": 1319,
-      "canonical_source_sha256": "sha256:343db83607540f9cf8e3e348a2dc7b0ecbefd7ddda60afcfc4cc1f2c643bc96f",
-      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/resources/workload/properties/job/containers/custom_flavor/",
-      "anchor": "canonical-3230101321110230-0200023213020110-3331213123113031-3011000330022011-0021300322123123-0302221032130030-3333120111321322-2112002300333303",
-      "anchor_map": [
-        [
-          "section",
-          "canonical-3100011230321002-0200213023212203-2201212000221231-2100102200130021-2130101221032131-1212000320020333-0103331220100032-1001231012130232"
-        ]
-      ],
-      "mode": "embedded",
-      "registry_path": "docs/guides/resources--workload--reference--group-004.md"
-    },
-    {
-      "canonical_id": "xcsh-docs:resources:workload:properties:job:containers:custom_flavor",
-      "section_id": "xcsh-docs:resources:workload:properties:job:containers:custom_flavor:section:2",
-      "source_sha256": "sha256:e9d7861133d850656ac050647c05e6fa9f04ed6dd97b7fd554f617a9620286f3",
-      "source_bytes": 80,
-      "canonical_source_sha256": "sha256:343db83607540f9cf8e3e348a2dc7b0ecbefd7ddda60afcfc4cc1f2c643bc96f",
-      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/resources/workload/properties/job/containers/custom_flavor/",
-      "anchor": "canonical-2113022000203031-3210012132110201-3322123312031331-2330113331003003-3301203102001302-0003310213131110-0023332331310020-3010312023013332",
-      "anchor_map": [
-        [
-          "schema-job--containers--custom_flavor--name",
-          "canonical-1032330302032203-2203331101221312-2223302310023201-3112032233300303-3233131102321313-2033000102220110-1313321111102132-0221213030333120"
-        ]
-      ],
-      "mode": "embedded",
-      "registry_path": "docs/guides/resources--workload--reference--group-004.md"
-    },
-    {
-      "canonical_id": "xcsh-docs:resources:workload:properties:job:containers:custom_flavor",
-      "section_id": "xcsh-docs:resources:workload:properties:job:containers:custom_flavor:section:3",
-      "source_sha256": "sha256:19bca0fae722efca93793a4ec3480b862f00da2302899b303f6d0b28f557a84d",
-      "source_bytes": 1484,
-      "canonical_source_sha256": "sha256:343db83607540f9cf8e3e348a2dc7b0ecbefd7ddda60afcfc4cc1f2c643bc96f",
-      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/resources/workload/properties/job/containers/custom_flavor/",
-      "anchor": "canonical-2220112022231332-0101212000032322-2131022230212222-0301301021223232-2010311003112302-2333013320322223-2222010110331210-3213131133312110",
-      "anchor_map": [
-        [
-          "schema-job--containers--custom_flavor--namespace",
-          "canonical-1002312101022323-1320022121331103-1001003012211312-0032001203110211-1220313133232100-3020333000101233-1333322130203312-3221310123022130"
-        ]
-      ],
-      "mode": "embedded",
-      "registry_path": "docs/guides/resources--workload--reference--group-004.md"
-    },
-    {
-      "canonical_id": "xcsh-docs:resources:workload:properties:job:containers:custom_flavor",
-      "section_id": "xcsh-docs:resources:workload:properties:job:containers:custom_flavor:section:4",
-      "source_sha256": "sha256:c9fe32e4755d663b18285fecaae4b06f8bb073c1225790a3cdcddb0b5002e641",
-      "source_bytes": 1744,
-      "canonical_source_sha256": "sha256:343db83607540f9cf8e3e348a2dc7b0ecbefd7ddda60afcfc4cc1f2c643bc96f",
-      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/resources/workload/properties/job/containers/custom_flavor/",
-      "anchor": "canonical-1120311123002000-3203230223210210-2110120013210201-2033111223120323-2230220231131021-2113100002102312-2103011213120323-3301230221313321",
-      "anchor_map": [
-        [
-          "schema-job--containers--custom_flavor--tenant",
-          "canonical-2030100002121122-0000310133311010-2010102023311012-2021222122023112-2000311330120323-2321033013301110-1202102233302131-3112101222201013"
-        ]
-      ],
-      "mode": "embedded",
-      "registry_path": "docs/guides/resources--workload--reference--group-004.md"
-    },
-    {
-      "canonical_id": "xcsh-docs:resources:workload:properties:job:containers:custom_flavor",
-      "section_id": "xcsh-docs:resources:workload:properties:job:containers:custom_flavor:section:5",
-      "source_sha256": "sha256:64c3681847be5ddaab45be01237888419556997bbf5e5d5df0aa0537bbca7c21",
-      "source_bytes": 1167,
-      "canonical_source_sha256": "sha256:343db83607540f9cf8e3e348a2dc7b0ecbefd7ddda60afcfc4cc1f2c643bc96f",
-      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/resources/workload/properties/job/containers/custom_flavor/",
-      "anchor": "canonical-3333133111012100-0121220321210111-3132102003001013-0120112332212010-0033102131303213-2000312320202220-2130011111330012-0111223331220210",
-      "anchor_map": [],
-      "mode": "embedded",
-      "registry_path": "docs/guides/resources--workload--reference--group-004.md"
-    },
-    {
-      "canonical_id": "xcsh-docs:resources:workload:properties:job:containers:custom_flavor",
-      "section_id": "xcsh-docs:resources:workload:properties:job:containers:custom_flavor:section:6",
-      "source_sha256": "sha256:690c75e8b95d6504dfabc2368919a6ecdc8b5351eca28218822c9f75c676a121",
-      "source_bytes": 232,
-      "canonical_source_sha256": "sha256:343db83607540f9cf8e3e348a2dc7b0ecbefd7ddda60afcfc4cc1f2c643bc96f",
-      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/resources/workload/properties/job/containers/custom_flavor/",
-      "anchor": "canonical-1200120133300130-3010000223011320-3223322010311013-1221230013133213-2232330220120330-3333121113032120-2030330221122020-1113230320222031",
-      "anchor_map": [],
       "mode": "embedded",
       "registry_path": "docs/guides/resources--workload--reference--group-004.md"
     }

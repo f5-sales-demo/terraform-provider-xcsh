@@ -25,7 +25,7 @@
   },
   "pages": [
     {
-      "aliases": ["artifact registry token", "authentication", "credential setup", "credentials"],
+      "aliases": ["artifact registry token"],
       "body_bytes": 1354,
       "body_sha256": "sha256:bd31a9c9f89b5a30de03dc24cf0a82521e8bbba4a126cedce7a57969b5230fd9",
       "capabilities": [],
@@ -36,7 +36,7 @@
         "xcsh-docs:ephemeral-resources:artifact_registry_token:lifecycle"
       ],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["reviewed-rule"],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -48,7 +48,7 @@
       "path": "documentation/ephemeral-resources/artifact_registry_token/index.md",
       "product": "distributed-cloud",
       "provider_name": "artifact_registry_token",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "ephemeral-resources",
       "registry_anchor": "canonical-1323301000023223-3012100013003333-1031230331233031-2332031031030022-0033001320123233-0303101023323201-3331031322333331-2330103332212301",
       "registry_path": "docs/ephemeral-resources/artifact_registry_token.md",
@@ -77,7 +77,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["reviewed-rule"],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -89,7 +89,7 @@
       "path": "documentation/ephemeral-resources/artifact_registry_token/properties/index.md",
       "product": "distributed-cloud",
       "provider_name": "artifact_registry_token",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "ephemeral-resources",
       "registry_anchor": "canonical-2203313033322030-0113022202301111-0210200113320313-3110001101012332-3113033331112210-1332120310221123-3101023200110313-3312021311022023",
       "registry_path": "docs/guides/ephemeral-resources--artifact_registry_token--reference--group-001.md",
@@ -160,7 +160,7 @@
       "category": null,
       "child_ids": ["xcsh-docs:ephemeral-resources:artifact_registry_token:example:ephemeral"],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["reviewed-rule"],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -172,7 +172,7 @@
       "path": "documentation/ephemeral-resources/artifact_registry_token/examples/index.md",
       "product": "distributed-cloud",
       "provider_name": "artifact_registry_token",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "ephemeral-resources",
       "registry_anchor": "canonical-0011313231110131-0332120013220332-0111300222332010-0023102120300323-0123110301313201-3222121230031110-3232221322111321-3103110203301113",
       "registry_path": "docs/guides/ephemeral-resources--artifact_registry_token--examples--group-001.md",
@@ -200,7 +200,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["reviewed-rule"],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -219,7 +219,7 @@
       "path": "documentation/ephemeral-resources/artifact_registry_token/examples/ephemeral/index.md",
       "product": "distributed-cloud",
       "provider_name": "artifact_registry_token",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "ephemeral-resources",
       "registry_anchor": "canonical-0331000100300321-1112003032322321-3321000221031110-0311121332232201-2031031331021200-3333230213330010-2031301221220022-0123102213131101",
       "registry_path": "docs/guides/ephemeral-resources--artifact_registry_token--examples--group-001.md",
@@ -247,7 +247,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["reviewed-rule"],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -259,7 +259,7 @@
       "path": "documentation/ephemeral-resources/artifact_registry_token/lifecycle/index.md",
       "product": "distributed-cloud",
       "provider_name": "artifact_registry_token",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "ephemeral-resources",
       "registry_anchor": "canonical-0110331221331200-1213300003313222-3323030310312122-1030322232211301-2032112231002313-3030211103001311-3321022033312021-3221211010230000",
       "registry_path": "docs/guides/ephemeral-resources--artifact_registry_token--lifecycle--group-001.md",

@@ -55,7 +55,7 @@
   },
   "pages": [
     {
-      "aliases": ["backend servers", "network regional edges", "origin servers", "upstream servers"],
+      "aliases": ["network regional edges"],
       "body_bytes": 1674,
       "body_sha256": "sha256:8b05f140698a753fc1f820117efb453744793ad1e5aaae7244534c995cfce472",
       "capabilities": [],
@@ -65,7 +65,7 @@
         "xcsh-docs:data-sources:network_regional_edges:examples"
       ],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -77,7 +77,7 @@
       "path": "documentation/data-sources/network_regional_edges/index.md",
       "product": "distributed-cloud",
       "provider_name": "network_regional_edges",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-1023001310210202-1103332033010032-1201022013330111-2231303022312333-3020121223333020-2332032002032323-0213232310320002-2311311301002021",
       "registry_path": "docs/data-sources/network_regional_edges.md",
@@ -106,7 +106,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -118,7 +118,7 @@
       "path": "documentation/data-sources/network_regional_edges/properties/index.md",
       "product": "distributed-cloud",
       "provider_name": "network_regional_edges",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-3200132122123211-1311200021302313-1330223222012333-2301330001203121-2032303231120232-2032111121003012-2020302202111221-0022103200132122",
       "registry_path": "docs/guides/data-sources--network_regional_edges--reference--group-001.md",
@@ -273,7 +273,7 @@
       "category": null,
       "child_ids": ["xcsh-docs:data-sources:network_regional_edges:example:data-source"],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -285,7 +285,7 @@
       "path": "documentation/data-sources/network_regional_edges/examples/index.md",
       "product": "distributed-cloud",
       "provider_name": "network_regional_edges",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-1221302330021112-3331231200012232-2213221100101223-3011300131133211-3312233111013301-1200030210201233-1212033110031130-2103232233000132",
       "registry_path": "docs/guides/data-sources--network_regional_edges--examples--group-001.md",
@@ -313,7 +313,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -332,7 +332,7 @@
       "path": "documentation/data-sources/network_regional_edges/examples/data-source/index.md",
       "product": "distributed-cloud",
       "provider_name": "network_regional_edges",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-3012131233211333-0113131211111320-3011322331211210-2200313333300101-3232010110232233-2021013200123312-1311122020120212-2110002123211023",
       "registry_path": "docs/guides/data-sources--network_regional_edges--examples--group-001.md",

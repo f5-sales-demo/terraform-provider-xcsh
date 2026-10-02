@@ -2,6 +2,385 @@
   "schema_version": 1,
   "sections": [
     {
+      "canonical_id": "xcsh-docs:data-sources:global_log_receiver:properties:azure_receiver:compression:compression_none",
+      "section_id": "xcsh-docs:data-sources:global_log_receiver:properties:azure_receiver:compression:compression_none:section:2",
+      "source_sha256": "sha256:0d4398201e18f9ddb2ea00ceed6d3256755ea4d008d849d1cec42dab5c55f1b5",
+      "source_bytes": 94,
+      "canonical_source_sha256": "sha256:8379000053dada556ae1fb7596387da356d5becdba275dbc43dafbc68a8de101",
+      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/global_log_receiver/properties/azure_receiver/compression/compression_none/",
+      "anchor": "canonical-1330123122210122-2231122330022231-2111101012001302-0130000222032120-3231031310122123-2030112101210202-1310103031100332-0131212300310321",
+      "anchor_map": [],
+      "mode": "embedded",
+      "registry_path": "docs/guides/data-sources--global_log_receiver--reference--group-002.md"
+    },
+    {
+      "canonical_id": "xcsh-docs:data-sources:global_log_receiver:properties:azure_receiver:compression:compression_none",
+      "section_id": "xcsh-docs:data-sources:global_log_receiver:properties:azure_receiver:compression:compression_none:section:3",
+      "source_sha256": "sha256:4b2e98cd5c9320a0ffa523801dc6fc159dfc0fd6657b028b640e473529eb7d63",
+      "source_bytes": 295,
+      "canonical_source_sha256": "sha256:8379000053dada556ae1fb7596387da356d5becdba275dbc43dafbc68a8de101",
+      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/global_log_receiver/properties/azure_receiver/compression/compression_none/",
+      "anchor": "canonical-1311002231002131-1131001323100023-0200103312300303-1101333033322002-3131312303203023-3213221023231232-0012202102101333-1220310001132030",
+      "anchor_map": [],
+      "mode": "embedded",
+      "registry_path": "docs/guides/data-sources--global_log_receiver--reference--group-002.md"
+    },
+    {
+      "canonical_id": "xcsh-docs:data-sources:global_log_receiver:properties:azure_receiver:connection_string",
+      "section_id": "xcsh-docs:data-sources:global_log_receiver:properties:azure_receiver:connection_string:section:0",
+      "source_sha256": "sha256:197d41522a9dd286cb9805a03d8a5bd782cc3f3fd95ea854bf2dfc326e83e50c",
+      "source_bytes": 99,
+      "canonical_source_sha256": "sha256:1fbf6eeabe809c03fbcda0fbebf13c656fd2e096c2334f430c4d5703240ad011",
+      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/global_log_receiver/properties/azure_receiver/connection_string/",
+      "anchor": "canonical-2301311003132033-3012223003123133-1213311332201031-2031121222131030-3011202200333201-1112312313312323-1202123022021223-1113232332011210",
+      "anchor_map": [],
+      "mode": "embedded",
+      "registry_path": "docs/guides/data-sources--global_log_receiver--reference--group-002.md"
+    },
+    {
+      "canonical_id": "xcsh-docs:data-sources:global_log_receiver:properties:azure_receiver:connection_string",
+      "section_id": "xcsh-docs:data-sources:global_log_receiver:properties:azure_receiver:connection_string:section:1",
+      "source_sha256": "sha256:1a240386b4785c9f289ba4bb08b448971230f66df0840e0e4b128b118ced43fc",
+      "source_bytes": 864,
+      "canonical_source_sha256": "sha256:1fbf6eeabe809c03fbcda0fbebf13c656fd2e096c2334f430c4d5703240ad011",
+      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/global_log_receiver/properties/azure_receiver/connection_string/",
+      "anchor": "canonical-3120313130332311-1312011112222220-1302101010103220-3322230230002313-1332010023131130-3023120113300313-1302210032232201-3101300120101112",
+      "anchor_map": [
+        [
+          "section",
+          "canonical-2122202223022312-1310200121011323-1202122122122000-1130202102333300-2023031010111030-1211110312000332-2123013102202112-0221120200322313"
+        ]
+      ],
+      "mode": "embedded",
+      "registry_path": "docs/guides/data-sources--global_log_receiver--reference--group-002.md"
+    },
+    {
+      "canonical_id": "xcsh-docs:data-sources:global_log_receiver:properties:azure_receiver:connection_string",
+      "section_id": "xcsh-docs:data-sources:global_log_receiver:properties:azure_receiver:connection_string:section:2",
+      "source_sha256": "sha256:7d66cd157c0d1b15545ae2747ef5b05a5a4e1e1bc6c518760eaf7bc0fc3af650",
+      "source_bytes": 446,
+      "canonical_source_sha256": "sha256:1fbf6eeabe809c03fbcda0fbebf13c656fd2e096c2334f430c4d5703240ad011",
+      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/global_log_receiver/properties/azure_receiver/connection_string/",
+      "anchor": "canonical-3021333212310102-2021130210313023-3301113210231002-3033030310021030-0112032002020022-2120131120322012-0330023310221201-0301103310010311",
+      "anchor_map": [],
+      "mode": "embedded",
+      "registry_path": "docs/guides/data-sources--global_log_receiver--reference--group-002.md"
+    },
+    {
+      "canonical_id": "xcsh-docs:data-sources:global_log_receiver:properties:azure_receiver:connection_string",
+      "section_id": "xcsh-docs:data-sources:global_log_receiver:properties:azure_receiver:connection_string:section:3",
+      "source_sha256": "sha256:a6e2f3a51873d6fea581ebe946524cd2f73b10cb26d0b69b937a1cf6cf8b8e11",
+      "source_bytes": 695,
+      "canonical_source_sha256": "sha256:1fbf6eeabe809c03fbcda0fbebf13c656fd2e096c2334f430c4d5703240ad011",
+      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/global_log_receiver/properties/azure_receiver/connection_string/",
+      "anchor": "canonical-0231310000202123-2000302201312322-0320032100010213-1332110102111113-3231120323102331-1231201112212233-3333300202220223-3110010230112311",
+      "anchor_map": [],
+      "mode": "embedded",
+      "registry_path": "docs/guides/data-sources--global_log_receiver--reference--group-002.md"
+    },
+    {
+      "canonical_id": "xcsh-docs:data-sources:global_log_receiver:properties:azure_receiver:connection_string:blindfold_secret_info",
+      "section_id": "xcsh-docs:data-sources:global_log_receiver:properties:azure_receiver:connection_string:blindfold_secret_info:section:0",
+      "source_sha256": "sha256:197d41522a9dd286cb9805a03d8a5bd782cc3f3fd95ea854bf2dfc326e83e50c",
+      "source_bytes": 99,
+      "canonical_source_sha256": "sha256:a08692ebf2e19125af5fbc75d4bec668d14bcb097add7acb122b32e8db6bc87a",
+      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/global_log_receiver/properties/azure_receiver/connection_string/blindfold_secret_info/",
+      "anchor": "canonical-2222113333021332-0302300221301200-2321333020122222-0000123020302023-0333303120321110-3210310320210312-2110222330101132-3123321131212231",
+      "anchor_map": [],
+      "mode": "embedded",
+      "registry_path": "docs/guides/data-sources--global_log_receiver--reference--group-002.md"
+    },
+    {
+      "canonical_id": "xcsh-docs:data-sources:global_log_receiver:properties:azure_receiver:connection_string:blindfold_secret_info",
+      "section_id": "xcsh-docs:data-sources:global_log_receiver:properties:azure_receiver:connection_string:blindfold_secret_info:section:1",
+      "source_sha256": "sha256:dd417e157e833e1d36e1f388b7f0a92462528ebbc8727786764b91087bc6c299",
+      "source_bytes": 1008,
+      "canonical_source_sha256": "sha256:a08692ebf2e19125af5fbc75d4bec668d14bcb097add7acb122b32e8db6bc87a",
+      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/global_log_receiver/properties/azure_receiver/connection_string/blindfold_secret_info/",
+      "anchor": "canonical-3332020222301232-2011213133133023-1021023323032120-2101121322102321-0132203300130221-0312121202223131-2201010010122032-0220033010333132",
+      "anchor_map": [
+        [
+          "section",
+          "canonical-2123120222321013-2011001200110033-1301331333301323-3021310332101000-2031132232130000-3200011202120021-3213013233020232-0132020222201122"
+        ]
+      ],
+      "mode": "embedded",
+      "registry_path": "docs/guides/data-sources--global_log_receiver--reference--group-002.md"
+    },
+    {
+      "canonical_id": "xcsh-docs:data-sources:global_log_receiver:properties:azure_receiver:connection_string:blindfold_secret_info",
+      "section_id": "xcsh-docs:data-sources:global_log_receiver:properties:azure_receiver:connection_string:blindfold_secret_info:section:2",
+      "source_sha256": "sha256:d251dda3e6757aaab59039982613b61525f33781e1707ef4043605c0ff98aece",
+      "source_bytes": 121,
+      "canonical_source_sha256": "sha256:a08692ebf2e19125af5fbc75d4bec668d14bcb097add7acb122b32e8db6bc87a",
+      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/global_log_receiver/properties/azure_receiver/connection_string/blindfold_secret_info/",
+      "anchor": "canonical-0313131202213203-0133120112000302-1201221332102020-3010103333030131-2112223030011002-1322212333133110-3331302031311200-1122100123123012",
+      "anchor_map": [
+        [
+          "schema-azure_receiver--connection_string--blindfold_secret_info--decryption_provider",
+          "canonical-2213101032233021-1111001000103131-1201313032221123-3312121313022321-0030321113310013-1232010111202133-2210031131303310-0021132023010001"
+        ]
+      ],
+      "mode": "embedded",
+      "registry_path": "docs/guides/data-sources--global_log_receiver--reference--group-002.md"
+    },
+    {
+      "canonical_id": "xcsh-docs:data-sources:global_log_receiver:properties:azure_receiver:connection_string:blindfold_secret_info",
+      "section_id": "xcsh-docs:data-sources:global_log_receiver:properties:azure_receiver:connection_string:blindfold_secret_info:section:3",
+      "source_sha256": "sha256:6b89482d40db0a46aeea09618931cddf3ce90243a4e5f0aeb3e83271f928a020",
+      "source_bytes": 682,
+      "canonical_source_sha256": "sha256:a08692ebf2e19125af5fbc75d4bec668d14bcb097add7acb122b32e8db6bc87a",
+      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/global_log_receiver/properties/azure_receiver/connection_string/blindfold_secret_info/",
+      "anchor": "canonical-2113201210231232-1101223301123003-1000021322223002-3001122302100033-2100231021112113-1023302010120010-3123031103021201-0110203301001113",
+      "anchor_map": [
+        [
+          "schema-azure_receiver--connection_string--blindfold_secret_info--location",
+          "canonical-2221222113333111-3313212220101102-0322000010212203-0102120121310012-3300123003313213-2331003302202312-2312322033320232-0030323103111220"
+        ]
+      ],
+      "mode": "embedded",
+      "registry_path": "docs/guides/data-sources--global_log_receiver--reference--group-002.md"
+    },
+    {
+      "canonical_id": "xcsh-docs:data-sources:global_log_receiver:properties:azure_receiver:connection_string:blindfold_secret_info",
+      "section_id": "xcsh-docs:data-sources:global_log_receiver:properties:azure_receiver:connection_string:blindfold_secret_info:section:4",
+      "source_sha256": "sha256:43207c7a5af2e426afe047a4f242db7905d2d477a7c843bc68e7aaafc5b9e13f",
+      "source_bytes": 1494,
+      "canonical_source_sha256": "sha256:a08692ebf2e19125af5fbc75d4bec668d14bcb097add7acb122b32e8db6bc87a",
+      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/global_log_receiver/properties/azure_receiver/connection_string/blindfold_secret_info/",
+      "anchor": "canonical-3300122030203113-3211020033330010-0213302320113113-3133301211202331-0231010231323230-2320002322200030-2030313230013232-3321231112322320",
+      "anchor_map": [
+        [
+          "schema-azure_receiver--connection_string--blindfold_secret_info--store_provider",
+          "canonical-1110313312022231-2303120132312332-3230123332303113-2300222123120222-1211101013112123-1231123130003220-1101122012021213-0221111121012131"
+        ]
+      ],
+      "mode": "embedded",
+      "registry_path": "docs/guides/data-sources--global_log_receiver--reference--group-002.md"
+    },
+    {
+      "canonical_id": "xcsh-docs:data-sources:global_log_receiver:properties:azure_receiver:connection_string:blindfold_secret_info",
+      "section_id": "xcsh-docs:data-sources:global_log_receiver:properties:azure_receiver:connection_string:blindfold_secret_info:section:5",
+      "source_sha256": "sha256:0831ef4cb04eefb8921cebf23ca01bfb82b2b337f17b7b99e0910bdf1f5f2d25",
+      "source_bytes": 864,
+      "canonical_source_sha256": "sha256:a08692ebf2e19125af5fbc75d4bec668d14bcb097add7acb122b32e8db6bc87a",
+      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/global_log_receiver/properties/azure_receiver/connection_string/blindfold_secret_info/",
+      "anchor": "canonical-0030133320211232-1222201132202110-0123233302333310-1003101002313121-3230122323220102-0331330130210202-3011231100132332-0300213031000131",
+      "anchor_map": [],
+      "mode": "embedded",
+      "registry_path": "docs/guides/data-sources--global_log_receiver--reference--group-002.md"
+    },
+    {
+      "canonical_id": "xcsh-docs:data-sources:global_log_receiver:properties:azure_receiver:connection_string:blindfold_secret_info",
+      "section_id": "xcsh-docs:data-sources:global_log_receiver:properties:azure_receiver:connection_string:blindfold_secret_info:section:6",
+      "source_sha256": "sha256:a7647ca2b064b391bf78bcdca7701a86c43ce5329c72e8e3eb32a38afb95ecdf",
+      "source_bytes": 307,
+      "canonical_source_sha256": "sha256:a08692ebf2e19125af5fbc75d4bec668d14bcb097add7acb122b32e8db6bc87a",
+      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/global_log_receiver/properties/azure_receiver/connection_string/blindfold_secret_info/",
+      "anchor": "canonical-0131213132121333-2002110203030333-1102231331100001-3011230213023111-1131101111201011-0303312202123312-2012233031222113-2100200002201130",
+      "anchor_map": [],
+      "mode": "embedded",
+      "registry_path": "docs/guides/data-sources--global_log_receiver--reference--group-002.md"
+    },
+    {
+      "canonical_id": "xcsh-docs:data-sources:global_log_receiver:properties:azure_receiver:connection_string:clear_secret_info",
+      "section_id": "xcsh-docs:data-sources:global_log_receiver:properties:azure_receiver:connection_string:clear_secret_info:section:0",
+      "source_sha256": "sha256:197d41522a9dd286cb9805a03d8a5bd782cc3f3fd95ea854bf2dfc326e83e50c",
+      "source_bytes": 99,
+      "canonical_source_sha256": "sha256:60c5b6bc33a86a60a5d78034687a08f8945a1250804b4eedd4e953ae4acbf4b5",
+      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/global_log_receiver/properties/azure_receiver/connection_string/clear_secret_info/",
+      "anchor": "canonical-3122300203300210-1201011230301232-2211300313113220-1031112333321102-0023203302212022-3332033323223313-0332112110030231-0123300301103201",
+      "anchor_map": [],
+      "mode": "embedded",
+      "registry_path": "docs/guides/data-sources--global_log_receiver--reference--group-002.md"
+    },
+    {
+      "canonical_id": "xcsh-docs:data-sources:global_log_receiver:properties:azure_receiver:connection_string:clear_secret_info",
+      "section_id": "xcsh-docs:data-sources:global_log_receiver:properties:azure_receiver:connection_string:clear_secret_info:section:1",
+      "source_sha256": "sha256:17ec8934e5ee99c55e1facba5a77603c3e7dd34b82b17eacd4991016001ad2ed",
+      "source_bytes": 984,
+      "canonical_source_sha256": "sha256:60c5b6bc33a86a60a5d78034687a08f8945a1250804b4eedd4e953ae4acbf4b5",
+      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/global_log_receiver/properties/azure_receiver/connection_string/clear_secret_info/",
+      "anchor": "canonical-1331131311223020-1020013111113232-3211013230010200-0001012333323012-0030310013130330-0100313133133032-0130022111013212-2011021200232200",
+      "anchor_map": [
+        [
+          "section",
+          "canonical-2102123013221100-2231203100222021-1230321213131323-1113031031321003-0133230101203011-3233130232310032-3021222113100001-3120211121320132"
+        ]
+      ],
+      "mode": "embedded",
+      "registry_path": "docs/guides/data-sources--global_log_receiver--reference--group-002.md"
+    },
+    {
+      "canonical_id": "xcsh-docs:data-sources:global_log_receiver:properties:azure_receiver:connection_string:clear_secret_info",
+      "section_id": "xcsh-docs:data-sources:global_log_receiver:properties:azure_receiver:connection_string:clear_secret_info:section:2",
+      "source_sha256": "sha256:53c7728872332c04f917c84306d41e60419124bb9fa9b100cb4a4b840e560904",
+      "source_bytes": 110,
+      "canonical_source_sha256": "sha256:60c5b6bc33a86a60a5d78034687a08f8945a1250804b4eedd4e953ae4acbf4b5",
+      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/global_log_receiver/properties/azure_receiver/connection_string/clear_secret_info/",
+      "anchor": "canonical-0103332032121132-1300301111210332-1310320111313123-1312300121110032-2211332012123020-2212102330211303-3111233122131001-2100303010212300",
+      "anchor_map": [
+        [
+          "schema-azure_receiver--connection_string--clear_secret_info--provider_ref",
+          "canonical-3322302310102202-2132032102030021-1300220302331002-3001211131302300-0302031100331131-3023300323001002-2302232110233300-3033220321313111"
+        ]
+      ],
+      "mode": "embedded",
+      "registry_path": "docs/guides/data-sources--global_log_receiver--reference--group-002.md"
+    },
+    {
+      "canonical_id": "xcsh-docs:data-sources:global_log_receiver:properties:azure_receiver:connection_string:clear_secret_info",
+      "section_id": "xcsh-docs:data-sources:global_log_receiver:properties:azure_receiver:connection_string:clear_secret_info:section:3",
+      "source_sha256": "sha256:702f456eba406e57c0031e7df024f8e4d5e515fc0a47422d131c1e552029af2f",
+      "source_bytes": 319,
+      "canonical_source_sha256": "sha256:60c5b6bc33a86a60a5d78034687a08f8945a1250804b4eedd4e953ae4acbf4b5",
+      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/global_log_receiver/properties/azure_receiver/connection_string/clear_secret_info/",
+      "anchor": "canonical-1002103331330113-0203001100221332-0123122011023021-0000032000231232-0112311012013023-2000200221221321-3220023131022122-0220030331332003",
+      "anchor_map": [
+        [
+          "schema-azure_receiver--connection_string--clear_secret_info--url",
+          "canonical-2031223102332203-2213021112231031-0111020222022213-2320032310312123-3023121102122130-1323322011331022-3023000120313100-3300110000120230"
+        ]
+      ],
+      "mode": "embedded",
+      "registry_path": "docs/guides/data-sources--global_log_receiver--reference--group-002.md"
+    },
+    {
+      "canonical_id": "xcsh-docs:data-sources:global_log_receiver:properties:azure_receiver:connection_string:clear_secret_info",
+      "section_id": "xcsh-docs:data-sources:global_log_receiver:properties:azure_receiver:connection_string:clear_secret_info:section:4",
+      "source_sha256": "sha256:0712655acd3c24569c397e0e8e5c9052a3b39a9869e5e242174f6fca32b82fea",
+      "source_bytes": 1643,
+      "canonical_source_sha256": "sha256:60c5b6bc33a86a60a5d78034687a08f8945a1250804b4eedd4e953ae4acbf4b5",
+      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/global_log_receiver/properties/azure_receiver/connection_string/clear_secret_info/",
+      "anchor": "canonical-0303323221202231-1220113230310031-3111130333223300-2112312010321322-1222313232231032-1220202222233110-1333212023210320-0010013010022330",
+      "anchor_map": [],
+      "mode": "embedded",
+      "registry_path": "docs/guides/data-sources--global_log_receiver--reference--group-002.md"
+    },
+    {
+      "canonical_id": "xcsh-docs:data-sources:global_log_receiver:properties:azure_receiver:connection_string:clear_secret_info",
+      "section_id": "xcsh-docs:data-sources:global_log_receiver:properties:azure_receiver:connection_string:clear_secret_info:section:5",
+      "source_sha256": "sha256:a7647ca2b064b391bf78bcdca7701a86c43ce5329c72e8e3eb32a38afb95ecdf",
+      "source_bytes": 307,
+      "canonical_source_sha256": "sha256:60c5b6bc33a86a60a5d78034687a08f8945a1250804b4eedd4e953ae4acbf4b5",
+      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/global_log_receiver/properties/azure_receiver/connection_string/clear_secret_info/",
+      "anchor": "canonical-3300201013310100-2201211021130332-1212032113322233-3323222323222031-2223021311331123-1002103121322202-0131001033012001-3120323122121210",
+      "anchor_map": [],
+      "mode": "embedded",
+      "registry_path": "docs/guides/data-sources--global_log_receiver--reference--group-002.md"
+    },
+    {
+      "canonical_id": "xcsh-docs:data-sources:global_log_receiver:properties:azure_receiver:filename_options",
+      "section_id": "xcsh-docs:data-sources:global_log_receiver:properties:azure_receiver:filename_options:section:0",
+      "source_sha256": "sha256:197d41522a9dd286cb9805a03d8a5bd782cc3f3fd95ea854bf2dfc326e83e50c",
+      "source_bytes": 99,
+      "canonical_source_sha256": "sha256:a515c2335f60887ef68fe3f9389426ae93bbce7cce0abc53b5e7a2ddd28dc263",
+      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/global_log_receiver/properties/azure_receiver/filename_options/",
+      "anchor": "canonical-1213320220313111-2133213301031032-3323200320132221-3331102313013310-3021210320112221-3123112202113322-0220322200312200-2222020203030033",
+      "anchor_map": [],
+      "mode": "embedded",
+      "registry_path": "docs/guides/data-sources--global_log_receiver--reference--group-002.md"
+    },
+    {
+      "canonical_id": "xcsh-docs:data-sources:global_log_receiver:properties:azure_receiver:filename_options",
+      "section_id": "xcsh-docs:data-sources:global_log_receiver:properties:azure_receiver:filename_options:section:1",
+      "source_sha256": "sha256:40a7fe9e13912505b0942e34287bf28dc2d7556d4f088ba9a5c88a91b4327c12",
+      "source_bytes": 892,
+      "canonical_source_sha256": "sha256:a515c2335f60887ef68fe3f9389426ae93bbce7cce0abc53b5e7a2ddd28dc263",
+      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/global_log_receiver/properties/azure_receiver/filename_options/",
+      "anchor": "canonical-1110311303111221-0212102232303320-3221210021220030-3031030222030231-2220312220210222-1322331101302222-2003332323231020-2321220132321003",
+      "anchor_map": [
+        [
+          "section",
+          "canonical-3103320202120000-3231111110312220-3033222232220233-3000202311220011-0222300222130203-2012132003113000-0213122020212211-1020222220000000"
+        ]
+      ],
+      "mode": "embedded",
+      "registry_path": "docs/guides/data-sources--global_log_receiver--reference--group-002.md"
+    },
+    {
+      "canonical_id": "xcsh-docs:data-sources:global_log_receiver:properties:azure_receiver:filename_options",
+      "section_id": "xcsh-docs:data-sources:global_log_receiver:properties:azure_receiver:filename_options:section:2",
+      "source_sha256": "sha256:40547e24be20411dbf94bd1ef03e2f839b45ba7784033714ba7e77e9a7d1ce07",
+      "source_bytes": 91,
+      "canonical_source_sha256": "sha256:a515c2335f60887ef68fe3f9389426ae93bbce7cce0abc53b5e7a2ddd28dc263",
+      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/global_log_receiver/properties/azure_receiver/filename_options/",
+      "anchor": "canonical-3131110012133113-0303230112111220-1200003302132123-3213130132020112-3000022221010131-2211231032322030-0322113312010201-2131201012112232",
+      "anchor_map": [
+        [
+          "schema-azure_receiver--filename_options--custom_folder",
+          "canonical-0211210103230121-1123121320320130-0310120110133112-2121203301012310-3330132321033123-3110313132213000-1321312102320023-3323111201003331"
+        ]
+      ],
+      "mode": "embedded",
+      "registry_path": "docs/guides/data-sources--global_log_receiver--reference--group-002.md"
+    },
+    {
+      "canonical_id": "xcsh-docs:data-sources:global_log_receiver:properties:azure_receiver:filename_options",
+      "section_id": "xcsh-docs:data-sources:global_log_receiver:properties:azure_receiver:filename_options:section:3",
+      "source_sha256": "sha256:d58ed7e72bb2641814a6f444a4694f6c6e662c945a68f29274da6eb6b4eaf0a7",
+      "source_bytes": 1556,
+      "canonical_source_sha256": "sha256:a515c2335f60887ef68fe3f9389426ae93bbce7cce0abc53b5e7a2ddd28dc263",
+      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/global_log_receiver/properties/azure_receiver/filename_options/",
+      "anchor": "canonical-3130321220201100-3211322310012222-1120002311103202-3123003203303230-3210102130333020-1211000223230100-0013002313332201-1321313313322222",
+      "anchor_map": [],
+      "mode": "embedded",
+      "registry_path": "docs/guides/data-sources--global_log_receiver--reference--group-002.md"
+    },
+    {
+      "canonical_id": "xcsh-docs:data-sources:global_log_receiver:properties:azure_receiver:filename_options",
+      "section_id": "xcsh-docs:data-sources:global_log_receiver:properties:azure_receiver:filename_options:section:4",
+      "source_sha256": "sha256:117cc05c39337c62051f9a23d7db026098acbf05284a7789b3acf6ad63e21433",
+      "source_bytes": 663,
+      "canonical_source_sha256": "sha256:a515c2335f60887ef68fe3f9389426ae93bbce7cce0abc53b5e7a2ddd28dc263",
+      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/global_log_receiver/properties/azure_receiver/filename_options/",
+      "anchor": "canonical-1130330112022223-1033211213122012-3313011102333111-1003310220213112-1310013101300110-2303221320120110-2223321202323130-1132301132233113",
+      "anchor_map": [],
+      "mode": "embedded",
+      "registry_path": "docs/guides/data-sources--global_log_receiver--reference--group-002.md"
+    },
+    {
+      "canonical_id": "xcsh-docs:data-sources:global_log_receiver:properties:azure_receiver:filename_options:log_type_folder",
+      "section_id": "xcsh-docs:data-sources:global_log_receiver:properties:azure_receiver:filename_options:log_type_folder:section:0",
+      "source_sha256": "sha256:197d41522a9dd286cb9805a03d8a5bd782cc3f3fd95ea854bf2dfc326e83e50c",
+      "source_bytes": 99,
+      "canonical_source_sha256": "sha256:03a00d660ce13c515e293c4946282f1a48c75cee574bf95d40408c39a7bf1d74",
+      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/global_log_receiver/properties/azure_receiver/filename_options/log_type_folder/",
+      "anchor": "canonical-2302011023200002-2030322222221322-3311000033202231-0020011112130213-2002020212201103-0330302030001321-0101123222300332-3320033231333130",
+      "anchor_map": [],
+      "mode": "embedded",
+      "registry_path": "docs/guides/data-sources--global_log_receiver--reference--group-002.md"
+    },
+    {
+      "canonical_id": "xcsh-docs:data-sources:global_log_receiver:properties:azure_receiver:filename_options:log_type_folder",
+      "section_id": "xcsh-docs:data-sources:global_log_receiver:properties:azure_receiver:filename_options:log_type_folder:section:1",
+      "source_sha256": "sha256:ff2b59edb15f03ac15b11a7a5f2c8441563dcadc1adc246dae87193d2228c9f8",
+      "source_bytes": 1027,
+      "canonical_source_sha256": "sha256:03a00d660ce13c515e293c4946282f1a48c75cee574bf95d40408c39a7bf1d74",
+      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/global_log_receiver/properties/azure_receiver/filename_options/log_type_folder/",
+      "anchor": "canonical-3301320003122131-1002311330211133-3003330313030333-1121330210313331-2032031220321232-2220033110121310-2033031311101011-0010131232102312",
+      "anchor_map": [
+        [
+          "section",
+          "canonical-2023020012222102-3100222112221022-2103033012133312-3030312310322223-3011032120103032-1210322020230301-1210303001220333-2210321030300203"
+        ]
+      ],
+      "mode": "embedded",
+      "registry_path": "docs/guides/data-sources--global_log_receiver--reference--group-002.md"
+    },
+    {
+      "canonical_id": "xcsh-docs:data-sources:global_log_receiver:properties:azure_receiver:filename_options:log_type_folder",
+      "section_id": "xcsh-docs:data-sources:global_log_receiver:properties:azure_receiver:filename_options:log_type_folder:section:2",
+      "source_sha256": "sha256:0d4398201e18f9ddb2ea00ceed6d3256755ea4d008d849d1cec42dab5c55f1b5",
+      "source_bytes": 94,
+      "canonical_source_sha256": "sha256:03a00d660ce13c515e293c4946282f1a48c75cee574bf95d40408c39a7bf1d74",
+      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/global_log_receiver/properties/azure_receiver/filename_options/log_type_folder/",
+      "anchor": "canonical-3202013231101312-2113231232302111-0302121230133322-0023101302231323-0223221120102211-3210030321111002-2123323321201330-3130332323120123",
+      "anchor_map": [],
+      "mode": "embedded",
+      "registry_path": "docs/guides/data-sources--global_log_receiver--reference--group-002.md"
+    },
+    {
       "canonical_id": "xcsh-docs:data-sources:global_log_receiver:properties:azure_receiver:filename_options:log_type_folder",
       "section_id": "xcsh-docs:data-sources:global_log_receiver:properties:azure_receiver:filename_options:log_type_folder:section:3",
       "source_sha256": "sha256:3f235c9ba66ab4b372cb372b59738b7f7aeaab69d37f077899909367dae5b169",
@@ -6791,394 +7170,6 @@
       "anchor_map": [],
       "mode": "embedded",
       "registry_path": "docs/guides/data-sources--global_log_receiver--reference--group-003.md"
-    },
-    {
-      "canonical_id": "xcsh-docs:data-sources:global_log_receiver:properties:qradar_receiver:compression:compression_default",
-      "section_id": "xcsh-docs:data-sources:global_log_receiver:properties:qradar_receiver:compression:compression_default:section:3",
-      "source_sha256": "sha256:8d7cfc4e4067ce78a5677ffb3cfa698d00160bebfbfa841051463de9be152b9f",
-      "source_bytes": 297,
-      "canonical_source_sha256": "sha256:798d8e1e1a5cdbb976ae407d87b4c18af87672917daf30ebb7821005798f62c1",
-      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/global_log_receiver/properties/qradar_receiver/compression/compression_default/",
-      "anchor": "canonical-3010220033320030-3203011301103113-2203332100322312-3221323020101112-1202312032310213-0012001232201002-3201132020203020-3101321003202223",
-      "anchor_map": [],
-      "mode": "embedded",
-      "registry_path": "docs/guides/data-sources--global_log_receiver--reference--group-003.md"
-    },
-    {
-      "canonical_id": "xcsh-docs:data-sources:global_log_receiver:properties:qradar_receiver:compression:compression_gzip",
-      "section_id": "xcsh-docs:data-sources:global_log_receiver:properties:qradar_receiver:compression:compression_gzip:section:0",
-      "source_sha256": "sha256:197d41522a9dd286cb9805a03d8a5bd782cc3f3fd95ea854bf2dfc326e83e50c",
-      "source_bytes": 99,
-      "canonical_source_sha256": "sha256:85f774cd5cd0f40466056311d99b9560b7ea41b03918f60893f2136ad9366b6b",
-      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/global_log_receiver/properties/qradar_receiver/compression/compression_gzip/",
-      "anchor": "canonical-2021221123300320-3213123120231213-1233322013302011-0123311130313303-3022301210010301-3113213030223032-3133222203021201-2030220200110111",
-      "anchor_map": [],
-      "mode": "embedded",
-      "registry_path": "docs/guides/data-sources--global_log_receiver--reference--group-003.md"
-    },
-    {
-      "canonical_id": "xcsh-docs:data-sources:global_log_receiver:properties:qradar_receiver:compression:compression_gzip",
-      "section_id": "xcsh-docs:data-sources:global_log_receiver:properties:qradar_receiver:compression:compression_gzip:section:1",
-      "source_sha256": "sha256:812627153c3025b3f635be65babb81c168bc6d8d7c0f29682a12ae72f40e51ef",
-      "source_bytes": 989,
-      "canonical_source_sha256": "sha256:85f774cd5cd0f40466056311d99b9560b7ea41b03918f60893f2136ad9366b6b",
-      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/global_log_receiver/properties/qradar_receiver/compression/compression_gzip/",
-      "anchor": "canonical-2211301312200301-1000012313023210-2000003101003031-2030122122321112-3033002031012203-1200132213023130-2030131003001121-1013030201200220",
-      "anchor_map": [
-        [
-          "section",
-          "canonical-3233321202021213-1230302303101303-1311033122322023-0111302223230222-3033131101333112-0023100202311013-3031312221330122-0003132100302210"
-        ]
-      ],
-      "mode": "embedded",
-      "registry_path": "docs/guides/data-sources--global_log_receiver--reference--group-003.md"
-    },
-    {
-      "canonical_id": "xcsh-docs:data-sources:global_log_receiver:properties:qradar_receiver:compression:compression_gzip",
-      "section_id": "xcsh-docs:data-sources:global_log_receiver:properties:qradar_receiver:compression:compression_gzip:section:2",
-      "source_sha256": "sha256:0d4398201e18f9ddb2ea00ceed6d3256755ea4d008d849d1cec42dab5c55f1b5",
-      "source_bytes": 94,
-      "canonical_source_sha256": "sha256:85f774cd5cd0f40466056311d99b9560b7ea41b03918f60893f2136ad9366b6b",
-      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/global_log_receiver/properties/qradar_receiver/compression/compression_gzip/",
-      "anchor": "canonical-0032003233212030-1331132121312302-2230030103223212-2113100021300203-0000121133130001-3033310332310233-0210221301131320-3233212333302300",
-      "anchor_map": [],
-      "mode": "embedded",
-      "registry_path": "docs/guides/data-sources--global_log_receiver--reference--group-003.md"
-    },
-    {
-      "canonical_id": "xcsh-docs:data-sources:global_log_receiver:properties:qradar_receiver:compression:compression_gzip",
-      "section_id": "xcsh-docs:data-sources:global_log_receiver:properties:qradar_receiver:compression:compression_gzip:section:3",
-      "source_sha256": "sha256:8d7cfc4e4067ce78a5677ffb3cfa698d00160bebfbfa841051463de9be152b9f",
-      "source_bytes": 297,
-      "canonical_source_sha256": "sha256:85f774cd5cd0f40466056311d99b9560b7ea41b03918f60893f2136ad9366b6b",
-      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/global_log_receiver/properties/qradar_receiver/compression/compression_gzip/",
-      "anchor": "canonical-2113000220111100-1230123212211022-0200300022200010-2012123311321000-1010101303112111-2221311202203112-0233223313011102-2131202222231023",
-      "anchor_map": [],
-      "mode": "embedded",
-      "registry_path": "docs/guides/data-sources--global_log_receiver--reference--group-003.md"
-    },
-    {
-      "canonical_id": "xcsh-docs:data-sources:global_log_receiver:properties:qradar_receiver:compression:compression_none",
-      "section_id": "xcsh-docs:data-sources:global_log_receiver:properties:qradar_receiver:compression:compression_none:section:0",
-      "source_sha256": "sha256:197d41522a9dd286cb9805a03d8a5bd782cc3f3fd95ea854bf2dfc326e83e50c",
-      "source_bytes": 99,
-      "canonical_source_sha256": "sha256:9203607c38c8e5ba9a96ce47f9a95866d049c659eb9f28423cd6163d734edb26",
-      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/global_log_receiver/properties/qradar_receiver/compression/compression_none/",
-      "anchor": "canonical-3023302011231113-2020311331130023-1211211120210031-0000111011130232-1203002223332021-2032100003232100-3323301311010202-3332122213300103",
-      "anchor_map": [],
-      "mode": "embedded",
-      "registry_path": "docs/guides/data-sources--global_log_receiver--reference--group-003.md"
-    },
-    {
-      "canonical_id": "xcsh-docs:data-sources:global_log_receiver:properties:qradar_receiver:compression:compression_none",
-      "section_id": "xcsh-docs:data-sources:global_log_receiver:properties:qradar_receiver:compression:compression_none:section:1",
-      "source_sha256": "sha256:d8d4bf38d6137622a984b53a6defdc304423acaca9bcc8248ad6e05f125617c0",
-      "source_bytes": 1016,
-      "canonical_source_sha256": "sha256:9203607c38c8e5ba9a96ce47f9a95866d049c659eb9f28423cd6163d734edb26",
-      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/global_log_receiver/properties/qradar_receiver/compression/compression_none/",
-      "anchor": "canonical-2012121110312222-3201120113320330-2110321103303112-2010230001023002-0020321100333003-2302010101021103-1200012303322002-2310223031322030",
-      "anchor_map": [
-        [
-          "section",
-          "canonical-1030203010111302-0132031201202133-2130302302311311-1023013202200013-2031312021213332-3023310332121022-1201022101003101-3112332223303023"
-        ]
-      ],
-      "mode": "embedded",
-      "registry_path": "docs/guides/data-sources--global_log_receiver--reference--group-003.md"
-    },
-    {
-      "canonical_id": "xcsh-docs:data-sources:global_log_receiver:properties:qradar_receiver:compression:compression_none",
-      "section_id": "xcsh-docs:data-sources:global_log_receiver:properties:qradar_receiver:compression:compression_none:section:2",
-      "source_sha256": "sha256:0d4398201e18f9ddb2ea00ceed6d3256755ea4d008d849d1cec42dab5c55f1b5",
-      "source_bytes": 94,
-      "canonical_source_sha256": "sha256:9203607c38c8e5ba9a96ce47f9a95866d049c659eb9f28423cd6163d734edb26",
-      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/global_log_receiver/properties/qradar_receiver/compression/compression_none/",
-      "anchor": "canonical-0301123302131031-1133223020012122-1301002031211333-1322312103112213-2001230130120013-1021130130112121-2030223232122031-0310121012030332",
-      "anchor_map": [],
-      "mode": "embedded",
-      "registry_path": "docs/guides/data-sources--global_log_receiver--reference--group-003.md"
-    },
-    {
-      "canonical_id": "xcsh-docs:data-sources:global_log_receiver:properties:qradar_receiver:compression:compression_none",
-      "section_id": "xcsh-docs:data-sources:global_log_receiver:properties:qradar_receiver:compression:compression_none:section:3",
-      "source_sha256": "sha256:8d7cfc4e4067ce78a5677ffb3cfa698d00160bebfbfa841051463de9be152b9f",
-      "source_bytes": 297,
-      "canonical_source_sha256": "sha256:9203607c38c8e5ba9a96ce47f9a95866d049c659eb9f28423cd6163d734edb26",
-      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/global_log_receiver/properties/qradar_receiver/compression/compression_none/",
-      "anchor": "canonical-1232013131230322-3112031123001023-3131201110102332-3002011311000003-1212333011311221-3131021103323231-3020203011231212-2201130310113122",
-      "anchor_map": [],
-      "mode": "embedded",
-      "registry_path": "docs/guides/data-sources--global_log_receiver--reference--group-003.md"
-    },
-    {
-      "canonical_id": "xcsh-docs:data-sources:global_log_receiver:properties:qradar_receiver:no_tls",
-      "section_id": "xcsh-docs:data-sources:global_log_receiver:properties:qradar_receiver:no_tls:section:0",
-      "source_sha256": "sha256:197d41522a9dd286cb9805a03d8a5bd782cc3f3fd95ea854bf2dfc326e83e50c",
-      "source_bytes": 99,
-      "canonical_source_sha256": "sha256:f24d7f5c72eb3643f4e016856c0d24ddb7c1211c9b8974cdfcf122a8c8c18620",
-      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/global_log_receiver/properties/qradar_receiver/no_tls/",
-      "anchor": "canonical-1111323021212322-2212331021332333-0210102220332333-3123222111000123-2131031111023130-0021122202312123-3301311202111330-0212010322032212",
-      "anchor_map": [],
-      "mode": "embedded",
-      "registry_path": "docs/guides/data-sources--global_log_receiver--reference--group-003.md"
-    },
-    {
-      "canonical_id": "xcsh-docs:data-sources:global_log_receiver:properties:qradar_receiver:no_tls",
-      "section_id": "xcsh-docs:data-sources:global_log_receiver:properties:qradar_receiver:no_tls:section:1",
-      "source_sha256": "sha256:9ac579a2c745738d6d18be20bba9ba9fa1d387234bdc109ea0412f6962db312f",
-      "source_bytes": 783,
-      "canonical_source_sha256": "sha256:f24d7f5c72eb3643f4e016856c0d24ddb7c1211c9b8974cdfcf122a8c8c18620",
-      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/global_log_receiver/properties/qradar_receiver/no_tls/",
-      "anchor": "canonical-1123230112100200-1002212313022210-0022212230110302-2000233332331111-0210013320023213-3311001023102110-3211030112122010-2232122212230133",
-      "anchor_map": [
-        [
-          "section",
-          "canonical-1311221010330131-0100030122201013-0123222200333120-2221022230023332-0133123010211132-0300332331311303-2303010213100302-1300031202112222"
-        ]
-      ],
-      "mode": "embedded",
-      "registry_path": "docs/guides/data-sources--global_log_receiver--reference--group-003.md"
-    },
-    {
-      "canonical_id": "xcsh-docs:data-sources:global_log_receiver:properties:qradar_receiver:no_tls",
-      "section_id": "xcsh-docs:data-sources:global_log_receiver:properties:qradar_receiver:no_tls:section:2",
-      "source_sha256": "sha256:0d4398201e18f9ddb2ea00ceed6d3256755ea4d008d849d1cec42dab5c55f1b5",
-      "source_bytes": 94,
-      "canonical_source_sha256": "sha256:f24d7f5c72eb3643f4e016856c0d24ddb7c1211c9b8974cdfcf122a8c8c18620",
-      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/global_log_receiver/properties/qradar_receiver/no_tls/",
-      "anchor": "canonical-3000333010302222-2231020321133221-1331132310311003-1131323312222232-0110330211122332-0330221222112110-2033213111210323-0322232201023003",
-      "anchor_map": [],
-      "mode": "embedded",
-      "registry_path": "docs/guides/data-sources--global_log_receiver--reference--group-003.md"
-    },
-    {
-      "canonical_id": "xcsh-docs:data-sources:global_log_receiver:properties:qradar_receiver:no_tls",
-      "section_id": "xcsh-docs:data-sources:global_log_receiver:properties:qradar_receiver:no_tls:section:3",
-      "source_sha256": "sha256:10949a13bed4a68539c31216a7a597933c91b267c1ca24ced1091640a96503c4",
-      "source_bytes": 273,
-      "canonical_source_sha256": "sha256:f24d7f5c72eb3643f4e016856c0d24ddb7c1211c9b8974cdfcf122a8c8c18620",
-      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/global_log_receiver/properties/qradar_receiver/no_tls/",
-      "anchor": "canonical-2332013233030202-3301101301302002-2302010213110323-2202120120103322-2103223121322210-1122300103113233-1000203133210223-2220313031120010",
-      "anchor_map": [],
-      "mode": "embedded",
-      "registry_path": "docs/guides/data-sources--global_log_receiver--reference--group-003.md"
-    },
-    {
-      "canonical_id": "xcsh-docs:data-sources:global_log_receiver:properties:qradar_receiver:use_tls",
-      "section_id": "xcsh-docs:data-sources:global_log_receiver:properties:qradar_receiver:use_tls:section:0",
-      "source_sha256": "sha256:197d41522a9dd286cb9805a03d8a5bd782cc3f3fd95ea854bf2dfc326e83e50c",
-      "source_bytes": 99,
-      "canonical_source_sha256": "sha256:62ef381dac138478136f77947e531d44beefec64c8fd79c764e95019e54b67c2",
-      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/global_log_receiver/properties/qradar_receiver/use_tls/",
-      "anchor": "canonical-2211202023111213-2221103322110030-2331033132202121-2012102021320112-1030223320201110-0000011010011333-0011001031321121-2233020113012311",
-      "anchor_map": [],
-      "mode": "embedded",
-      "registry_path": "docs/guides/data-sources--global_log_receiver--reference--group-003.md"
-    },
-    {
-      "canonical_id": "xcsh-docs:data-sources:global_log_receiver:properties:qradar_receiver:use_tls",
-      "section_id": "xcsh-docs:data-sources:global_log_receiver:properties:qradar_receiver:use_tls:section:1",
-      "source_sha256": "sha256:15157d41f7444229d5e662b61199e770fb5c28caeec7bcbcc9b4dd0b1713401f",
-      "source_bytes": 1080,
-      "canonical_source_sha256": "sha256:62ef381dac138478136f77947e531d44beefec64c8fd79c764e95019e54b67c2",
-      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/global_log_receiver/properties/qradar_receiver/use_tls/",
-      "anchor": "canonical-0103100211120011-1220121033220122-0002110310330303-2030332020023011-2231110301122211-1002132110201113-3133002220313133-0000212033323330",
-      "anchor_map": [
-        [
-          "section",
-          "canonical-2230220303112210-1332303332023323-0303300310322223-1021010001233001-2201000221131021-3113101123232032-1210221030233301-0323022013221302"
-        ]
-      ],
-      "mode": "embedded",
-      "registry_path": "docs/guides/data-sources--global_log_receiver--reference--group-003.md"
-    },
-    {
-      "canonical_id": "xcsh-docs:data-sources:global_log_receiver:properties:qradar_receiver:use_tls",
-      "section_id": "xcsh-docs:data-sources:global_log_receiver:properties:qradar_receiver:use_tls:section:2",
-      "source_sha256": "sha256:79b148cddf725884ffb157bb239f4e957e378ba15c6b9d4f3c636ab66cc8be73",
-      "source_bytes": 1489,
-      "canonical_source_sha256": "sha256:62ef381dac138478136f77947e531d44beefec64c8fd79c764e95019e54b67c2",
-      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/global_log_receiver/properties/qradar_receiver/use_tls/",
-      "anchor": "canonical-1231112300233130-3332022202122230-2212123210213313-1103202313133123-2133322223331322-0230133212233213-0102233203302021-3322301021013002",
-      "anchor_map": [
-        [
-          "schema-qradar_receiver--use_tls--trusted_ca_url",
-          "canonical-3323001230003112-2032112220213030-2223112202201301-2022033202030013-3103202312020201-0202121133200210-1023023220031012-3100220201130302"
-        ]
-      ],
-      "mode": "embedded",
-      "registry_path": "docs/guides/data-sources--global_log_receiver--reference--group-003.md"
-    },
-    {
-      "canonical_id": "xcsh-docs:data-sources:global_log_receiver:properties:qradar_receiver:use_tls",
-      "section_id": "xcsh-docs:data-sources:global_log_receiver:properties:qradar_receiver:use_tls:section:3",
-      "source_sha256": "sha256:ef02ae09ebfa15d61b41f7b850325f8701fc2e1d0d0d5c49db494b744a146e2d",
-      "source_bytes": 1190,
-      "canonical_source_sha256": "sha256:62ef381dac138478136f77947e531d44beefec64c8fd79c764e95019e54b67c2",
-      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/global_log_receiver/properties/qradar_receiver/use_tls/",
-      "anchor": "canonical-2230122120311331-1030031311332110-3231130303013330-2202013132020202-2201012203333310-3112223011103232-1231303030100131-2030110200203122",
-      "anchor_map": [],
-      "mode": "embedded",
-      "registry_path": "docs/guides/data-sources--global_log_receiver--reference--group-004.md"
-    },
-    {
-      "canonical_id": "xcsh-docs:data-sources:global_log_receiver:properties:qradar_receiver:use_tls",
-      "section_id": "xcsh-docs:data-sources:global_log_receiver:properties:qradar_receiver:use_tls:section:4",
-      "source_sha256": "sha256:c6086a2222f40f61502ee1774559b21f90a6672b6bff60bc6ccdb615a5cf8ba9",
-      "source_bytes": 1615,
-      "canonical_source_sha256": "sha256:62ef381dac138478136f77947e531d44beefec64c8fd79c764e95019e54b67c2",
-      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/global_log_receiver/properties/qradar_receiver/use_tls/",
-      "anchor": "canonical-0210031033333100-3133001220230203-2132103201121222-2212031203000000-0323011113111310-0223101100211201-3130132031110000-2012211313201311",
-      "anchor_map": [],
-      "mode": "embedded",
-      "registry_path": "docs/guides/data-sources--global_log_receiver--reference--group-004.md"
-    },
-    {
-      "canonical_id": "xcsh-docs:data-sources:global_log_receiver:properties:qradar_receiver:use_tls:disable_verify_certificate",
-      "section_id": "xcsh-docs:data-sources:global_log_receiver:properties:qradar_receiver:use_tls:disable_verify_certificate:section:0",
-      "source_sha256": "sha256:197d41522a9dd286cb9805a03d8a5bd782cc3f3fd95ea854bf2dfc326e83e50c",
-      "source_bytes": 99,
-      "canonical_source_sha256": "sha256:89de8b76772955577d6603fa1883944b8e9c1a285023eb1cf042f571fd8a3eb2",
-      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/global_log_receiver/properties/qradar_receiver/use_tls/disable_verify_certificate/",
-      "anchor": "canonical-3322301302112011-3033121332333012-0200331303130332-2222122221010101-0133233123032301-3122001023223333-3012013311301003-2311002323231113",
-      "anchor_map": [],
-      "mode": "embedded",
-      "registry_path": "docs/guides/data-sources--global_log_receiver--reference--group-004.md"
-    },
-    {
-      "canonical_id": "xcsh-docs:data-sources:global_log_receiver:properties:qradar_receiver:use_tls:disable_verify_certificate",
-      "section_id": "xcsh-docs:data-sources:global_log_receiver:properties:qradar_receiver:use_tls:disable_verify_certificate:section:1",
-      "source_sha256": "sha256:b6e4dfc6bb4d23d07dff70149a82c1b22aeb5c426e9ca155b622a9c548b6e503",
-      "source_bytes": 1030,
-      "canonical_source_sha256": "sha256:89de8b76772955577d6603fa1883944b8e9c1a285023eb1cf042f571fd8a3eb2",
-      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/global_log_receiver/properties/qradar_receiver/use_tls/disable_verify_certificate/",
-      "anchor": "canonical-1002213322211003-1201213103002103-2222121021330201-2120120103202211-3202302212111221-1021102232102332-3030310121030103-0323303231023100",
-      "anchor_map": [
-        [
-          "section",
-          "canonical-1010110110313311-3022111300213103-2021321201103031-0010220303330001-3120330212103221-3311222332331301-2313001223210133-3102112211323120"
-        ]
-      ],
-      "mode": "embedded",
-      "registry_path": "docs/guides/data-sources--global_log_receiver--reference--group-004.md"
-    },
-    {
-      "canonical_id": "xcsh-docs:data-sources:global_log_receiver:properties:qradar_receiver:use_tls:disable_verify_certificate",
-      "section_id": "xcsh-docs:data-sources:global_log_receiver:properties:qradar_receiver:use_tls:disable_verify_certificate:section:2",
-      "source_sha256": "sha256:0d4398201e18f9ddb2ea00ceed6d3256755ea4d008d849d1cec42dab5c55f1b5",
-      "source_bytes": 94,
-      "canonical_source_sha256": "sha256:89de8b76772955577d6603fa1883944b8e9c1a285023eb1cf042f571fd8a3eb2",
-      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/global_log_receiver/properties/qradar_receiver/use_tls/disable_verify_certificate/",
-      "anchor": "canonical-3002013011312032-1013120013133031-1101001102202120-1303300033320000-1213222003302033-1001020031312201-3312211031201122-3001300013203032",
-      "anchor_map": [],
-      "mode": "embedded",
-      "registry_path": "docs/guides/data-sources--global_log_receiver--reference--group-004.md"
-    },
-    {
-      "canonical_id": "xcsh-docs:data-sources:global_log_receiver:properties:qradar_receiver:use_tls:disable_verify_certificate",
-      "section_id": "xcsh-docs:data-sources:global_log_receiver:properties:qradar_receiver:use_tls:disable_verify_certificate:section:3",
-      "source_sha256": "sha256:f54b8d4d4f29295f583db6168205ec61cc2422ad2259316f9a931a1545b0729e",
-      "source_bytes": 289,
-      "canonical_source_sha256": "sha256:89de8b76772955577d6603fa1883944b8e9c1a285023eb1cf042f571fd8a3eb2",
-      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/global_log_receiver/properties/qradar_receiver/use_tls/disable_verify_certificate/",
-      "anchor": "canonical-3302013123012331-0233231322301031-3012230233300012-2011011023130230-3310000122220221-2313030123011010-1213223102312120-2212132302210110",
-      "anchor_map": [],
-      "mode": "embedded",
-      "registry_path": "docs/guides/data-sources--global_log_receiver--reference--group-004.md"
-    },
-    {
-      "canonical_id": "xcsh-docs:data-sources:global_log_receiver:properties:qradar_receiver:use_tls:disable_verify_hostname",
-      "section_id": "xcsh-docs:data-sources:global_log_receiver:properties:qradar_receiver:use_tls:disable_verify_hostname:section:0",
-      "source_sha256": "sha256:197d41522a9dd286cb9805a03d8a5bd782cc3f3fd95ea854bf2dfc326e83e50c",
-      "source_bytes": 99,
-      "canonical_source_sha256": "sha256:5254884a8cd334171ab2cb9de67735677a28156cbc83af6bd3f3adb22e367978",
-      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/global_log_receiver/properties/qradar_receiver/use_tls/disable_verify_hostname/",
-      "anchor": "canonical-3033133203030300-0320022320111230-3121103002223122-2122001121220300-3311303212110211-3320101231000322-2200213311010132-1203010311323000",
-      "anchor_map": [],
-      "mode": "embedded",
-      "registry_path": "docs/guides/data-sources--global_log_receiver--reference--group-004.md"
-    },
-    {
-      "canonical_id": "xcsh-docs:data-sources:global_log_receiver:properties:qradar_receiver:use_tls:disable_verify_hostname",
-      "section_id": "xcsh-docs:data-sources:global_log_receiver:properties:qradar_receiver:use_tls:disable_verify_hostname:section:1",
-      "source_sha256": "sha256:8f776156c89bbc8583f2e354fbb91dd5eb052c94e093af646fc171f5c2fc88a6",
-      "source_bytes": 987,
-      "canonical_source_sha256": "sha256:5254884a8cd334171ab2cb9de67735677a28156cbc83af6bd3f3adb22e367978",
-      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/global_log_receiver/properties/qradar_receiver/use_tls/disable_verify_hostname/",
-      "anchor": "canonical-3230331130203301-0331003130322130-0312220221231230-3002010100303231-2311220302101220-0311203211002231-2220213320111302-0122320230010113",
-      "anchor_map": [
-        [
-          "section",
-          "canonical-0033032130120233-2223021003101311-3101310203222221-2100201013200230-2312010311131120-1121120223111102-1210313300121101-0222021301301201"
-        ]
-      ],
-      "mode": "embedded",
-      "registry_path": "docs/guides/data-sources--global_log_receiver--reference--group-004.md"
-    },
-    {
-      "canonical_id": "xcsh-docs:data-sources:global_log_receiver:properties:qradar_receiver:use_tls:disable_verify_hostname",
-      "section_id": "xcsh-docs:data-sources:global_log_receiver:properties:qradar_receiver:use_tls:disable_verify_hostname:section:2",
-      "source_sha256": "sha256:0d4398201e18f9ddb2ea00ceed6d3256755ea4d008d849d1cec42dab5c55f1b5",
-      "source_bytes": 94,
-      "canonical_source_sha256": "sha256:5254884a8cd334171ab2cb9de67735677a28156cbc83af6bd3f3adb22e367978",
-      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/global_log_receiver/properties/qradar_receiver/use_tls/disable_verify_hostname/",
-      "anchor": "canonical-0203230331130213-3032132122030031-1101201311203123-1023323331330203-3323103222120301-0330331211030301-0002112213011011-2003231200301323",
-      "anchor_map": [],
-      "mode": "embedded",
-      "registry_path": "docs/guides/data-sources--global_log_receiver--reference--group-004.md"
-    },
-    {
-      "canonical_id": "xcsh-docs:data-sources:global_log_receiver:properties:qradar_receiver:use_tls:disable_verify_hostname",
-      "section_id": "xcsh-docs:data-sources:global_log_receiver:properties:qradar_receiver:use_tls:disable_verify_hostname:section:3",
-      "source_sha256": "sha256:f54b8d4d4f29295f583db6168205ec61cc2422ad2259316f9a931a1545b0729e",
-      "source_bytes": 289,
-      "canonical_source_sha256": "sha256:5254884a8cd334171ab2cb9de67735677a28156cbc83af6bd3f3adb22e367978",
-      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/global_log_receiver/properties/qradar_receiver/use_tls/disable_verify_hostname/",
-      "anchor": "canonical-2213302300123230-0021120100001013-2321310230022111-2131102233031103-1110323130110303-2003300302023100-3330001120012111-2112221210331311",
-      "anchor_map": [],
-      "mode": "embedded",
-      "registry_path": "docs/guides/data-sources--global_log_receiver--reference--group-004.md"
-    },
-    {
-      "canonical_id": "xcsh-docs:data-sources:global_log_receiver:properties:qradar_receiver:use_tls:enable_verify_certificate",
-      "section_id": "xcsh-docs:data-sources:global_log_receiver:properties:qradar_receiver:use_tls:enable_verify_certificate:section:0",
-      "source_sha256": "sha256:197d41522a9dd286cb9805a03d8a5bd782cc3f3fd95ea854bf2dfc326e83e50c",
-      "source_bytes": 99,
-      "canonical_source_sha256": "sha256:b7c38f9694cf9ff21f5e713eca097c12c48faa079e01304494be8f70701a6a2e",
-      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/global_log_receiver/properties/qradar_receiver/use_tls/enable_verify_certificate/",
-      "anchor": "canonical-0123123233012122-2113301330223202-2121020331223201-2212321333001230-1013330210322033-3012011223301023-1101221120323310-1121100232112320",
-      "anchor_map": [],
-      "mode": "embedded",
-      "registry_path": "docs/guides/data-sources--global_log_receiver--reference--group-004.md"
-    },
-    {
-      "canonical_id": "xcsh-docs:data-sources:global_log_receiver:properties:qradar_receiver:use_tls:enable_verify_certificate",
-      "section_id": "xcsh-docs:data-sources:global_log_receiver:properties:qradar_receiver:use_tls:enable_verify_certificate:section:1",
-      "source_sha256": "sha256:1b7a0d036982351b705e4b3849983626eccc91001fd0fe0cd58966849e2a67ad",
-      "source_bytes": 1027,
-      "canonical_source_sha256": "sha256:b7c38f9694cf9ff21f5e713eca097c12c48faa079e01304494be8f70701a6a2e",
-      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/global_log_receiver/properties/qradar_receiver/use_tls/enable_verify_certificate/",
-      "anchor": "canonical-0212102122101211-2312001212331301-2211103013033022-1232331301023023-0331032021323213-3302220321131220-3221032103002022-3113201101011233",
-      "anchor_map": [
-        [
-          "section",
-          "canonical-3103312302111301-1231132032330333-3021000133010132-1332232332313323-1211033212323012-0210102013132320-3201021000322220-3212331133103003"
-        ]
-      ],
-      "mode": "embedded",
-      "registry_path": "docs/guides/data-sources--global_log_receiver--reference--group-004.md"
-    },
-    {
-      "canonical_id": "xcsh-docs:data-sources:global_log_receiver:properties:qradar_receiver:use_tls:enable_verify_certificate",
-      "section_id": "xcsh-docs:data-sources:global_log_receiver:properties:qradar_receiver:use_tls:enable_verify_certificate:section:2",
-      "source_sha256": "sha256:0d4398201e18f9ddb2ea00ceed6d3256755ea4d008d849d1cec42dab5c55f1b5",
-      "source_bytes": 94,
-      "canonical_source_sha256": "sha256:b7c38f9694cf9ff21f5e713eca097c12c48faa079e01304494be8f70701a6a2e",
-      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/global_log_receiver/properties/qradar_receiver/use_tls/enable_verify_certificate/",
-      "anchor": "canonical-2230303210000100-1122302301220222-1221203202202213-3200023300111010-3332030313130323-2212210002132200-1220331121323320-1332200120220322",
-      "anchor_map": [],
-      "mode": "embedded",
-      "registry_path": "docs/guides/data-sources--global_log_receiver--reference--group-004.md"
     }
   ]
 }

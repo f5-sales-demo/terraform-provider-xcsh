@@ -2,6 +2,375 @@
   "schema_version": 1,
   "sections": [
     {
+      "canonical_id": "xcsh-docs:data-sources:gcp_vpc_site:properties:ingress_gw:performance_enhancement_mode:perf_mode_l7_enhanced:jumbo_disabled",
+      "section_id": "xcsh-docs:data-sources:gcp_vpc_site:properties:ingress_gw:performance_enhancement_mode:perf_mode_l7_enhanced:jumbo_disabled:section:3",
+      "source_sha256": "sha256:47a2dbfed1a250ad2c1ffed72ea018cc4a27538c2762da4fd46249016a5fc622",
+      "source_bytes": 344,
+      "canonical_source_sha256": "sha256:be0f81bafabb478ff17ec4cfbc1910b274ee5b865fe48322d953b96ebe64cf73",
+      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/gcp_vpc_site/properties/ingress_gw/performance_enhancement_mode/perf_mode_l7_enhanced/jumbo_disabled/",
+      "anchor": "canonical-2012221202313322-1203302220332200-3103030210123122-1200012302110033-2101012313332323-3302002201331323-0003301321223230-1000112221131020",
+      "anchor_map": [],
+      "mode": "embedded",
+      "registry_path": "docs/guides/data-sources--gcp_vpc_site--reference--group-003.md"
+    },
+    {
+      "canonical_id": "xcsh-docs:data-sources:gcp_vpc_site:properties:ingress_gw:performance_enhancement_mode:perf_mode_l7_enhanced:jumbo_enabled",
+      "section_id": "xcsh-docs:data-sources:gcp_vpc_site:properties:ingress_gw:performance_enhancement_mode:perf_mode_l7_enhanced:jumbo_enabled:section:0",
+      "source_sha256": "sha256:197d41522a9dd286cb9805a03d8a5bd782cc3f3fd95ea854bf2dfc326e83e50c",
+      "source_bytes": 99,
+      "canonical_source_sha256": "sha256:b05ac40f337657cd772e8919bc0b2db4cb58a9b2cb3601067a3b2979cf49be90",
+      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/gcp_vpc_site/properties/ingress_gw/performance_enhancement_mode/perf_mode_l7_enhanced/jumbo_enabled/",
+      "anchor": "canonical-2220001103200132-0220122100223221-3002212000221121-2131301023130112-0210100023002013-3013311001122132-3030331000031013-1031203003302113",
+      "anchor_map": [],
+      "mode": "embedded",
+      "registry_path": "docs/guides/data-sources--gcp_vpc_site--reference--group-003.md"
+    },
+    {
+      "canonical_id": "xcsh-docs:data-sources:gcp_vpc_site:properties:ingress_gw:performance_enhancement_mode:perf_mode_l7_enhanced:jumbo_enabled",
+      "section_id": "xcsh-docs:data-sources:gcp_vpc_site:properties:ingress_gw:performance_enhancement_mode:perf_mode_l7_enhanced:jumbo_enabled:section:1",
+      "source_sha256": "sha256:7536d19b2abc1c3aa5bf74100e5a602b8891e40743c62ffea06e283a9da4f85e",
+      "source_bytes": 1253,
+      "canonical_source_sha256": "sha256:b05ac40f337657cd772e8919bc0b2db4cb58a9b2cb3601067a3b2979cf49be90",
+      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/gcp_vpc_site/properties/ingress_gw/performance_enhancement_mode/perf_mode_l7_enhanced/jumbo_enabled/",
+      "anchor": "canonical-1220002310103002-1003023022331331-0230201302122010-3011232313032302-2321001222303220-3113131102213102-2111033030302031-1332321113013322",
+      "anchor_map": [
+        [
+          "section",
+          "canonical-2231301320323132-3321012201321121-3133002303212030-0003221300213332-2000333322330113-3330133113202323-0322031220213220-2203013332301030"
+        ]
+      ],
+      "mode": "embedded",
+      "registry_path": "docs/guides/data-sources--gcp_vpc_site--reference--group-003.md"
+    },
+    {
+      "canonical_id": "xcsh-docs:data-sources:gcp_vpc_site:properties:ingress_gw:performance_enhancement_mode:perf_mode_l7_enhanced:jumbo_enabled",
+      "section_id": "xcsh-docs:data-sources:gcp_vpc_site:properties:ingress_gw:performance_enhancement_mode:perf_mode_l7_enhanced:jumbo_enabled:section:2",
+      "source_sha256": "sha256:0d4398201e18f9ddb2ea00ceed6d3256755ea4d008d849d1cec42dab5c55f1b5",
+      "source_bytes": 94,
+      "canonical_source_sha256": "sha256:b05ac40f337657cd772e8919bc0b2db4cb58a9b2cb3601067a3b2979cf49be90",
+      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/gcp_vpc_site/properties/ingress_gw/performance_enhancement_mode/perf_mode_l7_enhanced/jumbo_enabled/",
+      "anchor": "canonical-2102332002302331-3031012110302221-0001310300210311-1212031332002300-3112200333222133-2133201123302022-1210010002323012-1223211000013103",
+      "anchor_map": [],
+      "mode": "embedded",
+      "registry_path": "docs/guides/data-sources--gcp_vpc_site--reference--group-003.md"
+    },
+    {
+      "canonical_id": "xcsh-docs:data-sources:gcp_vpc_site:properties:ingress_gw:performance_enhancement_mode:perf_mode_l7_enhanced:jumbo_enabled",
+      "section_id": "xcsh-docs:data-sources:gcp_vpc_site:properties:ingress_gw:performance_enhancement_mode:perf_mode_l7_enhanced:jumbo_enabled:section:3",
+      "source_sha256": "sha256:47a2dbfed1a250ad2c1ffed72ea018cc4a27538c2762da4fd46249016a5fc622",
+      "source_bytes": 344,
+      "canonical_source_sha256": "sha256:b05ac40f337657cd772e8919bc0b2db4cb58a9b2cb3601067a3b2979cf49be90",
+      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/gcp_vpc_site/properties/ingress_gw/performance_enhancement_mode/perf_mode_l7_enhanced/jumbo_enabled/",
+      "anchor": "canonical-0232210311022102-3022313013123222-0012203121212321-0121233221131301-1103130300011333-3013212020203102-0003113030020221-2102003330002200",
+      "anchor_map": [],
+      "mode": "embedded",
+      "registry_path": "docs/guides/data-sources--gcp_vpc_site--reference--group-003.md"
+    },
+    {
+      "canonical_id": "xcsh-docs:data-sources:gcp_vpc_site:properties:kubernetes_upgrade_drain",
+      "section_id": "xcsh-docs:data-sources:gcp_vpc_site:properties:kubernetes_upgrade_drain:section:0",
+      "source_sha256": "sha256:197d41522a9dd286cb9805a03d8a5bd782cc3f3fd95ea854bf2dfc326e83e50c",
+      "source_bytes": 99,
+      "canonical_source_sha256": "sha256:7b4d4c4cc2a66c2d9ab6d5dea2c4c3adc5f4ee16de14ae7423aa62c0e8c9dfdf",
+      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/gcp_vpc_site/properties/kubernetes_upgrade_drain/",
+      "anchor": "canonical-1022113113131303-2323310123132033-2333330201223220-0203120001033203-3132021212231333-3113000331201222-3002010313110322-3330113112120320",
+      "anchor_map": [],
+      "mode": "embedded",
+      "registry_path": "docs/guides/data-sources--gcp_vpc_site--reference--group-003.md"
+    },
+    {
+      "canonical_id": "xcsh-docs:data-sources:gcp_vpc_site:properties:kubernetes_upgrade_drain",
+      "section_id": "xcsh-docs:data-sources:gcp_vpc_site:properties:kubernetes_upgrade_drain:section:1",
+      "source_sha256": "sha256:a01242abb0210b64a75f6ec72f47f397fbc09425d56cdfd79f503553466fc085",
+      "source_bytes": 696,
+      "canonical_source_sha256": "sha256:7b4d4c4cc2a66c2d9ab6d5dea2c4c3adc5f4ee16de14ae7423aa62c0e8c9dfdf",
+      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/gcp_vpc_site/properties/kubernetes_upgrade_drain/",
+      "anchor": "canonical-3112120202303011-2302132232003130-3322021221130303-2000123133322312-2121311220310233-0100122231323212-1020002103011203-0111311033231202",
+      "anchor_map": [
+        [
+          "section",
+          "canonical-0002122032131302-2200202021122223-3022132011312112-1122013331003113-3112220132232020-1103123130233212-2120200021130012-1122211210330310"
+        ]
+      ],
+      "mode": "embedded",
+      "registry_path": "docs/guides/data-sources--gcp_vpc_site--reference--group-003.md"
+    },
+    {
+      "canonical_id": "xcsh-docs:data-sources:gcp_vpc_site:properties:kubernetes_upgrade_drain",
+      "section_id": "xcsh-docs:data-sources:gcp_vpc_site:properties:kubernetes_upgrade_drain:section:2",
+      "source_sha256": "sha256:5f4f04fee3e9ee4adbb591e7c838c4825fa55e8eb3f11fa3634dc5c1a7bc3563",
+      "source_bytes": 422,
+      "canonical_source_sha256": "sha256:7b4d4c4cc2a66c2d9ab6d5dea2c4c3adc5f4ee16de14ae7423aa62c0e8c9dfdf",
+      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/gcp_vpc_site/properties/kubernetes_upgrade_drain/",
+      "anchor": "canonical-0213112103231300-0100222222131032-3133020303002232-3110322212003123-3321003001022010-3101221020120332-1100233020121222-1322321032120303",
+      "anchor_map": [],
+      "mode": "embedded",
+      "registry_path": "docs/guides/data-sources--gcp_vpc_site--reference--group-003.md"
+    },
+    {
+      "canonical_id": "xcsh-docs:data-sources:gcp_vpc_site:properties:kubernetes_upgrade_drain",
+      "section_id": "xcsh-docs:data-sources:gcp_vpc_site:properties:kubernetes_upgrade_drain:section:3",
+      "source_sha256": "sha256:6660abdc776e58f887480a57e28c7408f7bd2f9d39a129b457b817c1bd891a7b",
+      "source_bytes": 623,
+      "canonical_source_sha256": "sha256:7b4d4c4cc2a66c2d9ab6d5dea2c4c3adc5f4ee16de14ae7423aa62c0e8c9dfdf",
+      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/gcp_vpc_site/properties/kubernetes_upgrade_drain/",
+      "anchor": "canonical-1131322323013020-0221213210022200-2210301021131112-0202330331202122-0231213112310323-1200320133013020-3001101011112201-3113033211121333",
+      "anchor_map": [],
+      "mode": "embedded",
+      "registry_path": "docs/guides/data-sources--gcp_vpc_site--reference--group-003.md"
+    },
+    {
+      "canonical_id": "xcsh-docs:data-sources:gcp_vpc_site:properties:kubernetes_upgrade_drain:disable_upgrade_drain",
+      "section_id": "xcsh-docs:data-sources:gcp_vpc_site:properties:kubernetes_upgrade_drain:disable_upgrade_drain:section:0",
+      "source_sha256": "sha256:197d41522a9dd286cb9805a03d8a5bd782cc3f3fd95ea854bf2dfc326e83e50c",
+      "source_bytes": 99,
+      "canonical_source_sha256": "sha256:c36be3584c240dc75cfdca0efc8a25a8bc30312e6392e916b151bf508554dd5f",
+      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/gcp_vpc_site/properties/kubernetes_upgrade_drain/disable_upgrade_drain/",
+      "anchor": "canonical-3311312212202033-2030131012312303-3230032020132211-0100031130120113-2320121331300323-0033101132011332-1232111131133232-1000213222001000",
+      "anchor_map": [],
+      "mode": "embedded",
+      "registry_path": "docs/guides/data-sources--gcp_vpc_site--reference--group-003.md"
+    },
+    {
+      "canonical_id": "xcsh-docs:data-sources:gcp_vpc_site:properties:kubernetes_upgrade_drain:disable_upgrade_drain",
+      "section_id": "xcsh-docs:data-sources:gcp_vpc_site:properties:kubernetes_upgrade_drain:disable_upgrade_drain:section:1",
+      "source_sha256": "sha256:684a2239b4c9ef13ff60d1f6a648de3dff55ecc749bfdea579a48b0994714acb",
+      "source_bytes": 853,
+      "canonical_source_sha256": "sha256:c36be3584c240dc75cfdca0efc8a25a8bc30312e6392e916b151bf508554dd5f",
+      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/gcp_vpc_site/properties/kubernetes_upgrade_drain/disable_upgrade_drain/",
+      "anchor": "canonical-0313312211322010-2113213102233222-0102120323002331-3111000333202323-2133123110222213-1201223210323120-1203023112300000-0031033130212010",
+      "anchor_map": [
+        [
+          "section",
+          "canonical-3301112121031322-3013000213113120-0001112023333211-2000132121010303-2133032232110133-3010221021111213-1023303111002332-2301103313232223"
+        ]
+      ],
+      "mode": "embedded",
+      "registry_path": "docs/guides/data-sources--gcp_vpc_site--reference--group-003.md"
+    },
+    {
+      "canonical_id": "xcsh-docs:data-sources:gcp_vpc_site:properties:kubernetes_upgrade_drain:disable_upgrade_drain",
+      "section_id": "xcsh-docs:data-sources:gcp_vpc_site:properties:kubernetes_upgrade_drain:disable_upgrade_drain:section:2",
+      "source_sha256": "sha256:0d4398201e18f9ddb2ea00ceed6d3256755ea4d008d849d1cec42dab5c55f1b5",
+      "source_bytes": 94,
+      "canonical_source_sha256": "sha256:c36be3584c240dc75cfdca0efc8a25a8bc30312e6392e916b151bf508554dd5f",
+      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/gcp_vpc_site/properties/kubernetes_upgrade_drain/disable_upgrade_drain/",
+      "anchor": "canonical-3330112021032202-0132221330211301-3023312313133330-1021032010310021-0320111103103321-3321202012022113-0002120312320103-2132330020210113",
+      "anchor_map": [],
+      "mode": "embedded",
+      "registry_path": "docs/guides/data-sources--gcp_vpc_site--reference--group-003.md"
+    },
+    {
+      "canonical_id": "xcsh-docs:data-sources:gcp_vpc_site:properties:kubernetes_upgrade_drain:disable_upgrade_drain",
+      "section_id": "xcsh-docs:data-sources:gcp_vpc_site:properties:kubernetes_upgrade_drain:disable_upgrade_drain:section:3",
+      "source_sha256": "sha256:dba8a5098ff1a5ba96e4a6c3d1c4f5e1f9e8fd23a531f52ff39a492df772d812",
+      "source_bytes": 270,
+      "canonical_source_sha256": "sha256:c36be3584c240dc75cfdca0efc8a25a8bc30312e6392e916b151bf508554dd5f",
+      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/gcp_vpc_site/properties/kubernetes_upgrade_drain/disable_upgrade_drain/",
+      "anchor": "canonical-1320123203103032-0132131233020203-3232022011221232-0120030323120102-3230223233101210-1011112322213021-0331002030303233-1230122032222233",
+      "anchor_map": [],
+      "mode": "embedded",
+      "registry_path": "docs/guides/data-sources--gcp_vpc_site--reference--group-003.md"
+    },
+    {
+      "canonical_id": "xcsh-docs:data-sources:gcp_vpc_site:properties:kubernetes_upgrade_drain:enable_upgrade_drain",
+      "section_id": "xcsh-docs:data-sources:gcp_vpc_site:properties:kubernetes_upgrade_drain:enable_upgrade_drain:section:0",
+      "source_sha256": "sha256:197d41522a9dd286cb9805a03d8a5bd782cc3f3fd95ea854bf2dfc326e83e50c",
+      "source_bytes": 99,
+      "canonical_source_sha256": "sha256:f8bca4a340c5d745b2bc9518b80e8937495feb2033c06aef4cb800ca21b1836e",
+      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/gcp_vpc_site/properties/kubernetes_upgrade_drain/enable_upgrade_drain/",
+      "anchor": "canonical-3323212132230003-2312303210231123-1131133311202102-0102100023032120-3232013232301122-1212021030233021-2011013013232120-0203131302103111",
+      "anchor_map": [],
+      "mode": "embedded",
+      "registry_path": "docs/guides/data-sources--gcp_vpc_site--reference--group-003.md"
+    },
+    {
+      "canonical_id": "xcsh-docs:data-sources:gcp_vpc_site:properties:kubernetes_upgrade_drain:enable_upgrade_drain",
+      "section_id": "xcsh-docs:data-sources:gcp_vpc_site:properties:kubernetes_upgrade_drain:enable_upgrade_drain:section:1",
+      "source_sha256": "sha256:6c17c6321ba6e4c1aefc9a4178cf9a5acc3f0a4918d796ce0c43f14222cce034",
+      "source_bytes": 1031,
+      "canonical_source_sha256": "sha256:f8bca4a340c5d745b2bc9518b80e8937495feb2033c06aef4cb800ca21b1836e",
+      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/gcp_vpc_site/properties/kubernetes_upgrade_drain/enable_upgrade_drain/",
+      "anchor": "canonical-0332100211021332-3010322213120220-1220102201102200-3001330302201111-2123331101020231-3013230022113012-1212132111302010-3212233111233331",
+      "anchor_map": [
+        [
+          "section",
+          "canonical-0310023332203232-1000010221212310-1101312113030310-2033201223202301-3230211322231010-2020030031113333-1202310300020002-2123031112222011"
+        ]
+      ],
+      "mode": "embedded",
+      "registry_path": "docs/guides/data-sources--gcp_vpc_site--reference--group-003.md"
+    },
+    {
+      "canonical_id": "xcsh-docs:data-sources:gcp_vpc_site:properties:kubernetes_upgrade_drain:enable_upgrade_drain",
+      "section_id": "xcsh-docs:data-sources:gcp_vpc_site:properties:kubernetes_upgrade_drain:enable_upgrade_drain:section:2",
+      "source_sha256": "sha256:1a4fabcefac14f78bb169bada083723ff226ad40328b5d317cda32cb51da0e19",
+      "source_bytes": 354,
+      "canonical_source_sha256": "sha256:f8bca4a340c5d745b2bc9518b80e8937495feb2033c06aef4cb800ca21b1836e",
+      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/gcp_vpc_site/properties/kubernetes_upgrade_drain/enable_upgrade_drain/",
+      "anchor": "canonical-3102313320033000-3311203222130020-2000311032101220-2122310213213323-1300201221211200-2132312133002122-3200020210302302-1331303221010120",
+      "anchor_map": [
+        [
+          "schema-kubernetes_upgrade_drain--enable_upgrade_drain--drain_max_unavailable_node_count",
+          "canonical-2122211012012301-2203332313101330-2032302110220113-2132122202302131-0321112032313321-3103212321310211-1312132331023101-0112203312222001"
+        ]
+      ],
+      "mode": "embedded",
+      "registry_path": "docs/guides/data-sources--gcp_vpc_site--reference--group-003.md"
+    },
+    {
+      "canonical_id": "xcsh-docs:data-sources:gcp_vpc_site:properties:kubernetes_upgrade_drain:enable_upgrade_drain",
+      "section_id": "xcsh-docs:data-sources:gcp_vpc_site:properties:kubernetes_upgrade_drain:enable_upgrade_drain:section:3",
+      "source_sha256": "sha256:d35a96d780121398240518e588ff242c1a23a22423eb7a04f0906128d1df16fb",
+      "source_bytes": 975,
+      "canonical_source_sha256": "sha256:f8bca4a340c5d745b2bc9518b80e8937495feb2033c06aef4cb800ca21b1836e",
+      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/gcp_vpc_site/properties/kubernetes_upgrade_drain/enable_upgrade_drain/",
+      "anchor": "canonical-3033322320010133-0012330323113130-0131032222321031-1221120232111020-1001222101032002-3222020033122013-2330012231223002-3310122102023021",
+      "anchor_map": [
+        [
+          "schema-kubernetes_upgrade_drain--enable_upgrade_drain--drain_max_unavailable_node_percentage",
+          "canonical-2112321323121332-2013222311322221-0302120122030030-2202310222102210-3233332131201310-1021302132111232-0022110323333023-3312103222231203"
+        ]
+      ],
+      "mode": "embedded",
+      "registry_path": "docs/guides/data-sources--gcp_vpc_site--reference--group-003.md"
+    },
+    {
+      "canonical_id": "xcsh-docs:data-sources:gcp_vpc_site:properties:kubernetes_upgrade_drain:enable_upgrade_drain",
+      "section_id": "xcsh-docs:data-sources:gcp_vpc_site:properties:kubernetes_upgrade_drain:enable_upgrade_drain:section:4",
+      "source_sha256": "sha256:d76c8ae8552a53b10d21e3c748bf27833fd2554d2a5ad77da83e8e74ed7a98e4",
+      "source_bytes": 235,
+      "canonical_source_sha256": "sha256:f8bca4a340c5d745b2bc9518b80e8937495feb2033c06aef4cb800ca21b1836e",
+      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/gcp_vpc_site/properties/kubernetes_upgrade_drain/enable_upgrade_drain/",
+      "anchor": "canonical-0313133023222002-3120012003212020-1313203023210010-2301301203230203-2103033231023003-2003332212032230-1020200211221030-3320110220320310",
+      "anchor_map": [
+        [
+          "schema-kubernetes_upgrade_drain--enable_upgrade_drain--drain_node_timeout",
+          "canonical-1000312003003221-0132033211203122-3310230323121231-2100031203233033-2223331023303102-2010100133020311-2301000113300221-2101113112322312"
+        ]
+      ],
+      "mode": "embedded",
+      "registry_path": "docs/guides/data-sources--gcp_vpc_site--reference--group-003.md"
+    },
+    {
+      "canonical_id": "xcsh-docs:data-sources:gcp_vpc_site:properties:kubernetes_upgrade_drain:enable_upgrade_drain",
+      "section_id": "xcsh-docs:data-sources:gcp_vpc_site:properties:kubernetes_upgrade_drain:enable_upgrade_drain:section:5",
+      "source_sha256": "sha256:aa2817f5c518f3b5bca12a6ab246155f4caa09cb7cb22195a589f12de926543b",
+      "source_bytes": 1745,
+      "canonical_source_sha256": "sha256:f8bca4a340c5d745b2bc9518b80e8937495feb2033c06aef4cb800ca21b1836e",
+      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/gcp_vpc_site/properties/kubernetes_upgrade_drain/enable_upgrade_drain/",
+      "anchor": "canonical-2123103220330210-2312222302122123-2223131221333333-0311200110233330-2003103001323101-3023121100000011-3222031032312310-0003032130112212",
+      "anchor_map": [],
+      "mode": "embedded",
+      "registry_path": "docs/guides/data-sources--gcp_vpc_site--reference--group-003.md"
+    },
+    {
+      "canonical_id": "xcsh-docs:data-sources:gcp_vpc_site:properties:kubernetes_upgrade_drain:enable_upgrade_drain",
+      "section_id": "xcsh-docs:data-sources:gcp_vpc_site:properties:kubernetes_upgrade_drain:enable_upgrade_drain:section:6",
+      "source_sha256": "sha256:1061709ed82c51a10ba7fa0062207cef511e8916bb88ca81db0af315ec9feacd",
+      "source_bytes": 754,
+      "canonical_source_sha256": "sha256:f8bca4a340c5d745b2bc9518b80e8937495feb2033c06aef4cb800ca21b1836e",
+      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/gcp_vpc_site/properties/kubernetes_upgrade_drain/enable_upgrade_drain/",
+      "anchor": "canonical-3120332130330122-0230220210101111-3311012011301333-2031312312122121-1301020300133002-3011222331112112-0133331232221203-3201000113100201",
+      "anchor_map": [],
+      "mode": "embedded",
+      "registry_path": "docs/guides/data-sources--gcp_vpc_site--reference--group-003.md"
+    },
+    {
+      "canonical_id": "xcsh-docs:data-sources:gcp_vpc_site:properties:kubernetes_upgrade_drain:enable_upgrade_drain:disable_vega_upgrade_mode",
+      "section_id": "xcsh-docs:data-sources:gcp_vpc_site:properties:kubernetes_upgrade_drain:enable_upgrade_drain:disable_vega_upgrade_mode:section:0",
+      "source_sha256": "sha256:197d41522a9dd286cb9805a03d8a5bd782cc3f3fd95ea854bf2dfc326e83e50c",
+      "source_bytes": 99,
+      "canonical_source_sha256": "sha256:1c0ba7f0f8ac0348850955161988c943ce10f07e685e31b43d91403ce0454c1b",
+      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/gcp_vpc_site/properties/kubernetes_upgrade_drain/enable_upgrade_drain/disable_vega_upgrade_mode/",
+      "anchor": "canonical-1032303231033033-3303311230113232-2201230312132110-2100232011202222-2120113310133120-0011100223321123-3303310010202333-2312111100011022",
+      "anchor_map": [],
+      "mode": "embedded",
+      "registry_path": "docs/guides/data-sources--gcp_vpc_site--reference--group-003.md"
+    },
+    {
+      "canonical_id": "xcsh-docs:data-sources:gcp_vpc_site:properties:kubernetes_upgrade_drain:enable_upgrade_drain:disable_vega_upgrade_mode",
+      "section_id": "xcsh-docs:data-sources:gcp_vpc_site:properties:kubernetes_upgrade_drain:enable_upgrade_drain:disable_vega_upgrade_mode:section:1",
+      "source_sha256": "sha256:86ef68843fc807ace52f311070a395752cb2c52caf5260711e6a0fdad34a5b88",
+      "source_bytes": 1098,
+      "canonical_source_sha256": "sha256:1c0ba7f0f8ac0348850955161988c943ce10f07e685e31b43d91403ce0454c1b",
+      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/gcp_vpc_site/properties/kubernetes_upgrade_drain/enable_upgrade_drain/disable_vega_upgrade_mode/",
+      "anchor": "canonical-0100221221013011-0113322222001112-2033311233211001-1033011203011223-1200122030022230-0133323210111223-2303001300202111-3221223311012123",
+      "anchor_map": [
+        [
+          "section",
+          "canonical-1131102200031101-1301220300220130-1131333003311120-3131133230113111-3012122230130330-3123123332202133-1111323133133301-3000330023322023"
+        ]
+      ],
+      "mode": "embedded",
+      "registry_path": "docs/guides/data-sources--gcp_vpc_site--reference--group-003.md"
+    },
+    {
+      "canonical_id": "xcsh-docs:data-sources:gcp_vpc_site:properties:kubernetes_upgrade_drain:enable_upgrade_drain:disable_vega_upgrade_mode",
+      "section_id": "xcsh-docs:data-sources:gcp_vpc_site:properties:kubernetes_upgrade_drain:enable_upgrade_drain:disable_vega_upgrade_mode:section:2",
+      "source_sha256": "sha256:0d4398201e18f9ddb2ea00ceed6d3256755ea4d008d849d1cec42dab5c55f1b5",
+      "source_bytes": 94,
+      "canonical_source_sha256": "sha256:1c0ba7f0f8ac0348850955161988c943ce10f07e685e31b43d91403ce0454c1b",
+      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/gcp_vpc_site/properties/kubernetes_upgrade_drain/enable_upgrade_drain/disable_vega_upgrade_mode/",
+      "anchor": "canonical-1300332230233021-3202312313322000-3101032300221200-1213100330011012-2033100030233031-2311021010301101-1202203122120000-3033233210020103",
+      "anchor_map": [],
+      "mode": "embedded",
+      "registry_path": "docs/guides/data-sources--gcp_vpc_site--reference--group-003.md"
+    },
+    {
+      "canonical_id": "xcsh-docs:data-sources:gcp_vpc_site:properties:kubernetes_upgrade_drain:enable_upgrade_drain:disable_vega_upgrade_mode",
+      "section_id": "xcsh-docs:data-sources:gcp_vpc_site:properties:kubernetes_upgrade_drain:enable_upgrade_drain:disable_vega_upgrade_mode:section:3",
+      "source_sha256": "sha256:231e0492efbf106895d2ae8774f132c35da8ba11e3293e2b314aa89847dc7713",
+      "source_bytes": 312,
+      "canonical_source_sha256": "sha256:1c0ba7f0f8ac0348850955161988c943ce10f07e685e31b43d91403ce0454c1b",
+      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/gcp_vpc_site/properties/kubernetes_upgrade_drain/enable_upgrade_drain/disable_vega_upgrade_mode/",
+      "anchor": "canonical-0121000233113200-2200133012130122-3202331331230011-0002000120003213-1103132202120230-0220330112322010-1220111300210320-2332300000321310",
+      "anchor_map": [],
+      "mode": "embedded",
+      "registry_path": "docs/guides/data-sources--gcp_vpc_site--reference--group-003.md"
+    },
+    {
+      "canonical_id": "xcsh-docs:data-sources:gcp_vpc_site:properties:kubernetes_upgrade_drain:enable_upgrade_drain:enable_vega_upgrade_mode",
+      "section_id": "xcsh-docs:data-sources:gcp_vpc_site:properties:kubernetes_upgrade_drain:enable_upgrade_drain:enable_vega_upgrade_mode:section:0",
+      "source_sha256": "sha256:197d41522a9dd286cb9805a03d8a5bd782cc3f3fd95ea854bf2dfc326e83e50c",
+      "source_bytes": 99,
+      "canonical_source_sha256": "sha256:84df61da183133c2afaa58408722a9e0228827c92dd793460a5dbba10495c458",
+      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/gcp_vpc_site/properties/kubernetes_upgrade_drain/enable_upgrade_drain/enable_vega_upgrade_mode/",
+      "anchor": "canonical-3102210032013301-2333012212112122-0222001202013010-0310010202123132-3323113303133101-1332102332303132-1131003110220022-3112031233113300",
+      "anchor_map": [],
+      "mode": "embedded",
+      "registry_path": "docs/guides/data-sources--gcp_vpc_site--reference--group-003.md"
+    },
+    {
+      "canonical_id": "xcsh-docs:data-sources:gcp_vpc_site:properties:kubernetes_upgrade_drain:enable_upgrade_drain:enable_vega_upgrade_mode",
+      "section_id": "xcsh-docs:data-sources:gcp_vpc_site:properties:kubernetes_upgrade_drain:enable_upgrade_drain:enable_vega_upgrade_mode:section:1",
+      "source_sha256": "sha256:f2d2eec6e8caf01e4dba7635e154116b554429bb41534f0a2c281ae927e8936c",
+      "source_bytes": 1095,
+      "canonical_source_sha256": "sha256:84df61da183133c2afaa58408722a9e0228827c92dd793460a5dbba10495c458",
+      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/gcp_vpc_site/properties/kubernetes_upgrade_drain/enable_upgrade_drain/enable_vega_upgrade_mode/",
+      "anchor": "canonical-3003320132310303-0001130130203320-1201031222002330-0021112122021303-0223100220101011-2202213301213310-1132113122011320-1102322200001031",
+      "anchor_map": [
+        [
+          "section",
+          "canonical-3232210220233102-1233233211213033-0203000032323333-0321111003322010-1221211121131302-2220301122202021-3101213230133002-3310100212022003"
+        ]
+      ],
+      "mode": "embedded",
+      "registry_path": "docs/guides/data-sources--gcp_vpc_site--reference--group-003.md"
+    },
+    {
+      "canonical_id": "xcsh-docs:data-sources:gcp_vpc_site:properties:kubernetes_upgrade_drain:enable_upgrade_drain:enable_vega_upgrade_mode",
+      "section_id": "xcsh-docs:data-sources:gcp_vpc_site:properties:kubernetes_upgrade_drain:enable_upgrade_drain:enable_vega_upgrade_mode:section:2",
+      "source_sha256": "sha256:0d4398201e18f9ddb2ea00ceed6d3256755ea4d008d849d1cec42dab5c55f1b5",
+      "source_bytes": 94,
+      "canonical_source_sha256": "sha256:84df61da183133c2afaa58408722a9e0228827c92dd793460a5dbba10495c458",
+      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/gcp_vpc_site/properties/kubernetes_upgrade_drain/enable_upgrade_drain/enable_vega_upgrade_mode/",
+      "anchor": "canonical-3222210012233010-3132322021210100-0210200112311112-2110330121323321-2223220302211001-2103201300223112-3121133011221002-3303220201013101",
+      "anchor_map": [],
+      "mode": "embedded",
+      "registry_path": "docs/guides/data-sources--gcp_vpc_site--reference--group-003.md"
+    },
+    {
       "canonical_id": "xcsh-docs:data-sources:gcp_vpc_site:properties:kubernetes_upgrade_drain:enable_upgrade_drain:enable_vega_upgrade_mode",
       "section_id": "xcsh-docs:data-sources:gcp_vpc_site:properties:kubernetes_upgrade_drain:enable_upgrade_drain:enable_vega_upgrade_mode:section:3",
       "source_sha256": "sha256:231e0492efbf106895d2ae8774f132c35da8ba11e3293e2b314aa89847dc7713",
@@ -6790,385 +7159,6 @@
           "canonical-3001303301131322-3020003013003220-1212300113012002-2333031022001232-3132222112213311-3001232121011132-0310231330032233-2113220032200112"
         ]
       ],
-      "mode": "embedded",
-      "registry_path": "docs/guides/data-sources--global_log_receiver--reference--group-002.md"
-    },
-    {
-      "canonical_id": "xcsh-docs:data-sources:global_log_receiver:properties:azure_receiver:compression:compression_none",
-      "section_id": "xcsh-docs:data-sources:global_log_receiver:properties:azure_receiver:compression:compression_none:section:2",
-      "source_sha256": "sha256:0d4398201e18f9ddb2ea00ceed6d3256755ea4d008d849d1cec42dab5c55f1b5",
-      "source_bytes": 94,
-      "canonical_source_sha256": "sha256:8379000053dada556ae1fb7596387da356d5becdba275dbc43dafbc68a8de101",
-      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/global_log_receiver/properties/azure_receiver/compression/compression_none/",
-      "anchor": "canonical-1330123122210122-2231122330022231-2111101012001302-0130000222032120-3231031310122123-2030112101210202-1310103031100332-0131212300310321",
-      "anchor_map": [],
-      "mode": "embedded",
-      "registry_path": "docs/guides/data-sources--global_log_receiver--reference--group-002.md"
-    },
-    {
-      "canonical_id": "xcsh-docs:data-sources:global_log_receiver:properties:azure_receiver:compression:compression_none",
-      "section_id": "xcsh-docs:data-sources:global_log_receiver:properties:azure_receiver:compression:compression_none:section:3",
-      "source_sha256": "sha256:4b2e98cd5c9320a0ffa523801dc6fc159dfc0fd6657b028b640e473529eb7d63",
-      "source_bytes": 295,
-      "canonical_source_sha256": "sha256:8379000053dada556ae1fb7596387da356d5becdba275dbc43dafbc68a8de101",
-      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/global_log_receiver/properties/azure_receiver/compression/compression_none/",
-      "anchor": "canonical-1311002231002131-1131001323100023-0200103312300303-1101333033322002-3131312303203023-3213221023231232-0012202102101333-1220310001132030",
-      "anchor_map": [],
-      "mode": "embedded",
-      "registry_path": "docs/guides/data-sources--global_log_receiver--reference--group-002.md"
-    },
-    {
-      "canonical_id": "xcsh-docs:data-sources:global_log_receiver:properties:azure_receiver:connection_string",
-      "section_id": "xcsh-docs:data-sources:global_log_receiver:properties:azure_receiver:connection_string:section:0",
-      "source_sha256": "sha256:197d41522a9dd286cb9805a03d8a5bd782cc3f3fd95ea854bf2dfc326e83e50c",
-      "source_bytes": 99,
-      "canonical_source_sha256": "sha256:1fbf6eeabe809c03fbcda0fbebf13c656fd2e096c2334f430c4d5703240ad011",
-      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/global_log_receiver/properties/azure_receiver/connection_string/",
-      "anchor": "canonical-2301311003132033-3012223003123133-1213311332201031-2031121222131030-3011202200333201-1112312313312323-1202123022021223-1113232332011210",
-      "anchor_map": [],
-      "mode": "embedded",
-      "registry_path": "docs/guides/data-sources--global_log_receiver--reference--group-002.md"
-    },
-    {
-      "canonical_id": "xcsh-docs:data-sources:global_log_receiver:properties:azure_receiver:connection_string",
-      "section_id": "xcsh-docs:data-sources:global_log_receiver:properties:azure_receiver:connection_string:section:1",
-      "source_sha256": "sha256:1a240386b4785c9f289ba4bb08b448971230f66df0840e0e4b128b118ced43fc",
-      "source_bytes": 864,
-      "canonical_source_sha256": "sha256:1fbf6eeabe809c03fbcda0fbebf13c656fd2e096c2334f430c4d5703240ad011",
-      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/global_log_receiver/properties/azure_receiver/connection_string/",
-      "anchor": "canonical-3120313130332311-1312011112222220-1302101010103220-3322230230002313-1332010023131130-3023120113300313-1302210032232201-3101300120101112",
-      "anchor_map": [
-        [
-          "section",
-          "canonical-2122202223022312-1310200121011323-1202122122122000-1130202102333300-2023031010111030-1211110312000332-2123013102202112-0221120200322313"
-        ]
-      ],
-      "mode": "embedded",
-      "registry_path": "docs/guides/data-sources--global_log_receiver--reference--group-002.md"
-    },
-    {
-      "canonical_id": "xcsh-docs:data-sources:global_log_receiver:properties:azure_receiver:connection_string",
-      "section_id": "xcsh-docs:data-sources:global_log_receiver:properties:azure_receiver:connection_string:section:2",
-      "source_sha256": "sha256:7d66cd157c0d1b15545ae2747ef5b05a5a4e1e1bc6c518760eaf7bc0fc3af650",
-      "source_bytes": 446,
-      "canonical_source_sha256": "sha256:1fbf6eeabe809c03fbcda0fbebf13c656fd2e096c2334f430c4d5703240ad011",
-      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/global_log_receiver/properties/azure_receiver/connection_string/",
-      "anchor": "canonical-3021333212310102-2021130210313023-3301113210231002-3033030310021030-0112032002020022-2120131120322012-0330023310221201-0301103310010311",
-      "anchor_map": [],
-      "mode": "embedded",
-      "registry_path": "docs/guides/data-sources--global_log_receiver--reference--group-002.md"
-    },
-    {
-      "canonical_id": "xcsh-docs:data-sources:global_log_receiver:properties:azure_receiver:connection_string",
-      "section_id": "xcsh-docs:data-sources:global_log_receiver:properties:azure_receiver:connection_string:section:3",
-      "source_sha256": "sha256:a6e2f3a51873d6fea581ebe946524cd2f73b10cb26d0b69b937a1cf6cf8b8e11",
-      "source_bytes": 695,
-      "canonical_source_sha256": "sha256:1fbf6eeabe809c03fbcda0fbebf13c656fd2e096c2334f430c4d5703240ad011",
-      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/global_log_receiver/properties/azure_receiver/connection_string/",
-      "anchor": "canonical-0231310000202123-2000302201312322-0320032100010213-1332110102111113-3231120323102331-1231201112212233-3333300202220223-3110010230112311",
-      "anchor_map": [],
-      "mode": "embedded",
-      "registry_path": "docs/guides/data-sources--global_log_receiver--reference--group-002.md"
-    },
-    {
-      "canonical_id": "xcsh-docs:data-sources:global_log_receiver:properties:azure_receiver:connection_string:blindfold_secret_info",
-      "section_id": "xcsh-docs:data-sources:global_log_receiver:properties:azure_receiver:connection_string:blindfold_secret_info:section:0",
-      "source_sha256": "sha256:197d41522a9dd286cb9805a03d8a5bd782cc3f3fd95ea854bf2dfc326e83e50c",
-      "source_bytes": 99,
-      "canonical_source_sha256": "sha256:a08692ebf2e19125af5fbc75d4bec668d14bcb097add7acb122b32e8db6bc87a",
-      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/global_log_receiver/properties/azure_receiver/connection_string/blindfold_secret_info/",
-      "anchor": "canonical-2222113333021332-0302300221301200-2321333020122222-0000123020302023-0333303120321110-3210310320210312-2110222330101132-3123321131212231",
-      "anchor_map": [],
-      "mode": "embedded",
-      "registry_path": "docs/guides/data-sources--global_log_receiver--reference--group-002.md"
-    },
-    {
-      "canonical_id": "xcsh-docs:data-sources:global_log_receiver:properties:azure_receiver:connection_string:blindfold_secret_info",
-      "section_id": "xcsh-docs:data-sources:global_log_receiver:properties:azure_receiver:connection_string:blindfold_secret_info:section:1",
-      "source_sha256": "sha256:dd417e157e833e1d36e1f388b7f0a92462528ebbc8727786764b91087bc6c299",
-      "source_bytes": 1008,
-      "canonical_source_sha256": "sha256:a08692ebf2e19125af5fbc75d4bec668d14bcb097add7acb122b32e8db6bc87a",
-      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/global_log_receiver/properties/azure_receiver/connection_string/blindfold_secret_info/",
-      "anchor": "canonical-3332020222301232-2011213133133023-1021023323032120-2101121322102321-0132203300130221-0312121202223131-2201010010122032-0220033010333132",
-      "anchor_map": [
-        [
-          "section",
-          "canonical-2123120222321013-2011001200110033-1301331333301323-3021310332101000-2031132232130000-3200011202120021-3213013233020232-0132020222201122"
-        ]
-      ],
-      "mode": "embedded",
-      "registry_path": "docs/guides/data-sources--global_log_receiver--reference--group-002.md"
-    },
-    {
-      "canonical_id": "xcsh-docs:data-sources:global_log_receiver:properties:azure_receiver:connection_string:blindfold_secret_info",
-      "section_id": "xcsh-docs:data-sources:global_log_receiver:properties:azure_receiver:connection_string:blindfold_secret_info:section:2",
-      "source_sha256": "sha256:d251dda3e6757aaab59039982613b61525f33781e1707ef4043605c0ff98aece",
-      "source_bytes": 121,
-      "canonical_source_sha256": "sha256:a08692ebf2e19125af5fbc75d4bec668d14bcb097add7acb122b32e8db6bc87a",
-      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/global_log_receiver/properties/azure_receiver/connection_string/blindfold_secret_info/",
-      "anchor": "canonical-0313131202213203-0133120112000302-1201221332102020-3010103333030131-2112223030011002-1322212333133110-3331302031311200-1122100123123012",
-      "anchor_map": [
-        [
-          "schema-azure_receiver--connection_string--blindfold_secret_info--decryption_provider",
-          "canonical-2213101032233021-1111001000103131-1201313032221123-3312121313022321-0030321113310013-1232010111202133-2210031131303310-0021132023010001"
-        ]
-      ],
-      "mode": "embedded",
-      "registry_path": "docs/guides/data-sources--global_log_receiver--reference--group-002.md"
-    },
-    {
-      "canonical_id": "xcsh-docs:data-sources:global_log_receiver:properties:azure_receiver:connection_string:blindfold_secret_info",
-      "section_id": "xcsh-docs:data-sources:global_log_receiver:properties:azure_receiver:connection_string:blindfold_secret_info:section:3",
-      "source_sha256": "sha256:6b89482d40db0a46aeea09618931cddf3ce90243a4e5f0aeb3e83271f928a020",
-      "source_bytes": 682,
-      "canonical_source_sha256": "sha256:a08692ebf2e19125af5fbc75d4bec668d14bcb097add7acb122b32e8db6bc87a",
-      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/global_log_receiver/properties/azure_receiver/connection_string/blindfold_secret_info/",
-      "anchor": "canonical-2113201210231232-1101223301123003-1000021322223002-3001122302100033-2100231021112113-1023302010120010-3123031103021201-0110203301001113",
-      "anchor_map": [
-        [
-          "schema-azure_receiver--connection_string--blindfold_secret_info--location",
-          "canonical-2221222113333111-3313212220101102-0322000010212203-0102120121310012-3300123003313213-2331003302202312-2312322033320232-0030323103111220"
-        ]
-      ],
-      "mode": "embedded",
-      "registry_path": "docs/guides/data-sources--global_log_receiver--reference--group-002.md"
-    },
-    {
-      "canonical_id": "xcsh-docs:data-sources:global_log_receiver:properties:azure_receiver:connection_string:blindfold_secret_info",
-      "section_id": "xcsh-docs:data-sources:global_log_receiver:properties:azure_receiver:connection_string:blindfold_secret_info:section:4",
-      "source_sha256": "sha256:43207c7a5af2e426afe047a4f242db7905d2d477a7c843bc68e7aaafc5b9e13f",
-      "source_bytes": 1494,
-      "canonical_source_sha256": "sha256:a08692ebf2e19125af5fbc75d4bec668d14bcb097add7acb122b32e8db6bc87a",
-      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/global_log_receiver/properties/azure_receiver/connection_string/blindfold_secret_info/",
-      "anchor": "canonical-3300122030203113-3211020033330010-0213302320113113-3133301211202331-0231010231323230-2320002322200030-2030313230013232-3321231112322320",
-      "anchor_map": [
-        [
-          "schema-azure_receiver--connection_string--blindfold_secret_info--store_provider",
-          "canonical-1110313312022231-2303120132312332-3230123332303113-2300222123120222-1211101013112123-1231123130003220-1101122012021213-0221111121012131"
-        ]
-      ],
-      "mode": "embedded",
-      "registry_path": "docs/guides/data-sources--global_log_receiver--reference--group-002.md"
-    },
-    {
-      "canonical_id": "xcsh-docs:data-sources:global_log_receiver:properties:azure_receiver:connection_string:blindfold_secret_info",
-      "section_id": "xcsh-docs:data-sources:global_log_receiver:properties:azure_receiver:connection_string:blindfold_secret_info:section:5",
-      "source_sha256": "sha256:0831ef4cb04eefb8921cebf23ca01bfb82b2b337f17b7b99e0910bdf1f5f2d25",
-      "source_bytes": 864,
-      "canonical_source_sha256": "sha256:a08692ebf2e19125af5fbc75d4bec668d14bcb097add7acb122b32e8db6bc87a",
-      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/global_log_receiver/properties/azure_receiver/connection_string/blindfold_secret_info/",
-      "anchor": "canonical-0030133320211232-1222201132202110-0123233302333310-1003101002313121-3230122323220102-0331330130210202-3011231100132332-0300213031000131",
-      "anchor_map": [],
-      "mode": "embedded",
-      "registry_path": "docs/guides/data-sources--global_log_receiver--reference--group-002.md"
-    },
-    {
-      "canonical_id": "xcsh-docs:data-sources:global_log_receiver:properties:azure_receiver:connection_string:blindfold_secret_info",
-      "section_id": "xcsh-docs:data-sources:global_log_receiver:properties:azure_receiver:connection_string:blindfold_secret_info:section:6",
-      "source_sha256": "sha256:a7647ca2b064b391bf78bcdca7701a86c43ce5329c72e8e3eb32a38afb95ecdf",
-      "source_bytes": 307,
-      "canonical_source_sha256": "sha256:a08692ebf2e19125af5fbc75d4bec668d14bcb097add7acb122b32e8db6bc87a",
-      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/global_log_receiver/properties/azure_receiver/connection_string/blindfold_secret_info/",
-      "anchor": "canonical-0131213132121333-2002110203030333-1102231331100001-3011230213023111-1131101111201011-0303312202123312-2012233031222113-2100200002201130",
-      "anchor_map": [],
-      "mode": "embedded",
-      "registry_path": "docs/guides/data-sources--global_log_receiver--reference--group-002.md"
-    },
-    {
-      "canonical_id": "xcsh-docs:data-sources:global_log_receiver:properties:azure_receiver:connection_string:clear_secret_info",
-      "section_id": "xcsh-docs:data-sources:global_log_receiver:properties:azure_receiver:connection_string:clear_secret_info:section:0",
-      "source_sha256": "sha256:197d41522a9dd286cb9805a03d8a5bd782cc3f3fd95ea854bf2dfc326e83e50c",
-      "source_bytes": 99,
-      "canonical_source_sha256": "sha256:60c5b6bc33a86a60a5d78034687a08f8945a1250804b4eedd4e953ae4acbf4b5",
-      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/global_log_receiver/properties/azure_receiver/connection_string/clear_secret_info/",
-      "anchor": "canonical-3122300203300210-1201011230301232-2211300313113220-1031112333321102-0023203302212022-3332033323223313-0332112110030231-0123300301103201",
-      "anchor_map": [],
-      "mode": "embedded",
-      "registry_path": "docs/guides/data-sources--global_log_receiver--reference--group-002.md"
-    },
-    {
-      "canonical_id": "xcsh-docs:data-sources:global_log_receiver:properties:azure_receiver:connection_string:clear_secret_info",
-      "section_id": "xcsh-docs:data-sources:global_log_receiver:properties:azure_receiver:connection_string:clear_secret_info:section:1",
-      "source_sha256": "sha256:17ec8934e5ee99c55e1facba5a77603c3e7dd34b82b17eacd4991016001ad2ed",
-      "source_bytes": 984,
-      "canonical_source_sha256": "sha256:60c5b6bc33a86a60a5d78034687a08f8945a1250804b4eedd4e953ae4acbf4b5",
-      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/global_log_receiver/properties/azure_receiver/connection_string/clear_secret_info/",
-      "anchor": "canonical-1331131311223020-1020013111113232-3211013230010200-0001012333323012-0030310013130330-0100313133133032-0130022111013212-2011021200232200",
-      "anchor_map": [
-        [
-          "section",
-          "canonical-2102123013221100-2231203100222021-1230321213131323-1113031031321003-0133230101203011-3233130232310032-3021222113100001-3120211121320132"
-        ]
-      ],
-      "mode": "embedded",
-      "registry_path": "docs/guides/data-sources--global_log_receiver--reference--group-002.md"
-    },
-    {
-      "canonical_id": "xcsh-docs:data-sources:global_log_receiver:properties:azure_receiver:connection_string:clear_secret_info",
-      "section_id": "xcsh-docs:data-sources:global_log_receiver:properties:azure_receiver:connection_string:clear_secret_info:section:2",
-      "source_sha256": "sha256:53c7728872332c04f917c84306d41e60419124bb9fa9b100cb4a4b840e560904",
-      "source_bytes": 110,
-      "canonical_source_sha256": "sha256:60c5b6bc33a86a60a5d78034687a08f8945a1250804b4eedd4e953ae4acbf4b5",
-      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/global_log_receiver/properties/azure_receiver/connection_string/clear_secret_info/",
-      "anchor": "canonical-0103332032121132-1300301111210332-1310320111313123-1312300121110032-2211332012123020-2212102330211303-3111233122131001-2100303010212300",
-      "anchor_map": [
-        [
-          "schema-azure_receiver--connection_string--clear_secret_info--provider_ref",
-          "canonical-3322302310102202-2132032102030021-1300220302331002-3001211131302300-0302031100331131-3023300323001002-2302232110233300-3033220321313111"
-        ]
-      ],
-      "mode": "embedded",
-      "registry_path": "docs/guides/data-sources--global_log_receiver--reference--group-002.md"
-    },
-    {
-      "canonical_id": "xcsh-docs:data-sources:global_log_receiver:properties:azure_receiver:connection_string:clear_secret_info",
-      "section_id": "xcsh-docs:data-sources:global_log_receiver:properties:azure_receiver:connection_string:clear_secret_info:section:3",
-      "source_sha256": "sha256:702f456eba406e57c0031e7df024f8e4d5e515fc0a47422d131c1e552029af2f",
-      "source_bytes": 319,
-      "canonical_source_sha256": "sha256:60c5b6bc33a86a60a5d78034687a08f8945a1250804b4eedd4e953ae4acbf4b5",
-      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/global_log_receiver/properties/azure_receiver/connection_string/clear_secret_info/",
-      "anchor": "canonical-1002103331330113-0203001100221332-0123122011023021-0000032000231232-0112311012013023-2000200221221321-3220023131022122-0220030331332003",
-      "anchor_map": [
-        [
-          "schema-azure_receiver--connection_string--clear_secret_info--url",
-          "canonical-2031223102332203-2213021112231031-0111020222022213-2320032310312123-3023121102122130-1323322011331022-3023000120313100-3300110000120230"
-        ]
-      ],
-      "mode": "embedded",
-      "registry_path": "docs/guides/data-sources--global_log_receiver--reference--group-002.md"
-    },
-    {
-      "canonical_id": "xcsh-docs:data-sources:global_log_receiver:properties:azure_receiver:connection_string:clear_secret_info",
-      "section_id": "xcsh-docs:data-sources:global_log_receiver:properties:azure_receiver:connection_string:clear_secret_info:section:4",
-      "source_sha256": "sha256:0712655acd3c24569c397e0e8e5c9052a3b39a9869e5e242174f6fca32b82fea",
-      "source_bytes": 1643,
-      "canonical_source_sha256": "sha256:60c5b6bc33a86a60a5d78034687a08f8945a1250804b4eedd4e953ae4acbf4b5",
-      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/global_log_receiver/properties/azure_receiver/connection_string/clear_secret_info/",
-      "anchor": "canonical-0303323221202231-1220113230310031-3111130333223300-2112312010321322-1222313232231032-1220202222233110-1333212023210320-0010013010022330",
-      "anchor_map": [],
-      "mode": "embedded",
-      "registry_path": "docs/guides/data-sources--global_log_receiver--reference--group-002.md"
-    },
-    {
-      "canonical_id": "xcsh-docs:data-sources:global_log_receiver:properties:azure_receiver:connection_string:clear_secret_info",
-      "section_id": "xcsh-docs:data-sources:global_log_receiver:properties:azure_receiver:connection_string:clear_secret_info:section:5",
-      "source_sha256": "sha256:a7647ca2b064b391bf78bcdca7701a86c43ce5329c72e8e3eb32a38afb95ecdf",
-      "source_bytes": 307,
-      "canonical_source_sha256": "sha256:60c5b6bc33a86a60a5d78034687a08f8945a1250804b4eedd4e953ae4acbf4b5",
-      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/global_log_receiver/properties/azure_receiver/connection_string/clear_secret_info/",
-      "anchor": "canonical-3300201013310100-2201211021130332-1212032113322233-3323222323222031-2223021311331123-1002103121322202-0131001033012001-3120323122121210",
-      "anchor_map": [],
-      "mode": "embedded",
-      "registry_path": "docs/guides/data-sources--global_log_receiver--reference--group-002.md"
-    },
-    {
-      "canonical_id": "xcsh-docs:data-sources:global_log_receiver:properties:azure_receiver:filename_options",
-      "section_id": "xcsh-docs:data-sources:global_log_receiver:properties:azure_receiver:filename_options:section:0",
-      "source_sha256": "sha256:197d41522a9dd286cb9805a03d8a5bd782cc3f3fd95ea854bf2dfc326e83e50c",
-      "source_bytes": 99,
-      "canonical_source_sha256": "sha256:a515c2335f60887ef68fe3f9389426ae93bbce7cce0abc53b5e7a2ddd28dc263",
-      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/global_log_receiver/properties/azure_receiver/filename_options/",
-      "anchor": "canonical-1213320220313111-2133213301031032-3323200320132221-3331102313013310-3021210320112221-3123112202113322-0220322200312200-2222020203030033",
-      "anchor_map": [],
-      "mode": "embedded",
-      "registry_path": "docs/guides/data-sources--global_log_receiver--reference--group-002.md"
-    },
-    {
-      "canonical_id": "xcsh-docs:data-sources:global_log_receiver:properties:azure_receiver:filename_options",
-      "section_id": "xcsh-docs:data-sources:global_log_receiver:properties:azure_receiver:filename_options:section:1",
-      "source_sha256": "sha256:40a7fe9e13912505b0942e34287bf28dc2d7556d4f088ba9a5c88a91b4327c12",
-      "source_bytes": 892,
-      "canonical_source_sha256": "sha256:a515c2335f60887ef68fe3f9389426ae93bbce7cce0abc53b5e7a2ddd28dc263",
-      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/global_log_receiver/properties/azure_receiver/filename_options/",
-      "anchor": "canonical-1110311303111221-0212102232303320-3221210021220030-3031030222030231-2220312220210222-1322331101302222-2003332323231020-2321220132321003",
-      "anchor_map": [
-        [
-          "section",
-          "canonical-3103320202120000-3231111110312220-3033222232220233-3000202311220011-0222300222130203-2012132003113000-0213122020212211-1020222220000000"
-        ]
-      ],
-      "mode": "embedded",
-      "registry_path": "docs/guides/data-sources--global_log_receiver--reference--group-002.md"
-    },
-    {
-      "canonical_id": "xcsh-docs:data-sources:global_log_receiver:properties:azure_receiver:filename_options",
-      "section_id": "xcsh-docs:data-sources:global_log_receiver:properties:azure_receiver:filename_options:section:2",
-      "source_sha256": "sha256:40547e24be20411dbf94bd1ef03e2f839b45ba7784033714ba7e77e9a7d1ce07",
-      "source_bytes": 91,
-      "canonical_source_sha256": "sha256:a515c2335f60887ef68fe3f9389426ae93bbce7cce0abc53b5e7a2ddd28dc263",
-      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/global_log_receiver/properties/azure_receiver/filename_options/",
-      "anchor": "canonical-3131110012133113-0303230112111220-1200003302132123-3213130132020112-3000022221010131-2211231032322030-0322113312010201-2131201012112232",
-      "anchor_map": [
-        [
-          "schema-azure_receiver--filename_options--custom_folder",
-          "canonical-0211210103230121-1123121320320130-0310120110133112-2121203301012310-3330132321033123-3110313132213000-1321312102320023-3323111201003331"
-        ]
-      ],
-      "mode": "embedded",
-      "registry_path": "docs/guides/data-sources--global_log_receiver--reference--group-002.md"
-    },
-    {
-      "canonical_id": "xcsh-docs:data-sources:global_log_receiver:properties:azure_receiver:filename_options",
-      "section_id": "xcsh-docs:data-sources:global_log_receiver:properties:azure_receiver:filename_options:section:3",
-      "source_sha256": "sha256:d58ed7e72bb2641814a6f444a4694f6c6e662c945a68f29274da6eb6b4eaf0a7",
-      "source_bytes": 1556,
-      "canonical_source_sha256": "sha256:a515c2335f60887ef68fe3f9389426ae93bbce7cce0abc53b5e7a2ddd28dc263",
-      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/global_log_receiver/properties/azure_receiver/filename_options/",
-      "anchor": "canonical-3130321220201100-3211322310012222-1120002311103202-3123003203303230-3210102130333020-1211000223230100-0013002313332201-1321313313322222",
-      "anchor_map": [],
-      "mode": "embedded",
-      "registry_path": "docs/guides/data-sources--global_log_receiver--reference--group-002.md"
-    },
-    {
-      "canonical_id": "xcsh-docs:data-sources:global_log_receiver:properties:azure_receiver:filename_options",
-      "section_id": "xcsh-docs:data-sources:global_log_receiver:properties:azure_receiver:filename_options:section:4",
-      "source_sha256": "sha256:117cc05c39337c62051f9a23d7db026098acbf05284a7789b3acf6ad63e21433",
-      "source_bytes": 663,
-      "canonical_source_sha256": "sha256:a515c2335f60887ef68fe3f9389426ae93bbce7cce0abc53b5e7a2ddd28dc263",
-      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/global_log_receiver/properties/azure_receiver/filename_options/",
-      "anchor": "canonical-1130330112022223-1033211213122012-3313011102333111-1003310220213112-1310013101300110-2303221320120110-2223321202323130-1132301132233113",
-      "anchor_map": [],
-      "mode": "embedded",
-      "registry_path": "docs/guides/data-sources--global_log_receiver--reference--group-002.md"
-    },
-    {
-      "canonical_id": "xcsh-docs:data-sources:global_log_receiver:properties:azure_receiver:filename_options:log_type_folder",
-      "section_id": "xcsh-docs:data-sources:global_log_receiver:properties:azure_receiver:filename_options:log_type_folder:section:0",
-      "source_sha256": "sha256:197d41522a9dd286cb9805a03d8a5bd782cc3f3fd95ea854bf2dfc326e83e50c",
-      "source_bytes": 99,
-      "canonical_source_sha256": "sha256:03a00d660ce13c515e293c4946282f1a48c75cee574bf95d40408c39a7bf1d74",
-      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/global_log_receiver/properties/azure_receiver/filename_options/log_type_folder/",
-      "anchor": "canonical-2302011023200002-2030322222221322-3311000033202231-0020011112130213-2002020212201103-0330302030001321-0101123222300332-3320033231333130",
-      "anchor_map": [],
-      "mode": "embedded",
-      "registry_path": "docs/guides/data-sources--global_log_receiver--reference--group-002.md"
-    },
-    {
-      "canonical_id": "xcsh-docs:data-sources:global_log_receiver:properties:azure_receiver:filename_options:log_type_folder",
-      "section_id": "xcsh-docs:data-sources:global_log_receiver:properties:azure_receiver:filename_options:log_type_folder:section:1",
-      "source_sha256": "sha256:ff2b59edb15f03ac15b11a7a5f2c8441563dcadc1adc246dae87193d2228c9f8",
-      "source_bytes": 1027,
-      "canonical_source_sha256": "sha256:03a00d660ce13c515e293c4946282f1a48c75cee574bf95d40408c39a7bf1d74",
-      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/global_log_receiver/properties/azure_receiver/filename_options/log_type_folder/",
-      "anchor": "canonical-3301320003122131-1002311330211133-3003330313030333-1121330210313331-2032031220321232-2220033110121310-2033031311101011-0010131232102312",
-      "anchor_map": [
-        [
-          "section",
-          "canonical-2023020012222102-3100222112221022-2103033012133312-3030312310322223-3011032120103032-1210322020230301-1210303001220333-2210321030300203"
-        ]
-      ],
-      "mode": "embedded",
-      "registry_path": "docs/guides/data-sources--global_log_receiver--reference--group-002.md"
-    },
-    {
-      "canonical_id": "xcsh-docs:data-sources:global_log_receiver:properties:azure_receiver:filename_options:log_type_folder",
-      "section_id": "xcsh-docs:data-sources:global_log_receiver:properties:azure_receiver:filename_options:log_type_folder:section:2",
-      "source_sha256": "sha256:0d4398201e18f9ddb2ea00ceed6d3256755ea4d008d849d1cec42dab5c55f1b5",
-      "source_bytes": 94,
-      "canonical_source_sha256": "sha256:03a00d660ce13c515e293c4946282f1a48c75cee574bf95d40408c39a7bf1d74",
-      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/global_log_receiver/properties/azure_receiver/filename_options/log_type_folder/",
-      "anchor": "canonical-3202013231101312-2113231232302111-0302121230133322-0023101302231323-0223221120102211-3210030321111002-2123323321201330-3130332323120123",
-      "anchor_map": [],
       "mode": "embedded",
       "registry_path": "docs/guides/data-sources--global_log_receiver--reference--group-002.md"
     }

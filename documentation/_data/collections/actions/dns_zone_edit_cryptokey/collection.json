@@ -41,7 +41,7 @@
         "xcsh-docs:actions:dns_zone_edit_cryptokey:lifecycle"
       ],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -53,7 +53,7 @@
       "path": "documentation/actions/dns_zone_edit_cryptokey/index.md",
       "product": "distributed-cloud",
       "provider_name": "dns_zone_edit_cryptokey",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "actions",
       "registry_anchor": "canonical-1132220310333100-2000123203101123-2131221001021322-3330222102211322-3331333302020203-3030331000102011-2023032220122321-2312001020231030",
       "registry_path": "docs/actions/dns_zone_edit_cryptokey.md",
@@ -82,7 +82,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -94,7 +94,7 @@
       "path": "documentation/actions/dns_zone_edit_cryptokey/properties/index.md",
       "product": "distributed-cloud",
       "provider_name": "dns_zone_edit_cryptokey",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "actions",
       "registry_anchor": "canonical-2030131320303020-2330130021202001-0203001123031021-3120120210311232-1132000311113113-2200003332022233-3230212003331112-2202112202232310",
       "registry_path": "docs/guides/actions--dns_zone_edit_cryptokey--reference--group-001.md",
@@ -179,7 +179,7 @@
       "category": null,
       "child_ids": ["xcsh-docs:actions:dns_zone_edit_cryptokey:example:action"],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -191,7 +191,7 @@
       "path": "documentation/actions/dns_zone_edit_cryptokey/examples/index.md",
       "product": "distributed-cloud",
       "provider_name": "dns_zone_edit_cryptokey",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "actions",
       "registry_anchor": "canonical-1013213223203320-0132011103113312-1210300032133231-0200130202001120-1130123320223331-0333013021300110-0212011033121132-3230323323103232",
       "registry_path": "docs/guides/actions--dns_zone_edit_cryptokey--examples--group-001.md",
@@ -219,7 +219,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -238,7 +238,7 @@
       "path": "documentation/actions/dns_zone_edit_cryptokey/examples/action/index.md",
       "product": "distributed-cloud",
       "provider_name": "dns_zone_edit_cryptokey",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "actions",
       "registry_anchor": "canonical-2131110033132201-0211303211102333-2013231203000120-2003230333001121-3001320202021223-1310110313112110-0130123330323322-2112303110223021",
       "registry_path": "docs/guides/actions--dns_zone_edit_cryptokey--examples--group-001.md",
@@ -266,7 +266,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -278,7 +278,7 @@
       "path": "documentation/actions/dns_zone_edit_cryptokey/lifecycle/index.md",
       "product": "distributed-cloud",
       "provider_name": "dns_zone_edit_cryptokey",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "actions",
       "registry_anchor": "canonical-0133311222232302-0130232320301020-2231231223333321-1130330111311102-3003323000122100-1030013331332303-0221201000313232-2222212131312203",
       "registry_path": "docs/guides/actions--dns_zone_edit_cryptokey--lifecycle--group-001.md",

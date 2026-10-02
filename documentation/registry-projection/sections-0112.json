@@ -2,6 +2,272 @@
   "schema_version": 1,
   "sections": [
     {
+      "canonical_id": "xcsh-docs:data-sources:bot_endpoint_policy:properties:endpoint_policy_content:protected_web_endpoints:protected_web_endpoints:header:header_and:header_match:end_with_value",
+      "section_id": "xcsh-docs:data-sources:bot_endpoint_policy:properties:endpoint_policy_content:protected_web_endpoints:protected_web_endpoints:header:header_and:header_match:end_with_value:section:3",
+      "source_sha256": "sha256:8d0f31b71a421967ba2349ddc9f81ea641a328bc620bb417f7f618820a993349",
+      "source_bytes": 253,
+      "canonical_source_sha256": "sha256:28b3bac1f4ca9126dbb50243a7e02e969fcb3b51c465f75fd6664a089f9d93e4",
+      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/bot_endpoint_policy/properties/endpoint_policy_content/protected_web_endpoints/protected_web_endpoints/header/header_and/header_match/end_with_value/",
+      "anchor": "canonical-2212133212131212-1233332121010333-3222321212110121-2131303101113101-2223200022223212-1013310213113002-2212211203230011-0203211201213122",
+      "anchor_map": [
+        [
+          "schema-endpoint_policy_content--protected_web_endpoints--protected_web_endpoints--header--header_and--header_match--end_with_value--not",
+          "canonical-0132002300220023-0010111210232132-3130323123013030-0201110223303123-0300211321312333-3001110030002331-3222111301011322-3123321210312033"
+        ]
+      ],
+      "mode": "embedded",
+      "registry_path": "docs/guides/data-sources--bot_endpoint_policy--reference--group-017.md"
+    },
+    {
+      "canonical_id": "xcsh-docs:data-sources:bot_endpoint_policy:properties:endpoint_policy_content:protected_web_endpoints:protected_web_endpoints:header:header_and:header_match:end_with_value",
+      "section_id": "xcsh-docs:data-sources:bot_endpoint_policy:properties:endpoint_policy_content:protected_web_endpoints:protected_web_endpoints:header:header_and:header_match:end_with_value:section:4",
+      "source_sha256": "sha256:ba49adcdc779d5283d35c7ed0e00c4d98870113327f46e0d17fe6a975ebc1173",
+      "source_bytes": 219,
+      "canonical_source_sha256": "sha256:28b3bac1f4ca9126dbb50243a7e02e969fcb3b51c465f75fd6664a089f9d93e4",
+      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/bot_endpoint_policy/properties/endpoint_policy_content/protected_web_endpoints/protected_web_endpoints/header/header_and/header_match/end_with_value/",
+      "anchor": "canonical-1302020131211202-1110331022212003-2123320321301121-1011102312110123-0323221021213101-1121011213011013-2201103320122131-0110301133213332",
+      "anchor_map": [
+        [
+          "schema-endpoint_policy_content--protected_web_endpoints--protected_web_endpoints--header--header_and--header_match--end_with_value--value",
+          "canonical-0000200301020003-1320130210121013-3112223233020110-3303223332001131-1322000312013021-0110222022012121-3211010012302123-1221202000212012"
+        ]
+      ],
+      "mode": "embedded",
+      "registry_path": "docs/guides/data-sources--bot_endpoint_policy--reference--group-017.md"
+    },
+    {
+      "canonical_id": "xcsh-docs:data-sources:bot_endpoint_policy:properties:endpoint_policy_content:protected_web_endpoints:protected_web_endpoints:header:header_and:header_match:end_with_value",
+      "section_id": "xcsh-docs:data-sources:bot_endpoint_policy:properties:endpoint_policy_content:protected_web_endpoints:protected_web_endpoints:header:header_and:header_match:end_with_value:section:5",
+      "source_sha256": "sha256:b5944342c57a9043f3ff6eb407819864ff5728abd1645edf3d7ffd1c0f07bbb7",
+      "source_bytes": 78,
+      "canonical_source_sha256": "sha256:28b3bac1f4ca9126dbb50243a7e02e969fcb3b51c465f75fd6664a089f9d93e4",
+      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/bot_endpoint_policy/properties/endpoint_policy_content/protected_web_endpoints/protected_web_endpoints/header/header_and/header_match/end_with_value/",
+      "anchor": "canonical-0011033211300312-0111333232320111-3300320230002001-3033032302033302-2122231013222110-0321030230202023-3331001122133001-0323322132320232",
+      "anchor_map": [],
+      "mode": "embedded",
+      "registry_path": "docs/guides/data-sources--bot_endpoint_policy--reference--group-017.md"
+    },
+    {
+      "canonical_id": "xcsh-docs:data-sources:bot_endpoint_policy:properties:endpoint_policy_content:protected_web_endpoints:protected_web_endpoints:header:header_and:header_match:end_with_value",
+      "section_id": "xcsh-docs:data-sources:bot_endpoint_policy:properties:endpoint_policy_content:protected_web_endpoints:protected_web_endpoints:header:header_and:header_match:end_with_value:section:6",
+      "source_sha256": "sha256:e2cfb5f552fac4f85415cb514d76c4ace09735dbddf4e9ca71dbb956a74d54e0",
+      "source_bytes": 447,
+      "canonical_source_sha256": "sha256:28b3bac1f4ca9126dbb50243a7e02e969fcb3b51c465f75fd6664a089f9d93e4",
+      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/bot_endpoint_policy/properties/endpoint_policy_content/protected_web_endpoints/protected_web_endpoints/header/header_and/header_match/end_with_value/",
+      "anchor": "canonical-2012211301200310-3333113012231011-2031031113112231-0312330222231000-1311303303032131-0322021303231003-2122230020122302-1111201321232133",
+      "anchor_map": [],
+      "mode": "embedded",
+      "registry_path": "docs/guides/data-sources--bot_endpoint_policy--reference--group-017.md"
+    },
+    {
+      "canonical_id": "xcsh-docs:data-sources:bot_endpoint_policy:properties:endpoint_policy_content:protected_web_endpoints:protected_web_endpoints:header:header_and:header_match:exact_value",
+      "section_id": "xcsh-docs:data-sources:bot_endpoint_policy:properties:endpoint_policy_content:protected_web_endpoints:protected_web_endpoints:header:header_and:header_match:exact_value:section:0",
+      "source_sha256": "sha256:197d41522a9dd286cb9805a03d8a5bd782cc3f3fd95ea854bf2dfc326e83e50c",
+      "source_bytes": 99,
+      "canonical_source_sha256": "sha256:3e656c07d868cace63fecebc3202fa04d5edea58fea35c4b081befe83dfa5d03",
+      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/bot_endpoint_policy/properties/endpoint_policy_content/protected_web_endpoints/protected_web_endpoints/header/header_and/header_match/exact_value/",
+      "anchor": "canonical-2303133202223313-3300321111331333-2131321112000220-3201013222000212-1113210223232232-0233223311113001-2222121201032222-1321303010330213",
+      "anchor_map": [],
+      "mode": "embedded",
+      "registry_path": "docs/guides/data-sources--bot_endpoint_policy--reference--group-017.md"
+    },
+    {
+      "canonical_id": "xcsh-docs:data-sources:bot_endpoint_policy:properties:endpoint_policy_content:protected_web_endpoints:protected_web_endpoints:header:header_and:header_match:exact_value",
+      "section_id": "xcsh-docs:data-sources:bot_endpoint_policy:properties:endpoint_policy_content:protected_web_endpoints:protected_web_endpoints:header:header_and:header_match:exact_value:section:1",
+      "source_sha256": "sha256:a6c1961325a05625d2e6bf55ae660f71a2b8af3c15d92d4882b21660fa99e7e0",
+      "source_bytes": 2056,
+      "canonical_source_sha256": "sha256:3e656c07d868cace63fecebc3202fa04d5edea58fea35c4b081befe83dfa5d03",
+      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/bot_endpoint_policy/properties/endpoint_policy_content/protected_web_endpoints/protected_web_endpoints/header/header_and/header_match/exact_value/",
+      "anchor": "canonical-0022023133011202-0231300022133022-3022303210332131-0030310003110311-3301332030011130-1312122010230001-3131330010132321-0320111021002121",
+      "anchor_map": [
+        [
+          "section",
+          "canonical-0102200002220021-2122003001100113-2012220201110113-2312311121011221-0331303323203020-3331233202303013-1330312130203013-0210121222300321"
+        ]
+      ],
+      "mode": "embedded",
+      "registry_path": "docs/guides/data-sources--bot_endpoint_policy--reference--group-017.md"
+    },
+    {
+      "canonical_id": "xcsh-docs:data-sources:bot_endpoint_policy:properties:endpoint_policy_content:protected_web_endpoints:protected_web_endpoints:header:header_and:header_match:exact_value",
+      "section_id": "xcsh-docs:data-sources:bot_endpoint_policy:properties:endpoint_policy_content:protected_web_endpoints:protected_web_endpoints:header:header_and:header_match:exact_value:section:2",
+      "source_sha256": "sha256:465770b07fd051d70f09ee6ecae7c600091bb62b39e852c4ace019f1a713ec8b",
+      "source_bytes": 182,
+      "canonical_source_sha256": "sha256:3e656c07d868cace63fecebc3202fa04d5edea58fea35c4b081befe83dfa5d03",
+      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/bot_endpoint_policy/properties/endpoint_policy_content/protected_web_endpoints/protected_web_endpoints/header/header_and/header_match/exact_value/",
+      "anchor": "canonical-1312303323013032-0013203311022321-3021110001200332-3332021100322100-2312331031003132-2010132232232122-0200310203020222-0133310112001211",
+      "anchor_map": [
+        [
+          "schema-endpoint_policy_content--protected_web_endpoints--protected_web_endpoints--header--header_and--header_match--exact_value--case_insensitive",
+          "canonical-3031220112322120-2330221102013121-2333302011001123-0102100203221031-2310201312300211-3122020321120003-1230123130001112-3312213312111320"
+        ]
+      ],
+      "mode": "embedded",
+      "registry_path": "docs/guides/data-sources--bot_endpoint_policy--reference--group-017.md"
+    },
+    {
+      "canonical_id": "xcsh-docs:data-sources:bot_endpoint_policy:properties:endpoint_policy_content:protected_web_endpoints:protected_web_endpoints:header:header_and:header_match:exact_value",
+      "section_id": "xcsh-docs:data-sources:bot_endpoint_policy:properties:endpoint_policy_content:protected_web_endpoints:protected_web_endpoints:header:header_and:header_match:exact_value:section:3",
+      "source_sha256": "sha256:a5db0dbf44d051985ab3972f46d51feafe76f99f7d795233e05dd51512823e30",
+      "source_bytes": 250,
+      "canonical_source_sha256": "sha256:3e656c07d868cace63fecebc3202fa04d5edea58fea35c4b081befe83dfa5d03",
+      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/bot_endpoint_policy/properties/endpoint_policy_content/protected_web_endpoints/protected_web_endpoints/header/header_and/header_match/exact_value/",
+      "anchor": "canonical-0001110123302132-1230323323120111-3023132300332223-0320032230311223-1031320210122301-0023102101221323-1030300102211120-2120102112003233",
+      "anchor_map": [
+        [
+          "schema-endpoint_policy_content--protected_web_endpoints--protected_web_endpoints--header--header_and--header_match--exact_value--not",
+          "canonical-2200211100103211-2000101023100201-0303213000033230-2213122103113130-3130230030320121-0123030121032130-3101220002032111-0201100100203323"
+        ]
+      ],
+      "mode": "embedded",
+      "registry_path": "docs/guides/data-sources--bot_endpoint_policy--reference--group-017.md"
+    },
+    {
+      "canonical_id": "xcsh-docs:data-sources:bot_endpoint_policy:properties:endpoint_policy_content:protected_web_endpoints:protected_web_endpoints:header:header_and:header_match:exact_value",
+      "section_id": "xcsh-docs:data-sources:bot_endpoint_policy:properties:endpoint_policy_content:protected_web_endpoints:protected_web_endpoints:header:header_and:header_match:exact_value:section:4",
+      "source_sha256": "sha256:0d497d0bc5e96738696874376a9a74de10416b78e46c4bb1a505504983eac9d1",
+      "source_bytes": 216,
+      "canonical_source_sha256": "sha256:3e656c07d868cace63fecebc3202fa04d5edea58fea35c4b081befe83dfa5d03",
+      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/bot_endpoint_policy/properties/endpoint_policy_content/protected_web_endpoints/protected_web_endpoints/header/header_and/header_match/exact_value/",
+      "anchor": "canonical-0113033212110022-2021031321213320-2300001220223002-0232303311102031-1002132021313221-2313303010312333-3310013330020111-2110103030310032",
+      "anchor_map": [
+        [
+          "schema-endpoint_policy_content--protected_web_endpoints--protected_web_endpoints--header--header_and--header_match--exact_value--value",
+          "canonical-2012233322212312-0323100203200102-2102313002321010-0113213311030220-0332210112111022-2133023223301300-3230230220103003-2003111031200101"
+        ]
+      ],
+      "mode": "embedded",
+      "registry_path": "docs/guides/data-sources--bot_endpoint_policy--reference--group-017.md"
+    },
+    {
+      "canonical_id": "xcsh-docs:data-sources:bot_endpoint_policy:properties:endpoint_policy_content:protected_web_endpoints:protected_web_endpoints:header:header_and:header_match:exact_value",
+      "section_id": "xcsh-docs:data-sources:bot_endpoint_policy:properties:endpoint_policy_content:protected_web_endpoints:protected_web_endpoints:header:header_and:header_match:exact_value:section:5",
+      "source_sha256": "sha256:b5944342c57a9043f3ff6eb407819864ff5728abd1645edf3d7ffd1c0f07bbb7",
+      "source_bytes": 78,
+      "canonical_source_sha256": "sha256:3e656c07d868cace63fecebc3202fa04d5edea58fea35c4b081befe83dfa5d03",
+      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/bot_endpoint_policy/properties/endpoint_policy_content/protected_web_endpoints/protected_web_endpoints/header/header_and/header_match/exact_value/",
+      "anchor": "canonical-0220121132221102-3320020223122303-2222322331211203-2213211233200200-3210112213222030-2120010332202102-1232212223012213-1220211323323023",
+      "anchor_map": [],
+      "mode": "embedded",
+      "registry_path": "docs/guides/data-sources--bot_endpoint_policy--reference--group-017.md"
+    },
+    {
+      "canonical_id": "xcsh-docs:data-sources:bot_endpoint_policy:properties:endpoint_policy_content:protected_web_endpoints:protected_web_endpoints:header:header_and:header_match:exact_value",
+      "section_id": "xcsh-docs:data-sources:bot_endpoint_policy:properties:endpoint_policy_content:protected_web_endpoints:protected_web_endpoints:header:header_and:header_match:exact_value:section:6",
+      "source_sha256": "sha256:e2cfb5f552fac4f85415cb514d76c4ace09735dbddf4e9ca71dbb956a74d54e0",
+      "source_bytes": 447,
+      "canonical_source_sha256": "sha256:3e656c07d868cace63fecebc3202fa04d5edea58fea35c4b081befe83dfa5d03",
+      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/bot_endpoint_policy/properties/endpoint_policy_content/protected_web_endpoints/protected_web_endpoints/header/header_and/header_match/exact_value/",
+      "anchor": "canonical-1213031200202001-3211110101300302-1132010121120023-3311030313201112-2313131321030333-1330303302301323-1210122221022013-3001033211022002",
+      "anchor_map": [],
+      "mode": "embedded",
+      "registry_path": "docs/guides/data-sources--bot_endpoint_policy--reference--group-017.md"
+    },
+    {
+      "canonical_id": "xcsh-docs:data-sources:bot_endpoint_policy:properties:endpoint_policy_content:protected_web_endpoints:protected_web_endpoints:header:header_and:header_match:start_with_value",
+      "section_id": "xcsh-docs:data-sources:bot_endpoint_policy:properties:endpoint_policy_content:protected_web_endpoints:protected_web_endpoints:header:header_and:header_match:start_with_value:section:0",
+      "source_sha256": "sha256:197d41522a9dd286cb9805a03d8a5bd782cc3f3fd95ea854bf2dfc326e83e50c",
+      "source_bytes": 99,
+      "canonical_source_sha256": "sha256:48d062d874399b9a114c6ec1635370fad9a7913dd69704fc3ba2750e2ab9218d",
+      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/bot_endpoint_policy/properties/endpoint_policy_content/protected_web_endpoints/protected_web_endpoints/header/header_and/header_match/start_with_value/",
+      "anchor": "canonical-0211213300232023-2112120102030323-3132200221131210-2111011202110110-0331330130103320-3022111003113332-1203120131110120-0222002330123312",
+      "anchor_map": [],
+      "mode": "embedded",
+      "registry_path": "docs/guides/data-sources--bot_endpoint_policy--reference--group-017.md"
+    },
+    {
+      "canonical_id": "xcsh-docs:data-sources:bot_endpoint_policy:properties:endpoint_policy_content:protected_web_endpoints:protected_web_endpoints:header:header_and:header_match:start_with_value",
+      "section_id": "xcsh-docs:data-sources:bot_endpoint_policy:properties:endpoint_policy_content:protected_web_endpoints:protected_web_endpoints:header:header_and:header_match:start_with_value:section:1",
+      "source_sha256": "sha256:309d23f25b7923af831e5b20324de613ac51a53c38fcd5af34c657c6dc486a81",
+      "source_bytes": 2071,
+      "canonical_source_sha256": "sha256:48d062d874399b9a114c6ec1635370fad9a7913dd69704fc3ba2750e2ab9218d",
+      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/bot_endpoint_policy/properties/endpoint_policy_content/protected_web_endpoints/protected_web_endpoints/header/header_and/header_match/start_with_value/",
+      "anchor": "canonical-1203203123221211-1020001321313210-2332000320200232-1123100102302231-2301000011311222-3030023220100203-3123311230220102-1132013132231012",
+      "anchor_map": [
+        [
+          "section",
+          "canonical-0310213103201130-0312201132223023-0020111302210031-2132031230020323-3120001301102221-0032000331310000-3101300211322300-2020102010301111"
+        ]
+      ],
+      "mode": "embedded",
+      "registry_path": "docs/guides/data-sources--bot_endpoint_policy--reference--group-017.md"
+    },
+    {
+      "canonical_id": "xcsh-docs:data-sources:bot_endpoint_policy:properties:endpoint_policy_content:protected_web_endpoints:protected_web_endpoints:header:header_and:header_match:start_with_value",
+      "section_id": "xcsh-docs:data-sources:bot_endpoint_policy:properties:endpoint_policy_content:protected_web_endpoints:protected_web_endpoints:header:header_and:header_match:start_with_value:section:2",
+      "source_sha256": "sha256:d83c7940ff75be2595d65ff120227b62497c5c30420896a5aeeabc684537e8f7",
+      "source_bytes": 187,
+      "canonical_source_sha256": "sha256:48d062d874399b9a114c6ec1635370fad9a7913dd69704fc3ba2750e2ab9218d",
+      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/bot_endpoint_policy/properties/endpoint_policy_content/protected_web_endpoints/protected_web_endpoints/header/header_and/header_match/start_with_value/",
+      "anchor": "canonical-3032201032310002-2121200220020031-2212003013131232-2321011322112303-2032312331202303-3311230121011323-2220333133013120-2031123100222122",
+      "anchor_map": [
+        [
+          "schema-endpoint_policy_content--protected_web_endpoints--protected_web_endpoints--header--header_and--header_match--start_with_value--case_insensitive",
+          "canonical-3101123110233023-0232001222302122-0010331232312030-1203212133003032-3111002212122202-2220220202322300-3112302321031311-2302031012102132"
+        ]
+      ],
+      "mode": "embedded",
+      "registry_path": "docs/guides/data-sources--bot_endpoint_policy--reference--group-017.md"
+    },
+    {
+      "canonical_id": "xcsh-docs:data-sources:bot_endpoint_policy:properties:endpoint_policy_content:protected_web_endpoints:protected_web_endpoints:header:header_and:header_match:start_with_value",
+      "section_id": "xcsh-docs:data-sources:bot_endpoint_policy:properties:endpoint_policy_content:protected_web_endpoints:protected_web_endpoints:header:header_and:header_match:start_with_value:section:3",
+      "source_sha256": "sha256:4a757a44db4b90334ad5b851b4d6df16bb0da489d428c3e15f13f03b1f9c439a",
+      "source_bytes": 255,
+      "canonical_source_sha256": "sha256:48d062d874399b9a114c6ec1635370fad9a7913dd69704fc3ba2750e2ab9218d",
+      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/bot_endpoint_policy/properties/endpoint_policy_content/protected_web_endpoints/protected_web_endpoints/header/header_and/header_match/start_with_value/",
+      "anchor": "canonical-1132201211232021-1213211301302111-2122202221233023-1203221231013232-2212031321203233-1223113023313220-3301220031113322-0101212332103031",
+      "anchor_map": [
+        [
+          "schema-endpoint_policy_content--protected_web_endpoints--protected_web_endpoints--header--header_and--header_match--start_with_value--not",
+          "canonical-3201322233023333-0033320020113331-0132331010203103-3002232031013330-0200123313311021-2331333211033102-1303310030212212-3023222121120010"
+        ]
+      ],
+      "mode": "embedded",
+      "registry_path": "docs/guides/data-sources--bot_endpoint_policy--reference--group-017.md"
+    },
+    {
+      "canonical_id": "xcsh-docs:data-sources:bot_endpoint_policy:properties:endpoint_policy_content:protected_web_endpoints:protected_web_endpoints:header:header_and:header_match:start_with_value",
+      "section_id": "xcsh-docs:data-sources:bot_endpoint_policy:properties:endpoint_policy_content:protected_web_endpoints:protected_web_endpoints:header:header_and:header_match:start_with_value:section:4",
+      "source_sha256": "sha256:f3abbc148148ace4acdd179f2b48b751ee8d5fdee225913a3567f55d7704563d",
+      "source_bytes": 221,
+      "canonical_source_sha256": "sha256:48d062d874399b9a114c6ec1635370fad9a7913dd69704fc3ba2750e2ab9218d",
+      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/bot_endpoint_policy/properties/endpoint_policy_content/protected_web_endpoints/protected_web_endpoints/header/header_and/header_match/start_with_value/",
+      "anchor": "canonical-2002033100023231-2120222320323120-3010030232101202-0123032003323321-2232330231210303-3012211312001032-0311022202120032-0301132211201032",
+      "anchor_map": [
+        [
+          "schema-endpoint_policy_content--protected_web_endpoints--protected_web_endpoints--header--header_and--header_match--start_with_value--value",
+          "canonical-2320221030101001-1233030320022010-1320002210130301-1321023133003333-3003210312323031-0211331133200320-2030003103312123-1333001230133312"
+        ]
+      ],
+      "mode": "embedded",
+      "registry_path": "docs/guides/data-sources--bot_endpoint_policy--reference--group-017.md"
+    },
+    {
+      "canonical_id": "xcsh-docs:data-sources:bot_endpoint_policy:properties:endpoint_policy_content:protected_web_endpoints:protected_web_endpoints:header:header_and:header_match:start_with_value",
+      "section_id": "xcsh-docs:data-sources:bot_endpoint_policy:properties:endpoint_policy_content:protected_web_endpoints:protected_web_endpoints:header:header_and:header_match:start_with_value:section:5",
+      "source_sha256": "sha256:b5944342c57a9043f3ff6eb407819864ff5728abd1645edf3d7ffd1c0f07bbb7",
+      "source_bytes": 78,
+      "canonical_source_sha256": "sha256:48d062d874399b9a114c6ec1635370fad9a7913dd69704fc3ba2750e2ab9218d",
+      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/bot_endpoint_policy/properties/endpoint_policy_content/protected_web_endpoints/protected_web_endpoints/header/header_and/header_match/start_with_value/",
+      "anchor": "canonical-2031203102103332-3030323000223312-1223331012302223-1301210003100200-0000010103133112-3210303001211232-3232223001032201-2322030232001111",
+      "anchor_map": [],
+      "mode": "embedded",
+      "registry_path": "docs/guides/data-sources--bot_endpoint_policy--reference--group-017.md"
+    },
+    {
+      "canonical_id": "xcsh-docs:data-sources:bot_endpoint_policy:properties:endpoint_policy_content:protected_web_endpoints:protected_web_endpoints:header:header_and:header_match:start_with_value",
+      "section_id": "xcsh-docs:data-sources:bot_endpoint_policy:properties:endpoint_policy_content:protected_web_endpoints:protected_web_endpoints:header:header_and:header_match:start_with_value:section:6",
+      "source_sha256": "sha256:e2cfb5f552fac4f85415cb514d76c4ace09735dbddf4e9ca71dbb956a74d54e0",
+      "source_bytes": 447,
+      "canonical_source_sha256": "sha256:48d062d874399b9a114c6ec1635370fad9a7913dd69704fc3ba2750e2ab9218d",
+      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/bot_endpoint_policy/properties/endpoint_policy_content/protected_web_endpoints/protected_web_endpoints/header/header_and/header_match/start_with_value/",
+      "anchor": "canonical-3030011131032023-0213133100130133-1011132332003132-0321231331210031-1232230222202331-3101200020010211-0103101303031321-2133111121301030",
+      "anchor_map": [],
+      "mode": "embedded",
+      "registry_path": "docs/guides/data-sources--bot_endpoint_policy--reference--group-017.md"
+    },
+    {
       "canonical_id": "xcsh-docs:data-sources:bot_endpoint_policy:properties:endpoint_policy_content:protected_web_endpoints:protected_web_endpoints:header:header_none",
       "section_id": "xcsh-docs:data-sources:bot_endpoint_policy:properties:endpoint_policy_content:protected_web_endpoints:protected_web_endpoints:header:header_none:section:0",
       "source_sha256": "sha256:197d41522a9dd286cb9805a03d8a5bd782cc3f3fd95ea854bf2dfc326e83e50c",
@@ -5595,267 +5861,6 @@
       "canonical_source_sha256": "sha256:112444fab7bc8acfbb1896c9175e1625359859fd7901c1d81f420de038121689",
       "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/bot_endpoint_policy/properties/endpoint_policy_content/protected_web_endpoints/protected_web_endpoints/request_body/request_body_none/request_body_match/end_with_value/",
       "anchor": "canonical-2002101123123330-0332232303100233-0232313103100200-2130030121000220-0221123130313112-1200103323302210-2032200021132101-0313202212213333",
-      "anchor_map": [],
-      "mode": "embedded",
-      "registry_path": "docs/guides/data-sources--bot_endpoint_policy--reference--group-018.md"
-    },
-    {
-      "canonical_id": "xcsh-docs:data-sources:bot_endpoint_policy:properties:endpoint_policy_content:protected_web_endpoints:protected_web_endpoints:request_body:request_body_none:request_body_match:end_with_value",
-      "section_id": "xcsh-docs:data-sources:bot_endpoint_policy:properties:endpoint_policy_content:protected_web_endpoints:protected_web_endpoints:request_body:request_body_none:request_body_match:end_with_value:section:6",
-      "source_sha256": "sha256:99c593ed1c2700e4cd8feaba5b90b2d03dbc0c713e00eecc524b1431e91b396a",
-      "source_bytes": 485,
-      "canonical_source_sha256": "sha256:112444fab7bc8acfbb1896c9175e1625359859fd7901c1d81f420de038121689",
-      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/bot_endpoint_policy/properties/endpoint_policy_content/protected_web_endpoints/protected_web_endpoints/request_body/request_body_none/request_body_match/end_with_value/",
-      "anchor": "canonical-2310010021330233-0003302022203313-1013102031330133-1111330011131322-3011331023310100-0130312231110322-0200033202102223-0210330320100220",
-      "anchor_map": [],
-      "mode": "embedded",
-      "registry_path": "docs/guides/data-sources--bot_endpoint_policy--reference--group-018.md"
-    },
-    {
-      "canonical_id": "xcsh-docs:data-sources:bot_endpoint_policy:properties:endpoint_policy_content:protected_web_endpoints:protected_web_endpoints:request_body:request_body_none:request_body_match:exact_value",
-      "section_id": "xcsh-docs:data-sources:bot_endpoint_policy:properties:endpoint_policy_content:protected_web_endpoints:protected_web_endpoints:request_body:request_body_none:request_body_match:exact_value:section:0",
-      "source_sha256": "sha256:197d41522a9dd286cb9805a03d8a5bd782cc3f3fd95ea854bf2dfc326e83e50c",
-      "source_bytes": 99,
-      "canonical_source_sha256": "sha256:751cf2d21dba12fa98d6cd929888de5720557ab5efc1576c2d6a1acf9d318f4d",
-      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/bot_endpoint_policy/properties/endpoint_policy_content/protected_web_endpoints/protected_web_endpoints/request_body/request_body_none/request_body_match/exact_value/",
-      "anchor": "canonical-1203311023032030-0222131100300223-3131331121112222-1312232302303021-2112001322030330-3022303130322002-3112331100020021-1231322212002310",
-      "anchor_map": [],
-      "mode": "embedded",
-      "registry_path": "docs/guides/data-sources--bot_endpoint_policy--reference--group-018.md"
-    },
-    {
-      "canonical_id": "xcsh-docs:data-sources:bot_endpoint_policy:properties:endpoint_policy_content:protected_web_endpoints:protected_web_endpoints:request_body:request_body_none:request_body_match:exact_value",
-      "section_id": "xcsh-docs:data-sources:bot_endpoint_policy:properties:endpoint_policy_content:protected_web_endpoints:protected_web_endpoints:request_body:request_body_none:request_body_match:exact_value:section:1",
-      "source_sha256": "sha256:f4b3195f9ecb21837bd923ac9e20f317dfa9dd510c6a8ad81fc9f421b2dc7d56",
-      "source_bytes": 2170,
-      "canonical_source_sha256": "sha256:751cf2d21dba12fa98d6cd929888de5720557ab5efc1576c2d6a1acf9d318f4d",
-      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/bot_endpoint_policy/properties/endpoint_policy_content/protected_web_endpoints/protected_web_endpoints/request_body/request_body_none/request_body_match/exact_value/",
-      "anchor": "canonical-0103230023312330-2331121031100102-2132013110320230-3233132101332012-2013333323221231-3222023102113303-3030001211112332-1302233120032311",
-      "anchor_map": [
-        [
-          "section",
-          "canonical-2330301300233021-1102101101113302-3310031021120313-2231103010200111-0332112212303303-0210103130123003-2113202103012222-1300100223230213"
-        ]
-      ],
-      "mode": "embedded",
-      "registry_path": "docs/guides/data-sources--bot_endpoint_policy--reference--group-018.md"
-    },
-    {
-      "canonical_id": "xcsh-docs:data-sources:bot_endpoint_policy:properties:endpoint_policy_content:protected_web_endpoints:protected_web_endpoints:request_body:request_body_none:request_body_match:exact_value",
-      "section_id": "xcsh-docs:data-sources:bot_endpoint_policy:properties:endpoint_policy_content:protected_web_endpoints:protected_web_endpoints:request_body:request_body_none:request_body_match:exact_value:section:2",
-      "source_sha256": "sha256:c537947ce33e941abb07647614b4d00400b326c3f3d9eddec75db003adeb038d",
-      "source_bytes": 201,
-      "canonical_source_sha256": "sha256:751cf2d21dba12fa98d6cd929888de5720557ab5efc1576c2d6a1acf9d318f4d",
-      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/bot_endpoint_policy/properties/endpoint_policy_content/protected_web_endpoints/protected_web_endpoints/request_body/request_body_none/request_body_match/exact_value/",
-      "anchor": "canonical-1303300223022331-1332003203123111-0201322112020010-1223230211131230-3300202222230012-3331202313203300-2310020113331010-2331002001112200",
-      "anchor_map": [
-        [
-          "schema-endpoint_policy_content--protected_web_endpoints--protected_web_endpoints--request_body--request_body_none--request_body_match--exact_value--case_insensitive",
-          "canonical-1102332121030331-1310121031201233-1001303303123300-1222202013101230-3311133123011101-1012222311233100-2300003332002121-0021323112201311"
-        ]
-      ],
-      "mode": "embedded",
-      "registry_path": "docs/guides/data-sources--bot_endpoint_policy--reference--group-018.md"
-    },
-    {
-      "canonical_id": "xcsh-docs:data-sources:bot_endpoint_policy:properties:endpoint_policy_content:protected_web_endpoints:protected_web_endpoints:request_body:request_body_none:request_body_match:exact_value",
-      "section_id": "xcsh-docs:data-sources:bot_endpoint_policy:properties:endpoint_policy_content:protected_web_endpoints:protected_web_endpoints:request_body:request_body_none:request_body_match:exact_value:section:3",
-      "source_sha256": "sha256:eaf1c20cf2ebe47610ae70c5eeb6129f6ea15d20dac3c3730551fb3e5b4d3abc",
-      "source_bytes": 269,
-      "canonical_source_sha256": "sha256:751cf2d21dba12fa98d6cd929888de5720557ab5efc1576c2d6a1acf9d318f4d",
-      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/bot_endpoint_policy/properties/endpoint_policy_content/protected_web_endpoints/protected_web_endpoints/request_body/request_body_none/request_body_match/exact_value/",
-      "anchor": "canonical-3223103320010310-3333220021020223-0312130012131103-2322002020220102-3311331022331203-3313122300211321-1302111001313032-2132101302222031",
-      "anchor_map": [
-        [
-          "schema-endpoint_policy_content--protected_web_endpoints--protected_web_endpoints--request_body--request_body_none--request_body_match--exact_value--not",
-          "canonical-0010233221112222-1322230123121123-3002013223122101-2011203311302020-3031120113312111-2322232031213013-2321333120130323-2230001022230020"
-        ]
-      ],
-      "mode": "embedded",
-      "registry_path": "docs/guides/data-sources--bot_endpoint_policy--reference--group-018.md"
-    },
-    {
-      "canonical_id": "xcsh-docs:data-sources:bot_endpoint_policy:properties:endpoint_policy_content:protected_web_endpoints:protected_web_endpoints:request_body:request_body_none:request_body_match:exact_value",
-      "section_id": "xcsh-docs:data-sources:bot_endpoint_policy:properties:endpoint_policy_content:protected_web_endpoints:protected_web_endpoints:request_body:request_body_none:request_body_match:exact_value:section:4",
-      "source_sha256": "sha256:643bd1f3439b7e00a636c8bec8e83a68c6f590bd709a7e6c7215b07bfb590792",
-      "source_bytes": 235,
-      "canonical_source_sha256": "sha256:751cf2d21dba12fa98d6cd929888de5720557ab5efc1576c2d6a1acf9d318f4d",
-      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/bot_endpoint_policy/properties/endpoint_policy_content/protected_web_endpoints/protected_web_endpoints/request_body/request_body_none/request_body_match/exact_value/",
-      "anchor": "canonical-3031322112120313-1113120020230323-1030320311322132-1321003231232313-1211020300032102-3200000332303312-0030303030320233-3200011000010131",
-      "anchor_map": [
-        [
-          "schema-endpoint_policy_content--protected_web_endpoints--protected_web_endpoints--request_body--request_body_none--request_body_match--exact_value--value",
-          "canonical-0321033333201012-2223212120031230-3023223330213222-1113121110121331-3300132031322331-2303313131122313-3033103223312031-1212102330133203"
-        ]
-      ],
-      "mode": "embedded",
-      "registry_path": "docs/guides/data-sources--bot_endpoint_policy--reference--group-018.md"
-    },
-    {
-      "canonical_id": "xcsh-docs:data-sources:bot_endpoint_policy:properties:endpoint_policy_content:protected_web_endpoints:protected_web_endpoints:request_body:request_body_none:request_body_match:exact_value",
-      "section_id": "xcsh-docs:data-sources:bot_endpoint_policy:properties:endpoint_policy_content:protected_web_endpoints:protected_web_endpoints:request_body:request_body_none:request_body_match:exact_value:section:5",
-      "source_sha256": "sha256:b5944342c57a9043f3ff6eb407819864ff5728abd1645edf3d7ffd1c0f07bbb7",
-      "source_bytes": 78,
-      "canonical_source_sha256": "sha256:751cf2d21dba12fa98d6cd929888de5720557ab5efc1576c2d6a1acf9d318f4d",
-      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/bot_endpoint_policy/properties/endpoint_policy_content/protected_web_endpoints/protected_web_endpoints/request_body/request_body_none/request_body_match/exact_value/",
-      "anchor": "canonical-3202302332000031-3033023200013013-2332102001310031-1222131101011103-0012021301122231-1222311021113123-2310130210200303-2311003031230013",
-      "anchor_map": [],
-      "mode": "embedded",
-      "registry_path": "docs/guides/data-sources--bot_endpoint_policy--reference--group-018.md"
-    },
-    {
-      "canonical_id": "xcsh-docs:data-sources:bot_endpoint_policy:properties:endpoint_policy_content:protected_web_endpoints:protected_web_endpoints:request_body:request_body_none:request_body_match:exact_value",
-      "section_id": "xcsh-docs:data-sources:bot_endpoint_policy:properties:endpoint_policy_content:protected_web_endpoints:protected_web_endpoints:request_body:request_body_none:request_body_match:exact_value:section:6",
-      "source_sha256": "sha256:99c593ed1c2700e4cd8feaba5b90b2d03dbc0c713e00eecc524b1431e91b396a",
-      "source_bytes": 485,
-      "canonical_source_sha256": "sha256:751cf2d21dba12fa98d6cd929888de5720557ab5efc1576c2d6a1acf9d318f4d",
-      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/bot_endpoint_policy/properties/endpoint_policy_content/protected_web_endpoints/protected_web_endpoints/request_body/request_body_none/request_body_match/exact_value/",
-      "anchor": "canonical-0203331212023202-0132232333233223-2002023303010003-2123013233232222-0201000312023230-2112232221011203-0022111213021213-1220203333303030",
-      "anchor_map": [],
-      "mode": "embedded",
-      "registry_path": "docs/guides/data-sources--bot_endpoint_policy--reference--group-018.md"
-    },
-    {
-      "canonical_id": "xcsh-docs:data-sources:bot_endpoint_policy:properties:endpoint_policy_content:protected_web_endpoints:protected_web_endpoints:request_body:request_body_none:request_body_match:start_with_value",
-      "section_id": "xcsh-docs:data-sources:bot_endpoint_policy:properties:endpoint_policy_content:protected_web_endpoints:protected_web_endpoints:request_body:request_body_none:request_body_match:start_with_value:section:0",
-      "source_sha256": "sha256:197d41522a9dd286cb9805a03d8a5bd782cc3f3fd95ea854bf2dfc326e83e50c",
-      "source_bytes": 99,
-      "canonical_source_sha256": "sha256:1ccf8d32937ce7b10715a715e0688d1b9a1c3ff9c5edffb66c68ce9220f7ca06",
-      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/bot_endpoint_policy/properties/endpoint_policy_content/protected_web_endpoints/protected_web_endpoints/request_body/request_body_none/request_body_match/start_with_value/",
-      "anchor": "canonical-2002011321233333-0001222130312230-1112021003213131-0021112123221103-0113313103231213-2123231023010022-3330032101211210-0133100010232232",
-      "anchor_map": [],
-      "mode": "embedded",
-      "registry_path": "docs/guides/data-sources--bot_endpoint_policy--reference--group-018.md"
-    },
-    {
-      "canonical_id": "xcsh-docs:data-sources:bot_endpoint_policy:properties:endpoint_policy_content:protected_web_endpoints:protected_web_endpoints:request_body:request_body_none:request_body_match:start_with_value",
-      "section_id": "xcsh-docs:data-sources:bot_endpoint_policy:properties:endpoint_policy_content:protected_web_endpoints:protected_web_endpoints:request_body:request_body_none:request_body_match:start_with_value:section:1",
-      "source_sha256": "sha256:1a286e402f932e1449056ecad4fa29af2e0ff54a9b34a46420d1e098e1261ce3",
-      "source_bytes": 2185,
-      "canonical_source_sha256": "sha256:1ccf8d32937ce7b10715a715e0688d1b9a1c3ff9c5edffb66c68ce9220f7ca06",
-      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/bot_endpoint_policy/properties/endpoint_policy_content/protected_web_endpoints/protected_web_endpoints/request_body/request_body_none/request_body_match/start_with_value/",
-      "anchor": "canonical-3120131033201210-1002202233130013-0231222311232223-1203220103233012-1110220012211221-3201222231233321-3222003120233100-1211210101101002",
-      "anchor_map": [
-        [
-          "section",
-          "canonical-1002233132031311-0211331112223201-2020032133203023-3033101331303022-2001231213033003-0033200302220300-3133002030323310-2032313212203232"
-        ]
-      ],
-      "mode": "embedded",
-      "registry_path": "docs/guides/data-sources--bot_endpoint_policy--reference--group-018.md"
-    },
-    {
-      "canonical_id": "xcsh-docs:data-sources:bot_endpoint_policy:properties:endpoint_policy_content:protected_web_endpoints:protected_web_endpoints:request_body:request_body_none:request_body_match:start_with_value",
-      "section_id": "xcsh-docs:data-sources:bot_endpoint_policy:properties:endpoint_policy_content:protected_web_endpoints:protected_web_endpoints:request_body:request_body_none:request_body_match:start_with_value:section:2",
-      "source_sha256": "sha256:dfa2d1d231733e44b790f0165fb799e99336df4d975e3db9ee2e000a3476be0d",
-      "source_bytes": 206,
-      "canonical_source_sha256": "sha256:1ccf8d32937ce7b10715a715e0688d1b9a1c3ff9c5edffb66c68ce9220f7ca06",
-      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/bot_endpoint_policy/properties/endpoint_policy_content/protected_web_endpoints/protected_web_endpoints/request_body/request_body_none/request_body_match/start_with_value/",
-      "anchor": "canonical-0022210310001100-0022313230320331-3223101103123002-2102003213022321-3131311303100230-2003103020323203-0313320103012103-3332002213003131",
-      "anchor_map": [
-        [
-          "schema-endpoint_policy_content--protected_web_endpoints--protected_web_endpoints--request_body--request_body_none--request_body_match--start_with_value--case_insensitive",
-          "canonical-1031313331133230-2031110320031001-3201111012030133-3312022120301330-3200020333033310-3231022312121220-1212020022133201-2230003102031110"
-        ]
-      ],
-      "mode": "embedded",
-      "registry_path": "docs/guides/data-sources--bot_endpoint_policy--reference--group-018.md"
-    },
-    {
-      "canonical_id": "xcsh-docs:data-sources:bot_endpoint_policy:properties:endpoint_policy_content:protected_web_endpoints:protected_web_endpoints:request_body:request_body_none:request_body_match:start_with_value",
-      "section_id": "xcsh-docs:data-sources:bot_endpoint_policy:properties:endpoint_policy_content:protected_web_endpoints:protected_web_endpoints:request_body:request_body_none:request_body_match:start_with_value:section:3",
-      "source_sha256": "sha256:a8edd195dd99429fbf5adaa3a8150adc1ee3f152994710b02801facbc4baeb32",
-      "source_bytes": 274,
-      "canonical_source_sha256": "sha256:1ccf8d32937ce7b10715a715e0688d1b9a1c3ff9c5edffb66c68ce9220f7ca06",
-      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/bot_endpoint_policy/properties/endpoint_policy_content/protected_web_endpoints/protected_web_endpoints/request_body/request_body_none/request_body_match/start_with_value/",
-      "anchor": "canonical-3230103320103020-0022332210023130-0220133333300020-2103023221103133-3112132220223330-2101330213113111-0233101001003331-1031023012030233",
-      "anchor_map": [
-        [
-          "schema-endpoint_policy_content--protected_web_endpoints--protected_web_endpoints--request_body--request_body_none--request_body_match--start_with_value--not",
-          "canonical-0332333320333303-0320323013331023-2113012120011121-2120100033030121-2023101222002320-0221201102231101-3123232313100023-3130031013200130"
-        ]
-      ],
-      "mode": "embedded",
-      "registry_path": "docs/guides/data-sources--bot_endpoint_policy--reference--group-018.md"
-    },
-    {
-      "canonical_id": "xcsh-docs:data-sources:bot_endpoint_policy:properties:endpoint_policy_content:protected_web_endpoints:protected_web_endpoints:request_body:request_body_none:request_body_match:start_with_value",
-      "section_id": "xcsh-docs:data-sources:bot_endpoint_policy:properties:endpoint_policy_content:protected_web_endpoints:protected_web_endpoints:request_body:request_body_none:request_body_match:start_with_value:section:4",
-      "source_sha256": "sha256:87d9dd61f975bf3a7e0deb0c4a50584648a3575bf8da701b2cb72213b3a73359",
-      "source_bytes": 240,
-      "canonical_source_sha256": "sha256:1ccf8d32937ce7b10715a715e0688d1b9a1c3ff9c5edffb66c68ce9220f7ca06",
-      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/bot_endpoint_policy/properties/endpoint_policy_content/protected_web_endpoints/protected_web_endpoints/request_body/request_body_none/request_body_match/start_with_value/",
-      "anchor": "canonical-2310332211130110-3301212323202031-0130210033122031-1332233211320300-0310232010030031-1023312023010230-1210211010332031-2221113333020032",
-      "anchor_map": [
-        [
-          "schema-endpoint_policy_content--protected_web_endpoints--protected_web_endpoints--request_body--request_body_none--request_body_match--start_with_value--value",
-          "canonical-2320123111230303-0203002330332000-2010132232033212-0231133302020113-1311232131132302-2302223313222331-3101213023230013-0230201112110311"
-        ]
-      ],
-      "mode": "embedded",
-      "registry_path": "docs/guides/data-sources--bot_endpoint_policy--reference--group-018.md"
-    },
-    {
-      "canonical_id": "xcsh-docs:data-sources:bot_endpoint_policy:properties:endpoint_policy_content:protected_web_endpoints:protected_web_endpoints:request_body:request_body_none:request_body_match:start_with_value",
-      "section_id": "xcsh-docs:data-sources:bot_endpoint_policy:properties:endpoint_policy_content:protected_web_endpoints:protected_web_endpoints:request_body:request_body_none:request_body_match:start_with_value:section:5",
-      "source_sha256": "sha256:b5944342c57a9043f3ff6eb407819864ff5728abd1645edf3d7ffd1c0f07bbb7",
-      "source_bytes": 78,
-      "canonical_source_sha256": "sha256:1ccf8d32937ce7b10715a715e0688d1b9a1c3ff9c5edffb66c68ce9220f7ca06",
-      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/bot_endpoint_policy/properties/endpoint_policy_content/protected_web_endpoints/protected_web_endpoints/request_body/request_body_none/request_body_match/start_with_value/",
-      "anchor": "canonical-1120111003200031-2301331001321200-0003131123311231-2021221011113231-3212222111232203-0303002000332223-2030131231000012-0210000200203020",
-      "anchor_map": [],
-      "mode": "embedded",
-      "registry_path": "docs/guides/data-sources--bot_endpoint_policy--reference--group-018.md"
-    },
-    {
-      "canonical_id": "xcsh-docs:data-sources:bot_endpoint_policy:properties:endpoint_policy_content:protected_web_endpoints:protected_web_endpoints:request_body:request_body_none:request_body_match:start_with_value",
-      "section_id": "xcsh-docs:data-sources:bot_endpoint_policy:properties:endpoint_policy_content:protected_web_endpoints:protected_web_endpoints:request_body:request_body_none:request_body_match:start_with_value:section:6",
-      "source_sha256": "sha256:99c593ed1c2700e4cd8feaba5b90b2d03dbc0c713e00eecc524b1431e91b396a",
-      "source_bytes": 485,
-      "canonical_source_sha256": "sha256:1ccf8d32937ce7b10715a715e0688d1b9a1c3ff9c5edffb66c68ce9220f7ca06",
-      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/bot_endpoint_policy/properties/endpoint_policy_content/protected_web_endpoints/protected_web_endpoints/request_body/request_body_none/request_body_match/start_with_value/",
-      "anchor": "canonical-1130302023213201-0031213030103230-1012111100003001-0323120221020221-0201201202310021-0221113323323201-0203122031323320-0211100301102203",
-      "anchor_map": [],
-      "mode": "embedded",
-      "registry_path": "docs/guides/data-sources--bot_endpoint_policy--reference--group-018.md"
-    },
-    {
-      "canonical_id": "xcsh-docs:data-sources:bot_endpoint_policy:properties:endpoint_policy_content:protected_web_endpoints:protected_web_endpoints:request_body:request_body_or",
-      "section_id": "xcsh-docs:data-sources:bot_endpoint_policy:properties:endpoint_policy_content:protected_web_endpoints:protected_web_endpoints:request_body:request_body_or:section:0",
-      "source_sha256": "sha256:197d41522a9dd286cb9805a03d8a5bd782cc3f3fd95ea854bf2dfc326e83e50c",
-      "source_bytes": 99,
-      "canonical_source_sha256": "sha256:cfad1074dcdeaee581768be8799c990539b3f64e1370964cfe577cba45d21a5e",
-      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/bot_endpoint_policy/properties/endpoint_policy_content/protected_web_endpoints/protected_web_endpoints/request_body/request_body_or/",
-      "anchor": "canonical-3220011120121201-0111313221022013-2313032121100300-1100301012323012-3031110300220101-0120230313032121-3313203212131210-3300020322001210",
-      "anchor_map": [],
-      "mode": "embedded",
-      "registry_path": "docs/guides/data-sources--bot_endpoint_policy--reference--group-018.md"
-    },
-    {
-      "canonical_id": "xcsh-docs:data-sources:bot_endpoint_policy:properties:endpoint_policy_content:protected_web_endpoints:protected_web_endpoints:request_body:request_body_or",
-      "section_id": "xcsh-docs:data-sources:bot_endpoint_policy:properties:endpoint_policy_content:protected_web_endpoints:protected_web_endpoints:request_body:request_body_or:section:1",
-      "source_sha256": "sha256:6b05a4632a5379ab88fec508fc2ef27c3934294d540c191ecf183a3ae7e46d0a",
-      "source_bytes": 1457,
-      "canonical_source_sha256": "sha256:cfad1074dcdeaee581768be8799c990539b3f64e1370964cfe577cba45d21a5e",
-      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/bot_endpoint_policy/properties/endpoint_policy_content/protected_web_endpoints/protected_web_endpoints/request_body/request_body_or/",
-      "anchor": "canonical-2200020211223330-1232322230221130-2332101222103002-3320002130113033-0313021102202213-0230101001033312-1012232010213032-0121033123032022",
-      "anchor_map": [
-        [
-          "section",
-          "canonical-2213101010233101-0310233013001120-2101121222230321-2133133102232101-0110101021000132-0110132230023023-0331100101332000-3031300323311010"
-        ]
-      ],
-      "mode": "embedded",
-      "registry_path": "docs/guides/data-sources--bot_endpoint_policy--reference--group-018.md"
-    },
-    {
-      "canonical_id": "xcsh-docs:data-sources:bot_endpoint_policy:properties:endpoint_policy_content:protected_web_endpoints:protected_web_endpoints:request_body:request_body_or",
-      "section_id": "xcsh-docs:data-sources:bot_endpoint_policy:properties:endpoint_policy_content:protected_web_endpoints:protected_web_endpoints:request_body:request_body_or:section:2",
-      "source_sha256": "sha256:b8df20cf5f2c7695f8cb8b1ecc178566faa7176b23d4ad0d1e5dc3eb519e7206",
-      "source_bytes": 300,
-      "canonical_source_sha256": "sha256:cfad1074dcdeaee581768be8799c990539b3f64e1370964cfe577cba45d21a5e",
-      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/bot_endpoint_policy/properties/endpoint_policy_content/protected_web_endpoints/protected_web_endpoints/request_body/request_body_or/",
-      "anchor": "canonical-2131220202123020-1310033213101331-0300030111323031-3320201012322232-3233113102013032-0002002102203131-1000202321332201-3233100110132003",
       "anchor_map": [],
       "mode": "embedded",
       "registry_path": "docs/guides/data-sources--bot_endpoint_policy--reference--group-018.md"

@@ -2,6 +2,303 @@
   "schema_version": 1,
   "sections": [
     {
+      "canonical_id": "xcsh-docs:data-sources:aws_tgw_site:properties:vn_config:inside_static_routes:static_route_list",
+      "section_id": "xcsh-docs:data-sources:aws_tgw_site:properties:vn_config:inside_static_routes:static_route_list:section:3",
+      "source_sha256": "sha256:4cb6bb0fb4a8f3c1fabb8d28c57e0a1b5c1e433791afa8dc8504c82a5c13a5f8",
+      "source_bytes": 917,
+      "canonical_source_sha256": "sha256:17195d551127a07b10133ecca2e467431227688339fbee0ce962c19d5e0b55f2",
+      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/aws_tgw_site/properties/vn_config/inside_static_routes/static_route_list/",
+      "anchor": "canonical-3101201322020322-1200221202221033-2322021330110023-2012111003330231-0000212012222010-2002202023221113-1223322230322103-1032032022322011",
+      "anchor_map": [],
+      "mode": "embedded",
+      "registry_path": "docs/guides/data-sources--aws_tgw_site--reference--group-003.md"
+    },
+    {
+      "canonical_id": "xcsh-docs:data-sources:aws_tgw_site:properties:vn_config:inside_static_routes:static_route_list",
+      "section_id": "xcsh-docs:data-sources:aws_tgw_site:properties:vn_config:inside_static_routes:static_route_list:section:4",
+      "source_sha256": "sha256:61b0eeacf9d09470d1d29348879d89e466385e5969e166489a0d6f9881388138",
+      "source_bytes": 519,
+      "canonical_source_sha256": "sha256:17195d551127a07b10133ecca2e467431227688339fbee0ce962c19d5e0b55f2",
+      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/aws_tgw_site/properties/vn_config/inside_static_routes/static_route_list/",
+      "anchor": "canonical-3013222001121003-1210130012120012-2230232123300333-1311000202203023-2211330111122101-0132023200021200-0121302321011030-1313300131103222",
+      "anchor_map": [],
+      "mode": "embedded",
+      "registry_path": "docs/guides/data-sources--aws_tgw_site--reference--group-003.md"
+    },
+    {
+      "canonical_id": "xcsh-docs:data-sources:aws_tgw_site:properties:vn_config:inside_static_routes:static_route_list:custom_static_route",
+      "section_id": "xcsh-docs:data-sources:aws_tgw_site:properties:vn_config:inside_static_routes:static_route_list:custom_static_route:section:0",
+      "source_sha256": "sha256:197d41522a9dd286cb9805a03d8a5bd782cc3f3fd95ea854bf2dfc326e83e50c",
+      "source_bytes": 99,
+      "canonical_source_sha256": "sha256:f73e53ff740ed7008a14b05f4ebf8c065a22f53ca672877561452ebf4858e2a1",
+      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/aws_tgw_site/properties/vn_config/inside_static_routes/static_route_list/custom_static_route/",
+      "anchor": "canonical-3030030123312221-3202130102233013-0013331133212230-1011020112030333-3111000021331131-2103001121221103-2223332330113122-0200000201133323",
+      "anchor_map": [],
+      "mode": "embedded",
+      "registry_path": "docs/guides/data-sources--aws_tgw_site--reference--group-003.md"
+    },
+    {
+      "canonical_id": "xcsh-docs:data-sources:aws_tgw_site:properties:vn_config:inside_static_routes:static_route_list:custom_static_route",
+      "section_id": "xcsh-docs:data-sources:aws_tgw_site:properties:vn_config:inside_static_routes:static_route_list:custom_static_route:section:1",
+      "source_sha256": "sha256:9dad98d4dbfbd9fb16d56cb3efa55bed8bf52e099d80c558a34fe541a1a29ec5",
+      "source_bytes": 1177,
+      "canonical_source_sha256": "sha256:f73e53ff740ed7008a14b05f4ebf8c065a22f53ca672877561452ebf4858e2a1",
+      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/aws_tgw_site/properties/vn_config/inside_static_routes/static_route_list/custom_static_route/",
+      "anchor": "canonical-1012113302303302-2232122321332222-0231130223210221-1100313033121232-2311132222010231-2022212211223131-0133133301100101-1201122121012211",
+      "anchor_map": [
+        [
+          "section",
+          "canonical-2310021111233213-1012310201322132-3112230020320023-0311220010023201-3133100023302210-2012120011101133-3213300102332120-3022221302111111"
+        ]
+      ],
+      "mode": "embedded",
+      "registry_path": "docs/guides/data-sources--aws_tgw_site--reference--group-003.md"
+    },
+    {
+      "canonical_id": "xcsh-docs:data-sources:aws_tgw_site:properties:vn_config:inside_static_routes:static_route_list:custom_static_route",
+      "section_id": "xcsh-docs:data-sources:aws_tgw_site:properties:vn_config:inside_static_routes:static_route_list:custom_static_route:section:2",
+      "source_sha256": "sha256:a5e006e47a1cc021e64e1eaeca1c614bbcb8b8bdb57ebbd51b22fb49d61b7156",
+      "source_bytes": 122,
+      "canonical_source_sha256": "sha256:f73e53ff740ed7008a14b05f4ebf8c065a22f53ca672877561452ebf4858e2a1",
+      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/aws_tgw_site/properties/vn_config/inside_static_routes/static_route_list/custom_static_route/",
+      "anchor": "canonical-1320010020012233-3010112321200111-1110010031111022-0213301231333223-2230310301010120-2220300000122203-2331013133200232-3101113023223320",
+      "anchor_map": [
+        [
+          "schema-vn_config--inside_static_routes--static_route_list--custom_static_route--attrs",
+          "canonical-1332000033103023-0230330202313023-0022230300202122-1233322022202330-2300211220020133-0310223320100130-1231013301031101-1112213221232021"
+        ]
+      ],
+      "mode": "embedded",
+      "registry_path": "docs/guides/data-sources--aws_tgw_site--reference--group-003.md"
+    },
+    {
+      "canonical_id": "xcsh-docs:data-sources:aws_tgw_site:properties:vn_config:inside_static_routes:static_route_list:custom_static_route",
+      "section_id": "xcsh-docs:data-sources:aws_tgw_site:properties:vn_config:inside_static_routes:static_route_list:custom_static_route:section:3",
+      "source_sha256": "sha256:479a2e6e5e3d51d9debaa24dff930c3e33f7a715f4bee15ab601b03a07b6c576",
+      "source_bytes": 1822,
+      "canonical_source_sha256": "sha256:f73e53ff740ed7008a14b05f4ebf8c065a22f53ca672877561452ebf4858e2a1",
+      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/aws_tgw_site/properties/vn_config/inside_static_routes/static_route_list/custom_static_route/",
+      "anchor": "canonical-3302022123221133-0220023332011021-3023003112210120-0322330211130123-1011100030013220-0103311121120313-3331030323103123-2132013303211202",
+      "anchor_map": [],
+      "mode": "embedded",
+      "registry_path": "docs/guides/data-sources--aws_tgw_site--reference--group-003.md"
+    },
+    {
+      "canonical_id": "xcsh-docs:data-sources:aws_tgw_site:properties:vn_config:inside_static_routes:static_route_list:custom_static_route",
+      "section_id": "xcsh-docs:data-sources:aws_tgw_site:properties:vn_config:inside_static_routes:static_route_list:custom_static_route:section:4",
+      "source_sha256": "sha256:9d5a550271f41bfaf96fcc6389b3e2831a2d3412390f169afe393639966fe7ef",
+      "source_bytes": 1075,
+      "canonical_source_sha256": "sha256:f73e53ff740ed7008a14b05f4ebf8c065a22f53ca672877561452ebf4858e2a1",
+      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/aws_tgw_site/properties/vn_config/inside_static_routes/static_route_list/custom_static_route/",
+      "anchor": "canonical-1130232210022011-3100220103100120-1113303120210031-3221021033023103-0232001003232011-2112212113100000-0103330231321123-3203301013110203",
+      "anchor_map": [],
+      "mode": "embedded",
+      "registry_path": "docs/guides/data-sources--aws_tgw_site--reference--group-003.md"
+    },
+    {
+      "canonical_id": "xcsh-docs:data-sources:aws_tgw_site:properties:vn_config:inside_static_routes:static_route_list:custom_static_route:labels",
+      "section_id": "xcsh-docs:data-sources:aws_tgw_site:properties:vn_config:inside_static_routes:static_route_list:custom_static_route:labels:section:0",
+      "source_sha256": "sha256:197d41522a9dd286cb9805a03d8a5bd782cc3f3fd95ea854bf2dfc326e83e50c",
+      "source_bytes": 99,
+      "canonical_source_sha256": "sha256:b23906fa555a6043f0ddba7c6a30dda5df5c7c92ad83c8f8cab27e8f71557834",
+      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/aws_tgw_site/properties/vn_config/inside_static_routes/static_route_list/custom_static_route/labels/",
+      "anchor": "canonical-3221031013333310-1320331230020202-2021221310120222-0012130200202211-3103120232312010-3131123110330311-3223101233331031-1310032023000300",
+      "anchor_map": [],
+      "mode": "embedded",
+      "registry_path": "docs/guides/data-sources--aws_tgw_site--reference--group-003.md"
+    },
+    {
+      "canonical_id": "xcsh-docs:data-sources:aws_tgw_site:properties:vn_config:inside_static_routes:static_route_list:custom_static_route:labels",
+      "section_id": "xcsh-docs:data-sources:aws_tgw_site:properties:vn_config:inside_static_routes:static_route_list:custom_static_route:labels:section:1",
+      "source_sha256": "sha256:1fbe903b6c260b6dc31b2996c6631803225999f608a160b03f4c87a071ef819f",
+      "source_bytes": 1415,
+      "canonical_source_sha256": "sha256:b23906fa555a6043f0ddba7c6a30dda5df5c7c92ad83c8f8cab27e8f71557834",
+      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/aws_tgw_site/properties/vn_config/inside_static_routes/static_route_list/custom_static_route/labels/",
+      "anchor": "canonical-3011310032110223-3013223202010110-0323123133123021-3121033033321200-1103312323313003-0212121200002212-3002131032000333-2221122300330001",
+      "anchor_map": [
+        [
+          "section",
+          "canonical-2100122130313122-2012212301333201-1301201011012123-2010221001030233-0110020031123212-1101002212232030-1013231123033032-0022332311321213"
+        ]
+      ],
+      "mode": "embedded",
+      "registry_path": "docs/guides/data-sources--aws_tgw_site--reference--group-003.md"
+    },
+    {
+      "canonical_id": "xcsh-docs:data-sources:aws_tgw_site:properties:vn_config:inside_static_routes:static_route_list:custom_static_route:labels",
+      "section_id": "xcsh-docs:data-sources:aws_tgw_site:properties:vn_config:inside_static_routes:static_route_list:custom_static_route:labels:section:2",
+      "source_sha256": "sha256:0d4398201e18f9ddb2ea00ceed6d3256755ea4d008d849d1cec42dab5c55f1b5",
+      "source_bytes": 94,
+      "canonical_source_sha256": "sha256:b23906fa555a6043f0ddba7c6a30dda5df5c7c92ad83c8f8cab27e8f71557834",
+      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/aws_tgw_site/properties/vn_config/inside_static_routes/static_route_list/custom_static_route/labels/",
+      "anchor": "canonical-0120000200203201-1233330302230020-2301100023111311-1320110033202111-0032312310102303-0323122301013320-3232032233031213-3230312332302212",
+      "anchor_map": [],
+      "mode": "embedded",
+      "registry_path": "docs/guides/data-sources--aws_tgw_site--reference--group-003.md"
+    },
+    {
+      "canonical_id": "xcsh-docs:data-sources:aws_tgw_site:properties:vn_config:inside_static_routes:static_route_list:custom_static_route:labels",
+      "section_id": "xcsh-docs:data-sources:aws_tgw_site:properties:vn_config:inside_static_routes:static_route_list:custom_static_route:labels:section:3",
+      "source_sha256": "sha256:b9c7721ff059ea83002254ba4422d94772573a345436bb8771dde5b8a80ed1a7",
+      "source_bytes": 358,
+      "canonical_source_sha256": "sha256:b23906fa555a6043f0ddba7c6a30dda5df5c7c92ad83c8f8cab27e8f71557834",
+      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/aws_tgw_site/properties/vn_config/inside_static_routes/static_route_list/custom_static_route/labels/",
+      "anchor": "canonical-3322013232133323-3203331220301022-0012212000120322-0313120011201212-0013203123111030-0122112332023200-2012320110222130-2002232221323123",
+      "anchor_map": [],
+      "mode": "embedded",
+      "registry_path": "docs/guides/data-sources--aws_tgw_site--reference--group-003.md"
+    },
+    {
+      "canonical_id": "xcsh-docs:data-sources:aws_tgw_site:properties:vn_config:inside_static_routes:static_route_list:custom_static_route:nexthop",
+      "section_id": "xcsh-docs:data-sources:aws_tgw_site:properties:vn_config:inside_static_routes:static_route_list:custom_static_route:nexthop:section:0",
+      "source_sha256": "sha256:197d41522a9dd286cb9805a03d8a5bd782cc3f3fd95ea854bf2dfc326e83e50c",
+      "source_bytes": 99,
+      "canonical_source_sha256": "sha256:409f91aef4ad3d514ccb6186b088f624a2a3f1424c10f28de60daa71556a154d",
+      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/aws_tgw_site/properties/vn_config/inside_static_routes/static_route_list/custom_static_route/nexthop/",
+      "anchor": "canonical-0202202003001022-3312031221223310-3033102221010130-3310201100130010-0301013231120001-1210112310030312-3323302000000201-1203033001130310",
+      "anchor_map": [],
+      "mode": "embedded",
+      "registry_path": "docs/guides/data-sources--aws_tgw_site--reference--group-003.md"
+    },
+    {
+      "canonical_id": "xcsh-docs:data-sources:aws_tgw_site:properties:vn_config:inside_static_routes:static_route_list:custom_static_route:nexthop",
+      "section_id": "xcsh-docs:data-sources:aws_tgw_site:properties:vn_config:inside_static_routes:static_route_list:custom_static_route:nexthop:section:1",
+      "source_sha256": "sha256:73b42c428419ab0bf1fb9566dd79f88675873abd3ce0253e8095d88a560c6d80",
+      "source_bytes": 1446,
+      "canonical_source_sha256": "sha256:409f91aef4ad3d514ccb6186b088f624a2a3f1424c10f28de60daa71556a154d",
+      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/aws_tgw_site/properties/vn_config/inside_static_routes/static_route_list/custom_static_route/nexthop/",
+      "anchor": "canonical-1032022121300200-0221312333331202-1101200311200230-3023211002211202-1023030120031112-2322213100222323-2320323111123100-2312121323313303",
+      "anchor_map": [
+        [
+          "section",
+          "canonical-3120101033331320-1312230322103201-1232131023010323-1033111101322031-2001111302222330-2022311122330222-2300120120323232-1332003321333321"
+        ]
+      ],
+      "mode": "embedded",
+      "registry_path": "docs/guides/data-sources--aws_tgw_site--reference--group-003.md"
+    },
+    {
+      "canonical_id": "xcsh-docs:data-sources:aws_tgw_site:properties:vn_config:inside_static_routes:static_route_list:custom_static_route:nexthop",
+      "section_id": "xcsh-docs:data-sources:aws_tgw_site:properties:vn_config:inside_static_routes:static_route_list:custom_static_route:nexthop:section:2",
+      "source_sha256": "sha256:b592aed65e98854fbc71f59066cd8bc2f1b3282ab63844af580ccd67a976070e",
+      "source_bytes": 600,
+      "canonical_source_sha256": "sha256:409f91aef4ad3d514ccb6186b088f624a2a3f1424c10f28de60daa71556a154d",
+      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/aws_tgw_site/properties/vn_config/inside_static_routes/static_route_list/custom_static_route/nexthop/",
+      "anchor": "canonical-2322202212132133-0311110321030021-2000002330100212-2310123130310010-3331001003002331-3321221131321220-1012111210022011-1013101022002121",
+      "anchor_map": [
+        [
+          "schema-vn_config--inside_static_routes--static_route_list--custom_static_route--nexthop--type",
+          "canonical-0310302220123031-0202020003223230-0310021011311023-1330300102112121-0313232113220331-3230222321121310-0100231023002132-2033010033203310"
+        ]
+      ],
+      "mode": "embedded",
+      "registry_path": "docs/guides/data-sources--aws_tgw_site--reference--group-003.md"
+    },
+    {
+      "canonical_id": "xcsh-docs:data-sources:aws_tgw_site:properties:vn_config:inside_static_routes:static_route_list:custom_static_route:nexthop",
+      "section_id": "xcsh-docs:data-sources:aws_tgw_site:properties:vn_config:inside_static_routes:static_route_list:custom_static_route:nexthop:section:3",
+      "source_sha256": "sha256:6fc14aa2332e42d99526ec34d5b78f50c2092688b97ca797b1d796fa5fc977f7",
+      "source_bytes": 1284,
+      "canonical_source_sha256": "sha256:409f91aef4ad3d514ccb6186b088f624a2a3f1424c10f28de60daa71556a154d",
+      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/aws_tgw_site/properties/vn_config/inside_static_routes/static_route_list/custom_static_route/nexthop/",
+      "anchor": "canonical-3332221111213233-1031123233000110-0220300121323313-1202111203001000-1230301123112300-1133023233212302-2322021200022223-1102233020231332",
+      "anchor_map": [],
+      "mode": "embedded",
+      "registry_path": "docs/guides/data-sources--aws_tgw_site--reference--group-003.md"
+    },
+    {
+      "canonical_id": "xcsh-docs:data-sources:aws_tgw_site:properties:vn_config:inside_static_routes:static_route_list:custom_static_route:nexthop",
+      "section_id": "xcsh-docs:data-sources:aws_tgw_site:properties:vn_config:inside_static_routes:static_route_list:custom_static_route:nexthop:section:4",
+      "source_sha256": "sha256:b503b0fa8708a362d1eb2b5edbe6628e43b59f95f87acb77d4a03cce0aecbc2d",
+      "source_bytes": 916,
+      "canonical_source_sha256": "sha256:409f91aef4ad3d514ccb6186b088f624a2a3f1424c10f28de60daa71556a154d",
+      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/aws_tgw_site/properties/vn_config/inside_static_routes/static_route_list/custom_static_route/nexthop/",
+      "anchor": "canonical-3030232333312130-1310111212331322-1213023010321232-3113302123233020-3032122231023213-3332320202000113-2222001130232110-2320022212002213",
+      "anchor_map": [],
+      "mode": "embedded",
+      "registry_path": "docs/guides/data-sources--aws_tgw_site--reference--group-003.md"
+    },
+    {
+      "canonical_id": "xcsh-docs:data-sources:aws_tgw_site:properties:vn_config:inside_static_routes:static_route_list:custom_static_route:nexthop:interface",
+      "section_id": "xcsh-docs:data-sources:aws_tgw_site:properties:vn_config:inside_static_routes:static_route_list:custom_static_route:nexthop:interface:section:0",
+      "source_sha256": "sha256:197d41522a9dd286cb9805a03d8a5bd782cc3f3fd95ea854bf2dfc326e83e50c",
+      "source_bytes": 99,
+      "canonical_source_sha256": "sha256:bc56e7320846f959f0a624eab57be8aafc72e6f357b669968c4f0a4387a4e75b",
+      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/aws_tgw_site/properties/vn_config/inside_static_routes/static_route_list/custom_static_route/nexthop/interface/",
+      "anchor": "canonical-3323010300231333-3023232100130130-3131100100023122-3313203210001331-1223011212133311-3312331100302002-1120133112212113-1121032311322212",
+      "anchor_map": [],
+      "mode": "embedded",
+      "registry_path": "docs/guides/data-sources--aws_tgw_site--reference--group-003.md"
+    },
+    {
+      "canonical_id": "xcsh-docs:data-sources:aws_tgw_site:properties:vn_config:inside_static_routes:static_route_list:custom_static_route:nexthop:interface",
+      "section_id": "xcsh-docs:data-sources:aws_tgw_site:properties:vn_config:inside_static_routes:static_route_list:custom_static_route:nexthop:interface:section:1",
+      "source_sha256": "sha256:7da1e22f66fde2ae284dfeb2abbaa8aaacfd3f873c2a01ecefe85e22f6f4da82",
+      "source_bytes": 2207,
+      "canonical_source_sha256": "sha256:bc56e7320846f959f0a624eab57be8aafc72e6f357b669968c4f0a4387a4e75b",
+      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/aws_tgw_site/properties/vn_config/inside_static_routes/static_route_list/custom_static_route/nexthop/interface/",
+      "anchor": "canonical-0320321220130103-3203010102133332-2321132200330100-2031113231321303-3130133002111023-0002113111132210-3102313003011230-0202321302012202",
+      "anchor_map": [
+        [
+          "section",
+          "canonical-2330222223012030-2332010113310222-3223122232213332-3112200212330220-0022123030011321-0130012103230330-2221121132002033-0302200211100330"
+        ]
+      ],
+      "mode": "embedded",
+      "registry_path": "docs/guides/data-sources--aws_tgw_site--reference--group-003.md"
+    },
+    {
+      "canonical_id": "xcsh-docs:data-sources:aws_tgw_site:properties:vn_config:inside_static_routes:static_route_list:custom_static_route:nexthop:interface",
+      "section_id": "xcsh-docs:data-sources:aws_tgw_site:properties:vn_config:inside_static_routes:static_route_list:custom_static_route:nexthop:interface:section:2",
+      "source_sha256": "sha256:57c9634836ac1457398c31a7613bbdf4317715049ab8c67f7ba92b9f52306d26",
+      "source_bytes": 141,
+      "canonical_source_sha256": "sha256:bc56e7320846f959f0a624eab57be8aafc72e6f357b669968c4f0a4387a4e75b",
+      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/aws_tgw_site/properties/vn_config/inside_static_routes/static_route_list/custom_static_route/nexthop/interface/",
+      "anchor": "canonical-2132322123200313-3020232301003320-0012023303202101-1110303013121021-3311120201232033-2333120322333211-2130322302202200-2312111232220030",
+      "anchor_map": [
+        [
+          "schema-vn_config--inside_static_routes--static_route_list--custom_static_route--nexthop--interface--kind",
+          "canonical-1222102310100101-2032210110121111-2331331223332223-2033131032112231-2110300231132011-2031032103213222-3230010322020003-0313200000331111"
+        ]
+      ],
+      "mode": "embedded",
+      "registry_path": "docs/guides/data-sources--aws_tgw_site--reference--group-003.md"
+    },
+    {
+      "canonical_id": "xcsh-docs:data-sources:aws_tgw_site:properties:vn_config:inside_static_routes:static_route_list:custom_static_route:nexthop:interface",
+      "section_id": "xcsh-docs:data-sources:aws_tgw_site:properties:vn_config:inside_static_routes:static_route_list:custom_static_route:nexthop:interface:section:3",
+      "source_sha256": "sha256:2501a447bca37eec0d0eeac2264ba368e9dfd7d407de254d1ae3f74bf5efdb5a",
+      "source_bytes": 886,
+      "canonical_source_sha256": "sha256:bc56e7320846f959f0a624eab57be8aafc72e6f357b669968c4f0a4387a4e75b",
+      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/aws_tgw_site/properties/vn_config/inside_static_routes/static_route_list/custom_static_route/nexthop/interface/",
+      "anchor": "canonical-3132223010333212-3210221021032101-2021230212130230-2032332122213010-0333132133313322-3313100003312002-2122101300211311-1002002200023102",
+      "anchor_map": [
+        [
+          "schema-vn_config--inside_static_routes--static_route_list--custom_static_route--nexthop--interface--name",
+          "canonical-3012113222122100-1002121132322213-2100123120121210-2331121121030101-0133121303023011-1202100122230032-1110112132100221-1120121133332113"
+        ]
+      ],
+      "mode": "embedded",
+      "registry_path": "docs/guides/data-sources--aws_tgw_site--reference--group-003.md"
+    },
+    {
+      "canonical_id": "xcsh-docs:data-sources:aws_tgw_site:properties:vn_config:inside_static_routes:static_route_list:custom_static_route:nexthop:interface",
+      "section_id": "xcsh-docs:data-sources:aws_tgw_site:properties:vn_config:inside_static_routes:static_route_list:custom_static_route:nexthop:interface:section:4",
+      "source_sha256": "sha256:fdb1f61954077e8afc58dd39b0d0b80f61191e5b728b9d2e2a19a120e613c93f",
+      "source_bytes": 890,
+      "canonical_source_sha256": "sha256:bc56e7320846f959f0a624eab57be8aafc72e6f357b669968c4f0a4387a4e75b",
+      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/aws_tgw_site/properties/vn_config/inside_static_routes/static_route_list/custom_static_route/nexthop/interface/",
+      "anchor": "canonical-3303103030221222-1020102120202033-2313220233330133-0223033303010110-1203030201000311-3120320321232310-3310012020001200-0133321132333101",
+      "anchor_map": [
+        [
+          "schema-vn_config--inside_static_routes--static_route_list--custom_static_route--nexthop--interface--namespace",
+          "canonical-3101301103033322-0300201303200202-0303221210100322-0210121012123133-0111233130230332-3010102203312130-2112102002130103-2102032023022211"
+        ]
+      ],
+      "mode": "embedded",
+      "registry_path": "docs/guides/data-sources--aws_tgw_site--reference--group-003.md"
+    },
+    {
       "canonical_id": "xcsh-docs:data-sources:aws_tgw_site:properties:vn_config:inside_static_routes:static_route_list:custom_static_route:nexthop:interface",
       "section_id": "xcsh-docs:data-sources:aws_tgw_site:properties:vn_config:inside_static_routes:static_route_list:custom_static_route:nexthop:interface:section:5",
       "source_sha256": "sha256:f8078cf6e99da41eb3dff3ba8c1caaa4cddf5e339792e69be0ab13ff25d102ab",
@@ -6863,310 +7160,6 @@
       "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/aws_vpc_site/properties/ingress_egress_gw/dc_cluster_group_outside_vn/",
       "anchor": "canonical-1121010210210122-0201220031230010-1020113300123223-2212233310312000-0001121221201012-0012010123320301-3322112211020212-2000102111300133",
       "anchor_map": [],
-      "mode": "embedded",
-      "registry_path": "docs/guides/data-sources--aws_vpc_site--reference--group-002.md"
-    },
-    {
-      "canonical_id": "xcsh-docs:data-sources:aws_vpc_site:properties:ingress_egress_gw:dc_cluster_group_outside_vn",
-      "section_id": "xcsh-docs:data-sources:aws_vpc_site:properties:ingress_egress_gw:dc_cluster_group_outside_vn:section:6",
-      "source_sha256": "sha256:b0443ca10bb4c148c9145c402226ccfb7d3eb320d5c2af2584d23c48c81a44f0",
-      "source_bytes": 256,
-      "canonical_source_sha256": "sha256:613af122f094c82ff5e1f96f7b0e4d497919ff962b0f42a911922ba92575aefb",
-      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/aws_vpc_site/properties/ingress_egress_gw/dc_cluster_group_outside_vn/",
-      "anchor": "canonical-2300030213123000-3320303221232133-0201002110312011-0222122133320032-2002021020003313-3122330112012100-0222221130110120-0321123123323001",
-      "anchor_map": [],
-      "mode": "embedded",
-      "registry_path": "docs/guides/data-sources--aws_vpc_site--reference--group-002.md"
-    },
-    {
-      "canonical_id": "xcsh-docs:data-sources:aws_vpc_site:properties:ingress_egress_gw:forward_proxy_allow_all",
-      "section_id": "xcsh-docs:data-sources:aws_vpc_site:properties:ingress_egress_gw:forward_proxy_allow_all:section:0",
-      "source_sha256": "sha256:197d41522a9dd286cb9805a03d8a5bd782cc3f3fd95ea854bf2dfc326e83e50c",
-      "source_bytes": 99,
-      "canonical_source_sha256": "sha256:8996e88aab3357036bb4ee738db1908317f9ae4b61b0bd3f5fcb4806a05013a1",
-      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/aws_vpc_site/properties/ingress_egress_gw/forward_proxy_allow_all/",
-      "anchor": "canonical-1002320332003012-1322332301331332-1321130113113230-0013121301031323-2313001313013132-2130103332211001-1002122032221131-0201233333331021",
-      "anchor_map": [],
-      "mode": "embedded",
-      "registry_path": "docs/guides/data-sources--aws_vpc_site--reference--group-002.md"
-    },
-    {
-      "canonical_id": "xcsh-docs:data-sources:aws_vpc_site:properties:ingress_egress_gw:forward_proxy_allow_all",
-      "section_id": "xcsh-docs:data-sources:aws_vpc_site:properties:ingress_egress_gw:forward_proxy_allow_all:section:1",
-      "source_sha256": "sha256:e9c2cc960df90887ea64ac6d408a9b7e5c9115746e65147798a61993be9bd79b",
-      "source_bytes": 831,
-      "canonical_source_sha256": "sha256:8996e88aab3357036bb4ee738db1908317f9ae4b61b0bd3f5fcb4806a05013a1",
-      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/aws_vpc_site/properties/ingress_egress_gw/forward_proxy_allow_all/",
-      "anchor": "canonical-3222301021322121-2012121030220230-1212101013103010-3210032312121021-1211300233002023-1213230213311010-0033133103312300-1103313120103032",
-      "anchor_map": [
-        [
-          "section",
-          "canonical-1023330021231200-0102330000330323-2201031231021122-2232100002013320-2302312300303221-1303232310131202-1200310111313232-0231310211231110"
-        ]
-      ],
-      "mode": "embedded",
-      "registry_path": "docs/guides/data-sources--aws_vpc_site--reference--group-002.md"
-    },
-    {
-      "canonical_id": "xcsh-docs:data-sources:aws_vpc_site:properties:ingress_egress_gw:forward_proxy_allow_all",
-      "section_id": "xcsh-docs:data-sources:aws_vpc_site:properties:ingress_egress_gw:forward_proxy_allow_all:section:2",
-      "source_sha256": "sha256:0d4398201e18f9ddb2ea00ceed6d3256755ea4d008d849d1cec42dab5c55f1b5",
-      "source_bytes": 94,
-      "canonical_source_sha256": "sha256:8996e88aab3357036bb4ee738db1908317f9ae4b61b0bd3f5fcb4806a05013a1",
-      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/aws_vpc_site/properties/ingress_egress_gw/forward_proxy_allow_all/",
-      "anchor": "canonical-2013223021031120-1110001323223003-0221200030021332-3210112123320220-2002311201211012-0122131220233210-1022222010031131-2200332113223203",
-      "anchor_map": [],
-      "mode": "embedded",
-      "registry_path": "docs/guides/data-sources--aws_vpc_site--reference--group-002.md"
-    },
-    {
-      "canonical_id": "xcsh-docs:data-sources:aws_vpc_site:properties:ingress_egress_gw:forward_proxy_allow_all",
-      "section_id": "xcsh-docs:data-sources:aws_vpc_site:properties:ingress_egress_gw:forward_proxy_allow_all:section:3",
-      "source_sha256": "sha256:b0443ca10bb4c148c9145c402226ccfb7d3eb320d5c2af2584d23c48c81a44f0",
-      "source_bytes": 256,
-      "canonical_source_sha256": "sha256:8996e88aab3357036bb4ee738db1908317f9ae4b61b0bd3f5fcb4806a05013a1",
-      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/aws_vpc_site/properties/ingress_egress_gw/forward_proxy_allow_all/",
-      "anchor": "canonical-3201100311233323-0113322301102210-3113102002223133-3020132202210203-0012010022111333-1122210311111223-0103212011311203-2210110230003013",
-      "anchor_map": [],
-      "mode": "embedded",
-      "registry_path": "docs/guides/data-sources--aws_vpc_site--reference--group-002.md"
-    },
-    {
-      "canonical_id": "xcsh-docs:data-sources:aws_vpc_site:properties:ingress_egress_gw:global_network_list",
-      "section_id": "xcsh-docs:data-sources:aws_vpc_site:properties:ingress_egress_gw:global_network_list:section:0",
-      "source_sha256": "sha256:197d41522a9dd286cb9805a03d8a5bd782cc3f3fd95ea854bf2dfc326e83e50c",
-      "source_bytes": 99,
-      "canonical_source_sha256": "sha256:aaec0f8e01d6f8e8111adc9b56d09629330519cfdaa6cc1d75b9957f563dee02",
-      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/aws_vpc_site/properties/ingress_egress_gw/global_network_list/",
-      "anchor": "canonical-1332122323112132-3002221202203112-1112223122230110-3202203020123013-1011121222220200-2331333002313323-3000011132300012-2020031001021321",
-      "anchor_map": [],
-      "mode": "embedded",
-      "registry_path": "docs/guides/data-sources--aws_vpc_site--reference--group-002.md"
-    },
-    {
-      "canonical_id": "xcsh-docs:data-sources:aws_vpc_site:properties:ingress_egress_gw:global_network_list",
-      "section_id": "xcsh-docs:data-sources:aws_vpc_site:properties:ingress_egress_gw:global_network_list:section:1",
-      "source_sha256": "sha256:35c1cb813cbd613a75f0c1dbac1a0318620f90ac48bc6db2c4610c78e37d3fe3",
-      "source_bytes": 810,
-      "canonical_source_sha256": "sha256:aaec0f8e01d6f8e8111adc9b56d09629330519cfdaa6cc1d75b9957f563dee02",
-      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/aws_vpc_site/properties/ingress_egress_gw/global_network_list/",
-      "anchor": "canonical-1213111132332020-3201323303221010-2320231201220220-1321330120301003-1032222000010023-0203030320132011-3000021331110021-3123021022300101",
-      "anchor_map": [
-        [
-          "section",
-          "canonical-1111020122200100-2003231202312120-3213312210123202-1032200103301020-2032302011322030-1112300202322231-0121121231130212-0020300302102022"
-        ]
-      ],
-      "mode": "embedded",
-      "registry_path": "docs/guides/data-sources--aws_vpc_site--reference--group-002.md"
-    },
-    {
-      "canonical_id": "xcsh-docs:data-sources:aws_vpc_site:properties:ingress_egress_gw:global_network_list",
-      "section_id": "xcsh-docs:data-sources:aws_vpc_site:properties:ingress_egress_gw:global_network_list:section:2",
-      "source_sha256": "sha256:93c43321ddf59f060b98072bb2027c29d9bcb174481137f1ee0f083a1349111c",
-      "source_bytes": 246,
-      "canonical_source_sha256": "sha256:aaec0f8e01d6f8e8111adc9b56d09629330519cfdaa6cc1d75b9957f563dee02",
-      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/aws_vpc_site/properties/ingress_egress_gw/global_network_list/",
-      "anchor": "canonical-3010031023012310-1113330322330303-2003233200330012-2000132030323113-2022033221231122-3221212201002022-0312132131010321-2320001310320313",
-      "anchor_map": [],
-      "mode": "embedded",
-      "registry_path": "docs/guides/data-sources--aws_vpc_site--reference--group-002.md"
-    },
-    {
-      "canonical_id": "xcsh-docs:data-sources:aws_vpc_site:properties:ingress_egress_gw:global_network_list",
-      "section_id": "xcsh-docs:data-sources:aws_vpc_site:properties:ingress_egress_gw:global_network_list:section:3",
-      "source_sha256": "sha256:cd665fe994f2935de619a18971fc3da6a4b60e8b2b40f020ec771056a958ce9c",
-      "source_bytes": 485,
-      "canonical_source_sha256": "sha256:aaec0f8e01d6f8e8111adc9b56d09629330519cfdaa6cc1d75b9957f563dee02",
-      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/aws_vpc_site/properties/ingress_egress_gw/global_network_list/",
-      "anchor": "canonical-1223003133222232-0120212222220203-2210032222101122-2031001003013111-2031111221230301-0110200311332113-1020013300332323-2330303311033223",
-      "anchor_map": [],
-      "mode": "embedded",
-      "registry_path": "docs/guides/data-sources--aws_vpc_site--reference--group-002.md"
-    },
-    {
-      "canonical_id": "xcsh-docs:data-sources:aws_vpc_site:properties:ingress_egress_gw:global_network_list:global_network_connections",
-      "section_id": "xcsh-docs:data-sources:aws_vpc_site:properties:ingress_egress_gw:global_network_list:global_network_connections:section:0",
-      "source_sha256": "sha256:197d41522a9dd286cb9805a03d8a5bd782cc3f3fd95ea854bf2dfc326e83e50c",
-      "source_bytes": 99,
-      "canonical_source_sha256": "sha256:93791ae43fe0e800e789fd51f0e3e0aefc8f8553720ae74e78f7ede09e7e6e4d",
-      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/aws_vpc_site/properties/ingress_egress_gw/global_network_list/global_network_connections/",
-      "anchor": "canonical-0330221333031133-3132230213011022-3320213101201032-1131300221021200-0102200333311122-3131332110023213-3123132210231030-3120230223133202",
-      "anchor_map": [],
-      "mode": "embedded",
-      "registry_path": "docs/guides/data-sources--aws_vpc_site--reference--group-002.md"
-    },
-    {
-      "canonical_id": "xcsh-docs:data-sources:aws_vpc_site:properties:ingress_egress_gw:global_network_list:global_network_connections",
-      "section_id": "xcsh-docs:data-sources:aws_vpc_site:properties:ingress_egress_gw:global_network_list:global_network_connections:section:1",
-      "source_sha256": "sha256:273acd7ac6faea764587d3ba151812d4cf47478209d32445973c06585731b4fa",
-      "source_bytes": 1705,
-      "canonical_source_sha256": "sha256:93791ae43fe0e800e789fd51f0e3e0aefc8f8553720ae74e78f7ede09e7e6e4d",
-      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/aws_vpc_site/properties/ingress_egress_gw/global_network_list/global_network_connections/",
-      "anchor": "canonical-1302211100333303-2133001102113223-3133112332131210-0231301310031311-3231303330331030-0033032210100221-0030123112032332-1302312130310012",
-      "anchor_map": [
-        [
-          "section",
-          "canonical-0011201202332022-3301311210123331-0332113333321312-3300001233031103-0133332232032033-0202300102202200-1013111030030021-1231312100013210"
-        ]
-      ],
-      "mode": "embedded",
-      "registry_path": "docs/guides/data-sources--aws_vpc_site--reference--group-002.md"
-    },
-    {
-      "canonical_id": "xcsh-docs:data-sources:aws_vpc_site:properties:ingress_egress_gw:global_network_list:global_network_connections",
-      "section_id": "xcsh-docs:data-sources:aws_vpc_site:properties:ingress_egress_gw:global_network_list:global_network_connections:section:2",
-      "source_sha256": "sha256:f9b51bfe655bd14f5560fbc824ef524c4059efb80b182d2754feaa0173cf8734",
-      "source_bytes": 484,
-      "canonical_source_sha256": "sha256:93791ae43fe0e800e789fd51f0e3e0aefc8f8553720ae74e78f7ede09e7e6e4d",
-      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/aws_vpc_site/properties/ingress_egress_gw/global_network_list/global_network_connections/",
-      "anchor": "canonical-0010201023202110-3000212202320212-3231022222202102-3203333332013032-2130323033130023-1330020123011130-3023312103133230-0101233033010020",
-      "anchor_map": [],
-      "mode": "embedded",
-      "registry_path": "docs/guides/data-sources--aws_vpc_site--reference--group-002.md"
-    },
-    {
-      "canonical_id": "xcsh-docs:data-sources:aws_vpc_site:properties:ingress_egress_gw:global_network_list:global_network_connections",
-      "section_id": "xcsh-docs:data-sources:aws_vpc_site:properties:ingress_egress_gw:global_network_list:global_network_connections:section:3",
-      "source_sha256": "sha256:cad060070bde38c215f4f4d3bfbc950fae0ac62f9b06d3d362a810b81e2991d8",
-      "source_bytes": 822,
-      "canonical_source_sha256": "sha256:93791ae43fe0e800e789fd51f0e3e0aefc8f8553720ae74e78f7ede09e7e6e4d",
-      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/aws_vpc_site/properties/ingress_egress_gw/global_network_list/global_network_connections/",
-      "anchor": "canonical-0032003222031300-0313203113033131-3222111210023222-3210001331231031-3122210101312321-0002202312103200-0310101011032032-2111021211331313",
-      "anchor_map": [],
-      "mode": "embedded",
-      "registry_path": "docs/guides/data-sources--aws_vpc_site--reference--group-002.md"
-    },
-    {
-      "canonical_id": "xcsh-docs:data-sources:aws_vpc_site:properties:ingress_egress_gw:global_network_list:global_network_connections:sli_to_global_dr",
-      "section_id": "xcsh-docs:data-sources:aws_vpc_site:properties:ingress_egress_gw:global_network_list:global_network_connections:sli_to_global_dr:section:0",
-      "source_sha256": "sha256:197d41522a9dd286cb9805a03d8a5bd782cc3f3fd95ea854bf2dfc326e83e50c",
-      "source_bytes": 99,
-      "canonical_source_sha256": "sha256:bc9ecd2e35e0ef52305f612d8240d0f5d271bdf13ee0b1f80493a5abc969b660",
-      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/aws_vpc_site/properties/ingress_egress_gw/global_network_list/global_network_connections/sli_to_global_dr/",
-      "anchor": "canonical-0233133200231023-3013032013200011-1112321001000313-2020000230200112-0013001223331303-1211032223001223-0130300001213321-1233101020201203",
-      "anchor_map": [],
-      "mode": "embedded",
-      "registry_path": "docs/guides/data-sources--aws_vpc_site--reference--group-002.md"
-    },
-    {
-      "canonical_id": "xcsh-docs:data-sources:aws_vpc_site:properties:ingress_egress_gw:global_network_list:global_network_connections:sli_to_global_dr",
-      "section_id": "xcsh-docs:data-sources:aws_vpc_site:properties:ingress_egress_gw:global_network_list:global_network_connections:sli_to_global_dr:section:1",
-      "source_sha256": "sha256:4c3c808a98d700ca51a24aaf333cafebb5173da406a29c1ff97dabf018f9e4c1",
-      "source_bytes": 1222,
-      "canonical_source_sha256": "sha256:bc9ecd2e35e0ef52305f612d8240d0f5d271bdf13ee0b1f80493a5abc969b660",
-      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/aws_vpc_site/properties/ingress_egress_gw/global_network_list/global_network_connections/sli_to_global_dr/",
-      "anchor": "canonical-0321222203123331-0032002132231133-1102213301210303-2213303102200033-3223322103322222-2121003133313030-0112013333231020-3223020210303332",
-      "anchor_map": [
-        [
-          "section",
-          "canonical-1001202011001323-2023103110103013-1222223112113203-1232323303231022-1001022003112102-1023010303202222-1201321131212221-1331011010312213"
-        ]
-      ],
-      "mode": "embedded",
-      "registry_path": "docs/guides/data-sources--aws_vpc_site--reference--group-002.md"
-    },
-    {
-      "canonical_id": "xcsh-docs:data-sources:aws_vpc_site:properties:ingress_egress_gw:global_network_list:global_network_connections:sli_to_global_dr",
-      "section_id": "xcsh-docs:data-sources:aws_vpc_site:properties:ingress_egress_gw:global_network_list:global_network_connections:sli_to_global_dr:section:2",
-      "source_sha256": "sha256:6cfdabb12f83c4a94edbbaa972b0fb08602c814b54cacde1c1d4920dd257fc12",
-      "source_bytes": 256,
-      "canonical_source_sha256": "sha256:bc9ecd2e35e0ef52305f612d8240d0f5d271bdf13ee0b1f80493a5abc969b660",
-      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/aws_vpc_site/properties/ingress_egress_gw/global_network_list/global_network_connections/sli_to_global_dr/",
-      "anchor": "canonical-1113123223001110-3223230201110323-3313220213323200-3103110221203031-2232211223103131-2311032200330031-0220031133232333-1202102131023010",
-      "anchor_map": [],
-      "mode": "embedded",
-      "registry_path": "docs/guides/data-sources--aws_vpc_site--reference--group-002.md"
-    },
-    {
-      "canonical_id": "xcsh-docs:data-sources:aws_vpc_site:properties:ingress_egress_gw:global_network_list:global_network_connections:sli_to_global_dr",
-      "section_id": "xcsh-docs:data-sources:aws_vpc_site:properties:ingress_egress_gw:global_network_list:global_network_connections:sli_to_global_dr:section:3",
-      "source_sha256": "sha256:117e8ed18ccea901cf51545f13376b8298b784871d6958f0af6e54dc9091c7d4",
-      "source_bytes": 633,
-      "canonical_source_sha256": "sha256:bc9ecd2e35e0ef52305f612d8240d0f5d271bdf13ee0b1f80493a5abc969b660",
-      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/aws_vpc_site/properties/ingress_egress_gw/global_network_list/global_network_connections/sli_to_global_dr/",
-      "anchor": "canonical-3010333032301032-2311010132323102-0311221023103313-3123301012221120-0322213222022131-0012011302010001-0302023013303022-3201120303211221",
-      "anchor_map": [],
-      "mode": "embedded",
-      "registry_path": "docs/guides/data-sources--aws_vpc_site--reference--group-002.md"
-    },
-    {
-      "canonical_id": "xcsh-docs:data-sources:aws_vpc_site:properties:ingress_egress_gw:global_network_list:global_network_connections:sli_to_global_dr:global_vn",
-      "section_id": "xcsh-docs:data-sources:aws_vpc_site:properties:ingress_egress_gw:global_network_list:global_network_connections:sli_to_global_dr:global_vn:section:0",
-      "source_sha256": "sha256:197d41522a9dd286cb9805a03d8a5bd782cc3f3fd95ea854bf2dfc326e83e50c",
-      "source_bytes": 99,
-      "canonical_source_sha256": "sha256:a17d7693474e968bdbab0c0243885cb7397d12287b34e5fe5ad20563f72aab47",
-      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/aws_vpc_site/properties/ingress_egress_gw/global_network_list/global_network_connections/sli_to_global_dr/global_vn/",
-      "anchor": "canonical-1333133302111020-2231011110323312-0011133033233301-2120320301102202-1331022030011011-2330100332231231-2131030203333012-1223103330120311",
-      "anchor_map": [],
-      "mode": "embedded",
-      "registry_path": "docs/guides/data-sources--aws_vpc_site--reference--group-002.md"
-    },
-    {
-      "canonical_id": "xcsh-docs:data-sources:aws_vpc_site:properties:ingress_egress_gw:global_network_list:global_network_connections:sli_to_global_dr:global_vn",
-      "section_id": "xcsh-docs:data-sources:aws_vpc_site:properties:ingress_egress_gw:global_network_list:global_network_connections:sli_to_global_dr:global_vn:section:1",
-      "source_sha256": "sha256:ab0cb0ed985f4fbdb65ae02a4730271f319ead0f2e7b75e378a717859068c377",
-      "source_bytes": 1778,
-      "canonical_source_sha256": "sha256:a17d7693474e968bdbab0c0243885cb7397d12287b34e5fe5ad20563f72aab47",
-      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/aws_vpc_site/properties/ingress_egress_gw/global_network_list/global_network_connections/sli_to_global_dr/global_vn/",
-      "anchor": "canonical-0033320312113302-0221122020022300-1220112023312101-1133300131302103-2031333201213220-2002030332002211-1330113020322311-2213123300133023",
-      "anchor_map": [
-        [
-          "section",
-          "canonical-0221223303232220-1301220022022311-0331122212002010-3012111100020110-3332002001022321-2203312113213222-3023213132133131-2110231002021303"
-        ]
-      ],
-      "mode": "embedded",
-      "registry_path": "docs/guides/data-sources--aws_vpc_site--reference--group-002.md"
-    },
-    {
-      "canonical_id": "xcsh-docs:data-sources:aws_vpc_site:properties:ingress_egress_gw:global_network_list:global_network_connections:sli_to_global_dr:global_vn",
-      "section_id": "xcsh-docs:data-sources:aws_vpc_site:properties:ingress_egress_gw:global_network_list:global_network_connections:sli_to_global_dr:global_vn:section:2",
-      "source_sha256": "sha256:276a1a571162a3f4f350503cb48f7ccbd9fa6c116b7459def4a039bac366a5fd",
-      "source_bytes": 145,
-      "canonical_source_sha256": "sha256:a17d7693474e968bdbab0c0243885cb7397d12287b34e5fe5ad20563f72aab47",
-      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/aws_vpc_site/properties/ingress_egress_gw/global_network_list/global_network_connections/sli_to_global_dr/global_vn/",
-      "anchor": "canonical-1102311203100121-3303112221101120-1320300233111132-2022101121023132-1021110113132311-0010022033003303-1000231201121210-3101020220222212",
-      "anchor_map": [
-        [
-          "schema-ingress_egress_gw--global_network_list--global_network_connections--sli_to_global_dr--global_vn--name",
-          "canonical-2033113131232000-2022231331110203-2132302230212220-0020312122323303-1332231112002221-3320331222211113-3233202112121100-0233231001223202"
-        ]
-      ],
-      "mode": "embedded",
-      "registry_path": "docs/guides/data-sources--aws_vpc_site--reference--group-002.md"
-    },
-    {
-      "canonical_id": "xcsh-docs:data-sources:aws_vpc_site:properties:ingress_egress_gw:global_network_list:global_network_connections:sli_to_global_dr:global_vn",
-      "section_id": "xcsh-docs:data-sources:aws_vpc_site:properties:ingress_egress_gw:global_network_list:global_network_connections:sli_to_global_dr:global_vn:section:3",
-      "source_sha256": "sha256:edd276fff010a94a2d7848d2d1fd99d178d5f1d0859d7b4003b176148671e317",
-      "source_bytes": 1407,
-      "canonical_source_sha256": "sha256:a17d7693474e968bdbab0c0243885cb7397d12287b34e5fe5ad20563f72aab47",
-      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/aws_vpc_site/properties/ingress_egress_gw/global_network_list/global_network_connections/sli_to_global_dr/global_vn/",
-      "anchor": "canonical-2112322130131130-1221223202031020-2321220233221211-2333310301320112-2001032200013131-1221231132322220-0332212032123130-2000321233021130",
-      "anchor_map": [
-        [
-          "schema-ingress_egress_gw--global_network_list--global_network_connections--sli_to_global_dr--global_vn--namespace",
-          "canonical-0322103231002102-3321313112101333-3230111102221001-2220310303212010-0033021212021223-3321321022002131-0333113323302020-0112301320312001"
-        ]
-      ],
-      "mode": "embedded",
-      "registry_path": "docs/guides/data-sources--aws_vpc_site--reference--group-002.md"
-    },
-    {
-      "canonical_id": "xcsh-docs:data-sources:aws_vpc_site:properties:ingress_egress_gw:global_network_list:global_network_connections:sli_to_global_dr:global_vn",
-      "section_id": "xcsh-docs:data-sources:aws_vpc_site:properties:ingress_egress_gw:global_network_list:global_network_connections:sli_to_global_dr:global_vn:section:4",
-      "source_sha256": "sha256:d0c407a51ac9854df4189fdc3a2a3dab2423b70e960a00c38db548cfd7972665",
-      "source_bytes": 1658,
-      "canonical_source_sha256": "sha256:a17d7693474e968bdbab0c0243885cb7397d12287b34e5fe5ad20563f72aab47",
-      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/aws_vpc_site/properties/ingress_egress_gw/global_network_list/global_network_connections/sli_to_global_dr/global_vn/",
-      "anchor": "canonical-3302212333011123-3131332100311303-2100211022301312-1331101331302302-0320311123103020-1200113122111012-0211102210033210-1222133221023330",
-      "anchor_map": [
-        [
-          "schema-ingress_egress_gw--global_network_list--global_network_connections--sli_to_global_dr--global_vn--tenant",
-          "canonical-3021122133211133-0213322101231031-3003020120032002-3231220132300020-0230011230333002-2021313202210100-1012003001211013-2232011023022210"
-        ]
-      ],
       "mode": "embedded",
       "registry_path": "docs/guides/data-sources--aws_vpc_site--reference--group-002.md"
     }

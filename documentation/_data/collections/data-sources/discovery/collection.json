@@ -685,7 +685,7 @@
       "category": null,
       "child_ids": ["xcsh-docs:data-sources:discovery:reference", "xcsh-docs:data-sources:discovery:examples"],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -697,7 +697,7 @@
       "path": "documentation/data-sources/discovery/index.md",
       "product": "distributed-cloud",
       "provider_name": "discovery",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-2201232201303113-1031332010033212-2100120133111212-3203311223032333-0233333123230010-1020131020000301-1020330003101012-3030213333233222",
       "registry_path": "docs/data-sources/discovery.md",
@@ -731,7 +731,7 @@
         "xcsh-docs:data-sources:discovery:properties:where"
       ],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -743,7 +743,7 @@
       "path": "documentation/data-sources/discovery/properties/index.md",
       "product": "distributed-cloud",
       "provider_name": "discovery",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-2021230332002103-0110323311333230-2003133021000310-3312203112232312-1200102023013220-3201021330020123-3223332331131101-2211133321121220",
       "registry_path": "docs/guides/data-sources--discovery--reference--group-001.md",
@@ -929,7 +929,7 @@
         "xcsh-docs:data-sources:discovery:properties:discovery_consul:publish_info"
       ],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -941,7 +941,7 @@
       "path": "documentation/data-sources/discovery/properties/discovery_consul/index.md",
       "product": "distributed-cloud",
       "provider_name": "discovery",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-1003210333302012-3322023032310130-1131033123212201-2323023110233111-1012002213022222-2003130303011310-0223012102032111-0001301010022110",
       "registry_path": "docs/guides/data-sources--discovery--reference--group-001.md",
@@ -1001,7 +1001,7 @@
         "xcsh-docs:data-sources:discovery:properties:discovery_consul:access_info:http_basic_auth_info"
       ],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -1013,7 +1013,7 @@
       "path": "documentation/data-sources/discovery/properties/discovery_consul/access_info/index.md",
       "product": "distributed-cloud",
       "provider_name": "discovery",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-3123311310310103-2223023120311311-2332022202220111-3233313230103113-2123330001002133-1333033002132332-1211332221002031-3301200311111201",
       "registry_path": "docs/guides/data-sources--discovery--reference--group-001.md",
@@ -1037,7 +1037,7 @@
           "type": "object"
         },
         {
-          "aliases": ["authentication", "credential setup", "credentials", "http basic auth info"],
+          "aliases": ["http basic auth info"],
           "anchor": "section",
           "description": "Authentication parameters to access Hashicorp Consul.",
           "document_id": "xcsh-docs:data-sources:discovery:properties:discovery_consul:access_info:http_basic_auth_info",
@@ -1072,7 +1072,7 @@
         "xcsh-docs:data-sources:discovery:properties:discovery_consul:access_info:connection_info:tls_info"
       ],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -1084,7 +1084,7 @@
       "path": "documentation/data-sources/discovery/properties/discovery_consul/access_info/connection_info/index.md",
       "product": "distributed-cloud",
       "provider_name": "discovery",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-1323022120103201-2111202220210033-2122100210313202-0213233220010233-1213002110233311-2211111031320213-0202310300101112-0002103011111002",
       "registry_path": "docs/guides/data-sources--discovery--reference--group-001.md",
@@ -1143,7 +1143,7 @@
         "xcsh-docs:data-sources:discovery:properties:discovery_consul:access_info:connection_info:tls_info:key_url"
       ],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -1155,7 +1155,7 @@
       "path": "documentation/data-sources/discovery/properties/discovery_consul/access_info/connection_info/tls_info/index.md",
       "product": "distributed-cloud",
       "provider_name": "discovery",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-3120002031203312-1021130102021120-2230313003313301-1301003121003302-1230021032321200-0021021022120010-2301322223032012-3120032312133220",
       "registry_path": "docs/guides/data-sources--discovery--reference--group-001.md",
@@ -1165,7 +1165,7 @@
       "schema_path": ["discovery_consul", "access_info", "connection_info", "tls_info"],
       "sections": [
         {
-          "aliases": ["cert", "certificate", "existing certificates", "tls certificates"],
+          "aliases": ["certificate"],
           "anchor": "schema-discovery_consul--access_info--connection_info--tls_info--certificate",
           "description": "Client certificate is PEM-encoded certificate or certificate-chain.",
           "document_id": "xcsh-docs:data-sources:discovery:properties:discovery_consul:access_info:connection_info:tls_info",
@@ -1193,7 +1193,7 @@
           "type": "object"
         },
         {
-          "aliases": ["cert", "certificate", "existing certificates", "server name", "tls certificates"],
+          "aliases": ["server name"],
           "anchor": "schema-discovery_consul--access_info--connection_info--tls_info--server_name",
           "description": "ServerName is passed to the server for SNI and is used in the client to check server certificates against. If ServerName is empty, the hostname used to contact the server is used.",
           "document_id": "xcsh-docs:data-sources:discovery:properties:discovery_consul:access_info:connection_info:tls_info",
@@ -1207,7 +1207,7 @@
           "type": "string"
         },
         {
-          "aliases": ["cert", "certificate", "existing certificates", "tls certificates", "trusted ca url"],
+          "aliases": ["trusted ca url"],
           "anchor": "schema-discovery_consul--access_info--connection_info--tls_info--trusted_ca_url",
           "description": "The URL or value for trusted Server CA certificate or certificate chain Certificates in PEM format including the PEM headers.",
           "document_id": "xcsh-docs:data-sources:discovery:properties:discovery_consul:access_info:connection_info:tls_info",
@@ -1243,7 +1243,7 @@
         "xcsh-docs:data-sources:discovery:properties:discovery_consul:access_info:connection_info:tls_info:key_url:clear_secret_info"
       ],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -1255,7 +1255,7 @@
       "path": "documentation/data-sources/discovery/properties/discovery_consul/access_info/connection_info/tls_info/key_url/index.md",
       "product": "distributed-cloud",
       "provider_name": "discovery",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-1311010103300011-1033223221002030-1131111200111330-0303313220230313-2103111303303110-2120230111131022-0331011110230110-1133003011121221",
       "registry_path": "docs/guides/data-sources--discovery--reference--group-001.md",
@@ -1326,7 +1326,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -1338,7 +1338,7 @@
       "path": "documentation/data-sources/discovery/properties/discovery_consul/access_info/connection_info/tls_info/key_url/blindfold_secret_info/index.md",
       "product": "distributed-cloud",
       "provider_name": "discovery",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-3211020033133213-1112011003220300-1320020003330033-2330101031022210-1302320012313301-1312331031220111-1012112121333000-1313302101210330",
       "registry_path": "docs/guides/data-sources--discovery--reference--group-001.md",
@@ -1355,7 +1355,7 @@
       ],
       "sections": [
         {
-          "aliases": ["backend servers", "decryption provider", "origin servers", "upstream servers"],
+          "aliases": ["decryption provider"],
           "anchor": "schema-discovery_consul--access_info--connection_info--tls_info--key_url--blindfold_secret_info--decryption_provider",
           "description": "Name of the Secret Management Access object that contains information about the backend Secret Management service.",
           "document_id": "xcsh-docs:data-sources:discovery:properties:discovery_consul:access_info:connection_info:tls_info:key_url:blindfold_secret_info",
@@ -1440,7 +1440,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -1452,7 +1452,7 @@
       "path": "documentation/data-sources/discovery/properties/discovery_consul/access_info/connection_info/tls_info/key_url/clear_secret_info/index.md",
       "product": "distributed-cloud",
       "provider_name": "discovery",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-3233010311321003-1223102001030323-3233002333110102-0100321321111101-1322122302100001-0211211113111023-2001120000011100-1031010323102123",
       "registry_path": "docs/guides/data-sources--discovery--reference--group-001.md",
@@ -1518,12 +1518,7 @@
       }
     },
     {
-      "aliases": [
-        "authentication",
-        "credential setup",
-        "credentials",
-        "discovery consul access info http basic auth info"
-      ],
+      "aliases": ["discovery consul access info http basic auth info"],
       "body_bytes": 2544,
       "body_sha256": "sha256:2d82c0c098407ab629a15fb9ecfceaa4352e9681692ead12ca71d4c26b571e15",
       "capabilities": [],
@@ -1532,7 +1527,7 @@
         "xcsh-docs:data-sources:discovery:properties:discovery_consul:access_info:http_basic_auth_info:passwd_url"
       ],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -1544,7 +1539,7 @@
       "path": "documentation/data-sources/discovery/properties/discovery_consul/access_info/http_basic_auth_info/index.md",
       "product": "distributed-cloud",
       "provider_name": "discovery",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-3200201013223011-3322202301233100-1122211121001023-1322201313323131-0320133303212223-1112023300300321-3032030112132300-3123232213232003",
       "registry_path": "docs/guides/data-sources--discovery--reference--group-001.md",
@@ -1604,7 +1599,7 @@
         "xcsh-docs:data-sources:discovery:properties:discovery_consul:access_info:http_basic_auth_info:passwd_url:clear_secret_info"
       ],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -1616,7 +1611,7 @@
       "path": "documentation/data-sources/discovery/properties/discovery_consul/access_info/http_basic_auth_info/passwd_url/index.md",
       "product": "distributed-cloud",
       "provider_name": "discovery",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-0031333100300232-0132012322233013-3130121300011033-0221122132331011-1213321332330301-0233021211233130-2121032011130212-0003212313003230",
       "registry_path": "docs/guides/data-sources--discovery--reference--group-001.md",
@@ -1679,7 +1674,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -1691,7 +1686,7 @@
       "path": "documentation/data-sources/discovery/properties/discovery_consul/access_info/http_basic_auth_info/passwd_url/blindfold_secret_info/index.md",
       "product": "distributed-cloud",
       "provider_name": "discovery",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-2223132131113321-1203220323323223-3202310011203021-3321301110221221-1323022212012312-2122103020003102-1000212113010100-0332211130002221",
       "registry_path": "docs/guides/data-sources--discovery--reference--group-001.md",
@@ -1701,7 +1696,7 @@
       "schema_path": ["discovery_consul", "access_info", "http_basic_auth_info", "passwd_url", "blindfold_secret_info"],
       "sections": [
         {
-          "aliases": ["backend servers", "decryption provider", "origin servers", "upstream servers"],
+          "aliases": ["decryption provider"],
           "anchor": "schema-discovery_consul--access_info--http_basic_auth_info--passwd_url--blindfold_secret_info--decryption_provider",
           "description": "Name of the Secret Management Access object that contains information about the backend Secret Management service.",
           "document_id": "xcsh-docs:data-sources:discovery:properties:discovery_consul:access_info:http_basic_auth_info:passwd_url:blindfold_secret_info",
@@ -1783,7 +1778,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -1795,7 +1790,7 @@
       "path": "documentation/data-sources/discovery/properties/discovery_consul/access_info/http_basic_auth_info/passwd_url/clear_secret_info/index.md",
       "product": "distributed-cloud",
       "provider_name": "discovery",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-3322000300130232-2030020220200321-1112230233023223-0021233203100302-0320313212212022-0033312022102210-0213303300320202-1111021311100310",
       "registry_path": "docs/guides/data-sources--discovery--reference--group-001.md",
@@ -1869,7 +1864,7 @@
         "xcsh-docs:data-sources:discovery:properties:discovery_consul:publish_info:publish"
       ],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -1881,7 +1876,7 @@
       "path": "documentation/data-sources/discovery/properties/discovery_consul/publish_info/index.md",
       "product": "distributed-cloud",
       "provider_name": "discovery",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-3022323202130331-1300101212130033-0001310133112233-0230110021230003-0022213333130131-1230010030020111-1232120213113231-3303010023321313",
       "registry_path": "docs/guides/data-sources--discovery--reference--group-001.md",
@@ -1938,7 +1933,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -1950,7 +1945,7 @@
       "path": "documentation/data-sources/discovery/properties/discovery_consul/publish_info/disable_spec/index.md",
       "product": "distributed-cloud",
       "provider_name": "discovery",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-0220131321330311-0113032323213012-3030223102203020-1333320211202020-1123231010212113-1012121202322301-0123310302313300-3023133010031323",
       "registry_path": "docs/guides/data-sources--discovery--reference--group-001.md",
@@ -1978,7 +1973,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -1990,7 +1985,7 @@
       "path": "documentation/data-sources/discovery/properties/discovery_consul/publish_info/publish/index.md",
       "product": "distributed-cloud",
       "provider_name": "discovery",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-3113200132221202-3320211000033310-1000121301210133-1221302023030133-2231033311213332-1230101032020002-0113033011132313-2301130030001101",
       "registry_path": "docs/guides/data-sources--discovery--reference--group-001.md",
@@ -2023,7 +2018,7 @@
         "xcsh-docs:data-sources:discovery:properties:discovery_k8s:publish_info"
       ],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -2035,7 +2030,7 @@
       "path": "documentation/data-sources/discovery/properties/discovery_k8s/index.md",
       "product": "distributed-cloud",
       "provider_name": "discovery",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-0330013311111202-1322311031122022-3320203133110210-1213102010333012-0022110212111130-2223102233100201-0022000121230323-1321310123011322",
       "registry_path": "docs/guides/data-sources--discovery--reference--group-001.md",
@@ -2125,7 +2120,7 @@
         "xcsh-docs:data-sources:discovery:properties:discovery_k8s:access_info:reachable"
       ],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -2137,7 +2132,7 @@
       "path": "documentation/data-sources/discovery/properties/discovery_k8s/access_info/index.md",
       "product": "distributed-cloud",
       "provider_name": "discovery",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-0111202022021232-1330011202221333-1103203232010232-3302310031331322-2013002133003130-2322212211311302-1013323221012111-1022113122013233",
       "registry_path": "docs/guides/data-sources--discovery--reference--group-001.md",
@@ -2222,7 +2217,7 @@
       "category": null,
       "child_ids": ["xcsh-docs:data-sources:discovery:properties:discovery_k8s:access_info:connection_info:tls_info"],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -2234,7 +2229,7 @@
       "path": "documentation/data-sources/discovery/properties/discovery_k8s/access_info/connection_info/index.md",
       "product": "distributed-cloud",
       "provider_name": "discovery",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-3033110220233312-1331012131312110-1301011002212212-0003032332020020-2223302001311301-2012112010022110-0023111321011330-3311111002111211",
       "registry_path": "docs/guides/data-sources--discovery--reference--group-001.md",
@@ -2293,7 +2288,7 @@
         "xcsh-docs:data-sources:discovery:properties:discovery_k8s:access_info:connection_info:tls_info:key_url"
       ],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -2305,7 +2300,7 @@
       "path": "documentation/data-sources/discovery/properties/discovery_k8s/access_info/connection_info/tls_info/index.md",
       "product": "distributed-cloud",
       "provider_name": "discovery",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-3213112033331231-0002002323300313-3100230200032300-3302120331312303-3131200202121132-3321213301222231-3121330213302123-1131012112231132",
       "registry_path": "docs/guides/data-sources--discovery--reference--group-001.md",
@@ -2315,7 +2310,7 @@
       "schema_path": ["discovery_k8s", "access_info", "connection_info", "tls_info"],
       "sections": [
         {
-          "aliases": ["cert", "certificate", "existing certificates", "tls certificates"],
+          "aliases": ["certificate"],
           "anchor": "schema-discovery_k8s--access_info--connection_info--tls_info--certificate",
           "description": "Client certificate is PEM-encoded certificate or certificate-chain.",
           "document_id": "xcsh-docs:data-sources:discovery:properties:discovery_k8s:access_info:connection_info:tls_info",
@@ -2343,7 +2338,7 @@
           "type": "object"
         },
         {
-          "aliases": ["cert", "certificate", "existing certificates", "server name", "tls certificates"],
+          "aliases": ["server name"],
           "anchor": "schema-discovery_k8s--access_info--connection_info--tls_info--server_name",
           "description": "ServerName is passed to the server for SNI and is used in the client to check server certificates against. If ServerName is empty, the hostname used to contact the server is used.",
           "document_id": "xcsh-docs:data-sources:discovery:properties:discovery_k8s:access_info:connection_info:tls_info",
@@ -2357,7 +2352,7 @@
           "type": "string"
         },
         {
-          "aliases": ["cert", "certificate", "existing certificates", "tls certificates", "trusted ca url"],
+          "aliases": ["trusted ca url"],
           "anchor": "schema-discovery_k8s--access_info--connection_info--tls_info--trusted_ca_url",
           "description": "The URL or value for trusted Server CA certificate or certificate chain Certificates in PEM format including the PEM headers.",
           "document_id": "xcsh-docs:data-sources:discovery:properties:discovery_k8s:access_info:connection_info:tls_info",
@@ -2393,7 +2388,7 @@
         "xcsh-docs:data-sources:discovery:properties:discovery_k8s:access_info:connection_info:tls_info:key_url:clear_secret_info"
       ],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -2405,7 +2400,7 @@
       "path": "documentation/data-sources/discovery/properties/discovery_k8s/access_info/connection_info/tls_info/key_url/index.md",
       "product": "distributed-cloud",
       "provider_name": "discovery",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-0011320033010321-0001130232332102-1301132001122023-0022211233131130-0131202000103300-1032132130202331-1002110302222223-3313020213200132",
       "registry_path": "docs/guides/data-sources--discovery--reference--group-001.md",
@@ -2476,7 +2471,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -2488,7 +2483,7 @@
       "path": "documentation/data-sources/discovery/properties/discovery_k8s/access_info/connection_info/tls_info/key_url/blindfold_secret_info/index.md",
       "product": "distributed-cloud",
       "provider_name": "discovery",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-2130121022010001-2220333021312212-1101333303333310-0010333322302310-1311131002203102-3133113303102313-0001112213223002-0312121232000112",
       "registry_path": "docs/guides/data-sources--discovery--reference--group-001.md",
@@ -2505,7 +2500,7 @@
       ],
       "sections": [
         {
-          "aliases": ["backend servers", "decryption provider", "origin servers", "upstream servers"],
+          "aliases": ["decryption provider"],
           "anchor": "schema-discovery_k8s--access_info--connection_info--tls_info--key_url--blindfold_secret_info--decryption_provider",
           "description": "Name of the Secret Management Access object that contains information about the backend Secret Management service.",
           "document_id": "xcsh-docs:data-sources:discovery:properties:discovery_k8s:access_info:connection_info:tls_info:key_url:blindfold_secret_info",
@@ -2590,7 +2585,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -2602,7 +2597,7 @@
       "path": "documentation/data-sources/discovery/properties/discovery_k8s/access_info/connection_info/tls_info/key_url/clear_secret_info/index.md",
       "product": "distributed-cloud",
       "provider_name": "discovery",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-2301032222102203-3210023322323102-0310021110233223-0121003331022210-1102302200023022-2301013133031233-3030103012330121-1213313222320313",
       "registry_path": "docs/guides/data-sources--discovery--reference--group-001.md",
@@ -2675,7 +2670,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -2687,7 +2682,7 @@
       "path": "documentation/data-sources/discovery/properties/discovery_k8s/access_info/isolated/index.md",
       "product": "distributed-cloud",
       "provider_name": "discovery",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-0000221330012012-2302022102003100-1020030310232110-0021302131123120-0223233223020101-3101330233200313-3233000300212213-2100230312210011",
       "registry_path": "docs/guides/data-sources--discovery--reference--group-001.md",
@@ -2718,7 +2713,7 @@
         "xcsh-docs:data-sources:discovery:properties:discovery_k8s:access_info:kubeconfig_url:clear_secret_info"
       ],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -2730,7 +2725,7 @@
       "path": "documentation/data-sources/discovery/properties/discovery_k8s/access_info/kubeconfig_url/index.md",
       "product": "distributed-cloud",
       "provider_name": "discovery",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-1033022012013103-3002223202110122-0023123111320030-3303111222312023-3212132023330113-2310233213012123-2013212323130130-3100102223221311",
       "registry_path": "docs/guides/data-sources--discovery--reference--group-001.md",
@@ -2787,7 +2782,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -2799,7 +2794,7 @@
       "path": "documentation/data-sources/discovery/properties/discovery_k8s/access_info/kubeconfig_url/blindfold_secret_info/index.md",
       "product": "distributed-cloud",
       "provider_name": "discovery",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-3212211310223113-2210302111113110-1201312323203133-0023331301303132-1210301202320031-1100223012033000-2200102022223033-1312103323301301",
       "registry_path": "docs/guides/data-sources--discovery--reference--group-001.md",
@@ -2809,7 +2804,7 @@
       "schema_path": ["discovery_k8s", "access_info", "kubeconfig_url", "blindfold_secret_info"],
       "sections": [
         {
-          "aliases": ["backend servers", "decryption provider", "origin servers", "upstream servers"],
+          "aliases": ["decryption provider"],
           "anchor": "schema-discovery_k8s--access_info--kubeconfig_url--blindfold_secret_info--decryption_provider",
           "description": "Name of the Secret Management Access object that contains information about the backend Secret Management service.",
           "document_id": "xcsh-docs:data-sources:discovery:properties:discovery_k8s:access_info:kubeconfig_url:blindfold_secret_info",
@@ -2876,7 +2871,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -2888,7 +2883,7 @@
       "path": "documentation/data-sources/discovery/properties/discovery_k8s/access_info/kubeconfig_url/clear_secret_info/index.md",
       "product": "distributed-cloud",
       "provider_name": "discovery",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-3202030220212203-1321100010331233-1112030230010110-0113133200302301-3023002223121301-1001330221132223-0211133222132211-2210002100013122",
       "registry_path": "docs/guides/data-sources--discovery--reference--group-001.md",
@@ -2945,7 +2940,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -2957,7 +2952,7 @@
       "path": "documentation/data-sources/discovery/properties/discovery_k8s/access_info/reachable/index.md",
       "product": "distributed-cloud",
       "provider_name": "discovery",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-1312013231130203-2031112120032320-1112122010012202-1211033002212132-2303102311110103-0201313021012021-0000203103133233-1201230330203320",
       "registry_path": "docs/guides/data-sources--discovery--reference--group-001.md",
@@ -2985,7 +2980,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -2997,7 +2992,7 @@
       "path": "documentation/data-sources/discovery/properties/discovery_k8s/default_all/index.md",
       "product": "distributed-cloud",
       "provider_name": "discovery",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-0111030212233202-0132113112330210-3102303023102000-2311213102011302-2231201111012332-2233001123200131-3010310220333110-2310213013031030",
       "registry_path": "docs/guides/data-sources--discovery--reference--group-001.md",
@@ -3025,7 +3020,7 @@
       "category": null,
       "child_ids": ["xcsh-docs:data-sources:discovery:properties:discovery_k8s:namespace_mapping:items"],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -3037,7 +3032,7 @@
       "path": "documentation/data-sources/discovery/properties/discovery_k8s/namespace_mapping/index.md",
       "product": "distributed-cloud",
       "provider_name": "discovery",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-3303013301213222-3332332202321221-2311112031001231-0323332330033132-2230203122010120-1131213122133310-1033023232121000-2320222012200021",
       "registry_path": "docs/guides/data-sources--discovery--reference--group-001.md",
@@ -3080,7 +3075,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -3092,7 +3087,7 @@
       "path": "documentation/data-sources/discovery/properties/discovery_k8s/namespace_mapping/items/index.md",
       "product": "distributed-cloud",
       "provider_name": "discovery",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-2230122013023000-3200231101230132-0122123232020331-2200331033033122-1203030111321231-0132012113103322-0010011312102120-2112231103110320",
       "registry_path": "docs/guides/data-sources--discovery--reference--group-001.md",
@@ -3154,7 +3149,7 @@
         "xcsh-docs:data-sources:discovery:properties:discovery_k8s:publish_info:publish_fqdns"
       ],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -3166,7 +3161,7 @@
       "path": "documentation/data-sources/discovery/properties/discovery_k8s/publish_info/index.md",
       "product": "distributed-cloud",
       "provider_name": "discovery",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-2000131012030001-1310223011223322-3222122000322101-3130330332001002-2203022320301110-1121220212302102-1202210220223323-1101112222203112",
       "registry_path": "docs/guides/data-sources--discovery--reference--group-001.md",
@@ -3251,7 +3246,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -3263,7 +3258,7 @@
       "path": "documentation/data-sources/discovery/properties/discovery_k8s/publish_info/disable_spec/index.md",
       "product": "distributed-cloud",
       "provider_name": "discovery",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-0322020333110210-3031113323033111-1221103002213113-0233330130321131-1310120301120022-1330213130332110-2312101313113230-3013332111320101",
       "registry_path": "docs/guides/data-sources--discovery--reference--group-001.md",
@@ -3291,7 +3286,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -3303,7 +3298,7 @@
       "path": "documentation/data-sources/discovery/properties/discovery_k8s/publish_info/dns_delegation/index.md",
       "product": "distributed-cloud",
       "provider_name": "discovery",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-0021110011333022-3031323120010221-3331021222110233-2032301330012323-0021101112313013-0221323000310213-0010322112333203-2312212121122233",
       "registry_path": "docs/guides/data-sources--discovery--reference--group-001.md",
@@ -3360,7 +3355,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -3372,7 +3367,7 @@
       "path": "documentation/data-sources/discovery/properties/discovery_k8s/publish_info/publish/index.md",
       "product": "distributed-cloud",
       "provider_name": "discovery",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-0231330210033210-2333231230323101-2113020031321112-2300002130220010-0221021003322202-2013133032323202-3031333202303110-3302312021010333",
       "registry_path": "docs/guides/data-sources--discovery--reference--group-001.md",
@@ -3415,7 +3410,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -3427,7 +3422,7 @@
       "path": "documentation/data-sources/discovery/properties/discovery_k8s/publish_info/publish_fqdns/index.md",
       "product": "distributed-cloud",
       "provider_name": "discovery",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-2232120000331013-1132210320233210-3313203301013320-1032222021113020-2322321122021331-1111013230001100-2230102132101002-1002322022031012",
       "registry_path": "docs/guides/data-sources--discovery--reference--group-001.md",
@@ -3455,7 +3450,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -3467,7 +3462,7 @@
       "path": "documentation/data-sources/discovery/properties/no_cluster_id/index.md",
       "product": "distributed-cloud",
       "provider_name": "discovery",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-3022232112013312-1120023000331333-0002001130200231-2023010022021302-2321320033321023-1313213310100331-3000313221232320-1132122300112130",
       "registry_path": "docs/guides/data-sources--discovery--reference--group-001.md",
@@ -3499,7 +3494,7 @@
         "xcsh-docs:data-sources:discovery:properties:where:virtual_site"
       ],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -3511,7 +3506,7 @@
       "path": "documentation/data-sources/discovery/properties/where/index.md",
       "product": "distributed-cloud",
       "provider_name": "discovery",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-2012322022221322-1311331021011113-0130102221212012-0201002002131232-0010230001123303-2302100002002110-0033013201231311-0223310320002110",
       "registry_path": "docs/guides/data-sources--discovery--reference--group-001.md",
@@ -3586,7 +3581,7 @@
         "xcsh-docs:data-sources:discovery:properties:where:site:ref"
       ],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -3598,7 +3593,7 @@
       "path": "documentation/data-sources/discovery/properties/where/site/index.md",
       "product": "distributed-cloud",
       "provider_name": "discovery",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-1131111212212130-2300200213120302-1010130223111031-2031223120011323-3032013013110101-2231203231031223-1132131231333231-3003122031021212",
       "registry_path": "docs/guides/data-sources--discovery--reference--group-001.md",
@@ -3683,7 +3678,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -3695,7 +3690,7 @@
       "path": "documentation/data-sources/discovery/properties/where/site/disable_internet_vip/index.md",
       "product": "distributed-cloud",
       "provider_name": "discovery",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-2232230002030311-0013122112232130-2301203002020322-2023331313233001-1001220222231000-0213220233130211-0101220300203032-1121213233200231",
       "registry_path": "docs/guides/data-sources--discovery--reference--group-001.md",
@@ -3723,7 +3718,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -3735,7 +3730,7 @@
       "path": "documentation/data-sources/discovery/properties/where/site/enable_internet_vip/index.md",
       "product": "distributed-cloud",
       "provider_name": "discovery",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-2220130012323232-0022222012102312-3122111302020020-1321013332322001-2201322133001002-0222201010223233-0230122022113231-3032012320302332",
       "registry_path": "docs/guides/data-sources--discovery--reference--group-001.md",
@@ -3763,7 +3758,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -3775,7 +3770,7 @@
       "path": "documentation/data-sources/discovery/properties/where/site/ref/index.md",
       "product": "distributed-cloud",
       "provider_name": "discovery",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-0131223101303030-2100222021133330-2100033110332033-3201131000100200-3010112003213001-1211212130030102-2111211031100100-3132121230021312",
       "registry_path": "docs/guides/data-sources--discovery--reference--group-001.md",
@@ -3874,7 +3869,7 @@
       "category": null,
       "child_ids": ["xcsh-docs:data-sources:discovery:properties:where:virtual_network:ref"],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -3886,7 +3881,7 @@
       "path": "documentation/data-sources/discovery/properties/where/virtual_network/index.md",
       "product": "distributed-cloud",
       "provider_name": "discovery",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-2000100203122133-0301232002323310-3233310132013200-2022221330110313-1210122133103010-3121123023112123-0033000321111322-1210332230303323",
       "registry_path": "docs/guides/data-sources--discovery--reference--group-001.md",
@@ -3929,7 +3924,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -3941,7 +3936,7 @@
       "path": "documentation/data-sources/discovery/properties/where/virtual_network/ref/index.md",
       "product": "distributed-cloud",
       "provider_name": "discovery",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-0221301333220223-3213322202103331-1212321320032223-0112231031101100-0101112320131210-3323311320113022-2131130300221222-0232102211101321",
       "registry_path": "docs/guides/data-sources--discovery--reference--group-001.md",
@@ -4044,7 +4039,7 @@
         "xcsh-docs:data-sources:discovery:properties:where:virtual_site:ref"
       ],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -4056,7 +4051,7 @@
       "path": "documentation/data-sources/discovery/properties/where/virtual_site/index.md",
       "product": "distributed-cloud",
       "provider_name": "discovery",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-2133223112022020-1203131112101120-1123221132012123-1012101130010321-2213300002121320-2233022032323113-3111330010231222-0322222111031122",
       "registry_path": "docs/guides/data-sources--discovery--reference--group-002.md",
@@ -4141,7 +4136,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -4153,7 +4148,7 @@
       "path": "documentation/data-sources/discovery/properties/where/virtual_site/disable_internet_vip/index.md",
       "product": "distributed-cloud",
       "provider_name": "discovery",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-2310001332100202-0111030221230112-1322023213221100-2012333111000330-1232321320031301-0131300201321203-2321211122012232-1333223332300122",
       "registry_path": "docs/guides/data-sources--discovery--reference--group-002.md",
@@ -4181,7 +4176,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -4193,7 +4188,7 @@
       "path": "documentation/data-sources/discovery/properties/where/virtual_site/enable_internet_vip/index.md",
       "product": "distributed-cloud",
       "provider_name": "discovery",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-2020131222103111-2223331232232312-3212101302212223-1200010333003320-3310010232102320-3303103331031332-1000011103202330-2011022321023222",
       "registry_path": "docs/guides/data-sources--discovery--reference--group-002.md",
@@ -4221,7 +4216,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -4233,7 +4228,7 @@
       "path": "documentation/data-sources/discovery/properties/where/virtual_site/ref/index.md",
       "product": "distributed-cloud",
       "provider_name": "discovery",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-2112101231113022-3113100010022100-2233130012103200-0011131222221220-1320202012310013-3232220012222010-1222300020330213-3022121113131011",
       "registry_path": "docs/guides/data-sources--discovery--reference--group-002.md",
@@ -4332,7 +4327,7 @@
       "category": null,
       "child_ids": ["xcsh-docs:data-sources:discovery:example:data-source"],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -4344,7 +4339,7 @@
       "path": "documentation/data-sources/discovery/examples/index.md",
       "product": "distributed-cloud",
       "provider_name": "discovery",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-2233113310202003-3011212032322120-0321110101103330-1110220301021333-2113230300122223-0032111232321131-3031100223030032-3233311203131303",
       "registry_path": "docs/guides/data-sources--discovery--examples--group-001.md",
@@ -4372,7 +4367,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -4391,7 +4386,7 @@
       "path": "documentation/data-sources/discovery/examples/data-source/index.md",
       "product": "distributed-cloud",
       "provider_name": "discovery",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-1121032231312020-2323313120122112-3033101332110102-2122233330232211-2330102211332322-3020033233123213-2121023211303312-0120030000011231",
       "registry_path": "docs/guides/data-sources--discovery--examples--group-001.md",

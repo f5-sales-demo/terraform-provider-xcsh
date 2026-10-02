@@ -242,7 +242,7 @@
         "xcsh-docs:resources:dns_lb_health_check:timeouts"
       ],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -254,7 +254,7 @@
       "path": "documentation/resources/dns_lb_health_check/index.md",
       "product": "distributed-cloud",
       "provider_name": "dns_lb_health_check",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "resources",
       "registry_anchor": "canonical-0302000112101031-2320313333300101-1000303021303302-2311331100312232-2321211133331232-0230203302202230-0030030332120212-0001210320031333",
       "registry_path": "docs/resources/dns_lb_health_check.md",
@@ -291,7 +291,7 @@
         "xcsh-docs:resources:dns_lb_health_check:properties:udp_health_check"
       ],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -303,7 +303,7 @@
       "path": "documentation/resources/dns_lb_health_check/properties/index.md",
       "product": "distributed-cloud",
       "provider_name": "dns_lb_health_check",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "resources",
       "registry_anchor": "canonical-1123001131012002-2102110230010013-2322302212231031-1022032210330113-3031302203112210-3133030011231302-3030013110113220-2123320331203100",
       "registry_path": "docs/guides/resources--dns_lb_health_check--reference--group-001.md",
@@ -688,7 +688,7 @@
         "xcsh-docs:resources:dns_lb_health_check:properties:http_health_check:inherit_load_balancer_fqdn"
       ],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -700,7 +700,7 @@
       "path": "documentation/resources/dns_lb_health_check/properties/http_health_check/index.md",
       "product": "distributed-cloud",
       "provider_name": "dns_lb_health_check",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "resources",
       "registry_anchor": "canonical-3123301133033020-3001312112033103-2023010020133212-1212321113313010-2303023100323100-0031323300231202-0032201133132201-2022313223021312",
       "registry_path": "docs/guides/resources--dns_lb_health_check--reference--group-001.md",
@@ -884,7 +884,7 @@
       "category": "dns",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -896,7 +896,7 @@
       "path": "documentation/resources/dns_lb_health_check/properties/http_health_check/disable_virtual_host/index.md",
       "product": "distributed-cloud",
       "provider_name": "dns_lb_health_check",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "resources",
       "registry_anchor": "canonical-1220313032231202-1002300301213000-1103213221323331-0322331110013232-0011321232220222-1112302020313320-0321110201220330-1101231220110331",
       "registry_path": "docs/guides/resources--dns_lb_health_check--reference--group-001.md",
@@ -924,7 +924,7 @@
       "category": "dns",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -936,7 +936,7 @@
       "path": "documentation/resources/dns_lb_health_check/properties/http_health_check/inherit_load_balancer_fqdn/index.md",
       "product": "distributed-cloud",
       "provider_name": "dns_lb_health_check",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "resources",
       "registry_anchor": "canonical-3320022032300331-0121013102111103-1310323122010210-3320302330133012-1311211023011003-3123103321230002-0301303323301013-0021011000012232",
       "registry_path": "docs/guides/resources--dns_lb_health_check--reference--group-001.md",
@@ -967,7 +967,7 @@
         "xcsh-docs:resources:dns_lb_health_check:properties:https_health_check:inherit_load_balancer_fqdn"
       ],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -979,7 +979,7 @@
       "path": "documentation/resources/dns_lb_health_check/properties/https_health_check/index.md",
       "product": "distributed-cloud",
       "provider_name": "dns_lb_health_check",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "resources",
       "registry_anchor": "canonical-1013121033333001-2311212031003021-3122120000133312-0311032031230022-0031330011111330-3130133200012211-0102332022220133-2100120110113333",
       "registry_path": "docs/guides/resources--dns_lb_health_check--reference--group-001.md",
@@ -1163,7 +1163,7 @@
       "category": "dns",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -1175,7 +1175,7 @@
       "path": "documentation/resources/dns_lb_health_check/properties/https_health_check/disable_virtual_host/index.md",
       "product": "distributed-cloud",
       "provider_name": "dns_lb_health_check",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "resources",
       "registry_anchor": "canonical-2331031220121003-3232220000000333-0002202130020323-3302122321300310-3231231201103032-0012230232011223-1221032012103211-1020222102210202",
       "registry_path": "docs/guides/resources--dns_lb_health_check--reference--group-001.md",
@@ -1203,7 +1203,7 @@
       "category": "dns",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -1215,7 +1215,7 @@
       "path": "documentation/resources/dns_lb_health_check/properties/https_health_check/inherit_load_balancer_fqdn/index.md",
       "product": "distributed-cloud",
       "provider_name": "dns_lb_health_check",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "resources",
       "registry_anchor": "canonical-1012102332121320-2033103023300022-1201003031022222-2330312202111103-3232232222321322-3100330300321323-0030330132132203-2333001313300111",
       "registry_path": "docs/guides/resources--dns_lb_health_check--reference--group-001.md",
@@ -1243,7 +1243,7 @@
       "category": "dns",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -1255,7 +1255,7 @@
       "path": "documentation/resources/dns_lb_health_check/properties/icmp_health_check/index.md",
       "product": "distributed-cloud",
       "provider_name": "dns_lb_health_check",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "resources",
       "registry_anchor": "canonical-0022113030000323-2330222301031023-0120100012200301-2333110032132213-0003230321003203-2023312222130303-1322131221322010-0133303003303103",
       "registry_path": "docs/guides/resources--dns_lb_health_check--reference--group-001.md",
@@ -1283,7 +1283,7 @@
       "category": "dns",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -1295,7 +1295,7 @@
       "path": "documentation/resources/dns_lb_health_check/properties/tcp_health_check/index.md",
       "product": "distributed-cloud",
       "provider_name": "dns_lb_health_check",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "resources",
       "registry_anchor": "canonical-1202311232132230-0212321030133021-3022310202313131-3312222212221302-0133231310311030-0303013212230320-1231023213133231-0200233332322222",
       "registry_path": "docs/guides/resources--dns_lb_health_check--reference--group-001.md",
@@ -1389,7 +1389,7 @@
       "category": "dns",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -1401,7 +1401,7 @@
       "path": "documentation/resources/dns_lb_health_check/properties/tcp_hex_health_check/index.md",
       "product": "distributed-cloud",
       "provider_name": "dns_lb_health_check",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "resources",
       "registry_anchor": "canonical-3310122233311003-0331022321313010-3222232300211013-0210133110202032-0302023320232031-1333300003101322-2030330013112003-2012332003332031",
       "registry_path": "docs/guides/resources--dns_lb_health_check--reference--group-001.md",
@@ -1495,7 +1495,7 @@
       "category": "dns",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -1507,7 +1507,7 @@
       "path": "documentation/resources/dns_lb_health_check/properties/timeouts/index.md",
       "product": "distributed-cloud",
       "provider_name": "dns_lb_health_check",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "resources",
       "registry_anchor": "canonical-3100003210332223-1023023222311302-1120310230130002-1321123111113000-2033201021003301-2300302321021312-2131002323220212-1303032312322311",
       "registry_path": "docs/guides/resources--dns_lb_health_check--reference--group-001.md",
@@ -1592,7 +1592,7 @@
       "category": "dns",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -1604,7 +1604,7 @@
       "path": "documentation/resources/dns_lb_health_check/properties/udp_health_check/index.md",
       "product": "distributed-cloud",
       "provider_name": "dns_lb_health_check",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "resources",
       "registry_anchor": "canonical-1033111102330311-0210031231001012-0311000130202221-2102102013102323-2102322000022300-3023201333202310-3212111232132212-1013112131001321",
       "registry_path": "docs/guides/resources--dns_lb_health_check--reference--group-001.md",
@@ -1714,7 +1714,7 @@
       "category": "dns",
       "child_ids": ["xcsh-docs:resources:dns_lb_health_check:example:resource"],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -1726,7 +1726,7 @@
       "path": "documentation/resources/dns_lb_health_check/examples/index.md",
       "product": "distributed-cloud",
       "provider_name": "dns_lb_health_check",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "resources",
       "registry_anchor": "canonical-0011113330130022-3300001313003320-3323320131301003-0200111123010021-0002311021212303-1202023122132130-2313132003300203-3211022032122203",
       "registry_path": "docs/guides/resources--dns_lb_health_check--examples--group-001.md",
@@ -1754,7 +1754,7 @@
       "category": "dns",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -1773,7 +1773,7 @@
       "path": "documentation/resources/dns_lb_health_check/examples/resource/index.md",
       "product": "distributed-cloud",
       "provider_name": "dns_lb_health_check",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "resources",
       "registry_anchor": "canonical-1212210331222111-1213312020222310-0202113023013312-0002130200321233-1212003200221131-3131131133211100-3013031102332123-2121000232231201",
       "registry_path": "docs/guides/resources--dns_lb_health_check--examples--group-001.md",
@@ -1801,7 +1801,7 @@
       "category": "dns",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -1814,7 +1814,7 @@
       "path": "documentation/resources/dns_lb_health_check/lifecycle/import/index.md",
       "product": "distributed-cloud",
       "provider_name": "dns_lb_health_check",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "resources",
       "registry_anchor": "canonical-3333031110123202-2201201202302210-3130133010220102-2202330101010300-0311012112221312-3323322102322330-2012213322300031-2120211320330223",
       "registry_path": "docs/guides/resources--dns_lb_health_check--lifecycle--group-001.md",
@@ -1842,7 +1842,7 @@
       "category": "dns",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -1854,7 +1854,7 @@
       "path": "documentation/resources/dns_lb_health_check/lifecycle/timeouts/index.md",
       "product": "distributed-cloud",
       "provider_name": "dns_lb_health_check",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "resources",
       "registry_anchor": "canonical-0203031303320223-1303201222123000-3210123031301122-1221013302300213-2232113330100230-0231221211301313-3323303330103111-1310110331112010",
       "registry_path": "docs/guides/resources--dns_lb_health_check--lifecycle--group-001.md",

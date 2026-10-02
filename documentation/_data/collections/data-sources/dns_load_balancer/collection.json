@@ -275,7 +275,7 @@
         "xcsh-docs:data-sources:dns_load_balancer:examples"
       ],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -287,7 +287,7 @@
       "path": "documentation/data-sources/dns_load_balancer/index.md",
       "product": "distributed-cloud",
       "provider_name": "dns_load_balancer",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-1203213300333030-1201131231332213-0311011110313002-2212212103302030-0333010310130302-0012333213231220-3200033212123102-0230103000222103",
       "registry_path": "docs/data-sources/dns_load_balancer.md",
@@ -328,7 +328,7 @@
         "xcsh-docs:data-sources:dns_load_balancer:properties:rule_list"
       ],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -340,7 +340,7 @@
       "path": "documentation/data-sources/dns_load_balancer/properties/index.md",
       "product": "distributed-cloud",
       "provider_name": "dns_load_balancer",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-3132200331022103-0202102030232123-3221123330030310-3132333003123202-1220120012203031-2132331133031102-0103322031301112-1330312100102222",
       "registry_path": "docs/guides/data-sources--dns_load_balancer--reference--group-001.md",
@@ -509,7 +509,7 @@
       "category": "dns",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -521,7 +521,7 @@
       "path": "documentation/data-sources/dns_load_balancer/properties/fallback_pool/index.md",
       "product": "distributed-cloud",
       "provider_name": "dns_load_balancer",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-2101122021130201-3101010132313031-3002332123310323-2131103023023221-3121010320123013-2302332030132230-3211120320330301-2212011213122210",
       "registry_path": "docs/guides/data-sources--dns_load_balancer--reference--group-001.md",
@@ -596,7 +596,7 @@
         "xcsh-docs:data-sources:dns_load_balancer:properties:response_cache:response_cache_parameters"
       ],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -608,7 +608,7 @@
       "path": "documentation/data-sources/dns_load_balancer/properties/response_cache/index.md",
       "product": "distributed-cloud",
       "provider_name": "dns_load_balancer",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-1022220100313001-1303313330111232-0300132223021231-1123321233211231-1103123031102201-2032002203302332-1030111321331021-3000112323222120",
       "registry_path": "docs/guides/data-sources--dns_load_balancer--reference--group-001.md",
@@ -679,7 +679,7 @@
       "category": "dns",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -691,7 +691,7 @@
       "path": "documentation/data-sources/dns_load_balancer/properties/response_cache/default_response_cache_parameters/index.md",
       "product": "distributed-cloud",
       "provider_name": "dns_load_balancer",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-0033011311220122-3232113303221303-1012003100001323-2223031022220221-3231103130102203-1333022100222212-3213121300313113-3331221303212220",
       "registry_path": "docs/guides/data-sources--dns_load_balancer--reference--group-001.md",
@@ -719,7 +719,7 @@
       "category": "dns",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -731,7 +731,7 @@
       "path": "documentation/data-sources/dns_load_balancer/properties/response_cache/disable_spec/index.md",
       "product": "distributed-cloud",
       "provider_name": "dns_load_balancer",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-1311111011031300-0030203033032300-2323132310331303-1230231021213210-2302203123233310-1232321103130310-2202022221311330-1102130332221133",
       "registry_path": "docs/guides/data-sources--dns_load_balancer--reference--group-001.md",
@@ -759,7 +759,7 @@
       "category": "dns",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -771,7 +771,7 @@
       "path": "documentation/data-sources/dns_load_balancer/properties/response_cache/response_cache_parameters/index.md",
       "product": "distributed-cloud",
       "provider_name": "dns_load_balancer",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-3322233121222221-1232020102211000-0003211203101023-0122200112202212-3100313113023302-2130121120101123-3023221303021123-2101303102300033",
       "registry_path": "docs/guides/data-sources--dns_load_balancer--reference--group-001.md",
@@ -842,7 +842,7 @@
       "category": "dns",
       "child_ids": ["xcsh-docs:data-sources:dns_load_balancer:properties:rule_list:rules"],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -854,7 +854,7 @@
       "path": "documentation/data-sources/dns_load_balancer/properties/rule_list/index.md",
       "product": "distributed-cloud",
       "provider_name": "dns_load_balancer",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-1200302330200113-2111201232232222-0320032111123202-0022023201211103-0331313123013213-0212322233213130-3130223133120312-3323032210313223",
       "registry_path": "docs/guides/data-sources--dns_load_balancer--reference--group-001.md",
@@ -905,7 +905,7 @@
         "xcsh-docs:data-sources:dns_load_balancer:properties:rule_list:rules:pool"
       ],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -917,7 +917,7 @@
       "path": "documentation/data-sources/dns_load_balancer/properties/rule_list/rules/index.md",
       "product": "distributed-cloud",
       "provider_name": "dns_load_balancer",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-0132020012322023-0131332323132323-1302002121000322-3310030103202013-1311021202311033-3313120012222101-1332013123123000-0333301120331103",
       "registry_path": "docs/guides/data-sources--dns_load_balancer--reference--group-001.md",
@@ -1058,7 +1058,7 @@
       "category": "dns",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -1070,7 +1070,7 @@
       "path": "documentation/data-sources/dns_load_balancer/properties/rule_list/rules/asn_list/index.md",
       "product": "distributed-cloud",
       "provider_name": "dns_load_balancer",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-0312303233022323-1130031221213021-3301322221331113-0311211111010203-0112310101121021-3202033232231232-1121233300123113-0223010110032323",
       "registry_path": "docs/guides/data-sources--dns_load_balancer--reference--group-001.md",
@@ -1113,7 +1113,7 @@
       "category": "dns",
       "child_ids": ["xcsh-docs:data-sources:dns_load_balancer:properties:rule_list:rules:asn_matcher:asn_sets"],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -1125,7 +1125,7 @@
       "path": "documentation/data-sources/dns_load_balancer/properties/rule_list/rules/asn_matcher/index.md",
       "product": "distributed-cloud",
       "provider_name": "dns_load_balancer",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-2312111032120320-3220222130131200-2001132220223132-1301132133132002-0120322212131231-1120333133331221-0233221033202233-1131122300232021",
       "registry_path": "docs/guides/data-sources--dns_load_balancer--reference--group-001.md",
@@ -1168,7 +1168,7 @@
       "category": "dns",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -1180,7 +1180,7 @@
       "path": "documentation/data-sources/dns_load_balancer/properties/rule_list/rules/asn_matcher/asn_sets/index.md",
       "product": "distributed-cloud",
       "provider_name": "dns_load_balancer",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-3310030230132020-2301000101023212-1301221101111332-3001023233033012-3013011031220310-2103312302131332-3313003230221310-2030122300001220",
       "registry_path": "docs/guides/data-sources--dns_load_balancer--reference--group-001.md",
@@ -1279,7 +1279,7 @@
       "category": "dns",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -1291,7 +1291,7 @@
       "path": "documentation/data-sources/dns_load_balancer/properties/rule_list/rules/geo_location_label_selector/index.md",
       "product": "distributed-cloud",
       "provider_name": "dns_load_balancer",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-1223222103223132-3310031101003102-0100001031302110-1102220231301200-3000223211112000-0220131220011321-1323310100101033-2121133221233230",
       "registry_path": "docs/guides/data-sources--dns_load_balancer--reference--group-001.md",
@@ -1334,7 +1334,7 @@
       "category": "dns",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -1346,7 +1346,7 @@
       "path": "documentation/data-sources/dns_load_balancer/properties/rule_list/rules/geo_location_set/index.md",
       "product": "distributed-cloud",
       "provider_name": "dns_load_balancer",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-2101001211013222-3310330203000121-0322202123032012-2100232331031322-3310013112333132-0002120232000332-3030202231102233-2111133002332002",
       "registry_path": "docs/guides/data-sources--dns_load_balancer--reference--group-001.md",
@@ -1417,7 +1417,7 @@
       "category": "dns",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -1429,7 +1429,7 @@
       "path": "documentation/data-sources/dns_load_balancer/properties/rule_list/rules/ip_prefix_list/index.md",
       "product": "distributed-cloud",
       "provider_name": "dns_load_balancer",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-1032323121031133-1120303221210112-1202030322120300-0010021123012330-1003020210000013-0102110010100233-1112000203320013-1003331201230022",
       "registry_path": "docs/guides/data-sources--dns_load_balancer--reference--group-001.md",
@@ -1486,7 +1486,7 @@
       "category": "dns",
       "child_ids": ["xcsh-docs:data-sources:dns_load_balancer:properties:rule_list:rules:ip_prefix_set:prefix_sets"],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -1498,7 +1498,7 @@
       "path": "documentation/data-sources/dns_load_balancer/properties/rule_list/rules/ip_prefix_set/index.md",
       "product": "distributed-cloud",
       "provider_name": "dns_load_balancer",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-3103121010111300-1213220310221000-3302231030011231-0201211121312112-2313302320301132-1233021113113323-3312203020011213-3203213321121031",
       "registry_path": "docs/guides/data-sources--dns_load_balancer--reference--group-001.md",
@@ -1555,7 +1555,7 @@
       "category": "dns",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -1567,7 +1567,7 @@
       "path": "documentation/data-sources/dns_load_balancer/properties/rule_list/rules/ip_prefix_set/prefix_sets/index.md",
       "product": "distributed-cloud",
       "provider_name": "dns_load_balancer",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-3220312110010010-3303030100022101-1113230110332302-2213013322303121-0113001002230211-0231212231210000-2023320212213100-3130313010122302",
       "registry_path": "docs/guides/data-sources--dns_load_balancer--reference--group-001.md",
@@ -1666,7 +1666,7 @@
       "category": "dns",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -1678,7 +1678,7 @@
       "path": "documentation/data-sources/dns_load_balancer/properties/rule_list/rules/pool/index.md",
       "product": "distributed-cloud",
       "provider_name": "dns_load_balancer",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-0112111313220331-1330313331010211-0132030000331111-0010130323332331-2312213111123132-0033311200200110-2322101310110300-1302122122212323",
       "registry_path": "docs/guides/data-sources--dns_load_balancer--reference--group-001.md",
@@ -1749,7 +1749,7 @@
       "category": "dns",
       "child_ids": ["xcsh-docs:data-sources:dns_load_balancer:example:data-source"],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -1761,7 +1761,7 @@
       "path": "documentation/data-sources/dns_load_balancer/examples/index.md",
       "product": "distributed-cloud",
       "provider_name": "dns_load_balancer",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-1103031313232103-1010000131011003-3223220023303122-0210012223013222-2333202231003212-0333030130323003-3131202221232220-1110102010021310",
       "registry_path": "docs/guides/data-sources--dns_load_balancer--examples--group-001.md",
@@ -1789,7 +1789,7 @@
       "category": "dns",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -1808,7 +1808,7 @@
       "path": "documentation/data-sources/dns_load_balancer/examples/data-source/index.md",
       "product": "distributed-cloud",
       "provider_name": "dns_load_balancer",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-2103302200311321-3132331213200101-0001232221121130-1203301012232001-3310022231002033-3112211212300321-3022120102202100-3302003033331103",
       "registry_path": "docs/guides/data-sources--dns_load_balancer--examples--group-001.md",

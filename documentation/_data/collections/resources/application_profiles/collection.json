@@ -1972,7 +1972,7 @@
         "xcsh-docs:resources:application_profiles:timeouts"
       ],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -1984,7 +1984,7 @@
       "path": "documentation/resources/application_profiles/index.md",
       "product": "distributed-cloud",
       "provider_name": "application_profiles",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "resources",
       "registry_anchor": "canonical-0000323322010330-0102233213231021-3032332212013010-3121121333300110-2011320110200320-2330030330011323-3130301212021020-3133003102002130",
       "registry_path": "docs/resources/application_profiles.md",
@@ -2019,7 +2019,7 @@
         "xcsh-docs:resources:application_profiles:properties:virtual_server"
       ],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -2031,7 +2031,7 @@
       "path": "documentation/resources/application_profiles/properties/index.md",
       "product": "distributed-cloud",
       "provider_name": "application_profiles",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "resources",
       "registry_anchor": "canonical-1000000221200332-2332020132023330-1113003211333221-0213203120201020-3120301011022333-3130031323012121-0123000301113121-2121031301023112",
       "registry_path": "docs/guides/resources--application_profiles--reference--group-001.md",
@@ -2426,7 +2426,7 @@
         "xcsh-docs:resources:application_profiles:properties:advanced_tcp_profile:enable_tcp_advanced_profile"
       ],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -2438,7 +2438,7 @@
       "path": "documentation/resources/application_profiles/properties/advanced_tcp_profile/index.md",
       "product": "distributed-cloud",
       "provider_name": "application_profiles",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "resources",
       "registry_anchor": "canonical-0102012130211220-0033013023011312-0020312201233333-0110230303020102-0021300320132223-2232021231133230-0130333111122200-0300200330323322",
       "registry_path": "docs/guides/resources--application_profiles--reference--group-001.md",
@@ -2512,7 +2512,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -2524,7 +2524,7 @@
       "path": "documentation/resources/application_profiles/properties/advanced_tcp_profile/disable_tcp_advanced_profile/index.md",
       "product": "distributed-cloud",
       "provider_name": "application_profiles",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "resources",
       "registry_anchor": "canonical-0201221302013100-2013130322130320-1200303113112222-1312203330331102-2031323221233100-0000021120300111-3303331233222322-3330311103011330",
       "registry_path": "docs/guides/resources--application_profiles--reference--group-001.md",
@@ -2552,7 +2552,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -2564,7 +2564,7 @@
       "path": "documentation/resources/application_profiles/properties/advanced_tcp_profile/enable_tcp_advanced_profile/index.md",
       "product": "distributed-cloud",
       "provider_name": "application_profiles",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "resources",
       "registry_anchor": "canonical-0100120012303011-1032233223333112-2201311322200322-0132213030222110-0322131323122212-0010221001100313-1133303313112133-1222010102330302",
       "registry_path": "docs/guides/resources--application_profiles--reference--group-001.md",
@@ -2595,7 +2595,7 @@
         "xcsh-docs:resources:application_profiles:properties:ddos_profile:enable_ddos_mitigation"
       ],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -2607,7 +2607,7 @@
       "path": "documentation/resources/application_profiles/properties/ddos_profile/index.md",
       "product": "distributed-cloud",
       "provider_name": "application_profiles",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "resources",
       "registry_anchor": "canonical-2202332031223123-2301302010321012-1011102311002222-1100030332313031-3311332110021011-2231133020100211-2122201323020110-1321212330120300",
       "registry_path": "docs/guides/resources--application_profiles--reference--group-001.md",
@@ -2681,7 +2681,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -2693,7 +2693,7 @@
       "path": "documentation/resources/application_profiles/properties/ddos_profile/disable_ddos_mitigation/index.md",
       "product": "distributed-cloud",
       "provider_name": "application_profiles",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "resources",
       "registry_anchor": "canonical-2221001322213022-1103211321113101-1030110302100001-2123120100221211-3203131103303331-1003200210030103-2300322223030120-0212020131300221",
       "registry_path": "docs/guides/resources--application_profiles--reference--group-001.md",
@@ -2721,7 +2721,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -2733,7 +2733,7 @@
       "path": "documentation/resources/application_profiles/properties/ddos_profile/enable_ddos_mitigation/index.md",
       "product": "distributed-cloud",
       "provider_name": "application_profiles",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "resources",
       "registry_anchor": "canonical-3012211310012110-3310211322133123-1010031131031103-3023210111312002-3021122233030130-2013113200222011-2123123110111001-1010111110221022",
       "registry_path": "docs/guides/resources--application_profiles--reference--group-001.md",
@@ -2761,7 +2761,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -2773,7 +2773,7 @@
       "path": "documentation/resources/application_profiles/properties/irules/index.md",
       "product": "distributed-cloud",
       "provider_name": "application_profiles",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "resources",
       "registry_anchor": "canonical-0333211213222003-2111200010301230-0111200020033200-1110123010330321-0030333121010031-2213122011223020-1010213020122303-1230123111121033",
       "registry_path": "docs/guides/resources--application_profiles--reference--group-001.md",
@@ -2872,7 +2872,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -2884,7 +2884,7 @@
       "path": "documentation/resources/application_profiles/properties/timeouts/index.md",
       "product": "distributed-cloud",
       "provider_name": "application_profiles",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "resources",
       "registry_anchor": "canonical-2100312103022331-2033132121021132-3011311223212110-1112030031330113-3322301201010000-3123302212130112-2110221332213112-2221112310232000",
       "registry_path": "docs/guides/resources--application_profiles--reference--group-001.md",
@@ -2993,7 +2993,7 @@
         "xcsh-docs:resources:application_profiles:properties:virtual_server:virtual_server_state"
       ],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -3005,7 +3005,7 @@
       "path": "documentation/resources/application_profiles/properties/virtual_server/index.md",
       "product": "distributed-cloud",
       "provider_name": "application_profiles",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "resources",
       "registry_anchor": "canonical-2022300032020022-3032121011332332-1323022132101011-3131133312011330-0010301011103100-3020120030331310-3302110001211033-0012330101021312",
       "registry_path": "docs/guides/resources--application_profiles--reference--group-001.md",
@@ -3176,7 +3176,7 @@
       "schema_path": ["virtual_server"],
       "sections": [
         {
-          "aliases": ["access profile", "authentication", "credential setup", "credentials"],
+          "aliases": ["access profile"],
           "anchor": "section",
           "description": "Specifies an access policy that determines the authentication rules and access controls applied to user sessions for this virtual server.",
           "document_id": "xcsh-docs:resources:application_profiles:properties:virtual_server:access_profile",
@@ -4104,14 +4104,14 @@
       }
     },
     {
-      "aliases": ["authentication", "credential setup", "credentials", "virtual server access profile"],
+      "aliases": ["virtual server access profile"],
       "body_bytes": 6818,
       "body_sha256": "sha256:5cfd9df6cfcf31f0c4cf7a8c6610f9c705ea60f4d175771154cca8d33bdc0939",
       "capabilities": [],
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -4123,7 +4123,7 @@
       "path": "documentation/resources/application_profiles/properties/virtual_server/access_profile/index.md",
       "product": "distributed-cloud",
       "provider_name": "application_profiles",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "resources",
       "registry_anchor": "canonical-1103220102313320-1103021311012130-1222022231332111-2130321202133312-3132210032030313-2232033220322030-3132200001032210-3301032131013002",
       "registry_path": "docs/guides/resources--application_profiles--reference--group-001.md",
@@ -4225,7 +4225,7 @@
         "xcsh-docs:resources:application_profiles:properties:virtual_server:address_translation:address_translation_enable"
       ],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -4237,7 +4237,7 @@
       "path": "documentation/resources/application_profiles/properties/virtual_server/address_translation/index.md",
       "product": "distributed-cloud",
       "provider_name": "application_profiles",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "resources",
       "registry_anchor": "canonical-3021112011013001-3231012202002003-2211233300032133-1313022100111002-1312313102121203-1032312311312031-2201100330021010-0102103013113132",
       "registry_path": "docs/guides/resources--application_profiles--reference--group-001.md",
@@ -4311,7 +4311,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -4323,7 +4323,7 @@
       "path": "documentation/resources/application_profiles/properties/virtual_server/address_translation/address_translation_disable/index.md",
       "product": "distributed-cloud",
       "provider_name": "application_profiles",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "resources",
       "registry_anchor": "canonical-2000122210122111-0121133123022303-3113103102233210-2320301213121222-0213023033210230-3201210133032233-1310202323213311-2321331201032302",
       "registry_path": "docs/guides/resources--application_profiles--reference--group-001.md",
@@ -4351,7 +4351,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -4363,7 +4363,7 @@
       "path": "documentation/resources/application_profiles/properties/virtual_server/address_translation/address_translation_enable/index.md",
       "product": "distributed-cloud",
       "provider_name": "application_profiles",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "resources",
       "registry_anchor": "canonical-3012201011311202-0012320220102023-1003023003223210-1132033230031311-0311321131123233-1210111000312012-0322110301130230-1203113031212032",
       "registry_path": "docs/guides/resources--application_profiles--reference--group-001.md",
@@ -4395,7 +4395,7 @@
         "xcsh-docs:resources:application_profiles:properties:virtual_server:auto_last_hop:auto_last_hop_enable"
       ],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -4407,7 +4407,7 @@
       "path": "documentation/resources/application_profiles/properties/virtual_server/auto_last_hop/index.md",
       "product": "distributed-cloud",
       "provider_name": "application_profiles",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "resources",
       "registry_anchor": "canonical-0121310003002130-3003332201223302-1200332002132003-2333323132231110-0132023021202330-1302303220222033-1033311330201233-3023023232102123",
       "registry_path": "docs/guides/resources--application_profiles--reference--group-002.md",
@@ -4527,7 +4527,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -4539,7 +4539,7 @@
       "path": "documentation/resources/application_profiles/properties/virtual_server/auto_last_hop/auto_last_hop_default/index.md",
       "product": "distributed-cloud",
       "provider_name": "application_profiles",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "resources",
       "registry_anchor": "canonical-3300231123130002-0223100030003331-3103032001323132-0123301233320131-2132201322230132-1322110221110023-3231131230133312-0213310310001103",
       "registry_path": "docs/guides/resources--application_profiles--reference--group-002.md",
@@ -4567,7 +4567,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -4579,7 +4579,7 @@
       "path": "documentation/resources/application_profiles/properties/virtual_server/auto_last_hop/auto_last_hop_disable/index.md",
       "product": "distributed-cloud",
       "provider_name": "application_profiles",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "resources",
       "registry_anchor": "canonical-1211230133221202-1200300331133130-1322013030101131-2100203101000011-0210311323233110-2031310113033322-0121010300020232-1210322123313203",
       "registry_path": "docs/guides/resources--application_profiles--reference--group-002.md",
@@ -4607,7 +4607,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -4619,7 +4619,7 @@
       "path": "documentation/resources/application_profiles/properties/virtual_server/auto_last_hop/auto_last_hop_enable/index.md",
       "product": "distributed-cloud",
       "provider_name": "application_profiles",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "resources",
       "registry_anchor": "canonical-0031223321131311-3301230011013221-3321012303232010-2123203031313020-1201001323030230-3020232230122012-1100313210121023-3011132112200321",
       "registry_path": "docs/guides/resources--application_profiles--reference--group-002.md",
@@ -4647,7 +4647,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -4659,7 +4659,7 @@
       "path": "documentation/resources/application_profiles/properties/virtual_server/clone_pool_client/index.md",
       "product": "distributed-cloud",
       "provider_name": "application_profiles",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "resources",
       "registry_anchor": "canonical-1021302330213202-2303301231320102-2211323122010333-2021300332322031-3212031203232320-0311110303022111-1313022210003033-3300113110112122",
       "registry_path": "docs/guides/resources--application_profiles--reference--group-002.md",
@@ -4758,7 +4758,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -4770,7 +4770,7 @@
       "path": "documentation/resources/application_profiles/properties/virtual_server/clone_pool_server/index.md",
       "product": "distributed-cloud",
       "provider_name": "application_profiles",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "resources",
       "registry_anchor": "canonical-0110030313223221-0212311332031102-3220000320023132-0113100203203210-2300323131111132-1320212032201203-2100233233233312-1111220311120132",
       "registry_path": "docs/guides/resources--application_profiles--reference--group-002.md",
@@ -4877,7 +4877,7 @@
         "xcsh-docs:resources:application_profiles:properties:virtual_server:connection_rate_limit_mode:per_virtual_server_source_destination_address"
       ],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -4889,7 +4889,7 @@
       "path": "documentation/resources/application_profiles/properties/virtual_server/connection_rate_limit_mode/index.md",
       "product": "distributed-cloud",
       "provider_name": "application_profiles",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "resources",
       "registry_anchor": "canonical-1210022010230202-1323323121231021-0100301113232321-2302233310331221-1202213321330303-3233312320100003-0332120123013031-1311100000320202",
       "registry_path": "docs/guides/resources--application_profiles--reference--group-002.md",
@@ -5357,7 +5357,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -5369,7 +5369,7 @@
       "path": "documentation/resources/application_profiles/properties/virtual_server/connection_rate_limit_mode/per_destination_address/index.md",
       "product": "distributed-cloud",
       "provider_name": "application_profiles",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "resources",
       "registry_anchor": "canonical-0311220212331211-3011202012101113-0232011333222301-2203212100122311-0131333201111200-3210010320312213-1012131321030100-2210101133000220",
       "registry_path": "docs/guides/resources--application_profiles--reference--group-002.md",
@@ -5417,7 +5417,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -5429,7 +5429,7 @@
       "path": "documentation/resources/application_profiles/properties/virtual_server/connection_rate_limit_mode/per_source_address/index.md",
       "product": "distributed-cloud",
       "provider_name": "application_profiles",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "resources",
       "registry_anchor": "canonical-3112311033110011-0231210000133330-2311033311023222-3312112003323111-0211331222300131-2100100002310130-3022112310120230-1310100121122011",
       "registry_path": "docs/guides/resources--application_profiles--reference--group-002.md",
@@ -5472,7 +5472,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -5484,7 +5484,7 @@
       "path": "documentation/resources/application_profiles/properties/virtual_server/connection_rate_limit_mode/per_source_destination_address/index.md",
       "product": "distributed-cloud",
       "provider_name": "application_profiles",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "resources",
       "registry_anchor": "canonical-0112133010331231-3221202200001131-0320310312102001-2223300122300312-2222302002211231-3033121312002302-0330102121121023-2331210003103123",
       "registry_path": "docs/guides/resources--application_profiles--reference--group-002.md",
@@ -5551,7 +5551,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -5563,7 +5563,7 @@
       "path": "documentation/resources/application_profiles/properties/virtual_server/connection_rate_limit_mode/per_virtual_server/index.md",
       "product": "distributed-cloud",
       "provider_name": "application_profiles",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "resources",
       "registry_anchor": "canonical-0002110030200031-3021230220301233-2301020300210212-2012003220332212-2101023222030132-2332012301011100-1321330200112001-1110103230220112",
       "registry_path": "docs/guides/resources--application_profiles--reference--group-002.md",
@@ -5591,7 +5591,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -5603,7 +5603,7 @@
       "path": "documentation/resources/application_profiles/properties/virtual_server/connection_rate_limit_mode/per_virtual_server_destination_address/index.md",
       "product": "distributed-cloud",
       "provider_name": "application_profiles",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "resources",
       "registry_anchor": "canonical-0301121332212300-0113023232303112-2333110211120123-2123112112111322-2120111311301310-3012013311220121-1203221022201203-1231323231200220",
       "registry_path": "docs/guides/resources--application_profiles--reference--group-002.md",
@@ -5651,7 +5651,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -5663,7 +5663,7 @@
       "path": "documentation/resources/application_profiles/properties/virtual_server/connection_rate_limit_mode/per_virtual_server_source_address/index.md",
       "product": "distributed-cloud",
       "provider_name": "application_profiles",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "resources",
       "registry_anchor": "canonical-2120210301030312-0201031221120200-1030032320011313-3212303321331232-1011211111003121-3001112002001300-0312113022222301-3110233212220201",
       "registry_path": "docs/guides/resources--application_profiles--reference--group-002.md",
@@ -5711,7 +5711,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -5723,7 +5723,7 @@
       "path": "documentation/resources/application_profiles/properties/virtual_server/connection_rate_limit_mode/per_virtual_server_source_destination_address/index.md",
       "product": "distributed-cloud",
       "provider_name": "application_profiles",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "resources",
       "registry_anchor": "canonical-0113212332311100-1310301131000332-1202003101033103-2322132100123101-0101000111312210-2220101121121130-3032010102130123-2011222003213122",
       "registry_path": "docs/guides/resources--application_profiles--reference--group-002.md",
@@ -5790,7 +5790,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -5802,7 +5802,7 @@
       "path": "documentation/resources/application_profiles/properties/virtual_server/default_persistence_profile/index.md",
       "product": "distributed-cloud",
       "provider_name": "application_profiles",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "resources",
       "registry_anchor": "canonical-1130200120303132-1310331020320222-2223332303331002-1001311303211331-1130223022103331-3332031011100321-0310011023011303-0330123013203021",
       "registry_path": "docs/guides/resources--application_profiles--reference--group-002.md",
@@ -5901,7 +5901,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -5913,7 +5913,7 @@
       "path": "documentation/resources/application_profiles/properties/virtual_server/default_pool/index.md",
       "product": "distributed-cloud",
       "provider_name": "application_profiles",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "resources",
       "registry_anchor": "canonical-0220212320310233-0020030230010211-1101200002230023-3233033023031122-2320003100323101-1300230000023000-1322202320211120-0101202210330311",
       "registry_path": "docs/guides/resources--application_profiles--reference--group-002.md",
@@ -6012,7 +6012,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -6024,7 +6024,7 @@
       "path": "documentation/resources/application_profiles/properties/virtual_server/fallback_persistence_profile/index.md",
       "product": "distributed-cloud",
       "provider_name": "application_profiles",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "resources",
       "registry_anchor": "canonical-3103321022122021-1320313333200212-3310120231330011-3010133213120203-2222103302302221-3011000212110223-0013202223013102-1230032013233120",
       "registry_path": "docs/guides/resources--application_profiles--reference--group-002.md",
@@ -6123,7 +6123,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -6135,7 +6135,7 @@
       "path": "documentation/resources/application_profiles/properties/virtual_server/fix_profile/index.md",
       "product": "distributed-cloud",
       "provider_name": "application_profiles",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "resources",
       "registry_anchor": "canonical-0300032301211222-3312312313011013-2022223230130323-3110133300220133-1121320101021121-2303320221132211-1112303221011231-2020012203010100",
       "registry_path": "docs/guides/resources--application_profiles--reference--group-002.md",
@@ -6247,7 +6247,7 @@
         "xcsh-docs:resources:application_profiles:properties:virtual_server:http:websocket_server_profile"
       ],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -6259,7 +6259,7 @@
       "path": "documentation/resources/application_profiles/properties/virtual_server/http/index.md",
       "product": "distributed-cloud",
       "provider_name": "application_profiles",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "resources",
       "registry_anchor": "canonical-2132220100213310-0202210200313002-0313022312321210-1221030110101102-3203001231322331-0123200300000220-2000103122103301-0330030321001322",
       "registry_path": "docs/guides/resources--application_profiles--reference--group-002.md",
@@ -6456,7 +6456,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -6468,7 +6468,7 @@
       "path": "documentation/resources/application_profiles/properties/virtual_server/http/client_ssl_profile/index.md",
       "product": "distributed-cloud",
       "provider_name": "application_profiles",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "resources",
       "registry_anchor": "canonical-3130120121301111-0232122113022331-0133313310022200-2330232310032203-1332022200120302-1321130233030333-0131333010323133-2230331203221003",
       "registry_path": "docs/guides/resources--application_profiles--reference--group-002.md",
@@ -6567,7 +6567,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -6579,7 +6579,7 @@
       "path": "documentation/resources/application_profiles/properties/virtual_server/http/http2_client_profile/index.md",
       "product": "distributed-cloud",
       "provider_name": "application_profiles",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "resources",
       "registry_anchor": "canonical-0332330302121333-0200202323301323-2011232011103020-2101231222032323-2011023122121013-2201030101010301-0301300001200132-0033123212100321",
       "registry_path": "docs/guides/resources--application_profiles--reference--group-002.md",
@@ -6678,7 +6678,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -6690,7 +6690,7 @@
       "path": "documentation/resources/application_profiles/properties/virtual_server/http/http2_server_profile/index.md",
       "product": "distributed-cloud",
       "provider_name": "application_profiles",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "resources",
       "registry_anchor": "canonical-0022331112021010-3110203310013002-0212322031113123-3313230120011121-0103101002003131-0033200323322031-0033010030130201-3323002202213230",
       "registry_path": "docs/guides/resources--application_profiles--reference--group-002.md",
@@ -6789,7 +6789,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -6801,7 +6801,7 @@
       "path": "documentation/resources/application_profiles/properties/virtual_server/http/http_client_profile/index.md",
       "product": "distributed-cloud",
       "provider_name": "application_profiles",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "resources",
       "registry_anchor": "canonical-2122303303313200-2013130123113121-1031102010022023-1131131323001322-2322123310020201-0021023332013321-2103212212003311-1320211331131022",
       "registry_path": "docs/guides/resources--application_profiles--reference--group-002.md",
@@ -6900,7 +6900,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -6912,7 +6912,7 @@
       "path": "documentation/resources/application_profiles/properties/virtual_server/http/http_server_profile/index.md",
       "product": "distributed-cloud",
       "provider_name": "application_profiles",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "resources",
       "registry_anchor": "canonical-2322322120023310-2331230320202223-2321331132010123-1120303200320012-2132131011333223-0311000303222001-0111212033133333-2113032201233303",
       "registry_path": "docs/guides/resources--application_profiles--reference--group-002.md",
@@ -7011,7 +7011,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -7023,7 +7023,7 @@
       "path": "documentation/resources/application_profiles/properties/virtual_server/http/ocsp_profile/index.md",
       "product": "distributed-cloud",
       "provider_name": "application_profiles",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "resources",
       "registry_anchor": "canonical-0212200100013300-2010330003202013-2113300023302120-3201222310221023-0313220131110103-1312321001211122-3021120111312003-3200020321033213",
       "registry_path": "docs/guides/resources--application_profiles--reference--group-002.md",
@@ -7122,7 +7122,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -7134,7 +7134,7 @@
       "path": "documentation/resources/application_profiles/properties/virtual_server/http/server_ssl_profile/index.md",
       "product": "distributed-cloud",
       "provider_name": "application_profiles",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "resources",
       "registry_anchor": "canonical-3232011302112010-0200312011113331-3101111203223133-3020113313300300-0023113130010221-0133232012023323-1002302300221201-1331300202001202",
       "registry_path": "docs/guides/resources--application_profiles--reference--group-002.md",
@@ -7233,7 +7233,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -7245,7 +7245,7 @@
       "path": "documentation/resources/application_profiles/properties/virtual_server/http/stream_profile/index.md",
       "product": "distributed-cloud",
       "provider_name": "application_profiles",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "resources",
       "registry_anchor": "canonical-2003122102331011-0102223311211013-1113200013103313-3101102121131201-2101310003131021-3232021132033212-0313132302121023-2222132212203322",
       "registry_path": "docs/guides/resources--application_profiles--reference--group-002.md",
@@ -7344,7 +7344,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -7356,7 +7356,7 @@
       "path": "documentation/resources/application_profiles/properties/virtual_server/http/tcp_client_profile/index.md",
       "product": "distributed-cloud",
       "provider_name": "application_profiles",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "resources",
       "registry_anchor": "canonical-2223311101321210-2223313131302002-2310010033333222-2122013110101211-1021221123210103-1210221022002331-2101300030310020-2331210030200231",
       "registry_path": "docs/guides/resources--application_profiles--reference--group-002.md",
@@ -7455,7 +7455,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -7467,7 +7467,7 @@
       "path": "documentation/resources/application_profiles/properties/virtual_server/http/tcp_server_profile/index.md",
       "product": "distributed-cloud",
       "provider_name": "application_profiles",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "resources",
       "registry_anchor": "canonical-3313330121201111-0233011211100030-0312301221013133-0221322322010322-0221231321001010-2010112300003100-1220230110101232-1323330130100112",
       "registry_path": "docs/guides/resources--application_profiles--reference--group-002.md",
@@ -7566,7 +7566,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -7578,7 +7578,7 @@
       "path": "documentation/resources/application_profiles/properties/virtual_server/http/websocket_client_profile/index.md",
       "product": "distributed-cloud",
       "provider_name": "application_profiles",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "resources",
       "registry_anchor": "canonical-2103003320213123-2333013120322010-2312232213313300-1031221031100011-3332121220121033-0110233202012310-0011130201222110-1123332212132030",
       "registry_path": "docs/guides/resources--application_profiles--reference--group-002.md",
@@ -7677,7 +7677,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -7689,7 +7689,7 @@
       "path": "documentation/resources/application_profiles/properties/virtual_server/http/websocket_server_profile/index.md",
       "product": "distributed-cloud",
       "provider_name": "application_profiles",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "resources",
       "registry_anchor": "canonical-2133310101022000-1330312111332132-3210102331201100-1113232033330012-0200001232322231-1010212032131322-0301022332301131-3030020121130200",
       "registry_path": "docs/guides/resources--application_profiles--reference--group-002.md",
@@ -7798,7 +7798,7 @@
         "xcsh-docs:resources:application_profiles:properties:virtual_server:http3:udp_server_profile"
       ],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -7810,7 +7810,7 @@
       "path": "documentation/resources/application_profiles/properties/virtual_server/http3/index.md",
       "product": "distributed-cloud",
       "provider_name": "application_profiles",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "resources",
       "registry_anchor": "canonical-0003212332012203-3230001001122323-2300133332232210-3333200122133222-1012320031313330-3320220130122311-1230120221321232-2013131233111132",
       "registry_path": "docs/guides/resources--application_profiles--reference--group-002.md",
@@ -7965,7 +7965,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -7977,7 +7977,7 @@
       "path": "documentation/resources/application_profiles/properties/virtual_server/http3/client_ssl_profile/index.md",
       "product": "distributed-cloud",
       "provider_name": "application_profiles",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "resources",
       "registry_anchor": "canonical-1013312311301220-1033133010113103-2312213023210210-1011131133330212-0333233011331131-2323002012312101-3003233002300221-0011220013121002",
       "registry_path": "docs/guides/resources--application_profiles--reference--group-002.md",
@@ -8076,7 +8076,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -8088,7 +8088,7 @@
       "path": "documentation/resources/application_profiles/properties/virtual_server/http3/http3_profile/index.md",
       "product": "distributed-cloud",
       "provider_name": "application_profiles",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "resources",
       "registry_anchor": "canonical-0330103031220011-2233020132233102-3122223210303012-0113012332332203-2012302030003300-2232201011112130-0001003312201001-1332113123333323",
       "registry_path": "docs/guides/resources--application_profiles--reference--group-002.md",
@@ -8187,7 +8187,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -8199,7 +8199,7 @@
       "path": "documentation/resources/application_profiles/properties/virtual_server/http3/http_client_profile/index.md",
       "product": "distributed-cloud",
       "provider_name": "application_profiles",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "resources",
       "registry_anchor": "canonical-0110323101223223-0010110032230301-0033333001003323-2301130020131120-1231020331020222-0332330333033103-1020112033001230-3210003311322323",
       "registry_path": "docs/guides/resources--application_profiles--reference--group-002.md",
@@ -8298,7 +8298,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -8310,7 +8310,7 @@
       "path": "documentation/resources/application_profiles/properties/virtual_server/http3/http_server_profile/index.md",
       "product": "distributed-cloud",
       "provider_name": "application_profiles",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "resources",
       "registry_anchor": "canonical-0220231220211221-1300100113032203-1202030023031212-3101012201312312-0221100301100212-0101010110231132-1003301322301023-0020200203102112",
       "registry_path": "docs/guides/resources--application_profiles--reference--group-002.md",
@@ -8409,7 +8409,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -8421,7 +8421,7 @@
       "path": "documentation/resources/application_profiles/properties/virtual_server/http3/quic_profile/index.md",
       "product": "distributed-cloud",
       "provider_name": "application_profiles",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "resources",
       "registry_anchor": "canonical-0310002212103133-2323121222001013-1130122010313012-3002210333000020-2312022322312202-0112101012133013-3332302221010313-1300310211101012",
       "registry_path": "docs/guides/resources--application_profiles--reference--group-002.md",
@@ -8520,7 +8520,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -8532,7 +8532,7 @@
       "path": "documentation/resources/application_profiles/properties/virtual_server/http3/server_ssl_profile/index.md",
       "product": "distributed-cloud",
       "provider_name": "application_profiles",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "resources",
       "registry_anchor": "canonical-0100301033103101-0132322221003231-0130012010003121-2100011022032313-1300221101232323-3021101001012203-3000301233212002-2110021113331313",
       "registry_path": "docs/guides/resources--application_profiles--reference--group-002.md",
@@ -8631,7 +8631,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -8643,7 +8643,7 @@
       "path": "documentation/resources/application_profiles/properties/virtual_server/http3/tcp_server_profile/index.md",
       "product": "distributed-cloud",
       "provider_name": "application_profiles",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "resources",
       "registry_anchor": "canonical-1001310203000122-0311102113233113-3302310000201022-0200230311200102-1233203113320233-0132232313301222-3211300233232121-0102200101100012",
       "registry_path": "docs/guides/resources--application_profiles--reference--group-003.md",
@@ -8742,7 +8742,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -8754,7 +8754,7 @@
       "path": "documentation/resources/application_profiles/properties/virtual_server/http3/udp_client_profile/index.md",
       "product": "distributed-cloud",
       "provider_name": "application_profiles",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "resources",
       "registry_anchor": "canonical-3022120130332131-3313210302001322-3231201032200020-1312101002032320-1200300302023322-3130201220303033-0122013032031230-2112001220310130",
       "registry_path": "docs/guides/resources--application_profiles--reference--group-003.md",
@@ -8853,7 +8853,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -8865,7 +8865,7 @@
       "path": "documentation/resources/application_profiles/properties/virtual_server/http3/udp_server_profile/index.md",
       "product": "distributed-cloud",
       "provider_name": "application_profiles",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "resources",
       "registry_anchor": "canonical-1001201132330211-3022323222212131-0312122213332223-0022033331023200-1322321300101231-3303303132220203-0323330033312310-0211000013331213",
       "registry_path": "docs/guides/resources--application_profiles--reference--group-003.md",
@@ -8977,7 +8977,7 @@
         "xcsh-docs:resources:application_profiles:properties:virtual_server:https:websocket_server_profile"
       ],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -8989,7 +8989,7 @@
       "path": "documentation/resources/application_profiles/properties/virtual_server/https/index.md",
       "product": "distributed-cloud",
       "provider_name": "application_profiles",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "resources",
       "registry_anchor": "canonical-0112001023212212-3331102203112201-3201210133100333-3300332211003123-1330222323020123-1020313322221200-1000132310132223-1130222102211031",
       "registry_path": "docs/guides/resources--application_profiles--reference--group-003.md",
@@ -9186,7 +9186,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -9198,7 +9198,7 @@
       "path": "documentation/resources/application_profiles/properties/virtual_server/https/client_ssl_profile/index.md",
       "product": "distributed-cloud",
       "provider_name": "application_profiles",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "resources",
       "registry_anchor": "canonical-0122200003233301-3311211133001102-3103233332021321-0232000221020331-1000213223212230-3220313123122130-2332212200120320-0313001001103301",
       "registry_path": "docs/guides/resources--application_profiles--reference--group-003.md",
@@ -9297,7 +9297,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -9309,7 +9309,7 @@
       "path": "documentation/resources/application_profiles/properties/virtual_server/https/http2_client_profile/index.md",
       "product": "distributed-cloud",
       "provider_name": "application_profiles",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "resources",
       "registry_anchor": "canonical-0203301111203233-3202103203121002-0010112113330300-3100300003203113-3210120202012123-3100113221120002-2200223020221303-0211310322130123",
       "registry_path": "docs/guides/resources--application_profiles--reference--group-003.md",
@@ -9408,7 +9408,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -9420,7 +9420,7 @@
       "path": "documentation/resources/application_profiles/properties/virtual_server/https/http2_server_profile/index.md",
       "product": "distributed-cloud",
       "provider_name": "application_profiles",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "resources",
       "registry_anchor": "canonical-1132311103330130-1222222201100031-2313002121311120-3101210200020120-3002120332022011-2300231020301001-0312203101301233-2303010131110231",
       "registry_path": "docs/guides/resources--application_profiles--reference--group-003.md",
@@ -9519,7 +9519,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -9531,7 +9531,7 @@
       "path": "documentation/resources/application_profiles/properties/virtual_server/https/http_client_profile/index.md",
       "product": "distributed-cloud",
       "provider_name": "application_profiles",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "resources",
       "registry_anchor": "canonical-3212010031101123-1131101022132221-2211033221011012-0033101123321221-0020131203013333-3333213132110323-0221100301132011-1321322002030113",
       "registry_path": "docs/guides/resources--application_profiles--reference--group-003.md",
@@ -9630,7 +9630,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -9642,7 +9642,7 @@
       "path": "documentation/resources/application_profiles/properties/virtual_server/https/http_server_profile/index.md",
       "product": "distributed-cloud",
       "provider_name": "application_profiles",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "resources",
       "registry_anchor": "canonical-1122030322310031-0231311121030033-1302200331211212-0333220201121310-1210223321101021-0222202330113220-0221202102111003-1233230322202223",
       "registry_path": "docs/guides/resources--application_profiles--reference--group-003.md",
@@ -9741,7 +9741,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -9753,7 +9753,7 @@
       "path": "documentation/resources/application_profiles/properties/virtual_server/https/ocsp_profile/index.md",
       "product": "distributed-cloud",
       "provider_name": "application_profiles",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "resources",
       "registry_anchor": "canonical-3232210112131231-2320022120332210-3322123003301021-2111110123131030-2101301231333021-2232331231321203-3321222020010312-2320211131133203",
       "registry_path": "docs/guides/resources--application_profiles--reference--group-003.md",
@@ -9852,7 +9852,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -9864,7 +9864,7 @@
       "path": "documentation/resources/application_profiles/properties/virtual_server/https/server_ssl_profile/index.md",
       "product": "distributed-cloud",
       "provider_name": "application_profiles",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "resources",
       "registry_anchor": "canonical-3210100200202213-3031331313010323-0132303233310220-2032230221331212-1102102133301311-2123021010322233-1231122120102031-3013320331102233",
       "registry_path": "docs/guides/resources--application_profiles--reference--group-003.md",
@@ -9963,7 +9963,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -9975,7 +9975,7 @@
       "path": "documentation/resources/application_profiles/properties/virtual_server/https/stream_profile/index.md",
       "product": "distributed-cloud",
       "provider_name": "application_profiles",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "resources",
       "registry_anchor": "canonical-3212022302301301-3103022201102322-3321120203323221-2023331133030122-0110010301200323-3321303211010033-0202220000313202-2322031102333330",
       "registry_path": "docs/guides/resources--application_profiles--reference--group-003.md",
@@ -10074,7 +10074,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -10086,7 +10086,7 @@
       "path": "documentation/resources/application_profiles/properties/virtual_server/https/tcp_client_profile/index.md",
       "product": "distributed-cloud",
       "provider_name": "application_profiles",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "resources",
       "registry_anchor": "canonical-3331122100212103-2103303202311112-2323020330102212-3020211133121232-2333002231201330-3111113212023302-1330211031211310-2112013332011103",
       "registry_path": "docs/guides/resources--application_profiles--reference--group-003.md",
@@ -10185,7 +10185,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -10197,7 +10197,7 @@
       "path": "documentation/resources/application_profiles/properties/virtual_server/https/tcp_server_profile/index.md",
       "product": "distributed-cloud",
       "provider_name": "application_profiles",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "resources",
       "registry_anchor": "canonical-0022210002333001-3112222323110013-3020033033022233-1111120310313331-1110213213313203-1331130321003201-3100013203212102-1123123203203132",
       "registry_path": "docs/guides/resources--application_profiles--reference--group-003.md",
@@ -10296,7 +10296,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -10308,7 +10308,7 @@
       "path": "documentation/resources/application_profiles/properties/virtual_server/https/websocket_client_profile/index.md",
       "product": "distributed-cloud",
       "provider_name": "application_profiles",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "resources",
       "registry_anchor": "canonical-1222221330201310-3101213130310000-2333211331100210-2102023100223033-0030012112211323-2023233213123221-1220103312330003-1013000000133131",
       "registry_path": "docs/guides/resources--application_profiles--reference--group-003.md",
@@ -10407,7 +10407,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -10419,7 +10419,7 @@
       "path": "documentation/resources/application_profiles/properties/virtual_server/https/websocket_server_profile/index.md",
       "product": "distributed-cloud",
       "provider_name": "application_profiles",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "resources",
       "registry_anchor": "canonical-0211103332301002-3311220121001320-2202321013331102-0113223312313112-0102220010300023-0213310332210133-3211320101132301-0213110231333311",
       "registry_path": "docs/guides/resources--application_profiles--reference--group-003.md",
@@ -10522,7 +10522,7 @@
         "xcsh-docs:resources:application_profiles:properties:virtual_server:immediate_action_on_service_down:immediate_action_on_service_down_reset"
       ],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -10534,7 +10534,7 @@
       "path": "documentation/resources/application_profiles/properties/virtual_server/immediate_action_on_service_down/index.md",
       "product": "distributed-cloud",
       "provider_name": "application_profiles",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "resources",
       "registry_anchor": "canonical-2120313011001333-0332132133112211-2032113202213200-1133333320210120-0120003121121103-1110233000210030-2313321130012321-0301012230001201",
       "registry_path": "docs/guides/resources--application_profiles--reference--group-003.md",
@@ -10666,7 +10666,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -10678,7 +10678,7 @@
       "path": "documentation/resources/application_profiles/properties/virtual_server/immediate_action_on_service_down/immediate_action_on_service_down_drop/index.md",
       "product": "distributed-cloud",
       "provider_name": "application_profiles",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "resources",
       "registry_anchor": "canonical-3331020103122320-2130223203321331-2022122221212103-2201303102023313-2011113333303021-1010110302202213-3330201123212123-2321310322212122",
       "registry_path": "docs/guides/resources--application_profiles--reference--group-003.md",
@@ -10706,7 +10706,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -10718,7 +10718,7 @@
       "path": "documentation/resources/application_profiles/properties/virtual_server/immediate_action_on_service_down/immediate_action_on_service_down_none/index.md",
       "product": "distributed-cloud",
       "provider_name": "application_profiles",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "resources",
       "registry_anchor": "canonical-1211320131313223-0300030133102303-1120303202100033-0302033120121202-0211200222132132-2221120100211201-0332212332001102-2320302000100222",
       "registry_path": "docs/guides/resources--application_profiles--reference--group-003.md",
@@ -10746,7 +10746,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -10758,7 +10758,7 @@
       "path": "documentation/resources/application_profiles/properties/virtual_server/immediate_action_on_service_down/immediate_action_on_service_down_reset/index.md",
       "product": "distributed-cloud",
       "provider_name": "application_profiles",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "resources",
       "registry_anchor": "canonical-1020323002022302-2031200012130221-0130123012221301-0303002023310122-1011303313130223-0213220032010232-0220130012302202-3020330121013201",
       "registry_path": "docs/guides/resources--application_profiles--reference--group-003.md",
@@ -10786,7 +10786,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -10798,7 +10798,7 @@
       "path": "documentation/resources/application_profiles/properties/virtual_server/last_hop_pool/index.md",
       "product": "distributed-cloud",
       "provider_name": "application_profiles",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "resources",
       "registry_anchor": "canonical-1133301311230011-1310300321322210-2110201322213000-0102311121311103-1133120133100303-3022030212232231-3000032201020203-0023300101231100",
       "registry_path": "docs/guides/resources--application_profiles--reference--group-003.md",
@@ -10900,7 +10900,7 @@
         "xcsh-docs:resources:application_profiles:properties:virtual_server:nat64:nat64_enable"
       ],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -10912,7 +10912,7 @@
       "path": "documentation/resources/application_profiles/properties/virtual_server/nat64/index.md",
       "product": "distributed-cloud",
       "provider_name": "application_profiles",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "resources",
       "registry_anchor": "canonical-2002031331123221-1331221331321023-3111232122011101-0320122210120313-0212322110001221-0230222031021312-0203110233131210-3013333012331002",
       "registry_path": "docs/guides/resources--application_profiles--reference--group-003.md",
@@ -10986,7 +10986,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -10998,7 +10998,7 @@
       "path": "documentation/resources/application_profiles/properties/virtual_server/nat64/nat64_disable/index.md",
       "product": "distributed-cloud",
       "provider_name": "application_profiles",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "resources",
       "registry_anchor": "canonical-1101131332320313-1030303021303121-3201103010330112-0200130321003203-3233323021222323-0021303201111130-0000313032310333-0112133213301313",
       "registry_path": "docs/guides/resources--application_profiles--reference--group-003.md",
@@ -11026,7 +11026,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -11038,7 +11038,7 @@
       "path": "documentation/resources/application_profiles/properties/virtual_server/nat64/nat64_enable/index.md",
       "product": "distributed-cloud",
       "provider_name": "application_profiles",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "resources",
       "registry_anchor": "canonical-0132100231000220-3233110220132320-0202230232001221-0301000023030303-3231320123022201-2323010213123020-0132002101033031-3120303123210130",
       "registry_path": "docs/guides/resources--application_profiles--reference--group-003.md",
@@ -11069,7 +11069,7 @@
         "xcsh-docs:resources:application_profiles:properties:virtual_server:port_translation:port_translation_enable"
       ],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -11081,7 +11081,7 @@
       "path": "documentation/resources/application_profiles/properties/virtual_server/port_translation/index.md",
       "product": "distributed-cloud",
       "provider_name": "application_profiles",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "resources",
       "registry_anchor": "canonical-3121121231001031-3330300000133002-1031230222111031-0110330122312033-2031202031313323-3102103200300201-2230013301021233-3121002202231030",
       "registry_path": "docs/guides/resources--application_profiles--reference--group-003.md",
@@ -11155,7 +11155,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -11167,7 +11167,7 @@
       "path": "documentation/resources/application_profiles/properties/virtual_server/port_translation/port_translation_disable/index.md",
       "product": "distributed-cloud",
       "provider_name": "application_profiles",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "resources",
       "registry_anchor": "canonical-2322122032001202-0320333323113103-1320111022100231-1122220021233203-0132331132331011-0222313003233312-0311310233221122-0300233002300010",
       "registry_path": "docs/guides/resources--application_profiles--reference--group-003.md",
@@ -11195,7 +11195,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -11207,7 +11207,7 @@
       "path": "documentation/resources/application_profiles/properties/virtual_server/port_translation/port_translation_enable/index.md",
       "product": "distributed-cloud",
       "provider_name": "application_profiles",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "resources",
       "registry_anchor": "canonical-2333311333021133-0102003021323220-2320330011130202-0302232011300011-0133021103300303-1030131302202301-2121022231132022-0333012033121023",
       "registry_path": "docs/guides/resources--application_profiles--reference--group-003.md",
@@ -11235,7 +11235,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -11247,7 +11247,7 @@
       "path": "documentation/resources/application_profiles/properties/virtual_server/request_logging_profile/index.md",
       "product": "distributed-cloud",
       "provider_name": "application_profiles",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "resources",
       "registry_anchor": "canonical-3210202300313301-0310203232211033-1321103003021001-0212002312311332-1112331303033331-3323000030313321-0300000231230113-3220231130103020",
       "registry_path": "docs/guides/resources--application_profiles--reference--group-003.md",
@@ -11350,7 +11350,7 @@
         "xcsh-docs:resources:application_profiles:properties:virtual_server:source_port:source_port_preserve_strict"
       ],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -11362,7 +11362,7 @@
       "path": "documentation/resources/application_profiles/properties/virtual_server/source_port/index.md",
       "product": "distributed-cloud",
       "provider_name": "application_profiles",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "resources",
       "registry_anchor": "canonical-1232230330103113-1011323112020110-2112322333333013-3302112210103221-2002022032123220-0023200230233130-2102030102320103-0013123112003122",
       "registry_path": "docs/guides/resources--application_profiles--reference--group-003.md",
@@ -11482,7 +11482,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -11494,7 +11494,7 @@
       "path": "documentation/resources/application_profiles/properties/virtual_server/source_port/source_port_change/index.md",
       "product": "distributed-cloud",
       "provider_name": "application_profiles",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "resources",
       "registry_anchor": "canonical-0001232132032021-0203012123211133-0320111311333103-3333303322101113-3130310123301120-3310300232031132-0113103322101012-3021301033310022",
       "registry_path": "docs/guides/resources--application_profiles--reference--group-003.md",
@@ -11522,7 +11522,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -11534,7 +11534,7 @@
       "path": "documentation/resources/application_profiles/properties/virtual_server/source_port/source_port_preserve/index.md",
       "product": "distributed-cloud",
       "provider_name": "application_profiles",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "resources",
       "registry_anchor": "canonical-0103110100200031-2120012230132120-3221310123003222-0102011031233010-3323321000111202-3210032023300110-1210012201200122-2012133333321303",
       "registry_path": "docs/guides/resources--application_profiles--reference--group-003.md",
@@ -11562,7 +11562,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -11574,7 +11574,7 @@
       "path": "documentation/resources/application_profiles/properties/virtual_server/source_port/source_port_preserve_strict/index.md",
       "product": "distributed-cloud",
       "provider_name": "application_profiles",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "resources",
       "registry_anchor": "canonical-2110002333222312-2100332330303222-0000003122110232-0110132011311230-1123023003303233-2120121032203202-3211123212022100-3030233302310031",
       "registry_path": "docs/guides/resources--application_profiles--reference--group-003.md",
@@ -11602,7 +11602,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -11614,7 +11614,7 @@
       "path": "documentation/resources/application_profiles/properties/virtual_server/statistics_profile/index.md",
       "product": "distributed-cloud",
       "provider_name": "application_profiles",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "resources",
       "registry_anchor": "canonical-2230332010120210-3032201031320120-1320321332001001-1230210320213223-3313130100303010-3030221032130120-0211333311033312-3013103322102113",
       "registry_path": "docs/guides/resources--application_profiles--reference--group-003.md",
@@ -11719,7 +11719,7 @@
         "xcsh-docs:resources:application_profiles:properties:virtual_server:tcp:tcp_server_profile"
       ],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -11731,7 +11731,7 @@
       "path": "documentation/resources/application_profiles/properties/virtual_server/tcp/index.md",
       "product": "distributed-cloud",
       "provider_name": "application_profiles",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "resources",
       "registry_anchor": "canonical-0133012121301311-1302322230030102-1233223310322132-2201222201110320-2110222212330303-1221023322200210-2120320110031323-0203220310230231",
       "registry_path": "docs/guides/resources--application_profiles--reference--group-003.md",
@@ -11830,7 +11830,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -11842,7 +11842,7 @@
       "path": "documentation/resources/application_profiles/properties/virtual_server/tcp/client_ssl_profile/index.md",
       "product": "distributed-cloud",
       "provider_name": "application_profiles",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "resources",
       "registry_anchor": "canonical-2132222223303130-1022130203031333-3310131122103110-0212220202301313-3312320232032323-3331223010113331-1322233131031331-3313323020033222",
       "registry_path": "docs/guides/resources--application_profiles--reference--group-003.md",
@@ -11941,7 +11941,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -11953,7 +11953,7 @@
       "path": "documentation/resources/application_profiles/properties/virtual_server/tcp/ocsp_profile/index.md",
       "product": "distributed-cloud",
       "provider_name": "application_profiles",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "resources",
       "registry_anchor": "canonical-1001023112303131-2331323203333210-1232132101202000-2233311002102231-3110312133322122-3322100033331020-3302210231201232-2313103221001212",
       "registry_path": "docs/guides/resources--application_profiles--reference--group-003.md",
@@ -12052,7 +12052,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -12064,7 +12064,7 @@
       "path": "documentation/resources/application_profiles/properties/virtual_server/tcp/server_ssl_profile/index.md",
       "product": "distributed-cloud",
       "provider_name": "application_profiles",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "resources",
       "registry_anchor": "canonical-0121320311113012-3102203220321101-2131030131221121-1312131030132203-2021130233323110-1023233231211102-3231031033113313-3221001212010323",
       "registry_path": "docs/guides/resources--application_profiles--reference--group-003.md",
@@ -12163,7 +12163,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -12175,7 +12175,7 @@
       "path": "documentation/resources/application_profiles/properties/virtual_server/tcp/tcp_client_profile/index.md",
       "product": "distributed-cloud",
       "provider_name": "application_profiles",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "resources",
       "registry_anchor": "canonical-1112301121000320-0032302331230222-3123213322221103-2320310231001320-2232202220023120-0332311010112102-3303010032311201-2001323230021001",
       "registry_path": "docs/guides/resources--application_profiles--reference--group-003.md",
@@ -12274,7 +12274,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -12286,7 +12286,7 @@
       "path": "documentation/resources/application_profiles/properties/virtual_server/tcp/tcp_server_profile/index.md",
       "product": "distributed-cloud",
       "provider_name": "application_profiles",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "resources",
       "registry_anchor": "canonical-0032321113220230-2210221333303233-0123322330001031-0211010312302301-0111111221033222-2310210331211213-3000322022123112-2231210311122112",
       "registry_path": "docs/guides/resources--application_profiles--reference--group-003.md",
@@ -12390,7 +12390,7 @@
         "xcsh-docs:resources:application_profiles:properties:virtual_server:udp:udp_server_profile"
       ],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -12402,7 +12402,7 @@
       "path": "documentation/resources/application_profiles/properties/virtual_server/udp/index.md",
       "product": "distributed-cloud",
       "provider_name": "application_profiles",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "resources",
       "registry_anchor": "canonical-0100212231103000-2031131131020010-3003110221032012-0212301320022111-2133230201233310-2233210103212202-3223201320002311-1322101113222313",
       "registry_path": "docs/guides/resources--application_profiles--reference--group-003.md",
@@ -12487,7 +12487,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -12499,7 +12499,7 @@
       "path": "documentation/resources/application_profiles/properties/virtual_server/udp/client_ssl_profile/index.md",
       "product": "distributed-cloud",
       "provider_name": "application_profiles",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "resources",
       "registry_anchor": "canonical-1122130210022223-2231220222323121-1323211202123333-3030233201003223-3323032210220331-1201311331312321-1032111223231330-2230322133113123",
       "registry_path": "docs/guides/resources--application_profiles--reference--group-004.md",
@@ -12598,7 +12598,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -12610,7 +12610,7 @@
       "path": "documentation/resources/application_profiles/properties/virtual_server/udp/server_ssl_profile/index.md",
       "product": "distributed-cloud",
       "provider_name": "application_profiles",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "resources",
       "registry_anchor": "canonical-2021322022310220-0032331120333010-1323213313312110-2023101111222200-2330113101321231-2322220013230220-2100331121121300-2000302300221003",
       "registry_path": "docs/guides/resources--application_profiles--reference--group-004.md",
@@ -12709,7 +12709,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -12721,7 +12721,7 @@
       "path": "documentation/resources/application_profiles/properties/virtual_server/udp/udp_client_profile/index.md",
       "product": "distributed-cloud",
       "provider_name": "application_profiles",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "resources",
       "registry_anchor": "canonical-0303321111021332-3021213130021133-2210022131031212-1110100113102131-1321300011032303-0202032201130003-1000100312002222-0103020212123120",
       "registry_path": "docs/guides/resources--application_profiles--reference--group-004.md",
@@ -12820,7 +12820,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -12832,7 +12832,7 @@
       "path": "documentation/resources/application_profiles/properties/virtual_server/udp/udp_server_profile/index.md",
       "product": "distributed-cloud",
       "provider_name": "application_profiles",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "resources",
       "registry_anchor": "canonical-1132032320032120-0030311302123110-3033222311022123-2300300010000331-0320011113122103-2012231120102222-1010023023221231-1103333021102012",
       "registry_path": "docs/guides/resources--application_profiles--reference--group-004.md",
@@ -12934,7 +12934,7 @@
         "xcsh-docs:resources:application_profiles:properties:virtual_server:virtual_server_state:state_enabled"
       ],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -12946,7 +12946,7 @@
       "path": "documentation/resources/application_profiles/properties/virtual_server/virtual_server_state/index.md",
       "product": "distributed-cloud",
       "provider_name": "application_profiles",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "resources",
       "registry_anchor": "canonical-0323021232302203-3330212203221312-0021222111110121-2230020130302203-1311230313200231-3310002022201103-2331300211333032-3021322223300011",
       "registry_path": "docs/guides/resources--application_profiles--reference--group-004.md",
@@ -13020,7 +13020,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -13032,7 +13032,7 @@
       "path": "documentation/resources/application_profiles/properties/virtual_server/virtual_server_state/state_disabled/index.md",
       "product": "distributed-cloud",
       "provider_name": "application_profiles",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "resources",
       "registry_anchor": "canonical-0121331000132220-1313223010021111-1300122021210133-2121010231300102-3330300311303212-0031200013322333-1123123322332330-2010212310333330",
       "registry_path": "docs/guides/resources--application_profiles--reference--group-004.md",
@@ -13060,7 +13060,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -13072,7 +13072,7 @@
       "path": "documentation/resources/application_profiles/properties/virtual_server/virtual_server_state/state_enabled/index.md",
       "product": "distributed-cloud",
       "provider_name": "application_profiles",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "resources",
       "registry_anchor": "canonical-2223230303100333-0102311020102121-3202121131020232-2012301223110233-3111211321210113-1033030133000223-2033131020033201-1222211122320011",
       "registry_path": "docs/guides/resources--application_profiles--reference--group-004.md",
@@ -13100,7 +13100,7 @@
       "category": null,
       "child_ids": ["xcsh-docs:resources:application_profiles:example:resource"],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -13112,7 +13112,7 @@
       "path": "documentation/resources/application_profiles/examples/index.md",
       "product": "distributed-cloud",
       "provider_name": "application_profiles",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "resources",
       "registry_anchor": "canonical-0121211302010133-1133122330330220-2313210032111110-0221132112232120-2100033100002131-2020331200001231-2002232202120301-1003301312102122",
       "registry_path": "docs/guides/resources--application_profiles--examples--group-001.md",
@@ -13140,7 +13140,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -13159,7 +13159,7 @@
       "path": "documentation/resources/application_profiles/examples/resource/index.md",
       "product": "distributed-cloud",
       "provider_name": "application_profiles",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "resources",
       "registry_anchor": "canonical-0320321111331220-0331023100121133-3000212131200102-2302232203333031-3221123230331223-2102011000000010-1100112021001032-2031132130301202",
       "registry_path": "docs/guides/resources--application_profiles--examples--group-001.md",
@@ -13187,7 +13187,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -13200,7 +13200,7 @@
       "path": "documentation/resources/application_profiles/lifecycle/import/index.md",
       "product": "distributed-cloud",
       "provider_name": "application_profiles",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "resources",
       "registry_anchor": "canonical-0303202323020332-2131113030101331-2210312303123203-0112030310133301-2020311011101330-0000300002100100-2102213313200223-2031030210012030",
       "registry_path": "docs/guides/resources--application_profiles--lifecycle--group-001.md",
@@ -13228,7 +13228,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -13240,7 +13240,7 @@
       "path": "documentation/resources/application_profiles/lifecycle/timeouts/index.md",
       "product": "distributed-cloud",
       "provider_name": "application_profiles",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "resources",
       "registry_anchor": "canonical-0103003302231111-1010123021120230-3010130121023123-3010120012130132-2330103312203232-1030030001013010-2010133221131321-2000002112330031",
       "registry_path": "docs/guides/resources--application_profiles--lifecycle--group-001.md",

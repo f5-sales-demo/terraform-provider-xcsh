@@ -2,6 +2,310 @@
   "schema_version": 1,
   "sections": [
     {
+      "canonical_id": "xcsh-docs:data-sources:azure_vnet_site:properties:ingress_gw_ar:performance_enhancement_mode:perf_mode_l7_enhanced:jumbo_enabled",
+      "section_id": "xcsh-docs:data-sources:azure_vnet_site:properties:ingress_gw_ar:performance_enhancement_mode:perf_mode_l7_enhanced:jumbo_enabled:section:0",
+      "source_sha256": "sha256:197d41522a9dd286cb9805a03d8a5bd782cc3f3fd95ea854bf2dfc326e83e50c",
+      "source_bytes": 99,
+      "canonical_source_sha256": "sha256:20965002d3b34d31c02de1695bd4c4b7ba321d274cd12984f86802a107221ba9",
+      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/azure_vnet_site/properties/ingress_gw_ar/performance_enhancement_mode/perf_mode_l7_enhanced/jumbo_enabled/",
+      "anchor": "canonical-3222020222232032-2213001303310033-1010231320130003-3233100002320313-2223000103331022-0211013022331210-0313232210330133-3222310310032121",
+      "anchor_map": [],
+      "mode": "embedded",
+      "registry_path": "docs/guides/data-sources--azure_vnet_site--reference--group-008.md"
+    },
+    {
+      "canonical_id": "xcsh-docs:data-sources:azure_vnet_site:properties:ingress_gw_ar:performance_enhancement_mode:perf_mode_l7_enhanced:jumbo_enabled",
+      "section_id": "xcsh-docs:data-sources:azure_vnet_site:properties:ingress_gw_ar:performance_enhancement_mode:perf_mode_l7_enhanced:jumbo_enabled:section:1",
+      "source_sha256": "sha256:e254750ba18d23b4ca876dc4486ff263f7b30ae3dfed3843e3860aa88be01750",
+      "source_bytes": 1295,
+      "canonical_source_sha256": "sha256:20965002d3b34d31c02de1695bd4c4b7ba321d274cd12984f86802a107221ba9",
+      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/azure_vnet_site/properties/ingress_gw_ar/performance_enhancement_mode/perf_mode_l7_enhanced/jumbo_enabled/",
+      "anchor": "canonical-0320203211233320-0201311333301120-2321311332111200-1111130130203100-3222011302012023-2230322302011213-0233013020312302-1002000310212301",
+      "anchor_map": [
+        [
+          "section",
+          "canonical-2212013133112322-2332102303112100-3332120233320010-1102002323210113-3233230200320232-3002332000003102-3103323123333310-2210310113110120"
+        ]
+      ],
+      "mode": "embedded",
+      "registry_path": "docs/guides/data-sources--azure_vnet_site--reference--group-008.md"
+    },
+    {
+      "canonical_id": "xcsh-docs:data-sources:azure_vnet_site:properties:ingress_gw_ar:performance_enhancement_mode:perf_mode_l7_enhanced:jumbo_enabled",
+      "section_id": "xcsh-docs:data-sources:azure_vnet_site:properties:ingress_gw_ar:performance_enhancement_mode:perf_mode_l7_enhanced:jumbo_enabled:section:2",
+      "source_sha256": "sha256:0d4398201e18f9ddb2ea00ceed6d3256755ea4d008d849d1cec42dab5c55f1b5",
+      "source_bytes": 94,
+      "canonical_source_sha256": "sha256:20965002d3b34d31c02de1695bd4c4b7ba321d274cd12984f86802a107221ba9",
+      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/azure_vnet_site/properties/ingress_gw_ar/performance_enhancement_mode/perf_mode_l7_enhanced/jumbo_enabled/",
+      "anchor": "canonical-3101202113013223-0033322122122123-0203233030110103-3312031220122110-0222222332100033-3231232013213001-2030012213220322-0011202323323001",
+      "anchor_map": [],
+      "mode": "embedded",
+      "registry_path": "docs/guides/data-sources--azure_vnet_site--reference--group-008.md"
+    },
+    {
+      "canonical_id": "xcsh-docs:data-sources:azure_vnet_site:properties:ingress_gw_ar:performance_enhancement_mode:perf_mode_l7_enhanced:jumbo_enabled",
+      "section_id": "xcsh-docs:data-sources:azure_vnet_site:properties:ingress_gw_ar:performance_enhancement_mode:perf_mode_l7_enhanced:jumbo_enabled:section:3",
+      "source_sha256": "sha256:7471a2d2ffd23ddf540f1fae6e3953fa0cba13535d6dcead9b2a6f0713b6f947",
+      "source_bytes": 359,
+      "canonical_source_sha256": "sha256:20965002d3b34d31c02de1695bd4c4b7ba321d274cd12984f86802a107221ba9",
+      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/azure_vnet_site/properties/ingress_gw_ar/performance_enhancement_mode/perf_mode_l7_enhanced/jumbo_enabled/",
+      "anchor": "canonical-3210231110323230-2013033001022012-3133110130203310-0113221020313211-1011311203100303-1121123232301233-3131110301213331-0220323101201222",
+      "anchor_map": [],
+      "mode": "embedded",
+      "registry_path": "docs/guides/data-sources--azure_vnet_site--reference--group-008.md"
+    },
+    {
+      "canonical_id": "xcsh-docs:data-sources:azure_vnet_site:properties:kubernetes_upgrade_drain",
+      "section_id": "xcsh-docs:data-sources:azure_vnet_site:properties:kubernetes_upgrade_drain:section:0",
+      "source_sha256": "sha256:197d41522a9dd286cb9805a03d8a5bd782cc3f3fd95ea854bf2dfc326e83e50c",
+      "source_bytes": 99,
+      "canonical_source_sha256": "sha256:cdd9821d1c5e91b5e2b2a44a404f9e9dfd6ec3bf8d3ed0319d04dfd02786bb0c",
+      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/azure_vnet_site/properties/kubernetes_upgrade_drain/",
+      "anchor": "canonical-2131210123103103-0212213010122033-0313321123013002-1222200013311032-0020301031022033-2000020033022120-1321323012330221-3312333110101331",
+      "anchor_map": [],
+      "mode": "embedded",
+      "registry_path": "docs/guides/data-sources--azure_vnet_site--reference--group-008.md"
+    },
+    {
+      "canonical_id": "xcsh-docs:data-sources:azure_vnet_site:properties:kubernetes_upgrade_drain",
+      "section_id": "xcsh-docs:data-sources:azure_vnet_site:properties:kubernetes_upgrade_drain:section:1",
+      "source_sha256": "sha256:b509db9da37d1f296cf2bf73e0507806d985c62f3d6728be3abc960e1a6a0e16",
+      "source_bytes": 705,
+      "canonical_source_sha256": "sha256:cdd9821d1c5e91b5e2b2a44a404f9e9dfd6ec3bf8d3ed0319d04dfd02786bb0c",
+      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/azure_vnet_site/properties/kubernetes_upgrade_drain/",
+      "anchor": "canonical-0331033131300211-3101001312302320-0212212012321020-0022001100302121-1023000201212203-0020120100320011-1021133211311230-3132230020100302",
+      "anchor_map": [
+        [
+          "section",
+          "canonical-1013000133313103-0021200112333030-2200113031312003-3212223011332211-0310330002211300-0112200120021310-1012032303200000-3011000331322110"
+        ]
+      ],
+      "mode": "embedded",
+      "registry_path": "docs/guides/data-sources--azure_vnet_site--reference--group-008.md"
+    },
+    {
+      "canonical_id": "xcsh-docs:data-sources:azure_vnet_site:properties:kubernetes_upgrade_drain",
+      "section_id": "xcsh-docs:data-sources:azure_vnet_site:properties:kubernetes_upgrade_drain:section:2",
+      "source_sha256": "sha256:365c8568d5d76c83e35941525863c8f6168d4ca136a1fe8d210969be74049508",
+      "source_bytes": 428,
+      "canonical_source_sha256": "sha256:cdd9821d1c5e91b5e2b2a44a404f9e9dfd6ec3bf8d3ed0319d04dfd02786bb0c",
+      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/azure_vnet_site/properties/kubernetes_upgrade_drain/",
+      "anchor": "canonical-0002103303210112-0110122033313212-2003022102011302-1322103321203301-2302331332122313-0203202110130310-1113123113331320-0013100031333203",
+      "anchor_map": [],
+      "mode": "embedded",
+      "registry_path": "docs/guides/data-sources--azure_vnet_site--reference--group-008.md"
+    },
+    {
+      "canonical_id": "xcsh-docs:data-sources:azure_vnet_site:properties:kubernetes_upgrade_drain",
+      "section_id": "xcsh-docs:data-sources:azure_vnet_site:properties:kubernetes_upgrade_drain:section:3",
+      "source_sha256": "sha256:31f3dbf4365dee36af1591d86c1c4f964e663f08763bba4812e555703ca6d2af",
+      "source_bytes": 638,
+      "canonical_source_sha256": "sha256:cdd9821d1c5e91b5e2b2a44a404f9e9dfd6ec3bf8d3ed0319d04dfd02786bb0c",
+      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/azure_vnet_site/properties/kubernetes_upgrade_drain/",
+      "anchor": "canonical-1321310122213012-0130320221323033-2112220233322230-3221201302311101-2313222312311100-2003323232333233-3100122222102020-1100322023132011",
+      "anchor_map": [],
+      "mode": "embedded",
+      "registry_path": "docs/guides/data-sources--azure_vnet_site--reference--group-008.md"
+    },
+    {
+      "canonical_id": "xcsh-docs:data-sources:azure_vnet_site:properties:kubernetes_upgrade_drain:disable_upgrade_drain",
+      "section_id": "xcsh-docs:data-sources:azure_vnet_site:properties:kubernetes_upgrade_drain:disable_upgrade_drain:section:0",
+      "source_sha256": "sha256:197d41522a9dd286cb9805a03d8a5bd782cc3f3fd95ea854bf2dfc326e83e50c",
+      "source_bytes": 99,
+      "canonical_source_sha256": "sha256:b85e244e45bb7b47702779deee4267e314cbda41c16b708ffd951553f8615a2f",
+      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/azure_vnet_site/properties/kubernetes_upgrade_drain/disable_upgrade_drain/",
+      "anchor": "canonical-0213222030100111-1233120311002332-1222132103233132-0131322122133222-3003313102021032-1113113103002011-3211222001131231-1100101002211313",
+      "anchor_map": [],
+      "mode": "embedded",
+      "registry_path": "docs/guides/data-sources--azure_vnet_site--reference--group-008.md"
+    },
+    {
+      "canonical_id": "xcsh-docs:data-sources:azure_vnet_site:properties:kubernetes_upgrade_drain:disable_upgrade_drain",
+      "section_id": "xcsh-docs:data-sources:azure_vnet_site:properties:kubernetes_upgrade_drain:disable_upgrade_drain:section:1",
+      "source_sha256": "sha256:348a4939fb1a42427f2dc16adc9955ece0b9b0b6b81d236de360e8db3d423a20",
+      "source_bytes": 865,
+      "canonical_source_sha256": "sha256:b85e244e45bb7b47702779deee4267e314cbda41c16b708ffd951553f8615a2f",
+      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/azure_vnet_site/properties/kubernetes_upgrade_drain/disable_upgrade_drain/",
+      "anchor": "canonical-0222011113231300-1110210211332200-0033013020030111-0203322030113311-1201122321320011-2010002122321113-3100011112033021-2203001130031330",
+      "anchor_map": [
+        [
+          "section",
+          "canonical-0322223121311030-2322111313332331-2013003310113112-2302100231221200-1131130013033323-1013012331133211-1323200320221122-0310103010212231"
+        ]
+      ],
+      "mode": "embedded",
+      "registry_path": "docs/guides/data-sources--azure_vnet_site--reference--group-008.md"
+    },
+    {
+      "canonical_id": "xcsh-docs:data-sources:azure_vnet_site:properties:kubernetes_upgrade_drain:disable_upgrade_drain",
+      "section_id": "xcsh-docs:data-sources:azure_vnet_site:properties:kubernetes_upgrade_drain:disable_upgrade_drain:section:2",
+      "source_sha256": "sha256:0d4398201e18f9ddb2ea00ceed6d3256755ea4d008d849d1cec42dab5c55f1b5",
+      "source_bytes": 94,
+      "canonical_source_sha256": "sha256:b85e244e45bb7b47702779deee4267e314cbda41c16b708ffd951553f8615a2f",
+      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/azure_vnet_site/properties/kubernetes_upgrade_drain/disable_upgrade_drain/",
+      "anchor": "canonical-3130310003231321-2302300133132310-0303100320313233-1220213111311100-0221313332331012-2130033310102213-3321303211210113-2230222002230223",
+      "anchor_map": [],
+      "mode": "embedded",
+      "registry_path": "docs/guides/data-sources--azure_vnet_site--reference--group-008.md"
+    },
+    {
+      "canonical_id": "xcsh-docs:data-sources:azure_vnet_site:properties:kubernetes_upgrade_drain:disable_upgrade_drain",
+      "section_id": "xcsh-docs:data-sources:azure_vnet_site:properties:kubernetes_upgrade_drain:disable_upgrade_drain:section:3",
+      "source_sha256": "sha256:a0ea5035f0112d2571c865220eb3dfee92a97919e2a0663fa0e5e2f21568ccb1",
+      "source_bytes": 279,
+      "canonical_source_sha256": "sha256:b85e244e45bb7b47702779deee4267e314cbda41c16b708ffd951553f8615a2f",
+      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/azure_vnet_site/properties/kubernetes_upgrade_drain/disable_upgrade_drain/",
+      "anchor": "canonical-3032113000233112-2233233001131003-1132302132223212-3102313203103203-3221313001212220-1321121012310020-3133001312102010-2131213233203120",
+      "anchor_map": [],
+      "mode": "embedded",
+      "registry_path": "docs/guides/data-sources--azure_vnet_site--reference--group-008.md"
+    },
+    {
+      "canonical_id": "xcsh-docs:data-sources:azure_vnet_site:properties:kubernetes_upgrade_drain:enable_upgrade_drain",
+      "section_id": "xcsh-docs:data-sources:azure_vnet_site:properties:kubernetes_upgrade_drain:enable_upgrade_drain:section:0",
+      "source_sha256": "sha256:197d41522a9dd286cb9805a03d8a5bd782cc3f3fd95ea854bf2dfc326e83e50c",
+      "source_bytes": 99,
+      "canonical_source_sha256": "sha256:b810fc318627d0d8aa7408e51a54f3c88b8635772d3d0e7e744988f25d67b042",
+      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/azure_vnet_site/properties/kubernetes_upgrade_drain/enable_upgrade_drain/",
+      "anchor": "canonical-0003333031212000-3210130233301221-3020020113100331-1230122302022033-1120112223213133-3003322000311333-3113033213300130-2113101223123223",
+      "anchor_map": [],
+      "mode": "embedded",
+      "registry_path": "docs/guides/data-sources--azure_vnet_site--reference--group-008.md"
+    },
+    {
+      "canonical_id": "xcsh-docs:data-sources:azure_vnet_site:properties:kubernetes_upgrade_drain:enable_upgrade_drain",
+      "section_id": "xcsh-docs:data-sources:azure_vnet_site:properties:kubernetes_upgrade_drain:enable_upgrade_drain:section:1",
+      "source_sha256": "sha256:f017fdfbf593bb2a96f57cfd1eef35aeb0a131e66cc0148675a886f3920cdb83",
+      "source_bytes": 1043,
+      "canonical_source_sha256": "sha256:b810fc318627d0d8aa7408e51a54f3c88b8635772d3d0e7e744988f25d67b042",
+      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/azure_vnet_site/properties/kubernetes_upgrade_drain/enable_upgrade_drain/",
+      "anchor": "canonical-3310023123120313-2200233003111211-0303200221330220-3300000332230022-0120211302011200-1130130033111310-0122211303222322-0220222223222310",
+      "anchor_map": [
+        [
+          "section",
+          "canonical-0103023302132003-0130202111320220-3102221032103132-0310132032301021-2012032313231120-2002033013232330-0212110120111132-0210200000232332"
+        ]
+      ],
+      "mode": "embedded",
+      "registry_path": "docs/guides/data-sources--azure_vnet_site--reference--group-008.md"
+    },
+    {
+      "canonical_id": "xcsh-docs:data-sources:azure_vnet_site:properties:kubernetes_upgrade_drain:enable_upgrade_drain",
+      "section_id": "xcsh-docs:data-sources:azure_vnet_site:properties:kubernetes_upgrade_drain:enable_upgrade_drain:section:2",
+      "source_sha256": "sha256:8ba11092b085a2c12d0d72337fd1d6c0bad180d809f5388aefe57838bf5bfb24",
+      "source_bytes": 357,
+      "canonical_source_sha256": "sha256:b810fc318627d0d8aa7408e51a54f3c88b8635772d3d0e7e744988f25d67b042",
+      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/azure_vnet_site/properties/kubernetes_upgrade_drain/enable_upgrade_drain/",
+      "anchor": "canonical-1023221212302120-1323331003013102-2120121032211203-3022113002312030-3000102211001030-2322311023032222-0221202313103232-2003033220223202",
+      "anchor_map": [
+        [
+          "schema-kubernetes_upgrade_drain--enable_upgrade_drain--drain_max_unavailable_node_count",
+          "canonical-0132123322030032-3331213201333221-1032132311211321-3013023323201021-1322303310132231-0110130022202011-0300211030332221-1211111202222311"
+        ]
+      ],
+      "mode": "embedded",
+      "registry_path": "docs/guides/data-sources--azure_vnet_site--reference--group-008.md"
+    },
+    {
+      "canonical_id": "xcsh-docs:data-sources:azure_vnet_site:properties:kubernetes_upgrade_drain:enable_upgrade_drain",
+      "section_id": "xcsh-docs:data-sources:azure_vnet_site:properties:kubernetes_upgrade_drain:enable_upgrade_drain:section:3",
+      "source_sha256": "sha256:d35a96d780121398240518e588ff242c1a23a22423eb7a04f0906128d1df16fb",
+      "source_bytes": 975,
+      "canonical_source_sha256": "sha256:b810fc318627d0d8aa7408e51a54f3c88b8635772d3d0e7e744988f25d67b042",
+      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/azure_vnet_site/properties/kubernetes_upgrade_drain/enable_upgrade_drain/",
+      "anchor": "canonical-2211002102313120-2110320112302301-0302002200322032-0302103033030032-3222113301120310-1012203221311022-1131001012112211-0303133111110220",
+      "anchor_map": [
+        [
+          "schema-kubernetes_upgrade_drain--enable_upgrade_drain--drain_max_unavailable_node_percentage",
+          "canonical-0132200023202122-3021203322200200-2010023103213333-3303102030201220-3030330111310031-0122223033333012-3311303312330211-1233231003032331"
+        ]
+      ],
+      "mode": "embedded",
+      "registry_path": "docs/guides/data-sources--azure_vnet_site--reference--group-008.md"
+    },
+    {
+      "canonical_id": "xcsh-docs:data-sources:azure_vnet_site:properties:kubernetes_upgrade_drain:enable_upgrade_drain",
+      "section_id": "xcsh-docs:data-sources:azure_vnet_site:properties:kubernetes_upgrade_drain:enable_upgrade_drain:section:4",
+      "source_sha256": "sha256:d76c8ae8552a53b10d21e3c748bf27833fd2554d2a5ad77da83e8e74ed7a98e4",
+      "source_bytes": 235,
+      "canonical_source_sha256": "sha256:b810fc318627d0d8aa7408e51a54f3c88b8635772d3d0e7e744988f25d67b042",
+      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/azure_vnet_site/properties/kubernetes_upgrade_drain/enable_upgrade_drain/",
+      "anchor": "canonical-0132130330230122-2023201020300301-0122322212110131-1321102000003302-3013003123120221-2013013032003013-3110100300321011-0233020311113103",
+      "anchor_map": [
+        [
+          "schema-kubernetes_upgrade_drain--enable_upgrade_drain--drain_node_timeout",
+          "canonical-1311211311221222-1012000130222032-3133101212012213-2123123012213232-2213220000113100-3020320333323012-0032002133310011-2112112112312023"
+        ]
+      ],
+      "mode": "embedded",
+      "registry_path": "docs/guides/data-sources--azure_vnet_site--reference--group-008.md"
+    },
+    {
+      "canonical_id": "xcsh-docs:data-sources:azure_vnet_site:properties:kubernetes_upgrade_drain:enable_upgrade_drain",
+      "section_id": "xcsh-docs:data-sources:azure_vnet_site:properties:kubernetes_upgrade_drain:enable_upgrade_drain:section:5",
+      "source_sha256": "sha256:5284409fafdae16eed117b113a1bd070f71de12d6b4e146dd37555bac613e145",
+      "source_bytes": 1748,
+      "canonical_source_sha256": "sha256:b810fc318627d0d8aa7408e51a54f3c88b8635772d3d0e7e744988f25d67b042",
+      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/azure_vnet_site/properties/kubernetes_upgrade_drain/enable_upgrade_drain/",
+      "anchor": "canonical-0321300332220202-3102013211322102-2001002222210223-1032310331310021-1133212031123123-0210123210313002-0320023001102023-2003102331231203",
+      "anchor_map": [],
+      "mode": "embedded",
+      "registry_path": "docs/guides/data-sources--azure_vnet_site--reference--group-008.md"
+    },
+    {
+      "canonical_id": "xcsh-docs:data-sources:azure_vnet_site:properties:kubernetes_upgrade_drain:enable_upgrade_drain",
+      "section_id": "xcsh-docs:data-sources:azure_vnet_site:properties:kubernetes_upgrade_drain:enable_upgrade_drain:section:6",
+      "source_sha256": "sha256:212204b4209d23957f55591c4992621c04a6d3f5c6294c3aa578ecf72d364c1d",
+      "source_bytes": 769,
+      "canonical_source_sha256": "sha256:b810fc318627d0d8aa7408e51a54f3c88b8635772d3d0e7e744988f25d67b042",
+      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/azure_vnet_site/properties/kubernetes_upgrade_drain/enable_upgrade_drain/",
+      "anchor": "canonical-1111313121301112-0102023103301003-0223220120111330-2323200300033031-2121101301112310-1012200111210201-0230311332102123-3021002203200201",
+      "anchor_map": [],
+      "mode": "embedded",
+      "registry_path": "docs/guides/data-sources--azure_vnet_site--reference--group-008.md"
+    },
+    {
+      "canonical_id": "xcsh-docs:data-sources:azure_vnet_site:properties:kubernetes_upgrade_drain:enable_upgrade_drain:disable_vega_upgrade_mode",
+      "section_id": "xcsh-docs:data-sources:azure_vnet_site:properties:kubernetes_upgrade_drain:enable_upgrade_drain:disable_vega_upgrade_mode:section:0",
+      "source_sha256": "sha256:197d41522a9dd286cb9805a03d8a5bd782cc3f3fd95ea854bf2dfc326e83e50c",
+      "source_bytes": 99,
+      "canonical_source_sha256": "sha256:888713b402bed2010b56dc90be84e0a6bd0c5feae66e2613fa585fd0bb54003a",
+      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/azure_vnet_site/properties/kubernetes_upgrade_drain/enable_upgrade_drain/disable_vega_upgrade_mode/",
+      "anchor": "canonical-1323100322023132-0103210233310301-3110310132231201-3232211112002033-0032210310031312-0023123022111212-1032323102211121-1333201303212300",
+      "anchor_map": [],
+      "mode": "embedded",
+      "registry_path": "docs/guides/data-sources--azure_vnet_site--reference--group-008.md"
+    },
+    {
+      "canonical_id": "xcsh-docs:data-sources:azure_vnet_site:properties:kubernetes_upgrade_drain:enable_upgrade_drain:disable_vega_upgrade_mode",
+      "section_id": "xcsh-docs:data-sources:azure_vnet_site:properties:kubernetes_upgrade_drain:enable_upgrade_drain:disable_vega_upgrade_mode:section:1",
+      "source_sha256": "sha256:f7e750fa3c7ecce007dfc59338abd2d2897b49cd75d2f266f25a9314a64487f5",
+      "source_bytes": 1113,
+      "canonical_source_sha256": "sha256:888713b402bed2010b56dc90be84e0a6bd0c5feae66e2613fa585fd0bb54003a",
+      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/azure_vnet_site/properties/kubernetes_upgrade_drain/enable_upgrade_drain/disable_vega_upgrade_mode/",
+      "anchor": "canonical-0013301323301013-2211011201213120-3210111031112302-0331001303102223-1130212332133121-2231310101332131-3301002021211102-3111012002000312",
+      "anchor_map": [
+        [
+          "section",
+          "canonical-1113101220110030-0000123110121032-3321300133033012-1123000123213003-3221223020232120-2100102123130211-3223012300011232-3230033223132333"
+        ]
+      ],
+      "mode": "embedded",
+      "registry_path": "docs/guides/data-sources--azure_vnet_site--reference--group-008.md"
+    },
+    {
+      "canonical_id": "xcsh-docs:data-sources:azure_vnet_site:properties:kubernetes_upgrade_drain:enable_upgrade_drain:disable_vega_upgrade_mode",
+      "section_id": "xcsh-docs:data-sources:azure_vnet_site:properties:kubernetes_upgrade_drain:enable_upgrade_drain:disable_vega_upgrade_mode:section:2",
+      "source_sha256": "sha256:0d4398201e18f9ddb2ea00ceed6d3256755ea4d008d849d1cec42dab5c55f1b5",
+      "source_bytes": 94,
+      "canonical_source_sha256": "sha256:888713b402bed2010b56dc90be84e0a6bd0c5feae66e2613fa585fd0bb54003a",
+      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/azure_vnet_site/properties/kubernetes_upgrade_drain/enable_upgrade_drain/disable_vega_upgrade_mode/",
+      "anchor": "canonical-3033022011301013-2303122111031312-0123133011222030-1013133011030302-0221012310020200-2310132333332100-2130323121333310-3120032303332110",
+      "anchor_map": [],
+      "mode": "embedded",
+      "registry_path": "docs/guides/data-sources--azure_vnet_site--reference--group-008.md"
+    },
+    {
       "canonical_id": "xcsh-docs:data-sources:azure_vnet_site:properties:kubernetes_upgrade_drain:enable_upgrade_drain:disable_vega_upgrade_mode",
       "section_id": "xcsh-docs:data-sources:azure_vnet_site:properties:kubernetes_upgrade_drain:enable_upgrade_drain:disable_vega_upgrade_mode:section:3",
       "source_sha256": "sha256:4aefd99c3469a516206d29e292fe4e0fd0d276d44d568d894fe5df7f5e0ff384",
@@ -6633,281 +6937,6 @@
       "canonical_source_sha256": "sha256:669b652403a1950b0dd237d2683c96a9f951770818d09fec47db2db66a80d005",
       "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/azure_vnet_site/properties/voltstack_cluster_ar/outside_static_routes/",
       "anchor": "canonical-2313233131300112-1330321233301301-3233102033330223-2222003313022010-3230323210110333-1312133113303121-2330310221031213-0221012223122213",
-      "anchor_map": [],
-      "mode": "embedded",
-      "registry_path": "docs/guides/data-sources--azure_vnet_site--reference--group-010.md"
-    },
-    {
-      "canonical_id": "xcsh-docs:data-sources:azure_vnet_site:properties:voltstack_cluster_ar:outside_static_routes:static_route_list",
-      "section_id": "xcsh-docs:data-sources:azure_vnet_site:properties:voltstack_cluster_ar:outside_static_routes:static_route_list:section:0",
-      "source_sha256": "sha256:197d41522a9dd286cb9805a03d8a5bd782cc3f3fd95ea854bf2dfc326e83e50c",
-      "source_bytes": 99,
-      "canonical_source_sha256": "sha256:0e495304e512c5f5d34a700a2e67d18746fa738f725323511fb41e26b030ac77",
-      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/azure_vnet_site/properties/voltstack_cluster_ar/outside_static_routes/static_route_list/",
-      "anchor": "canonical-3033330000333132-0223103001123302-3222133320020000-3103322123122200-1130200301031221-0023030230003033-0102320202230201-3003003022312323",
-      "anchor_map": [],
-      "mode": "embedded",
-      "registry_path": "docs/guides/data-sources--azure_vnet_site--reference--group-010.md"
-    },
-    {
-      "canonical_id": "xcsh-docs:data-sources:azure_vnet_site:properties:voltstack_cluster_ar:outside_static_routes:static_route_list",
-      "section_id": "xcsh-docs:data-sources:azure_vnet_site:properties:voltstack_cluster_ar:outside_static_routes:static_route_list:section:1",
-      "source_sha256": "sha256:d2a0975702c97c7ccd28897025b6d4db4122f73295d7e1ca4a83fe24595da690",
-      "source_bytes": 1717,
-      "canonical_source_sha256": "sha256:0e495304e512c5f5d34a700a2e67d18746fa738f725323511fb41e26b030ac77",
-      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/azure_vnet_site/properties/voltstack_cluster_ar/outside_static_routes/static_route_list/",
-      "anchor": "canonical-1131023210210210-3100310322220211-0003000232203211-1322321002022001-2122202033033123-2220033010332102-1031301210321111-3300000303003222",
-      "anchor_map": [
-        [
-          "section",
-          "canonical-1130200113210303-1222313001000031-0110310300133332-0101101232102121-0323102101201332-2313032003330020-2111231331111322-1200321211100023"
-        ]
-      ],
-      "mode": "embedded",
-      "registry_path": "docs/guides/data-sources--azure_vnet_site--reference--group-010.md"
-    },
-    {
-      "canonical_id": "xcsh-docs:data-sources:azure_vnet_site:properties:voltstack_cluster_ar:outside_static_routes:static_route_list",
-      "section_id": "xcsh-docs:data-sources:azure_vnet_site:properties:voltstack_cluster_ar:outside_static_routes:static_route_list:section:2",
-      "source_sha256": "sha256:ffe35027e53778a907d913d4e5e074630070380fe8df0f64b41c676313dc7be3",
-      "source_bytes": 363,
-      "canonical_source_sha256": "sha256:0e495304e512c5f5d34a700a2e67d18746fa738f725323511fb41e26b030ac77",
-      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/azure_vnet_site/properties/voltstack_cluster_ar/outside_static_routes/static_route_list/",
-      "anchor": "canonical-3230033331100133-3213203312003312-1031033333210320-1301110030201322-1112130231120113-3313300213120123-3321031311003302-1100221110001331",
-      "anchor_map": [
-        [
-          "schema-voltstack_cluster_ar--outside_static_routes--static_route_list--simple_static_route",
-          "canonical-2023233102011111-3023132112022103-3330211331120212-0323010020231201-3203203330221131-3023330310033121-3011033233300112-0112033321233130"
-        ]
-      ],
-      "mode": "embedded",
-      "registry_path": "docs/guides/data-sources--azure_vnet_site--reference--group-010.md"
-    },
-    {
-      "canonical_id": "xcsh-docs:data-sources:azure_vnet_site:properties:voltstack_cluster_ar:outside_static_routes:static_route_list",
-      "section_id": "xcsh-docs:data-sources:azure_vnet_site:properties:voltstack_cluster_ar:outside_static_routes:static_route_list:section:3",
-      "source_sha256": "sha256:4cb6bb0fb4a8f3c1fabb8d28c57e0a1b5c1e433791afa8dc8504c82a5c13a5f8",
-      "source_bytes": 917,
-      "canonical_source_sha256": "sha256:0e495304e512c5f5d34a700a2e67d18746fa738f725323511fb41e26b030ac77",
-      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/azure_vnet_site/properties/voltstack_cluster_ar/outside_static_routes/static_route_list/",
-      "anchor": "canonical-3230001231001232-3320032001300321-2322011123332301-2132312002121120-3203010331120311-3233121023033111-1132012111122300-1312210111123023",
-      "anchor_map": [],
-      "mode": "embedded",
-      "registry_path": "docs/guides/data-sources--azure_vnet_site--reference--group-010.md"
-    },
-    {
-      "canonical_id": "xcsh-docs:data-sources:azure_vnet_site:properties:voltstack_cluster_ar:outside_static_routes:static_route_list",
-      "section_id": "xcsh-docs:data-sources:azure_vnet_site:properties:voltstack_cluster_ar:outside_static_routes:static_route_list:section:4",
-      "source_sha256": "sha256:ee838e5f89d842515b5782b987490a088eab0e41b2d0885195b9e5d7343210eb",
-      "source_bytes": 579,
-      "canonical_source_sha256": "sha256:0e495304e512c5f5d34a700a2e67d18746fa738f725323511fb41e26b030ac77",
-      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/azure_vnet_site/properties/voltstack_cluster_ar/outside_static_routes/static_route_list/",
-      "anchor": "canonical-2031103301132033-3331022010202332-1103233113123133-0223210332013110-0102113311112032-0011003213030031-3200222321232233-3102322220020230",
-      "anchor_map": [],
-      "mode": "embedded",
-      "registry_path": "docs/guides/data-sources--azure_vnet_site--reference--group-010.md"
-    },
-    {
-      "canonical_id": "xcsh-docs:data-sources:azure_vnet_site:properties:voltstack_cluster_ar:outside_static_routes:static_route_list:custom_static_route",
-      "section_id": "xcsh-docs:data-sources:azure_vnet_site:properties:voltstack_cluster_ar:outside_static_routes:static_route_list:custom_static_route:section:0",
-      "source_sha256": "sha256:197d41522a9dd286cb9805a03d8a5bd782cc3f3fd95ea854bf2dfc326e83e50c",
-      "source_bytes": 99,
-      "canonical_source_sha256": "sha256:d1088171e9c9055773b7f0571db2e8b74f7766f5847a460fe18d6d098ef6e6c9",
-      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/azure_vnet_site/properties/voltstack_cluster_ar/outside_static_routes/static_route_list/custom_static_route/",
-      "anchor": "canonical-2101021223322030-1330023313301112-1332300232030121-2231231213100230-1231021020020133-1002213132311212-0020102103203121-0123202031213111",
-      "anchor_map": [],
-      "mode": "embedded",
-      "registry_path": "docs/guides/data-sources--azure_vnet_site--reference--group-010.md"
-    },
-    {
-      "canonical_id": "xcsh-docs:data-sources:azure_vnet_site:properties:voltstack_cluster_ar:outside_static_routes:static_route_list:custom_static_route",
-      "section_id": "xcsh-docs:data-sources:azure_vnet_site:properties:voltstack_cluster_ar:outside_static_routes:static_route_list:custom_static_route:section:1",
-      "source_sha256": "sha256:5b905f6be35c70bc357fb3e346377c992cbf547703e544f29dd42b5e3606d794",
-      "source_bytes": 1289,
-      "canonical_source_sha256": "sha256:d1088171e9c9055773b7f0571db2e8b74f7766f5847a460fe18d6d098ef6e6c9",
-      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/azure_vnet_site/properties/voltstack_cluster_ar/outside_static_routes/static_route_list/custom_static_route/",
-      "anchor": "canonical-3111313012030111-3332322113030212-0211133020322123-1310211023032233-1220121102211200-1123113321010130-0313203010330222-3320103032110220",
-      "anchor_map": [
-        [
-          "section",
-          "canonical-3122110311111112-2200321020011331-0231122301012220-2112201212103033-0323022332312113-0200122303312111-0211033122331321-1303201030222133"
-        ]
-      ],
-      "mode": "embedded",
-      "registry_path": "docs/guides/data-sources--azure_vnet_site--reference--group-010.md"
-    },
-    {
-      "canonical_id": "xcsh-docs:data-sources:azure_vnet_site:properties:voltstack_cluster_ar:outside_static_routes:static_route_list:custom_static_route",
-      "section_id": "xcsh-docs:data-sources:azure_vnet_site:properties:voltstack_cluster_ar:outside_static_routes:static_route_list:custom_static_route:section:2",
-      "source_sha256": "sha256:c592777da5b434080cbcd5984ff5234942100d2164c97b6ddaad83d30128876a",
-      "source_bytes": 134,
-      "canonical_source_sha256": "sha256:d1088171e9c9055773b7f0571db2e8b74f7766f5847a460fe18d6d098ef6e6c9",
-      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/azure_vnet_site/properties/voltstack_cluster_ar/outside_static_routes/static_route_list/custom_static_route/",
-      "anchor": "canonical-3333123012031220-0020032321030300-1201331130011203-2122002330013020-3301110210110112-0031202130002331-1120321011220203-0101311021232103",
-      "anchor_map": [
-        [
-          "schema-voltstack_cluster_ar--outside_static_routes--static_route_list--custom_static_route--attrs",
-          "canonical-2112233010310113-0003303201110012-0323212003120102-1313202232110322-1223003011201221-0330313301022013-3322103102320110-3101221202131210"
-        ]
-      ],
-      "mode": "embedded",
-      "registry_path": "docs/guides/data-sources--azure_vnet_site--reference--group-010.md"
-    },
-    {
-      "canonical_id": "xcsh-docs:data-sources:azure_vnet_site:properties:voltstack_cluster_ar:outside_static_routes:static_route_list:custom_static_route",
-      "section_id": "xcsh-docs:data-sources:azure_vnet_site:properties:voltstack_cluster_ar:outside_static_routes:static_route_list:custom_static_route:section:3",
-      "source_sha256": "sha256:f7323d4a33ecc36def7cfd5d34918b00637b67859a8808c8737516aed2512d69",
-      "source_bytes": 1867,
-      "canonical_source_sha256": "sha256:d1088171e9c9055773b7f0571db2e8b74f7766f5847a460fe18d6d098ef6e6c9",
-      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/azure_vnet_site/properties/voltstack_cluster_ar/outside_static_routes/static_route_list/custom_static_route/",
-      "anchor": "canonical-0300201101233312-0301023223111222-2301103212011210-3132311312221021-2101110220033123-0032013101012301-3130130231202302-2030121231133211",
-      "anchor_map": [],
-      "mode": "embedded",
-      "registry_path": "docs/guides/data-sources--azure_vnet_site--reference--group-010.md"
-    },
-    {
-      "canonical_id": "xcsh-docs:data-sources:azure_vnet_site:properties:voltstack_cluster_ar:outside_static_routes:static_route_list:custom_static_route",
-      "section_id": "xcsh-docs:data-sources:azure_vnet_site:properties:voltstack_cluster_ar:outside_static_routes:static_route_list:custom_static_route:section:4",
-      "source_sha256": "sha256:c121b3fc3713be9a51ae00c1db3b318395fa65a3b04c91b9194a49bfd4a7b60f",
-      "source_bytes": 1189,
-      "canonical_source_sha256": "sha256:d1088171e9c9055773b7f0571db2e8b74f7766f5847a460fe18d6d098ef6e6c9",
-      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/azure_vnet_site/properties/voltstack_cluster_ar/outside_static_routes/static_route_list/custom_static_route/",
-      "anchor": "canonical-0012102132233001-3130021230020223-1000323231301111-1011002021123030-0232103122033101-2310000021303310-2030110122021220-0102233221323301",
-      "anchor_map": [],
-      "mode": "embedded",
-      "registry_path": "docs/guides/data-sources--azure_vnet_site--reference--group-010.md"
-    },
-    {
-      "canonical_id": "xcsh-docs:data-sources:azure_vnet_site:properties:voltstack_cluster_ar:outside_static_routes:static_route_list:custom_static_route:labels",
-      "section_id": "xcsh-docs:data-sources:azure_vnet_site:properties:voltstack_cluster_ar:outside_static_routes:static_route_list:custom_static_route:labels:section:0",
-      "source_sha256": "sha256:197d41522a9dd286cb9805a03d8a5bd782cc3f3fd95ea854bf2dfc326e83e50c",
-      "source_bytes": 99,
-      "canonical_source_sha256": "sha256:90c0cd759ba3112aa1b46db612150026f6f48cad928bed4d262887f3f5fb048d",
-      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/azure_vnet_site/properties/voltstack_cluster_ar/outside_static_routes/static_route_list/custom_static_route/labels/",
-      "anchor": "canonical-0211130130100311-2003131130211111-0101000121132122-0122200300023321-2103221210113021-2130213003010323-0013301113312012-1013232130121320",
-      "anchor_map": [],
-      "mode": "embedded",
-      "registry_path": "docs/guides/data-sources--azure_vnet_site--reference--group-010.md"
-    },
-    {
-      "canonical_id": "xcsh-docs:data-sources:azure_vnet_site:properties:voltstack_cluster_ar:outside_static_routes:static_route_list:custom_static_route:labels",
-      "section_id": "xcsh-docs:data-sources:azure_vnet_site:properties:voltstack_cluster_ar:outside_static_routes:static_route_list:custom_static_route:labels:section:1",
-      "source_sha256": "sha256:2495b1c00c852f341b907b1214af2b69863b75cd01b8ddb30f3b3599df5b1a60",
-      "source_bytes": 1554,
-      "canonical_source_sha256": "sha256:90c0cd759ba3112aa1b46db612150026f6f48cad928bed4d262887f3f5fb048d",
-      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/azure_vnet_site/properties/voltstack_cluster_ar/outside_static_routes/static_route_list/custom_static_route/labels/",
-      "anchor": "canonical-0201332212021111-2001220210232223-0021122222013130-1212211002311222-0122001122333001-2200330300203232-2332232033002000-0000131012031212",
-      "anchor_map": [
-        [
-          "section",
-          "canonical-3120132230033112-1300032312310003-3023233112132130-0330130222300030-3110010120230202-2213033220211300-0000010103322231-3301330102021133"
-        ]
-      ],
-      "mode": "embedded",
-      "registry_path": "docs/guides/data-sources--azure_vnet_site--reference--group-010.md"
-    },
-    {
-      "canonical_id": "xcsh-docs:data-sources:azure_vnet_site:properties:voltstack_cluster_ar:outside_static_routes:static_route_list:custom_static_route:labels",
-      "section_id": "xcsh-docs:data-sources:azure_vnet_site:properties:voltstack_cluster_ar:outside_static_routes:static_route_list:custom_static_route:labels:section:2",
-      "source_sha256": "sha256:0d4398201e18f9ddb2ea00ceed6d3256755ea4d008d849d1cec42dab5c55f1b5",
-      "source_bytes": 94,
-      "canonical_source_sha256": "sha256:90c0cd759ba3112aa1b46db612150026f6f48cad928bed4d262887f3f5fb048d",
-      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/azure_vnet_site/properties/voltstack_cluster_ar/outside_static_routes/static_route_list/custom_static_route/labels/",
-      "anchor": "canonical-1002010010330110-0111100333200223-2202210113333202-1123132330003031-2201120133101233-2130020302022100-1110213233322113-0011023110011333",
-      "anchor_map": [],
-      "mode": "embedded",
-      "registry_path": "docs/guides/data-sources--azure_vnet_site--reference--group-010.md"
-    },
-    {
-      "canonical_id": "xcsh-docs:data-sources:azure_vnet_site:properties:voltstack_cluster_ar:outside_static_routes:static_route_list:custom_static_route:labels",
-      "section_id": "xcsh-docs:data-sources:azure_vnet_site:properties:voltstack_cluster_ar:outside_static_routes:static_route_list:custom_static_route:labels:section:3",
-      "source_sha256": "sha256:a3c8937b1765aa900acb9977afd60684ec324439faef245fab556d1a6aa45465",
-      "source_bytes": 391,
-      "canonical_source_sha256": "sha256:90c0cd759ba3112aa1b46db612150026f6f48cad928bed4d262887f3f5fb048d",
-      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/azure_vnet_site/properties/voltstack_cluster_ar/outside_static_routes/static_route_list/custom_static_route/labels/",
-      "anchor": "canonical-2303202030030310-3313201301022223-1122200321000323-0202023022312030-2331220213120022-0331133021120203-1130001210012032-2031133311232230",
-      "anchor_map": [],
-      "mode": "embedded",
-      "registry_path": "docs/guides/data-sources--azure_vnet_site--reference--group-010.md"
-    },
-    {
-      "canonical_id": "xcsh-docs:data-sources:azure_vnet_site:properties:voltstack_cluster_ar:outside_static_routes:static_route_list:custom_static_route:nexthop",
-      "section_id": "xcsh-docs:data-sources:azure_vnet_site:properties:voltstack_cluster_ar:outside_static_routes:static_route_list:custom_static_route:nexthop:section:0",
-      "source_sha256": "sha256:197d41522a9dd286cb9805a03d8a5bd782cc3f3fd95ea854bf2dfc326e83e50c",
-      "source_bytes": 99,
-      "canonical_source_sha256": "sha256:3a625b5908223f2165072400d3b1d29e8dca10f6853c86d785a8ae999ee6481d",
-      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/azure_vnet_site/properties/voltstack_cluster_ar/outside_static_routes/static_route_list/custom_static_route/nexthop/",
-      "anchor": "canonical-3121033102100330-0023300100333101-0023311013313102-3000032232120130-1010010121002300-3133011031033323-0020220002103301-2033221010130312",
-      "anchor_map": [],
-      "mode": "embedded",
-      "registry_path": "docs/guides/data-sources--azure_vnet_site--reference--group-010.md"
-    },
-    {
-      "canonical_id": "xcsh-docs:data-sources:azure_vnet_site:properties:voltstack_cluster_ar:outside_static_routes:static_route_list:custom_static_route:nexthop",
-      "section_id": "xcsh-docs:data-sources:azure_vnet_site:properties:voltstack_cluster_ar:outside_static_routes:static_route_list:custom_static_route:nexthop:section:1",
-      "source_sha256": "sha256:e9a537afaa29d40a8a7b33e98f2297b39c31e29f653b6f38ea36502585da18a8",
-      "source_bytes": 1585,
-      "canonical_source_sha256": "sha256:3a625b5908223f2165072400d3b1d29e8dca10f6853c86d785a8ae999ee6481d",
-      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/azure_vnet_site/properties/voltstack_cluster_ar/outside_static_routes/static_route_list/custom_static_route/nexthop/",
-      "anchor": "canonical-1000232023103102-1013321302230033-1233031212022021-0020011311120211-3231231233212022-1133301202221231-3202302310010322-2130202032131032",
-      "anchor_map": [
-        [
-          "section",
-          "canonical-1211301122332021-3000020213212310-1123122133010202-1033120031011230-2321002222023003-3233100231032203-0121013013022112-3011011032313001"
-        ]
-      ],
-      "mode": "embedded",
-      "registry_path": "docs/guides/data-sources--azure_vnet_site--reference--group-010.md"
-    },
-    {
-      "canonical_id": "xcsh-docs:data-sources:azure_vnet_site:properties:voltstack_cluster_ar:outside_static_routes:static_route_list:custom_static_route:nexthop",
-      "section_id": "xcsh-docs:data-sources:azure_vnet_site:properties:voltstack_cluster_ar:outside_static_routes:static_route_list:custom_static_route:nexthop:section:2",
-      "source_sha256": "sha256:94dfe97246b38ef79147501b8ad95c3d0fb008c4ba47622d36eb58f3bc45db4b",
-      "source_bytes": 642,
-      "canonical_source_sha256": "sha256:3a625b5908223f2165072400d3b1d29e8dca10f6853c86d785a8ae999ee6481d",
-      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/azure_vnet_site/properties/voltstack_cluster_ar/outside_static_routes/static_route_list/custom_static_route/nexthop/",
-      "anchor": "canonical-3300311331303022-1223122132202002-3031322033322102-3123313221313020-2332212223230223-0121001102200100-1212030122301102-3332113203033232",
-      "anchor_map": [
-        [
-          "schema-voltstack_cluster_ar--outside_static_routes--static_route_list--custom_static_route--nexthop--type",
-          "canonical-1101113310230321-1031103321101203-0003112020030033-0002310023112113-0031300201321321-1021100231311122-0230222133020233-0122310112322233"
-        ]
-      ],
-      "mode": "embedded",
-      "registry_path": "docs/guides/data-sources--azure_vnet_site--reference--group-010.md"
-    },
-    {
-      "canonical_id": "xcsh-docs:data-sources:azure_vnet_site:properties:voltstack_cluster_ar:outside_static_routes:static_route_list:custom_static_route:nexthop",
-      "section_id": "xcsh-docs:data-sources:azure_vnet_site:properties:voltstack_cluster_ar:outside_static_routes:static_route_list:custom_static_route:nexthop:section:3",
-      "source_sha256": "sha256:6fc14aa2332e42d99526ec34d5b78f50c2092688b97ca797b1d796fa5fc977f7",
-      "source_bytes": 1284,
-      "canonical_source_sha256": "sha256:3a625b5908223f2165072400d3b1d29e8dca10f6853c86d785a8ae999ee6481d",
-      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/azure_vnet_site/properties/voltstack_cluster_ar/outside_static_routes/static_route_list/custom_static_route/nexthop/",
-      "anchor": "canonical-0232310220310333-1021333012221102-1103012021010013-0211122222010021-2220131201120323-1121323122031222-1310323200210132-1102102303032113",
-      "anchor_map": [],
-      "mode": "embedded",
-      "registry_path": "docs/guides/data-sources--azure_vnet_site--reference--group-010.md"
-    },
-    {
-      "canonical_id": "xcsh-docs:data-sources:azure_vnet_site:properties:voltstack_cluster_ar:outside_static_routes:static_route_list:custom_static_route:nexthop",
-      "section_id": "xcsh-docs:data-sources:azure_vnet_site:properties:voltstack_cluster_ar:outside_static_routes:static_route_list:custom_static_route:nexthop:section:4",
-      "source_sha256": "sha256:f23f9dcf09e185d138a6ea67e2ea3fd5dfcee89157c334b0fb7903ac02347928",
-      "source_bytes": 1003,
-      "canonical_source_sha256": "sha256:3a625b5908223f2165072400d3b1d29e8dca10f6853c86d785a8ae999ee6481d",
-      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/azure_vnet_site/properties/voltstack_cluster_ar/outside_static_routes/static_route_list/custom_static_route/nexthop/",
-      "anchor": "canonical-0032233310030121-1130302310320313-2331032003303211-2131033110303202-2121311212131302-1302100303302001-3031230300220103-3022031030113331",
-      "anchor_map": [],
-      "mode": "embedded",
-      "registry_path": "docs/guides/data-sources--azure_vnet_site--reference--group-010.md"
-    },
-    {
-      "canonical_id": "xcsh-docs:data-sources:azure_vnet_site:properties:voltstack_cluster_ar:outside_static_routes:static_route_list:custom_static_route:nexthop:interface",
-      "section_id": "xcsh-docs:data-sources:azure_vnet_site:properties:voltstack_cluster_ar:outside_static_routes:static_route_list:custom_static_route:nexthop:interface:section:0",
-      "source_sha256": "sha256:197d41522a9dd286cb9805a03d8a5bd782cc3f3fd95ea854bf2dfc326e83e50c",
-      "source_bytes": 99,
-      "canonical_source_sha256": "sha256:47184f9eb8ccb6e11ae630aa1519751adec888c7753a688fb9eb68a198828e9c",
-      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/azure_vnet_site/properties/voltstack_cluster_ar/outside_static_routes/static_route_list/custom_static_route/nexthop/interface/",
-      "anchor": "canonical-3231330311010003-3003112302100101-3021102112000010-1321123032111100-2100013003222322-0012200123122001-0032300003302132-0121000000232022",
       "anchor_map": [],
       "mode": "embedded",
       "registry_path": "docs/guides/data-sources--azure_vnet_site--reference--group-010.md"

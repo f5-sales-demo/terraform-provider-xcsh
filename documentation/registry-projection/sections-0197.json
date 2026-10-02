@@ -2,6 +2,463 @@
   "schema_version": 1,
   "sections": [
     {
+      "canonical_id": "xcsh-docs:data-sources:workload:properties:stateful_service:configuration:parameters:file",
+      "section_id": "xcsh-docs:data-sources:workload:properties:stateful_service:configuration:parameters:file:section:6",
+      "source_sha256": "sha256:cd7deb393248107e3aff2d437020140b3dd20d83756ec657deea93c0bbac442b",
+      "source_bytes": 493,
+      "canonical_source_sha256": "sha256:11e80a778b00860c181e6930cf1abd3f4b3d829a1955fbfd7c0b93a4e19f595b",
+      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/workload/properties/stateful_service/configuration/parameters/file/",
+      "anchor": "canonical-3033103010012231-3320103101311130-1021232221010330-0010003133112123-1201111112003321-3301201202021301-1233320300013223-3300302200330203",
+      "anchor_map": [],
+      "mode": "embedded",
+      "registry_path": "docs/guides/data-sources--workload--reference--group-027.md"
+    },
+    {
+      "canonical_id": "xcsh-docs:data-sources:workload:properties:stateful_service:configuration:parameters:file:mount",
+      "section_id": "xcsh-docs:data-sources:workload:properties:stateful_service:configuration:parameters:file:mount:section:0",
+      "source_sha256": "sha256:197d41522a9dd286cb9805a03d8a5bd782cc3f3fd95ea854bf2dfc326e83e50c",
+      "source_bytes": 99,
+      "canonical_source_sha256": "sha256:bc5034dc410ac4c0f3769298f90ecbbfd358a92286d585ea1bd8ae2da9bd6071",
+      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/workload/properties/stateful_service/configuration/parameters/file/mount/",
+      "anchor": "canonical-2202112023100030-3222012200111102-1223330020120000-0023022220301112-0123212122110013-0130120233332122-2000133223200130-2020203211020302",
+      "anchor_map": [],
+      "mode": "embedded",
+      "registry_path": "docs/guides/data-sources--workload--reference--group-027.md"
+    },
+    {
+      "canonical_id": "xcsh-docs:data-sources:workload:properties:stateful_service:configuration:parameters:file:mount",
+      "section_id": "xcsh-docs:data-sources:workload:properties:stateful_service:configuration:parameters:file:mount:section:1",
+      "source_sha256": "sha256:f2a863b46231c11e5daf869f376649f26af9c288a6fcbb1fa39a813cdd855342",
+      "source_bytes": 1283,
+      "canonical_source_sha256": "sha256:bc5034dc410ac4c0f3769298f90ecbbfd358a92286d585ea1bd8ae2da9bd6071",
+      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/workload/properties/stateful_service/configuration/parameters/file/mount/",
+      "anchor": "canonical-1033323310100103-3213201003331033-3202313220311200-3021100001320013-0013011220321212-3230201210302231-3213001222333222-1311003221300103",
+      "anchor_map": [
+        [
+          "section",
+          "canonical-0112223312213103-3320130013130031-3223123211013130-0130122023112031-0220011111021312-3221331331231020-0010202012011123-1022033201031123"
+        ]
+      ],
+      "mode": "embedded",
+      "registry_path": "docs/guides/data-sources--workload--reference--group-027.md"
+    },
+    {
+      "canonical_id": "xcsh-docs:data-sources:workload:properties:stateful_service:configuration:parameters:file:mount",
+      "section_id": "xcsh-docs:data-sources:workload:properties:stateful_service:configuration:parameters:file:mount:section:2",
+      "source_sha256": "sha256:d4ad59f57b771eb48f5e86ff8746fc08a7eeaea2161a21df4792478cb4e34f21",
+      "source_bytes": 106,
+      "canonical_source_sha256": "sha256:bc5034dc410ac4c0f3769298f90ecbbfd358a92286d585ea1bd8ae2da9bd6071",
+      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/workload/properties/stateful_service/configuration/parameters/file/mount/",
+      "anchor": "canonical-2233303321323232-2101030213011333-3103310300002113-1102030011011211-3130001322110311-0301102012333331-2213001110233130-0110032321202220",
+      "anchor_map": [
+        [
+          "schema-stateful_service--configuration--parameters--file--mount--mode",
+          "canonical-3012232332003013-2333303131123001-2202123113320311-0022320120001313-2220220323301033-0200231131002201-3012330221031231-1223311010033123"
+        ]
+      ],
+      "mode": "embedded",
+      "registry_path": "docs/guides/data-sources--workload--reference--group-027.md"
+    },
+    {
+      "canonical_id": "xcsh-docs:data-sources:workload:properties:stateful_service:configuration:parameters:file:mount",
+      "section_id": "xcsh-docs:data-sources:workload:properties:stateful_service:configuration:parameters:file:mount:section:3",
+      "source_sha256": "sha256:0e8a752b45b3f89dfa9dd57c4b637f0bfbb45fb334b393635f654fc2c0b58f54",
+      "source_bytes": 1080,
+      "canonical_source_sha256": "sha256:bc5034dc410ac4c0f3769298f90ecbbfd358a92286d585ea1bd8ae2da9bd6071",
+      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/workload/properties/stateful_service/configuration/parameters/file/mount/",
+      "anchor": "canonical-0102213302120123-2022301020331101-2200310301001031-0130121030033333-2133013333001201-1031302213320000-2213312322202030-0313303300110213",
+      "anchor_map": [
+        [
+          "schema-stateful_service--configuration--parameters--file--mount--mount_path",
+          "canonical-0131122220210211-2032201201311032-2102312031230032-2210033200311101-2022010032300100-1132122311010113-3310111321023102-3103303312031320"
+        ]
+      ],
+      "mode": "embedded",
+      "registry_path": "docs/guides/data-sources--workload--reference--group-027.md"
+    },
+    {
+      "canonical_id": "xcsh-docs:data-sources:workload:properties:stateful_service:configuration:parameters:file:mount",
+      "section_id": "xcsh-docs:data-sources:workload:properties:stateful_service:configuration:parameters:file:mount:section:4",
+      "source_sha256": "sha256:77d2eeaef966d8076ebb41abbff775ad10d915e2d2168dd4d5696df3e34d7064",
+      "source_bytes": 1099,
+      "canonical_source_sha256": "sha256:bc5034dc410ac4c0f3769298f90ecbbfd358a92286d585ea1bd8ae2da9bd6071",
+      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/workload/properties/stateful_service/configuration/parameters/file/mount/",
+      "anchor": "canonical-3021102023332233-0202231111330023-2311301333303323-0132131102200302-2123133030220113-1302223010031301-1102221211110123-0303212231012003",
+      "anchor_map": [
+        [
+          "schema-stateful_service--configuration--parameters--file--mount--sub_path",
+          "canonical-2022320322100132-2022033011300313-3322233202103123-0011213102301301-0323213110032130-0022020302311333-2000213203002310-2020321120331302"
+        ]
+      ],
+      "mode": "embedded",
+      "registry_path": "docs/guides/data-sources--workload--reference--group-027.md"
+    },
+    {
+      "canonical_id": "xcsh-docs:data-sources:workload:properties:stateful_service:configuration:parameters:file:mount",
+      "section_id": "xcsh-docs:data-sources:workload:properties:stateful_service:configuration:parameters:file:mount:section:5",
+      "source_sha256": "sha256:987e1d809ba3762fa9f1980f0def4f5b82d6beb06bfc0c19c984e3cd478f9ccf",
+      "source_bytes": 917,
+      "canonical_source_sha256": "sha256:bc5034dc410ac4c0f3769298f90ecbbfd358a92286d585ea1bd8ae2da9bd6071",
+      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/workload/properties/stateful_service/configuration/parameters/file/mount/",
+      "anchor": "canonical-0211231231220002-2011310013301033-2111330322031221-1203030010323020-2000011331021011-2302320100030031-2333202021311302-3213013302230332",
+      "anchor_map": [],
+      "mode": "embedded",
+      "registry_path": "docs/guides/data-sources--workload--reference--group-027.md"
+    },
+    {
+      "canonical_id": "xcsh-docs:data-sources:workload:properties:stateful_service:configuration:parameters:file:mount",
+      "section_id": "xcsh-docs:data-sources:workload:properties:stateful_service:configuration:parameters:file:mount:section:6",
+      "source_sha256": "sha256:f4a216b142cb8a3c5fa3aaba7145d6c01262e1cfc55c5c131ea70491cdbc428d",
+      "source_bytes": 302,
+      "canonical_source_sha256": "sha256:bc5034dc410ac4c0f3769298f90ecbbfd358a92286d585ea1bd8ae2da9bd6071",
+      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/workload/properties/stateful_service/configuration/parameters/file/mount/",
+      "anchor": "canonical-2310122203121121-1201222223211023-3122203123303112-0123230310310300-0010323010103011-1211212302311110-3330233302312221-1311000011320313",
+      "anchor_map": [],
+      "mode": "embedded",
+      "registry_path": "docs/guides/data-sources--workload--reference--group-027.md"
+    },
+    {
+      "canonical_id": "xcsh-docs:data-sources:workload:properties:stateful_service:containers",
+      "section_id": "xcsh-docs:data-sources:workload:properties:stateful_service:containers:section:0",
+      "source_sha256": "sha256:197d41522a9dd286cb9805a03d8a5bd782cc3f3fd95ea854bf2dfc326e83e50c",
+      "source_bytes": 99,
+      "canonical_source_sha256": "sha256:4e92b789e6cabc51dbb620984f9161e441f687befe97f3ccb37ef6ac0e562f90",
+      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/workload/properties/stateful_service/containers/",
+      "anchor": "canonical-3101311130033212-3010211101012322-2332300122313021-2300111123200012-3222222201300313-2322010011032230-2110031201133132-3103131301302003",
+      "anchor_map": [],
+      "mode": "embedded",
+      "registry_path": "docs/guides/data-sources--workload--reference--group-027.md"
+    },
+    {
+      "canonical_id": "xcsh-docs:data-sources:workload:properties:stateful_service:containers",
+      "section_id": "xcsh-docs:data-sources:workload:properties:stateful_service:containers:section:1",
+      "source_sha256": "sha256:55c68320a9aa41d70447055b914cba510ef47e048bdb0864847bf6ed5342ccde",
+      "source_bytes": 1294,
+      "canonical_source_sha256": "sha256:4e92b789e6cabc51dbb620984f9161e441f687befe97f3ccb37ef6ac0e562f90",
+      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/workload/properties/stateful_service/containers/",
+      "anchor": "canonical-1231233332000300-1233310110120330-1033201022133222-2321323030312333-0221103131232313-3223302011313232-1132230313200100-1330012332203222",
+      "anchor_map": [
+        [
+          "section",
+          "canonical-2231200033230033-1103320220110033-1200233000202013-1303312212212310-1112300321301320-0310220313000231-3230332102331312-1111323001002002"
+        ]
+      ],
+      "mode": "embedded",
+      "registry_path": "docs/guides/data-sources--workload--reference--group-027.md"
+    },
+    {
+      "canonical_id": "xcsh-docs:data-sources:workload:properties:stateful_service:containers",
+      "section_id": "xcsh-docs:data-sources:workload:properties:stateful_service:containers:section:2",
+      "source_sha256": "sha256:1915173fea51f994b3e7ab11015326829f8d019d00fb07df2a7d7c957b1a9e4d",
+      "source_bytes": 78,
+      "canonical_source_sha256": "sha256:4e92b789e6cabc51dbb620984f9161e441f687befe97f3ccb37ef6ac0e562f90",
+      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/workload/properties/stateful_service/containers/",
+      "anchor": "canonical-1230130113220012-1110133023123220-1320011201010103-3113232101302331-1320121000333231-2321230232131010-1102320103112232-1013300202200200",
+      "anchor_map": [
+        [
+          "schema-stateful_service--containers--args",
+          "canonical-1212332112232333-2213231212302013-2023131230302000-3112102013101311-3311121333300131-0120103011121312-1123131031302113-1232330021020203"
+        ]
+      ],
+      "mode": "embedded",
+      "registry_path": "docs/guides/data-sources--workload--reference--group-027.md"
+    },
+    {
+      "canonical_id": "xcsh-docs:data-sources:workload:properties:stateful_service:containers",
+      "section_id": "xcsh-docs:data-sources:workload:properties:stateful_service:containers:section:3",
+      "source_sha256": "sha256:b58ee77a4f64e1301cef714d10ef3e8c0b88f459dc1000571ddaa7c5cc442ebb",
+      "source_bytes": 812,
+      "canonical_source_sha256": "sha256:4e92b789e6cabc51dbb620984f9161e441f687befe97f3ccb37ef6ac0e562f90",
+      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/workload/properties/stateful_service/containers/",
+      "anchor": "canonical-0223310013203321-2002113321310120-3002212112310320-1130102210013322-3132011321221031-2331212311132332-2123231100311222-0302103223303100",
+      "anchor_map": [
+        [
+          "schema-stateful_service--containers--command",
+          "canonical-1223011320100121-1211012033023013-0233113301221012-3233133020030110-2202013003020311-0313213310223031-2220230200300211-2232210132202200"
+        ]
+      ],
+      "mode": "embedded",
+      "registry_path": "docs/guides/data-sources--workload--reference--group-027.md"
+    },
+    {
+      "canonical_id": "xcsh-docs:data-sources:workload:properties:stateful_service:containers",
+      "section_id": "xcsh-docs:data-sources:workload:properties:stateful_service:containers:section:4",
+      "source_sha256": "sha256:9119353df96b0cc3d1f9a3acce62f0e83d4cc1accd9f5920cac47bfc5685436e",
+      "source_bytes": 1182,
+      "canonical_source_sha256": "sha256:4e92b789e6cabc51dbb620984f9161e441f687befe97f3ccb37ef6ac0e562f90",
+      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/workload/properties/stateful_service/containers/",
+      "anchor": "canonical-0310001303330133-3203210312233320-0313111020001202-0310000032010002-2020311313301132-2213022010103330-3033201103102300-0012232100222110",
+      "anchor_map": [
+        [
+          "schema-stateful_service--containers--flavor",
+          "canonical-2200120223013121-1220121212131033-1103112002330030-1111112200000010-0113030332002310-1203232103102100-2033120213020303-1201021310000313"
+        ]
+      ],
+      "mode": "embedded",
+      "registry_path": "docs/guides/data-sources--workload--reference--group-027.md"
+    },
+    {
+      "canonical_id": "xcsh-docs:data-sources:workload:properties:stateful_service:containers",
+      "section_id": "xcsh-docs:data-sources:workload:properties:stateful_service:containers:section:5",
+      "source_sha256": "sha256:d8596518d926a8ca02c2597e206598ae8eff1247a6f4a8f480e1f367228badce",
+      "source_bytes": 1611,
+      "canonical_source_sha256": "sha256:4e92b789e6cabc51dbb620984f9161e441f687befe97f3ccb37ef6ac0e562f90",
+      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/workload/properties/stateful_service/containers/",
+      "anchor": "canonical-1131212201322333-3001031302133220-2201120332111133-3123130312313330-1110111110321212-3133012121131000-0021033020031301-1210122102132103",
+      "anchor_map": [
+        [
+          "schema-stateful_service--containers--init_container",
+          "canonical-3130203201033303-3212313110232121-0123233133030010-1303003332233300-0031122312300301-3231120202311020-1231103003101230-1032223113103123"
+        ]
+      ],
+      "mode": "embedded",
+      "registry_path": "docs/guides/data-sources--workload--reference--group-027.md"
+    },
+    {
+      "canonical_id": "xcsh-docs:data-sources:workload:properties:stateful_service:containers",
+      "section_id": "xcsh-docs:data-sources:workload:properties:stateful_service:containers:section:6",
+      "source_sha256": "sha256:063a6db508b2542af152d0e663a2e53ec32fe8cc386c193e80897fdac6054b16",
+      "source_bytes": 559,
+      "canonical_source_sha256": "sha256:4e92b789e6cabc51dbb620984f9161e441f687befe97f3ccb37ef6ac0e562f90",
+      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/workload/properties/stateful_service/containers/",
+      "anchor": "canonical-0133323003301313-2303202333100231-0033112031112113-0101110220130003-1200030223311232-2223130111022220-1012212210113032-2111113220100010",
+      "anchor_map": [
+        [
+          "schema-stateful_service--containers--name",
+          "canonical-3312103121313330-0010030033131020-0032001131313311-2221333121033013-0032111310032123-1030333212123011-3201210021003321-2320213232122232"
+        ]
+      ],
+      "mode": "embedded",
+      "registry_path": "docs/guides/data-sources--workload--reference--group-027.md"
+    },
+    {
+      "canonical_id": "xcsh-docs:data-sources:workload:properties:stateful_service:containers",
+      "section_id": "xcsh-docs:data-sources:workload:properties:stateful_service:containers:section:7",
+      "source_sha256": "sha256:f992791629cdb47eb98913408ae2a26f6cc4c41302e69754cad71a7f75546e8e",
+      "source_bytes": 1605,
+      "canonical_source_sha256": "sha256:4e92b789e6cabc51dbb620984f9161e441f687befe97f3ccb37ef6ac0e562f90",
+      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/workload/properties/stateful_service/containers/",
+      "anchor": "canonical-1003210033033030-2122003022310002-1201012322312220-0310200032313020-2322201113123133-1200001130231213-1302002132013001-0111303021310220",
+      "anchor_map": [],
+      "mode": "embedded",
+      "registry_path": "docs/guides/data-sources--workload--reference--group-027.md"
+    },
+    {
+      "canonical_id": "xcsh-docs:data-sources:workload:properties:stateful_service:containers",
+      "section_id": "xcsh-docs:data-sources:workload:properties:stateful_service:containers:section:8",
+      "source_sha256": "sha256:2eb249064a0ceb0e2e919837a24f048e0300d9ccbcd3c8f5812f73a9d9c7ddea",
+      "source_bytes": 1129,
+      "canonical_source_sha256": "sha256:4e92b789e6cabc51dbb620984f9161e441f687befe97f3ccb37ef6ac0e562f90",
+      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/workload/properties/stateful_service/containers/",
+      "anchor": "canonical-1222122312332233-0113033001301030-2112312322113313-0302101120000130-3230221002322022-0103320130100110-3101232020030200-0022122300022021",
+      "anchor_map": [],
+      "mode": "embedded",
+      "registry_path": "docs/guides/data-sources--workload--reference--group-027.md"
+    },
+    {
+      "canonical_id": "xcsh-docs:data-sources:workload:properties:stateful_service:containers:custom_flavor",
+      "section_id": "xcsh-docs:data-sources:workload:properties:stateful_service:containers:custom_flavor:section:0",
+      "source_sha256": "sha256:197d41522a9dd286cb9805a03d8a5bd782cc3f3fd95ea854bf2dfc326e83e50c",
+      "source_bytes": 99,
+      "canonical_source_sha256": "sha256:1bc6273968975bccfe76217ba4a72d998e2032ba341f5fda91fb24b191e88b22",
+      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/workload/properties/stateful_service/containers/custom_flavor/",
+      "anchor": "canonical-0111033232200132-3122032001133001-0120333133122101-3223322213333131-2201032200331211-2033202303323233-2330003230013031-3113232020100003",
+      "anchor_map": [],
+      "mode": "embedded",
+      "registry_path": "docs/guides/data-sources--workload--reference--group-027.md"
+    },
+    {
+      "canonical_id": "xcsh-docs:data-sources:workload:properties:stateful_service:containers:custom_flavor",
+      "section_id": "xcsh-docs:data-sources:workload:properties:stateful_service:containers:custom_flavor:section:1",
+      "source_sha256": "sha256:6db244dce25a42c5607bf141fbb9d920a1d7921170e9a8051c3b6a9847fadd9c",
+      "source_bytes": 1144,
+      "canonical_source_sha256": "sha256:1bc6273968975bccfe76217ba4a72d998e2032ba341f5fda91fb24b191e88b22",
+      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/workload/properties/stateful_service/containers/custom_flavor/",
+      "anchor": "canonical-0110130322313113-3012310300233233-1110102313132221-0312123030022013-2303223020200202-3210110121222332-2133221122303310-1312001123133001",
+      "anchor_map": [
+        [
+          "section",
+          "canonical-1212302001133323-2222112033123200-0102032020200201-3230313310110033-0032013303233333-1123201332323123-2121332103211013-2023321003323333"
+        ]
+      ],
+      "mode": "embedded",
+      "registry_path": "docs/guides/data-sources--workload--reference--group-027.md"
+    },
+    {
+      "canonical_id": "xcsh-docs:data-sources:workload:properties:stateful_service:containers:custom_flavor",
+      "section_id": "xcsh-docs:data-sources:workload:properties:stateful_service:containers:custom_flavor:section:2",
+      "source_sha256": "sha256:1ccedc50a22a4aab0843c57d79911ee96dfdeecfb9ab6c6f5f63d46f94b52ae4",
+      "source_bytes": 93,
+      "canonical_source_sha256": "sha256:1bc6273968975bccfe76217ba4a72d998e2032ba341f5fda91fb24b191e88b22",
+      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/workload/properties/stateful_service/containers/custom_flavor/",
+      "anchor": "canonical-0123322221321132-0002201212133330-1201230022000321-3230320313330331-2301020320232333-0032122211311312-1200013311311033-1013321011023012",
+      "anchor_map": [
+        [
+          "schema-stateful_service--containers--custom_flavor--name",
+          "canonical-1333302212022320-2133211113211203-0210112201202332-0030310103310322-1123301113010112-1210320122012212-1010210320311322-2220211300131012"
+        ]
+      ],
+      "mode": "embedded",
+      "registry_path": "docs/guides/data-sources--workload--reference--group-027.md"
+    },
+    {
+      "canonical_id": "xcsh-docs:data-sources:workload:properties:stateful_service:containers:custom_flavor",
+      "section_id": "xcsh-docs:data-sources:workload:properties:stateful_service:containers:custom_flavor:section:3",
+      "source_sha256": "sha256:fba02ad6e6efb23ca9a6ab03733c69f43750ce9f392e6561eda9209a27648e81",
+      "source_bytes": 1355,
+      "canonical_source_sha256": "sha256:1bc6273968975bccfe76217ba4a72d998e2032ba341f5fda91fb24b191e88b22",
+      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/workload/properties/stateful_service/containers/custom_flavor/",
+      "anchor": "canonical-3311030200000222-2133320323031113-1313023013331220-0210311011130102-1333023100033032-2030021130202012-1203033001302232-2201330300121112",
+      "anchor_map": [
+        [
+          "schema-stateful_service--containers--custom_flavor--namespace",
+          "canonical-3030113002112032-1232313120320003-1302011200310122-0313212222311120-2233120232010312-1233212131032013-0300301111132032-1112012310223011"
+        ]
+      ],
+      "mode": "embedded",
+      "registry_path": "docs/guides/data-sources--workload--reference--group-027.md"
+    },
+    {
+      "canonical_id": "xcsh-docs:data-sources:workload:properties:stateful_service:containers:custom_flavor",
+      "section_id": "xcsh-docs:data-sources:workload:properties:stateful_service:containers:custom_flavor:section:4",
+      "source_sha256": "sha256:9af79026317aadafada77c17addeab031bd8d478313392cfb64ef3d3678d047c",
+      "source_bytes": 1606,
+      "canonical_source_sha256": "sha256:1bc6273968975bccfe76217ba4a72d998e2032ba341f5fda91fb24b191e88b22",
+      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/workload/properties/stateful_service/containers/custom_flavor/",
+      "anchor": "canonical-2200002023102131-0302311210231210-1032120220203233-1123311022212131-1001210123033103-2332012131001101-1231000131020002-3133121130233100",
+      "anchor_map": [
+        [
+          "schema-stateful_service--containers--custom_flavor--tenant",
+          "canonical-1103313333331131-0331000310000333-2021100222233312-2221002231030021-3123213122102323-0022210311212323-0213032211101202-2100333112130130"
+        ]
+      ],
+      "mode": "embedded",
+      "registry_path": "docs/guides/data-sources--workload--reference--group-027.md"
+    },
+    {
+      "canonical_id": "xcsh-docs:data-sources:workload:properties:stateful_service:containers:custom_flavor",
+      "section_id": "xcsh-docs:data-sources:workload:properties:stateful_service:containers:custom_flavor:section:5",
+      "source_sha256": "sha256:ab2481332cc037671619af0cefc06c9ceccdc07e964a6178dfd59e35c8469ef5",
+      "source_bytes": 1030,
+      "canonical_source_sha256": "sha256:1bc6273968975bccfe76217ba4a72d998e2032ba341f5fda91fb24b191e88b22",
+      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/workload/properties/stateful_service/containers/custom_flavor/",
+      "anchor": "canonical-0302231310031000-2000020002321033-0013132233130102-3201321232030013-3101230023100331-2112133023320102-0230010232101332-2100000022220202",
+      "anchor_map": [],
+      "mode": "embedded",
+      "registry_path": "docs/guides/data-sources--workload--reference--group-027.md"
+    },
+    {
+      "canonical_id": "xcsh-docs:data-sources:workload:properties:stateful_service:containers:custom_flavor",
+      "section_id": "xcsh-docs:data-sources:workload:properties:stateful_service:containers:custom_flavor:section:6",
+      "source_sha256": "sha256:4c9841fd0c4aa059f6bb3a15d6d3a1973038b1e7ca54a0e04c44502b99db7524",
+      "source_bytes": 264,
+      "canonical_source_sha256": "sha256:1bc6273968975bccfe76217ba4a72d998e2032ba341f5fda91fb24b191e88b22",
+      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/workload/properties/stateful_service/containers/custom_flavor/",
+      "anchor": "canonical-3332122110010303-2311333011303102-3301232221330012-1322121031022030-2321223332120110-1212030200000311-3101311022030013-0030123222023120",
+      "anchor_map": [],
+      "mode": "embedded",
+      "registry_path": "docs/guides/data-sources--workload--reference--group-027.md"
+    },
+    {
+      "canonical_id": "xcsh-docs:data-sources:workload:properties:stateful_service:containers:default_flavor",
+      "section_id": "xcsh-docs:data-sources:workload:properties:stateful_service:containers:default_flavor:section:0",
+      "source_sha256": "sha256:197d41522a9dd286cb9805a03d8a5bd782cc3f3fd95ea854bf2dfc326e83e50c",
+      "source_bytes": 99,
+      "canonical_source_sha256": "sha256:12c3ce5e699298b0e5c877c5ab9b4025c8b71cdf5bddb381578d284794b0de36",
+      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/workload/properties/stateful_service/containers/default_flavor/",
+      "anchor": "canonical-0131320010322031-0233112112321032-3231113121012203-3033232202221033-3201112132321233-1302020210022201-1000303301120220-1012231333220113",
+      "anchor_map": [],
+      "mode": "embedded",
+      "registry_path": "docs/guides/data-sources--workload--reference--group-027.md"
+    },
+    {
+      "canonical_id": "xcsh-docs:data-sources:workload:properties:stateful_service:containers:default_flavor",
+      "section_id": "xcsh-docs:data-sources:workload:properties:stateful_service:containers:default_flavor:section:1",
+      "source_sha256": "sha256:a1a50bfe9fb75f27a846a0dff8840d314ec25bd1934d9fd406b12ae6b166f4a7",
+      "source_bytes": 957,
+      "canonical_source_sha256": "sha256:12c3ce5e699298b0e5c877c5ab9b4025c8b71cdf5bddb381578d284794b0de36",
+      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/workload/properties/stateful_service/containers/default_flavor/",
+      "anchor": "canonical-0121102130311230-2323100310102310-3211030332103321-0012132000222322-0110030100213102-0132232333302300-1331111001212311-1220231321022323",
+      "anchor_map": [
+        [
+          "section",
+          "canonical-2003021323113121-1101201023333010-1031202111200311-0201233202211133-3323312032220200-3303232321221022-0000122010130333-2133100030301321"
+        ]
+      ],
+      "mode": "embedded",
+      "registry_path": "docs/guides/data-sources--workload--reference--group-027.md"
+    },
+    {
+      "canonical_id": "xcsh-docs:data-sources:workload:properties:stateful_service:containers:default_flavor",
+      "section_id": "xcsh-docs:data-sources:workload:properties:stateful_service:containers:default_flavor:section:2",
+      "source_sha256": "sha256:0d4398201e18f9ddb2ea00ceed6d3256755ea4d008d849d1cec42dab5c55f1b5",
+      "source_bytes": 94,
+      "canonical_source_sha256": "sha256:12c3ce5e699298b0e5c877c5ab9b4025c8b71cdf5bddb381578d284794b0de36",
+      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/workload/properties/stateful_service/containers/default_flavor/",
+      "anchor": "canonical-1010233102311201-1001303330201032-1121200220202120-3210132333010031-2202022023231201-3130311201333302-1321030210112331-1013030133113112",
+      "anchor_map": [],
+      "mode": "embedded",
+      "registry_path": "docs/guides/data-sources--workload--reference--group-027.md"
+    },
+    {
+      "canonical_id": "xcsh-docs:data-sources:workload:properties:stateful_service:containers:default_flavor",
+      "section_id": "xcsh-docs:data-sources:workload:properties:stateful_service:containers:default_flavor:section:3",
+      "source_sha256": "sha256:4c9841fd0c4aa059f6bb3a15d6d3a1973038b1e7ca54a0e04c44502b99db7524",
+      "source_bytes": 264,
+      "canonical_source_sha256": "sha256:12c3ce5e699298b0e5c877c5ab9b4025c8b71cdf5bddb381578d284794b0de36",
+      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/workload/properties/stateful_service/containers/default_flavor/",
+      "anchor": "canonical-1030101323132231-2002122111213331-3200312032101301-1121032001231212-3321122132322212-1333310100020003-0001330102331113-1222013122333030",
+      "anchor_map": [],
+      "mode": "embedded",
+      "registry_path": "docs/guides/data-sources--workload--reference--group-027.md"
+    },
+    {
+      "canonical_id": "xcsh-docs:data-sources:workload:properties:stateful_service:containers:image",
+      "section_id": "xcsh-docs:data-sources:workload:properties:stateful_service:containers:image:section:0",
+      "source_sha256": "sha256:197d41522a9dd286cb9805a03d8a5bd782cc3f3fd95ea854bf2dfc326e83e50c",
+      "source_bytes": 99,
+      "canonical_source_sha256": "sha256:92d05ab7b28b44f25436a412157e008d6aac353ae0dd28b075c3af975b10ad79",
+      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/workload/properties/stateful_service/containers/image/",
+      "anchor": "canonical-0021330333100321-2210032021313101-0103302100233222-1221130213013113-2331021231110011-0122333011022231-0333012303023310-3330131303211312",
+      "anchor_map": [],
+      "mode": "embedded",
+      "registry_path": "docs/guides/data-sources--workload--reference--group-027.md"
+    },
+    {
+      "canonical_id": "xcsh-docs:data-sources:workload:properties:stateful_service:containers:image",
+      "section_id": "xcsh-docs:data-sources:workload:properties:stateful_service:containers:image:section:1",
+      "source_sha256": "sha256:38b8519f6183cf057d7c72b2c7af1323272beb4ad2448bbcd74ba17b8011d0dc",
+      "source_bytes": 989,
+      "canonical_source_sha256": "sha256:92d05ab7b28b44f25436a412157e008d6aac353ae0dd28b075c3af975b10ad79",
+      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/workload/properties/stateful_service/containers/image/",
+      "anchor": "canonical-1011031102202210-3330013132032011-2001300110312322-3233110123031220-3100213300220130-2230032102311230-2010321023012121-0212201331120303",
+      "anchor_map": [
+        [
+          "section",
+          "canonical-2003021032010113-3302202113030113-0233331031232221-1030131132013102-3122110302213022-1002112201311301-0110030321001303-1030102211220313"
+        ]
+      ],
+      "mode": "embedded",
+      "registry_path": "docs/guides/data-sources--workload--reference--group-027.md"
+    },
+    {
+      "canonical_id": "xcsh-docs:data-sources:workload:properties:stateful_service:containers:image",
+      "section_id": "xcsh-docs:data-sources:workload:properties:stateful_service:containers:image:section:2",
+      "source_sha256": "sha256:83e60af2125405662ef9b11a0438ad02650bac6a2ec89264a9446dbd01b84817",
+      "source_bytes": 285,
+      "canonical_source_sha256": "sha256:92d05ab7b28b44f25436a412157e008d6aac353ae0dd28b075c3af975b10ad79",
+      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/workload/properties/stateful_service/containers/image/",
+      "anchor": "canonical-0003022322021112-3330321021300101-1131120023210031-3001300320233003-3200312113103112-0131123021010333-1033133003110303-0220302021231031",
+      "anchor_map": [
+        [
+          "schema-stateful_service--containers--image--name",
+          "canonical-3310101233132332-0001313231321032-0202220310202113-3010332221110320-0323103331302333-2231202213001222-1131000032211302-3201212002303112"
+        ]
+      ],
+      "mode": "embedded",
+      "registry_path": "docs/guides/data-sources--workload--reference--group-027.md"
+    },
+    {
       "canonical_id": "xcsh-docs:data-sources:workload:properties:stateful_service:containers:image",
       "section_id": "xcsh-docs:data-sources:workload:properties:stateful_service:containers:image:section:3",
       "source_sha256": "sha256:cd067f2a83f2f8ab9068ed24eb70c6b56c6591eda34243d04b702be208698803",
@@ -7157,66 +7614,6 @@
       "anchor_map": [],
       "mode": "embedded",
       "registry_path": "docs/guides/ephemeral-resources--kubernetes_manifests--examples--group-001.md"
-    },
-    {
-      "canonical_id": "xcsh-docs:ephemeral-resources:kubernetes_manifests:lifecycle",
-      "section_id": "xcsh-docs:ephemeral-resources:kubernetes_manifests:lifecycle:section:0",
-      "source_sha256": "sha256:197d41522a9dd286cb9805a03d8a5bd782cc3f3fd95ea854bf2dfc326e83e50c",
-      "source_bytes": 99,
-      "canonical_source_sha256": "sha256:a816f96c24cdffda9958f5275009a81bcdd043bb003f5d2305f54ac8cd89ee4a",
-      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/ephemeral-resources/kubernetes_manifests/lifecycle/",
-      "anchor": "canonical-0131231131103223-3323102110011201-2331133102210002-1032333031030023-1132222323221120-0003011021302021-0020120030303000-2130113320101312",
-      "anchor_map": [],
-      "mode": "embedded",
-      "registry_path": "docs/guides/ephemeral-resources--kubernetes_manifests--lifecycle--group-001.md"
-    },
-    {
-      "canonical_id": "xcsh-docs:ephemeral-resources:kubernetes_manifests:lifecycle",
-      "section_id": "xcsh-docs:ephemeral-resources:kubernetes_manifests:lifecycle:section:1",
-      "source_sha256": "sha256:0f27ad9d6384bc62806213f12cdd9d7f0a32d16a3b2de24e7119e698533133c0",
-      "source_bytes": 448,
-      "canonical_source_sha256": "sha256:a816f96c24cdffda9958f5275009a81bcdd043bb003f5d2305f54ac8cd89ee4a",
-      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/ephemeral-resources/kubernetes_manifests/lifecycle/",
-      "anchor": "canonical-0231311202000320-3033211122011330-0012301021220010-1203003211033011-1100330230032200-2121030330232120-2210123123301223-0222230332320002",
-      "anchor_map": [],
-      "mode": "embedded",
-      "registry_path": "docs/guides/ephemeral-resources--kubernetes_manifests--lifecycle--group-001.md"
-    },
-    {
-      "canonical_id": "xcsh-docs:ephemeral-resources:kubernetes_manifests:lifecycle",
-      "section_id": "xcsh-docs:ephemeral-resources:kubernetes_manifests:lifecycle:section:2",
-      "source_sha256": "sha256:db1ccd5cb5b1986761dc7e586a346692f116f2968e7ac48db287d30a6afe25a0",
-      "source_bytes": 144,
-      "canonical_source_sha256": "sha256:a816f96c24cdffda9958f5275009a81bcdd043bb003f5d2305f54ac8cd89ee4a",
-      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/ephemeral-resources/kubernetes_manifests/lifecycle/",
-      "anchor": "canonical-1031220232223223-0232121211113022-1203123230120031-1211311133323012-1311231322212212-2233300101010333-3002012030122303-0013231132003030",
-      "anchor_map": [],
-      "mode": "embedded",
-      "registry_path": "docs/guides/ephemeral-resources--kubernetes_manifests--lifecycle--group-001.md"
-    },
-    {
-      "canonical_id": "xcsh-docs:provider:setup:overview",
-      "section_id": "xcsh-docs:provider:setup:overview",
-      "source_sha256": "sha256:ead3a2e4de0bf83b2e4fb9ffbd9ad3365e69be28ddf1e52b2a3a15ddea0683e5",
-      "source_bytes": 7170,
-      "canonical_source_sha256": "sha256:ead3a2e4de0bf83b2e4fb9ffbd9ad3365e69be28ddf1e52b2a3a15ddea0683e5",
-      "registry_path": "docs/index.md",
-      "mode": "embedded",
-      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/provider/setup/",
-      "anchor_map": {},
-      "anchor": ""
-    },
-    {
-      "canonical_id": "xcsh-docs:guides:network-allowlists:overview",
-      "section_id": "xcsh-docs:guides:network-allowlists:overview",
-      "source_sha256": "sha256:07af41b5d4db74629947a8ec7504bc57daf5f6c88d24dbeaa53b6c6abb27f4d7",
-      "source_bytes": 1741,
-      "canonical_source_sha256": "sha256:07af41b5d4db74629947a8ec7504bc57daf5f6c88d24dbeaa53b6c6abb27f4d7",
-      "registry_path": "docs/guides/network-allowlists.md",
-      "mode": "embedded",
-      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/guides/network-allowlists/",
-      "anchor_map": {},
-      "anchor": ""
     }
   ]
 }

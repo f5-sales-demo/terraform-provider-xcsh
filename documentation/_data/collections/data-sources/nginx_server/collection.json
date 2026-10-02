@@ -272,7 +272,7 @@
       "category": null,
       "child_ids": ["xcsh-docs:data-sources:nginx_server:reference", "xcsh-docs:data-sources:nginx_server:examples"],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -284,7 +284,7 @@
       "path": "documentation/data-sources/nginx_server/index.md",
       "product": "distributed-cloud",
       "provider_name": "nginx_server",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-2001223000223133-3323332323212021-3322301333223013-0302011011112310-1200100232112222-1312233312332302-3320223103231232-2123102210132102",
       "registry_path": "docs/data-sources/nginx_server.md",
@@ -316,7 +316,7 @@
         "xcsh-docs:data-sources:nginx_server:properties:server_spec"
       ],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -328,7 +328,7 @@
       "path": "documentation/data-sources/nginx_server/properties/index.md",
       "product": "distributed-cloud",
       "provider_name": "nginx_server",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-1023323233213133-0302133111112113-0100222132220233-3300220100330002-1122012022213202-1333110201013021-3010020312201133-3123122020002010",
       "registry_path": "docs/guides/data-sources--nginx_server--reference--group-001.md",
@@ -472,7 +472,7 @@
         "xcsh-docs:data-sources:nginx_server:properties:dataplane_ref:nginx_instance"
       ],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -484,7 +484,7 @@
       "path": "documentation/data-sources/nginx_server/properties/dataplane_ref/index.md",
       "product": "distributed-cloud",
       "provider_name": "nginx_server",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-0220302120020200-1121031133010013-1221013203013032-3302322122311212-3303003030302120-3213212133131003-1233321021300112-3333301303233231",
       "registry_path": "docs/guides/data-sources--nginx_server--reference--group-001.md",
@@ -541,7 +541,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -553,7 +553,7 @@
       "path": "documentation/data-sources/nginx_server/properties/dataplane_ref/nginx_csg/index.md",
       "product": "distributed-cloud",
       "provider_name": "nginx_server",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-1322311220110101-1313012010211230-1131203311311003-0121100032020301-0222221122322120-0021011313222021-2023221031113322-1331121123111212",
       "registry_path": "docs/guides/data-sources--nginx_server--reference--group-001.md",
@@ -624,7 +624,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -636,7 +636,7 @@
       "path": "documentation/data-sources/nginx_server/properties/dataplane_ref/nginx_instance/index.md",
       "product": "distributed-cloud",
       "provider_name": "nginx_server",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-0212310303131230-0100121111300131-1310001000023210-3111302110003122-2000320203202330-3032212130011233-2001300010333233-2322333200110113",
       "registry_path": "docs/guides/data-sources--nginx_server--reference--group-001.md",
@@ -711,7 +711,7 @@
         "xcsh-docs:data-sources:nginx_server:properties:server_spec:waf_spec"
       ],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -723,7 +723,7 @@
       "path": "documentation/data-sources/nginx_server/properties/server_spec/index.md",
       "product": "distributed-cloud",
       "provider_name": "nginx_server",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-0122302310010021-1321221030311133-1100310212321130-2322212212032232-3203223221022103-2302223302323122-2021001303002122-1323202112301331",
       "registry_path": "docs/guides/data-sources--nginx_server--reference--group-001.md",
@@ -881,7 +881,7 @@
         "xcsh-docs:data-sources:nginx_server:properties:server_spec:api_discovery_spec:enabled"
       ],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -893,7 +893,7 @@
       "path": "documentation/data-sources/nginx_server/properties/server_spec/api_discovery_spec/index.md",
       "product": "distributed-cloud",
       "provider_name": "nginx_server",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-3102110110010211-2020103333131312-3012001133101103-0300031321031302-2013300000220123-3133022233232212-1020020023012200-2323232330203223",
       "registry_path": "docs/guides/data-sources--nginx_server--reference--group-001.md",
@@ -950,7 +950,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -962,7 +962,7 @@
       "path": "documentation/data-sources/nginx_server/properties/server_spec/api_discovery_spec/disabled/index.md",
       "product": "distributed-cloud",
       "provider_name": "nginx_server",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-3122011322001203-1003010002323233-2022210332212002-1003132223231002-2113221320313301-3013210032210112-1021103200201211-2022222020000032",
       "registry_path": "docs/guides/data-sources--nginx_server--reference--group-001.md",
@@ -990,7 +990,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -1002,7 +1002,7 @@
       "path": "documentation/data-sources/nginx_server/properties/server_spec/api_discovery_spec/enabled/index.md",
       "product": "distributed-cloud",
       "provider_name": "nginx_server",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-3203210001032333-3320010012300130-2213123031222030-2112323212033301-2322220303120133-2002002100303111-2012003211222331-0030133220323112",
       "registry_path": "docs/guides/data-sources--nginx_server--reference--group-001.md",
@@ -1033,7 +1033,7 @@
         "xcsh-docs:data-sources:nginx_server:properties:server_spec:locations:waf_spec"
       ],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -1045,7 +1045,7 @@
       "path": "documentation/data-sources/nginx_server/properties/server_spec/locations/index.md",
       "product": "distributed-cloud",
       "provider_name": "nginx_server",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-2203001311300220-2301213332031013-3223121201121313-1232332231300212-3302201103310311-2332230322131121-2210000030003210-2220203223201203",
       "registry_path": "docs/guides/data-sources--nginx_server--reference--group-001.md",
@@ -1133,7 +1133,7 @@
         "xcsh-docs:data-sources:nginx_server:properties:server_spec:locations:api_discovery_spec:enabled"
       ],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -1145,7 +1145,7 @@
       "path": "documentation/data-sources/nginx_server/properties/server_spec/locations/api_discovery_spec/index.md",
       "product": "distributed-cloud",
       "provider_name": "nginx_server",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-1033220000023333-3203130020231003-0001320102212023-3030230212033121-0211231103221323-0203331213110222-3101030133001230-1312232210320220",
       "registry_path": "docs/guides/data-sources--nginx_server--reference--group-001.md",
@@ -1202,7 +1202,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -1214,7 +1214,7 @@
       "path": "documentation/data-sources/nginx_server/properties/server_spec/locations/api_discovery_spec/disabled/index.md",
       "product": "distributed-cloud",
       "provider_name": "nginx_server",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-0033103101101112-1333301320103002-0120322220221012-3210232011213311-2113000020101303-1120332320330023-2311331001101110-2023312313303303",
       "registry_path": "docs/guides/data-sources--nginx_server--reference--group-001.md",
@@ -1242,7 +1242,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -1254,7 +1254,7 @@
       "path": "documentation/data-sources/nginx_server/properties/server_spec/locations/api_discovery_spec/enabled/index.md",
       "product": "distributed-cloud",
       "provider_name": "nginx_server",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-3200203133021023-2233313020312110-1111230030202300-0031220033212211-2132211200201102-0200100212332032-0111003120100333-3013203110003033",
       "registry_path": "docs/guides/data-sources--nginx_server--reference--group-001.md",
@@ -1288,7 +1288,7 @@
         "xcsh-docs:data-sources:nginx_server:properties:server_spec:locations:waf_spec:none_waf_mode"
       ],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -1300,7 +1300,7 @@
       "path": "documentation/data-sources/nginx_server/properties/server_spec/locations/waf_spec/index.md",
       "product": "distributed-cloud",
       "provider_name": "nginx_server",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-3100323131320030-0311003231231131-2022123311132211-3002313310223121-0011022332010330-0121230133121212-2222120301230210-1230013312011200",
       "registry_path": "docs/guides/data-sources--nginx_server--reference--group-001.md",
@@ -1455,7 +1455,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -1467,7 +1467,7 @@
       "path": "documentation/data-sources/nginx_server/properties/server_spec/locations/waf_spec/blocking_waf_mode/index.md",
       "product": "distributed-cloud",
       "provider_name": "nginx_server",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-2312021202100300-2110120200032321-3012203300200020-2100301200133133-0203021212103002-3022011303321113-2311011002302300-0310233230130320",
       "registry_path": "docs/guides/data-sources--nginx_server--reference--group-001.md",
@@ -1495,7 +1495,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -1507,7 +1507,7 @@
       "path": "documentation/data-sources/nginx_server/properties/server_spec/locations/waf_spec/distributed_cloud_policy_management/index.md",
       "product": "distributed-cloud",
       "provider_name": "nginx_server",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-2233332310100231-2023200030231213-1213003033001330-2333322102321122-1200303111221233-0031312020212220-1211130102031310-1031001223203110",
       "registry_path": "docs/guides/data-sources--nginx_server--reference--group-001.md",
@@ -1535,7 +1535,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -1547,7 +1547,7 @@
       "path": "documentation/data-sources/nginx_server/properties/server_spec/locations/waf_spec/monitoring_waf_mode/index.md",
       "product": "distributed-cloud",
       "provider_name": "nginx_server",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-2312222032233100-3212313131120310-1033112023012001-1230003300022031-3013103312333011-0203301322203230-0001020001123321-3030322333123321",
       "registry_path": "docs/guides/data-sources--nginx_server--reference--group-001.md",
@@ -1575,7 +1575,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -1587,7 +1587,7 @@
       "path": "documentation/data-sources/nginx_server/properties/server_spec/locations/waf_spec/nginx_policy_management/index.md",
       "product": "distributed-cloud",
       "provider_name": "nginx_server",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-2323112101002212-2322210330332223-0221331111002030-0110101201123020-3101301302210330-2332302010131103-3013101033201303-0200112033313112",
       "registry_path": "docs/guides/data-sources--nginx_server--reference--group-001.md",
@@ -1615,7 +1615,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -1627,7 +1627,7 @@
       "path": "documentation/data-sources/nginx_server/properties/server_spec/locations/waf_spec/none_waf_mode/index.md",
       "product": "distributed-cloud",
       "provider_name": "nginx_server",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-0132121221322023-0302221023000312-0131102113122113-1322301221100002-3122212003102000-0111321123330003-2320123123330333-3131131113230323",
       "registry_path": "docs/guides/data-sources--nginx_server--reference--group-001.md",
@@ -1661,7 +1661,7 @@
         "xcsh-docs:data-sources:nginx_server:properties:server_spec:waf_spec:none_waf_mode"
       ],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -1673,7 +1673,7 @@
       "path": "documentation/data-sources/nginx_server/properties/server_spec/waf_spec/index.md",
       "product": "distributed-cloud",
       "provider_name": "nginx_server",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-2133233233002331-2321212110002331-3230230001313032-2231310333323203-2302213001222100-1122302111002033-0001200213302303-2222333001023232",
       "registry_path": "docs/guides/data-sources--nginx_server--reference--group-001.md",
@@ -1828,7 +1828,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -1840,7 +1840,7 @@
       "path": "documentation/data-sources/nginx_server/properties/server_spec/waf_spec/blocking_waf_mode/index.md",
       "product": "distributed-cloud",
       "provider_name": "nginx_server",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-0211102113123100-3000003021131332-3220122132111032-0302213122002032-2231233131330111-3100012232303302-1232133331023001-0010130330113201",
       "registry_path": "docs/guides/data-sources--nginx_server--reference--group-001.md",
@@ -1868,7 +1868,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -1880,7 +1880,7 @@
       "path": "documentation/data-sources/nginx_server/properties/server_spec/waf_spec/distributed_cloud_policy_management/index.md",
       "product": "distributed-cloud",
       "provider_name": "nginx_server",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-0310122120233213-3201111323212321-3220022321023000-0323331301332112-1133031022003312-1013311033003303-0221321220033331-3322013231332111",
       "registry_path": "docs/guides/data-sources--nginx_server--reference--group-001.md",
@@ -1908,7 +1908,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -1920,7 +1920,7 @@
       "path": "documentation/data-sources/nginx_server/properties/server_spec/waf_spec/monitoring_waf_mode/index.md",
       "product": "distributed-cloud",
       "provider_name": "nginx_server",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-1323213100331001-2200311003323231-3112231330313101-3212321102001201-0303130221133121-1131322201110231-1201301210101011-1213302203302300",
       "registry_path": "docs/guides/data-sources--nginx_server--reference--group-001.md",
@@ -1948,7 +1948,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -1960,7 +1960,7 @@
       "path": "documentation/data-sources/nginx_server/properties/server_spec/waf_spec/nginx_policy_management/index.md",
       "product": "distributed-cloud",
       "provider_name": "nginx_server",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-2003313121001331-3303230230103203-0211100101033123-1022002213131003-1232230012203012-1032112233022013-2013321232100333-0113332313021022",
       "registry_path": "docs/guides/data-sources--nginx_server--reference--group-001.md",
@@ -1988,7 +1988,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -2000,7 +2000,7 @@
       "path": "documentation/data-sources/nginx_server/properties/server_spec/waf_spec/none_waf_mode/index.md",
       "product": "distributed-cloud",
       "provider_name": "nginx_server",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-1110320001112232-3011303000132332-0131020212103112-2111322333030221-0003002003233300-3232303133033031-3112001110013303-3101333132111310",
       "registry_path": "docs/guides/data-sources--nginx_server--reference--group-001.md",
@@ -2028,7 +2028,7 @@
       "category": null,
       "child_ids": ["xcsh-docs:data-sources:nginx_server:example:data-source"],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -2040,7 +2040,7 @@
       "path": "documentation/data-sources/nginx_server/examples/index.md",
       "product": "distributed-cloud",
       "provider_name": "nginx_server",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-2300333101313203-3301002102123333-2223020201133011-3223003103223111-2010103032122130-3001221310203300-2300030133223022-2102202303301131",
       "registry_path": "docs/guides/data-sources--nginx_server--examples--group-001.md",
@@ -2068,7 +2068,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -2087,7 +2087,7 @@
       "path": "documentation/data-sources/nginx_server/examples/data-source/index.md",
       "product": "distributed-cloud",
       "provider_name": "nginx_server",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-3222330301303300-0232330221032232-3300301221130110-1220023211310012-3300131212330201-2103330102213200-1301120232101131-2312031002211310",
       "registry_path": "docs/guides/data-sources--nginx_server--examples--group-001.md",

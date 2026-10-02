@@ -2,6 +2,288 @@
   "schema_version": 1,
   "sections": [
     {
+      "canonical_id": "xcsh-docs:data-sources:azure_vnet_site:properties:ingress_egress_gw_ar:hub:express_route_enabled:gateway_subnet:subnet",
+      "section_id": "xcsh-docs:data-sources:azure_vnet_site:properties:ingress_egress_gw_ar:hub:express_route_enabled:gateway_subnet:subnet:section:2",
+      "source_sha256": "sha256:936abbc5a7cfd0d8c874dc9c0423034d3394b81a9769fc8d40563b54eb51c35d",
+      "source_bytes": 137,
+      "canonical_source_sha256": "sha256:6c454be2b982dcb5492bf7e646f8dbd7d59867a793c9b9da6a33c0c5f0230c80",
+      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/azure_vnet_site/properties/ingress_egress_gw_ar/hub/express_route_enabled/gateway_subnet/subnet/",
+      "anchor": "canonical-1303013320330323-3110212021130231-1313120300021032-0322232332022022-2333133203120211-1333133033201332-2300032301011020-0301021201210100",
+      "anchor_map": [
+        [
+          "schema-ingress_egress_gw_ar--hub--express_route_enabled--gateway_subnet--subnet--subnet_resource_grp",
+          "canonical-2103200103112210-3202000301221030-1023330230011021-1213000012000331-1333320331320202-0210032212032211-3122021031333112-3130120032302222"
+        ]
+      ],
+      "mode": "embedded",
+      "registry_path": "docs/guides/data-sources--azure_vnet_site--reference--group-006.md"
+    },
+    {
+      "canonical_id": "xcsh-docs:data-sources:azure_vnet_site:properties:ingress_egress_gw_ar:hub:express_route_enabled:gateway_subnet:subnet",
+      "section_id": "xcsh-docs:data-sources:azure_vnet_site:properties:ingress_egress_gw_ar:hub:express_route_enabled:gateway_subnet:subnet:section:3",
+      "source_sha256": "sha256:e21294ea7d77a6f52feade1608fe10f83c896b9d3a18c184e739cd985a0fd038",
+      "source_bytes": 1100,
+      "canonical_source_sha256": "sha256:6c454be2b982dcb5492bf7e646f8dbd7d59867a793c9b9da6a33c0c5f0230c80",
+      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/azure_vnet_site/properties/ingress_egress_gw_ar/hub/express_route_enabled/gateway_subnet/subnet/",
+      "anchor": "canonical-0222102123010212-2030312223032121-0220300002012301-3032011103002112-0023121222203000-0312001321133332-0233023020333002-3003222002323122",
+      "anchor_map": [],
+      "mode": "embedded",
+      "registry_path": "docs/guides/data-sources--azure_vnet_site--reference--group-006.md"
+    },
+    {
+      "canonical_id": "xcsh-docs:data-sources:azure_vnet_site:properties:ingress_egress_gw_ar:hub:express_route_enabled:gateway_subnet:subnet",
+      "section_id": "xcsh-docs:data-sources:azure_vnet_site:properties:ingress_egress_gw_ar:hub:express_route_enabled:gateway_subnet:subnet:section:4",
+      "source_sha256": "sha256:beb8ece7a39bb3f5668e687cae78bed9a89d196caea8687a6f71f2431b4b7f2e",
+      "source_bytes": 633,
+      "canonical_source_sha256": "sha256:6c454be2b982dcb5492bf7e646f8dbd7d59867a793c9b9da6a33c0c5f0230c80",
+      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/azure_vnet_site/properties/ingress_egress_gw_ar/hub/express_route_enabled/gateway_subnet/subnet/",
+      "anchor": "canonical-2012211121103332-2111221222020301-1133313132210332-0311211203303330-3130001331233321-3112221120103110-2300333132230233-0211002303003311",
+      "anchor_map": [],
+      "mode": "embedded",
+      "registry_path": "docs/guides/data-sources--azure_vnet_site--reference--group-006.md"
+    },
+    {
+      "canonical_id": "xcsh-docs:data-sources:azure_vnet_site:properties:ingress_egress_gw_ar:hub:express_route_enabled:gateway_subnet:subnet:vnet_resource_group",
+      "section_id": "xcsh-docs:data-sources:azure_vnet_site:properties:ingress_egress_gw_ar:hub:express_route_enabled:gateway_subnet:subnet:vnet_resource_group:section:0",
+      "source_sha256": "sha256:197d41522a9dd286cb9805a03d8a5bd782cc3f3fd95ea854bf2dfc326e83e50c",
+      "source_bytes": 99,
+      "canonical_source_sha256": "sha256:fec1ecf4e04eda88c2eef32e3f99780c9da270947c8f7eaa72896f2d65b0cbb6",
+      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/azure_vnet_site/properties/ingress_egress_gw_ar/hub/express_route_enabled/gateway_subnet/subnet/vnet_resource_group/",
+      "anchor": "canonical-2231231022211223-1023200313132111-3230202112010031-1211100102032123-0123112111110223-3202111111213000-3101332001203013-3213032113230011",
+      "anchor_map": [],
+      "mode": "embedded",
+      "registry_path": "docs/guides/data-sources--azure_vnet_site--reference--group-006.md"
+    },
+    {
+      "canonical_id": "xcsh-docs:data-sources:azure_vnet_site:properties:ingress_egress_gw_ar:hub:express_route_enabled:gateway_subnet:subnet:vnet_resource_group",
+      "section_id": "xcsh-docs:data-sources:azure_vnet_site:properties:ingress_egress_gw_ar:hub:express_route_enabled:gateway_subnet:subnet:vnet_resource_group:section:1",
+      "source_sha256": "sha256:5259738c9be5e63eaa4bae786e33ed32f4424c7da9fb83e278ff0c93daeb0de2",
+      "source_bytes": 1753,
+      "canonical_source_sha256": "sha256:fec1ecf4e04eda88c2eef32e3f99780c9da270947c8f7eaa72896f2d65b0cbb6",
+      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/azure_vnet_site/properties/ingress_egress_gw_ar/hub/express_route_enabled/gateway_subnet/subnet/vnet_resource_group/",
+      "anchor": "canonical-0313201223221001-0022322133313333-0230123023101323-3000313211203122-0231103020310322-1221121323301323-3203310022123203-0011102030201321",
+      "anchor_map": [
+        [
+          "section",
+          "canonical-1102102001233201-0201323023322120-2332031311102202-2221330113011130-1033003123323001-1201200322001002-0210321110111323-2200033100300300"
+        ]
+      ],
+      "mode": "embedded",
+      "registry_path": "docs/guides/data-sources--azure_vnet_site--reference--group-006.md"
+    },
+    {
+      "canonical_id": "xcsh-docs:data-sources:azure_vnet_site:properties:ingress_egress_gw_ar:hub:express_route_enabled:gateway_subnet:subnet:vnet_resource_group",
+      "section_id": "xcsh-docs:data-sources:azure_vnet_site:properties:ingress_egress_gw_ar:hub:express_route_enabled:gateway_subnet:subnet:vnet_resource_group:section:2",
+      "source_sha256": "sha256:0d4398201e18f9ddb2ea00ceed6d3256755ea4d008d849d1cec42dab5c55f1b5",
+      "source_bytes": 94,
+      "canonical_source_sha256": "sha256:fec1ecf4e04eda88c2eef32e3f99780c9da270947c8f7eaa72896f2d65b0cbb6",
+      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/azure_vnet_site/properties/ingress_egress_gw_ar/hub/express_route_enabled/gateway_subnet/subnet/vnet_resource_group/",
+      "anchor": "canonical-1310233113132112-0303211020022330-0313220220131023-0203132023000132-2030133022332031-3331220331232032-3121031032000020-2222330203230330",
+      "anchor_map": [],
+      "mode": "embedded",
+      "registry_path": "docs/guides/data-sources--azure_vnet_site--reference--group-006.md"
+    },
+    {
+      "canonical_id": "xcsh-docs:data-sources:azure_vnet_site:properties:ingress_egress_gw_ar:hub:express_route_enabled:gateway_subnet:subnet:vnet_resource_group",
+      "section_id": "xcsh-docs:data-sources:azure_vnet_site:properties:ingress_egress_gw_ar:hub:express_route_enabled:gateway_subnet:subnet:vnet_resource_group:section:3",
+      "source_sha256": "sha256:067caffbce0e0f2e2dfbc37b213878cc19e11f637a2dd4f77f901ad76dc6fbb9",
+      "source_bytes": 367,
+      "canonical_source_sha256": "sha256:fec1ecf4e04eda88c2eef32e3f99780c9da270947c8f7eaa72896f2d65b0cbb6",
+      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/azure_vnet_site/properties/ingress_egress_gw_ar/hub/express_route_enabled/gateway_subnet/subnet/vnet_resource_group/",
+      "anchor": "canonical-0033300302020201-3302013101210213-1300133011130311-0221030032330122-3220002312010103-2020320231031232-1300022311103123-0213302230201230",
+      "anchor_map": [],
+      "mode": "embedded",
+      "registry_path": "docs/guides/data-sources--azure_vnet_site--reference--group-006.md"
+    },
+    {
+      "canonical_id": "xcsh-docs:data-sources:azure_vnet_site:properties:ingress_egress_gw_ar:hub:express_route_enabled:gateway_subnet:subnet_param",
+      "section_id": "xcsh-docs:data-sources:azure_vnet_site:properties:ingress_egress_gw_ar:hub:express_route_enabled:gateway_subnet:subnet_param:section:0",
+      "source_sha256": "sha256:197d41522a9dd286cb9805a03d8a5bd782cc3f3fd95ea854bf2dfc326e83e50c",
+      "source_bytes": 99,
+      "canonical_source_sha256": "sha256:5be7f1595054f578759070ea728b05c27400801056f61437486b28f2717dcb2a",
+      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/azure_vnet_site/properties/ingress_egress_gw_ar/hub/express_route_enabled/gateway_subnet/subnet_param/",
+      "anchor": "canonical-1132332311210032-1230233022222321-0330121120121300-0130330121112333-0210003000231223-1231031323331230-0023223202223203-3130212110233222",
+      "anchor_map": [],
+      "mode": "embedded",
+      "registry_path": "docs/guides/data-sources--azure_vnet_site--reference--group-006.md"
+    },
+    {
+      "canonical_id": "xcsh-docs:data-sources:azure_vnet_site:properties:ingress_egress_gw_ar:hub:express_route_enabled:gateway_subnet:subnet_param",
+      "section_id": "xcsh-docs:data-sources:azure_vnet_site:properties:ingress_egress_gw_ar:hub:express_route_enabled:gateway_subnet:subnet_param:section:1",
+      "source_sha256": "sha256:685ab7c49fd604c2d3615d92864a36f4f6fe9752ee155fd76d471ec42be1f246",
+      "source_bytes": 1392,
+      "canonical_source_sha256": "sha256:5be7f1595054f578759070ea728b05c27400801056f61437486b28f2717dcb2a",
+      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/azure_vnet_site/properties/ingress_egress_gw_ar/hub/express_route_enabled/gateway_subnet/subnet_param/",
+      "anchor": "canonical-0003200102131021-1210101233302202-2212323010033031-3313130223112000-2331222303332101-1202021101232131-3220230122033103-3313032302132232",
+      "anchor_map": [
+        [
+          "section",
+          "canonical-0233120120103133-1101300111030013-1233223212013123-0010122031010333-3030100101001233-3211112013221231-2213121133320232-2133233222300112"
+        ]
+      ],
+      "mode": "embedded",
+      "registry_path": "docs/guides/data-sources--azure_vnet_site--reference--group-006.md"
+    },
+    {
+      "canonical_id": "xcsh-docs:data-sources:azure_vnet_site:properties:ingress_egress_gw_ar:hub:express_route_enabled:gateway_subnet:subnet_param",
+      "section_id": "xcsh-docs:data-sources:azure_vnet_site:properties:ingress_egress_gw_ar:hub:express_route_enabled:gateway_subnet:subnet_param:section:2",
+      "source_sha256": "sha256:48069dc83d3d6bedc72c8f59c544b2305fd32b29dd5dde7f7a427448ba87eb80",
+      "source_bytes": 128,
+      "canonical_source_sha256": "sha256:5be7f1595054f578759070ea728b05c27400801056f61437486b28f2717dcb2a",
+      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/azure_vnet_site/properties/ingress_egress_gw_ar/hub/express_route_enabled/gateway_subnet/subnet_param/",
+      "anchor": "canonical-3322202303122133-1323013301100131-2203310302332111-0021122232130021-3220122101320233-1302121333301232-1011122012211201-3030233003231330",
+      "anchor_map": [
+        [
+          "schema-ingress_egress_gw_ar--hub--express_route_enabled--gateway_subnet--subnet_param--ipv4",
+          "canonical-3102331322230221-0220121233202302-0331222133212222-0012023231122213-2300300230302123-2331302313331022-3220302330313202-3331130332101231"
+        ]
+      ],
+      "mode": "embedded",
+      "registry_path": "docs/guides/data-sources--azure_vnet_site--reference--group-006.md"
+    },
+    {
+      "canonical_id": "xcsh-docs:data-sources:azure_vnet_site:properties:ingress_egress_gw_ar:hub:express_route_enabled:gateway_subnet:subnet_param",
+      "section_id": "xcsh-docs:data-sources:azure_vnet_site:properties:ingress_egress_gw_ar:hub:express_route_enabled:gateway_subnet:subnet_param:section:3",
+      "source_sha256": "sha256:bb48b3e39dbe4b03d38e3abf382fc3c3715ab9469a17dcf254b44979c6d0e572",
+      "source_bytes": 991,
+      "canonical_source_sha256": "sha256:5be7f1595054f578759070ea728b05c27400801056f61437486b28f2717dcb2a",
+      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/azure_vnet_site/properties/ingress_egress_gw_ar/hub/express_route_enabled/gateway_subnet/subnet_param/",
+      "anchor": "canonical-3023230230113320-1221231110211313-1211330232210222-3223200012321322-1220010231310220-2211310333222220-2002012122212230-0000032211130102",
+      "anchor_map": [],
+      "mode": "embedded",
+      "registry_path": "docs/guides/data-sources--azure_vnet_site--reference--group-006.md"
+    },
+    {
+      "canonical_id": "xcsh-docs:data-sources:azure_vnet_site:properties:ingress_egress_gw_ar:hub:express_route_enabled:gateway_subnet:subnet_param",
+      "section_id": "xcsh-docs:data-sources:azure_vnet_site:properties:ingress_egress_gw_ar:hub:express_route_enabled:gateway_subnet:subnet_param:section:4",
+      "source_sha256": "sha256:1e8906923ae0ae8ccb12536e4944a338d8cb3150ec6de1af57f80cf1885fd1fc",
+      "source_bytes": 353,
+      "canonical_source_sha256": "sha256:5be7f1595054f578759070ea728b05c27400801056f61437486b28f2717dcb2a",
+      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/azure_vnet_site/properties/ingress_egress_gw_ar/hub/express_route_enabled/gateway_subnet/subnet_param/",
+      "anchor": "canonical-0011111300230001-1332303223330323-3313312201220221-1323321202210223-1022122200333020-3320223011323012-1213230013311113-3133100210133331",
+      "anchor_map": [],
+      "mode": "embedded",
+      "registry_path": "docs/guides/data-sources--azure_vnet_site--reference--group-006.md"
+    },
+    {
+      "canonical_id": "xcsh-docs:data-sources:azure_vnet_site:properties:ingress_egress_gw_ar:hub:express_route_enabled:route_server_subnet",
+      "section_id": "xcsh-docs:data-sources:azure_vnet_site:properties:ingress_egress_gw_ar:hub:express_route_enabled:route_server_subnet:section:0",
+      "source_sha256": "sha256:197d41522a9dd286cb9805a03d8a5bd782cc3f3fd95ea854bf2dfc326e83e50c",
+      "source_bytes": 99,
+      "canonical_source_sha256": "sha256:e7f5497e12b1d0fe2ffc458ec20d7718d685e73f43d0e058d600fa408d0efd24",
+      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/azure_vnet_site/properties/ingress_egress_gw_ar/hub/express_route_enabled/route_server_subnet/",
+      "anchor": "canonical-3111222100023331-0201221313321132-3313000130300221-3320220303130312-2030210020013132-0000202202013110-0300000331330231-3120320230201202",
+      "anchor_map": [],
+      "mode": "embedded",
+      "registry_path": "docs/guides/data-sources--azure_vnet_site--reference--group-006.md"
+    },
+    {
+      "canonical_id": "xcsh-docs:data-sources:azure_vnet_site:properties:ingress_egress_gw_ar:hub:express_route_enabled:route_server_subnet",
+      "section_id": "xcsh-docs:data-sources:azure_vnet_site:properties:ingress_egress_gw_ar:hub:express_route_enabled:route_server_subnet:section:1",
+      "source_sha256": "sha256:42e1f96e945d185a10498c32ca6197a10189877af46799ec9f136a5556a9f54d",
+      "source_bytes": 1280,
+      "canonical_source_sha256": "sha256:e7f5497e12b1d0fe2ffc458ec20d7718d685e73f43d0e058d600fa408d0efd24",
+      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/azure_vnet_site/properties/ingress_egress_gw_ar/hub/express_route_enabled/route_server_subnet/",
+      "anchor": "canonical-3300133233130233-1202033020123220-2022233221102031-3103121200011021-1312323002111320-1202101033120300-3023330321222331-1120311221321033",
+      "anchor_map": [
+        [
+          "section",
+          "canonical-2201233012321032-3000320020210103-1011331023121121-0132130112221200-1022011023313303-1031333133000210-0033323012313313-0011100220111223"
+        ]
+      ],
+      "mode": "embedded",
+      "registry_path": "docs/guides/data-sources--azure_vnet_site--reference--group-006.md"
+    },
+    {
+      "canonical_id": "xcsh-docs:data-sources:azure_vnet_site:properties:ingress_egress_gw_ar:hub:express_route_enabled:route_server_subnet",
+      "section_id": "xcsh-docs:data-sources:azure_vnet_site:properties:ingress_egress_gw_ar:hub:express_route_enabled:route_server_subnet:section:2",
+      "source_sha256": "sha256:1dd2eb0ffaa4c39d1c1defbd2eb2ff8e0953cadef0e6f841d6a31ae3b3e9fbe9",
+      "source_bytes": 678,
+      "canonical_source_sha256": "sha256:e7f5497e12b1d0fe2ffc458ec20d7718d685e73f43d0e058d600fa408d0efd24",
+      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/azure_vnet_site/properties/ingress_egress_gw_ar/hub/express_route_enabled/route_server_subnet/",
+      "anchor": "canonical-3230020331330031-1000110201320201-1003033210303012-3230030032120222-1021012321323031-1130310211200022-1303332310231030-1033020223012330",
+      "anchor_map": [],
+      "mode": "embedded",
+      "registry_path": "docs/guides/data-sources--azure_vnet_site--reference--group-006.md"
+    },
+    {
+      "canonical_id": "xcsh-docs:data-sources:azure_vnet_site:properties:ingress_egress_gw_ar:hub:express_route_enabled:route_server_subnet",
+      "section_id": "xcsh-docs:data-sources:azure_vnet_site:properties:ingress_egress_gw_ar:hub:express_route_enabled:route_server_subnet:section:3",
+      "source_sha256": "sha256:69ad4a7bd6aafb8d837f3ca2ef3f6c8eb8a4f647147dda20ecffa2545409a6cd",
+      "source_bytes": 1081,
+      "canonical_source_sha256": "sha256:e7f5497e12b1d0fe2ffc458ec20d7718d685e73f43d0e058d600fa408d0efd24",
+      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/azure_vnet_site/properties/ingress_egress_gw_ar/hub/express_route_enabled/route_server_subnet/",
+      "anchor": "canonical-0103302303320130-1232330010332331-2111313033120002-1201210221323001-2132311101212211-2313013300310312-3313233120030202-2302100111320103",
+      "anchor_map": [],
+      "mode": "embedded",
+      "registry_path": "docs/guides/data-sources--azure_vnet_site--reference--group-006.md"
+    },
+    {
+      "canonical_id": "xcsh-docs:data-sources:azure_vnet_site:properties:ingress_egress_gw_ar:hub:express_route_enabled:route_server_subnet:auto",
+      "section_id": "xcsh-docs:data-sources:azure_vnet_site:properties:ingress_egress_gw_ar:hub:express_route_enabled:route_server_subnet:auto:section:0",
+      "source_sha256": "sha256:197d41522a9dd286cb9805a03d8a5bd782cc3f3fd95ea854bf2dfc326e83e50c",
+      "source_bytes": 99,
+      "canonical_source_sha256": "sha256:935a0375695b18fedeaf8551f24aa36fd19f64c64a6ab5a1cb7ad65ccb5c391a",
+      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/azure_vnet_site/properties/ingress_egress_gw_ar/hub/express_route_enabled/route_server_subnet/auto/",
+      "anchor": "canonical-1102231121022022-3232030000103103-1333131220210000-3122313133330323-0111012303222003-2300212010311233-1201033133322311-1331121011112331",
+      "anchor_map": [],
+      "mode": "embedded",
+      "registry_path": "docs/guides/data-sources--azure_vnet_site--reference--group-006.md"
+    },
+    {
+      "canonical_id": "xcsh-docs:data-sources:azure_vnet_site:properties:ingress_egress_gw_ar:hub:express_route_enabled:route_server_subnet:auto",
+      "section_id": "xcsh-docs:data-sources:azure_vnet_site:properties:ingress_egress_gw_ar:hub:express_route_enabled:route_server_subnet:auto:section:1",
+      "source_sha256": "sha256:824433dc7389234c22571bc8b8fa45f86f13696a682704296c569a42dc60009e",
+      "source_bytes": 1459,
+      "canonical_source_sha256": "sha256:935a0375695b18fedeaf8551f24aa36fd19f64c64a6ab5a1cb7ad65ccb5c391a",
+      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/azure_vnet_site/properties/ingress_egress_gw_ar/hub/express_route_enabled/route_server_subnet/auto/",
+      "anchor": "canonical-1122301230020113-2223110101321230-2233303123210203-3000212133220022-1122330221030332-2231213101112031-1223122333311023-2001213013230312",
+      "anchor_map": [
+        [
+          "section",
+          "canonical-0133033321323212-0302223323133213-3010220100010032-2110220112330231-3301231021001113-0312021131321322-0111301231111231-3022223223231033"
+        ]
+      ],
+      "mode": "embedded",
+      "registry_path": "docs/guides/data-sources--azure_vnet_site--reference--group-006.md"
+    },
+    {
+      "canonical_id": "xcsh-docs:data-sources:azure_vnet_site:properties:ingress_egress_gw_ar:hub:express_route_enabled:route_server_subnet:auto",
+      "section_id": "xcsh-docs:data-sources:azure_vnet_site:properties:ingress_egress_gw_ar:hub:express_route_enabled:route_server_subnet:auto:section:2",
+      "source_sha256": "sha256:0d4398201e18f9ddb2ea00ceed6d3256755ea4d008d849d1cec42dab5c55f1b5",
+      "source_bytes": 94,
+      "canonical_source_sha256": "sha256:935a0375695b18fedeaf8551f24aa36fd19f64c64a6ab5a1cb7ad65ccb5c391a",
+      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/azure_vnet_site/properties/ingress_egress_gw_ar/hub/express_route_enabled/route_server_subnet/auto/",
+      "anchor": "canonical-0022110020200322-2133030131002121-0211010101122011-3301031111303210-3031333111010003-1120012203112103-0023200122301313-3230321331030030",
+      "anchor_map": [],
+      "mode": "embedded",
+      "registry_path": "docs/guides/data-sources--azure_vnet_site--reference--group-006.md"
+    },
+    {
+      "canonical_id": "xcsh-docs:data-sources:azure_vnet_site:properties:ingress_egress_gw_ar:hub:express_route_enabled:route_server_subnet:auto",
+      "section_id": "xcsh-docs:data-sources:azure_vnet_site:properties:ingress_egress_gw_ar:hub:express_route_enabled:route_server_subnet:auto:section:3",
+      "source_sha256": "sha256:74448eeadd5f0d55ce507a4f1642e1444692762e1247e22f418940c84b1a3b93",
+      "source_bytes": 363,
+      "canonical_source_sha256": "sha256:935a0375695b18fedeaf8551f24aa36fd19f64c64a6ab5a1cb7ad65ccb5c391a",
+      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/azure_vnet_site/properties/ingress_egress_gw_ar/hub/express_route_enabled/route_server_subnet/auto/",
+      "anchor": "canonical-1211331202021010-3310321310030300-3331022122233100-3023203302033013-2000032003131221-1330000233100101-2303200321311032-0003301113232103",
+      "anchor_map": [],
+      "mode": "embedded",
+      "registry_path": "docs/guides/data-sources--azure_vnet_site--reference--group-006.md"
+    },
+    {
+      "canonical_id": "xcsh-docs:data-sources:azure_vnet_site:properties:ingress_egress_gw_ar:hub:express_route_enabled:route_server_subnet:subnet",
+      "section_id": "xcsh-docs:data-sources:azure_vnet_site:properties:ingress_egress_gw_ar:hub:express_route_enabled:route_server_subnet:subnet:section:0",
+      "source_sha256": "sha256:197d41522a9dd286cb9805a03d8a5bd782cc3f3fd95ea854bf2dfc326e83e50c",
+      "source_bytes": 99,
+      "canonical_source_sha256": "sha256:cd4fe5ab38d567eb6c664708933ef2df2854c4fce3c8e1c1d5322ed5762cf52d",
+      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/azure_vnet_site/properties/ingress_egress_gw_ar/hub/express_route_enabled/route_server_subnet/subnet/",
+      "anchor": "canonical-3211200100020231-2313133320312123-0322020000030000-1222313203203213-0133233133221022-1323031232313220-1130212301203130-2113302220110311",
+      "anchor_map": [],
+      "mode": "embedded",
+      "registry_path": "docs/guides/data-sources--azure_vnet_site--reference--group-006.md"
+    },
+    {
       "canonical_id": "xcsh-docs:data-sources:azure_vnet_site:properties:ingress_egress_gw_ar:hub:express_route_enabled:route_server_subnet:subnet",
       "section_id": "xcsh-docs:data-sources:azure_vnet_site:properties:ingress_egress_gw_ar:hub:express_route_enabled:route_server_subnet:subnet:section:1",
       "source_sha256": "sha256:0d24287f89f5f83159d2f396ba0cf8810126bd5bb7fadaeacf652a97a5f4171f",
@@ -6377,310 +6659,6 @@
       "canonical_source_sha256": "sha256:9f2ff272082c5771f3347607d87e8715178b8ef1aa04409599df3eed33acc44e",
       "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/azure_vnet_site/properties/ingress_gw_ar/performance_enhancement_mode/perf_mode_l7_enhanced/jumbo_disabled/",
       "anchor": "canonical-2032211330111233-3121103332321111-2330033103322311-1332322021122203-3201322223013223-3311303312333100-2002101131311001-0002312203211032",
-      "anchor_map": [],
-      "mode": "embedded",
-      "registry_path": "docs/guides/data-sources--azure_vnet_site--reference--group-008.md"
-    },
-    {
-      "canonical_id": "xcsh-docs:data-sources:azure_vnet_site:properties:ingress_gw_ar:performance_enhancement_mode:perf_mode_l7_enhanced:jumbo_enabled",
-      "section_id": "xcsh-docs:data-sources:azure_vnet_site:properties:ingress_gw_ar:performance_enhancement_mode:perf_mode_l7_enhanced:jumbo_enabled:section:0",
-      "source_sha256": "sha256:197d41522a9dd286cb9805a03d8a5bd782cc3f3fd95ea854bf2dfc326e83e50c",
-      "source_bytes": 99,
-      "canonical_source_sha256": "sha256:20965002d3b34d31c02de1695bd4c4b7ba321d274cd12984f86802a107221ba9",
-      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/azure_vnet_site/properties/ingress_gw_ar/performance_enhancement_mode/perf_mode_l7_enhanced/jumbo_enabled/",
-      "anchor": "canonical-3222020222232032-2213001303310033-1010231320130003-3233100002320313-2223000103331022-0211013022331210-0313232210330133-3222310310032121",
-      "anchor_map": [],
-      "mode": "embedded",
-      "registry_path": "docs/guides/data-sources--azure_vnet_site--reference--group-008.md"
-    },
-    {
-      "canonical_id": "xcsh-docs:data-sources:azure_vnet_site:properties:ingress_gw_ar:performance_enhancement_mode:perf_mode_l7_enhanced:jumbo_enabled",
-      "section_id": "xcsh-docs:data-sources:azure_vnet_site:properties:ingress_gw_ar:performance_enhancement_mode:perf_mode_l7_enhanced:jumbo_enabled:section:1",
-      "source_sha256": "sha256:e254750ba18d23b4ca876dc4486ff263f7b30ae3dfed3843e3860aa88be01750",
-      "source_bytes": 1295,
-      "canonical_source_sha256": "sha256:20965002d3b34d31c02de1695bd4c4b7ba321d274cd12984f86802a107221ba9",
-      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/azure_vnet_site/properties/ingress_gw_ar/performance_enhancement_mode/perf_mode_l7_enhanced/jumbo_enabled/",
-      "anchor": "canonical-0320203211233320-0201311333301120-2321311332111200-1111130130203100-3222011302012023-2230322302011213-0233013020312302-1002000310212301",
-      "anchor_map": [
-        [
-          "section",
-          "canonical-2212013133112322-2332102303112100-3332120233320010-1102002323210113-3233230200320232-3002332000003102-3103323123333310-2210310113110120"
-        ]
-      ],
-      "mode": "embedded",
-      "registry_path": "docs/guides/data-sources--azure_vnet_site--reference--group-008.md"
-    },
-    {
-      "canonical_id": "xcsh-docs:data-sources:azure_vnet_site:properties:ingress_gw_ar:performance_enhancement_mode:perf_mode_l7_enhanced:jumbo_enabled",
-      "section_id": "xcsh-docs:data-sources:azure_vnet_site:properties:ingress_gw_ar:performance_enhancement_mode:perf_mode_l7_enhanced:jumbo_enabled:section:2",
-      "source_sha256": "sha256:0d4398201e18f9ddb2ea00ceed6d3256755ea4d008d849d1cec42dab5c55f1b5",
-      "source_bytes": 94,
-      "canonical_source_sha256": "sha256:20965002d3b34d31c02de1695bd4c4b7ba321d274cd12984f86802a107221ba9",
-      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/azure_vnet_site/properties/ingress_gw_ar/performance_enhancement_mode/perf_mode_l7_enhanced/jumbo_enabled/",
-      "anchor": "canonical-3101202113013223-0033322122122123-0203233030110103-3312031220122110-0222222332100033-3231232013213001-2030012213220322-0011202323323001",
-      "anchor_map": [],
-      "mode": "embedded",
-      "registry_path": "docs/guides/data-sources--azure_vnet_site--reference--group-008.md"
-    },
-    {
-      "canonical_id": "xcsh-docs:data-sources:azure_vnet_site:properties:ingress_gw_ar:performance_enhancement_mode:perf_mode_l7_enhanced:jumbo_enabled",
-      "section_id": "xcsh-docs:data-sources:azure_vnet_site:properties:ingress_gw_ar:performance_enhancement_mode:perf_mode_l7_enhanced:jumbo_enabled:section:3",
-      "source_sha256": "sha256:7471a2d2ffd23ddf540f1fae6e3953fa0cba13535d6dcead9b2a6f0713b6f947",
-      "source_bytes": 359,
-      "canonical_source_sha256": "sha256:20965002d3b34d31c02de1695bd4c4b7ba321d274cd12984f86802a107221ba9",
-      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/azure_vnet_site/properties/ingress_gw_ar/performance_enhancement_mode/perf_mode_l7_enhanced/jumbo_enabled/",
-      "anchor": "canonical-3210231110323230-2013033001022012-3133110130203310-0113221020313211-1011311203100303-1121123232301233-3131110301213331-0220323101201222",
-      "anchor_map": [],
-      "mode": "embedded",
-      "registry_path": "docs/guides/data-sources--azure_vnet_site--reference--group-008.md"
-    },
-    {
-      "canonical_id": "xcsh-docs:data-sources:azure_vnet_site:properties:kubernetes_upgrade_drain",
-      "section_id": "xcsh-docs:data-sources:azure_vnet_site:properties:kubernetes_upgrade_drain:section:0",
-      "source_sha256": "sha256:197d41522a9dd286cb9805a03d8a5bd782cc3f3fd95ea854bf2dfc326e83e50c",
-      "source_bytes": 99,
-      "canonical_source_sha256": "sha256:cdd9821d1c5e91b5e2b2a44a404f9e9dfd6ec3bf8d3ed0319d04dfd02786bb0c",
-      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/azure_vnet_site/properties/kubernetes_upgrade_drain/",
-      "anchor": "canonical-2131210123103103-0212213010122033-0313321123013002-1222200013311032-0020301031022033-2000020033022120-1321323012330221-3312333110101331",
-      "anchor_map": [],
-      "mode": "embedded",
-      "registry_path": "docs/guides/data-sources--azure_vnet_site--reference--group-008.md"
-    },
-    {
-      "canonical_id": "xcsh-docs:data-sources:azure_vnet_site:properties:kubernetes_upgrade_drain",
-      "section_id": "xcsh-docs:data-sources:azure_vnet_site:properties:kubernetes_upgrade_drain:section:1",
-      "source_sha256": "sha256:b509db9da37d1f296cf2bf73e0507806d985c62f3d6728be3abc960e1a6a0e16",
-      "source_bytes": 705,
-      "canonical_source_sha256": "sha256:cdd9821d1c5e91b5e2b2a44a404f9e9dfd6ec3bf8d3ed0319d04dfd02786bb0c",
-      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/azure_vnet_site/properties/kubernetes_upgrade_drain/",
-      "anchor": "canonical-0331033131300211-3101001312302320-0212212012321020-0022001100302121-1023000201212203-0020120100320011-1021133211311230-3132230020100302",
-      "anchor_map": [
-        [
-          "section",
-          "canonical-1013000133313103-0021200112333030-2200113031312003-3212223011332211-0310330002211300-0112200120021310-1012032303200000-3011000331322110"
-        ]
-      ],
-      "mode": "embedded",
-      "registry_path": "docs/guides/data-sources--azure_vnet_site--reference--group-008.md"
-    },
-    {
-      "canonical_id": "xcsh-docs:data-sources:azure_vnet_site:properties:kubernetes_upgrade_drain",
-      "section_id": "xcsh-docs:data-sources:azure_vnet_site:properties:kubernetes_upgrade_drain:section:2",
-      "source_sha256": "sha256:365c8568d5d76c83e35941525863c8f6168d4ca136a1fe8d210969be74049508",
-      "source_bytes": 428,
-      "canonical_source_sha256": "sha256:cdd9821d1c5e91b5e2b2a44a404f9e9dfd6ec3bf8d3ed0319d04dfd02786bb0c",
-      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/azure_vnet_site/properties/kubernetes_upgrade_drain/",
-      "anchor": "canonical-0002103303210112-0110122033313212-2003022102011302-1322103321203301-2302331332122313-0203202110130310-1113123113331320-0013100031333203",
-      "anchor_map": [],
-      "mode": "embedded",
-      "registry_path": "docs/guides/data-sources--azure_vnet_site--reference--group-008.md"
-    },
-    {
-      "canonical_id": "xcsh-docs:data-sources:azure_vnet_site:properties:kubernetes_upgrade_drain",
-      "section_id": "xcsh-docs:data-sources:azure_vnet_site:properties:kubernetes_upgrade_drain:section:3",
-      "source_sha256": "sha256:31f3dbf4365dee36af1591d86c1c4f964e663f08763bba4812e555703ca6d2af",
-      "source_bytes": 638,
-      "canonical_source_sha256": "sha256:cdd9821d1c5e91b5e2b2a44a404f9e9dfd6ec3bf8d3ed0319d04dfd02786bb0c",
-      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/azure_vnet_site/properties/kubernetes_upgrade_drain/",
-      "anchor": "canonical-1321310122213012-0130320221323033-2112220233322230-3221201302311101-2313222312311100-2003323232333233-3100122222102020-1100322023132011",
-      "anchor_map": [],
-      "mode": "embedded",
-      "registry_path": "docs/guides/data-sources--azure_vnet_site--reference--group-008.md"
-    },
-    {
-      "canonical_id": "xcsh-docs:data-sources:azure_vnet_site:properties:kubernetes_upgrade_drain:disable_upgrade_drain",
-      "section_id": "xcsh-docs:data-sources:azure_vnet_site:properties:kubernetes_upgrade_drain:disable_upgrade_drain:section:0",
-      "source_sha256": "sha256:197d41522a9dd286cb9805a03d8a5bd782cc3f3fd95ea854bf2dfc326e83e50c",
-      "source_bytes": 99,
-      "canonical_source_sha256": "sha256:b85e244e45bb7b47702779deee4267e314cbda41c16b708ffd951553f8615a2f",
-      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/azure_vnet_site/properties/kubernetes_upgrade_drain/disable_upgrade_drain/",
-      "anchor": "canonical-0213222030100111-1233120311002332-1222132103233132-0131322122133222-3003313102021032-1113113103002011-3211222001131231-1100101002211313",
-      "anchor_map": [],
-      "mode": "embedded",
-      "registry_path": "docs/guides/data-sources--azure_vnet_site--reference--group-008.md"
-    },
-    {
-      "canonical_id": "xcsh-docs:data-sources:azure_vnet_site:properties:kubernetes_upgrade_drain:disable_upgrade_drain",
-      "section_id": "xcsh-docs:data-sources:azure_vnet_site:properties:kubernetes_upgrade_drain:disable_upgrade_drain:section:1",
-      "source_sha256": "sha256:348a4939fb1a42427f2dc16adc9955ece0b9b0b6b81d236de360e8db3d423a20",
-      "source_bytes": 865,
-      "canonical_source_sha256": "sha256:b85e244e45bb7b47702779deee4267e314cbda41c16b708ffd951553f8615a2f",
-      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/azure_vnet_site/properties/kubernetes_upgrade_drain/disable_upgrade_drain/",
-      "anchor": "canonical-0222011113231300-1110210211332200-0033013020030111-0203322030113311-1201122321320011-2010002122321113-3100011112033021-2203001130031330",
-      "anchor_map": [
-        [
-          "section",
-          "canonical-0322223121311030-2322111313332331-2013003310113112-2302100231221200-1131130013033323-1013012331133211-1323200320221122-0310103010212231"
-        ]
-      ],
-      "mode": "embedded",
-      "registry_path": "docs/guides/data-sources--azure_vnet_site--reference--group-008.md"
-    },
-    {
-      "canonical_id": "xcsh-docs:data-sources:azure_vnet_site:properties:kubernetes_upgrade_drain:disable_upgrade_drain",
-      "section_id": "xcsh-docs:data-sources:azure_vnet_site:properties:kubernetes_upgrade_drain:disable_upgrade_drain:section:2",
-      "source_sha256": "sha256:0d4398201e18f9ddb2ea00ceed6d3256755ea4d008d849d1cec42dab5c55f1b5",
-      "source_bytes": 94,
-      "canonical_source_sha256": "sha256:b85e244e45bb7b47702779deee4267e314cbda41c16b708ffd951553f8615a2f",
-      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/azure_vnet_site/properties/kubernetes_upgrade_drain/disable_upgrade_drain/",
-      "anchor": "canonical-3130310003231321-2302300133132310-0303100320313233-1220213111311100-0221313332331012-2130033310102213-3321303211210113-2230222002230223",
-      "anchor_map": [],
-      "mode": "embedded",
-      "registry_path": "docs/guides/data-sources--azure_vnet_site--reference--group-008.md"
-    },
-    {
-      "canonical_id": "xcsh-docs:data-sources:azure_vnet_site:properties:kubernetes_upgrade_drain:disable_upgrade_drain",
-      "section_id": "xcsh-docs:data-sources:azure_vnet_site:properties:kubernetes_upgrade_drain:disable_upgrade_drain:section:3",
-      "source_sha256": "sha256:a0ea5035f0112d2571c865220eb3dfee92a97919e2a0663fa0e5e2f21568ccb1",
-      "source_bytes": 279,
-      "canonical_source_sha256": "sha256:b85e244e45bb7b47702779deee4267e314cbda41c16b708ffd951553f8615a2f",
-      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/azure_vnet_site/properties/kubernetes_upgrade_drain/disable_upgrade_drain/",
-      "anchor": "canonical-3032113000233112-2233233001131003-1132302132223212-3102313203103203-3221313001212220-1321121012310020-3133001312102010-2131213233203120",
-      "anchor_map": [],
-      "mode": "embedded",
-      "registry_path": "docs/guides/data-sources--azure_vnet_site--reference--group-008.md"
-    },
-    {
-      "canonical_id": "xcsh-docs:data-sources:azure_vnet_site:properties:kubernetes_upgrade_drain:enable_upgrade_drain",
-      "section_id": "xcsh-docs:data-sources:azure_vnet_site:properties:kubernetes_upgrade_drain:enable_upgrade_drain:section:0",
-      "source_sha256": "sha256:197d41522a9dd286cb9805a03d8a5bd782cc3f3fd95ea854bf2dfc326e83e50c",
-      "source_bytes": 99,
-      "canonical_source_sha256": "sha256:b810fc318627d0d8aa7408e51a54f3c88b8635772d3d0e7e744988f25d67b042",
-      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/azure_vnet_site/properties/kubernetes_upgrade_drain/enable_upgrade_drain/",
-      "anchor": "canonical-0003333031212000-3210130233301221-3020020113100331-1230122302022033-1120112223213133-3003322000311333-3113033213300130-2113101223123223",
-      "anchor_map": [],
-      "mode": "embedded",
-      "registry_path": "docs/guides/data-sources--azure_vnet_site--reference--group-008.md"
-    },
-    {
-      "canonical_id": "xcsh-docs:data-sources:azure_vnet_site:properties:kubernetes_upgrade_drain:enable_upgrade_drain",
-      "section_id": "xcsh-docs:data-sources:azure_vnet_site:properties:kubernetes_upgrade_drain:enable_upgrade_drain:section:1",
-      "source_sha256": "sha256:f017fdfbf593bb2a96f57cfd1eef35aeb0a131e66cc0148675a886f3920cdb83",
-      "source_bytes": 1043,
-      "canonical_source_sha256": "sha256:b810fc318627d0d8aa7408e51a54f3c88b8635772d3d0e7e744988f25d67b042",
-      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/azure_vnet_site/properties/kubernetes_upgrade_drain/enable_upgrade_drain/",
-      "anchor": "canonical-3310023123120313-2200233003111211-0303200221330220-3300000332230022-0120211302011200-1130130033111310-0122211303222322-0220222223222310",
-      "anchor_map": [
-        [
-          "section",
-          "canonical-0103023302132003-0130202111320220-3102221032103132-0310132032301021-2012032313231120-2002033013232330-0212110120111132-0210200000232332"
-        ]
-      ],
-      "mode": "embedded",
-      "registry_path": "docs/guides/data-sources--azure_vnet_site--reference--group-008.md"
-    },
-    {
-      "canonical_id": "xcsh-docs:data-sources:azure_vnet_site:properties:kubernetes_upgrade_drain:enable_upgrade_drain",
-      "section_id": "xcsh-docs:data-sources:azure_vnet_site:properties:kubernetes_upgrade_drain:enable_upgrade_drain:section:2",
-      "source_sha256": "sha256:8ba11092b085a2c12d0d72337fd1d6c0bad180d809f5388aefe57838bf5bfb24",
-      "source_bytes": 357,
-      "canonical_source_sha256": "sha256:b810fc318627d0d8aa7408e51a54f3c88b8635772d3d0e7e744988f25d67b042",
-      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/azure_vnet_site/properties/kubernetes_upgrade_drain/enable_upgrade_drain/",
-      "anchor": "canonical-1023221212302120-1323331003013102-2120121032211203-3022113002312030-3000102211001030-2322311023032222-0221202313103232-2003033220223202",
-      "anchor_map": [
-        [
-          "schema-kubernetes_upgrade_drain--enable_upgrade_drain--drain_max_unavailable_node_count",
-          "canonical-0132123322030032-3331213201333221-1032132311211321-3013023323201021-1322303310132231-0110130022202011-0300211030332221-1211111202222311"
-        ]
-      ],
-      "mode": "embedded",
-      "registry_path": "docs/guides/data-sources--azure_vnet_site--reference--group-008.md"
-    },
-    {
-      "canonical_id": "xcsh-docs:data-sources:azure_vnet_site:properties:kubernetes_upgrade_drain:enable_upgrade_drain",
-      "section_id": "xcsh-docs:data-sources:azure_vnet_site:properties:kubernetes_upgrade_drain:enable_upgrade_drain:section:3",
-      "source_sha256": "sha256:d35a96d780121398240518e588ff242c1a23a22423eb7a04f0906128d1df16fb",
-      "source_bytes": 975,
-      "canonical_source_sha256": "sha256:b810fc318627d0d8aa7408e51a54f3c88b8635772d3d0e7e744988f25d67b042",
-      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/azure_vnet_site/properties/kubernetes_upgrade_drain/enable_upgrade_drain/",
-      "anchor": "canonical-2211002102313120-2110320112302301-0302002200322032-0302103033030032-3222113301120310-1012203221311022-1131001012112211-0303133111110220",
-      "anchor_map": [
-        [
-          "schema-kubernetes_upgrade_drain--enable_upgrade_drain--drain_max_unavailable_node_percentage",
-          "canonical-0132200023202122-3021203322200200-2010023103213333-3303102030201220-3030330111310031-0122223033333012-3311303312330211-1233231003032331"
-        ]
-      ],
-      "mode": "embedded",
-      "registry_path": "docs/guides/data-sources--azure_vnet_site--reference--group-008.md"
-    },
-    {
-      "canonical_id": "xcsh-docs:data-sources:azure_vnet_site:properties:kubernetes_upgrade_drain:enable_upgrade_drain",
-      "section_id": "xcsh-docs:data-sources:azure_vnet_site:properties:kubernetes_upgrade_drain:enable_upgrade_drain:section:4",
-      "source_sha256": "sha256:d76c8ae8552a53b10d21e3c748bf27833fd2554d2a5ad77da83e8e74ed7a98e4",
-      "source_bytes": 235,
-      "canonical_source_sha256": "sha256:b810fc318627d0d8aa7408e51a54f3c88b8635772d3d0e7e744988f25d67b042",
-      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/azure_vnet_site/properties/kubernetes_upgrade_drain/enable_upgrade_drain/",
-      "anchor": "canonical-0132130330230122-2023201020300301-0122322212110131-1321102000003302-3013003123120221-2013013032003013-3110100300321011-0233020311113103",
-      "anchor_map": [
-        [
-          "schema-kubernetes_upgrade_drain--enable_upgrade_drain--drain_node_timeout",
-          "canonical-1311211311221222-1012000130222032-3133101212012213-2123123012213232-2213220000113100-3020320333323012-0032002133310011-2112112112312023"
-        ]
-      ],
-      "mode": "embedded",
-      "registry_path": "docs/guides/data-sources--azure_vnet_site--reference--group-008.md"
-    },
-    {
-      "canonical_id": "xcsh-docs:data-sources:azure_vnet_site:properties:kubernetes_upgrade_drain:enable_upgrade_drain",
-      "section_id": "xcsh-docs:data-sources:azure_vnet_site:properties:kubernetes_upgrade_drain:enable_upgrade_drain:section:5",
-      "source_sha256": "sha256:5284409fafdae16eed117b113a1bd070f71de12d6b4e146dd37555bac613e145",
-      "source_bytes": 1748,
-      "canonical_source_sha256": "sha256:b810fc318627d0d8aa7408e51a54f3c88b8635772d3d0e7e744988f25d67b042",
-      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/azure_vnet_site/properties/kubernetes_upgrade_drain/enable_upgrade_drain/",
-      "anchor": "canonical-0321300332220202-3102013211322102-2001002222210223-1032310331310021-1133212031123123-0210123210313002-0320023001102023-2003102331231203",
-      "anchor_map": [],
-      "mode": "embedded",
-      "registry_path": "docs/guides/data-sources--azure_vnet_site--reference--group-008.md"
-    },
-    {
-      "canonical_id": "xcsh-docs:data-sources:azure_vnet_site:properties:kubernetes_upgrade_drain:enable_upgrade_drain",
-      "section_id": "xcsh-docs:data-sources:azure_vnet_site:properties:kubernetes_upgrade_drain:enable_upgrade_drain:section:6",
-      "source_sha256": "sha256:212204b4209d23957f55591c4992621c04a6d3f5c6294c3aa578ecf72d364c1d",
-      "source_bytes": 769,
-      "canonical_source_sha256": "sha256:b810fc318627d0d8aa7408e51a54f3c88b8635772d3d0e7e744988f25d67b042",
-      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/azure_vnet_site/properties/kubernetes_upgrade_drain/enable_upgrade_drain/",
-      "anchor": "canonical-1111313121301112-0102023103301003-0223220120111330-2323200300033031-2121101301112310-1012200111210201-0230311332102123-3021002203200201",
-      "anchor_map": [],
-      "mode": "embedded",
-      "registry_path": "docs/guides/data-sources--azure_vnet_site--reference--group-008.md"
-    },
-    {
-      "canonical_id": "xcsh-docs:data-sources:azure_vnet_site:properties:kubernetes_upgrade_drain:enable_upgrade_drain:disable_vega_upgrade_mode",
-      "section_id": "xcsh-docs:data-sources:azure_vnet_site:properties:kubernetes_upgrade_drain:enable_upgrade_drain:disable_vega_upgrade_mode:section:0",
-      "source_sha256": "sha256:197d41522a9dd286cb9805a03d8a5bd782cc3f3fd95ea854bf2dfc326e83e50c",
-      "source_bytes": 99,
-      "canonical_source_sha256": "sha256:888713b402bed2010b56dc90be84e0a6bd0c5feae66e2613fa585fd0bb54003a",
-      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/azure_vnet_site/properties/kubernetes_upgrade_drain/enable_upgrade_drain/disable_vega_upgrade_mode/",
-      "anchor": "canonical-1323100322023132-0103210233310301-3110310132231201-3232211112002033-0032210310031312-0023123022111212-1032323102211121-1333201303212300",
-      "anchor_map": [],
-      "mode": "embedded",
-      "registry_path": "docs/guides/data-sources--azure_vnet_site--reference--group-008.md"
-    },
-    {
-      "canonical_id": "xcsh-docs:data-sources:azure_vnet_site:properties:kubernetes_upgrade_drain:enable_upgrade_drain:disable_vega_upgrade_mode",
-      "section_id": "xcsh-docs:data-sources:azure_vnet_site:properties:kubernetes_upgrade_drain:enable_upgrade_drain:disable_vega_upgrade_mode:section:1",
-      "source_sha256": "sha256:f7e750fa3c7ecce007dfc59338abd2d2897b49cd75d2f266f25a9314a64487f5",
-      "source_bytes": 1113,
-      "canonical_source_sha256": "sha256:888713b402bed2010b56dc90be84e0a6bd0c5feae66e2613fa585fd0bb54003a",
-      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/azure_vnet_site/properties/kubernetes_upgrade_drain/enable_upgrade_drain/disable_vega_upgrade_mode/",
-      "anchor": "canonical-0013301323301013-2211011201213120-3210111031112302-0331001303102223-1130212332133121-2231310101332131-3301002021211102-3111012002000312",
-      "anchor_map": [
-        [
-          "section",
-          "canonical-1113101220110030-0000123110121032-3321300133033012-1123000123213003-3221223020232120-2100102123130211-3223012300011232-3230033223132333"
-        ]
-      ],
-      "mode": "embedded",
-      "registry_path": "docs/guides/data-sources--azure_vnet_site--reference--group-008.md"
-    },
-    {
-      "canonical_id": "xcsh-docs:data-sources:azure_vnet_site:properties:kubernetes_upgrade_drain:enable_upgrade_drain:disable_vega_upgrade_mode",
-      "section_id": "xcsh-docs:data-sources:azure_vnet_site:properties:kubernetes_upgrade_drain:enable_upgrade_drain:disable_vega_upgrade_mode:section:2",
-      "source_sha256": "sha256:0d4398201e18f9ddb2ea00ceed6d3256755ea4d008d849d1cec42dab5c55f1b5",
-      "source_bytes": 94,
-      "canonical_source_sha256": "sha256:888713b402bed2010b56dc90be84e0a6bd0c5feae66e2613fa585fd0bb54003a",
-      "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/azure_vnet_site/properties/kubernetes_upgrade_drain/enable_upgrade_drain/disable_vega_upgrade_mode/",
-      "anchor": "canonical-3033022011301013-2303122111031312-0123133011222030-1013133011030302-0221012310020200-2310132333332100-2130323121333310-3120032303332110",
       "anchor_map": [],
       "mode": "embedded",
       "registry_path": "docs/guides/data-sources--azure_vnet_site--reference--group-008.md"

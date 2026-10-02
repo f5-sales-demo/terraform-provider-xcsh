@@ -97,7 +97,7 @@
         "xcsh-docs:resources:workload_flavor:timeouts"
       ],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -109,7 +109,7 @@
       "path": "documentation/resources/workload_flavor/index.md",
       "product": "distributed-cloud",
       "provider_name": "workload_flavor",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "resources",
       "registry_anchor": "canonical-1031333230130321-2120200203322003-3020210212312201-1302323133331112-0230023310233322-3012020133012201-2023100110323022-2002102111310001",
       "registry_path": "docs/resources/workload_flavor.md",
@@ -138,7 +138,7 @@
       "category": "container",
       "child_ids": ["xcsh-docs:resources:workload_flavor:properties:timeouts"],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -150,7 +150,7 @@
       "path": "documentation/resources/workload_flavor/properties/index.md",
       "product": "distributed-cloud",
       "provider_name": "workload_flavor",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "resources",
       "registry_anchor": "canonical-2201230231331130-0233333320310023-2033232302300302-2210032310122123-0221311000031233-1020311213100203-1113130201012033-0300212122012213",
       "registry_path": "docs/guides/resources--workload_flavor--reference--group-001.md",
@@ -333,7 +333,7 @@
       "category": "container",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -345,7 +345,7 @@
       "path": "documentation/resources/workload_flavor/properties/timeouts/index.md",
       "product": "distributed-cloud",
       "provider_name": "workload_flavor",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "resources",
       "registry_anchor": "canonical-3232213233303102-3110020321220110-3223332200322301-0333130201321131-1331230010022023-3311301302101312-1221022003323311-1021200120010202",
       "registry_path": "docs/guides/resources--workload_flavor--reference--group-001.md",
@@ -430,7 +430,7 @@
       "category": "container",
       "child_ids": ["xcsh-docs:resources:workload_flavor:example:resource"],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -442,7 +442,7 @@
       "path": "documentation/resources/workload_flavor/examples/index.md",
       "product": "distributed-cloud",
       "provider_name": "workload_flavor",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "resources",
       "registry_anchor": "canonical-0021201222321131-3310011210200020-1122213013302121-3312000030010212-3122000022200221-2210211023201200-0113202133200222-2323301131323210",
       "registry_path": "docs/guides/resources--workload_flavor--examples--group-001.md",
@@ -470,7 +470,7 @@
       "category": "container",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -489,7 +489,7 @@
       "path": "documentation/resources/workload_flavor/examples/resource/index.md",
       "product": "distributed-cloud",
       "provider_name": "workload_flavor",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "resources",
       "registry_anchor": "canonical-3122300202300023-2031012101111123-0330001332122130-3331033120333023-3202103021033303-3031120222000320-1212110121311311-0223303331032102",
       "registry_path": "docs/guides/resources--workload_flavor--examples--group-001.md",
@@ -517,7 +517,7 @@
       "category": "container",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -530,7 +530,7 @@
       "path": "documentation/resources/workload_flavor/lifecycle/import/index.md",
       "product": "distributed-cloud",
       "provider_name": "workload_flavor",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "resources",
       "registry_anchor": "canonical-2323021122210002-2212110111100100-0233321233232203-1322003201220002-3323130031221320-1012200000333031-0303302222301133-2111222131130223",
       "registry_path": "docs/guides/resources--workload_flavor--lifecycle--group-001.md",
@@ -558,7 +558,7 @@
       "category": "container",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -570,7 +570,7 @@
       "path": "documentation/resources/workload_flavor/lifecycle/timeouts/index.md",
       "product": "distributed-cloud",
       "provider_name": "workload_flavor",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "resources",
       "registry_anchor": "canonical-3020121022001322-3032321133222012-0213120113330130-0120103313122201-3113203321010003-1202000113002230-3031321231220312-2333311002233132",
       "registry_path": "docs/guides/resources--workload_flavor--lifecycle--group-001.md",

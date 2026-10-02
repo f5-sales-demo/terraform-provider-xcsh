@@ -180,7 +180,7 @@
         "xcsh-docs:data-sources:site_mesh_group:examples"
       ],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -192,7 +192,7 @@
       "path": "documentation/data-sources/site_mesh_group/index.md",
       "product": "distributed-cloud",
       "provider_name": "site_mesh_group",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-0012330130320221-3012331110301122-0000031001123103-0200331031322133-2222010022030031-3331120010100133-2001130100013320-3123220212320202",
       "registry_path": "docs/data-sources/site_mesh_group.md",
@@ -230,7 +230,7 @@
         "xcsh-docs:data-sources:site_mesh_group:properties:virtual_site"
       ],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -242,7 +242,7 @@
       "path": "documentation/data-sources/site_mesh_group/properties/index.md",
       "product": "distributed-cloud",
       "provider_name": "site_mesh_group",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-3021203322121012-3311333112312003-0213321330020231-1012033300112102-1313110113221131-3020203122221121-3231101122031301-0221001330310011",
       "registry_path": "docs/guides/data-sources--site_mesh_group--reference--group-001.md",
@@ -467,7 +467,7 @@
       "category": "networking",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -479,7 +479,7 @@
       "path": "documentation/data-sources/site_mesh_group/properties/bfd_disabled/index.md",
       "product": "distributed-cloud",
       "provider_name": "site_mesh_group",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-0120010001120102-0333310311331020-1313102312032202-0033232210203222-2131203003233011-3032223131120022-3221131301030203-3323321003210020",
       "registry_path": "docs/guides/data-sources--site_mesh_group--reference--group-001.md",
@@ -507,7 +507,7 @@
       "category": "networking",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -519,7 +519,7 @@
       "path": "documentation/data-sources/site_mesh_group/properties/bfd_enabled/index.md",
       "product": "distributed-cloud",
       "provider_name": "site_mesh_group",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-3213211310202102-0211010112232012-2201332101100002-0000332311333313-2331210033000311-0220021223001321-0113001300201002-0221021220002020",
       "registry_path": "docs/guides/data-sources--site_mesh_group--reference--group-001.md",
@@ -590,7 +590,7 @@
       "category": "networking",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -602,7 +602,7 @@
       "path": "documentation/data-sources/site_mesh_group/properties/disable_re_fallback/index.md",
       "product": "distributed-cloud",
       "provider_name": "site_mesh_group",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-0012313312310213-3103022222303201-1021230022300313-3021012123030303-3003233320002212-0111300110022330-0031230303230301-1003123131131222",
       "registry_path": "docs/guides/data-sources--site_mesh_group--reference--group-001.md",
@@ -630,7 +630,7 @@
       "category": "networking",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -642,7 +642,7 @@
       "path": "documentation/data-sources/site_mesh_group/properties/enable_re_fallback/index.md",
       "product": "distributed-cloud",
       "provider_name": "site_mesh_group",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-1010003320223310-2111201101111132-3311321013102132-1303313201123330-3310011000101310-0123310221220033-3311210202201231-3021310232333000",
       "registry_path": "docs/guides/data-sources--site_mesh_group--reference--group-001.md",
@@ -673,7 +673,7 @@
         "xcsh-docs:data-sources:site_mesh_group:properties:full_mesh:data_plane_mesh"
       ],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -685,7 +685,7 @@
       "path": "documentation/data-sources/site_mesh_group/properties/full_mesh/index.md",
       "product": "distributed-cloud",
       "provider_name": "site_mesh_group",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-2011311010303311-3101333312312330-0321213121133131-0132222021121301-0211101131120320-2330312212002010-0320002102331223-2100120012300212",
       "registry_path": "docs/guides/data-sources--site_mesh_group--reference--group-001.md",
@@ -742,7 +742,7 @@
       "category": "networking",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -754,7 +754,7 @@
       "path": "documentation/data-sources/site_mesh_group/properties/full_mesh/control_and_data_plane_mesh/index.md",
       "product": "distributed-cloud",
       "provider_name": "site_mesh_group",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-2301201112331101-3332111320033330-0020020203010101-3201103300023010-2110301100313122-2312102230331021-1002000010312301-1120033122013010",
       "registry_path": "docs/guides/data-sources--site_mesh_group--reference--group-001.md",
@@ -782,7 +782,7 @@
       "category": "networking",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -794,7 +794,7 @@
       "path": "documentation/data-sources/site_mesh_group/properties/full_mesh/data_plane_mesh/index.md",
       "product": "distributed-cloud",
       "provider_name": "site_mesh_group",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-0020001230122013-0201110230133002-3211033113001120-3103303233033132-2233302202021022-3311333032033333-3010322131000002-1012022110022330",
       "registry_path": "docs/guides/data-sources--site_mesh_group--reference--group-001.md",
@@ -825,7 +825,7 @@
         "xcsh-docs:data-sources:site_mesh_group:properties:hub_mesh:data_plane_mesh"
       ],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -837,7 +837,7 @@
       "path": "documentation/data-sources/site_mesh_group/properties/hub_mesh/index.md",
       "product": "distributed-cloud",
       "provider_name": "site_mesh_group",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-3310111110031031-0031312012323212-1332110322233232-3121231211210320-1320111110002130-2310110100121303-2100213103112331-3310121200102323",
       "registry_path": "docs/guides/data-sources--site_mesh_group--reference--group-001.md",
@@ -894,7 +894,7 @@
       "category": "networking",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -906,7 +906,7 @@
       "path": "documentation/data-sources/site_mesh_group/properties/hub_mesh/control_and_data_plane_mesh/index.md",
       "product": "distributed-cloud",
       "provider_name": "site_mesh_group",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-2003221203223012-2310123232203332-3103121031010302-0130003132113332-3121222313112302-3010013013003222-1330313130010232-3321102131310021",
       "registry_path": "docs/guides/data-sources--site_mesh_group--reference--group-001.md",
@@ -934,7 +934,7 @@
       "category": "networking",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -946,7 +946,7 @@
       "path": "documentation/data-sources/site_mesh_group/properties/hub_mesh/data_plane_mesh/index.md",
       "product": "distributed-cloud",
       "provider_name": "site_mesh_group",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-3023231123300303-0131020203203002-1120131233022032-3213110223103202-3202011221131312-2110003320332322-0003233332320103-1013200230120320",
       "registry_path": "docs/guides/data-sources--site_mesh_group--reference--group-001.md",
@@ -978,7 +978,7 @@
         "xcsh-docs:data-sources:site_mesh_group:properties:spoke_mesh:hub_mesh_group"
       ],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -990,7 +990,7 @@
       "path": "documentation/data-sources/site_mesh_group/properties/spoke_mesh/index.md",
       "product": "distributed-cloud",
       "provider_name": "site_mesh_group",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-3303230010212332-0123100010332211-2131111021030230-3301330103211030-1101120303232312-0201021220110323-0203132331020320-2023123001121013",
       "registry_path": "docs/guides/data-sources--site_mesh_group--reference--group-001.md",
@@ -1061,7 +1061,7 @@
       "category": "networking",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -1073,7 +1073,7 @@
       "path": "documentation/data-sources/site_mesh_group/properties/spoke_mesh/control_and_data_plane_mesh/index.md",
       "product": "distributed-cloud",
       "provider_name": "site_mesh_group",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-1030130010011202-3131331100222300-1210223133111031-2102210322100333-1321021113221200-3332012022230012-1203233033200323-3121021321030300",
       "registry_path": "docs/guides/data-sources--site_mesh_group--reference--group-001.md",
@@ -1101,7 +1101,7 @@
       "category": "networking",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -1113,7 +1113,7 @@
       "path": "documentation/data-sources/site_mesh_group/properties/spoke_mesh/data_plane_mesh/index.md",
       "product": "distributed-cloud",
       "provider_name": "site_mesh_group",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-2213200121023202-1030111321221033-0211123332233133-3013322023303100-0220201113231211-3223132203131302-3120023133000030-3003232003003230",
       "registry_path": "docs/guides/data-sources--site_mesh_group--reference--group-001.md",
@@ -1141,7 +1141,7 @@
       "category": "networking",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -1153,7 +1153,7 @@
       "path": "documentation/data-sources/site_mesh_group/properties/spoke_mesh/hub_mesh_group/index.md",
       "product": "distributed-cloud",
       "provider_name": "site_mesh_group",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-1332303021011210-0112003021202312-2031201100311213-1202200202112201-0233100232203020-0202210222031031-0202331111033122-1220203123200302",
       "registry_path": "docs/guides/data-sources--site_mesh_group--reference--group-001.md",
@@ -1224,7 +1224,7 @@
       "category": "networking",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -1236,7 +1236,7 @@
       "path": "documentation/data-sources/site_mesh_group/properties/virtual_site/index.md",
       "product": "distributed-cloud",
       "provider_name": "site_mesh_group",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-2221320302210102-1123132201311320-1010233213033022-3003013130331211-2310202133312102-2122000123100331-1022023011231202-3011111122002232",
       "registry_path": "docs/guides/data-sources--site_mesh_group--reference--group-001.md",
@@ -1335,7 +1335,7 @@
       "category": "networking",
       "child_ids": ["xcsh-docs:data-sources:site_mesh_group:example:data-source"],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -1347,7 +1347,7 @@
       "path": "documentation/data-sources/site_mesh_group/examples/index.md",
       "product": "distributed-cloud",
       "provider_name": "site_mesh_group",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-3110301000121100-3230332012301120-0031032013133312-1201232022320210-3002110131103000-1211000110203000-2301303001213332-2030032310001312",
       "registry_path": "docs/guides/data-sources--site_mesh_group--examples--group-001.md",
@@ -1375,7 +1375,7 @@
       "category": "networking",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -1394,7 +1394,7 @@
       "path": "documentation/data-sources/site_mesh_group/examples/data-source/index.md",
       "product": "distributed-cloud",
       "provider_name": "site_mesh_group",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-2030332011320001-0321202110110120-2212212021302132-1021131111021000-1202322131123031-2222333313312121-1023310021330003-3230031010103301",
       "registry_path": "docs/guides/data-sources--site_mesh_group--examples--group-001.md",

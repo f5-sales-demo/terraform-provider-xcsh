@@ -31,7 +31,7 @@
         "xcsh-docs:actions:site_signatures_update:lifecycle"
       ],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -43,7 +43,7 @@
       "path": "documentation/actions/site_signatures_update/index.md",
       "product": "distributed-cloud",
       "provider_name": "site_signatures_update",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "actions",
       "registry_anchor": "canonical-2121133033301232-0011100131212313-0013203021322030-2021023332100333-1321010310023012-3332003100213031-1333010220333010-1320230310323133",
       "registry_path": "docs/actions/site_signatures_update.md",
@@ -72,7 +72,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -84,7 +84,7 @@
       "path": "documentation/actions/site_signatures_update/properties/index.md",
       "product": "distributed-cloud",
       "provider_name": "site_signatures_update",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "actions",
       "registry_anchor": "canonical-2103311202213331-3322033031022121-3121001201130323-0111123021202301-2313002222033000-2333220012121133-2230132001320330-3233213301303202",
       "registry_path": "docs/guides/actions--site_signatures_update--reference--group-001.md",
@@ -141,7 +141,7 @@
       "category": null,
       "child_ids": ["xcsh-docs:actions:site_signatures_update:example:action"],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -153,7 +153,7 @@
       "path": "documentation/actions/site_signatures_update/examples/index.md",
       "product": "distributed-cloud",
       "provider_name": "site_signatures_update",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "actions",
       "registry_anchor": "canonical-1133211000213003-1211333131332233-3010121333101232-3320302222201103-1303011220210213-1330031203320202-3303112331111132-1010002322013121",
       "registry_path": "docs/guides/actions--site_signatures_update--examples--group-001.md",
@@ -181,7 +181,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -200,7 +200,7 @@
       "path": "documentation/actions/site_signatures_update/examples/action/index.md",
       "product": "distributed-cloud",
       "provider_name": "site_signatures_update",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "actions",
       "registry_anchor": "canonical-3020300320201011-0002300300301300-2133123121323132-3231032221131331-1133221011312332-0201133122101132-2303110212031300-0323022321011103",
       "registry_path": "docs/guides/actions--site_signatures_update--examples--group-001.md",
@@ -228,7 +228,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -240,7 +240,7 @@
       "path": "documentation/actions/site_signatures_update/lifecycle/index.md",
       "product": "distributed-cloud",
       "provider_name": "site_signatures_update",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "actions",
       "registry_anchor": "canonical-0130221213333233-0201210102022213-2002000020332232-0233003221023000-0021230302030211-0332232321113122-3112012120210323-3302021201323030",
       "registry_path": "docs/guides/actions--site_signatures_update--lifecycle--group-001.md",

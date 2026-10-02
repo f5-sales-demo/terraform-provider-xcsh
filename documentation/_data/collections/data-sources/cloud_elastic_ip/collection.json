@@ -85,7 +85,7 @@
         "xcsh-docs:data-sources:cloud_elastic_ip:examples"
       ],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -97,7 +97,7 @@
       "path": "documentation/data-sources/cloud_elastic_ip/index.md",
       "product": "distributed-cloud",
       "provider_name": "cloud_elastic_ip",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-0223023303003220-2123332302131330-3202021121113030-2021223333123231-2302313213301131-1233113113023011-3112030123323311-3322022223022102",
       "registry_path": "docs/data-sources/cloud_elastic_ip.md",
@@ -126,7 +126,7 @@
       "category": "infrastructure",
       "child_ids": ["xcsh-docs:data-sources:cloud_elastic_ip:properties:site_ref"],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -138,7 +138,7 @@
       "path": "documentation/data-sources/cloud_elastic_ip/properties/index.md",
       "product": "distributed-cloud",
       "provider_name": "cloud_elastic_ip",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-3233011131021232-3231202322001200-0221311312333302-0113233211312111-3032320102211210-0313320223303133-3011223131121200-0001033220313023",
       "registry_path": "docs/guides/data-sources--cloud_elastic_ip--reference--group-001.md",
@@ -279,7 +279,7 @@
       "category": "infrastructure",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -291,7 +291,7 @@
       "path": "documentation/data-sources/cloud_elastic_ip/properties/site_ref/index.md",
       "product": "distributed-cloud",
       "provider_name": "cloud_elastic_ip",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-3031310220210312-2310331000021223-1230022123230030-3313120302233100-2002210121032133-1113103213300223-3312022301231330-0313320012003333",
       "registry_path": "docs/guides/data-sources--cloud_elastic_ip--reference--group-001.md",
@@ -390,7 +390,7 @@
       "category": "infrastructure",
       "child_ids": ["xcsh-docs:data-sources:cloud_elastic_ip:example:data-source"],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -402,7 +402,7 @@
       "path": "documentation/data-sources/cloud_elastic_ip/examples/index.md",
       "product": "distributed-cloud",
       "provider_name": "cloud_elastic_ip",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-0013120111021103-0230021112331013-0312230200221322-2231002130302222-0203222212300212-0002203313103020-0032030222303213-2110302301220132",
       "registry_path": "docs/guides/data-sources--cloud_elastic_ip--examples--group-001.md",
@@ -430,7 +430,7 @@
       "category": "infrastructure",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:6be810e90af34359481d31eabd71cd76265065a170da3c5cb985e3c6e6971951",
+        "rules_sha256": "sha256:3217787f954272d9dc634bbb1180c6a67657552249a3e4198b15d116afcf5824",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -449,7 +449,7 @@
       "path": "documentation/data-sources/cloud_elastic_ip/examples/data-source/index.md",
       "product": "distributed-cloud",
       "provider_name": "cloud_elastic_ip",
-      "provider_schema_digest": "sha256:d20ce271369d414e9d5661659e153a5441a9bde0053a466518eae9b8b5ab32fd",
+      "provider_schema_digest": "sha256:e93f7e38d36f867af35587962cdc3c5282fd19efd6d50da0ec22d86812ee056f",
       "provider_type": "data-sources",
       "registry_anchor": "canonical-3203123010020303-2030133310010000-0012121012233011-0331031301032120-0222122233201013-1132201131121321-3123323320313312-1332210203331331",
       "registry_path": "docs/guides/data-sources--cloud_elastic_ip--examples--group-001.md",
