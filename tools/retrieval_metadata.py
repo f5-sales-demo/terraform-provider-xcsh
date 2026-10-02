@@ -41,6 +41,11 @@ class RetrievalRules:
             raise ValueError("unsupported retrieval rules version")
         self.rules = data.get("rules", [])
         self.terms = data.get("terms", [])
+        if any(
+            term.get("match_source", "description") not in {"identifier", "description"}
+            for term in self.terms
+        ):
+            raise ValueError("invalid retrieval term match source")
         self.digest = (
             "sha256:"
             + hashlib.sha256(
@@ -136,7 +141,10 @@ class RetrievalRules:
         values = {prose.strip()} if prose.strip() else set()
         text = prose + " " + description.lower()
         for term in self.terms:
-            if re.search(term["pattern"], text):
+            if re.search(
+                term["pattern"],
+                prose if term.get("match_source") == "identifier" else text,
+            ):
                 values.update(term["aliases"])
         return sorted(values)
 

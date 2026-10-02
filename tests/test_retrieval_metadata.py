@@ -69,6 +69,39 @@ class RetrievalMetadataTests(unittest.TestCase):
         self.assertIn("login success", aliases)
         self.assertNotIn("benchmark", " ".join(aliases))
 
+    def test_aliases_do_not_describe_incidental_certificate_mentions(self):
+        rules = MODULE.RetrievalRules.default()
+        self.assertNotIn(
+            "existing certificates",
+            rules.aliases(
+                "custom_hash_algorithms", "Algorithms used for TLS certificates."
+            ),
+        )
+        self.assertNotIn(
+            "existing certificates",
+            rules.aliases(
+                "https_auto_cert",
+                "Choice for selecting HTTP proxy with bring your own certificates.",
+            ),
+        )
+        self.assertIn("automatic certificates", rules.aliases("https_auto_cert"))
+        self.assertIn("existing certificates", rules.aliases("tls_certificates"))
+
+    def test_aliases_keep_credential_and_backend_context_local(self):
+        rules = MODULE.RetrievalRules.default()
+        self.assertNotIn(
+            "credential setup",
+            rules.aliases("status", "Status of authentication credentials."),
+        )
+        self.assertNotIn(
+            "backend servers",
+            rules.aliases(
+                "connection_timeout", "Timeout for connections to origin servers."
+            ),
+        )
+        self.assertIn("backend servers", rules.aliases("origin_servers"))
+        self.assertIn("credential setup", rules.aliases("credentials"))
+
     def test_summary_preserves_complete_words(self):
         text = "complete " * 40
         result = MODULE.summary(text, "fallback")

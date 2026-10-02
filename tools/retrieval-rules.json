@@ -977,13 +977,14 @@
       ]
     },
     {
-      "pattern": "\\bcertificates?\\b|\\btls cert",
+      "pattern": "\\b(?:tls certificates|certificates|certificate chain|certificate url)\\b",
       "aliases": [
         "certificate",
         "existing certificates",
         "tls certificates",
         "cert"
-      ]
+      ],
+      "match_source": "identifier"
     },
     {
       "pattern": "\\borigin\\b|\\bbackend\\b",
@@ -991,7 +992,8 @@
         "backend servers",
         "origin servers",
         "upstream servers"
-      ]
+      ],
+      "match_source": "identifier"
     },
     {
       "pattern": "\\bauthentication\\b|\\bcredentials?\\b|\\bapi token\\b",
@@ -999,7 +1001,8 @@
         "credential setup",
         "authentication",
         "credentials"
-      ]
+      ],
+      "match_source": "identifier"
     },
     {
       "pattern": "\\btimeout",
@@ -1020,6 +1023,15 @@
       "aliases": [
         "advanced bot defense",
         "bot defense advanced protection"
+      ]
+    },
+    {
+      "pattern": "\\bhttps auto cert\\b",
+      "match_source": "identifier",
+      "aliases": [
+        "automatic certificates",
+        "automatic certificate management",
+        "managed TLS certificates"
       ]
     }
   ]
