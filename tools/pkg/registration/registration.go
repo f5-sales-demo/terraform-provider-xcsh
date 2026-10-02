@@ -29,6 +29,7 @@ var CoreResources = []string{}
 // lifecycle semantics than their OpenAPI CRUD object. They are registered by
 // the generator but are not generated from an API schema.
 var StandaloneResources = []string{
+	"public_ip_binding",
 	"smsv2_kvm_runtime_interface",
 }
 

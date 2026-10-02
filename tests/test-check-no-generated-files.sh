@@ -89,6 +89,10 @@ repo=$(new_repo manual-exception)
 stage_file "$repo" internal/provider/site_registration_data_source.go
 assert_passes "manually maintained provider source" "$repo"
 
+repo=$(new_repo manual-public-ip-binding)
+stage_file "$repo" internal/provider/public_ip_binding_resource.go
+assert_passes "hand-written public IP binding source" "$repo"
+
 repo=$(new_repo no-files)
 assert_passes "repository with no staged changes" "$repo"
 

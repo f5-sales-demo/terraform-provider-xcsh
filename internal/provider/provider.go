@@ -309,6 +309,7 @@ func (p *XCSHProvider) Resources(ctx context.Context) []func() resource.Resource
 		NewProtocolInspectionResource,
 		NewProtocolPolicerResource,
 		NewProxyResource,
+		NewPublicIPBindingResource,
 		NewRateLimiterPolicyResource,
 		NewRateLimiterResource,
 		NewRegistrationApprovalResource,
