@@ -100,7 +100,7 @@
         "xcsh-docs:data-sources:managed_client_customer_support_comments:examples"
       ],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -141,7 +141,7 @@
       "category": null,
       "child_ids": ["xcsh-docs:data-sources:managed_client_customer_support_comments:properties:comments"],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -240,7 +240,7 @@
         "xcsh-docs:data-sources:managed_client_customer_support_comments:properties:comments:attachments_info"
       ],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -262,7 +262,7 @@
       "schema_path": ["comments"],
       "sections": [
         {
-          "aliases": ["attachment ids"],
+          "aliases": ["comments attachment ids"],
           "anchor": "schema-comments--attachment_ids",
           "description": "Third party ID of any attachment related to this ticket comment.",
           "document_id": "xcsh-docs:data-sources:managed_client_customer_support_comments:properties:comments",
@@ -276,7 +276,7 @@
           "type": "list"
         },
         {
-          "aliases": ["attachments info"],
+          "aliases": ["comments attachments info"],
           "anchor": "section",
           "description": "Information about any attachments (such as screenshots, plain text files) the comment can have.",
           "document_id": "xcsh-docs:data-sources:managed_client_customer_support_comments:properties:comments:attachments_info",
@@ -290,7 +290,7 @@
           "type": "object"
         },
         {
-          "aliases": ["author email"],
+          "aliases": ["comments author email"],
           "anchor": "schema-comments--author_email",
           "description": "Email. Email of the author of the comment.",
           "document_id": "xcsh-docs:data-sources:managed_client_customer_support_comments:properties:comments",
@@ -304,7 +304,7 @@
           "type": "string"
         },
         {
-          "aliases": ["author name"],
+          "aliases": ["comments author name"],
           "anchor": "schema-comments--author_name",
           "description": "Author. Author of the comment (as a name)",
           "document_id": "xcsh-docs:data-sources:managed_client_customer_support_comments:properties:comments",
@@ -318,7 +318,7 @@
           "type": "string"
         },
         {
-          "aliases": ["comment id"],
+          "aliases": ["comments comment id"],
           "anchor": "schema-comments--comment_id",
           "description": "ID assigned to this comment by support provider.",
           "document_id": "xcsh-docs:data-sources:managed_client_customer_support_comments:properties:comments",
@@ -332,7 +332,7 @@
           "type": "string"
         },
         {
-          "aliases": ["created at"],
+          "aliases": ["comments created at"],
           "anchor": "schema-comments--created_at",
           "description": "At. Comment creation time.",
           "document_id": "xcsh-docs:data-sources:managed_client_customer_support_comments:properties:comments",
@@ -346,7 +346,7 @@
           "type": "string"
         },
         {
-          "aliases": ["html"],
+          "aliases": ["comments html"],
           "anchor": "schema-comments--html",
           "description": "Comment. Comment body as HTML.",
           "document_id": "xcsh-docs:data-sources:managed_client_customer_support_comments:properties:comments",
@@ -360,7 +360,7 @@
           "type": "string"
         },
         {
-          "aliases": ["plain text"],
+          "aliases": ["comments plain text"],
           "anchor": "schema-comments--plain_text",
           "description": "Comment. Comment body as plain text.",
           "document_id": "xcsh-docs:data-sources:managed_client_customer_support_comments:properties:comments",
@@ -393,7 +393,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -415,7 +415,7 @@
       "schema_path": ["comments", "attachments_info"],
       "sections": [
         {
-          "aliases": ["attachment"],
+          "aliases": ["comments attachments info attachment"],
           "anchor": "schema-comments--attachments_info--attachment",
           "description": "Any binary attachment (such as screenshots, plain text files, PDFs) encoded as base64 if used over HTTP.",
           "document_id": "xcsh-docs:data-sources:managed_client_customer_support_comments:properties:comments:attachments_info",
@@ -429,7 +429,7 @@
           "type": "string"
         },
         {
-          "aliases": ["content type"],
+          "aliases": ["comments attachments info content type"],
           "anchor": "schema-comments--attachments_info--content_type",
           "description": "MIME content type of the attachment. Helps the UI to properly display the data.",
           "document_id": "xcsh-docs:data-sources:managed_client_customer_support_comments:properties:comments:attachments_info",
@@ -443,7 +443,7 @@
           "type": "string"
         },
         {
-          "aliases": ["filename"],
+          "aliases": ["comments attachments info filename"],
           "anchor": "schema-comments--attachments_info--filename",
           "description": "Filename of the attachment as provided by the caller.",
           "document_id": "xcsh-docs:data-sources:managed_client_customer_support_comments:properties:comments:attachments_info",
@@ -457,7 +457,7 @@
           "type": "string"
         },
         {
-          "aliases": ["tp id"],
+          "aliases": ["comments attachments info tp id"],
           "anchor": "schema-comments--attachments_info--tp_id",
           "description": "Optional ID as assigned by the third-party actually storing the data.",
           "document_id": "xcsh-docs:data-sources:managed_client_customer_support_comments:properties:comments:attachments_info",
@@ -490,7 +490,7 @@
       "category": null,
       "child_ids": ["xcsh-docs:data-sources:managed_client_customer_support_comments:example:data-source"],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -530,7 +530,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"

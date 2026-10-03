@@ -100,7 +100,7 @@
         "xcsh-docs:data-sources:k8s_cluster_role_binding:examples"
       ],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -144,7 +144,7 @@
         "xcsh-docs:data-sources:k8s_cluster_role_binding:properties:subjects"
       ],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -297,7 +297,7 @@
       "category": "container",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -319,7 +319,7 @@
       "schema_path": ["k8s_cluster_role"],
       "sections": [
         {
-          "aliases": ["name"],
+          "aliases": ["k8s cluster role name"],
           "anchor": "schema-k8s_cluster_role--name",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.",
           "document_id": "xcsh-docs:data-sources:k8s_cluster_role_binding:properties:k8s_cluster_role",
@@ -333,7 +333,7 @@
           "type": "string"
         },
         {
-          "aliases": ["namespace"],
+          "aliases": ["k8s cluster role namespace"],
           "anchor": "schema-k8s_cluster_role--namespace",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace.",
           "document_id": "xcsh-docs:data-sources:k8s_cluster_role_binding:properties:k8s_cluster_role",
@@ -347,7 +347,7 @@
           "type": "string"
         },
         {
-          "aliases": ["tenant"],
+          "aliases": ["k8s cluster role tenant"],
           "anchor": "schema-k8s_cluster_role--tenant",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant.",
           "document_id": "xcsh-docs:data-sources:k8s_cluster_role_binding:properties:k8s_cluster_role",
@@ -380,7 +380,7 @@
       "category": "container",
       "child_ids": ["xcsh-docs:data-sources:k8s_cluster_role_binding:properties:subjects:service_account"],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -402,7 +402,7 @@
       "schema_path": ["subjects"],
       "sections": [
         {
-          "aliases": ["group"],
+          "aliases": ["subjects group"],
           "anchor": "schema-subjects--group",
           "description": "Exclusive with Group ID of the user group.",
           "document_id": "xcsh-docs:data-sources:k8s_cluster_role_binding:properties:subjects",
@@ -416,7 +416,7 @@
           "type": "string"
         },
         {
-          "aliases": ["service account"],
+          "aliases": ["subjects service account"],
           "anchor": "section",
           "description": "ServiceAccountType.",
           "document_id": "xcsh-docs:data-sources:k8s_cluster_role_binding:properties:subjects:service_account",
@@ -430,7 +430,7 @@
           "type": "object"
         },
         {
-          "aliases": ["user"],
+          "aliases": ["subjects user"],
           "anchor": "schema-subjects--user",
           "description": "Exclusive with User ID of the user.",
           "document_id": "xcsh-docs:data-sources:k8s_cluster_role_binding:properties:subjects",
@@ -463,7 +463,7 @@
       "category": "container",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -485,7 +485,7 @@
       "schema_path": ["subjects", "service_account"],
       "sections": [
         {
-          "aliases": ["name"],
+          "aliases": ["subjects service account name"],
           "anchor": "schema-subjects--service_account--name",
           "description": "Name of the service account.",
           "document_id": "xcsh-docs:data-sources:k8s_cluster_role_binding:properties:subjects:service_account",
@@ -499,7 +499,7 @@
           "type": "string"
         },
         {
-          "aliases": ["namespace"],
+          "aliases": ["subjects service account namespace"],
           "anchor": "schema-subjects--service_account--namespace",
           "description": "Namespace of the service account.",
           "document_id": "xcsh-docs:data-sources:k8s_cluster_role_binding:properties:subjects:service_account",
@@ -532,7 +532,7 @@
       "category": "container",
       "child_ids": ["xcsh-docs:data-sources:k8s_cluster_role_binding:example:data-source"],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -572,7 +572,7 @@
       "category": "container",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"

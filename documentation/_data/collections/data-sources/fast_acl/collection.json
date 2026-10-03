@@ -472,7 +472,7 @@
       "category": "security",
       "child_ids": ["xcsh-docs:data-sources:fast_acl:reference", "xcsh-docs:data-sources:fast_acl:examples"],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -517,7 +517,7 @@
         "xcsh-docs:data-sources:fast_acl:properties:site_acl"
       ],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -684,7 +684,7 @@
       "category": "security",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -706,7 +706,7 @@
       "schema_path": ["protocol_policer"],
       "sections": [
         {
-          "aliases": ["name"],
+          "aliases": ["protocol policer name"],
           "anchor": "schema-protocol_policer--name",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.",
           "document_id": "xcsh-docs:data-sources:fast_acl:properties:protocol_policer",
@@ -720,7 +720,7 @@
           "type": "string"
         },
         {
-          "aliases": ["namespace"],
+          "aliases": ["protocol policer namespace"],
           "anchor": "schema-protocol_policer--namespace",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace.",
           "document_id": "xcsh-docs:data-sources:fast_acl:properties:protocol_policer",
@@ -734,7 +734,7 @@
           "type": "string"
         },
         {
-          "aliases": ["tenant"],
+          "aliases": ["protocol policer tenant"],
           "anchor": "schema-protocol_policer--tenant",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant.",
           "document_id": "xcsh-docs:data-sources:fast_acl:properties:protocol_policer",
@@ -772,7 +772,7 @@
         "xcsh-docs:data-sources:fast_acl:properties:re_acl:selected_tenant_vip"
       ],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -794,7 +794,7 @@
       "schema_path": ["re_acl"],
       "sections": [
         {
-          "aliases": ["all public vips"],
+          "aliases": ["re acl all public vips"],
           "anchor": "section",
           "description": "This can be used for messages where no values are needed.",
           "document_id": "xcsh-docs:data-sources:fast_acl:properties:re_acl:all_public_vips",
@@ -808,7 +808,7 @@
           "type": "object"
         },
         {
-          "aliases": ["default tenant vip"],
+          "aliases": ["re acl default tenant vip"],
           "anchor": "section",
           "description": "This can be used for messages where no values are needed.",
           "document_id": "xcsh-docs:data-sources:fast_acl:properties:re_acl:default_tenant_vip",
@@ -822,7 +822,7 @@
           "type": "object"
         },
         {
-          "aliases": ["fast acl rules"],
+          "aliases": ["re acl fast acl rules"],
           "anchor": "section",
           "description": "Fast ACL rules to match.",
           "document_id": "xcsh-docs:data-sources:fast_acl:properties:re_acl:fast_acl_rules",
@@ -836,7 +836,7 @@
           "type": "object"
         },
         {
-          "aliases": ["selected tenant vip"],
+          "aliases": ["re acl selected tenant vip"],
           "anchor": "section",
           "description": "Select various tenant public VIP(s)",
           "document_id": "xcsh-docs:data-sources:fast_acl:properties:re_acl:selected_tenant_vip",
@@ -869,7 +869,7 @@
       "category": "security",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -909,7 +909,7 @@
       "category": "security",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -955,7 +955,7 @@
         "xcsh-docs:data-sources:fast_acl:properties:re_acl:fast_acl_rules:prefix"
       ],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -977,7 +977,7 @@
       "schema_path": ["re_acl", "fast_acl_rules"],
       "sections": [
         {
-          "aliases": ["action"],
+          "aliases": ["re acl fast acl rules action"],
           "anchor": "section",
           "description": "FastAclRuleAction specifies possible action to be applied on traffic, possible action include dropping, forwarding or ratelimiting the traffic.",
           "document_id": "xcsh-docs:data-sources:fast_acl:properties:re_acl:fast_acl_rules:action",
@@ -991,7 +991,7 @@
           "type": "object"
         },
         {
-          "aliases": ["ip prefix set"],
+          "aliases": ["re acl fast acl rules ip prefix set"],
           "anchor": "section",
           "description": "A list of references to ip_prefix_set objects.",
           "document_id": "xcsh-docs:data-sources:fast_acl:properties:re_acl:fast_acl_rules:ip_prefix_set",
@@ -1005,7 +1005,7 @@
           "type": "object"
         },
         {
-          "aliases": ["metadata"],
+          "aliases": ["re acl fast acl rules metadata"],
           "anchor": "section",
           "description": "MessageMetaType is metadata (common attributes) of a message that only certain messages have. This information is propagated to the metadata of a child object that gets created from the containing message during view processing. The information in this type can be specified by user during create and replace APIs.",
           "document_id": "xcsh-docs:data-sources:fast_acl:properties:re_acl:fast_acl_rules:metadata",
@@ -1019,7 +1019,7 @@
           "type": "object"
         },
         {
-          "aliases": ["port"],
+          "aliases": ["re acl fast acl rules port"],
           "anchor": "section",
           "description": "L4 port numbers to match.",
           "document_id": "xcsh-docs:data-sources:fast_acl:properties:re_acl:fast_acl_rules:port",
@@ -1033,7 +1033,7 @@
           "type": "object"
         },
         {
-          "aliases": ["prefix"],
+          "aliases": ["re acl fast acl rules prefix"],
           "anchor": "section",
           "description": "List of IP Address prefixes. Prefix must contain both prefix and prefix-length The list can contain mix of both IPv4 and IPv6 prefixes.",
           "document_id": "xcsh-docs:data-sources:fast_acl:properties:re_acl:fast_acl_rules:prefix",
@@ -1069,7 +1069,7 @@
         "xcsh-docs:data-sources:fast_acl:properties:re_acl:fast_acl_rules:action:protocol_policer_action"
       ],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -1091,7 +1091,7 @@
       "schema_path": ["re_acl", "fast_acl_rules", "action"],
       "sections": [
         {
-          "aliases": ["policer action"],
+          "aliases": ["re acl fast acl rules action policer action"],
           "anchor": "section",
           "description": "Reference to policer object.",
           "document_id": "xcsh-docs:data-sources:fast_acl:properties:re_acl:fast_acl_rules:action:policer_action",
@@ -1105,7 +1105,7 @@
           "type": "object"
         },
         {
-          "aliases": ["protocol policer action"],
+          "aliases": ["re acl fast acl rules action protocol policer action"],
           "anchor": "section",
           "description": "Reference to policer object.",
           "document_id": "xcsh-docs:data-sources:fast_acl:properties:re_acl:fast_acl_rules:action:protocol_policer_action",
@@ -1119,7 +1119,7 @@
           "type": "object"
         },
         {
-          "aliases": ["simple action"],
+          "aliases": ["re acl fast acl rules action simple action"],
           "anchor": "schema-re_acl--fast_acl_rules--action--simple_action",
           "description": "FastAclRuleSimpleAction specifies simple action like PASS or DENY Drop the traffic Forward the traffic.",
           "document_id": "xcsh-docs:data-sources:fast_acl:properties:re_acl:fast_acl_rules:action",
@@ -1152,7 +1152,7 @@
       "category": "security",
       "child_ids": ["xcsh-docs:data-sources:fast_acl:properties:re_acl:fast_acl_rules:action:policer_action:ref"],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -1174,7 +1174,7 @@
       "schema_path": ["re_acl", "fast_acl_rules", "action", "policer_action"],
       "sections": [
         {
-          "aliases": ["ref"],
+          "aliases": ["re acl fast acl rules action policer action ref"],
           "anchor": "section",
           "description": "A policer direct reference.",
           "document_id": "xcsh-docs:data-sources:fast_acl:properties:re_acl:fast_acl_rules:action:policer_action:ref",
@@ -1207,7 +1207,7 @@
       "category": "security",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -1229,7 +1229,7 @@
       "schema_path": ["re_acl", "fast_acl_rules", "action", "policer_action", "ref"],
       "sections": [
         {
-          "aliases": ["kind"],
+          "aliases": ["re acl fast acl rules action policer action ref kind"],
           "anchor": "schema-re_acl--fast_acl_rules--action--policer_action--ref--kind",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then kind will hold the referred object's kind (e.g. \"route\")",
           "document_id": "xcsh-docs:data-sources:fast_acl:properties:re_acl:fast_acl_rules:action:policer_action:ref",
@@ -1243,7 +1243,7 @@
           "type": "string"
         },
         {
-          "aliases": ["name"],
+          "aliases": ["re acl fast acl rules action policer action ref name"],
           "anchor": "schema-re_acl--fast_acl_rules--action--policer_action--ref--name",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.",
           "document_id": "xcsh-docs:data-sources:fast_acl:properties:re_acl:fast_acl_rules:action:policer_action:ref",
@@ -1257,7 +1257,7 @@
           "type": "string"
         },
         {
-          "aliases": ["namespace"],
+          "aliases": ["re acl fast acl rules action policer action ref namespace"],
           "anchor": "schema-re_acl--fast_acl_rules--action--policer_action--ref--namespace",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace.",
           "document_id": "xcsh-docs:data-sources:fast_acl:properties:re_acl:fast_acl_rules:action:policer_action:ref",
@@ -1271,7 +1271,7 @@
           "type": "string"
         },
         {
-          "aliases": ["tenant"],
+          "aliases": ["re acl fast acl rules action policer action ref tenant"],
           "anchor": "schema-re_acl--fast_acl_rules--action--policer_action--ref--tenant",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant.",
           "document_id": "xcsh-docs:data-sources:fast_acl:properties:re_acl:fast_acl_rules:action:policer_action:ref",
@@ -1285,7 +1285,7 @@
           "type": "string"
         },
         {
-          "aliases": ["uid"],
+          "aliases": ["re acl fast acl rules action policer action ref uid"],
           "anchor": "schema-re_acl--fast_acl_rules--action--policer_action--ref--uid",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then uid will hold the referred object's(e.g. Route's) uid.",
           "document_id": "xcsh-docs:data-sources:fast_acl:properties:re_acl:fast_acl_rules:action:policer_action:ref",
@@ -1320,7 +1320,7 @@
         "xcsh-docs:data-sources:fast_acl:properties:re_acl:fast_acl_rules:action:protocol_policer_action:ref"
       ],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -1342,7 +1342,7 @@
       "schema_path": ["re_acl", "fast_acl_rules", "action", "protocol_policer_action"],
       "sections": [
         {
-          "aliases": ["ref"],
+          "aliases": ["re acl fast acl rules action protocol policer action ref"],
           "anchor": "section",
           "description": "Reference to protocol policer object.",
           "document_id": "xcsh-docs:data-sources:fast_acl:properties:re_acl:fast_acl_rules:action:protocol_policer_action:ref",
@@ -1375,7 +1375,7 @@
       "category": "security",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -1397,7 +1397,7 @@
       "schema_path": ["re_acl", "fast_acl_rules", "action", "protocol_policer_action", "ref"],
       "sections": [
         {
-          "aliases": ["kind"],
+          "aliases": ["re acl fast acl rules action protocol policer action ref kind"],
           "anchor": "schema-re_acl--fast_acl_rules--action--protocol_policer_action--ref--kind",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then kind will hold the referred object's kind (e.g. \"route\")",
           "document_id": "xcsh-docs:data-sources:fast_acl:properties:re_acl:fast_acl_rules:action:protocol_policer_action:ref",
@@ -1411,7 +1411,7 @@
           "type": "string"
         },
         {
-          "aliases": ["name"],
+          "aliases": ["re acl fast acl rules action protocol policer action ref name"],
           "anchor": "schema-re_acl--fast_acl_rules--action--protocol_policer_action--ref--name",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.",
           "document_id": "xcsh-docs:data-sources:fast_acl:properties:re_acl:fast_acl_rules:action:protocol_policer_action:ref",
@@ -1425,7 +1425,7 @@
           "type": "string"
         },
         {
-          "aliases": ["namespace"],
+          "aliases": ["re acl fast acl rules action protocol policer action ref namespace"],
           "anchor": "schema-re_acl--fast_acl_rules--action--protocol_policer_action--ref--namespace",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace.",
           "document_id": "xcsh-docs:data-sources:fast_acl:properties:re_acl:fast_acl_rules:action:protocol_policer_action:ref",
@@ -1439,7 +1439,7 @@
           "type": "string"
         },
         {
-          "aliases": ["tenant"],
+          "aliases": ["re acl fast acl rules action protocol policer action ref tenant"],
           "anchor": "schema-re_acl--fast_acl_rules--action--protocol_policer_action--ref--tenant",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant.",
           "document_id": "xcsh-docs:data-sources:fast_acl:properties:re_acl:fast_acl_rules:action:protocol_policer_action:ref",
@@ -1453,7 +1453,7 @@
           "type": "string"
         },
         {
-          "aliases": ["uid"],
+          "aliases": ["re acl fast acl rules action protocol policer action ref uid"],
           "anchor": "schema-re_acl--fast_acl_rules--action--protocol_policer_action--ref--uid",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then uid will hold the referred object's(e.g. Route's) uid.",
           "document_id": "xcsh-docs:data-sources:fast_acl:properties:re_acl:fast_acl_rules:action:protocol_policer_action:ref",
@@ -1486,7 +1486,7 @@
       "category": "security",
       "child_ids": ["xcsh-docs:data-sources:fast_acl:properties:re_acl:fast_acl_rules:ip_prefix_set:ref"],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -1508,7 +1508,7 @@
       "schema_path": ["re_acl", "fast_acl_rules", "ip_prefix_set"],
       "sections": [
         {
-          "aliases": ["ref"],
+          "aliases": ["re acl fast acl rules ip prefix set ref"],
           "anchor": "section",
           "description": "A list of references to ip_prefix_set objects.",
           "document_id": "xcsh-docs:data-sources:fast_acl:properties:re_acl:fast_acl_rules:ip_prefix_set:ref",
@@ -1541,7 +1541,7 @@
       "category": "security",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -1563,7 +1563,7 @@
       "schema_path": ["re_acl", "fast_acl_rules", "ip_prefix_set", "ref"],
       "sections": [
         {
-          "aliases": ["kind"],
+          "aliases": ["re acl fast acl rules ip prefix set ref kind"],
           "anchor": "schema-re_acl--fast_acl_rules--ip_prefix_set--ref--kind",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then kind will hold the referred object's kind (e.g. \"route\")",
           "document_id": "xcsh-docs:data-sources:fast_acl:properties:re_acl:fast_acl_rules:ip_prefix_set:ref",
@@ -1577,7 +1577,7 @@
           "type": "string"
         },
         {
-          "aliases": ["name"],
+          "aliases": ["re acl fast acl rules ip prefix set ref name"],
           "anchor": "schema-re_acl--fast_acl_rules--ip_prefix_set--ref--name",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.",
           "document_id": "xcsh-docs:data-sources:fast_acl:properties:re_acl:fast_acl_rules:ip_prefix_set:ref",
@@ -1591,7 +1591,7 @@
           "type": "string"
         },
         {
-          "aliases": ["namespace"],
+          "aliases": ["re acl fast acl rules ip prefix set ref namespace"],
           "anchor": "schema-re_acl--fast_acl_rules--ip_prefix_set--ref--namespace",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace.",
           "document_id": "xcsh-docs:data-sources:fast_acl:properties:re_acl:fast_acl_rules:ip_prefix_set:ref",
@@ -1605,7 +1605,7 @@
           "type": "string"
         },
         {
-          "aliases": ["tenant"],
+          "aliases": ["re acl fast acl rules ip prefix set ref tenant"],
           "anchor": "schema-re_acl--fast_acl_rules--ip_prefix_set--ref--tenant",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant.",
           "document_id": "xcsh-docs:data-sources:fast_acl:properties:re_acl:fast_acl_rules:ip_prefix_set:ref",
@@ -1619,7 +1619,7 @@
           "type": "string"
         },
         {
-          "aliases": ["uid"],
+          "aliases": ["re acl fast acl rules ip prefix set ref uid"],
           "anchor": "schema-re_acl--fast_acl_rules--ip_prefix_set--ref--uid",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then uid will hold the referred object's(e.g. Route's) uid.",
           "document_id": "xcsh-docs:data-sources:fast_acl:properties:re_acl:fast_acl_rules:ip_prefix_set:ref",
@@ -1652,7 +1652,7 @@
       "category": "security",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -1674,7 +1674,7 @@
       "schema_path": ["re_acl", "fast_acl_rules", "metadata"],
       "sections": [
         {
-          "aliases": ["description spec"],
+          "aliases": ["re acl fast acl rules metadata description spec"],
           "anchor": "schema-re_acl--fast_acl_rules--metadata--description_spec",
           "description": "Description. Human readable description.",
           "document_id": "xcsh-docs:data-sources:fast_acl:properties:re_acl:fast_acl_rules:metadata",
@@ -1688,7 +1688,7 @@
           "type": "string"
         },
         {
-          "aliases": ["name"],
+          "aliases": ["re acl fast acl rules metadata name"],
           "anchor": "schema-re_acl--fast_acl_rules--metadata--name",
           "description": "This is the name of the message. The value of name has to follow DNS-1035 format.",
           "document_id": "xcsh-docs:data-sources:fast_acl:properties:re_acl:fast_acl_rules:metadata",
@@ -1724,7 +1724,7 @@
         "xcsh-docs:data-sources:fast_acl:properties:re_acl:fast_acl_rules:port:dns"
       ],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -1746,7 +1746,7 @@
       "schema_path": ["re_acl", "fast_acl_rules", "port"],
       "sections": [
         {
-          "aliases": ["all"],
+          "aliases": ["re acl fast acl rules port all"],
           "anchor": "section",
           "description": "This can be used for messages where no values are needed.",
           "document_id": "xcsh-docs:data-sources:fast_acl:properties:re_acl:fast_acl_rules:port:all",
@@ -1760,7 +1760,7 @@
           "type": "object"
         },
         {
-          "aliases": ["dns"],
+          "aliases": ["re acl fast acl rules port dns"],
           "anchor": "section",
           "description": "This can be used for messages where no values are needed.",
           "document_id": "xcsh-docs:data-sources:fast_acl:properties:re_acl:fast_acl_rules:port:dns",
@@ -1774,7 +1774,7 @@
           "type": "object"
         },
         {
-          "aliases": ["user defined"],
+          "aliases": ["re acl fast acl rules port user defined"],
           "anchor": "schema-re_acl--fast_acl_rules--port--user_defined",
           "description": "Exclusive with Matches the user defined port.",
           "document_id": "xcsh-docs:data-sources:fast_acl:properties:re_acl:fast_acl_rules:port",
@@ -1807,7 +1807,7 @@
       "category": "security",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -1847,7 +1847,7 @@
       "category": "security",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -1887,7 +1887,7 @@
       "category": "security",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -1909,7 +1909,7 @@
       "schema_path": ["re_acl", "fast_acl_rules", "prefix"],
       "sections": [
         {
-          "aliases": ["prefix"],
+          "aliases": ["re acl fast acl rules prefix prefix"],
           "anchor": "schema-re_acl--fast_acl_rules--prefix--prefix",
           "description": "IP Address prefix in string format. String must contain both prefix and prefix-length.",
           "document_id": "xcsh-docs:data-sources:fast_acl:properties:re_acl:fast_acl_rules:prefix",
@@ -1942,7 +1942,7 @@
       "category": "security",
       "child_ids": ["xcsh-docs:data-sources:fast_acl:properties:re_acl:selected_tenant_vip:public_ip_refs"],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -1964,7 +1964,7 @@
       "schema_path": ["re_acl", "selected_tenant_vip"],
       "sections": [
         {
-          "aliases": ["default tenant vip"],
+          "aliases": ["re acl selected tenant vip default tenant vip"],
           "anchor": "schema-re_acl--selected_tenant_vip--default_tenant_vip",
           "description": "Include tenant VIP in list of specific VIP(s)",
           "document_id": "xcsh-docs:data-sources:fast_acl:properties:re_acl:selected_tenant_vip",
@@ -1978,7 +1978,7 @@
           "type": "bool"
         },
         {
-          "aliases": ["public ip refs"],
+          "aliases": ["re acl selected tenant vip public ip refs"],
           "anchor": "section",
           "description": "Select additional public VIP(s)",
           "document_id": "xcsh-docs:data-sources:fast_acl:properties:re_acl:selected_tenant_vip:public_ip_refs",
@@ -2011,7 +2011,7 @@
       "category": "security",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -2033,7 +2033,7 @@
       "schema_path": ["re_acl", "selected_tenant_vip", "public_ip_refs"],
       "sections": [
         {
-          "aliases": ["name"],
+          "aliases": ["re acl selected tenant vip public ip refs name"],
           "anchor": "schema-re_acl--selected_tenant_vip--public_ip_refs--name",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.",
           "document_id": "xcsh-docs:data-sources:fast_acl:properties:re_acl:selected_tenant_vip:public_ip_refs",
@@ -2047,7 +2047,7 @@
           "type": "string"
         },
         {
-          "aliases": ["namespace"],
+          "aliases": ["re acl selected tenant vip public ip refs namespace"],
           "anchor": "schema-re_acl--selected_tenant_vip--public_ip_refs--namespace",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace.",
           "document_id": "xcsh-docs:data-sources:fast_acl:properties:re_acl:selected_tenant_vip:public_ip_refs",
@@ -2061,7 +2061,7 @@
           "type": "string"
         },
         {
-          "aliases": ["tenant"],
+          "aliases": ["re acl selected tenant vip public ip refs tenant"],
           "anchor": "schema-re_acl--selected_tenant_vip--public_ip_refs--tenant",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant.",
           "document_id": "xcsh-docs:data-sources:fast_acl:properties:re_acl:selected_tenant_vip:public_ip_refs",
@@ -2101,7 +2101,7 @@
         "xcsh-docs:data-sources:fast_acl:properties:site_acl:vip_services"
       ],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -2123,7 +2123,7 @@
       "schema_path": ["site_acl"],
       "sections": [
         {
-          "aliases": ["all services"],
+          "aliases": ["site acl all services"],
           "anchor": "section",
           "description": "This can be used for messages where no values are needed.",
           "document_id": "xcsh-docs:data-sources:fast_acl:properties:site_acl:all_services",
@@ -2137,7 +2137,7 @@
           "type": "object"
         },
         {
-          "aliases": ["fast acl rules"],
+          "aliases": ["site acl fast acl rules"],
           "anchor": "section",
           "description": "Fast ACL rules to match.",
           "document_id": "xcsh-docs:data-sources:fast_acl:properties:site_acl:fast_acl_rules",
@@ -2151,7 +2151,7 @@
           "type": "object"
         },
         {
-          "aliases": ["inside network"],
+          "aliases": ["site acl inside network"],
           "anchor": "section",
           "description": "This can be used for messages where no values are needed.",
           "document_id": "xcsh-docs:data-sources:fast_acl:properties:site_acl:inside_network",
@@ -2165,7 +2165,7 @@
           "type": "object"
         },
         {
-          "aliases": ["interface services"],
+          "aliases": ["site acl interface services"],
           "anchor": "section",
           "description": "This can be used for messages where no values are needed.",
           "document_id": "xcsh-docs:data-sources:fast_acl:properties:site_acl:interface_services",
@@ -2179,7 +2179,7 @@
           "type": "object"
         },
         {
-          "aliases": ["outside network"],
+          "aliases": ["site acl outside network"],
           "anchor": "section",
           "description": "This can be used for messages where no values are needed.",
           "document_id": "xcsh-docs:data-sources:fast_acl:properties:site_acl:outside_network",
@@ -2193,7 +2193,7 @@
           "type": "object"
         },
         {
-          "aliases": ["vip services"],
+          "aliases": ["site acl vip services"],
           "anchor": "section",
           "description": "This can be used for messages where no values are needed.",
           "document_id": "xcsh-docs:data-sources:fast_acl:properties:site_acl:vip_services",
@@ -2226,7 +2226,7 @@
       "category": "security",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -2272,7 +2272,7 @@
         "xcsh-docs:data-sources:fast_acl:properties:site_acl:fast_acl_rules:prefix"
       ],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -2294,7 +2294,7 @@
       "schema_path": ["site_acl", "fast_acl_rules"],
       "sections": [
         {
-          "aliases": ["action"],
+          "aliases": ["site acl fast acl rules action"],
           "anchor": "section",
           "description": "FastAclRuleAction specifies possible action to be applied on traffic, possible action include dropping, forwarding or ratelimiting the traffic.",
           "document_id": "xcsh-docs:data-sources:fast_acl:properties:site_acl:fast_acl_rules:action",
@@ -2308,7 +2308,7 @@
           "type": "object"
         },
         {
-          "aliases": ["ip prefix set"],
+          "aliases": ["site acl fast acl rules ip prefix set"],
           "anchor": "section",
           "description": "A list of references to ip_prefix_set objects.",
           "document_id": "xcsh-docs:data-sources:fast_acl:properties:site_acl:fast_acl_rules:ip_prefix_set",
@@ -2322,7 +2322,7 @@
           "type": "object"
         },
         {
-          "aliases": ["metadata"],
+          "aliases": ["site acl fast acl rules metadata"],
           "anchor": "section",
           "description": "MessageMetaType is metadata (common attributes) of a message that only certain messages have. This information is propagated to the metadata of a child object that gets created from the containing message during view processing. The information in this type can be specified by user during create and replace APIs.",
           "document_id": "xcsh-docs:data-sources:fast_acl:properties:site_acl:fast_acl_rules:metadata",
@@ -2336,7 +2336,7 @@
           "type": "object"
         },
         {
-          "aliases": ["port"],
+          "aliases": ["site acl fast acl rules port"],
           "anchor": "section",
           "description": "L4 port numbers to match.",
           "document_id": "xcsh-docs:data-sources:fast_acl:properties:site_acl:fast_acl_rules:port",
@@ -2350,7 +2350,7 @@
           "type": "object"
         },
         {
-          "aliases": ["prefix"],
+          "aliases": ["site acl fast acl rules prefix"],
           "anchor": "section",
           "description": "List of IP Address prefixes. Prefix must contain both prefix and prefix-length The list can contain mix of both IPv4 and IPv6 prefixes.",
           "document_id": "xcsh-docs:data-sources:fast_acl:properties:site_acl:fast_acl_rules:prefix",
@@ -2386,7 +2386,7 @@
         "xcsh-docs:data-sources:fast_acl:properties:site_acl:fast_acl_rules:action:protocol_policer_action"
       ],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -2408,7 +2408,7 @@
       "schema_path": ["site_acl", "fast_acl_rules", "action"],
       "sections": [
         {
-          "aliases": ["policer action"],
+          "aliases": ["site acl fast acl rules action policer action"],
           "anchor": "section",
           "description": "Reference to policer object.",
           "document_id": "xcsh-docs:data-sources:fast_acl:properties:site_acl:fast_acl_rules:action:policer_action",
@@ -2422,7 +2422,7 @@
           "type": "object"
         },
         {
-          "aliases": ["protocol policer action"],
+          "aliases": ["site acl fast acl rules action protocol policer action"],
           "anchor": "section",
           "description": "Reference to policer object.",
           "document_id": "xcsh-docs:data-sources:fast_acl:properties:site_acl:fast_acl_rules:action:protocol_policer_action",
@@ -2436,7 +2436,7 @@
           "type": "object"
         },
         {
-          "aliases": ["simple action"],
+          "aliases": ["site acl fast acl rules action simple action"],
           "anchor": "schema-site_acl--fast_acl_rules--action--simple_action",
           "description": "FastAclRuleSimpleAction specifies simple action like PASS or DENY Drop the traffic Forward the traffic.",
           "document_id": "xcsh-docs:data-sources:fast_acl:properties:site_acl:fast_acl_rules:action",
@@ -2469,7 +2469,7 @@
       "category": "security",
       "child_ids": ["xcsh-docs:data-sources:fast_acl:properties:site_acl:fast_acl_rules:action:policer_action:ref"],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -2491,7 +2491,7 @@
       "schema_path": ["site_acl", "fast_acl_rules", "action", "policer_action"],
       "sections": [
         {
-          "aliases": ["ref"],
+          "aliases": ["site acl fast acl rules action policer action ref"],
           "anchor": "section",
           "description": "A policer direct reference.",
           "document_id": "xcsh-docs:data-sources:fast_acl:properties:site_acl:fast_acl_rules:action:policer_action:ref",
@@ -2524,7 +2524,7 @@
       "category": "security",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -2546,7 +2546,7 @@
       "schema_path": ["site_acl", "fast_acl_rules", "action", "policer_action", "ref"],
       "sections": [
         {
-          "aliases": ["kind"],
+          "aliases": ["site acl fast acl rules action policer action ref kind"],
           "anchor": "schema-site_acl--fast_acl_rules--action--policer_action--ref--kind",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then kind will hold the referred object's kind (e.g. \"route\")",
           "document_id": "xcsh-docs:data-sources:fast_acl:properties:site_acl:fast_acl_rules:action:policer_action:ref",
@@ -2560,7 +2560,7 @@
           "type": "string"
         },
         {
-          "aliases": ["name"],
+          "aliases": ["site acl fast acl rules action policer action ref name"],
           "anchor": "schema-site_acl--fast_acl_rules--action--policer_action--ref--name",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.",
           "document_id": "xcsh-docs:data-sources:fast_acl:properties:site_acl:fast_acl_rules:action:policer_action:ref",
@@ -2574,7 +2574,7 @@
           "type": "string"
         },
         {
-          "aliases": ["namespace"],
+          "aliases": ["site acl fast acl rules action policer action ref namespace"],
           "anchor": "schema-site_acl--fast_acl_rules--action--policer_action--ref--namespace",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace.",
           "document_id": "xcsh-docs:data-sources:fast_acl:properties:site_acl:fast_acl_rules:action:policer_action:ref",
@@ -2588,7 +2588,7 @@
           "type": "string"
         },
         {
-          "aliases": ["tenant"],
+          "aliases": ["site acl fast acl rules action policer action ref tenant"],
           "anchor": "schema-site_acl--fast_acl_rules--action--policer_action--ref--tenant",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant.",
           "document_id": "xcsh-docs:data-sources:fast_acl:properties:site_acl:fast_acl_rules:action:policer_action:ref",
@@ -2602,7 +2602,7 @@
           "type": "string"
         },
         {
-          "aliases": ["uid"],
+          "aliases": ["site acl fast acl rules action policer action ref uid"],
           "anchor": "schema-site_acl--fast_acl_rules--action--policer_action--ref--uid",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then uid will hold the referred object's(e.g. Route's) uid.",
           "document_id": "xcsh-docs:data-sources:fast_acl:properties:site_acl:fast_acl_rules:action:policer_action:ref",
@@ -2637,7 +2637,7 @@
         "xcsh-docs:data-sources:fast_acl:properties:site_acl:fast_acl_rules:action:protocol_policer_action:ref"
       ],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -2659,7 +2659,7 @@
       "schema_path": ["site_acl", "fast_acl_rules", "action", "protocol_policer_action"],
       "sections": [
         {
-          "aliases": ["ref"],
+          "aliases": ["site acl fast acl rules action protocol policer action ref"],
           "anchor": "section",
           "description": "Reference to protocol policer object.",
           "document_id": "xcsh-docs:data-sources:fast_acl:properties:site_acl:fast_acl_rules:action:protocol_policer_action:ref",
@@ -2692,7 +2692,7 @@
       "category": "security",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -2714,7 +2714,7 @@
       "schema_path": ["site_acl", "fast_acl_rules", "action", "protocol_policer_action", "ref"],
       "sections": [
         {
-          "aliases": ["kind"],
+          "aliases": ["site acl fast acl rules action protocol policer action ref kind"],
           "anchor": "schema-site_acl--fast_acl_rules--action--protocol_policer_action--ref--kind",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then kind will hold the referred object's kind (e.g. \"route\")",
           "document_id": "xcsh-docs:data-sources:fast_acl:properties:site_acl:fast_acl_rules:action:protocol_policer_action:ref",
@@ -2728,7 +2728,7 @@
           "type": "string"
         },
         {
-          "aliases": ["name"],
+          "aliases": ["site acl fast acl rules action protocol policer action ref name"],
           "anchor": "schema-site_acl--fast_acl_rules--action--protocol_policer_action--ref--name",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.",
           "document_id": "xcsh-docs:data-sources:fast_acl:properties:site_acl:fast_acl_rules:action:protocol_policer_action:ref",
@@ -2742,7 +2742,7 @@
           "type": "string"
         },
         {
-          "aliases": ["namespace"],
+          "aliases": ["site acl fast acl rules action protocol policer action ref namespace"],
           "anchor": "schema-site_acl--fast_acl_rules--action--protocol_policer_action--ref--namespace",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace.",
           "document_id": "xcsh-docs:data-sources:fast_acl:properties:site_acl:fast_acl_rules:action:protocol_policer_action:ref",
@@ -2756,7 +2756,7 @@
           "type": "string"
         },
         {
-          "aliases": ["tenant"],
+          "aliases": ["site acl fast acl rules action protocol policer action ref tenant"],
           "anchor": "schema-site_acl--fast_acl_rules--action--protocol_policer_action--ref--tenant",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant.",
           "document_id": "xcsh-docs:data-sources:fast_acl:properties:site_acl:fast_acl_rules:action:protocol_policer_action:ref",
@@ -2770,7 +2770,7 @@
           "type": "string"
         },
         {
-          "aliases": ["uid"],
+          "aliases": ["site acl fast acl rules action protocol policer action ref uid"],
           "anchor": "schema-site_acl--fast_acl_rules--action--protocol_policer_action--ref--uid",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then uid will hold the referred object's(e.g. Route's) uid.",
           "document_id": "xcsh-docs:data-sources:fast_acl:properties:site_acl:fast_acl_rules:action:protocol_policer_action:ref",
@@ -2803,7 +2803,7 @@
       "category": "security",
       "child_ids": ["xcsh-docs:data-sources:fast_acl:properties:site_acl:fast_acl_rules:ip_prefix_set:ref"],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -2825,7 +2825,7 @@
       "schema_path": ["site_acl", "fast_acl_rules", "ip_prefix_set"],
       "sections": [
         {
-          "aliases": ["ref"],
+          "aliases": ["site acl fast acl rules ip prefix set ref"],
           "anchor": "section",
           "description": "A list of references to ip_prefix_set objects.",
           "document_id": "xcsh-docs:data-sources:fast_acl:properties:site_acl:fast_acl_rules:ip_prefix_set:ref",
@@ -2858,7 +2858,7 @@
       "category": "security",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -2880,7 +2880,7 @@
       "schema_path": ["site_acl", "fast_acl_rules", "ip_prefix_set", "ref"],
       "sections": [
         {
-          "aliases": ["kind"],
+          "aliases": ["site acl fast acl rules ip prefix set ref kind"],
           "anchor": "schema-site_acl--fast_acl_rules--ip_prefix_set--ref--kind",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then kind will hold the referred object's kind (e.g. \"route\")",
           "document_id": "xcsh-docs:data-sources:fast_acl:properties:site_acl:fast_acl_rules:ip_prefix_set:ref",
@@ -2894,7 +2894,7 @@
           "type": "string"
         },
         {
-          "aliases": ["name"],
+          "aliases": ["site acl fast acl rules ip prefix set ref name"],
           "anchor": "schema-site_acl--fast_acl_rules--ip_prefix_set--ref--name",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.",
           "document_id": "xcsh-docs:data-sources:fast_acl:properties:site_acl:fast_acl_rules:ip_prefix_set:ref",
@@ -2908,7 +2908,7 @@
           "type": "string"
         },
         {
-          "aliases": ["namespace"],
+          "aliases": ["site acl fast acl rules ip prefix set ref namespace"],
           "anchor": "schema-site_acl--fast_acl_rules--ip_prefix_set--ref--namespace",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace.",
           "document_id": "xcsh-docs:data-sources:fast_acl:properties:site_acl:fast_acl_rules:ip_prefix_set:ref",
@@ -2922,7 +2922,7 @@
           "type": "string"
         },
         {
-          "aliases": ["tenant"],
+          "aliases": ["site acl fast acl rules ip prefix set ref tenant"],
           "anchor": "schema-site_acl--fast_acl_rules--ip_prefix_set--ref--tenant",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant.",
           "document_id": "xcsh-docs:data-sources:fast_acl:properties:site_acl:fast_acl_rules:ip_prefix_set:ref",
@@ -2936,7 +2936,7 @@
           "type": "string"
         },
         {
-          "aliases": ["uid"],
+          "aliases": ["site acl fast acl rules ip prefix set ref uid"],
           "anchor": "schema-site_acl--fast_acl_rules--ip_prefix_set--ref--uid",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then uid will hold the referred object's(e.g. Route's) uid.",
           "document_id": "xcsh-docs:data-sources:fast_acl:properties:site_acl:fast_acl_rules:ip_prefix_set:ref",
@@ -2969,7 +2969,7 @@
       "category": "security",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -2991,7 +2991,7 @@
       "schema_path": ["site_acl", "fast_acl_rules", "metadata"],
       "sections": [
         {
-          "aliases": ["description spec"],
+          "aliases": ["site acl fast acl rules metadata description spec"],
           "anchor": "schema-site_acl--fast_acl_rules--metadata--description_spec",
           "description": "Description. Human readable description.",
           "document_id": "xcsh-docs:data-sources:fast_acl:properties:site_acl:fast_acl_rules:metadata",
@@ -3005,7 +3005,7 @@
           "type": "string"
         },
         {
-          "aliases": ["name"],
+          "aliases": ["site acl fast acl rules metadata name"],
           "anchor": "schema-site_acl--fast_acl_rules--metadata--name",
           "description": "This is the name of the message. The value of name has to follow DNS-1035 format.",
           "document_id": "xcsh-docs:data-sources:fast_acl:properties:site_acl:fast_acl_rules:metadata",
@@ -3041,7 +3041,7 @@
         "xcsh-docs:data-sources:fast_acl:properties:site_acl:fast_acl_rules:port:dns"
       ],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -3063,7 +3063,7 @@
       "schema_path": ["site_acl", "fast_acl_rules", "port"],
       "sections": [
         {
-          "aliases": ["all"],
+          "aliases": ["site acl fast acl rules port all"],
           "anchor": "section",
           "description": "This can be used for messages where no values are needed.",
           "document_id": "xcsh-docs:data-sources:fast_acl:properties:site_acl:fast_acl_rules:port:all",
@@ -3077,7 +3077,7 @@
           "type": "object"
         },
         {
-          "aliases": ["dns"],
+          "aliases": ["site acl fast acl rules port dns"],
           "anchor": "section",
           "description": "This can be used for messages where no values are needed.",
           "document_id": "xcsh-docs:data-sources:fast_acl:properties:site_acl:fast_acl_rules:port:dns",
@@ -3091,7 +3091,7 @@
           "type": "object"
         },
         {
-          "aliases": ["user defined"],
+          "aliases": ["site acl fast acl rules port user defined"],
           "anchor": "schema-site_acl--fast_acl_rules--port--user_defined",
           "description": "Exclusive with Matches the user defined port.",
           "document_id": "xcsh-docs:data-sources:fast_acl:properties:site_acl:fast_acl_rules:port",
@@ -3124,7 +3124,7 @@
       "category": "security",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -3164,7 +3164,7 @@
       "category": "security",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -3204,7 +3204,7 @@
       "category": "security",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -3226,7 +3226,7 @@
       "schema_path": ["site_acl", "fast_acl_rules", "prefix"],
       "sections": [
         {
-          "aliases": ["prefix"],
+          "aliases": ["site acl fast acl rules prefix prefix"],
           "anchor": "schema-site_acl--fast_acl_rules--prefix--prefix",
           "description": "IP Address prefix in string format. String must contain both prefix and prefix-length.",
           "document_id": "xcsh-docs:data-sources:fast_acl:properties:site_acl:fast_acl_rules:prefix",
@@ -3259,7 +3259,7 @@
       "category": "security",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -3299,7 +3299,7 @@
       "category": "security",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -3339,7 +3339,7 @@
       "category": "security",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -3379,7 +3379,7 @@
       "category": "security",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -3419,7 +3419,7 @@
       "category": "security",
       "child_ids": ["xcsh-docs:data-sources:fast_acl:example:data-source"],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -3459,7 +3459,7 @@
       "category": "security",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"

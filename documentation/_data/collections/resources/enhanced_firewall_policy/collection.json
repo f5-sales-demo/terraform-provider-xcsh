@@ -422,7 +422,7 @@
         "xcsh-docs:resources:enhanced_firewall_policy:timeouts"
       ],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -472,7 +472,7 @@
         "xcsh-docs:resources:enhanced_firewall_policy:properties:timeouts"
       ],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -699,7 +699,7 @@
           "type": "object"
         },
         {
-          "aliases": ["duration", "operation timeout", "timeouts"],
+          "aliases": ["duration", "lifecycle timeout", "operation timeout", "timeouts"],
           "anchor": "section",
           "description": "timeouts",
           "document_id": "xcsh-docs:resources:enhanced_firewall_policy:properties:timeouts",
@@ -732,7 +732,7 @@
       "category": "security",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -772,7 +772,7 @@
       "category": "security",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -794,7 +794,7 @@
       "schema_path": ["allowed_destinations"],
       "sections": [
         {
-          "aliases": ["prefix"],
+          "aliases": ["allowed destinations prefix"],
           "anchor": "schema-allowed_destinations--prefix",
           "description": "IP Address prefix in string format. String must contain both prefix and prefix-length.",
           "document_id": "xcsh-docs:resources:enhanced_firewall_policy:properties:allowed_destinations",
@@ -827,7 +827,7 @@
       "category": "security",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -849,7 +849,7 @@
       "schema_path": ["allowed_sources"],
       "sections": [
         {
-          "aliases": ["prefix"],
+          "aliases": ["allowed sources prefix"],
           "anchor": "schema-allowed_sources--prefix",
           "description": "IP Address prefix in string format. String must contain both prefix and prefix-length.",
           "document_id": "xcsh-docs:resources:enhanced_firewall_policy:properties:allowed_sources",
@@ -882,7 +882,7 @@
       "category": "security",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -904,7 +904,7 @@
       "schema_path": ["denied_destinations"],
       "sections": [
         {
-          "aliases": ["prefix"],
+          "aliases": ["denied destinations prefix"],
           "anchor": "schema-denied_destinations--prefix",
           "description": "IP Address prefix in string format. String must contain both prefix and prefix-length.",
           "document_id": "xcsh-docs:resources:enhanced_firewall_policy:properties:denied_destinations",
@@ -937,7 +937,7 @@
       "category": "security",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -959,7 +959,7 @@
       "schema_path": ["denied_sources"],
       "sections": [
         {
-          "aliases": ["prefix"],
+          "aliases": ["denied sources prefix"],
           "anchor": "schema-denied_sources--prefix",
           "description": "IP Address prefix in string format. String must contain both prefix and prefix-length.",
           "document_id": "xcsh-docs:resources:enhanced_firewall_policy:properties:denied_sources",
@@ -992,7 +992,7 @@
       "category": "security",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -1032,7 +1032,7 @@
       "category": "security",
       "child_ids": ["xcsh-docs:resources:enhanced_firewall_policy:properties:rule_list:rules"],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -1063,7 +1063,7 @@
       "schema_path": ["rule_list"],
       "sections": [
         {
-          "aliases": ["rules"],
+          "aliases": ["rule list rules"],
           "anchor": "section",
           "description": "Ordered List of Enhanced Firewall Policy Rules.",
           "document_id": "xcsh-docs:resources:enhanced_firewall_policy:properties:rule_list:rules",
@@ -2245,7 +2245,7 @@
         "xcsh-docs:resources:enhanced_firewall_policy:properties:rule_list:rules:source_prefix_list"
       ],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -3388,7 +3388,7 @@
       "schema_path": ["rule_list", "rules"],
       "sections": [
         {
-          "aliases": ["advanced action"],
+          "aliases": ["rule list rules advanced action"],
           "anchor": "section",
           "description": "Network Policy Rule Advanced Action provides additional OPTIONS along with RuleAction and PBRRuleAction.",
           "document_id": "xcsh-docs:resources:enhanced_firewall_policy:properties:rule_list:rules:advanced_action",
@@ -3402,7 +3402,7 @@
           "type": "object"
         },
         {
-          "aliases": ["all destinations"],
+          "aliases": ["rule list rules all destinations"],
           "anchor": "section",
           "description": "This can be used for messages where no values are needed.",
           "document_id": "xcsh-docs:resources:enhanced_firewall_policy:properties:rule_list:rules:all_destinations",
@@ -3416,7 +3416,7 @@
           "type": "object"
         },
         {
-          "aliases": ["all sli vips"],
+          "aliases": ["rule list rules all sli vips"],
           "anchor": "section",
           "description": "This can be used for messages where no values are needed.",
           "document_id": "xcsh-docs:resources:enhanced_firewall_policy:properties:rule_list:rules:all_sli_vips",
@@ -3430,7 +3430,7 @@
           "type": "object"
         },
         {
-          "aliases": ["all slo vips"],
+          "aliases": ["rule list rules all slo vips"],
           "anchor": "section",
           "description": "This can be used for messages where no values are needed.",
           "document_id": "xcsh-docs:resources:enhanced_firewall_policy:properties:rule_list:rules:all_slo_vips",
@@ -3444,7 +3444,7 @@
           "type": "object"
         },
         {
-          "aliases": ["all sources"],
+          "aliases": ["rule list rules all sources"],
           "anchor": "section",
           "description": "This can be used for messages where no values are needed.",
           "document_id": "xcsh-docs:resources:enhanced_firewall_policy:properties:rule_list:rules:all_sources",
@@ -3458,7 +3458,7 @@
           "type": "object"
         },
         {
-          "aliases": ["all tcp traffic"],
+          "aliases": ["rule list rules all tcp traffic"],
           "anchor": "section",
           "description": "This can be used for messages where no values are needed.",
           "document_id": "xcsh-docs:resources:enhanced_firewall_policy:properties:rule_list:rules:all_tcp_traffic",
@@ -3472,7 +3472,7 @@
           "type": "object"
         },
         {
-          "aliases": ["all traffic"],
+          "aliases": ["rule list rules all traffic"],
           "anchor": "section",
           "description": "This can be used for messages where no values are needed.",
           "document_id": "xcsh-docs:resources:enhanced_firewall_policy:properties:rule_list:rules:all_traffic",
@@ -3486,7 +3486,7 @@
           "type": "object"
         },
         {
-          "aliases": ["all udp traffic"],
+          "aliases": ["rule list rules all udp traffic"],
           "anchor": "section",
           "description": "This can be used for messages where no values are needed.",
           "document_id": "xcsh-docs:resources:enhanced_firewall_policy:properties:rule_list:rules:all_udp_traffic",
@@ -3500,7 +3500,7 @@
           "type": "object"
         },
         {
-          "aliases": ["allow"],
+          "aliases": ["rule list rules allow"],
           "anchor": "section",
           "description": "This can be used for messages where no values are needed.",
           "document_id": "xcsh-docs:resources:enhanced_firewall_policy:properties:rule_list:rules:allow",
@@ -3514,7 +3514,7 @@
           "type": "object"
         },
         {
-          "aliases": ["applications"],
+          "aliases": ["rule list rules applications"],
           "anchor": "section",
           "description": "Application protocols like HTTP, SNMP.",
           "document_id": "xcsh-docs:resources:enhanced_firewall_policy:properties:rule_list:rules:applications",
@@ -3528,7 +3528,7 @@
           "type": "object"
         },
         {
-          "aliases": ["deny"],
+          "aliases": ["rule list rules deny"],
           "anchor": "section",
           "description": "This can be used for messages where no values are needed.",
           "document_id": "xcsh-docs:resources:enhanced_firewall_policy:properties:rule_list:rules:deny",
@@ -3542,7 +3542,7 @@
           "type": "object"
         },
         {
-          "aliases": ["destination aws vpc ids"],
+          "aliases": ["rule list rules destination aws vpc ids"],
           "anchor": "section",
           "description": "List of VPC Identifiers in AWS.",
           "document_id": "xcsh-docs:resources:enhanced_firewall_policy:properties:rule_list:rules:destination_aws_vpc_ids",
@@ -3565,7 +3565,7 @@
           "type": "object"
         },
         {
-          "aliases": ["destination ip prefix set"],
+          "aliases": ["rule list rules destination ip prefix set"],
           "anchor": "section",
           "description": "A list of references to ip_prefix_set objects.",
           "document_id": "xcsh-docs:resources:enhanced_firewall_policy:properties:rule_list:rules:destination_ip_prefix_set",
@@ -3579,7 +3579,7 @@
           "type": "object"
         },
         {
-          "aliases": ["destination label selector"],
+          "aliases": ["rule list rules destination label selector"],
           "anchor": "section",
           "description": "This type can be used to establish a 'selector reference' from one object(called selector) to a set of other objects(called selectees) based on the value of expressions. A label selector is a label query over a set of resources. An empty label selector matches all objects. A null label selector matches no objects.",
           "document_id": "xcsh-docs:resources:enhanced_firewall_policy:properties:rule_list:rules:destination_label_selector",
@@ -3602,7 +3602,7 @@
           "type": "object"
         },
         {
-          "aliases": ["destination prefix list"],
+          "aliases": ["rule list rules destination prefix list"],
           "anchor": "section",
           "description": "List of IPv4 prefixes that represent an endpoint.",
           "document_id": "xcsh-docs:resources:enhanced_firewall_policy:properties:rule_list:rules:destination_prefix_list",
@@ -3616,7 +3616,7 @@
           "type": "object"
         },
         {
-          "aliases": ["insert service"],
+          "aliases": ["rule list rules insert service"],
           "anchor": "section",
           "description": "Action to forward traffic to external service.",
           "document_id": "xcsh-docs:resources:enhanced_firewall_policy:properties:rule_list:rules:insert_service",
@@ -3630,7 +3630,7 @@
           "type": "object"
         },
         {
-          "aliases": ["inside destinations"],
+          "aliases": ["rule list rules inside destinations"],
           "anchor": "section",
           "description": "This can be used for messages where no values are needed.",
           "document_id": "xcsh-docs:resources:enhanced_firewall_policy:properties:rule_list:rules:inside_destinations",
@@ -3644,7 +3644,7 @@
           "type": "object"
         },
         {
-          "aliases": ["inside sources"],
+          "aliases": ["rule list rules inside sources"],
           "anchor": "section",
           "description": "This can be used for messages where no values are needed.",
           "document_id": "xcsh-docs:resources:enhanced_firewall_policy:properties:rule_list:rules:inside_sources",
@@ -3658,7 +3658,7 @@
           "type": "object"
         },
         {
-          "aliases": ["label matcher"],
+          "aliases": ["rule list rules label matcher"],
           "anchor": "section",
           "description": "A label matcher specifies a list of label keys whose values need to match for source/client and destination/server. Note that the actual label values are not specified and do not matter. This allows an ability to scope grouping by the label key name.",
           "document_id": "xcsh-docs:resources:enhanced_firewall_policy:properties:rule_list:rules:label_matcher",
@@ -3672,7 +3672,7 @@
           "type": "object"
         },
         {
-          "aliases": ["metadata"],
+          "aliases": ["rule list rules metadata"],
           "anchor": "section",
           "description": "MessageMetaType is metadata (common attributes) of a message that only certain messages have. This information is propagated to the metadata of a child object that gets created from the containing message during view processing. The information in this type can be specified by user during create and replace APIs.",
           "document_id": "xcsh-docs:resources:enhanced_firewall_policy:properties:rule_list:rules:metadata",
@@ -3695,7 +3695,7 @@
           "type": "object"
         },
         {
-          "aliases": ["outside destinations"],
+          "aliases": ["rule list rules outside destinations"],
           "anchor": "section",
           "description": "This can be used for messages where no values are needed.",
           "document_id": "xcsh-docs:resources:enhanced_firewall_policy:properties:rule_list:rules:outside_destinations",
@@ -3709,7 +3709,7 @@
           "type": "object"
         },
         {
-          "aliases": ["outside sources"],
+          "aliases": ["rule list rules outside sources"],
           "anchor": "section",
           "description": "This can be used for messages where no values are needed.",
           "document_id": "xcsh-docs:resources:enhanced_firewall_policy:properties:rule_list:rules:outside_sources",
@@ -3723,7 +3723,7 @@
           "type": "object"
         },
         {
-          "aliases": ["protocol port range"],
+          "aliases": ["rule list rules protocol port range"],
           "anchor": "section",
           "description": "Protocol and Port ranges.",
           "document_id": "xcsh-docs:resources:enhanced_firewall_policy:properties:rule_list:rules:protocol_port_range",
@@ -3737,7 +3737,7 @@
           "type": "object"
         },
         {
-          "aliases": ["source aws vpc ids"],
+          "aliases": ["rule list rules source aws vpc ids"],
           "anchor": "section",
           "description": "List of VPC Identifiers in AWS.",
           "document_id": "xcsh-docs:resources:enhanced_firewall_policy:properties:rule_list:rules:source_aws_vpc_ids",
@@ -3760,7 +3760,7 @@
           "type": "object"
         },
         {
-          "aliases": ["source ip prefix set"],
+          "aliases": ["rule list rules source ip prefix set"],
           "anchor": "section",
           "description": "A list of references to ip_prefix_set objects.",
           "document_id": "xcsh-docs:resources:enhanced_firewall_policy:properties:rule_list:rules:source_ip_prefix_set",
@@ -3774,7 +3774,7 @@
           "type": "object"
         },
         {
-          "aliases": ["source label selector"],
+          "aliases": ["rule list rules source label selector"],
           "anchor": "section",
           "description": "This type can be used to establish a 'selector reference' from one object(called selector) to a set of other objects(called selectees) based on the value of expressions. A label selector is a label query over a set of resources. An empty label selector matches all objects. A null label selector matches no objects.",
           "document_id": "xcsh-docs:resources:enhanced_firewall_policy:properties:rule_list:rules:source_label_selector",
@@ -3797,7 +3797,7 @@
           "type": "object"
         },
         {
-          "aliases": ["source prefix list"],
+          "aliases": ["rule list rules source prefix list"],
           "anchor": "section",
           "description": "List of IPv4 prefixes that represent an endpoint.",
           "document_id": "xcsh-docs:resources:enhanced_firewall_policy:properties:rule_list:rules:source_prefix_list",
@@ -3830,7 +3830,7 @@
       "category": "security",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -3852,7 +3852,7 @@
       "schema_path": ["rule_list", "rules", "advanced_action"],
       "sections": [
         {
-          "aliases": ["action"],
+          "aliases": ["rule list rules advanced action action"],
           "anchor": "schema-rule_list--rules--advanced_action--action",
           "description": "Choice to choose logging or no logging This works together with option selected via NetworkPolicyRuleAction or any other action specified x-example: (No Selection in NetworkPolicyRuleAction + AdvancedAction as LOG) = LOG Only, (ALLOW/DENY in NetworkPolicyRuleAction + AdvancedAction as LOG) = Log and Allow/Deny,",
           "document_id": "xcsh-docs:resources:enhanced_firewall_policy:properties:rule_list:rules:advanced_action",
@@ -3885,7 +3885,7 @@
       "category": "security",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -3925,7 +3925,7 @@
       "category": "security",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -3965,7 +3965,7 @@
       "category": "security",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -4005,7 +4005,7 @@
       "category": "security",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -4045,7 +4045,7 @@
       "category": "security",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -4085,7 +4085,7 @@
       "category": "security",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -4125,7 +4125,7 @@
       "category": "security",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -4165,7 +4165,7 @@
       "category": "security",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -4205,7 +4205,7 @@
       "category": "security",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -4227,7 +4227,7 @@
       "schema_path": ["rule_list", "rules", "applications"],
       "sections": [
         {
-          "aliases": ["applications"],
+          "aliases": ["rule list rules applications applications"],
           "anchor": "schema-rule_list--rules--applications--applications",
           "description": "Application protocols like HTTP, SNMP.",
           "document_id": "xcsh-docs:resources:enhanced_firewall_policy:properties:rule_list:rules:applications",
@@ -4260,7 +4260,7 @@
       "category": "security",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -4300,7 +4300,7 @@
       "category": "security",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -4331,7 +4331,7 @@
       "schema_path": ["rule_list", "rules", "destination_aws_vpc_ids"],
       "sections": [
         {
-          "aliases": ["vpc id"],
+          "aliases": ["rule list rules destination aws vpc ids vpc id"],
           "anchor": "schema-rule_list--rules--destination_aws_vpc_ids--vpc_id",
           "description": "List of VPC Identifiers in AWS.",
           "document_id": "xcsh-docs:resources:enhanced_firewall_policy:properties:rule_list:rules:destination_aws_vpc_ids",
@@ -4366,7 +4366,7 @@
         "xcsh-docs:resources:enhanced_firewall_policy:properties:rule_list:rules:destination_ip_prefix_set:ref"
       ],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -4388,7 +4388,7 @@
       "schema_path": ["rule_list", "rules", "destination_ip_prefix_set"],
       "sections": [
         {
-          "aliases": ["ref"],
+          "aliases": ["rule list rules destination ip prefix set ref"],
           "anchor": "section",
           "description": "A list of references to ip_prefix_set objects.",
           "document_id": "xcsh-docs:resources:enhanced_firewall_policy:properties:rule_list:rules:destination_ip_prefix_set:ref",
@@ -4421,7 +4421,7 @@
       "category": "security",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -4443,7 +4443,7 @@
       "schema_path": ["rule_list", "rules", "destination_ip_prefix_set", "ref"],
       "sections": [
         {
-          "aliases": ["kind"],
+          "aliases": ["rule list rules destination ip prefix set ref kind"],
           "anchor": "schema-rule_list--rules--destination_ip_prefix_set--ref--kind",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then kind will hold the referred object's kind (e.g. \"route\")",
           "document_id": "xcsh-docs:resources:enhanced_firewall_policy:properties:rule_list:rules:destination_ip_prefix_set:ref",
@@ -4457,7 +4457,7 @@
           "type": "string"
         },
         {
-          "aliases": ["name"],
+          "aliases": ["rule list rules destination ip prefix set ref name"],
           "anchor": "schema-rule_list--rules--destination_ip_prefix_set--ref--name",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.",
           "document_id": "xcsh-docs:resources:enhanced_firewall_policy:properties:rule_list:rules:destination_ip_prefix_set:ref",
@@ -4471,7 +4471,7 @@
           "type": "string"
         },
         {
-          "aliases": ["namespace"],
+          "aliases": ["rule list rules destination ip prefix set ref namespace"],
           "anchor": "schema-rule_list--rules--destination_ip_prefix_set--ref--namespace",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace.",
           "document_id": "xcsh-docs:resources:enhanced_firewall_policy:properties:rule_list:rules:destination_ip_prefix_set:ref",
@@ -4485,7 +4485,7 @@
           "type": "string"
         },
         {
-          "aliases": ["tenant"],
+          "aliases": ["rule list rules destination ip prefix set ref tenant"],
           "anchor": "schema-rule_list--rules--destination_ip_prefix_set--ref--tenant",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant.",
           "document_id": "xcsh-docs:resources:enhanced_firewall_policy:properties:rule_list:rules:destination_ip_prefix_set:ref",
@@ -4499,7 +4499,7 @@
           "type": "string"
         },
         {
-          "aliases": ["uid"],
+          "aliases": ["rule list rules destination ip prefix set ref uid"],
           "anchor": "schema-rule_list--rules--destination_ip_prefix_set--ref--uid",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then uid will hold the referred object's(e.g. Route's) uid.",
           "document_id": "xcsh-docs:resources:enhanced_firewall_policy:properties:rule_list:rules:destination_ip_prefix_set:ref",
@@ -4532,7 +4532,7 @@
       "category": "security",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -4563,7 +4563,7 @@
       "schema_path": ["rule_list", "rules", "destination_label_selector"],
       "sections": [
         {
-          "aliases": ["expressions"],
+          "aliases": ["rule list rules destination label selector expressions"],
           "anchor": "schema-rule_list--rules--destination_label_selector--expressions",
           "description": "Expressions contains the Kubernetes style label expression for selections.",
           "document_id": "xcsh-docs:resources:enhanced_firewall_policy:properties:rule_list:rules:destination_label_selector",
@@ -4596,7 +4596,7 @@
       "category": "security",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -4618,7 +4618,7 @@
       "schema_path": ["rule_list", "rules", "destination_prefix_list"],
       "sections": [
         {
-          "aliases": ["prefixes"],
+          "aliases": ["rule list rules destination prefix list prefixes"],
           "anchor": "schema-rule_list--rules--destination_prefix_list--prefixes",
           "description": "List of IPv4 prefixes that represent an endpoint.",
           "document_id": "xcsh-docs:resources:enhanced_firewall_policy:properties:rule_list:rules:destination_prefix_list",
@@ -4653,7 +4653,7 @@
         "xcsh-docs:resources:enhanced_firewall_policy:properties:rule_list:rules:insert_service:nfv_service"
       ],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -4675,7 +4675,7 @@
       "schema_path": ["rule_list", "rules", "insert_service"],
       "sections": [
         {
-          "aliases": ["nfv service"],
+          "aliases": ["rule list rules insert service nfv service"],
           "anchor": "section",
           "description": "This type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name.",
           "document_id": "xcsh-docs:resources:enhanced_firewall_policy:properties:rule_list:rules:insert_service:nfv_service",
@@ -4717,7 +4717,7 @@
       "category": "security",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -4748,7 +4748,7 @@
       "schema_path": ["rule_list", "rules", "insert_service", "nfv_service"],
       "sections": [
         {
-          "aliases": ["name"],
+          "aliases": ["rule list rules insert service nfv service name"],
           "anchor": "schema-rule_list--rules--insert_service--nfv_service--name",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.",
           "document_id": "xcsh-docs:resources:enhanced_firewall_policy:properties:rule_list:rules:insert_service:nfv_service",
@@ -4762,7 +4762,7 @@
           "type": "string"
         },
         {
-          "aliases": ["namespace"],
+          "aliases": ["rule list rules insert service nfv service namespace"],
           "anchor": "schema-rule_list--rules--insert_service--nfv_service--namespace",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace.",
           "document_id": "xcsh-docs:resources:enhanced_firewall_policy:properties:rule_list:rules:insert_service:nfv_service",
@@ -4776,7 +4776,7 @@
           "type": "string"
         },
         {
-          "aliases": ["tenant"],
+          "aliases": ["rule list rules insert service nfv service tenant"],
           "anchor": "schema-rule_list--rules--insert_service--nfv_service--tenant",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant.",
           "document_id": "xcsh-docs:resources:enhanced_firewall_policy:properties:rule_list:rules:insert_service:nfv_service",
@@ -4809,7 +4809,7 @@
       "category": "security",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -4849,7 +4849,7 @@
       "category": "security",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -4889,7 +4889,7 @@
       "category": "security",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -4911,7 +4911,7 @@
       "schema_path": ["rule_list", "rules", "label_matcher"],
       "sections": [
         {
-          "aliases": ["keys"],
+          "aliases": ["rule list rules label matcher keys"],
           "anchor": "schema-rule_list--rules--label_matcher--keys",
           "description": "The list of label key names that have to match.",
           "document_id": "xcsh-docs:resources:enhanced_firewall_policy:properties:rule_list:rules:label_matcher",
@@ -4944,7 +4944,7 @@
       "category": "security",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -4975,7 +4975,7 @@
       "schema_path": ["rule_list", "rules", "metadata"],
       "sections": [
         {
-          "aliases": ["description spec"],
+          "aliases": ["rule list rules metadata description spec"],
           "anchor": "schema-rule_list--rules--metadata--description_spec",
           "description": "Description. Human readable description.",
           "document_id": "xcsh-docs:resources:enhanced_firewall_policy:properties:rule_list:rules:metadata",
@@ -4989,7 +4989,7 @@
           "type": "string"
         },
         {
-          "aliases": ["name"],
+          "aliases": ["rule list rules metadata name"],
           "anchor": "schema-rule_list--rules--metadata--name",
           "description": "This is the name of the message. The value of name has to follow DNS-1035 format.",
           "document_id": "xcsh-docs:resources:enhanced_firewall_policy:properties:rule_list:rules:metadata",
@@ -5022,7 +5022,7 @@
       "category": "security",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -5062,7 +5062,7 @@
       "category": "security",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -5102,7 +5102,7 @@
       "category": "security",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -5124,7 +5124,7 @@
       "schema_path": ["rule_list", "rules", "protocol_port_range"],
       "sections": [
         {
-          "aliases": ["port ranges"],
+          "aliases": ["rule list rules protocol port range port ranges"],
           "anchor": "schema-rule_list--rules--protocol_port_range--port_ranges",
           "description": "List of port ranges. Each range is a single port or a pair of start and end ports e.g. 8080-8192.",
           "document_id": "xcsh-docs:resources:enhanced_firewall_policy:properties:rule_list:rules:protocol_port_range",
@@ -5138,7 +5138,7 @@
           "type": "list"
         },
         {
-          "aliases": ["protocol"],
+          "aliases": ["rule list rules protocol port range protocol"],
           "anchor": "schema-rule_list--rules--protocol_port_range--protocol",
           "description": "Protocol in IP packet to be used as match criteria Values are TCP, UDP, and icmp.",
           "document_id": "xcsh-docs:resources:enhanced_firewall_policy:properties:rule_list:rules:protocol_port_range",
@@ -5171,7 +5171,7 @@
       "category": "security",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -5202,7 +5202,7 @@
       "schema_path": ["rule_list", "rules", "source_aws_vpc_ids"],
       "sections": [
         {
-          "aliases": ["vpc id"],
+          "aliases": ["rule list rules source aws vpc ids vpc id"],
           "anchor": "schema-rule_list--rules--source_aws_vpc_ids--vpc_id",
           "description": "List of VPC Identifiers in AWS.",
           "document_id": "xcsh-docs:resources:enhanced_firewall_policy:properties:rule_list:rules:source_aws_vpc_ids",
@@ -5235,7 +5235,7 @@
       "category": "security",
       "child_ids": ["xcsh-docs:resources:enhanced_firewall_policy:properties:rule_list:rules:source_ip_prefix_set:ref"],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -5257,7 +5257,7 @@
       "schema_path": ["rule_list", "rules", "source_ip_prefix_set"],
       "sections": [
         {
-          "aliases": ["ref"],
+          "aliases": ["rule list rules source ip prefix set ref"],
           "anchor": "section",
           "description": "A list of references to ip_prefix_set objects.",
           "document_id": "xcsh-docs:resources:enhanced_firewall_policy:properties:rule_list:rules:source_ip_prefix_set:ref",
@@ -5290,7 +5290,7 @@
       "category": "security",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -5312,7 +5312,7 @@
       "schema_path": ["rule_list", "rules", "source_ip_prefix_set", "ref"],
       "sections": [
         {
-          "aliases": ["kind"],
+          "aliases": ["rule list rules source ip prefix set ref kind"],
           "anchor": "schema-rule_list--rules--source_ip_prefix_set--ref--kind",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then kind will hold the referred object's kind (e.g. \"route\")",
           "document_id": "xcsh-docs:resources:enhanced_firewall_policy:properties:rule_list:rules:source_ip_prefix_set:ref",
@@ -5326,7 +5326,7 @@
           "type": "string"
         },
         {
-          "aliases": ["name"],
+          "aliases": ["rule list rules source ip prefix set ref name"],
           "anchor": "schema-rule_list--rules--source_ip_prefix_set--ref--name",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.",
           "document_id": "xcsh-docs:resources:enhanced_firewall_policy:properties:rule_list:rules:source_ip_prefix_set:ref",
@@ -5340,7 +5340,7 @@
           "type": "string"
         },
         {
-          "aliases": ["namespace"],
+          "aliases": ["rule list rules source ip prefix set ref namespace"],
           "anchor": "schema-rule_list--rules--source_ip_prefix_set--ref--namespace",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace.",
           "document_id": "xcsh-docs:resources:enhanced_firewall_policy:properties:rule_list:rules:source_ip_prefix_set:ref",
@@ -5354,7 +5354,7 @@
           "type": "string"
         },
         {
-          "aliases": ["tenant"],
+          "aliases": ["rule list rules source ip prefix set ref tenant"],
           "anchor": "schema-rule_list--rules--source_ip_prefix_set--ref--tenant",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant.",
           "document_id": "xcsh-docs:resources:enhanced_firewall_policy:properties:rule_list:rules:source_ip_prefix_set:ref",
@@ -5368,7 +5368,7 @@
           "type": "string"
         },
         {
-          "aliases": ["uid"],
+          "aliases": ["rule list rules source ip prefix set ref uid"],
           "anchor": "schema-rule_list--rules--source_ip_prefix_set--ref--uid",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then uid will hold the referred object's(e.g. Route's) uid.",
           "document_id": "xcsh-docs:resources:enhanced_firewall_policy:properties:rule_list:rules:source_ip_prefix_set:ref",
@@ -5401,7 +5401,7 @@
       "category": "security",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -5432,7 +5432,7 @@
       "schema_path": ["rule_list", "rules", "source_label_selector"],
       "sections": [
         {
-          "aliases": ["expressions"],
+          "aliases": ["rule list rules source label selector expressions"],
           "anchor": "schema-rule_list--rules--source_label_selector--expressions",
           "description": "Expressions contains the Kubernetes style label expression for selections.",
           "document_id": "xcsh-docs:resources:enhanced_firewall_policy:properties:rule_list:rules:source_label_selector",
@@ -5465,7 +5465,7 @@
       "category": "security",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -5487,7 +5487,7 @@
       "schema_path": ["rule_list", "rules", "source_prefix_list"],
       "sections": [
         {
-          "aliases": ["prefixes"],
+          "aliases": ["rule list rules source prefix list prefixes"],
           "anchor": "schema-rule_list--rules--source_prefix_list--prefixes",
           "description": "List of IPv4 prefixes that represent an endpoint.",
           "document_id": "xcsh-docs:resources:enhanced_firewall_policy:properties:rule_list:rules:source_prefix_list",
@@ -5513,14 +5513,14 @@
       }
     },
     {
-      "aliases": ["duration", "operation timeout", "timeouts"],
+      "aliases": ["duration", "lifecycle timeout", "operation timeout", "timeouts"],
       "body_bytes": 2303,
       "body_sha256": "sha256:b88fe0183a6c3f48379c641f2fa411ae241eec49724a5af3dbb36fe998e8f39c",
       "capabilities": ["security"],
       "category": "security",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -5542,9 +5542,17 @@
       "schema_path": ["timeouts"],
       "sections": [
         {
-          "aliases": ["create"],
+          "aliases": [
+            "create operation timeout",
+            "create timeout",
+            "creation duration",
+            "duration",
+            "lifecycle timeout",
+            "operation timeout",
+            "timeouts create"
+          ],
           "anchor": "schema-timeouts--create",
-          "description": "A string that can be (https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as \"30s\" or \"2h45m\". Valid time units are \"s\" (seconds), \"m\" (minutes), \"h\" (hours).",
+          "description": "Configures the timeout duration for resource creation.",
           "document_id": "xcsh-docs:resources:enhanced_firewall_policy:properties:timeouts",
           "flags": ["optional"],
           "max_items": null,
@@ -5556,9 +5564,18 @@
           "type": "string"
         },
         {
-          "aliases": ["delete", "duration", "operation timeout"],
+          "aliases": [
+            "delete operation timeout",
+            "delete timeout",
+            "deletion duration",
+            "destroy timeout",
+            "duration",
+            "lifecycle timeout",
+            "operation timeout",
+            "timeouts delete"
+          ],
           "anchor": "schema-timeouts--delete",
-          "description": "A string that can be (https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as \"30s\" or \"2h45m\". Valid time units are \"s\" (seconds), \"m\" (minutes), \"h\" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.",
+          "description": "Configures the timeout duration for resource deletion, applicable only if changes are saved into state before destroy.",
           "document_id": "xcsh-docs:resources:enhanced_firewall_policy:properties:timeouts",
           "flags": ["optional"],
           "max_items": null,
@@ -5570,9 +5587,18 @@
           "type": "string"
         },
         {
-          "aliases": ["read"],
+          "aliases": [
+            "duration",
+            "lifecycle timeout",
+            "operation timeout",
+            "read duration",
+            "read operation timeout",
+            "read timeout",
+            "refresh timeout",
+            "timeouts read"
+          ],
           "anchor": "schema-timeouts--read",
-          "description": "A string that can be (https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as \"30s\" or \"2h45m\". Valid time units are \"s\" (seconds), \"m\" (minutes), \"h\" (hours). Read operations occur during any refresh or planning operation when refresh is enabled.",
+          "description": "Configures the timeout duration for read operations during refresh or planning.",
           "document_id": "xcsh-docs:resources:enhanced_firewall_policy:properties:timeouts",
           "flags": ["optional"],
           "max_items": null,
@@ -5584,9 +5610,18 @@
           "type": "string"
         },
         {
-          "aliases": ["update"],
+          "aliases": [
+            "duration",
+            "lifecycle timeout",
+            "modification timeout",
+            "operation timeout",
+            "timeouts update",
+            "update duration",
+            "update operation timeout",
+            "update timeout"
+          ],
           "anchor": "schema-timeouts--update",
-          "description": "A string that can be (https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as \"30s\" or \"2h45m\". Valid time units are \"s\" (seconds), \"m\" (minutes), \"h\" (hours).",
+          "description": "Configures the timeout duration for resource update operations.",
           "document_id": "xcsh-docs:resources:enhanced_firewall_policy:properties:timeouts",
           "flags": ["optional"],
           "max_items": null,
@@ -5617,7 +5652,7 @@
       "category": "security",
       "child_ids": ["xcsh-docs:resources:enhanced_firewall_policy:example:resource"],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -5657,7 +5692,7 @@
       "category": "security",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -5704,7 +5739,7 @@
       "category": "security",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -5745,7 +5780,7 @@
       "category": "security",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"

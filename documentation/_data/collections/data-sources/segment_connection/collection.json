@@ -120,7 +120,7 @@
         "xcsh-docs:data-sources:segment_connection:examples"
       ],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -161,7 +161,7 @@
       "category": null,
       "child_ids": ["xcsh-docs:data-sources:segment_connection:properties:connections"],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -304,7 +304,7 @@
         "xcsh-docs:data-sources:segment_connection:properties:connections:source_segments"
       ],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -326,7 +326,7 @@
       "schema_path": ["connections"],
       "sections": [
         {
-          "aliases": ["destination segments"],
+          "aliases": ["connections destination segments"],
           "anchor": "section",
           "description": "Configuration parameter for destination segments.",
           "document_id": "xcsh-docs:data-sources:segment_connection:properties:connections:destination_segments",
@@ -340,7 +340,7 @@
           "type": "object"
         },
         {
-          "aliases": ["direct"],
+          "aliases": ["connections direct"],
           "anchor": "section",
           "description": "Enable this option",
           "document_id": "xcsh-docs:data-sources:segment_connection:properties:connections:direct",
@@ -354,7 +354,7 @@
           "type": "object"
         },
         {
-          "aliases": ["source segments"],
+          "aliases": ["connections source segments"],
           "anchor": "section",
           "description": "Configuration parameter for source segments.",
           "document_id": "xcsh-docs:data-sources:segment_connection:properties:connections:source_segments",
@@ -387,7 +387,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -409,7 +409,7 @@
       "schema_path": ["connections", "destination_segments"],
       "sections": [
         {
-          "aliases": ["kind"],
+          "aliases": ["connections destination segments kind"],
           "anchor": "schema-connections--destination_segments--kind",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then kind will hold the referred object's kind (e.g. 'route').",
           "document_id": "xcsh-docs:data-sources:segment_connection:properties:connections:destination_segments",
@@ -423,7 +423,7 @@
           "type": "string"
         },
         {
-          "aliases": ["name"],
+          "aliases": ["connections destination segments name"],
           "anchor": "schema-connections--destination_segments--name",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.",
           "document_id": "xcsh-docs:data-sources:segment_connection:properties:connections:destination_segments",
@@ -437,7 +437,7 @@
           "type": "string"
         },
         {
-          "aliases": ["namespace"],
+          "aliases": ["connections destination segments namespace"],
           "anchor": "schema-connections--destination_segments--namespace",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace.",
           "document_id": "xcsh-docs:data-sources:segment_connection:properties:connections:destination_segments",
@@ -451,7 +451,7 @@
           "type": "string"
         },
         {
-          "aliases": ["tenant"],
+          "aliases": ["connections destination segments tenant"],
           "anchor": "schema-connections--destination_segments--tenant",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant.",
           "document_id": "xcsh-docs:data-sources:segment_connection:properties:connections:destination_segments",
@@ -465,7 +465,7 @@
           "type": "string"
         },
         {
-          "aliases": ["uid"],
+          "aliases": ["connections destination segments uid"],
           "anchor": "schema-connections--destination_segments--uid",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then uid will hold the referred object's(e.g. Route's) uid.",
           "document_id": "xcsh-docs:data-sources:segment_connection:properties:connections:destination_segments",
@@ -498,7 +498,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -538,7 +538,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -560,7 +560,7 @@
       "schema_path": ["connections", "source_segments"],
       "sections": [
         {
-          "aliases": ["kind"],
+          "aliases": ["connections source segments kind"],
           "anchor": "schema-connections--source_segments--kind",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then kind will hold the referred object's kind (e.g. 'route').",
           "document_id": "xcsh-docs:data-sources:segment_connection:properties:connections:source_segments",
@@ -574,7 +574,7 @@
           "type": "string"
         },
         {
-          "aliases": ["name"],
+          "aliases": ["connections source segments name"],
           "anchor": "schema-connections--source_segments--name",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.",
           "document_id": "xcsh-docs:data-sources:segment_connection:properties:connections:source_segments",
@@ -588,7 +588,7 @@
           "type": "string"
         },
         {
-          "aliases": ["namespace"],
+          "aliases": ["connections source segments namespace"],
           "anchor": "schema-connections--source_segments--namespace",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace.",
           "document_id": "xcsh-docs:data-sources:segment_connection:properties:connections:source_segments",
@@ -602,7 +602,7 @@
           "type": "string"
         },
         {
-          "aliases": ["tenant"],
+          "aliases": ["connections source segments tenant"],
           "anchor": "schema-connections--source_segments--tenant",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant.",
           "document_id": "xcsh-docs:data-sources:segment_connection:properties:connections:source_segments",
@@ -616,7 +616,7 @@
           "type": "string"
         },
         {
-          "aliases": ["uid"],
+          "aliases": ["connections source segments uid"],
           "anchor": "schema-connections--source_segments--uid",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then uid will hold the referred object's(e.g. Route's) uid.",
           "document_id": "xcsh-docs:data-sources:segment_connection:properties:connections:source_segments",
@@ -649,7 +649,7 @@
       "category": null,
       "child_ids": ["xcsh-docs:data-sources:segment_connection:example:data-source"],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -689,7 +689,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"

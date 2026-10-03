@@ -468,7 +468,7 @@
         "xcsh-docs:resources:nat_policy:timeouts"
       ],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -513,7 +513,7 @@
         "xcsh-docs:resources:nat_policy:properties:timeouts"
       ],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -791,7 +791,7 @@
           "type": "object"
         },
         {
-          "aliases": ["duration", "operation timeout", "timeouts"],
+          "aliases": ["duration", "lifecycle timeout", "operation timeout", "timeouts"],
           "anchor": "section",
           "description": "timeouts",
           "document_id": "xcsh-docs:resources:nat_policy:properties:timeouts",
@@ -833,7 +833,7 @@
         "xcsh-docs:resources:nat_policy:properties:rules:virtual_network"
       ],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -976,7 +976,7 @@
       "schema_path": ["rules"],
       "sections": [
         {
-          "aliases": ["action"],
+          "aliases": ["rules action"],
           "anchor": "section",
           "description": "Action to apply on the packet if the NAT rule is applied.",
           "document_id": "xcsh-docs:resources:nat_policy:properties:rules:action",
@@ -1007,7 +1007,7 @@
           "type": "object"
         },
         {
-          "aliases": ["cloud connect"],
+          "aliases": ["rules cloud connect"],
           "anchor": "section",
           "description": "Reference to Cloud connect Object.",
           "document_id": "xcsh-docs:resources:nat_policy:properties:rules:cloud_connect",
@@ -1030,7 +1030,7 @@
           "type": "object"
         },
         {
-          "aliases": ["criteria"],
+          "aliases": ["rules criteria"],
           "anchor": "section",
           "description": "Match criteria of the packet to apply the NAT Rule.",
           "document_id": "xcsh-docs:resources:nat_policy:properties:rules:criteria",
@@ -1157,7 +1157,7 @@
           "type": "object"
         },
         {
-          "aliases": ["disable spec"],
+          "aliases": ["rules disable spec"],
           "anchor": "section",
           "description": "Enable this option",
           "document_id": "xcsh-docs:resources:nat_policy:properties:rules:disable_spec",
@@ -1171,7 +1171,7 @@
           "type": "object"
         },
         {
-          "aliases": ["enable"],
+          "aliases": ["rules enable"],
           "anchor": "section",
           "description": "This can be used for messages where no values are needed.",
           "document_id": "xcsh-docs:resources:nat_policy:properties:rules:enable",
@@ -1185,7 +1185,7 @@
           "type": "object"
         },
         {
-          "aliases": ["name"],
+          "aliases": ["rules name"],
           "anchor": "schema-rules--name",
           "description": "Name of the Rule.",
           "document_id": "xcsh-docs:resources:nat_policy:properties:rules",
@@ -1199,7 +1199,7 @@
           "type": "string"
         },
         {
-          "aliases": ["node interface"],
+          "aliases": ["rules node interface"],
           "anchor": "section",
           "description": "On multinode site, this type holds the information about per node interfaces.",
           "document_id": "xcsh-docs:resources:nat_policy:properties:rules:node_interface",
@@ -1213,7 +1213,7 @@
           "type": "object"
         },
         {
-          "aliases": ["segment"],
+          "aliases": ["rules segment"],
           "anchor": "section",
           "description": "Reference to Segment Object.",
           "document_id": "xcsh-docs:resources:nat_policy:properties:rules:segment",
@@ -1236,7 +1236,7 @@
           "type": "object"
         },
         {
-          "aliases": ["virtual network"],
+          "aliases": ["rules virtual network"],
           "anchor": "section",
           "description": "Carries the reference to virtual network.",
           "document_id": "xcsh-docs:resources:nat_policy:properties:rules:virtual_network",
@@ -1269,7 +1269,7 @@
       "category": "networking",
       "child_ids": ["xcsh-docs:resources:nat_policy:properties:rules:action:dynamic"],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -1308,7 +1308,7 @@
       "schema_path": ["rules", "action"],
       "sections": [
         {
-          "aliases": ["dynamic"],
+          "aliases": ["rules action dynamic"],
           "anchor": "section",
           "description": "Dynamic Pool Configuration.",
           "document_id": "xcsh-docs:resources:nat_policy:properties:rules:action:dynamic",
@@ -1339,7 +1339,7 @@
           "type": "object"
         },
         {
-          "aliases": ["virtual cidr"],
+          "aliases": ["rules action virtual cidr"],
           "anchor": "schema-rules--action--virtual_cidr",
           "description": "Exclusive with Virtual Subnet NAT is static NAT that does a one-to-one translation between the real source IP CIDR in the policy and the virtual CIDR in a bidirectional fashion. The range of the real CIDR and virtual CIDRs should be the same (e.g. If the real CIDR has the CIDR 192.0.2.0/24, the virtual CIDR has",
           "document_id": "xcsh-docs:resources:nat_policy:properties:rules:action",
@@ -1375,7 +1375,7 @@
         "xcsh-docs:resources:nat_policy:properties:rules:action:dynamic:pools"
       ],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -1414,7 +1414,7 @@
       "schema_path": ["rules", "action", "dynamic"],
       "sections": [
         {
-          "aliases": ["elastic ips"],
+          "aliases": ["rules action dynamic elastic ips"],
           "anchor": "section",
           "description": "List of references to Cloud Elastic IP Object.",
           "document_id": "xcsh-docs:resources:nat_policy:properties:rules:action:dynamic:elastic_ips",
@@ -1437,7 +1437,7 @@
           "type": "object"
         },
         {
-          "aliases": ["pools"],
+          "aliases": ["rules action dynamic pools"],
           "anchor": "section",
           "description": "List of IPv4 prefixes that represent an endpoint.",
           "document_id": "xcsh-docs:resources:nat_policy:properties:rules:action:dynamic:pools",
@@ -1470,7 +1470,7 @@
       "category": "networking",
       "child_ids": ["xcsh-docs:resources:nat_policy:properties:rules:action:dynamic:elastic_ips:refs"],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -1501,7 +1501,7 @@
       "schema_path": ["rules", "action", "dynamic", "elastic_ips"],
       "sections": [
         {
-          "aliases": ["refs"],
+          "aliases": ["rules action dynamic elastic ips refs"],
           "anchor": "section",
           "description": "Reference to one or more cloud elastic IP objects.",
           "document_id": "xcsh-docs:resources:nat_policy:properties:rules:action:dynamic:elastic_ips:refs",
@@ -1534,7 +1534,7 @@
       "category": "networking",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -1556,7 +1556,7 @@
       "schema_path": ["rules", "action", "dynamic", "elastic_ips", "refs"],
       "sections": [
         {
-          "aliases": ["kind"],
+          "aliases": ["rules action dynamic elastic ips refs kind"],
           "anchor": "schema-rules--action--dynamic--elastic_ips--refs--kind",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then kind will hold the referred object's kind (e.g. \"route\")",
           "document_id": "xcsh-docs:resources:nat_policy:properties:rules:action:dynamic:elastic_ips:refs",
@@ -1570,7 +1570,7 @@
           "type": "string"
         },
         {
-          "aliases": ["name"],
+          "aliases": ["rules action dynamic elastic ips refs name"],
           "anchor": "schema-rules--action--dynamic--elastic_ips--refs--name",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.",
           "document_id": "xcsh-docs:resources:nat_policy:properties:rules:action:dynamic:elastic_ips:refs",
@@ -1584,7 +1584,7 @@
           "type": "string"
         },
         {
-          "aliases": ["namespace"],
+          "aliases": ["rules action dynamic elastic ips refs namespace"],
           "anchor": "schema-rules--action--dynamic--elastic_ips--refs--namespace",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace.",
           "document_id": "xcsh-docs:resources:nat_policy:properties:rules:action:dynamic:elastic_ips:refs",
@@ -1598,7 +1598,7 @@
           "type": "string"
         },
         {
-          "aliases": ["tenant"],
+          "aliases": ["rules action dynamic elastic ips refs tenant"],
           "anchor": "schema-rules--action--dynamic--elastic_ips--refs--tenant",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant.",
           "document_id": "xcsh-docs:resources:nat_policy:properties:rules:action:dynamic:elastic_ips:refs",
@@ -1612,7 +1612,7 @@
           "type": "string"
         },
         {
-          "aliases": ["uid"],
+          "aliases": ["rules action dynamic elastic ips refs uid"],
           "anchor": "schema-rules--action--dynamic--elastic_ips--refs--uid",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then uid will hold the referred object's(e.g. Route's) uid.",
           "document_id": "xcsh-docs:resources:nat_policy:properties:rules:action:dynamic:elastic_ips:refs",
@@ -1645,7 +1645,7 @@
       "category": "networking",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -1667,7 +1667,7 @@
       "schema_path": ["rules", "action", "dynamic", "pools"],
       "sections": [
         {
-          "aliases": ["prefixes"],
+          "aliases": ["rules action dynamic pools prefixes"],
           "anchor": "schema-rules--action--dynamic--pools--prefixes",
           "description": "List of IPv4 prefixes that represent an endpoint.",
           "document_id": "xcsh-docs:resources:nat_policy:properties:rules:action:dynamic:pools",
@@ -1700,7 +1700,7 @@
       "category": "networking",
       "child_ids": ["xcsh-docs:resources:nat_policy:properties:rules:cloud_connect:refs"],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -1731,7 +1731,7 @@
       "schema_path": ["rules", "cloud_connect"],
       "sections": [
         {
-          "aliases": ["refs"],
+          "aliases": ["rules cloud connect refs"],
           "anchor": "section",
           "description": "Reference to Cloud Connect Object.",
           "document_id": "xcsh-docs:resources:nat_policy:properties:rules:cloud_connect:refs",
@@ -1764,7 +1764,7 @@
       "category": "networking",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -1786,7 +1786,7 @@
       "schema_path": ["rules", "cloud_connect", "refs"],
       "sections": [
         {
-          "aliases": ["kind"],
+          "aliases": ["rules cloud connect refs kind"],
           "anchor": "schema-rules--cloud_connect--refs--kind",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then kind will hold the referred object's kind (e.g. \"route\")",
           "document_id": "xcsh-docs:resources:nat_policy:properties:rules:cloud_connect:refs",
@@ -1800,7 +1800,7 @@
           "type": "string"
         },
         {
-          "aliases": ["name"],
+          "aliases": ["rules cloud connect refs name"],
           "anchor": "schema-rules--cloud_connect--refs--name",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.",
           "document_id": "xcsh-docs:resources:nat_policy:properties:rules:cloud_connect:refs",
@@ -1814,7 +1814,7 @@
           "type": "string"
         },
         {
-          "aliases": ["namespace"],
+          "aliases": ["rules cloud connect refs namespace"],
           "anchor": "schema-rules--cloud_connect--refs--namespace",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace.",
           "document_id": "xcsh-docs:resources:nat_policy:properties:rules:cloud_connect:refs",
@@ -1828,7 +1828,7 @@
           "type": "string"
         },
         {
-          "aliases": ["tenant"],
+          "aliases": ["rules cloud connect refs tenant"],
           "anchor": "schema-rules--cloud_connect--refs--tenant",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant.",
           "document_id": "xcsh-docs:resources:nat_policy:properties:rules:cloud_connect:refs",
@@ -1842,7 +1842,7 @@
           "type": "string"
         },
         {
-          "aliases": ["uid"],
+          "aliases": ["rules cloud connect refs uid"],
           "anchor": "schema-rules--cloud_connect--refs--uid",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then uid will hold the referred object's(e.g. Route's) uid.",
           "document_id": "xcsh-docs:resources:nat_policy:properties:rules:cloud_connect:refs",
@@ -1882,7 +1882,7 @@
         "xcsh-docs:resources:nat_policy:properties:rules:criteria:udp"
       ],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -2017,7 +2017,7 @@
       "schema_path": ["rules", "criteria"],
       "sections": [
         {
-          "aliases": ["any"],
+          "aliases": ["rules criteria any"],
           "anchor": "section",
           "description": "This can be used for messages where no values are needed.",
           "document_id": "xcsh-docs:resources:nat_policy:properties:rules:criteria:any",
@@ -2031,7 +2031,7 @@
           "type": "object"
         },
         {
-          "aliases": ["destination cidr"],
+          "aliases": ["rules criteria destination cidr"],
           "anchor": "schema-rules--criteria--destination_cidr",
           "description": "Destination IP of the packet to match.",
           "document_id": "xcsh-docs:resources:nat_policy:properties:rules:criteria",
@@ -2045,7 +2045,7 @@
           "type": "list"
         },
         {
-          "aliases": ["icmp"],
+          "aliases": ["rules criteria icmp"],
           "anchor": "section",
           "description": "This can be used for messages where no values are needed.",
           "document_id": "xcsh-docs:resources:nat_policy:properties:rules:criteria:icmp",
@@ -2059,7 +2059,7 @@
           "type": "object"
         },
         {
-          "aliases": ["site local inside network"],
+          "aliases": ["rules criteria site local inside network"],
           "anchor": "section",
           "description": "This can be used for messages where no values are needed.",
           "document_id": "xcsh-docs:resources:nat_policy:properties:rules:criteria:site_local_inside_network",
@@ -2073,7 +2073,7 @@
           "type": "object"
         },
         {
-          "aliases": ["site local network"],
+          "aliases": ["rules criteria site local network"],
           "anchor": "section",
           "description": "This can be used for messages where no values are needed.",
           "document_id": "xcsh-docs:resources:nat_policy:properties:rules:criteria:site_local_network",
@@ -2087,7 +2087,7 @@
           "type": "object"
         },
         {
-          "aliases": ["source cidr"],
+          "aliases": ["rules criteria source cidr"],
           "anchor": "schema-rules--criteria--source_cidr",
           "description": "Source IP of the packet to match.",
           "document_id": "xcsh-docs:resources:nat_policy:properties:rules:criteria",
@@ -2101,7 +2101,7 @@
           "type": "list"
         },
         {
-          "aliases": ["tcp"],
+          "aliases": ["rules criteria tcp"],
           "anchor": "section",
           "description": "Action to apply on the packet if the NAT rule is applied.",
           "document_id": "xcsh-docs:resources:nat_policy:properties:rules:criteria:tcp",
@@ -2115,7 +2115,7 @@
           "type": "object"
         },
         {
-          "aliases": ["udp"],
+          "aliases": ["rules criteria udp"],
           "anchor": "section",
           "description": "Action to apply on the packet if the NAT rule is applied.",
           "document_id": "xcsh-docs:resources:nat_policy:properties:rules:criteria:udp",
@@ -2148,7 +2148,7 @@
       "category": "networking",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -2188,7 +2188,7 @@
       "category": "networking",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -2228,7 +2228,7 @@
       "category": "networking",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -2268,7 +2268,7 @@
       "category": "networking",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -2311,7 +2311,7 @@
         "xcsh-docs:resources:nat_policy:properties:rules:criteria:tcp:source_port"
       ],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -2333,7 +2333,7 @@
       "schema_path": ["rules", "criteria", "tcp"],
       "sections": [
         {
-          "aliases": ["destination port"],
+          "aliases": ["rules criteria tcp destination port"],
           "anchor": "section",
           "description": "Port match of the request can be a range or a specific port.",
           "document_id": "xcsh-docs:resources:nat_policy:properties:rules:criteria:tcp:destination_port",
@@ -2396,7 +2396,7 @@
           "type": "object"
         },
         {
-          "aliases": ["source port"],
+          "aliases": ["rules criteria tcp source port"],
           "anchor": "section",
           "description": "Port match of the request can be a range or a specific port.",
           "document_id": "xcsh-docs:resources:nat_policy:properties:rules:criteria:tcp:source_port",
@@ -2478,7 +2478,7 @@
       "category": "networking",
       "child_ids": ["xcsh-docs:resources:nat_policy:properties:rules:criteria:tcp:destination_port:no_port_match"],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -2549,7 +2549,7 @@
       "schema_path": ["rules", "criteria", "tcp", "destination_port"],
       "sections": [
         {
-          "aliases": ["no port match"],
+          "aliases": ["rules criteria tcp destination port no port match"],
           "anchor": "section",
           "description": "This can be used for messages where no values are needed.",
           "document_id": "xcsh-docs:resources:nat_policy:properties:rules:criteria:tcp:destination_port:no_port_match",
@@ -2563,7 +2563,7 @@
           "type": "object"
         },
         {
-          "aliases": ["port"],
+          "aliases": ["rules criteria tcp destination port port"],
           "anchor": "schema-rules--criteria--tcp--destination_port--port",
           "description": "Exclusive with Exact Port to match.",
           "document_id": "xcsh-docs:resources:nat_policy:properties:rules:criteria:tcp:destination_port",
@@ -2577,7 +2577,7 @@
           "type": "number"
         },
         {
-          "aliases": ["port ranges"],
+          "aliases": ["rules criteria tcp destination port port ranges"],
           "anchor": "schema-rules--criteria--tcp--destination_port--port_ranges",
           "description": "Exclusive with Port range to match.",
           "document_id": "xcsh-docs:resources:nat_policy:properties:rules:criteria:tcp:destination_port",
@@ -2610,7 +2610,7 @@
       "category": "networking",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -2650,7 +2650,7 @@
       "category": "networking",
       "child_ids": ["xcsh-docs:resources:nat_policy:properties:rules:criteria:tcp:source_port:no_port_match"],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -2721,7 +2721,7 @@
       "schema_path": ["rules", "criteria", "tcp", "source_port"],
       "sections": [
         {
-          "aliases": ["no port match"],
+          "aliases": ["rules criteria tcp source port no port match"],
           "anchor": "section",
           "description": "This can be used for messages where no values are needed.",
           "document_id": "xcsh-docs:resources:nat_policy:properties:rules:criteria:tcp:source_port:no_port_match",
@@ -2735,7 +2735,7 @@
           "type": "object"
         },
         {
-          "aliases": ["port"],
+          "aliases": ["rules criteria tcp source port port"],
           "anchor": "schema-rules--criteria--tcp--source_port--port",
           "description": "Exclusive with Exact Port to match.",
           "document_id": "xcsh-docs:resources:nat_policy:properties:rules:criteria:tcp:source_port",
@@ -2749,7 +2749,7 @@
           "type": "number"
         },
         {
-          "aliases": ["port ranges"],
+          "aliases": ["rules criteria tcp source port port ranges"],
           "anchor": "schema-rules--criteria--tcp--source_port--port_ranges",
           "description": "Exclusive with Port range to match.",
           "document_id": "xcsh-docs:resources:nat_policy:properties:rules:criteria:tcp:source_port",
@@ -2782,7 +2782,7 @@
       "category": "networking",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -2825,7 +2825,7 @@
         "xcsh-docs:resources:nat_policy:properties:rules:criteria:udp:source_port"
       ],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -2847,7 +2847,7 @@
       "schema_path": ["rules", "criteria", "udp"],
       "sections": [
         {
-          "aliases": ["destination port"],
+          "aliases": ["rules criteria udp destination port"],
           "anchor": "section",
           "description": "Port match of the request can be a range or a specific port.",
           "document_id": "xcsh-docs:resources:nat_policy:properties:rules:criteria:udp:destination_port",
@@ -2910,7 +2910,7 @@
           "type": "object"
         },
         {
-          "aliases": ["source port"],
+          "aliases": ["rules criteria udp source port"],
           "anchor": "section",
           "description": "Port match of the request can be a range or a specific port.",
           "document_id": "xcsh-docs:resources:nat_policy:properties:rules:criteria:udp:source_port",
@@ -2992,7 +2992,7 @@
       "category": "networking",
       "child_ids": ["xcsh-docs:resources:nat_policy:properties:rules:criteria:udp:destination_port:no_port_match"],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -3063,7 +3063,7 @@
       "schema_path": ["rules", "criteria", "udp", "destination_port"],
       "sections": [
         {
-          "aliases": ["no port match"],
+          "aliases": ["rules criteria udp destination port no port match"],
           "anchor": "section",
           "description": "This can be used for messages where no values are needed.",
           "document_id": "xcsh-docs:resources:nat_policy:properties:rules:criteria:udp:destination_port:no_port_match",
@@ -3077,7 +3077,7 @@
           "type": "object"
         },
         {
-          "aliases": ["port"],
+          "aliases": ["rules criteria udp destination port port"],
           "anchor": "schema-rules--criteria--udp--destination_port--port",
           "description": "Exclusive with Exact Port to match.",
           "document_id": "xcsh-docs:resources:nat_policy:properties:rules:criteria:udp:destination_port",
@@ -3091,7 +3091,7 @@
           "type": "number"
         },
         {
-          "aliases": ["port ranges"],
+          "aliases": ["rules criteria udp destination port port ranges"],
           "anchor": "schema-rules--criteria--udp--destination_port--port_ranges",
           "description": "Exclusive with Port range to match.",
           "document_id": "xcsh-docs:resources:nat_policy:properties:rules:criteria:udp:destination_port",
@@ -3124,7 +3124,7 @@
       "category": "networking",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -3164,7 +3164,7 @@
       "category": "networking",
       "child_ids": ["xcsh-docs:resources:nat_policy:properties:rules:criteria:udp:source_port:no_port_match"],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -3235,7 +3235,7 @@
       "schema_path": ["rules", "criteria", "udp", "source_port"],
       "sections": [
         {
-          "aliases": ["no port match"],
+          "aliases": ["rules criteria udp source port no port match"],
           "anchor": "section",
           "description": "This can be used for messages where no values are needed.",
           "document_id": "xcsh-docs:resources:nat_policy:properties:rules:criteria:udp:source_port:no_port_match",
@@ -3249,7 +3249,7 @@
           "type": "object"
         },
         {
-          "aliases": ["port"],
+          "aliases": ["rules criteria udp source port port"],
           "anchor": "schema-rules--criteria--udp--source_port--port",
           "description": "Exclusive with Exact Port to match.",
           "document_id": "xcsh-docs:resources:nat_policy:properties:rules:criteria:udp:source_port",
@@ -3263,7 +3263,7 @@
           "type": "number"
         },
         {
-          "aliases": ["port ranges"],
+          "aliases": ["rules criteria udp source port port ranges"],
           "anchor": "schema-rules--criteria--udp--source_port--port_ranges",
           "description": "Exclusive with Port range to match.",
           "document_id": "xcsh-docs:resources:nat_policy:properties:rules:criteria:udp:source_port",
@@ -3296,7 +3296,7 @@
       "category": "networking",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -3336,7 +3336,7 @@
       "category": "networking",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -3376,7 +3376,7 @@
       "category": "networking",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -3416,7 +3416,7 @@
       "category": "networking",
       "child_ids": ["xcsh-docs:resources:nat_policy:properties:rules:node_interface:list"],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -3438,7 +3438,7 @@
       "schema_path": ["rules", "node_interface"],
       "sections": [
         {
-          "aliases": ["list"],
+          "aliases": ["rules node interface list"],
           "anchor": "section",
           "description": "On a multinode site, this list holds the nodes and corresponding networking_interface.",
           "document_id": "xcsh-docs:resources:nat_policy:properties:rules:node_interface:list",
@@ -3471,7 +3471,7 @@
       "category": "networking",
       "child_ids": ["xcsh-docs:resources:nat_policy:properties:rules:node_interface:list:interface"],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -3493,7 +3493,7 @@
       "schema_path": ["rules", "node_interface", "list"],
       "sections": [
         {
-          "aliases": ["interface"],
+          "aliases": ["rules node interface list interface"],
           "anchor": "section",
           "description": "Interface reference on this node.",
           "document_id": "xcsh-docs:resources:nat_policy:properties:rules:node_interface:list:interface",
@@ -3507,7 +3507,7 @@
           "type": "object"
         },
         {
-          "aliases": ["node"],
+          "aliases": ["rules node interface list node"],
           "anchor": "schema-rules--node_interface--list--node",
           "description": "Node name on this site.",
           "document_id": "xcsh-docs:resources:nat_policy:properties:rules:node_interface:list",
@@ -3540,7 +3540,7 @@
       "category": "networking",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -3562,7 +3562,7 @@
       "schema_path": ["rules", "node_interface", "list", "interface"],
       "sections": [
         {
-          "aliases": ["kind"],
+          "aliases": ["rules node interface list interface kind"],
           "anchor": "schema-rules--node_interface--list--interface--kind",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then kind will hold the referred object's kind (e.g. \"route\")",
           "document_id": "xcsh-docs:resources:nat_policy:properties:rules:node_interface:list:interface",
@@ -3576,7 +3576,7 @@
           "type": "string"
         },
         {
-          "aliases": ["name"],
+          "aliases": ["rules node interface list interface name"],
           "anchor": "schema-rules--node_interface--list--interface--name",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.",
           "document_id": "xcsh-docs:resources:nat_policy:properties:rules:node_interface:list:interface",
@@ -3590,7 +3590,7 @@
           "type": "string"
         },
         {
-          "aliases": ["namespace"],
+          "aliases": ["rules node interface list interface namespace"],
           "anchor": "schema-rules--node_interface--list--interface--namespace",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace.",
           "document_id": "xcsh-docs:resources:nat_policy:properties:rules:node_interface:list:interface",
@@ -3604,7 +3604,7 @@
           "type": "string"
         },
         {
-          "aliases": ["tenant"],
+          "aliases": ["rules node interface list interface tenant"],
           "anchor": "schema-rules--node_interface--list--interface--tenant",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant.",
           "document_id": "xcsh-docs:resources:nat_policy:properties:rules:node_interface:list:interface",
@@ -3618,7 +3618,7 @@
           "type": "string"
         },
         {
-          "aliases": ["uid"],
+          "aliases": ["rules node interface list interface uid"],
           "anchor": "schema-rules--node_interface--list--interface--uid",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then uid will hold the referred object's(e.g. Route's) uid.",
           "document_id": "xcsh-docs:resources:nat_policy:properties:rules:node_interface:list:interface",
@@ -3651,7 +3651,7 @@
       "category": "networking",
       "child_ids": ["xcsh-docs:resources:nat_policy:properties:rules:segment:refs"],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -3682,7 +3682,7 @@
       "schema_path": ["rules", "segment"],
       "sections": [
         {
-          "aliases": ["refs"],
+          "aliases": ["rules segment refs"],
           "anchor": "section",
           "description": "Reference to Segment Object.",
           "document_id": "xcsh-docs:resources:nat_policy:properties:rules:segment:refs",
@@ -3715,7 +3715,7 @@
       "category": "networking",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -3737,7 +3737,7 @@
       "schema_path": ["rules", "segment", "refs"],
       "sections": [
         {
-          "aliases": ["kind"],
+          "aliases": ["rules segment refs kind"],
           "anchor": "schema-rules--segment--refs--kind",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then kind will hold the referred object's kind (e.g. \"route\")",
           "document_id": "xcsh-docs:resources:nat_policy:properties:rules:segment:refs",
@@ -3751,7 +3751,7 @@
           "type": "string"
         },
         {
-          "aliases": ["name"],
+          "aliases": ["rules segment refs name"],
           "anchor": "schema-rules--segment--refs--name",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.",
           "document_id": "xcsh-docs:resources:nat_policy:properties:rules:segment:refs",
@@ -3765,7 +3765,7 @@
           "type": "string"
         },
         {
-          "aliases": ["namespace"],
+          "aliases": ["rules segment refs namespace"],
           "anchor": "schema-rules--segment--refs--namespace",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace.",
           "document_id": "xcsh-docs:resources:nat_policy:properties:rules:segment:refs",
@@ -3779,7 +3779,7 @@
           "type": "string"
         },
         {
-          "aliases": ["tenant"],
+          "aliases": ["rules segment refs tenant"],
           "anchor": "schema-rules--segment--refs--tenant",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant.",
           "document_id": "xcsh-docs:resources:nat_policy:properties:rules:segment:refs",
@@ -3793,7 +3793,7 @@
           "type": "string"
         },
         {
-          "aliases": ["uid"],
+          "aliases": ["rules segment refs uid"],
           "anchor": "schema-rules--segment--refs--uid",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then uid will hold the referred object's(e.g. Route's) uid.",
           "document_id": "xcsh-docs:resources:nat_policy:properties:rules:segment:refs",
@@ -3826,7 +3826,7 @@
       "category": "networking",
       "child_ids": ["xcsh-docs:resources:nat_policy:properties:rules:virtual_network:refs"],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -3848,7 +3848,7 @@
       "schema_path": ["rules", "virtual_network"],
       "sections": [
         {
-          "aliases": ["refs"],
+          "aliases": ["rules virtual network refs"],
           "anchor": "section",
           "description": "Reference to virtual network.",
           "document_id": "xcsh-docs:resources:nat_policy:properties:rules:virtual_network:refs",
@@ -3881,7 +3881,7 @@
       "category": "networking",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -3903,7 +3903,7 @@
       "schema_path": ["rules", "virtual_network", "refs"],
       "sections": [
         {
-          "aliases": ["kind"],
+          "aliases": ["rules virtual network refs kind"],
           "anchor": "schema-rules--virtual_network--refs--kind",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then kind will hold the referred object's kind (e.g. \"route\")",
           "document_id": "xcsh-docs:resources:nat_policy:properties:rules:virtual_network:refs",
@@ -3917,7 +3917,7 @@
           "type": "string"
         },
         {
-          "aliases": ["name"],
+          "aliases": ["rules virtual network refs name"],
           "anchor": "schema-rules--virtual_network--refs--name",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.",
           "document_id": "xcsh-docs:resources:nat_policy:properties:rules:virtual_network:refs",
@@ -3931,7 +3931,7 @@
           "type": "string"
         },
         {
-          "aliases": ["namespace"],
+          "aliases": ["rules virtual network refs namespace"],
           "anchor": "schema-rules--virtual_network--refs--namespace",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace.",
           "document_id": "xcsh-docs:resources:nat_policy:properties:rules:virtual_network:refs",
@@ -3945,7 +3945,7 @@
           "type": "string"
         },
         {
-          "aliases": ["tenant"],
+          "aliases": ["rules virtual network refs tenant"],
           "anchor": "schema-rules--virtual_network--refs--tenant",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant.",
           "document_id": "xcsh-docs:resources:nat_policy:properties:rules:virtual_network:refs",
@@ -3959,7 +3959,7 @@
           "type": "string"
         },
         {
-          "aliases": ["uid"],
+          "aliases": ["rules virtual network refs uid"],
           "anchor": "schema-rules--virtual_network--refs--uid",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then uid will hold the referred object's(e.g. Route's) uid.",
           "document_id": "xcsh-docs:resources:nat_policy:properties:rules:virtual_network:refs",
@@ -3992,7 +3992,7 @@
       "category": "networking",
       "child_ids": ["xcsh-docs:resources:nat_policy:properties:site:refs"],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -4023,7 +4023,7 @@
       "schema_path": ["site"],
       "sections": [
         {
-          "aliases": ["refs"],
+          "aliases": ["site refs"],
           "anchor": "section",
           "description": "Reference to Site Object.",
           "document_id": "xcsh-docs:resources:nat_policy:properties:site:refs",
@@ -4056,7 +4056,7 @@
       "category": "networking",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -4078,7 +4078,7 @@
       "schema_path": ["site", "refs"],
       "sections": [
         {
-          "aliases": ["kind"],
+          "aliases": ["site refs kind"],
           "anchor": "schema-site--refs--kind",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then kind will hold the referred object's kind (e.g. \"route\")",
           "document_id": "xcsh-docs:resources:nat_policy:properties:site:refs",
@@ -4092,7 +4092,7 @@
           "type": "string"
         },
         {
-          "aliases": ["name"],
+          "aliases": ["site refs name"],
           "anchor": "schema-site--refs--name",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.",
           "document_id": "xcsh-docs:resources:nat_policy:properties:site:refs",
@@ -4106,7 +4106,7 @@
           "type": "string"
         },
         {
-          "aliases": ["namespace"],
+          "aliases": ["site refs namespace"],
           "anchor": "schema-site--refs--namespace",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace.",
           "document_id": "xcsh-docs:resources:nat_policy:properties:site:refs",
@@ -4120,7 +4120,7 @@
           "type": "string"
         },
         {
-          "aliases": ["tenant"],
+          "aliases": ["site refs tenant"],
           "anchor": "schema-site--refs--tenant",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant.",
           "document_id": "xcsh-docs:resources:nat_policy:properties:site:refs",
@@ -4134,7 +4134,7 @@
           "type": "string"
         },
         {
-          "aliases": ["uid"],
+          "aliases": ["site refs uid"],
           "anchor": "schema-site--refs--uid",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then uid will hold the referred object's(e.g. Route's) uid.",
           "document_id": "xcsh-docs:resources:nat_policy:properties:site:refs",
@@ -4160,14 +4160,14 @@
       }
     },
     {
-      "aliases": ["duration", "operation timeout", "timeouts"],
+      "aliases": ["duration", "lifecycle timeout", "operation timeout", "timeouts"],
       "body_bytes": 2219,
       "body_sha256": "sha256:6018a5ed443d11bd1cb1ffbfd746db3fd994243b8924224f2bcd1a88cf89454e",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -4189,9 +4189,17 @@
       "schema_path": ["timeouts"],
       "sections": [
         {
-          "aliases": ["create"],
+          "aliases": [
+            "create operation timeout",
+            "create timeout",
+            "creation duration",
+            "duration",
+            "lifecycle timeout",
+            "operation timeout",
+            "timeouts create"
+          ],
           "anchor": "schema-timeouts--create",
-          "description": "A string that can be (https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as \"30s\" or \"2h45m\". Valid time units are \"s\" (seconds), \"m\" (minutes), \"h\" (hours).",
+          "description": "Configures the timeout duration for resource creation.",
           "document_id": "xcsh-docs:resources:nat_policy:properties:timeouts",
           "flags": ["optional"],
           "max_items": null,
@@ -4203,9 +4211,18 @@
           "type": "string"
         },
         {
-          "aliases": ["delete", "duration", "operation timeout"],
+          "aliases": [
+            "delete operation timeout",
+            "delete timeout",
+            "deletion duration",
+            "destroy timeout",
+            "duration",
+            "lifecycle timeout",
+            "operation timeout",
+            "timeouts delete"
+          ],
           "anchor": "schema-timeouts--delete",
-          "description": "A string that can be (https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as \"30s\" or \"2h45m\". Valid time units are \"s\" (seconds), \"m\" (minutes), \"h\" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.",
+          "description": "Configures the timeout duration for resource deletion, applicable only if changes are saved into state before destroy.",
           "document_id": "xcsh-docs:resources:nat_policy:properties:timeouts",
           "flags": ["optional"],
           "max_items": null,
@@ -4217,9 +4234,18 @@
           "type": "string"
         },
         {
-          "aliases": ["read"],
+          "aliases": [
+            "duration",
+            "lifecycle timeout",
+            "operation timeout",
+            "read duration",
+            "read operation timeout",
+            "read timeout",
+            "refresh timeout",
+            "timeouts read"
+          ],
           "anchor": "schema-timeouts--read",
-          "description": "A string that can be (https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as \"30s\" or \"2h45m\". Valid time units are \"s\" (seconds), \"m\" (minutes), \"h\" (hours). Read operations occur during any refresh or planning operation when refresh is enabled.",
+          "description": "Configures the timeout duration for read operations during refresh or planning.",
           "document_id": "xcsh-docs:resources:nat_policy:properties:timeouts",
           "flags": ["optional"],
           "max_items": null,
@@ -4231,9 +4257,18 @@
           "type": "string"
         },
         {
-          "aliases": ["update"],
+          "aliases": [
+            "duration",
+            "lifecycle timeout",
+            "modification timeout",
+            "operation timeout",
+            "timeouts update",
+            "update duration",
+            "update operation timeout",
+            "update timeout"
+          ],
           "anchor": "schema-timeouts--update",
-          "description": "A string that can be (https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as \"30s\" or \"2h45m\". Valid time units are \"s\" (seconds), \"m\" (minutes), \"h\" (hours).",
+          "description": "Configures the timeout duration for resource update operations.",
           "document_id": "xcsh-docs:resources:nat_policy:properties:timeouts",
           "flags": ["optional"],
           "max_items": null,
@@ -4264,7 +4299,7 @@
       "category": "networking",
       "child_ids": ["xcsh-docs:resources:nat_policy:example:resource"],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -4304,7 +4339,7 @@
       "category": "networking",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -4351,7 +4386,7 @@
       "category": "networking",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -4392,7 +4427,7 @@
       "category": "networking",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"

@@ -140,7 +140,7 @@
         "xcsh-docs:data-sources:network_policy_rule:examples"
       ],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -187,7 +187,7 @@
         "xcsh-docs:data-sources:network_policy_rule:properties:prefix_selector"
       ],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -424,7 +424,7 @@
       "category": "security",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -446,7 +446,7 @@
       "schema_path": ["advanced_action"],
       "sections": [
         {
-          "aliases": ["action"],
+          "aliases": ["advanced action action"],
           "anchor": "schema-advanced_action--action",
           "description": "Choice to choose logging or no logging This works together with option selected via NetworkPolicyRuleAction or any other action specified x-example: (No Selection in NetworkPolicyRuleAction + AdvancedAction as LOG) = LOG Only, (ALLOW/DENY in NetworkPolicyRuleAction + AdvancedAction as LOG) = Log and Allow/Deny,",
           "document_id": "xcsh-docs:data-sources:network_policy_rule:properties:advanced_action",
@@ -479,7 +479,7 @@
       "category": "security",
       "child_ids": ["xcsh-docs:data-sources:network_policy_rule:properties:ip_prefix_set:ref"],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -501,7 +501,7 @@
       "schema_path": ["ip_prefix_set"],
       "sections": [
         {
-          "aliases": ["ref"],
+          "aliases": ["ip prefix set ref"],
           "anchor": "section",
           "description": "A list of references to ip_prefix_set objects.",
           "document_id": "xcsh-docs:data-sources:network_policy_rule:properties:ip_prefix_set:ref",
@@ -534,7 +534,7 @@
       "category": "security",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -556,7 +556,7 @@
       "schema_path": ["ip_prefix_set", "ref"],
       "sections": [
         {
-          "aliases": ["kind"],
+          "aliases": ["ip prefix set ref kind"],
           "anchor": "schema-ip_prefix_set--ref--kind",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then kind will hold the referred object's kind (e.g. \"route\")",
           "document_id": "xcsh-docs:data-sources:network_policy_rule:properties:ip_prefix_set:ref",
@@ -570,7 +570,7 @@
           "type": "string"
         },
         {
-          "aliases": ["name"],
+          "aliases": ["ip prefix set ref name"],
           "anchor": "schema-ip_prefix_set--ref--name",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.",
           "document_id": "xcsh-docs:data-sources:network_policy_rule:properties:ip_prefix_set:ref",
@@ -584,7 +584,7 @@
           "type": "string"
         },
         {
-          "aliases": ["namespace"],
+          "aliases": ["ip prefix set ref namespace"],
           "anchor": "schema-ip_prefix_set--ref--namespace",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace.",
           "document_id": "xcsh-docs:data-sources:network_policy_rule:properties:ip_prefix_set:ref",
@@ -598,7 +598,7 @@
           "type": "string"
         },
         {
-          "aliases": ["tenant"],
+          "aliases": ["ip prefix set ref tenant"],
           "anchor": "schema-ip_prefix_set--ref--tenant",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant.",
           "document_id": "xcsh-docs:data-sources:network_policy_rule:properties:ip_prefix_set:ref",
@@ -612,7 +612,7 @@
           "type": "string"
         },
         {
-          "aliases": ["uid"],
+          "aliases": ["ip prefix set ref uid"],
           "anchor": "schema-ip_prefix_set--ref--uid",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then uid will hold the referred object's(e.g. Route's) uid.",
           "document_id": "xcsh-docs:data-sources:network_policy_rule:properties:ip_prefix_set:ref",
@@ -645,7 +645,7 @@
       "category": "security",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -667,7 +667,7 @@
       "schema_path": ["label_matcher"],
       "sections": [
         {
-          "aliases": ["keys"],
+          "aliases": ["label matcher keys"],
           "anchor": "schema-label_matcher--keys",
           "description": "The list of label key names that have to match.",
           "document_id": "xcsh-docs:data-sources:network_policy_rule:properties:label_matcher",
@@ -700,7 +700,7 @@
       "category": "security",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -722,7 +722,7 @@
       "schema_path": ["prefix"],
       "sections": [
         {
-          "aliases": ["prefix"],
+          "aliases": ["prefix prefix"],
           "anchor": "schema-prefix--prefix",
           "description": "IP Address prefix in string format. String must contain both prefix and prefix-length.",
           "document_id": "xcsh-docs:data-sources:network_policy_rule:properties:prefix",
@@ -755,7 +755,7 @@
       "category": "security",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -777,7 +777,7 @@
       "schema_path": ["prefix_selector"],
       "sections": [
         {
-          "aliases": ["expressions"],
+          "aliases": ["prefix selector expressions"],
           "anchor": "schema-prefix_selector--expressions",
           "description": "Expressions contains the Kubernetes style label expression for selections.",
           "document_id": "xcsh-docs:data-sources:network_policy_rule:properties:prefix_selector",
@@ -810,7 +810,7 @@
       "category": "security",
       "child_ids": ["xcsh-docs:data-sources:network_policy_rule:example:data-source"],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -850,7 +850,7 @@
       "category": "security",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"

@@ -682,7 +682,7 @@
       "category": "infrastructure",
       "child_ids": ["xcsh-docs:data-sources:registration:reference", "xcsh-docs:data-sources:registration:examples"],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -726,7 +726,7 @@
         "xcsh-docs:data-sources:registration:properties:passport"
       ],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -900,7 +900,7 @@
         "xcsh-docs:data-sources:registration:properties:infra:sw_info"
       ],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -922,7 +922,7 @@
       "schema_path": ["infra"],
       "sections": [
         {
-          "aliases": ["availability zone"],
+          "aliases": ["infra availability zone"],
           "anchor": "schema-infra--availability_zone",
           "description": "An Availability Zone is a high-availability offering that protects your applications and data from datacenter failures.",
           "document_id": "xcsh-docs:data-sources:registration:properties:infra",
@@ -936,7 +936,7 @@
           "type": "string"
         },
         {
-          "aliases": ["bond config"],
+          "aliases": ["infra bond config"],
           "anchor": "section",
           "description": "Bond device configuration for VPM registration.",
           "document_id": "xcsh-docs:data-sources:registration:properties:infra:bond_config",
@@ -950,7 +950,7 @@
           "type": "object"
         },
         {
-          "aliases": ["certified hw"],
+          "aliases": ["infra certified hw"],
           "anchor": "schema-infra--certified_hw",
           "description": "Certified HW name used to map with F5XC certified_hardware definition.",
           "document_id": "xcsh-docs:data-sources:registration:properties:infra",
@@ -964,7 +964,7 @@
           "type": "string"
         },
         {
-          "aliases": ["domain"],
+          "aliases": ["infra domain"],
           "anchor": "schema-infra--domain",
           "description": "Machine domain. It's used for Kubernetes cloud provider when domain must be different than F5 Distributed Cloud.",
           "document_id": "xcsh-docs:data-sources:registration:properties:infra",
@@ -978,7 +978,7 @@
           "type": "string"
         },
         {
-          "aliases": ["hostname"],
+          "aliases": ["infra hostname"],
           "anchor": "schema-infra--hostname",
           "description": "Must be unique in entire cluster and same as OS settings. '.' (dots) are not allowed in hostname.",
           "document_id": "xcsh-docs:data-sources:registration:properties:infra",
@@ -992,7 +992,7 @@
           "type": "string"
         },
         {
-          "aliases": ["hugepages"],
+          "aliases": ["infra hugepages"],
           "anchor": "section",
           "description": "Hugepage settings for CE on K8s SMV2 site.",
           "document_id": "xcsh-docs:data-sources:registration:properties:infra:hugepages",
@@ -1006,7 +1006,7 @@
           "type": "object"
         },
         {
-          "aliases": ["hw info"],
+          "aliases": ["infra hw info"],
           "anchor": "section",
           "description": "OsInfo holds information about host OS and HW.",
           "document_id": "xcsh-docs:data-sources:registration:properties:infra:hw_info",
@@ -1020,7 +1020,7 @@
           "type": "object"
         },
         {
-          "aliases": ["instance id"],
+          "aliases": ["infra instance id"],
           "anchor": "schema-infra--instance_id",
           "description": "Instance ID (assigned by infrastructure provider)",
           "document_id": "xcsh-docs:data-sources:registration:properties:infra",
@@ -1034,7 +1034,7 @@
           "type": "string"
         },
         {
-          "aliases": ["interfaces"],
+          "aliases": ["infra interfaces"],
           "anchor": "section",
           "description": "Machine interfaces present during registration time.",
           "document_id": "xcsh-docs:data-sources:registration:properties:infra:interfaces",
@@ -1048,7 +1048,7 @@
           "type": "object"
         },
         {
-          "aliases": ["internet proxy"],
+          "aliases": ["infra internet proxy"],
           "anchor": "section",
           "description": "Proxy describes OPTIONS for HTTP or HTTPS proxy configurations.",
           "document_id": "xcsh-docs:data-sources:registration:properties:infra:internet_proxy",
@@ -1062,7 +1062,7 @@
           "type": "object"
         },
         {
-          "aliases": ["is slo static"],
+          "aliases": ["infra is slo static"],
           "anchor": "schema-infra--is_slo_static",
           "description": "Indicates whether the SLO is static.",
           "document_id": "xcsh-docs:data-sources:registration:properties:infra",
@@ -1076,7 +1076,7 @@
           "type": "bool"
         },
         {
-          "aliases": ["machine id"],
+          "aliases": ["infra machine id"],
           "anchor": "schema-infra--machine_id",
           "description": "Machine ID - generated by operating system.",
           "document_id": "xcsh-docs:data-sources:registration:properties:infra",
@@ -1090,7 +1090,7 @@
           "type": "string"
         },
         {
-          "aliases": ["provider ref"],
+          "aliases": ["infra provider ref"],
           "anchor": "schema-infra--provider_ref",
           "description": "Infrastructure provider enum for registration. It describes where is instance running. Provider was not detected AWS cloud instance Google cloud instance Azure cloud instance VMWare VM KVM VM Other provider, which was not identified by system. Possible values are `UNKNOWN`, `AWS`, `GOOGLE`, `AZURE`, `VMWARE`, `KVM`,",
           "document_id": "xcsh-docs:data-sources:registration:properties:infra",
@@ -1104,7 +1104,7 @@
           "type": "string"
         },
         {
-          "aliases": ["sw info"],
+          "aliases": ["infra sw info"],
           "anchor": "section",
           "description": "SWInfo holds information about sw version.",
           "document_id": "xcsh-docs:data-sources:registration:properties:infra:sw_info",
@@ -1118,7 +1118,7 @@
           "type": "object"
         },
         {
-          "aliases": ["timestamp"],
+          "aliases": ["infra timestamp"],
           "anchor": "schema-infra--timestamp",
           "description": "It's used to verify machine have acceptable time difference from server.",
           "document_id": "xcsh-docs:data-sources:registration:properties:infra",
@@ -1132,7 +1132,7 @@
           "type": "string"
         },
         {
-          "aliases": ["zone"],
+          "aliases": ["infra zone"],
           "anchor": "schema-infra--zone",
           "description": "Instance zone (or region), depends on provider.",
           "document_id": "xcsh-docs:data-sources:registration:properties:infra",
@@ -1165,7 +1165,7 @@
       "category": "infrastructure",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -1187,7 +1187,7 @@
       "schema_path": ["infra", "bond_config"],
       "sections": [
         {
-          "aliases": ["interfaces"],
+          "aliases": ["infra bond config interfaces"],
           "anchor": "schema-infra--bond_config--interfaces",
           "description": "Configuration parameter for interfaces",
           "document_id": "xcsh-docs:data-sources:registration:properties:infra:bond_config",
@@ -1201,7 +1201,7 @@
           "type": "list"
         },
         {
-          "aliases": ["mode"],
+          "aliases": ["infra bond config mode"],
           "anchor": "schema-infra--bond_config--mode",
           "description": "Bonding mode for bond device configuration Bond mode is not specified Active-backup bond mode (one interface active, others as backup) IEEE 802.3ad Dynamic link aggregation (LACP)",
           "document_id": "xcsh-docs:data-sources:registration:properties:infra:bond_config",
@@ -1215,7 +1215,7 @@
           "type": "string"
         },
         {
-          "aliases": ["name"],
+          "aliases": ["infra bond config name"],
           "anchor": "schema-infra--bond_config--name",
           "description": "Human-readable name for the resource",
           "document_id": "xcsh-docs:data-sources:registration:properties:infra:bond_config",
@@ -1248,7 +1248,7 @@
       "category": "infrastructure",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -1270,7 +1270,7 @@
       "schema_path": ["infra", "hugepages"],
       "sections": [
         {
-          "aliases": ["free"],
+          "aliases": ["infra hugepages free"],
           "anchor": "schema-infra--hugepages--free",
           "description": "Total number of free hugepages present.",
           "document_id": "xcsh-docs:data-sources:registration:properties:infra:hugepages",
@@ -1284,7 +1284,7 @@
           "type": "number"
         },
         {
-          "aliases": ["page size"],
+          "aliases": ["infra hugepages page size"],
           "anchor": "schema-infra--hugepages--page_size",
           "description": "Size of each hugepage.",
           "document_id": "xcsh-docs:data-sources:registration:properties:infra:hugepages",
@@ -1298,7 +1298,7 @@
           "type": "number"
         },
         {
-          "aliases": ["total"],
+          "aliases": ["infra hugepages total"],
           "anchor": "schema-infra--hugepages--total",
           "description": "Total number of hugepages present.",
           "document_id": "xcsh-docs:data-sources:registration:properties:infra:hugepages",
@@ -1344,7 +1344,7 @@
         "xcsh-docs:data-sources:registration:properties:infra:hw_info:usb"
       ],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -1366,7 +1366,7 @@
       "schema_path": ["infra", "hw_info"],
       "sections": [
         {
-          "aliases": ["bios"],
+          "aliases": ["infra hw info bios"],
           "anchor": "section",
           "description": "BIOS information.",
           "document_id": "xcsh-docs:data-sources:registration:properties:infra:hw_info:bios",
@@ -1380,7 +1380,7 @@
           "type": "object"
         },
         {
-          "aliases": ["board"],
+          "aliases": ["infra hw info board"],
           "anchor": "section",
           "description": "Board information.",
           "document_id": "xcsh-docs:data-sources:registration:properties:infra:hw_info:board",
@@ -1394,7 +1394,7 @@
           "type": "object"
         },
         {
-          "aliases": ["chassis"],
+          "aliases": ["infra hw info chassis"],
           "anchor": "section",
           "description": "Chassis information.",
           "document_id": "xcsh-docs:data-sources:registration:properties:infra:hw_info:chassis",
@@ -1408,7 +1408,7 @@
           "type": "object"
         },
         {
-          "aliases": ["cpu"],
+          "aliases": ["infra hw info cpu"],
           "anchor": "section",
           "description": "CPU information.",
           "document_id": "xcsh-docs:data-sources:registration:properties:infra:hw_info:cpu",
@@ -1422,7 +1422,7 @@
           "type": "object"
         },
         {
-          "aliases": ["gpu"],
+          "aliases": ["infra hw info gpu"],
           "anchor": "section",
           "description": "GPU information on server.",
           "document_id": "xcsh-docs:data-sources:registration:properties:infra:hw_info:gpu",
@@ -1436,7 +1436,7 @@
           "type": "object"
         },
         {
-          "aliases": ["kernel"],
+          "aliases": ["infra hw info kernel"],
           "anchor": "section",
           "description": "Kernel information.",
           "document_id": "xcsh-docs:data-sources:registration:properties:infra:hw_info:kernel",
@@ -1450,7 +1450,7 @@
           "type": "object"
         },
         {
-          "aliases": ["memory"],
+          "aliases": ["infra hw info memory"],
           "anchor": "section",
           "description": "Memory information.",
           "document_id": "xcsh-docs:data-sources:registration:properties:infra:hw_info:memory",
@@ -1464,7 +1464,7 @@
           "type": "object"
         },
         {
-          "aliases": ["network"],
+          "aliases": ["infra hw info network"],
           "anchor": "section",
           "description": "List of network devices in server.",
           "document_id": "xcsh-docs:data-sources:registration:properties:infra:hw_info:network",
@@ -1478,7 +1478,7 @@
           "type": "object"
         },
         {
-          "aliases": ["numa nodes"],
+          "aliases": ["infra hw info numa nodes"],
           "anchor": "schema-infra--hw_info--numa_nodes",
           "description": "Non-uniform memory access (NUMA) nodes count.",
           "document_id": "xcsh-docs:data-sources:registration:properties:infra:hw_info",
@@ -1492,7 +1492,7 @@
           "type": "number"
         },
         {
-          "aliases": ["os"],
+          "aliases": ["infra hw info os"],
           "anchor": "section",
           "description": "Details of Operating System.",
           "document_id": "xcsh-docs:data-sources:registration:properties:infra:hw_info:os",
@@ -1506,7 +1506,7 @@
           "type": "object"
         },
         {
-          "aliases": ["product"],
+          "aliases": ["infra hw info product"],
           "anchor": "section",
           "description": "Product information.",
           "document_id": "xcsh-docs:data-sources:registration:properties:infra:hw_info:product",
@@ -1520,7 +1520,7 @@
           "type": "object"
         },
         {
-          "aliases": ["storage"],
+          "aliases": ["infra hw info storage"],
           "anchor": "section",
           "description": "List of storage devices in server.",
           "document_id": "xcsh-docs:data-sources:registration:properties:infra:hw_info:storage",
@@ -1534,7 +1534,7 @@
           "type": "object"
         },
         {
-          "aliases": ["usb"],
+          "aliases": ["infra hw info usb"],
           "anchor": "section",
           "description": "List of USB devices in server.",
           "document_id": "xcsh-docs:data-sources:registration:properties:infra:hw_info:usb",
@@ -1567,7 +1567,7 @@
       "category": "infrastructure",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -1589,7 +1589,7 @@
       "schema_path": ["infra", "hw_info", "bios"],
       "sections": [
         {
-          "aliases": ["date"],
+          "aliases": ["infra hw info bios date"],
           "anchor": "schema-infra--hw_info--bios--date",
           "description": "Information from /sys/class/dmi/ID/bios_date.",
           "document_id": "xcsh-docs:data-sources:registration:properties:infra:hw_info:bios",
@@ -1603,7 +1603,7 @@
           "type": "string"
         },
         {
-          "aliases": ["vendor"],
+          "aliases": ["infra hw info bios vendor"],
           "anchor": "schema-infra--hw_info--bios--vendor",
           "description": "Information from /sys/class/dmi/ID/bios_vendor.",
           "document_id": "xcsh-docs:data-sources:registration:properties:infra:hw_info:bios",
@@ -1617,7 +1617,7 @@
           "type": "string"
         },
         {
-          "aliases": ["version"],
+          "aliases": ["infra hw info bios version"],
           "anchor": "schema-infra--hw_info--bios--version",
           "description": "Information from /sys/class/dmi/ID/bios_version.",
           "document_id": "xcsh-docs:data-sources:registration:properties:infra:hw_info:bios",
@@ -1650,7 +1650,7 @@
       "category": "infrastructure",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -1672,7 +1672,7 @@
       "schema_path": ["infra", "hw_info", "board"],
       "sections": [
         {
-          "aliases": ["asset tag"],
+          "aliases": ["infra hw info board asset tag"],
           "anchor": "schema-infra--hw_info--board--asset_tag",
           "description": "Information from /sys/class/dmi/ID/board_asset_tag.",
           "document_id": "xcsh-docs:data-sources:registration:properties:infra:hw_info:board",
@@ -1686,7 +1686,7 @@
           "type": "string"
         },
         {
-          "aliases": ["name"],
+          "aliases": ["infra hw info board name"],
           "anchor": "schema-infra--hw_info--board--name",
           "description": "Information from /sys/class/dmi/ID/board_name.",
           "document_id": "xcsh-docs:data-sources:registration:properties:infra:hw_info:board",
@@ -1700,7 +1700,7 @@
           "type": "string"
         },
         {
-          "aliases": ["serial"],
+          "aliases": ["infra hw info board serial"],
           "anchor": "schema-infra--hw_info--board--serial",
           "description": "Information from /sys/class/dmi/ID/board_serial.",
           "document_id": "xcsh-docs:data-sources:registration:properties:infra:hw_info:board",
@@ -1714,7 +1714,7 @@
           "type": "string"
         },
         {
-          "aliases": ["vendor"],
+          "aliases": ["infra hw info board vendor"],
           "anchor": "schema-infra--hw_info--board--vendor",
           "description": "Information from /sys/class/dmi/ID/board_vendor.",
           "document_id": "xcsh-docs:data-sources:registration:properties:infra:hw_info:board",
@@ -1728,7 +1728,7 @@
           "type": "string"
         },
         {
-          "aliases": ["version"],
+          "aliases": ["infra hw info board version"],
           "anchor": "schema-infra--hw_info--board--version",
           "description": "Information from /sys/class/dmi/ID/board_version.",
           "document_id": "xcsh-docs:data-sources:registration:properties:infra:hw_info:board",
@@ -1761,7 +1761,7 @@
       "category": "infrastructure",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -1783,7 +1783,7 @@
       "schema_path": ["infra", "hw_info", "chassis"],
       "sections": [
         {
-          "aliases": ["asset tag"],
+          "aliases": ["infra hw info chassis asset tag"],
           "anchor": "schema-infra--hw_info--chassis--asset_tag",
           "description": "Information from /sys/class/dmi/ID/chassis_asset_tag.",
           "document_id": "xcsh-docs:data-sources:registration:properties:infra:hw_info:chassis",
@@ -1797,7 +1797,7 @@
           "type": "string"
         },
         {
-          "aliases": ["serial"],
+          "aliases": ["infra hw info chassis serial"],
           "anchor": "schema-infra--hw_info--chassis--serial",
           "description": "Information from /sys/class/dmi/ID/chassis_serial.",
           "document_id": "xcsh-docs:data-sources:registration:properties:infra:hw_info:chassis",
@@ -1811,7 +1811,7 @@
           "type": "string"
         },
         {
-          "aliases": ["type"],
+          "aliases": ["infra hw info chassis type"],
           "anchor": "schema-infra--hw_info--chassis--type",
           "description": "Information from /sys/class/dmi/ID/chassis_type.",
           "document_id": "xcsh-docs:data-sources:registration:properties:infra:hw_info:chassis",
@@ -1825,7 +1825,7 @@
           "type": "number"
         },
         {
-          "aliases": ["vendor"],
+          "aliases": ["infra hw info chassis vendor"],
           "anchor": "schema-infra--hw_info--chassis--vendor",
           "description": "Information from /sys/class/dmi/ID/chassis_vendor.",
           "document_id": "xcsh-docs:data-sources:registration:properties:infra:hw_info:chassis",
@@ -1839,7 +1839,7 @@
           "type": "string"
         },
         {
-          "aliases": ["version"],
+          "aliases": ["infra hw info chassis version"],
           "anchor": "schema-infra--hw_info--chassis--version",
           "description": "Information from /sys/class/dmi/ID/chassis_version.",
           "document_id": "xcsh-docs:data-sources:registration:properties:infra:hw_info:chassis",
@@ -1872,7 +1872,7 @@
       "category": "infrastructure",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -1894,7 +1894,7 @@
       "schema_path": ["infra", "hw_info", "cpu"],
       "sections": [
         {
-          "aliases": ["cache"],
+          "aliases": ["infra hw info cpu cache"],
           "anchor": "schema-infra--hw_info--cpu--cache",
           "description": "CPU cache size in KB.",
           "document_id": "xcsh-docs:data-sources:registration:properties:infra:hw_info:cpu",
@@ -1908,7 +1908,7 @@
           "type": "number"
         },
         {
-          "aliases": ["cores"],
+          "aliases": ["infra hw info cpu cores"],
           "anchor": "schema-infra--hw_info--cpu--cores",
           "description": "Number of physical CPU cores.",
           "document_id": "xcsh-docs:data-sources:registration:properties:infra:hw_info:cpu",
@@ -1922,7 +1922,7 @@
           "type": "number"
         },
         {
-          "aliases": ["cpus"],
+          "aliases": ["infra hw info cpu cpus"],
           "anchor": "schema-infra--hw_info--cpu--cpus",
           "description": "Number of physical CPUs.",
           "document_id": "xcsh-docs:data-sources:registration:properties:infra:hw_info:cpu",
@@ -1936,7 +1936,7 @@
           "type": "number"
         },
         {
-          "aliases": ["model"],
+          "aliases": ["infra hw info cpu model"],
           "anchor": "schema-infra--hw_info--cpu--model",
           "description": "CPU model",
           "document_id": "xcsh-docs:data-sources:registration:properties:infra:hw_info:cpu",
@@ -1950,7 +1950,7 @@
           "type": "string"
         },
         {
-          "aliases": ["speed"],
+          "aliases": ["infra hw info cpu speed"],
           "anchor": "schema-infra--hw_info--cpu--speed",
           "description": "CPU clock rate in MHz.",
           "document_id": "xcsh-docs:data-sources:registration:properties:infra:hw_info:cpu",
@@ -1964,7 +1964,7 @@
           "type": "number"
         },
         {
-          "aliases": ["threads"],
+          "aliases": ["infra hw info cpu threads"],
           "anchor": "schema-infra--hw_info--cpu--threads",
           "description": "Number of logical (HT) CPU cores.",
           "document_id": "xcsh-docs:data-sources:registration:properties:infra:hw_info:cpu",
@@ -1978,7 +1978,7 @@
           "type": "number"
         },
         {
-          "aliases": ["vendor"],
+          "aliases": ["infra hw info cpu vendor"],
           "anchor": "schema-infra--hw_info--cpu--vendor",
           "description": "CPU vendor.",
           "document_id": "xcsh-docs:data-sources:registration:properties:infra:hw_info:cpu",
@@ -2011,7 +2011,7 @@
       "category": "infrastructure",
       "child_ids": ["xcsh-docs:data-sources:registration:properties:infra:hw_info:gpu:gpu_device"],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -2033,7 +2033,7 @@
       "schema_path": ["infra", "hw_info", "gpu"],
       "sections": [
         {
-          "aliases": ["cuda version"],
+          "aliases": ["infra hw info gpu cuda version"],
           "anchor": "schema-infra--hw_info--gpu--cuda_version",
           "description": "GPU Cuda Version.",
           "document_id": "xcsh-docs:data-sources:registration:properties:infra:hw_info:gpu",
@@ -2047,7 +2047,7 @@
           "type": "string"
         },
         {
-          "aliases": ["driver version"],
+          "aliases": ["infra hw info gpu driver version"],
           "anchor": "schema-infra--hw_info--gpu--driver_version",
           "description": "GPU Driver Version.",
           "document_id": "xcsh-docs:data-sources:registration:properties:infra:hw_info:gpu",
@@ -2061,7 +2061,7 @@
           "type": "string"
         },
         {
-          "aliases": ["gpu device"],
+          "aliases": ["infra hw info gpu gpu device"],
           "anchor": "section",
           "description": "List of GPU devices in server.",
           "document_id": "xcsh-docs:data-sources:registration:properties:infra:hw_info:gpu:gpu_device",
@@ -2094,7 +2094,7 @@
       "category": "infrastructure",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -2116,7 +2116,7 @@
       "schema_path": ["infra", "hw_info", "gpu", "gpu_device"],
       "sections": [
         {
-          "aliases": ["id"],
+          "aliases": ["infra hw info gpu gpu device id"],
           "anchor": "schema-infra--hw_info--gpu--gpu_device--id",
           "description": "GPU ID",
           "document_id": "xcsh-docs:data-sources:registration:properties:infra:hw_info:gpu:gpu_device",
@@ -2130,7 +2130,7 @@
           "type": "string"
         },
         {
-          "aliases": ["processes"],
+          "aliases": ["infra hw info gpu gpu device processes"],
           "anchor": "schema-infra--hw_info--gpu--gpu_device--processes",
           "description": "GPU Processes.",
           "document_id": "xcsh-docs:data-sources:registration:properties:infra:hw_info:gpu:gpu_device",
@@ -2144,7 +2144,7 @@
           "type": "string"
         },
         {
-          "aliases": ["product name"],
+          "aliases": ["infra hw info gpu gpu device product name"],
           "anchor": "schema-infra--hw_info--gpu--gpu_device--product_name",
           "description": "GPU Product Name.",
           "document_id": "xcsh-docs:data-sources:registration:properties:infra:hw_info:gpu:gpu_device",
@@ -2177,7 +2177,7 @@
       "category": "infrastructure",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -2199,7 +2199,7 @@
       "schema_path": ["infra", "hw_info", "kernel"],
       "sections": [
         {
-          "aliases": ["architecture"],
+          "aliases": ["infra hw info kernel architecture"],
           "anchor": "schema-infra--hw_info--kernel--architecture",
           "description": "Kernel architecture.",
           "document_id": "xcsh-docs:data-sources:registration:properties:infra:hw_info:kernel",
@@ -2213,7 +2213,7 @@
           "type": "string"
         },
         {
-          "aliases": ["release"],
+          "aliases": ["infra hw info kernel release"],
           "anchor": "schema-infra--hw_info--kernel--release",
           "description": "Kernel release.",
           "document_id": "xcsh-docs:data-sources:registration:properties:infra:hw_info:kernel",
@@ -2227,7 +2227,7 @@
           "type": "string"
         },
         {
-          "aliases": ["version"],
+          "aliases": ["infra hw info kernel version"],
           "anchor": "schema-infra--hw_info--kernel--version",
           "description": "Kernel version.",
           "document_id": "xcsh-docs:data-sources:registration:properties:infra:hw_info:kernel",
@@ -2260,7 +2260,7 @@
       "category": "infrastructure",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -2282,7 +2282,7 @@
       "schema_path": ["infra", "hw_info", "memory"],
       "sections": [
         {
-          "aliases": ["size mb"],
+          "aliases": ["infra hw info memory size mb"],
           "anchor": "schema-infra--hw_info--memory--size_mb",
           "description": "RAM size in MB.",
           "document_id": "xcsh-docs:data-sources:registration:properties:infra:hw_info:memory",
@@ -2296,7 +2296,7 @@
           "type": "number"
         },
         {
-          "aliases": ["speed"],
+          "aliases": ["infra hw info memory speed"],
           "anchor": "schema-infra--hw_info--memory--speed",
           "description": "RAM data rate in MT/s.",
           "document_id": "xcsh-docs:data-sources:registration:properties:infra:hw_info:memory",
@@ -2310,7 +2310,7 @@
           "type": "number"
         },
         {
-          "aliases": ["type"],
+          "aliases": ["infra hw info memory type"],
           "anchor": "schema-infra--hw_info--memory--type",
           "description": "Type of memory, eg. DDR4.",
           "document_id": "xcsh-docs:data-sources:registration:properties:infra:hw_info:memory",
@@ -2343,7 +2343,7 @@
       "category": "infrastructure",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -2365,7 +2365,7 @@
       "schema_path": ["infra", "hw_info", "network"],
       "sections": [
         {
-          "aliases": ["driver"],
+          "aliases": ["infra hw info network driver"],
           "anchor": "schema-infra--hw_info--network--driver",
           "description": "Driver of device, eg. E1000e.",
           "document_id": "xcsh-docs:data-sources:registration:properties:infra:hw_info:network",
@@ -2379,7 +2379,7 @@
           "type": "string"
         },
         {
-          "aliases": ["ip address"],
+          "aliases": ["infra hw info network ip address"],
           "anchor": "schema-infra--hw_info--network--ip_address",
           "description": "IP address on interface.",
           "document_id": "xcsh-docs:data-sources:registration:properties:infra:hw_info:network",
@@ -2393,7 +2393,7 @@
           "type": "list"
         },
         {
-          "aliases": ["link quality"],
+          "aliases": ["infra hw info network link quality"],
           "anchor": "schema-infra--hw_info--network--link_quality",
           "description": "Link quality determined by VER using different probes Unknown quality Link quality is good Link quality is poor Quality disabled.",
           "document_id": "xcsh-docs:data-sources:registration:properties:infra:hw_info:network",
@@ -2407,7 +2407,7 @@
           "type": "string"
         },
         {
-          "aliases": ["link type"],
+          "aliases": ["infra hw info network link type"],
           "anchor": "schema-infra--hw_info--network--link_type",
           "description": "Link type of interface determined operationally Link type unknown Link type ethernet Wi-Fi link of type 802.11ac Wi-Fi link of type 802.11bgn Link type 4G Wi-Fi link Wan link.",
           "document_id": "xcsh-docs:data-sources:registration:properties:infra:hw_info:network",
@@ -2421,7 +2421,7 @@
           "type": "string"
         },
         {
-          "aliases": ["mac address"],
+          "aliases": ["infra hw info network mac address"],
           "anchor": "schema-infra--hw_info--network--mac_address",
           "description": "MAC address on interface.",
           "document_id": "xcsh-docs:data-sources:registration:properties:infra:hw_info:network",
@@ -2435,7 +2435,7 @@
           "type": "string"
         },
         {
-          "aliases": ["name"],
+          "aliases": ["infra hw info network name"],
           "anchor": "schema-infra--hw_info--network--name",
           "description": "Name of device, eg. Eth0.",
           "document_id": "xcsh-docs:data-sources:registration:properties:infra:hw_info:network",
@@ -2449,7 +2449,7 @@
           "type": "string"
         },
         {
-          "aliases": ["port"],
+          "aliases": ["infra hw info network port"],
           "anchor": "schema-infra--hw_info--network--port",
           "description": "Used port, eg. Tp.",
           "document_id": "xcsh-docs:data-sources:registration:properties:infra:hw_info:network",
@@ -2463,7 +2463,7 @@
           "type": "string"
         },
         {
-          "aliases": ["speed"],
+          "aliases": ["infra hw info network speed"],
           "anchor": "schema-infra--hw_info--network--speed",
           "description": "Device max supported speed in Mbps.",
           "document_id": "xcsh-docs:data-sources:registration:properties:infra:hw_info:network",
@@ -2496,7 +2496,7 @@
       "category": "infrastructure",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -2518,7 +2518,7 @@
       "schema_path": ["infra", "hw_info", "os"],
       "sections": [
         {
-          "aliases": ["architecture"],
+          "aliases": ["infra hw info os architecture"],
           "anchor": "schema-infra--hw_info--os--architecture",
           "description": "Architecture of OS.",
           "document_id": "xcsh-docs:data-sources:registration:properties:infra:hw_info:os",
@@ -2532,7 +2532,7 @@
           "type": "string"
         },
         {
-          "aliases": ["name"],
+          "aliases": ["infra hw info os name"],
           "anchor": "schema-infra--hw_info--os--name",
           "description": "Name of OS.",
           "document_id": "xcsh-docs:data-sources:registration:properties:infra:hw_info:os",
@@ -2546,7 +2546,7 @@
           "type": "string"
         },
         {
-          "aliases": ["release"],
+          "aliases": ["infra hw info os release"],
           "anchor": "schema-infra--hw_info--os--release",
           "description": "Release of the OS.",
           "document_id": "xcsh-docs:data-sources:registration:properties:infra:hw_info:os",
@@ -2560,7 +2560,7 @@
           "type": "string"
         },
         {
-          "aliases": ["vendor"],
+          "aliases": ["infra hw info os vendor"],
           "anchor": "schema-infra--hw_info--os--vendor",
           "description": "Vendor of OS.",
           "document_id": "xcsh-docs:data-sources:registration:properties:infra:hw_info:os",
@@ -2574,7 +2574,7 @@
           "type": "string"
         },
         {
-          "aliases": ["version"],
+          "aliases": ["infra hw info os version"],
           "anchor": "schema-infra--hw_info--os--version",
           "description": "Version of OS.",
           "document_id": "xcsh-docs:data-sources:registration:properties:infra:hw_info:os",
@@ -2607,7 +2607,7 @@
       "category": "infrastructure",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -2629,7 +2629,7 @@
       "schema_path": ["infra", "hw_info", "product"],
       "sections": [
         {
-          "aliases": ["name"],
+          "aliases": ["infra hw info product name"],
           "anchor": "schema-infra--hw_info--product--name",
           "description": "Product name, eg. For AWS m5a.xlarge. Info taken from /sys/class/dmi/ID/product_name.",
           "document_id": "xcsh-docs:data-sources:registration:properties:infra:hw_info:product",
@@ -2643,7 +2643,7 @@
           "type": "string"
         },
         {
-          "aliases": ["serial"],
+          "aliases": ["infra hw info product serial"],
           "anchor": "schema-infra--hw_info--product--serial",
           "description": "Serial number, eg. For AWS 00000000-0000-4000-8000-23460f645a1f. Info taken from /sys/class/dmi/ID/product_serial.",
           "document_id": "xcsh-docs:data-sources:registration:properties:infra:hw_info:product",
@@ -2657,7 +2657,7 @@
           "type": "string"
         },
         {
-          "aliases": ["vendor"],
+          "aliases": ["infra hw info product vendor"],
           "anchor": "schema-infra--hw_info--product--vendor",
           "description": "Vendor name, eg. For AWS Amazon EC2. Info taken from /sys/class/dmi/ID/product_vendor.",
           "document_id": "xcsh-docs:data-sources:registration:properties:infra:hw_info:product",
@@ -2671,7 +2671,7 @@
           "type": "string"
         },
         {
-          "aliases": ["version"],
+          "aliases": ["infra hw info product version"],
           "anchor": "schema-infra--hw_info--product--version",
           "description": "Version name. Info taken from /sys/class/dmi/ID/product_version.",
           "document_id": "xcsh-docs:data-sources:registration:properties:infra:hw_info:product",
@@ -2704,7 +2704,7 @@
       "category": "infrastructure",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -2726,7 +2726,7 @@
       "schema_path": ["infra", "hw_info", "storage"],
       "sections": [
         {
-          "aliases": ["driver"],
+          "aliases": ["infra hw info storage driver"],
           "anchor": "schema-infra--hw_info--storage--driver",
           "description": "Driver of device.",
           "document_id": "xcsh-docs:data-sources:registration:properties:infra:hw_info:storage",
@@ -2740,7 +2740,7 @@
           "type": "string"
         },
         {
-          "aliases": ["model"],
+          "aliases": ["infra hw info storage model"],
           "anchor": "schema-infra--hw_info--storage--model",
           "description": "Model of device.",
           "document_id": "xcsh-docs:data-sources:registration:properties:infra:hw_info:storage",
@@ -2754,7 +2754,7 @@
           "type": "string"
         },
         {
-          "aliases": ["name"],
+          "aliases": ["infra hw info storage name"],
           "anchor": "schema-infra--hw_info--storage--name",
           "description": "Name of device, eg. Nvme0n1.",
           "document_id": "xcsh-docs:data-sources:registration:properties:infra:hw_info:storage",
@@ -2768,7 +2768,7 @@
           "type": "string"
         },
         {
-          "aliases": ["serial"],
+          "aliases": ["infra hw info storage serial"],
           "anchor": "schema-infra--hw_info--storage--serial",
           "description": "Serial of device.",
           "document_id": "xcsh-docs:data-sources:registration:properties:infra:hw_info:storage",
@@ -2782,7 +2782,7 @@
           "type": "string"
         },
         {
-          "aliases": ["size gb"],
+          "aliases": ["infra hw info storage size gb"],
           "anchor": "schema-infra--hw_info--storage--size_gb",
           "description": "Device size in GB.",
           "document_id": "xcsh-docs:data-sources:registration:properties:infra:hw_info:storage",
@@ -2796,7 +2796,7 @@
           "type": "number"
         },
         {
-          "aliases": ["vendor"],
+          "aliases": ["infra hw info storage vendor"],
           "anchor": "schema-infra--hw_info--storage--vendor",
           "description": "Vendor of device.",
           "document_id": "xcsh-docs:data-sources:registration:properties:infra:hw_info:storage",
@@ -2829,7 +2829,7 @@
       "category": "infrastructure",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -2851,7 +2851,7 @@
       "schema_path": ["infra", "hw_info", "usb"],
       "sections": [
         {
-          "aliases": ["address"],
+          "aliases": ["infra hw info usb address"],
           "anchor": "schema-infra--hw_info--usb--address",
           "description": "Address of the device on the bus in decimal.",
           "document_id": "xcsh-docs:data-sources:registration:properties:infra:hw_info:usb",
@@ -2865,7 +2865,7 @@
           "type": "number"
         },
         {
-          "aliases": ["b device class"],
+          "aliases": ["infra hw info usb b device class"],
           "anchor": "schema-infra--hw_info--usb--b_device_class",
           "description": "The class of this device.",
           "document_id": "xcsh-docs:data-sources:registration:properties:infra:hw_info:usb",
@@ -2879,7 +2879,7 @@
           "type": "string"
         },
         {
-          "aliases": ["b device protocol"],
+          "aliases": ["infra hw info usb b device protocol"],
           "anchor": "schema-infra--hw_info--usb--b_device_protocol",
           "description": "The protocol (within the sub-class) of this device.",
           "document_id": "xcsh-docs:data-sources:registration:properties:infra:hw_info:usb",
@@ -2893,7 +2893,7 @@
           "type": "string"
         },
         {
-          "aliases": ["b device sub class"],
+          "aliases": ["infra hw info usb b device sub class"],
           "anchor": "schema-infra--hw_info--usb--b_device_sub_class",
           "description": "The sub-class (within the class) of this device.",
           "document_id": "xcsh-docs:data-sources:registration:properties:infra:hw_info:usb",
@@ -2907,7 +2907,7 @@
           "type": "string"
         },
         {
-          "aliases": ["b max packet size"],
+          "aliases": ["infra hw info usb b max packet size"],
           "anchor": "schema-infra--hw_info--usb--b_max_packet_size",
           "description": "Maximum size of the control transfer.",
           "document_id": "xcsh-docs:data-sources:registration:properties:infra:hw_info:usb",
@@ -2921,7 +2921,7 @@
           "type": "number"
         },
         {
-          "aliases": ["bcd device"],
+          "aliases": ["infra hw info usb bcd device"],
           "anchor": "schema-infra--hw_info--usb--bcd_device",
           "description": "The device version.",
           "document_id": "xcsh-docs:data-sources:registration:properties:infra:hw_info:usb",
@@ -2935,7 +2935,7 @@
           "type": "string"
         },
         {
-          "aliases": ["bcd usb"],
+          "aliases": ["infra hw info usb bcd usb"],
           "anchor": "schema-infra--hw_info--usb--bcd_usb",
           "description": "USB Specification Release Number.",
           "document_id": "xcsh-docs:data-sources:registration:properties:infra:hw_info:usb",
@@ -2949,7 +2949,7 @@
           "type": "string"
         },
         {
-          "aliases": ["bus"],
+          "aliases": ["infra hw info usb bus"],
           "anchor": "schema-infra--hw_info--usb--bus",
           "description": "The bus on which the device was detected in decimal.",
           "document_id": "xcsh-docs:data-sources:registration:properties:infra:hw_info:usb",
@@ -2963,7 +2963,7 @@
           "type": "number"
         },
         {
-          "aliases": ["description spec"],
+          "aliases": ["infra hw info usb description spec"],
           "anchor": "schema-infra--hw_info--usb--description_spec",
           "description": "Description. Device description.",
           "document_id": "xcsh-docs:data-sources:registration:properties:infra:hw_info:usb",
@@ -2977,7 +2977,7 @@
           "type": "string"
         },
         {
-          "aliases": ["i manufacturer"],
+          "aliases": ["infra hw info usb i manufacturer"],
           "anchor": "schema-infra--hw_info--usb--i_manufacturer",
           "description": "Manufacturer name.",
           "document_id": "xcsh-docs:data-sources:registration:properties:infra:hw_info:usb",
@@ -2991,7 +2991,7 @@
           "type": "string"
         },
         {
-          "aliases": ["i product"],
+          "aliases": ["infra hw info usb i product"],
           "anchor": "schema-infra--hw_info--usb--i_product",
           "description": "Product name reported by device.",
           "document_id": "xcsh-docs:data-sources:registration:properties:infra:hw_info:usb",
@@ -3005,7 +3005,7 @@
           "type": "string"
         },
         {
-          "aliases": ["i serial"],
+          "aliases": ["infra hw info usb i serial"],
           "anchor": "schema-infra--hw_info--usb--i_serial",
           "description": "Index of Serial Number String Descriptor.",
           "document_id": "xcsh-docs:data-sources:registration:properties:infra:hw_info:usb",
@@ -3019,7 +3019,7 @@
           "type": "string"
         },
         {
-          "aliases": ["id product"],
+          "aliases": ["infra hw info usb id product"],
           "anchor": "schema-infra--hw_info--usb--id_product",
           "description": "Product ID (Assigned by Manufacturer) in hex.",
           "document_id": "xcsh-docs:data-sources:registration:properties:infra:hw_info:usb",
@@ -3033,7 +3033,7 @@
           "type": "string"
         },
         {
-          "aliases": ["id vendor"],
+          "aliases": ["infra hw info usb id vendor"],
           "anchor": "schema-infra--hw_info--usb--id_vendor",
           "description": "Vendor ID (Assigned by USB Org) in hex.",
           "document_id": "xcsh-docs:data-sources:registration:properties:infra:hw_info:usb",
@@ -3047,7 +3047,7 @@
           "type": "string"
         },
         {
-          "aliases": ["port"],
+          "aliases": ["infra hw info usb port"],
           "anchor": "schema-infra--hw_info--usb--port",
           "description": "Port on which the device was detected in decimal.",
           "document_id": "xcsh-docs:data-sources:registration:properties:infra:hw_info:usb",
@@ -3061,7 +3061,7 @@
           "type": "number"
         },
         {
-          "aliases": ["product name"],
+          "aliases": ["infra hw info usb product name"],
           "anchor": "schema-infra--hw_info--usb--product_name",
           "description": "Product ID translated to name (if available)",
           "document_id": "xcsh-docs:data-sources:registration:properties:infra:hw_info:usb",
@@ -3075,7 +3075,7 @@
           "type": "string"
         },
         {
-          "aliases": ["speed"],
+          "aliases": ["infra hw info usb speed"],
           "anchor": "schema-infra--hw_info--usb--speed",
           "description": "The negotiated operating speed for the device.",
           "document_id": "xcsh-docs:data-sources:registration:properties:infra:hw_info:usb",
@@ -3089,7 +3089,7 @@
           "type": "string"
         },
         {
-          "aliases": ["usb type"],
+          "aliases": ["infra hw info usb usb type"],
           "anchor": "schema-infra--hw_info--usb--usb_type",
           "description": "Type of USB device Unknown USB device type Internal USB present in Certified HW USB device present during node registration USB device that can be matched by USB rules.",
           "document_id": "xcsh-docs:data-sources:registration:properties:infra:hw_info:usb",
@@ -3103,7 +3103,7 @@
           "type": "string"
         },
         {
-          "aliases": ["vendor name"],
+          "aliases": ["infra hw info usb vendor name"],
           "anchor": "schema-infra--hw_info--usb--vendor_name",
           "description": "Vendor ID translated to name (if available)",
           "document_id": "xcsh-docs:data-sources:registration:properties:infra:hw_info:usb",
@@ -3136,7 +3136,7 @@
       "category": "infrastructure",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -3176,7 +3176,7 @@
       "category": "infrastructure",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -3198,7 +3198,7 @@
       "schema_path": ["infra", "internet_proxy"],
       "sections": [
         {
-          "aliases": ["http proxy"],
+          "aliases": ["infra internet proxy http proxy"],
           "anchor": "schema-infra--internet_proxy--http_proxy",
           "description": "It will be used as the proxy URL for HTTP requests and HTTPS requests unless overridden by HTTPSProxy or NoProxy.",
           "document_id": "xcsh-docs:data-sources:registration:properties:infra:internet_proxy",
@@ -3212,7 +3212,7 @@
           "type": "string"
         },
         {
-          "aliases": ["https proxy"],
+          "aliases": ["infra internet proxy https proxy"],
           "anchor": "schema-infra--internet_proxy--https_proxy",
           "description": "It will be used as the proxy URL for HTTPS requests unless overridden by NoProxy.",
           "document_id": "xcsh-docs:data-sources:registration:properties:infra:internet_proxy",
@@ -3226,7 +3226,7 @@
           "type": "string"
         },
         {
-          "aliases": ["no proxy"],
+          "aliases": ["infra internet proxy no proxy"],
           "anchor": "schema-infra--internet_proxy--no_proxy",
           "description": "It specifies a string that contains comma-separated values specifying hosts that should be excluded from proxying. Each value is represented by an IP address prefix (192.0.2.103), an IP address prefix in CIDR notation (192.0.2.103/8), a domain name, or a special DNS label (*). An IP address prefix and domain name can",
           "document_id": "xcsh-docs:data-sources:registration:properties:infra:internet_proxy",
@@ -3240,7 +3240,7 @@
           "type": "string"
         },
         {
-          "aliases": ["proxy cacert url"],
+          "aliases": ["infra internet proxy proxy cacert url"],
           "anchor": "schema-infra--internet_proxy--proxy_cacert_url",
           "description": "Allow optional different trust-store for proxy in HTTP CONNECT step by picking proxy CA certificate value.",
           "document_id": "xcsh-docs:data-sources:registration:properties:infra:internet_proxy",
@@ -3273,7 +3273,7 @@
       "category": "infrastructure",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -3295,7 +3295,7 @@
       "schema_path": ["infra", "sw_info"],
       "sections": [
         {
-          "aliases": ["sw version"],
+          "aliases": ["infra sw info sw version"],
           "anchor": "schema-infra--sw_info--sw_version",
           "description": "SW Version in the site.",
           "document_id": "xcsh-docs:data-sources:registration:properties:infra:sw_info",
@@ -3331,7 +3331,7 @@
         "xcsh-docs:data-sources:registration:properties:passport:default_sw_version"
       ],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -3353,7 +3353,7 @@
       "schema_path": ["passport"],
       "sections": [
         {
-          "aliases": ["cluster name"],
+          "aliases": ["passport cluster name"],
           "anchor": "schema-passport--cluster_name",
           "description": "Human-readable name for the resource",
           "document_id": "xcsh-docs:data-sources:registration:properties:passport",
@@ -3367,7 +3367,7 @@
           "type": "string"
         },
         {
-          "aliases": ["cluster size"],
+          "aliases": ["passport cluster size"],
           "anchor": "schema-passport--cluster_size",
           "description": "Defines how many master nodes is in the cluster, only 1 or 3 is allowed 1 - cluster have single master, without HA 3 - cluster have 3 masters, with HA, all nodes should be allowed at same time, cluster won't start until ALL nodes are ADMITTED 0 - same as 1 This value can't be changed after installation. It does not",
           "document_id": "xcsh-docs:data-sources:registration:properties:passport",
@@ -3381,7 +3381,7 @@
           "type": "number"
         },
         {
-          "aliases": ["cluster type"],
+          "aliases": ["passport cluster type"],
           "anchor": "schema-passport--cluster_type",
           "description": "Cluster or grouping configuration",
           "document_id": "xcsh-docs:data-sources:registration:properties:passport",
@@ -3395,7 +3395,7 @@
           "type": "string"
         },
         {
-          "aliases": ["default os version"],
+          "aliases": ["passport default os version"],
           "anchor": "section",
           "description": "This can be used for messages where no values are needed.",
           "document_id": "xcsh-docs:data-sources:registration:properties:passport:default_os_version",
@@ -3409,7 +3409,7 @@
           "type": "object"
         },
         {
-          "aliases": ["default sw version"],
+          "aliases": ["passport default sw version"],
           "anchor": "section",
           "description": "This can be used for messages where no values are needed.",
           "document_id": "xcsh-docs:data-sources:registration:properties:passport:default_sw_version",
@@ -3423,7 +3423,7 @@
           "type": "object"
         },
         {
-          "aliases": ["latitude"],
+          "aliases": ["passport latitude"],
           "anchor": "schema-passport--latitude",
           "description": "Geographic location of this site.",
           "document_id": "xcsh-docs:data-sources:registration:properties:passport",
@@ -3437,7 +3437,7 @@
           "type": "number"
         },
         {
-          "aliases": ["longitude"],
+          "aliases": ["passport longitude"],
           "anchor": "schema-passport--longitude",
           "description": "Geographic location of this site.",
           "document_id": "xcsh-docs:data-sources:registration:properties:passport",
@@ -3451,7 +3451,7 @@
           "type": "number"
         },
         {
-          "aliases": ["operating system version"],
+          "aliases": ["passport operating system version"],
           "anchor": "schema-passport--operating_system_version",
           "description": "Exclusive with Operating System Version is optional parameter, which allows to specify target SW version for particular site e.g. 7.2009.10.",
           "document_id": "xcsh-docs:data-sources:registration:properties:passport",
@@ -3465,7 +3465,7 @@
           "type": "string"
         },
         {
-          "aliases": ["private network name"],
+          "aliases": ["passport private network name"],
           "anchor": "schema-passport--private_network_name",
           "description": "Private Network name for private access connectivity to F5XC ADN. It is used for PrivateLink, CloudLink and L3VPN.",
           "document_id": "xcsh-docs:data-sources:registration:properties:passport",
@@ -3479,7 +3479,7 @@
           "type": "string"
         },
         {
-          "aliases": ["volterra software version"],
+          "aliases": ["passport volterra software version"],
           "anchor": "schema-passport--volterra_software_version",
           "description": "Exclusive with F5XC Software Version is optional parameter, which allows to specify target SW version for particular site e.g. Crt-20210329-1002.",
           "document_id": "xcsh-docs:data-sources:registration:properties:passport",
@@ -3512,7 +3512,7 @@
       "category": "infrastructure",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -3552,7 +3552,7 @@
       "category": "infrastructure",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -3592,7 +3592,7 @@
       "category": "infrastructure",
       "child_ids": ["xcsh-docs:data-sources:registration:example:data-source"],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -3632,7 +3632,7 @@
       "category": "infrastructure",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"

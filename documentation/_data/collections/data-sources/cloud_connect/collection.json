@@ -336,7 +336,7 @@
       "category": "infrastructure",
       "child_ids": ["xcsh-docs:data-sources:cloud_connect:reference", "xcsh-docs:data-sources:cloud_connect:examples"],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -381,7 +381,7 @@
         "xcsh-docs:data-sources:cloud_connect:properties:segment"
       ],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -548,7 +548,7 @@
       "category": "infrastructure",
       "child_ids": ["xcsh-docs:data-sources:cloud_connect:properties:aws_provider:aws_tgw_site"],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -570,7 +570,7 @@
       "schema_path": ["aws_provider"],
       "sections": [
         {
-          "aliases": ["aws tgw site"],
+          "aliases": ["aws provider aws tgw site"],
           "anchor": "section",
           "description": "Cloud Connect AWS TGW Site Type.",
           "document_id": "xcsh-docs:data-sources:cloud_connect:properties:aws_provider:aws_tgw_site",
@@ -607,7 +607,7 @@
         "xcsh-docs:data-sources:cloud_connect:properties:aws_provider:aws_tgw_site:vpc_attachments"
       ],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -629,7 +629,7 @@
       "schema_path": ["aws_provider", "aws_tgw_site"],
       "sections": [
         {
-          "aliases": ["cred"],
+          "aliases": ["aws provider aws tgw site cred"],
           "anchor": "section",
           "description": "This type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name.",
           "document_id": "xcsh-docs:data-sources:cloud_connect:properties:aws_provider:aws_tgw_site:cred",
@@ -643,7 +643,7 @@
           "type": "object"
         },
         {
-          "aliases": ["site"],
+          "aliases": ["aws provider aws tgw site site"],
           "anchor": "section",
           "description": "This type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name.",
           "document_id": "xcsh-docs:data-sources:cloud_connect:properties:aws_provider:aws_tgw_site:site",
@@ -657,7 +657,7 @@
           "type": "object"
         },
         {
-          "aliases": ["vpc attachments"],
+          "aliases": ["aws provider aws tgw site vpc attachments"],
           "anchor": "section",
           "description": "Configuration parameter for vpc attachments.",
           "document_id": "xcsh-docs:data-sources:cloud_connect:properties:aws_provider:aws_tgw_site:vpc_attachments",
@@ -690,7 +690,7 @@
       "category": "infrastructure",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -712,7 +712,7 @@
       "schema_path": ["aws_provider", "aws_tgw_site", "cred"],
       "sections": [
         {
-          "aliases": ["name"],
+          "aliases": ["aws provider aws tgw site cred name"],
           "anchor": "schema-aws_provider--aws_tgw_site--cred--name",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.",
           "document_id": "xcsh-docs:data-sources:cloud_connect:properties:aws_provider:aws_tgw_site:cred",
@@ -726,7 +726,7 @@
           "type": "string"
         },
         {
-          "aliases": ["namespace"],
+          "aliases": ["aws provider aws tgw site cred namespace"],
           "anchor": "schema-aws_provider--aws_tgw_site--cred--namespace",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace.",
           "document_id": "xcsh-docs:data-sources:cloud_connect:properties:aws_provider:aws_tgw_site:cred",
@@ -740,7 +740,7 @@
           "type": "string"
         },
         {
-          "aliases": ["tenant"],
+          "aliases": ["aws provider aws tgw site cred tenant"],
           "anchor": "schema-aws_provider--aws_tgw_site--cred--tenant",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant.",
           "document_id": "xcsh-docs:data-sources:cloud_connect:properties:aws_provider:aws_tgw_site:cred",
@@ -773,7 +773,7 @@
       "category": "infrastructure",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -795,7 +795,7 @@
       "schema_path": ["aws_provider", "aws_tgw_site", "site"],
       "sections": [
         {
-          "aliases": ["name"],
+          "aliases": ["aws provider aws tgw site site name"],
           "anchor": "schema-aws_provider--aws_tgw_site--site--name",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.",
           "document_id": "xcsh-docs:data-sources:cloud_connect:properties:aws_provider:aws_tgw_site:site",
@@ -809,7 +809,7 @@
           "type": "string"
         },
         {
-          "aliases": ["namespace"],
+          "aliases": ["aws provider aws tgw site site namespace"],
           "anchor": "schema-aws_provider--aws_tgw_site--site--namespace",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace.",
           "document_id": "xcsh-docs:data-sources:cloud_connect:properties:aws_provider:aws_tgw_site:site",
@@ -823,7 +823,7 @@
           "type": "string"
         },
         {
-          "aliases": ["tenant"],
+          "aliases": ["aws provider aws tgw site site tenant"],
           "anchor": "schema-aws_provider--aws_tgw_site--site--tenant",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant.",
           "document_id": "xcsh-docs:data-sources:cloud_connect:properties:aws_provider:aws_tgw_site:site",
@@ -858,7 +858,7 @@
         "xcsh-docs:data-sources:cloud_connect:properties:aws_provider:aws_tgw_site:vpc_attachments:vpc_list"
       ],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -880,7 +880,7 @@
       "schema_path": ["aws_provider", "aws_tgw_site", "vpc_attachments"],
       "sections": [
         {
-          "aliases": ["vpc list"],
+          "aliases": ["aws provider aws tgw site vpc attachments vpc list"],
           "anchor": "section",
           "description": "Collection of items or values",
           "document_id": "xcsh-docs:data-sources:cloud_connect:properties:aws_provider:aws_tgw_site:vpc_attachments:vpc_list",
@@ -918,7 +918,7 @@
         "xcsh-docs:data-sources:cloud_connect:properties:aws_provider:aws_tgw_site:vpc_attachments:vpc_list:manual_routing"
       ],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -940,7 +940,7 @@
       "schema_path": ["aws_provider", "aws_tgw_site", "vpc_attachments", "vpc_list"],
       "sections": [
         {
-          "aliases": ["custom routing"],
+          "aliases": ["aws provider aws tgw site vpc attachments vpc list custom routing"],
           "anchor": "section",
           "description": "AWS Route Table List.",
           "document_id": "xcsh-docs:data-sources:cloud_connect:properties:aws_provider:aws_tgw_site:vpc_attachments:vpc_list:custom_routing",
@@ -954,7 +954,7 @@
           "type": "object"
         },
         {
-          "aliases": ["default route"],
+          "aliases": ["aws provider aws tgw site vpc attachments vpc list default route"],
           "anchor": "section",
           "description": "Select Override Default Route Choice.",
           "document_id": "xcsh-docs:data-sources:cloud_connect:properties:aws_provider:aws_tgw_site:vpc_attachments:vpc_list:default_route",
@@ -968,7 +968,7 @@
           "type": "object"
         },
         {
-          "aliases": ["labels"],
+          "aliases": ["aws provider aws tgw site vpc attachments vpc list labels"],
           "anchor": "section",
           "description": "Add labels for the VPC attachment. These labels can then be used in policies such as enhanced firewall.",
           "document_id": "xcsh-docs:data-sources:cloud_connect:properties:aws_provider:aws_tgw_site:vpc_attachments:vpc_list:labels",
@@ -982,7 +982,7 @@
           "type": "object"
         },
         {
-          "aliases": ["manual routing"],
+          "aliases": ["aws provider aws tgw site vpc attachments vpc list manual routing"],
           "anchor": "section",
           "description": "This can be used for messages where no values are needed.",
           "document_id": "xcsh-docs:data-sources:cloud_connect:properties:aws_provider:aws_tgw_site:vpc_attachments:vpc_list:manual_routing",
@@ -996,7 +996,7 @@
           "type": "object"
         },
         {
-          "aliases": ["vpc id"],
+          "aliases": ["aws provider aws tgw site vpc attachments vpc list vpc id"],
           "anchor": "schema-aws_provider--aws_tgw_site--vpc_attachments--vpc_list--vpc_id",
           "description": "Enter the VPC ID of the VPC to be attached.",
           "document_id": "xcsh-docs:data-sources:cloud_connect:properties:aws_provider:aws_tgw_site:vpc_attachments:vpc_list",
@@ -1031,7 +1031,7 @@
         "xcsh-docs:data-sources:cloud_connect:properties:aws_provider:aws_tgw_site:vpc_attachments:vpc_list:custom_routing:route_tables"
       ],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -1053,7 +1053,7 @@
       "schema_path": ["aws_provider", "aws_tgw_site", "vpc_attachments", "vpc_list", "custom_routing"],
       "sections": [
         {
-          "aliases": ["route tables"],
+          "aliases": ["aws provider aws tgw site vpc attachments vpc list custom routing route tables"],
           "anchor": "section",
           "description": "Route Tables.",
           "document_id": "xcsh-docs:data-sources:cloud_connect:properties:aws_provider:aws_tgw_site:vpc_attachments:vpc_list:custom_routing:route_tables",
@@ -1093,7 +1093,7 @@
       "category": "infrastructure",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -1115,7 +1115,7 @@
       "schema_path": ["aws_provider", "aws_tgw_site", "vpc_attachments", "vpc_list", "custom_routing", "route_tables"],
       "sections": [
         {
-          "aliases": ["route table id"],
+          "aliases": ["aws provider aws tgw site vpc attachments vpc list custom routing route tables route table id"],
           "anchor": "schema-aws_provider--aws_tgw_site--vpc_attachments--vpc_list--custom_routing--route_tables--route_table_id",
           "description": "Route table ID.",
           "document_id": "xcsh-docs:data-sources:cloud_connect:properties:aws_provider:aws_tgw_site:vpc_attachments:vpc_list:custom_routing:route_tables",
@@ -1137,7 +1137,7 @@
           "type": "string"
         },
         {
-          "aliases": ["static routes"],
+          "aliases": ["aws provider aws tgw site vpc attachments vpc list custom routing route tables static routes"],
           "anchor": "schema-aws_provider--aws_tgw_site--vpc_attachments--vpc_list--custom_routing--route_tables--static_routes",
           "description": "List of Static Routes.",
           "document_id": "xcsh-docs:data-sources:cloud_connect:properties:aws_provider:aws_tgw_site:vpc_attachments:vpc_list:custom_routing:route_tables",
@@ -1181,7 +1181,7 @@
         "xcsh-docs:data-sources:cloud_connect:properties:aws_provider:aws_tgw_site:vpc_attachments:vpc_list:default_route:selective_route_tables"
       ],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -1203,7 +1203,7 @@
       "schema_path": ["aws_provider", "aws_tgw_site", "vpc_attachments", "vpc_list", "default_route"],
       "sections": [
         {
-          "aliases": ["all route tables"],
+          "aliases": ["aws provider aws tgw site vpc attachments vpc list default route all route tables"],
           "anchor": "section",
           "description": "This can be used for messages where no values are needed.",
           "document_id": "xcsh-docs:data-sources:cloud_connect:properties:aws_provider:aws_tgw_site:vpc_attachments:vpc_list:default_route:all_route_tables",
@@ -1224,7 +1224,7 @@
           "type": "object"
         },
         {
-          "aliases": ["selective route tables"],
+          "aliases": ["aws provider aws tgw site vpc attachments vpc list default route selective route tables"],
           "anchor": "section",
           "description": "AWS Route Table.",
           "document_id": "xcsh-docs:data-sources:cloud_connect:properties:aws_provider:aws_tgw_site:vpc_attachments:vpc_list:default_route:selective_route_tables",
@@ -1264,7 +1264,7 @@
       "category": "infrastructure",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -1311,7 +1311,7 @@
       "category": "infrastructure",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -1340,7 +1340,9 @@
       ],
       "sections": [
         {
-          "aliases": ["route table id"],
+          "aliases": [
+            "aws provider aws tgw site vpc attachments vpc list default route selective route tables route table id"
+          ],
           "anchor": "schema-aws_provider--aws_tgw_site--vpc_attachments--vpc_list--default_route--selective_route_tables--route_table_id",
           "description": "Route table ID.",
           "document_id": "xcsh-docs:data-sources:cloud_connect:properties:aws_provider:aws_tgw_site:vpc_attachments:vpc_list:default_route:selective_route_tables",
@@ -1381,7 +1383,7 @@
       "category": "infrastructure",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -1421,7 +1423,7 @@
       "category": "infrastructure",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -1464,7 +1466,7 @@
         "xcsh-docs:data-sources:cloud_connect:properties:azure_vnet_site:vnet_attachments"
       ],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -1486,7 +1488,7 @@
       "schema_path": ["azure_vnet_site"],
       "sections": [
         {
-          "aliases": ["site"],
+          "aliases": ["azure vnet site site"],
           "anchor": "section",
           "description": "This type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name.",
           "document_id": "xcsh-docs:data-sources:cloud_connect:properties:azure_vnet_site:site",
@@ -1500,7 +1502,7 @@
           "type": "object"
         },
         {
-          "aliases": ["vnet attachments"],
+          "aliases": ["azure vnet site vnet attachments"],
           "anchor": "section",
           "description": "Configuration parameter for vnet attachments.",
           "document_id": "xcsh-docs:data-sources:cloud_connect:properties:azure_vnet_site:vnet_attachments",
@@ -1533,7 +1535,7 @@
       "category": "infrastructure",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -1555,7 +1557,7 @@
       "schema_path": ["azure_vnet_site", "site"],
       "sections": [
         {
-          "aliases": ["name"],
+          "aliases": ["azure vnet site site name"],
           "anchor": "schema-azure_vnet_site--site--name",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.",
           "document_id": "xcsh-docs:data-sources:cloud_connect:properties:azure_vnet_site:site",
@@ -1569,7 +1571,7 @@
           "type": "string"
         },
         {
-          "aliases": ["namespace"],
+          "aliases": ["azure vnet site site namespace"],
           "anchor": "schema-azure_vnet_site--site--namespace",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace.",
           "document_id": "xcsh-docs:data-sources:cloud_connect:properties:azure_vnet_site:site",
@@ -1583,7 +1585,7 @@
           "type": "string"
         },
         {
-          "aliases": ["tenant"],
+          "aliases": ["azure vnet site site tenant"],
           "anchor": "schema-azure_vnet_site--site--tenant",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant.",
           "document_id": "xcsh-docs:data-sources:cloud_connect:properties:azure_vnet_site:site",
@@ -1616,7 +1618,7 @@
       "category": "infrastructure",
       "child_ids": ["xcsh-docs:data-sources:cloud_connect:properties:azure_vnet_site:vnet_attachments:vnet_list"],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -1638,7 +1640,7 @@
       "schema_path": ["azure_vnet_site", "vnet_attachments"],
       "sections": [
         {
-          "aliases": ["vnet list"],
+          "aliases": ["azure vnet site vnet attachments vnet list"],
           "anchor": "section",
           "description": "Collection of items or values",
           "document_id": "xcsh-docs:data-sources:cloud_connect:properties:azure_vnet_site:vnet_attachments:vnet_list",
@@ -1676,7 +1678,7 @@
         "xcsh-docs:data-sources:cloud_connect:properties:azure_vnet_site:vnet_attachments:vnet_list:manual_routing"
       ],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -1698,7 +1700,7 @@
       "schema_path": ["azure_vnet_site", "vnet_attachments", "vnet_list"],
       "sections": [
         {
-          "aliases": ["custom routing"],
+          "aliases": ["azure vnet site vnet attachments vnet list custom routing"],
           "anchor": "section",
           "description": "List Azure Route Table with Static Route.",
           "document_id": "xcsh-docs:data-sources:cloud_connect:properties:azure_vnet_site:vnet_attachments:vnet_list:custom_routing",
@@ -1712,7 +1714,7 @@
           "type": "object"
         },
         {
-          "aliases": ["default route"],
+          "aliases": ["azure vnet site vnet attachments vnet list default route"],
           "anchor": "section",
           "description": "Select Override Default Route Choice.",
           "document_id": "xcsh-docs:data-sources:cloud_connect:properties:azure_vnet_site:vnet_attachments:vnet_list:default_route",
@@ -1726,7 +1728,7 @@
           "type": "object"
         },
         {
-          "aliases": ["labels"],
+          "aliases": ["azure vnet site vnet attachments vnet list labels"],
           "anchor": "section",
           "description": "Add labels for the VNet attachments. These labels can then be used in policies such as enhanced firewall policies.",
           "document_id": "xcsh-docs:data-sources:cloud_connect:properties:azure_vnet_site:vnet_attachments:vnet_list:labels",
@@ -1740,7 +1742,7 @@
           "type": "object"
         },
         {
-          "aliases": ["manual routing"],
+          "aliases": ["azure vnet site vnet attachments vnet list manual routing"],
           "anchor": "section",
           "description": "This can be used for messages where no values are needed.",
           "document_id": "xcsh-docs:data-sources:cloud_connect:properties:azure_vnet_site:vnet_attachments:vnet_list:manual_routing",
@@ -1754,7 +1756,7 @@
           "type": "object"
         },
         {
-          "aliases": ["subscription id"],
+          "aliases": ["azure vnet site vnet attachments vnet list subscription id"],
           "anchor": "schema-azure_vnet_site--vnet_attachments--vnet_list--subscription_id",
           "description": "Enter the Subscription ID of the VNet to be attached.",
           "document_id": "xcsh-docs:data-sources:cloud_connect:properties:azure_vnet_site:vnet_attachments:vnet_list",
@@ -1768,7 +1770,7 @@
           "type": "string"
         },
         {
-          "aliases": ["vnet id"],
+          "aliases": ["azure vnet site vnet attachments vnet list vnet id"],
           "anchor": "schema-azure_vnet_site--vnet_attachments--vnet_list--vnet_id",
           "description": "Enter the VNet ID of the VNet to be attached in format /<resource-group-name>/<VNet-name>",
           "document_id": "xcsh-docs:data-sources:cloud_connect:properties:azure_vnet_site:vnet_attachments:vnet_list",
@@ -1803,7 +1805,7 @@
         "xcsh-docs:data-sources:cloud_connect:properties:azure_vnet_site:vnet_attachments:vnet_list:custom_routing:route_tables"
       ],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -1825,7 +1827,7 @@
       "schema_path": ["azure_vnet_site", "vnet_attachments", "vnet_list", "custom_routing"],
       "sections": [
         {
-          "aliases": ["route tables"],
+          "aliases": ["azure vnet site vnet attachments vnet list custom routing route tables"],
           "anchor": "section",
           "description": "Route Tables with static routes.",
           "document_id": "xcsh-docs:data-sources:cloud_connect:properties:azure_vnet_site:vnet_attachments:vnet_list:custom_routing:route_tables",
@@ -1858,7 +1860,7 @@
       "category": "infrastructure",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -1880,7 +1882,7 @@
       "schema_path": ["azure_vnet_site", "vnet_attachments", "vnet_list", "custom_routing", "route_tables"],
       "sections": [
         {
-          "aliases": ["route table id"],
+          "aliases": ["azure vnet site vnet attachments vnet list custom routing route tables route table id"],
           "anchor": "schema-azure_vnet_site--vnet_attachments--vnet_list--custom_routing--route_tables--route_table_id",
           "description": "Route table ID in the format /<resource-group-name>/<route-table-name>",
           "document_id": "xcsh-docs:data-sources:cloud_connect:properties:azure_vnet_site:vnet_attachments:vnet_list:custom_routing:route_tables",
@@ -1901,7 +1903,7 @@
           "type": "string"
         },
         {
-          "aliases": ["static routes"],
+          "aliases": ["azure vnet site vnet attachments vnet list custom routing route tables static routes"],
           "anchor": "schema-azure_vnet_site--vnet_attachments--vnet_list--custom_routing--route_tables--static_routes",
           "description": "List of Static Routes.",
           "document_id": "xcsh-docs:data-sources:cloud_connect:properties:azure_vnet_site:vnet_attachments:vnet_list:custom_routing:route_tables",
@@ -1944,7 +1946,7 @@
         "xcsh-docs:data-sources:cloud_connect:properties:azure_vnet_site:vnet_attachments:vnet_list:default_route:selective_route_tables"
       ],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -1966,7 +1968,7 @@
       "schema_path": ["azure_vnet_site", "vnet_attachments", "vnet_list", "default_route"],
       "sections": [
         {
-          "aliases": ["all route tables"],
+          "aliases": ["azure vnet site vnet attachments vnet list default route all route tables"],
           "anchor": "section",
           "description": "This can be used for messages where no values are needed.",
           "document_id": "xcsh-docs:data-sources:cloud_connect:properties:azure_vnet_site:vnet_attachments:vnet_list:default_route:all_route_tables",
@@ -1980,7 +1982,7 @@
           "type": "object"
         },
         {
-          "aliases": ["selective route tables"],
+          "aliases": ["azure vnet site vnet attachments vnet list default route selective route tables"],
           "anchor": "section",
           "description": "Azure Route Table.",
           "document_id": "xcsh-docs:data-sources:cloud_connect:properties:azure_vnet_site:vnet_attachments:vnet_list:default_route:selective_route_tables",
@@ -2019,7 +2021,7 @@
       "category": "infrastructure",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -2059,7 +2061,7 @@
       "category": "infrastructure",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -2081,7 +2083,7 @@
       "schema_path": ["azure_vnet_site", "vnet_attachments", "vnet_list", "default_route", "selective_route_tables"],
       "sections": [
         {
-          "aliases": ["route table id"],
+          "aliases": ["azure vnet site vnet attachments vnet list default route selective route tables route table id"],
           "anchor": "schema-azure_vnet_site--vnet_attachments--vnet_list--default_route--selective_route_tables--route_table_id",
           "description": "Route table ID in the format /<resource-group-name>/<route-table-name>",
           "document_id": "xcsh-docs:data-sources:cloud_connect:properties:azure_vnet_site:vnet_attachments:vnet_list:default_route:selective_route_tables",
@@ -2121,7 +2123,7 @@
       "category": "infrastructure",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -2161,7 +2163,7 @@
       "category": "infrastructure",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -2201,7 +2203,7 @@
       "category": "infrastructure",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -2223,7 +2225,7 @@
       "schema_path": ["segment"],
       "sections": [
         {
-          "aliases": ["name"],
+          "aliases": ["segment name"],
           "anchor": "schema-segment--name",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.",
           "document_id": "xcsh-docs:data-sources:cloud_connect:properties:segment",
@@ -2237,7 +2239,7 @@
           "type": "string"
         },
         {
-          "aliases": ["namespace"],
+          "aliases": ["segment namespace"],
           "anchor": "schema-segment--namespace",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace.",
           "document_id": "xcsh-docs:data-sources:cloud_connect:properties:segment",
@@ -2251,7 +2253,7 @@
           "type": "string"
         },
         {
-          "aliases": ["tenant"],
+          "aliases": ["segment tenant"],
           "anchor": "schema-segment--tenant",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant.",
           "document_id": "xcsh-docs:data-sources:cloud_connect:properties:segment",
@@ -2284,7 +2286,7 @@
       "category": "infrastructure",
       "child_ids": ["xcsh-docs:data-sources:cloud_connect:example:data-source"],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -2324,7 +2326,7 @@
       "category": "infrastructure",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"

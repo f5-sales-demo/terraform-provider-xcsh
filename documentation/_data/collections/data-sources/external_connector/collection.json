@@ -400,7 +400,7 @@
         "xcsh-docs:data-sources:external_connector:examples"
       ],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -445,7 +445,7 @@
         "xcsh-docs:data-sources:external_connector:properties:ipsec"
       ],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -612,7 +612,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -634,7 +634,7 @@
       "schema_path": ["ce_site_reference"],
       "sections": [
         {
-          "aliases": ["name"],
+          "aliases": ["ce site reference name"],
           "anchor": "schema-ce_site_reference--name",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.",
           "document_id": "xcsh-docs:data-sources:external_connector:properties:ce_site_reference",
@@ -648,7 +648,7 @@
           "type": "string"
         },
         {
-          "aliases": ["namespace"],
+          "aliases": ["ce site reference namespace"],
           "anchor": "schema-ce_site_reference--namespace",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace.",
           "document_id": "xcsh-docs:data-sources:external_connector:properties:ce_site_reference",
@@ -662,7 +662,7 @@
           "type": "string"
         },
         {
-          "aliases": ["tenant"],
+          "aliases": ["ce site reference tenant"],
           "anchor": "schema-ce_site_reference--tenant",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant.",
           "document_id": "xcsh-docs:data-sources:external_connector:properties:ce_site_reference",
@@ -695,7 +695,7 @@
       "category": null,
       "child_ids": ["xcsh-docs:data-sources:external_connector:properties:gre:gre_parameters"],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -717,7 +717,7 @@
       "schema_path": ["gre"],
       "sections": [
         {
-          "aliases": ["gre parameters"],
+          "aliases": ["gre gre parameters"],
           "anchor": "section",
           "description": "GRE configuration parameters required for GRE Connection type.",
           "document_id": "xcsh-docs:data-sources:external_connector:properties:gre:gre_parameters",
@@ -756,7 +756,7 @@
         "xcsh-docs:data-sources:external_connector:properties:gre:gre_parameters:tunnel_eps"
       ],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -778,7 +778,7 @@
       "schema_path": ["gre", "gre_parameters"],
       "sections": [
         {
-          "aliases": ["peer ip address"],
+          "aliases": ["gre gre parameters peer ip address"],
           "anchor": "section",
           "description": "IPv4 Address in dot-decimal notation.",
           "document_id": "xcsh-docs:data-sources:external_connector:properties:gre:gre_parameters:peer_ip_address",
@@ -792,7 +792,7 @@
           "type": "object"
         },
         {
-          "aliases": ["segment"],
+          "aliases": ["gre gre parameters segment"],
           "anchor": "section",
           "description": "Reference to Segment Object.",
           "document_id": "xcsh-docs:data-sources:external_connector:properties:gre:gre_parameters:segment",
@@ -806,7 +806,7 @@
           "type": "object"
         },
         {
-          "aliases": ["site local inside network"],
+          "aliases": ["gre gre parameters site local inside network"],
           "anchor": "section",
           "description": "This can be used for messages where no values are needed.",
           "document_id": "xcsh-docs:data-sources:external_connector:properties:gre:gre_parameters:site_local_inside_network",
@@ -820,7 +820,7 @@
           "type": "object"
         },
         {
-          "aliases": ["site local network"],
+          "aliases": ["gre gre parameters site local network"],
           "anchor": "section",
           "description": "This can be used for messages where no values are needed.",
           "document_id": "xcsh-docs:data-sources:external_connector:properties:gre:gre_parameters:site_local_network",
@@ -834,7 +834,7 @@
           "type": "object"
         },
         {
-          "aliases": ["tunnel eps"],
+          "aliases": ["gre gre parameters tunnel eps"],
           "anchor": "section",
           "description": "Configure tunnel parameters, source, destination, IP addresses.",
           "document_id": "xcsh-docs:data-sources:external_connector:properties:gre:gre_parameters:tunnel_eps",
@@ -848,7 +848,7 @@
           "type": "object"
         },
         {
-          "aliases": ["tunnel mtu"],
+          "aliases": ["gre gre parameters tunnel mtu"],
           "anchor": "schema-gre--gre_parameters--tunnel_mtu",
           "description": "Configure MTU for the GRE tunnel interface.",
           "document_id": "xcsh-docs:data-sources:external_connector:properties:gre:gre_parameters",
@@ -881,7 +881,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -903,7 +903,7 @@
       "schema_path": ["gre", "gre_parameters", "peer_ip_address"],
       "sections": [
         {
-          "aliases": ["addr"],
+          "aliases": ["gre gre parameters peer ip address addr"],
           "anchor": "schema-gre--gre_parameters--peer_ip_address--addr",
           "description": "IPv4 Address in string form with dot-decimal notation.",
           "document_id": "xcsh-docs:data-sources:external_connector:properties:gre:gre_parameters:peer_ip_address",
@@ -936,7 +936,7 @@
       "category": null,
       "child_ids": ["xcsh-docs:data-sources:external_connector:properties:gre:gre_parameters:segment:refs"],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -958,7 +958,7 @@
       "schema_path": ["gre", "gre_parameters", "segment"],
       "sections": [
         {
-          "aliases": ["refs"],
+          "aliases": ["gre gre parameters segment refs"],
           "anchor": "section",
           "description": "Reference to Segment Object.",
           "document_id": "xcsh-docs:data-sources:external_connector:properties:gre:gre_parameters:segment:refs",
@@ -991,7 +991,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -1013,7 +1013,7 @@
       "schema_path": ["gre", "gre_parameters", "segment", "refs"],
       "sections": [
         {
-          "aliases": ["kind"],
+          "aliases": ["gre gre parameters segment refs kind"],
           "anchor": "schema-gre--gre_parameters--segment--refs--kind",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then kind will hold the referred object's kind (e.g. \"route\")",
           "document_id": "xcsh-docs:data-sources:external_connector:properties:gre:gre_parameters:segment:refs",
@@ -1027,7 +1027,7 @@
           "type": "string"
         },
         {
-          "aliases": ["name"],
+          "aliases": ["gre gre parameters segment refs name"],
           "anchor": "schema-gre--gre_parameters--segment--refs--name",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.",
           "document_id": "xcsh-docs:data-sources:external_connector:properties:gre:gre_parameters:segment:refs",
@@ -1041,7 +1041,7 @@
           "type": "string"
         },
         {
-          "aliases": ["namespace"],
+          "aliases": ["gre gre parameters segment refs namespace"],
           "anchor": "schema-gre--gre_parameters--segment--refs--namespace",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace.",
           "document_id": "xcsh-docs:data-sources:external_connector:properties:gre:gre_parameters:segment:refs",
@@ -1055,7 +1055,7 @@
           "type": "string"
         },
         {
-          "aliases": ["tenant"],
+          "aliases": ["gre gre parameters segment refs tenant"],
           "anchor": "schema-gre--gre_parameters--segment--refs--tenant",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant.",
           "document_id": "xcsh-docs:data-sources:external_connector:properties:gre:gre_parameters:segment:refs",
@@ -1069,7 +1069,7 @@
           "type": "string"
         },
         {
-          "aliases": ["uid"],
+          "aliases": ["gre gre parameters segment refs uid"],
           "anchor": "schema-gre--gre_parameters--segment--refs--uid",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then uid will hold the referred object's(e.g. Route's) uid.",
           "document_id": "xcsh-docs:data-sources:external_connector:properties:gre:gre_parameters:segment:refs",
@@ -1102,7 +1102,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -1142,7 +1142,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -1182,7 +1182,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -1204,7 +1204,7 @@
       "schema_path": ["gre", "gre_parameters", "tunnel_eps"],
       "sections": [
         {
-          "aliases": ["interface"],
+          "aliases": ["gre gre parameters tunnel eps interface"],
           "anchor": "schema-gre--gre_parameters--tunnel_eps--interface",
           "description": "For the chosen node, specify the interface that will be the tunnel source.",
           "document_id": "xcsh-docs:data-sources:external_connector:properties:gre:gre_parameters:tunnel_eps",
@@ -1218,7 +1218,7 @@
           "type": "string"
         },
         {
-          "aliases": ["local tunnel ip"],
+          "aliases": ["gre gre parameters tunnel eps local tunnel ip"],
           "anchor": "schema-gre--gre_parameters--tunnel_eps--local_tunnel_ip",
           "description": "For a particular tunnel on a node, specify the local tunnel IP Address i.e. The IP address of the tunnel on the CE node itself and a subnet prefix length.",
           "document_id": "xcsh-docs:data-sources:external_connector:properties:gre:gre_parameters:tunnel_eps",
@@ -1232,7 +1232,7 @@
           "type": "string"
         },
         {
-          "aliases": ["node"],
+          "aliases": ["gre gre parameters tunnel eps node"],
           "anchor": "schema-gre--gre_parameters--tunnel_eps--node",
           "description": "A CE site is composed of multiple nodes. Choose a node that will be part of this external connection.",
           "document_id": "xcsh-docs:data-sources:external_connector:properties:gre:gre_parameters:tunnel_eps",
@@ -1246,7 +1246,7 @@
           "type": "string"
         },
         {
-          "aliases": ["remote tunnel ip"],
+          "aliases": ["gre gre parameters tunnel eps remote tunnel ip"],
           "anchor": "schema-gre--gre_parameters--tunnel_eps--remote_tunnel_ip",
           "description": "For a particular tunnel on a node, specify the remote tunnel IP Address i.e. The IP address of the tunnel on the remote gateway and a subnet prefix length.",
           "document_id": "xcsh-docs:data-sources:external_connector:properties:gre:gre_parameters:tunnel_eps",
@@ -1282,7 +1282,7 @@
         "xcsh-docs:data-sources:external_connector:properties:ipsec:ipsec_tunnel_parameters"
       ],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -1304,7 +1304,7 @@
       "schema_path": ["ipsec"],
       "sections": [
         {
-          "aliases": ["ike parameters"],
+          "aliases": ["ipsec ike parameters"],
           "anchor": "section",
           "description": "IKE configuration parameters required for IPsec Connection type.",
           "document_id": "xcsh-docs:data-sources:external_connector:properties:ipsec:ike_parameters",
@@ -1318,7 +1318,7 @@
           "type": "object"
         },
         {
-          "aliases": ["ipsec tunnel parameters"],
+          "aliases": ["ipsec ipsec tunnel parameters"],
           "anchor": "section",
           "description": "In this section, we will configure the tunnel parameters, source, destination, IP addresses, and segment.",
           "document_id": "xcsh-docs:data-sources:external_connector:properties:ipsec:ipsec_tunnel_parameters",
@@ -1361,7 +1361,7 @@
         "xcsh-docs:data-sources:external_connector:properties:ipsec:ike_parameters:use_default_remote_ike_id"
       ],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -1383,7 +1383,7 @@
       "schema_path": ["ipsec", "ike_parameters"],
       "sections": [
         {
-          "aliases": ["dpd disabled"],
+          "aliases": ["ipsec ike parameters dpd disabled"],
           "anchor": "section",
           "description": "This can be used for messages where no values are needed.",
           "document_id": "xcsh-docs:data-sources:external_connector:properties:ipsec:ike_parameters:dpd_disabled",
@@ -1397,7 +1397,7 @@
           "type": "object"
         },
         {
-          "aliases": ["dpd keep alive timer"],
+          "aliases": ["ipsec ike parameters dpd keep alive timer"],
           "anchor": "section",
           "description": "Configuration parameter for dpd keep alive timer.",
           "document_id": "xcsh-docs:data-sources:external_connector:properties:ipsec:ike_parameters:dpd_keep_alive_timer",
@@ -1411,7 +1411,7 @@
           "type": "object"
         },
         {
-          "aliases": ["ike phase1 profile"],
+          "aliases": ["ipsec ike parameters ike phase1 profile"],
           "anchor": "section",
           "description": "This type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name.",
           "document_id": "xcsh-docs:data-sources:external_connector:properties:ipsec:ike_parameters:ike_phase1_profile",
@@ -1425,7 +1425,7 @@
           "type": "object"
         },
         {
-          "aliases": ["ike phase2 profile"],
+          "aliases": ["ipsec ike parameters ike phase2 profile"],
           "anchor": "section",
           "description": "This type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name.",
           "document_id": "xcsh-docs:data-sources:external_connector:properties:ipsec:ike_parameters:ike_phase2_profile",
@@ -1439,7 +1439,7 @@
           "type": "object"
         },
         {
-          "aliases": ["initiator"],
+          "aliases": ["ipsec ike parameters initiator"],
           "anchor": "section",
           "description": "This can be used for messages where no values are needed.",
           "document_id": "xcsh-docs:data-sources:external_connector:properties:ipsec:ike_parameters:initiator",
@@ -1453,7 +1453,7 @@
           "type": "object"
         },
         {
-          "aliases": ["responder"],
+          "aliases": ["ipsec ike parameters responder"],
           "anchor": "section",
           "description": "This can be used for messages where no values are needed.",
           "document_id": "xcsh-docs:data-sources:external_connector:properties:ipsec:ike_parameters:responder",
@@ -1467,7 +1467,7 @@
           "type": "object"
         },
         {
-          "aliases": ["rm hostname"],
+          "aliases": ["ipsec ike parameters rm hostname"],
           "anchor": "schema-ipsec--ike_parameters--rm_hostname",
           "description": "Exclusive with Configure an hostname Remote IKE ID.",
           "document_id": "xcsh-docs:data-sources:external_connector:properties:ipsec:ike_parameters",
@@ -1481,7 +1481,7 @@
           "type": "string"
         },
         {
-          "aliases": ["rm ip address"],
+          "aliases": ["ipsec ike parameters rm ip address"],
           "anchor": "section",
           "description": "IP Address used to specify an IPv4 or IPv6 address.",
           "document_id": "xcsh-docs:data-sources:external_connector:properties:ipsec:ike_parameters:rm_ip_address",
@@ -1495,7 +1495,7 @@
           "type": "object"
         },
         {
-          "aliases": ["use default local ike id"],
+          "aliases": ["ipsec ike parameters use default local ike id"],
           "anchor": "section",
           "description": "This can be used for messages where no values are needed.",
           "document_id": "xcsh-docs:data-sources:external_connector:properties:ipsec:ike_parameters:use_default_local_ike_id",
@@ -1509,7 +1509,7 @@
           "type": "object"
         },
         {
-          "aliases": ["use default remote ike id"],
+          "aliases": ["ipsec ike parameters use default remote ike id"],
           "anchor": "section",
           "description": "This can be used for messages where no values are needed.",
           "document_id": "xcsh-docs:data-sources:external_connector:properties:ipsec:ike_parameters:use_default_remote_ike_id",
@@ -1542,7 +1542,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -1582,7 +1582,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -1604,7 +1604,7 @@
       "schema_path": ["ipsec", "ike_parameters", "dpd_keep_alive_timer"],
       "sections": [
         {
-          "aliases": ["duration", "operation timeout", "timeout"],
+          "aliases": ["duration", "ipsec ike parameters dpd keep alive timer timeout"],
           "anchor": "schema-ipsec--ike_parameters--dpd_keep_alive_timer--timeout",
           "description": "Operation timeout duration",
           "document_id": "xcsh-docs:data-sources:external_connector:properties:ipsec:ike_parameters:dpd_keep_alive_timer",
@@ -1637,7 +1637,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -1659,7 +1659,7 @@
       "schema_path": ["ipsec", "ike_parameters", "ike_phase1_profile"],
       "sections": [
         {
-          "aliases": ["name"],
+          "aliases": ["ipsec ike parameters ike phase1 profile name"],
           "anchor": "schema-ipsec--ike_parameters--ike_phase1_profile--name",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.",
           "document_id": "xcsh-docs:data-sources:external_connector:properties:ipsec:ike_parameters:ike_phase1_profile",
@@ -1673,7 +1673,7 @@
           "type": "string"
         },
         {
-          "aliases": ["namespace"],
+          "aliases": ["ipsec ike parameters ike phase1 profile namespace"],
           "anchor": "schema-ipsec--ike_parameters--ike_phase1_profile--namespace",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace.",
           "document_id": "xcsh-docs:data-sources:external_connector:properties:ipsec:ike_parameters:ike_phase1_profile",
@@ -1687,7 +1687,7 @@
           "type": "string"
         },
         {
-          "aliases": ["tenant"],
+          "aliases": ["ipsec ike parameters ike phase1 profile tenant"],
           "anchor": "schema-ipsec--ike_parameters--ike_phase1_profile--tenant",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant.",
           "document_id": "xcsh-docs:data-sources:external_connector:properties:ipsec:ike_parameters:ike_phase1_profile",
@@ -1720,7 +1720,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -1742,7 +1742,7 @@
       "schema_path": ["ipsec", "ike_parameters", "ike_phase2_profile"],
       "sections": [
         {
-          "aliases": ["name"],
+          "aliases": ["ipsec ike parameters ike phase2 profile name"],
           "anchor": "schema-ipsec--ike_parameters--ike_phase2_profile--name",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.",
           "document_id": "xcsh-docs:data-sources:external_connector:properties:ipsec:ike_parameters:ike_phase2_profile",
@@ -1756,7 +1756,7 @@
           "type": "string"
         },
         {
-          "aliases": ["namespace"],
+          "aliases": ["ipsec ike parameters ike phase2 profile namespace"],
           "anchor": "schema-ipsec--ike_parameters--ike_phase2_profile--namespace",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace.",
           "document_id": "xcsh-docs:data-sources:external_connector:properties:ipsec:ike_parameters:ike_phase2_profile",
@@ -1770,7 +1770,7 @@
           "type": "string"
         },
         {
-          "aliases": ["tenant"],
+          "aliases": ["ipsec ike parameters ike phase2 profile tenant"],
           "anchor": "schema-ipsec--ike_parameters--ike_phase2_profile--tenant",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant.",
           "document_id": "xcsh-docs:data-sources:external_connector:properties:ipsec:ike_parameters:ike_phase2_profile",
@@ -1803,7 +1803,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -1843,7 +1843,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -1887,7 +1887,7 @@
         "xcsh-docs:data-sources:external_connector:properties:ipsec:ike_parameters:rm_ip_address:ipv6"
       ],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -1909,7 +1909,7 @@
       "schema_path": ["ipsec", "ike_parameters", "rm_ip_address"],
       "sections": [
         {
-          "aliases": ["dual stack"],
+          "aliases": ["ipsec ike parameters rm ip address dual stack"],
           "anchor": "section",
           "description": "DualStackAddressType represents both IPv4 and IPv6 together.",
           "document_id": "xcsh-docs:data-sources:external_connector:properties:ipsec:ike_parameters:rm_ip_address:dual_stack",
@@ -1923,7 +1923,7 @@
           "type": "object"
         },
         {
-          "aliases": ["ipv4"],
+          "aliases": ["ipsec ike parameters rm ip address ipv4"],
           "anchor": "section",
           "description": "IPv4 Address in dot-decimal notation.",
           "document_id": "xcsh-docs:data-sources:external_connector:properties:ipsec:ike_parameters:rm_ip_address:ipv4",
@@ -1937,7 +1937,7 @@
           "type": "object"
         },
         {
-          "aliases": ["ipv6"],
+          "aliases": ["ipsec ike parameters rm ip address ipv6"],
           "anchor": "section",
           "description": "IPv6 Address specified as hexadecimal numbers separated by ':'",
           "document_id": "xcsh-docs:data-sources:external_connector:properties:ipsec:ike_parameters:rm_ip_address:ipv6",
@@ -1973,7 +1973,7 @@
         "xcsh-docs:data-sources:external_connector:properties:ipsec:ike_parameters:rm_ip_address:dual_stack:ipv6"
       ],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -1995,7 +1995,7 @@
       "schema_path": ["ipsec", "ike_parameters", "rm_ip_address", "dual_stack"],
       "sections": [
         {
-          "aliases": ["ipv4"],
+          "aliases": ["ipsec ike parameters rm ip address dual stack ipv4"],
           "anchor": "section",
           "description": "IPv4 Address in dot-decimal notation.",
           "document_id": "xcsh-docs:data-sources:external_connector:properties:ipsec:ike_parameters:rm_ip_address:dual_stack:ipv4",
@@ -2009,7 +2009,7 @@
           "type": "object"
         },
         {
-          "aliases": ["ipv6"],
+          "aliases": ["ipsec ike parameters rm ip address dual stack ipv6"],
           "anchor": "section",
           "description": "IPv6 Address specified as hexadecimal numbers separated by ':'",
           "document_id": "xcsh-docs:data-sources:external_connector:properties:ipsec:ike_parameters:rm_ip_address:dual_stack:ipv6",
@@ -2042,7 +2042,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -2064,7 +2064,7 @@
       "schema_path": ["ipsec", "ike_parameters", "rm_ip_address", "dual_stack", "ipv4"],
       "sections": [
         {
-          "aliases": ["addr"],
+          "aliases": ["ipsec ike parameters rm ip address dual stack ipv4 addr"],
           "anchor": "schema-ipsec--ike_parameters--rm_ip_address--dual_stack--ipv4--addr",
           "description": "IPv4 Address in string form with dot-decimal notation.",
           "document_id": "xcsh-docs:data-sources:external_connector:properties:ipsec:ike_parameters:rm_ip_address:dual_stack:ipv4",
@@ -2097,7 +2097,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -2119,7 +2119,7 @@
       "schema_path": ["ipsec", "ike_parameters", "rm_ip_address", "dual_stack", "ipv6"],
       "sections": [
         {
-          "aliases": ["addr"],
+          "aliases": ["ipsec ike parameters rm ip address dual stack ipv6 addr"],
           "anchor": "schema-ipsec--ike_parameters--rm_ip_address--dual_stack--ipv6--addr",
           "description": "IPv6 Address in form of string. IPv6 address must be specified as hexadecimal numbers separated by ':' The address can be compacted by suppressing zeros e.g. '2001:db8:0:0:0:0:2:1' becomes '2001:db8::2:1' or '2001:db8:0:0:0:2:0:0' becomes '2001:db8::2::'",
           "document_id": "xcsh-docs:data-sources:external_connector:properties:ipsec:ike_parameters:rm_ip_address:dual_stack:ipv6",
@@ -2152,7 +2152,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -2174,7 +2174,7 @@
       "schema_path": ["ipsec", "ike_parameters", "rm_ip_address", "ipv4"],
       "sections": [
         {
-          "aliases": ["addr"],
+          "aliases": ["ipsec ike parameters rm ip address ipv4 addr"],
           "anchor": "schema-ipsec--ike_parameters--rm_ip_address--ipv4--addr",
           "description": "IPv4 Address in string form with dot-decimal notation.",
           "document_id": "xcsh-docs:data-sources:external_connector:properties:ipsec:ike_parameters:rm_ip_address:ipv4",
@@ -2207,7 +2207,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -2229,7 +2229,7 @@
       "schema_path": ["ipsec", "ike_parameters", "rm_ip_address", "ipv6"],
       "sections": [
         {
-          "aliases": ["addr"],
+          "aliases": ["ipsec ike parameters rm ip address ipv6 addr"],
           "anchor": "schema-ipsec--ike_parameters--rm_ip_address--ipv6--addr",
           "description": "IPv6 Address in form of string. IPv6 address must be specified as hexadecimal numbers separated by ':' The address can be compacted by suppressing zeros e.g. '2001:db8:0:0:0:0:2:1' becomes '2001:db8::2:1' or '2001:db8:0:0:0:2:0:0' becomes '2001:db8::2::'",
           "document_id": "xcsh-docs:data-sources:external_connector:properties:ipsec:ike_parameters:rm_ip_address:ipv6",
@@ -2262,7 +2262,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -2302,7 +2302,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -2348,7 +2348,7 @@
         "xcsh-docs:data-sources:external_connector:properties:ipsec:ipsec_tunnel_parameters:tunnel_eps"
       ],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -2370,7 +2370,7 @@
       "schema_path": ["ipsec", "ipsec_tunnel_parameters"],
       "sections": [
         {
-          "aliases": ["peer ip address"],
+          "aliases": ["ipsec ipsec tunnel parameters peer ip address"],
           "anchor": "section",
           "description": "IPv4 Address in dot-decimal notation.",
           "document_id": "xcsh-docs:data-sources:external_connector:properties:ipsec:ipsec_tunnel_parameters:peer_ip_address",
@@ -2384,7 +2384,7 @@
           "type": "object"
         },
         {
-          "aliases": ["psk"],
+          "aliases": ["ipsec ipsec tunnel parameters psk"],
           "anchor": "schema-ipsec--ipsec_tunnel_parameters--psk",
           "description": "The IKE pre-shared key (PSK) is required to ensure the IKE peers can authenticate one another within IKE phase 1 negotiation.",
           "document_id": "xcsh-docs:data-sources:external_connector:properties:ipsec:ipsec_tunnel_parameters",
@@ -2398,7 +2398,7 @@
           "type": "string"
         },
         {
-          "aliases": ["segment"],
+          "aliases": ["ipsec ipsec tunnel parameters segment"],
           "anchor": "section",
           "description": "Reference to Segment Object.",
           "document_id": "xcsh-docs:data-sources:external_connector:properties:ipsec:ipsec_tunnel_parameters:segment",
@@ -2412,7 +2412,7 @@
           "type": "object"
         },
         {
-          "aliases": ["site local inside network"],
+          "aliases": ["ipsec ipsec tunnel parameters site local inside network"],
           "anchor": "section",
           "description": "This can be used for messages where no values are needed.",
           "document_id": "xcsh-docs:data-sources:external_connector:properties:ipsec:ipsec_tunnel_parameters:site_local_inside_network",
@@ -2426,7 +2426,7 @@
           "type": "object"
         },
         {
-          "aliases": ["site local network"],
+          "aliases": ["ipsec ipsec tunnel parameters site local network"],
           "anchor": "section",
           "description": "This can be used for messages where no values are needed.",
           "document_id": "xcsh-docs:data-sources:external_connector:properties:ipsec:ipsec_tunnel_parameters:site_local_network",
@@ -2440,7 +2440,7 @@
           "type": "object"
         },
         {
-          "aliases": ["tunnel eps"],
+          "aliases": ["ipsec ipsec tunnel parameters tunnel eps"],
           "anchor": "section",
           "description": "Configure tunnel parameters, local and remote IP addresses.",
           "document_id": "xcsh-docs:data-sources:external_connector:properties:ipsec:ipsec_tunnel_parameters:tunnel_eps",
@@ -2454,7 +2454,7 @@
           "type": "object"
         },
         {
-          "aliases": ["tunnel mtu"],
+          "aliases": ["ipsec ipsec tunnel parameters tunnel mtu"],
           "anchor": "schema-ipsec--ipsec_tunnel_parameters--tunnel_mtu",
           "description": "The tunnel MTU defines the maximum size of the packet that can be sent through the tunnel without needing to be fragmented.",
           "document_id": "xcsh-docs:data-sources:external_connector:properties:ipsec:ipsec_tunnel_parameters",
@@ -2487,7 +2487,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -2509,7 +2509,7 @@
       "schema_path": ["ipsec", "ipsec_tunnel_parameters", "peer_ip_address"],
       "sections": [
         {
-          "aliases": ["addr"],
+          "aliases": ["ipsec ipsec tunnel parameters peer ip address addr"],
           "anchor": "schema-ipsec--ipsec_tunnel_parameters--peer_ip_address--addr",
           "description": "IPv4 Address in string form with dot-decimal notation.",
           "document_id": "xcsh-docs:data-sources:external_connector:properties:ipsec:ipsec_tunnel_parameters:peer_ip_address",
@@ -2542,7 +2542,7 @@
       "category": null,
       "child_ids": ["xcsh-docs:data-sources:external_connector:properties:ipsec:ipsec_tunnel_parameters:segment:refs"],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -2564,7 +2564,7 @@
       "schema_path": ["ipsec", "ipsec_tunnel_parameters", "segment"],
       "sections": [
         {
-          "aliases": ["refs"],
+          "aliases": ["ipsec ipsec tunnel parameters segment refs"],
           "anchor": "section",
           "description": "Reference to Segment Object.",
           "document_id": "xcsh-docs:data-sources:external_connector:properties:ipsec:ipsec_tunnel_parameters:segment:refs",
@@ -2597,7 +2597,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -2619,7 +2619,7 @@
       "schema_path": ["ipsec", "ipsec_tunnel_parameters", "segment", "refs"],
       "sections": [
         {
-          "aliases": ["kind"],
+          "aliases": ["ipsec ipsec tunnel parameters segment refs kind"],
           "anchor": "schema-ipsec--ipsec_tunnel_parameters--segment--refs--kind",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then kind will hold the referred object's kind (e.g. \"route\")",
           "document_id": "xcsh-docs:data-sources:external_connector:properties:ipsec:ipsec_tunnel_parameters:segment:refs",
@@ -2633,7 +2633,7 @@
           "type": "string"
         },
         {
-          "aliases": ["name"],
+          "aliases": ["ipsec ipsec tunnel parameters segment refs name"],
           "anchor": "schema-ipsec--ipsec_tunnel_parameters--segment--refs--name",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.",
           "document_id": "xcsh-docs:data-sources:external_connector:properties:ipsec:ipsec_tunnel_parameters:segment:refs",
@@ -2647,7 +2647,7 @@
           "type": "string"
         },
         {
-          "aliases": ["namespace"],
+          "aliases": ["ipsec ipsec tunnel parameters segment refs namespace"],
           "anchor": "schema-ipsec--ipsec_tunnel_parameters--segment--refs--namespace",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace.",
           "document_id": "xcsh-docs:data-sources:external_connector:properties:ipsec:ipsec_tunnel_parameters:segment:refs",
@@ -2661,7 +2661,7 @@
           "type": "string"
         },
         {
-          "aliases": ["tenant"],
+          "aliases": ["ipsec ipsec tunnel parameters segment refs tenant"],
           "anchor": "schema-ipsec--ipsec_tunnel_parameters--segment--refs--tenant",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant.",
           "document_id": "xcsh-docs:data-sources:external_connector:properties:ipsec:ipsec_tunnel_parameters:segment:refs",
@@ -2675,7 +2675,7 @@
           "type": "string"
         },
         {
-          "aliases": ["uid"],
+          "aliases": ["ipsec ipsec tunnel parameters segment refs uid"],
           "anchor": "schema-ipsec--ipsec_tunnel_parameters--segment--refs--uid",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then uid will hold the referred object's(e.g. Route's) uid.",
           "document_id": "xcsh-docs:data-sources:external_connector:properties:ipsec:ipsec_tunnel_parameters:segment:refs",
@@ -2708,7 +2708,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -2748,7 +2748,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -2788,7 +2788,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -2810,7 +2810,7 @@
       "schema_path": ["ipsec", "ipsec_tunnel_parameters", "tunnel_eps"],
       "sections": [
         {
-          "aliases": ["interface"],
+          "aliases": ["ipsec ipsec tunnel parameters tunnel eps interface"],
           "anchor": "schema-ipsec--ipsec_tunnel_parameters--tunnel_eps--interface",
           "description": "For the chosen node, specify the interface that will be the tunnel source.",
           "document_id": "xcsh-docs:data-sources:external_connector:properties:ipsec:ipsec_tunnel_parameters:tunnel_eps",
@@ -2824,7 +2824,7 @@
           "type": "string"
         },
         {
-          "aliases": ["local tunnel ip"],
+          "aliases": ["ipsec ipsec tunnel parameters tunnel eps local tunnel ip"],
           "anchor": "schema-ipsec--ipsec_tunnel_parameters--tunnel_eps--local_tunnel_ip",
           "description": "For a particular tunnel on a node, specify the local tunnel IP Address i.e. The IP address of the tunnel on the CE node itself and a subnet prefix length.",
           "document_id": "xcsh-docs:data-sources:external_connector:properties:ipsec:ipsec_tunnel_parameters:tunnel_eps",
@@ -2838,7 +2838,7 @@
           "type": "string"
         },
         {
-          "aliases": ["node"],
+          "aliases": ["ipsec ipsec tunnel parameters tunnel eps node"],
           "anchor": "schema-ipsec--ipsec_tunnel_parameters--tunnel_eps--node",
           "description": "A CE site is composed of multiple nodes. Choose a node that will be part of this external connection.",
           "document_id": "xcsh-docs:data-sources:external_connector:properties:ipsec:ipsec_tunnel_parameters:tunnel_eps",
@@ -2852,7 +2852,7 @@
           "type": "string"
         },
         {
-          "aliases": ["remote tunnel ip"],
+          "aliases": ["ipsec ipsec tunnel parameters tunnel eps remote tunnel ip"],
           "anchor": "schema-ipsec--ipsec_tunnel_parameters--tunnel_eps--remote_tunnel_ip",
           "description": "For a particular tunnel on a node, specify the remote tunnel IP Address i.e. The IP address of the tunnel on the remote gateway and a subnet prefix length.",
           "document_id": "xcsh-docs:data-sources:external_connector:properties:ipsec:ipsec_tunnel_parameters:tunnel_eps",
@@ -2885,7 +2885,7 @@
       "category": null,
       "child_ids": ["xcsh-docs:data-sources:external_connector:example:data-source"],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -2925,7 +2925,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"

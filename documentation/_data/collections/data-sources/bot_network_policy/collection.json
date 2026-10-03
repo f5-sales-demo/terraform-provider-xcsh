@@ -120,7 +120,7 @@
         "xcsh-docs:data-sources:bot_network_policy:examples"
       ],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -161,7 +161,7 @@
       "category": null,
       "child_ids": ["xcsh-docs:data-sources:bot_network_policy:properties:network_policy_content"],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -317,7 +317,7 @@
         "xcsh-docs:data-sources:bot_network_policy:properties:network_policy_content:upstream_routing_list"
       ],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -339,7 +339,7 @@
       "schema_path": ["network_policy_content"],
       "sections": [
         {
-          "aliases": ["manual routing list"],
+          "aliases": ["network policy content manual routing list"],
           "anchor": "section",
           "description": "Manual Routings. The list of manual routing.",
           "document_id": "xcsh-docs:data-sources:bot_network_policy:properties:network_policy_content:manual_routing_list",
@@ -353,7 +353,7 @@
           "type": "object"
         },
         {
-          "aliases": ["upstream routing list"],
+          "aliases": ["network policy content upstream routing list"],
           "anchor": "section",
           "description": "Upstream Routings. Upstream DNS Routings.",
           "document_id": "xcsh-docs:data-sources:bot_network_policy:properties:network_policy_content:upstream_routing_list",
@@ -388,7 +388,7 @@
         "xcsh-docs:data-sources:bot_network_policy:properties:network_policy_content:manual_routing_list:manual_routing"
       ],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -410,7 +410,7 @@
       "schema_path": ["network_policy_content", "manual_routing_list"],
       "sections": [
         {
-          "aliases": ["manual routing"],
+          "aliases": ["network policy content manual routing list manual routing"],
           "anchor": "section",
           "description": "Manual Routing. Routing or forwarding configuration",
           "document_id": "xcsh-docs:data-sources:bot_network_policy:properties:network_policy_content:manual_routing_list:manual_routing",
@@ -448,7 +448,7 @@
         "xcsh-docs:data-sources:bot_network_policy:properties:network_policy_content:manual_routing_list:manual_routing:protocol_https"
       ],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -470,7 +470,7 @@
       "schema_path": ["network_policy_content", "manual_routing_list", "manual_routing"],
       "sections": [
         {
-          "aliases": ["domain name"],
+          "aliases": ["network policy content manual routing list manual routing domain name"],
           "anchor": "schema-network_policy_content--manual_routing_list--manual_routing--domain_name",
           "description": "Inbound FQDN. Inbound FQDN value.",
           "document_id": "xcsh-docs:data-sources:bot_network_policy:properties:network_policy_content:manual_routing_list:manual_routing",
@@ -484,7 +484,7 @@
           "type": "string"
         },
         {
-          "aliases": ["http"],
+          "aliases": ["network policy content manual routing list manual routing http"],
           "anchor": "section",
           "description": "Enable this option",
           "document_id": "xcsh-docs:data-sources:bot_network_policy:properties:network_policy_content:manual_routing_list:manual_routing:http",
@@ -498,7 +498,7 @@
           "type": "object"
         },
         {
-          "aliases": ["https"],
+          "aliases": ["network policy content manual routing list manual routing https"],
           "anchor": "section",
           "description": "Enable this option",
           "document_id": "xcsh-docs:data-sources:bot_network_policy:properties:network_policy_content:manual_routing_list:manual_routing:https",
@@ -512,7 +512,7 @@
           "type": "object"
         },
         {
-          "aliases": ["outbound domain name"],
+          "aliases": ["network policy content manual routing list manual routing outbound domain name"],
           "anchor": "schema-network_policy_content--manual_routing_list--manual_routing--outbound_domain_name",
           "description": "Outbound FQDN / IP. Outbound FQDN or IP value.",
           "document_id": "xcsh-docs:data-sources:bot_network_policy:properties:network_policy_content:manual_routing_list:manual_routing",
@@ -526,7 +526,7 @@
           "type": "string"
         },
         {
-          "aliases": ["port"],
+          "aliases": ["network policy content manual routing list manual routing port"],
           "anchor": "schema-network_policy_content--manual_routing_list--manual_routing--port",
           "description": "Outbound Port. Outbound Port value.",
           "document_id": "xcsh-docs:data-sources:bot_network_policy:properties:network_policy_content:manual_routing_list:manual_routing",
@@ -540,7 +540,7 @@
           "type": "number"
         },
         {
-          "aliases": ["protocol http"],
+          "aliases": ["network policy content manual routing list manual routing protocol http"],
           "anchor": "section",
           "description": "Configuration parameter for protocol http.",
           "document_id": "xcsh-docs:data-sources:bot_network_policy:properties:network_policy_content:manual_routing_list:manual_routing:protocol_http",
@@ -554,7 +554,7 @@
           "type": "object"
         },
         {
-          "aliases": ["protocol https"],
+          "aliases": ["network policy content manual routing list manual routing protocol https"],
           "anchor": "section",
           "description": "Configuration parameter for protocol https.",
           "document_id": "xcsh-docs:data-sources:bot_network_policy:properties:network_policy_content:manual_routing_list:manual_routing:protocol_https",
@@ -587,7 +587,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -627,7 +627,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -667,7 +667,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -707,7 +707,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -749,7 +749,7 @@
         "xcsh-docs:data-sources:bot_network_policy:properties:network_policy_content:upstream_routing_list:upstream_routing"
       ],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -771,7 +771,7 @@
       "schema_path": ["network_policy_content", "upstream_routing_list"],
       "sections": [
         {
-          "aliases": ["upstream routing"],
+          "aliases": ["network policy content upstream routing list upstream routing"],
           "anchor": "section",
           "description": "Upstream Routing. Routing or forwarding configuration",
           "document_id": "xcsh-docs:data-sources:bot_network_policy:properties:network_policy_content:upstream_routing_list:upstream_routing",
@@ -804,7 +804,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -826,7 +826,7 @@
       "schema_path": ["network_policy_content", "upstream_routing_list", "upstream_routing"],
       "sections": [
         {
-          "aliases": ["domain name"],
+          "aliases": ["network policy content upstream routing list upstream routing domain name"],
           "anchor": "schema-network_policy_content--upstream_routing_list--upstream_routing--domain_name",
           "description": "FQDN. Domain Name.",
           "document_id": "xcsh-docs:data-sources:bot_network_policy:properties:network_policy_content:upstream_routing_list:upstream_routing",
@@ -859,7 +859,7 @@
       "category": null,
       "child_ids": ["xcsh-docs:data-sources:bot_network_policy:example:data-source"],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -899,7 +899,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"

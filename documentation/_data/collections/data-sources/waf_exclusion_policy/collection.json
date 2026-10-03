@@ -240,7 +240,7 @@
         "xcsh-docs:data-sources:waf_exclusion_policy:examples"
       ],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -281,7 +281,7 @@
       "category": "security",
       "child_ids": ["xcsh-docs:data-sources:waf_exclusion_policy:properties:waf_exclusion_rules"],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -426,7 +426,7 @@
         "xcsh-docs:data-sources:waf_exclusion_policy:properties:waf_exclusion_rules:waf_skip_processing"
       ],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -448,7 +448,7 @@
       "schema_path": ["waf_exclusion_rules"],
       "sections": [
         {
-          "aliases": ["any domain"],
+          "aliases": ["waf exclusion rules any domain"],
           "anchor": "section",
           "description": "This can be used for messages where no values are needed.",
           "document_id": "xcsh-docs:data-sources:waf_exclusion_policy:properties:waf_exclusion_rules:any_domain",
@@ -462,7 +462,7 @@
           "type": "object"
         },
         {
-          "aliases": ["any path"],
+          "aliases": ["waf exclusion rules any path"],
           "anchor": "section",
           "description": "This can be used for messages where no values are needed.",
           "document_id": "xcsh-docs:data-sources:waf_exclusion_policy:properties:waf_exclusion_rules:any_path",
@@ -476,7 +476,7 @@
           "type": "object"
         },
         {
-          "aliases": ["app firewall detection control"],
+          "aliases": ["waf exclusion rules app firewall detection control"],
           "anchor": "section",
           "description": "Define the list of Signature IDs, Violations, Attack Types and Bot Names that should be excluded from triggering on the defined match criteria.",
           "document_id": "xcsh-docs:data-sources:waf_exclusion_policy:properties:waf_exclusion_rules:app_firewall_detection_control",
@@ -490,7 +490,7 @@
           "type": "object"
         },
         {
-          "aliases": ["exact value"],
+          "aliases": ["waf exclusion rules exact value"],
           "anchor": "schema-waf_exclusion_rules--exact_value",
           "description": "Exclusive with Exact domain name.",
           "document_id": "xcsh-docs:data-sources:waf_exclusion_policy:properties:waf_exclusion_rules",
@@ -504,7 +504,7 @@
           "type": "string"
         },
         {
-          "aliases": ["expiration timestamp"],
+          "aliases": ["waf exclusion rules expiration timestamp"],
           "anchor": "schema-waf_exclusion_rules--expiration_timestamp",
           "description": "The expiration_timestamp is the RFC 3339 format timestamp at which the containing rule is considered to be logically expired. The rule continues to exist in the configuration but is not applied anymore.",
           "document_id": "xcsh-docs:data-sources:waf_exclusion_policy:properties:waf_exclusion_rules",
@@ -518,7 +518,7 @@
           "type": "string"
         },
         {
-          "aliases": ["metadata"],
+          "aliases": ["waf exclusion rules metadata"],
           "anchor": "section",
           "description": "MessageMetaType is metadata (common attributes) of a message that only certain messages have. This information is propagated to the metadata of a child object that gets created from the containing message during view processing. The information in this type can be specified by user during create and replace APIs.",
           "document_id": "xcsh-docs:data-sources:waf_exclusion_policy:properties:waf_exclusion_rules:metadata",
@@ -532,7 +532,7 @@
           "type": "object"
         },
         {
-          "aliases": ["methods"],
+          "aliases": ["waf exclusion rules methods"],
           "anchor": "schema-waf_exclusion_rules--methods",
           "description": "Methods to be matched.",
           "document_id": "xcsh-docs:data-sources:waf_exclusion_policy:properties:waf_exclusion_rules",
@@ -546,7 +546,7 @@
           "type": "list"
         },
         {
-          "aliases": ["path prefix"],
+          "aliases": ["waf exclusion rules path prefix"],
           "anchor": "schema-waf_exclusion_rules--path_prefix",
           "description": "Exclusive with Path prefix to match (e.g. The value / will match on all paths)",
           "document_id": "xcsh-docs:data-sources:waf_exclusion_policy:properties:waf_exclusion_rules",
@@ -560,7 +560,7 @@
           "type": "string"
         },
         {
-          "aliases": ["path regex"],
+          "aliases": ["waf exclusion rules path regex"],
           "anchor": "schema-waf_exclusion_rules--path_regex",
           "description": "Exclusive with Define the regex for the path. For example, the regex ^/.*$ will match on all paths.",
           "document_id": "xcsh-docs:data-sources:waf_exclusion_policy:properties:waf_exclusion_rules",
@@ -574,7 +574,7 @@
           "type": "string"
         },
         {
-          "aliases": ["suffix value"],
+          "aliases": ["waf exclusion rules suffix value"],
           "anchor": "schema-waf_exclusion_rules--suffix_value",
           "description": "Exclusive with Suffix of domain name e.g \"xyz.com\" will match \"*.xyz.com\" and \"xyz.com\"",
           "document_id": "xcsh-docs:data-sources:waf_exclusion_policy:properties:waf_exclusion_rules",
@@ -588,7 +588,7 @@
           "type": "string"
         },
         {
-          "aliases": ["waf skip processing"],
+          "aliases": ["waf exclusion rules waf skip processing"],
           "anchor": "section",
           "description": "This can be used for messages where no values are needed.",
           "document_id": "xcsh-docs:data-sources:waf_exclusion_policy:properties:waf_exclusion_rules:waf_skip_processing",
@@ -621,7 +621,7 @@
       "category": "security",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -661,7 +661,7 @@
       "category": "security",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -706,7 +706,7 @@
         "xcsh-docs:data-sources:waf_exclusion_policy:properties:waf_exclusion_rules:app_firewall_detection_control:exclude_violation_contexts"
       ],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -728,7 +728,7 @@
       "schema_path": ["waf_exclusion_rules", "app_firewall_detection_control"],
       "sections": [
         {
-          "aliases": ["exclude attack type contexts"],
+          "aliases": ["waf exclusion rules app firewall detection control exclude attack type contexts"],
           "anchor": "section",
           "description": "Exclude an entire attack type only in the named context. For migrated per-parameter exceptions, prefer this over signature-ID exclusions because one payload can trigger several signatures; unrelated parameters and attack types remain protected.",
           "document_id": "xcsh-docs:data-sources:waf_exclusion_policy:properties:waf_exclusion_rules:app_firewall_detection_control:exclude_attack_type_contexts",
@@ -742,7 +742,7 @@
           "type": "object"
         },
         {
-          "aliases": ["exclude bot name contexts"],
+          "aliases": ["waf exclusion rules app firewall detection control exclude bot name contexts"],
           "anchor": "section",
           "description": "Bot Names to be excluded for the defined match criteria.",
           "document_id": "xcsh-docs:data-sources:waf_exclusion_policy:properties:waf_exclusion_rules:app_firewall_detection_control:exclude_bot_name_contexts",
@@ -756,7 +756,7 @@
           "type": "object"
         },
         {
-          "aliases": ["exclude signature contexts"],
+          "aliases": ["waf exclusion rules app firewall detection control exclude signature contexts"],
           "anchor": "section",
           "description": "Signature IDs to be excluded for the defined match criteria.",
           "document_id": "xcsh-docs:data-sources:waf_exclusion_policy:properties:waf_exclusion_rules:app_firewall_detection_control:exclude_signature_contexts",
@@ -770,7 +770,7 @@
           "type": "object"
         },
         {
-          "aliases": ["exclude violation contexts"],
+          "aliases": ["waf exclusion rules app firewall detection control exclude violation contexts"],
           "anchor": "section",
           "description": "Violations to be excluded for the defined match criteria.",
           "document_id": "xcsh-docs:data-sources:waf_exclusion_policy:properties:waf_exclusion_rules:app_firewall_detection_control:exclude_violation_contexts",
@@ -803,7 +803,7 @@
       "category": "security",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -825,7 +825,7 @@
       "schema_path": ["waf_exclusion_rules", "app_firewall_detection_control", "exclude_attack_type_contexts"],
       "sections": [
         {
-          "aliases": ["context"],
+          "aliases": ["waf exclusion rules app firewall detection control exclude attack type contexts context"],
           "anchor": "schema-waf_exclusion_rules--app_firewall_detection_control--exclude_attack_type_contexts--context",
           "description": "Exclusion scope. Use CONTEXT_PARAMETER with context_name for one parameter, CONTEXT_COOKIE for one cookie, or CONTEXT_ANY only for an intentionally global scope.",
           "document_id": "xcsh-docs:data-sources:waf_exclusion_policy:properties:waf_exclusion_rules:app_firewall_detection_control:exclude_attack_type_contexts",
@@ -844,7 +844,7 @@
           "type": "string"
         },
         {
-          "aliases": ["context name"],
+          "aliases": ["waf exclusion rules app firewall detection control exclude attack type contexts context name"],
           "anchor": "schema-waf_exclusion_rules--app_firewall_detection_control--exclude_attack_type_contexts--context_name",
           "description": "Parameter, cookie, or header name selected by context. For a parameter-scoped WAF exception, set context to CONTEXT_PARAMETER and name only the intended parameter.",
           "document_id": "xcsh-docs:data-sources:waf_exclusion_policy:properties:waf_exclusion_rules:app_firewall_detection_control:exclude_attack_type_contexts",
@@ -863,7 +863,9 @@
           "type": "string"
         },
         {
-          "aliases": ["exclude attack type"],
+          "aliases": [
+            "waf exclusion rules app firewall detection control exclude attack type contexts exclude attack type"
+          ],
           "anchor": "schema-waf_exclusion_rules--app_firewall_detection_control--exclude_attack_type_contexts--exclude_attack_type",
           "description": "Attack-type enum excluded in this context, for example ATTACK_TYPE_CROSS_SITE_SCRIPTING. Other attack types remain enforced.",
           "document_id": "xcsh-docs:data-sources:waf_exclusion_policy:properties:waf_exclusion_rules:app_firewall_detection_control:exclude_attack_type_contexts",
@@ -901,7 +903,7 @@
       "category": "security",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -923,7 +925,7 @@
       "schema_path": ["waf_exclusion_rules", "app_firewall_detection_control", "exclude_bot_name_contexts"],
       "sections": [
         {
-          "aliases": ["bot name"],
+          "aliases": ["waf exclusion rules app firewall detection control exclude bot name contexts bot name"],
           "anchor": "schema-waf_exclusion_rules--app_firewall_detection_control--exclude_bot_name_contexts--bot_name",
           "description": "Human-readable name for the resource",
           "document_id": "xcsh-docs:data-sources:waf_exclusion_policy:properties:waf_exclusion_rules:app_firewall_detection_control:exclude_bot_name_contexts",
@@ -961,7 +963,7 @@
       "category": "security",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -983,7 +985,7 @@
       "schema_path": ["waf_exclusion_rules", "app_firewall_detection_control", "exclude_signature_contexts"],
       "sections": [
         {
-          "aliases": ["context"],
+          "aliases": ["waf exclusion rules app firewall detection control exclude signature contexts context"],
           "anchor": "schema-waf_exclusion_rules--app_firewall_detection_control--exclude_signature_contexts--context",
           "description": "The available contexts for Exclusion rules. - CONTEXT_ANY: CONTEXT_ANY Detection will be excluded for all contexts. - CONTEXT_BODY: CONTEXT_BODY Detection will be excluded for the request body. - CONTEXT_REQUEST: CONTEXT_REQUEST Detection will be excluded for the request. - CONTEXT_RESPONSE: CONTEXT_RESPONSE -",
           "document_id": "xcsh-docs:data-sources:waf_exclusion_policy:properties:waf_exclusion_rules:app_firewall_detection_control:exclude_signature_contexts",
@@ -1002,7 +1004,7 @@
           "type": "string"
         },
         {
-          "aliases": ["context name"],
+          "aliases": ["waf exclusion rules app firewall detection control exclude signature contexts context name"],
           "anchor": "schema-waf_exclusion_rules--app_firewall_detection_control--exclude_signature_contexts--context_name",
           "description": "Relevant only for contexts: Header, Cookie and Parameter. Name of the Context that the WAF Exclusion Rules will check. Wildcard matching can be used by prefixing or suffixing the context name with an wildcard asterisk (*).",
           "document_id": "xcsh-docs:data-sources:waf_exclusion_policy:properties:waf_exclusion_rules:app_firewall_detection_control:exclude_signature_contexts",
@@ -1021,7 +1023,7 @@
           "type": "string"
         },
         {
-          "aliases": ["signature id"],
+          "aliases": ["waf exclusion rules app firewall detection control exclude signature contexts signature id"],
           "anchor": "schema-waf_exclusion_rules--app_firewall_detection_control--exclude_signature_contexts--signature_id",
           "description": "The allowed values for signature ID are 0 and in the range of 200000001-299999999. 0 implies that all signatures will be excluded for the specified context.",
           "document_id": "xcsh-docs:data-sources:waf_exclusion_policy:properties:waf_exclusion_rules:app_firewall_detection_control:exclude_signature_contexts",
@@ -1059,7 +1061,7 @@
       "category": "security",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -1081,7 +1083,7 @@
       "schema_path": ["waf_exclusion_rules", "app_firewall_detection_control", "exclude_violation_contexts"],
       "sections": [
         {
-          "aliases": ["context"],
+          "aliases": ["waf exclusion rules app firewall detection control exclude violation contexts context"],
           "anchor": "schema-waf_exclusion_rules--app_firewall_detection_control--exclude_violation_contexts--context",
           "description": "The available contexts for Exclusion rules. - CONTEXT_ANY: CONTEXT_ANY Detection will be excluded for all contexts. - CONTEXT_BODY: CONTEXT_BODY Detection will be excluded for the request body. - CONTEXT_REQUEST: CONTEXT_REQUEST Detection will be excluded for the request. - CONTEXT_RESPONSE: CONTEXT_RESPONSE -",
           "document_id": "xcsh-docs:data-sources:waf_exclusion_policy:properties:waf_exclusion_rules:app_firewall_detection_control:exclude_violation_contexts",
@@ -1100,7 +1102,7 @@
           "type": "string"
         },
         {
-          "aliases": ["context name"],
+          "aliases": ["waf exclusion rules app firewall detection control exclude violation contexts context name"],
           "anchor": "schema-waf_exclusion_rules--app_firewall_detection_control--exclude_violation_contexts--context_name",
           "description": "Relevant only for contexts: Header, Cookie and Parameter. Name of the Context that the WAF Exclusion Rules will check. Wildcard matching can be used by prefixing or suffixing the context name with an wildcard asterisk (*).",
           "document_id": "xcsh-docs:data-sources:waf_exclusion_policy:properties:waf_exclusion_rules:app_firewall_detection_control:exclude_violation_contexts",
@@ -1119,7 +1121,9 @@
           "type": "string"
         },
         {
-          "aliases": ["exclude violation"],
+          "aliases": [
+            "waf exclusion rules app firewall detection control exclude violation contexts exclude violation"
+          ],
           "anchor": "schema-waf_exclusion_rules--app_firewall_detection_control--exclude_violation_contexts--exclude_violation",
           "description": "List of all supported Violation Types VIOL_NONE VIOL_FILETYPE VIOL_METHOD VIOL_MANDATORY_HEADER VIOL_HTTP_RESPONSE_STATUS VIOL_REQUEST_MAX_LENGTH VIOL_FILE_UPLOAD VIOL_FILE_UPLOAD_IN_BODY VIOL_XML_MALFORMED VIOL_JSON_MALFORMED VIOL_ASM_COOKIE_MODIFIED VIOL_HTTP_PROTOCOL_MULTIPLE_HOST_HEADERS",
           "document_id": "xcsh-docs:data-sources:waf_exclusion_policy:properties:waf_exclusion_rules:app_firewall_detection_control:exclude_violation_contexts",
@@ -1157,7 +1161,7 @@
       "category": "security",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -1179,7 +1183,7 @@
       "schema_path": ["waf_exclusion_rules", "metadata"],
       "sections": [
         {
-          "aliases": ["description spec"],
+          "aliases": ["waf exclusion rules metadata description spec"],
           "anchor": "schema-waf_exclusion_rules--metadata--description_spec",
           "description": "Description. Human readable description.",
           "document_id": "xcsh-docs:data-sources:waf_exclusion_policy:properties:waf_exclusion_rules:metadata",
@@ -1193,7 +1197,7 @@
           "type": "string"
         },
         {
-          "aliases": ["name"],
+          "aliases": ["waf exclusion rules metadata name"],
           "anchor": "schema-waf_exclusion_rules--metadata--name",
           "description": "This is the name of the message. The value of name has to follow DNS-1035 format.",
           "document_id": "xcsh-docs:data-sources:waf_exclusion_policy:properties:waf_exclusion_rules:metadata",
@@ -1226,7 +1230,7 @@
       "category": "security",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -1266,7 +1270,7 @@
       "category": "security",
       "child_ids": ["xcsh-docs:data-sources:waf_exclusion_policy:example:data-source"],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -1306,7 +1310,7 @@
       "category": "security",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"

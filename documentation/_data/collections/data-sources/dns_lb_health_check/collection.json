@@ -210,7 +210,7 @@
         "xcsh-docs:data-sources:dns_lb_health_check:examples"
       ],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -258,7 +258,7 @@
         "xcsh-docs:data-sources:dns_lb_health_check:properties:udp_health_check"
       ],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -470,7 +470,7 @@
         "xcsh-docs:data-sources:dns_lb_health_check:properties:http_health_check:inherit_load_balancer_fqdn"
       ],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -492,7 +492,7 @@
       "schema_path": ["http_health_check"],
       "sections": [
         {
-          "aliases": ["disable virtual host"],
+          "aliases": ["http health check disable virtual host"],
           "anchor": "section",
           "description": "This can be used for messages where no values are needed.",
           "document_id": "xcsh-docs:data-sources:dns_lb_health_check:properties:http_health_check:disable_virtual_host",
@@ -506,7 +506,7 @@
           "type": "object"
         },
         {
-          "aliases": ["health check port"],
+          "aliases": ["http health check health check port"],
           "anchor": "schema-http_health_check--health_check_port",
           "description": "Port used for performing health check.",
           "document_id": "xcsh-docs:data-sources:dns_lb_health_check:properties:http_health_check",
@@ -520,7 +520,7 @@
           "type": "number"
         },
         {
-          "aliases": ["health check secondary port"],
+          "aliases": ["http health check health check secondary port"],
           "anchor": "schema-http_health_check--health_check_secondary_port",
           "description": "Secondary port used for performing health check. If included, both ports must be healthy for the health check to pass.",
           "document_id": "xcsh-docs:data-sources:dns_lb_health_check:properties:http_health_check",
@@ -534,7 +534,7 @@
           "type": "number"
         },
         {
-          "aliases": ["inherit load balancer fqdn"],
+          "aliases": ["http health check inherit load balancer fqdn"],
           "anchor": "section",
           "description": "This can be used for messages where no values are needed.",
           "document_id": "xcsh-docs:data-sources:dns_lb_health_check:properties:http_health_check:inherit_load_balancer_fqdn",
@@ -548,7 +548,7 @@
           "type": "object"
         },
         {
-          "aliases": ["receive", "succeeded", "success", "successful"],
+          "aliases": ["http health check receive", "succeeded", "success", "successful"],
           "anchor": "schema-http_health_check--receive",
           "description": "Regular expression used to match against the response to the health check's request. Mark node up upon receipt of a successful regular expression match. Uses re2 regular expression syntax.",
           "document_id": "xcsh-docs:data-sources:dns_lb_health_check:properties:http_health_check",
@@ -562,7 +562,7 @@
           "type": "string"
         },
         {
-          "aliases": ["send"],
+          "aliases": ["http health check send"],
           "anchor": "schema-http_health_check--send",
           "description": "HTTP payload to send to the target.",
           "document_id": "xcsh-docs:data-sources:dns_lb_health_check:properties:http_health_check",
@@ -576,7 +576,7 @@
           "type": "string"
         },
         {
-          "aliases": ["virtual host"],
+          "aliases": ["http health check virtual host"],
           "anchor": "schema-http_health_check--virtual_host",
           "description": "Exclusive with Name of the virtual host to use for SNI.",
           "document_id": "xcsh-docs:data-sources:dns_lb_health_check:properties:http_health_check",
@@ -609,7 +609,7 @@
       "category": "dns",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -649,7 +649,7 @@
       "category": "dns",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -692,7 +692,7 @@
         "xcsh-docs:data-sources:dns_lb_health_check:properties:https_health_check:inherit_load_balancer_fqdn"
       ],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -714,7 +714,7 @@
       "schema_path": ["https_health_check"],
       "sections": [
         {
-          "aliases": ["disable virtual host"],
+          "aliases": ["https health check disable virtual host"],
           "anchor": "section",
           "description": "This can be used for messages where no values are needed.",
           "document_id": "xcsh-docs:data-sources:dns_lb_health_check:properties:https_health_check:disable_virtual_host",
@@ -728,7 +728,7 @@
           "type": "object"
         },
         {
-          "aliases": ["health check port"],
+          "aliases": ["https health check health check port"],
           "anchor": "schema-https_health_check--health_check_port",
           "description": "Port used for performing health check.",
           "document_id": "xcsh-docs:data-sources:dns_lb_health_check:properties:https_health_check",
@@ -742,7 +742,7 @@
           "type": "number"
         },
         {
-          "aliases": ["health check secondary port"],
+          "aliases": ["https health check health check secondary port"],
           "anchor": "schema-https_health_check--health_check_secondary_port",
           "description": "Secondary port used for performing health check. If included, both ports must be healthy for the health check to pass.",
           "document_id": "xcsh-docs:data-sources:dns_lb_health_check:properties:https_health_check",
@@ -756,7 +756,7 @@
           "type": "number"
         },
         {
-          "aliases": ["inherit load balancer fqdn"],
+          "aliases": ["https health check inherit load balancer fqdn"],
           "anchor": "section",
           "description": "This can be used for messages where no values are needed.",
           "document_id": "xcsh-docs:data-sources:dns_lb_health_check:properties:https_health_check:inherit_load_balancer_fqdn",
@@ -770,7 +770,7 @@
           "type": "object"
         },
         {
-          "aliases": ["receive", "succeeded", "success", "successful"],
+          "aliases": ["https health check receive", "succeeded", "success", "successful"],
           "anchor": "schema-https_health_check--receive",
           "description": "Regular expression used to match against the response to the health check's request. Mark node up upon receipt of a successful regular expression match. Uses re2 regular expression syntax.",
           "document_id": "xcsh-docs:data-sources:dns_lb_health_check:properties:https_health_check",
@@ -784,7 +784,7 @@
           "type": "string"
         },
         {
-          "aliases": ["send"],
+          "aliases": ["https health check send"],
           "anchor": "schema-https_health_check--send",
           "description": "HTTP payload to send to the target.",
           "document_id": "xcsh-docs:data-sources:dns_lb_health_check:properties:https_health_check",
@@ -798,7 +798,7 @@
           "type": "string"
         },
         {
-          "aliases": ["virtual host"],
+          "aliases": ["https health check virtual host"],
           "anchor": "schema-https_health_check--virtual_host",
           "description": "Exclusive with Name of the virtual host to use for SNI.",
           "document_id": "xcsh-docs:data-sources:dns_lb_health_check:properties:https_health_check",
@@ -831,7 +831,7 @@
       "category": "dns",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -871,7 +871,7 @@
       "category": "dns",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -911,7 +911,7 @@
       "category": "dns",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -951,7 +951,7 @@
       "category": "dns",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -973,7 +973,7 @@
       "schema_path": ["tcp_health_check"],
       "sections": [
         {
-          "aliases": ["health check port"],
+          "aliases": ["tcp health check health check port"],
           "anchor": "schema-tcp_health_check--health_check_port",
           "description": "Port used for performing health check.",
           "document_id": "xcsh-docs:data-sources:dns_lb_health_check:properties:tcp_health_check",
@@ -987,7 +987,7 @@
           "type": "number"
         },
         {
-          "aliases": ["health check secondary port"],
+          "aliases": ["tcp health check health check secondary port"],
           "anchor": "schema-tcp_health_check--health_check_secondary_port",
           "description": "Secondary port used for performing health check. If included, both ports must be healthy for the health check to pass.",
           "document_id": "xcsh-docs:data-sources:dns_lb_health_check:properties:tcp_health_check",
@@ -1001,7 +1001,7 @@
           "type": "number"
         },
         {
-          "aliases": ["receive", "succeeded", "success", "successful"],
+          "aliases": ["succeeded", "success", "successful", "tcp health check receive"],
           "anchor": "schema-tcp_health_check--receive",
           "description": "Regular expression used to match against the response to the monitor's request. Mark node up upon receipt of a successful regular expression match. Uses re2 regular expression syntax.",
           "document_id": "xcsh-docs:data-sources:dns_lb_health_check:properties:tcp_health_check",
@@ -1015,7 +1015,7 @@
           "type": "string"
         },
         {
-          "aliases": ["send"],
+          "aliases": ["tcp health check send"],
           "anchor": "schema-tcp_health_check--send",
           "description": "Send this string to target (default empty. When send and receive are both empty, monitor just tests 3WHS)",
           "document_id": "xcsh-docs:data-sources:dns_lb_health_check:properties:tcp_health_check",
@@ -1048,7 +1048,7 @@
       "category": "dns",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -1070,7 +1070,7 @@
       "schema_path": ["tcp_hex_health_check"],
       "sections": [
         {
-          "aliases": ["health check port"],
+          "aliases": ["tcp hex health check health check port"],
           "anchor": "schema-tcp_hex_health_check--health_check_port",
           "description": "Port used for performing health check.",
           "document_id": "xcsh-docs:data-sources:dns_lb_health_check:properties:tcp_hex_health_check",
@@ -1084,7 +1084,7 @@
           "type": "number"
         },
         {
-          "aliases": ["health check secondary port"],
+          "aliases": ["tcp hex health check health check secondary port"],
           "anchor": "schema-tcp_hex_health_check--health_check_secondary_port",
           "description": "Secondary port used for performing health check. If included, both ports must be healthy for the health check to pass.",
           "document_id": "xcsh-docs:data-sources:dns_lb_health_check:properties:tcp_hex_health_check",
@@ -1098,7 +1098,7 @@
           "type": "number"
         },
         {
-          "aliases": ["receive"],
+          "aliases": ["tcp hex health check receive"],
           "anchor": "schema-tcp_hex_health_check--receive",
           "description": "Hex encoded raw bytes expected in the response.",
           "document_id": "xcsh-docs:data-sources:dns_lb_health_check:properties:tcp_hex_health_check",
@@ -1112,7 +1112,7 @@
           "type": "string"
         },
         {
-          "aliases": ["send"],
+          "aliases": ["tcp hex health check send"],
           "anchor": "schema-tcp_hex_health_check--send",
           "description": "Hex encoded raw bytes sent in the request. Empty payloads imply a connect-only health check.",
           "document_id": "xcsh-docs:data-sources:dns_lb_health_check:properties:tcp_hex_health_check",
@@ -1145,7 +1145,7 @@
       "category": "dns",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -1167,7 +1167,7 @@
       "schema_path": ["udp_health_check"],
       "sections": [
         {
-          "aliases": ["health check port"],
+          "aliases": ["udp health check health check port"],
           "anchor": "schema-udp_health_check--health_check_port",
           "description": "Port used for performing health check.",
           "document_id": "xcsh-docs:data-sources:dns_lb_health_check:properties:udp_health_check",
@@ -1181,7 +1181,7 @@
           "type": "number"
         },
         {
-          "aliases": ["health check secondary port"],
+          "aliases": ["udp health check health check secondary port"],
           "anchor": "schema-udp_health_check--health_check_secondary_port",
           "description": "Secondary port used for performing health check. If included, both ports must be healthy for the health check to pass.",
           "document_id": "xcsh-docs:data-sources:dns_lb_health_check:properties:udp_health_check",
@@ -1195,7 +1195,7 @@
           "type": "number"
         },
         {
-          "aliases": ["receive"],
+          "aliases": ["udp health check receive"],
           "anchor": "schema-udp_health_check--receive",
           "description": "UDP response to be matched. It can be a regex.",
           "document_id": "xcsh-docs:data-sources:dns_lb_health_check:properties:udp_health_check",
@@ -1209,7 +1209,7 @@
           "type": "string"
         },
         {
-          "aliases": ["send"],
+          "aliases": ["udp health check send"],
           "anchor": "schema-udp_health_check--send",
           "description": "UDP payload.",
           "document_id": "xcsh-docs:data-sources:dns_lb_health_check:properties:udp_health_check",
@@ -1242,7 +1242,7 @@
       "category": "dns",
       "child_ids": ["xcsh-docs:data-sources:dns_lb_health_check:example:data-source"],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -1282,7 +1282,7 @@
       "category": "dns",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"

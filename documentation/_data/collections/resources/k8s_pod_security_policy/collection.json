@@ -352,7 +352,7 @@
         "xcsh-docs:resources:k8s_pod_security_policy:timeouts"
       ],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -396,7 +396,7 @@
         "xcsh-docs:resources:k8s_pod_security_policy:properties:timeouts"
       ],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -643,7 +643,7 @@
           "type": "object"
         },
         {
-          "aliases": ["duration", "operation timeout", "timeouts"],
+          "aliases": ["duration", "lifecycle timeout", "operation timeout", "timeouts"],
           "anchor": "section",
           "description": "timeouts",
           "document_id": "xcsh-docs:resources:k8s_pod_security_policy:properties:timeouts",
@@ -708,7 +708,7 @@
         "xcsh-docs:resources:k8s_pod_security_policy:properties:psp_spec:supplemental_groups"
       ],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -843,7 +843,7 @@
       "schema_path": ["psp_spec"],
       "sections": [
         {
-          "aliases": ["allow privilege escalation"],
+          "aliases": ["psp spec allow privilege escalation"],
           "anchor": "schema-psp_spec--allow_privilege_escalation",
           "description": "Pod can request to privilege escalation.",
           "document_id": "xcsh-docs:resources:k8s_pod_security_policy:properties:psp_spec",
@@ -857,7 +857,7 @@
           "type": "bool"
         },
         {
-          "aliases": ["allowed capabilities"],
+          "aliases": ["psp spec allowed capabilities"],
           "anchor": "section",
           "description": "List of capabilities that docker container has.",
           "document_id": "xcsh-docs:resources:k8s_pod_security_policy:properties:psp_spec:allowed_capabilities",
@@ -880,7 +880,7 @@
           "type": "object"
         },
         {
-          "aliases": ["allowed csi drivers"],
+          "aliases": ["psp spec allowed csi drivers"],
           "anchor": "schema-psp_spec--allowed_csi_drivers",
           "description": "Restrict the available CSI drivers for POD, default all drivers are available.",
           "document_id": "xcsh-docs:resources:k8s_pod_security_policy:properties:psp_spec",
@@ -894,7 +894,7 @@
           "type": "list"
         },
         {
-          "aliases": ["allowed flex volumes"],
+          "aliases": ["psp spec allowed flex volumes"],
           "anchor": "schema-psp_spec--allowed_flex_volumes",
           "description": "Restrict list of Flex volumes, default all volumes are allowed.",
           "document_id": "xcsh-docs:resources:k8s_pod_security_policy:properties:psp_spec",
@@ -908,7 +908,7 @@
           "type": "list"
         },
         {
-          "aliases": ["allowed host paths"],
+          "aliases": ["psp spec allowed host paths"],
           "anchor": "section",
           "description": "Restrict list of host paths, default all host paths are allowed.",
           "document_id": "xcsh-docs:resources:k8s_pod_security_policy:properties:psp_spec:allowed_host_paths",
@@ -931,7 +931,7 @@
           "type": "object"
         },
         {
-          "aliases": ["allowed proc mounts"],
+          "aliases": ["psp spec allowed proc mounts"],
           "anchor": "schema-psp_spec--allowed_proc_mounts",
           "description": "Allowed list of proc mounts, empty list allows default proc mounts.",
           "document_id": "xcsh-docs:resources:k8s_pod_security_policy:properties:psp_spec",
@@ -945,7 +945,7 @@
           "type": "list"
         },
         {
-          "aliases": ["allowed unsafe sysctls"],
+          "aliases": ["psp spec allowed unsafe sysctls"],
           "anchor": "schema-psp_spec--allowed_unsafe_sysctls",
           "description": "Allowed list of unsafe sysctls, empty list allows none. Supports prefix reg-ex.",
           "document_id": "xcsh-docs:resources:k8s_pod_security_policy:properties:psp_spec",
@@ -959,7 +959,7 @@
           "type": "list"
         },
         {
-          "aliases": ["default allow privilege escalation"],
+          "aliases": ["psp spec default allow privilege escalation"],
           "anchor": "schema-psp_spec--default_allow_privilege_escalation",
           "description": "Pod has permission for privilege escalation by default.",
           "document_id": "xcsh-docs:resources:k8s_pod_security_policy:properties:psp_spec",
@@ -973,7 +973,7 @@
           "type": "bool"
         },
         {
-          "aliases": ["default capabilities"],
+          "aliases": ["psp spec default capabilities"],
           "anchor": "section",
           "description": "List of capabilities that docker container has.",
           "document_id": "xcsh-docs:resources:k8s_pod_security_policy:properties:psp_spec:default_capabilities",
@@ -996,7 +996,7 @@
           "type": "object"
         },
         {
-          "aliases": ["drop capabilities"],
+          "aliases": ["psp spec drop capabilities"],
           "anchor": "section",
           "description": "List of capabilities that docker container has.",
           "document_id": "xcsh-docs:resources:k8s_pod_security_policy:properties:psp_spec:drop_capabilities",
@@ -1019,7 +1019,7 @@
           "type": "object"
         },
         {
-          "aliases": ["forbidden sysctls"],
+          "aliases": ["psp spec forbidden sysctls"],
           "anchor": "schema-psp_spec--forbidden_sysctls",
           "description": "Forbidden list of sysctls, empty list forbids none. Supports prefix reg-ex.",
           "document_id": "xcsh-docs:resources:k8s_pod_security_policy:properties:psp_spec",
@@ -1033,7 +1033,7 @@
           "type": "list"
         },
         {
-          "aliases": ["fs group strategy options"],
+          "aliases": ["psp spec fs group strategy options"],
           "anchor": "section",
           "description": "ID ranges and rules.",
           "document_id": "xcsh-docs:resources:k8s_pod_security_policy:properties:psp_spec:fs_group_strategy_options",
@@ -1056,7 +1056,7 @@
           "type": "object"
         },
         {
-          "aliases": ["host ipc"],
+          "aliases": ["psp spec host ipc"],
           "anchor": "schema-psp_spec--host_ipc",
           "description": "Host IPC determines if the policy allows the use of host IPC in the pod spec.",
           "document_id": "xcsh-docs:resources:k8s_pod_security_policy:properties:psp_spec",
@@ -1070,7 +1070,7 @@
           "type": "bool"
         },
         {
-          "aliases": ["host network"],
+          "aliases": ["psp spec host network"],
           "anchor": "schema-psp_spec--host_network",
           "description": "Host Network determines if the policy allows the use of host network in the pod spec.",
           "document_id": "xcsh-docs:resources:k8s_pod_security_policy:properties:psp_spec",
@@ -1084,7 +1084,7 @@
           "type": "bool"
         },
         {
-          "aliases": ["host pid"],
+          "aliases": ["psp spec host pid"],
           "anchor": "schema-psp_spec--host_pid",
           "description": "Host PID determines if the policy allows the use of host PID in the pod spec.",
           "document_id": "xcsh-docs:resources:k8s_pod_security_policy:properties:psp_spec",
@@ -1098,7 +1098,7 @@
           "type": "bool"
         },
         {
-          "aliases": ["host port ranges"],
+          "aliases": ["psp spec host port ranges"],
           "anchor": "schema-psp_spec--host_port_ranges",
           "description": "Host port ranges determines which ports ranges are allowed to be exposed.",
           "document_id": "xcsh-docs:resources:k8s_pod_security_policy:properties:psp_spec",
@@ -1112,7 +1112,7 @@
           "type": "string"
         },
         {
-          "aliases": ["no allowed capabilities"],
+          "aliases": ["psp spec no allowed capabilities"],
           "anchor": "section",
           "description": "This can be used for messages where no values are needed.",
           "document_id": "xcsh-docs:resources:k8s_pod_security_policy:properties:psp_spec:no_allowed_capabilities",
@@ -1126,7 +1126,7 @@
           "type": "object"
         },
         {
-          "aliases": ["no default capabilities"],
+          "aliases": ["psp spec no default capabilities"],
           "anchor": "section",
           "description": "This can be used for messages where no values are needed.",
           "document_id": "xcsh-docs:resources:k8s_pod_security_policy:properties:psp_spec:no_default_capabilities",
@@ -1140,7 +1140,7 @@
           "type": "object"
         },
         {
-          "aliases": ["no drop capabilities"],
+          "aliases": ["psp spec no drop capabilities"],
           "anchor": "section",
           "description": "This can be used for messages where no values are needed.",
           "document_id": "xcsh-docs:resources:k8s_pod_security_policy:properties:psp_spec:no_drop_capabilities",
@@ -1154,7 +1154,7 @@
           "type": "object"
         },
         {
-          "aliases": ["no fs groups"],
+          "aliases": ["psp spec no fs groups"],
           "anchor": "section",
           "description": "This can be used for messages where no values are needed.",
           "document_id": "xcsh-docs:resources:k8s_pod_security_policy:properties:psp_spec:no_fs_groups",
@@ -1168,7 +1168,7 @@
           "type": "object"
         },
         {
-          "aliases": ["no run as group"],
+          "aliases": ["psp spec no run as group"],
           "anchor": "section",
           "description": "This can be used for messages where no values are needed.",
           "document_id": "xcsh-docs:resources:k8s_pod_security_policy:properties:psp_spec:no_run_as_group",
@@ -1182,7 +1182,7 @@
           "type": "object"
         },
         {
-          "aliases": ["no run as user"],
+          "aliases": ["psp spec no run as user"],
           "anchor": "section",
           "description": "This can be used for messages where no values are needed.",
           "document_id": "xcsh-docs:resources:k8s_pod_security_policy:properties:psp_spec:no_run_as_user",
@@ -1196,7 +1196,7 @@
           "type": "object"
         },
         {
-          "aliases": ["no runtime class"],
+          "aliases": ["psp spec no runtime class"],
           "anchor": "section",
           "description": "This can be used for messages where no values are needed.",
           "document_id": "xcsh-docs:resources:k8s_pod_security_policy:properties:psp_spec:no_runtime_class",
@@ -1210,7 +1210,7 @@
           "type": "object"
         },
         {
-          "aliases": ["no se linux options"],
+          "aliases": ["psp spec no se linux options"],
           "anchor": "section",
           "description": "This can be used for messages where no values are needed.",
           "document_id": "xcsh-docs:resources:k8s_pod_security_policy:properties:psp_spec:no_se_linux_options",
@@ -1224,7 +1224,7 @@
           "type": "object"
         },
         {
-          "aliases": ["no supplemental groups"],
+          "aliases": ["psp spec no supplemental groups"],
           "anchor": "section",
           "description": "This can be used for messages where no values are needed.",
           "document_id": "xcsh-docs:resources:k8s_pod_security_policy:properties:psp_spec:no_supplemental_groups",
@@ -1238,7 +1238,7 @@
           "type": "object"
         },
         {
-          "aliases": ["privileged"],
+          "aliases": ["psp spec privileged"],
           "anchor": "schema-psp_spec--privileged",
           "description": "Privileged determines if a pod can request to be run as privileged.",
           "document_id": "xcsh-docs:resources:k8s_pod_security_policy:properties:psp_spec",
@@ -1252,7 +1252,7 @@
           "type": "bool"
         },
         {
-          "aliases": ["read only root filesystem"],
+          "aliases": ["psp spec read only root filesystem"],
           "anchor": "schema-psp_spec--read_only_root_filesystem",
           "description": "Containers can only run with read only root filesystem.",
           "document_id": "xcsh-docs:resources:k8s_pod_security_policy:properties:psp_spec",
@@ -1266,7 +1266,7 @@
           "type": "bool"
         },
         {
-          "aliases": ["run as group"],
+          "aliases": ["psp spec run as group"],
           "anchor": "section",
           "description": "ID ranges and rules.",
           "document_id": "xcsh-docs:resources:k8s_pod_security_policy:properties:psp_spec:run_as_group",
@@ -1289,7 +1289,7 @@
           "type": "object"
         },
         {
-          "aliases": ["run as user"],
+          "aliases": ["psp spec run as user"],
           "anchor": "section",
           "description": "ID ranges and rules.",
           "document_id": "xcsh-docs:resources:k8s_pod_security_policy:properties:psp_spec:run_as_user",
@@ -1312,7 +1312,7 @@
           "type": "object"
         },
         {
-          "aliases": ["supplemental groups"],
+          "aliases": ["psp spec supplemental groups"],
           "anchor": "section",
           "description": "ID ranges and rules.",
           "document_id": "xcsh-docs:resources:k8s_pod_security_policy:properties:psp_spec:supplemental_groups",
@@ -1335,7 +1335,7 @@
           "type": "object"
         },
         {
-          "aliases": ["volumes"],
+          "aliases": ["psp spec volumes"],
           "anchor": "schema-psp_spec--volumes",
           "description": "Allow List of volume plugins. Empty no volumes are allowed.",
           "document_id": "xcsh-docs:resources:k8s_pod_security_policy:properties:psp_spec",
@@ -1368,7 +1368,7 @@
       "category": "container",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -1399,7 +1399,7 @@
       "schema_path": ["psp_spec", "allowed_capabilities"],
       "sections": [
         {
-          "aliases": ["capabilities"],
+          "aliases": ["psp spec allowed capabilities capabilities"],
           "anchor": "schema-psp_spec--allowed_capabilities--capabilities",
           "description": "List of capabilities that docker container has.",
           "document_id": "xcsh-docs:resources:k8s_pod_security_policy:properties:psp_spec:allowed_capabilities",
@@ -1432,7 +1432,7 @@
       "category": "container",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -1463,7 +1463,7 @@
       "schema_path": ["psp_spec", "allowed_host_paths"],
       "sections": [
         {
-          "aliases": ["path prefix"],
+          "aliases": ["psp spec allowed host paths path prefix"],
           "anchor": "schema-psp_spec--allowed_host_paths--path_prefix",
           "description": "Host path prefix is the path prefix that the host volume must match. It does not support *.",
           "document_id": "xcsh-docs:resources:k8s_pod_security_policy:properties:psp_spec:allowed_host_paths",
@@ -1477,7 +1477,7 @@
           "type": "string"
         },
         {
-          "aliases": ["read only"],
+          "aliases": ["psp spec allowed host paths read only"],
           "anchor": "schema-psp_spec--allowed_host_paths--read_only",
           "description": "This volume will be allowed to mount read only.",
           "document_id": "xcsh-docs:resources:k8s_pod_security_policy:properties:psp_spec:allowed_host_paths",
@@ -1510,7 +1510,7 @@
       "category": "container",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -1541,7 +1541,7 @@
       "schema_path": ["psp_spec", "default_capabilities"],
       "sections": [
         {
-          "aliases": ["capabilities"],
+          "aliases": ["psp spec default capabilities capabilities"],
           "anchor": "schema-psp_spec--default_capabilities--capabilities",
           "description": "List of capabilities that docker container has.",
           "document_id": "xcsh-docs:resources:k8s_pod_security_policy:properties:psp_spec:default_capabilities",
@@ -1574,7 +1574,7 @@
       "category": "container",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -1605,7 +1605,7 @@
       "schema_path": ["psp_spec", "drop_capabilities"],
       "sections": [
         {
-          "aliases": ["capabilities"],
+          "aliases": ["psp spec drop capabilities capabilities"],
           "anchor": "schema-psp_spec--drop_capabilities--capabilities",
           "description": "List of capabilities that docker container has.",
           "document_id": "xcsh-docs:resources:k8s_pod_security_policy:properties:psp_spec:drop_capabilities",
@@ -1640,7 +1640,7 @@
         "xcsh-docs:resources:k8s_pod_security_policy:properties:psp_spec:fs_group_strategy_options:id_ranges"
       ],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -1671,7 +1671,7 @@
       "schema_path": ["psp_spec", "fs_group_strategy_options"],
       "sections": [
         {
-          "aliases": ["id ranges"],
+          "aliases": ["psp spec fs group strategy options id ranges"],
           "anchor": "section",
           "description": "List of range of ID(s)",
           "document_id": "xcsh-docs:resources:k8s_pod_security_policy:properties:psp_spec:fs_group_strategy_options:id_ranges",
@@ -1702,7 +1702,7 @@
           "type": "object"
         },
         {
-          "aliases": ["rule"],
+          "aliases": ["psp spec fs group strategy options rule"],
           "anchor": "schema-psp_spec--fs_group_strategy_options--rule",
           "description": "Rule indicated how the FS group ID range is used.",
           "document_id": "xcsh-docs:resources:k8s_pod_security_policy:properties:psp_spec:fs_group_strategy_options",
@@ -1735,7 +1735,7 @@
       "category": "container",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -1774,7 +1774,7 @@
       "schema_path": ["psp_spec", "fs_group_strategy_options", "id_ranges"],
       "sections": [
         {
-          "aliases": ["max id"],
+          "aliases": ["psp spec fs group strategy options id ranges max id"],
           "anchor": "schema-psp_spec--fs_group_strategy_options--id_ranges--max_id",
           "description": "Ending(maximum) ID for for ID range.",
           "document_id": "xcsh-docs:resources:k8s_pod_security_policy:properties:psp_spec:fs_group_strategy_options:id_ranges",
@@ -1788,7 +1788,7 @@
           "type": "number"
         },
         {
-          "aliases": ["min id"],
+          "aliases": ["psp spec fs group strategy options id ranges min id"],
           "anchor": "schema-psp_spec--fs_group_strategy_options--id_ranges--min_id",
           "description": "Starting(minimum) ID for for ID range.",
           "document_id": "xcsh-docs:resources:k8s_pod_security_policy:properties:psp_spec:fs_group_strategy_options:id_ranges",
@@ -1821,7 +1821,7 @@
       "category": "container",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -1861,7 +1861,7 @@
       "category": "container",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -1901,7 +1901,7 @@
       "category": "container",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -1941,7 +1941,7 @@
       "category": "container",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -1981,7 +1981,7 @@
       "category": "container",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -2021,7 +2021,7 @@
       "category": "container",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -2061,7 +2061,7 @@
       "category": "container",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -2101,7 +2101,7 @@
       "category": "container",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -2141,7 +2141,7 @@
       "category": "container",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -2181,7 +2181,7 @@
       "category": "container",
       "child_ids": ["xcsh-docs:resources:k8s_pod_security_policy:properties:psp_spec:run_as_group:id_ranges"],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -2212,7 +2212,7 @@
       "schema_path": ["psp_spec", "run_as_group"],
       "sections": [
         {
-          "aliases": ["id ranges"],
+          "aliases": ["psp spec run as group id ranges"],
           "anchor": "section",
           "description": "List of range of ID(s)",
           "document_id": "xcsh-docs:resources:k8s_pod_security_policy:properties:psp_spec:run_as_group:id_ranges",
@@ -2243,7 +2243,7 @@
           "type": "object"
         },
         {
-          "aliases": ["rule"],
+          "aliases": ["psp spec run as group rule"],
           "anchor": "schema-psp_spec--run_as_group--rule",
           "description": "Rule indicated how the FS group ID range is used.",
           "document_id": "xcsh-docs:resources:k8s_pod_security_policy:properties:psp_spec:run_as_group",
@@ -2276,7 +2276,7 @@
       "category": "container",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -2315,7 +2315,7 @@
       "schema_path": ["psp_spec", "run_as_group", "id_ranges"],
       "sections": [
         {
-          "aliases": ["max id"],
+          "aliases": ["psp spec run as group id ranges max id"],
           "anchor": "schema-psp_spec--run_as_group--id_ranges--max_id",
           "description": "Ending(maximum) ID for for ID range.",
           "document_id": "xcsh-docs:resources:k8s_pod_security_policy:properties:psp_spec:run_as_group:id_ranges",
@@ -2329,7 +2329,7 @@
           "type": "number"
         },
         {
-          "aliases": ["min id"],
+          "aliases": ["psp spec run as group id ranges min id"],
           "anchor": "schema-psp_spec--run_as_group--id_ranges--min_id",
           "description": "Starting(minimum) ID for for ID range.",
           "document_id": "xcsh-docs:resources:k8s_pod_security_policy:properties:psp_spec:run_as_group:id_ranges",
@@ -2362,7 +2362,7 @@
       "category": "container",
       "child_ids": ["xcsh-docs:resources:k8s_pod_security_policy:properties:psp_spec:run_as_user:id_ranges"],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -2393,7 +2393,7 @@
       "schema_path": ["psp_spec", "run_as_user"],
       "sections": [
         {
-          "aliases": ["id ranges"],
+          "aliases": ["psp spec run as user id ranges"],
           "anchor": "section",
           "description": "List of range of ID(s)",
           "document_id": "xcsh-docs:resources:k8s_pod_security_policy:properties:psp_spec:run_as_user:id_ranges",
@@ -2424,7 +2424,7 @@
           "type": "object"
         },
         {
-          "aliases": ["rule"],
+          "aliases": ["psp spec run as user rule"],
           "anchor": "schema-psp_spec--run_as_user--rule",
           "description": "Rule indicated how the FS group ID range is used.",
           "document_id": "xcsh-docs:resources:k8s_pod_security_policy:properties:psp_spec:run_as_user",
@@ -2457,7 +2457,7 @@
       "category": "container",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -2496,7 +2496,7 @@
       "schema_path": ["psp_spec", "run_as_user", "id_ranges"],
       "sections": [
         {
-          "aliases": ["max id"],
+          "aliases": ["psp spec run as user id ranges max id"],
           "anchor": "schema-psp_spec--run_as_user--id_ranges--max_id",
           "description": "Ending(maximum) ID for for ID range.",
           "document_id": "xcsh-docs:resources:k8s_pod_security_policy:properties:psp_spec:run_as_user:id_ranges",
@@ -2510,7 +2510,7 @@
           "type": "number"
         },
         {
-          "aliases": ["min id"],
+          "aliases": ["psp spec run as user id ranges min id"],
           "anchor": "schema-psp_spec--run_as_user--id_ranges--min_id",
           "description": "Starting(minimum) ID for for ID range.",
           "document_id": "xcsh-docs:resources:k8s_pod_security_policy:properties:psp_spec:run_as_user:id_ranges",
@@ -2543,7 +2543,7 @@
       "category": "container",
       "child_ids": ["xcsh-docs:resources:k8s_pod_security_policy:properties:psp_spec:supplemental_groups:id_ranges"],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -2574,7 +2574,7 @@
       "schema_path": ["psp_spec", "supplemental_groups"],
       "sections": [
         {
-          "aliases": ["id ranges"],
+          "aliases": ["psp spec supplemental groups id ranges"],
           "anchor": "section",
           "description": "List of range of ID(s)",
           "document_id": "xcsh-docs:resources:k8s_pod_security_policy:properties:psp_spec:supplemental_groups:id_ranges",
@@ -2605,7 +2605,7 @@
           "type": "object"
         },
         {
-          "aliases": ["rule"],
+          "aliases": ["psp spec supplemental groups rule"],
           "anchor": "schema-psp_spec--supplemental_groups--rule",
           "description": "Rule indicated how the FS group ID range is used.",
           "document_id": "xcsh-docs:resources:k8s_pod_security_policy:properties:psp_spec:supplemental_groups",
@@ -2638,7 +2638,7 @@
       "category": "container",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -2677,7 +2677,7 @@
       "schema_path": ["psp_spec", "supplemental_groups", "id_ranges"],
       "sections": [
         {
-          "aliases": ["max id"],
+          "aliases": ["psp spec supplemental groups id ranges max id"],
           "anchor": "schema-psp_spec--supplemental_groups--id_ranges--max_id",
           "description": "Ending(maximum) ID for for ID range.",
           "document_id": "xcsh-docs:resources:k8s_pod_security_policy:properties:psp_spec:supplemental_groups:id_ranges",
@@ -2691,7 +2691,7 @@
           "type": "number"
         },
         {
-          "aliases": ["min id"],
+          "aliases": ["psp spec supplemental groups id ranges min id"],
           "anchor": "schema-psp_spec--supplemental_groups--id_ranges--min_id",
           "description": "Starting(minimum) ID for for ID range.",
           "document_id": "xcsh-docs:resources:k8s_pod_security_policy:properties:psp_spec:supplemental_groups:id_ranges",
@@ -2717,14 +2717,14 @@
       }
     },
     {
-      "aliases": ["duration", "operation timeout", "timeouts"],
+      "aliases": ["duration", "lifecycle timeout", "operation timeout", "timeouts"],
       "body_bytes": 2297,
       "body_sha256": "sha256:b56d4e76de2aa69f7edc52c3172e6cded6954091b6d541c898f99d642dcf51a7",
       "capabilities": ["container"],
       "category": "container",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -2746,9 +2746,17 @@
       "schema_path": ["timeouts"],
       "sections": [
         {
-          "aliases": ["create"],
+          "aliases": [
+            "create operation timeout",
+            "create timeout",
+            "creation duration",
+            "duration",
+            "lifecycle timeout",
+            "operation timeout",
+            "timeouts create"
+          ],
           "anchor": "schema-timeouts--create",
-          "description": "A string that can be (https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as \"30s\" or \"2h45m\". Valid time units are \"s\" (seconds), \"m\" (minutes), \"h\" (hours).",
+          "description": "Configures the timeout duration for resource creation.",
           "document_id": "xcsh-docs:resources:k8s_pod_security_policy:properties:timeouts",
           "flags": ["optional"],
           "max_items": null,
@@ -2760,9 +2768,18 @@
           "type": "string"
         },
         {
-          "aliases": ["delete", "duration", "operation timeout"],
+          "aliases": [
+            "delete operation timeout",
+            "delete timeout",
+            "deletion duration",
+            "destroy timeout",
+            "duration",
+            "lifecycle timeout",
+            "operation timeout",
+            "timeouts delete"
+          ],
           "anchor": "schema-timeouts--delete",
-          "description": "A string that can be (https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as \"30s\" or \"2h45m\". Valid time units are \"s\" (seconds), \"m\" (minutes), \"h\" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.",
+          "description": "Configures the timeout duration for resource deletion, applicable only if changes are saved into state before destroy.",
           "document_id": "xcsh-docs:resources:k8s_pod_security_policy:properties:timeouts",
           "flags": ["optional"],
           "max_items": null,
@@ -2774,9 +2791,18 @@
           "type": "string"
         },
         {
-          "aliases": ["read"],
+          "aliases": [
+            "duration",
+            "lifecycle timeout",
+            "operation timeout",
+            "read duration",
+            "read operation timeout",
+            "read timeout",
+            "refresh timeout",
+            "timeouts read"
+          ],
           "anchor": "schema-timeouts--read",
-          "description": "A string that can be (https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as \"30s\" or \"2h45m\". Valid time units are \"s\" (seconds), \"m\" (minutes), \"h\" (hours). Read operations occur during any refresh or planning operation when refresh is enabled.",
+          "description": "Configures the timeout duration for read operations during refresh or planning.",
           "document_id": "xcsh-docs:resources:k8s_pod_security_policy:properties:timeouts",
           "flags": ["optional"],
           "max_items": null,
@@ -2788,9 +2814,18 @@
           "type": "string"
         },
         {
-          "aliases": ["update"],
+          "aliases": [
+            "duration",
+            "lifecycle timeout",
+            "modification timeout",
+            "operation timeout",
+            "timeouts update",
+            "update duration",
+            "update operation timeout",
+            "update timeout"
+          ],
           "anchor": "schema-timeouts--update",
-          "description": "A string that can be (https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as \"30s\" or \"2h45m\". Valid time units are \"s\" (seconds), \"m\" (minutes), \"h\" (hours).",
+          "description": "Configures the timeout duration for resource update operations.",
           "document_id": "xcsh-docs:resources:k8s_pod_security_policy:properties:timeouts",
           "flags": ["optional"],
           "max_items": null,
@@ -2821,7 +2856,7 @@
       "category": "container",
       "child_ids": ["xcsh-docs:resources:k8s_pod_security_policy:example:resource"],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -2861,7 +2896,7 @@
       "category": "container",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -2908,7 +2943,7 @@
       "category": "container",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -2949,7 +2984,7 @@
       "category": "container",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"

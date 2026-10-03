@@ -1054,7 +1054,7 @@
         "xcsh-docs:data-sources:tcp_loadbalancer:examples"
       ],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -1131,7 +1131,7 @@
         "xcsh-docs:data-sources:tcp_loadbalancer:properties:tls_tcp_auto_cert"
       ],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -1377,7 +1377,7 @@
           "type": "string"
         },
         {
-          "aliases": ["duration", "idle timeout", "operation timeout"],
+          "aliases": ["duration", "idle timeout"],
           "anchor": "schema-idle_timeout",
           "description": "The amount of time that a stream can exist without upstream or downstream activity, in milliseconds.",
           "document_id": "xcsh-docs:data-sources:tcp_loadbalancer:reference",
@@ -1606,7 +1606,7 @@
       "category": "load-balancing",
       "child_ids": ["xcsh-docs:data-sources:tcp_loadbalancer:properties:active_service_policies:policies"],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -1628,7 +1628,7 @@
       "schema_path": ["active_service_policies"],
       "sections": [
         {
-          "aliases": ["policies"],
+          "aliases": ["active service policies policies"],
           "anchor": "section",
           "description": "Service Policies is a sequential engine where policies (and rules within the policy) are evaluated one after the other. It's important to define the correct order (policies evaluated from top to bottom in the list) for service policies, to GET the intended result. For each request, its characteristics are evaluated",
           "document_id": "xcsh-docs:data-sources:tcp_loadbalancer:properties:active_service_policies:policies",
@@ -1661,7 +1661,7 @@
       "category": "load-balancing",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -1683,7 +1683,7 @@
       "schema_path": ["active_service_policies", "policies"],
       "sections": [
         {
-          "aliases": ["name"],
+          "aliases": ["active service policies policies name"],
           "anchor": "schema-active_service_policies--policies--name",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.",
           "document_id": "xcsh-docs:data-sources:tcp_loadbalancer:properties:active_service_policies:policies",
@@ -1697,7 +1697,7 @@
           "type": "string"
         },
         {
-          "aliases": ["namespace"],
+          "aliases": ["active service policies policies namespace"],
           "anchor": "schema-active_service_policies--policies--namespace",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace.",
           "document_id": "xcsh-docs:data-sources:tcp_loadbalancer:properties:active_service_policies:policies",
@@ -1711,7 +1711,7 @@
           "type": "string"
         },
         {
-          "aliases": ["tenant"],
+          "aliases": ["active service policies policies tenant"],
           "anchor": "schema-active_service_policies--policies--tenant",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant.",
           "document_id": "xcsh-docs:data-sources:tcp_loadbalancer:properties:active_service_policies:policies",
@@ -1744,7 +1744,7 @@
       "category": "load-balancing",
       "child_ids": ["xcsh-docs:data-sources:tcp_loadbalancer:properties:advertise_custom:advertise_where"],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -1766,7 +1766,7 @@
       "schema_path": ["advertise_custom"],
       "sections": [
         {
-          "aliases": ["advertise where"],
+          "aliases": ["advertise custom advertise where"],
           "anchor": "section",
           "description": "Where should this load balancer be available.",
           "document_id": "xcsh-docs:data-sources:tcp_loadbalancer:properties:advertise_custom:advertise_where",
@@ -1809,7 +1809,7 @@
         "xcsh-docs:data-sources:tcp_loadbalancer:properties:advertise_custom:advertise_where:vk8s_service"
       ],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -1831,7 +1831,7 @@
       "schema_path": ["advertise_custom", "advertise_where"],
       "sections": [
         {
-          "aliases": ["advertise dualstack on public"],
+          "aliases": ["advertise custom advertise where advertise dualstack on public"],
           "anchor": "section",
           "description": "This defines a way to advertise a load balancer on public. If optional public_ip is provided, it will only be advertised on RE sites where that public_ip is available.",
           "document_id": "xcsh-docs:data-sources:tcp_loadbalancer:properties:advertise_custom:advertise_where:advertise_dualstack_on_public",
@@ -1845,7 +1845,7 @@
           "type": "object"
         },
         {
-          "aliases": ["advertise on public"],
+          "aliases": ["advertise custom advertise where advertise on public"],
           "anchor": "section",
           "description": "This defines a way to advertise a load balancer on public. If optional public_ip is provided, it will only be advertised on RE sites where that public_ip is available.",
           "document_id": "xcsh-docs:data-sources:tcp_loadbalancer:properties:advertise_custom:advertise_where:advertise_on_public",
@@ -1859,7 +1859,7 @@
           "type": "object"
         },
         {
-          "aliases": ["advertise v6 on public"],
+          "aliases": ["advertise custom advertise where advertise v6 on public"],
           "anchor": "section",
           "description": "This defines a way to advertise a load balancer on public. If optional public_ip is provided, it will only be advertised on RE sites where that public_ip is available.",
           "document_id": "xcsh-docs:data-sources:tcp_loadbalancer:properties:advertise_custom:advertise_where:advertise_v6_on_public",
@@ -1873,7 +1873,7 @@
           "type": "object"
         },
         {
-          "aliases": ["port"],
+          "aliases": ["advertise custom advertise where port"],
           "anchor": "schema-advertise_custom--advertise_where--port",
           "description": "Exclusive with Port to Listen.",
           "document_id": "xcsh-docs:data-sources:tcp_loadbalancer:properties:advertise_custom:advertise_where",
@@ -1887,7 +1887,7 @@
           "type": "number"
         },
         {
-          "aliases": ["port ranges"],
+          "aliases": ["advertise custom advertise where port ranges"],
           "anchor": "schema-advertise_custom--advertise_where--port_ranges",
           "description": "Exclusive with A string containing a comma separated list of port ranges. Each port range consists of a single port or two ports separated by \"-\".",
           "document_id": "xcsh-docs:data-sources:tcp_loadbalancer:properties:advertise_custom:advertise_where",
@@ -1901,7 +1901,7 @@
           "type": "string"
         },
         {
-          "aliases": ["site"],
+          "aliases": ["advertise custom advertise where site"],
           "anchor": "section",
           "description": "This defines a reference to a CE site along with network type and an optional IP address where a load balancer could be advertised.",
           "document_id": "xcsh-docs:data-sources:tcp_loadbalancer:properties:advertise_custom:advertise_where:site",
@@ -1915,7 +1915,7 @@
           "type": "object"
         },
         {
-          "aliases": ["use default port"],
+          "aliases": ["advertise custom advertise where use default port"],
           "anchor": "section",
           "description": "This can be used for messages where no values are needed.",
           "document_id": "xcsh-docs:data-sources:tcp_loadbalancer:properties:advertise_custom:advertise_where:use_default_port",
@@ -1929,7 +1929,7 @@
           "type": "object"
         },
         {
-          "aliases": ["virtual network"],
+          "aliases": ["advertise custom advertise where virtual network"],
           "anchor": "section",
           "description": "Parameters to advertise on a given virtual network.",
           "document_id": "xcsh-docs:data-sources:tcp_loadbalancer:properties:advertise_custom:advertise_where:virtual_network",
@@ -1943,7 +1943,7 @@
           "type": "object"
         },
         {
-          "aliases": ["virtual site"],
+          "aliases": ["advertise custom advertise where virtual site"],
           "anchor": "section",
           "description": "This defines a reference to a customer site virtual site along with network type where a load balancer could be advertised.",
           "document_id": "xcsh-docs:data-sources:tcp_loadbalancer:properties:advertise_custom:advertise_where:virtual_site",
@@ -1957,7 +1957,7 @@
           "type": "object"
         },
         {
-          "aliases": ["virtual site with vip"],
+          "aliases": ["advertise custom advertise where virtual site with vip"],
           "anchor": "section",
           "description": "This defines a reference to a customer site virtual site along with network type and IP where a load balancer could be advertised.",
           "document_id": "xcsh-docs:data-sources:tcp_loadbalancer:properties:advertise_custom:advertise_where:virtual_site_with_vip",
@@ -1971,7 +1971,7 @@
           "type": "object"
         },
         {
-          "aliases": ["vk8s service"],
+          "aliases": ["advertise custom advertise where vk8s service"],
           "anchor": "section",
           "description": "This defines a reference to a RE site or virtual site where a load balancer could be advertised in the vK8s service network.",
           "document_id": "xcsh-docs:data-sources:tcp_loadbalancer:properties:advertise_custom:advertise_where:vk8s_service",
@@ -2006,7 +2006,7 @@
         "xcsh-docs:data-sources:tcp_loadbalancer:properties:advertise_custom:advertise_where:advertise_dualstack_on_public:public_ip"
       ],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -2028,7 +2028,7 @@
       "schema_path": ["advertise_custom", "advertise_where", "advertise_dualstack_on_public"],
       "sections": [
         {
-          "aliases": ["public ip"],
+          "aliases": ["advertise custom advertise where advertise dualstack on public public ip"],
           "anchor": "section",
           "description": "This type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name.",
           "document_id": "xcsh-docs:data-sources:tcp_loadbalancer:properties:advertise_custom:advertise_where:advertise_dualstack_on_public:public_ip",
@@ -2061,7 +2061,7 @@
       "category": "load-balancing",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -2083,7 +2083,7 @@
       "schema_path": ["advertise_custom", "advertise_where", "advertise_dualstack_on_public", "public_ip"],
       "sections": [
         {
-          "aliases": ["name"],
+          "aliases": ["advertise custom advertise where advertise dualstack on public public ip name"],
           "anchor": "schema-advertise_custom--advertise_where--advertise_dualstack_on_public--public_ip--name",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.",
           "document_id": "xcsh-docs:data-sources:tcp_loadbalancer:properties:advertise_custom:advertise_where:advertise_dualstack_on_public:public_ip",
@@ -2097,7 +2097,7 @@
           "type": "string"
         },
         {
-          "aliases": ["namespace"],
+          "aliases": ["advertise custom advertise where advertise dualstack on public public ip namespace"],
           "anchor": "schema-advertise_custom--advertise_where--advertise_dualstack_on_public--public_ip--namespace",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace.",
           "document_id": "xcsh-docs:data-sources:tcp_loadbalancer:properties:advertise_custom:advertise_where:advertise_dualstack_on_public:public_ip",
@@ -2117,7 +2117,7 @@
           "type": "string"
         },
         {
-          "aliases": ["tenant"],
+          "aliases": ["advertise custom advertise where advertise dualstack on public public ip tenant"],
           "anchor": "schema-advertise_custom--advertise_where--advertise_dualstack_on_public--public_ip--tenant",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant.",
           "document_id": "xcsh-docs:data-sources:tcp_loadbalancer:properties:advertise_custom:advertise_where:advertise_dualstack_on_public:public_ip",
@@ -2158,7 +2158,7 @@
         "xcsh-docs:data-sources:tcp_loadbalancer:properties:advertise_custom:advertise_where:advertise_on_public:public_ip"
       ],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -2180,7 +2180,7 @@
       "schema_path": ["advertise_custom", "advertise_where", "advertise_on_public"],
       "sections": [
         {
-          "aliases": ["public ip"],
+          "aliases": ["advertise custom advertise where advertise on public public ip"],
           "anchor": "section",
           "description": "This type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name.",
           "document_id": "xcsh-docs:data-sources:tcp_loadbalancer:properties:advertise_custom:advertise_where:advertise_on_public:public_ip",
@@ -2213,7 +2213,7 @@
       "category": "load-balancing",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -2235,7 +2235,7 @@
       "schema_path": ["advertise_custom", "advertise_where", "advertise_on_public", "public_ip"],
       "sections": [
         {
-          "aliases": ["name"],
+          "aliases": ["advertise custom advertise where advertise on public public ip name"],
           "anchor": "schema-advertise_custom--advertise_where--advertise_on_public--public_ip--name",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.",
           "document_id": "xcsh-docs:data-sources:tcp_loadbalancer:properties:advertise_custom:advertise_where:advertise_on_public:public_ip",
@@ -2249,7 +2249,7 @@
           "type": "string"
         },
         {
-          "aliases": ["namespace"],
+          "aliases": ["advertise custom advertise where advertise on public public ip namespace"],
           "anchor": "schema-advertise_custom--advertise_where--advertise_on_public--public_ip--namespace",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace.",
           "document_id": "xcsh-docs:data-sources:tcp_loadbalancer:properties:advertise_custom:advertise_where:advertise_on_public:public_ip",
@@ -2263,7 +2263,7 @@
           "type": "string"
         },
         {
-          "aliases": ["tenant"],
+          "aliases": ["advertise custom advertise where advertise on public public ip tenant"],
           "anchor": "schema-advertise_custom--advertise_where--advertise_on_public--public_ip--tenant",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant.",
           "document_id": "xcsh-docs:data-sources:tcp_loadbalancer:properties:advertise_custom:advertise_where:advertise_on_public:public_ip",
@@ -2298,7 +2298,7 @@
         "xcsh-docs:data-sources:tcp_loadbalancer:properties:advertise_custom:advertise_where:advertise_v6_on_public:public_ip"
       ],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -2320,7 +2320,7 @@
       "schema_path": ["advertise_custom", "advertise_where", "advertise_v6_on_public"],
       "sections": [
         {
-          "aliases": ["public ip"],
+          "aliases": ["advertise custom advertise where advertise v6 on public public ip"],
           "anchor": "section",
           "description": "This type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name.",
           "document_id": "xcsh-docs:data-sources:tcp_loadbalancer:properties:advertise_custom:advertise_where:advertise_v6_on_public:public_ip",
@@ -2353,7 +2353,7 @@
       "category": "load-balancing",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -2375,7 +2375,7 @@
       "schema_path": ["advertise_custom", "advertise_where", "advertise_v6_on_public", "public_ip"],
       "sections": [
         {
-          "aliases": ["name"],
+          "aliases": ["advertise custom advertise where advertise v6 on public public ip name"],
           "anchor": "schema-advertise_custom--advertise_where--advertise_v6_on_public--public_ip--name",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.",
           "document_id": "xcsh-docs:data-sources:tcp_loadbalancer:properties:advertise_custom:advertise_where:advertise_v6_on_public:public_ip",
@@ -2389,7 +2389,7 @@
           "type": "string"
         },
         {
-          "aliases": ["namespace"],
+          "aliases": ["advertise custom advertise where advertise v6 on public public ip namespace"],
           "anchor": "schema-advertise_custom--advertise_where--advertise_v6_on_public--public_ip--namespace",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace.",
           "document_id": "xcsh-docs:data-sources:tcp_loadbalancer:properties:advertise_custom:advertise_where:advertise_v6_on_public:public_ip",
@@ -2403,7 +2403,7 @@
           "type": "string"
         },
         {
-          "aliases": ["tenant"],
+          "aliases": ["advertise custom advertise where advertise v6 on public public ip tenant"],
           "anchor": "schema-advertise_custom--advertise_where--advertise_v6_on_public--public_ip--tenant",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant.",
           "document_id": "xcsh-docs:data-sources:tcp_loadbalancer:properties:advertise_custom:advertise_where:advertise_v6_on_public:public_ip",
@@ -2436,7 +2436,7 @@
       "category": "load-balancing",
       "child_ids": ["xcsh-docs:data-sources:tcp_loadbalancer:properties:advertise_custom:advertise_where:site:site"],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -2458,7 +2458,7 @@
       "schema_path": ["advertise_custom", "advertise_where", "site"],
       "sections": [
         {
-          "aliases": ["ip"],
+          "aliases": ["advertise custom advertise where site ip"],
           "anchor": "schema-advertise_custom--advertise_where--site--ip",
           "description": "Use given IP address as VIP on the site.",
           "document_id": "xcsh-docs:data-sources:tcp_loadbalancer:properties:advertise_custom:advertise_where:site",
@@ -2472,7 +2472,7 @@
           "type": "string"
         },
         {
-          "aliases": ["network"],
+          "aliases": ["advertise custom advertise where site network"],
           "anchor": "schema-advertise_custom--advertise_where--site--network",
           "description": "This defines network types to be used on site All inside and outside networks. All inside and outside networks with internet VIP support. All inside networks. All outside networks. All outside networks with internet VIP support. VK8s service network. - SITE_NETWORK_IP_FABRIC: VER IP Fabric network for the site This",
           "document_id": "xcsh-docs:data-sources:tcp_loadbalancer:properties:advertise_custom:advertise_where:site",
@@ -2486,7 +2486,7 @@
           "type": "string"
         },
         {
-          "aliases": ["site"],
+          "aliases": ["advertise custom advertise where site site"],
           "anchor": "section",
           "description": "This type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name.",
           "document_id": "xcsh-docs:data-sources:tcp_loadbalancer:properties:advertise_custom:advertise_where:site:site",
@@ -2519,7 +2519,7 @@
       "category": "load-balancing",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -2541,7 +2541,7 @@
       "schema_path": ["advertise_custom", "advertise_where", "site", "site"],
       "sections": [
         {
-          "aliases": ["name"],
+          "aliases": ["advertise custom advertise where site site name"],
           "anchor": "schema-advertise_custom--advertise_where--site--site--name",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.",
           "document_id": "xcsh-docs:data-sources:tcp_loadbalancer:properties:advertise_custom:advertise_where:site:site",
@@ -2555,7 +2555,7 @@
           "type": "string"
         },
         {
-          "aliases": ["namespace"],
+          "aliases": ["advertise custom advertise where site site namespace"],
           "anchor": "schema-advertise_custom--advertise_where--site--site--namespace",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace.",
           "document_id": "xcsh-docs:data-sources:tcp_loadbalancer:properties:advertise_custom:advertise_where:site:site",
@@ -2569,7 +2569,7 @@
           "type": "string"
         },
         {
-          "aliases": ["tenant"],
+          "aliases": ["advertise custom advertise where site site tenant"],
           "anchor": "schema-advertise_custom--advertise_where--site--site--tenant",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant.",
           "document_id": "xcsh-docs:data-sources:tcp_loadbalancer:properties:advertise_custom:advertise_where:site:site",
@@ -2602,7 +2602,7 @@
       "category": "load-balancing",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -2646,7 +2646,7 @@
         "xcsh-docs:data-sources:tcp_loadbalancer:properties:advertise_custom:advertise_where:virtual_network:virtual_network"
       ],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -2668,7 +2668,7 @@
       "schema_path": ["advertise_custom", "advertise_where", "virtual_network"],
       "sections": [
         {
-          "aliases": ["default v6 vip"],
+          "aliases": ["advertise custom advertise where virtual network default v6 vip"],
           "anchor": "section",
           "description": "This can be used for messages where no values are needed.",
           "document_id": "xcsh-docs:data-sources:tcp_loadbalancer:properties:advertise_custom:advertise_where:virtual_network:default_v6_vip",
@@ -2682,7 +2682,7 @@
           "type": "object"
         },
         {
-          "aliases": ["default vip"],
+          "aliases": ["advertise custom advertise where virtual network default vip"],
           "anchor": "section",
           "description": "This can be used for messages where no values are needed.",
           "document_id": "xcsh-docs:data-sources:tcp_loadbalancer:properties:advertise_custom:advertise_where:virtual_network:default_vip",
@@ -2696,7 +2696,7 @@
           "type": "object"
         },
         {
-          "aliases": ["specific v6 vip"],
+          "aliases": ["advertise custom advertise where virtual network specific v6 vip"],
           "anchor": "schema-advertise_custom--advertise_where--virtual_network--specific_v6_vip",
           "description": "Exclusive with Use given IPv6 address as VIP on virtual Network.",
           "document_id": "xcsh-docs:data-sources:tcp_loadbalancer:properties:advertise_custom:advertise_where:virtual_network",
@@ -2710,7 +2710,7 @@
           "type": "string"
         },
         {
-          "aliases": ["specific vip"],
+          "aliases": ["advertise custom advertise where virtual network specific vip"],
           "anchor": "schema-advertise_custom--advertise_where--virtual_network--specific_vip",
           "description": "Exclusive with Use given IPv4 address as VIP on virtual Network.",
           "document_id": "xcsh-docs:data-sources:tcp_loadbalancer:properties:advertise_custom:advertise_where:virtual_network",
@@ -2724,7 +2724,7 @@
           "type": "string"
         },
         {
-          "aliases": ["virtual network"],
+          "aliases": ["advertise custom advertise where virtual network virtual network"],
           "anchor": "section",
           "description": "This type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name.",
           "document_id": "xcsh-docs:data-sources:tcp_loadbalancer:properties:advertise_custom:advertise_where:virtual_network:virtual_network",
@@ -2757,7 +2757,7 @@
       "category": "load-balancing",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -2797,7 +2797,7 @@
       "category": "load-balancing",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -2837,7 +2837,7 @@
       "category": "load-balancing",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -2859,7 +2859,7 @@
       "schema_path": ["advertise_custom", "advertise_where", "virtual_network", "virtual_network"],
       "sections": [
         {
-          "aliases": ["name"],
+          "aliases": ["advertise custom advertise where virtual network virtual network name"],
           "anchor": "schema-advertise_custom--advertise_where--virtual_network--virtual_network--name",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.",
           "document_id": "xcsh-docs:data-sources:tcp_loadbalancer:properties:advertise_custom:advertise_where:virtual_network:virtual_network",
@@ -2873,7 +2873,7 @@
           "type": "string"
         },
         {
-          "aliases": ["namespace"],
+          "aliases": ["advertise custom advertise where virtual network virtual network namespace"],
           "anchor": "schema-advertise_custom--advertise_where--virtual_network--virtual_network--namespace",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace.",
           "document_id": "xcsh-docs:data-sources:tcp_loadbalancer:properties:advertise_custom:advertise_where:virtual_network:virtual_network",
@@ -2887,7 +2887,7 @@
           "type": "string"
         },
         {
-          "aliases": ["tenant"],
+          "aliases": ["advertise custom advertise where virtual network virtual network tenant"],
           "anchor": "schema-advertise_custom--advertise_where--virtual_network--virtual_network--tenant",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant.",
           "document_id": "xcsh-docs:data-sources:tcp_loadbalancer:properties:advertise_custom:advertise_where:virtual_network:virtual_network",
@@ -2922,7 +2922,7 @@
         "xcsh-docs:data-sources:tcp_loadbalancer:properties:advertise_custom:advertise_where:virtual_site:virtual_site"
       ],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -2944,7 +2944,7 @@
       "schema_path": ["advertise_custom", "advertise_where", "virtual_site"],
       "sections": [
         {
-          "aliases": ["network"],
+          "aliases": ["advertise custom advertise where virtual site network"],
           "anchor": "schema-advertise_custom--advertise_where--virtual_site--network",
           "description": "This defines network types to be used on site All inside and outside networks. All inside and outside networks with internet VIP support. All inside networks. All outside networks. All outside networks with internet VIP support. VK8s service network. - SITE_NETWORK_IP_FABRIC: VER IP Fabric network for the site This",
           "document_id": "xcsh-docs:data-sources:tcp_loadbalancer:properties:advertise_custom:advertise_where:virtual_site",
@@ -2958,7 +2958,7 @@
           "type": "string"
         },
         {
-          "aliases": ["virtual site"],
+          "aliases": ["advertise custom advertise where virtual site virtual site"],
           "anchor": "section",
           "description": "This type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name.",
           "document_id": "xcsh-docs:data-sources:tcp_loadbalancer:properties:advertise_custom:advertise_where:virtual_site:virtual_site",
@@ -2991,7 +2991,7 @@
       "category": "load-balancing",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -3013,7 +3013,7 @@
       "schema_path": ["advertise_custom", "advertise_where", "virtual_site", "virtual_site"],
       "sections": [
         {
-          "aliases": ["name"],
+          "aliases": ["advertise custom advertise where virtual site virtual site name"],
           "anchor": "schema-advertise_custom--advertise_where--virtual_site--virtual_site--name",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.",
           "document_id": "xcsh-docs:data-sources:tcp_loadbalancer:properties:advertise_custom:advertise_where:virtual_site:virtual_site",
@@ -3027,7 +3027,7 @@
           "type": "string"
         },
         {
-          "aliases": ["namespace"],
+          "aliases": ["advertise custom advertise where virtual site virtual site namespace"],
           "anchor": "schema-advertise_custom--advertise_where--virtual_site--virtual_site--namespace",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace.",
           "document_id": "xcsh-docs:data-sources:tcp_loadbalancer:properties:advertise_custom:advertise_where:virtual_site:virtual_site",
@@ -3041,7 +3041,7 @@
           "type": "string"
         },
         {
-          "aliases": ["tenant"],
+          "aliases": ["advertise custom advertise where virtual site virtual site tenant"],
           "anchor": "schema-advertise_custom--advertise_where--virtual_site--virtual_site--tenant",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant.",
           "document_id": "xcsh-docs:data-sources:tcp_loadbalancer:properties:advertise_custom:advertise_where:virtual_site:virtual_site",
@@ -3076,7 +3076,7 @@
         "xcsh-docs:data-sources:tcp_loadbalancer:properties:advertise_custom:advertise_where:virtual_site_with_vip:virtual_site"
       ],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -3098,7 +3098,7 @@
       "schema_path": ["advertise_custom", "advertise_where", "virtual_site_with_vip"],
       "sections": [
         {
-          "aliases": ["ip"],
+          "aliases": ["advertise custom advertise where virtual site with vip ip"],
           "anchor": "schema-advertise_custom--advertise_where--virtual_site_with_vip--ip",
           "description": "Use given IP address as VIP on the site.",
           "document_id": "xcsh-docs:data-sources:tcp_loadbalancer:properties:advertise_custom:advertise_where:virtual_site_with_vip",
@@ -3112,7 +3112,7 @@
           "type": "string"
         },
         {
-          "aliases": ["network"],
+          "aliases": ["advertise custom advertise where virtual site with vip network"],
           "anchor": "schema-advertise_custom--advertise_where--virtual_site_with_vip--network",
           "description": "This defines network types to be used on virtual-site with specified VIP All outside networks. All inside networks.",
           "document_id": "xcsh-docs:data-sources:tcp_loadbalancer:properties:advertise_custom:advertise_where:virtual_site_with_vip",
@@ -3126,7 +3126,7 @@
           "type": "string"
         },
         {
-          "aliases": ["virtual site"],
+          "aliases": ["advertise custom advertise where virtual site with vip virtual site"],
           "anchor": "section",
           "description": "This type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name.",
           "document_id": "xcsh-docs:data-sources:tcp_loadbalancer:properties:advertise_custom:advertise_where:virtual_site_with_vip:virtual_site",
@@ -3159,7 +3159,7 @@
       "category": "load-balancing",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -3181,7 +3181,7 @@
       "schema_path": ["advertise_custom", "advertise_where", "virtual_site_with_vip", "virtual_site"],
       "sections": [
         {
-          "aliases": ["name"],
+          "aliases": ["advertise custom advertise where virtual site with vip virtual site name"],
           "anchor": "schema-advertise_custom--advertise_where--virtual_site_with_vip--virtual_site--name",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.",
           "document_id": "xcsh-docs:data-sources:tcp_loadbalancer:properties:advertise_custom:advertise_where:virtual_site_with_vip:virtual_site",
@@ -3195,7 +3195,7 @@
           "type": "string"
         },
         {
-          "aliases": ["namespace"],
+          "aliases": ["advertise custom advertise where virtual site with vip virtual site namespace"],
           "anchor": "schema-advertise_custom--advertise_where--virtual_site_with_vip--virtual_site--namespace",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace.",
           "document_id": "xcsh-docs:data-sources:tcp_loadbalancer:properties:advertise_custom:advertise_where:virtual_site_with_vip:virtual_site",
@@ -3209,7 +3209,7 @@
           "type": "string"
         },
         {
-          "aliases": ["tenant"],
+          "aliases": ["advertise custom advertise where virtual site with vip virtual site tenant"],
           "anchor": "schema-advertise_custom--advertise_where--virtual_site_with_vip--virtual_site--tenant",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant.",
           "document_id": "xcsh-docs:data-sources:tcp_loadbalancer:properties:advertise_custom:advertise_where:virtual_site_with_vip:virtual_site",
@@ -3245,7 +3245,7 @@
         "xcsh-docs:data-sources:tcp_loadbalancer:properties:advertise_custom:advertise_where:vk8s_service:virtual_site"
       ],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -3267,7 +3267,7 @@
       "schema_path": ["advertise_custom", "advertise_where", "vk8s_service"],
       "sections": [
         {
-          "aliases": ["site"],
+          "aliases": ["advertise custom advertise where vk8s service site"],
           "anchor": "section",
           "description": "This type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name.",
           "document_id": "xcsh-docs:data-sources:tcp_loadbalancer:properties:advertise_custom:advertise_where:vk8s_service:site",
@@ -3281,7 +3281,7 @@
           "type": "object"
         },
         {
-          "aliases": ["virtual site"],
+          "aliases": ["advertise custom advertise where vk8s service virtual site"],
           "anchor": "section",
           "description": "This type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name.",
           "document_id": "xcsh-docs:data-sources:tcp_loadbalancer:properties:advertise_custom:advertise_where:vk8s_service:virtual_site",
@@ -3314,7 +3314,7 @@
       "category": "load-balancing",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -3336,7 +3336,7 @@
       "schema_path": ["advertise_custom", "advertise_where", "vk8s_service", "site"],
       "sections": [
         {
-          "aliases": ["name"],
+          "aliases": ["advertise custom advertise where vk8s service site name"],
           "anchor": "schema-advertise_custom--advertise_where--vk8s_service--site--name",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.",
           "document_id": "xcsh-docs:data-sources:tcp_loadbalancer:properties:advertise_custom:advertise_where:vk8s_service:site",
@@ -3350,7 +3350,7 @@
           "type": "string"
         },
         {
-          "aliases": ["namespace"],
+          "aliases": ["advertise custom advertise where vk8s service site namespace"],
           "anchor": "schema-advertise_custom--advertise_where--vk8s_service--site--namespace",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace.",
           "document_id": "xcsh-docs:data-sources:tcp_loadbalancer:properties:advertise_custom:advertise_where:vk8s_service:site",
@@ -3364,7 +3364,7 @@
           "type": "string"
         },
         {
-          "aliases": ["tenant"],
+          "aliases": ["advertise custom advertise where vk8s service site tenant"],
           "anchor": "schema-advertise_custom--advertise_where--vk8s_service--site--tenant",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant.",
           "document_id": "xcsh-docs:data-sources:tcp_loadbalancer:properties:advertise_custom:advertise_where:vk8s_service:site",
@@ -3397,7 +3397,7 @@
       "category": "load-balancing",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -3419,7 +3419,7 @@
       "schema_path": ["advertise_custom", "advertise_where", "vk8s_service", "virtual_site"],
       "sections": [
         {
-          "aliases": ["name"],
+          "aliases": ["advertise custom advertise where vk8s service virtual site name"],
           "anchor": "schema-advertise_custom--advertise_where--vk8s_service--virtual_site--name",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.",
           "document_id": "xcsh-docs:data-sources:tcp_loadbalancer:properties:advertise_custom:advertise_where:vk8s_service:virtual_site",
@@ -3433,7 +3433,7 @@
           "type": "string"
         },
         {
-          "aliases": ["namespace"],
+          "aliases": ["advertise custom advertise where vk8s service virtual site namespace"],
           "anchor": "schema-advertise_custom--advertise_where--vk8s_service--virtual_site--namespace",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace.",
           "document_id": "xcsh-docs:data-sources:tcp_loadbalancer:properties:advertise_custom:advertise_where:vk8s_service:virtual_site",
@@ -3447,7 +3447,7 @@
           "type": "string"
         },
         {
-          "aliases": ["tenant"],
+          "aliases": ["advertise custom advertise where vk8s service virtual site tenant"],
           "anchor": "schema-advertise_custom--advertise_where--vk8s_service--virtual_site--tenant",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant.",
           "document_id": "xcsh-docs:data-sources:tcp_loadbalancer:properties:advertise_custom:advertise_where:vk8s_service:virtual_site",
@@ -3480,7 +3480,7 @@
       "category": "load-balancing",
       "child_ids": ["xcsh-docs:data-sources:tcp_loadbalancer:properties:advertise_on_public:public_ip"],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -3502,7 +3502,7 @@
       "schema_path": ["advertise_on_public"],
       "sections": [
         {
-          "aliases": ["public ip"],
+          "aliases": ["advertise on public public ip"],
           "anchor": "section",
           "description": "This type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name.",
           "document_id": "xcsh-docs:data-sources:tcp_loadbalancer:properties:advertise_on_public:public_ip",
@@ -3535,7 +3535,7 @@
       "category": "load-balancing",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -3557,7 +3557,7 @@
       "schema_path": ["advertise_on_public", "public_ip"],
       "sections": [
         {
-          "aliases": ["name"],
+          "aliases": ["advertise on public public ip name"],
           "anchor": "schema-advertise_on_public--public_ip--name",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.",
           "document_id": "xcsh-docs:data-sources:tcp_loadbalancer:properties:advertise_on_public:public_ip",
@@ -3571,7 +3571,7 @@
           "type": "string"
         },
         {
-          "aliases": ["namespace"],
+          "aliases": ["advertise on public public ip namespace"],
           "anchor": "schema-advertise_on_public--public_ip--namespace",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace.",
           "document_id": "xcsh-docs:data-sources:tcp_loadbalancer:properties:advertise_on_public:public_ip",
@@ -3585,7 +3585,7 @@
           "type": "string"
         },
         {
-          "aliases": ["tenant"],
+          "aliases": ["advertise on public public ip tenant"],
           "anchor": "schema-advertise_on_public--public_ip--tenant",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant.",
           "document_id": "xcsh-docs:data-sources:tcp_loadbalancer:properties:advertise_on_public:public_ip",
@@ -3618,7 +3618,7 @@
       "category": "load-balancing",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -3658,7 +3658,7 @@
       "category": "load-balancing",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -3698,7 +3698,7 @@
       "category": "load-balancing",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -3738,7 +3738,7 @@
       "category": "load-balancing",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -3778,7 +3778,7 @@
       "category": "load-balancing",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -3818,7 +3818,7 @@
       "category": "load-balancing",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -3858,7 +3858,7 @@
       "category": "load-balancing",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -3898,7 +3898,7 @@
       "category": "load-balancing",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -3938,7 +3938,7 @@
       "category": "load-balancing",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -3978,7 +3978,7 @@
       "category": "load-balancing",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -4022,7 +4022,7 @@
         "xcsh-docs:data-sources:tcp_loadbalancer:properties:origin_pools_weights:pool"
       ],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -4044,7 +4044,7 @@
       "schema_path": ["origin_pools_weights"],
       "sections": [
         {
-          "aliases": ["cluster"],
+          "aliases": ["origin pools weights cluster"],
           "anchor": "section",
           "description": "This type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name.",
           "document_id": "xcsh-docs:data-sources:tcp_loadbalancer:properties:origin_pools_weights:cluster",
@@ -4058,7 +4058,7 @@
           "type": "object"
         },
         {
-          "aliases": ["endpoint subsets"],
+          "aliases": ["origin pools weights endpoint subsets"],
           "anchor": "section",
           "description": "Upstream origin pool may be configured to divide its origin servers into subsets based on metadata attached to the origin servers. Routes may then specify the metadata that a endpoint must match in order to be selected by the load balancer For origin servers which are discovered in K8s or Consul cluster, the label of",
           "document_id": "xcsh-docs:data-sources:tcp_loadbalancer:properties:origin_pools_weights:endpoint_subsets",
@@ -4072,7 +4072,7 @@
           "type": "object"
         },
         {
-          "aliases": ["pool"],
+          "aliases": ["origin pools weights pool"],
           "anchor": "section",
           "description": "This type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name.",
           "document_id": "xcsh-docs:data-sources:tcp_loadbalancer:properties:origin_pools_weights:pool",
@@ -4086,7 +4086,7 @@
           "type": "object"
         },
         {
-          "aliases": ["priority"],
+          "aliases": ["origin pools weights priority"],
           "anchor": "schema-origin_pools_weights--priority",
           "description": "Priority of this origin pool, valid only with multiple origin pools. Value of 0 will make the pool as lowest priority origin pool Priority of 1 means highest priority and is considered active. When active origin pool is not available, lower priority origin pools are made active as per the increasing priority.",
           "document_id": "xcsh-docs:data-sources:tcp_loadbalancer:properties:origin_pools_weights",
@@ -4100,7 +4100,7 @@
           "type": "number"
         },
         {
-          "aliases": ["weight"],
+          "aliases": ["origin pools weights weight"],
           "anchor": "schema-origin_pools_weights--weight",
           "description": "Weight of this origin pool, valid only with multiple origin pool. Value of 0 will disable the pool.",
           "document_id": "xcsh-docs:data-sources:tcp_loadbalancer:properties:origin_pools_weights",
@@ -4133,7 +4133,7 @@
       "category": "load-balancing",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -4155,7 +4155,7 @@
       "schema_path": ["origin_pools_weights", "cluster"],
       "sections": [
         {
-          "aliases": ["name"],
+          "aliases": ["origin pools weights cluster name"],
           "anchor": "schema-origin_pools_weights--cluster--name",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.",
           "document_id": "xcsh-docs:data-sources:tcp_loadbalancer:properties:origin_pools_weights:cluster",
@@ -4169,7 +4169,7 @@
           "type": "string"
         },
         {
-          "aliases": ["namespace"],
+          "aliases": ["origin pools weights cluster namespace"],
           "anchor": "schema-origin_pools_weights--cluster--namespace",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace.",
           "document_id": "xcsh-docs:data-sources:tcp_loadbalancer:properties:origin_pools_weights:cluster",
@@ -4183,7 +4183,7 @@
           "type": "string"
         },
         {
-          "aliases": ["tenant"],
+          "aliases": ["origin pools weights cluster tenant"],
           "anchor": "schema-origin_pools_weights--cluster--tenant",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant.",
           "document_id": "xcsh-docs:data-sources:tcp_loadbalancer:properties:origin_pools_weights:cluster",
@@ -4216,7 +4216,7 @@
       "category": "load-balancing",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -4256,7 +4256,7 @@
       "category": "load-balancing",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -4278,7 +4278,7 @@
       "schema_path": ["origin_pools_weights", "pool"],
       "sections": [
         {
-          "aliases": ["name"],
+          "aliases": ["origin pools weights pool name"],
           "anchor": "schema-origin_pools_weights--pool--name",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.",
           "document_id": "xcsh-docs:data-sources:tcp_loadbalancer:properties:origin_pools_weights:pool",
@@ -4292,7 +4292,7 @@
           "type": "string"
         },
         {
-          "aliases": ["namespace"],
+          "aliases": ["origin pools weights pool namespace"],
           "anchor": "schema-origin_pools_weights--pool--namespace",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace.",
           "document_id": "xcsh-docs:data-sources:tcp_loadbalancer:properties:origin_pools_weights:pool",
@@ -4306,7 +4306,7 @@
           "type": "string"
         },
         {
-          "aliases": ["tenant"],
+          "aliases": ["origin pools weights pool tenant"],
           "anchor": "schema-origin_pools_weights--pool--tenant",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant.",
           "document_id": "xcsh-docs:data-sources:tcp_loadbalancer:properties:origin_pools_weights:pool",
@@ -4339,7 +4339,7 @@
       "category": "load-balancing",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -4379,7 +4379,7 @@
       "category": "load-balancing",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -4419,7 +4419,7 @@
       "category": "load-balancing",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -4459,7 +4459,7 @@
       "category": "load-balancing",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -4502,7 +4502,7 @@
         "xcsh-docs:data-sources:tcp_loadbalancer:properties:tls_tcp:tls_parameters"
       ],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -4524,7 +4524,7 @@
       "schema_path": ["tls_tcp"],
       "sections": [
         {
-          "aliases": ["tls cert params"],
+          "aliases": ["tls tcp tls cert params"],
           "anchor": "section",
           "description": "Select TLS Parameters and Certificates.",
           "document_id": "xcsh-docs:data-sources:tcp_loadbalancer:properties:tls_tcp:tls_cert_params",
@@ -4538,7 +4538,7 @@
           "type": "object"
         },
         {
-          "aliases": ["tls parameters"],
+          "aliases": ["tls tcp tls parameters"],
           "anchor": "section",
           "description": "Inline TLS parameters.",
           "document_id": "xcsh-docs:data-sources:tcp_loadbalancer:properties:tls_tcp:tls_parameters",
@@ -4576,7 +4576,7 @@
         "xcsh-docs:data-sources:tcp_loadbalancer:properties:tls_tcp:tls_cert_params:use_mtls"
       ],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -4598,7 +4598,13 @@
       "schema_path": ["tls_tcp", "tls_cert_params"],
       "sections": [
         {
-          "aliases": ["cert", "certificate", "certificates", "existing certificates", "tls certificates"],
+          "aliases": [
+            "cert",
+            "certificate",
+            "existing certificates",
+            "tls certificates",
+            "tls tcp tls cert params certificates"
+          ],
           "anchor": "section",
           "description": "Select one or more certificates with any domain names.",
           "document_id": "xcsh-docs:data-sources:tcp_loadbalancer:properties:tls_tcp:tls_cert_params:certificates",
@@ -4612,7 +4618,7 @@
           "type": "object"
         },
         {
-          "aliases": ["no mtls"],
+          "aliases": ["tls tcp tls cert params no mtls"],
           "anchor": "section",
           "description": "This can be used for messages where no values are needed.",
           "document_id": "xcsh-docs:data-sources:tcp_loadbalancer:properties:tls_tcp:tls_cert_params:no_mtls",
@@ -4626,7 +4632,7 @@
           "type": "object"
         },
         {
-          "aliases": ["tls config"],
+          "aliases": ["tls tcp tls cert params tls config"],
           "anchor": "section",
           "description": "This defines various OPTIONS to configure TLS configuration parameters.",
           "document_id": "xcsh-docs:data-sources:tcp_loadbalancer:properties:tls_tcp:tls_cert_params:tls_config",
@@ -4640,7 +4646,7 @@
           "type": "object"
         },
         {
-          "aliases": ["use mtls"],
+          "aliases": ["tls tcp tls cert params use mtls"],
           "anchor": "section",
           "description": "Validation context for downstream client TLS connections.",
           "document_id": "xcsh-docs:data-sources:tcp_loadbalancer:properties:tls_tcp:tls_cert_params:use_mtls",
@@ -4679,7 +4685,7 @@
       "category": "load-balancing",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -4701,7 +4707,7 @@
       "schema_path": ["tls_tcp", "tls_cert_params", "certificates"],
       "sections": [
         {
-          "aliases": ["name"],
+          "aliases": ["tls tcp tls cert params certificates name"],
           "anchor": "schema-tls_tcp--tls_cert_params--certificates--name",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.",
           "document_id": "xcsh-docs:data-sources:tcp_loadbalancer:properties:tls_tcp:tls_cert_params:certificates",
@@ -4715,7 +4721,7 @@
           "type": "string"
         },
         {
-          "aliases": ["namespace"],
+          "aliases": ["tls tcp tls cert params certificates namespace"],
           "anchor": "schema-tls_tcp--tls_cert_params--certificates--namespace",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace.",
           "document_id": "xcsh-docs:data-sources:tcp_loadbalancer:properties:tls_tcp:tls_cert_params:certificates",
@@ -4729,7 +4735,7 @@
           "type": "string"
         },
         {
-          "aliases": ["tenant"],
+          "aliases": ["tls tcp tls cert params certificates tenant"],
           "anchor": "schema-tls_tcp--tls_cert_params--certificates--tenant",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant.",
           "document_id": "xcsh-docs:data-sources:tcp_loadbalancer:properties:tls_tcp:tls_cert_params:certificates",
@@ -4762,7 +4768,7 @@
       "category": "load-balancing",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -4807,7 +4813,7 @@
         "xcsh-docs:data-sources:tcp_loadbalancer:properties:tls_tcp:tls_cert_params:tls_config:medium_security"
       ],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -4829,7 +4835,7 @@
       "schema_path": ["tls_tcp", "tls_cert_params", "tls_config"],
       "sections": [
         {
-          "aliases": ["custom security"],
+          "aliases": ["tls tcp tls cert params tls config custom security"],
           "anchor": "section",
           "description": "This defines TLS protocol config including min/max versions and allowed ciphers.",
           "document_id": "xcsh-docs:data-sources:tcp_loadbalancer:properties:tls_tcp:tls_cert_params:tls_config:custom_security",
@@ -4843,7 +4849,7 @@
           "type": "object"
         },
         {
-          "aliases": ["default security"],
+          "aliases": ["tls tcp tls cert params tls config default security"],
           "anchor": "section",
           "description": "This can be used for messages where no values are needed.",
           "document_id": "xcsh-docs:data-sources:tcp_loadbalancer:properties:tls_tcp:tls_cert_params:tls_config:default_security",
@@ -4857,7 +4863,7 @@
           "type": "object"
         },
         {
-          "aliases": ["low security"],
+          "aliases": ["tls tcp tls cert params tls config low security"],
           "anchor": "section",
           "description": "This can be used for messages where no values are needed.",
           "document_id": "xcsh-docs:data-sources:tcp_loadbalancer:properties:tls_tcp:tls_cert_params:tls_config:low_security",
@@ -4871,7 +4877,7 @@
           "type": "object"
         },
         {
-          "aliases": ["medium security"],
+          "aliases": ["tls tcp tls cert params tls config medium security"],
           "anchor": "section",
           "description": "This can be used for messages where no values are needed.",
           "document_id": "xcsh-docs:data-sources:tcp_loadbalancer:properties:tls_tcp:tls_cert_params:tls_config:medium_security",
@@ -4904,7 +4910,7 @@
       "category": "load-balancing",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -4926,7 +4932,7 @@
       "schema_path": ["tls_tcp", "tls_cert_params", "tls_config", "custom_security"],
       "sections": [
         {
-          "aliases": ["cipher suites"],
+          "aliases": ["tls tcp tls cert params tls config custom security cipher suites"],
           "anchor": "schema-tls_tcp--tls_cert_params--tls_config--custom_security--cipher_suites",
           "description": "The TLS listener will only support the specified cipher list.",
           "document_id": "xcsh-docs:data-sources:tcp_loadbalancer:properties:tls_tcp:tls_cert_params:tls_config:custom_security",
@@ -4940,7 +4946,7 @@
           "type": "list"
         },
         {
-          "aliases": ["max version"],
+          "aliases": ["tls tcp tls cert params tls config custom security max version"],
           "anchor": "schema-tls_tcp--tls_cert_params--tls_config--custom_security--max_version",
           "description": "TlsProtocol is enumeration of supported TLS versions F5 Distributed Cloud will choose the optimal TLS version.",
           "document_id": "xcsh-docs:data-sources:tcp_loadbalancer:properties:tls_tcp:tls_cert_params:tls_config:custom_security",
@@ -4954,7 +4960,7 @@
           "type": "string"
         },
         {
-          "aliases": ["min version"],
+          "aliases": ["tls tcp tls cert params tls config custom security min version"],
           "anchor": "schema-tls_tcp--tls_cert_params--tls_config--custom_security--min_version",
           "description": "TlsProtocol is enumeration of supported TLS versions F5 Distributed Cloud will choose the optimal TLS version.",
           "document_id": "xcsh-docs:data-sources:tcp_loadbalancer:properties:tls_tcp:tls_cert_params:tls_config:custom_security",
@@ -4987,7 +4993,7 @@
       "category": "load-balancing",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -5027,7 +5033,7 @@
       "category": "load-balancing",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -5067,7 +5073,7 @@
       "category": "load-balancing",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -5113,7 +5119,7 @@
         "xcsh-docs:data-sources:tcp_loadbalancer:properties:tls_tcp:tls_cert_params:use_mtls:xfcc_options"
       ],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -5135,7 +5141,7 @@
       "schema_path": ["tls_tcp", "tls_cert_params", "use_mtls"],
       "sections": [
         {
-          "aliases": ["client certificate optional"],
+          "aliases": ["tls tcp tls cert params use mtls client certificate optional"],
           "anchor": "schema-tls_tcp--tls_cert_params--use_mtls--client_certificate_optional",
           "description": "Client certificate is optional. If the client has provided a certificate, the load balancer will verify it. If certification verification fails, the connection will be terminated. If the client does not provide a certificate, the connection will be accepted.",
           "document_id": "xcsh-docs:data-sources:tcp_loadbalancer:properties:tls_tcp:tls_cert_params:use_mtls",
@@ -5149,7 +5155,7 @@
           "type": "bool"
         },
         {
-          "aliases": ["crl"],
+          "aliases": ["tls tcp tls cert params use mtls crl"],
           "anchor": "section",
           "description": "This type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name.",
           "document_id": "xcsh-docs:data-sources:tcp_loadbalancer:properties:tls_tcp:tls_cert_params:use_mtls:crl",
@@ -5163,7 +5169,7 @@
           "type": "object"
         },
         {
-          "aliases": ["no crl"],
+          "aliases": ["tls tcp tls cert params use mtls no crl"],
           "anchor": "section",
           "description": "This can be used for messages where no values are needed.",
           "document_id": "xcsh-docs:data-sources:tcp_loadbalancer:properties:tls_tcp:tls_cert_params:use_mtls:no_crl",
@@ -5177,7 +5183,7 @@
           "type": "object"
         },
         {
-          "aliases": ["trusted ca"],
+          "aliases": ["tls tcp tls cert params use mtls trusted ca"],
           "anchor": "section",
           "description": "This type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name.",
           "document_id": "xcsh-docs:data-sources:tcp_loadbalancer:properties:tls_tcp:tls_cert_params:use_mtls:trusted_ca",
@@ -5191,7 +5197,7 @@
           "type": "object"
         },
         {
-          "aliases": ["trusted ca url"],
+          "aliases": ["tls tcp tls cert params use mtls trusted ca url"],
           "anchor": "schema-tls_tcp--tls_cert_params--use_mtls--trusted_ca_url",
           "description": "Exclusive with Upload a Root CA Certificate specifically for this Load Balancer.",
           "document_id": "xcsh-docs:data-sources:tcp_loadbalancer:properties:tls_tcp:tls_cert_params:use_mtls",
@@ -5205,7 +5211,7 @@
           "type": "string"
         },
         {
-          "aliases": ["xfcc disabled"],
+          "aliases": ["tls tcp tls cert params use mtls xfcc disabled"],
           "anchor": "section",
           "description": "This can be used for messages where no values are needed.",
           "document_id": "xcsh-docs:data-sources:tcp_loadbalancer:properties:tls_tcp:tls_cert_params:use_mtls:xfcc_disabled",
@@ -5219,7 +5225,7 @@
           "type": "object"
         },
         {
-          "aliases": ["xfcc options"],
+          "aliases": ["tls tcp tls cert params use mtls xfcc options"],
           "anchor": "section",
           "description": "X-Forwarded-Client-Cert header elements to be added to requests.",
           "document_id": "xcsh-docs:data-sources:tcp_loadbalancer:properties:tls_tcp:tls_cert_params:use_mtls:xfcc_options",
@@ -5252,7 +5258,7 @@
       "category": "load-balancing",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -5274,7 +5280,7 @@
       "schema_path": ["tls_tcp", "tls_cert_params", "use_mtls", "crl"],
       "sections": [
         {
-          "aliases": ["name"],
+          "aliases": ["tls tcp tls cert params use mtls crl name"],
           "anchor": "schema-tls_tcp--tls_cert_params--use_mtls--crl--name",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.",
           "document_id": "xcsh-docs:data-sources:tcp_loadbalancer:properties:tls_tcp:tls_cert_params:use_mtls:crl",
@@ -5288,7 +5294,7 @@
           "type": "string"
         },
         {
-          "aliases": ["namespace"],
+          "aliases": ["tls tcp tls cert params use mtls crl namespace"],
           "anchor": "schema-tls_tcp--tls_cert_params--use_mtls--crl--namespace",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace.",
           "document_id": "xcsh-docs:data-sources:tcp_loadbalancer:properties:tls_tcp:tls_cert_params:use_mtls:crl",
@@ -5302,7 +5308,7 @@
           "type": "string"
         },
         {
-          "aliases": ["tenant"],
+          "aliases": ["tls tcp tls cert params use mtls crl tenant"],
           "anchor": "schema-tls_tcp--tls_cert_params--use_mtls--crl--tenant",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant.",
           "document_id": "xcsh-docs:data-sources:tcp_loadbalancer:properties:tls_tcp:tls_cert_params:use_mtls:crl",
@@ -5335,7 +5341,7 @@
       "category": "load-balancing",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -5375,7 +5381,7 @@
       "category": "load-balancing",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -5397,7 +5403,7 @@
       "schema_path": ["tls_tcp", "tls_cert_params", "use_mtls", "trusted_ca"],
       "sections": [
         {
-          "aliases": ["name"],
+          "aliases": ["tls tcp tls cert params use mtls trusted ca name"],
           "anchor": "schema-tls_tcp--tls_cert_params--use_mtls--trusted_ca--name",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.",
           "document_id": "xcsh-docs:data-sources:tcp_loadbalancer:properties:tls_tcp:tls_cert_params:use_mtls:trusted_ca",
@@ -5411,7 +5417,7 @@
           "type": "string"
         },
         {
-          "aliases": ["namespace"],
+          "aliases": ["tls tcp tls cert params use mtls trusted ca namespace"],
           "anchor": "schema-tls_tcp--tls_cert_params--use_mtls--trusted_ca--namespace",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace.",
           "document_id": "xcsh-docs:data-sources:tcp_loadbalancer:properties:tls_tcp:tls_cert_params:use_mtls:trusted_ca",
@@ -5425,7 +5431,7 @@
           "type": "string"
         },
         {
-          "aliases": ["tenant"],
+          "aliases": ["tls tcp tls cert params use mtls trusted ca tenant"],
           "anchor": "schema-tls_tcp--tls_cert_params--use_mtls--trusted_ca--tenant",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant.",
           "document_id": "xcsh-docs:data-sources:tcp_loadbalancer:properties:tls_tcp:tls_cert_params:use_mtls:trusted_ca",
@@ -5458,7 +5464,7 @@
       "category": "load-balancing",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -5498,7 +5504,7 @@
       "category": "load-balancing",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -5520,7 +5526,7 @@
       "schema_path": ["tls_tcp", "tls_cert_params", "use_mtls", "xfcc_options"],
       "sections": [
         {
-          "aliases": ["xfcc header elements"],
+          "aliases": ["tls tcp tls cert params use mtls xfcc options xfcc header elements"],
           "anchor": "schema-tls_tcp--tls_cert_params--use_mtls--xfcc_options--xfcc_header_elements",
           "description": "X-Forwarded-Client-Cert header elements to be added to requests.",
           "document_id": "xcsh-docs:data-sources:tcp_loadbalancer:properties:tls_tcp:tls_cert_params:use_mtls:xfcc_options",
@@ -5558,7 +5564,7 @@
         "xcsh-docs:data-sources:tcp_loadbalancer:properties:tls_tcp:tls_parameters:use_mtls"
       ],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -5580,7 +5586,7 @@
       "schema_path": ["tls_tcp", "tls_parameters"],
       "sections": [
         {
-          "aliases": ["no mtls"],
+          "aliases": ["tls tcp tls parameters no mtls"],
           "anchor": "section",
           "description": "This can be used for messages where no values are needed.",
           "document_id": "xcsh-docs:data-sources:tcp_loadbalancer:properties:tls_tcp:tls_parameters:no_mtls",
@@ -5594,7 +5600,13 @@
           "type": "object"
         },
         {
-          "aliases": ["cert", "certificate", "existing certificates", "tls certificates"],
+          "aliases": [
+            "cert",
+            "certificate",
+            "existing certificates",
+            "tls certificates",
+            "tls tcp tls parameters tls certificates"
+          ],
           "anchor": "section",
           "description": "Users can add one or more certificates that share the same set of domains. For example, domain.com and *.domain.com - but use different signature algorithms.",
           "document_id": "xcsh-docs:data-sources:tcp_loadbalancer:properties:tls_tcp:tls_parameters:tls_certificates",
@@ -5608,7 +5620,7 @@
           "type": "object"
         },
         {
-          "aliases": ["tls config"],
+          "aliases": ["tls tcp tls parameters tls config"],
           "anchor": "section",
           "description": "This defines various OPTIONS to configure TLS configuration parameters.",
           "document_id": "xcsh-docs:data-sources:tcp_loadbalancer:properties:tls_tcp:tls_parameters:tls_config",
@@ -5622,7 +5634,7 @@
           "type": "object"
         },
         {
-          "aliases": ["use mtls"],
+          "aliases": ["tls tcp tls parameters use mtls"],
           "anchor": "section",
           "description": "Validation context for downstream client TLS connections.",
           "document_id": "xcsh-docs:data-sources:tcp_loadbalancer:properties:tls_tcp:tls_parameters:use_mtls",
@@ -5655,7 +5667,7 @@
       "category": "load-balancing",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -5706,7 +5718,7 @@
         "xcsh-docs:data-sources:tcp_loadbalancer:properties:tls_tcp:tls_parameters:tls_certificates:use_system_defaults"
       ],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -5728,7 +5740,13 @@
       "schema_path": ["tls_tcp", "tls_parameters", "tls_certificates"],
       "sections": [
         {
-          "aliases": ["cert", "certificate", "certificate url", "existing certificates", "tls certificates"],
+          "aliases": [
+            "cert",
+            "certificate",
+            "existing certificates",
+            "tls certificates",
+            "tls tcp tls parameters tls certificates certificate url"
+          ],
           "anchor": "schema-tls_tcp--tls_parameters--tls_certificates--certificate_url",
           "description": "TLS certificate. Certificate or certificate chain in PEM format including the PEM headers.",
           "document_id": "xcsh-docs:data-sources:tcp_loadbalancer:properties:tls_tcp:tls_parameters:tls_certificates",
@@ -5742,7 +5760,7 @@
           "type": "string"
         },
         {
-          "aliases": ["custom hash algorithms"],
+          "aliases": ["tls tcp tls parameters tls certificates custom hash algorithms"],
           "anchor": "section",
           "description": "Specifies the hash algorithms to be used.",
           "document_id": "xcsh-docs:data-sources:tcp_loadbalancer:properties:tls_tcp:tls_parameters:tls_certificates:custom_hash_algorithms",
@@ -5756,7 +5774,7 @@
           "type": "object"
         },
         {
-          "aliases": ["description spec"],
+          "aliases": ["tls tcp tls parameters tls certificates description spec"],
           "anchor": "schema-tls_tcp--tls_parameters--tls_certificates--description_spec",
           "description": "Description. Description for the certificate.",
           "document_id": "xcsh-docs:data-sources:tcp_loadbalancer:properties:tls_tcp:tls_parameters:tls_certificates",
@@ -5770,7 +5788,7 @@
           "type": "string"
         },
         {
-          "aliases": ["disable ocsp stapling"],
+          "aliases": ["tls tcp tls parameters tls certificates disable ocsp stapling"],
           "anchor": "section",
           "description": "This can be used for messages where no values are needed.",
           "document_id": "xcsh-docs:data-sources:tcp_loadbalancer:properties:tls_tcp:tls_parameters:tls_certificates:disable_ocsp_stapling",
@@ -5784,7 +5802,7 @@
           "type": "object"
         },
         {
-          "aliases": ["private key"],
+          "aliases": ["tls tcp tls parameters tls certificates private key"],
           "anchor": "section",
           "description": "SecretType is used in an object to indicate a sensitive/confidential field.",
           "document_id": "xcsh-docs:data-sources:tcp_loadbalancer:properties:tls_tcp:tls_parameters:tls_certificates:private_key",
@@ -5798,7 +5816,7 @@
           "type": "object"
         },
         {
-          "aliases": ["use system defaults"],
+          "aliases": ["tls tcp tls parameters tls certificates use system defaults"],
           "anchor": "section",
           "description": "This can be used for messages where no values are needed.",
           "document_id": "xcsh-docs:data-sources:tcp_loadbalancer:properties:tls_tcp:tls_parameters:tls_certificates:use_system_defaults",
@@ -5831,7 +5849,7 @@
       "category": "load-balancing",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -5853,7 +5871,7 @@
       "schema_path": ["tls_tcp", "tls_parameters", "tls_certificates", "custom_hash_algorithms"],
       "sections": [
         {
-          "aliases": ["hash algorithms"],
+          "aliases": ["tls tcp tls parameters tls certificates custom hash algorithms hash algorithms"],
           "anchor": "schema-tls_tcp--tls_parameters--tls_certificates--custom_hash_algorithms--hash_algorithms",
           "description": "Ordered list of hash algorithms to be used.",
           "document_id": "xcsh-docs:data-sources:tcp_loadbalancer:properties:tls_tcp:tls_parameters:tls_certificates:custom_hash_algorithms",
@@ -5886,7 +5904,7 @@
       "category": "load-balancing",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -5929,7 +5947,7 @@
         "xcsh-docs:data-sources:tcp_loadbalancer:properties:tls_tcp:tls_parameters:tls_certificates:private_key:clear_secret_info"
       ],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -5951,7 +5969,7 @@
       "schema_path": ["tls_tcp", "tls_parameters", "tls_certificates", "private_key"],
       "sections": [
         {
-          "aliases": ["blindfold secret info"],
+          "aliases": ["tls tcp tls parameters tls certificates private key blindfold secret info"],
           "anchor": "section",
           "description": "BlindfoldSecretInfoType specifies information about the Secret managed by F5XC Secret Management.",
           "document_id": "xcsh-docs:data-sources:tcp_loadbalancer:properties:tls_tcp:tls_parameters:tls_certificates:private_key:blindfold_secret_info",
@@ -5965,7 +5983,7 @@
           "type": "object"
         },
         {
-          "aliases": ["clear secret info"],
+          "aliases": ["tls tcp tls parameters tls certificates private key clear secret info"],
           "anchor": "section",
           "description": "ClearSecretInfoType specifies information about the Secret that is not encrypted.",
           "document_id": "xcsh-docs:data-sources:tcp_loadbalancer:properties:tls_tcp:tls_parameters:tls_certificates:private_key:clear_secret_info",
@@ -5998,7 +6016,7 @@
       "category": "load-balancing",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -6020,7 +6038,7 @@
       "schema_path": ["tls_tcp", "tls_parameters", "tls_certificates", "private_key", "blindfold_secret_info"],
       "sections": [
         {
-          "aliases": ["decryption provider"],
+          "aliases": ["tls tcp tls parameters tls certificates private key blindfold secret info decryption provider"],
           "anchor": "schema-tls_tcp--tls_parameters--tls_certificates--private_key--blindfold_secret_info--decryption_provider",
           "description": "Name of the Secret Management Access object that contains information about the backend Secret Management service.",
           "document_id": "xcsh-docs:data-sources:tcp_loadbalancer:properties:tls_tcp:tls_parameters:tls_certificates:private_key:blindfold_secret_info",
@@ -6041,7 +6059,7 @@
           "type": "string"
         },
         {
-          "aliases": ["location"],
+          "aliases": ["tls tcp tls parameters tls certificates private key blindfold secret info location"],
           "anchor": "schema-tls_tcp--tls_parameters--tls_certificates--private_key--blindfold_secret_info--location",
           "description": "Location is the uri_ref. It could be in URL format for string:/// Or it could be a path if the store provider is an HTTP/HTTPS location.",
           "document_id": "xcsh-docs:data-sources:tcp_loadbalancer:properties:tls_tcp:tls_parameters:tls_certificates:private_key:blindfold_secret_info",
@@ -6062,7 +6080,7 @@
           "type": "string"
         },
         {
-          "aliases": ["store provider"],
+          "aliases": ["tls tcp tls parameters tls certificates private key blindfold secret info store provider"],
           "anchor": "schema-tls_tcp--tls_parameters--tls_certificates--private_key--blindfold_secret_info--store_provider",
           "description": "Name of the Secret Management Access object that contains information about the store to GET encrypted bytes This field needs to be provided only if the URL scheme is not string:///.",
           "document_id": "xcsh-docs:data-sources:tcp_loadbalancer:properties:tls_tcp:tls_parameters:tls_certificates:private_key:blindfold_secret_info",
@@ -6102,7 +6120,7 @@
       "category": "load-balancing",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -6124,7 +6142,7 @@
       "schema_path": ["tls_tcp", "tls_parameters", "tls_certificates", "private_key", "clear_secret_info"],
       "sections": [
         {
-          "aliases": ["provider ref"],
+          "aliases": ["tls tcp tls parameters tls certificates private key clear secret info provider ref"],
           "anchor": "schema-tls_tcp--tls_parameters--tls_certificates--private_key--clear_secret_info--provider_ref",
           "description": "Name of the Secret Management Access object that contains information about the store to GET encrypted bytes This field needs to be provided only if the URL scheme is not string:///.",
           "document_id": "xcsh-docs:data-sources:tcp_loadbalancer:properties:tls_tcp:tls_parameters:tls_certificates:private_key:clear_secret_info",
@@ -6145,7 +6163,7 @@
           "type": "string"
         },
         {
-          "aliases": ["url"],
+          "aliases": ["tls tcp tls parameters tls certificates private key clear secret info url"],
           "anchor": "schema-tls_tcp--tls_parameters--tls_certificates--private_key--clear_secret_info--url",
           "description": "URL of the secret. Currently supported URL schemes is string:///. For string:/// scheme, Secret needs to be encoded Base64 format. When asked for this secret, caller will GET Secret bytes after Base64 decoding.",
           "document_id": "xcsh-docs:data-sources:tcp_loadbalancer:properties:tls_tcp:tls_parameters:tls_certificates:private_key:clear_secret_info",
@@ -6178,7 +6196,7 @@
       "category": "load-balancing",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -6223,7 +6241,7 @@
         "xcsh-docs:data-sources:tcp_loadbalancer:properties:tls_tcp:tls_parameters:tls_config:medium_security"
       ],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -6245,7 +6263,7 @@
       "schema_path": ["tls_tcp", "tls_parameters", "tls_config"],
       "sections": [
         {
-          "aliases": ["custom security"],
+          "aliases": ["tls tcp tls parameters tls config custom security"],
           "anchor": "section",
           "description": "This defines TLS protocol config including min/max versions and allowed ciphers.",
           "document_id": "xcsh-docs:data-sources:tcp_loadbalancer:properties:tls_tcp:tls_parameters:tls_config:custom_security",
@@ -6259,7 +6277,7 @@
           "type": "object"
         },
         {
-          "aliases": ["default security"],
+          "aliases": ["tls tcp tls parameters tls config default security"],
           "anchor": "section",
           "description": "This can be used for messages where no values are needed.",
           "document_id": "xcsh-docs:data-sources:tcp_loadbalancer:properties:tls_tcp:tls_parameters:tls_config:default_security",
@@ -6273,7 +6291,7 @@
           "type": "object"
         },
         {
-          "aliases": ["low security"],
+          "aliases": ["tls tcp tls parameters tls config low security"],
           "anchor": "section",
           "description": "This can be used for messages where no values are needed.",
           "document_id": "xcsh-docs:data-sources:tcp_loadbalancer:properties:tls_tcp:tls_parameters:tls_config:low_security",
@@ -6287,7 +6305,7 @@
           "type": "object"
         },
         {
-          "aliases": ["medium security"],
+          "aliases": ["tls tcp tls parameters tls config medium security"],
           "anchor": "section",
           "description": "This can be used for messages where no values are needed.",
           "document_id": "xcsh-docs:data-sources:tcp_loadbalancer:properties:tls_tcp:tls_parameters:tls_config:medium_security",
@@ -6320,7 +6338,7 @@
       "category": "load-balancing",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -6342,7 +6360,7 @@
       "schema_path": ["tls_tcp", "tls_parameters", "tls_config", "custom_security"],
       "sections": [
         {
-          "aliases": ["cipher suites"],
+          "aliases": ["tls tcp tls parameters tls config custom security cipher suites"],
           "anchor": "schema-tls_tcp--tls_parameters--tls_config--custom_security--cipher_suites",
           "description": "The TLS listener will only support the specified cipher list.",
           "document_id": "xcsh-docs:data-sources:tcp_loadbalancer:properties:tls_tcp:tls_parameters:tls_config:custom_security",
@@ -6356,7 +6374,7 @@
           "type": "list"
         },
         {
-          "aliases": ["max version"],
+          "aliases": ["tls tcp tls parameters tls config custom security max version"],
           "anchor": "schema-tls_tcp--tls_parameters--tls_config--custom_security--max_version",
           "description": "TlsProtocol is enumeration of supported TLS versions F5 Distributed Cloud will choose the optimal TLS version.",
           "document_id": "xcsh-docs:data-sources:tcp_loadbalancer:properties:tls_tcp:tls_parameters:tls_config:custom_security",
@@ -6370,7 +6388,7 @@
           "type": "string"
         },
         {
-          "aliases": ["min version"],
+          "aliases": ["tls tcp tls parameters tls config custom security min version"],
           "anchor": "schema-tls_tcp--tls_parameters--tls_config--custom_security--min_version",
           "description": "TlsProtocol is enumeration of supported TLS versions F5 Distributed Cloud will choose the optimal TLS version.",
           "document_id": "xcsh-docs:data-sources:tcp_loadbalancer:properties:tls_tcp:tls_parameters:tls_config:custom_security",
@@ -6403,7 +6421,7 @@
       "category": "load-balancing",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -6443,7 +6461,7 @@
       "category": "load-balancing",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -6483,7 +6501,7 @@
       "category": "load-balancing",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -6529,7 +6547,7 @@
         "xcsh-docs:data-sources:tcp_loadbalancer:properties:tls_tcp:tls_parameters:use_mtls:xfcc_options"
       ],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -6551,7 +6569,7 @@
       "schema_path": ["tls_tcp", "tls_parameters", "use_mtls"],
       "sections": [
         {
-          "aliases": ["client certificate optional"],
+          "aliases": ["tls tcp tls parameters use mtls client certificate optional"],
           "anchor": "schema-tls_tcp--tls_parameters--use_mtls--client_certificate_optional",
           "description": "Client certificate is optional. If the client has provided a certificate, the load balancer will verify it. If certification verification fails, the connection will be terminated. If the client does not provide a certificate, the connection will be accepted.",
           "document_id": "xcsh-docs:data-sources:tcp_loadbalancer:properties:tls_tcp:tls_parameters:use_mtls",
@@ -6565,7 +6583,7 @@
           "type": "bool"
         },
         {
-          "aliases": ["crl"],
+          "aliases": ["tls tcp tls parameters use mtls crl"],
           "anchor": "section",
           "description": "This type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name.",
           "document_id": "xcsh-docs:data-sources:tcp_loadbalancer:properties:tls_tcp:tls_parameters:use_mtls:crl",
@@ -6579,7 +6597,7 @@
           "type": "object"
         },
         {
-          "aliases": ["no crl"],
+          "aliases": ["tls tcp tls parameters use mtls no crl"],
           "anchor": "section",
           "description": "This can be used for messages where no values are needed.",
           "document_id": "xcsh-docs:data-sources:tcp_loadbalancer:properties:tls_tcp:tls_parameters:use_mtls:no_crl",
@@ -6593,7 +6611,7 @@
           "type": "object"
         },
         {
-          "aliases": ["trusted ca"],
+          "aliases": ["tls tcp tls parameters use mtls trusted ca"],
           "anchor": "section",
           "description": "This type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name.",
           "document_id": "xcsh-docs:data-sources:tcp_loadbalancer:properties:tls_tcp:tls_parameters:use_mtls:trusted_ca",
@@ -6607,7 +6625,7 @@
           "type": "object"
         },
         {
-          "aliases": ["trusted ca url"],
+          "aliases": ["tls tcp tls parameters use mtls trusted ca url"],
           "anchor": "schema-tls_tcp--tls_parameters--use_mtls--trusted_ca_url",
           "description": "Exclusive with Upload a Root CA Certificate specifically for this Load Balancer.",
           "document_id": "xcsh-docs:data-sources:tcp_loadbalancer:properties:tls_tcp:tls_parameters:use_mtls",
@@ -6621,7 +6639,7 @@
           "type": "string"
         },
         {
-          "aliases": ["xfcc disabled"],
+          "aliases": ["tls tcp tls parameters use mtls xfcc disabled"],
           "anchor": "section",
           "description": "This can be used for messages where no values are needed.",
           "document_id": "xcsh-docs:data-sources:tcp_loadbalancer:properties:tls_tcp:tls_parameters:use_mtls:xfcc_disabled",
@@ -6635,7 +6653,7 @@
           "type": "object"
         },
         {
-          "aliases": ["xfcc options"],
+          "aliases": ["tls tcp tls parameters use mtls xfcc options"],
           "anchor": "section",
           "description": "X-Forwarded-Client-Cert header elements to be added to requests.",
           "document_id": "xcsh-docs:data-sources:tcp_loadbalancer:properties:tls_tcp:tls_parameters:use_mtls:xfcc_options",
@@ -6668,7 +6686,7 @@
       "category": "load-balancing",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -6690,7 +6708,7 @@
       "schema_path": ["tls_tcp", "tls_parameters", "use_mtls", "crl"],
       "sections": [
         {
-          "aliases": ["name"],
+          "aliases": ["tls tcp tls parameters use mtls crl name"],
           "anchor": "schema-tls_tcp--tls_parameters--use_mtls--crl--name",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.",
           "document_id": "xcsh-docs:data-sources:tcp_loadbalancer:properties:tls_tcp:tls_parameters:use_mtls:crl",
@@ -6704,7 +6722,7 @@
           "type": "string"
         },
         {
-          "aliases": ["namespace"],
+          "aliases": ["tls tcp tls parameters use mtls crl namespace"],
           "anchor": "schema-tls_tcp--tls_parameters--use_mtls--crl--namespace",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace.",
           "document_id": "xcsh-docs:data-sources:tcp_loadbalancer:properties:tls_tcp:tls_parameters:use_mtls:crl",
@@ -6718,7 +6736,7 @@
           "type": "string"
         },
         {
-          "aliases": ["tenant"],
+          "aliases": ["tls tcp tls parameters use mtls crl tenant"],
           "anchor": "schema-tls_tcp--tls_parameters--use_mtls--crl--tenant",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant.",
           "document_id": "xcsh-docs:data-sources:tcp_loadbalancer:properties:tls_tcp:tls_parameters:use_mtls:crl",
@@ -6751,7 +6769,7 @@
       "category": "load-balancing",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -6791,7 +6809,7 @@
       "category": "load-balancing",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -6813,7 +6831,7 @@
       "schema_path": ["tls_tcp", "tls_parameters", "use_mtls", "trusted_ca"],
       "sections": [
         {
-          "aliases": ["name"],
+          "aliases": ["tls tcp tls parameters use mtls trusted ca name"],
           "anchor": "schema-tls_tcp--tls_parameters--use_mtls--trusted_ca--name",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.",
           "document_id": "xcsh-docs:data-sources:tcp_loadbalancer:properties:tls_tcp:tls_parameters:use_mtls:trusted_ca",
@@ -6827,7 +6845,7 @@
           "type": "string"
         },
         {
-          "aliases": ["namespace"],
+          "aliases": ["tls tcp tls parameters use mtls trusted ca namespace"],
           "anchor": "schema-tls_tcp--tls_parameters--use_mtls--trusted_ca--namespace",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace.",
           "document_id": "xcsh-docs:data-sources:tcp_loadbalancer:properties:tls_tcp:tls_parameters:use_mtls:trusted_ca",
@@ -6841,7 +6859,7 @@
           "type": "string"
         },
         {
-          "aliases": ["tenant"],
+          "aliases": ["tls tcp tls parameters use mtls trusted ca tenant"],
           "anchor": "schema-tls_tcp--tls_parameters--use_mtls--trusted_ca--tenant",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant.",
           "document_id": "xcsh-docs:data-sources:tcp_loadbalancer:properties:tls_tcp:tls_parameters:use_mtls:trusted_ca",
@@ -6874,7 +6892,7 @@
       "category": "load-balancing",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -6914,7 +6932,7 @@
       "category": "load-balancing",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -6936,7 +6954,7 @@
       "schema_path": ["tls_tcp", "tls_parameters", "use_mtls", "xfcc_options"],
       "sections": [
         {
-          "aliases": ["xfcc header elements"],
+          "aliases": ["tls tcp tls parameters use mtls xfcc options xfcc header elements"],
           "anchor": "schema-tls_tcp--tls_parameters--use_mtls--xfcc_options--xfcc_header_elements",
           "description": "X-Forwarded-Client-Cert header elements to be added to requests.",
           "document_id": "xcsh-docs:data-sources:tcp_loadbalancer:properties:tls_tcp:tls_parameters:use_mtls:xfcc_options",
@@ -6973,7 +6991,7 @@
         "xcsh-docs:data-sources:tcp_loadbalancer:properties:tls_tcp_auto_cert:use_mtls"
       ],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -6995,7 +7013,7 @@
       "schema_path": ["tls_tcp_auto_cert"],
       "sections": [
         {
-          "aliases": ["no mtls"],
+          "aliases": ["tls tcp auto cert no mtls"],
           "anchor": "section",
           "description": "This can be used for messages where no values are needed.",
           "document_id": "xcsh-docs:data-sources:tcp_loadbalancer:properties:tls_tcp_auto_cert:no_mtls",
@@ -7009,7 +7027,7 @@
           "type": "object"
         },
         {
-          "aliases": ["tls config"],
+          "aliases": ["tls tcp auto cert tls config"],
           "anchor": "section",
           "description": "This defines various OPTIONS to configure TLS configuration parameters.",
           "document_id": "xcsh-docs:data-sources:tcp_loadbalancer:properties:tls_tcp_auto_cert:tls_config",
@@ -7023,7 +7041,7 @@
           "type": "object"
         },
         {
-          "aliases": ["use mtls"],
+          "aliases": ["tls tcp auto cert use mtls"],
           "anchor": "section",
           "description": "Validation context for downstream client TLS connections.",
           "document_id": "xcsh-docs:data-sources:tcp_loadbalancer:properties:tls_tcp_auto_cert:use_mtls",
@@ -7056,7 +7074,7 @@
       "category": "load-balancing",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -7101,7 +7119,7 @@
         "xcsh-docs:data-sources:tcp_loadbalancer:properties:tls_tcp_auto_cert:tls_config:medium_security"
       ],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -7123,7 +7141,7 @@
       "schema_path": ["tls_tcp_auto_cert", "tls_config"],
       "sections": [
         {
-          "aliases": ["custom security"],
+          "aliases": ["tls tcp auto cert tls config custom security"],
           "anchor": "section",
           "description": "This defines TLS protocol config including min/max versions and allowed ciphers.",
           "document_id": "xcsh-docs:data-sources:tcp_loadbalancer:properties:tls_tcp_auto_cert:tls_config:custom_security",
@@ -7137,7 +7155,7 @@
           "type": "object"
         },
         {
-          "aliases": ["default security"],
+          "aliases": ["tls tcp auto cert tls config default security"],
           "anchor": "section",
           "description": "This can be used for messages where no values are needed.",
           "document_id": "xcsh-docs:data-sources:tcp_loadbalancer:properties:tls_tcp_auto_cert:tls_config:default_security",
@@ -7151,7 +7169,7 @@
           "type": "object"
         },
         {
-          "aliases": ["low security"],
+          "aliases": ["tls tcp auto cert tls config low security"],
           "anchor": "section",
           "description": "This can be used for messages where no values are needed.",
           "document_id": "xcsh-docs:data-sources:tcp_loadbalancer:properties:tls_tcp_auto_cert:tls_config:low_security",
@@ -7165,7 +7183,7 @@
           "type": "object"
         },
         {
-          "aliases": ["medium security"],
+          "aliases": ["tls tcp auto cert tls config medium security"],
           "anchor": "section",
           "description": "This can be used for messages where no values are needed.",
           "document_id": "xcsh-docs:data-sources:tcp_loadbalancer:properties:tls_tcp_auto_cert:tls_config:medium_security",
@@ -7198,7 +7216,7 @@
       "category": "load-balancing",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -7220,7 +7238,7 @@
       "schema_path": ["tls_tcp_auto_cert", "tls_config", "custom_security"],
       "sections": [
         {
-          "aliases": ["cipher suites"],
+          "aliases": ["tls tcp auto cert tls config custom security cipher suites"],
           "anchor": "schema-tls_tcp_auto_cert--tls_config--custom_security--cipher_suites",
           "description": "The TLS listener will only support the specified cipher list.",
           "document_id": "xcsh-docs:data-sources:tcp_loadbalancer:properties:tls_tcp_auto_cert:tls_config:custom_security",
@@ -7234,7 +7252,7 @@
           "type": "list"
         },
         {
-          "aliases": ["max version"],
+          "aliases": ["tls tcp auto cert tls config custom security max version"],
           "anchor": "schema-tls_tcp_auto_cert--tls_config--custom_security--max_version",
           "description": "TlsProtocol is enumeration of supported TLS versions F5 Distributed Cloud will choose the optimal TLS version.",
           "document_id": "xcsh-docs:data-sources:tcp_loadbalancer:properties:tls_tcp_auto_cert:tls_config:custom_security",
@@ -7248,7 +7266,7 @@
           "type": "string"
         },
         {
-          "aliases": ["min version"],
+          "aliases": ["tls tcp auto cert tls config custom security min version"],
           "anchor": "schema-tls_tcp_auto_cert--tls_config--custom_security--min_version",
           "description": "TlsProtocol is enumeration of supported TLS versions F5 Distributed Cloud will choose the optimal TLS version.",
           "document_id": "xcsh-docs:data-sources:tcp_loadbalancer:properties:tls_tcp_auto_cert:tls_config:custom_security",
@@ -7281,7 +7299,7 @@
       "category": "load-balancing",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -7321,7 +7339,7 @@
       "category": "load-balancing",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -7361,7 +7379,7 @@
       "category": "load-balancing",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -7407,7 +7425,7 @@
         "xcsh-docs:data-sources:tcp_loadbalancer:properties:tls_tcp_auto_cert:use_mtls:xfcc_options"
       ],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -7429,7 +7447,7 @@
       "schema_path": ["tls_tcp_auto_cert", "use_mtls"],
       "sections": [
         {
-          "aliases": ["client certificate optional"],
+          "aliases": ["tls tcp auto cert use mtls client certificate optional"],
           "anchor": "schema-tls_tcp_auto_cert--use_mtls--client_certificate_optional",
           "description": "Client certificate is optional. If the client has provided a certificate, the load balancer will verify it. If certification verification fails, the connection will be terminated. If the client does not provide a certificate, the connection will be accepted.",
           "document_id": "xcsh-docs:data-sources:tcp_loadbalancer:properties:tls_tcp_auto_cert:use_mtls",
@@ -7443,7 +7461,7 @@
           "type": "bool"
         },
         {
-          "aliases": ["crl"],
+          "aliases": ["tls tcp auto cert use mtls crl"],
           "anchor": "section",
           "description": "This type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name.",
           "document_id": "xcsh-docs:data-sources:tcp_loadbalancer:properties:tls_tcp_auto_cert:use_mtls:crl",
@@ -7457,7 +7475,7 @@
           "type": "object"
         },
         {
-          "aliases": ["no crl"],
+          "aliases": ["tls tcp auto cert use mtls no crl"],
           "anchor": "section",
           "description": "This can be used for messages where no values are needed.",
           "document_id": "xcsh-docs:data-sources:tcp_loadbalancer:properties:tls_tcp_auto_cert:use_mtls:no_crl",
@@ -7471,7 +7489,7 @@
           "type": "object"
         },
         {
-          "aliases": ["trusted ca"],
+          "aliases": ["tls tcp auto cert use mtls trusted ca"],
           "anchor": "section",
           "description": "This type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name.",
           "document_id": "xcsh-docs:data-sources:tcp_loadbalancer:properties:tls_tcp_auto_cert:use_mtls:trusted_ca",
@@ -7485,7 +7503,7 @@
           "type": "object"
         },
         {
-          "aliases": ["trusted ca url"],
+          "aliases": ["tls tcp auto cert use mtls trusted ca url"],
           "anchor": "schema-tls_tcp_auto_cert--use_mtls--trusted_ca_url",
           "description": "Exclusive with Upload a Root CA Certificate specifically for this Load Balancer.",
           "document_id": "xcsh-docs:data-sources:tcp_loadbalancer:properties:tls_tcp_auto_cert:use_mtls",
@@ -7499,7 +7517,7 @@
           "type": "string"
         },
         {
-          "aliases": ["xfcc disabled"],
+          "aliases": ["tls tcp auto cert use mtls xfcc disabled"],
           "anchor": "section",
           "description": "This can be used for messages where no values are needed.",
           "document_id": "xcsh-docs:data-sources:tcp_loadbalancer:properties:tls_tcp_auto_cert:use_mtls:xfcc_disabled",
@@ -7513,7 +7531,7 @@
           "type": "object"
         },
         {
-          "aliases": ["xfcc options"],
+          "aliases": ["tls tcp auto cert use mtls xfcc options"],
           "anchor": "section",
           "description": "X-Forwarded-Client-Cert header elements to be added to requests.",
           "document_id": "xcsh-docs:data-sources:tcp_loadbalancer:properties:tls_tcp_auto_cert:use_mtls:xfcc_options",
@@ -7546,7 +7564,7 @@
       "category": "load-balancing",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -7568,7 +7586,7 @@
       "schema_path": ["tls_tcp_auto_cert", "use_mtls", "crl"],
       "sections": [
         {
-          "aliases": ["name"],
+          "aliases": ["tls tcp auto cert use mtls crl name"],
           "anchor": "schema-tls_tcp_auto_cert--use_mtls--crl--name",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.",
           "document_id": "xcsh-docs:data-sources:tcp_loadbalancer:properties:tls_tcp_auto_cert:use_mtls:crl",
@@ -7582,7 +7600,7 @@
           "type": "string"
         },
         {
-          "aliases": ["namespace"],
+          "aliases": ["tls tcp auto cert use mtls crl namespace"],
           "anchor": "schema-tls_tcp_auto_cert--use_mtls--crl--namespace",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace.",
           "document_id": "xcsh-docs:data-sources:tcp_loadbalancer:properties:tls_tcp_auto_cert:use_mtls:crl",
@@ -7596,7 +7614,7 @@
           "type": "string"
         },
         {
-          "aliases": ["tenant"],
+          "aliases": ["tls tcp auto cert use mtls crl tenant"],
           "anchor": "schema-tls_tcp_auto_cert--use_mtls--crl--tenant",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant.",
           "document_id": "xcsh-docs:data-sources:tcp_loadbalancer:properties:tls_tcp_auto_cert:use_mtls:crl",
@@ -7629,7 +7647,7 @@
       "category": "load-balancing",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -7669,7 +7687,7 @@
       "category": "load-balancing",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -7691,7 +7709,7 @@
       "schema_path": ["tls_tcp_auto_cert", "use_mtls", "trusted_ca"],
       "sections": [
         {
-          "aliases": ["name"],
+          "aliases": ["tls tcp auto cert use mtls trusted ca name"],
           "anchor": "schema-tls_tcp_auto_cert--use_mtls--trusted_ca--name",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.",
           "document_id": "xcsh-docs:data-sources:tcp_loadbalancer:properties:tls_tcp_auto_cert:use_mtls:trusted_ca",
@@ -7705,7 +7723,7 @@
           "type": "string"
         },
         {
-          "aliases": ["namespace"],
+          "aliases": ["tls tcp auto cert use mtls trusted ca namespace"],
           "anchor": "schema-tls_tcp_auto_cert--use_mtls--trusted_ca--namespace",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace.",
           "document_id": "xcsh-docs:data-sources:tcp_loadbalancer:properties:tls_tcp_auto_cert:use_mtls:trusted_ca",
@@ -7719,7 +7737,7 @@
           "type": "string"
         },
         {
-          "aliases": ["tenant"],
+          "aliases": ["tls tcp auto cert use mtls trusted ca tenant"],
           "anchor": "schema-tls_tcp_auto_cert--use_mtls--trusted_ca--tenant",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant.",
           "document_id": "xcsh-docs:data-sources:tcp_loadbalancer:properties:tls_tcp_auto_cert:use_mtls:trusted_ca",
@@ -7752,7 +7770,7 @@
       "category": "load-balancing",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -7792,7 +7810,7 @@
       "category": "load-balancing",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -7814,7 +7832,7 @@
       "schema_path": ["tls_tcp_auto_cert", "use_mtls", "xfcc_options"],
       "sections": [
         {
-          "aliases": ["xfcc header elements"],
+          "aliases": ["tls tcp auto cert use mtls xfcc options xfcc header elements"],
           "anchor": "schema-tls_tcp_auto_cert--use_mtls--xfcc_options--xfcc_header_elements",
           "description": "X-Forwarded-Client-Cert header elements to be added to requests.",
           "document_id": "xcsh-docs:data-sources:tcp_loadbalancer:properties:tls_tcp_auto_cert:use_mtls:xfcc_options",
@@ -7847,7 +7865,7 @@
       "category": "load-balancing",
       "child_ids": ["xcsh-docs:data-sources:tcp_loadbalancer:example:data-source"],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -7887,7 +7905,7 @@
       "category": "load-balancing",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"

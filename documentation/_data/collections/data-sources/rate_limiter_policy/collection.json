@@ -455,7 +455,7 @@
         "xcsh-docs:data-sources:rate_limiter_policy:examples"
       ],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["receipt-pinned-upstream"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -501,7 +501,7 @@
         "xcsh-docs:data-sources:rate_limiter_policy:properties:server_selector"
       ],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["receipt-pinned-upstream"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -696,7 +696,7 @@
       "category": "security",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["receipt-pinned-upstream"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -739,7 +739,7 @@
         "xcsh-docs:data-sources:rate_limiter_policy:properties:rules:spec"
       ],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["receipt-pinned-upstream"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -761,7 +761,7 @@
       "schema_path": ["rules"],
       "sections": [
         {
-          "aliases": ["metadata"],
+          "aliases": ["rules metadata"],
           "anchor": "section",
           "description": "MessageMetaType is metadata (common attributes) of a message that only certain messages have. This information is propagated to the metadata of a child object that gets created from the containing message during view processing. The information in this type can be specified by user during create and replace APIs.",
           "document_id": "xcsh-docs:data-sources:rate_limiter_policy:properties:rules:metadata",
@@ -775,7 +775,7 @@
           "type": "object"
         },
         {
-          "aliases": ["spec"],
+          "aliases": ["rules spec"],
           "anchor": "section",
           "description": "Shape of Rate Limiter Rule.",
           "document_id": "xcsh-docs:data-sources:rate_limiter_policy:properties:rules:spec",
@@ -808,7 +808,7 @@
       "category": "security",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["receipt-pinned-upstream"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -830,7 +830,7 @@
       "schema_path": ["rules", "metadata"],
       "sections": [
         {
-          "aliases": ["description spec"],
+          "aliases": ["rules metadata description spec"],
           "anchor": "schema-rules--metadata--description_spec",
           "description": "Description. Human readable description.",
           "document_id": "xcsh-docs:data-sources:rate_limiter_policy:properties:rules:metadata",
@@ -844,7 +844,7 @@
           "type": "string"
         },
         {
-          "aliases": ["name"],
+          "aliases": ["rules metadata name"],
           "anchor": "schema-rules--metadata--name",
           "description": "This is the name of the message. The value of name has to follow DNS-1035 format.",
           "document_id": "xcsh-docs:data-sources:rate_limiter_policy:properties:rules:metadata",
@@ -894,7 +894,7 @@
         "xcsh-docs:data-sources:rate_limiter_policy:properties:rules:spec:segment_policy"
       ],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["receipt-pinned-upstream"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -916,7 +916,7 @@
       "schema_path": ["rules", "spec"],
       "sections": [
         {
-          "aliases": ["any asn"],
+          "aliases": ["rules spec any asn"],
           "anchor": "section",
           "description": "This can be used for messages where no values are needed.",
           "document_id": "xcsh-docs:data-sources:rate_limiter_policy:properties:rules:spec:any_asn",
@@ -930,7 +930,7 @@
           "type": "object"
         },
         {
-          "aliases": ["any country"],
+          "aliases": ["rules spec any country"],
           "anchor": "section",
           "description": "This can be used for messages where no values are needed.",
           "document_id": "xcsh-docs:data-sources:rate_limiter_policy:properties:rules:spec:any_country",
@@ -944,7 +944,7 @@
           "type": "object"
         },
         {
-          "aliases": ["any ip"],
+          "aliases": ["rules spec any ip"],
           "anchor": "section",
           "description": "This can be used for messages where no values are needed.",
           "document_id": "xcsh-docs:data-sources:rate_limiter_policy:properties:rules:spec:any_ip",
@@ -958,7 +958,7 @@
           "type": "object"
         },
         {
-          "aliases": ["apply rate limiter"],
+          "aliases": ["rules spec apply rate limiter"],
           "anchor": "section",
           "description": "This can be used for messages where no values are needed.",
           "document_id": "xcsh-docs:data-sources:rate_limiter_policy:properties:rules:spec:apply_rate_limiter",
@@ -972,7 +972,7 @@
           "type": "object"
         },
         {
-          "aliases": ["asn list"],
+          "aliases": ["rules spec asn list"],
           "anchor": "section",
           "description": "An unordered set of RFC 6793 defined 4-byte AS numbers that can be used to create allow or deny lists for use in network policy or service policy. It can be used to create the allow list only for DNS Load Balancer.",
           "document_id": "xcsh-docs:data-sources:rate_limiter_policy:properties:rules:spec:asn_list",
@@ -986,7 +986,7 @@
           "type": "object"
         },
         {
-          "aliases": ["asn matcher"],
+          "aliases": ["rules spec asn matcher"],
           "anchor": "section",
           "description": "Match any AS number contained in the list of bgp_asn_sets.",
           "document_id": "xcsh-docs:data-sources:rate_limiter_policy:properties:rules:spec:asn_matcher",
@@ -1000,7 +1000,7 @@
           "type": "object"
         },
         {
-          "aliases": ["bypass rate limiter"],
+          "aliases": ["rules spec bypass rate limiter"],
           "anchor": "section",
           "description": "This can be used for messages where no values are needed.",
           "document_id": "xcsh-docs:data-sources:rate_limiter_policy:properties:rules:spec:bypass_rate_limiter",
@@ -1014,7 +1014,7 @@
           "type": "object"
         },
         {
-          "aliases": ["country list"],
+          "aliases": ["rules spec country list"],
           "anchor": "section",
           "description": "List of Country Codes to match against.",
           "document_id": "xcsh-docs:data-sources:rate_limiter_policy:properties:rules:spec:country_list",
@@ -1028,7 +1028,7 @@
           "type": "object"
         },
         {
-          "aliases": ["custom rate limiter"],
+          "aliases": ["rules spec custom rate limiter"],
           "anchor": "section",
           "description": "This type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name.",
           "document_id": "xcsh-docs:data-sources:rate_limiter_policy:properties:rules:spec:custom_rate_limiter",
@@ -1042,7 +1042,7 @@
           "type": "object"
         },
         {
-          "aliases": ["domain matcher", "succeeded", "success", "successful"],
+          "aliases": ["rules spec domain matcher", "succeeded", "success", "successful"],
           "anchor": "section",
           "description": "A matcher specifies multiple criteria for matching an input string. The match is considered successful if any of the criteria are satisfied. The set of supported match criteria includes a list of exact values and a list of regular expressions.",
           "document_id": "xcsh-docs:data-sources:rate_limiter_policy:properties:rules:spec:domain_matcher",
@@ -1056,7 +1056,7 @@
           "type": "object"
         },
         {
-          "aliases": ["headers"],
+          "aliases": ["rules spec headers"],
           "anchor": "section",
           "description": "A list of predicates for various HTTP headers that need to match. The criteria for matching each HTTP header are described in individual HeaderMatcherType instances. The actual HTTP header values are extracted from the request API as a list of strings for each HTTP header type. Note that all specified header",
           "document_id": "xcsh-docs:data-sources:rate_limiter_policy:properties:rules:spec:headers",
@@ -1070,7 +1070,7 @@
           "type": "object"
         },
         {
-          "aliases": ["http method", "succeeded", "success", "successful"],
+          "aliases": ["rules spec http method", "succeeded", "success", "successful"],
           "anchor": "section",
           "description": "A HTTP method matcher specifies a list of methods to match an input HTTP method. The match is considered successful if the input method is a member of the list. The result of the match based on the method list is inverted if invert_matcher is true.",
           "document_id": "xcsh-docs:data-sources:rate_limiter_policy:properties:rules:spec:http_method",
@@ -1084,7 +1084,7 @@
           "type": "object"
         },
         {
-          "aliases": ["ip matcher"],
+          "aliases": ["rules spec ip matcher"],
           "anchor": "section",
           "description": "Match any IP prefix contained in the list of ip_prefix_sets. The result of the match is inverted if invert_matcher is true.",
           "document_id": "xcsh-docs:data-sources:rate_limiter_policy:properties:rules:spec:ip_matcher",
@@ -1098,7 +1098,7 @@
           "type": "object"
         },
         {
-          "aliases": ["ip prefix list"],
+          "aliases": ["rules spec ip prefix list"],
           "anchor": "section",
           "description": "List of IP Prefix strings to match against.",
           "document_id": "xcsh-docs:data-sources:rate_limiter_policy:properties:rules:spec:ip_prefix_list",
@@ -1112,7 +1112,7 @@
           "type": "object"
         },
         {
-          "aliases": ["path", "succeeded", "success", "successful"],
+          "aliases": ["rules spec path", "succeeded", "success", "successful"],
           "anchor": "section",
           "description": "A path matcher specifies multiple criteria for matching an HTTP path string. The match is considered successful if any of the criteria are satisfied. The set of supported match criteria includes a list of path prefixes, a list of exact path values and a list of regular expressions.",
           "document_id": "xcsh-docs:data-sources:rate_limiter_policy:properties:rules:spec:path",
@@ -1126,7 +1126,7 @@
           "type": "object"
         },
         {
-          "aliases": ["segment policy"],
+          "aliases": ["rules spec segment policy"],
           "anchor": "section",
           "description": "Configure source and destination segment for policy.",
           "document_id": "xcsh-docs:data-sources:rate_limiter_policy:properties:rules:spec:segment_policy",
@@ -1159,7 +1159,7 @@
       "category": "security",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["receipt-pinned-upstream"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -1199,7 +1199,7 @@
       "category": "security",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["receipt-pinned-upstream"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -1239,7 +1239,7 @@
       "category": "security",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["receipt-pinned-upstream"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -1279,7 +1279,7 @@
       "category": "security",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["receipt-pinned-upstream"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -1319,7 +1319,7 @@
       "category": "security",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["receipt-pinned-upstream"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -1341,7 +1341,7 @@
       "schema_path": ["rules", "spec", "asn_list"],
       "sections": [
         {
-          "aliases": ["as numbers"],
+          "aliases": ["rules spec asn list as numbers"],
           "anchor": "schema-rules--spec--asn_list--as_numbers",
           "description": "An unordered set of RFC 6793 defined 4-byte AS numbers that can be used to create allow or deny lists for use in network policy or service policy. It can be used to create the allow list only for DNS Load Balancer.",
           "document_id": "xcsh-docs:data-sources:rate_limiter_policy:properties:rules:spec:asn_list",
@@ -1374,7 +1374,7 @@
       "category": "security",
       "child_ids": ["xcsh-docs:data-sources:rate_limiter_policy:properties:rules:spec:asn_matcher:asn_sets"],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["receipt-pinned-upstream"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -1396,7 +1396,7 @@
       "schema_path": ["rules", "spec", "asn_matcher"],
       "sections": [
         {
-          "aliases": ["asn sets"],
+          "aliases": ["rules spec asn matcher asn sets"],
           "anchor": "section",
           "description": "A list of references to bgp_asn_set objects.",
           "document_id": "xcsh-docs:data-sources:rate_limiter_policy:properties:rules:spec:asn_matcher:asn_sets",
@@ -1429,7 +1429,7 @@
       "category": "security",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["receipt-pinned-upstream"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -1451,7 +1451,7 @@
       "schema_path": ["rules", "spec", "asn_matcher", "asn_sets"],
       "sections": [
         {
-          "aliases": ["kind"],
+          "aliases": ["rules spec asn matcher asn sets kind"],
           "anchor": "schema-rules--spec--asn_matcher--asn_sets--kind",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then kind will hold the referred object's kind (e.g. \"route\")",
           "document_id": "xcsh-docs:data-sources:rate_limiter_policy:properties:rules:spec:asn_matcher:asn_sets",
@@ -1465,7 +1465,7 @@
           "type": "string"
         },
         {
-          "aliases": ["name"],
+          "aliases": ["rules spec asn matcher asn sets name"],
           "anchor": "schema-rules--spec--asn_matcher--asn_sets--name",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.",
           "document_id": "xcsh-docs:data-sources:rate_limiter_policy:properties:rules:spec:asn_matcher:asn_sets",
@@ -1479,7 +1479,7 @@
           "type": "string"
         },
         {
-          "aliases": ["namespace"],
+          "aliases": ["rules spec asn matcher asn sets namespace"],
           "anchor": "schema-rules--spec--asn_matcher--asn_sets--namespace",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace.",
           "document_id": "xcsh-docs:data-sources:rate_limiter_policy:properties:rules:spec:asn_matcher:asn_sets",
@@ -1493,7 +1493,7 @@
           "type": "string"
         },
         {
-          "aliases": ["tenant"],
+          "aliases": ["rules spec asn matcher asn sets tenant"],
           "anchor": "schema-rules--spec--asn_matcher--asn_sets--tenant",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant.",
           "document_id": "xcsh-docs:data-sources:rate_limiter_policy:properties:rules:spec:asn_matcher:asn_sets",
@@ -1507,7 +1507,7 @@
           "type": "string"
         },
         {
-          "aliases": ["uid"],
+          "aliases": ["rules spec asn matcher asn sets uid"],
           "anchor": "schema-rules--spec--asn_matcher--asn_sets--uid",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then uid will hold the referred object's(e.g. Route's) uid.",
           "document_id": "xcsh-docs:data-sources:rate_limiter_policy:properties:rules:spec:asn_matcher:asn_sets",
@@ -1540,7 +1540,7 @@
       "category": "security",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["receipt-pinned-upstream"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -1580,7 +1580,7 @@
       "category": "security",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["receipt-pinned-upstream"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -1602,7 +1602,7 @@
       "schema_path": ["rules", "spec", "country_list"],
       "sections": [
         {
-          "aliases": ["country codes"],
+          "aliases": ["rules spec country list country codes"],
           "anchor": "schema-rules--spec--country_list--country_codes",
           "description": "List of Country Codes.",
           "document_id": "xcsh-docs:data-sources:rate_limiter_policy:properties:rules:spec:country_list",
@@ -1616,7 +1616,7 @@
           "type": "list"
         },
         {
-          "aliases": ["invert match"],
+          "aliases": ["rules spec country list invert match"],
           "anchor": "schema-rules--spec--country_list--invert_match",
           "description": "Invert the match result.",
           "document_id": "xcsh-docs:data-sources:rate_limiter_policy:properties:rules:spec:country_list",
@@ -1649,7 +1649,7 @@
       "category": "security",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["receipt-pinned-upstream"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -1671,7 +1671,7 @@
       "schema_path": ["rules", "spec", "custom_rate_limiter"],
       "sections": [
         {
-          "aliases": ["name"],
+          "aliases": ["rules spec custom rate limiter name"],
           "anchor": "schema-rules--spec--custom_rate_limiter--name",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.",
           "document_id": "xcsh-docs:data-sources:rate_limiter_policy:properties:rules:spec:custom_rate_limiter",
@@ -1685,7 +1685,7 @@
           "type": "string"
         },
         {
-          "aliases": ["namespace"],
+          "aliases": ["rules spec custom rate limiter namespace"],
           "anchor": "schema-rules--spec--custom_rate_limiter--namespace",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace.",
           "document_id": "xcsh-docs:data-sources:rate_limiter_policy:properties:rules:spec:custom_rate_limiter",
@@ -1699,7 +1699,7 @@
           "type": "string"
         },
         {
-          "aliases": ["tenant"],
+          "aliases": ["rules spec custom rate limiter tenant"],
           "anchor": "schema-rules--spec--custom_rate_limiter--tenant",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant.",
           "document_id": "xcsh-docs:data-sources:rate_limiter_policy:properties:rules:spec:custom_rate_limiter",
@@ -1732,7 +1732,7 @@
       "category": "security",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["receipt-pinned-upstream"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -1754,7 +1754,7 @@
       "schema_path": ["rules", "spec", "domain_matcher"],
       "sections": [
         {
-          "aliases": ["exact values"],
+          "aliases": ["rules spec domain matcher exact values"],
           "anchor": "schema-rules--spec--domain_matcher--exact_values",
           "description": "A list of exact values to match the input against.",
           "document_id": "xcsh-docs:data-sources:rate_limiter_policy:properties:rules:spec:domain_matcher",
@@ -1768,7 +1768,7 @@
           "type": "list"
         },
         {
-          "aliases": ["regex values"],
+          "aliases": ["rules spec domain matcher regex values"],
           "anchor": "schema-rules--spec--domain_matcher--regex_values",
           "description": "A list of regular expressions to match the input against.",
           "document_id": "xcsh-docs:data-sources:rate_limiter_policy:properties:rules:spec:domain_matcher",
@@ -1805,7 +1805,7 @@
         "xcsh-docs:data-sources:rate_limiter_policy:properties:rules:spec:headers:item"
       ],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["receipt-pinned-upstream"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -1827,7 +1827,7 @@
       "schema_path": ["rules", "spec", "headers"],
       "sections": [
         {
-          "aliases": ["check not present"],
+          "aliases": ["rules spec headers check not present"],
           "anchor": "section",
           "description": "This can be used for messages where no values are needed.",
           "document_id": "xcsh-docs:data-sources:rate_limiter_policy:properties:rules:spec:headers:check_not_present",
@@ -1841,7 +1841,7 @@
           "type": "object"
         },
         {
-          "aliases": ["check present"],
+          "aliases": ["rules spec headers check present"],
           "anchor": "section",
           "description": "This can be used for messages where no values are needed.",
           "document_id": "xcsh-docs:data-sources:rate_limiter_policy:properties:rules:spec:headers:check_present",
@@ -1855,7 +1855,7 @@
           "type": "object"
         },
         {
-          "aliases": ["invert matcher"],
+          "aliases": ["rules spec headers invert matcher"],
           "anchor": "schema-rules--spec--headers--invert_matcher",
           "description": "Invert the match result.",
           "document_id": "xcsh-docs:data-sources:rate_limiter_policy:properties:rules:spec:headers",
@@ -1869,7 +1869,7 @@
           "type": "bool"
         },
         {
-          "aliases": ["item", "succeeded", "success", "successful"],
+          "aliases": ["rules spec headers item", "succeeded", "success", "successful"],
           "anchor": "section",
           "description": "A matcher specifies multiple criteria for matching an input string. The match is considered successful if any of the criteria are satisfied. The set of supported match criteria includes a list of exact values and a list of regular expressions.",
           "document_id": "xcsh-docs:data-sources:rate_limiter_policy:properties:rules:spec:headers:item",
@@ -1883,7 +1883,7 @@
           "type": "object"
         },
         {
-          "aliases": ["name"],
+          "aliases": ["rules spec headers name"],
           "anchor": "schema-rules--spec--headers--name",
           "description": "A case-insensitive HTTP header name.",
           "document_id": "xcsh-docs:data-sources:rate_limiter_policy:properties:rules:spec:headers",
@@ -1916,7 +1916,7 @@
       "category": "security",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["receipt-pinned-upstream"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -1956,7 +1956,7 @@
       "category": "security",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["receipt-pinned-upstream"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -1996,7 +1996,7 @@
       "category": "security",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["receipt-pinned-upstream"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -2018,7 +2018,7 @@
       "schema_path": ["rules", "spec", "headers", "item"],
       "sections": [
         {
-          "aliases": ["exact values"],
+          "aliases": ["rules spec headers item exact values"],
           "anchor": "schema-rules--spec--headers--item--exact_values",
           "description": "A list of exact values to match the input against.",
           "document_id": "xcsh-docs:data-sources:rate_limiter_policy:properties:rules:spec:headers:item",
@@ -2032,7 +2032,7 @@
           "type": "list"
         },
         {
-          "aliases": ["regex values"],
+          "aliases": ["rules spec headers item regex values"],
           "anchor": "schema-rules--spec--headers--item--regex_values",
           "description": "A list of regular expressions to match the input against.",
           "document_id": "xcsh-docs:data-sources:rate_limiter_policy:properties:rules:spec:headers:item",
@@ -2046,7 +2046,7 @@
           "type": "list"
         },
         {
-          "aliases": ["transformers"],
+          "aliases": ["rules spec headers item transformers"],
           "anchor": "schema-rules--spec--headers--item--transformers",
           "description": "An ordered list of transformers (starting from index 0) to be applied to the path before matching.",
           "document_id": "xcsh-docs:data-sources:rate_limiter_policy:properties:rules:spec:headers:item",
@@ -2079,7 +2079,7 @@
       "category": "security",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["receipt-pinned-upstream"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -2101,7 +2101,7 @@
       "schema_path": ["rules", "spec", "http_method"],
       "sections": [
         {
-          "aliases": ["invert matcher"],
+          "aliases": ["rules spec http method invert matcher"],
           "anchor": "schema-rules--spec--http_method--invert_matcher",
           "description": "Invert the match result.",
           "document_id": "xcsh-docs:data-sources:rate_limiter_policy:properties:rules:spec:http_method",
@@ -2115,7 +2115,7 @@
           "type": "bool"
         },
         {
-          "aliases": ["methods"],
+          "aliases": ["rules spec http method methods"],
           "anchor": "schema-rules--spec--http_method--methods",
           "description": "List of methods values to match against.",
           "document_id": "xcsh-docs:data-sources:rate_limiter_policy:properties:rules:spec:http_method",
@@ -2148,7 +2148,7 @@
       "category": "security",
       "child_ids": ["xcsh-docs:data-sources:rate_limiter_policy:properties:rules:spec:ip_matcher:prefix_sets"],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["receipt-pinned-upstream"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -2170,7 +2170,7 @@
       "schema_path": ["rules", "spec", "ip_matcher"],
       "sections": [
         {
-          "aliases": ["invert matcher"],
+          "aliases": ["rules spec ip matcher invert matcher"],
           "anchor": "schema-rules--spec--ip_matcher--invert_matcher",
           "description": "Invert the match result.",
           "document_id": "xcsh-docs:data-sources:rate_limiter_policy:properties:rules:spec:ip_matcher",
@@ -2184,7 +2184,7 @@
           "type": "bool"
         },
         {
-          "aliases": ["prefix sets"],
+          "aliases": ["rules spec ip matcher prefix sets"],
           "anchor": "section",
           "description": "A list of references to ip_prefix_set objects.",
           "document_id": "xcsh-docs:data-sources:rate_limiter_policy:properties:rules:spec:ip_matcher:prefix_sets",
@@ -2217,7 +2217,7 @@
       "category": "security",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["receipt-pinned-upstream"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -2239,7 +2239,7 @@
       "schema_path": ["rules", "spec", "ip_matcher", "prefix_sets"],
       "sections": [
         {
-          "aliases": ["kind"],
+          "aliases": ["rules spec ip matcher prefix sets kind"],
           "anchor": "schema-rules--spec--ip_matcher--prefix_sets--kind",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then kind will hold the referred object's kind (e.g. \"route\")",
           "document_id": "xcsh-docs:data-sources:rate_limiter_policy:properties:rules:spec:ip_matcher:prefix_sets",
@@ -2253,7 +2253,7 @@
           "type": "string"
         },
         {
-          "aliases": ["name"],
+          "aliases": ["rules spec ip matcher prefix sets name"],
           "anchor": "schema-rules--spec--ip_matcher--prefix_sets--name",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.",
           "document_id": "xcsh-docs:data-sources:rate_limiter_policy:properties:rules:spec:ip_matcher:prefix_sets",
@@ -2267,7 +2267,7 @@
           "type": "string"
         },
         {
-          "aliases": ["namespace"],
+          "aliases": ["rules spec ip matcher prefix sets namespace"],
           "anchor": "schema-rules--spec--ip_matcher--prefix_sets--namespace",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace.",
           "document_id": "xcsh-docs:data-sources:rate_limiter_policy:properties:rules:spec:ip_matcher:prefix_sets",
@@ -2281,7 +2281,7 @@
           "type": "string"
         },
         {
-          "aliases": ["tenant"],
+          "aliases": ["rules spec ip matcher prefix sets tenant"],
           "anchor": "schema-rules--spec--ip_matcher--prefix_sets--tenant",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant.",
           "document_id": "xcsh-docs:data-sources:rate_limiter_policy:properties:rules:spec:ip_matcher:prefix_sets",
@@ -2295,7 +2295,7 @@
           "type": "string"
         },
         {
-          "aliases": ["uid"],
+          "aliases": ["rules spec ip matcher prefix sets uid"],
           "anchor": "schema-rules--spec--ip_matcher--prefix_sets--uid",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then uid will hold the referred object's(e.g. Route's) uid.",
           "document_id": "xcsh-docs:data-sources:rate_limiter_policy:properties:rules:spec:ip_matcher:prefix_sets",
@@ -2328,7 +2328,7 @@
       "category": "security",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["receipt-pinned-upstream"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -2350,7 +2350,7 @@
       "schema_path": ["rules", "spec", "ip_prefix_list"],
       "sections": [
         {
-          "aliases": ["invert match"],
+          "aliases": ["rules spec ip prefix list invert match"],
           "anchor": "schema-rules--spec--ip_prefix_list--invert_match",
           "description": "Invert the match result.",
           "document_id": "xcsh-docs:data-sources:rate_limiter_policy:properties:rules:spec:ip_prefix_list",
@@ -2364,7 +2364,7 @@
           "type": "bool"
         },
         {
-          "aliases": ["ip prefixes"],
+          "aliases": ["rules spec ip prefix list ip prefixes"],
           "anchor": "schema-rules--spec--ip_prefix_list--ip_prefixes",
           "description": "List of IPv4 prefix strings.",
           "document_id": "xcsh-docs:data-sources:rate_limiter_policy:properties:rules:spec:ip_prefix_list",
@@ -2397,7 +2397,7 @@
       "category": "security",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["receipt-pinned-upstream"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -2419,7 +2419,7 @@
       "schema_path": ["rules", "spec", "path"],
       "sections": [
         {
-          "aliases": ["encoded path matcher"],
+          "aliases": ["rules spec path encoded path matcher"],
           "anchor": "schema-rules--spec--path--encoded_path_matcher",
           "description": "Match against the encoded, escaped path.",
           "document_id": "xcsh-docs:data-sources:rate_limiter_policy:properties:rules:spec:path",
@@ -2433,7 +2433,7 @@
           "type": "bool"
         },
         {
-          "aliases": ["exact values"],
+          "aliases": ["rules spec path exact values"],
           "anchor": "schema-rules--spec--path--exact_values",
           "description": "A list of exact path values to match the input HTTP path against.",
           "document_id": "xcsh-docs:data-sources:rate_limiter_policy:properties:rules:spec:path",
@@ -2447,7 +2447,7 @@
           "type": "list"
         },
         {
-          "aliases": ["invert matcher"],
+          "aliases": ["rules spec path invert matcher"],
           "anchor": "schema-rules--spec--path--invert_matcher",
           "description": "Invert the match result.",
           "document_id": "xcsh-docs:data-sources:rate_limiter_policy:properties:rules:spec:path",
@@ -2461,7 +2461,7 @@
           "type": "bool"
         },
         {
-          "aliases": ["prefix values"],
+          "aliases": ["rules spec path prefix values"],
           "anchor": "schema-rules--spec--path--prefix_values",
           "description": "A list of path prefix values to match the input HTTP path against.",
           "document_id": "xcsh-docs:data-sources:rate_limiter_policy:properties:rules:spec:path",
@@ -2475,7 +2475,7 @@
           "type": "list"
         },
         {
-          "aliases": ["regex values"],
+          "aliases": ["rules spec path regex values"],
           "anchor": "schema-rules--spec--path--regex_values",
           "description": "A list of regular expressions to match the input HTTP path against.",
           "document_id": "xcsh-docs:data-sources:rate_limiter_policy:properties:rules:spec:path",
@@ -2489,7 +2489,7 @@
           "type": "list"
         },
         {
-          "aliases": ["suffix values"],
+          "aliases": ["rules spec path suffix values"],
           "anchor": "schema-rules--spec--path--suffix_values",
           "description": "A list of path suffix values to match the input HTTP path against.",
           "document_id": "xcsh-docs:data-sources:rate_limiter_policy:properties:rules:spec:path",
@@ -2503,7 +2503,7 @@
           "type": "list"
         },
         {
-          "aliases": ["transformers"],
+          "aliases": ["rules spec path transformers"],
           "anchor": "schema-rules--spec--path--transformers",
           "description": "An ordered list of transformers (starting from index 0) to be applied to the path before matching.",
           "document_id": "xcsh-docs:data-sources:rate_limiter_policy:properties:rules:spec:path",
@@ -2542,7 +2542,7 @@
         "xcsh-docs:data-sources:rate_limiter_policy:properties:rules:spec:segment_policy:src_segments"
       ],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["receipt-pinned-upstream"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -2564,7 +2564,7 @@
       "schema_path": ["rules", "spec", "segment_policy"],
       "sections": [
         {
-          "aliases": ["dst any"],
+          "aliases": ["rules spec segment policy dst any"],
           "anchor": "section",
           "description": "This can be used for messages where no values are needed.",
           "document_id": "xcsh-docs:data-sources:rate_limiter_policy:properties:rules:spec:segment_policy:dst_any",
@@ -2578,7 +2578,7 @@
           "type": "object"
         },
         {
-          "aliases": ["dst segments"],
+          "aliases": ["rules spec segment policy dst segments"],
           "anchor": "section",
           "description": "List of references to Segments.",
           "document_id": "xcsh-docs:data-sources:rate_limiter_policy:properties:rules:spec:segment_policy:dst_segments",
@@ -2592,7 +2592,7 @@
           "type": "object"
         },
         {
-          "aliases": ["intra segment"],
+          "aliases": ["rules spec segment policy intra segment"],
           "anchor": "section",
           "description": "This can be used for messages where no values are needed.",
           "document_id": "xcsh-docs:data-sources:rate_limiter_policy:properties:rules:spec:segment_policy:intra_segment",
@@ -2606,7 +2606,7 @@
           "type": "object"
         },
         {
-          "aliases": ["src any"],
+          "aliases": ["rules spec segment policy src any"],
           "anchor": "section",
           "description": "This can be used for messages where no values are needed.",
           "document_id": "xcsh-docs:data-sources:rate_limiter_policy:properties:rules:spec:segment_policy:src_any",
@@ -2620,7 +2620,7 @@
           "type": "object"
         },
         {
-          "aliases": ["src segments"],
+          "aliases": ["rules spec segment policy src segments"],
           "anchor": "section",
           "description": "List of references to Segments.",
           "document_id": "xcsh-docs:data-sources:rate_limiter_policy:properties:rules:spec:segment_policy:src_segments",
@@ -2653,7 +2653,7 @@
       "category": "security",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["receipt-pinned-upstream"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -2695,7 +2695,7 @@
         "xcsh-docs:data-sources:rate_limiter_policy:properties:rules:spec:segment_policy:dst_segments:segments"
       ],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["receipt-pinned-upstream"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -2717,7 +2717,7 @@
       "schema_path": ["rules", "spec", "segment_policy", "dst_segments"],
       "sections": [
         {
-          "aliases": ["segments"],
+          "aliases": ["rules spec segment policy dst segments segments"],
           "anchor": "section",
           "description": "Select list of segments.",
           "document_id": "xcsh-docs:data-sources:rate_limiter_policy:properties:rules:spec:segment_policy:dst_segments:segments",
@@ -2750,7 +2750,7 @@
       "category": "security",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["receipt-pinned-upstream"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -2772,7 +2772,7 @@
       "schema_path": ["rules", "spec", "segment_policy", "dst_segments", "segments"],
       "sections": [
         {
-          "aliases": ["name"],
+          "aliases": ["rules spec segment policy dst segments segments name"],
           "anchor": "schema-rules--spec--segment_policy--dst_segments--segments--name",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.",
           "document_id": "xcsh-docs:data-sources:rate_limiter_policy:properties:rules:spec:segment_policy:dst_segments:segments",
@@ -2786,7 +2786,7 @@
           "type": "string"
         },
         {
-          "aliases": ["namespace"],
+          "aliases": ["rules spec segment policy dst segments segments namespace"],
           "anchor": "schema-rules--spec--segment_policy--dst_segments--segments--namespace",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace.",
           "document_id": "xcsh-docs:data-sources:rate_limiter_policy:properties:rules:spec:segment_policy:dst_segments:segments",
@@ -2800,7 +2800,7 @@
           "type": "string"
         },
         {
-          "aliases": ["tenant"],
+          "aliases": ["rules spec segment policy dst segments segments tenant"],
           "anchor": "schema-rules--spec--segment_policy--dst_segments--segments--tenant",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant.",
           "document_id": "xcsh-docs:data-sources:rate_limiter_policy:properties:rules:spec:segment_policy:dst_segments:segments",
@@ -2833,7 +2833,7 @@
       "category": "security",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["receipt-pinned-upstream"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -2873,7 +2873,7 @@
       "category": "security",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["receipt-pinned-upstream"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -2915,7 +2915,7 @@
         "xcsh-docs:data-sources:rate_limiter_policy:properties:rules:spec:segment_policy:src_segments:segments"
       ],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["receipt-pinned-upstream"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -2937,7 +2937,7 @@
       "schema_path": ["rules", "spec", "segment_policy", "src_segments"],
       "sections": [
         {
-          "aliases": ["segments"],
+          "aliases": ["rules spec segment policy src segments segments"],
           "anchor": "section",
           "description": "Select list of segments.",
           "document_id": "xcsh-docs:data-sources:rate_limiter_policy:properties:rules:spec:segment_policy:src_segments:segments",
@@ -2970,7 +2970,7 @@
       "category": "security",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["receipt-pinned-upstream"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -2992,7 +2992,7 @@
       "schema_path": ["rules", "spec", "segment_policy", "src_segments", "segments"],
       "sections": [
         {
-          "aliases": ["name"],
+          "aliases": ["rules spec segment policy src segments segments name"],
           "anchor": "schema-rules--spec--segment_policy--src_segments--segments--name",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.",
           "document_id": "xcsh-docs:data-sources:rate_limiter_policy:properties:rules:spec:segment_policy:src_segments:segments",
@@ -3006,7 +3006,7 @@
           "type": "string"
         },
         {
-          "aliases": ["namespace"],
+          "aliases": ["rules spec segment policy src segments segments namespace"],
           "anchor": "schema-rules--spec--segment_policy--src_segments--segments--namespace",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace.",
           "document_id": "xcsh-docs:data-sources:rate_limiter_policy:properties:rules:spec:segment_policy:src_segments:segments",
@@ -3020,7 +3020,7 @@
           "type": "string"
         },
         {
-          "aliases": ["tenant"],
+          "aliases": ["rules spec segment policy src segments segments tenant"],
           "anchor": "schema-rules--spec--segment_policy--src_segments--segments--tenant",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant.",
           "document_id": "xcsh-docs:data-sources:rate_limiter_policy:properties:rules:spec:segment_policy:src_segments:segments",
@@ -3053,7 +3053,7 @@
       "category": "security",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["receipt-pinned-upstream"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -3075,7 +3075,7 @@
       "schema_path": ["server_name_matcher"],
       "sections": [
         {
-          "aliases": ["exact values"],
+          "aliases": ["server name matcher exact values"],
           "anchor": "schema-server_name_matcher--exact_values",
           "description": "A list of exact values to match the input against.",
           "document_id": "xcsh-docs:data-sources:rate_limiter_policy:properties:server_name_matcher",
@@ -3089,7 +3089,7 @@
           "type": "list"
         },
         {
-          "aliases": ["regex values"],
+          "aliases": ["server name matcher regex values"],
           "anchor": "schema-server_name_matcher--regex_values",
           "description": "A list of regular expressions to match the input against.",
           "document_id": "xcsh-docs:data-sources:rate_limiter_policy:properties:server_name_matcher",
@@ -3122,7 +3122,7 @@
       "category": "security",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["receipt-pinned-upstream"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -3144,7 +3144,7 @@
       "schema_path": ["server_selector"],
       "sections": [
         {
-          "aliases": ["expressions"],
+          "aliases": ["server selector expressions"],
           "anchor": "schema-server_selector--expressions",
           "description": "Expressions contains the Kubernetes style label expression for selections.",
           "document_id": "xcsh-docs:data-sources:rate_limiter_policy:properties:server_selector",
@@ -3177,7 +3177,7 @@
       "category": "security",
       "child_ids": ["xcsh-docs:data-sources:rate_limiter_policy:example:data-source"],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["receipt-pinned-upstream"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -3217,7 +3217,7 @@
       "category": "security",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["receipt-pinned-upstream"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"

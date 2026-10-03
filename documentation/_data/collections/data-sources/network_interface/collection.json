@@ -669,7 +669,7 @@
         "xcsh-docs:data-sources:network_interface:examples"
       ],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -716,7 +716,7 @@
         "xcsh-docs:data-sources:network_interface:properties:tunnel_interface"
       ],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -917,7 +917,7 @@
         "xcsh-docs:data-sources:network_interface:properties:dedicated_interface:not_primary"
       ],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -939,7 +939,7 @@
       "schema_path": ["dedicated_interface"],
       "sections": [
         {
-          "aliases": ["cluster"],
+          "aliases": ["dedicated interface cluster"],
           "anchor": "section",
           "description": "This can be used for messages where no values are needed.",
           "document_id": "xcsh-docs:data-sources:network_interface:properties:dedicated_interface:cluster",
@@ -953,7 +953,7 @@
           "type": "object"
         },
         {
-          "aliases": ["device"],
+          "aliases": ["dedicated interface device"],
           "anchor": "schema-dedicated_interface--device",
           "description": "Name of the device for which interface is configured. Use wwan0 for 4G/LTE.",
           "document_id": "xcsh-docs:data-sources:network_interface:properties:dedicated_interface",
@@ -967,7 +967,7 @@
           "type": "string"
         },
         {
-          "aliases": ["is primary"],
+          "aliases": ["dedicated interface is primary"],
           "anchor": "section",
           "description": "This can be used for messages where no values are needed.",
           "document_id": "xcsh-docs:data-sources:network_interface:properties:dedicated_interface:is_primary",
@@ -981,7 +981,7 @@
           "type": "object"
         },
         {
-          "aliases": ["monitor"],
+          "aliases": ["dedicated interface monitor"],
           "anchor": "section",
           "description": "Link Quality Monitoring configuration for a network interface.",
           "document_id": "xcsh-docs:data-sources:network_interface:properties:dedicated_interface:monitor",
@@ -995,7 +995,7 @@
           "type": "object"
         },
         {
-          "aliases": ["monitor disabled"],
+          "aliases": ["dedicated interface monitor disabled"],
           "anchor": "section",
           "description": "This can be used for messages where no values are needed.",
           "document_id": "xcsh-docs:data-sources:network_interface:properties:dedicated_interface:monitor_disabled",
@@ -1009,7 +1009,7 @@
           "type": "object"
         },
         {
-          "aliases": ["mtu"],
+          "aliases": ["dedicated interface mtu"],
           "anchor": "schema-dedicated_interface--mtu",
           "description": "Maximum packet size (Maximum Transfer Unit) of the interface When configured, MTU must be between 512 and 9000.",
           "document_id": "xcsh-docs:data-sources:network_interface:properties:dedicated_interface",
@@ -1023,7 +1023,7 @@
           "type": "number"
         },
         {
-          "aliases": ["node"],
+          "aliases": ["dedicated interface node"],
           "anchor": "schema-dedicated_interface--node",
           "description": "Exclusive with Configuration will apply to a device on the given node of the site.",
           "document_id": "xcsh-docs:data-sources:network_interface:properties:dedicated_interface",
@@ -1037,7 +1037,7 @@
           "type": "string"
         },
         {
-          "aliases": ["not primary"],
+          "aliases": ["dedicated interface not primary"],
           "anchor": "section",
           "description": "This can be used for messages where no values are needed.",
           "document_id": "xcsh-docs:data-sources:network_interface:properties:dedicated_interface:not_primary",
@@ -1051,7 +1051,7 @@
           "type": "object"
         },
         {
-          "aliases": ["priority"],
+          "aliases": ["dedicated interface priority"],
           "anchor": "schema-dedicated_interface--priority",
           "description": "Priority of the network interface when multiple network interfaces are present in outside network Greater the value, higher the priority.",
           "document_id": "xcsh-docs:data-sources:network_interface:properties:dedicated_interface",
@@ -1084,7 +1084,7 @@
       "category": "networking",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -1124,7 +1124,7 @@
       "category": "networking",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -1164,7 +1164,7 @@
       "category": "networking",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -1204,7 +1204,7 @@
       "category": "networking",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -1244,7 +1244,7 @@
       "category": "networking",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -1284,7 +1284,7 @@
       "category": "networking",
       "child_ids": ["xcsh-docs:data-sources:network_interface:properties:dedicated_management_interface:cluster"],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -1306,7 +1306,7 @@
       "schema_path": ["dedicated_management_interface"],
       "sections": [
         {
-          "aliases": ["cluster"],
+          "aliases": ["dedicated management interface cluster"],
           "anchor": "section",
           "description": "This can be used for messages where no values are needed.",
           "document_id": "xcsh-docs:data-sources:network_interface:properties:dedicated_management_interface:cluster",
@@ -1320,7 +1320,7 @@
           "type": "object"
         },
         {
-          "aliases": ["device"],
+          "aliases": ["dedicated management interface device"],
           "anchor": "schema-dedicated_management_interface--device",
           "description": "Name of the device for which interface is configured.",
           "document_id": "xcsh-docs:data-sources:network_interface:properties:dedicated_management_interface",
@@ -1334,7 +1334,7 @@
           "type": "string"
         },
         {
-          "aliases": ["mtu"],
+          "aliases": ["dedicated management interface mtu"],
           "anchor": "schema-dedicated_management_interface--mtu",
           "description": "Maximum packet size (Maximum Transfer Unit) of the interface When configured, MTU must be between 512 and 9000.",
           "document_id": "xcsh-docs:data-sources:network_interface:properties:dedicated_management_interface",
@@ -1348,7 +1348,7 @@
           "type": "number"
         },
         {
-          "aliases": ["node"],
+          "aliases": ["dedicated management interface node"],
           "anchor": "schema-dedicated_management_interface--node",
           "description": "Exclusive with Configuration will apply to a device on the given node of the site.",
           "document_id": "xcsh-docs:data-sources:network_interface:properties:dedicated_management_interface",
@@ -1381,7 +1381,7 @@
       "category": "networking",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -1437,7 +1437,7 @@
         "xcsh-docs:data-sources:network_interface:properties:ethernet_interface:untagged"
       ],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -1459,7 +1459,7 @@
       "schema_path": ["ethernet_interface"],
       "sections": [
         {
-          "aliases": ["cluster"],
+          "aliases": ["ethernet interface cluster"],
           "anchor": "section",
           "description": "This can be used for messages where no values are needed.",
           "document_id": "xcsh-docs:data-sources:network_interface:properties:ethernet_interface:cluster",
@@ -1473,7 +1473,7 @@
           "type": "object"
         },
         {
-          "aliases": ["device"],
+          "aliases": ["ethernet interface device"],
           "anchor": "schema-ethernet_interface--device",
           "description": "Interface configuration for the ethernet device.",
           "document_id": "xcsh-docs:data-sources:network_interface:properties:ethernet_interface",
@@ -1487,7 +1487,7 @@
           "type": "string"
         },
         {
-          "aliases": ["dhcp client"],
+          "aliases": ["ethernet interface dhcp client"],
           "anchor": "section",
           "description": "This can be used for messages where no values are needed.",
           "document_id": "xcsh-docs:data-sources:network_interface:properties:ethernet_interface:dhcp_client",
@@ -1501,7 +1501,7 @@
           "type": "object"
         },
         {
-          "aliases": ["dhcp server"],
+          "aliases": ["ethernet interface dhcp server"],
           "anchor": "section",
           "description": "Configuration parameter for dhcp server.",
           "document_id": "xcsh-docs:data-sources:network_interface:properties:ethernet_interface:dhcp_server",
@@ -1515,7 +1515,7 @@
           "type": "object"
         },
         {
-          "aliases": ["ipv6 auto config"],
+          "aliases": ["ethernet interface ipv6 auto config"],
           "anchor": "section",
           "description": "IPV6AutoConfigType.",
           "document_id": "xcsh-docs:data-sources:network_interface:properties:ethernet_interface:ipv6_auto_config",
@@ -1529,7 +1529,7 @@
           "type": "object"
         },
         {
-          "aliases": ["is primary"],
+          "aliases": ["ethernet interface is primary"],
           "anchor": "section",
           "description": "This can be used for messages where no values are needed.",
           "document_id": "xcsh-docs:data-sources:network_interface:properties:ethernet_interface:is_primary",
@@ -1543,7 +1543,7 @@
           "type": "object"
         },
         {
-          "aliases": ["monitor"],
+          "aliases": ["ethernet interface monitor"],
           "anchor": "section",
           "description": "Link Quality Monitoring configuration for a network interface.",
           "document_id": "xcsh-docs:data-sources:network_interface:properties:ethernet_interface:monitor",
@@ -1557,7 +1557,7 @@
           "type": "object"
         },
         {
-          "aliases": ["monitor disabled"],
+          "aliases": ["ethernet interface monitor disabled"],
           "anchor": "section",
           "description": "This can be used for messages where no values are needed.",
           "document_id": "xcsh-docs:data-sources:network_interface:properties:ethernet_interface:monitor_disabled",
@@ -1571,7 +1571,7 @@
           "type": "object"
         },
         {
-          "aliases": ["mtu"],
+          "aliases": ["ethernet interface mtu"],
           "anchor": "schema-ethernet_interface--mtu",
           "description": "Maximum packet size (Maximum Transfer Unit) of the interface When configured, MTU must be between 512 and 9000.",
           "document_id": "xcsh-docs:data-sources:network_interface:properties:ethernet_interface",
@@ -1585,7 +1585,7 @@
           "type": "number"
         },
         {
-          "aliases": ["no ipv6 address"],
+          "aliases": ["ethernet interface no ipv6 address"],
           "anchor": "section",
           "description": "This can be used for messages where no values are needed.",
           "document_id": "xcsh-docs:data-sources:network_interface:properties:ethernet_interface:no_ipv6_address",
@@ -1599,7 +1599,7 @@
           "type": "object"
         },
         {
-          "aliases": ["node"],
+          "aliases": ["ethernet interface node"],
           "anchor": "schema-ethernet_interface--node",
           "description": "Exclusive with Configuration will apply to a device on the given node.",
           "document_id": "xcsh-docs:data-sources:network_interface:properties:ethernet_interface",
@@ -1613,7 +1613,7 @@
           "type": "string"
         },
         {
-          "aliases": ["not primary"],
+          "aliases": ["ethernet interface not primary"],
           "anchor": "section",
           "description": "This can be used for messages where no values are needed.",
           "document_id": "xcsh-docs:data-sources:network_interface:properties:ethernet_interface:not_primary",
@@ -1627,7 +1627,7 @@
           "type": "object"
         },
         {
-          "aliases": ["priority"],
+          "aliases": ["ethernet interface priority"],
           "anchor": "schema-ethernet_interface--priority",
           "description": "Priority of the network interface when multiple network interfaces are present in outside network Greater the value, higher the priority.",
           "document_id": "xcsh-docs:data-sources:network_interface:properties:ethernet_interface",
@@ -1641,7 +1641,7 @@
           "type": "number"
         },
         {
-          "aliases": ["site local inside network"],
+          "aliases": ["ethernet interface site local inside network"],
           "anchor": "section",
           "description": "This can be used for messages where no values are needed.",
           "document_id": "xcsh-docs:data-sources:network_interface:properties:ethernet_interface:site_local_inside_network",
@@ -1655,7 +1655,7 @@
           "type": "object"
         },
         {
-          "aliases": ["site local network"],
+          "aliases": ["ethernet interface site local network"],
           "anchor": "section",
           "description": "This can be used for messages where no values are needed.",
           "document_id": "xcsh-docs:data-sources:network_interface:properties:ethernet_interface:site_local_network",
@@ -1669,7 +1669,7 @@
           "type": "object"
         },
         {
-          "aliases": ["static ip"],
+          "aliases": ["ethernet interface static ip"],
           "anchor": "section",
           "description": "Configure Static IP parameters.",
           "document_id": "xcsh-docs:data-sources:network_interface:properties:ethernet_interface:static_ip",
@@ -1683,7 +1683,7 @@
           "type": "object"
         },
         {
-          "aliases": ["static ipv6 address"],
+          "aliases": ["ethernet interface static ipv6 address"],
           "anchor": "section",
           "description": "Configure Static IP parameters.",
           "document_id": "xcsh-docs:data-sources:network_interface:properties:ethernet_interface:static_ipv6_address",
@@ -1697,7 +1697,7 @@
           "type": "object"
         },
         {
-          "aliases": ["storage network"],
+          "aliases": ["ethernet interface storage network"],
           "anchor": "section",
           "description": "This can be used for messages where no values are needed.",
           "document_id": "xcsh-docs:data-sources:network_interface:properties:ethernet_interface:storage_network",
@@ -1711,7 +1711,7 @@
           "type": "object"
         },
         {
-          "aliases": ["untagged"],
+          "aliases": ["ethernet interface untagged"],
           "anchor": "section",
           "description": "This can be used for messages where no values are needed.",
           "document_id": "xcsh-docs:data-sources:network_interface:properties:ethernet_interface:untagged",
@@ -1725,7 +1725,7 @@
           "type": "object"
         },
         {
-          "aliases": ["vlan id"],
+          "aliases": ["ethernet interface vlan id"],
           "anchor": "schema-ethernet_interface--vlan_id",
           "description": "Exclusive with Configure a VLAN tagged ethernet interface.",
           "document_id": "xcsh-docs:data-sources:network_interface:properties:ethernet_interface",
@@ -1758,7 +1758,7 @@
       "category": "networking",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -1798,7 +1798,7 @@
       "category": "networking",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -1843,7 +1843,7 @@
         "xcsh-docs:data-sources:network_interface:properties:ethernet_interface:dhcp_server:interface_ip_map"
       ],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -1865,7 +1865,7 @@
       "schema_path": ["ethernet_interface", "dhcp_server"],
       "sections": [
         {
-          "aliases": ["automatic from end"],
+          "aliases": ["ethernet interface dhcp server automatic from end"],
           "anchor": "section",
           "description": "This can be used for messages where no values are needed.",
           "document_id": "xcsh-docs:data-sources:network_interface:properties:ethernet_interface:dhcp_server:automatic_from_end",
@@ -1879,7 +1879,7 @@
           "type": "object"
         },
         {
-          "aliases": ["automatic from start"],
+          "aliases": ["ethernet interface dhcp server automatic from start"],
           "anchor": "section",
           "description": "This can be used for messages where no values are needed.",
           "document_id": "xcsh-docs:data-sources:network_interface:properties:ethernet_interface:dhcp_server:automatic_from_start",
@@ -1893,7 +1893,7 @@
           "type": "object"
         },
         {
-          "aliases": ["dhcp networks"],
+          "aliases": ["ethernet interface dhcp server dhcp networks"],
           "anchor": "section",
           "description": "List of networks from which DHCP Server can allocate IPv4 Addresses.",
           "document_id": "xcsh-docs:data-sources:network_interface:properties:ethernet_interface:dhcp_server:dhcp_networks",
@@ -1907,7 +1907,7 @@
           "type": "object"
         },
         {
-          "aliases": ["dhcp option82 tag"],
+          "aliases": ["ethernet interface dhcp server dhcp option82 tag"],
           "anchor": "schema-ethernet_interface--dhcp_server--dhcp_option82_tag",
           "description": "DHCP option 82 tag.",
           "document_id": "xcsh-docs:data-sources:network_interface:properties:ethernet_interface:dhcp_server",
@@ -1921,7 +1921,7 @@
           "type": "string"
         },
         {
-          "aliases": ["fixed ip map"],
+          "aliases": ["ethernet interface dhcp server fixed ip map"],
           "anchor": "schema-ethernet_interface--dhcp_server--fixed_ip_map",
           "description": "Assign fixed IPv4 addresses based on the MAC Address of the DHCP Client.",
           "document_id": "xcsh-docs:data-sources:network_interface:properties:ethernet_interface:dhcp_server",
@@ -1935,7 +1935,7 @@
           "type": "map"
         },
         {
-          "aliases": ["interface ip map"],
+          "aliases": ["ethernet interface dhcp server interface ip map"],
           "anchor": "section",
           "description": "Specify static IPv4 addresses per node.",
           "document_id": "xcsh-docs:data-sources:network_interface:properties:ethernet_interface:dhcp_server:interface_ip_map",
@@ -1968,7 +1968,7 @@
       "category": "networking",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -2008,7 +2008,7 @@
       "category": "networking",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -2053,7 +2053,7 @@
         "xcsh-docs:data-sources:network_interface:properties:ethernet_interface:dhcp_server:dhcp_networks:same_as_dgw"
       ],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -2075,7 +2075,7 @@
       "schema_path": ["ethernet_interface", "dhcp_server", "dhcp_networks"],
       "sections": [
         {
-          "aliases": ["dgw address"],
+          "aliases": ["ethernet interface dhcp server dhcp networks dgw address"],
           "anchor": "schema-ethernet_interface--dhcp_server--dhcp_networks--dgw_address",
           "description": "Exclusive with Enter a IPv4 address from the network prefix to be used as the default gateway.",
           "document_id": "xcsh-docs:data-sources:network_interface:properties:ethernet_interface:dhcp_server:dhcp_networks",
@@ -2089,7 +2089,7 @@
           "type": "string"
         },
         {
-          "aliases": ["dns address"],
+          "aliases": ["ethernet interface dhcp server dhcp networks dns address"],
           "anchor": "schema-ethernet_interface--dhcp_server--dhcp_networks--dns_address",
           "description": "Exclusive with Enter a IPv4 address from the network prefix to be used as the DNS server.",
           "document_id": "xcsh-docs:data-sources:network_interface:properties:ethernet_interface:dhcp_server:dhcp_networks",
@@ -2103,7 +2103,7 @@
           "type": "string"
         },
         {
-          "aliases": ["first address"],
+          "aliases": ["ethernet interface dhcp server dhcp networks first address"],
           "anchor": "section",
           "description": "This can be used for messages where no values are needed.",
           "document_id": "xcsh-docs:data-sources:network_interface:properties:ethernet_interface:dhcp_server:dhcp_networks:first_address",
@@ -2117,7 +2117,7 @@
           "type": "object"
         },
         {
-          "aliases": ["last address"],
+          "aliases": ["ethernet interface dhcp server dhcp networks last address"],
           "anchor": "section",
           "description": "This can be used for messages where no values are needed.",
           "document_id": "xcsh-docs:data-sources:network_interface:properties:ethernet_interface:dhcp_server:dhcp_networks:last_address",
@@ -2131,7 +2131,7 @@
           "type": "object"
         },
         {
-          "aliases": ["network prefix"],
+          "aliases": ["ethernet interface dhcp server dhcp networks network prefix"],
           "anchor": "schema-ethernet_interface--dhcp_server--dhcp_networks--network_prefix",
           "description": "Exclusive with Set the network prefix for the site. Ex: 192.0.2.0/24.",
           "document_id": "xcsh-docs:data-sources:network_interface:properties:ethernet_interface:dhcp_server:dhcp_networks",
@@ -2145,7 +2145,7 @@
           "type": "string"
         },
         {
-          "aliases": ["pool settings"],
+          "aliases": ["ethernet interface dhcp server dhcp networks pool settings"],
           "anchor": "schema-ethernet_interface--dhcp_server--dhcp_networks--pool_settings",
           "description": "Identifies the how to pick the network for Interface. Address ranges in DHCP pool list are used for IP Address allocation Address ranges in DHCP pool list are excluded from IP Address allocation.",
           "document_id": "xcsh-docs:data-sources:network_interface:properties:ethernet_interface:dhcp_server:dhcp_networks",
@@ -2159,7 +2159,7 @@
           "type": "string"
         },
         {
-          "aliases": ["pools"],
+          "aliases": ["ethernet interface dhcp server dhcp networks pools"],
           "anchor": "section",
           "description": "List of non overlapping IP address ranges.",
           "document_id": "xcsh-docs:data-sources:network_interface:properties:ethernet_interface:dhcp_server:dhcp_networks:pools",
@@ -2173,7 +2173,7 @@
           "type": "object"
         },
         {
-          "aliases": ["same as dgw"],
+          "aliases": ["ethernet interface dhcp server dhcp networks same as dgw"],
           "anchor": "section",
           "description": "This can be used for messages where no values are needed.",
           "document_id": "xcsh-docs:data-sources:network_interface:properties:ethernet_interface:dhcp_server:dhcp_networks:same_as_dgw",
@@ -2206,7 +2206,7 @@
       "category": "networking",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -2246,7 +2246,7 @@
       "category": "networking",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -2286,7 +2286,7 @@
       "category": "networking",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -2308,7 +2308,7 @@
       "schema_path": ["ethernet_interface", "dhcp_server", "dhcp_networks", "pools"],
       "sections": [
         {
-          "aliases": ["end ip"],
+          "aliases": ["ethernet interface dhcp server dhcp networks pools end ip"],
           "anchor": "schema-ethernet_interface--dhcp_server--dhcp_networks--pools--end_ip",
           "description": "Ending IP of the pool range. In case of address allocator, offset is derived based on network prefix. 192.0.2.39 with prefix length of 24, end offset is 192.0.2.186.",
           "document_id": "xcsh-docs:data-sources:network_interface:properties:ethernet_interface:dhcp_server:dhcp_networks:pools",
@@ -2322,7 +2322,7 @@
           "type": "string"
         },
         {
-          "aliases": ["exclude"],
+          "aliases": ["ethernet interface dhcp server dhcp networks pools exclude"],
           "anchor": "schema-ethernet_interface--dhcp_server--dhcp_networks--pools--exclude",
           "description": "Exclude this address range from DHCP allocation.",
           "document_id": "xcsh-docs:data-sources:network_interface:properties:ethernet_interface:dhcp_server:dhcp_networks:pools",
@@ -2336,7 +2336,7 @@
           "type": "bool"
         },
         {
-          "aliases": ["start ip"],
+          "aliases": ["ethernet interface dhcp server dhcp networks pools start ip"],
           "anchor": "schema-ethernet_interface--dhcp_server--dhcp_networks--pools--start_ip",
           "description": "Starting IP of the pool range. In case of address allocator, offset is derived based on network prefix. 192.0.2.173 with prefix length of 24, start offset is 192.0.2.96.",
           "document_id": "xcsh-docs:data-sources:network_interface:properties:ethernet_interface:dhcp_server:dhcp_networks:pools",
@@ -2369,7 +2369,7 @@
       "category": "networking",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -2409,7 +2409,7 @@
       "category": "networking",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -2431,7 +2431,7 @@
       "schema_path": ["ethernet_interface", "dhcp_server", "interface_ip_map"],
       "sections": [
         {
-          "aliases": ["interface ip map"],
+          "aliases": ["ethernet interface dhcp server interface ip map interface ip map"],
           "anchor": "schema-ethernet_interface--dhcp_server--interface_ip_map--interface_ip_map",
           "description": "Specify static IPv4 addresses per site:node.",
           "document_id": "xcsh-docs:data-sources:network_interface:properties:ethernet_interface:dhcp_server:interface_ip_map",
@@ -2467,7 +2467,7 @@
         "xcsh-docs:data-sources:network_interface:properties:ethernet_interface:ipv6_auto_config:router"
       ],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -2489,7 +2489,7 @@
       "schema_path": ["ethernet_interface", "ipv6_auto_config"],
       "sections": [
         {
-          "aliases": ["host"],
+          "aliases": ["ethernet interface ipv6 auto config host"],
           "anchor": "section",
           "description": "This can be used for messages where no values are needed.",
           "document_id": "xcsh-docs:data-sources:network_interface:properties:ethernet_interface:ipv6_auto_config:host",
@@ -2503,7 +2503,7 @@
           "type": "object"
         },
         {
-          "aliases": ["router"],
+          "aliases": ["ethernet interface ipv6 auto config router"],
           "anchor": "section",
           "description": "IPV6AutoConfigRouterType.",
           "document_id": "xcsh-docs:data-sources:network_interface:properties:ethernet_interface:ipv6_auto_config:router",
@@ -2536,7 +2536,7 @@
       "category": "networking",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -2579,7 +2579,7 @@
         "xcsh-docs:data-sources:network_interface:properties:ethernet_interface:ipv6_auto_config:router:stateful"
       ],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -2601,7 +2601,7 @@
       "schema_path": ["ethernet_interface", "ipv6_auto_config", "router"],
       "sections": [
         {
-          "aliases": ["dns config"],
+          "aliases": ["ethernet interface ipv6 auto config router dns config"],
           "anchor": "section",
           "description": "IPV6DnsConfig.",
           "document_id": "xcsh-docs:data-sources:network_interface:properties:ethernet_interface:ipv6_auto_config:router:dns_config",
@@ -2615,7 +2615,7 @@
           "type": "object"
         },
         {
-          "aliases": ["network prefix"],
+          "aliases": ["ethernet interface ipv6 auto config router network prefix"],
           "anchor": "schema-ethernet_interface--ipv6_auto_config--router--network_prefix",
           "description": "Exclusive with Network prefix that is used as Prefix information Allowed only /64 prefix length as per RFC 4862.",
           "document_id": "xcsh-docs:data-sources:network_interface:properties:ethernet_interface:ipv6_auto_config:router",
@@ -2629,7 +2629,7 @@
           "type": "string"
         },
         {
-          "aliases": ["stateful"],
+          "aliases": ["ethernet interface ipv6 auto config router stateful"],
           "anchor": "section",
           "description": "DHCPIPV6 Stateful Server.",
           "document_id": "xcsh-docs:data-sources:network_interface:properties:ethernet_interface:ipv6_auto_config:router:stateful",
@@ -2665,7 +2665,7 @@
         "xcsh-docs:data-sources:network_interface:properties:ethernet_interface:ipv6_auto_config:router:dns_config:local_dns"
       ],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -2687,7 +2687,7 @@
       "schema_path": ["ethernet_interface", "ipv6_auto_config", "router", "dns_config"],
       "sections": [
         {
-          "aliases": ["configured list"],
+          "aliases": ["ethernet interface ipv6 auto config router dns config configured list"],
           "anchor": "section",
           "description": "IPV6DnsList.",
           "document_id": "xcsh-docs:data-sources:network_interface:properties:ethernet_interface:ipv6_auto_config:router:dns_config:configured_list",
@@ -2701,7 +2701,7 @@
           "type": "object"
         },
         {
-          "aliases": ["local dns"],
+          "aliases": ["ethernet interface ipv6 auto config router dns config local dns"],
           "anchor": "section",
           "description": "IPV6LocalDnsAddress.",
           "document_id": "xcsh-docs:data-sources:network_interface:properties:ethernet_interface:ipv6_auto_config:router:dns_config:local_dns",
@@ -2734,7 +2734,7 @@
       "category": "networking",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -2756,7 +2756,7 @@
       "schema_path": ["ethernet_interface", "ipv6_auto_config", "router", "dns_config", "configured_list"],
       "sections": [
         {
-          "aliases": ["dns list"],
+          "aliases": ["ethernet interface ipv6 auto config router dns config configured list dns list"],
           "anchor": "schema-ethernet_interface--ipv6_auto_config--router--dns_config--configured_list--dns_list",
           "description": "List of IPv6 Addresses acting as DNS servers.",
           "document_id": "xcsh-docs:data-sources:network_interface:properties:ethernet_interface:ipv6_auto_config:router:dns_config:configured_list",
@@ -2799,7 +2799,7 @@
         "xcsh-docs:data-sources:network_interface:properties:ethernet_interface:ipv6_auto_config:router:dns_config:local_dns:last_address"
       ],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -2821,7 +2821,7 @@
       "schema_path": ["ethernet_interface", "ipv6_auto_config", "router", "dns_config", "local_dns"],
       "sections": [
         {
-          "aliases": ["configured address"],
+          "aliases": ["ethernet interface ipv6 auto config router dns config local dns configured address"],
           "anchor": "schema-ethernet_interface--ipv6_auto_config--router--dns_config--local_dns--configured_address",
           "description": "Exclusive with Configured address from the network prefix is chosen as DNS server.",
           "document_id": "xcsh-docs:data-sources:network_interface:properties:ethernet_interface:ipv6_auto_config:router:dns_config:local_dns",
@@ -2842,7 +2842,7 @@
           "type": "string"
         },
         {
-          "aliases": ["first address"],
+          "aliases": ["ethernet interface ipv6 auto config router dns config local dns first address"],
           "anchor": "section",
           "description": "This can be used for messages where no values are needed.",
           "document_id": "xcsh-docs:data-sources:network_interface:properties:ethernet_interface:ipv6_auto_config:router:dns_config:local_dns:first_address",
@@ -2863,7 +2863,7 @@
           "type": "object"
         },
         {
-          "aliases": ["last address"],
+          "aliases": ["ethernet interface ipv6 auto config router dns config local dns last address"],
           "anchor": "section",
           "description": "This can be used for messages where no values are needed.",
           "document_id": "xcsh-docs:data-sources:network_interface:properties:ethernet_interface:ipv6_auto_config:router:dns_config:local_dns:last_address",
@@ -2903,7 +2903,7 @@
       "category": "networking",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -2943,7 +2943,7 @@
       "category": "networking",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -2988,7 +2988,7 @@
         "xcsh-docs:data-sources:network_interface:properties:ethernet_interface:ipv6_auto_config:router:stateful:interface_ip_map"
       ],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -3010,7 +3010,7 @@
       "schema_path": ["ethernet_interface", "ipv6_auto_config", "router", "stateful"],
       "sections": [
         {
-          "aliases": ["automatic from end"],
+          "aliases": ["ethernet interface ipv6 auto config router stateful automatic from end"],
           "anchor": "section",
           "description": "This can be used for messages where no values are needed.",
           "document_id": "xcsh-docs:data-sources:network_interface:properties:ethernet_interface:ipv6_auto_config:router:stateful:automatic_from_end",
@@ -3024,7 +3024,7 @@
           "type": "object"
         },
         {
-          "aliases": ["automatic from start"],
+          "aliases": ["ethernet interface ipv6 auto config router stateful automatic from start"],
           "anchor": "section",
           "description": "This can be used for messages where no values are needed.",
           "document_id": "xcsh-docs:data-sources:network_interface:properties:ethernet_interface:ipv6_auto_config:router:stateful:automatic_from_start",
@@ -3038,7 +3038,7 @@
           "type": "object"
         },
         {
-          "aliases": ["dhcp networks"],
+          "aliases": ["ethernet interface ipv6 auto config router stateful dhcp networks"],
           "anchor": "section",
           "description": "List of networks from which DHCP server can allocate IP addresses.",
           "document_id": "xcsh-docs:data-sources:network_interface:properties:ethernet_interface:ipv6_auto_config:router:stateful:dhcp_networks",
@@ -3052,7 +3052,7 @@
           "type": "object"
         },
         {
-          "aliases": ["fixed ip map"],
+          "aliases": ["ethernet interface ipv6 auto config router stateful fixed ip map"],
           "anchor": "schema-ethernet_interface--ipv6_auto_config--router--stateful--fixed_ip_map",
           "description": "Fixed MAC address to IPv6 assignments, Key: MAC address, Value: IPv6 Address Assign fixed IPv6 addresses based on the MAC Address of the DHCP Client.",
           "document_id": "xcsh-docs:data-sources:network_interface:properties:ethernet_interface:ipv6_auto_config:router:stateful",
@@ -3066,7 +3066,7 @@
           "type": "map"
         },
         {
-          "aliases": ["interface ip map"],
+          "aliases": ["ethernet interface ipv6 auto config router stateful interface ip map"],
           "anchor": "section",
           "description": "Map of Interface IPv6 assignments per node.",
           "document_id": "xcsh-docs:data-sources:network_interface:properties:ethernet_interface:ipv6_auto_config:router:stateful:interface_ip_map",
@@ -3099,7 +3099,7 @@
       "category": "networking",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -3139,7 +3139,7 @@
       "category": "networking",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -3181,7 +3181,7 @@
         "xcsh-docs:data-sources:network_interface:properties:ethernet_interface:ipv6_auto_config:router:stateful:dhcp_networks:pools"
       ],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -3203,7 +3203,7 @@
       "schema_path": ["ethernet_interface", "ipv6_auto_config", "router", "stateful", "dhcp_networks"],
       "sections": [
         {
-          "aliases": ["network prefix"],
+          "aliases": ["ethernet interface ipv6 auto config router stateful dhcp networks network prefix"],
           "anchor": "schema-ethernet_interface--ipv6_auto_config--router--stateful--dhcp_networks--network_prefix",
           "description": "Exclusive with Network Prefix to be used for IPv6 address auto configuration.",
           "document_id": "xcsh-docs:data-sources:network_interface:properties:ethernet_interface:ipv6_auto_config:router:stateful:dhcp_networks",
@@ -3224,7 +3224,7 @@
           "type": "string"
         },
         {
-          "aliases": ["pool settings"],
+          "aliases": ["ethernet interface ipv6 auto config router stateful dhcp networks pool settings"],
           "anchor": "schema-ethernet_interface--ipv6_auto_config--router--stateful--dhcp_networks--pool_settings",
           "description": "Identifies the how to pick the network for Interface. Address ranges in DHCP pool list are used for IP Address allocation Address ranges in DHCP pool list are excluded from IP Address allocation.",
           "document_id": "xcsh-docs:data-sources:network_interface:properties:ethernet_interface:ipv6_auto_config:router:stateful:dhcp_networks",
@@ -3245,7 +3245,7 @@
           "type": "string"
         },
         {
-          "aliases": ["pools"],
+          "aliases": ["ethernet interface ipv6 auto config router stateful dhcp networks pools"],
           "anchor": "section",
           "description": "List of non overlapping IP address ranges.",
           "document_id": "xcsh-docs:data-sources:network_interface:properties:ethernet_interface:ipv6_auto_config:router:stateful:dhcp_networks:pools",
@@ -3278,7 +3278,7 @@
       "category": "networking",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -3300,7 +3300,7 @@
       "schema_path": ["ethernet_interface", "ipv6_auto_config", "router", "stateful", "dhcp_networks", "pools"],
       "sections": [
         {
-          "aliases": ["end ip"],
+          "aliases": ["ethernet interface ipv6 auto config router stateful dhcp networks pools end ip"],
           "anchor": "schema-ethernet_interface--ipv6_auto_config--router--stateful--dhcp_networks--pools--end_ip",
           "description": "Ending IPv6 address of the pool range. In case of address allocator, offset is derived based on network prefix.",
           "document_id": "xcsh-docs:data-sources:network_interface:properties:ethernet_interface:ipv6_auto_config:router:stateful:dhcp_networks:pools",
@@ -3322,7 +3322,7 @@
           "type": "string"
         },
         {
-          "aliases": ["start ip"],
+          "aliases": ["ethernet interface ipv6 auto config router stateful dhcp networks pools start ip"],
           "anchor": "schema-ethernet_interface--ipv6_auto_config--router--stateful--dhcp_networks--pools--start_ip",
           "description": "Starting IPv6 address of the pool range. In case of address allocator, offset is derived based on network prefix. 2001::1 with prefix length of 64, start offset is 5.",
           "document_id": "xcsh-docs:data-sources:network_interface:properties:ethernet_interface:ipv6_auto_config:router:stateful:dhcp_networks:pools",
@@ -3363,7 +3363,7 @@
       "category": "networking",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -3385,7 +3385,7 @@
       "schema_path": ["ethernet_interface", "ipv6_auto_config", "router", "stateful", "interface_ip_map"],
       "sections": [
         {
-          "aliases": ["interface ip map"],
+          "aliases": ["ethernet interface ipv6 auto config router stateful interface ip map interface ip map"],
           "anchor": "schema-ethernet_interface--ipv6_auto_config--router--stateful--interface_ip_map--interface_ip_map",
           "description": "Map of Site:Node to IPv6 address.",
           "document_id": "xcsh-docs:data-sources:network_interface:properties:ethernet_interface:ipv6_auto_config:router:stateful:interface_ip_map",
@@ -3425,7 +3425,7 @@
       "category": "networking",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -3465,7 +3465,7 @@
       "category": "networking",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -3505,7 +3505,7 @@
       "category": "networking",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -3545,7 +3545,7 @@
       "category": "networking",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -3585,7 +3585,7 @@
       "category": "networking",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -3625,7 +3625,7 @@
       "category": "networking",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -3665,7 +3665,7 @@
       "category": "networking",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -3708,7 +3708,7 @@
         "xcsh-docs:data-sources:network_interface:properties:ethernet_interface:static_ip:node_static_ip"
       ],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -3730,7 +3730,7 @@
       "schema_path": ["ethernet_interface", "static_ip"],
       "sections": [
         {
-          "aliases": ["cluster static ip"],
+          "aliases": ["ethernet interface static ip cluster static ip"],
           "anchor": "section",
           "description": "Configure Static IP parameters for cluster.",
           "document_id": "xcsh-docs:data-sources:network_interface:properties:ethernet_interface:static_ip:cluster_static_ip",
@@ -3744,7 +3744,7 @@
           "type": "object"
         },
         {
-          "aliases": ["node static ip"],
+          "aliases": ["ethernet interface static ip node static ip"],
           "anchor": "section",
           "description": "Configure Static IP parameters for a node.",
           "document_id": "xcsh-docs:data-sources:network_interface:properties:ethernet_interface:static_ip:node_static_ip",
@@ -3777,7 +3777,7 @@
       "category": "networking",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -3799,7 +3799,7 @@
       "schema_path": ["ethernet_interface", "static_ip", "cluster_static_ip"],
       "sections": [
         {
-          "aliases": ["interface ip map"],
+          "aliases": ["ethernet interface static ip cluster static ip interface ip map"],
           "anchor": "schema-ethernet_interface--static_ip--cluster_static_ip--interface_ip_map",
           "description": "Map of Node to Static IP configuration value, Key:Node, Value:IP Address.",
           "document_id": "xcsh-docs:data-sources:network_interface:properties:ethernet_interface:static_ip:cluster_static_ip",
@@ -3832,7 +3832,7 @@
       "category": "networking",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -3854,7 +3854,7 @@
       "schema_path": ["ethernet_interface", "static_ip", "node_static_ip"],
       "sections": [
         {
-          "aliases": ["default gw"],
+          "aliases": ["ethernet interface static ip node static ip default gw"],
           "anchor": "schema-ethernet_interface--static_ip--node_static_ip--default_gw",
           "description": "IP address of the default gateway.",
           "document_id": "xcsh-docs:data-sources:network_interface:properties:ethernet_interface:static_ip:node_static_ip",
@@ -3868,7 +3868,7 @@
           "type": "string"
         },
         {
-          "aliases": ["dns server"],
+          "aliases": ["ethernet interface static ip node static ip dns server"],
           "anchor": "schema-ethernet_interface--static_ip--node_static_ip--dns_server",
           "description": "DNS server address for the static interface configuration.",
           "document_id": "xcsh-docs:data-sources:network_interface:properties:ethernet_interface:static_ip:node_static_ip",
@@ -3882,7 +3882,7 @@
           "type": "string"
         },
         {
-          "aliases": ["ip address"],
+          "aliases": ["ethernet interface static ip node static ip ip address"],
           "anchor": "schema-ethernet_interface--static_ip--node_static_ip--ip_address",
           "description": "IP address of the interface and prefix length.",
           "document_id": "xcsh-docs:data-sources:network_interface:properties:ethernet_interface:static_ip:node_static_ip",
@@ -3918,7 +3918,7 @@
         "xcsh-docs:data-sources:network_interface:properties:ethernet_interface:static_ipv6_address:node_static_ip"
       ],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -3940,7 +3940,7 @@
       "schema_path": ["ethernet_interface", "static_ipv6_address"],
       "sections": [
         {
-          "aliases": ["cluster static ip"],
+          "aliases": ["ethernet interface static ipv6 address cluster static ip"],
           "anchor": "section",
           "description": "Configure Static IP parameters for cluster.",
           "document_id": "xcsh-docs:data-sources:network_interface:properties:ethernet_interface:static_ipv6_address:cluster_static_ip",
@@ -3954,7 +3954,7 @@
           "type": "object"
         },
         {
-          "aliases": ["node static ip"],
+          "aliases": ["ethernet interface static ipv6 address node static ip"],
           "anchor": "section",
           "description": "Configure Static IP parameters for a node.",
           "document_id": "xcsh-docs:data-sources:network_interface:properties:ethernet_interface:static_ipv6_address:node_static_ip",
@@ -3987,7 +3987,7 @@
       "category": "networking",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -4009,7 +4009,7 @@
       "schema_path": ["ethernet_interface", "static_ipv6_address", "cluster_static_ip"],
       "sections": [
         {
-          "aliases": ["interface ip map"],
+          "aliases": ["ethernet interface static ipv6 address cluster static ip interface ip map"],
           "anchor": "schema-ethernet_interface--static_ipv6_address--cluster_static_ip--interface_ip_map",
           "description": "Map of Node to Static IP configuration value, Key:Node, Value:IP Address.",
           "document_id": "xcsh-docs:data-sources:network_interface:properties:ethernet_interface:static_ipv6_address:cluster_static_ip",
@@ -4042,7 +4042,7 @@
       "category": "networking",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -4064,7 +4064,7 @@
       "schema_path": ["ethernet_interface", "static_ipv6_address", "node_static_ip"],
       "sections": [
         {
-          "aliases": ["default gw"],
+          "aliases": ["ethernet interface static ipv6 address node static ip default gw"],
           "anchor": "schema-ethernet_interface--static_ipv6_address--node_static_ip--default_gw",
           "description": "IP address of the default gateway.",
           "document_id": "xcsh-docs:data-sources:network_interface:properties:ethernet_interface:static_ipv6_address:node_static_ip",
@@ -4078,7 +4078,7 @@
           "type": "string"
         },
         {
-          "aliases": ["dns server"],
+          "aliases": ["ethernet interface static ipv6 address node static ip dns server"],
           "anchor": "schema-ethernet_interface--static_ipv6_address--node_static_ip--dns_server",
           "description": "DNS server address for the static interface configuration.",
           "document_id": "xcsh-docs:data-sources:network_interface:properties:ethernet_interface:static_ipv6_address:node_static_ip",
@@ -4092,7 +4092,7 @@
           "type": "string"
         },
         {
-          "aliases": ["ip address"],
+          "aliases": ["ethernet interface static ipv6 address node static ip ip address"],
           "anchor": "schema-ethernet_interface--static_ipv6_address--node_static_ip--ip_address",
           "description": "IP address of the interface and prefix length.",
           "document_id": "xcsh-docs:data-sources:network_interface:properties:ethernet_interface:static_ipv6_address:node_static_ip",
@@ -4125,7 +4125,7 @@
       "category": "networking",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -4165,7 +4165,7 @@
       "category": "networking",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -4209,7 +4209,7 @@
         "xcsh-docs:data-sources:network_interface:properties:layer2_interface:l2vlan_slo_interface"
       ],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -4231,7 +4231,7 @@
       "schema_path": ["layer2_interface"],
       "sections": [
         {
-          "aliases": ["l2sriov interface"],
+          "aliases": ["layer2 interface l2sriov interface"],
           "anchor": "section",
           "description": "Layer2 SR-IOV Interface Configuration.",
           "document_id": "xcsh-docs:data-sources:network_interface:properties:layer2_interface:l2sriov_interface",
@@ -4245,7 +4245,7 @@
           "type": "object"
         },
         {
-          "aliases": ["l2vlan interface"],
+          "aliases": ["layer2 interface l2vlan interface"],
           "anchor": "section",
           "description": "Layer2 VLAN Interface Configuration.",
           "document_id": "xcsh-docs:data-sources:network_interface:properties:layer2_interface:l2vlan_interface",
@@ -4259,7 +4259,7 @@
           "type": "object"
         },
         {
-          "aliases": ["l2vlan slo interface"],
+          "aliases": ["layer2 interface l2vlan slo interface"],
           "anchor": "section",
           "description": "Layer2 Site Local Outside VLAN Interface Configuration.",
           "document_id": "xcsh-docs:data-sources:network_interface:properties:layer2_interface:l2vlan_slo_interface",
@@ -4292,7 +4292,7 @@
       "category": "networking",
       "child_ids": ["xcsh-docs:data-sources:network_interface:properties:layer2_interface:l2sriov_interface:untagged"],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -4314,7 +4314,7 @@
       "schema_path": ["layer2_interface", "l2sriov_interface"],
       "sections": [
         {
-          "aliases": ["device"],
+          "aliases": ["layer2 interface l2sriov interface device"],
           "anchor": "schema-layer2_interface--l2sriov_interface--device",
           "description": "Physical ethernet interface.",
           "document_id": "xcsh-docs:data-sources:network_interface:properties:layer2_interface:l2sriov_interface",
@@ -4328,7 +4328,7 @@
           "type": "string"
         },
         {
-          "aliases": ["untagged"],
+          "aliases": ["layer2 interface l2sriov interface untagged"],
           "anchor": "section",
           "description": "This can be used for messages where no values are needed.",
           "document_id": "xcsh-docs:data-sources:network_interface:properties:layer2_interface:l2sriov_interface:untagged",
@@ -4342,7 +4342,7 @@
           "type": "object"
         },
         {
-          "aliases": ["vlan id"],
+          "aliases": ["layer2 interface l2sriov interface vlan id"],
           "anchor": "schema-layer2_interface--l2sriov_interface--vlan_id",
           "description": "Exclusive with Configure a VLAN tagged interface.",
           "document_id": "xcsh-docs:data-sources:network_interface:properties:layer2_interface:l2sriov_interface",
@@ -4375,7 +4375,7 @@
       "category": "networking",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -4415,7 +4415,7 @@
       "category": "networking",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -4437,7 +4437,7 @@
       "schema_path": ["layer2_interface", "l2vlan_interface"],
       "sections": [
         {
-          "aliases": ["device"],
+          "aliases": ["layer2 interface l2vlan interface device"],
           "anchor": "schema-layer2_interface--l2vlan_interface--device",
           "description": "Physical ethernet interface.",
           "document_id": "xcsh-docs:data-sources:network_interface:properties:layer2_interface:l2vlan_interface",
@@ -4451,7 +4451,7 @@
           "type": "string"
         },
         {
-          "aliases": ["vlan id"],
+          "aliases": ["layer2 interface l2vlan interface vlan id"],
           "anchor": "schema-layer2_interface--l2vlan_interface--vlan_id",
           "description": "VLAN ID",
           "document_id": "xcsh-docs:data-sources:network_interface:properties:layer2_interface:l2vlan_interface",
@@ -4484,7 +4484,7 @@
       "category": "networking",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -4506,7 +4506,7 @@
       "schema_path": ["layer2_interface", "l2vlan_slo_interface"],
       "sections": [
         {
-          "aliases": ["vlan id"],
+          "aliases": ["layer2 interface l2vlan slo interface vlan id"],
           "anchor": "schema-layer2_interface--l2vlan_slo_interface--vlan_id",
           "description": "VLAN ID",
           "document_id": "xcsh-docs:data-sources:network_interface:properties:layer2_interface:l2vlan_slo_interface",
@@ -4544,7 +4544,7 @@
         "xcsh-docs:data-sources:network_interface:properties:tunnel_interface:tunnel"
       ],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -4566,7 +4566,7 @@
       "schema_path": ["tunnel_interface"],
       "sections": [
         {
-          "aliases": ["mtu"],
+          "aliases": ["tunnel interface mtu"],
           "anchor": "schema-tunnel_interface--mtu",
           "description": "Maximum packet size (Maximum Transfer Unit) of the interface When configured, MTU must be between 512 and 9000.",
           "document_id": "xcsh-docs:data-sources:network_interface:properties:tunnel_interface",
@@ -4580,7 +4580,7 @@
           "type": "number"
         },
         {
-          "aliases": ["node"],
+          "aliases": ["tunnel interface node"],
           "anchor": "schema-tunnel_interface--node",
           "description": "Exclusive with Configuration will apply to a given device on the given node.",
           "document_id": "xcsh-docs:data-sources:network_interface:properties:tunnel_interface",
@@ -4594,7 +4594,7 @@
           "type": "string"
         },
         {
-          "aliases": ["priority"],
+          "aliases": ["tunnel interface priority"],
           "anchor": "schema-tunnel_interface--priority",
           "description": "Priority of the network interface when multiple network interfaces are present in outside network Greater the value, higher the priority.",
           "document_id": "xcsh-docs:data-sources:network_interface:properties:tunnel_interface",
@@ -4608,7 +4608,7 @@
           "type": "number"
         },
         {
-          "aliases": ["site local inside network"],
+          "aliases": ["tunnel interface site local inside network"],
           "anchor": "section",
           "description": "This can be used for messages where no values are needed.",
           "document_id": "xcsh-docs:data-sources:network_interface:properties:tunnel_interface:site_local_inside_network",
@@ -4622,7 +4622,7 @@
           "type": "object"
         },
         {
-          "aliases": ["site local network"],
+          "aliases": ["tunnel interface site local network"],
           "anchor": "section",
           "description": "This can be used for messages where no values are needed.",
           "document_id": "xcsh-docs:data-sources:network_interface:properties:tunnel_interface:site_local_network",
@@ -4636,7 +4636,7 @@
           "type": "object"
         },
         {
-          "aliases": ["static ip"],
+          "aliases": ["tunnel interface static ip"],
           "anchor": "section",
           "description": "Configure Static IP parameters.",
           "document_id": "xcsh-docs:data-sources:network_interface:properties:tunnel_interface:static_ip",
@@ -4650,7 +4650,7 @@
           "type": "object"
         },
         {
-          "aliases": ["tunnel"],
+          "aliases": ["tunnel interface tunnel"],
           "anchor": "section",
           "description": "This type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name.",
           "document_id": "xcsh-docs:data-sources:network_interface:properties:tunnel_interface:tunnel",
@@ -4683,7 +4683,7 @@
       "category": "networking",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -4723,7 +4723,7 @@
       "category": "networking",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -4766,7 +4766,7 @@
         "xcsh-docs:data-sources:network_interface:properties:tunnel_interface:static_ip:node_static_ip"
       ],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -4788,7 +4788,7 @@
       "schema_path": ["tunnel_interface", "static_ip"],
       "sections": [
         {
-          "aliases": ["cluster static ip"],
+          "aliases": ["tunnel interface static ip cluster static ip"],
           "anchor": "section",
           "description": "Configure Static IP parameters for cluster.",
           "document_id": "xcsh-docs:data-sources:network_interface:properties:tunnel_interface:static_ip:cluster_static_ip",
@@ -4802,7 +4802,7 @@
           "type": "object"
         },
         {
-          "aliases": ["node static ip"],
+          "aliases": ["tunnel interface static ip node static ip"],
           "anchor": "section",
           "description": "Configure Static IP parameters for a node.",
           "document_id": "xcsh-docs:data-sources:network_interface:properties:tunnel_interface:static_ip:node_static_ip",
@@ -4835,7 +4835,7 @@
       "category": "networking",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -4857,7 +4857,7 @@
       "schema_path": ["tunnel_interface", "static_ip", "cluster_static_ip"],
       "sections": [
         {
-          "aliases": ["interface ip map"],
+          "aliases": ["tunnel interface static ip cluster static ip interface ip map"],
           "anchor": "schema-tunnel_interface--static_ip--cluster_static_ip--interface_ip_map",
           "description": "Map of Node to Static IP configuration value, Key:Node, Value:IP Address.",
           "document_id": "xcsh-docs:data-sources:network_interface:properties:tunnel_interface:static_ip:cluster_static_ip",
@@ -4890,7 +4890,7 @@
       "category": "networking",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -4912,7 +4912,7 @@
       "schema_path": ["tunnel_interface", "static_ip", "node_static_ip"],
       "sections": [
         {
-          "aliases": ["default gw"],
+          "aliases": ["tunnel interface static ip node static ip default gw"],
           "anchor": "schema-tunnel_interface--static_ip--node_static_ip--default_gw",
           "description": "IP address of the default gateway.",
           "document_id": "xcsh-docs:data-sources:network_interface:properties:tunnel_interface:static_ip:node_static_ip",
@@ -4926,7 +4926,7 @@
           "type": "string"
         },
         {
-          "aliases": ["dns server"],
+          "aliases": ["tunnel interface static ip node static ip dns server"],
           "anchor": "schema-tunnel_interface--static_ip--node_static_ip--dns_server",
           "description": "DNS server address for the static interface configuration.",
           "document_id": "xcsh-docs:data-sources:network_interface:properties:tunnel_interface:static_ip:node_static_ip",
@@ -4940,7 +4940,7 @@
           "type": "string"
         },
         {
-          "aliases": ["ip address"],
+          "aliases": ["tunnel interface static ip node static ip ip address"],
           "anchor": "schema-tunnel_interface--static_ip--node_static_ip--ip_address",
           "description": "IP address of the interface and prefix length.",
           "document_id": "xcsh-docs:data-sources:network_interface:properties:tunnel_interface:static_ip:node_static_ip",
@@ -4973,7 +4973,7 @@
       "category": "networking",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -4995,7 +4995,7 @@
       "schema_path": ["tunnel_interface", "tunnel"],
       "sections": [
         {
-          "aliases": ["name"],
+          "aliases": ["tunnel interface tunnel name"],
           "anchor": "schema-tunnel_interface--tunnel--name",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.",
           "document_id": "xcsh-docs:data-sources:network_interface:properties:tunnel_interface:tunnel",
@@ -5009,7 +5009,7 @@
           "type": "string"
         },
         {
-          "aliases": ["namespace"],
+          "aliases": ["tunnel interface tunnel namespace"],
           "anchor": "schema-tunnel_interface--tunnel--namespace",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace.",
           "document_id": "xcsh-docs:data-sources:network_interface:properties:tunnel_interface:tunnel",
@@ -5023,7 +5023,7 @@
           "type": "string"
         },
         {
-          "aliases": ["tenant"],
+          "aliases": ["tunnel interface tunnel tenant"],
           "anchor": "schema-tunnel_interface--tunnel--tenant",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant.",
           "document_id": "xcsh-docs:data-sources:network_interface:properties:tunnel_interface:tunnel",
@@ -5056,7 +5056,7 @@
       "category": "networking",
       "child_ids": ["xcsh-docs:data-sources:network_interface:example:data-source"],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -5096,7 +5096,7 @@
       "category": "networking",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"

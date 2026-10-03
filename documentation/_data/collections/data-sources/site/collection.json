@@ -473,7 +473,7 @@
       "category": "infrastructure",
       "child_ids": ["xcsh-docs:data-sources:site:reference", "xcsh-docs:data-sources:site:examples"],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -533,7 +533,7 @@
         "xcsh-docs:data-sources:site:properties:vip_params_per_az"
       ],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -1059,7 +1059,7 @@
           "type": "string"
         },
         {
-          "aliases": ["duration", "operation timeout", "tunnel dead timeout"],
+          "aliases": ["duration", "tunnel dead timeout"],
           "anchor": "schema-tunnel_dead_timeout",
           "description": "Time interval, in millisec, within which any IPsec / SSL connection from the site going down is detected. When not set (== 0), a default value of 10000 msec will be used.",
           "document_id": "xcsh-docs:data-sources:site:reference",
@@ -1176,7 +1176,7 @@
       "category": "infrastructure",
       "child_ids": ["xcsh-docs:data-sources:site:properties:admin_user_credentials:admin_password"],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -1198,7 +1198,7 @@
       "schema_path": ["admin_user_credentials"],
       "sections": [
         {
-          "aliases": ["admin password"],
+          "aliases": ["admin user credentials admin password"],
           "anchor": "section",
           "description": "SecretType is used in an object to indicate a sensitive/confidential field.",
           "document_id": "xcsh-docs:data-sources:site:properties:admin_user_credentials:admin_password",
@@ -1212,7 +1212,7 @@
           "type": "object"
         },
         {
-          "aliases": ["ssh key"],
+          "aliases": ["admin user credentials ssh key"],
           "anchor": "schema-admin_user_credentials--ssh_key",
           "description": "Provided Public SSH key can be used for accessing nodes of the site. When provided, customers can SSH to the nodes of this Customer Edge site using admin as the user.",
           "document_id": "xcsh-docs:data-sources:site:properties:admin_user_credentials",
@@ -1248,7 +1248,7 @@
         "xcsh-docs:data-sources:site:properties:admin_user_credentials:admin_password:clear_secret_info"
       ],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -1270,7 +1270,7 @@
       "schema_path": ["admin_user_credentials", "admin_password"],
       "sections": [
         {
-          "aliases": ["blindfold secret info"],
+          "aliases": ["admin user credentials admin password blindfold secret info"],
           "anchor": "section",
           "description": "BlindfoldSecretInfoType specifies information about the Secret managed by F5XC Secret Management.",
           "document_id": "xcsh-docs:data-sources:site:properties:admin_user_credentials:admin_password:blindfold_secret_info",
@@ -1284,7 +1284,7 @@
           "type": "object"
         },
         {
-          "aliases": ["clear secret info"],
+          "aliases": ["admin user credentials admin password clear secret info"],
           "anchor": "section",
           "description": "ClearSecretInfoType specifies information about the Secret that is not encrypted.",
           "document_id": "xcsh-docs:data-sources:site:properties:admin_user_credentials:admin_password:clear_secret_info",
@@ -1317,7 +1317,7 @@
       "category": "infrastructure",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -1339,7 +1339,7 @@
       "schema_path": ["admin_user_credentials", "admin_password", "blindfold_secret_info"],
       "sections": [
         {
-          "aliases": ["decryption provider"],
+          "aliases": ["admin user credentials admin password blindfold secret info decryption provider"],
           "anchor": "schema-admin_user_credentials--admin_password--blindfold_secret_info--decryption_provider",
           "description": "Name of the Secret Management Access object that contains information about the backend Secret Management service.",
           "document_id": "xcsh-docs:data-sources:site:properties:admin_user_credentials:admin_password:blindfold_secret_info",
@@ -1353,7 +1353,7 @@
           "type": "string"
         },
         {
-          "aliases": ["location"],
+          "aliases": ["admin user credentials admin password blindfold secret info location"],
           "anchor": "schema-admin_user_credentials--admin_password--blindfold_secret_info--location",
           "description": "Location is the uri_ref. It could be in URL format for string:/// Or it could be a path if the store provider is an HTTP/HTTPS location.",
           "document_id": "xcsh-docs:data-sources:site:properties:admin_user_credentials:admin_password:blindfold_secret_info",
@@ -1367,7 +1367,7 @@
           "type": "string"
         },
         {
-          "aliases": ["store provider"],
+          "aliases": ["admin user credentials admin password blindfold secret info store provider"],
           "anchor": "schema-admin_user_credentials--admin_password--blindfold_secret_info--store_provider",
           "description": "Name of the Secret Management Access object that contains information about the store to GET encrypted bytes This field needs to be provided only if the URL scheme is not string:///.",
           "document_id": "xcsh-docs:data-sources:site:properties:admin_user_credentials:admin_password:blindfold_secret_info",
@@ -1400,7 +1400,7 @@
       "category": "infrastructure",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -1422,7 +1422,7 @@
       "schema_path": ["admin_user_credentials", "admin_password", "clear_secret_info"],
       "sections": [
         {
-          "aliases": ["provider ref"],
+          "aliases": ["admin user credentials admin password clear secret info provider ref"],
           "anchor": "schema-admin_user_credentials--admin_password--clear_secret_info--provider_ref",
           "description": "Name of the Secret Management Access object that contains information about the store to GET encrypted bytes This field needs to be provided only if the URL scheme is not string:///.",
           "document_id": "xcsh-docs:data-sources:site:properties:admin_user_credentials:admin_password:clear_secret_info",
@@ -1436,7 +1436,7 @@
           "type": "string"
         },
         {
-          "aliases": ["url"],
+          "aliases": ["admin user credentials admin password clear secret info url"],
           "anchor": "schema-admin_user_credentials--admin_password--clear_secret_info--url",
           "description": "URL of the secret. Currently supported URL schemes is string:///. For string:/// scheme, Secret needs to be encoded Base64 format. When asked for this secret, caller will GET Secret bytes after Base64 decoding.",
           "document_id": "xcsh-docs:data-sources:site:properties:admin_user_credentials:admin_password:clear_secret_info",
@@ -1469,7 +1469,7 @@
       "category": "infrastructure",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -1491,7 +1491,7 @@
       "schema_path": ["connected_re"],
       "sections": [
         {
-          "aliases": ["kind"],
+          "aliases": ["connected re kind"],
           "anchor": "schema-connected_re--kind",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then kind will hold the referred object's kind (e.g. 'route').",
           "document_id": "xcsh-docs:data-sources:site:properties:connected_re",
@@ -1505,7 +1505,7 @@
           "type": "string"
         },
         {
-          "aliases": ["name"],
+          "aliases": ["connected re name"],
           "anchor": "schema-connected_re--name",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.",
           "document_id": "xcsh-docs:data-sources:site:properties:connected_re",
@@ -1519,7 +1519,7 @@
           "type": "string"
         },
         {
-          "aliases": ["namespace"],
+          "aliases": ["connected re namespace"],
           "anchor": "schema-connected_re--namespace",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace.",
           "document_id": "xcsh-docs:data-sources:site:properties:connected_re",
@@ -1533,7 +1533,7 @@
           "type": "string"
         },
         {
-          "aliases": ["tenant"],
+          "aliases": ["connected re tenant"],
           "anchor": "schema-connected_re--tenant",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant.",
           "document_id": "xcsh-docs:data-sources:site:properties:connected_re",
@@ -1547,7 +1547,7 @@
           "type": "string"
         },
         {
-          "aliases": ["uid"],
+          "aliases": ["connected re uid"],
           "anchor": "schema-connected_re--uid",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then uid will hold the referred object's(e.g. Route's) uid.",
           "document_id": "xcsh-docs:data-sources:site:properties:connected_re",
@@ -1580,7 +1580,7 @@
       "category": "infrastructure",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -1602,7 +1602,7 @@
       "schema_path": ["connected_re_for_config"],
       "sections": [
         {
-          "aliases": ["kind"],
+          "aliases": ["connected re for config kind"],
           "anchor": "schema-connected_re_for_config--kind",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then kind will hold the referred object's kind (e.g. 'route').",
           "document_id": "xcsh-docs:data-sources:site:properties:connected_re_for_config",
@@ -1616,7 +1616,7 @@
           "type": "string"
         },
         {
-          "aliases": ["name"],
+          "aliases": ["connected re for config name"],
           "anchor": "schema-connected_re_for_config--name",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.",
           "document_id": "xcsh-docs:data-sources:site:properties:connected_re_for_config",
@@ -1630,7 +1630,7 @@
           "type": "string"
         },
         {
-          "aliases": ["namespace"],
+          "aliases": ["connected re for config namespace"],
           "anchor": "schema-connected_re_for_config--namespace",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace.",
           "document_id": "xcsh-docs:data-sources:site:properties:connected_re_for_config",
@@ -1644,7 +1644,7 @@
           "type": "string"
         },
         {
-          "aliases": ["tenant"],
+          "aliases": ["connected re for config tenant"],
           "anchor": "schema-connected_re_for_config--tenant",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant.",
           "document_id": "xcsh-docs:data-sources:site:properties:connected_re_for_config",
@@ -1658,7 +1658,7 @@
           "type": "string"
         },
         {
-          "aliases": ["uid"],
+          "aliases": ["connected re for config uid"],
           "anchor": "schema-connected_re_for_config--uid",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then uid will hold the referred object's(e.g. Route's) uid.",
           "document_id": "xcsh-docs:data-sources:site:properties:connected_re_for_config",
@@ -1691,7 +1691,7 @@
       "category": "infrastructure",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -1713,7 +1713,7 @@
       "schema_path": ["coordinates"],
       "sections": [
         {
-          "aliases": ["latitude"],
+          "aliases": ["coordinates latitude"],
           "anchor": "schema-coordinates--latitude",
           "description": "Latitude. Latitude of the site location.",
           "document_id": "xcsh-docs:data-sources:site:properties:coordinates",
@@ -1727,7 +1727,7 @@
           "type": "number"
         },
         {
-          "aliases": ["longitude"],
+          "aliases": ["coordinates longitude"],
           "anchor": "schema-coordinates--longitude",
           "description": "Longitude. Longitude of site location.",
           "document_id": "xcsh-docs:data-sources:site:properties:coordinates",
@@ -1763,7 +1763,7 @@
         "xcsh-docs:data-sources:site:properties:default_underlay_network:site_local_outside"
       ],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -1785,7 +1785,7 @@
       "schema_path": ["default_underlay_network"],
       "sections": [
         {
-          "aliases": ["site local inside"],
+          "aliases": ["default underlay network site local inside"],
           "anchor": "section",
           "description": "Enable this option",
           "document_id": "xcsh-docs:data-sources:site:properties:default_underlay_network:site_local_inside",
@@ -1799,7 +1799,7 @@
           "type": "object"
         },
         {
-          "aliases": ["site local outside"],
+          "aliases": ["default underlay network site local outside"],
           "anchor": "section",
           "description": "Enable this option",
           "document_id": "xcsh-docs:data-sources:site:properties:default_underlay_network:site_local_outside",
@@ -1832,7 +1832,7 @@
       "category": "infrastructure",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -1872,7 +1872,7 @@
       "category": "infrastructure",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -1915,7 +1915,7 @@
         "xcsh-docs:data-sources:site:properties:kubernetes_upgrade_drain:enable_upgrade_drain"
       ],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -1937,7 +1937,7 @@
       "schema_path": ["kubernetes_upgrade_drain"],
       "sections": [
         {
-          "aliases": ["disable upgrade drain"],
+          "aliases": ["kubernetes upgrade drain disable upgrade drain"],
           "anchor": "section",
           "description": "Configuration parameter for disable upgrade drain.",
           "document_id": "xcsh-docs:data-sources:site:properties:kubernetes_upgrade_drain:disable_upgrade_drain",
@@ -1951,7 +1951,7 @@
           "type": "object"
         },
         {
-          "aliases": ["enable upgrade drain"],
+          "aliases": ["kubernetes upgrade drain enable upgrade drain"],
           "anchor": "section",
           "description": "Specify batch upgrade settings for worker nodes within a site.",
           "document_id": "xcsh-docs:data-sources:site:properties:kubernetes_upgrade_drain:enable_upgrade_drain",
@@ -1984,7 +1984,7 @@
       "category": "infrastructure",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -2027,7 +2027,7 @@
         "xcsh-docs:data-sources:site:properties:kubernetes_upgrade_drain:enable_upgrade_drain:enable_vega_upgrade_mode"
       ],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -2049,7 +2049,7 @@
       "schema_path": ["kubernetes_upgrade_drain", "enable_upgrade_drain"],
       "sections": [
         {
-          "aliases": ["disable vega upgrade mode"],
+          "aliases": ["kubernetes upgrade drain enable upgrade drain disable vega upgrade mode"],
           "anchor": "section",
           "description": "Configuration parameter for disable vega upgrade mode.",
           "document_id": "xcsh-docs:data-sources:site:properties:kubernetes_upgrade_drain:enable_upgrade_drain:disable_vega_upgrade_mode",
@@ -2063,7 +2063,7 @@
           "type": "object"
         },
         {
-          "aliases": ["drain max unavailable node count"],
+          "aliases": ["kubernetes upgrade drain enable upgrade drain drain max unavailable node count"],
           "anchor": "schema-kubernetes_upgrade_drain--enable_upgrade_drain--drain_max_unavailable_node_count",
           "description": "Node Batch Size Count. Exclusive with",
           "document_id": "xcsh-docs:data-sources:site:properties:kubernetes_upgrade_drain:enable_upgrade_drain",
@@ -2077,7 +2077,7 @@
           "type": "number"
         },
         {
-          "aliases": ["drain max unavailable node percentage"],
+          "aliases": ["kubernetes upgrade drain enable upgrade drain drain max unavailable node percentage"],
           "anchor": "schema-kubernetes_upgrade_drain--enable_upgrade_drain--drain_max_unavailable_node_percentage",
           "description": "Maximum percentage of nodes unavailable during upgrade draining.",
           "document_id": "xcsh-docs:data-sources:site:properties:kubernetes_upgrade_drain:enable_upgrade_drain",
@@ -2091,7 +2091,7 @@
           "type": "number"
         },
         {
-          "aliases": ["drain node timeout", "duration", "operation timeout"],
+          "aliases": ["duration", "kubernetes upgrade drain enable upgrade drain drain node timeout"],
           "anchor": "schema-kubernetes_upgrade_drain--enable_upgrade_drain--drain_node_timeout",
           "description": "Seconds to wait before initiating upgrade on the next set of nodes. Setting it to 0 will wait indefinitely for all services on nodes to be upgraded gracefully before proceeding to the next set of nodes. (Warning: It may block upgrade if services on a node cannot be gracefully upgraded. It is..",
           "document_id": "xcsh-docs:data-sources:site:properties:kubernetes_upgrade_drain:enable_upgrade_drain",
@@ -2105,7 +2105,7 @@
           "type": "number"
         },
         {
-          "aliases": ["enable vega upgrade mode"],
+          "aliases": ["kubernetes upgrade drain enable upgrade drain enable vega upgrade mode"],
           "anchor": "section",
           "description": "Configuration parameter for enable vega upgrade mode.",
           "document_id": "xcsh-docs:data-sources:site:properties:kubernetes_upgrade_drain:enable_upgrade_drain:enable_vega_upgrade_mode",
@@ -2138,7 +2138,7 @@
       "category": "infrastructure",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -2178,7 +2178,7 @@
       "category": "infrastructure",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -2218,7 +2218,7 @@
       "category": "infrastructure",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -2240,7 +2240,7 @@
       "schema_path": ["main_nodes"],
       "sections": [
         {
-          "aliases": ["name"],
+          "aliases": ["main nodes name"],
           "anchor": "schema-main_nodes--name",
           "description": "Name of the master/main node on the site.",
           "document_id": "xcsh-docs:data-sources:site:properties:main_nodes",
@@ -2254,7 +2254,7 @@
           "type": "string"
         },
         {
-          "aliases": ["sli address"],
+          "aliases": ["main nodes sli address"],
           "anchor": "schema-main_nodes--sli_address",
           "description": "Site Local Inside IP addresses. Site Local Inside IP address.",
           "document_id": "xcsh-docs:data-sources:site:properties:main_nodes",
@@ -2268,7 +2268,7 @@
           "type": "string"
         },
         {
-          "aliases": ["slo address"],
+          "aliases": ["main nodes slo address"],
           "anchor": "schema-main_nodes--slo_address",
           "description": "Site Local Outside IP addresses. Site Local Outside IP address.",
           "document_id": "xcsh-docs:data-sources:site:properties:main_nodes",
@@ -2301,7 +2301,7 @@
       "category": "infrastructure",
       "child_ids": ["xcsh-docs:data-sources:site:properties:private_connectivity:cloud_link"],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -2323,7 +2323,7 @@
       "schema_path": ["private_connectivity"],
       "sections": [
         {
-          "aliases": ["cloud link"],
+          "aliases": ["private connectivity cloud link"],
           "anchor": "section",
           "description": "Information related to cloud link used by the site.",
           "document_id": "xcsh-docs:data-sources:site:properties:private_connectivity:cloud_link",
@@ -2337,7 +2337,7 @@
           "type": "object"
         },
         {
-          "aliases": ["private network name"],
+          "aliases": ["private connectivity private network name"],
           "anchor": "schema-private_connectivity--private_network_name",
           "description": "ADN Network Name for private access connectivity to F5XC ADN.",
           "document_id": "xcsh-docs:data-sources:site:properties:private_connectivity",
@@ -2370,7 +2370,7 @@
       "category": "infrastructure",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -2392,7 +2392,7 @@
       "schema_path": ["private_connectivity", "cloud_link"],
       "sections": [
         {
-          "aliases": ["name"],
+          "aliases": ["private connectivity cloud link name"],
           "anchor": "schema-private_connectivity--cloud_link--name",
           "description": "Name of the the CloudLink used with this site.",
           "document_id": "xcsh-docs:data-sources:site:properties:private_connectivity:cloud_link",
@@ -2406,7 +2406,7 @@
           "type": "string"
         },
         {
-          "aliases": ["state"],
+          "aliases": ["private connectivity cloud link state"],
           "anchor": "schema-private_connectivity--cloud_link--state",
           "description": "State of the CloudLink connections - UP: Up CloudLink and their corresponding Direct Connect connections are up and healthy - DOWN: Down CloudLink and their corresponding Direct Connect connections are down - DEGRADED: Degraded Some of Direct Connect connections with the CloudLink are down .. Possible values are `UP`,",
           "document_id": "xcsh-docs:data-sources:site:properties:private_connectivity:cloud_link",
@@ -2442,7 +2442,7 @@
         "xcsh-docs:data-sources:site:properties:re_select:specific_re"
       ],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -2464,7 +2464,7 @@
       "schema_path": ["re_select"],
       "sections": [
         {
-          "aliases": ["geo proximity"],
+          "aliases": ["re select geo proximity"],
           "anchor": "section",
           "description": "Configuration parameter for geo proximity.",
           "document_id": "xcsh-docs:data-sources:site:properties:re_select:geo_proximity",
@@ -2478,7 +2478,7 @@
           "type": "object"
         },
         {
-          "aliases": ["specific geography"],
+          "aliases": ["re select specific geography"],
           "anchor": "schema-re_select--specific_geography",
           "description": "Geographic selection for the site's Regional Edge connections.",
           "document_id": "xcsh-docs:data-sources:site:properties:re_select",
@@ -2492,7 +2492,7 @@
           "type": "string"
         },
         {
-          "aliases": ["specific re"],
+          "aliases": ["re select specific re"],
           "anchor": "section",
           "description": "Select specific REs. This is useful when a site needs to deterministically connect to a set of REs. A site will always be connected to 2 REs.",
           "document_id": "xcsh-docs:data-sources:site:properties:re_select:specific_re",
@@ -2525,7 +2525,7 @@
       "category": "infrastructure",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -2565,7 +2565,7 @@
       "category": "infrastructure",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -2587,7 +2587,7 @@
       "schema_path": ["re_select", "specific_re"],
       "sections": [
         {
-          "aliases": ["backup re"],
+          "aliases": ["re select specific re backup re"],
           "anchor": "schema-re_select--specific_re--backup_re",
           "description": "Select backup RE for this site, cannot be the same as Primary RE.",
           "document_id": "xcsh-docs:data-sources:site:properties:re_select:specific_re",
@@ -2601,7 +2601,7 @@
           "type": "string"
         },
         {
-          "aliases": ["primary re"],
+          "aliases": ["re select specific re primary re"],
           "anchor": "schema-re_select--specific_re--primary_re",
           "description": "Primary RE Geography. Select primary RE for this site.",
           "document_id": "xcsh-docs:data-sources:site:properties:re_select:specific_re",
@@ -2634,7 +2634,7 @@
       "category": "infrastructure",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -2656,7 +2656,7 @@
       "schema_path": ["vip_params_per_az"],
       "sections": [
         {
-          "aliases": ["az name"],
+          "aliases": ["vip params per az az name"],
           "anchor": "schema-vip_params_per_az--az_name",
           "description": "AZ Name. Name of the Availability zone.",
           "document_id": "xcsh-docs:data-sources:site:properties:vip_params_per_az",
@@ -2670,7 +2670,7 @@
           "type": "string"
         },
         {
-          "aliases": ["inside vip"],
+          "aliases": ["vip params per az inside vip"],
           "anchor": "schema-vip_params_per_az--inside_vip",
           "description": "Inside VIP(s). List of Inside VIPs for an AZ.",
           "document_id": "xcsh-docs:data-sources:site:properties:vip_params_per_az",
@@ -2684,7 +2684,7 @@
           "type": "list"
         },
         {
-          "aliases": ["inside vip cname"],
+          "aliases": ["vip params per az inside vip cname"],
           "anchor": "schema-vip_params_per_az--inside_vip_cname",
           "description": "CNAME value for the inside VIP, These are usually public cloud generated CNAME.",
           "document_id": "xcsh-docs:data-sources:site:properties:vip_params_per_az",
@@ -2698,7 +2698,7 @@
           "type": "string"
         },
         {
-          "aliases": ["inside vip v6"],
+          "aliases": ["vip params per az inside vip v6"],
           "anchor": "schema-vip_params_per_az--inside_vip_v6",
           "description": "Optional list of Inside IPv6 VIPs for an AZ.",
           "document_id": "xcsh-docs:data-sources:site:properties:vip_params_per_az",
@@ -2712,7 +2712,7 @@
           "type": "list"
         },
         {
-          "aliases": ["outside vip"],
+          "aliases": ["vip params per az outside vip"],
           "anchor": "schema-vip_params_per_az--outside_vip",
           "description": "Outside VIP(s). List of Outside VIPs for an AZ.",
           "document_id": "xcsh-docs:data-sources:site:properties:vip_params_per_az",
@@ -2726,7 +2726,7 @@
           "type": "list"
         },
         {
-          "aliases": ["outside vip cname"],
+          "aliases": ["vip params per az outside vip cname"],
           "anchor": "schema-vip_params_per_az--outside_vip_cname",
           "description": "CNAME value for the outside VIP These are usually public cloud generated CNAME.",
           "document_id": "xcsh-docs:data-sources:site:properties:vip_params_per_az",
@@ -2740,7 +2740,7 @@
           "type": "string"
         },
         {
-          "aliases": ["outside vip v6"],
+          "aliases": ["vip params per az outside vip v6"],
           "anchor": "schema-vip_params_per_az--outside_vip_v6",
           "description": "Optional list of Outside IPv6 VIPs for an AZ.",
           "document_id": "xcsh-docs:data-sources:site:properties:vip_params_per_az",
@@ -2773,7 +2773,7 @@
       "category": "infrastructure",
       "child_ids": ["xcsh-docs:data-sources:site:example:data-source"],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -2813,7 +2813,7 @@
       "category": "infrastructure",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"

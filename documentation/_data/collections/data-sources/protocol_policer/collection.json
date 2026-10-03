@@ -120,7 +120,7 @@
         "xcsh-docs:data-sources:protocol_policer:examples"
       ],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -161,7 +161,7 @@
       "category": null,
       "child_ids": ["xcsh-docs:data-sources:protocol_policer:properties:protocol_policer"],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -303,7 +303,7 @@
         "xcsh-docs:data-sources:protocol_policer:properties:protocol_policer:protocol"
       ],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -325,7 +325,7 @@
       "schema_path": ["protocol_policer"],
       "sections": [
         {
-          "aliases": ["policer"],
+          "aliases": ["protocol policer policer"],
           "anchor": "section",
           "description": "Reference to policer object to apply traffic rate limits.",
           "document_id": "xcsh-docs:data-sources:protocol_policer:properties:protocol_policer:policer",
@@ -339,7 +339,7 @@
           "type": "object"
         },
         {
-          "aliases": ["protocol"],
+          "aliases": ["protocol policer protocol"],
           "anchor": "section",
           "description": "Protocol and protocol specific flags to be matched in packet.",
           "document_id": "xcsh-docs:data-sources:protocol_policer:properties:protocol_policer:protocol",
@@ -372,7 +372,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -394,7 +394,7 @@
       "schema_path": ["protocol_policer", "policer"],
       "sections": [
         {
-          "aliases": ["kind"],
+          "aliases": ["protocol policer policer kind"],
           "anchor": "schema-protocol_policer--policer--kind",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then kind will hold the referred object's kind (e.g. \"route\")",
           "document_id": "xcsh-docs:data-sources:protocol_policer:properties:protocol_policer:policer",
@@ -408,7 +408,7 @@
           "type": "string"
         },
         {
-          "aliases": ["name"],
+          "aliases": ["protocol policer policer name"],
           "anchor": "schema-protocol_policer--policer--name",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.",
           "document_id": "xcsh-docs:data-sources:protocol_policer:properties:protocol_policer:policer",
@@ -422,7 +422,7 @@
           "type": "string"
         },
         {
-          "aliases": ["namespace"],
+          "aliases": ["protocol policer policer namespace"],
           "anchor": "schema-protocol_policer--policer--namespace",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace.",
           "document_id": "xcsh-docs:data-sources:protocol_policer:properties:protocol_policer:policer",
@@ -436,7 +436,7 @@
           "type": "string"
         },
         {
-          "aliases": ["tenant"],
+          "aliases": ["protocol policer policer tenant"],
           "anchor": "schema-protocol_policer--policer--tenant",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant.",
           "document_id": "xcsh-docs:data-sources:protocol_policer:properties:protocol_policer:policer",
@@ -450,7 +450,7 @@
           "type": "string"
         },
         {
-          "aliases": ["uid"],
+          "aliases": ["protocol policer policer uid"],
           "anchor": "schema-protocol_policer--policer--uid",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then uid will hold the referred object's(e.g. Route's) uid.",
           "document_id": "xcsh-docs:data-sources:protocol_policer:properties:protocol_policer:policer",
@@ -488,7 +488,7 @@
         "xcsh-docs:data-sources:protocol_policer:properties:protocol_policer:protocol:udp"
       ],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -510,7 +510,7 @@
       "schema_path": ["protocol_policer", "protocol"],
       "sections": [
         {
-          "aliases": ["dns"],
+          "aliases": ["protocol policer protocol dns"],
           "anchor": "section",
           "description": "Match all DNS packets including UDP and TCP.",
           "document_id": "xcsh-docs:data-sources:protocol_policer:properties:protocol_policer:protocol:dns",
@@ -524,7 +524,7 @@
           "type": "object"
         },
         {
-          "aliases": ["icmp"],
+          "aliases": ["protocol policer protocol icmp"],
           "anchor": "section",
           "description": "ICMP message type to match in packet.",
           "document_id": "xcsh-docs:data-sources:protocol_policer:properties:protocol_policer:protocol:icmp",
@@ -538,7 +538,7 @@
           "type": "object"
         },
         {
-          "aliases": ["tcp"],
+          "aliases": ["protocol policer protocol tcp"],
           "anchor": "section",
           "description": "Specification of TCP flag to be matched in a TCP packet.",
           "document_id": "xcsh-docs:data-sources:protocol_policer:properties:protocol_policer:protocol:tcp",
@@ -552,7 +552,7 @@
           "type": "object"
         },
         {
-          "aliases": ["udp"],
+          "aliases": ["protocol policer protocol udp"],
           "anchor": "section",
           "description": "Match all UDP packets.",
           "document_id": "xcsh-docs:data-sources:protocol_policer:properties:protocol_policer:protocol:udp",
@@ -585,7 +585,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -625,7 +625,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -647,7 +647,7 @@
       "schema_path": ["protocol_policer", "protocol", "icmp"],
       "sections": [
         {
-          "aliases": ["type"],
+          "aliases": ["protocol policer protocol icmp type"],
           "anchor": "schema-protocol_policer--protocol--icmp--type",
           "description": "ICMP message type to be matched in packet.",
           "document_id": "xcsh-docs:data-sources:protocol_policer:properties:protocol_policer:protocol:icmp",
@@ -680,7 +680,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -702,7 +702,7 @@
       "schema_path": ["protocol_policer", "protocol", "tcp"],
       "sections": [
         {
-          "aliases": ["flags"],
+          "aliases": ["protocol policer protocol tcp flags"],
           "anchor": "schema-protocol_policer--protocol--tcp--flags",
           "description": "TCP flag to be matched in a TCP packet.",
           "document_id": "xcsh-docs:data-sources:protocol_policer:properties:protocol_policer:protocol:tcp",
@@ -735,7 +735,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -775,7 +775,7 @@
       "category": null,
       "child_ids": ["xcsh-docs:data-sources:protocol_policer:example:data-source"],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -815,7 +815,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"

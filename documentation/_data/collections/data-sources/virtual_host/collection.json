@@ -1585,7 +1585,7 @@
       "category": "load-balancing",
       "child_ids": ["xcsh-docs:data-sources:virtual_host:reference", "xcsh-docs:data-sources:virtual_host:examples"],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -1660,7 +1660,7 @@
         "xcsh-docs:data-sources:virtual_host:properties:waf_type"
       ],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -1808,7 +1808,7 @@
           "type": "object"
         },
         {
-          "aliases": ["connection idle timeout", "duration", "operation timeout"],
+          "aliases": ["connection idle timeout", "duration"],
           "anchor": "schema-connection_idle_timeout",
           "description": "The idle timeout for downstream connections. The idle timeout is defined as the period in which there are no active requests. When the idle timeout is reached the connection will be closed. Note that request based timeouts mean that HTTP/2 PINGs will not keep the connection alive. This is specified in milliseconds.",
           "document_id": "xcsh-docs:data-sources:virtual_host:reference",
@@ -1822,7 +1822,7 @@
           "type": "number"
         },
         {
-          "aliases": ["cors policy", "duration", "operation timeout"],
+          "aliases": ["cors policy", "duration"],
           "anchor": "section",
           "description": "Cross-Origin Resource Sharing requests configuration specified at Virtual-host or Route level. Route level configuration takes precedence. An example of an Cross origin HTTP request GET /resources/public-data/ HTTP/1.1 Host: bar.other User-Agent: Mozilla/5.0 (Macintosh; U; Intel MAC OS X 10.5; en-US; rv:1.9.1b3pre)",
           "document_id": "xcsh-docs:data-sources:virtual_host:properties:cors_policy",
@@ -2018,7 +2018,7 @@
           "type": "string"
         },
         {
-          "aliases": ["duration", "idle timeout", "operation timeout"],
+          "aliases": ["duration", "idle timeout"],
           "anchor": "schema-idle_timeout",
           "description": "Idle timeout is the amount of time that the loadbalancer will allow a stream to exist with no upstream or downstream activity. Idle timeout and Proxy Type: HTTP_PROXY, HTTPS_PROXY: Idle timer is started when the first byte is received on the connection. Each time an encode/decode event for headers or data is processed",
           "document_id": "xcsh-docs:data-sources:virtual_host:reference",
@@ -2471,7 +2471,7 @@
       "category": "load-balancing",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -2493,7 +2493,7 @@
       "schema_path": ["advertise_policies"],
       "sections": [
         {
-          "aliases": ["kind"],
+          "aliases": ["advertise policies kind"],
           "anchor": "schema-advertise_policies--kind",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then kind will hold the referred object's kind (e.g. \"route\")",
           "document_id": "xcsh-docs:data-sources:virtual_host:properties:advertise_policies",
@@ -2507,7 +2507,7 @@
           "type": "string"
         },
         {
-          "aliases": ["name"],
+          "aliases": ["advertise policies name"],
           "anchor": "schema-advertise_policies--name",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.",
           "document_id": "xcsh-docs:data-sources:virtual_host:properties:advertise_policies",
@@ -2521,7 +2521,7 @@
           "type": "string"
         },
         {
-          "aliases": ["namespace"],
+          "aliases": ["advertise policies namespace"],
           "anchor": "schema-advertise_policies--namespace",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace.",
           "document_id": "xcsh-docs:data-sources:virtual_host:properties:advertise_policies",
@@ -2535,7 +2535,7 @@
           "type": "string"
         },
         {
-          "aliases": ["tenant"],
+          "aliases": ["advertise policies tenant"],
           "anchor": "schema-advertise_policies--tenant",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant.",
           "document_id": "xcsh-docs:data-sources:virtual_host:properties:advertise_policies",
@@ -2549,7 +2549,7 @@
           "type": "string"
         },
         {
-          "aliases": ["uid"],
+          "aliases": ["advertise policies uid"],
           "anchor": "schema-advertise_policies--uid",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then uid will hold the referred object's(e.g. Route's) uid.",
           "document_id": "xcsh-docs:data-sources:virtual_host:properties:advertise_policies",
@@ -2587,7 +2587,7 @@
         "xcsh-docs:data-sources:virtual_host:properties:authentication:use_auth_object_config"
       ],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -2609,7 +2609,7 @@
       "schema_path": ["authentication"],
       "sections": [
         {
-          "aliases": ["auth config"],
+          "aliases": ["authentication auth config"],
           "anchor": "section",
           "description": "Reference to Authentication Config Object.",
           "document_id": "xcsh-docs:data-sources:virtual_host:properties:authentication:auth_config",
@@ -2623,7 +2623,7 @@
           "type": "object"
         },
         {
-          "aliases": ["cookie params"],
+          "aliases": ["authentication cookie params"],
           "anchor": "section",
           "description": "Specifies different cookie related config parameters for authentication.",
           "document_id": "xcsh-docs:data-sources:virtual_host:properties:authentication:cookie_params",
@@ -2637,7 +2637,7 @@
           "type": "object"
         },
         {
-          "aliases": ["redirect dynamic"],
+          "aliases": ["authentication redirect dynamic"],
           "anchor": "section",
           "description": "This can be used for messages where no values are needed.",
           "document_id": "xcsh-docs:data-sources:virtual_host:properties:authentication:redirect_dynamic",
@@ -2651,7 +2651,7 @@
           "type": "object"
         },
         {
-          "aliases": ["redirect url"],
+          "aliases": ["authentication redirect url"],
           "anchor": "schema-authentication--redirect_url",
           "description": "Exclusive with user can provide a URL for e.g https://abc.xyz.com where user gets redirected. This URL configured here must match with the redirect URL configured with the OIDC provider.",
           "document_id": "xcsh-docs:data-sources:virtual_host:properties:authentication",
@@ -2665,7 +2665,7 @@
           "type": "string"
         },
         {
-          "aliases": ["use auth object config"],
+          "aliases": ["authentication use auth object config"],
           "anchor": "section",
           "description": "This can be used for messages where no values are needed.",
           "document_id": "xcsh-docs:data-sources:virtual_host:properties:authentication:use_auth_object_config",
@@ -2698,7 +2698,7 @@
       "category": "load-balancing",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -2720,7 +2720,7 @@
       "schema_path": ["authentication", "auth_config"],
       "sections": [
         {
-          "aliases": ["kind"],
+          "aliases": ["authentication auth config kind"],
           "anchor": "schema-authentication--auth_config--kind",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then kind will hold the referred object's kind (e.g. \"route\")",
           "document_id": "xcsh-docs:data-sources:virtual_host:properties:authentication:auth_config",
@@ -2734,7 +2734,7 @@
           "type": "string"
         },
         {
-          "aliases": ["name"],
+          "aliases": ["authentication auth config name"],
           "anchor": "schema-authentication--auth_config--name",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.",
           "document_id": "xcsh-docs:data-sources:virtual_host:properties:authentication:auth_config",
@@ -2748,7 +2748,7 @@
           "type": "string"
         },
         {
-          "aliases": ["namespace"],
+          "aliases": ["authentication auth config namespace"],
           "anchor": "schema-authentication--auth_config--namespace",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace.",
           "document_id": "xcsh-docs:data-sources:virtual_host:properties:authentication:auth_config",
@@ -2762,7 +2762,7 @@
           "type": "string"
         },
         {
-          "aliases": ["tenant"],
+          "aliases": ["authentication auth config tenant"],
           "anchor": "schema-authentication--auth_config--tenant",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant.",
           "document_id": "xcsh-docs:data-sources:virtual_host:properties:authentication:auth_config",
@@ -2776,7 +2776,7 @@
           "type": "string"
         },
         {
-          "aliases": ["uid"],
+          "aliases": ["authentication auth config uid"],
           "anchor": "schema-authentication--auth_config--uid",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then uid will hold the referred object's(e.g. Route's) uid.",
           "document_id": "xcsh-docs:data-sources:virtual_host:properties:authentication:auth_config",
@@ -2812,7 +2812,7 @@
         "xcsh-docs:data-sources:virtual_host:properties:authentication:cookie_params:kms_key_hmac"
       ],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -2834,7 +2834,7 @@
       "schema_path": ["authentication", "cookie_params"],
       "sections": [
         {
-          "aliases": ["auth hmac"],
+          "aliases": ["authentication cookie params auth hmac"],
           "anchor": "section",
           "description": "HMAC primary and secondary keys to be used for hashing the Cookie. Each key also have an associated expiry timestamp, beyond which key is invalid.",
           "document_id": "xcsh-docs:data-sources:virtual_host:properties:authentication:cookie_params:auth_hmac",
@@ -2848,7 +2848,7 @@
           "type": "object"
         },
         {
-          "aliases": ["cookie expiry"],
+          "aliases": ["authentication cookie params cookie expiry"],
           "anchor": "schema-authentication--cookie_params--cookie_expiry",
           "description": "Specifies in seconds max duration of the allocated cookie. This maps to “Max-Age” attribute in the session cookie. This will act as an expiry duration on the client side after which client will not be setting the cookie as part of the request. Default cookie expiry is 3600 seconds.",
           "document_id": "xcsh-docs:data-sources:virtual_host:properties:authentication:cookie_params",
@@ -2862,7 +2862,7 @@
           "type": "number"
         },
         {
-          "aliases": ["cookie refresh interval", "login", "login result", "sign in"],
+          "aliases": ["authentication cookie params cookie refresh interval", "login", "login result", "sign in"],
           "anchor": "schema-authentication--cookie_params--cookie_refresh_interval",
           "description": "Specifies in seconds refresh interval for session cookie. This is used to keep the active user active and reduce RE-login. When an incoming cookie's session expiry is still valid, and time to expire falls behind this interval, RE-issue a cookie with new expiry and with the same original session expiry. Default refresh",
           "document_id": "xcsh-docs:data-sources:virtual_host:properties:authentication:cookie_params",
@@ -2876,7 +2876,7 @@
           "type": "number"
         },
         {
-          "aliases": ["kms key hmac"],
+          "aliases": ["authentication cookie params kms key hmac"],
           "anchor": "section",
           "description": "Reference to KMS Key Object.",
           "document_id": "xcsh-docs:data-sources:virtual_host:properties:authentication:cookie_params:kms_key_hmac",
@@ -2890,7 +2890,7 @@
           "type": "object"
         },
         {
-          "aliases": ["login", "login result", "session expiry", "sign in"],
+          "aliases": ["authentication cookie params session expiry", "login", "login result", "sign in"],
           "anchor": "schema-authentication--cookie_params--session_expiry",
           "description": "Specifies in seconds max lifetime of an authenticated session after which the user will be forced to login again. Default session expiry is 86400 seconds(24 hours).",
           "document_id": "xcsh-docs:data-sources:virtual_host:properties:authentication:cookie_params",
@@ -2926,7 +2926,7 @@
         "xcsh-docs:data-sources:virtual_host:properties:authentication:cookie_params:auth_hmac:sec_key"
       ],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -2948,7 +2948,7 @@
       "schema_path": ["authentication", "cookie_params", "auth_hmac"],
       "sections": [
         {
-          "aliases": ["prim key"],
+          "aliases": ["authentication cookie params auth hmac prim key"],
           "anchor": "section",
           "description": "SecretType is used in an object to indicate a sensitive/confidential field.",
           "document_id": "xcsh-docs:data-sources:virtual_host:properties:authentication:cookie_params:auth_hmac:prim_key",
@@ -2962,7 +2962,7 @@
           "type": "object"
         },
         {
-          "aliases": ["prim key expiry"],
+          "aliases": ["authentication cookie params auth hmac prim key expiry"],
           "anchor": "schema-authentication--cookie_params--auth_hmac--prim_key_expiry",
           "description": "Primary HMAC Key Expiry time.",
           "document_id": "xcsh-docs:data-sources:virtual_host:properties:authentication:cookie_params:auth_hmac",
@@ -2976,7 +2976,7 @@
           "type": "string"
         },
         {
-          "aliases": ["sec key"],
+          "aliases": ["authentication cookie params auth hmac sec key"],
           "anchor": "section",
           "description": "SecretType is used in an object to indicate a sensitive/confidential field.",
           "document_id": "xcsh-docs:data-sources:virtual_host:properties:authentication:cookie_params:auth_hmac:sec_key",
@@ -2990,7 +2990,7 @@
           "type": "object"
         },
         {
-          "aliases": ["sec key expiry"],
+          "aliases": ["authentication cookie params auth hmac sec key expiry"],
           "anchor": "schema-authentication--cookie_params--auth_hmac--sec_key_expiry",
           "description": "Secondary HMAC Key Expiry time.",
           "document_id": "xcsh-docs:data-sources:virtual_host:properties:authentication:cookie_params:auth_hmac",
@@ -3026,7 +3026,7 @@
         "xcsh-docs:data-sources:virtual_host:properties:authentication:cookie_params:auth_hmac:prim_key:clear_secret_info"
       ],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -3048,7 +3048,7 @@
       "schema_path": ["authentication", "cookie_params", "auth_hmac", "prim_key"],
       "sections": [
         {
-          "aliases": ["blindfold secret info"],
+          "aliases": ["authentication cookie params auth hmac prim key blindfold secret info"],
           "anchor": "section",
           "description": "BlindfoldSecretInfoType specifies information about the Secret managed by F5XC Secret Management.",
           "document_id": "xcsh-docs:data-sources:virtual_host:properties:authentication:cookie_params:auth_hmac:prim_key:blindfold_secret_info",
@@ -3062,7 +3062,7 @@
           "type": "object"
         },
         {
-          "aliases": ["clear secret info"],
+          "aliases": ["authentication cookie params auth hmac prim key clear secret info"],
           "anchor": "section",
           "description": "ClearSecretInfoType specifies information about the Secret that is not encrypted.",
           "document_id": "xcsh-docs:data-sources:virtual_host:properties:authentication:cookie_params:auth_hmac:prim_key:clear_secret_info",
@@ -3095,7 +3095,7 @@
       "category": "load-balancing",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -3117,7 +3117,7 @@
       "schema_path": ["authentication", "cookie_params", "auth_hmac", "prim_key", "blindfold_secret_info"],
       "sections": [
         {
-          "aliases": ["decryption provider"],
+          "aliases": ["authentication cookie params auth hmac prim key blindfold secret info decryption provider"],
           "anchor": "schema-authentication--cookie_params--auth_hmac--prim_key--blindfold_secret_info--decryption_provider",
           "description": "Name of the Secret Management Access object that contains information about the backend Secret Management service.",
           "document_id": "xcsh-docs:data-sources:virtual_host:properties:authentication:cookie_params:auth_hmac:prim_key:blindfold_secret_info",
@@ -3138,7 +3138,7 @@
           "type": "string"
         },
         {
-          "aliases": ["location"],
+          "aliases": ["authentication cookie params auth hmac prim key blindfold secret info location"],
           "anchor": "schema-authentication--cookie_params--auth_hmac--prim_key--blindfold_secret_info--location",
           "description": "Location is the uri_ref. It could be in URL format for string:/// Or it could be a path if the store provider is an HTTP/HTTPS location.",
           "document_id": "xcsh-docs:data-sources:virtual_host:properties:authentication:cookie_params:auth_hmac:prim_key:blindfold_secret_info",
@@ -3159,7 +3159,7 @@
           "type": "string"
         },
         {
-          "aliases": ["store provider"],
+          "aliases": ["authentication cookie params auth hmac prim key blindfold secret info store provider"],
           "anchor": "schema-authentication--cookie_params--auth_hmac--prim_key--blindfold_secret_info--store_provider",
           "description": "Name of the Secret Management Access object that contains information about the store to GET encrypted bytes This field needs to be provided only if the URL scheme is not string:///.",
           "document_id": "xcsh-docs:data-sources:virtual_host:properties:authentication:cookie_params:auth_hmac:prim_key:blindfold_secret_info",
@@ -3199,7 +3199,7 @@
       "category": "load-balancing",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -3221,7 +3221,7 @@
       "schema_path": ["authentication", "cookie_params", "auth_hmac", "prim_key", "clear_secret_info"],
       "sections": [
         {
-          "aliases": ["provider ref"],
+          "aliases": ["authentication cookie params auth hmac prim key clear secret info provider ref"],
           "anchor": "schema-authentication--cookie_params--auth_hmac--prim_key--clear_secret_info--provider_ref",
           "description": "Name of the Secret Management Access object that contains information about the store to GET encrypted bytes This field needs to be provided only if the URL scheme is not string:///.",
           "document_id": "xcsh-docs:data-sources:virtual_host:properties:authentication:cookie_params:auth_hmac:prim_key:clear_secret_info",
@@ -3242,7 +3242,7 @@
           "type": "string"
         },
         {
-          "aliases": ["url"],
+          "aliases": ["authentication cookie params auth hmac prim key clear secret info url"],
           "anchor": "schema-authentication--cookie_params--auth_hmac--prim_key--clear_secret_info--url",
           "description": "URL of the secret. Currently supported URL schemes is string:///. For string:/// scheme, Secret needs to be encoded Base64 format. When asked for this secret, caller will GET Secret bytes after Base64 decoding.",
           "document_id": "xcsh-docs:data-sources:virtual_host:properties:authentication:cookie_params:auth_hmac:prim_key:clear_secret_info",
@@ -3278,7 +3278,7 @@
         "xcsh-docs:data-sources:virtual_host:properties:authentication:cookie_params:auth_hmac:sec_key:clear_secret_info"
       ],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -3300,7 +3300,7 @@
       "schema_path": ["authentication", "cookie_params", "auth_hmac", "sec_key"],
       "sections": [
         {
-          "aliases": ["blindfold secret info"],
+          "aliases": ["authentication cookie params auth hmac sec key blindfold secret info"],
           "anchor": "section",
           "description": "BlindfoldSecretInfoType specifies information about the Secret managed by F5XC Secret Management.",
           "document_id": "xcsh-docs:data-sources:virtual_host:properties:authentication:cookie_params:auth_hmac:sec_key:blindfold_secret_info",
@@ -3314,7 +3314,7 @@
           "type": "object"
         },
         {
-          "aliases": ["clear secret info"],
+          "aliases": ["authentication cookie params auth hmac sec key clear secret info"],
           "anchor": "section",
           "description": "ClearSecretInfoType specifies information about the Secret that is not encrypted.",
           "document_id": "xcsh-docs:data-sources:virtual_host:properties:authentication:cookie_params:auth_hmac:sec_key:clear_secret_info",
@@ -3347,7 +3347,7 @@
       "category": "load-balancing",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -3369,7 +3369,7 @@
       "schema_path": ["authentication", "cookie_params", "auth_hmac", "sec_key", "blindfold_secret_info"],
       "sections": [
         {
-          "aliases": ["decryption provider"],
+          "aliases": ["authentication cookie params auth hmac sec key blindfold secret info decryption provider"],
           "anchor": "schema-authentication--cookie_params--auth_hmac--sec_key--blindfold_secret_info--decryption_provider",
           "description": "Name of the Secret Management Access object that contains information about the backend Secret Management service.",
           "document_id": "xcsh-docs:data-sources:virtual_host:properties:authentication:cookie_params:auth_hmac:sec_key:blindfold_secret_info",
@@ -3390,7 +3390,7 @@
           "type": "string"
         },
         {
-          "aliases": ["location"],
+          "aliases": ["authentication cookie params auth hmac sec key blindfold secret info location"],
           "anchor": "schema-authentication--cookie_params--auth_hmac--sec_key--blindfold_secret_info--location",
           "description": "Location is the uri_ref. It could be in URL format for string:/// Or it could be a path if the store provider is an HTTP/HTTPS location.",
           "document_id": "xcsh-docs:data-sources:virtual_host:properties:authentication:cookie_params:auth_hmac:sec_key:blindfold_secret_info",
@@ -3411,7 +3411,7 @@
           "type": "string"
         },
         {
-          "aliases": ["store provider"],
+          "aliases": ["authentication cookie params auth hmac sec key blindfold secret info store provider"],
           "anchor": "schema-authentication--cookie_params--auth_hmac--sec_key--blindfold_secret_info--store_provider",
           "description": "Name of the Secret Management Access object that contains information about the store to GET encrypted bytes This field needs to be provided only if the URL scheme is not string:///.",
           "document_id": "xcsh-docs:data-sources:virtual_host:properties:authentication:cookie_params:auth_hmac:sec_key:blindfold_secret_info",
@@ -3451,7 +3451,7 @@
       "category": "load-balancing",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -3473,7 +3473,7 @@
       "schema_path": ["authentication", "cookie_params", "auth_hmac", "sec_key", "clear_secret_info"],
       "sections": [
         {
-          "aliases": ["provider ref"],
+          "aliases": ["authentication cookie params auth hmac sec key clear secret info provider ref"],
           "anchor": "schema-authentication--cookie_params--auth_hmac--sec_key--clear_secret_info--provider_ref",
           "description": "Name of the Secret Management Access object that contains information about the store to GET encrypted bytes This field needs to be provided only if the URL scheme is not string:///.",
           "document_id": "xcsh-docs:data-sources:virtual_host:properties:authentication:cookie_params:auth_hmac:sec_key:clear_secret_info",
@@ -3494,7 +3494,7 @@
           "type": "string"
         },
         {
-          "aliases": ["url"],
+          "aliases": ["authentication cookie params auth hmac sec key clear secret info url"],
           "anchor": "schema-authentication--cookie_params--auth_hmac--sec_key--clear_secret_info--url",
           "description": "URL of the secret. Currently supported URL schemes is string:///. For string:/// scheme, Secret needs to be encoded Base64 format. When asked for this secret, caller will GET Secret bytes after Base64 decoding.",
           "document_id": "xcsh-docs:data-sources:virtual_host:properties:authentication:cookie_params:auth_hmac:sec_key:clear_secret_info",
@@ -3527,7 +3527,7 @@
       "category": "load-balancing",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -3567,7 +3567,7 @@
       "category": "load-balancing",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -3607,7 +3607,7 @@
       "category": "load-balancing",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -3647,7 +3647,7 @@
       "category": "load-balancing",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -3669,7 +3669,7 @@
       "schema_path": ["buffer_policy"],
       "sections": [
         {
-          "aliases": ["disabled"],
+          "aliases": ["buffer policy disabled"],
           "anchor": "schema-buffer_policy--disabled",
           "description": "Disable buffering for a particular route. This is useful when virtual-host has buffering, but we need to disable it on a specific route. The value of this field is ignored for virtual-host.",
           "document_id": "xcsh-docs:data-sources:virtual_host:properties:buffer_policy",
@@ -3683,7 +3683,7 @@
           "type": "bool"
         },
         {
-          "aliases": ["max request bytes"],
+          "aliases": ["buffer policy max request bytes"],
           "anchor": "schema-buffer_policy--max_request_bytes",
           "description": "The maximum request size that the filter will buffer before the connection manager will stop buffering and return a RequestEntityTooLarge (413) response.",
           "document_id": "xcsh-docs:data-sources:virtual_host:properties:buffer_policy",
@@ -3716,7 +3716,7 @@
       "category": "load-balancing",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -3738,7 +3738,7 @@
       "schema_path": ["captcha_challenge"],
       "sections": [
         {
-          "aliases": ["cookie expiry"],
+          "aliases": ["captcha challenge cookie expiry"],
           "anchor": "schema-captcha_challenge--cookie_expiry",
           "description": "Cookie expiration period, in seconds. An expired cookie causes the loadbalancer to issue a new challenge.",
           "document_id": "xcsh-docs:data-sources:virtual_host:properties:captcha_challenge",
@@ -3752,7 +3752,7 @@
           "type": "number"
         },
         {
-          "aliases": ["custom page"],
+          "aliases": ["captcha challenge custom page"],
           "anchor": "schema-captcha_challenge--custom_page",
           "description": "Custom message is of type uri_ref. Currently supported URL schemes is string:///. For string:/// scheme, message needs to be encoded in Base64 format. You can specify this message as base64 encoded plain text message e.g. \"Please Wait..\" or it can be HTML paragraph or a body string encoded as base64 string E.g. \"<p>",
           "document_id": "xcsh-docs:data-sources:virtual_host:properties:captcha_challenge",
@@ -3788,7 +3788,7 @@
         "xcsh-docs:data-sources:virtual_host:properties:coalescing_options:strict_coalescing"
       ],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -3810,7 +3810,7 @@
       "schema_path": ["coalescing_options"],
       "sections": [
         {
-          "aliases": ["default coalescing"],
+          "aliases": ["coalescing options default coalescing"],
           "anchor": "section",
           "description": "This can be used for messages where no values are needed.",
           "document_id": "xcsh-docs:data-sources:virtual_host:properties:coalescing_options:default_coalescing",
@@ -3824,7 +3824,7 @@
           "type": "object"
         },
         {
-          "aliases": ["strict coalescing"],
+          "aliases": ["coalescing options strict coalescing"],
           "anchor": "section",
           "description": "This can be used for messages where no values are needed.",
           "document_id": "xcsh-docs:data-sources:virtual_host:properties:coalescing_options:strict_coalescing",
@@ -3857,7 +3857,7 @@
       "category": "load-balancing",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -3897,7 +3897,7 @@
       "category": "load-balancing",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -3937,7 +3937,7 @@
       "category": "load-balancing",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -3959,7 +3959,7 @@
       "schema_path": ["compression_params"],
       "sections": [
         {
-          "aliases": ["content length"],
+          "aliases": ["compression params content length"],
           "anchor": "schema-compression_params--content_length",
           "description": "Minimum response length, in bytes, which will trigger compression. The default value is 30.",
           "document_id": "xcsh-docs:data-sources:virtual_host:properties:compression_params",
@@ -3973,7 +3973,7 @@
           "type": "number"
         },
         {
-          "aliases": ["content type"],
+          "aliases": ["compression params content type"],
           "anchor": "schema-compression_params--content_type",
           "description": "Set of strings that allows specifying which mime-types yield compression When this field is not defined, compression will be applied to the following mime-types: \"application/javascript\" \"application/JSON\", \"application/xhtml+XML\" \"image/svg+XML\" \"text/CSS\" \"text/HTML\" \"text/plain\" \"text/XML\"",
           "document_id": "xcsh-docs:data-sources:virtual_host:properties:compression_params",
@@ -3987,7 +3987,7 @@
           "type": "list"
         },
         {
-          "aliases": ["disable on etag header"],
+          "aliases": ["compression params disable on etag header"],
           "anchor": "schema-compression_params--disable_on_etag_header",
           "description": "If true, disables compression when the response contains an etag header. When it is false, weak etags will be preserved and the ones that require strong validation will be removed.",
           "document_id": "xcsh-docs:data-sources:virtual_host:properties:compression_params",
@@ -4001,7 +4001,7 @@
           "type": "bool"
         },
         {
-          "aliases": ["remove accept encoding header"],
+          "aliases": ["compression params remove accept encoding header"],
           "anchor": "schema-compression_params--remove_accept_encoding_header",
           "description": "If true, removes accept-encoding from the request headers before dispatching it to the upstream so that responses do not GET compressed before reaching the filter.",
           "document_id": "xcsh-docs:data-sources:virtual_host:properties:compression_params",
@@ -4027,14 +4027,14 @@
       }
     },
     {
-      "aliases": ["cors policy", "duration", "operation timeout"],
+      "aliases": ["cors policy", "duration"],
       "body_bytes": 10264,
       "body_sha256": "sha256:2a4a3fe2cfe2e591fe2011afd674740d9996c0365b2d964fa7d576a629c7efff",
       "capabilities": ["load-balancing"],
       "category": "load-balancing",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -4056,7 +4056,7 @@
       "schema_path": ["cors_policy"],
       "sections": [
         {
-          "aliases": ["allow credentials", "authentication", "credential setup", "credentials"],
+          "aliases": ["authentication", "cors policy allow credentials", "credential setup", "credentials"],
           "anchor": "schema-cors_policy--allow_credentials",
           "description": "Specifies whether the resource allows credentials.",
           "document_id": "xcsh-docs:data-sources:virtual_host:properties:cors_policy",
@@ -4070,7 +4070,7 @@
           "type": "bool"
         },
         {
-          "aliases": ["allow headers"],
+          "aliases": ["cors policy allow headers"],
           "anchor": "schema-cors_policy--allow_headers",
           "description": "Specifies the content for the access-control-allow-headers header.",
           "document_id": "xcsh-docs:data-sources:virtual_host:properties:cors_policy",
@@ -4084,7 +4084,7 @@
           "type": "string"
         },
         {
-          "aliases": ["allow methods"],
+          "aliases": ["cors policy allow methods"],
           "anchor": "schema-cors_policy--allow_methods",
           "description": "Specifies the content for the access-control-allow-methods header.",
           "document_id": "xcsh-docs:data-sources:virtual_host:properties:cors_policy",
@@ -4098,7 +4098,7 @@
           "type": "string"
         },
         {
-          "aliases": ["allow origin", "backend servers", "origin servers", "upstream servers"],
+          "aliases": ["backend servers", "cors policy allow origin", "origin servers", "upstream servers"],
           "anchor": "schema-cors_policy--allow_origin",
           "description": "Specifies the origins that will be allowed to do CORS requests. An origin is allowed if either allow_origin or allow_origin_regex match.",
           "document_id": "xcsh-docs:data-sources:virtual_host:properties:cors_policy",
@@ -4112,7 +4112,7 @@
           "type": "list"
         },
         {
-          "aliases": ["allow origin regex", "backend servers", "origin servers", "upstream servers"],
+          "aliases": ["backend servers", "cors policy allow origin regex", "origin servers", "upstream servers"],
           "anchor": "schema-cors_policy--allow_origin_regex",
           "description": "Specifies regex patterns that match allowed origins. An origin is allowed if either allow_origin or allow_origin_regex match.",
           "document_id": "xcsh-docs:data-sources:virtual_host:properties:cors_policy",
@@ -4126,7 +4126,7 @@
           "type": "list"
         },
         {
-          "aliases": ["disabled"],
+          "aliases": ["cors policy disabled"],
           "anchor": "schema-cors_policy--disabled",
           "description": "Disable the CorsPolicy for a particular route. This is useful when virtual-host has CorsPolicy, but we need to disable it on a specific route. The value of this field is ignored for virtual-host.",
           "document_id": "xcsh-docs:data-sources:virtual_host:properties:cors_policy",
@@ -4140,7 +4140,7 @@
           "type": "bool"
         },
         {
-          "aliases": ["expose headers"],
+          "aliases": ["cors policy expose headers"],
           "anchor": "schema-cors_policy--expose_headers",
           "description": "Specifies the content for the access-control-expose-headers header.",
           "document_id": "xcsh-docs:data-sources:virtual_host:properties:cors_policy",
@@ -4154,7 +4154,7 @@
           "type": "string"
         },
         {
-          "aliases": ["maximum age"],
+          "aliases": ["cors policy maximum age"],
           "anchor": "schema-cors_policy--maximum_age",
           "description": "Specifies the content for the access-control-max-age header in seconds. This indicates the maximum number of seconds the results can be cached A value of -1 will disable caching. Maximum permitted value is 86400 seconds (24 hours)",
           "document_id": "xcsh-docs:data-sources:virtual_host:properties:cors_policy",
@@ -4191,7 +4191,7 @@
         "xcsh-docs:data-sources:virtual_host:properties:csrf_policy:disabled"
       ],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -4213,7 +4213,7 @@
       "schema_path": ["csrf_policy"],
       "sections": [
         {
-          "aliases": ["all load balancer domains"],
+          "aliases": ["csrf policy all load balancer domains"],
           "anchor": "section",
           "description": "This can be used for messages where no values are needed.",
           "document_id": "xcsh-docs:data-sources:virtual_host:properties:csrf_policy:all_load_balancer_domains",
@@ -4227,7 +4227,7 @@
           "type": "object"
         },
         {
-          "aliases": ["custom domain list"],
+          "aliases": ["csrf policy custom domain list"],
           "anchor": "section",
           "description": "List of domain names used for Host header matching.",
           "document_id": "xcsh-docs:data-sources:virtual_host:properties:csrf_policy:custom_domain_list",
@@ -4241,7 +4241,7 @@
           "type": "object"
         },
         {
-          "aliases": ["disabled"],
+          "aliases": ["csrf policy disabled"],
           "anchor": "section",
           "description": "This can be used for messages where no values are needed.",
           "document_id": "xcsh-docs:data-sources:virtual_host:properties:csrf_policy:disabled",
@@ -4274,7 +4274,7 @@
       "category": "load-balancing",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -4314,7 +4314,7 @@
       "category": "load-balancing",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -4336,7 +4336,7 @@
       "schema_path": ["csrf_policy", "custom_domain_list"],
       "sections": [
         {
-          "aliases": ["domains"],
+          "aliases": ["csrf policy custom domain list domains"],
           "anchor": "schema-csrf_policy--custom_domain_list--domains",
           "description": "A list of domain names that will be matched to loadbalancer. These domains are not used for SNI match. Wildcard names are supported in the suffix or prefix form.",
           "document_id": "xcsh-docs:data-sources:virtual_host:properties:csrf_policy:custom_domain_list",
@@ -4369,7 +4369,7 @@
       "category": "load-balancing",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -4409,7 +4409,7 @@
       "category": "load-balancing",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -4449,7 +4449,7 @@
       "category": "load-balancing",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -4489,7 +4489,7 @@
       "category": "load-balancing",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -4529,7 +4529,7 @@
       "category": "load-balancing",
       "child_ids": ["xcsh-docs:data-sources:virtual_host:properties:dynamic_reverse_proxy:resolution_network"],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -4551,7 +4551,7 @@
       "schema_path": ["dynamic_reverse_proxy"],
       "sections": [
         {
-          "aliases": ["connection timeout", "duration", "operation timeout"],
+          "aliases": ["duration", "dynamic reverse proxy connection timeout"],
           "anchor": "schema-dynamic_reverse_proxy--connection_timeout",
           "description": "The timeout for new network connections to upstream server. This is specified in milliseconds. The default value is 2000 (2 seconds)",
           "document_id": "xcsh-docs:data-sources:virtual_host:properties:dynamic_reverse_proxy",
@@ -4565,7 +4565,7 @@
           "type": "number"
         },
         {
-          "aliases": ["resolution network"],
+          "aliases": ["dynamic reverse proxy resolution network"],
           "anchor": "section",
           "description": "Reference to virtual network where the endpoint is resolved. Reference is valid only when the network type is VIRTUAL_NETWORK_PER_SITE or VIRTUAL_NETWORK_GLOBAL. It is ignored for all other network types.",
           "document_id": "xcsh-docs:data-sources:virtual_host:properties:dynamic_reverse_proxy:resolution_network",
@@ -4579,7 +4579,7 @@
           "type": "object"
         },
         {
-          "aliases": ["resolution network type"],
+          "aliases": ["dynamic reverse proxy resolution network type"],
           "anchor": "schema-dynamic_reverse_proxy--resolution_network_type",
           "description": "Different types of virtual networks understood by the system Virtual-network of type VIRTUAL_NETWORK_SITE_LOCAL provides connectivity to public (outside) network. This is an insecure network and is connected to public internet via NAT Gateways/firwalls Virtual-network of this type is local to every site. Two virtual",
           "document_id": "xcsh-docs:data-sources:virtual_host:properties:dynamic_reverse_proxy",
@@ -4593,7 +4593,7 @@
           "type": "string"
         },
         {
-          "aliases": ["resolve endpoint dynamically"],
+          "aliases": ["dynamic reverse proxy resolve endpoint dynamically"],
           "anchor": "schema-dynamic_reverse_proxy--resolve_endpoint_dynamically",
           "description": "X-example : true In this mode of proxy, virtual host will resolve the destination endpoint dynamically. The dynamic resolution is done using a predefined field in the request. This predefined field depends on the ProxyType configured on the Virtual Host. For HTTP traffic, i.e. With ProxyType as HTTP_PROXY or",
           "document_id": "xcsh-docs:data-sources:virtual_host:properties:dynamic_reverse_proxy",
@@ -4626,7 +4626,7 @@
       "category": "load-balancing",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -4648,7 +4648,7 @@
       "schema_path": ["dynamic_reverse_proxy", "resolution_network"],
       "sections": [
         {
-          "aliases": ["kind"],
+          "aliases": ["dynamic reverse proxy resolution network kind"],
           "anchor": "schema-dynamic_reverse_proxy--resolution_network--kind",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then kind will hold the referred object's kind (e.g. \"route\")",
           "document_id": "xcsh-docs:data-sources:virtual_host:properties:dynamic_reverse_proxy:resolution_network",
@@ -4662,7 +4662,7 @@
           "type": "string"
         },
         {
-          "aliases": ["name"],
+          "aliases": ["dynamic reverse proxy resolution network name"],
           "anchor": "schema-dynamic_reverse_proxy--resolution_network--name",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.",
           "document_id": "xcsh-docs:data-sources:virtual_host:properties:dynamic_reverse_proxy:resolution_network",
@@ -4676,7 +4676,7 @@
           "type": "string"
         },
         {
-          "aliases": ["namespace"],
+          "aliases": ["dynamic reverse proxy resolution network namespace"],
           "anchor": "schema-dynamic_reverse_proxy--resolution_network--namespace",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace.",
           "document_id": "xcsh-docs:data-sources:virtual_host:properties:dynamic_reverse_proxy:resolution_network",
@@ -4690,7 +4690,7 @@
           "type": "string"
         },
         {
-          "aliases": ["tenant"],
+          "aliases": ["dynamic reverse proxy resolution network tenant"],
           "anchor": "schema-dynamic_reverse_proxy--resolution_network--tenant",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant.",
           "document_id": "xcsh-docs:data-sources:virtual_host:properties:dynamic_reverse_proxy:resolution_network",
@@ -4704,7 +4704,7 @@
           "type": "string"
         },
         {
-          "aliases": ["uid"],
+          "aliases": ["dynamic reverse proxy resolution network uid"],
           "anchor": "schema-dynamic_reverse_proxy--resolution_network--uid",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then uid will hold the referred object's(e.g. Route's) uid.",
           "document_id": "xcsh-docs:data-sources:virtual_host:properties:dynamic_reverse_proxy:resolution_network",
@@ -4737,7 +4737,7 @@
       "category": "load-balancing",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -4781,7 +4781,7 @@
         "xcsh-docs:data-sources:virtual_host:properties:http_protocol_options:http_protocol_enable_v2_only"
       ],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -4803,7 +4803,7 @@
       "schema_path": ["http_protocol_options"],
       "sections": [
         {
-          "aliases": ["http protocol enable v1 only"],
+          "aliases": ["http protocol options http protocol enable v1 only"],
           "anchor": "section",
           "description": "HTTP/1.1 Protocol OPTIONS for downstream connections.",
           "document_id": "xcsh-docs:data-sources:virtual_host:properties:http_protocol_options:http_protocol_enable_v1_only",
@@ -4817,7 +4817,7 @@
           "type": "object"
         },
         {
-          "aliases": ["http protocol enable v1 v2"],
+          "aliases": ["http protocol options http protocol enable v1 v2"],
           "anchor": "section",
           "description": "This can be used for messages where no values are needed.",
           "document_id": "xcsh-docs:data-sources:virtual_host:properties:http_protocol_options:http_protocol_enable_v1_v2",
@@ -4831,7 +4831,7 @@
           "type": "object"
         },
         {
-          "aliases": ["http protocol enable v2 only"],
+          "aliases": ["http protocol options http protocol enable v2 only"],
           "anchor": "section",
           "description": "This can be used for messages where no values are needed.",
           "document_id": "xcsh-docs:data-sources:virtual_host:properties:http_protocol_options:http_protocol_enable_v2_only",
@@ -4866,7 +4866,7 @@
         "xcsh-docs:data-sources:virtual_host:properties:http_protocol_options:http_protocol_enable_v1_only:header_transformation"
       ],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -4888,7 +4888,7 @@
       "schema_path": ["http_protocol_options", "http_protocol_enable_v1_only"],
       "sections": [
         {
-          "aliases": ["header transformation"],
+          "aliases": ["http protocol options http protocol enable v1 only header transformation"],
           "anchor": "section",
           "description": "Header Transformation OPTIONS for HTTP/1.1 request/response headers.",
           "document_id": "xcsh-docs:data-sources:virtual_host:properties:http_protocol_options:http_protocol_enable_v1_only:header_transformation",
@@ -4925,7 +4925,7 @@
         "xcsh-docs:data-sources:virtual_host:properties:http_protocol_options:http_protocol_enable_v1_only:header_transformation:proper_case_header_transformation"
       ],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -4947,7 +4947,9 @@
       "schema_path": ["http_protocol_options", "http_protocol_enable_v1_only", "header_transformation"],
       "sections": [
         {
-          "aliases": ["default header transformation"],
+          "aliases": [
+            "http protocol options http protocol enable v1 only header transformation default header transformation"
+          ],
           "anchor": "section",
           "description": "Use the platform's current default HTTP header transformation behavior.",
           "document_id": "xcsh-docs:data-sources:virtual_host:properties:http_protocol_options:http_protocol_enable_v1_only:header_transformation:default_header_transformation",
@@ -4966,7 +4968,9 @@
           "type": "object"
         },
         {
-          "aliases": ["preserve case header transformation"],
+          "aliases": [
+            "http protocol options http protocol enable v1 only header transformation preserve case header transformation"
+          ],
           "anchor": "section",
           "description": "Preserve HTTP header-name case when upstream case must remain unchanged.",
           "document_id": "xcsh-docs:data-sources:virtual_host:properties:http_protocol_options:http_protocol_enable_v1_only:header_transformation:preserve_case_header_transformation",
@@ -4985,7 +4989,9 @@
           "type": "object"
         },
         {
-          "aliases": ["proper case header transformation"],
+          "aliases": [
+            "http protocol options http protocol enable v1 only header transformation proper case header transformation"
+          ],
           "anchor": "section",
           "description": "Transform HTTP header names to proper case when explicit transformation is required.",
           "document_id": "xcsh-docs:data-sources:virtual_host:properties:http_protocol_options:http_protocol_enable_v1_only:header_transformation:proper_case_header_transformation",
@@ -5025,7 +5031,7 @@
       "category": "load-balancing",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -5072,7 +5078,7 @@
       "category": "load-balancing",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -5119,7 +5125,7 @@
       "category": "load-balancing",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -5164,7 +5170,7 @@
       "category": "load-balancing",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -5204,7 +5210,7 @@
       "category": "load-balancing",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -5244,7 +5250,7 @@
       "category": "load-balancing",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -5266,7 +5272,7 @@
       "schema_path": ["js_challenge"],
       "sections": [
         {
-          "aliases": ["cookie expiry"],
+          "aliases": ["js challenge cookie expiry"],
           "anchor": "schema-js_challenge--cookie_expiry",
           "description": "Cookie expiration period, in seconds. An expired cookie causes the loadbalancer to issue a new challenge.",
           "document_id": "xcsh-docs:data-sources:virtual_host:properties:js_challenge",
@@ -5280,7 +5286,7 @@
           "type": "number"
         },
         {
-          "aliases": ["custom page"],
+          "aliases": ["js challenge custom page"],
           "anchor": "schema-js_challenge--custom_page",
           "description": "Custom message is of type uri_ref. Currently supported URL schemes is string:///. For string:/// scheme, message needs to be encoded in Base64 format. You can specify this message as base64 encoded plain text message e.g. \"Please Wait..\" or it can be HTML paragraph or a body string encoded as base64 string E.g. \"<p>",
           "document_id": "xcsh-docs:data-sources:virtual_host:properties:js_challenge",
@@ -5294,7 +5300,7 @@
           "type": "string"
         },
         {
-          "aliases": ["js script delay"],
+          "aliases": ["js challenge js script delay"],
           "anchor": "schema-js_challenge--js_script_delay",
           "description": "Delay introduced by Javascript, in milliseconds.",
           "document_id": "xcsh-docs:data-sources:virtual_host:properties:js_challenge",
@@ -5327,7 +5333,7 @@
       "category": "load-balancing",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -5367,7 +5373,7 @@
       "category": "load-balancing",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -5407,7 +5413,7 @@
       "category": "load-balancing",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -5447,7 +5453,7 @@
       "category": "load-balancing",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -5487,7 +5493,7 @@
       "category": "load-balancing",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -5527,7 +5533,7 @@
       "category": "load-balancing",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -5549,7 +5555,7 @@
       "schema_path": ["rate_limiter_allowed_prefixes"],
       "sections": [
         {
-          "aliases": ["kind"],
+          "aliases": ["rate limiter allowed prefixes kind"],
           "anchor": "schema-rate_limiter_allowed_prefixes--kind",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then kind will hold the referred object's kind (e.g. \"route\")",
           "document_id": "xcsh-docs:data-sources:virtual_host:properties:rate_limiter_allowed_prefixes",
@@ -5563,7 +5569,7 @@
           "type": "string"
         },
         {
-          "aliases": ["name"],
+          "aliases": ["rate limiter allowed prefixes name"],
           "anchor": "schema-rate_limiter_allowed_prefixes--name",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.",
           "document_id": "xcsh-docs:data-sources:virtual_host:properties:rate_limiter_allowed_prefixes",
@@ -5577,7 +5583,7 @@
           "type": "string"
         },
         {
-          "aliases": ["namespace"],
+          "aliases": ["rate limiter allowed prefixes namespace"],
           "anchor": "schema-rate_limiter_allowed_prefixes--namespace",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace.",
           "document_id": "xcsh-docs:data-sources:virtual_host:properties:rate_limiter_allowed_prefixes",
@@ -5591,7 +5597,7 @@
           "type": "string"
         },
         {
-          "aliases": ["tenant"],
+          "aliases": ["rate limiter allowed prefixes tenant"],
           "anchor": "schema-rate_limiter_allowed_prefixes--tenant",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant.",
           "document_id": "xcsh-docs:data-sources:virtual_host:properties:rate_limiter_allowed_prefixes",
@@ -5605,7 +5611,7 @@
           "type": "string"
         },
         {
-          "aliases": ["uid"],
+          "aliases": ["rate limiter allowed prefixes uid"],
           "anchor": "schema-rate_limiter_allowed_prefixes--uid",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then uid will hold the referred object's(e.g. Route's) uid.",
           "document_id": "xcsh-docs:data-sources:virtual_host:properties:rate_limiter_allowed_prefixes",
@@ -5638,7 +5644,7 @@
       "category": "load-balancing",
       "child_ids": ["xcsh-docs:data-sources:virtual_host:properties:request_cookies_to_add:secret_value"],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -5660,7 +5666,7 @@
       "schema_path": ["request_cookies_to_add"],
       "sections": [
         {
-          "aliases": ["name"],
+          "aliases": ["request cookies to add name"],
           "anchor": "schema-request_cookies_to_add--name",
           "description": "Name of the cookie in Cookie header.",
           "document_id": "xcsh-docs:data-sources:virtual_host:properties:request_cookies_to_add",
@@ -5674,7 +5680,7 @@
           "type": "string"
         },
         {
-          "aliases": ["overwrite"],
+          "aliases": ["request cookies to add overwrite"],
           "anchor": "schema-request_cookies_to_add--overwrite",
           "description": "Should the value be overwritten? If true, the value is overwritten to existing values. Default value is do not overwrite.",
           "document_id": "xcsh-docs:data-sources:virtual_host:properties:request_cookies_to_add",
@@ -5688,7 +5694,7 @@
           "type": "bool"
         },
         {
-          "aliases": ["secret value"],
+          "aliases": ["request cookies to add secret value"],
           "anchor": "section",
           "description": "SecretType is used in an object to indicate a sensitive/confidential field.",
           "document_id": "xcsh-docs:data-sources:virtual_host:properties:request_cookies_to_add:secret_value",
@@ -5702,7 +5708,7 @@
           "type": "object"
         },
         {
-          "aliases": ["value"],
+          "aliases": ["request cookies to add value"],
           "anchor": "schema-request_cookies_to_add--value",
           "description": "Exclusive with Value of the Cookie header.",
           "document_id": "xcsh-docs:data-sources:virtual_host:properties:request_cookies_to_add",
@@ -5738,7 +5744,7 @@
         "xcsh-docs:data-sources:virtual_host:properties:request_cookies_to_add:secret_value:clear_secret_info"
       ],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -5760,7 +5766,7 @@
       "schema_path": ["request_cookies_to_add", "secret_value"],
       "sections": [
         {
-          "aliases": ["blindfold secret info"],
+          "aliases": ["request cookies to add secret value blindfold secret info"],
           "anchor": "section",
           "description": "BlindfoldSecretInfoType specifies information about the Secret managed by F5XC Secret Management.",
           "document_id": "xcsh-docs:data-sources:virtual_host:properties:request_cookies_to_add:secret_value:blindfold_secret_info",
@@ -5774,7 +5780,7 @@
           "type": "object"
         },
         {
-          "aliases": ["clear secret info"],
+          "aliases": ["request cookies to add secret value clear secret info"],
           "anchor": "section",
           "description": "ClearSecretInfoType specifies information about the Secret that is not encrypted.",
           "document_id": "xcsh-docs:data-sources:virtual_host:properties:request_cookies_to_add:secret_value:clear_secret_info",
@@ -5807,7 +5813,7 @@
       "category": "load-balancing",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -5829,7 +5835,7 @@
       "schema_path": ["request_cookies_to_add", "secret_value", "blindfold_secret_info"],
       "sections": [
         {
-          "aliases": ["decryption provider"],
+          "aliases": ["request cookies to add secret value blindfold secret info decryption provider"],
           "anchor": "schema-request_cookies_to_add--secret_value--blindfold_secret_info--decryption_provider",
           "description": "Name of the Secret Management Access object that contains information about the backend Secret Management service.",
           "document_id": "xcsh-docs:data-sources:virtual_host:properties:request_cookies_to_add:secret_value:blindfold_secret_info",
@@ -5843,7 +5849,7 @@
           "type": "string"
         },
         {
-          "aliases": ["location"],
+          "aliases": ["request cookies to add secret value blindfold secret info location"],
           "anchor": "schema-request_cookies_to_add--secret_value--blindfold_secret_info--location",
           "description": "Location is the uri_ref. It could be in URL format for string:/// Or it could be a path if the store provider is an HTTP/HTTPS location.",
           "document_id": "xcsh-docs:data-sources:virtual_host:properties:request_cookies_to_add:secret_value:blindfold_secret_info",
@@ -5857,7 +5863,7 @@
           "type": "string"
         },
         {
-          "aliases": ["store provider"],
+          "aliases": ["request cookies to add secret value blindfold secret info store provider"],
           "anchor": "schema-request_cookies_to_add--secret_value--blindfold_secret_info--store_provider",
           "description": "Name of the Secret Management Access object that contains information about the store to GET encrypted bytes This field needs to be provided only if the URL scheme is not string:///.",
           "document_id": "xcsh-docs:data-sources:virtual_host:properties:request_cookies_to_add:secret_value:blindfold_secret_info",
@@ -5890,7 +5896,7 @@
       "category": "load-balancing",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -5912,7 +5918,7 @@
       "schema_path": ["request_cookies_to_add", "secret_value", "clear_secret_info"],
       "sections": [
         {
-          "aliases": ["provider ref"],
+          "aliases": ["request cookies to add secret value clear secret info provider ref"],
           "anchor": "schema-request_cookies_to_add--secret_value--clear_secret_info--provider_ref",
           "description": "Name of the Secret Management Access object that contains information about the store to GET encrypted bytes This field needs to be provided only if the URL scheme is not string:///.",
           "document_id": "xcsh-docs:data-sources:virtual_host:properties:request_cookies_to_add:secret_value:clear_secret_info",
@@ -5926,7 +5932,7 @@
           "type": "string"
         },
         {
-          "aliases": ["url"],
+          "aliases": ["request cookies to add secret value clear secret info url"],
           "anchor": "schema-request_cookies_to_add--secret_value--clear_secret_info--url",
           "description": "URL of the secret. Currently supported URL schemes is string:///. For string:/// scheme, Secret needs to be encoded Base64 format. When asked for this secret, caller will GET Secret bytes after Base64 decoding.",
           "document_id": "xcsh-docs:data-sources:virtual_host:properties:request_cookies_to_add:secret_value:clear_secret_info",
@@ -5959,7 +5965,7 @@
       "category": "load-balancing",
       "child_ids": ["xcsh-docs:data-sources:virtual_host:properties:request_headers_to_add:secret_value"],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -5981,7 +5987,7 @@
       "schema_path": ["request_headers_to_add"],
       "sections": [
         {
-          "aliases": ["append"],
+          "aliases": ["request headers to add append"],
           "anchor": "schema-request_headers_to_add--append",
           "description": "Should the value be appended? If true, the value is appended to existing values. Default value is do not append.",
           "document_id": "xcsh-docs:data-sources:virtual_host:properties:request_headers_to_add",
@@ -5995,7 +6001,7 @@
           "type": "bool"
         },
         {
-          "aliases": ["name"],
+          "aliases": ["request headers to add name"],
           "anchor": "schema-request_headers_to_add--name",
           "description": "Name of the HTTP header.",
           "document_id": "xcsh-docs:data-sources:virtual_host:properties:request_headers_to_add",
@@ -6009,7 +6015,7 @@
           "type": "string"
         },
         {
-          "aliases": ["secret value"],
+          "aliases": ["request headers to add secret value"],
           "anchor": "section",
           "description": "SecretType is used in an object to indicate a sensitive/confidential field.",
           "document_id": "xcsh-docs:data-sources:virtual_host:properties:request_headers_to_add:secret_value",
@@ -6023,7 +6029,7 @@
           "type": "object"
         },
         {
-          "aliases": ["value"],
+          "aliases": ["request headers to add value"],
           "anchor": "schema-request_headers_to_add--value",
           "description": "Exclusive with Value of the HTTP header.",
           "document_id": "xcsh-docs:data-sources:virtual_host:properties:request_headers_to_add",
@@ -6059,7 +6065,7 @@
         "xcsh-docs:data-sources:virtual_host:properties:request_headers_to_add:secret_value:clear_secret_info"
       ],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -6081,7 +6087,7 @@
       "schema_path": ["request_headers_to_add", "secret_value"],
       "sections": [
         {
-          "aliases": ["blindfold secret info"],
+          "aliases": ["request headers to add secret value blindfold secret info"],
           "anchor": "section",
           "description": "BlindfoldSecretInfoType specifies information about the Secret managed by F5XC Secret Management.",
           "document_id": "xcsh-docs:data-sources:virtual_host:properties:request_headers_to_add:secret_value:blindfold_secret_info",
@@ -6095,7 +6101,7 @@
           "type": "object"
         },
         {
-          "aliases": ["clear secret info"],
+          "aliases": ["request headers to add secret value clear secret info"],
           "anchor": "section",
           "description": "ClearSecretInfoType specifies information about the Secret that is not encrypted.",
           "document_id": "xcsh-docs:data-sources:virtual_host:properties:request_headers_to_add:secret_value:clear_secret_info",
@@ -6128,7 +6134,7 @@
       "category": "load-balancing",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -6150,7 +6156,7 @@
       "schema_path": ["request_headers_to_add", "secret_value", "blindfold_secret_info"],
       "sections": [
         {
-          "aliases": ["decryption provider"],
+          "aliases": ["request headers to add secret value blindfold secret info decryption provider"],
           "anchor": "schema-request_headers_to_add--secret_value--blindfold_secret_info--decryption_provider",
           "description": "Name of the Secret Management Access object that contains information about the backend Secret Management service.",
           "document_id": "xcsh-docs:data-sources:virtual_host:properties:request_headers_to_add:secret_value:blindfold_secret_info",
@@ -6164,7 +6170,7 @@
           "type": "string"
         },
         {
-          "aliases": ["location"],
+          "aliases": ["request headers to add secret value blindfold secret info location"],
           "anchor": "schema-request_headers_to_add--secret_value--blindfold_secret_info--location",
           "description": "Location is the uri_ref. It could be in URL format for string:/// Or it could be a path if the store provider is an HTTP/HTTPS location.",
           "document_id": "xcsh-docs:data-sources:virtual_host:properties:request_headers_to_add:secret_value:blindfold_secret_info",
@@ -6178,7 +6184,7 @@
           "type": "string"
         },
         {
-          "aliases": ["store provider"],
+          "aliases": ["request headers to add secret value blindfold secret info store provider"],
           "anchor": "schema-request_headers_to_add--secret_value--blindfold_secret_info--store_provider",
           "description": "Name of the Secret Management Access object that contains information about the store to GET encrypted bytes This field needs to be provided only if the URL scheme is not string:///.",
           "document_id": "xcsh-docs:data-sources:virtual_host:properties:request_headers_to_add:secret_value:blindfold_secret_info",
@@ -6211,7 +6217,7 @@
       "category": "load-balancing",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -6233,7 +6239,7 @@
       "schema_path": ["request_headers_to_add", "secret_value", "clear_secret_info"],
       "sections": [
         {
-          "aliases": ["provider ref"],
+          "aliases": ["request headers to add secret value clear secret info provider ref"],
           "anchor": "schema-request_headers_to_add--secret_value--clear_secret_info--provider_ref",
           "description": "Name of the Secret Management Access object that contains information about the store to GET encrypted bytes This field needs to be provided only if the URL scheme is not string:///.",
           "document_id": "xcsh-docs:data-sources:virtual_host:properties:request_headers_to_add:secret_value:clear_secret_info",
@@ -6247,7 +6253,7 @@
           "type": "string"
         },
         {
-          "aliases": ["url"],
+          "aliases": ["request headers to add secret value clear secret info url"],
           "anchor": "schema-request_headers_to_add--secret_value--clear_secret_info--url",
           "description": "URL of the secret. Currently supported URL schemes is string:///. For string:/// scheme, Secret needs to be encoded Base64 format. When asked for this secret, caller will GET Secret bytes after Base64 decoding.",
           "document_id": "xcsh-docs:data-sources:virtual_host:properties:request_headers_to_add:secret_value:clear_secret_info",
@@ -6297,7 +6303,7 @@
         "xcsh-docs:data-sources:virtual_host:properties:response_cookies_to_add:secret_value"
       ],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -6319,7 +6325,7 @@
       "schema_path": ["response_cookies_to_add"],
       "sections": [
         {
-          "aliases": ["add domain"],
+          "aliases": ["response cookies to add add domain"],
           "anchor": "schema-response_cookies_to_add--add_domain",
           "description": "Exclusive with Add domain attribute.",
           "document_id": "xcsh-docs:data-sources:virtual_host:properties:response_cookies_to_add",
@@ -6333,7 +6339,7 @@
           "type": "string"
         },
         {
-          "aliases": ["add expiry"],
+          "aliases": ["response cookies to add add expiry"],
           "anchor": "schema-response_cookies_to_add--add_expiry",
           "description": "Exclusive with Add expiry attribute.",
           "document_id": "xcsh-docs:data-sources:virtual_host:properties:response_cookies_to_add",
@@ -6347,7 +6353,7 @@
           "type": "string"
         },
         {
-          "aliases": ["add httponly"],
+          "aliases": ["response cookies to add add httponly"],
           "anchor": "section",
           "description": "This can be used for messages where no values are needed.",
           "document_id": "xcsh-docs:data-sources:virtual_host:properties:response_cookies_to_add:add_httponly",
@@ -6361,7 +6367,7 @@
           "type": "object"
         },
         {
-          "aliases": ["add partitioned"],
+          "aliases": ["response cookies to add add partitioned"],
           "anchor": "section",
           "description": "This can be used for messages where no values are needed.",
           "document_id": "xcsh-docs:data-sources:virtual_host:properties:response_cookies_to_add:add_partitioned",
@@ -6375,7 +6381,7 @@
           "type": "object"
         },
         {
-          "aliases": ["add path"],
+          "aliases": ["response cookies to add add path"],
           "anchor": "schema-response_cookies_to_add--add_path",
           "description": "Exclusive with Add path attribute.",
           "document_id": "xcsh-docs:data-sources:virtual_host:properties:response_cookies_to_add",
@@ -6389,7 +6395,7 @@
           "type": "string"
         },
         {
-          "aliases": ["add secure"],
+          "aliases": ["response cookies to add add secure"],
           "anchor": "section",
           "description": "This can be used for messages where no values are needed.",
           "document_id": "xcsh-docs:data-sources:virtual_host:properties:response_cookies_to_add:add_secure",
@@ -6403,7 +6409,7 @@
           "type": "object"
         },
         {
-          "aliases": ["ignore domain"],
+          "aliases": ["response cookies to add ignore domain"],
           "anchor": "section",
           "description": "This can be used for messages where no values are needed.",
           "document_id": "xcsh-docs:data-sources:virtual_host:properties:response_cookies_to_add:ignore_domain",
@@ -6417,7 +6423,7 @@
           "type": "object"
         },
         {
-          "aliases": ["ignore expiry"],
+          "aliases": ["response cookies to add ignore expiry"],
           "anchor": "section",
           "description": "This can be used for messages where no values are needed.",
           "document_id": "xcsh-docs:data-sources:virtual_host:properties:response_cookies_to_add:ignore_expiry",
@@ -6431,7 +6437,7 @@
           "type": "object"
         },
         {
-          "aliases": ["ignore httponly"],
+          "aliases": ["response cookies to add ignore httponly"],
           "anchor": "section",
           "description": "This can be used for messages where no values are needed.",
           "document_id": "xcsh-docs:data-sources:virtual_host:properties:response_cookies_to_add:ignore_httponly",
@@ -6445,7 +6451,7 @@
           "type": "object"
         },
         {
-          "aliases": ["ignore max age"],
+          "aliases": ["response cookies to add ignore max age"],
           "anchor": "section",
           "description": "This can be used for messages where no values are needed.",
           "document_id": "xcsh-docs:data-sources:virtual_host:properties:response_cookies_to_add:ignore_max_age",
@@ -6459,7 +6465,7 @@
           "type": "object"
         },
         {
-          "aliases": ["ignore partitioned"],
+          "aliases": ["response cookies to add ignore partitioned"],
           "anchor": "section",
           "description": "This can be used for messages where no values are needed.",
           "document_id": "xcsh-docs:data-sources:virtual_host:properties:response_cookies_to_add:ignore_partitioned",
@@ -6473,7 +6479,7 @@
           "type": "object"
         },
         {
-          "aliases": ["ignore path"],
+          "aliases": ["response cookies to add ignore path"],
           "anchor": "section",
           "description": "This can be used for messages where no values are needed.",
           "document_id": "xcsh-docs:data-sources:virtual_host:properties:response_cookies_to_add:ignore_path",
@@ -6487,7 +6493,7 @@
           "type": "object"
         },
         {
-          "aliases": ["ignore samesite"],
+          "aliases": ["response cookies to add ignore samesite"],
           "anchor": "section",
           "description": "This can be used for messages where no values are needed.",
           "document_id": "xcsh-docs:data-sources:virtual_host:properties:response_cookies_to_add:ignore_samesite",
@@ -6501,7 +6507,7 @@
           "type": "object"
         },
         {
-          "aliases": ["ignore secure"],
+          "aliases": ["response cookies to add ignore secure"],
           "anchor": "section",
           "description": "This can be used for messages where no values are needed.",
           "document_id": "xcsh-docs:data-sources:virtual_host:properties:response_cookies_to_add:ignore_secure",
@@ -6515,7 +6521,7 @@
           "type": "object"
         },
         {
-          "aliases": ["ignore value"],
+          "aliases": ["response cookies to add ignore value"],
           "anchor": "section",
           "description": "This can be used for messages where no values are needed.",
           "document_id": "xcsh-docs:data-sources:virtual_host:properties:response_cookies_to_add:ignore_value",
@@ -6529,7 +6535,7 @@
           "type": "object"
         },
         {
-          "aliases": ["max age value"],
+          "aliases": ["response cookies to add max age value"],
           "anchor": "schema-response_cookies_to_add--max_age_value",
           "description": "Exclusive with Add max age attribute.",
           "document_id": "xcsh-docs:data-sources:virtual_host:properties:response_cookies_to_add",
@@ -6543,7 +6549,7 @@
           "type": "number"
         },
         {
-          "aliases": ["name"],
+          "aliases": ["response cookies to add name"],
           "anchor": "schema-response_cookies_to_add--name",
           "description": "Name of the cookie in Cookie header.",
           "document_id": "xcsh-docs:data-sources:virtual_host:properties:response_cookies_to_add",
@@ -6557,7 +6563,7 @@
           "type": "string"
         },
         {
-          "aliases": ["overwrite"],
+          "aliases": ["response cookies to add overwrite"],
           "anchor": "schema-response_cookies_to_add--overwrite",
           "description": "Should the value be overwritten? If true, the value is overwritten to existing values. Default value is do not overwrite.",
           "document_id": "xcsh-docs:data-sources:virtual_host:properties:response_cookies_to_add",
@@ -6571,7 +6577,7 @@
           "type": "bool"
         },
         {
-          "aliases": ["samesite lax"],
+          "aliases": ["response cookies to add samesite lax"],
           "anchor": "section",
           "description": "This can be used for messages where no values are needed.",
           "document_id": "xcsh-docs:data-sources:virtual_host:properties:response_cookies_to_add:samesite_lax",
@@ -6585,7 +6591,7 @@
           "type": "object"
         },
         {
-          "aliases": ["samesite none"],
+          "aliases": ["response cookies to add samesite none"],
           "anchor": "section",
           "description": "This can be used for messages where no values are needed.",
           "document_id": "xcsh-docs:data-sources:virtual_host:properties:response_cookies_to_add:samesite_none",
@@ -6599,7 +6605,7 @@
           "type": "object"
         },
         {
-          "aliases": ["samesite strict"],
+          "aliases": ["response cookies to add samesite strict"],
           "anchor": "section",
           "description": "This can be used for messages where no values are needed.",
           "document_id": "xcsh-docs:data-sources:virtual_host:properties:response_cookies_to_add:samesite_strict",
@@ -6613,7 +6619,7 @@
           "type": "object"
         },
         {
-          "aliases": ["secret value"],
+          "aliases": ["response cookies to add secret value"],
           "anchor": "section",
           "description": "SecretType is used in an object to indicate a sensitive/confidential field.",
           "document_id": "xcsh-docs:data-sources:virtual_host:properties:response_cookies_to_add:secret_value",
@@ -6627,7 +6633,7 @@
           "type": "object"
         },
         {
-          "aliases": ["value"],
+          "aliases": ["response cookies to add value"],
           "anchor": "schema-response_cookies_to_add--value",
           "description": "Exclusive with Value of the Cookie header.",
           "document_id": "xcsh-docs:data-sources:virtual_host:properties:response_cookies_to_add",
@@ -6660,7 +6666,7 @@
       "category": "load-balancing",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -6700,7 +6706,7 @@
       "category": "load-balancing",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -6740,7 +6746,7 @@
       "category": "load-balancing",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -6780,7 +6786,7 @@
       "category": "load-balancing",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -6820,7 +6826,7 @@
       "category": "load-balancing",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -6860,7 +6866,7 @@
       "category": "load-balancing",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -6900,7 +6906,7 @@
       "category": "load-balancing",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -6940,7 +6946,7 @@
       "category": "load-balancing",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -6980,7 +6986,7 @@
       "category": "load-balancing",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -7020,7 +7026,7 @@
       "category": "load-balancing",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -7060,7 +7066,7 @@
       "category": "load-balancing",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -7100,7 +7106,7 @@
       "category": "load-balancing",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -7140,7 +7146,7 @@
       "category": "load-balancing",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -7180,7 +7186,7 @@
       "category": "load-balancing",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -7220,7 +7226,7 @@
       "category": "load-balancing",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -7263,7 +7269,7 @@
         "xcsh-docs:data-sources:virtual_host:properties:response_cookies_to_add:secret_value:clear_secret_info"
       ],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -7285,7 +7291,7 @@
       "schema_path": ["response_cookies_to_add", "secret_value"],
       "sections": [
         {
-          "aliases": ["blindfold secret info"],
+          "aliases": ["response cookies to add secret value blindfold secret info"],
           "anchor": "section",
           "description": "BlindfoldSecretInfoType specifies information about the Secret managed by F5XC Secret Management.",
           "document_id": "xcsh-docs:data-sources:virtual_host:properties:response_cookies_to_add:secret_value:blindfold_secret_info",
@@ -7299,7 +7305,7 @@
           "type": "object"
         },
         {
-          "aliases": ["clear secret info"],
+          "aliases": ["response cookies to add secret value clear secret info"],
           "anchor": "section",
           "description": "ClearSecretInfoType specifies information about the Secret that is not encrypted.",
           "document_id": "xcsh-docs:data-sources:virtual_host:properties:response_cookies_to_add:secret_value:clear_secret_info",
@@ -7332,7 +7338,7 @@
       "category": "load-balancing",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -7354,7 +7360,7 @@
       "schema_path": ["response_cookies_to_add", "secret_value", "blindfold_secret_info"],
       "sections": [
         {
-          "aliases": ["decryption provider"],
+          "aliases": ["response cookies to add secret value blindfold secret info decryption provider"],
           "anchor": "schema-response_cookies_to_add--secret_value--blindfold_secret_info--decryption_provider",
           "description": "Name of the Secret Management Access object that contains information about the backend Secret Management service.",
           "document_id": "xcsh-docs:data-sources:virtual_host:properties:response_cookies_to_add:secret_value:blindfold_secret_info",
@@ -7368,7 +7374,7 @@
           "type": "string"
         },
         {
-          "aliases": ["location"],
+          "aliases": ["response cookies to add secret value blindfold secret info location"],
           "anchor": "schema-response_cookies_to_add--secret_value--blindfold_secret_info--location",
           "description": "Location is the uri_ref. It could be in URL format for string:/// Or it could be a path if the store provider is an HTTP/HTTPS location.",
           "document_id": "xcsh-docs:data-sources:virtual_host:properties:response_cookies_to_add:secret_value:blindfold_secret_info",
@@ -7382,7 +7388,7 @@
           "type": "string"
         },
         {
-          "aliases": ["store provider"],
+          "aliases": ["response cookies to add secret value blindfold secret info store provider"],
           "anchor": "schema-response_cookies_to_add--secret_value--blindfold_secret_info--store_provider",
           "description": "Name of the Secret Management Access object that contains information about the store to GET encrypted bytes This field needs to be provided only if the URL scheme is not string:///.",
           "document_id": "xcsh-docs:data-sources:virtual_host:properties:response_cookies_to_add:secret_value:blindfold_secret_info",
@@ -7415,7 +7421,7 @@
       "category": "load-balancing",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -7437,7 +7443,7 @@
       "schema_path": ["response_cookies_to_add", "secret_value", "clear_secret_info"],
       "sections": [
         {
-          "aliases": ["provider ref"],
+          "aliases": ["response cookies to add secret value clear secret info provider ref"],
           "anchor": "schema-response_cookies_to_add--secret_value--clear_secret_info--provider_ref",
           "description": "Name of the Secret Management Access object that contains information about the store to GET encrypted bytes This field needs to be provided only if the URL scheme is not string:///.",
           "document_id": "xcsh-docs:data-sources:virtual_host:properties:response_cookies_to_add:secret_value:clear_secret_info",
@@ -7451,7 +7457,7 @@
           "type": "string"
         },
         {
-          "aliases": ["url"],
+          "aliases": ["response cookies to add secret value clear secret info url"],
           "anchor": "schema-response_cookies_to_add--secret_value--clear_secret_info--url",
           "description": "URL of the secret. Currently supported URL schemes is string:///. For string:/// scheme, Secret needs to be encoded Base64 format. When asked for this secret, caller will GET Secret bytes after Base64 decoding.",
           "document_id": "xcsh-docs:data-sources:virtual_host:properties:response_cookies_to_add:secret_value:clear_secret_info",
@@ -7484,7 +7490,7 @@
       "category": "load-balancing",
       "child_ids": ["xcsh-docs:data-sources:virtual_host:properties:response_headers_to_add:secret_value"],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -7506,7 +7512,7 @@
       "schema_path": ["response_headers_to_add"],
       "sections": [
         {
-          "aliases": ["append"],
+          "aliases": ["response headers to add append"],
           "anchor": "schema-response_headers_to_add--append",
           "description": "Should the value be appended? If true, the value is appended to existing values. Default value is do not append.",
           "document_id": "xcsh-docs:data-sources:virtual_host:properties:response_headers_to_add",
@@ -7520,7 +7526,7 @@
           "type": "bool"
         },
         {
-          "aliases": ["name"],
+          "aliases": ["response headers to add name"],
           "anchor": "schema-response_headers_to_add--name",
           "description": "Name of the HTTP header.",
           "document_id": "xcsh-docs:data-sources:virtual_host:properties:response_headers_to_add",
@@ -7534,7 +7540,7 @@
           "type": "string"
         },
         {
-          "aliases": ["secret value"],
+          "aliases": ["response headers to add secret value"],
           "anchor": "section",
           "description": "SecretType is used in an object to indicate a sensitive/confidential field.",
           "document_id": "xcsh-docs:data-sources:virtual_host:properties:response_headers_to_add:secret_value",
@@ -7548,7 +7554,7 @@
           "type": "object"
         },
         {
-          "aliases": ["value"],
+          "aliases": ["response headers to add value"],
           "anchor": "schema-response_headers_to_add--value",
           "description": "Exclusive with Value of the HTTP header.",
           "document_id": "xcsh-docs:data-sources:virtual_host:properties:response_headers_to_add",
@@ -7584,7 +7590,7 @@
         "xcsh-docs:data-sources:virtual_host:properties:response_headers_to_add:secret_value:clear_secret_info"
       ],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -7606,7 +7612,7 @@
       "schema_path": ["response_headers_to_add", "secret_value"],
       "sections": [
         {
-          "aliases": ["blindfold secret info"],
+          "aliases": ["response headers to add secret value blindfold secret info"],
           "anchor": "section",
           "description": "BlindfoldSecretInfoType specifies information about the Secret managed by F5XC Secret Management.",
           "document_id": "xcsh-docs:data-sources:virtual_host:properties:response_headers_to_add:secret_value:blindfold_secret_info",
@@ -7620,7 +7626,7 @@
           "type": "object"
         },
         {
-          "aliases": ["clear secret info"],
+          "aliases": ["response headers to add secret value clear secret info"],
           "anchor": "section",
           "description": "ClearSecretInfoType specifies information about the Secret that is not encrypted.",
           "document_id": "xcsh-docs:data-sources:virtual_host:properties:response_headers_to_add:secret_value:clear_secret_info",
@@ -7653,7 +7659,7 @@
       "category": "load-balancing",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -7675,7 +7681,7 @@
       "schema_path": ["response_headers_to_add", "secret_value", "blindfold_secret_info"],
       "sections": [
         {
-          "aliases": ["decryption provider"],
+          "aliases": ["response headers to add secret value blindfold secret info decryption provider"],
           "anchor": "schema-response_headers_to_add--secret_value--blindfold_secret_info--decryption_provider",
           "description": "Name of the Secret Management Access object that contains information about the backend Secret Management service.",
           "document_id": "xcsh-docs:data-sources:virtual_host:properties:response_headers_to_add:secret_value:blindfold_secret_info",
@@ -7689,7 +7695,7 @@
           "type": "string"
         },
         {
-          "aliases": ["location"],
+          "aliases": ["response headers to add secret value blindfold secret info location"],
           "anchor": "schema-response_headers_to_add--secret_value--blindfold_secret_info--location",
           "description": "Location is the uri_ref. It could be in URL format for string:/// Or it could be a path if the store provider is an HTTP/HTTPS location.",
           "document_id": "xcsh-docs:data-sources:virtual_host:properties:response_headers_to_add:secret_value:blindfold_secret_info",
@@ -7703,7 +7709,7 @@
           "type": "string"
         },
         {
-          "aliases": ["store provider"],
+          "aliases": ["response headers to add secret value blindfold secret info store provider"],
           "anchor": "schema-response_headers_to_add--secret_value--blindfold_secret_info--store_provider",
           "description": "Name of the Secret Management Access object that contains information about the store to GET encrypted bytes This field needs to be provided only if the URL scheme is not string:///.",
           "document_id": "xcsh-docs:data-sources:virtual_host:properties:response_headers_to_add:secret_value:blindfold_secret_info",
@@ -7736,7 +7742,7 @@
       "category": "load-balancing",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -7758,7 +7764,7 @@
       "schema_path": ["response_headers_to_add", "secret_value", "clear_secret_info"],
       "sections": [
         {
-          "aliases": ["provider ref"],
+          "aliases": ["response headers to add secret value clear secret info provider ref"],
           "anchor": "schema-response_headers_to_add--secret_value--clear_secret_info--provider_ref",
           "description": "Name of the Secret Management Access object that contains information about the store to GET encrypted bytes This field needs to be provided only if the URL scheme is not string:///.",
           "document_id": "xcsh-docs:data-sources:virtual_host:properties:response_headers_to_add:secret_value:clear_secret_info",
@@ -7772,7 +7778,7 @@
           "type": "string"
         },
         {
-          "aliases": ["url"],
+          "aliases": ["response headers to add secret value clear secret info url"],
           "anchor": "schema-response_headers_to_add--secret_value--clear_secret_info--url",
           "description": "URL of the secret. Currently supported URL schemes is string:///. For string:/// scheme, Secret needs to be encoded Base64 format. When asked for this secret, caller will GET Secret bytes after Base64 decoding.",
           "document_id": "xcsh-docs:data-sources:virtual_host:properties:response_headers_to_add:secret_value:clear_secret_info",
@@ -7805,7 +7811,7 @@
       "category": "load-balancing",
       "child_ids": ["xcsh-docs:data-sources:virtual_host:properties:retry_policy:back_off"],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -7827,7 +7833,7 @@
       "schema_path": ["retry_policy"],
       "sections": [
         {
-          "aliases": ["back off"],
+          "aliases": ["retry policy back off"],
           "anchor": "section",
           "description": "Specifies parameters that control retry back off.",
           "document_id": "xcsh-docs:data-sources:virtual_host:properties:retry_policy:back_off",
@@ -7841,7 +7847,7 @@
           "type": "object"
         },
         {
-          "aliases": ["num retries"],
+          "aliases": ["retry policy num retries"],
           "anchor": "schema-retry_policy--num_retries",
           "description": "Specifies the allowed number of retries. Defaults to 1. Retries can be done any number of times. An exponential back-off algorithm is used between each retry.",
           "document_id": "xcsh-docs:data-sources:virtual_host:properties:retry_policy",
@@ -7855,7 +7861,7 @@
           "type": "number"
         },
         {
-          "aliases": ["duration", "operation timeout", "per try timeout"],
+          "aliases": ["duration", "retry policy per try timeout"],
           "anchor": "schema-retry_policy--per_try_timeout",
           "description": "Specifies a non-zero timeout per retry attempt. In milliseconds.",
           "document_id": "xcsh-docs:data-sources:virtual_host:properties:retry_policy",
@@ -7869,7 +7875,7 @@
           "type": "number"
         },
         {
-          "aliases": ["retriable status codes"],
+          "aliases": ["retry policy retriable status codes"],
           "anchor": "schema-retry_policy--retriable_status_codes",
           "description": "HTTP status codes that should trigger a retry in addition to those specified by retry_on.",
           "document_id": "xcsh-docs:data-sources:virtual_host:properties:retry_policy",
@@ -7883,7 +7889,7 @@
           "type": "list"
         },
         {
-          "aliases": ["duration", "operation timeout", "retry condition"],
+          "aliases": ["duration", "retry policy retry condition"],
           "anchor": "schema-retry_policy--retry_condition",
           "description": "Specifies the conditions under which retry takes place. Retries can be on different types of condition depending on application requirements. For example, network failure, all 5xx response codes, idempotent 4xx response codes, etc The possible values are \"5xx\" : Retry will be done if the upstream server responds with",
           "document_id": "xcsh-docs:data-sources:virtual_host:properties:retry_policy",
@@ -7916,7 +7922,7 @@
       "category": "load-balancing",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -7938,7 +7944,7 @@
       "schema_path": ["retry_policy", "back_off"],
       "sections": [
         {
-          "aliases": ["base interval"],
+          "aliases": ["retry policy back off base interval"],
           "anchor": "schema-retry_policy--back_off--base_interval",
           "description": "Specifies the base interval between retries in milliseconds.",
           "document_id": "xcsh-docs:data-sources:virtual_host:properties:retry_policy:back_off",
@@ -7952,7 +7958,7 @@
           "type": "number"
         },
         {
-          "aliases": ["max interval"],
+          "aliases": ["retry policy back off max interval"],
           "anchor": "schema-retry_policy--back_off--max_interval",
           "description": "Specifies the maximum interval between retries in milliseconds. This parameter is optional, but must be greater than or equal to the base_interval if set. The default is 10 times the base_interval.",
           "document_id": "xcsh-docs:data-sources:virtual_host:properties:retry_policy:back_off",
@@ -7985,7 +7991,7 @@
       "category": "load-balancing",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -8007,7 +8013,7 @@
       "schema_path": ["routes"],
       "sections": [
         {
-          "aliases": ["kind"],
+          "aliases": ["routes kind"],
           "anchor": "schema-routes--kind",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then kind will hold the referred object's kind (e.g. \"route\")",
           "document_id": "xcsh-docs:data-sources:virtual_host:properties:routes",
@@ -8021,7 +8027,7 @@
           "type": "string"
         },
         {
-          "aliases": ["name"],
+          "aliases": ["routes name"],
           "anchor": "schema-routes--name",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.",
           "document_id": "xcsh-docs:data-sources:virtual_host:properties:routes",
@@ -8035,7 +8041,7 @@
           "type": "string"
         },
         {
-          "aliases": ["namespace"],
+          "aliases": ["routes namespace"],
           "anchor": "schema-routes--namespace",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace.",
           "document_id": "xcsh-docs:data-sources:virtual_host:properties:routes",
@@ -8049,7 +8055,7 @@
           "type": "string"
         },
         {
-          "aliases": ["tenant"],
+          "aliases": ["routes tenant"],
           "anchor": "schema-routes--tenant",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant.",
           "document_id": "xcsh-docs:data-sources:virtual_host:properties:routes",
@@ -8063,7 +8069,7 @@
           "type": "string"
         },
         {
-          "aliases": ["uid"],
+          "aliases": ["routes uid"],
           "anchor": "schema-routes--uid",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then uid will hold the referred object's(e.g. Route's) uid.",
           "document_id": "xcsh-docs:data-sources:virtual_host:properties:routes",
@@ -8096,7 +8102,7 @@
       "category": "load-balancing",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -8118,7 +8124,7 @@
       "schema_path": ["sensitive_data_policy"],
       "sections": [
         {
-          "aliases": ["kind"],
+          "aliases": ["sensitive data policy kind"],
           "anchor": "schema-sensitive_data_policy--kind",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then kind will hold the referred object's kind (e.g. \"route\")",
           "document_id": "xcsh-docs:data-sources:virtual_host:properties:sensitive_data_policy",
@@ -8132,7 +8138,7 @@
           "type": "string"
         },
         {
-          "aliases": ["name"],
+          "aliases": ["sensitive data policy name"],
           "anchor": "schema-sensitive_data_policy--name",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.",
           "document_id": "xcsh-docs:data-sources:virtual_host:properties:sensitive_data_policy",
@@ -8146,7 +8152,7 @@
           "type": "string"
         },
         {
-          "aliases": ["namespace"],
+          "aliases": ["sensitive data policy namespace"],
           "anchor": "schema-sensitive_data_policy--namespace",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace.",
           "document_id": "xcsh-docs:data-sources:virtual_host:properties:sensitive_data_policy",
@@ -8160,7 +8166,7 @@
           "type": "string"
         },
         {
-          "aliases": ["tenant"],
+          "aliases": ["sensitive data policy tenant"],
           "anchor": "schema-sensitive_data_policy--tenant",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant.",
           "document_id": "xcsh-docs:data-sources:virtual_host:properties:sensitive_data_policy",
@@ -8174,7 +8180,7 @@
           "type": "string"
         },
         {
-          "aliases": ["uid"],
+          "aliases": ["sensitive data policy uid"],
           "anchor": "schema-sensitive_data_policy--uid",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then uid will hold the referred object's(e.g. Route's) uid.",
           "document_id": "xcsh-docs:data-sources:virtual_host:properties:sensitive_data_policy",
@@ -8207,7 +8213,7 @@
       "category": "load-balancing",
       "child_ids": ["xcsh-docs:data-sources:virtual_host:properties:slow_ddos_mitigation:disable_request_timeout"],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -8229,7 +8235,7 @@
       "schema_path": ["slow_ddos_mitigation"],
       "sections": [
         {
-          "aliases": ["disable request timeout", "duration", "operation timeout"],
+          "aliases": ["duration", "slow ddos mitigation disable request timeout"],
           "anchor": "section",
           "description": "This can be used for messages where no values are needed.",
           "document_id": "xcsh-docs:data-sources:virtual_host:properties:slow_ddos_mitigation:disable_request_timeout",
@@ -8243,7 +8249,7 @@
           "type": "object"
         },
         {
-          "aliases": ["duration", "operation timeout", "request headers timeout"],
+          "aliases": ["duration", "slow ddos mitigation request headers timeout"],
           "anchor": "schema-slow_ddos_mitigation--request_headers_timeout",
           "description": "The amount of time the client has to send only the headers on the request stream before the stream is cancelled. The default value is 10000 milliseconds. This setting provides protection against Slowloris attacks.",
           "document_id": "xcsh-docs:data-sources:virtual_host:properties:slow_ddos_mitigation",
@@ -8257,7 +8263,7 @@
           "type": "number"
         },
         {
-          "aliases": ["duration", "operation timeout", "request timeout"],
+          "aliases": ["duration", "slow ddos mitigation request timeout"],
           "anchor": "schema-slow_ddos_mitigation--request_timeout",
           "description": "Exclusive with",
           "document_id": "xcsh-docs:data-sources:virtual_host:properties:slow_ddos_mitigation",
@@ -8283,14 +8289,14 @@
       }
     },
     {
-      "aliases": ["duration", "operation timeout", "slow ddos mitigation disable request timeout"],
+      "aliases": ["duration", "slow ddos mitigation disable request timeout"],
       "body_bytes": 1298,
       "body_sha256": "sha256:15cef0f0ff801b888d123aa1dec1bf6b64b6ffd51a12d1669000bb3e7cf0069a",
       "capabilities": ["load-balancing"],
       "category": "load-balancing",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -8336,7 +8342,7 @@
         "xcsh-docs:data-sources:virtual_host:properties:tls_cert_params:validation_params"
       ],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -8358,7 +8364,13 @@
       "schema_path": ["tls_cert_params"],
       "sections": [
         {
-          "aliases": ["cert", "certificate", "certificates", "existing certificates", "tls certificates"],
+          "aliases": [
+            "cert",
+            "certificate",
+            "existing certificates",
+            "tls cert params certificates",
+            "tls certificates"
+          ],
           "anchor": "section",
           "description": "Set of certificates.",
           "document_id": "xcsh-docs:data-sources:virtual_host:properties:tls_cert_params:certificates",
@@ -8372,7 +8384,7 @@
           "type": "object"
         },
         {
-          "aliases": ["cipher suites"],
+          "aliases": ["tls cert params cipher suites"],
           "anchor": "schema-tls_cert_params--cipher_suites",
           "description": "The following list specifies the supported cipher suite TLS_AES_128_GCM_SHA256 TLS_AES_256_GCM_SHA384 TLS_CHACHA20_POLY1305_SHA256 TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256 TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384 TLS_ECDHE_ECDSA_WITH_CHACHA20_POLY1305_SHA256 TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256",
           "document_id": "xcsh-docs:data-sources:virtual_host:properties:tls_cert_params",
@@ -8386,7 +8398,7 @@
           "type": "list"
         },
         {
-          "aliases": ["client certificate optional"],
+          "aliases": ["tls cert params client certificate optional"],
           "anchor": "section",
           "description": "This can be used for messages where no values are needed.",
           "document_id": "xcsh-docs:data-sources:virtual_host:properties:tls_cert_params:client_certificate_optional",
@@ -8400,7 +8412,7 @@
           "type": "object"
         },
         {
-          "aliases": ["client certificate required"],
+          "aliases": ["tls cert params client certificate required"],
           "anchor": "section",
           "description": "This can be used for messages where no values are needed.",
           "document_id": "xcsh-docs:data-sources:virtual_host:properties:tls_cert_params:client_certificate_required",
@@ -8414,7 +8426,7 @@
           "type": "object"
         },
         {
-          "aliases": ["maximum protocol version"],
+          "aliases": ["tls cert params maximum protocol version"],
           "anchor": "schema-tls_cert_params--maximum_protocol_version",
           "description": "TlsProtocol is enumeration of supported TLS versions F5 Distributed Cloud will choose the optimal TLS version.",
           "document_id": "xcsh-docs:data-sources:virtual_host:properties:tls_cert_params",
@@ -8428,7 +8440,7 @@
           "type": "string"
         },
         {
-          "aliases": ["minimum protocol version"],
+          "aliases": ["tls cert params minimum protocol version"],
           "anchor": "schema-tls_cert_params--minimum_protocol_version",
           "description": "TlsProtocol is enumeration of supported TLS versions F5 Distributed Cloud will choose the optimal TLS version.",
           "document_id": "xcsh-docs:data-sources:virtual_host:properties:tls_cert_params",
@@ -8442,7 +8454,7 @@
           "type": "string"
         },
         {
-          "aliases": ["no client certificate"],
+          "aliases": ["tls cert params no client certificate"],
           "anchor": "section",
           "description": "This can be used for messages where no values are needed.",
           "document_id": "xcsh-docs:data-sources:virtual_host:properties:tls_cert_params:no_client_certificate",
@@ -8456,7 +8468,7 @@
           "type": "object"
         },
         {
-          "aliases": ["validation params"],
+          "aliases": ["tls cert params validation params"],
           "anchor": "section",
           "description": "This includes URL for a trust store, whether SAN verification is required and list of Subject Alt Names for verification.",
           "document_id": "xcsh-docs:data-sources:virtual_host:properties:tls_cert_params:validation_params",
@@ -8470,7 +8482,7 @@
           "type": "object"
         },
         {
-          "aliases": ["xfcc header elements"],
+          "aliases": ["tls cert params xfcc header elements"],
           "anchor": "schema-tls_cert_params--xfcc_header_elements",
           "description": "X-Forwarded-Client-Cert header elements to be set in an mTLS enabled connections. If none are defined, the header will not be added.",
           "document_id": "xcsh-docs:data-sources:virtual_host:properties:tls_cert_params",
@@ -8503,7 +8515,7 @@
       "category": "load-balancing",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -8525,7 +8537,7 @@
       "schema_path": ["tls_cert_params", "certificates"],
       "sections": [
         {
-          "aliases": ["kind"],
+          "aliases": ["tls cert params certificates kind"],
           "anchor": "schema-tls_cert_params--certificates--kind",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then kind will hold the referred object's kind (e.g. \"route\")",
           "document_id": "xcsh-docs:data-sources:virtual_host:properties:tls_cert_params:certificates",
@@ -8539,7 +8551,7 @@
           "type": "string"
         },
         {
-          "aliases": ["name"],
+          "aliases": ["tls cert params certificates name"],
           "anchor": "schema-tls_cert_params--certificates--name",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.",
           "document_id": "xcsh-docs:data-sources:virtual_host:properties:tls_cert_params:certificates",
@@ -8553,7 +8565,7 @@
           "type": "string"
         },
         {
-          "aliases": ["namespace"],
+          "aliases": ["tls cert params certificates namespace"],
           "anchor": "schema-tls_cert_params--certificates--namespace",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace.",
           "document_id": "xcsh-docs:data-sources:virtual_host:properties:tls_cert_params:certificates",
@@ -8567,7 +8579,7 @@
           "type": "string"
         },
         {
-          "aliases": ["tenant"],
+          "aliases": ["tls cert params certificates tenant"],
           "anchor": "schema-tls_cert_params--certificates--tenant",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant.",
           "document_id": "xcsh-docs:data-sources:virtual_host:properties:tls_cert_params:certificates",
@@ -8581,7 +8593,7 @@
           "type": "string"
         },
         {
-          "aliases": ["uid"],
+          "aliases": ["tls cert params certificates uid"],
           "anchor": "schema-tls_cert_params--certificates--uid",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then uid will hold the referred object's(e.g. Route's) uid.",
           "document_id": "xcsh-docs:data-sources:virtual_host:properties:tls_cert_params:certificates",
@@ -8614,7 +8626,7 @@
       "category": "load-balancing",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -8654,7 +8666,7 @@
       "category": "load-balancing",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -8694,7 +8706,7 @@
       "category": "load-balancing",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -8734,7 +8746,7 @@
       "category": "load-balancing",
       "child_ids": ["xcsh-docs:data-sources:virtual_host:properties:tls_cert_params:validation_params:trusted_ca"],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -8756,7 +8768,7 @@
       "schema_path": ["tls_cert_params", "validation_params"],
       "sections": [
         {
-          "aliases": ["skip hostname verification"],
+          "aliases": ["tls cert params validation params skip hostname verification"],
           "anchor": "schema-tls_cert_params--validation_params--skip_hostname_verification",
           "description": "When True, skip verification of hostname i.e. CN/Subject Alt Name of certificate is not matched to the connecting hostname.",
           "document_id": "xcsh-docs:data-sources:virtual_host:properties:tls_cert_params:validation_params",
@@ -8770,7 +8782,7 @@
           "type": "bool"
         },
         {
-          "aliases": ["trusted ca"],
+          "aliases": ["tls cert params validation params trusted ca"],
           "anchor": "section",
           "description": "Reference to Root CA Certificate.",
           "document_id": "xcsh-docs:data-sources:virtual_host:properties:tls_cert_params:validation_params:trusted_ca",
@@ -8784,7 +8796,7 @@
           "type": "object"
         },
         {
-          "aliases": ["trusted ca url"],
+          "aliases": ["tls cert params validation params trusted ca url"],
           "anchor": "schema-tls_cert_params--validation_params--trusted_ca_url",
           "description": "Exclusive with Inline Root CA Certificate.",
           "document_id": "xcsh-docs:data-sources:virtual_host:properties:tls_cert_params:validation_params",
@@ -8798,7 +8810,7 @@
           "type": "string"
         },
         {
-          "aliases": ["verify subject alt names"],
+          "aliases": ["tls cert params validation params verify subject alt names"],
           "anchor": "schema-tls_cert_params--validation_params--verify_subject_alt_names",
           "description": "List of acceptable Subject Alt Names/CN in the peer's certificate. When skip_hostname_verification is false and verify_subject_alt_names is empty, the hostname of the peer will be used for matching against SAN/CN of peer's certificate.",
           "document_id": "xcsh-docs:data-sources:virtual_host:properties:tls_cert_params:validation_params",
@@ -8833,7 +8845,7 @@
         "xcsh-docs:data-sources:virtual_host:properties:tls_cert_params:validation_params:trusted_ca:trusted_ca_list"
       ],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -8855,7 +8867,7 @@
       "schema_path": ["tls_cert_params", "validation_params", "trusted_ca"],
       "sections": [
         {
-          "aliases": ["trusted ca list"],
+          "aliases": ["tls cert params validation params trusted ca trusted ca list"],
           "anchor": "section",
           "description": "Reference to Root CA Certificate.",
           "document_id": "xcsh-docs:data-sources:virtual_host:properties:tls_cert_params:validation_params:trusted_ca:trusted_ca_list",
@@ -8888,7 +8900,7 @@
       "category": "load-balancing",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -8910,7 +8922,7 @@
       "schema_path": ["tls_cert_params", "validation_params", "trusted_ca", "trusted_ca_list"],
       "sections": [
         {
-          "aliases": ["kind"],
+          "aliases": ["tls cert params validation params trusted ca trusted ca list kind"],
           "anchor": "schema-tls_cert_params--validation_params--trusted_ca--trusted_ca_list--kind",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then kind will hold the referred object's kind (e.g. \"route\")",
           "document_id": "xcsh-docs:data-sources:virtual_host:properties:tls_cert_params:validation_params:trusted_ca:trusted_ca_list",
@@ -8924,7 +8936,7 @@
           "type": "string"
         },
         {
-          "aliases": ["name"],
+          "aliases": ["tls cert params validation params trusted ca trusted ca list name"],
           "anchor": "schema-tls_cert_params--validation_params--trusted_ca--trusted_ca_list--name",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.",
           "document_id": "xcsh-docs:data-sources:virtual_host:properties:tls_cert_params:validation_params:trusted_ca:trusted_ca_list",
@@ -8938,7 +8950,7 @@
           "type": "string"
         },
         {
-          "aliases": ["namespace"],
+          "aliases": ["tls cert params validation params trusted ca trusted ca list namespace"],
           "anchor": "schema-tls_cert_params--validation_params--trusted_ca--trusted_ca_list--namespace",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace.",
           "document_id": "xcsh-docs:data-sources:virtual_host:properties:tls_cert_params:validation_params:trusted_ca:trusted_ca_list",
@@ -8952,7 +8964,7 @@
           "type": "string"
         },
         {
-          "aliases": ["tenant"],
+          "aliases": ["tls cert params validation params trusted ca trusted ca list tenant"],
           "anchor": "schema-tls_cert_params--validation_params--trusted_ca--trusted_ca_list--tenant",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant.",
           "document_id": "xcsh-docs:data-sources:virtual_host:properties:tls_cert_params:validation_params:trusted_ca:trusted_ca_list",
@@ -8966,7 +8978,7 @@
           "type": "string"
         },
         {
-          "aliases": ["uid"],
+          "aliases": ["tls cert params validation params trusted ca trusted ca list uid"],
           "anchor": "schema-tls_cert_params--validation_params--trusted_ca--trusted_ca_list--uid",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then uid will hold the referred object's(e.g. Route's) uid.",
           "document_id": "xcsh-docs:data-sources:virtual_host:properties:tls_cert_params:validation_params:trusted_ca:trusted_ca_list",
@@ -9004,7 +9016,7 @@
         "xcsh-docs:data-sources:virtual_host:properties:tls_parameters:no_client_certificate"
       ],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -9026,7 +9038,7 @@
       "schema_path": ["tls_parameters"],
       "sections": [
         {
-          "aliases": ["client certificate optional"],
+          "aliases": ["tls parameters client certificate optional"],
           "anchor": "section",
           "description": "This can be used for messages where no values are needed.",
           "document_id": "xcsh-docs:data-sources:virtual_host:properties:tls_parameters:client_certificate_optional",
@@ -9040,7 +9052,7 @@
           "type": "object"
         },
         {
-          "aliases": ["client certificate required"],
+          "aliases": ["tls parameters client certificate required"],
           "anchor": "section",
           "description": "This can be used for messages where no values are needed.",
           "document_id": "xcsh-docs:data-sources:virtual_host:properties:tls_parameters:client_certificate_required",
@@ -9054,7 +9066,7 @@
           "type": "object"
         },
         {
-          "aliases": ["common params"],
+          "aliases": ["tls parameters common params"],
           "anchor": "section",
           "description": "Information of different aspects for TLS authentication related to ciphers, certificates and trust store.",
           "document_id": "xcsh-docs:data-sources:virtual_host:properties:tls_parameters:common_params",
@@ -9068,7 +9080,7 @@
           "type": "object"
         },
         {
-          "aliases": ["no client certificate"],
+          "aliases": ["tls parameters no client certificate"],
           "anchor": "section",
           "description": "This can be used for messages where no values are needed.",
           "document_id": "xcsh-docs:data-sources:virtual_host:properties:tls_parameters:no_client_certificate",
@@ -9082,7 +9094,7 @@
           "type": "object"
         },
         {
-          "aliases": ["xfcc header elements"],
+          "aliases": ["tls parameters xfcc header elements"],
           "anchor": "schema-tls_parameters--xfcc_header_elements",
           "description": "X-Forwarded-Client-Cert header elements to be set in an mTLS enabled connections. If none are defined, the header will not be added.",
           "document_id": "xcsh-docs:data-sources:virtual_host:properties:tls_parameters",
@@ -9115,7 +9127,7 @@
       "category": "load-balancing",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -9155,7 +9167,7 @@
       "category": "load-balancing",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -9198,7 +9210,7 @@
         "xcsh-docs:data-sources:virtual_host:properties:tls_parameters:common_params:validation_params"
       ],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -9220,7 +9232,7 @@
       "schema_path": ["tls_parameters", "common_params"],
       "sections": [
         {
-          "aliases": ["cipher suites"],
+          "aliases": ["tls parameters common params cipher suites"],
           "anchor": "schema-tls_parameters--common_params--cipher_suites",
           "description": "The following list specifies the supported cipher suite TLS_AES_128_GCM_SHA256 TLS_AES_256_GCM_SHA384 TLS_CHACHA20_POLY1305_SHA256 TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256 TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384 TLS_ECDHE_ECDSA_WITH_CHACHA20_POLY1305_SHA256 TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256",
           "document_id": "xcsh-docs:data-sources:virtual_host:properties:tls_parameters:common_params",
@@ -9234,7 +9246,7 @@
           "type": "list"
         },
         {
-          "aliases": ["maximum protocol version"],
+          "aliases": ["tls parameters common params maximum protocol version"],
           "anchor": "schema-tls_parameters--common_params--maximum_protocol_version",
           "description": "TlsProtocol is enumeration of supported TLS versions F5 Distributed Cloud will choose the optimal TLS version.",
           "document_id": "xcsh-docs:data-sources:virtual_host:properties:tls_parameters:common_params",
@@ -9248,7 +9260,7 @@
           "type": "string"
         },
         {
-          "aliases": ["minimum protocol version"],
+          "aliases": ["tls parameters common params minimum protocol version"],
           "anchor": "schema-tls_parameters--common_params--minimum_protocol_version",
           "description": "TlsProtocol is enumeration of supported TLS versions F5 Distributed Cloud will choose the optimal TLS version.",
           "document_id": "xcsh-docs:data-sources:virtual_host:properties:tls_parameters:common_params",
@@ -9262,7 +9274,13 @@
           "type": "string"
         },
         {
-          "aliases": ["cert", "certificate", "existing certificates", "tls certificates"],
+          "aliases": [
+            "cert",
+            "certificate",
+            "existing certificates",
+            "tls certificates",
+            "tls parameters common params tls certificates"
+          ],
           "anchor": "section",
           "description": "Set of TLS certificates.",
           "document_id": "xcsh-docs:data-sources:virtual_host:properties:tls_parameters:common_params:tls_certificates",
@@ -9276,7 +9294,7 @@
           "type": "object"
         },
         {
-          "aliases": ["validation params"],
+          "aliases": ["tls parameters common params validation params"],
           "anchor": "section",
           "description": "This includes URL for a trust store, whether SAN verification is required and list of Subject Alt Names for verification.",
           "document_id": "xcsh-docs:data-sources:virtual_host:properties:tls_parameters:common_params:validation_params",
@@ -9320,7 +9338,7 @@
         "xcsh-docs:data-sources:virtual_host:properties:tls_parameters:common_params:tls_certificates:use_system_defaults"
       ],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -9342,7 +9360,13 @@
       "schema_path": ["tls_parameters", "common_params", "tls_certificates"],
       "sections": [
         {
-          "aliases": ["cert", "certificate", "certificate url", "existing certificates", "tls certificates"],
+          "aliases": [
+            "cert",
+            "certificate",
+            "existing certificates",
+            "tls certificates",
+            "tls parameters common params tls certificates certificate url"
+          ],
           "anchor": "schema-tls_parameters--common_params--tls_certificates--certificate_url",
           "description": "TLS certificate. Certificate or certificate chain in PEM format including the PEM headers.",
           "document_id": "xcsh-docs:data-sources:virtual_host:properties:tls_parameters:common_params:tls_certificates",
@@ -9356,7 +9380,7 @@
           "type": "string"
         },
         {
-          "aliases": ["custom hash algorithms"],
+          "aliases": ["tls parameters common params tls certificates custom hash algorithms"],
           "anchor": "section",
           "description": "Specifies the hash algorithms to be used.",
           "document_id": "xcsh-docs:data-sources:virtual_host:properties:tls_parameters:common_params:tls_certificates:custom_hash_algorithms",
@@ -9370,7 +9394,7 @@
           "type": "object"
         },
         {
-          "aliases": ["description spec"],
+          "aliases": ["tls parameters common params tls certificates description spec"],
           "anchor": "schema-tls_parameters--common_params--tls_certificates--description_spec",
           "description": "Description. Description for the certificate.",
           "document_id": "xcsh-docs:data-sources:virtual_host:properties:tls_parameters:common_params:tls_certificates",
@@ -9384,7 +9408,7 @@
           "type": "string"
         },
         {
-          "aliases": ["disable ocsp stapling"],
+          "aliases": ["tls parameters common params tls certificates disable ocsp stapling"],
           "anchor": "section",
           "description": "This can be used for messages where no values are needed.",
           "document_id": "xcsh-docs:data-sources:virtual_host:properties:tls_parameters:common_params:tls_certificates:disable_ocsp_stapling",
@@ -9398,7 +9422,7 @@
           "type": "object"
         },
         {
-          "aliases": ["private key"],
+          "aliases": ["tls parameters common params tls certificates private key"],
           "anchor": "section",
           "description": "SecretType is used in an object to indicate a sensitive/confidential field.",
           "document_id": "xcsh-docs:data-sources:virtual_host:properties:tls_parameters:common_params:tls_certificates:private_key",
@@ -9412,7 +9436,7 @@
           "type": "object"
         },
         {
-          "aliases": ["use system defaults"],
+          "aliases": ["tls parameters common params tls certificates use system defaults"],
           "anchor": "section",
           "description": "This can be used for messages where no values are needed.",
           "document_id": "xcsh-docs:data-sources:virtual_host:properties:tls_parameters:common_params:tls_certificates:use_system_defaults",
@@ -9445,7 +9469,7 @@
       "category": "load-balancing",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -9467,7 +9491,7 @@
       "schema_path": ["tls_parameters", "common_params", "tls_certificates", "custom_hash_algorithms"],
       "sections": [
         {
-          "aliases": ["hash algorithms"],
+          "aliases": ["tls parameters common params tls certificates custom hash algorithms hash algorithms"],
           "anchor": "schema-tls_parameters--common_params--tls_certificates--custom_hash_algorithms--hash_algorithms",
           "description": "Ordered list of hash algorithms to be used.",
           "document_id": "xcsh-docs:data-sources:virtual_host:properties:tls_parameters:common_params:tls_certificates:custom_hash_algorithms",
@@ -9506,7 +9530,7 @@
       "category": "load-balancing",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -9549,7 +9573,7 @@
         "xcsh-docs:data-sources:virtual_host:properties:tls_parameters:common_params:tls_certificates:private_key:clear_secret_info"
       ],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -9571,7 +9595,7 @@
       "schema_path": ["tls_parameters", "common_params", "tls_certificates", "private_key"],
       "sections": [
         {
-          "aliases": ["blindfold secret info"],
+          "aliases": ["tls parameters common params tls certificates private key blindfold secret info"],
           "anchor": "section",
           "description": "BlindfoldSecretInfoType specifies information about the Secret managed by F5XC Secret Management.",
           "document_id": "xcsh-docs:data-sources:virtual_host:properties:tls_parameters:common_params:tls_certificates:private_key:blindfold_secret_info",
@@ -9591,7 +9615,7 @@
           "type": "object"
         },
         {
-          "aliases": ["clear secret info"],
+          "aliases": ["tls parameters common params tls certificates private key clear secret info"],
           "anchor": "section",
           "description": "ClearSecretInfoType specifies information about the Secret that is not encrypted.",
           "document_id": "xcsh-docs:data-sources:virtual_host:properties:tls_parameters:common_params:tls_certificates:private_key:clear_secret_info",
@@ -9624,7 +9648,7 @@
       "category": "load-balancing",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -9646,7 +9670,9 @@
       "schema_path": ["tls_parameters", "common_params", "tls_certificates", "private_key", "blindfold_secret_info"],
       "sections": [
         {
-          "aliases": ["decryption provider"],
+          "aliases": [
+            "tls parameters common params tls certificates private key blindfold secret info decryption provider"
+          ],
           "anchor": "schema-tls_parameters--common_params--tls_certificates--private_key--blindfold_secret_info--decryption_provider",
           "description": "Name of the Secret Management Access object that contains information about the backend Secret Management service.",
           "document_id": "xcsh-docs:data-sources:virtual_host:properties:tls_parameters:common_params:tls_certificates:private_key:blindfold_secret_info",
@@ -9667,7 +9693,7 @@
           "type": "string"
         },
         {
-          "aliases": ["location"],
+          "aliases": ["tls parameters common params tls certificates private key blindfold secret info location"],
           "anchor": "schema-tls_parameters--common_params--tls_certificates--private_key--blindfold_secret_info--location",
           "description": "Location is the uri_ref. It could be in URL format for string:/// Or it could be a path if the store provider is an HTTP/HTTPS location.",
           "document_id": "xcsh-docs:data-sources:virtual_host:properties:tls_parameters:common_params:tls_certificates:private_key:blindfold_secret_info",
@@ -9688,7 +9714,7 @@
           "type": "string"
         },
         {
-          "aliases": ["store provider"],
+          "aliases": ["tls parameters common params tls certificates private key blindfold secret info store provider"],
           "anchor": "schema-tls_parameters--common_params--tls_certificates--private_key--blindfold_secret_info--store_provider",
           "description": "Name of the Secret Management Access object that contains information about the store to GET encrypted bytes This field needs to be provided only if the URL scheme is not string:///.",
           "document_id": "xcsh-docs:data-sources:virtual_host:properties:tls_parameters:common_params:tls_certificates:private_key:blindfold_secret_info",
@@ -9728,7 +9754,7 @@
       "category": "load-balancing",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -9750,7 +9776,7 @@
       "schema_path": ["tls_parameters", "common_params", "tls_certificates", "private_key", "clear_secret_info"],
       "sections": [
         {
-          "aliases": ["provider ref"],
+          "aliases": ["tls parameters common params tls certificates private key clear secret info provider ref"],
           "anchor": "schema-tls_parameters--common_params--tls_certificates--private_key--clear_secret_info--provider_ref",
           "description": "Name of the Secret Management Access object that contains information about the store to GET encrypted bytes This field needs to be provided only if the URL scheme is not string:///.",
           "document_id": "xcsh-docs:data-sources:virtual_host:properties:tls_parameters:common_params:tls_certificates:private_key:clear_secret_info",
@@ -9771,7 +9797,7 @@
           "type": "string"
         },
         {
-          "aliases": ["url"],
+          "aliases": ["tls parameters common params tls certificates private key clear secret info url"],
           "anchor": "schema-tls_parameters--common_params--tls_certificates--private_key--clear_secret_info--url",
           "description": "URL of the secret. Currently supported URL schemes is string:///. For string:/// scheme, Secret needs to be encoded Base64 format. When asked for this secret, caller will GET Secret bytes after Base64 decoding.",
           "document_id": "xcsh-docs:data-sources:virtual_host:properties:tls_parameters:common_params:tls_certificates:private_key:clear_secret_info",
@@ -9811,7 +9837,7 @@
       "category": "load-balancing",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -9853,7 +9879,7 @@
         "xcsh-docs:data-sources:virtual_host:properties:tls_parameters:common_params:validation_params:trusted_ca"
       ],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -9875,7 +9901,7 @@
       "schema_path": ["tls_parameters", "common_params", "validation_params"],
       "sections": [
         {
-          "aliases": ["skip hostname verification"],
+          "aliases": ["tls parameters common params validation params skip hostname verification"],
           "anchor": "schema-tls_parameters--common_params--validation_params--skip_hostname_verification",
           "description": "When True, skip verification of hostname i.e. CN/Subject Alt Name of certificate is not matched to the connecting hostname.",
           "document_id": "xcsh-docs:data-sources:virtual_host:properties:tls_parameters:common_params:validation_params",
@@ -9889,7 +9915,7 @@
           "type": "bool"
         },
         {
-          "aliases": ["trusted ca"],
+          "aliases": ["tls parameters common params validation params trusted ca"],
           "anchor": "section",
           "description": "Reference to Root CA Certificate.",
           "document_id": "xcsh-docs:data-sources:virtual_host:properties:tls_parameters:common_params:validation_params:trusted_ca",
@@ -9903,7 +9929,7 @@
           "type": "object"
         },
         {
-          "aliases": ["trusted ca url"],
+          "aliases": ["tls parameters common params validation params trusted ca url"],
           "anchor": "schema-tls_parameters--common_params--validation_params--trusted_ca_url",
           "description": "Exclusive with Inline Root CA Certificate.",
           "document_id": "xcsh-docs:data-sources:virtual_host:properties:tls_parameters:common_params:validation_params",
@@ -9917,7 +9943,7 @@
           "type": "string"
         },
         {
-          "aliases": ["verify subject alt names"],
+          "aliases": ["tls parameters common params validation params verify subject alt names"],
           "anchor": "schema-tls_parameters--common_params--validation_params--verify_subject_alt_names",
           "description": "List of acceptable Subject Alt Names/CN in the peer's certificate. When skip_hostname_verification is false and verify_subject_alt_names is empty, the hostname of the peer will be used for matching against SAN/CN of peer's certificate.",
           "document_id": "xcsh-docs:data-sources:virtual_host:properties:tls_parameters:common_params:validation_params",
@@ -9952,7 +9978,7 @@
         "xcsh-docs:data-sources:virtual_host:properties:tls_parameters:common_params:validation_params:trusted_ca:trusted_ca_list"
       ],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -9974,7 +10000,7 @@
       "schema_path": ["tls_parameters", "common_params", "validation_params", "trusted_ca"],
       "sections": [
         {
-          "aliases": ["trusted ca list"],
+          "aliases": ["tls parameters common params validation params trusted ca trusted ca list"],
           "anchor": "section",
           "description": "Reference to Root CA Certificate.",
           "document_id": "xcsh-docs:data-sources:virtual_host:properties:tls_parameters:common_params:validation_params:trusted_ca:trusted_ca_list",
@@ -10007,7 +10033,7 @@
       "category": "load-balancing",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -10029,7 +10055,7 @@
       "schema_path": ["tls_parameters", "common_params", "validation_params", "trusted_ca", "trusted_ca_list"],
       "sections": [
         {
-          "aliases": ["kind"],
+          "aliases": ["tls parameters common params validation params trusted ca trusted ca list kind"],
           "anchor": "schema-tls_parameters--common_params--validation_params--trusted_ca--trusted_ca_list--kind",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then kind will hold the referred object's kind (e.g. \"route\")",
           "document_id": "xcsh-docs:data-sources:virtual_host:properties:tls_parameters:common_params:validation_params:trusted_ca:trusted_ca_list",
@@ -10050,7 +10076,7 @@
           "type": "string"
         },
         {
-          "aliases": ["name"],
+          "aliases": ["tls parameters common params validation params trusted ca trusted ca list name"],
           "anchor": "schema-tls_parameters--common_params--validation_params--trusted_ca--trusted_ca_list--name",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.",
           "document_id": "xcsh-docs:data-sources:virtual_host:properties:tls_parameters:common_params:validation_params:trusted_ca:trusted_ca_list",
@@ -10071,7 +10097,7 @@
           "type": "string"
         },
         {
-          "aliases": ["namespace"],
+          "aliases": ["tls parameters common params validation params trusted ca trusted ca list namespace"],
           "anchor": "schema-tls_parameters--common_params--validation_params--trusted_ca--trusted_ca_list--namespace",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace.",
           "document_id": "xcsh-docs:data-sources:virtual_host:properties:tls_parameters:common_params:validation_params:trusted_ca:trusted_ca_list",
@@ -10092,7 +10118,7 @@
           "type": "string"
         },
         {
-          "aliases": ["tenant"],
+          "aliases": ["tls parameters common params validation params trusted ca trusted ca list tenant"],
           "anchor": "schema-tls_parameters--common_params--validation_params--trusted_ca--trusted_ca_list--tenant",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant.",
           "document_id": "xcsh-docs:data-sources:virtual_host:properties:tls_parameters:common_params:validation_params:trusted_ca:trusted_ca_list",
@@ -10113,7 +10139,7 @@
           "type": "string"
         },
         {
-          "aliases": ["uid"],
+          "aliases": ["tls parameters common params validation params trusted ca trusted ca list uid"],
           "anchor": "schema-tls_parameters--common_params--validation_params--trusted_ca--trusted_ca_list--uid",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then uid will hold the referred object's(e.g. Route's) uid.",
           "document_id": "xcsh-docs:data-sources:virtual_host:properties:tls_parameters:common_params:validation_params:trusted_ca:trusted_ca_list",
@@ -10153,7 +10179,7 @@
       "category": "load-balancing",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -10193,7 +10219,7 @@
       "category": "load-balancing",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -10215,7 +10241,7 @@
       "schema_path": ["user_identification"],
       "sections": [
         {
-          "aliases": ["kind"],
+          "aliases": ["user identification kind"],
           "anchor": "schema-user_identification--kind",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then kind will hold the referred object's kind (e.g. \"route\")",
           "document_id": "xcsh-docs:data-sources:virtual_host:properties:user_identification",
@@ -10229,7 +10255,7 @@
           "type": "string"
         },
         {
-          "aliases": ["name"],
+          "aliases": ["user identification name"],
           "anchor": "schema-user_identification--name",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.",
           "document_id": "xcsh-docs:data-sources:virtual_host:properties:user_identification",
@@ -10243,7 +10269,7 @@
           "type": "string"
         },
         {
-          "aliases": ["namespace"],
+          "aliases": ["user identification namespace"],
           "anchor": "schema-user_identification--namespace",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace.",
           "document_id": "xcsh-docs:data-sources:virtual_host:properties:user_identification",
@@ -10257,7 +10283,7 @@
           "type": "string"
         },
         {
-          "aliases": ["tenant"],
+          "aliases": ["user identification tenant"],
           "anchor": "schema-user_identification--tenant",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant.",
           "document_id": "xcsh-docs:data-sources:virtual_host:properties:user_identification",
@@ -10271,7 +10297,7 @@
           "type": "string"
         },
         {
-          "aliases": ["uid"],
+          "aliases": ["user identification uid"],
           "anchor": "schema-user_identification--uid",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then uid will hold the referred object's(e.g. Route's) uid.",
           "document_id": "xcsh-docs:data-sources:virtual_host:properties:user_identification",
@@ -10308,7 +10334,7 @@
         "xcsh-docs:data-sources:virtual_host:properties:waf_type:inherit_waf"
       ],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -10330,7 +10356,7 @@
       "schema_path": ["waf_type"],
       "sections": [
         {
-          "aliases": ["app firewall"],
+          "aliases": ["waf type app firewall"],
           "anchor": "section",
           "description": "A list of references to the app_firewall configuration objects.",
           "document_id": "xcsh-docs:data-sources:virtual_host:properties:waf_type:app_firewall",
@@ -10344,7 +10370,7 @@
           "type": "object"
         },
         {
-          "aliases": ["disable waf"],
+          "aliases": ["waf type disable waf"],
           "anchor": "section",
           "description": "This can be used for messages where no values are needed.",
           "document_id": "xcsh-docs:data-sources:virtual_host:properties:waf_type:disable_waf",
@@ -10358,7 +10384,7 @@
           "type": "object"
         },
         {
-          "aliases": ["inherit waf"],
+          "aliases": ["waf type inherit waf"],
           "anchor": "section",
           "description": "This can be used for messages where no values are needed.",
           "document_id": "xcsh-docs:data-sources:virtual_host:properties:waf_type:inherit_waf",
@@ -10391,7 +10417,7 @@
       "category": "load-balancing",
       "child_ids": ["xcsh-docs:data-sources:virtual_host:properties:waf_type:app_firewall:app_firewall"],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -10413,7 +10439,7 @@
       "schema_path": ["waf_type", "app_firewall"],
       "sections": [
         {
-          "aliases": ["app firewall"],
+          "aliases": ["waf type app firewall app firewall"],
           "anchor": "section",
           "description": "References to an Application Firewall configuration object.",
           "document_id": "xcsh-docs:data-sources:virtual_host:properties:waf_type:app_firewall:app_firewall",
@@ -10446,7 +10472,7 @@
       "category": "load-balancing",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -10468,7 +10494,7 @@
       "schema_path": ["waf_type", "app_firewall", "app_firewall"],
       "sections": [
         {
-          "aliases": ["kind"],
+          "aliases": ["waf type app firewall app firewall kind"],
           "anchor": "schema-waf_type--app_firewall--app_firewall--kind",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then kind will hold the referred object's kind (e.g. \"route\")",
           "document_id": "xcsh-docs:data-sources:virtual_host:properties:waf_type:app_firewall:app_firewall",
@@ -10482,7 +10508,7 @@
           "type": "string"
         },
         {
-          "aliases": ["name"],
+          "aliases": ["waf type app firewall app firewall name"],
           "anchor": "schema-waf_type--app_firewall--app_firewall--name",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.",
           "document_id": "xcsh-docs:data-sources:virtual_host:properties:waf_type:app_firewall:app_firewall",
@@ -10496,7 +10522,7 @@
           "type": "string"
         },
         {
-          "aliases": ["namespace"],
+          "aliases": ["waf type app firewall app firewall namespace"],
           "anchor": "schema-waf_type--app_firewall--app_firewall--namespace",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace.",
           "document_id": "xcsh-docs:data-sources:virtual_host:properties:waf_type:app_firewall:app_firewall",
@@ -10510,7 +10536,7 @@
           "type": "string"
         },
         {
-          "aliases": ["tenant"],
+          "aliases": ["waf type app firewall app firewall tenant"],
           "anchor": "schema-waf_type--app_firewall--app_firewall--tenant",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant.",
           "document_id": "xcsh-docs:data-sources:virtual_host:properties:waf_type:app_firewall:app_firewall",
@@ -10524,7 +10550,7 @@
           "type": "string"
         },
         {
-          "aliases": ["uid"],
+          "aliases": ["waf type app firewall app firewall uid"],
           "anchor": "schema-waf_type--app_firewall--app_firewall--uid",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then uid will hold the referred object's(e.g. Route's) uid.",
           "document_id": "xcsh-docs:data-sources:virtual_host:properties:waf_type:app_firewall:app_firewall",
@@ -10557,7 +10583,7 @@
       "category": "load-balancing",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -10597,7 +10623,7 @@
       "category": "load-balancing",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -10637,7 +10663,7 @@
       "category": "load-balancing",
       "child_ids": ["xcsh-docs:data-sources:virtual_host:example:data-source"],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -10677,7 +10703,7 @@
       "category": "load-balancing",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"

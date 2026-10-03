@@ -1141,7 +1141,7 @@
         "xcsh-docs:resources:origin_pool:timeouts"
       ],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -1201,7 +1201,7 @@
         "xcsh-docs:resources:origin_pool:properties:use_tls"
       ],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -2430,7 +2430,7 @@
           "type": "object"
         },
         {
-          "aliases": ["duration", "operation timeout", "timeouts"],
+          "aliases": ["duration", "lifecycle timeout", "operation timeout", "timeouts"],
           "anchor": "section",
           "description": "timeouts",
           "document_id": "xcsh-docs:resources:origin_pool:properties:timeouts",
@@ -2719,7 +2719,7 @@
         "xcsh-docs:resources:origin_pool:properties:advanced_options:proxy_protocol_v2"
       ],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -2966,7 +2966,7 @@
       "schema_path": ["advanced_options"],
       "sections": [
         {
-          "aliases": ["auto http config"],
+          "aliases": ["advanced options auto http config"],
           "anchor": "section",
           "description": "This can be used for messages where no values are needed.",
           "document_id": "xcsh-docs:resources:origin_pool:properties:advanced_options:auto_http_config",
@@ -2980,7 +2980,7 @@
           "type": "object"
         },
         {
-          "aliases": ["circuit breaker"],
+          "aliases": ["advanced options circuit breaker"],
           "anchor": "section",
           "description": "CircuitBreaker provides a mechanism for watching failures in upstream connections or requests and if the failures reach a certain threshold, automatically fail subsequent requests which allows to apply back pressure on downstream quickly.",
           "document_id": "xcsh-docs:resources:origin_pool:properties:advanced_options:circuit_breaker",
@@ -2994,9 +2994,15 @@
           "type": "object"
         },
         {
-          "aliases": ["connection timeout", "duration", "operation timeout"],
+          "aliases": [
+            "advanced options connection timeout",
+            "connection timeout",
+            "duration",
+            "endpoint connection timeout",
+            "upstream connection timeout"
+          ],
           "anchor": "schema-advanced_options--connection_timeout",
-          "description": "The timeout for new network connections to endpoints in the cluster. This is specified in milliseconds. The default value is 2 seconds.",
+          "description": "Timeout in milliseconds for new network connections to endpoints in the cluster (default: 2 seconds / 2000ms).",
           "document_id": "xcsh-docs:resources:origin_pool:properties:advanced_options",
           "flags": ["optional", "computed"],
           "max_items": null,
@@ -3008,7 +3014,7 @@
           "type": "number"
         },
         {
-          "aliases": ["default circuit breaker"],
+          "aliases": ["advanced options default circuit breaker"],
           "anchor": "section",
           "description": "This can be used for messages where no values are needed.",
           "document_id": "xcsh-docs:resources:origin_pool:properties:advanced_options:default_circuit_breaker",
@@ -3022,9 +3028,9 @@
           "type": "object"
         },
         {
-          "aliases": ["disable circuit breaker"],
+          "aliases": ["advanced options disable circuit breaker", "disable circuit breaker", "no circuit breaker"],
           "anchor": "section",
-          "description": "This can be used for messages where no values are needed.",
+          "description": "Disables circuit breaker for the origin pool.",
           "document_id": "xcsh-docs:resources:origin_pool:properties:advanced_options:disable_circuit_breaker",
           "flags": ["optional"],
           "max_items": null,
@@ -3036,9 +3042,13 @@
           "type": "object"
         },
         {
-          "aliases": ["disable lb source ip persistence"],
+          "aliases": [
+            "advanced options disable lb source ip persistence",
+            "disable lb source ip persistence",
+            "disable source ip persistence"
+          ],
           "anchor": "section",
-          "description": "IP address configuration",
+          "description": "Disables load balancer source IP persistence for the origin pool.",
           "document_id": "xcsh-docs:resources:origin_pool:properties:advanced_options:disable_lb_source_ip_persistence",
           "flags": ["optional"],
           "max_items": null,
@@ -3050,9 +3060,9 @@
           "type": "object"
         },
         {
-          "aliases": ["disable outlier detection"],
+          "aliases": ["advanced options disable outlier detection", "disable outlier detection"],
           "anchor": "section",
-          "description": "This can be used for messages where no values are needed.",
+          "description": "Disables outlier detection for the origin pool.",
           "document_id": "xcsh-docs:resources:origin_pool:properties:advanced_options:disable_outlier_detection",
           "flags": ["optional", "computed"],
           "max_items": null,
@@ -3064,9 +3074,9 @@
           "type": "object"
         },
         {
-          "aliases": ["disable proxy protocol"],
+          "aliases": ["advanced options disable proxy protocol", "disable proxy protocol", "no proxy protocol"],
           "anchor": "section",
-          "description": "This can be used for messages where no values are needed.",
+          "description": "Disables PROXY protocol on connections to origin pool servers.",
           "document_id": "xcsh-docs:resources:origin_pool:properties:advanced_options:disable_proxy_protocol",
           "flags": ["optional"],
           "max_items": null,
@@ -3078,7 +3088,7 @@
           "type": "object"
         },
         {
-          "aliases": ["disable subsets"],
+          "aliases": ["advanced options disable subsets"],
           "anchor": "section",
           "description": "This can be used for messages where no values are needed.",
           "document_id": "xcsh-docs:resources:origin_pool:properties:advanced_options:disable_subsets",
@@ -3092,7 +3102,7 @@
           "type": "object"
         },
         {
-          "aliases": ["enable lb source ip persistence"],
+          "aliases": ["advanced options enable lb source ip persistence"],
           "anchor": "section",
           "description": "IP address configuration",
           "document_id": "xcsh-docs:resources:origin_pool:properties:advanced_options:enable_lb_source_ip_persistence",
@@ -3106,7 +3116,7 @@
           "type": "object"
         },
         {
-          "aliases": ["enable subsets"],
+          "aliases": ["advanced options enable subsets"],
           "anchor": "section",
           "description": "Configure subset OPTIONS for origin pool.",
           "document_id": "xcsh-docs:resources:origin_pool:properties:advanced_options:enable_subsets",
@@ -3177,7 +3187,7 @@
           "type": "object"
         },
         {
-          "aliases": ["http1 config"],
+          "aliases": ["advanced options http1 config"],
           "anchor": "section",
           "description": "HTTP/1.1 Protocol OPTIONS for upstream connections.",
           "document_id": "xcsh-docs:resources:origin_pool:properties:advanced_options:http1_config",
@@ -3191,7 +3201,7 @@
           "type": "object"
         },
         {
-          "aliases": ["http2 options"],
+          "aliases": ["advanced options http2 options"],
           "anchor": "section",
           "description": "Http2 Protocol OPTIONS for upstream connections.",
           "document_id": "xcsh-docs:resources:origin_pool:properties:advanced_options:http2_options",
@@ -3205,7 +3215,7 @@
           "type": "object"
         },
         {
-          "aliases": ["duration", "http idle timeout", "operation timeout"],
+          "aliases": ["advanced options http idle timeout", "duration"],
           "anchor": "schema-advanced_options--http_idle_timeout",
           "description": "The idle timeout for upstream connection pool connections. The idle timeout is defined as the period in which there are no active requests. When the idle timeout is reached the connection will be closed. Note that request based timeouts mean that HTTP/2 PINGs will not keep the connection alive. This is specified in",
           "document_id": "xcsh-docs:resources:origin_pool:properties:advanced_options",
@@ -3219,7 +3229,7 @@
           "type": "number"
         },
         {
-          "aliases": ["max requests per connection"],
+          "aliases": ["advanced options max requests per connection"],
           "anchor": "schema-advanced_options--max_requests_per_connection",
           "description": "Exclusive with Sets the maximum number of requests allowed per connection to the origin server. Enter a value >=1 to define the request limit per connection.",
           "document_id": "xcsh-docs:resources:origin_pool:properties:advanced_options",
@@ -3233,7 +3243,7 @@
           "type": "number"
         },
         {
-          "aliases": ["no panic threshold"],
+          "aliases": ["advanced options no panic threshold"],
           "anchor": "section",
           "description": "This can be used for messages where no values are needed.",
           "document_id": "xcsh-docs:resources:origin_pool:properties:advanced_options:no_panic_threshold",
@@ -3247,9 +3257,14 @@
           "type": "object"
         },
         {
-          "aliases": ["no request limit per connection"],
+          "aliases": [
+            "advanced options no request limit per connection",
+            "disable max requests per connection",
+            "no request limit",
+            "no request limit per connection"
+          ],
           "anchor": "section",
-          "description": "This can be used for messages where no values are needed.",
+          "description": "Configures no request limit per connection to the origin server.",
           "document_id": "xcsh-docs:resources:origin_pool:properties:advanced_options:no_request_limit_per_connection",
           "flags": ["optional", "computed"],
           "max_items": null,
@@ -3261,7 +3276,7 @@
           "type": "object"
         },
         {
-          "aliases": ["outlier detection"],
+          "aliases": ["advanced options outlier detection"],
           "anchor": "section",
           "description": "Outlier detection and ejection is the process of dynamically determining whether some number of hosts in an upstream cluster are performing unlike the others and removing them from the healthy load balancing set. Outlier detection is a form of passive health checking. Algorithm 1. A endpoint is determined to be an",
           "document_id": "xcsh-docs:resources:origin_pool:properties:advanced_options:outlier_detection",
@@ -3275,7 +3290,7 @@
           "type": "object"
         },
         {
-          "aliases": ["panic threshold"],
+          "aliases": ["advanced options panic threshold"],
           "anchor": "schema-advanced_options--panic_threshold",
           "description": "Exclusive with Configure a threshold (percentage of unhealthy endpoints) below which all endpoints will be considered for load balancing ignoring its health status.",
           "document_id": "xcsh-docs:resources:origin_pool:properties:advanced_options",
@@ -3289,7 +3304,7 @@
           "type": "number"
         },
         {
-          "aliases": ["proxy protocol v1"],
+          "aliases": ["advanced options proxy protocol v1"],
           "anchor": "section",
           "description": "This can be used for messages where no values are needed.",
           "document_id": "xcsh-docs:resources:origin_pool:properties:advanced_options:proxy_protocol_v1",
@@ -3303,7 +3318,7 @@
           "type": "object"
         },
         {
-          "aliases": ["proxy protocol v2"],
+          "aliases": ["advanced options proxy protocol v2"],
           "anchor": "section",
           "description": "This can be used for messages where no values are needed.",
           "document_id": "xcsh-docs:resources:origin_pool:properties:advanced_options:proxy_protocol_v2",
@@ -3336,7 +3351,7 @@
       "category": "load-balancing",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -3376,7 +3391,7 @@
       "category": "load-balancing",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -3398,7 +3413,7 @@
       "schema_path": ["advanced_options", "circuit_breaker"],
       "sections": [
         {
-          "aliases": ["connection limit"],
+          "aliases": ["advanced options circuit breaker connection limit"],
           "anchor": "schema-advanced_options--circuit_breaker--connection_limit",
           "description": "The maximum number of connections that loadbalancer will establish to all hosts in an upstream cluster. In practice this is only applicable to TCP and HTTP/1.1 clusters since HTTP/2 uses a single connection to each host. Remove endpoint out of load balancing decision, if number of connections reach connection limit.",
           "document_id": "xcsh-docs:resources:origin_pool:properties:advanced_options:circuit_breaker",
@@ -3412,7 +3427,7 @@
           "type": "number"
         },
         {
-          "aliases": ["max requests"],
+          "aliases": ["advanced options circuit breaker max requests"],
           "anchor": "schema-advanced_options--circuit_breaker--max_requests",
           "description": "The maximum number of requests that can be outstanding to all hosts in a cluster at any given time. In practice this is applicable to HTTP/2 clusters since HTTP/1.1 clusters are governed by the maximum connections (connection_limit). Remove endpoint out of load balancing decision, if requests exceed this count.",
           "document_id": "xcsh-docs:resources:origin_pool:properties:advanced_options:circuit_breaker",
@@ -3426,7 +3441,7 @@
           "type": "number"
         },
         {
-          "aliases": ["pending requests"],
+          "aliases": ["advanced options circuit breaker pending requests"],
           "anchor": "schema-advanced_options--circuit_breaker--pending_requests",
           "description": "The maximum number of requests that will be queued while waiting for a ready connection pool connection. Since HTTP/2 requests are sent over a single connection, this circuit breaker only comes into play as the initial connection is created, as requests will be multiplexed immediately afterwards. For HTTP/1.1,",
           "document_id": "xcsh-docs:resources:origin_pool:properties:advanced_options:circuit_breaker",
@@ -3440,7 +3455,7 @@
           "type": "number"
         },
         {
-          "aliases": ["priority"],
+          "aliases": ["advanced options circuit breaker priority"],
           "anchor": "schema-advanced_options--circuit_breaker--priority",
           "description": "Priority routing for each request. Different connection pools are used based on the priority selected for the request. Also, circuit-breaker configuration at destination cluster is chosen based on selected priority. Default routing mechanism High-Priority routing mechanism.",
           "document_id": "xcsh-docs:resources:origin_pool:properties:advanced_options:circuit_breaker",
@@ -3454,7 +3469,7 @@
           "type": "string"
         },
         {
-          "aliases": ["retries"],
+          "aliases": ["advanced options circuit breaker retries"],
           "anchor": "schema-advanced_options--circuit_breaker--retries",
           "description": "The maximum number of retries that can be outstanding to all hosts in a cluster at any given time. Remove endpoint out of load balancing decision, if retries for request exceed this count.",
           "document_id": "xcsh-docs:resources:origin_pool:properties:advanced_options:circuit_breaker",
@@ -3487,7 +3502,7 @@
       "category": "load-balancing",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -3520,15 +3535,15 @@
       }
     },
     {
-      "aliases": ["advanced options disable circuit breaker"],
+      "aliases": ["advanced options disable circuit breaker", "disable circuit breaker", "no circuit breaker"],
       "body_bytes": 1318,
       "body_sha256": "sha256:534532a91f4e859fcc766d2311b197a692679eb847ad4d7f13bde889bcb37a31",
       "capabilities": ["load-balancing"],
       "category": "load-balancing",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
-        "sources": ["receipt-pinned-upstream", "reviewed-rule"],
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
+        "sources": ["receipt-pinned-upstream", "reviewed-rule", "reviewed-summary"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
       },
@@ -3550,7 +3565,7 @@
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/origin_pool/properties/advanced_options/disable_circuit_breaker/index.txt",
       "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
-      "summary": "This can be used for messages where no values are needed.",
+      "summary": "Disables circuit breaker for the origin pool.",
       "tasks": ["configuration"],
       "title": "advanced_options.disable_circuit_breaker",
       "upstream_identity": {
@@ -3560,15 +3575,19 @@
       }
     },
     {
-      "aliases": ["advanced options disable lb source ip persistence"],
+      "aliases": [
+        "advanced options disable lb source ip persistence",
+        "disable lb source ip persistence",
+        "disable source ip persistence"
+      ],
       "body_bytes": 1278,
       "body_sha256": "sha256:df3bdaf71f37db581f82c42b49b69ae004b93ccbc8f081682ea76404ef34b40d",
       "capabilities": ["load-balancing"],
       "category": "load-balancing",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
-        "sources": ["receipt-pinned-upstream", "reviewed-rule"],
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
+        "sources": ["receipt-pinned-upstream", "reviewed-rule", "reviewed-summary"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
       },
@@ -3590,7 +3609,7 @@
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/origin_pool/properties/advanced_options/disable_lb_source_ip_persistence/index.txt",
       "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
-      "summary": "IP address configuration",
+      "summary": "Disables load balancer source IP persistence for the origin pool.",
       "tasks": ["configuration"],
       "title": "advanced_options.disable_lb_source_ip_persistence",
       "upstream_identity": {
@@ -3600,15 +3619,15 @@
       }
     },
     {
-      "aliases": ["advanced options disable outlier detection"],
+      "aliases": ["advanced options disable outlier detection", "disable outlier detection"],
       "body_bytes": 1398,
       "body_sha256": "sha256:04287217c4a11b02e8674c5e398dcdd595f765cde2dc6508fef1899d416c790d",
       "capabilities": ["load-balancing"],
       "category": "load-balancing",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
-        "sources": ["receipt-pinned-upstream", "reviewed-rule"],
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
+        "sources": ["receipt-pinned-upstream", "reviewed-rule", "reviewed-summary"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
       },
@@ -3630,7 +3649,7 @@
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/origin_pool/properties/advanced_options/disable_outlier_detection/index.txt",
       "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
-      "summary": "This can be used for messages where no values are needed.",
+      "summary": "Disables outlier detection for the origin pool.",
       "tasks": ["configuration"],
       "title": "advanced_options.disable_outlier_detection",
       "upstream_identity": {
@@ -3640,15 +3659,15 @@
       }
     },
     {
-      "aliases": ["advanced options disable proxy protocol"],
+      "aliases": ["advanced options disable proxy protocol", "disable proxy protocol", "no proxy protocol"],
       "body_bytes": 1314,
       "body_sha256": "sha256:28dc52c157d521077ee9464bd54757dc68d2f1097033b82a434e19c9682be0d0",
       "capabilities": ["load-balancing"],
       "category": "load-balancing",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
-        "sources": ["receipt-pinned-upstream", "reviewed-rule"],
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
+        "sources": ["receipt-pinned-upstream", "reviewed-rule", "reviewed-summary"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
       },
@@ -3670,7 +3689,7 @@
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/origin_pool/properties/advanced_options/disable_proxy_protocol/index.txt",
       "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
-      "summary": "This can be used for messages where no values are needed.",
+      "summary": "Disables PROXY protocol on connections to origin pool servers.",
       "tasks": ["configuration"],
       "title": "advanced_options.disable_proxy_protocol",
       "upstream_identity": {
@@ -3687,7 +3706,7 @@
       "category": "load-balancing",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -3727,7 +3746,7 @@
       "category": "load-balancing",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -3772,7 +3791,7 @@
         "xcsh-docs:resources:origin_pool:properties:advanced_options:enable_subsets:fail_request"
       ],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -3851,7 +3870,7 @@
       "schema_path": ["advanced_options", "enable_subsets"],
       "sections": [
         {
-          "aliases": ["any endpoint"],
+          "aliases": ["advanced options enable subsets any endpoint"],
           "anchor": "section",
           "description": "This can be used for messages where no values are needed.",
           "document_id": "xcsh-docs:resources:origin_pool:properties:advanced_options:enable_subsets:any_endpoint",
@@ -3865,7 +3884,7 @@
           "type": "object"
         },
         {
-          "aliases": ["default subset"],
+          "aliases": ["advanced options enable subsets default subset"],
           "anchor": "section",
           "description": "Default Subset definition.",
           "document_id": "xcsh-docs:resources:origin_pool:properties:advanced_options:enable_subsets:default_subset",
@@ -3879,7 +3898,7 @@
           "type": "object"
         },
         {
-          "aliases": ["endpoint subsets"],
+          "aliases": ["advanced options enable subsets endpoint subsets"],
           "anchor": "section",
           "description": "List of subset class. Subsets class is defined using list of keys. Every unique combination of values of these keys form a subset within the class.",
           "document_id": "xcsh-docs:resources:origin_pool:properties:advanced_options:enable_subsets:endpoint_subsets",
@@ -3902,7 +3921,7 @@
           "type": "object"
         },
         {
-          "aliases": ["fail request"],
+          "aliases": ["advanced options enable subsets fail request"],
           "anchor": "section",
           "description": "This can be used for messages where no values are needed.",
           "document_id": "xcsh-docs:resources:origin_pool:properties:advanced_options:enable_subsets:fail_request",
@@ -3935,7 +3954,7 @@
       "category": "load-balancing",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -3977,7 +3996,7 @@
         "xcsh-docs:resources:origin_pool:properties:advanced_options:enable_subsets:default_subset:default_subset"
       ],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -3999,7 +4018,7 @@
       "schema_path": ["advanced_options", "enable_subsets", "default_subset"],
       "sections": [
         {
-          "aliases": ["default subset"],
+          "aliases": ["advanced options enable subsets default subset default subset"],
           "anchor": "section",
           "description": "List of key-value pairs that define default subset. Which gets used when route specifies no metadata or no subset matching the metadata exists.",
           "document_id": "xcsh-docs:resources:origin_pool:properties:advanced_options:enable_subsets:default_subset:default_subset",
@@ -4032,7 +4051,7 @@
       "category": "load-balancing",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -4072,7 +4091,7 @@
       "category": "load-balancing",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -4103,7 +4122,7 @@
       "schema_path": ["advanced_options", "enable_subsets", "endpoint_subsets"],
       "sections": [
         {
-          "aliases": ["keys"],
+          "aliases": ["advanced options enable subsets endpoint subsets keys"],
           "anchor": "schema-advanced_options--enable_subsets--endpoint_subsets--keys",
           "description": "List of keys that define a cluster subset class.",
           "document_id": "xcsh-docs:resources:origin_pool:properties:advanced_options:enable_subsets:endpoint_subsets",
@@ -4136,7 +4155,7 @@
       "category": "load-balancing",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -4176,7 +4195,7 @@
       "category": "load-balancing",
       "child_ids": ["xcsh-docs:resources:origin_pool:properties:advanced_options:http1_config:header_transformation"],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -4198,7 +4217,7 @@
       "schema_path": ["advanced_options", "http1_config"],
       "sections": [
         {
-          "aliases": ["header transformation"],
+          "aliases": ["advanced options http1 config header transformation"],
           "anchor": "section",
           "description": "Header Transformation OPTIONS for HTTP/1.1 request/response headers.",
           "document_id": "xcsh-docs:resources:origin_pool:properties:advanced_options:http1_config:header_transformation",
@@ -4284,7 +4303,7 @@
         "xcsh-docs:resources:origin_pool:properties:advanced_options:http1_config:header_transformation:proper_case_header_transformation"
       ],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -4355,7 +4374,7 @@
       "schema_path": ["advanced_options", "http1_config", "header_transformation"],
       "sections": [
         {
-          "aliases": ["default header transformation"],
+          "aliases": ["advanced options http1 config header transformation default header transformation"],
           "anchor": "section",
           "description": "Use the platform's current default HTTP header transformation behavior.",
           "document_id": "xcsh-docs:resources:origin_pool:properties:advanced_options:http1_config:header_transformation:default_header_transformation",
@@ -4369,7 +4388,7 @@
           "type": "object"
         },
         {
-          "aliases": ["preserve case header transformation"],
+          "aliases": ["advanced options http1 config header transformation preserve case header transformation"],
           "anchor": "section",
           "description": "Preserve HTTP header-name case when upstream case must remain unchanged.",
           "document_id": "xcsh-docs:resources:origin_pool:properties:advanced_options:http1_config:header_transformation:preserve_case_header_transformation",
@@ -4388,7 +4407,7 @@
           "type": "object"
         },
         {
-          "aliases": ["proper case header transformation"],
+          "aliases": ["advanced options http1 config header transformation proper case header transformation"],
           "anchor": "section",
           "description": "Transform HTTP header names to proper case when explicit transformation is required.",
           "document_id": "xcsh-docs:resources:origin_pool:properties:advanced_options:http1_config:header_transformation:proper_case_header_transformation",
@@ -4426,7 +4445,7 @@
       "category": "load-balancing",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -4466,7 +4485,7 @@
       "category": "load-balancing",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -4511,7 +4530,7 @@
       "category": "load-balancing",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -4551,7 +4570,7 @@
       "category": "load-balancing",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -4573,7 +4592,7 @@
       "schema_path": ["advanced_options", "http2_options"],
       "sections": [
         {
-          "aliases": ["enabled"],
+          "aliases": ["advanced options http2 options enabled"],
           "anchor": "schema-advanced_options--http2_options--enabled",
           "description": "Enable/disable HTTP2 Protocol for upstream connections.",
           "document_id": "xcsh-docs:resources:origin_pool:properties:advanced_options:http2_options",
@@ -4606,7 +4625,7 @@
       "category": "load-balancing",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -4639,15 +4658,20 @@
       }
     },
     {
-      "aliases": ["advanced options no request limit per connection"],
+      "aliases": [
+        "advanced options no request limit per connection",
+        "disable max requests per connection",
+        "no request limit",
+        "no request limit per connection"
+      ],
       "body_bytes": 1422,
       "body_sha256": "sha256:b0230fd3edafa766cb701c2ff6f30ef5c2bcecb3762dc5bff751599647c5b418",
       "capabilities": ["load-balancing"],
       "category": "load-balancing",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
-        "sources": ["receipt-pinned-upstream", "reviewed-rule"],
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
+        "sources": ["receipt-pinned-upstream", "reviewed-rule", "reviewed-summary"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
       },
@@ -4669,7 +4693,7 @@
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/origin_pool/properties/advanced_options/no_request_limit_per_connection/index.txt",
       "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
-      "summary": "This can be used for messages where no values are needed.",
+      "summary": "Configures no request limit per connection to the origin server.",
       "tasks": ["configuration"],
       "title": "advanced_options.no_request_limit_per_connection",
       "upstream_identity": {
@@ -4686,7 +4710,7 @@
       "category": "load-balancing",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -4708,7 +4732,7 @@
       "schema_path": ["advanced_options", "outlier_detection"],
       "sections": [
         {
-          "aliases": ["base ejection time"],
+          "aliases": ["advanced options outlier detection base ejection time"],
           "anchor": "schema-advanced_options--outlier_detection--base_ejection_time",
           "description": "The base time that a host is ejected for. The real time is equal to the base time multiplied by the number of times the host has been ejected. This causes hosts to GET ejected for longer periods if they continue to fail. Defaults to 30000ms or 30s. Specified in milliseconds.",
           "document_id": "xcsh-docs:resources:origin_pool:properties:advanced_options:outlier_detection",
@@ -4722,7 +4746,7 @@
           "type": "number"
         },
         {
-          "aliases": ["consecutive 5xx"],
+          "aliases": ["advanced options outlier detection consecutive 5xx"],
           "anchor": "schema-advanced_options--outlier_detection--consecutive_5xx",
           "description": "If an upstream endpoint returns some number of consecutive 5xx, it will be ejected. Note that in this case a 5xx means an actual 5xx respond code, or an event that would cause the HTTP router to return one on the upstream’s behalf(reset, connection failure, etc.) consecutive_5xx indicates the number of consecutive 5xx",
           "document_id": "xcsh-docs:resources:origin_pool:properties:advanced_options:outlier_detection",
@@ -4736,7 +4760,7 @@
           "type": "number"
         },
         {
-          "aliases": ["consecutive gateway failure"],
+          "aliases": ["advanced options outlier detection consecutive gateway failure"],
           "anchor": "schema-advanced_options--outlier_detection--consecutive_gateway_failure",
           "description": "If an upstream endpoint returns some number of consecutive “gateway errors” (502, 503 or 504 status code), it will be ejected. Note that this includes events that would cause the HTTP router to return one of these status codes on the upstream’s behalf (reset, connection failure, etc.). Consecutive_gateway_failure",
           "document_id": "xcsh-docs:resources:origin_pool:properties:advanced_options:outlier_detection",
@@ -4750,7 +4774,7 @@
           "type": "number"
         },
         {
-          "aliases": ["interval"],
+          "aliases": ["advanced options outlier detection interval"],
           "anchor": "schema-advanced_options--outlier_detection--interval",
           "description": "The time interval between ejection analysis sweeps. This can result in both new ejections as well as endpoints being returned to service. Defaults to 10000ms or 10s. Specified in milliseconds.",
           "document_id": "xcsh-docs:resources:origin_pool:properties:advanced_options:outlier_detection",
@@ -4764,7 +4788,7 @@
           "type": "number"
         },
         {
-          "aliases": ["max ejection percent"],
+          "aliases": ["advanced options outlier detection max ejection percent"],
           "anchor": "schema-advanced_options--outlier_detection--max_ejection_percent",
           "description": "The maximum % of an upstream cluster that can be ejected due to outlier detection. Defaults to 10% but will eject at least one host regardless of the value.",
           "document_id": "xcsh-docs:resources:origin_pool:properties:advanced_options:outlier_detection",
@@ -4797,7 +4821,7 @@
       "category": "load-balancing",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -4837,7 +4861,7 @@
       "category": "load-balancing",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -4877,7 +4901,7 @@
       "category": "load-balancing",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -4917,7 +4941,7 @@
       "category": "load-balancing",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -4948,7 +4972,7 @@
       "schema_path": ["healthcheck"],
       "sections": [
         {
-          "aliases": ["name"],
+          "aliases": ["healthcheck name"],
           "anchor": "schema-healthcheck--name",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.",
           "document_id": "xcsh-docs:resources:origin_pool:properties:healthcheck",
@@ -4962,7 +4986,7 @@
           "type": "string"
         },
         {
-          "aliases": ["namespace"],
+          "aliases": ["healthcheck namespace"],
           "anchor": "schema-healthcheck--namespace",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace.",
           "document_id": "xcsh-docs:resources:origin_pool:properties:healthcheck",
@@ -4976,7 +5000,7 @@
           "type": "string"
         },
         {
-          "aliases": ["tenant"],
+          "aliases": ["healthcheck tenant"],
           "anchor": "schema-healthcheck--tenant",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant.",
           "document_id": "xcsh-docs:resources:origin_pool:properties:healthcheck",
@@ -5009,7 +5033,7 @@
       "category": "load-balancing",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -5049,7 +5073,7 @@
       "category": "load-balancing",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -5100,7 +5124,7 @@
         "xcsh-docs:resources:origin_pool:properties:origin_servers:vn_private_name"
       ],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -5843,7 +5867,7 @@
       "schema_path": ["origin_servers"],
       "sections": [
         {
-          "aliases": ["cbip service"],
+          "aliases": ["origin servers cbip service"],
           "anchor": "section",
           "description": "Specify origin server with Classic BIG-IP Service (Virtual Server)",
           "document_id": "xcsh-docs:resources:origin_pool:properties:origin_servers:cbip_service",
@@ -5866,7 +5890,7 @@
           "type": "object"
         },
         {
-          "aliases": ["consul service"],
+          "aliases": ["origin servers consul service"],
           "anchor": "section",
           "description": "Specify origin server with HashiCorp Consul service name and site information.",
           "document_id": "xcsh-docs:resources:origin_pool:properties:origin_servers:consul_service",
@@ -5905,7 +5929,7 @@
           "type": "object"
         },
         {
-          "aliases": ["custom endpoint object"],
+          "aliases": ["origin servers custom endpoint object"],
           "anchor": "section",
           "description": "Specify origin server with a reference to endpoint object.",
           "document_id": "xcsh-docs:resources:origin_pool:properties:origin_servers:custom_endpoint_object",
@@ -5919,7 +5943,7 @@
           "type": "object"
         },
         {
-          "aliases": ["k8s service"],
+          "aliases": ["origin servers k8s service"],
           "anchor": "section",
           "description": "Specify origin server with K8s service name and site information.",
           "document_id": "xcsh-docs:resources:origin_pool:properties:origin_servers:k8s_service",
@@ -5982,7 +6006,7 @@
           "type": "object"
         },
         {
-          "aliases": ["labels"],
+          "aliases": ["origin servers labels"],
           "anchor": "schema-origin_servers--labels",
           "description": "Add Labels for this origin server, these labels can be used to form subset.",
           "document_id": "xcsh-docs:resources:origin_pool:properties:origin_servers",
@@ -5996,7 +6020,7 @@
           "type": "map"
         },
         {
-          "aliases": ["private ip"],
+          "aliases": ["origin servers private ip"],
           "anchor": "section",
           "description": "Specify origin server with private or public IP address and site information.",
           "document_id": "xcsh-docs:resources:origin_pool:properties:origin_servers:private_ip",
@@ -6059,7 +6083,7 @@
           "type": "object"
         },
         {
-          "aliases": ["private name"],
+          "aliases": ["origin servers private name"],
           "anchor": "section",
           "description": "Specify origin server with private or public DNS name and site information.",
           "document_id": "xcsh-docs:resources:origin_pool:properties:origin_servers:private_name",
@@ -6130,7 +6154,7 @@
           "type": "object"
         },
         {
-          "aliases": ["public ip"],
+          "aliases": ["origin servers public ip"],
           "anchor": "section",
           "description": "Specify origin server with public IP address.",
           "document_id": "xcsh-docs:resources:origin_pool:properties:origin_servers:public_ip",
@@ -6144,7 +6168,7 @@
           "type": "object"
         },
         {
-          "aliases": ["public name"],
+          "aliases": ["origin servers public name"],
           "anchor": "section",
           "description": "Specify origin server with public DNS name.",
           "document_id": "xcsh-docs:resources:origin_pool:properties:origin_servers:public_name",
@@ -6167,7 +6191,7 @@
           "type": "object"
         },
         {
-          "aliases": ["vn private ip"],
+          "aliases": ["origin servers vn private ip"],
           "anchor": "section",
           "description": "Specify origin server with IP on Virtual Network.",
           "document_id": "xcsh-docs:resources:origin_pool:properties:origin_servers:vn_private_ip",
@@ -6181,7 +6205,7 @@
           "type": "object"
         },
         {
-          "aliases": ["vn private name"],
+          "aliases": ["origin servers vn private name"],
           "anchor": "section",
           "description": "Specify origin server with DNS name on Virtual Network.",
           "document_id": "xcsh-docs:resources:origin_pool:properties:origin_servers:vn_private_name",
@@ -6223,7 +6247,7 @@
       "category": "load-balancing",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -6254,7 +6278,7 @@
       "schema_path": ["origin_servers", "cbip_service"],
       "sections": [
         {
-          "aliases": ["service name"],
+          "aliases": ["origin servers cbip service service name"],
           "anchor": "schema-origin_servers--cbip_service--service_name",
           "description": "Name of the discovered Classic BIG-IP virtual server to be used as origin.",
           "document_id": "xcsh-docs:resources:origin_pool:properties:origin_servers:cbip_service",
@@ -6292,7 +6316,7 @@
         "xcsh-docs:resources:origin_pool:properties:origin_servers:consul_service:snat_pool"
       ],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -6339,7 +6363,7 @@
       "schema_path": ["origin_servers", "consul_service"],
       "sections": [
         {
-          "aliases": ["inside network"],
+          "aliases": ["origin servers consul service inside network"],
           "anchor": "section",
           "description": "This can be used for messages where no values are needed.",
           "document_id": "xcsh-docs:resources:origin_pool:properties:origin_servers:consul_service:inside_network",
@@ -6353,7 +6377,7 @@
           "type": "object"
         },
         {
-          "aliases": ["outside network"],
+          "aliases": ["origin servers consul service outside network"],
           "anchor": "section",
           "description": "This can be used for messages where no values are needed.",
           "document_id": "xcsh-docs:resources:origin_pool:properties:origin_servers:consul_service:outside_network",
@@ -6367,7 +6391,7 @@
           "type": "object"
         },
         {
-          "aliases": ["service name"],
+          "aliases": ["origin servers consul service service name"],
           "anchor": "schema-origin_servers--consul_service--service_name",
           "description": "Consul service name of this origin server will be listed, including cluster-ID. The format is servicename:cluster-ID.",
           "document_id": "xcsh-docs:resources:origin_pool:properties:origin_servers:consul_service",
@@ -6381,7 +6405,7 @@
           "type": "string"
         },
         {
-          "aliases": ["site locator"],
+          "aliases": ["origin servers consul service site locator"],
           "anchor": "section",
           "description": "This message defines a reference to a site or virtual site object.",
           "document_id": "xcsh-docs:resources:origin_pool:properties:origin_servers:consul_service:site_locator",
@@ -6412,7 +6436,7 @@
           "type": "object"
         },
         {
-          "aliases": ["snat pool"],
+          "aliases": ["origin servers consul service snat pool"],
           "anchor": "section",
           "description": "SNAT Pool configuration.",
           "document_id": "xcsh-docs:resources:origin_pool:properties:origin_servers:consul_service:snat_pool",
@@ -6462,7 +6486,7 @@
       "category": "load-balancing",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -6502,7 +6526,7 @@
       "category": "load-balancing",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -6545,7 +6569,7 @@
         "xcsh-docs:resources:origin_pool:properties:origin_servers:consul_service:site_locator:virtual_site"
       ],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -6584,7 +6608,7 @@
       "schema_path": ["origin_servers", "consul_service", "site_locator"],
       "sections": [
         {
-          "aliases": ["site"],
+          "aliases": ["origin servers consul service site locator site"],
           "anchor": "section",
           "description": "This type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name.",
           "document_id": "xcsh-docs:resources:origin_pool:properties:origin_servers:consul_service:site_locator:site",
@@ -6607,7 +6631,7 @@
           "type": "object"
         },
         {
-          "aliases": ["virtual site"],
+          "aliases": ["origin servers consul service site locator virtual site"],
           "anchor": "section",
           "description": "This type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name.",
           "document_id": "xcsh-docs:resources:origin_pool:properties:origin_servers:consul_service:site_locator:virtual_site",
@@ -6649,7 +6673,7 @@
       "category": "load-balancing",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -6680,7 +6704,7 @@
       "schema_path": ["origin_servers", "consul_service", "site_locator", "site"],
       "sections": [
         {
-          "aliases": ["name"],
+          "aliases": ["origin servers consul service site locator site name"],
           "anchor": "schema-origin_servers--consul_service--site_locator--site--name",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.",
           "document_id": "xcsh-docs:resources:origin_pool:properties:origin_servers:consul_service:site_locator:site",
@@ -6694,7 +6718,7 @@
           "type": "string"
         },
         {
-          "aliases": ["namespace"],
+          "aliases": ["origin servers consul service site locator site namespace"],
           "anchor": "schema-origin_servers--consul_service--site_locator--site--namespace",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace.",
           "document_id": "xcsh-docs:resources:origin_pool:properties:origin_servers:consul_service:site_locator:site",
@@ -6708,7 +6732,7 @@
           "type": "string"
         },
         {
-          "aliases": ["tenant"],
+          "aliases": ["origin servers consul service site locator site tenant"],
           "anchor": "schema-origin_servers--consul_service--site_locator--site--tenant",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant.",
           "document_id": "xcsh-docs:resources:origin_pool:properties:origin_servers:consul_service:site_locator:site",
@@ -6741,7 +6765,7 @@
       "category": "load-balancing",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -6772,7 +6796,7 @@
       "schema_path": ["origin_servers", "consul_service", "site_locator", "virtual_site"],
       "sections": [
         {
-          "aliases": ["name"],
+          "aliases": ["origin servers consul service site locator virtual site name"],
           "anchor": "schema-origin_servers--consul_service--site_locator--virtual_site--name",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.",
           "document_id": "xcsh-docs:resources:origin_pool:properties:origin_servers:consul_service:site_locator:virtual_site",
@@ -6786,7 +6810,7 @@
           "type": "string"
         },
         {
-          "aliases": ["namespace"],
+          "aliases": ["origin servers consul service site locator virtual site namespace"],
           "anchor": "schema-origin_servers--consul_service--site_locator--virtual_site--namespace",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace.",
           "document_id": "xcsh-docs:resources:origin_pool:properties:origin_servers:consul_service:site_locator:virtual_site",
@@ -6800,7 +6824,7 @@
           "type": "string"
         },
         {
-          "aliases": ["tenant"],
+          "aliases": ["origin servers consul service site locator virtual site tenant"],
           "anchor": "schema-origin_servers--consul_service--site_locator--virtual_site--tenant",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant.",
           "document_id": "xcsh-docs:resources:origin_pool:properties:origin_servers:consul_service:site_locator:virtual_site",
@@ -6836,7 +6860,7 @@
         "xcsh-docs:resources:origin_pool:properties:origin_servers:consul_service:snat_pool:snat_pool"
       ],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -6875,7 +6899,7 @@
       "schema_path": ["origin_servers", "consul_service", "snat_pool"],
       "sections": [
         {
-          "aliases": ["no snat pool"],
+          "aliases": ["origin servers consul service snat pool no snat pool"],
           "anchor": "section",
           "description": "This can be used for messages where no values are needed.",
           "document_id": "xcsh-docs:resources:origin_pool:properties:origin_servers:consul_service:snat_pool:no_snat_pool",
@@ -6889,7 +6913,7 @@
           "type": "object"
         },
         {
-          "aliases": ["snat pool"],
+          "aliases": ["origin servers consul service snat pool snat pool"],
           "anchor": "section",
           "description": "List of IPv4 prefixes that represent an endpoint.",
           "document_id": "xcsh-docs:resources:origin_pool:properties:origin_servers:consul_service:snat_pool:snat_pool",
@@ -6922,7 +6946,7 @@
       "category": "load-balancing",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -6962,7 +6986,7 @@
       "category": "load-balancing",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -6984,7 +7008,7 @@
       "schema_path": ["origin_servers", "consul_service", "snat_pool", "snat_pool"],
       "sections": [
         {
-          "aliases": ["prefixes"],
+          "aliases": ["origin servers consul service snat pool snat pool prefixes"],
           "anchor": "schema-origin_servers--consul_service--snat_pool--snat_pool--prefixes",
           "description": "List of IPv4 prefixes that represent an endpoint.",
           "document_id": "xcsh-docs:resources:origin_pool:properties:origin_servers:consul_service:snat_pool:snat_pool",
@@ -7017,7 +7041,7 @@
       "category": "load-balancing",
       "child_ids": ["xcsh-docs:resources:origin_pool:properties:origin_servers:custom_endpoint_object:endpoint"],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -7039,7 +7063,7 @@
       "schema_path": ["origin_servers", "custom_endpoint_object"],
       "sections": [
         {
-          "aliases": ["endpoint"],
+          "aliases": ["origin servers custom endpoint object endpoint"],
           "anchor": "section",
           "description": "This type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name.",
           "document_id": "xcsh-docs:resources:origin_pool:properties:origin_servers:custom_endpoint_object:endpoint",
@@ -7081,7 +7105,7 @@
       "category": "load-balancing",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -7112,7 +7136,7 @@
       "schema_path": ["origin_servers", "custom_endpoint_object", "endpoint"],
       "sections": [
         {
-          "aliases": ["name"],
+          "aliases": ["origin servers custom endpoint object endpoint name"],
           "anchor": "schema-origin_servers--custom_endpoint_object--endpoint--name",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.",
           "document_id": "xcsh-docs:resources:origin_pool:properties:origin_servers:custom_endpoint_object:endpoint",
@@ -7126,7 +7150,7 @@
           "type": "string"
         },
         {
-          "aliases": ["namespace"],
+          "aliases": ["origin servers custom endpoint object endpoint namespace"],
           "anchor": "schema-origin_servers--custom_endpoint_object--endpoint--namespace",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace.",
           "document_id": "xcsh-docs:resources:origin_pool:properties:origin_servers:custom_endpoint_object:endpoint",
@@ -7140,7 +7164,7 @@
           "type": "string"
         },
         {
-          "aliases": ["tenant"],
+          "aliases": ["origin servers custom endpoint object endpoint tenant"],
           "anchor": "schema-origin_servers--custom_endpoint_object--endpoint--tenant",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant.",
           "document_id": "xcsh-docs:resources:origin_pool:properties:origin_servers:custom_endpoint_object:endpoint",
@@ -7179,7 +7203,7 @@
         "xcsh-docs:resources:origin_pool:properties:origin_servers:k8s_service:vk8s_networks"
       ],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -7250,7 +7274,7 @@
       "schema_path": ["origin_servers", "k8s_service"],
       "sections": [
         {
-          "aliases": ["inside network"],
+          "aliases": ["origin servers k8s service inside network"],
           "anchor": "section",
           "description": "This can be used for messages where no values are needed.",
           "document_id": "xcsh-docs:resources:origin_pool:properties:origin_servers:k8s_service:inside_network",
@@ -7264,7 +7288,7 @@
           "type": "object"
         },
         {
-          "aliases": ["outside network"],
+          "aliases": ["origin servers k8s service outside network"],
           "anchor": "section",
           "description": "This can be used for messages where no values are needed.",
           "document_id": "xcsh-docs:resources:origin_pool:properties:origin_servers:k8s_service:outside_network",
@@ -7278,7 +7302,7 @@
           "type": "object"
         },
         {
-          "aliases": ["protocol"],
+          "aliases": ["origin servers k8s service protocol"],
           "anchor": "schema-origin_servers--k8s_service--protocol",
           "description": "Type of protocol - PROTOCOL_TCP: TCP - PROTOCOL_UDP: UDP.",
           "document_id": "xcsh-docs:resources:origin_pool:properties:origin_servers:k8s_service",
@@ -7292,7 +7316,7 @@
           "type": "string"
         },
         {
-          "aliases": ["service name"],
+          "aliases": ["origin servers k8s service service name"],
           "anchor": "schema-origin_servers--k8s_service--service_name",
           "description": "Exclusive with K8s service name of the origin server will be listed, including the namespace and cluster-ID. For vK8s services, you need to enter a string with the format servicename.namespace:example-namespace\"frontend\", namespace is \"speedtest\" and cluster-ID is \"prod\", then you will enter \"frontend.speedtest:prod\".",
           "document_id": "xcsh-docs:resources:origin_pool:properties:origin_servers:k8s_service",
@@ -7306,7 +7330,7 @@
           "type": "string"
         },
         {
-          "aliases": ["site locator"],
+          "aliases": ["origin servers k8s service site locator"],
           "anchor": "section",
           "description": "This message defines a reference to a site or virtual site object.",
           "document_id": "xcsh-docs:resources:origin_pool:properties:origin_servers:k8s_service:site_locator",
@@ -7337,7 +7361,7 @@
           "type": "object"
         },
         {
-          "aliases": ["snat pool"],
+          "aliases": ["origin servers k8s service snat pool"],
           "anchor": "section",
           "description": "SNAT Pool configuration.",
           "document_id": "xcsh-docs:resources:origin_pool:properties:origin_servers:k8s_service:snat_pool",
@@ -7368,7 +7392,7 @@
           "type": "object"
         },
         {
-          "aliases": ["vk8s networks"],
+          "aliases": ["origin servers k8s service vk8s networks"],
           "anchor": "section",
           "description": "This can be used for messages where no values are needed.",
           "document_id": "xcsh-docs:resources:origin_pool:properties:origin_servers:k8s_service:vk8s_networks",
@@ -7401,7 +7425,7 @@
       "category": "load-balancing",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -7441,7 +7465,7 @@
       "category": "load-balancing",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -7484,7 +7508,7 @@
         "xcsh-docs:resources:origin_pool:properties:origin_servers:k8s_service:site_locator:virtual_site"
       ],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -7523,7 +7547,7 @@
       "schema_path": ["origin_servers", "k8s_service", "site_locator"],
       "sections": [
         {
-          "aliases": ["site"],
+          "aliases": ["origin servers k8s service site locator site"],
           "anchor": "section",
           "description": "This type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name.",
           "document_id": "xcsh-docs:resources:origin_pool:properties:origin_servers:k8s_service:site_locator:site",
@@ -7546,7 +7570,7 @@
           "type": "object"
         },
         {
-          "aliases": ["virtual site"],
+          "aliases": ["origin servers k8s service site locator virtual site"],
           "anchor": "section",
           "description": "This type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name.",
           "document_id": "xcsh-docs:resources:origin_pool:properties:origin_servers:k8s_service:site_locator:virtual_site",
@@ -7588,7 +7612,7 @@
       "category": "load-balancing",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -7619,7 +7643,7 @@
       "schema_path": ["origin_servers", "k8s_service", "site_locator", "site"],
       "sections": [
         {
-          "aliases": ["name"],
+          "aliases": ["origin servers k8s service site locator site name"],
           "anchor": "schema-origin_servers--k8s_service--site_locator--site--name",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.",
           "document_id": "xcsh-docs:resources:origin_pool:properties:origin_servers:k8s_service:site_locator:site",
@@ -7633,7 +7657,7 @@
           "type": "string"
         },
         {
-          "aliases": ["namespace"],
+          "aliases": ["origin servers k8s service site locator site namespace"],
           "anchor": "schema-origin_servers--k8s_service--site_locator--site--namespace",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace.",
           "document_id": "xcsh-docs:resources:origin_pool:properties:origin_servers:k8s_service:site_locator:site",
@@ -7647,7 +7671,7 @@
           "type": "string"
         },
         {
-          "aliases": ["tenant"],
+          "aliases": ["origin servers k8s service site locator site tenant"],
           "anchor": "schema-origin_servers--k8s_service--site_locator--site--tenant",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant.",
           "document_id": "xcsh-docs:resources:origin_pool:properties:origin_servers:k8s_service:site_locator:site",
@@ -7680,7 +7704,7 @@
       "category": "load-balancing",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -7711,7 +7735,7 @@
       "schema_path": ["origin_servers", "k8s_service", "site_locator", "virtual_site"],
       "sections": [
         {
-          "aliases": ["name"],
+          "aliases": ["origin servers k8s service site locator virtual site name"],
           "anchor": "schema-origin_servers--k8s_service--site_locator--virtual_site--name",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.",
           "document_id": "xcsh-docs:resources:origin_pool:properties:origin_servers:k8s_service:site_locator:virtual_site",
@@ -7725,7 +7749,7 @@
           "type": "string"
         },
         {
-          "aliases": ["namespace"],
+          "aliases": ["origin servers k8s service site locator virtual site namespace"],
           "anchor": "schema-origin_servers--k8s_service--site_locator--virtual_site--namespace",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace.",
           "document_id": "xcsh-docs:resources:origin_pool:properties:origin_servers:k8s_service:site_locator:virtual_site",
@@ -7739,7 +7763,7 @@
           "type": "string"
         },
         {
-          "aliases": ["tenant"],
+          "aliases": ["origin servers k8s service site locator virtual site tenant"],
           "anchor": "schema-origin_servers--k8s_service--site_locator--virtual_site--tenant",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant.",
           "document_id": "xcsh-docs:resources:origin_pool:properties:origin_servers:k8s_service:site_locator:virtual_site",
@@ -7775,7 +7799,7 @@
         "xcsh-docs:resources:origin_pool:properties:origin_servers:k8s_service:snat_pool:snat_pool"
       ],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -7814,7 +7838,7 @@
       "schema_path": ["origin_servers", "k8s_service", "snat_pool"],
       "sections": [
         {
-          "aliases": ["no snat pool"],
+          "aliases": ["origin servers k8s service snat pool no snat pool"],
           "anchor": "section",
           "description": "This can be used for messages where no values are needed.",
           "document_id": "xcsh-docs:resources:origin_pool:properties:origin_servers:k8s_service:snat_pool:no_snat_pool",
@@ -7828,7 +7852,7 @@
           "type": "object"
         },
         {
-          "aliases": ["snat pool"],
+          "aliases": ["origin servers k8s service snat pool snat pool"],
           "anchor": "section",
           "description": "List of IPv4 prefixes that represent an endpoint.",
           "document_id": "xcsh-docs:resources:origin_pool:properties:origin_servers:k8s_service:snat_pool:snat_pool",
@@ -7861,7 +7885,7 @@
       "category": "load-balancing",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -7901,7 +7925,7 @@
       "category": "load-balancing",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -7923,7 +7947,7 @@
       "schema_path": ["origin_servers", "k8s_service", "snat_pool", "snat_pool"],
       "sections": [
         {
-          "aliases": ["prefixes"],
+          "aliases": ["origin servers k8s service snat pool snat pool prefixes"],
           "anchor": "schema-origin_servers--k8s_service--snat_pool--snat_pool--prefixes",
           "description": "List of IPv4 prefixes that represent an endpoint.",
           "document_id": "xcsh-docs:resources:origin_pool:properties:origin_servers:k8s_service:snat_pool:snat_pool",
@@ -7956,7 +7980,7 @@
       "category": "load-balancing",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -8002,7 +8026,7 @@
         "xcsh-docs:resources:origin_pool:properties:origin_servers:private_ip:snat_pool"
       ],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -8073,7 +8097,7 @@
       "schema_path": ["origin_servers", "private_ip"],
       "sections": [
         {
-          "aliases": ["inside network"],
+          "aliases": ["origin servers private ip inside network"],
           "anchor": "section",
           "description": "This can be used for messages where no values are needed.",
           "document_id": "xcsh-docs:resources:origin_pool:properties:origin_servers:private_ip:inside_network",
@@ -8087,7 +8111,7 @@
           "type": "object"
         },
         {
-          "aliases": ["ip"],
+          "aliases": ["origin servers private ip ip"],
           "anchor": "schema-origin_servers--private_ip--ip",
           "description": "Exclusive with Private IPv4 address.",
           "document_id": "xcsh-docs:resources:origin_pool:properties:origin_servers:private_ip",
@@ -8101,7 +8125,7 @@
           "type": "string"
         },
         {
-          "aliases": ["outside network"],
+          "aliases": ["origin servers private ip outside network"],
           "anchor": "section",
           "description": "This can be used for messages where no values are needed.",
           "document_id": "xcsh-docs:resources:origin_pool:properties:origin_servers:private_ip:outside_network",
@@ -8115,7 +8139,7 @@
           "type": "object"
         },
         {
-          "aliases": ["segment"],
+          "aliases": ["origin servers private ip segment"],
           "anchor": "section",
           "description": "This type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name.",
           "document_id": "xcsh-docs:resources:origin_pool:properties:origin_servers:private_ip:segment",
@@ -8138,7 +8162,7 @@
           "type": "object"
         },
         {
-          "aliases": ["site locator"],
+          "aliases": ["origin servers private ip site locator"],
           "anchor": "section",
           "description": "This message defines a reference to a site or virtual site object.",
           "document_id": "xcsh-docs:resources:origin_pool:properties:origin_servers:private_ip:site_locator",
@@ -8169,7 +8193,7 @@
           "type": "object"
         },
         {
-          "aliases": ["snat pool"],
+          "aliases": ["origin servers private ip snat pool"],
           "anchor": "section",
           "description": "SNAT Pool configuration.",
           "document_id": "xcsh-docs:resources:origin_pool:properties:origin_servers:private_ip:snat_pool",
@@ -8219,7 +8243,7 @@
       "category": "load-balancing",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -8259,7 +8283,7 @@
       "category": "load-balancing",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -8299,7 +8323,7 @@
       "category": "load-balancing",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -8330,7 +8354,7 @@
       "schema_path": ["origin_servers", "private_ip", "segment"],
       "sections": [
         {
-          "aliases": ["name"],
+          "aliases": ["origin servers private ip segment name"],
           "anchor": "schema-origin_servers--private_ip--segment--name",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.",
           "document_id": "xcsh-docs:resources:origin_pool:properties:origin_servers:private_ip:segment",
@@ -8344,7 +8368,7 @@
           "type": "string"
         },
         {
-          "aliases": ["namespace"],
+          "aliases": ["origin servers private ip segment namespace"],
           "anchor": "schema-origin_servers--private_ip--segment--namespace",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace.",
           "document_id": "xcsh-docs:resources:origin_pool:properties:origin_servers:private_ip:segment",
@@ -8358,7 +8382,7 @@
           "type": "string"
         },
         {
-          "aliases": ["tenant"],
+          "aliases": ["origin servers private ip segment tenant"],
           "anchor": "schema-origin_servers--private_ip--segment--tenant",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant.",
           "document_id": "xcsh-docs:resources:origin_pool:properties:origin_servers:private_ip:segment",
@@ -8394,7 +8418,7 @@
         "xcsh-docs:resources:origin_pool:properties:origin_servers:private_ip:site_locator:virtual_site"
       ],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -8433,7 +8457,7 @@
       "schema_path": ["origin_servers", "private_ip", "site_locator"],
       "sections": [
         {
-          "aliases": ["site"],
+          "aliases": ["origin servers private ip site locator site"],
           "anchor": "section",
           "description": "This type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name.",
           "document_id": "xcsh-docs:resources:origin_pool:properties:origin_servers:private_ip:site_locator:site",
@@ -8456,7 +8480,7 @@
           "type": "object"
         },
         {
-          "aliases": ["virtual site"],
+          "aliases": ["origin servers private ip site locator virtual site"],
           "anchor": "section",
           "description": "This type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name.",
           "document_id": "xcsh-docs:resources:origin_pool:properties:origin_servers:private_ip:site_locator:virtual_site",
@@ -8498,7 +8522,7 @@
       "category": "load-balancing",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -8529,7 +8553,7 @@
       "schema_path": ["origin_servers", "private_ip", "site_locator", "site"],
       "sections": [
         {
-          "aliases": ["name"],
+          "aliases": ["origin servers private ip site locator site name"],
           "anchor": "schema-origin_servers--private_ip--site_locator--site--name",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.",
           "document_id": "xcsh-docs:resources:origin_pool:properties:origin_servers:private_ip:site_locator:site",
@@ -8543,7 +8567,7 @@
           "type": "string"
         },
         {
-          "aliases": ["namespace"],
+          "aliases": ["origin servers private ip site locator site namespace"],
           "anchor": "schema-origin_servers--private_ip--site_locator--site--namespace",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace.",
           "document_id": "xcsh-docs:resources:origin_pool:properties:origin_servers:private_ip:site_locator:site",
@@ -8557,7 +8581,7 @@
           "type": "string"
         },
         {
-          "aliases": ["tenant"],
+          "aliases": ["origin servers private ip site locator site tenant"],
           "anchor": "schema-origin_servers--private_ip--site_locator--site--tenant",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant.",
           "document_id": "xcsh-docs:resources:origin_pool:properties:origin_servers:private_ip:site_locator:site",
@@ -8590,7 +8614,7 @@
       "category": "load-balancing",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -8621,7 +8645,7 @@
       "schema_path": ["origin_servers", "private_ip", "site_locator", "virtual_site"],
       "sections": [
         {
-          "aliases": ["name"],
+          "aliases": ["origin servers private ip site locator virtual site name"],
           "anchor": "schema-origin_servers--private_ip--site_locator--virtual_site--name",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.",
           "document_id": "xcsh-docs:resources:origin_pool:properties:origin_servers:private_ip:site_locator:virtual_site",
@@ -8635,7 +8659,7 @@
           "type": "string"
         },
         {
-          "aliases": ["namespace"],
+          "aliases": ["origin servers private ip site locator virtual site namespace"],
           "anchor": "schema-origin_servers--private_ip--site_locator--virtual_site--namespace",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace.",
           "document_id": "xcsh-docs:resources:origin_pool:properties:origin_servers:private_ip:site_locator:virtual_site",
@@ -8649,7 +8673,7 @@
           "type": "string"
         },
         {
-          "aliases": ["tenant"],
+          "aliases": ["origin servers private ip site locator virtual site tenant"],
           "anchor": "schema-origin_servers--private_ip--site_locator--virtual_site--tenant",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant.",
           "document_id": "xcsh-docs:resources:origin_pool:properties:origin_servers:private_ip:site_locator:virtual_site",
@@ -8685,7 +8709,7 @@
         "xcsh-docs:resources:origin_pool:properties:origin_servers:private_ip:snat_pool:snat_pool"
       ],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -8724,7 +8748,7 @@
       "schema_path": ["origin_servers", "private_ip", "snat_pool"],
       "sections": [
         {
-          "aliases": ["no snat pool"],
+          "aliases": ["origin servers private ip snat pool no snat pool"],
           "anchor": "section",
           "description": "This can be used for messages where no values are needed.",
           "document_id": "xcsh-docs:resources:origin_pool:properties:origin_servers:private_ip:snat_pool:no_snat_pool",
@@ -8738,7 +8762,7 @@
           "type": "object"
         },
         {
-          "aliases": ["snat pool"],
+          "aliases": ["origin servers private ip snat pool snat pool"],
           "anchor": "section",
           "description": "List of IPv4 prefixes that represent an endpoint.",
           "document_id": "xcsh-docs:resources:origin_pool:properties:origin_servers:private_ip:snat_pool:snat_pool",
@@ -8771,7 +8795,7 @@
       "category": "load-balancing",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -8811,7 +8835,7 @@
       "category": "load-balancing",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -8833,7 +8857,7 @@
       "schema_path": ["origin_servers", "private_ip", "snat_pool", "snat_pool"],
       "sections": [
         {
-          "aliases": ["prefixes"],
+          "aliases": ["origin servers private ip snat pool snat pool prefixes"],
           "anchor": "schema-origin_servers--private_ip--snat_pool--snat_pool--prefixes",
           "description": "List of IPv4 prefixes that represent an endpoint.",
           "document_id": "xcsh-docs:resources:origin_pool:properties:origin_servers:private_ip:snat_pool:snat_pool",
@@ -8872,7 +8896,7 @@
         "xcsh-docs:resources:origin_pool:properties:origin_servers:private_name:snat_pool"
       ],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -8951,7 +8975,7 @@
       "schema_path": ["origin_servers", "private_name"],
       "sections": [
         {
-          "aliases": ["dns name"],
+          "aliases": ["origin servers private name dns name"],
           "anchor": "schema-origin_servers--private_name--dns_name",
           "description": "DNS Name",
           "document_id": "xcsh-docs:resources:origin_pool:properties:origin_servers:private_name",
@@ -8965,7 +8989,7 @@
           "type": "string"
         },
         {
-          "aliases": ["inside network"],
+          "aliases": ["origin servers private name inside network"],
           "anchor": "section",
           "description": "This can be used for messages where no values are needed.",
           "document_id": "xcsh-docs:resources:origin_pool:properties:origin_servers:private_name:inside_network",
@@ -8979,7 +9003,7 @@
           "type": "object"
         },
         {
-          "aliases": ["outside network"],
+          "aliases": ["origin servers private name outside network"],
           "anchor": "section",
           "description": "This can be used for messages where no values are needed.",
           "document_id": "xcsh-docs:resources:origin_pool:properties:origin_servers:private_name:outside_network",
@@ -8993,7 +9017,7 @@
           "type": "object"
         },
         {
-          "aliases": ["refresh interval"],
+          "aliases": ["origin servers private name refresh interval"],
           "anchor": "schema-origin_servers--private_name--refresh_interval",
           "description": "Interval for DNS refresh in seconds. Max value is 7 days as per https://datatracker.ietf.org/doc/HTML/rfc8767.",
           "document_id": "xcsh-docs:resources:origin_pool:properties:origin_servers:private_name",
@@ -9007,7 +9031,7 @@
           "type": "number"
         },
         {
-          "aliases": ["segment"],
+          "aliases": ["origin servers private name segment"],
           "anchor": "section",
           "description": "This type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name.",
           "document_id": "xcsh-docs:resources:origin_pool:properties:origin_servers:private_name:segment",
@@ -9030,7 +9054,7 @@
           "type": "object"
         },
         {
-          "aliases": ["site locator"],
+          "aliases": ["origin servers private name site locator"],
           "anchor": "section",
           "description": "This message defines a reference to a site or virtual site object.",
           "document_id": "xcsh-docs:resources:origin_pool:properties:origin_servers:private_name:site_locator",
@@ -9061,7 +9085,7 @@
           "type": "object"
         },
         {
-          "aliases": ["snat pool"],
+          "aliases": ["origin servers private name snat pool"],
           "anchor": "section",
           "description": "SNAT Pool configuration.",
           "document_id": "xcsh-docs:resources:origin_pool:properties:origin_servers:private_name:snat_pool",
@@ -9111,7 +9135,7 @@
       "category": "load-balancing",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -9151,7 +9175,7 @@
       "category": "load-balancing",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -9191,7 +9215,7 @@
       "category": "load-balancing",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -9222,7 +9246,7 @@
       "schema_path": ["origin_servers", "private_name", "segment"],
       "sections": [
         {
-          "aliases": ["name"],
+          "aliases": ["origin servers private name segment name"],
           "anchor": "schema-origin_servers--private_name--segment--name",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.",
           "document_id": "xcsh-docs:resources:origin_pool:properties:origin_servers:private_name:segment",
@@ -9236,7 +9260,7 @@
           "type": "string"
         },
         {
-          "aliases": ["namespace"],
+          "aliases": ["origin servers private name segment namespace"],
           "anchor": "schema-origin_servers--private_name--segment--namespace",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace.",
           "document_id": "xcsh-docs:resources:origin_pool:properties:origin_servers:private_name:segment",
@@ -9250,7 +9274,7 @@
           "type": "string"
         },
         {
-          "aliases": ["tenant"],
+          "aliases": ["origin servers private name segment tenant"],
           "anchor": "schema-origin_servers--private_name--segment--tenant",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant.",
           "document_id": "xcsh-docs:resources:origin_pool:properties:origin_servers:private_name:segment",
@@ -9286,7 +9310,7 @@
         "xcsh-docs:resources:origin_pool:properties:origin_servers:private_name:site_locator:virtual_site"
       ],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -9325,7 +9349,7 @@
       "schema_path": ["origin_servers", "private_name", "site_locator"],
       "sections": [
         {
-          "aliases": ["site"],
+          "aliases": ["origin servers private name site locator site"],
           "anchor": "section",
           "description": "This type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name.",
           "document_id": "xcsh-docs:resources:origin_pool:properties:origin_servers:private_name:site_locator:site",
@@ -9348,7 +9372,7 @@
           "type": "object"
         },
         {
-          "aliases": ["virtual site"],
+          "aliases": ["origin servers private name site locator virtual site"],
           "anchor": "section",
           "description": "This type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name.",
           "document_id": "xcsh-docs:resources:origin_pool:properties:origin_servers:private_name:site_locator:virtual_site",
@@ -9390,7 +9414,7 @@
       "category": "load-balancing",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -9421,7 +9445,7 @@
       "schema_path": ["origin_servers", "private_name", "site_locator", "site"],
       "sections": [
         {
-          "aliases": ["name"],
+          "aliases": ["origin servers private name site locator site name"],
           "anchor": "schema-origin_servers--private_name--site_locator--site--name",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.",
           "document_id": "xcsh-docs:resources:origin_pool:properties:origin_servers:private_name:site_locator:site",
@@ -9435,7 +9459,7 @@
           "type": "string"
         },
         {
-          "aliases": ["namespace"],
+          "aliases": ["origin servers private name site locator site namespace"],
           "anchor": "schema-origin_servers--private_name--site_locator--site--namespace",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace.",
           "document_id": "xcsh-docs:resources:origin_pool:properties:origin_servers:private_name:site_locator:site",
@@ -9449,7 +9473,7 @@
           "type": "string"
         },
         {
-          "aliases": ["tenant"],
+          "aliases": ["origin servers private name site locator site tenant"],
           "anchor": "schema-origin_servers--private_name--site_locator--site--tenant",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant.",
           "document_id": "xcsh-docs:resources:origin_pool:properties:origin_servers:private_name:site_locator:site",
@@ -9482,7 +9506,7 @@
       "category": "load-balancing",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -9513,7 +9537,7 @@
       "schema_path": ["origin_servers", "private_name", "site_locator", "virtual_site"],
       "sections": [
         {
-          "aliases": ["name"],
+          "aliases": ["origin servers private name site locator virtual site name"],
           "anchor": "schema-origin_servers--private_name--site_locator--virtual_site--name",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.",
           "document_id": "xcsh-docs:resources:origin_pool:properties:origin_servers:private_name:site_locator:virtual_site",
@@ -9527,7 +9551,7 @@
           "type": "string"
         },
         {
-          "aliases": ["namespace"],
+          "aliases": ["origin servers private name site locator virtual site namespace"],
           "anchor": "schema-origin_servers--private_name--site_locator--virtual_site--namespace",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace.",
           "document_id": "xcsh-docs:resources:origin_pool:properties:origin_servers:private_name:site_locator:virtual_site",
@@ -9541,7 +9565,7 @@
           "type": "string"
         },
         {
-          "aliases": ["tenant"],
+          "aliases": ["origin servers private name site locator virtual site tenant"],
           "anchor": "schema-origin_servers--private_name--site_locator--virtual_site--tenant",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant.",
           "document_id": "xcsh-docs:resources:origin_pool:properties:origin_servers:private_name:site_locator:virtual_site",
@@ -9577,7 +9601,7 @@
         "xcsh-docs:resources:origin_pool:properties:origin_servers:private_name:snat_pool:snat_pool"
       ],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -9616,7 +9640,7 @@
       "schema_path": ["origin_servers", "private_name", "snat_pool"],
       "sections": [
         {
-          "aliases": ["no snat pool"],
+          "aliases": ["origin servers private name snat pool no snat pool"],
           "anchor": "section",
           "description": "This can be used for messages where no values are needed.",
           "document_id": "xcsh-docs:resources:origin_pool:properties:origin_servers:private_name:snat_pool:no_snat_pool",
@@ -9630,7 +9654,7 @@
           "type": "object"
         },
         {
-          "aliases": ["snat pool"],
+          "aliases": ["origin servers private name snat pool snat pool"],
           "anchor": "section",
           "description": "List of IPv4 prefixes that represent an endpoint.",
           "document_id": "xcsh-docs:resources:origin_pool:properties:origin_servers:private_name:snat_pool:snat_pool",
@@ -9663,7 +9687,7 @@
       "category": "load-balancing",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -9703,7 +9727,7 @@
       "category": "load-balancing",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -9725,7 +9749,7 @@
       "schema_path": ["origin_servers", "private_name", "snat_pool", "snat_pool"],
       "sections": [
         {
-          "aliases": ["prefixes"],
+          "aliases": ["origin servers private name snat pool snat pool prefixes"],
           "anchor": "schema-origin_servers--private_name--snat_pool--snat_pool--prefixes",
           "description": "List of IPv4 prefixes that represent an endpoint.",
           "document_id": "xcsh-docs:resources:origin_pool:properties:origin_servers:private_name:snat_pool:snat_pool",
@@ -9758,7 +9782,7 @@
       "category": "load-balancing",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -9780,7 +9804,7 @@
       "schema_path": ["origin_servers", "public_ip"],
       "sections": [
         {
-          "aliases": ["ip"],
+          "aliases": ["origin servers public ip ip"],
           "anchor": "schema-origin_servers--public_ip--ip",
           "description": "Exclusive with Public IPv4 address.",
           "document_id": "xcsh-docs:resources:origin_pool:properties:origin_servers:public_ip",
@@ -9813,7 +9837,7 @@
       "category": "load-balancing",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -9844,7 +9868,7 @@
       "schema_path": ["origin_servers", "public_name"],
       "sections": [
         {
-          "aliases": ["dns name"],
+          "aliases": ["origin servers public name dns name"],
           "anchor": "schema-origin_servers--public_name--dns_name",
           "description": "DNS Name",
           "document_id": "xcsh-docs:resources:origin_pool:properties:origin_servers:public_name",
@@ -9858,7 +9882,7 @@
           "type": "string"
         },
         {
-          "aliases": ["refresh interval"],
+          "aliases": ["origin servers public name refresh interval"],
           "anchor": "schema-origin_servers--public_name--refresh_interval",
           "description": "Interval for DNS refresh in seconds. Max value is 7 days as per https://datatracker.ietf.org/doc/HTML/rfc8767.",
           "document_id": "xcsh-docs:resources:origin_pool:properties:origin_servers:public_name",
@@ -9891,7 +9915,7 @@
       "category": "load-balancing",
       "child_ids": ["xcsh-docs:resources:origin_pool:properties:origin_servers:vn_private_ip:virtual_network"],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -9913,7 +9937,7 @@
       "schema_path": ["origin_servers", "vn_private_ip"],
       "sections": [
         {
-          "aliases": ["ip"],
+          "aliases": ["origin servers vn private ip ip"],
           "anchor": "schema-origin_servers--vn_private_ip--ip",
           "description": "Exclusive with IPv4 address.",
           "document_id": "xcsh-docs:resources:origin_pool:properties:origin_servers:vn_private_ip",
@@ -9927,7 +9951,7 @@
           "type": "string"
         },
         {
-          "aliases": ["virtual network"],
+          "aliases": ["origin servers vn private ip virtual network"],
           "anchor": "section",
           "description": "This type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name.",
           "document_id": "xcsh-docs:resources:origin_pool:properties:origin_servers:vn_private_ip:virtual_network",
@@ -9969,7 +9993,7 @@
       "category": "load-balancing",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -10000,7 +10024,7 @@
       "schema_path": ["origin_servers", "vn_private_ip", "virtual_network"],
       "sections": [
         {
-          "aliases": ["name"],
+          "aliases": ["origin servers vn private ip virtual network name"],
           "anchor": "schema-origin_servers--vn_private_ip--virtual_network--name",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.",
           "document_id": "xcsh-docs:resources:origin_pool:properties:origin_servers:vn_private_ip:virtual_network",
@@ -10014,7 +10038,7 @@
           "type": "string"
         },
         {
-          "aliases": ["namespace"],
+          "aliases": ["origin servers vn private ip virtual network namespace"],
           "anchor": "schema-origin_servers--vn_private_ip--virtual_network--namespace",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace.",
           "document_id": "xcsh-docs:resources:origin_pool:properties:origin_servers:vn_private_ip:virtual_network",
@@ -10028,7 +10052,7 @@
           "type": "string"
         },
         {
-          "aliases": ["tenant"],
+          "aliases": ["origin servers vn private ip virtual network tenant"],
           "anchor": "schema-origin_servers--vn_private_ip--virtual_network--tenant",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant.",
           "document_id": "xcsh-docs:resources:origin_pool:properties:origin_servers:vn_private_ip:virtual_network",
@@ -10061,7 +10085,7 @@
       "category": "load-balancing",
       "child_ids": ["xcsh-docs:resources:origin_pool:properties:origin_servers:vn_private_name:private_network"],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -10092,7 +10116,7 @@
       "schema_path": ["origin_servers", "vn_private_name"],
       "sections": [
         {
-          "aliases": ["dns name"],
+          "aliases": ["origin servers vn private name dns name"],
           "anchor": "schema-origin_servers--vn_private_name--dns_name",
           "description": "DNS Name",
           "document_id": "xcsh-docs:resources:origin_pool:properties:origin_servers:vn_private_name",
@@ -10106,7 +10130,7 @@
           "type": "string"
         },
         {
-          "aliases": ["private network"],
+          "aliases": ["origin servers vn private name private network"],
           "anchor": "section",
           "description": "This type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name.",
           "document_id": "xcsh-docs:resources:origin_pool:properties:origin_servers:vn_private_name:private_network",
@@ -10148,7 +10172,7 @@
       "category": "load-balancing",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -10179,7 +10203,7 @@
       "schema_path": ["origin_servers", "vn_private_name", "private_network"],
       "sections": [
         {
-          "aliases": ["name"],
+          "aliases": ["origin servers vn private name private network name"],
           "anchor": "schema-origin_servers--vn_private_name--private_network--name",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.",
           "document_id": "xcsh-docs:resources:origin_pool:properties:origin_servers:vn_private_name:private_network",
@@ -10193,7 +10217,7 @@
           "type": "string"
         },
         {
-          "aliases": ["namespace"],
+          "aliases": ["origin servers vn private name private network namespace"],
           "anchor": "schema-origin_servers--vn_private_name--private_network--namespace",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace.",
           "document_id": "xcsh-docs:resources:origin_pool:properties:origin_servers:vn_private_name:private_network",
@@ -10207,7 +10231,7 @@
           "type": "string"
         },
         {
-          "aliases": ["tenant"],
+          "aliases": ["origin servers vn private name private network tenant"],
           "anchor": "schema-origin_servers--vn_private_name--private_network--tenant",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant.",
           "document_id": "xcsh-docs:resources:origin_pool:properties:origin_servers:vn_private_name:private_network",
@@ -10240,7 +10264,7 @@
       "category": "load-balancing",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -10273,14 +10297,14 @@
       }
     },
     {
-      "aliases": ["duration", "operation timeout", "timeouts"],
+      "aliases": ["duration", "lifecycle timeout", "operation timeout", "timeouts"],
       "body_bytes": 2225,
       "body_sha256": "sha256:e170bdabc14b1bc6c487f1d92eaa4b73505c014929b9dce879c1de219fc6ce15",
       "capabilities": ["load-balancing"],
       "category": "load-balancing",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -10302,9 +10326,17 @@
       "schema_path": ["timeouts"],
       "sections": [
         {
-          "aliases": ["create"],
+          "aliases": [
+            "create operation timeout",
+            "create timeout",
+            "creation duration",
+            "duration",
+            "lifecycle timeout",
+            "operation timeout",
+            "timeouts create"
+          ],
           "anchor": "schema-timeouts--create",
-          "description": "A string that can be (https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as \"30s\" or \"2h45m\". Valid time units are \"s\" (seconds), \"m\" (minutes), \"h\" (hours).",
+          "description": "Configures the timeout duration for resource creation.",
           "document_id": "xcsh-docs:resources:origin_pool:properties:timeouts",
           "flags": ["optional"],
           "max_items": null,
@@ -10316,9 +10348,18 @@
           "type": "string"
         },
         {
-          "aliases": ["delete", "duration", "operation timeout"],
+          "aliases": [
+            "delete operation timeout",
+            "delete timeout",
+            "deletion duration",
+            "destroy timeout",
+            "duration",
+            "lifecycle timeout",
+            "operation timeout",
+            "timeouts delete"
+          ],
           "anchor": "schema-timeouts--delete",
-          "description": "A string that can be (https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as \"30s\" or \"2h45m\". Valid time units are \"s\" (seconds), \"m\" (minutes), \"h\" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.",
+          "description": "Configures the timeout duration for resource deletion, applicable only if changes are saved into state before destroy.",
           "document_id": "xcsh-docs:resources:origin_pool:properties:timeouts",
           "flags": ["optional"],
           "max_items": null,
@@ -10330,9 +10371,18 @@
           "type": "string"
         },
         {
-          "aliases": ["read"],
+          "aliases": [
+            "duration",
+            "lifecycle timeout",
+            "operation timeout",
+            "read duration",
+            "read operation timeout",
+            "read timeout",
+            "refresh timeout",
+            "timeouts read"
+          ],
           "anchor": "schema-timeouts--read",
-          "description": "A string that can be (https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as \"30s\" or \"2h45m\". Valid time units are \"s\" (seconds), \"m\" (minutes), \"h\" (hours). Read operations occur during any refresh or planning operation when refresh is enabled.",
+          "description": "Configures the timeout duration for read operations during refresh or planning.",
           "document_id": "xcsh-docs:resources:origin_pool:properties:timeouts",
           "flags": ["optional"],
           "max_items": null,
@@ -10344,9 +10394,18 @@
           "type": "string"
         },
         {
-          "aliases": ["update"],
+          "aliases": [
+            "duration",
+            "lifecycle timeout",
+            "modification timeout",
+            "operation timeout",
+            "timeouts update",
+            "update duration",
+            "update operation timeout",
+            "update timeout"
+          ],
           "anchor": "schema-timeouts--update",
-          "description": "A string that can be (https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as \"30s\" or \"2h45m\". Valid time units are \"s\" (seconds), \"m\" (minutes), \"h\" (hours).",
+          "description": "Configures the timeout duration for resource update operations.",
           "document_id": "xcsh-docs:resources:origin_pool:properties:timeouts",
           "flags": ["optional"],
           "max_items": null,
@@ -10380,7 +10439,7 @@
         "xcsh-docs:resources:origin_pool:properties:upstream_conn_pool_reuse_type:enable_conn_pool_reuse"
       ],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -10419,7 +10478,7 @@
       "schema_path": ["upstream_conn_pool_reuse_type"],
       "sections": [
         {
-          "aliases": ["disable conn pool reuse"],
+          "aliases": ["upstream conn pool reuse type disable conn pool reuse"],
           "anchor": "section",
           "description": "This can be used for messages where no values are needed.",
           "document_id": "xcsh-docs:resources:origin_pool:properties:upstream_conn_pool_reuse_type:disable_conn_pool_reuse",
@@ -10433,7 +10492,7 @@
           "type": "object"
         },
         {
-          "aliases": ["enable conn pool reuse"],
+          "aliases": ["upstream conn pool reuse type enable conn pool reuse"],
           "anchor": "section",
           "description": "This can be used for messages where no values are needed.",
           "document_id": "xcsh-docs:resources:origin_pool:properties:upstream_conn_pool_reuse_type:enable_conn_pool_reuse",
@@ -10466,7 +10525,7 @@
       "category": "load-balancing",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -10506,7 +10565,7 @@
       "category": "load-balancing",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -10558,7 +10617,7 @@
         "xcsh-docs:resources:origin_pool:properties:use_tls:volterra_trusted_ca"
       ],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -10773,7 +10832,7 @@
       "schema_path": ["use_tls"],
       "sections": [
         {
-          "aliases": ["default session key caching"],
+          "aliases": ["use tls default session key caching"],
           "anchor": "section",
           "description": "This can be used for messages where no values are needed.",
           "document_id": "xcsh-docs:resources:origin_pool:properties:use_tls:default_session_key_caching",
@@ -10787,7 +10846,7 @@
           "type": "object"
         },
         {
-          "aliases": ["disable session key caching"],
+          "aliases": ["use tls disable session key caching"],
           "anchor": "section",
           "description": "This can be used for messages where no values are needed.",
           "document_id": "xcsh-docs:resources:origin_pool:properties:use_tls:disable_session_key_caching",
@@ -10801,7 +10860,7 @@
           "type": "object"
         },
         {
-          "aliases": ["disable sni"],
+          "aliases": ["use tls disable sni"],
           "anchor": "section",
           "description": "This can be used for messages where no values are needed.",
           "document_id": "xcsh-docs:resources:origin_pool:properties:use_tls:disable_sni",
@@ -10815,7 +10874,7 @@
           "type": "object"
         },
         {
-          "aliases": ["max session keys"],
+          "aliases": ["use tls max session keys"],
           "anchor": "schema-use_tls--max_session_keys",
           "description": "Exclusive with Number of session keys that are cached.",
           "document_id": "xcsh-docs:resources:origin_pool:properties:use_tls",
@@ -10829,7 +10888,7 @@
           "type": "number"
         },
         {
-          "aliases": ["no mtls"],
+          "aliases": ["use tls no mtls"],
           "anchor": "section",
           "description": "This can be used for messages where no values are needed.",
           "document_id": "xcsh-docs:resources:origin_pool:properties:use_tls:no_mtls",
@@ -10843,7 +10902,7 @@
           "type": "object"
         },
         {
-          "aliases": ["skip server verification"],
+          "aliases": ["use tls skip server verification"],
           "anchor": "section",
           "description": "This can be used for messages where no values are needed.",
           "document_id": "xcsh-docs:resources:origin_pool:properties:use_tls:skip_server_verification",
@@ -10857,7 +10916,7 @@
           "type": "object"
         },
         {
-          "aliases": ["sni"],
+          "aliases": ["use tls sni"],
           "anchor": "schema-use_tls--sni",
           "description": "Exclusive with SNI value to be used.",
           "document_id": "xcsh-docs:resources:origin_pool:properties:use_tls",
@@ -10871,7 +10930,7 @@
           "type": "string"
         },
         {
-          "aliases": ["tls config"],
+          "aliases": ["use tls tls config"],
           "anchor": "section",
           "description": "This defines various OPTIONS to configure TLS configuration parameters.",
           "document_id": "xcsh-docs:resources:origin_pool:properties:use_tls:tls_config",
@@ -10982,7 +11041,7 @@
           "type": "object"
         },
         {
-          "aliases": ["use host header as sni"],
+          "aliases": ["use tls use host header as sni"],
           "anchor": "section",
           "description": "This can be used for messages where no values are needed.",
           "document_id": "xcsh-docs:resources:origin_pool:properties:use_tls:use_host_header_as_sni",
@@ -10996,7 +11055,7 @@
           "type": "object"
         },
         {
-          "aliases": ["use mtls"],
+          "aliases": ["use tls use mtls"],
           "anchor": "section",
           "description": "MTLS Client Certificate.",
           "document_id": "xcsh-docs:resources:origin_pool:properties:use_tls:use_mtls",
@@ -11019,7 +11078,7 @@
           "type": "object"
         },
         {
-          "aliases": ["use mtls obj"],
+          "aliases": ["use tls use mtls obj"],
           "anchor": "section",
           "description": "This type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name.",
           "document_id": "xcsh-docs:resources:origin_pool:properties:use_tls:use_mtls_obj",
@@ -11042,7 +11101,7 @@
           "type": "object"
         },
         {
-          "aliases": ["use server verification"],
+          "aliases": ["use tls use server verification"],
           "anchor": "section",
           "description": "Upstream TLS Validation Context.",
           "document_id": "xcsh-docs:resources:origin_pool:properties:use_tls:use_server_verification",
@@ -11073,7 +11132,7 @@
           "type": "object"
         },
         {
-          "aliases": ["volterra trusted ca"],
+          "aliases": ["use tls volterra trusted ca"],
           "anchor": "section",
           "description": "This can be used for messages where no values are needed.",
           "document_id": "xcsh-docs:resources:origin_pool:properties:use_tls:volterra_trusted_ca",
@@ -11106,7 +11165,7 @@
       "category": "load-balancing",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -11146,7 +11205,7 @@
       "category": "load-balancing",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -11186,7 +11245,7 @@
       "category": "load-balancing",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -11226,7 +11285,7 @@
       "category": "load-balancing",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -11266,7 +11325,7 @@
       "category": "load-balancing",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -11311,7 +11370,7 @@
         "xcsh-docs:resources:origin_pool:properties:use_tls:tls_config:medium_security"
       ],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -11430,7 +11489,7 @@
       "schema_path": ["use_tls", "tls_config"],
       "sections": [
         {
-          "aliases": ["custom security"],
+          "aliases": ["use tls tls config custom security"],
           "anchor": "section",
           "description": "This defines TLS protocol config including min/max versions and allowed ciphers.",
           "document_id": "xcsh-docs:resources:origin_pool:properties:use_tls:tls_config:custom_security",
@@ -11453,7 +11512,7 @@
           "type": "object"
         },
         {
-          "aliases": ["default security"],
+          "aliases": ["use tls tls config default security"],
           "anchor": "section",
           "description": "This can be used for messages where no values are needed.",
           "document_id": "xcsh-docs:resources:origin_pool:properties:use_tls:tls_config:default_security",
@@ -11467,7 +11526,7 @@
           "type": "object"
         },
         {
-          "aliases": ["low security"],
+          "aliases": ["use tls tls config low security"],
           "anchor": "section",
           "description": "This can be used for messages where no values are needed.",
           "document_id": "xcsh-docs:resources:origin_pool:properties:use_tls:tls_config:low_security",
@@ -11481,7 +11540,7 @@
           "type": "object"
         },
         {
-          "aliases": ["medium security"],
+          "aliases": ["use tls tls config medium security"],
           "anchor": "section",
           "description": "This can be used for messages where no values are needed.",
           "document_id": "xcsh-docs:resources:origin_pool:properties:use_tls:tls_config:medium_security",
@@ -11514,7 +11573,7 @@
       "category": "load-balancing",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -11545,7 +11604,7 @@
       "schema_path": ["use_tls", "tls_config", "custom_security"],
       "sections": [
         {
-          "aliases": ["cipher suites"],
+          "aliases": ["use tls tls config custom security cipher suites"],
           "anchor": "schema-use_tls--tls_config--custom_security--cipher_suites",
           "description": "The TLS listener will only support the specified cipher list.",
           "document_id": "xcsh-docs:resources:origin_pool:properties:use_tls:tls_config:custom_security",
@@ -11559,7 +11618,7 @@
           "type": "list"
         },
         {
-          "aliases": ["max version"],
+          "aliases": ["use tls tls config custom security max version"],
           "anchor": "schema-use_tls--tls_config--custom_security--max_version",
           "description": "TlsProtocol is enumeration of supported TLS versions F5 Distributed Cloud will choose the optimal TLS version.",
           "document_id": "xcsh-docs:resources:origin_pool:properties:use_tls:tls_config:custom_security",
@@ -11573,7 +11632,7 @@
           "type": "string"
         },
         {
-          "aliases": ["min version"],
+          "aliases": ["use tls tls config custom security min version"],
           "anchor": "schema-use_tls--tls_config--custom_security--min_version",
           "description": "TlsProtocol is enumeration of supported TLS versions F5 Distributed Cloud will choose the optimal TLS version.",
           "document_id": "xcsh-docs:resources:origin_pool:properties:use_tls:tls_config:custom_security",
@@ -11606,7 +11665,7 @@
       "category": "load-balancing",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -11646,7 +11705,7 @@
       "category": "load-balancing",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -11686,7 +11745,7 @@
       "category": "load-balancing",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -11726,7 +11785,7 @@
       "category": "load-balancing",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -11766,7 +11825,7 @@
       "category": "load-balancing",
       "child_ids": ["xcsh-docs:resources:origin_pool:properties:use_tls:use_mtls:tls_certificates"],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -11797,7 +11856,13 @@
       "schema_path": ["use_tls", "use_mtls"],
       "sections": [
         {
-          "aliases": ["cert", "certificate", "existing certificates", "tls certificates"],
+          "aliases": [
+            "cert",
+            "certificate",
+            "existing certificates",
+            "tls certificates",
+            "use tls use mtls tls certificates"
+          ],
           "anchor": "section",
           "description": "MTLS Client Certificate.",
           "document_id": "xcsh-docs:resources:origin_pool:properties:use_tls:use_mtls:tls_certificates",
@@ -11898,7 +11963,7 @@
         "xcsh-docs:resources:origin_pool:properties:use_tls:use_mtls:tls_certificates:use_system_defaults"
       ],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -11977,7 +12042,13 @@
       "schema_path": ["use_tls", "use_mtls", "tls_certificates"],
       "sections": [
         {
-          "aliases": ["cert", "certificate", "certificate url", "existing certificates", "tls certificates"],
+          "aliases": [
+            "cert",
+            "certificate",
+            "existing certificates",
+            "tls certificates",
+            "use tls use mtls tls certificates certificate url"
+          ],
           "anchor": "schema-use_tls--use_mtls--tls_certificates--certificate_url",
           "description": "TLS certificate. Certificate or certificate chain in PEM format including the PEM headers.",
           "document_id": "xcsh-docs:resources:origin_pool:properties:use_tls:use_mtls:tls_certificates",
@@ -11991,7 +12062,7 @@
           "type": "string"
         },
         {
-          "aliases": ["custom hash algorithms"],
+          "aliases": ["use tls use mtls tls certificates custom hash algorithms"],
           "anchor": "section",
           "description": "Specifies the hash algorithms to be used.",
           "document_id": "xcsh-docs:resources:origin_pool:properties:use_tls:use_mtls:tls_certificates:custom_hash_algorithms",
@@ -12014,7 +12085,7 @@
           "type": "object"
         },
         {
-          "aliases": ["description spec"],
+          "aliases": ["use tls use mtls tls certificates description spec"],
           "anchor": "schema-use_tls--use_mtls--tls_certificates--description_spec",
           "description": "Description. Description for the certificate.",
           "document_id": "xcsh-docs:resources:origin_pool:properties:use_tls:use_mtls:tls_certificates",
@@ -12028,7 +12099,7 @@
           "type": "string"
         },
         {
-          "aliases": ["disable ocsp stapling"],
+          "aliases": ["use tls use mtls tls certificates disable ocsp stapling"],
           "anchor": "section",
           "description": "This can be used for messages where no values are needed.",
           "document_id": "xcsh-docs:resources:origin_pool:properties:use_tls:use_mtls:tls_certificates:disable_ocsp_stapling",
@@ -12042,7 +12113,7 @@
           "type": "object"
         },
         {
-          "aliases": ["private key"],
+          "aliases": ["use tls use mtls tls certificates private key"],
           "anchor": "section",
           "description": "SecretType is used in an object to indicate a sensitive/confidential field.",
           "document_id": "xcsh-docs:resources:origin_pool:properties:use_tls:use_mtls:tls_certificates:private_key",
@@ -12073,7 +12144,7 @@
           "type": "object"
         },
         {
-          "aliases": ["use system defaults"],
+          "aliases": ["use tls use mtls tls certificates use system defaults"],
           "anchor": "section",
           "description": "This can be used for messages where no values are needed.",
           "document_id": "xcsh-docs:resources:origin_pool:properties:use_tls:use_mtls:tls_certificates:use_system_defaults",
@@ -12106,7 +12177,7 @@
       "category": "load-balancing",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -12137,7 +12208,7 @@
       "schema_path": ["use_tls", "use_mtls", "tls_certificates", "custom_hash_algorithms"],
       "sections": [
         {
-          "aliases": ["hash algorithms"],
+          "aliases": ["use tls use mtls tls certificates custom hash algorithms hash algorithms"],
           "anchor": "schema-use_tls--use_mtls--tls_certificates--custom_hash_algorithms--hash_algorithms",
           "description": "Ordered list of hash algorithms to be used.",
           "document_id": "xcsh-docs:resources:origin_pool:properties:use_tls:use_mtls:tls_certificates:custom_hash_algorithms",
@@ -12170,7 +12241,7 @@
       "category": "load-balancing",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -12213,7 +12284,7 @@
         "xcsh-docs:resources:origin_pool:properties:use_tls:use_mtls:tls_certificates:private_key:clear_secret_info"
       ],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -12252,7 +12323,7 @@
       "schema_path": ["use_tls", "use_mtls", "tls_certificates", "private_key"],
       "sections": [
         {
-          "aliases": ["blindfold secret info"],
+          "aliases": ["use tls use mtls tls certificates private key blindfold secret info"],
           "anchor": "section",
           "description": "BlindfoldSecretInfoType specifies information about the Secret managed by F5XC Secret Management.",
           "document_id": "xcsh-docs:resources:origin_pool:properties:use_tls:use_mtls:tls_certificates:private_key:blindfold_secret_info",
@@ -12275,7 +12346,7 @@
           "type": "object"
         },
         {
-          "aliases": ["clear secret info"],
+          "aliases": ["use tls use mtls tls certificates private key clear secret info"],
           "anchor": "section",
           "description": "ClearSecretInfoType specifies information about the Secret that is not encrypted.",
           "document_id": "xcsh-docs:resources:origin_pool:properties:use_tls:use_mtls:tls_certificates:private_key:clear_secret_info",
@@ -12317,7 +12388,7 @@
       "category": "load-balancing",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -12348,7 +12419,7 @@
       "schema_path": ["use_tls", "use_mtls", "tls_certificates", "private_key", "blindfold_secret_info"],
       "sections": [
         {
-          "aliases": ["decryption provider"],
+          "aliases": ["use tls use mtls tls certificates private key blindfold secret info decryption provider"],
           "anchor": "schema-use_tls--use_mtls--tls_certificates--private_key--blindfold_secret_info--decryption_provider",
           "description": "Name of the Secret Management Access object that contains information about the backend Secret Management service.",
           "document_id": "xcsh-docs:resources:origin_pool:properties:use_tls:use_mtls:tls_certificates:private_key:blindfold_secret_info",
@@ -12369,7 +12440,7 @@
           "type": "string"
         },
         {
-          "aliases": ["location"],
+          "aliases": ["use tls use mtls tls certificates private key blindfold secret info location"],
           "anchor": "schema-use_tls--use_mtls--tls_certificates--private_key--blindfold_secret_info--location",
           "description": "Location is the uri_ref. It could be in URL format for string:/// Or it could be a path if the store provider is an HTTP/HTTPS location.",
           "document_id": "xcsh-docs:resources:origin_pool:properties:use_tls:use_mtls:tls_certificates:private_key:blindfold_secret_info",
@@ -12390,7 +12461,7 @@
           "type": "string"
         },
         {
-          "aliases": ["store provider"],
+          "aliases": ["use tls use mtls tls certificates private key blindfold secret info store provider"],
           "anchor": "schema-use_tls--use_mtls--tls_certificates--private_key--blindfold_secret_info--store_provider",
           "description": "Name of the Secret Management Access object that contains information about the store to GET encrypted bytes This field needs to be provided only if the URL scheme is not string:///.",
           "document_id": "xcsh-docs:resources:origin_pool:properties:use_tls:use_mtls:tls_certificates:private_key:blindfold_secret_info",
@@ -12430,7 +12501,7 @@
       "category": "load-balancing",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -12461,7 +12532,7 @@
       "schema_path": ["use_tls", "use_mtls", "tls_certificates", "private_key", "clear_secret_info"],
       "sections": [
         {
-          "aliases": ["provider ref"],
+          "aliases": ["use tls use mtls tls certificates private key clear secret info provider ref"],
           "anchor": "schema-use_tls--use_mtls--tls_certificates--private_key--clear_secret_info--provider_ref",
           "description": "Name of the Secret Management Access object that contains information about the store to GET encrypted bytes This field needs to be provided only if the URL scheme is not string:///.",
           "document_id": "xcsh-docs:resources:origin_pool:properties:use_tls:use_mtls:tls_certificates:private_key:clear_secret_info",
@@ -12482,7 +12553,7 @@
           "type": "string"
         },
         {
-          "aliases": ["url"],
+          "aliases": ["use tls use mtls tls certificates private key clear secret info url"],
           "anchor": "schema-use_tls--use_mtls--tls_certificates--private_key--clear_secret_info--url",
           "description": "URL of the secret. Currently supported URL schemes is string:///. For string:/// scheme, Secret needs to be encoded Base64 format. When asked for this secret, caller will GET Secret bytes after Base64 decoding.",
           "document_id": "xcsh-docs:resources:origin_pool:properties:use_tls:use_mtls:tls_certificates:private_key:clear_secret_info",
@@ -12515,7 +12586,7 @@
       "category": "load-balancing",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -12555,7 +12626,7 @@
       "category": "load-balancing",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -12586,7 +12657,7 @@
       "schema_path": ["use_tls", "use_mtls_obj"],
       "sections": [
         {
-          "aliases": ["name"],
+          "aliases": ["use tls use mtls obj name"],
           "anchor": "schema-use_tls--use_mtls_obj--name",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.",
           "document_id": "xcsh-docs:resources:origin_pool:properties:use_tls:use_mtls_obj",
@@ -12600,7 +12671,7 @@
           "type": "string"
         },
         {
-          "aliases": ["namespace"],
+          "aliases": ["use tls use mtls obj namespace"],
           "anchor": "schema-use_tls--use_mtls_obj--namespace",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace.",
           "document_id": "xcsh-docs:resources:origin_pool:properties:use_tls:use_mtls_obj",
@@ -12614,7 +12685,7 @@
           "type": "string"
         },
         {
-          "aliases": ["tenant"],
+          "aliases": ["use tls use mtls obj tenant"],
           "anchor": "schema-use_tls--use_mtls_obj--tenant",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant.",
           "document_id": "xcsh-docs:resources:origin_pool:properties:use_tls:use_mtls_obj",
@@ -12647,7 +12718,7 @@
       "category": "load-balancing",
       "child_ids": ["xcsh-docs:resources:origin_pool:properties:use_tls:use_server_verification:trusted_ca"],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -12686,7 +12757,7 @@
       "schema_path": ["use_tls", "use_server_verification"],
       "sections": [
         {
-          "aliases": ["trusted ca"],
+          "aliases": ["use tls use server verification trusted ca"],
           "anchor": "section",
           "description": "This type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name.",
           "document_id": "xcsh-docs:resources:origin_pool:properties:use_tls:use_server_verification:trusted_ca",
@@ -12709,7 +12780,7 @@
           "type": "object"
         },
         {
-          "aliases": ["trusted ca url"],
+          "aliases": ["use tls use server verification trusted ca url"],
           "anchor": "schema-use_tls--use_server_verification--trusted_ca_url",
           "description": "Exclusive with Upload a Root CA Certificate specifically for this Origin Pool for verification of server's certificate.",
           "document_id": "xcsh-docs:resources:origin_pool:properties:use_tls:use_server_verification",
@@ -12742,7 +12813,7 @@
       "category": "load-balancing",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -12773,7 +12844,7 @@
       "schema_path": ["use_tls", "use_server_verification", "trusted_ca"],
       "sections": [
         {
-          "aliases": ["name"],
+          "aliases": ["use tls use server verification trusted ca name"],
           "anchor": "schema-use_tls--use_server_verification--trusted_ca--name",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.",
           "document_id": "xcsh-docs:resources:origin_pool:properties:use_tls:use_server_verification:trusted_ca",
@@ -12787,7 +12858,7 @@
           "type": "string"
         },
         {
-          "aliases": ["namespace"],
+          "aliases": ["use tls use server verification trusted ca namespace"],
           "anchor": "schema-use_tls--use_server_verification--trusted_ca--namespace",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace.",
           "document_id": "xcsh-docs:resources:origin_pool:properties:use_tls:use_server_verification:trusted_ca",
@@ -12801,7 +12872,7 @@
           "type": "string"
         },
         {
-          "aliases": ["tenant"],
+          "aliases": ["use tls use server verification trusted ca tenant"],
           "anchor": "schema-use_tls--use_server_verification--trusted_ca--tenant",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant.",
           "document_id": "xcsh-docs:resources:origin_pool:properties:use_tls:use_server_verification:trusted_ca",
@@ -12834,7 +12905,7 @@
       "category": "load-balancing",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -12882,7 +12953,7 @@
         "xcsh-docs:resources:origin_pool:example:with-labels"
       ],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -12922,7 +12993,7 @@
       "category": "load-balancing",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -12969,7 +13040,7 @@
       "category": "load-balancing",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -13016,7 +13087,7 @@
       "category": "load-balancing",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -13063,7 +13134,7 @@
       "category": "load-balancing",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -13110,7 +13181,7 @@
       "category": "load-balancing",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -13157,7 +13228,7 @@
       "category": "load-balancing",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -13204,7 +13275,7 @@
       "category": "load-balancing",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -13251,7 +13322,7 @@
       "category": "load-balancing",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -13292,7 +13363,7 @@
       "category": "load-balancing",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"

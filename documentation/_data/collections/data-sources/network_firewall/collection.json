@@ -165,7 +165,7 @@
         "xcsh-docs:data-sources:network_firewall:examples"
       ],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -214,7 +214,7 @@
         "xcsh-docs:data-sources:network_firewall:properties:disable_network_policy"
       ],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -439,7 +439,7 @@
         "xcsh-docs:data-sources:network_firewall:properties:active_enhanced_firewall_policies:enhanced_firewall_policies"
       ],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -461,7 +461,7 @@
       "schema_path": ["active_enhanced_firewall_policies"],
       "sections": [
         {
-          "aliases": ["enhanced firewall policies"],
+          "aliases": ["active enhanced firewall policies enhanced firewall policies"],
           "anchor": "section",
           "description": "Ordered List of Enhanced Firewall Policies active.",
           "document_id": "xcsh-docs:data-sources:network_firewall:properties:active_enhanced_firewall_policies:enhanced_firewall_policies",
@@ -494,7 +494,7 @@
       "category": "security",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -516,7 +516,7 @@
       "schema_path": ["active_enhanced_firewall_policies", "enhanced_firewall_policies"],
       "sections": [
         {
-          "aliases": ["name"],
+          "aliases": ["active enhanced firewall policies enhanced firewall policies name"],
           "anchor": "schema-active_enhanced_firewall_policies--enhanced_firewall_policies--name",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.",
           "document_id": "xcsh-docs:data-sources:network_firewall:properties:active_enhanced_firewall_policies:enhanced_firewall_policies",
@@ -530,7 +530,7 @@
           "type": "string"
         },
         {
-          "aliases": ["namespace"],
+          "aliases": ["active enhanced firewall policies enhanced firewall policies namespace"],
           "anchor": "schema-active_enhanced_firewall_policies--enhanced_firewall_policies--namespace",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace.",
           "document_id": "xcsh-docs:data-sources:network_firewall:properties:active_enhanced_firewall_policies:enhanced_firewall_policies",
@@ -544,7 +544,7 @@
           "type": "string"
         },
         {
-          "aliases": ["tenant"],
+          "aliases": ["active enhanced firewall policies enhanced firewall policies tenant"],
           "anchor": "schema-active_enhanced_firewall_policies--enhanced_firewall_policies--tenant",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant.",
           "document_id": "xcsh-docs:data-sources:network_firewall:properties:active_enhanced_firewall_policies:enhanced_firewall_policies",
@@ -577,7 +577,7 @@
       "category": "security",
       "child_ids": ["xcsh-docs:data-sources:network_firewall:properties:active_fast_acls:fast_acls"],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -599,7 +599,7 @@
       "schema_path": ["active_fast_acls"],
       "sections": [
         {
-          "aliases": ["fast acls"],
+          "aliases": ["active fast acls fast acls"],
           "anchor": "section",
           "description": "Ordered List of Fast ACL(s) active for this network firewall.",
           "document_id": "xcsh-docs:data-sources:network_firewall:properties:active_fast_acls:fast_acls",
@@ -632,7 +632,7 @@
       "category": "security",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -654,7 +654,7 @@
       "schema_path": ["active_fast_acls", "fast_acls"],
       "sections": [
         {
-          "aliases": ["name"],
+          "aliases": ["active fast acls fast acls name"],
           "anchor": "schema-active_fast_acls--fast_acls--name",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.",
           "document_id": "xcsh-docs:data-sources:network_firewall:properties:active_fast_acls:fast_acls",
@@ -668,7 +668,7 @@
           "type": "string"
         },
         {
-          "aliases": ["namespace"],
+          "aliases": ["active fast acls fast acls namespace"],
           "anchor": "schema-active_fast_acls--fast_acls--namespace",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace.",
           "document_id": "xcsh-docs:data-sources:network_firewall:properties:active_fast_acls:fast_acls",
@@ -682,7 +682,7 @@
           "type": "string"
         },
         {
-          "aliases": ["tenant"],
+          "aliases": ["active fast acls fast acls tenant"],
           "anchor": "schema-active_fast_acls--fast_acls--tenant",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant.",
           "document_id": "xcsh-docs:data-sources:network_firewall:properties:active_fast_acls:fast_acls",
@@ -717,7 +717,7 @@
         "xcsh-docs:data-sources:network_firewall:properties:active_forward_proxy_policies:forward_proxy_policies"
       ],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -739,7 +739,7 @@
       "schema_path": ["active_forward_proxy_policies"],
       "sections": [
         {
-          "aliases": ["forward proxy policies"],
+          "aliases": ["active forward proxy policies forward proxy policies"],
           "anchor": "section",
           "description": "Ordered List of Forward Proxy Policies active.",
           "document_id": "xcsh-docs:data-sources:network_firewall:properties:active_forward_proxy_policies:forward_proxy_policies",
@@ -772,7 +772,7 @@
       "category": "security",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -794,7 +794,7 @@
       "schema_path": ["active_forward_proxy_policies", "forward_proxy_policies"],
       "sections": [
         {
-          "aliases": ["name"],
+          "aliases": ["active forward proxy policies forward proxy policies name"],
           "anchor": "schema-active_forward_proxy_policies--forward_proxy_policies--name",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.",
           "document_id": "xcsh-docs:data-sources:network_firewall:properties:active_forward_proxy_policies:forward_proxy_policies",
@@ -808,7 +808,7 @@
           "type": "string"
         },
         {
-          "aliases": ["namespace"],
+          "aliases": ["active forward proxy policies forward proxy policies namespace"],
           "anchor": "schema-active_forward_proxy_policies--forward_proxy_policies--namespace",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace.",
           "document_id": "xcsh-docs:data-sources:network_firewall:properties:active_forward_proxy_policies:forward_proxy_policies",
@@ -822,7 +822,7 @@
           "type": "string"
         },
         {
-          "aliases": ["tenant"],
+          "aliases": ["active forward proxy policies forward proxy policies tenant"],
           "anchor": "schema-active_forward_proxy_policies--forward_proxy_policies--tenant",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant.",
           "document_id": "xcsh-docs:data-sources:network_firewall:properties:active_forward_proxy_policies:forward_proxy_policies",
@@ -855,7 +855,7 @@
       "category": "security",
       "child_ids": ["xcsh-docs:data-sources:network_firewall:properties:active_network_policies:network_policies"],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -877,7 +877,7 @@
       "schema_path": ["active_network_policies"],
       "sections": [
         {
-          "aliases": ["network policies"],
+          "aliases": ["active network policies network policies"],
           "anchor": "section",
           "description": "Ordered List of Firewall Policies active for this network firewall.",
           "document_id": "xcsh-docs:data-sources:network_firewall:properties:active_network_policies:network_policies",
@@ -910,7 +910,7 @@
       "category": "security",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -932,7 +932,7 @@
       "schema_path": ["active_network_policies", "network_policies"],
       "sections": [
         {
-          "aliases": ["name"],
+          "aliases": ["active network policies network policies name"],
           "anchor": "schema-active_network_policies--network_policies--name",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.",
           "document_id": "xcsh-docs:data-sources:network_firewall:properties:active_network_policies:network_policies",
@@ -946,7 +946,7 @@
           "type": "string"
         },
         {
-          "aliases": ["namespace"],
+          "aliases": ["active network policies network policies namespace"],
           "anchor": "schema-active_network_policies--network_policies--namespace",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace.",
           "document_id": "xcsh-docs:data-sources:network_firewall:properties:active_network_policies:network_policies",
@@ -960,7 +960,7 @@
           "type": "string"
         },
         {
-          "aliases": ["tenant"],
+          "aliases": ["active network policies network policies tenant"],
           "anchor": "schema-active_network_policies--network_policies--tenant",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant.",
           "document_id": "xcsh-docs:data-sources:network_firewall:properties:active_network_policies:network_policies",
@@ -993,7 +993,7 @@
       "category": "security",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -1033,7 +1033,7 @@
       "category": "security",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -1073,7 +1073,7 @@
       "category": "security",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -1113,7 +1113,7 @@
       "category": "security",
       "child_ids": ["xcsh-docs:data-sources:network_firewall:example:data-source"],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -1153,7 +1153,7 @@
       "category": "security",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"

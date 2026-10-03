@@ -208,7 +208,7 @@
       "category": "api-management",
       "child_ids": ["xcsh-docs:data-sources:api_discovery:reference", "xcsh-docs:data-sources:api_discovery:examples"],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -252,7 +252,7 @@
         "xcsh-docs:data-sources:api_discovery:properties:user_defined_api_discovery_policy"
       ],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -405,7 +405,7 @@
       "category": "api-management",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -427,7 +427,7 @@
       "schema_path": ["custom_auth_types"],
       "sections": [
         {
-          "aliases": ["parameter name"],
+          "aliases": ["custom auth types parameter name"],
           "anchor": "schema-custom_auth_types--parameter_name",
           "description": "The authentication parameter name.",
           "document_id": "xcsh-docs:data-sources:api_discovery:properties:custom_auth_types",
@@ -441,7 +441,7 @@
           "type": "string"
         },
         {
-          "aliases": ["parameter type"],
+          "aliases": ["custom auth types parameter type"],
           "anchor": "schema-custom_auth_types--parameter_type",
           "description": "Enumeration for authentication parameter types.",
           "document_id": "xcsh-docs:data-sources:api_discovery:properties:custom_auth_types",
@@ -478,7 +478,7 @@
         "xcsh-docs:data-sources:api_discovery:properties:user_defined_api_discovery_policy:inclusive"
       ],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -500,7 +500,7 @@
       "schema_path": ["user_defined_api_discovery_policy"],
       "sections": [
         {
-          "aliases": ["discovery rules"],
+          "aliases": ["user defined api discovery policy discovery rules"],
           "anchor": "section",
           "description": "Define rules to include or exclude endpoints by path, domain, or header. Rules run top to bottom; unmatched endpoints follow the default action.",
           "document_id": "xcsh-docs:data-sources:api_discovery:properties:user_defined_api_discovery_policy:discovery_rules",
@@ -514,7 +514,7 @@
           "type": "object"
         },
         {
-          "aliases": ["exclusive"],
+          "aliases": ["user defined api discovery policy exclusive"],
           "anchor": "section",
           "description": "Configuration for exclusion action.",
           "document_id": "xcsh-docs:data-sources:api_discovery:properties:user_defined_api_discovery_policy:exclusive",
@@ -528,7 +528,7 @@
           "type": "object"
         },
         {
-          "aliases": ["inclusive"],
+          "aliases": ["user defined api discovery policy inclusive"],
           "anchor": "section",
           "description": "This can be used for messages where no values are needed.",
           "document_id": "xcsh-docs:data-sources:api_discovery:properties:user_defined_api_discovery_policy:inclusive",
@@ -565,7 +565,7 @@
         "xcsh-docs:data-sources:api_discovery:properties:user_defined_api_discovery_policy:discovery_rules:rule_properties"
       ],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -587,7 +587,7 @@
       "schema_path": ["user_defined_api_discovery_policy", "discovery_rules"],
       "sections": [
         {
-          "aliases": ["labels"],
+          "aliases": ["user defined api discovery policy discovery rules labels"],
           "anchor": "section",
           "description": "Map of string keys and values that can be used to organize and categorize the rule.",
           "document_id": "xcsh-docs:data-sources:api_discovery:properties:user_defined_api_discovery_policy:discovery_rules:labels",
@@ -601,7 +601,7 @@
           "type": "object"
         },
         {
-          "aliases": ["metadata"],
+          "aliases": ["user defined api discovery policy discovery rules metadata"],
           "anchor": "section",
           "description": "MessageMetaType is metadata (common attributes) of a message that only certain messages have. This information is propagated to the metadata of a child object that gets created from the containing message during view processing. The information in this type can be specified by user during create and replace APIs.",
           "document_id": "xcsh-docs:data-sources:api_discovery:properties:user_defined_api_discovery_policy:discovery_rules:metadata",
@@ -615,7 +615,7 @@
           "type": "object"
         },
         {
-          "aliases": ["rule properties"],
+          "aliases": ["user defined api discovery policy discovery rules rule properties"],
           "anchor": "section",
           "description": "Determines whether matching endpoints are included in API Discovery or excluded.",
           "document_id": "xcsh-docs:data-sources:api_discovery:properties:user_defined_api_discovery_policy:discovery_rules:rule_properties",
@@ -648,7 +648,7 @@
       "category": "api-management",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -688,7 +688,7 @@
       "category": "api-management",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -710,7 +710,7 @@
       "schema_path": ["user_defined_api_discovery_policy", "discovery_rules", "metadata"],
       "sections": [
         {
-          "aliases": ["description spec"],
+          "aliases": ["user defined api discovery policy discovery rules metadata description spec"],
           "anchor": "schema-user_defined_api_discovery_policy--discovery_rules--metadata--description_spec",
           "description": "Description. Human readable description.",
           "document_id": "xcsh-docs:data-sources:api_discovery:properties:user_defined_api_discovery_policy:discovery_rules:metadata",
@@ -724,7 +724,7 @@
           "type": "string"
         },
         {
-          "aliases": ["name"],
+          "aliases": ["user defined api discovery policy discovery rules metadata name"],
           "anchor": "schema-user_defined_api_discovery_policy--discovery_rules--metadata--name",
           "description": "This is the name of the message. The value of name has to follow DNS-1035 format.",
           "document_id": "xcsh-docs:data-sources:api_discovery:properties:user_defined_api_discovery_policy:discovery_rules:metadata",
@@ -761,7 +761,7 @@
         "xcsh-docs:data-sources:api_discovery:properties:user_defined_api_discovery_policy:discovery_rules:rule_properties:inclusion"
       ],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -783,7 +783,7 @@
       "schema_path": ["user_defined_api_discovery_policy", "discovery_rules", "rule_properties"],
       "sections": [
         {
-          "aliases": ["exclusion"],
+          "aliases": ["user defined api discovery policy discovery rules rule properties exclusion"],
           "anchor": "section",
           "description": "Configuration for exclusion action.",
           "document_id": "xcsh-docs:data-sources:api_discovery:properties:user_defined_api_discovery_policy:discovery_rules:rule_properties:exclusion",
@@ -797,7 +797,7 @@
           "type": "object"
         },
         {
-          "aliases": ["http header criteria"],
+          "aliases": ["user defined api discovery policy discovery rules rule properties http header criteria"],
           "anchor": "section",
           "description": "Criteria for matching HTTP headers.",
           "document_id": "xcsh-docs:data-sources:api_discovery:properties:user_defined_api_discovery_policy:discovery_rules:rule_properties:http_header_criteria",
@@ -816,7 +816,7 @@
           "type": "object"
         },
         {
-          "aliases": ["inclusion"],
+          "aliases": ["user defined api discovery policy discovery rules rule properties inclusion"],
           "anchor": "section",
           "description": "This can be used for messages where no values are needed.",
           "document_id": "xcsh-docs:data-sources:api_discovery:properties:user_defined_api_discovery_policy:discovery_rules:rule_properties:inclusion",
@@ -830,7 +830,7 @@
           "type": "object"
         },
         {
-          "aliases": ["pattern"],
+          "aliases": ["user defined api discovery policy discovery rules rule properties pattern"],
           "anchor": "schema-user_defined_api_discovery_policy--discovery_rules--rule_properties--pattern",
           "description": "Exclusive with Patterns are matched against the request path to identify endpoints by path structure, file extension, or version prefix. Endpoints that match this pattern are affected by the rule.",
           "document_id": "xcsh-docs:data-sources:api_discovery:properties:user_defined_api_discovery_policy:discovery_rules:rule_properties",
@@ -866,7 +866,7 @@
         "xcsh-docs:data-sources:api_discovery:properties:user_defined_api_discovery_policy:discovery_rules:rule_properties:exclusion:ignore"
       ],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -888,7 +888,7 @@
       "schema_path": ["user_defined_api_discovery_policy", "discovery_rules", "rule_properties", "exclusion"],
       "sections": [
         {
-          "aliases": ["archive"],
+          "aliases": ["user defined api discovery policy discovery rules rule properties exclusion archive"],
           "anchor": "section",
           "description": "This can be used for messages where no values are needed.",
           "document_id": "xcsh-docs:data-sources:api_discovery:properties:user_defined_api_discovery_policy:discovery_rules:rule_properties:exclusion:archive",
@@ -908,7 +908,7 @@
           "type": "object"
         },
         {
-          "aliases": ["ignore"],
+          "aliases": ["user defined api discovery policy discovery rules rule properties exclusion ignore"],
           "anchor": "section",
           "description": "This can be used for messages where no values are needed.",
           "document_id": "xcsh-docs:data-sources:api_discovery:properties:user_defined_api_discovery_policy:discovery_rules:rule_properties:exclusion:ignore",
@@ -947,7 +947,7 @@
       "category": "api-management",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -993,7 +993,7 @@
       "category": "api-management",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -1033,7 +1033,7 @@
       "category": "api-management",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -1060,7 +1060,9 @@
       ],
       "sections": [
         {
-          "aliases": ["field name"],
+          "aliases": [
+            "user defined api discovery policy discovery rules rule properties http header criteria field name"
+          ],
           "anchor": "schema-user_defined_api_discovery_policy--discovery_rules--rule_properties--http_header_criteria--field_name",
           "description": "Human-readable name for the resource",
           "document_id": "xcsh-docs:data-sources:api_discovery:properties:user_defined_api_discovery_policy:discovery_rules:rule_properties:http_header_criteria",
@@ -1080,7 +1082,9 @@
           "type": "string"
         },
         {
-          "aliases": ["location"],
+          "aliases": [
+            "user defined api discovery policy discovery rules rule properties http header criteria location"
+          ],
           "anchor": "schema-user_defined_api_discovery_policy--discovery_rules--rule_properties--http_header_criteria--location",
           "description": "Specifies whether the rule criteria should be evaluated against request or response Applies the rule to incoming traffic from the client. Applies the rule to outgoing traffic sent back to the client.",
           "document_id": "xcsh-docs:data-sources:api_discovery:properties:user_defined_api_discovery_policy:discovery_rules:rule_properties:http_header_criteria",
@@ -1100,7 +1104,9 @@
           "type": "string"
         },
         {
-          "aliases": ["match type"],
+          "aliases": [
+            "user defined api discovery policy discovery rules rule properties http header criteria match type"
+          ],
           "anchor": "schema-user_defined_api_discovery_policy--discovery_rules--rule_properties--http_header_criteria--match_type",
           "description": "Specifies how the value should be matched.",
           "document_id": "xcsh-docs:data-sources:api_discovery:properties:user_defined_api_discovery_policy:discovery_rules:rule_properties:http_header_criteria",
@@ -1120,7 +1126,7 @@
           "type": "string"
         },
         {
-          "aliases": ["value"],
+          "aliases": ["user defined api discovery policy discovery rules rule properties http header criteria value"],
           "anchor": "schema-user_defined_api_discovery_policy--discovery_rules--rule_properties--http_header_criteria--value",
           "description": "Configuration parameter for value",
           "document_id": "xcsh-docs:data-sources:api_discovery:properties:user_defined_api_discovery_policy:discovery_rules:rule_properties:http_header_criteria",
@@ -1159,7 +1165,7 @@
       "category": "api-management",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -1202,7 +1208,7 @@
         "xcsh-docs:data-sources:api_discovery:properties:user_defined_api_discovery_policy:exclusive:ignore"
       ],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -1224,7 +1230,7 @@
       "schema_path": ["user_defined_api_discovery_policy", "exclusive"],
       "sections": [
         {
-          "aliases": ["archive"],
+          "aliases": ["user defined api discovery policy exclusive archive"],
           "anchor": "section",
           "description": "This can be used for messages where no values are needed.",
           "document_id": "xcsh-docs:data-sources:api_discovery:properties:user_defined_api_discovery_policy:exclusive:archive",
@@ -1238,7 +1244,7 @@
           "type": "object"
         },
         {
-          "aliases": ["ignore"],
+          "aliases": ["user defined api discovery policy exclusive ignore"],
           "anchor": "section",
           "description": "This can be used for messages where no values are needed.",
           "document_id": "xcsh-docs:data-sources:api_discovery:properties:user_defined_api_discovery_policy:exclusive:ignore",
@@ -1271,7 +1277,7 @@
       "category": "api-management",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -1311,7 +1317,7 @@
       "category": "api-management",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -1351,7 +1357,7 @@
       "category": "api-management",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -1391,7 +1397,7 @@
       "category": "api-management",
       "child_ids": ["xcsh-docs:data-sources:api_discovery:example:data-source"],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -1431,7 +1437,7 @@
       "category": "api-management",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"

@@ -545,7 +545,7 @@
         "xcsh-docs:data-sources:forward_proxy_policy:examples"
       ],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -595,7 +595,7 @@
         "xcsh-docs:data-sources:forward_proxy_policy:properties:rule_list"
       ],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -832,7 +832,7 @@
       "category": "networking",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -879,7 +879,7 @@
         "xcsh-docs:data-sources:forward_proxy_policy:properties:allow_list:tls_list"
       ],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -901,7 +901,7 @@
       "schema_path": ["allow_list"],
       "sections": [
         {
-          "aliases": ["default action allow"],
+          "aliases": ["allow list default action allow"],
           "anchor": "section",
           "description": "This can be used for messages where no values are needed.",
           "document_id": "xcsh-docs:data-sources:forward_proxy_policy:properties:allow_list:default_action_allow",
@@ -915,7 +915,7 @@
           "type": "object"
         },
         {
-          "aliases": ["default action deny"],
+          "aliases": ["allow list default action deny"],
           "anchor": "section",
           "description": "This can be used for messages where no values are needed.",
           "document_id": "xcsh-docs:data-sources:forward_proxy_policy:properties:allow_list:default_action_deny",
@@ -929,7 +929,7 @@
           "type": "object"
         },
         {
-          "aliases": ["default action next policy"],
+          "aliases": ["allow list default action next policy"],
           "anchor": "section",
           "description": "This can be used for messages where no values are needed.",
           "document_id": "xcsh-docs:data-sources:forward_proxy_policy:properties:allow_list:default_action_next_policy",
@@ -943,7 +943,7 @@
           "type": "object"
         },
         {
-          "aliases": ["dest list"],
+          "aliases": ["allow list dest list"],
           "anchor": "section",
           "description": "L4 destinations for non-HTTP and non-TLS connections and TLS connections without SNI.",
           "document_id": "xcsh-docs:data-sources:forward_proxy_policy:properties:allow_list:dest_list",
@@ -957,7 +957,7 @@
           "type": "object"
         },
         {
-          "aliases": ["http list"],
+          "aliases": ["allow list http list"],
           "anchor": "section",
           "description": "URLs for HTTP connections.",
           "document_id": "xcsh-docs:data-sources:forward_proxy_policy:properties:allow_list:http_list",
@@ -971,7 +971,7 @@
           "type": "object"
         },
         {
-          "aliases": ["tls list"],
+          "aliases": ["allow list tls list"],
           "anchor": "section",
           "description": "Domains in SNI for TLS connections.",
           "document_id": "xcsh-docs:data-sources:forward_proxy_policy:properties:allow_list:tls_list",
@@ -1004,7 +1004,7 @@
       "category": "networking",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -1044,7 +1044,7 @@
       "category": "networking",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -1084,7 +1084,7 @@
       "category": "networking",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -1124,7 +1124,7 @@
       "category": "networking",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -1146,7 +1146,7 @@
       "schema_path": ["allow_list", "dest_list"],
       "sections": [
         {
-          "aliases": ["ipv6 prefixes"],
+          "aliases": ["allow list dest list ipv6 prefixes"],
           "anchor": "schema-allow_list--dest_list--ipv6_prefixes",
           "description": "Destination IPv6 prefixes.",
           "document_id": "xcsh-docs:data-sources:forward_proxy_policy:properties:allow_list:dest_list",
@@ -1160,7 +1160,7 @@
           "type": "list"
         },
         {
-          "aliases": ["port ranges"],
+          "aliases": ["allow list dest list port ranges"],
           "anchor": "schema-allow_list--dest_list--port_ranges",
           "description": "A string containing a comma separated list of port ranges. Each port range consists of a single port or two ports separated by \"-\".",
           "document_id": "xcsh-docs:data-sources:forward_proxy_policy:properties:allow_list:dest_list",
@@ -1174,7 +1174,7 @@
           "type": "string"
         },
         {
-          "aliases": ["prefixes"],
+          "aliases": ["allow list dest list prefixes"],
           "anchor": "schema-allow_list--dest_list--prefixes",
           "description": "Destination IPv4 prefixes.",
           "document_id": "xcsh-docs:data-sources:forward_proxy_policy:properties:allow_list:dest_list",
@@ -1207,7 +1207,7 @@
       "category": "networking",
       "child_ids": ["xcsh-docs:data-sources:forward_proxy_policy:properties:allow_list:http_list:any_path"],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -1229,7 +1229,7 @@
       "schema_path": ["allow_list", "http_list"],
       "sections": [
         {
-          "aliases": ["any path"],
+          "aliases": ["allow list http list any path"],
           "anchor": "section",
           "description": "This can be used for messages where no values are needed.",
           "document_id": "xcsh-docs:data-sources:forward_proxy_policy:properties:allow_list:http_list:any_path",
@@ -1243,7 +1243,7 @@
           "type": "object"
         },
         {
-          "aliases": ["exact value"],
+          "aliases": ["allow list http list exact value"],
           "anchor": "schema-allow_list--http_list--exact_value",
           "description": "Exclusive with Exact domain name.",
           "document_id": "xcsh-docs:data-sources:forward_proxy_policy:properties:allow_list:http_list",
@@ -1257,7 +1257,7 @@
           "type": "string"
         },
         {
-          "aliases": ["path exact value"],
+          "aliases": ["allow list http list path exact value"],
           "anchor": "schema-allow_list--http_list--path_exact_value",
           "description": "Exclusive with Exact Path to match.",
           "document_id": "xcsh-docs:data-sources:forward_proxy_policy:properties:allow_list:http_list",
@@ -1271,7 +1271,7 @@
           "type": "string"
         },
         {
-          "aliases": ["path prefix value"],
+          "aliases": ["allow list http list path prefix value"],
           "anchor": "schema-allow_list--http_list--path_prefix_value",
           "description": "Exclusive with Prefix of Path e.g \"/abc/xyz\" will match \"/abc/xyz/.*\"",
           "document_id": "xcsh-docs:data-sources:forward_proxy_policy:properties:allow_list:http_list",
@@ -1285,7 +1285,7 @@
           "type": "string"
         },
         {
-          "aliases": ["path regex value"],
+          "aliases": ["allow list http list path regex value"],
           "anchor": "schema-allow_list--http_list--path_regex_value",
           "description": "Exclusive with Regular Expression value for the Path to match.",
           "document_id": "xcsh-docs:data-sources:forward_proxy_policy:properties:allow_list:http_list",
@@ -1299,7 +1299,7 @@
           "type": "string"
         },
         {
-          "aliases": ["regex value"],
+          "aliases": ["allow list http list regex value"],
           "anchor": "schema-allow_list--http_list--regex_value",
           "description": "Exclusive with Regular Expression value for the domain name.",
           "document_id": "xcsh-docs:data-sources:forward_proxy_policy:properties:allow_list:http_list",
@@ -1313,7 +1313,7 @@
           "type": "string"
         },
         {
-          "aliases": ["suffix value"],
+          "aliases": ["allow list http list suffix value"],
           "anchor": "schema-allow_list--http_list--suffix_value",
           "description": "Exclusive with Suffix of domain names e.g \"xyz.com\" will match \"*.xyz.com\"",
           "document_id": "xcsh-docs:data-sources:forward_proxy_policy:properties:allow_list:http_list",
@@ -1346,7 +1346,7 @@
       "category": "networking",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -1386,7 +1386,7 @@
       "category": "networking",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -1408,7 +1408,7 @@
       "schema_path": ["allow_list", "tls_list"],
       "sections": [
         {
-          "aliases": ["exact value"],
+          "aliases": ["allow list tls list exact value"],
           "anchor": "schema-allow_list--tls_list--exact_value",
           "description": "Exclusive with Exact domain name.",
           "document_id": "xcsh-docs:data-sources:forward_proxy_policy:properties:allow_list:tls_list",
@@ -1422,7 +1422,7 @@
           "type": "string"
         },
         {
-          "aliases": ["regex value"],
+          "aliases": ["allow list tls list regex value"],
           "anchor": "schema-allow_list--tls_list--regex_value",
           "description": "Exclusive with Regular Expression value for the domain name.",
           "document_id": "xcsh-docs:data-sources:forward_proxy_policy:properties:allow_list:tls_list",
@@ -1436,7 +1436,7 @@
           "type": "string"
         },
         {
-          "aliases": ["suffix value"],
+          "aliases": ["allow list tls list suffix value"],
           "anchor": "schema-allow_list--tls_list--suffix_value",
           "description": "Exclusive with Suffix of domain name e.g \"xyz.com\" will match \"*.xyz.com\" and \"xyz.com\"",
           "document_id": "xcsh-docs:data-sources:forward_proxy_policy:properties:allow_list:tls_list",
@@ -1469,7 +1469,7 @@
       "category": "networking",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -1516,7 +1516,7 @@
         "xcsh-docs:data-sources:forward_proxy_policy:properties:deny_list:tls_list"
       ],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -1538,7 +1538,7 @@
       "schema_path": ["deny_list"],
       "sections": [
         {
-          "aliases": ["default action allow"],
+          "aliases": ["deny list default action allow"],
           "anchor": "section",
           "description": "This can be used for messages where no values are needed.",
           "document_id": "xcsh-docs:data-sources:forward_proxy_policy:properties:deny_list:default_action_allow",
@@ -1552,7 +1552,7 @@
           "type": "object"
         },
         {
-          "aliases": ["default action deny"],
+          "aliases": ["deny list default action deny"],
           "anchor": "section",
           "description": "This can be used for messages where no values are needed.",
           "document_id": "xcsh-docs:data-sources:forward_proxy_policy:properties:deny_list:default_action_deny",
@@ -1566,7 +1566,7 @@
           "type": "object"
         },
         {
-          "aliases": ["default action next policy"],
+          "aliases": ["deny list default action next policy"],
           "anchor": "section",
           "description": "This can be used for messages where no values are needed.",
           "document_id": "xcsh-docs:data-sources:forward_proxy_policy:properties:deny_list:default_action_next_policy",
@@ -1580,7 +1580,7 @@
           "type": "object"
         },
         {
-          "aliases": ["dest list"],
+          "aliases": ["deny list dest list"],
           "anchor": "section",
           "description": "L4 destinations for non-HTTP and non-TLS connections and TLS connections without SNI.",
           "document_id": "xcsh-docs:data-sources:forward_proxy_policy:properties:deny_list:dest_list",
@@ -1594,7 +1594,7 @@
           "type": "object"
         },
         {
-          "aliases": ["http list"],
+          "aliases": ["deny list http list"],
           "anchor": "section",
           "description": "URLs for HTTP connections.",
           "document_id": "xcsh-docs:data-sources:forward_proxy_policy:properties:deny_list:http_list",
@@ -1608,7 +1608,7 @@
           "type": "object"
         },
         {
-          "aliases": ["tls list"],
+          "aliases": ["deny list tls list"],
           "anchor": "section",
           "description": "Domains in SNI for TLS connections.",
           "document_id": "xcsh-docs:data-sources:forward_proxy_policy:properties:deny_list:tls_list",
@@ -1641,7 +1641,7 @@
       "category": "networking",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -1681,7 +1681,7 @@
       "category": "networking",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -1721,7 +1721,7 @@
       "category": "networking",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -1761,7 +1761,7 @@
       "category": "networking",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -1783,7 +1783,7 @@
       "schema_path": ["deny_list", "dest_list"],
       "sections": [
         {
-          "aliases": ["ipv6 prefixes"],
+          "aliases": ["deny list dest list ipv6 prefixes"],
           "anchor": "schema-deny_list--dest_list--ipv6_prefixes",
           "description": "Destination IPv6 prefixes.",
           "document_id": "xcsh-docs:data-sources:forward_proxy_policy:properties:deny_list:dest_list",
@@ -1797,7 +1797,7 @@
           "type": "list"
         },
         {
-          "aliases": ["port ranges"],
+          "aliases": ["deny list dest list port ranges"],
           "anchor": "schema-deny_list--dest_list--port_ranges",
           "description": "A string containing a comma separated list of port ranges. Each port range consists of a single port or two ports separated by \"-\".",
           "document_id": "xcsh-docs:data-sources:forward_proxy_policy:properties:deny_list:dest_list",
@@ -1811,7 +1811,7 @@
           "type": "string"
         },
         {
-          "aliases": ["prefixes"],
+          "aliases": ["deny list dest list prefixes"],
           "anchor": "schema-deny_list--dest_list--prefixes",
           "description": "Destination IPv4 prefixes.",
           "document_id": "xcsh-docs:data-sources:forward_proxy_policy:properties:deny_list:dest_list",
@@ -1844,7 +1844,7 @@
       "category": "networking",
       "child_ids": ["xcsh-docs:data-sources:forward_proxy_policy:properties:deny_list:http_list:any_path"],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -1866,7 +1866,7 @@
       "schema_path": ["deny_list", "http_list"],
       "sections": [
         {
-          "aliases": ["any path"],
+          "aliases": ["deny list http list any path"],
           "anchor": "section",
           "description": "This can be used for messages where no values are needed.",
           "document_id": "xcsh-docs:data-sources:forward_proxy_policy:properties:deny_list:http_list:any_path",
@@ -1880,7 +1880,7 @@
           "type": "object"
         },
         {
-          "aliases": ["exact value"],
+          "aliases": ["deny list http list exact value"],
           "anchor": "schema-deny_list--http_list--exact_value",
           "description": "Exclusive with Exact domain name.",
           "document_id": "xcsh-docs:data-sources:forward_proxy_policy:properties:deny_list:http_list",
@@ -1894,7 +1894,7 @@
           "type": "string"
         },
         {
-          "aliases": ["path exact value"],
+          "aliases": ["deny list http list path exact value"],
           "anchor": "schema-deny_list--http_list--path_exact_value",
           "description": "Exclusive with Exact Path to match.",
           "document_id": "xcsh-docs:data-sources:forward_proxy_policy:properties:deny_list:http_list",
@@ -1908,7 +1908,7 @@
           "type": "string"
         },
         {
-          "aliases": ["path prefix value"],
+          "aliases": ["deny list http list path prefix value"],
           "anchor": "schema-deny_list--http_list--path_prefix_value",
           "description": "Exclusive with Prefix of Path e.g \"/abc/xyz\" will match \"/abc/xyz/.*\"",
           "document_id": "xcsh-docs:data-sources:forward_proxy_policy:properties:deny_list:http_list",
@@ -1922,7 +1922,7 @@
           "type": "string"
         },
         {
-          "aliases": ["path regex value"],
+          "aliases": ["deny list http list path regex value"],
           "anchor": "schema-deny_list--http_list--path_regex_value",
           "description": "Exclusive with Regular Expression value for the Path to match.",
           "document_id": "xcsh-docs:data-sources:forward_proxy_policy:properties:deny_list:http_list",
@@ -1936,7 +1936,7 @@
           "type": "string"
         },
         {
-          "aliases": ["regex value"],
+          "aliases": ["deny list http list regex value"],
           "anchor": "schema-deny_list--http_list--regex_value",
           "description": "Exclusive with Regular Expression value for the domain name.",
           "document_id": "xcsh-docs:data-sources:forward_proxy_policy:properties:deny_list:http_list",
@@ -1950,7 +1950,7 @@
           "type": "string"
         },
         {
-          "aliases": ["suffix value"],
+          "aliases": ["deny list http list suffix value"],
           "anchor": "schema-deny_list--http_list--suffix_value",
           "description": "Exclusive with Suffix of domain names e.g \"xyz.com\" will match \"*.xyz.com\"",
           "document_id": "xcsh-docs:data-sources:forward_proxy_policy:properties:deny_list:http_list",
@@ -1983,7 +1983,7 @@
       "category": "networking",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -2023,7 +2023,7 @@
       "category": "networking",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -2045,7 +2045,7 @@
       "schema_path": ["deny_list", "tls_list"],
       "sections": [
         {
-          "aliases": ["exact value"],
+          "aliases": ["deny list tls list exact value"],
           "anchor": "schema-deny_list--tls_list--exact_value",
           "description": "Exclusive with Exact domain name.",
           "document_id": "xcsh-docs:data-sources:forward_proxy_policy:properties:deny_list:tls_list",
@@ -2059,7 +2059,7 @@
           "type": "string"
         },
         {
-          "aliases": ["regex value"],
+          "aliases": ["deny list tls list regex value"],
           "anchor": "schema-deny_list--tls_list--regex_value",
           "description": "Exclusive with Regular Expression value for the domain name.",
           "document_id": "xcsh-docs:data-sources:forward_proxy_policy:properties:deny_list:tls_list",
@@ -2073,7 +2073,7 @@
           "type": "string"
         },
         {
-          "aliases": ["suffix value"],
+          "aliases": ["deny list tls list suffix value"],
           "anchor": "schema-deny_list--tls_list--suffix_value",
           "description": "Exclusive with Suffix of domain name e.g \"xyz.com\" will match \"*.xyz.com\" and \"xyz.com\"",
           "document_id": "xcsh-docs:data-sources:forward_proxy_policy:properties:deny_list:tls_list",
@@ -2106,7 +2106,7 @@
       "category": "networking",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -2146,7 +2146,7 @@
       "category": "networking",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -2168,7 +2168,7 @@
       "schema_path": ["network_connector"],
       "sections": [
         {
-          "aliases": ["name"],
+          "aliases": ["network connector name"],
           "anchor": "schema-network_connector--name",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.",
           "document_id": "xcsh-docs:data-sources:forward_proxy_policy:properties:network_connector",
@@ -2182,7 +2182,7 @@
           "type": "string"
         },
         {
-          "aliases": ["namespace"],
+          "aliases": ["network connector namespace"],
           "anchor": "schema-network_connector--namespace",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace.",
           "document_id": "xcsh-docs:data-sources:forward_proxy_policy:properties:network_connector",
@@ -2196,7 +2196,7 @@
           "type": "string"
         },
         {
-          "aliases": ["tenant"],
+          "aliases": ["network connector tenant"],
           "anchor": "schema-network_connector--tenant",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant.",
           "document_id": "xcsh-docs:data-sources:forward_proxy_policy:properties:network_connector",
@@ -2229,7 +2229,7 @@
       "category": "networking",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -2251,7 +2251,7 @@
       "schema_path": ["proxy_label_selector"],
       "sections": [
         {
-          "aliases": ["expressions"],
+          "aliases": ["proxy label selector expressions"],
           "anchor": "schema-proxy_label_selector--expressions",
           "description": "Expressions contains the Kubernetes style label expression for selections.",
           "document_id": "xcsh-docs:data-sources:forward_proxy_policy:properties:proxy_label_selector",
@@ -2284,7 +2284,7 @@
       "category": "networking",
       "child_ids": ["xcsh-docs:data-sources:forward_proxy_policy:properties:rule_list:rules"],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -2306,7 +2306,7 @@
       "schema_path": ["rule_list"],
       "sections": [
         {
-          "aliases": ["rules"],
+          "aliases": ["rule list rules"],
           "anchor": "section",
           "description": "List of custom rules.",
           "document_id": "xcsh-docs:data-sources:forward_proxy_policy:properties:rule_list:rules",
@@ -2356,7 +2356,7 @@
         "xcsh-docs:data-sources:forward_proxy_policy:properties:rule_list:rules:url_category_list"
       ],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -2378,7 +2378,7 @@
       "schema_path": ["rule_list", "rules"],
       "sections": [
         {
-          "aliases": ["action"],
+          "aliases": ["rule list rules action"],
           "anchor": "schema-rule_list--rules--action",
           "description": "The rule action determines the disposition of the input request API. If a policy matches a rule with an ALLOW action, the processing of the request proceeds forward. If it matches a rule with a DENY action, the processing of the request is terminated and an appropriate message/code returned to the originator. If it",
           "document_id": "xcsh-docs:data-sources:forward_proxy_policy:properties:rule_list:rules",
@@ -2392,7 +2392,7 @@
           "type": "string"
         },
         {
-          "aliases": ["all destinations"],
+          "aliases": ["rule list rules all destinations"],
           "anchor": "section",
           "description": "This can be used for messages where no values are needed.",
           "document_id": "xcsh-docs:data-sources:forward_proxy_policy:properties:rule_list:rules:all_destinations",
@@ -2406,7 +2406,7 @@
           "type": "object"
         },
         {
-          "aliases": ["all sources"],
+          "aliases": ["rule list rules all sources"],
           "anchor": "section",
           "description": "This can be used for messages where no values are needed.",
           "document_id": "xcsh-docs:data-sources:forward_proxy_policy:properties:rule_list:rules:all_sources",
@@ -2420,7 +2420,7 @@
           "type": "object"
         },
         {
-          "aliases": ["dst asn list"],
+          "aliases": ["rule list rules dst asn list"],
           "anchor": "section",
           "description": "An unordered set of RFC 6793 defined 4-byte AS numbers that can be used to create allow or deny lists for use in network policy or service policy. It can be used to create the allow list only for DNS Load Balancer.",
           "document_id": "xcsh-docs:data-sources:forward_proxy_policy:properties:rule_list:rules:dst_asn_list",
@@ -2434,7 +2434,7 @@
           "type": "object"
         },
         {
-          "aliases": ["dst asn set"],
+          "aliases": ["rule list rules dst asn set"],
           "anchor": "section",
           "description": "This type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name.",
           "document_id": "xcsh-docs:data-sources:forward_proxy_policy:properties:rule_list:rules:dst_asn_set",
@@ -2448,7 +2448,7 @@
           "type": "object"
         },
         {
-          "aliases": ["dst ip prefix set"],
+          "aliases": ["rule list rules dst ip prefix set"],
           "anchor": "section",
           "description": "This type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name.",
           "document_id": "xcsh-docs:data-sources:forward_proxy_policy:properties:rule_list:rules:dst_ip_prefix_set",
@@ -2462,7 +2462,7 @@
           "type": "object"
         },
         {
-          "aliases": ["dst label selector"],
+          "aliases": ["rule list rules dst label selector"],
           "anchor": "section",
           "description": "This type can be used to establish a 'selector reference' from one object(called selector) to a set of other objects(called selectees) based on the value of expressions. A label selector is a label query over a set of resources. An empty label selector matches all objects. A null label selector matches no objects.",
           "document_id": "xcsh-docs:data-sources:forward_proxy_policy:properties:rule_list:rules:dst_label_selector",
@@ -2476,7 +2476,7 @@
           "type": "object"
         },
         {
-          "aliases": ["dst prefix list"],
+          "aliases": ["rule list rules dst prefix list"],
           "anchor": "section",
           "description": "List of IPv4 prefixes that represent an endpoint.",
           "document_id": "xcsh-docs:data-sources:forward_proxy_policy:properties:rule_list:rules:dst_prefix_list",
@@ -2490,7 +2490,7 @@
           "type": "object"
         },
         {
-          "aliases": ["http list"],
+          "aliases": ["rule list rules http list"],
           "anchor": "section",
           "description": "URLListType.",
           "document_id": "xcsh-docs:data-sources:forward_proxy_policy:properties:rule_list:rules:http_list",
@@ -2504,7 +2504,7 @@
           "type": "object"
         },
         {
-          "aliases": ["ip prefix set"],
+          "aliases": ["rule list rules ip prefix set"],
           "anchor": "section",
           "description": "This type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name.",
           "document_id": "xcsh-docs:data-sources:forward_proxy_policy:properties:rule_list:rules:ip_prefix_set",
@@ -2518,7 +2518,7 @@
           "type": "object"
         },
         {
-          "aliases": ["label selector"],
+          "aliases": ["rule list rules label selector"],
           "anchor": "section",
           "description": "This type can be used to establish a 'selector reference' from one object(called selector) to a set of other objects(called selectees) based on the value of expressions. A label selector is a label query over a set of resources. An empty label selector matches all objects. A null label selector matches no objects.",
           "document_id": "xcsh-docs:data-sources:forward_proxy_policy:properties:rule_list:rules:label_selector",
@@ -2532,7 +2532,7 @@
           "type": "object"
         },
         {
-          "aliases": ["metadata"],
+          "aliases": ["rule list rules metadata"],
           "anchor": "section",
           "description": "MessageMetaType is metadata (common attributes) of a message that only certain messages have. This information is propagated to the metadata of a child object that gets created from the containing message during view processing. The information in this type can be specified by user during create and replace APIs.",
           "document_id": "xcsh-docs:data-sources:forward_proxy_policy:properties:rule_list:rules:metadata",
@@ -2546,7 +2546,7 @@
           "type": "object"
         },
         {
-          "aliases": ["no http connect port"],
+          "aliases": ["rule list rules no http connect port"],
           "anchor": "section",
           "description": "This can be used for messages where no values are needed.",
           "document_id": "xcsh-docs:data-sources:forward_proxy_policy:properties:rule_list:rules:no_http_connect_port",
@@ -2560,7 +2560,7 @@
           "type": "object"
         },
         {
-          "aliases": ["port matcher", "succeeded", "success", "successful"],
+          "aliases": ["rule list rules port matcher", "succeeded", "success", "successful"],
           "anchor": "section",
           "description": "A port matcher specifies a list of port ranges as match criteria. The match is considered successful if the input port falls within any of the port ranges. The result of the match is inverted if invert_matcher is true.",
           "document_id": "xcsh-docs:data-sources:forward_proxy_policy:properties:rule_list:rules:port_matcher",
@@ -2574,7 +2574,7 @@
           "type": "object"
         },
         {
-          "aliases": ["prefix list"],
+          "aliases": ["rule list rules prefix list"],
           "anchor": "section",
           "description": "List of IPv4 prefixes that represent an endpoint.",
           "document_id": "xcsh-docs:data-sources:forward_proxy_policy:properties:rule_list:rules:prefix_list",
@@ -2588,7 +2588,7 @@
           "type": "object"
         },
         {
-          "aliases": ["tls list"],
+          "aliases": ["rule list rules tls list"],
           "anchor": "section",
           "description": "DomainListType.",
           "document_id": "xcsh-docs:data-sources:forward_proxy_policy:properties:rule_list:rules:tls_list",
@@ -2602,7 +2602,7 @@
           "type": "object"
         },
         {
-          "aliases": ["url category list"],
+          "aliases": ["rule list rules url category list"],
           "anchor": "section",
           "description": "List of URL categories.",
           "document_id": "xcsh-docs:data-sources:forward_proxy_policy:properties:rule_list:rules:url_category_list",
@@ -2635,7 +2635,7 @@
       "category": "networking",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -2675,7 +2675,7 @@
       "category": "networking",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -2715,7 +2715,7 @@
       "category": "networking",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -2737,7 +2737,7 @@
       "schema_path": ["rule_list", "rules", "dst_asn_list"],
       "sections": [
         {
-          "aliases": ["as numbers"],
+          "aliases": ["rule list rules dst asn list as numbers"],
           "anchor": "schema-rule_list--rules--dst_asn_list--as_numbers",
           "description": "An unordered set of RFC 6793 defined 4-byte AS numbers that can be used to create allow or deny lists for use in network policy or service policy. It can be used to create the allow list only for DNS Load Balancer.",
           "document_id": "xcsh-docs:data-sources:forward_proxy_policy:properties:rule_list:rules:dst_asn_list",
@@ -2770,7 +2770,7 @@
       "category": "networking",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -2792,7 +2792,7 @@
       "schema_path": ["rule_list", "rules", "dst_asn_set"],
       "sections": [
         {
-          "aliases": ["name"],
+          "aliases": ["rule list rules dst asn set name"],
           "anchor": "schema-rule_list--rules--dst_asn_set--name",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.",
           "document_id": "xcsh-docs:data-sources:forward_proxy_policy:properties:rule_list:rules:dst_asn_set",
@@ -2806,7 +2806,7 @@
           "type": "string"
         },
         {
-          "aliases": ["namespace"],
+          "aliases": ["rule list rules dst asn set namespace"],
           "anchor": "schema-rule_list--rules--dst_asn_set--namespace",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace.",
           "document_id": "xcsh-docs:data-sources:forward_proxy_policy:properties:rule_list:rules:dst_asn_set",
@@ -2820,7 +2820,7 @@
           "type": "string"
         },
         {
-          "aliases": ["tenant"],
+          "aliases": ["rule list rules dst asn set tenant"],
           "anchor": "schema-rule_list--rules--dst_asn_set--tenant",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant.",
           "document_id": "xcsh-docs:data-sources:forward_proxy_policy:properties:rule_list:rules:dst_asn_set",
@@ -2853,7 +2853,7 @@
       "category": "networking",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -2875,7 +2875,7 @@
       "schema_path": ["rule_list", "rules", "dst_ip_prefix_set"],
       "sections": [
         {
-          "aliases": ["name"],
+          "aliases": ["rule list rules dst ip prefix set name"],
           "anchor": "schema-rule_list--rules--dst_ip_prefix_set--name",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.",
           "document_id": "xcsh-docs:data-sources:forward_proxy_policy:properties:rule_list:rules:dst_ip_prefix_set",
@@ -2889,7 +2889,7 @@
           "type": "string"
         },
         {
-          "aliases": ["namespace"],
+          "aliases": ["rule list rules dst ip prefix set namespace"],
           "anchor": "schema-rule_list--rules--dst_ip_prefix_set--namespace",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace.",
           "document_id": "xcsh-docs:data-sources:forward_proxy_policy:properties:rule_list:rules:dst_ip_prefix_set",
@@ -2903,7 +2903,7 @@
           "type": "string"
         },
         {
-          "aliases": ["tenant"],
+          "aliases": ["rule list rules dst ip prefix set tenant"],
           "anchor": "schema-rule_list--rules--dst_ip_prefix_set--tenant",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant.",
           "document_id": "xcsh-docs:data-sources:forward_proxy_policy:properties:rule_list:rules:dst_ip_prefix_set",
@@ -2936,7 +2936,7 @@
       "category": "networking",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -2958,7 +2958,7 @@
       "schema_path": ["rule_list", "rules", "dst_label_selector"],
       "sections": [
         {
-          "aliases": ["expressions"],
+          "aliases": ["rule list rules dst label selector expressions"],
           "anchor": "schema-rule_list--rules--dst_label_selector--expressions",
           "description": "Expressions contains the Kubernetes style label expression for selections.",
           "document_id": "xcsh-docs:data-sources:forward_proxy_policy:properties:rule_list:rules:dst_label_selector",
@@ -2991,7 +2991,7 @@
       "category": "networking",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -3013,7 +3013,7 @@
       "schema_path": ["rule_list", "rules", "dst_prefix_list"],
       "sections": [
         {
-          "aliases": ["prefixes"],
+          "aliases": ["rule list rules dst prefix list prefixes"],
           "anchor": "schema-rule_list--rules--dst_prefix_list--prefixes",
           "description": "List of IPv4 prefixes that represent an endpoint.",
           "document_id": "xcsh-docs:data-sources:forward_proxy_policy:properties:rule_list:rules:dst_prefix_list",
@@ -3046,7 +3046,7 @@
       "category": "networking",
       "child_ids": ["xcsh-docs:data-sources:forward_proxy_policy:properties:rule_list:rules:http_list:http_list"],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -3068,7 +3068,7 @@
       "schema_path": ["rule_list", "rules", "http_list"],
       "sections": [
         {
-          "aliases": ["http list"],
+          "aliases": ["rule list rules http list http list"],
           "anchor": "section",
           "description": "URLs for HTTP connections.",
           "document_id": "xcsh-docs:data-sources:forward_proxy_policy:properties:rule_list:rules:http_list:http_list",
@@ -3103,7 +3103,7 @@
         "xcsh-docs:data-sources:forward_proxy_policy:properties:rule_list:rules:http_list:http_list:any_path"
       ],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -3125,7 +3125,7 @@
       "schema_path": ["rule_list", "rules", "http_list", "http_list"],
       "sections": [
         {
-          "aliases": ["any path"],
+          "aliases": ["rule list rules http list http list any path"],
           "anchor": "section",
           "description": "This can be used for messages where no values are needed.",
           "document_id": "xcsh-docs:data-sources:forward_proxy_policy:properties:rule_list:rules:http_list:http_list:any_path",
@@ -3139,7 +3139,7 @@
           "type": "object"
         },
         {
-          "aliases": ["exact value"],
+          "aliases": ["rule list rules http list http list exact value"],
           "anchor": "schema-rule_list--rules--http_list--http_list--exact_value",
           "description": "Exclusive with Exact domain name.",
           "document_id": "xcsh-docs:data-sources:forward_proxy_policy:properties:rule_list:rules:http_list:http_list",
@@ -3153,7 +3153,7 @@
           "type": "string"
         },
         {
-          "aliases": ["path exact value"],
+          "aliases": ["rule list rules http list http list path exact value"],
           "anchor": "schema-rule_list--rules--http_list--http_list--path_exact_value",
           "description": "Exclusive with Exact Path to match.",
           "document_id": "xcsh-docs:data-sources:forward_proxy_policy:properties:rule_list:rules:http_list:http_list",
@@ -3167,7 +3167,7 @@
           "type": "string"
         },
         {
-          "aliases": ["path prefix value"],
+          "aliases": ["rule list rules http list http list path prefix value"],
           "anchor": "schema-rule_list--rules--http_list--http_list--path_prefix_value",
           "description": "Exclusive with Prefix of Path e.g \"/abc/xyz\" will match \"/abc/xyz/.*\"",
           "document_id": "xcsh-docs:data-sources:forward_proxy_policy:properties:rule_list:rules:http_list:http_list",
@@ -3181,7 +3181,7 @@
           "type": "string"
         },
         {
-          "aliases": ["path regex value"],
+          "aliases": ["rule list rules http list http list path regex value"],
           "anchor": "schema-rule_list--rules--http_list--http_list--path_regex_value",
           "description": "Exclusive with Regular Expression value for the Path to match.",
           "document_id": "xcsh-docs:data-sources:forward_proxy_policy:properties:rule_list:rules:http_list:http_list",
@@ -3195,7 +3195,7 @@
           "type": "string"
         },
         {
-          "aliases": ["regex value"],
+          "aliases": ["rule list rules http list http list regex value"],
           "anchor": "schema-rule_list--rules--http_list--http_list--regex_value",
           "description": "Exclusive with Regular Expression value for the domain name.",
           "document_id": "xcsh-docs:data-sources:forward_proxy_policy:properties:rule_list:rules:http_list:http_list",
@@ -3209,7 +3209,7 @@
           "type": "string"
         },
         {
-          "aliases": ["suffix value"],
+          "aliases": ["rule list rules http list http list suffix value"],
           "anchor": "schema-rule_list--rules--http_list--http_list--suffix_value",
           "description": "Exclusive with Suffix of domain names e.g \"xyz.com\" will match \"*.xyz.com\"",
           "document_id": "xcsh-docs:data-sources:forward_proxy_policy:properties:rule_list:rules:http_list:http_list",
@@ -3242,7 +3242,7 @@
       "category": "networking",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -3282,7 +3282,7 @@
       "category": "networking",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -3304,7 +3304,7 @@
       "schema_path": ["rule_list", "rules", "ip_prefix_set"],
       "sections": [
         {
-          "aliases": ["name"],
+          "aliases": ["rule list rules ip prefix set name"],
           "anchor": "schema-rule_list--rules--ip_prefix_set--name",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.",
           "document_id": "xcsh-docs:data-sources:forward_proxy_policy:properties:rule_list:rules:ip_prefix_set",
@@ -3318,7 +3318,7 @@
           "type": "string"
         },
         {
-          "aliases": ["namespace"],
+          "aliases": ["rule list rules ip prefix set namespace"],
           "anchor": "schema-rule_list--rules--ip_prefix_set--namespace",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace.",
           "document_id": "xcsh-docs:data-sources:forward_proxy_policy:properties:rule_list:rules:ip_prefix_set",
@@ -3332,7 +3332,7 @@
           "type": "string"
         },
         {
-          "aliases": ["tenant"],
+          "aliases": ["rule list rules ip prefix set tenant"],
           "anchor": "schema-rule_list--rules--ip_prefix_set--tenant",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant.",
           "document_id": "xcsh-docs:data-sources:forward_proxy_policy:properties:rule_list:rules:ip_prefix_set",
@@ -3365,7 +3365,7 @@
       "category": "networking",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -3387,7 +3387,7 @@
       "schema_path": ["rule_list", "rules", "label_selector"],
       "sections": [
         {
-          "aliases": ["expressions"],
+          "aliases": ["rule list rules label selector expressions"],
           "anchor": "schema-rule_list--rules--label_selector--expressions",
           "description": "Expressions contains the Kubernetes style label expression for selections.",
           "document_id": "xcsh-docs:data-sources:forward_proxy_policy:properties:rule_list:rules:label_selector",
@@ -3420,7 +3420,7 @@
       "category": "networking",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -3442,7 +3442,7 @@
       "schema_path": ["rule_list", "rules", "metadata"],
       "sections": [
         {
-          "aliases": ["description spec"],
+          "aliases": ["rule list rules metadata description spec"],
           "anchor": "schema-rule_list--rules--metadata--description_spec",
           "description": "Description. Human readable description.",
           "document_id": "xcsh-docs:data-sources:forward_proxy_policy:properties:rule_list:rules:metadata",
@@ -3456,7 +3456,7 @@
           "type": "string"
         },
         {
-          "aliases": ["name"],
+          "aliases": ["rule list rules metadata name"],
           "anchor": "schema-rule_list--rules--metadata--name",
           "description": "This is the name of the message. The value of name has to follow DNS-1035 format.",
           "document_id": "xcsh-docs:data-sources:forward_proxy_policy:properties:rule_list:rules:metadata",
@@ -3489,7 +3489,7 @@
       "category": "networking",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -3529,7 +3529,7 @@
       "category": "networking",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -3551,7 +3551,7 @@
       "schema_path": ["rule_list", "rules", "port_matcher"],
       "sections": [
         {
-          "aliases": ["invert matcher"],
+          "aliases": ["rule list rules port matcher invert matcher"],
           "anchor": "schema-rule_list--rules--port_matcher--invert_matcher",
           "description": "Invert the match result.",
           "document_id": "xcsh-docs:data-sources:forward_proxy_policy:properties:rule_list:rules:port_matcher",
@@ -3565,7 +3565,7 @@
           "type": "bool"
         },
         {
-          "aliases": ["ports"],
+          "aliases": ["rule list rules port matcher ports"],
           "anchor": "schema-rule_list--rules--port_matcher--ports",
           "description": "A list of strings, each of which is a single port value or a tuple of start and end port values separated by \"-\". The start and end values are considered to be part of the range.",
           "document_id": "xcsh-docs:data-sources:forward_proxy_policy:properties:rule_list:rules:port_matcher",
@@ -3598,7 +3598,7 @@
       "category": "networking",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -3620,7 +3620,7 @@
       "schema_path": ["rule_list", "rules", "prefix_list"],
       "sections": [
         {
-          "aliases": ["prefixes"],
+          "aliases": ["rule list rules prefix list prefixes"],
           "anchor": "schema-rule_list--rules--prefix_list--prefixes",
           "description": "List of IPv4 prefixes that represent an endpoint.",
           "document_id": "xcsh-docs:data-sources:forward_proxy_policy:properties:rule_list:rules:prefix_list",
@@ -3653,7 +3653,7 @@
       "category": "networking",
       "child_ids": ["xcsh-docs:data-sources:forward_proxy_policy:properties:rule_list:rules:tls_list:tls_list"],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -3675,7 +3675,7 @@
       "schema_path": ["rule_list", "rules", "tls_list"],
       "sections": [
         {
-          "aliases": ["tls list"],
+          "aliases": ["rule list rules tls list tls list"],
           "anchor": "section",
           "description": "Domains in SNI for TLS connections.",
           "document_id": "xcsh-docs:data-sources:forward_proxy_policy:properties:rule_list:rules:tls_list:tls_list",
@@ -3708,7 +3708,7 @@
       "category": "networking",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -3730,7 +3730,7 @@
       "schema_path": ["rule_list", "rules", "tls_list", "tls_list"],
       "sections": [
         {
-          "aliases": ["exact value"],
+          "aliases": ["rule list rules tls list tls list exact value"],
           "anchor": "schema-rule_list--rules--tls_list--tls_list--exact_value",
           "description": "Exclusive with Exact domain name.",
           "document_id": "xcsh-docs:data-sources:forward_proxy_policy:properties:rule_list:rules:tls_list:tls_list",
@@ -3744,7 +3744,7 @@
           "type": "string"
         },
         {
-          "aliases": ["regex value"],
+          "aliases": ["rule list rules tls list tls list regex value"],
           "anchor": "schema-rule_list--rules--tls_list--tls_list--regex_value",
           "description": "Exclusive with Regular Expression value for the domain name.",
           "document_id": "xcsh-docs:data-sources:forward_proxy_policy:properties:rule_list:rules:tls_list:tls_list",
@@ -3758,7 +3758,7 @@
           "type": "string"
         },
         {
-          "aliases": ["suffix value"],
+          "aliases": ["rule list rules tls list tls list suffix value"],
           "anchor": "schema-rule_list--rules--tls_list--tls_list--suffix_value",
           "description": "Exclusive with Suffix of domain name e.g \"xyz.com\" will match \"*.xyz.com\" and \"xyz.com\"",
           "document_id": "xcsh-docs:data-sources:forward_proxy_policy:properties:rule_list:rules:tls_list:tls_list",
@@ -3791,7 +3791,7 @@
       "category": "networking",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -3813,7 +3813,7 @@
       "schema_path": ["rule_list", "rules", "url_category_list"],
       "sections": [
         {
-          "aliases": ["url categories"],
+          "aliases": ["rule list rules url category list url categories"],
           "anchor": "schema-rule_list--rules--url_category_list--url_categories",
           "description": "List of URL categories to be selected.",
           "document_id": "xcsh-docs:data-sources:forward_proxy_policy:properties:rule_list:rules:url_category_list",
@@ -3846,7 +3846,7 @@
       "category": "networking",
       "child_ids": ["xcsh-docs:data-sources:forward_proxy_policy:example:data-source"],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -3886,7 +3886,7 @@
       "category": "networking",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"

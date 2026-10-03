@@ -122,7 +122,7 @@
       "category": null,
       "child_ids": ["xcsh-docs:data-sources:nginx_csg:reference", "xcsh-docs:data-sources:nginx_csg:examples"],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -166,7 +166,7 @@
         "xcsh-docs:data-sources:nginx_csg:properties:waf_spec"
       ],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -350,7 +350,7 @@
         "xcsh-docs:data-sources:nginx_csg:properties:api_discovery_spec:enabled"
       ],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -372,7 +372,7 @@
       "schema_path": ["api_discovery_spec"],
       "sections": [
         {
-          "aliases": ["disabled"],
+          "aliases": ["api discovery spec disabled"],
           "anchor": "section",
           "description": "Enable this option",
           "document_id": "xcsh-docs:data-sources:nginx_csg:properties:api_discovery_spec:disabled",
@@ -386,7 +386,7 @@
           "type": "object"
         },
         {
-          "aliases": ["enabled"],
+          "aliases": ["api discovery spec enabled"],
           "anchor": "section",
           "description": "Enable this option",
           "document_id": "xcsh-docs:data-sources:nginx_csg:properties:api_discovery_spec:enabled",
@@ -419,7 +419,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -459,7 +459,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -505,7 +505,7 @@
         "xcsh-docs:data-sources:nginx_csg:properties:waf_spec:none_waf_mode"
       ],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -527,7 +527,7 @@
       "schema_path": ["waf_spec"],
       "sections": [
         {
-          "aliases": ["blocking waf mode"],
+          "aliases": ["waf spec blocking waf mode"],
           "anchor": "section",
           "description": "Enable this option",
           "document_id": "xcsh-docs:data-sources:nginx_csg:properties:waf_spec:blocking_waf_mode",
@@ -541,7 +541,7 @@
           "type": "object"
         },
         {
-          "aliases": ["distributed cloud policy management"],
+          "aliases": ["waf spec distributed cloud policy management"],
           "anchor": "section",
           "description": "Configuration parameter for distributed cloud policy management.",
           "document_id": "xcsh-docs:data-sources:nginx_csg:properties:waf_spec:distributed_cloud_policy_management",
@@ -555,7 +555,7 @@
           "type": "object"
         },
         {
-          "aliases": ["monitoring waf mode"],
+          "aliases": ["waf spec monitoring waf mode"],
           "anchor": "section",
           "description": "Configuration parameter for monitoring waf mode.",
           "document_id": "xcsh-docs:data-sources:nginx_csg:properties:waf_spec:monitoring_waf_mode",
@@ -569,7 +569,7 @@
           "type": "object"
         },
         {
-          "aliases": ["nginx policy management"],
+          "aliases": ["waf spec nginx policy management"],
           "anchor": "section",
           "description": "Configuration parameter for nginx policy management.",
           "document_id": "xcsh-docs:data-sources:nginx_csg:properties:waf_spec:nginx_policy_management",
@@ -583,7 +583,7 @@
           "type": "object"
         },
         {
-          "aliases": ["none waf mode"],
+          "aliases": ["waf spec none waf mode"],
           "anchor": "section",
           "description": "Configuration parameter for none waf mode.",
           "document_id": "xcsh-docs:data-sources:nginx_csg:properties:waf_spec:none_waf_mode",
@@ -597,7 +597,7 @@
           "type": "object"
         },
         {
-          "aliases": ["policy file name"],
+          "aliases": ["waf spec policy file name"],
           "anchor": "schema-waf_spec--policy_file_name",
           "description": "WAF Policy File Name. Policy file name for WAF.",
           "document_id": "xcsh-docs:data-sources:nginx_csg:properties:waf_spec",
@@ -611,7 +611,7 @@
           "type": "string"
         },
         {
-          "aliases": ["policy name"],
+          "aliases": ["waf spec policy name"],
           "anchor": "schema-waf_spec--policy_name",
           "description": "WAF Policy Name. Policy name configured for WAF.",
           "document_id": "xcsh-docs:data-sources:nginx_csg:properties:waf_spec",
@@ -625,7 +625,7 @@
           "type": "string"
         },
         {
-          "aliases": ["security log enabled"],
+          "aliases": ["waf spec security log enabled"],
           "anchor": "schema-waf_spec--security_log_enabled",
           "description": "Specifies if security logging is enabled.",
           "document_id": "xcsh-docs:data-sources:nginx_csg:properties:waf_spec",
@@ -639,7 +639,7 @@
           "type": "bool"
         },
         {
-          "aliases": ["security log file names"],
+          "aliases": ["waf spec security log file names"],
           "anchor": "schema-waf_spec--security_log_file_names",
           "description": "Specifies the list of security log files specification.",
           "document_id": "xcsh-docs:data-sources:nginx_csg:properties:waf_spec",
@@ -672,7 +672,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -712,7 +712,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -752,7 +752,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -792,7 +792,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -832,7 +832,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -872,7 +872,7 @@
       "category": null,
       "child_ids": ["xcsh-docs:data-sources:nginx_csg:example:data-source"],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -912,7 +912,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"

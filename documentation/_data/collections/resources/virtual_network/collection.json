@@ -167,7 +167,7 @@
         "xcsh-docs:resources:virtual_network:timeouts"
       ],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -222,7 +222,7 @@
         "xcsh-docs:resources:virtual_network:properties:timeouts"
       ],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -479,7 +479,7 @@
           "type": "object"
         },
         {
-          "aliases": ["duration", "operation timeout", "timeouts"],
+          "aliases": ["duration", "lifecycle timeout", "operation timeout", "timeouts"],
           "anchor": "section",
           "description": "timeouts",
           "document_id": "xcsh-docs:resources:virtual_network:properties:timeouts",
@@ -512,7 +512,7 @@
       "category": "networking",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -552,7 +552,7 @@
       "category": "networking",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -592,7 +592,7 @@
       "category": "networking",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -635,7 +635,7 @@
         "xcsh-docs:resources:virtual_network:properties:static_routes:node_interface"
       ],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -738,7 +738,7 @@
       "schema_path": ["static_routes"],
       "sections": [
         {
-          "aliases": ["attrs"],
+          "aliases": ["static routes attrs"],
           "anchor": "schema-static_routes--attrs",
           "description": "List of attributes that control forwarding, dynamic routing and control plane (host) reachability.",
           "document_id": "xcsh-docs:resources:virtual_network:properties:static_routes",
@@ -752,7 +752,7 @@
           "type": "list"
         },
         {
-          "aliases": ["default gateway"],
+          "aliases": ["static routes default gateway"],
           "anchor": "section",
           "description": "This can be used for messages where no values are needed.",
           "document_id": "xcsh-docs:resources:virtual_network:properties:static_routes:default_gateway",
@@ -766,7 +766,7 @@
           "type": "object"
         },
         {
-          "aliases": ["ip address"],
+          "aliases": ["static routes ip address"],
           "anchor": "schema-static_routes--ip_address",
           "description": "Exclusive with Traffic matching the IP prefixes is sent to this IP Address.",
           "document_id": "xcsh-docs:resources:virtual_network:properties:static_routes",
@@ -780,7 +780,7 @@
           "type": "string"
         },
         {
-          "aliases": ["ip prefixes"],
+          "aliases": ["static routes ip prefixes"],
           "anchor": "schema-static_routes--ip_prefixes",
           "description": "List of route prefixes that have common next hop and attributes.",
           "document_id": "xcsh-docs:resources:virtual_network:properties:static_routes",
@@ -794,7 +794,7 @@
           "type": "list"
         },
         {
-          "aliases": ["node interface"],
+          "aliases": ["static routes node interface"],
           "anchor": "section",
           "description": "On multinode site, this type holds the information about per node interfaces.",
           "document_id": "xcsh-docs:resources:virtual_network:properties:static_routes:node_interface",
@@ -827,7 +827,7 @@
       "category": "networking",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -867,7 +867,7 @@
       "category": "networking",
       "child_ids": ["xcsh-docs:resources:virtual_network:properties:static_routes:node_interface:list"],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -889,7 +889,7 @@
       "schema_path": ["static_routes", "node_interface"],
       "sections": [
         {
-          "aliases": ["list"],
+          "aliases": ["static routes node interface list"],
           "anchor": "section",
           "description": "On a multinode site, this list holds the nodes and corresponding networking_interface.",
           "document_id": "xcsh-docs:resources:virtual_network:properties:static_routes:node_interface:list",
@@ -922,7 +922,7 @@
       "category": "networking",
       "child_ids": ["xcsh-docs:resources:virtual_network:properties:static_routes:node_interface:list:interface"],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -944,7 +944,7 @@
       "schema_path": ["static_routes", "node_interface", "list"],
       "sections": [
         {
-          "aliases": ["interface"],
+          "aliases": ["static routes node interface list interface"],
           "anchor": "section",
           "description": "Interface reference on this node.",
           "document_id": "xcsh-docs:resources:virtual_network:properties:static_routes:node_interface:list:interface",
@@ -958,7 +958,7 @@
           "type": "object"
         },
         {
-          "aliases": ["node"],
+          "aliases": ["static routes node interface list node"],
           "anchor": "schema-static_routes--node_interface--list--node",
           "description": "Node name on this site.",
           "document_id": "xcsh-docs:resources:virtual_network:properties:static_routes:node_interface:list",
@@ -991,7 +991,7 @@
       "category": "networking",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -1013,7 +1013,7 @@
       "schema_path": ["static_routes", "node_interface", "list", "interface"],
       "sections": [
         {
-          "aliases": ["kind"],
+          "aliases": ["static routes node interface list interface kind"],
           "anchor": "schema-static_routes--node_interface--list--interface--kind",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then kind will hold the referred object's kind (e.g. \"route\")",
           "document_id": "xcsh-docs:resources:virtual_network:properties:static_routes:node_interface:list:interface",
@@ -1027,7 +1027,7 @@
           "type": "string"
         },
         {
-          "aliases": ["name"],
+          "aliases": ["static routes node interface list interface name"],
           "anchor": "schema-static_routes--node_interface--list--interface--name",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.",
           "document_id": "xcsh-docs:resources:virtual_network:properties:static_routes:node_interface:list:interface",
@@ -1041,7 +1041,7 @@
           "type": "string"
         },
         {
-          "aliases": ["namespace"],
+          "aliases": ["static routes node interface list interface namespace"],
           "anchor": "schema-static_routes--node_interface--list--interface--namespace",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace.",
           "document_id": "xcsh-docs:resources:virtual_network:properties:static_routes:node_interface:list:interface",
@@ -1055,7 +1055,7 @@
           "type": "string"
         },
         {
-          "aliases": ["tenant"],
+          "aliases": ["static routes node interface list interface tenant"],
           "anchor": "schema-static_routes--node_interface--list--interface--tenant",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant.",
           "document_id": "xcsh-docs:resources:virtual_network:properties:static_routes:node_interface:list:interface",
@@ -1069,7 +1069,7 @@
           "type": "string"
         },
         {
-          "aliases": ["uid"],
+          "aliases": ["static routes node interface list interface uid"],
           "anchor": "schema-static_routes--node_interface--list--interface--uid",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then uid will hold the referred object's(e.g. Route's) uid.",
           "document_id": "xcsh-docs:resources:virtual_network:properties:static_routes:node_interface:list:interface",
@@ -1095,14 +1095,14 @@
       }
     },
     {
-      "aliases": ["duration", "operation timeout", "timeouts"],
+      "aliases": ["duration", "lifecycle timeout", "operation timeout", "timeouts"],
       "body_bytes": 2249,
       "body_sha256": "sha256:cc87632d379df96ddbb25367e3d2264e02de7daa23f3959e7de315a9b29d02ad",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -1124,9 +1124,17 @@
       "schema_path": ["timeouts"],
       "sections": [
         {
-          "aliases": ["create"],
+          "aliases": [
+            "create operation timeout",
+            "create timeout",
+            "creation duration",
+            "duration",
+            "lifecycle timeout",
+            "operation timeout",
+            "timeouts create"
+          ],
           "anchor": "schema-timeouts--create",
-          "description": "A string that can be (https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as \"30s\" or \"2h45m\". Valid time units are \"s\" (seconds), \"m\" (minutes), \"h\" (hours).",
+          "description": "Configures the timeout duration for resource creation.",
           "document_id": "xcsh-docs:resources:virtual_network:properties:timeouts",
           "flags": ["optional"],
           "max_items": null,
@@ -1138,9 +1146,18 @@
           "type": "string"
         },
         {
-          "aliases": ["delete", "duration", "operation timeout"],
+          "aliases": [
+            "delete operation timeout",
+            "delete timeout",
+            "deletion duration",
+            "destroy timeout",
+            "duration",
+            "lifecycle timeout",
+            "operation timeout",
+            "timeouts delete"
+          ],
           "anchor": "schema-timeouts--delete",
-          "description": "A string that can be (https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as \"30s\" or \"2h45m\". Valid time units are \"s\" (seconds), \"m\" (minutes), \"h\" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.",
+          "description": "Configures the timeout duration for resource deletion, applicable only if changes are saved into state before destroy.",
           "document_id": "xcsh-docs:resources:virtual_network:properties:timeouts",
           "flags": ["optional"],
           "max_items": null,
@@ -1152,9 +1169,18 @@
           "type": "string"
         },
         {
-          "aliases": ["read"],
+          "aliases": [
+            "duration",
+            "lifecycle timeout",
+            "operation timeout",
+            "read duration",
+            "read operation timeout",
+            "read timeout",
+            "refresh timeout",
+            "timeouts read"
+          ],
           "anchor": "schema-timeouts--read",
-          "description": "A string that can be (https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as \"30s\" or \"2h45m\". Valid time units are \"s\" (seconds), \"m\" (minutes), \"h\" (hours). Read operations occur during any refresh or planning operation when refresh is enabled.",
+          "description": "Configures the timeout duration for read operations during refresh or planning.",
           "document_id": "xcsh-docs:resources:virtual_network:properties:timeouts",
           "flags": ["optional"],
           "max_items": null,
@@ -1166,9 +1192,18 @@
           "type": "string"
         },
         {
-          "aliases": ["update"],
+          "aliases": [
+            "duration",
+            "lifecycle timeout",
+            "modification timeout",
+            "operation timeout",
+            "timeouts update",
+            "update duration",
+            "update operation timeout",
+            "update timeout"
+          ],
           "anchor": "schema-timeouts--update",
-          "description": "A string that can be (https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as \"30s\" or \"2h45m\". Valid time units are \"s\" (seconds), \"m\" (minutes), \"h\" (hours).",
+          "description": "Configures the timeout duration for resource update operations.",
           "document_id": "xcsh-docs:resources:virtual_network:properties:timeouts",
           "flags": ["optional"],
           "max_items": null,
@@ -1199,7 +1234,7 @@
       "category": "networking",
       "child_ids": ["xcsh-docs:resources:virtual_network:example:resource"],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -1239,7 +1274,7 @@
       "category": "networking",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -1286,7 +1321,7 @@
       "category": "networking",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -1327,7 +1362,7 @@
       "category": "networking",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"

@@ -612,7 +612,7 @@
         "xcsh-docs:data-sources:cdn_cache_rule:examples"
       ],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -653,7 +653,7 @@
       "category": "cdn",
       "child_ids": ["xcsh-docs:data-sources:cdn_cache_rule:properties:cache_rules"],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -796,7 +796,7 @@
         "xcsh-docs:data-sources:cdn_cache_rule:properties:cache_rules:rule_expression_list"
       ],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -818,7 +818,7 @@
       "schema_path": ["cache_rules"],
       "sections": [
         {
-          "aliases": ["cache bypass"],
+          "aliases": ["cache rules cache bypass"],
           "anchor": "section",
           "description": "This can be used for messages where no values are needed.",
           "document_id": "xcsh-docs:data-sources:cdn_cache_rule:properties:cache_rules:cache_bypass",
@@ -832,7 +832,7 @@
           "type": "object"
         },
         {
-          "aliases": ["eligible for cache"],
+          "aliases": ["cache rules eligible for cache"],
           "anchor": "section",
           "description": "List of OPTIONS for Cache Action.",
           "document_id": "xcsh-docs:data-sources:cdn_cache_rule:properties:cache_rules:eligible_for_cache",
@@ -846,7 +846,7 @@
           "type": "object"
         },
         {
-          "aliases": ["rule expression list"],
+          "aliases": ["cache rules rule expression list"],
           "anchor": "section",
           "description": "Expressions are evaluated in the order in which they are specified. The evaluation stops when the first rule match occurs..",
           "document_id": "xcsh-docs:data-sources:cdn_cache_rule:properties:cache_rules:rule_expression_list",
@@ -860,7 +860,7 @@
           "type": "object"
         },
         {
-          "aliases": ["rule name"],
+          "aliases": ["cache rules rule name"],
           "anchor": "schema-cache_rules--rule_name",
           "description": "Name of the Cache Rule.",
           "document_id": "xcsh-docs:data-sources:cdn_cache_rule:properties:cache_rules",
@@ -893,7 +893,7 @@
       "category": "cdn",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -936,7 +936,7 @@
         "xcsh-docs:data-sources:cdn_cache_rule:properties:cache_rules:eligible_for_cache:scheme_proxy_host_uri"
       ],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -958,7 +958,7 @@
       "schema_path": ["cache_rules", "eligible_for_cache"],
       "sections": [
         {
-          "aliases": ["scheme proxy host request uri"],
+          "aliases": ["cache rules eligible for cache scheme proxy host request uri"],
           "anchor": "section",
           "description": "Cache TTL Enable Values.",
           "document_id": "xcsh-docs:data-sources:cdn_cache_rule:properties:cache_rules:eligible_for_cache:scheme_proxy_host_request_uri",
@@ -972,7 +972,7 @@
           "type": "object"
         },
         {
-          "aliases": ["scheme proxy host uri"],
+          "aliases": ["cache rules eligible for cache scheme proxy host uri"],
           "anchor": "section",
           "description": "Cache TTL Enable Values.",
           "document_id": "xcsh-docs:data-sources:cdn_cache_rule:properties:cache_rules:eligible_for_cache:scheme_proxy_host_uri",
@@ -1005,7 +1005,7 @@
       "category": "cdn",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -1027,7 +1027,7 @@
       "schema_path": ["cache_rules", "eligible_for_cache", "scheme_proxy_host_request_uri"],
       "sections": [
         {
-          "aliases": ["cache override"],
+          "aliases": ["cache rules eligible for cache scheme proxy host request uri cache override"],
           "anchor": "schema-cache_rules--eligible_for_cache--scheme_proxy_host_request_uri--cache_override",
           "description": "Honour Cache Override.",
           "document_id": "xcsh-docs:data-sources:cdn_cache_rule:properties:cache_rules:eligible_for_cache:scheme_proxy_host_request_uri",
@@ -1041,7 +1041,7 @@
           "type": "bool"
         },
         {
-          "aliases": ["cache ttl"],
+          "aliases": ["cache rules eligible for cache scheme proxy host request uri cache ttl"],
           "anchor": "schema-cache_rules--eligible_for_cache--scheme_proxy_host_request_uri--cache_ttl",
           "description": "Cache TTL value is used to cache the resource/content for the specified amount of time Format: , where s - seconds, m - minutes, h - hours, d - days.",
           "document_id": "xcsh-docs:data-sources:cdn_cache_rule:properties:cache_rules:eligible_for_cache:scheme_proxy_host_request_uri",
@@ -1055,7 +1055,7 @@
           "type": "string"
         },
         {
-          "aliases": ["ignore response cookie"],
+          "aliases": ["cache rules eligible for cache scheme proxy host request uri ignore response cookie"],
           "anchor": "schema-cache_rules--eligible_for_cache--scheme_proxy_host_request_uri--ignore_response_cookie",
           "description": "By default, response will not be cached if set-cookie header is present. This option will override the behavior and cache response even with set-cookie header present.",
           "document_id": "xcsh-docs:data-sources:cdn_cache_rule:properties:cache_rules:eligible_for_cache:scheme_proxy_host_request_uri",
@@ -1093,7 +1093,7 @@
       "category": "cdn",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -1115,7 +1115,7 @@
       "schema_path": ["cache_rules", "eligible_for_cache", "scheme_proxy_host_uri"],
       "sections": [
         {
-          "aliases": ["cache override"],
+          "aliases": ["cache rules eligible for cache scheme proxy host uri cache override"],
           "anchor": "schema-cache_rules--eligible_for_cache--scheme_proxy_host_uri--cache_override",
           "description": "Honour Cache Override.",
           "document_id": "xcsh-docs:data-sources:cdn_cache_rule:properties:cache_rules:eligible_for_cache:scheme_proxy_host_uri",
@@ -1129,7 +1129,7 @@
           "type": "bool"
         },
         {
-          "aliases": ["cache ttl"],
+          "aliases": ["cache rules eligible for cache scheme proxy host uri cache ttl"],
           "anchor": "schema-cache_rules--eligible_for_cache--scheme_proxy_host_uri--cache_ttl",
           "description": "Cache TTL value is used to cache the resource/content for the specified amount of time Format: , where s - seconds, m - minutes, h - hours, d - days.",
           "document_id": "xcsh-docs:data-sources:cdn_cache_rule:properties:cache_rules:eligible_for_cache:scheme_proxy_host_uri",
@@ -1143,7 +1143,7 @@
           "type": "string"
         },
         {
-          "aliases": ["ignore response cookie"],
+          "aliases": ["cache rules eligible for cache scheme proxy host uri ignore response cookie"],
           "anchor": "schema-cache_rules--eligible_for_cache--scheme_proxy_host_uri--ignore_response_cookie",
           "description": "By default, response will not be cached if set-cookie header is present. This option will override the behavior and cache response even with set-cookie header present.",
           "document_id": "xcsh-docs:data-sources:cdn_cache_rule:properties:cache_rules:eligible_for_cache:scheme_proxy_host_uri",
@@ -1178,7 +1178,7 @@
         "xcsh-docs:data-sources:cdn_cache_rule:properties:cache_rules:rule_expression_list:cache_rule_expression"
       ],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -1200,7 +1200,7 @@
       "schema_path": ["cache_rules", "rule_expression_list"],
       "sections": [
         {
-          "aliases": ["cache rule expression"],
+          "aliases": ["cache rules rule expression list cache rule expression"],
           "anchor": "section",
           "description": "The Cache Rule Expression Terms that are ANDed.",
           "document_id": "xcsh-docs:data-sources:cdn_cache_rule:properties:cache_rules:rule_expression_list:cache_rule_expression",
@@ -1214,7 +1214,7 @@
           "type": "object"
         },
         {
-          "aliases": ["expression name"],
+          "aliases": ["cache rules rule expression list expression name"],
           "anchor": "schema-cache_rules--rule_expression_list--expression_name",
           "description": "Name of the Expressions items that are ANDed.",
           "document_id": "xcsh-docs:data-sources:cdn_cache_rule:properties:cache_rules:rule_expression_list",
@@ -1252,7 +1252,7 @@
         "xcsh-docs:data-sources:cdn_cache_rule:properties:cache_rules:rule_expression_list:cache_rule_expression:query_parameters"
       ],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -1274,7 +1274,7 @@
       "schema_path": ["cache_rules", "rule_expression_list", "cache_rule_expression"],
       "sections": [
         {
-          "aliases": ["cache headers"],
+          "aliases": ["cache rules rule expression list cache rule expression cache headers"],
           "anchor": "section",
           "description": "Configure cache rule headers to match the criteria.",
           "document_id": "xcsh-docs:data-sources:cdn_cache_rule:properties:cache_rules:rule_expression_list:cache_rule_expression:cache_headers",
@@ -1288,7 +1288,7 @@
           "type": "object"
         },
         {
-          "aliases": ["cookie matcher"],
+          "aliases": ["cache rules rule expression list cache rule expression cookie matcher"],
           "anchor": "section",
           "description": "A list of predicates for all cookies that need to be matched. The criteria for matching each cookie is described in individual instances of CookieMatcherType. The actual cookie values are extracted from the request API as a list of strings for each cookie name. Note that all specified cookie matcher predicates must",
           "document_id": "xcsh-docs:data-sources:cdn_cache_rule:properties:cache_rules:rule_expression_list:cache_rule_expression:cookie_matcher",
@@ -1302,7 +1302,7 @@
           "type": "object"
         },
         {
-          "aliases": ["path match"],
+          "aliases": ["cache rules rule expression list cache rule expression path match"],
           "anchor": "section",
           "description": "Path match of the URI can be either be, Prefix match or exact match or regular expression match.",
           "document_id": "xcsh-docs:data-sources:cdn_cache_rule:properties:cache_rules:rule_expression_list:cache_rule_expression:path_match",
@@ -1316,7 +1316,7 @@
           "type": "object"
         },
         {
-          "aliases": ["query parameters"],
+          "aliases": ["cache rules rule expression list cache rule expression query parameters"],
           "anchor": "section",
           "description": "List of (key, value) query parameters.",
           "document_id": "xcsh-docs:data-sources:cdn_cache_rule:properties:cache_rules:rule_expression_list:cache_rule_expression:query_parameters",
@@ -1351,7 +1351,7 @@
         "xcsh-docs:data-sources:cdn_cache_rule:properties:cache_rules:rule_expression_list:cache_rule_expression:cache_headers:operator"
       ],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -1373,7 +1373,7 @@
       "schema_path": ["cache_rules", "rule_expression_list", "cache_rule_expression", "cache_headers"],
       "sections": [
         {
-          "aliases": ["name"],
+          "aliases": ["cache rules rule expression list cache rule expression cache headers name"],
           "anchor": "schema-cache_rules--rule_expression_list--cache_rule_expression--cache_headers--name",
           "description": "- PROXY_HOST: Proxy Host Name of the proxied server - REFERER: Referer This is the address of the previous web page from which a link to the currently requested page was followed - SCHEME: Scheme The HTTP scheme used: HTTP or HTTPS - USER_AGENT: User Agent The user agent string of the user agent.",
           "document_id": "xcsh-docs:data-sources:cdn_cache_rule:properties:cache_rules:rule_expression_list:cache_rule_expression:cache_headers",
@@ -1387,7 +1387,7 @@
           "type": "string"
         },
         {
-          "aliases": ["operator"],
+          "aliases": ["cache rules rule expression list cache rule expression cache headers operator"],
           "anchor": "section",
           "description": "Operator",
           "document_id": "xcsh-docs:data-sources:cdn_cache_rule:properties:cache_rules:rule_expression_list:cache_rule_expression:cache_headers:operator",
@@ -1420,7 +1420,7 @@
       "category": "cdn",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -1442,7 +1442,7 @@
       "schema_path": ["cache_rules", "rule_expression_list", "cache_rule_expression", "cache_headers", "operator"],
       "sections": [
         {
-          "aliases": ["contains"],
+          "aliases": ["cache rules rule expression list cache rule expression cache headers operator contains"],
           "anchor": "schema-cache_rules--rule_expression_list--cache_rule_expression--cache_headers--operator--contains",
           "description": "Exclusive with The header value must include the specified value as a substring.",
           "document_id": "xcsh-docs:data-sources:cdn_cache_rule:properties:cache_rules:rule_expression_list:cache_rule_expression:cache_headers:operator",
@@ -1463,7 +1463,7 @@
           "type": "string"
         },
         {
-          "aliases": ["does not contain"],
+          "aliases": ["cache rules rule expression list cache rule expression cache headers operator does not contain"],
           "anchor": "schema-cache_rules--rule_expression_list--cache_rule_expression--cache_headers--operator--does_not_contain",
           "description": "Exclusive with The header value must not include the specified value as a substring.",
           "document_id": "xcsh-docs:data-sources:cdn_cache_rule:properties:cache_rules:rule_expression_list:cache_rule_expression:cache_headers:operator",
@@ -1484,7 +1484,9 @@
           "type": "string"
         },
         {
-          "aliases": ["does not end with"],
+          "aliases": [
+            "cache rules rule expression list cache rule expression cache headers operator does not end with"
+          ],
           "anchor": "schema-cache_rules--rule_expression_list--cache_rule_expression--cache_headers--operator--does_not_end_with",
           "description": "Exclusive with The header value must not end with the specified value.",
           "document_id": "xcsh-docs:data-sources:cdn_cache_rule:properties:cache_rules:rule_expression_list:cache_rule_expression:cache_headers:operator",
@@ -1505,7 +1507,7 @@
           "type": "string"
         },
         {
-          "aliases": ["does not equal"],
+          "aliases": ["cache rules rule expression list cache rule expression cache headers operator does not equal"],
           "anchor": "schema-cache_rules--rule_expression_list--cache_rule_expression--cache_headers--operator--does_not_equal",
           "description": "Exclusive with The header value must not match the specified value.",
           "document_id": "xcsh-docs:data-sources:cdn_cache_rule:properties:cache_rules:rule_expression_list:cache_rule_expression:cache_headers:operator",
@@ -1526,7 +1528,9 @@
           "type": "string"
         },
         {
-          "aliases": ["does not start with"],
+          "aliases": [
+            "cache rules rule expression list cache rule expression cache headers operator does not start with"
+          ],
           "anchor": "schema-cache_rules--rule_expression_list--cache_rule_expression--cache_headers--operator--does_not_start_with",
           "description": "Exclusive with The header value must not begin with the specified value.",
           "document_id": "xcsh-docs:data-sources:cdn_cache_rule:properties:cache_rules:rule_expression_list:cache_rule_expression:cache_headers:operator",
@@ -1547,7 +1551,7 @@
           "type": "string"
         },
         {
-          "aliases": ["endswith"],
+          "aliases": ["cache rules rule expression list cache rule expression cache headers operator endswith"],
           "anchor": "schema-cache_rules--rule_expression_list--cache_rule_expression--cache_headers--operator--endswith",
           "description": "Exclusive with The header value must end with the specified value.",
           "document_id": "xcsh-docs:data-sources:cdn_cache_rule:properties:cache_rules:rule_expression_list:cache_rule_expression:cache_headers:operator",
@@ -1568,7 +1572,7 @@
           "type": "string"
         },
         {
-          "aliases": ["equals"],
+          "aliases": ["cache rules rule expression list cache rule expression cache headers operator equals"],
           "anchor": "schema-cache_rules--rule_expression_list--cache_rule_expression--cache_headers--operator--equals",
           "description": "Exclusive with The header value must exactly match the specified value.",
           "document_id": "xcsh-docs:data-sources:cdn_cache_rule:properties:cache_rules:rule_expression_list:cache_rule_expression:cache_headers:operator",
@@ -1589,7 +1593,7 @@
           "type": "string"
         },
         {
-          "aliases": ["match regex"],
+          "aliases": ["cache rules rule expression list cache rule expression cache headers operator match regex"],
           "anchor": "schema-cache_rules--rule_expression_list--cache_rule_expression--cache_headers--operator--match_regex",
           "description": "Exclusive with The header value must match the specified regular expression pattern.",
           "document_id": "xcsh-docs:data-sources:cdn_cache_rule:properties:cache_rules:rule_expression_list:cache_rule_expression:cache_headers:operator",
@@ -1610,7 +1614,7 @@
           "type": "string"
         },
         {
-          "aliases": ["startswith"],
+          "aliases": ["cache rules rule expression list cache rule expression cache headers operator startswith"],
           "anchor": "schema-cache_rules--rule_expression_list--cache_rule_expression--cache_headers--operator--startswith",
           "description": "Exclusive with The header value must begin with the specified value.",
           "document_id": "xcsh-docs:data-sources:cdn_cache_rule:properties:cache_rules:rule_expression_list:cache_rule_expression:cache_headers:operator",
@@ -1652,7 +1656,7 @@
         "xcsh-docs:data-sources:cdn_cache_rule:properties:cache_rules:rule_expression_list:cache_rule_expression:cookie_matcher:operator"
       ],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -1674,7 +1678,7 @@
       "schema_path": ["cache_rules", "rule_expression_list", "cache_rule_expression", "cookie_matcher"],
       "sections": [
         {
-          "aliases": ["name"],
+          "aliases": ["cache rules rule expression list cache rule expression cookie matcher name"],
           "anchor": "schema-cache_rules--rule_expression_list--cache_rule_expression--cookie_matcher--name",
           "description": "Enter the name of the cookie to match.",
           "document_id": "xcsh-docs:data-sources:cdn_cache_rule:properties:cache_rules:rule_expression_list:cache_rule_expression:cookie_matcher",
@@ -1688,7 +1692,7 @@
           "type": "string"
         },
         {
-          "aliases": ["operator"],
+          "aliases": ["cache rules rule expression list cache rule expression cookie matcher operator"],
           "anchor": "section",
           "description": "Operator",
           "document_id": "xcsh-docs:data-sources:cdn_cache_rule:properties:cache_rules:rule_expression_list:cache_rule_expression:cookie_matcher:operator",
@@ -1721,7 +1725,7 @@
       "category": "cdn",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -1743,7 +1747,7 @@
       "schema_path": ["cache_rules", "rule_expression_list", "cache_rule_expression", "cookie_matcher", "operator"],
       "sections": [
         {
-          "aliases": ["contains"],
+          "aliases": ["cache rules rule expression list cache rule expression cookie matcher operator contains"],
           "anchor": "schema-cache_rules--rule_expression_list--cache_rule_expression--cookie_matcher--operator--contains",
           "description": "Exclusive with The cookie value must include the specified value as a substring.",
           "document_id": "xcsh-docs:data-sources:cdn_cache_rule:properties:cache_rules:rule_expression_list:cache_rule_expression:cookie_matcher:operator",
@@ -1764,7 +1768,9 @@
           "type": "string"
         },
         {
-          "aliases": ["does not contain"],
+          "aliases": [
+            "cache rules rule expression list cache rule expression cookie matcher operator does not contain"
+          ],
           "anchor": "schema-cache_rules--rule_expression_list--cache_rule_expression--cookie_matcher--operator--does_not_contain",
           "description": "Exclusive with The cookie value must not include the specified value as a substring.",
           "document_id": "xcsh-docs:data-sources:cdn_cache_rule:properties:cache_rules:rule_expression_list:cache_rule_expression:cookie_matcher:operator",
@@ -1785,7 +1791,9 @@
           "type": "string"
         },
         {
-          "aliases": ["does not end with"],
+          "aliases": [
+            "cache rules rule expression list cache rule expression cookie matcher operator does not end with"
+          ],
           "anchor": "schema-cache_rules--rule_expression_list--cache_rule_expression--cookie_matcher--operator--does_not_end_with",
           "description": "Exclusive with The cookie value must not end with the specified value.",
           "document_id": "xcsh-docs:data-sources:cdn_cache_rule:properties:cache_rules:rule_expression_list:cache_rule_expression:cookie_matcher:operator",
@@ -1806,7 +1814,7 @@
           "type": "string"
         },
         {
-          "aliases": ["does not equal"],
+          "aliases": ["cache rules rule expression list cache rule expression cookie matcher operator does not equal"],
           "anchor": "schema-cache_rules--rule_expression_list--cache_rule_expression--cookie_matcher--operator--does_not_equal",
           "description": "Exclusive with The cookie value must not match the specified value.",
           "document_id": "xcsh-docs:data-sources:cdn_cache_rule:properties:cache_rules:rule_expression_list:cache_rule_expression:cookie_matcher:operator",
@@ -1827,7 +1835,9 @@
           "type": "string"
         },
         {
-          "aliases": ["does not start with"],
+          "aliases": [
+            "cache rules rule expression list cache rule expression cookie matcher operator does not start with"
+          ],
           "anchor": "schema-cache_rules--rule_expression_list--cache_rule_expression--cookie_matcher--operator--does_not_start_with",
           "description": "Exclusive with The cookie value must not begin with the specified value.",
           "document_id": "xcsh-docs:data-sources:cdn_cache_rule:properties:cache_rules:rule_expression_list:cache_rule_expression:cookie_matcher:operator",
@@ -1848,7 +1858,7 @@
           "type": "string"
         },
         {
-          "aliases": ["endswith"],
+          "aliases": ["cache rules rule expression list cache rule expression cookie matcher operator endswith"],
           "anchor": "schema-cache_rules--rule_expression_list--cache_rule_expression--cookie_matcher--operator--endswith",
           "description": "Exclusive with The cookie value must end with the specified value.",
           "document_id": "xcsh-docs:data-sources:cdn_cache_rule:properties:cache_rules:rule_expression_list:cache_rule_expression:cookie_matcher:operator",
@@ -1869,7 +1879,7 @@
           "type": "string"
         },
         {
-          "aliases": ["equals"],
+          "aliases": ["cache rules rule expression list cache rule expression cookie matcher operator equals"],
           "anchor": "schema-cache_rules--rule_expression_list--cache_rule_expression--cookie_matcher--operator--equals",
           "description": "Exclusive with The cookie value must exactly match the specified value.",
           "document_id": "xcsh-docs:data-sources:cdn_cache_rule:properties:cache_rules:rule_expression_list:cache_rule_expression:cookie_matcher:operator",
@@ -1890,7 +1900,7 @@
           "type": "string"
         },
         {
-          "aliases": ["match regex"],
+          "aliases": ["cache rules rule expression list cache rule expression cookie matcher operator match regex"],
           "anchor": "schema-cache_rules--rule_expression_list--cache_rule_expression--cookie_matcher--operator--match_regex",
           "description": "Exclusive with The cookie value must match the specified regular expression pattern in PCRE format.",
           "document_id": "xcsh-docs:data-sources:cdn_cache_rule:properties:cache_rules:rule_expression_list:cache_rule_expression:cookie_matcher:operator",
@@ -1911,7 +1921,7 @@
           "type": "string"
         },
         {
-          "aliases": ["startswith"],
+          "aliases": ["cache rules rule expression list cache rule expression cookie matcher operator startswith"],
           "anchor": "schema-cache_rules--rule_expression_list--cache_rule_expression--cookie_matcher--operator--startswith",
           "description": "Exclusive with The cookie value must begin with the specified value.",
           "document_id": "xcsh-docs:data-sources:cdn_cache_rule:properties:cache_rules:rule_expression_list:cache_rule_expression:cookie_matcher:operator",
@@ -1953,7 +1963,7 @@
         "xcsh-docs:data-sources:cdn_cache_rule:properties:cache_rules:rule_expression_list:cache_rule_expression:path_match:operator"
       ],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -1975,7 +1985,7 @@
       "schema_path": ["cache_rules", "rule_expression_list", "cache_rule_expression", "path_match"],
       "sections": [
         {
-          "aliases": ["operator"],
+          "aliases": ["cache rules rule expression list cache rule expression path match operator"],
           "anchor": "section",
           "description": "Operator",
           "document_id": "xcsh-docs:data-sources:cdn_cache_rule:properties:cache_rules:rule_expression_list:cache_rule_expression:path_match:operator",
@@ -2008,7 +2018,7 @@
       "category": "cdn",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -2030,7 +2040,7 @@
       "schema_path": ["cache_rules", "rule_expression_list", "cache_rule_expression", "path_match", "operator"],
       "sections": [
         {
-          "aliases": ["contains"],
+          "aliases": ["cache rules rule expression list cache rule expression path match operator contains"],
           "anchor": "schema-cache_rules--rule_expression_list--cache_rule_expression--path_match--operator--contains",
           "description": "Exclusive with The path must include the specified value as a substring, up to the filename.",
           "document_id": "xcsh-docs:data-sources:cdn_cache_rule:properties:cache_rules:rule_expression_list:cache_rule_expression:path_match:operator",
@@ -2051,7 +2061,7 @@
           "type": "string"
         },
         {
-          "aliases": ["does not contain"],
+          "aliases": ["cache rules rule expression list cache rule expression path match operator does not contain"],
           "anchor": "schema-cache_rules--rule_expression_list--cache_rule_expression--path_match--operator--does_not_contain",
           "description": "Exclusive with The path must not include the specified value as a substring, up to the filename.",
           "document_id": "xcsh-docs:data-sources:cdn_cache_rule:properties:cache_rules:rule_expression_list:cache_rule_expression:path_match:operator",
@@ -2072,7 +2082,7 @@
           "type": "string"
         },
         {
-          "aliases": ["does not end with"],
+          "aliases": ["cache rules rule expression list cache rule expression path match operator does not end with"],
           "anchor": "schema-cache_rules--rule_expression_list--cache_rule_expression--path_match--operator--does_not_end_with",
           "description": "Exclusive with The path must not end with the specified value, up to the filename.",
           "document_id": "xcsh-docs:data-sources:cdn_cache_rule:properties:cache_rules:rule_expression_list:cache_rule_expression:path_match:operator",
@@ -2093,7 +2103,7 @@
           "type": "string"
         },
         {
-          "aliases": ["does not equal"],
+          "aliases": ["cache rules rule expression list cache rule expression path match operator does not equal"],
           "anchor": "schema-cache_rules--rule_expression_list--cache_rule_expression--path_match--operator--does_not_equal",
           "description": "Exclusive with The path must not match the specified value, up to the filename.",
           "document_id": "xcsh-docs:data-sources:cdn_cache_rule:properties:cache_rules:rule_expression_list:cache_rule_expression:path_match:operator",
@@ -2114,7 +2124,7 @@
           "type": "string"
         },
         {
-          "aliases": ["does not start with"],
+          "aliases": ["cache rules rule expression list cache rule expression path match operator does not start with"],
           "anchor": "schema-cache_rules--rule_expression_list--cache_rule_expression--path_match--operator--does_not_start_with",
           "description": "Exclusive with The path must not begin with the specified value, up to the filename.",
           "document_id": "xcsh-docs:data-sources:cdn_cache_rule:properties:cache_rules:rule_expression_list:cache_rule_expression:path_match:operator",
@@ -2135,7 +2145,7 @@
           "type": "string"
         },
         {
-          "aliases": ["endswith"],
+          "aliases": ["cache rules rule expression list cache rule expression path match operator endswith"],
           "anchor": "schema-cache_rules--rule_expression_list--cache_rule_expression--path_match--operator--endswith",
           "description": "Exclusive with The path must end with the specified value, up to the filename.",
           "document_id": "xcsh-docs:data-sources:cdn_cache_rule:properties:cache_rules:rule_expression_list:cache_rule_expression:path_match:operator",
@@ -2156,7 +2166,7 @@
           "type": "string"
         },
         {
-          "aliases": ["equals"],
+          "aliases": ["cache rules rule expression list cache rule expression path match operator equals"],
           "anchor": "schema-cache_rules--rule_expression_list--cache_rule_expression--path_match--operator--equals",
           "description": "Exclusive with The path must exactly match the specified value, up to the filename.",
           "document_id": "xcsh-docs:data-sources:cdn_cache_rule:properties:cache_rules:rule_expression_list:cache_rule_expression:path_match:operator",
@@ -2177,7 +2187,7 @@
           "type": "string"
         },
         {
-          "aliases": ["match regex"],
+          "aliases": ["cache rules rule expression list cache rule expression path match operator match regex"],
           "anchor": "schema-cache_rules--rule_expression_list--cache_rule_expression--path_match--operator--match_regex",
           "description": "Exclusive with The path must match the specified regular expression pattern in PCRE format.",
           "document_id": "xcsh-docs:data-sources:cdn_cache_rule:properties:cache_rules:rule_expression_list:cache_rule_expression:path_match:operator",
@@ -2198,7 +2208,7 @@
           "type": "string"
         },
         {
-          "aliases": ["startswith"],
+          "aliases": ["cache rules rule expression list cache rule expression path match operator startswith"],
           "anchor": "schema-cache_rules--rule_expression_list--cache_rule_expression--path_match--operator--startswith",
           "description": "Exclusive with The path must begin with the specified value, up to the filename.",
           "document_id": "xcsh-docs:data-sources:cdn_cache_rule:properties:cache_rules:rule_expression_list:cache_rule_expression:path_match:operator",
@@ -2240,7 +2250,7 @@
         "xcsh-docs:data-sources:cdn_cache_rule:properties:cache_rules:rule_expression_list:cache_rule_expression:query_parameters:operator"
       ],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -2262,7 +2272,7 @@
       "schema_path": ["cache_rules", "rule_expression_list", "cache_rule_expression", "query_parameters"],
       "sections": [
         {
-          "aliases": ["key"],
+          "aliases": ["cache rules rule expression list cache rule expression query parameters key"],
           "anchor": "schema-cache_rules--rule_expression_list--cache_rule_expression--query_parameters--key",
           "description": "The name of the query parameter to match.",
           "document_id": "xcsh-docs:data-sources:cdn_cache_rule:properties:cache_rules:rule_expression_list:cache_rule_expression:query_parameters",
@@ -2276,7 +2286,7 @@
           "type": "string"
         },
         {
-          "aliases": ["operator"],
+          "aliases": ["cache rules rule expression list cache rule expression query parameters operator"],
           "anchor": "section",
           "description": "Operator",
           "document_id": "xcsh-docs:data-sources:cdn_cache_rule:properties:cache_rules:rule_expression_list:cache_rule_expression:query_parameters:operator",
@@ -2315,7 +2325,7 @@
       "category": "cdn",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -2337,7 +2347,7 @@
       "schema_path": ["cache_rules", "rule_expression_list", "cache_rule_expression", "query_parameters", "operator"],
       "sections": [
         {
-          "aliases": ["contains"],
+          "aliases": ["cache rules rule expression list cache rule expression query parameters operator contains"],
           "anchor": "schema-cache_rules--rule_expression_list--cache_rule_expression--query_parameters--operator--contains",
           "description": "Exclusive with The query parameter value must include the specified value as a substring.",
           "document_id": "xcsh-docs:data-sources:cdn_cache_rule:properties:cache_rules:rule_expression_list:cache_rule_expression:query_parameters:operator",
@@ -2358,7 +2368,9 @@
           "type": "string"
         },
         {
-          "aliases": ["does not contain"],
+          "aliases": [
+            "cache rules rule expression list cache rule expression query parameters operator does not contain"
+          ],
           "anchor": "schema-cache_rules--rule_expression_list--cache_rule_expression--query_parameters--operator--does_not_contain",
           "description": "Exclusive with The query parameter value must not include the specified value as a substring.",
           "document_id": "xcsh-docs:data-sources:cdn_cache_rule:properties:cache_rules:rule_expression_list:cache_rule_expression:query_parameters:operator",
@@ -2379,7 +2391,9 @@
           "type": "string"
         },
         {
-          "aliases": ["does not end with"],
+          "aliases": [
+            "cache rules rule expression list cache rule expression query parameters operator does not end with"
+          ],
           "anchor": "schema-cache_rules--rule_expression_list--cache_rule_expression--query_parameters--operator--does_not_end_with",
           "description": "Exclusive with The query parameter value must not end with the specified value.",
           "document_id": "xcsh-docs:data-sources:cdn_cache_rule:properties:cache_rules:rule_expression_list:cache_rule_expression:query_parameters:operator",
@@ -2400,7 +2414,9 @@
           "type": "string"
         },
         {
-          "aliases": ["does not equal"],
+          "aliases": [
+            "cache rules rule expression list cache rule expression query parameters operator does not equal"
+          ],
           "anchor": "schema-cache_rules--rule_expression_list--cache_rule_expression--query_parameters--operator--does_not_equal",
           "description": "Exclusive with The query parameter value must not match the specified value.",
           "document_id": "xcsh-docs:data-sources:cdn_cache_rule:properties:cache_rules:rule_expression_list:cache_rule_expression:query_parameters:operator",
@@ -2421,7 +2437,9 @@
           "type": "string"
         },
         {
-          "aliases": ["does not start with"],
+          "aliases": [
+            "cache rules rule expression list cache rule expression query parameters operator does not start with"
+          ],
           "anchor": "schema-cache_rules--rule_expression_list--cache_rule_expression--query_parameters--operator--does_not_start_with",
           "description": "Exclusive with The query parameter value must not begin with the specified value.",
           "document_id": "xcsh-docs:data-sources:cdn_cache_rule:properties:cache_rules:rule_expression_list:cache_rule_expression:query_parameters:operator",
@@ -2442,7 +2460,7 @@
           "type": "string"
         },
         {
-          "aliases": ["endswith"],
+          "aliases": ["cache rules rule expression list cache rule expression query parameters operator endswith"],
           "anchor": "schema-cache_rules--rule_expression_list--cache_rule_expression--query_parameters--operator--endswith",
           "description": "Exclusive with The query parameter value must end with the specified value.",
           "document_id": "xcsh-docs:data-sources:cdn_cache_rule:properties:cache_rules:rule_expression_list:cache_rule_expression:query_parameters:operator",
@@ -2463,7 +2481,7 @@
           "type": "string"
         },
         {
-          "aliases": ["equals"],
+          "aliases": ["cache rules rule expression list cache rule expression query parameters operator equals"],
           "anchor": "schema-cache_rules--rule_expression_list--cache_rule_expression--query_parameters--operator--equals",
           "description": "Exclusive with The query parameter value must exactly match the specified value.",
           "document_id": "xcsh-docs:data-sources:cdn_cache_rule:properties:cache_rules:rule_expression_list:cache_rule_expression:query_parameters:operator",
@@ -2484,7 +2502,7 @@
           "type": "string"
         },
         {
-          "aliases": ["match regex"],
+          "aliases": ["cache rules rule expression list cache rule expression query parameters operator match regex"],
           "anchor": "schema-cache_rules--rule_expression_list--cache_rule_expression--query_parameters--operator--match_regex",
           "description": "Exclusive with The query parameter value must match the specified regular expression pattern in PCRE format.",
           "document_id": "xcsh-docs:data-sources:cdn_cache_rule:properties:cache_rules:rule_expression_list:cache_rule_expression:query_parameters:operator",
@@ -2505,7 +2523,7 @@
           "type": "string"
         },
         {
-          "aliases": ["startswith"],
+          "aliases": ["cache rules rule expression list cache rule expression query parameters operator startswith"],
           "anchor": "schema-cache_rules--rule_expression_list--cache_rule_expression--query_parameters--operator--startswith",
           "description": "Exclusive with The query parameter value must begin with the specified value.",
           "document_id": "xcsh-docs:data-sources:cdn_cache_rule:properties:cache_rules:rule_expression_list:cache_rule_expression:query_parameters:operator",
@@ -2545,7 +2563,7 @@
       "category": "cdn",
       "child_ids": ["xcsh-docs:data-sources:cdn_cache_rule:example:data-source"],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -2585,7 +2603,7 @@
       "category": "cdn",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"

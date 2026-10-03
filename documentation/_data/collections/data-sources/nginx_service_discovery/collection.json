@@ -140,7 +140,7 @@
         "xcsh-docs:data-sources:nginx_service_discovery:examples"
       ],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -184,7 +184,7 @@
         "xcsh-docs:data-sources:nginx_service_discovery:properties:server_block_filters"
       ],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -340,7 +340,7 @@
         "xcsh-docs:data-sources:nginx_service_discovery:properties:discovery_target:nginx_instance"
       ],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -362,7 +362,7 @@
       "schema_path": ["discovery_target"],
       "sections": [
         {
-          "aliases": ["config sync group"],
+          "aliases": ["discovery target config sync group"],
           "anchor": "section",
           "description": "Select new ConfigSyncGroup.",
           "document_id": "xcsh-docs:data-sources:nginx_service_discovery:properties:discovery_target:config_sync_group",
@@ -376,7 +376,7 @@
           "type": "object"
         },
         {
-          "aliases": ["nginx instance"],
+          "aliases": ["discovery target nginx instance"],
           "anchor": "section",
           "description": "Select new NGINX Instance.",
           "document_id": "xcsh-docs:data-sources:nginx_service_discovery:properties:discovery_target:nginx_instance",
@@ -411,7 +411,7 @@
         "xcsh-docs:data-sources:nginx_service_discovery:properties:discovery_target:config_sync_group:config_sync_group"
       ],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -433,7 +433,7 @@
       "schema_path": ["discovery_target", "config_sync_group"],
       "sections": [
         {
-          "aliases": ["config sync group"],
+          "aliases": ["discovery target config sync group config sync group"],
           "anchor": "section",
           "description": "Select new ConfigSyncGroup.",
           "document_id": "xcsh-docs:data-sources:nginx_service_discovery:properties:discovery_target:config_sync_group:config_sync_group",
@@ -466,7 +466,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -488,7 +488,7 @@
       "schema_path": ["discovery_target", "config_sync_group", "config_sync_group"],
       "sections": [
         {
-          "aliases": ["kind"],
+          "aliases": ["discovery target config sync group config sync group kind"],
           "anchor": "schema-discovery_target--config_sync_group--config_sync_group--kind",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then kind will hold the referred object's kind (e.g. \"route\")",
           "document_id": "xcsh-docs:data-sources:nginx_service_discovery:properties:discovery_target:config_sync_group:config_sync_group",
@@ -502,7 +502,7 @@
           "type": "string"
         },
         {
-          "aliases": ["name"],
+          "aliases": ["discovery target config sync group config sync group name"],
           "anchor": "schema-discovery_target--config_sync_group--config_sync_group--name",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.",
           "document_id": "xcsh-docs:data-sources:nginx_service_discovery:properties:discovery_target:config_sync_group:config_sync_group",
@@ -516,7 +516,7 @@
           "type": "string"
         },
         {
-          "aliases": ["namespace"],
+          "aliases": ["discovery target config sync group config sync group namespace"],
           "anchor": "schema-discovery_target--config_sync_group--config_sync_group--namespace",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace.",
           "document_id": "xcsh-docs:data-sources:nginx_service_discovery:properties:discovery_target:config_sync_group:config_sync_group",
@@ -530,7 +530,7 @@
           "type": "string"
         },
         {
-          "aliases": ["tenant"],
+          "aliases": ["discovery target config sync group config sync group tenant"],
           "anchor": "schema-discovery_target--config_sync_group--config_sync_group--tenant",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant.",
           "document_id": "xcsh-docs:data-sources:nginx_service_discovery:properties:discovery_target:config_sync_group:config_sync_group",
@@ -544,7 +544,7 @@
           "type": "string"
         },
         {
-          "aliases": ["uid"],
+          "aliases": ["discovery target config sync group config sync group uid"],
           "anchor": "schema-discovery_target--config_sync_group--config_sync_group--uid",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then uid will hold the referred object's(e.g. Route's) uid.",
           "document_id": "xcsh-docs:data-sources:nginx_service_discovery:properties:discovery_target:config_sync_group:config_sync_group",
@@ -579,7 +579,7 @@
         "xcsh-docs:data-sources:nginx_service_discovery:properties:discovery_target:nginx_instance:nginx_instance"
       ],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -601,7 +601,7 @@
       "schema_path": ["discovery_target", "nginx_instance"],
       "sections": [
         {
-          "aliases": ["nginx instance"],
+          "aliases": ["discovery target nginx instance nginx instance"],
           "anchor": "section",
           "description": "Select new NGINX Instance.",
           "document_id": "xcsh-docs:data-sources:nginx_service_discovery:properties:discovery_target:nginx_instance:nginx_instance",
@@ -634,7 +634,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -656,7 +656,7 @@
       "schema_path": ["discovery_target", "nginx_instance", "nginx_instance"],
       "sections": [
         {
-          "aliases": ["kind"],
+          "aliases": ["discovery target nginx instance nginx instance kind"],
           "anchor": "schema-discovery_target--nginx_instance--nginx_instance--kind",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then kind will hold the referred object's kind (e.g. \"route\")",
           "document_id": "xcsh-docs:data-sources:nginx_service_discovery:properties:discovery_target:nginx_instance:nginx_instance",
@@ -670,7 +670,7 @@
           "type": "string"
         },
         {
-          "aliases": ["name"],
+          "aliases": ["discovery target nginx instance nginx instance name"],
           "anchor": "schema-discovery_target--nginx_instance--nginx_instance--name",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.",
           "document_id": "xcsh-docs:data-sources:nginx_service_discovery:properties:discovery_target:nginx_instance:nginx_instance",
@@ -684,7 +684,7 @@
           "type": "string"
         },
         {
-          "aliases": ["namespace"],
+          "aliases": ["discovery target nginx instance nginx instance namespace"],
           "anchor": "schema-discovery_target--nginx_instance--nginx_instance--namespace",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace.",
           "document_id": "xcsh-docs:data-sources:nginx_service_discovery:properties:discovery_target:nginx_instance:nginx_instance",
@@ -698,7 +698,7 @@
           "type": "string"
         },
         {
-          "aliases": ["tenant"],
+          "aliases": ["discovery target nginx instance nginx instance tenant"],
           "anchor": "schema-discovery_target--nginx_instance--nginx_instance--tenant",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant.",
           "document_id": "xcsh-docs:data-sources:nginx_service_discovery:properties:discovery_target:nginx_instance:nginx_instance",
@@ -712,7 +712,7 @@
           "type": "string"
         },
         {
-          "aliases": ["uid"],
+          "aliases": ["discovery target nginx instance nginx instance uid"],
           "anchor": "schema-discovery_target--nginx_instance--nginx_instance--uid",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then uid will hold the referred object's(e.g. Route's) uid.",
           "document_id": "xcsh-docs:data-sources:nginx_service_discovery:properties:discovery_target:nginx_instance:nginx_instance",
@@ -745,7 +745,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -767,7 +767,7 @@
       "schema_path": ["server_block_filters"],
       "sections": [
         {
-          "aliases": ["name regex"],
+          "aliases": ["server block filters name regex"],
           "anchor": "schema-server_block_filters--name_regex",
           "description": "Regular expression to match the server name or domain that must be discovered.",
           "document_id": "xcsh-docs:data-sources:nginx_service_discovery:properties:server_block_filters",
@@ -781,7 +781,7 @@
           "type": "string"
         },
         {
-          "aliases": ["port ranges"],
+          "aliases": ["server block filters port ranges"],
           "anchor": "schema-server_block_filters--port_ranges",
           "description": "A string containing a comma separated list of individual service ports or port ranges. Each port range consists of a single port or two ports separated by \"-\". For example, 8000-8191. Maximum number of ports allowed is 1024.",
           "document_id": "xcsh-docs:data-sources:nginx_service_discovery:properties:server_block_filters",
@@ -814,7 +814,7 @@
       "category": null,
       "child_ids": ["xcsh-docs:data-sources:nginx_service_discovery:example:data-source"],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -854,7 +854,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"

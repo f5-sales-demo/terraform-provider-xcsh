@@ -75,7 +75,7 @@
         "xcsh-docs:data-sources:bot_peer_top_reason_codes:examples"
       ],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -116,7 +116,7 @@
       "category": null,
       "child_ids": ["xcsh-docs:data-sources:bot_peer_top_reason_codes:properties:details"],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -241,7 +241,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -263,7 +263,7 @@
       "schema_path": ["details"],
       "sections": [
         {
-          "aliases": ["name"],
+          "aliases": ["details name"],
           "anchor": "schema-details--name",
           "description": "Name. The Name of Item.",
           "document_id": "xcsh-docs:data-sources:bot_peer_top_reason_codes:properties:details",
@@ -277,7 +277,7 @@
           "type": "string"
         },
         {
-          "aliases": ["peer count"],
+          "aliases": ["details peer count"],
           "anchor": "schema-details--peer_count",
           "description": "Peer Count. The count of Peer of the Item.",
           "document_id": "xcsh-docs:data-sources:bot_peer_top_reason_codes:properties:details",
@@ -291,7 +291,7 @@
           "type": "string"
         },
         {
-          "aliases": ["peer percentage"],
+          "aliases": ["details peer percentage"],
           "anchor": "schema-details--peer_percentage",
           "description": "Peer Percentage. The Peer Percentage of the Item.",
           "document_id": "xcsh-docs:data-sources:bot_peer_top_reason_codes:properties:details",
@@ -305,7 +305,7 @@
           "type": "number"
         },
         {
-          "aliases": ["self count"],
+          "aliases": ["details self count"],
           "anchor": "schema-details--self_count",
           "description": "Self Count. The count of Self of the item.",
           "document_id": "xcsh-docs:data-sources:bot_peer_top_reason_codes:properties:details",
@@ -319,7 +319,7 @@
           "type": "string"
         },
         {
-          "aliases": ["self percentage"],
+          "aliases": ["details self percentage"],
           "anchor": "schema-details--self_percentage",
           "description": "Self Percentage. The Self Percentage of the Item.",
           "document_id": "xcsh-docs:data-sources:bot_peer_top_reason_codes:properties:details",
@@ -352,7 +352,7 @@
       "category": null,
       "child_ids": ["xcsh-docs:data-sources:bot_peer_top_reason_codes:example:data-source"],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -392,7 +392,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"

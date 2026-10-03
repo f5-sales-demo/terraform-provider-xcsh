@@ -537,7 +537,7 @@
         "xcsh-docs:data-sources:alert_receiver:examples"
       ],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -585,7 +585,7 @@
         "xcsh-docs:data-sources:alert_receiver:properties:webhook"
       ],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -794,7 +794,7 @@
       "category": "monitoring",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -816,7 +816,7 @@
       "schema_path": ["email"],
       "sections": [
         {
-          "aliases": ["email"],
+          "aliases": ["email email"],
           "anchor": "schema-email--email",
           "description": "Email ID of the user.",
           "document_id": "xcsh-docs:data-sources:alert_receiver:properties:email",
@@ -849,7 +849,7 @@
       "category": "monitoring",
       "child_ids": ["xcsh-docs:data-sources:alert_receiver:properties:opsgenie:api_key"],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -871,7 +871,7 @@
       "schema_path": ["opsgenie"],
       "sections": [
         {
-          "aliases": ["api key"],
+          "aliases": ["opsgenie api key"],
           "anchor": "section",
           "description": "SecretType is used in an object to indicate a sensitive/confidential field.",
           "document_id": "xcsh-docs:data-sources:alert_receiver:properties:opsgenie:api_key",
@@ -885,7 +885,7 @@
           "type": "object"
         },
         {
-          "aliases": ["url"],
+          "aliases": ["opsgenie url"],
           "anchor": "schema-opsgenie--url",
           "description": "URL to send API requests to.",
           "document_id": "xcsh-docs:data-sources:alert_receiver:properties:opsgenie",
@@ -921,7 +921,7 @@
         "xcsh-docs:data-sources:alert_receiver:properties:opsgenie:api_key:clear_secret_info"
       ],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -943,7 +943,7 @@
       "schema_path": ["opsgenie", "api_key"],
       "sections": [
         {
-          "aliases": ["blindfold secret info"],
+          "aliases": ["opsgenie api key blindfold secret info"],
           "anchor": "section",
           "description": "BlindfoldSecretInfoType specifies information about the Secret managed by F5XC Secret Management.",
           "document_id": "xcsh-docs:data-sources:alert_receiver:properties:opsgenie:api_key:blindfold_secret_info",
@@ -957,7 +957,7 @@
           "type": "object"
         },
         {
-          "aliases": ["clear secret info"],
+          "aliases": ["opsgenie api key clear secret info"],
           "anchor": "section",
           "description": "ClearSecretInfoType specifies information about the Secret that is not encrypted.",
           "document_id": "xcsh-docs:data-sources:alert_receiver:properties:opsgenie:api_key:clear_secret_info",
@@ -990,7 +990,7 @@
       "category": "monitoring",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -1012,7 +1012,7 @@
       "schema_path": ["opsgenie", "api_key", "blindfold_secret_info"],
       "sections": [
         {
-          "aliases": ["decryption provider"],
+          "aliases": ["opsgenie api key blindfold secret info decryption provider"],
           "anchor": "schema-opsgenie--api_key--blindfold_secret_info--decryption_provider",
           "description": "Name of the Secret Management Access object that contains information about the backend Secret Management service.",
           "document_id": "xcsh-docs:data-sources:alert_receiver:properties:opsgenie:api_key:blindfold_secret_info",
@@ -1026,7 +1026,7 @@
           "type": "string"
         },
         {
-          "aliases": ["location"],
+          "aliases": ["opsgenie api key blindfold secret info location"],
           "anchor": "schema-opsgenie--api_key--blindfold_secret_info--location",
           "description": "Location is the uri_ref. It could be in URL format for string:/// Or it could be a path if the store provider is an HTTP/HTTPS location.",
           "document_id": "xcsh-docs:data-sources:alert_receiver:properties:opsgenie:api_key:blindfold_secret_info",
@@ -1040,7 +1040,7 @@
           "type": "string"
         },
         {
-          "aliases": ["store provider"],
+          "aliases": ["opsgenie api key blindfold secret info store provider"],
           "anchor": "schema-opsgenie--api_key--blindfold_secret_info--store_provider",
           "description": "Name of the Secret Management Access object that contains information about the store to GET encrypted bytes This field needs to be provided only if the URL scheme is not string:///.",
           "document_id": "xcsh-docs:data-sources:alert_receiver:properties:opsgenie:api_key:blindfold_secret_info",
@@ -1073,7 +1073,7 @@
       "category": "monitoring",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -1095,7 +1095,7 @@
       "schema_path": ["opsgenie", "api_key", "clear_secret_info"],
       "sections": [
         {
-          "aliases": ["provider ref"],
+          "aliases": ["opsgenie api key clear secret info provider ref"],
           "anchor": "schema-opsgenie--api_key--clear_secret_info--provider_ref",
           "description": "Name of the Secret Management Access object that contains information about the store to GET encrypted bytes This field needs to be provided only if the URL scheme is not string:///.",
           "document_id": "xcsh-docs:data-sources:alert_receiver:properties:opsgenie:api_key:clear_secret_info",
@@ -1109,7 +1109,7 @@
           "type": "string"
         },
         {
-          "aliases": ["url"],
+          "aliases": ["opsgenie api key clear secret info url"],
           "anchor": "schema-opsgenie--api_key--clear_secret_info--url",
           "description": "URL of the secret. Currently supported URL schemes is string:///. For string:/// scheme, Secret needs to be encoded Base64 format. When asked for this secret, caller will GET Secret bytes after Base64 decoding.",
           "document_id": "xcsh-docs:data-sources:alert_receiver:properties:opsgenie:api_key:clear_secret_info",
@@ -1142,7 +1142,7 @@
       "category": "monitoring",
       "child_ids": ["xcsh-docs:data-sources:alert_receiver:properties:pagerduty:routing_key"],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -1164,7 +1164,7 @@
       "schema_path": ["pagerduty"],
       "sections": [
         {
-          "aliases": ["routing key"],
+          "aliases": ["pagerduty routing key"],
           "anchor": "section",
           "description": "SecretType is used in an object to indicate a sensitive/confidential field.",
           "document_id": "xcsh-docs:data-sources:alert_receiver:properties:pagerduty:routing_key",
@@ -1178,7 +1178,7 @@
           "type": "object"
         },
         {
-          "aliases": ["url"],
+          "aliases": ["pagerduty url"],
           "anchor": "schema-pagerduty--url",
           "description": "URL to send API requests to.",
           "document_id": "xcsh-docs:data-sources:alert_receiver:properties:pagerduty",
@@ -1214,7 +1214,7 @@
         "xcsh-docs:data-sources:alert_receiver:properties:pagerduty:routing_key:clear_secret_info"
       ],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -1236,7 +1236,7 @@
       "schema_path": ["pagerduty", "routing_key"],
       "sections": [
         {
-          "aliases": ["blindfold secret info"],
+          "aliases": ["pagerduty routing key blindfold secret info"],
           "anchor": "section",
           "description": "BlindfoldSecretInfoType specifies information about the Secret managed by F5XC Secret Management.",
           "document_id": "xcsh-docs:data-sources:alert_receiver:properties:pagerduty:routing_key:blindfold_secret_info",
@@ -1250,7 +1250,7 @@
           "type": "object"
         },
         {
-          "aliases": ["clear secret info"],
+          "aliases": ["pagerduty routing key clear secret info"],
           "anchor": "section",
           "description": "ClearSecretInfoType specifies information about the Secret that is not encrypted.",
           "document_id": "xcsh-docs:data-sources:alert_receiver:properties:pagerduty:routing_key:clear_secret_info",
@@ -1283,7 +1283,7 @@
       "category": "monitoring",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -1305,7 +1305,7 @@
       "schema_path": ["pagerduty", "routing_key", "blindfold_secret_info"],
       "sections": [
         {
-          "aliases": ["decryption provider"],
+          "aliases": ["pagerduty routing key blindfold secret info decryption provider"],
           "anchor": "schema-pagerduty--routing_key--blindfold_secret_info--decryption_provider",
           "description": "Name of the Secret Management Access object that contains information about the backend Secret Management service.",
           "document_id": "xcsh-docs:data-sources:alert_receiver:properties:pagerduty:routing_key:blindfold_secret_info",
@@ -1319,7 +1319,7 @@
           "type": "string"
         },
         {
-          "aliases": ["location"],
+          "aliases": ["pagerduty routing key blindfold secret info location"],
           "anchor": "schema-pagerduty--routing_key--blindfold_secret_info--location",
           "description": "Location is the uri_ref. It could be in URL format for string:/// Or it could be a path if the store provider is an HTTP/HTTPS location.",
           "document_id": "xcsh-docs:data-sources:alert_receiver:properties:pagerduty:routing_key:blindfold_secret_info",
@@ -1333,7 +1333,7 @@
           "type": "string"
         },
         {
-          "aliases": ["store provider"],
+          "aliases": ["pagerduty routing key blindfold secret info store provider"],
           "anchor": "schema-pagerduty--routing_key--blindfold_secret_info--store_provider",
           "description": "Name of the Secret Management Access object that contains information about the store to GET encrypted bytes This field needs to be provided only if the URL scheme is not string:///.",
           "document_id": "xcsh-docs:data-sources:alert_receiver:properties:pagerduty:routing_key:blindfold_secret_info",
@@ -1366,7 +1366,7 @@
       "category": "monitoring",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -1388,7 +1388,7 @@
       "schema_path": ["pagerduty", "routing_key", "clear_secret_info"],
       "sections": [
         {
-          "aliases": ["provider ref"],
+          "aliases": ["pagerduty routing key clear secret info provider ref"],
           "anchor": "schema-pagerduty--routing_key--clear_secret_info--provider_ref",
           "description": "Name of the Secret Management Access object that contains information about the store to GET encrypted bytes This field needs to be provided only if the URL scheme is not string:///.",
           "document_id": "xcsh-docs:data-sources:alert_receiver:properties:pagerduty:routing_key:clear_secret_info",
@@ -1402,7 +1402,7 @@
           "type": "string"
         },
         {
-          "aliases": ["url"],
+          "aliases": ["pagerduty routing key clear secret info url"],
           "anchor": "schema-pagerduty--routing_key--clear_secret_info--url",
           "description": "URL of the secret. Currently supported URL schemes is string:///. For string:/// scheme, Secret needs to be encoded Base64 format. When asked for this secret, caller will GET Secret bytes after Base64 decoding.",
           "document_id": "xcsh-docs:data-sources:alert_receiver:properties:pagerduty:routing_key:clear_secret_info",
@@ -1435,7 +1435,7 @@
       "category": "monitoring",
       "child_ids": ["xcsh-docs:data-sources:alert_receiver:properties:slack:url"],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -1457,7 +1457,7 @@
       "schema_path": ["slack"],
       "sections": [
         {
-          "aliases": ["channel"],
+          "aliases": ["slack channel"],
           "anchor": "schema-slack--channel",
           "description": "Channel or user to send notifications to.",
           "document_id": "xcsh-docs:data-sources:alert_receiver:properties:slack",
@@ -1471,7 +1471,7 @@
           "type": "string"
         },
         {
-          "aliases": ["url"],
+          "aliases": ["slack url"],
           "anchor": "section",
           "description": "SecretType is used in an object to indicate a sensitive/confidential field.",
           "document_id": "xcsh-docs:data-sources:alert_receiver:properties:slack:url",
@@ -1507,7 +1507,7 @@
         "xcsh-docs:data-sources:alert_receiver:properties:slack:url:clear_secret_info"
       ],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -1529,7 +1529,7 @@
       "schema_path": ["slack", "url"],
       "sections": [
         {
-          "aliases": ["blindfold secret info"],
+          "aliases": ["slack url blindfold secret info"],
           "anchor": "section",
           "description": "BlindfoldSecretInfoType specifies information about the Secret managed by F5XC Secret Management.",
           "document_id": "xcsh-docs:data-sources:alert_receiver:properties:slack:url:blindfold_secret_info",
@@ -1543,7 +1543,7 @@
           "type": "object"
         },
         {
-          "aliases": ["clear secret info"],
+          "aliases": ["slack url clear secret info"],
           "anchor": "section",
           "description": "ClearSecretInfoType specifies information about the Secret that is not encrypted.",
           "document_id": "xcsh-docs:data-sources:alert_receiver:properties:slack:url:clear_secret_info",
@@ -1576,7 +1576,7 @@
       "category": "monitoring",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -1598,7 +1598,7 @@
       "schema_path": ["slack", "url", "blindfold_secret_info"],
       "sections": [
         {
-          "aliases": ["decryption provider"],
+          "aliases": ["slack url blindfold secret info decryption provider"],
           "anchor": "schema-slack--url--blindfold_secret_info--decryption_provider",
           "description": "Name of the Secret Management Access object that contains information about the backend Secret Management service.",
           "document_id": "xcsh-docs:data-sources:alert_receiver:properties:slack:url:blindfold_secret_info",
@@ -1612,7 +1612,7 @@
           "type": "string"
         },
         {
-          "aliases": ["location"],
+          "aliases": ["slack url blindfold secret info location"],
           "anchor": "schema-slack--url--blindfold_secret_info--location",
           "description": "Location is the uri_ref. It could be in URL format for string:/// Or it could be a path if the store provider is an HTTP/HTTPS location.",
           "document_id": "xcsh-docs:data-sources:alert_receiver:properties:slack:url:blindfold_secret_info",
@@ -1626,7 +1626,7 @@
           "type": "string"
         },
         {
-          "aliases": ["store provider"],
+          "aliases": ["slack url blindfold secret info store provider"],
           "anchor": "schema-slack--url--blindfold_secret_info--store_provider",
           "description": "Name of the Secret Management Access object that contains information about the store to GET encrypted bytes This field needs to be provided only if the URL scheme is not string:///.",
           "document_id": "xcsh-docs:data-sources:alert_receiver:properties:slack:url:blindfold_secret_info",
@@ -1659,7 +1659,7 @@
       "category": "monitoring",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -1681,7 +1681,7 @@
       "schema_path": ["slack", "url", "clear_secret_info"],
       "sections": [
         {
-          "aliases": ["provider ref"],
+          "aliases": ["slack url clear secret info provider ref"],
           "anchor": "schema-slack--url--clear_secret_info--provider_ref",
           "description": "Name of the Secret Management Access object that contains information about the store to GET encrypted bytes This field needs to be provided only if the URL scheme is not string:///.",
           "document_id": "xcsh-docs:data-sources:alert_receiver:properties:slack:url:clear_secret_info",
@@ -1695,7 +1695,7 @@
           "type": "string"
         },
         {
-          "aliases": ["url"],
+          "aliases": ["slack url clear secret info url"],
           "anchor": "schema-slack--url--clear_secret_info--url",
           "description": "URL of the secret. Currently supported URL schemes is string:///. For string:/// scheme, Secret needs to be encoded Base64 format. When asked for this secret, caller will GET Secret bytes after Base64 decoding.",
           "document_id": "xcsh-docs:data-sources:alert_receiver:properties:slack:url:clear_secret_info",
@@ -1728,7 +1728,7 @@
       "category": "monitoring",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -1750,7 +1750,7 @@
       "schema_path": ["sms"],
       "sections": [
         {
-          "aliases": ["contact number"],
+          "aliases": ["sms contact number"],
           "anchor": "schema-sms--contact_number",
           "description": "Contact number of the user in ITU E.164 format",
           "document_id": "xcsh-docs:data-sources:alert_receiver:properties:sms",
@@ -1786,7 +1786,7 @@
         "xcsh-docs:data-sources:alert_receiver:properties:webhook:url"
       ],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -1808,7 +1808,7 @@
       "schema_path": ["webhook"],
       "sections": [
         {
-          "aliases": ["http config"],
+          "aliases": ["webhook http config"],
           "anchor": "section",
           "description": "Configuration for HTTP endpoint.",
           "document_id": "xcsh-docs:data-sources:alert_receiver:properties:webhook:http_config",
@@ -1822,7 +1822,7 @@
           "type": "object"
         },
         {
-          "aliases": ["url"],
+          "aliases": ["webhook url"],
           "anchor": "section",
           "description": "SecretType is used in an object to indicate a sensitive/confidential field.",
           "document_id": "xcsh-docs:data-sources:alert_receiver:properties:webhook:url",
@@ -1862,7 +1862,7 @@
         "xcsh-docs:data-sources:alert_receiver:properties:webhook:http_config:use_tls"
       ],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -1884,7 +1884,7 @@
       "schema_path": ["webhook", "http_config"],
       "sections": [
         {
-          "aliases": ["auth token"],
+          "aliases": ["webhook http config auth token"],
           "anchor": "section",
           "description": "Authentication Token for access.",
           "document_id": "xcsh-docs:data-sources:alert_receiver:properties:webhook:http_config:auth_token",
@@ -1898,7 +1898,7 @@
           "type": "object"
         },
         {
-          "aliases": ["basic auth"],
+          "aliases": ["webhook http config basic auth"],
           "anchor": "section",
           "description": "Authorization parameters to access HTPP alert Receiver Endpoint.",
           "document_id": "xcsh-docs:data-sources:alert_receiver:properties:webhook:http_config:basic_auth",
@@ -1912,7 +1912,7 @@
           "type": "object"
         },
         {
-          "aliases": ["client cert obj"],
+          "aliases": ["webhook http config client cert obj"],
           "anchor": "section",
           "description": "Configuration for client certificate.",
           "document_id": "xcsh-docs:data-sources:alert_receiver:properties:webhook:http_config:client_cert_obj",
@@ -1926,7 +1926,7 @@
           "type": "object"
         },
         {
-          "aliases": ["enable http2"],
+          "aliases": ["webhook http config enable http2"],
           "anchor": "schema-webhook--http_config--enable_http2",
           "description": "Configure to use HTTP2 protocol.",
           "document_id": "xcsh-docs:data-sources:alert_receiver:properties:webhook:http_config",
@@ -1940,7 +1940,7 @@
           "type": "bool"
         },
         {
-          "aliases": ["follow redirects"],
+          "aliases": ["webhook http config follow redirects"],
           "anchor": "schema-webhook--http_config--follow_redirects",
           "description": "Configure whether HTTP requests follow HTTP 3xx redirects.",
           "document_id": "xcsh-docs:data-sources:alert_receiver:properties:webhook:http_config",
@@ -1954,7 +1954,7 @@
           "type": "bool"
         },
         {
-          "aliases": ["no authorization"],
+          "aliases": ["webhook http config no authorization"],
           "anchor": "section",
           "description": "This can be used for messages where no values are needed.",
           "document_id": "xcsh-docs:data-sources:alert_receiver:properties:webhook:http_config:no_authorization",
@@ -1968,7 +1968,7 @@
           "type": "object"
         },
         {
-          "aliases": ["no tls"],
+          "aliases": ["webhook http config no tls"],
           "anchor": "section",
           "description": "This can be used for messages where no values are needed.",
           "document_id": "xcsh-docs:data-sources:alert_receiver:properties:webhook:http_config:no_tls",
@@ -1982,7 +1982,7 @@
           "type": "object"
         },
         {
-          "aliases": ["use tls"],
+          "aliases": ["webhook http config use tls"],
           "anchor": "section",
           "description": "Configures the token request's TLS settings.",
           "document_id": "xcsh-docs:data-sources:alert_receiver:properties:webhook:http_config:use_tls",
@@ -2015,7 +2015,7 @@
       "category": "monitoring",
       "child_ids": ["xcsh-docs:data-sources:alert_receiver:properties:webhook:http_config:auth_token:token"],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -2037,7 +2037,7 @@
       "schema_path": ["webhook", "http_config", "auth_token"],
       "sections": [
         {
-          "aliases": ["token"],
+          "aliases": ["webhook http config auth token token"],
           "anchor": "section",
           "description": "SecretType is used in an object to indicate a sensitive/confidential field.",
           "document_id": "xcsh-docs:data-sources:alert_receiver:properties:webhook:http_config:auth_token:token",
@@ -2073,7 +2073,7 @@
         "xcsh-docs:data-sources:alert_receiver:properties:webhook:http_config:auth_token:token:clear_secret_info"
       ],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -2095,7 +2095,7 @@
       "schema_path": ["webhook", "http_config", "auth_token", "token"],
       "sections": [
         {
-          "aliases": ["blindfold secret info"],
+          "aliases": ["webhook http config auth token token blindfold secret info"],
           "anchor": "section",
           "description": "BlindfoldSecretInfoType specifies information about the Secret managed by F5XC Secret Management.",
           "document_id": "xcsh-docs:data-sources:alert_receiver:properties:webhook:http_config:auth_token:token:blindfold_secret_info",
@@ -2109,7 +2109,7 @@
           "type": "object"
         },
         {
-          "aliases": ["clear secret info"],
+          "aliases": ["webhook http config auth token token clear secret info"],
           "anchor": "section",
           "description": "ClearSecretInfoType specifies information about the Secret that is not encrypted.",
           "document_id": "xcsh-docs:data-sources:alert_receiver:properties:webhook:http_config:auth_token:token:clear_secret_info",
@@ -2142,7 +2142,7 @@
       "category": "monitoring",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -2164,7 +2164,7 @@
       "schema_path": ["webhook", "http_config", "auth_token", "token", "blindfold_secret_info"],
       "sections": [
         {
-          "aliases": ["decryption provider"],
+          "aliases": ["webhook http config auth token token blindfold secret info decryption provider"],
           "anchor": "schema-webhook--http_config--auth_token--token--blindfold_secret_info--decryption_provider",
           "description": "Name of the Secret Management Access object that contains information about the backend Secret Management service.",
           "document_id": "xcsh-docs:data-sources:alert_receiver:properties:webhook:http_config:auth_token:token:blindfold_secret_info",
@@ -2185,7 +2185,7 @@
           "type": "string"
         },
         {
-          "aliases": ["location"],
+          "aliases": ["webhook http config auth token token blindfold secret info location"],
           "anchor": "schema-webhook--http_config--auth_token--token--blindfold_secret_info--location",
           "description": "Location is the uri_ref. It could be in URL format for string:/// Or it could be a path if the store provider is an HTTP/HTTPS location.",
           "document_id": "xcsh-docs:data-sources:alert_receiver:properties:webhook:http_config:auth_token:token:blindfold_secret_info",
@@ -2199,7 +2199,7 @@
           "type": "string"
         },
         {
-          "aliases": ["store provider"],
+          "aliases": ["webhook http config auth token token blindfold secret info store provider"],
           "anchor": "schema-webhook--http_config--auth_token--token--blindfold_secret_info--store_provider",
           "description": "Name of the Secret Management Access object that contains information about the store to GET encrypted bytes This field needs to be provided only if the URL scheme is not string:///.",
           "document_id": "xcsh-docs:data-sources:alert_receiver:properties:webhook:http_config:auth_token:token:blindfold_secret_info",
@@ -2232,7 +2232,7 @@
       "category": "monitoring",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -2254,7 +2254,7 @@
       "schema_path": ["webhook", "http_config", "auth_token", "token", "clear_secret_info"],
       "sections": [
         {
-          "aliases": ["provider ref"],
+          "aliases": ["webhook http config auth token token clear secret info provider ref"],
           "anchor": "schema-webhook--http_config--auth_token--token--clear_secret_info--provider_ref",
           "description": "Name of the Secret Management Access object that contains information about the store to GET encrypted bytes This field needs to be provided only if the URL scheme is not string:///.",
           "document_id": "xcsh-docs:data-sources:alert_receiver:properties:webhook:http_config:auth_token:token:clear_secret_info",
@@ -2268,7 +2268,7 @@
           "type": "string"
         },
         {
-          "aliases": ["url"],
+          "aliases": ["webhook http config auth token token clear secret info url"],
           "anchor": "schema-webhook--http_config--auth_token--token--clear_secret_info--url",
           "description": "URL of the secret. Currently supported URL schemes is string:///. For string:/// scheme, Secret needs to be encoded Base64 format. When asked for this secret, caller will GET Secret bytes after Base64 decoding.",
           "document_id": "xcsh-docs:data-sources:alert_receiver:properties:webhook:http_config:auth_token:token:clear_secret_info",
@@ -2301,7 +2301,7 @@
       "category": "monitoring",
       "child_ids": ["xcsh-docs:data-sources:alert_receiver:properties:webhook:http_config:basic_auth:password"],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -2323,7 +2323,7 @@
       "schema_path": ["webhook", "http_config", "basic_auth"],
       "sections": [
         {
-          "aliases": ["password"],
+          "aliases": ["webhook http config basic auth password"],
           "anchor": "section",
           "description": "SecretType is used in an object to indicate a sensitive/confidential field.",
           "document_id": "xcsh-docs:data-sources:alert_receiver:properties:webhook:http_config:basic_auth:password",
@@ -2337,7 +2337,7 @@
           "type": "object"
         },
         {
-          "aliases": ["user name"],
+          "aliases": ["webhook http config basic auth user name"],
           "anchor": "schema-webhook--http_config--basic_auth--user_name",
           "description": "HTTP Basic Auth User Name.",
           "document_id": "xcsh-docs:data-sources:alert_receiver:properties:webhook:http_config:basic_auth",
@@ -2373,7 +2373,7 @@
         "xcsh-docs:data-sources:alert_receiver:properties:webhook:http_config:basic_auth:password:clear_secret_info"
       ],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -2395,7 +2395,7 @@
       "schema_path": ["webhook", "http_config", "basic_auth", "password"],
       "sections": [
         {
-          "aliases": ["blindfold secret info"],
+          "aliases": ["webhook http config basic auth password blindfold secret info"],
           "anchor": "section",
           "description": "BlindfoldSecretInfoType specifies information about the Secret managed by F5XC Secret Management.",
           "document_id": "xcsh-docs:data-sources:alert_receiver:properties:webhook:http_config:basic_auth:password:blindfold_secret_info",
@@ -2409,7 +2409,7 @@
           "type": "object"
         },
         {
-          "aliases": ["clear secret info"],
+          "aliases": ["webhook http config basic auth password clear secret info"],
           "anchor": "section",
           "description": "ClearSecretInfoType specifies information about the Secret that is not encrypted.",
           "document_id": "xcsh-docs:data-sources:alert_receiver:properties:webhook:http_config:basic_auth:password:clear_secret_info",
@@ -2442,7 +2442,7 @@
       "category": "monitoring",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -2464,7 +2464,7 @@
       "schema_path": ["webhook", "http_config", "basic_auth", "password", "blindfold_secret_info"],
       "sections": [
         {
-          "aliases": ["decryption provider"],
+          "aliases": ["webhook http config basic auth password blindfold secret info decryption provider"],
           "anchor": "schema-webhook--http_config--basic_auth--password--blindfold_secret_info--decryption_provider",
           "description": "Name of the Secret Management Access object that contains information about the backend Secret Management service.",
           "document_id": "xcsh-docs:data-sources:alert_receiver:properties:webhook:http_config:basic_auth:password:blindfold_secret_info",
@@ -2485,7 +2485,7 @@
           "type": "string"
         },
         {
-          "aliases": ["location"],
+          "aliases": ["webhook http config basic auth password blindfold secret info location"],
           "anchor": "schema-webhook--http_config--basic_auth--password--blindfold_secret_info--location",
           "description": "Location is the uri_ref. It could be in URL format for string:/// Or it could be a path if the store provider is an HTTP/HTTPS location.",
           "document_id": "xcsh-docs:data-sources:alert_receiver:properties:webhook:http_config:basic_auth:password:blindfold_secret_info",
@@ -2499,7 +2499,7 @@
           "type": "string"
         },
         {
-          "aliases": ["store provider"],
+          "aliases": ["webhook http config basic auth password blindfold secret info store provider"],
           "anchor": "schema-webhook--http_config--basic_auth--password--blindfold_secret_info--store_provider",
           "description": "Name of the Secret Management Access object that contains information about the store to GET encrypted bytes This field needs to be provided only if the URL scheme is not string:///.",
           "document_id": "xcsh-docs:data-sources:alert_receiver:properties:webhook:http_config:basic_auth:password:blindfold_secret_info",
@@ -2539,7 +2539,7 @@
       "category": "monitoring",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -2561,7 +2561,7 @@
       "schema_path": ["webhook", "http_config", "basic_auth", "password", "clear_secret_info"],
       "sections": [
         {
-          "aliases": ["provider ref"],
+          "aliases": ["webhook http config basic auth password clear secret info provider ref"],
           "anchor": "schema-webhook--http_config--basic_auth--password--clear_secret_info--provider_ref",
           "description": "Name of the Secret Management Access object that contains information about the store to GET encrypted bytes This field needs to be provided only if the URL scheme is not string:///.",
           "document_id": "xcsh-docs:data-sources:alert_receiver:properties:webhook:http_config:basic_auth:password:clear_secret_info",
@@ -2575,7 +2575,7 @@
           "type": "string"
         },
         {
-          "aliases": ["url"],
+          "aliases": ["webhook http config basic auth password clear secret info url"],
           "anchor": "schema-webhook--http_config--basic_auth--password--clear_secret_info--url",
           "description": "URL of the secret. Currently supported URL schemes is string:///. For string:/// scheme, Secret needs to be encoded Base64 format. When asked for this secret, caller will GET Secret bytes after Base64 decoding.",
           "document_id": "xcsh-docs:data-sources:alert_receiver:properties:webhook:http_config:basic_auth:password:clear_secret_info",
@@ -2608,7 +2608,7 @@
       "category": "monitoring",
       "child_ids": ["xcsh-docs:data-sources:alert_receiver:properties:webhook:http_config:client_cert_obj:use_tls_obj"],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -2630,7 +2630,7 @@
       "schema_path": ["webhook", "http_config", "client_cert_obj"],
       "sections": [
         {
-          "aliases": ["use tls obj"],
+          "aliases": ["webhook http config client cert obj use tls obj"],
           "anchor": "section",
           "description": "Reference to client certificate object.",
           "document_id": "xcsh-docs:data-sources:alert_receiver:properties:webhook:http_config:client_cert_obj:use_tls_obj",
@@ -2663,7 +2663,7 @@
       "category": "monitoring",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -2685,7 +2685,7 @@
       "schema_path": ["webhook", "http_config", "client_cert_obj", "use_tls_obj"],
       "sections": [
         {
-          "aliases": ["kind"],
+          "aliases": ["webhook http config client cert obj use tls obj kind"],
           "anchor": "schema-webhook--http_config--client_cert_obj--use_tls_obj--kind",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then kind will hold the referred object's kind (e.g. \"route\")",
           "document_id": "xcsh-docs:data-sources:alert_receiver:properties:webhook:http_config:client_cert_obj:use_tls_obj",
@@ -2699,7 +2699,7 @@
           "type": "string"
         },
         {
-          "aliases": ["name"],
+          "aliases": ["webhook http config client cert obj use tls obj name"],
           "anchor": "schema-webhook--http_config--client_cert_obj--use_tls_obj--name",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.",
           "document_id": "xcsh-docs:data-sources:alert_receiver:properties:webhook:http_config:client_cert_obj:use_tls_obj",
@@ -2713,7 +2713,7 @@
           "type": "string"
         },
         {
-          "aliases": ["namespace"],
+          "aliases": ["webhook http config client cert obj use tls obj namespace"],
           "anchor": "schema-webhook--http_config--client_cert_obj--use_tls_obj--namespace",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace.",
           "document_id": "xcsh-docs:data-sources:alert_receiver:properties:webhook:http_config:client_cert_obj:use_tls_obj",
@@ -2727,7 +2727,7 @@
           "type": "string"
         },
         {
-          "aliases": ["tenant"],
+          "aliases": ["webhook http config client cert obj use tls obj tenant"],
           "anchor": "schema-webhook--http_config--client_cert_obj--use_tls_obj--tenant",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant.",
           "document_id": "xcsh-docs:data-sources:alert_receiver:properties:webhook:http_config:client_cert_obj:use_tls_obj",
@@ -2741,7 +2741,7 @@
           "type": "string"
         },
         {
-          "aliases": ["uid"],
+          "aliases": ["webhook http config client cert obj use tls obj uid"],
           "anchor": "schema-webhook--http_config--client_cert_obj--use_tls_obj--uid",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then uid will hold the referred object's(e.g. Route's) uid.",
           "document_id": "xcsh-docs:data-sources:alert_receiver:properties:webhook:http_config:client_cert_obj:use_tls_obj",
@@ -2774,7 +2774,7 @@
       "category": "monitoring",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -2814,7 +2814,7 @@
       "category": "monitoring",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -2858,7 +2858,7 @@
         "xcsh-docs:data-sources:alert_receiver:properties:webhook:http_config:use_tls:volterra_trusted_ca"
       ],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -2880,7 +2880,7 @@
       "schema_path": ["webhook", "http_config", "use_tls"],
       "sections": [
         {
-          "aliases": ["disable sni"],
+          "aliases": ["webhook http config use tls disable sni"],
           "anchor": "section",
           "description": "This can be used for messages where no values are needed.",
           "document_id": "xcsh-docs:data-sources:alert_receiver:properties:webhook:http_config:use_tls:disable_sni",
@@ -2894,7 +2894,7 @@
           "type": "object"
         },
         {
-          "aliases": ["max version"],
+          "aliases": ["webhook http config use tls max version"],
           "anchor": "schema-webhook--http_config--use_tls--max_version",
           "description": "TlsProtocol is enumeration of supported TLS versions F5 Distributed Cloud will choose the optimal TLS version.",
           "document_id": "xcsh-docs:data-sources:alert_receiver:properties:webhook:http_config:use_tls",
@@ -2908,7 +2908,7 @@
           "type": "string"
         },
         {
-          "aliases": ["min version"],
+          "aliases": ["webhook http config use tls min version"],
           "anchor": "schema-webhook--http_config--use_tls--min_version",
           "description": "TlsProtocol is enumeration of supported TLS versions F5 Distributed Cloud will choose the optimal TLS version.",
           "document_id": "xcsh-docs:data-sources:alert_receiver:properties:webhook:http_config:use_tls",
@@ -2922,7 +2922,7 @@
           "type": "string"
         },
         {
-          "aliases": ["sni"],
+          "aliases": ["webhook http config use tls sni"],
           "anchor": "schema-webhook--http_config--use_tls--sni",
           "description": "Exclusive with SNI value to be used.",
           "document_id": "xcsh-docs:data-sources:alert_receiver:properties:webhook:http_config:use_tls",
@@ -2936,7 +2936,7 @@
           "type": "string"
         },
         {
-          "aliases": ["use server verification"],
+          "aliases": ["webhook http config use tls use server verification"],
           "anchor": "section",
           "description": "Upstream TLS Validation Context.",
           "document_id": "xcsh-docs:data-sources:alert_receiver:properties:webhook:http_config:use_tls:use_server_verification",
@@ -2950,7 +2950,7 @@
           "type": "object"
         },
         {
-          "aliases": ["volterra trusted ca"],
+          "aliases": ["webhook http config use tls volterra trusted ca"],
           "anchor": "section",
           "description": "This can be used for messages where no values are needed.",
           "document_id": "xcsh-docs:data-sources:alert_receiver:properties:webhook:http_config:use_tls:volterra_trusted_ca",
@@ -2983,7 +2983,7 @@
       "category": "monitoring",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -3025,7 +3025,7 @@
         "xcsh-docs:data-sources:alert_receiver:properties:webhook:http_config:use_tls:use_server_verification:ca_cert_obj"
       ],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -3047,7 +3047,7 @@
       "schema_path": ["webhook", "http_config", "use_tls", "use_server_verification"],
       "sections": [
         {
-          "aliases": ["ca cert obj"],
+          "aliases": ["webhook http config use tls use server verification ca cert obj"],
           "anchor": "section",
           "description": "Configuration for CA certificate.",
           "document_id": "xcsh-docs:data-sources:alert_receiver:properties:webhook:http_config:use_tls:use_server_verification:ca_cert_obj",
@@ -3082,7 +3082,7 @@
         "xcsh-docs:data-sources:alert_receiver:properties:webhook:http_config:use_tls:use_server_verification:ca_cert_obj:trusted_ca"
       ],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -3104,7 +3104,7 @@
       "schema_path": ["webhook", "http_config", "use_tls", "use_server_verification", "ca_cert_obj"],
       "sections": [
         {
-          "aliases": ["trusted ca"],
+          "aliases": ["webhook http config use tls use server verification ca cert obj trusted ca"],
           "anchor": "section",
           "description": "Reference to client certificate object.",
           "document_id": "xcsh-docs:data-sources:alert_receiver:properties:webhook:http_config:use_tls:use_server_verification:ca_cert_obj:trusted_ca",
@@ -3137,7 +3137,7 @@
       "category": "monitoring",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -3159,7 +3159,7 @@
       "schema_path": ["webhook", "http_config", "use_tls", "use_server_verification", "ca_cert_obj", "trusted_ca"],
       "sections": [
         {
-          "aliases": ["kind"],
+          "aliases": ["webhook http config use tls use server verification ca cert obj trusted ca kind"],
           "anchor": "schema-webhook--http_config--use_tls--use_server_verification--ca_cert_obj--trusted_ca--kind",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then kind will hold the referred object's kind (e.g. \"route\")",
           "document_id": "xcsh-docs:data-sources:alert_receiver:properties:webhook:http_config:use_tls:use_server_verification:ca_cert_obj:trusted_ca",
@@ -3181,7 +3181,7 @@
           "type": "string"
         },
         {
-          "aliases": ["name"],
+          "aliases": ["webhook http config use tls use server verification ca cert obj trusted ca name"],
           "anchor": "schema-webhook--http_config--use_tls--use_server_verification--ca_cert_obj--trusted_ca--name",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.",
           "document_id": "xcsh-docs:data-sources:alert_receiver:properties:webhook:http_config:use_tls:use_server_verification:ca_cert_obj:trusted_ca",
@@ -3203,7 +3203,7 @@
           "type": "string"
         },
         {
-          "aliases": ["namespace"],
+          "aliases": ["webhook http config use tls use server verification ca cert obj trusted ca namespace"],
           "anchor": "schema-webhook--http_config--use_tls--use_server_verification--ca_cert_obj--trusted_ca--namespace",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace.",
           "document_id": "xcsh-docs:data-sources:alert_receiver:properties:webhook:http_config:use_tls:use_server_verification:ca_cert_obj:trusted_ca",
@@ -3225,7 +3225,7 @@
           "type": "string"
         },
         {
-          "aliases": ["tenant"],
+          "aliases": ["webhook http config use tls use server verification ca cert obj trusted ca tenant"],
           "anchor": "schema-webhook--http_config--use_tls--use_server_verification--ca_cert_obj--trusted_ca--tenant",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant.",
           "document_id": "xcsh-docs:data-sources:alert_receiver:properties:webhook:http_config:use_tls:use_server_verification:ca_cert_obj:trusted_ca",
@@ -3247,7 +3247,7 @@
           "type": "string"
         },
         {
-          "aliases": ["uid"],
+          "aliases": ["webhook http config use tls use server verification ca cert obj trusted ca uid"],
           "anchor": "schema-webhook--http_config--use_tls--use_server_verification--ca_cert_obj--trusted_ca--uid",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then uid will hold the referred object's(e.g. Route's) uid.",
           "document_id": "xcsh-docs:data-sources:alert_receiver:properties:webhook:http_config:use_tls:use_server_verification:ca_cert_obj:trusted_ca",
@@ -3288,7 +3288,7 @@
       "category": "monitoring",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -3331,7 +3331,7 @@
         "xcsh-docs:data-sources:alert_receiver:properties:webhook:url:clear_secret_info"
       ],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -3353,7 +3353,7 @@
       "schema_path": ["webhook", "url"],
       "sections": [
         {
-          "aliases": ["blindfold secret info"],
+          "aliases": ["webhook url blindfold secret info"],
           "anchor": "section",
           "description": "BlindfoldSecretInfoType specifies information about the Secret managed by F5XC Secret Management.",
           "document_id": "xcsh-docs:data-sources:alert_receiver:properties:webhook:url:blindfold_secret_info",
@@ -3367,7 +3367,7 @@
           "type": "object"
         },
         {
-          "aliases": ["clear secret info"],
+          "aliases": ["webhook url clear secret info"],
           "anchor": "section",
           "description": "ClearSecretInfoType specifies information about the Secret that is not encrypted.",
           "document_id": "xcsh-docs:data-sources:alert_receiver:properties:webhook:url:clear_secret_info",
@@ -3400,7 +3400,7 @@
       "category": "monitoring",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -3422,7 +3422,7 @@
       "schema_path": ["webhook", "url", "blindfold_secret_info"],
       "sections": [
         {
-          "aliases": ["decryption provider"],
+          "aliases": ["webhook url blindfold secret info decryption provider"],
           "anchor": "schema-webhook--url--blindfold_secret_info--decryption_provider",
           "description": "Name of the Secret Management Access object that contains information about the backend Secret Management service.",
           "document_id": "xcsh-docs:data-sources:alert_receiver:properties:webhook:url:blindfold_secret_info",
@@ -3436,7 +3436,7 @@
           "type": "string"
         },
         {
-          "aliases": ["location"],
+          "aliases": ["webhook url blindfold secret info location"],
           "anchor": "schema-webhook--url--blindfold_secret_info--location",
           "description": "Location is the uri_ref. It could be in URL format for string:/// Or it could be a path if the store provider is an HTTP/HTTPS location.",
           "document_id": "xcsh-docs:data-sources:alert_receiver:properties:webhook:url:blindfold_secret_info",
@@ -3450,7 +3450,7 @@
           "type": "string"
         },
         {
-          "aliases": ["store provider"],
+          "aliases": ["webhook url blindfold secret info store provider"],
           "anchor": "schema-webhook--url--blindfold_secret_info--store_provider",
           "description": "Name of the Secret Management Access object that contains information about the store to GET encrypted bytes This field needs to be provided only if the URL scheme is not string:///.",
           "document_id": "xcsh-docs:data-sources:alert_receiver:properties:webhook:url:blindfold_secret_info",
@@ -3483,7 +3483,7 @@
       "category": "monitoring",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -3505,7 +3505,7 @@
       "schema_path": ["webhook", "url", "clear_secret_info"],
       "sections": [
         {
-          "aliases": ["provider ref"],
+          "aliases": ["webhook url clear secret info provider ref"],
           "anchor": "schema-webhook--url--clear_secret_info--provider_ref",
           "description": "Name of the Secret Management Access object that contains information about the store to GET encrypted bytes This field needs to be provided only if the URL scheme is not string:///.",
           "document_id": "xcsh-docs:data-sources:alert_receiver:properties:webhook:url:clear_secret_info",
@@ -3519,7 +3519,7 @@
           "type": "string"
         },
         {
-          "aliases": ["url"],
+          "aliases": ["webhook url clear secret info url"],
           "anchor": "schema-webhook--url--clear_secret_info--url",
           "description": "URL of the secret. Currently supported URL schemes is string:///. For string:/// scheme, Secret needs to be encoded Base64 format. When asked for this secret, caller will GET Secret bytes after Base64 decoding.",
           "document_id": "xcsh-docs:data-sources:alert_receiver:properties:webhook:url:clear_secret_info",
@@ -3552,7 +3552,7 @@
       "category": "monitoring",
       "child_ids": ["xcsh-docs:data-sources:alert_receiver:example:data-source"],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -3592,7 +3592,7 @@
       "category": "monitoring",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"

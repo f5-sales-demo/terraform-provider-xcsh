@@ -45,7 +45,7 @@
         "xcsh-docs:data-sources:infraprotect_mitigation_ips:examples"
       ],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -86,7 +86,7 @@
       "category": null,
       "child_ids": ["xcsh-docs:data-sources:infraprotect_mitigation_ips:properties:ips"],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -169,7 +169,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -191,7 +191,7 @@
       "schema_path": ["ips"],
       "sections": [
         {
-          "aliases": ["ip"],
+          "aliases": ["ips ip"],
           "anchor": "schema-ips--ip",
           "description": "IP. Mitigation source IP.",
           "document_id": "xcsh-docs:data-sources:infraprotect_mitigation_ips:properties:ips",
@@ -205,7 +205,7 @@
           "type": "string"
         },
         {
-          "aliases": ["log count"],
+          "aliases": ["ips log count"],
           "anchor": "schema-ips--log_count",
           "description": "Number of times the IP appears in the log.",
           "document_id": "xcsh-docs:data-sources:infraprotect_mitigation_ips:properties:ips",
@@ -238,7 +238,7 @@
       "category": null,
       "child_ids": ["xcsh-docs:data-sources:infraprotect_mitigation_ips:example:data-source"],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -278,7 +278,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"

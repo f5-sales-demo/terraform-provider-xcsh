@@ -152,7 +152,7 @@
         "xcsh-docs:resources:protocol_policer:timeouts"
       ],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -196,7 +196,7 @@
         "xcsh-docs:resources:protocol_policer:properties:timeouts"
       ],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -339,7 +339,7 @@
           "type": "object"
         },
         {
-          "aliases": ["duration", "operation timeout", "timeouts"],
+          "aliases": ["duration", "lifecycle timeout", "operation timeout", "timeouts"],
           "anchor": "section",
           "description": "timeouts",
           "document_id": "xcsh-docs:resources:protocol_policer:properties:timeouts",
@@ -375,7 +375,7 @@
         "xcsh-docs:resources:protocol_policer:properties:protocol_policer:protocol"
       ],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -406,7 +406,7 @@
       "schema_path": ["protocol_policer"],
       "sections": [
         {
-          "aliases": ["policer"],
+          "aliases": ["protocol policer policer"],
           "anchor": "section",
           "description": "Reference to policer object to apply traffic rate limits.",
           "document_id": "xcsh-docs:resources:protocol_policer:properties:protocol_policer:policer",
@@ -420,7 +420,7 @@
           "type": "object"
         },
         {
-          "aliases": ["protocol"],
+          "aliases": ["protocol policer protocol"],
           "anchor": "section",
           "description": "Protocol and protocol specific flags to be matched in packet.",
           "document_id": "xcsh-docs:resources:protocol_policer:properties:protocol_policer:protocol",
@@ -550,7 +550,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -572,7 +572,7 @@
       "schema_path": ["protocol_policer", "policer"],
       "sections": [
         {
-          "aliases": ["kind"],
+          "aliases": ["protocol policer policer kind"],
           "anchor": "schema-protocol_policer--policer--kind",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then kind will hold the referred object's kind (e.g. \"route\")",
           "document_id": "xcsh-docs:resources:protocol_policer:properties:protocol_policer:policer",
@@ -586,7 +586,7 @@
           "type": "string"
         },
         {
-          "aliases": ["name"],
+          "aliases": ["protocol policer policer name"],
           "anchor": "schema-protocol_policer--policer--name",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.",
           "document_id": "xcsh-docs:resources:protocol_policer:properties:protocol_policer:policer",
@@ -600,7 +600,7 @@
           "type": "string"
         },
         {
-          "aliases": ["namespace"],
+          "aliases": ["protocol policer policer namespace"],
           "anchor": "schema-protocol_policer--policer--namespace",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace.",
           "document_id": "xcsh-docs:resources:protocol_policer:properties:protocol_policer:policer",
@@ -614,7 +614,7 @@
           "type": "string"
         },
         {
-          "aliases": ["tenant"],
+          "aliases": ["protocol policer policer tenant"],
           "anchor": "schema-protocol_policer--policer--tenant",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant.",
           "document_id": "xcsh-docs:resources:protocol_policer:properties:protocol_policer:policer",
@@ -628,7 +628,7 @@
           "type": "string"
         },
         {
-          "aliases": ["uid"],
+          "aliases": ["protocol policer policer uid"],
           "anchor": "schema-protocol_policer--policer--uid",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then uid will hold the referred object's(e.g. Route's) uid.",
           "document_id": "xcsh-docs:resources:protocol_policer:properties:protocol_policer:policer",
@@ -666,7 +666,7 @@
         "xcsh-docs:resources:protocol_policer:properties:protocol_policer:protocol:udp"
       ],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -785,7 +785,7 @@
       "schema_path": ["protocol_policer", "protocol"],
       "sections": [
         {
-          "aliases": ["dns"],
+          "aliases": ["protocol policer protocol dns"],
           "anchor": "section",
           "description": "Match all DNS packets including UDP and TCP.",
           "document_id": "xcsh-docs:resources:protocol_policer:properties:protocol_policer:protocol:dns",
@@ -799,7 +799,7 @@
           "type": "object"
         },
         {
-          "aliases": ["icmp"],
+          "aliases": ["protocol policer protocol icmp"],
           "anchor": "section",
           "description": "ICMP message type to match in packet.",
           "document_id": "xcsh-docs:resources:protocol_policer:properties:protocol_policer:protocol:icmp",
@@ -813,7 +813,7 @@
           "type": "object"
         },
         {
-          "aliases": ["tcp"],
+          "aliases": ["protocol policer protocol tcp"],
           "anchor": "section",
           "description": "Specification of TCP flag to be matched in a TCP packet.",
           "document_id": "xcsh-docs:resources:protocol_policer:properties:protocol_policer:protocol:tcp",
@@ -827,7 +827,7 @@
           "type": "object"
         },
         {
-          "aliases": ["udp"],
+          "aliases": ["protocol policer protocol udp"],
           "anchor": "section",
           "description": "Match all UDP packets.",
           "document_id": "xcsh-docs:resources:protocol_policer:properties:protocol_policer:protocol:udp",
@@ -860,7 +860,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -900,7 +900,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -922,7 +922,7 @@
       "schema_path": ["protocol_policer", "protocol", "icmp"],
       "sections": [
         {
-          "aliases": ["type"],
+          "aliases": ["protocol policer protocol icmp type"],
           "anchor": "schema-protocol_policer--protocol--icmp--type",
           "description": "ICMP message type to be matched in packet.",
           "document_id": "xcsh-docs:resources:protocol_policer:properties:protocol_policer:protocol:icmp",
@@ -955,7 +955,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -977,7 +977,7 @@
       "schema_path": ["protocol_policer", "protocol", "tcp"],
       "sections": [
         {
-          "aliases": ["flags"],
+          "aliases": ["protocol policer protocol tcp flags"],
           "anchor": "schema-protocol_policer--protocol--tcp--flags",
           "description": "TCP flag to be matched in a TCP packet.",
           "document_id": "xcsh-docs:resources:protocol_policer:properties:protocol_policer:protocol:tcp",
@@ -1010,7 +1010,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -1043,14 +1043,14 @@
       }
     },
     {
-      "aliases": ["duration", "operation timeout", "timeouts"],
+      "aliases": ["duration", "lifecycle timeout", "operation timeout", "timeouts"],
       "body_bytes": 2255,
       "body_sha256": "sha256:f76d719d01a7aa8ce881c7a640ec87113cc7393b10f358cab401bc08e37ba00d",
       "capabilities": [],
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -1072,9 +1072,17 @@
       "schema_path": ["timeouts"],
       "sections": [
         {
-          "aliases": ["create"],
+          "aliases": [
+            "create operation timeout",
+            "create timeout",
+            "creation duration",
+            "duration",
+            "lifecycle timeout",
+            "operation timeout",
+            "timeouts create"
+          ],
           "anchor": "schema-timeouts--create",
-          "description": "A string that can be (https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as \"30s\" or \"2h45m\". Valid time units are \"s\" (seconds), \"m\" (minutes), \"h\" (hours).",
+          "description": "Configures the timeout duration for resource creation.",
           "document_id": "xcsh-docs:resources:protocol_policer:properties:timeouts",
           "flags": ["optional"],
           "max_items": null,
@@ -1086,9 +1094,18 @@
           "type": "string"
         },
         {
-          "aliases": ["delete", "duration", "operation timeout"],
+          "aliases": [
+            "delete operation timeout",
+            "delete timeout",
+            "deletion duration",
+            "destroy timeout",
+            "duration",
+            "lifecycle timeout",
+            "operation timeout",
+            "timeouts delete"
+          ],
           "anchor": "schema-timeouts--delete",
-          "description": "A string that can be (https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as \"30s\" or \"2h45m\". Valid time units are \"s\" (seconds), \"m\" (minutes), \"h\" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.",
+          "description": "Configures the timeout duration for resource deletion, applicable only if changes are saved into state before destroy.",
           "document_id": "xcsh-docs:resources:protocol_policer:properties:timeouts",
           "flags": ["optional"],
           "max_items": null,
@@ -1100,9 +1117,18 @@
           "type": "string"
         },
         {
-          "aliases": ["read"],
+          "aliases": [
+            "duration",
+            "lifecycle timeout",
+            "operation timeout",
+            "read duration",
+            "read operation timeout",
+            "read timeout",
+            "refresh timeout",
+            "timeouts read"
+          ],
           "anchor": "schema-timeouts--read",
-          "description": "A string that can be (https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as \"30s\" or \"2h45m\". Valid time units are \"s\" (seconds), \"m\" (minutes), \"h\" (hours). Read operations occur during any refresh or planning operation when refresh is enabled.",
+          "description": "Configures the timeout duration for read operations during refresh or planning.",
           "document_id": "xcsh-docs:resources:protocol_policer:properties:timeouts",
           "flags": ["optional"],
           "max_items": null,
@@ -1114,9 +1140,18 @@
           "type": "string"
         },
         {
-          "aliases": ["update"],
+          "aliases": [
+            "duration",
+            "lifecycle timeout",
+            "modification timeout",
+            "operation timeout",
+            "timeouts update",
+            "update duration",
+            "update operation timeout",
+            "update timeout"
+          ],
           "anchor": "schema-timeouts--update",
-          "description": "A string that can be (https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as \"30s\" or \"2h45m\". Valid time units are \"s\" (seconds), \"m\" (minutes), \"h\" (hours).",
+          "description": "Configures the timeout duration for resource update operations.",
           "document_id": "xcsh-docs:resources:protocol_policer:properties:timeouts",
           "flags": ["optional"],
           "max_items": null,
@@ -1147,7 +1182,7 @@
       "category": null,
       "child_ids": ["xcsh-docs:resources:protocol_policer:example:resource"],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -1187,7 +1222,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -1234,7 +1269,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -1275,7 +1310,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"

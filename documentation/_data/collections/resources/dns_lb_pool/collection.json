@@ -347,7 +347,7 @@
         "xcsh-docs:resources:dns_lb_pool:timeouts"
       ],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -396,7 +396,7 @@
         "xcsh-docs:resources:dns_lb_pool:properties:use_rrset_ttl"
       ],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -709,7 +709,7 @@
           "type": "object"
         },
         {
-          "aliases": ["duration", "operation timeout", "timeouts"],
+          "aliases": ["duration", "lifecycle timeout", "operation timeout", "timeouts"],
           "anchor": "section",
           "description": "timeouts",
           "document_id": "xcsh-docs:resources:dns_lb_pool:properties:timeouts",
@@ -774,7 +774,7 @@
         "xcsh-docs:resources:dns_lb_pool:properties:a_pool:members"
       ],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -829,9 +829,9 @@
       "schema_path": ["a_pool"],
       "sections": [
         {
-          "aliases": ["disable health check"],
+          "aliases": ["a pool disable health check", "disable dns health check", "no health check a pool"],
           "anchor": "section",
-          "description": "This can be used for messages where no values are needed.",
+          "description": "Disables health checking for the DNS load balancer A-record pool.",
           "document_id": "xcsh-docs:resources:dns_lb_pool:properties:a_pool:disable_health_check",
           "flags": ["optional"],
           "max_items": null,
@@ -843,7 +843,7 @@
           "type": "object"
         },
         {
-          "aliases": ["health check"],
+          "aliases": ["a pool health check"],
           "anchor": "section",
           "description": "This type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name.",
           "document_id": "xcsh-docs:resources:dns_lb_pool:properties:a_pool:health_check",
@@ -866,7 +866,7 @@
           "type": "object"
         },
         {
-          "aliases": ["max answers"],
+          "aliases": ["a pool max answers"],
           "anchor": "schema-a_pool--max_answers",
           "description": "Limit on number of Resource Records to be included in the response to query.",
           "document_id": "xcsh-docs:resources:dns_lb_pool:properties:a_pool",
@@ -880,7 +880,7 @@
           "type": "number"
         },
         {
-          "aliases": ["members"],
+          "aliases": ["a pool members"],
           "anchor": "section",
           "description": "Configuration parameter for members",
           "document_id": "xcsh-docs:resources:dns_lb_pool:properties:a_pool:members",
@@ -915,15 +915,15 @@
       }
     },
     {
-      "aliases": ["a pool disable health check"],
+      "aliases": ["a pool disable health check", "disable dns health check", "no health check a pool"],
       "body_bytes": 1246,
       "body_sha256": "sha256:3ba3ac4c2e957dad20190de9ddf0c8d29369ac29a8bf20df91f1c1acda471217",
       "capabilities": ["dns"],
       "category": "dns",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
-        "sources": ["reviewed-rule"],
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
+        "sources": ["reviewed-rule", "reviewed-summary"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
       },
@@ -945,7 +945,7 @@
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/dns_lb_pool/properties/a_pool/disable_health_check/index.txt",
       "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
-      "summary": "This can be used for messages where no values are needed.",
+      "summary": "Disables health checking for the DNS load balancer A-record pool.",
       "tasks": ["configuration"],
       "title": "a_pool.disable_health_check",
       "upstream_identity": {
@@ -962,7 +962,7 @@
       "category": "dns",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -993,7 +993,7 @@
       "schema_path": ["a_pool", "health_check"],
       "sections": [
         {
-          "aliases": ["name"],
+          "aliases": ["a pool health check name"],
           "anchor": "schema-a_pool--health_check--name",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.",
           "document_id": "xcsh-docs:resources:dns_lb_pool:properties:a_pool:health_check",
@@ -1007,7 +1007,7 @@
           "type": "string"
         },
         {
-          "aliases": ["namespace"],
+          "aliases": ["a pool health check namespace"],
           "anchor": "schema-a_pool--health_check--namespace",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace.",
           "document_id": "xcsh-docs:resources:dns_lb_pool:properties:a_pool:health_check",
@@ -1021,7 +1021,7 @@
           "type": "string"
         },
         {
-          "aliases": ["tenant"],
+          "aliases": ["a pool health check tenant"],
           "anchor": "schema-a_pool--health_check--tenant",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant.",
           "document_id": "xcsh-docs:resources:dns_lb_pool:properties:a_pool:health_check",
@@ -1054,7 +1054,7 @@
       "category": "dns",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -1085,7 +1085,7 @@
       "schema_path": ["a_pool", "members"],
       "sections": [
         {
-          "aliases": ["disable spec"],
+          "aliases": ["a pool members disable spec"],
           "anchor": "schema-a_pool--members--disable_spec",
           "description": "Value of true will disable the pool-member.",
           "document_id": "xcsh-docs:resources:dns_lb_pool:properties:a_pool:members",
@@ -1099,7 +1099,7 @@
           "type": "bool"
         },
         {
-          "aliases": ["ip endpoint"],
+          "aliases": ["a pool members ip endpoint"],
           "anchor": "schema-a_pool--members--ip_endpoint",
           "description": "Public IP address.",
           "document_id": "xcsh-docs:resources:dns_lb_pool:properties:a_pool:members",
@@ -1113,7 +1113,7 @@
           "type": "string"
         },
         {
-          "aliases": ["name"],
+          "aliases": ["a pool members name"],
           "anchor": "schema-a_pool--members--name",
           "description": "Pool member name.",
           "document_id": "xcsh-docs:resources:dns_lb_pool:properties:a_pool:members",
@@ -1127,7 +1127,7 @@
           "type": "string"
         },
         {
-          "aliases": ["priority"],
+          "aliases": ["a pool members priority"],
           "anchor": "schema-a_pool--members--priority",
           "description": "Used if the pool’s load balancing mode is set to Priority.",
           "document_id": "xcsh-docs:resources:dns_lb_pool:properties:a_pool:members",
@@ -1141,7 +1141,7 @@
           "type": "number"
         },
         {
-          "aliases": ["ratio"],
+          "aliases": ["a pool members ratio"],
           "anchor": "schema-a_pool--members--ratio",
           "description": "Used if the pool’s load balancing mode is set to Ratio-Member.",
           "document_id": "xcsh-docs:resources:dns_lb_pool:properties:a_pool:members",
@@ -1174,7 +1174,7 @@
       "category": "dns",
       "child_ids": ["xcsh-docs:resources:dns_lb_pool:properties:aaaa_pool:members"],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -1213,7 +1213,7 @@
       "schema_path": ["aaaa_pool"],
       "sections": [
         {
-          "aliases": ["max answers"],
+          "aliases": ["aaaa pool max answers"],
           "anchor": "schema-aaaa_pool--max_answers",
           "description": "Limit on number of Resource Records to be included in the response to query.",
           "document_id": "xcsh-docs:resources:dns_lb_pool:properties:aaaa_pool",
@@ -1227,7 +1227,7 @@
           "type": "number"
         },
         {
-          "aliases": ["members"],
+          "aliases": ["aaaa pool members"],
           "anchor": "section",
           "description": "Configuration parameter for members",
           "document_id": "xcsh-docs:resources:dns_lb_pool:properties:aaaa_pool:members",
@@ -1269,7 +1269,7 @@
       "category": "dns",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -1300,7 +1300,7 @@
       "schema_path": ["aaaa_pool", "members"],
       "sections": [
         {
-          "aliases": ["disable spec"],
+          "aliases": ["aaaa pool members disable spec"],
           "anchor": "schema-aaaa_pool--members--disable_spec",
           "description": "Value of true will disable the pool-member.",
           "document_id": "xcsh-docs:resources:dns_lb_pool:properties:aaaa_pool:members",
@@ -1314,7 +1314,7 @@
           "type": "bool"
         },
         {
-          "aliases": ["ip endpoint"],
+          "aliases": ["aaaa pool members ip endpoint"],
           "anchor": "schema-aaaa_pool--members--ip_endpoint",
           "description": "Public IP address.",
           "document_id": "xcsh-docs:resources:dns_lb_pool:properties:aaaa_pool:members",
@@ -1328,7 +1328,7 @@
           "type": "string"
         },
         {
-          "aliases": ["name"],
+          "aliases": ["aaaa pool members name"],
           "anchor": "schema-aaaa_pool--members--name",
           "description": "Pool member name.",
           "document_id": "xcsh-docs:resources:dns_lb_pool:properties:aaaa_pool:members",
@@ -1342,7 +1342,7 @@
           "type": "string"
         },
         {
-          "aliases": ["priority"],
+          "aliases": ["aaaa pool members priority"],
           "anchor": "schema-aaaa_pool--members--priority",
           "description": "Used if the pool’s load balancing mode is set to Priority.",
           "document_id": "xcsh-docs:resources:dns_lb_pool:properties:aaaa_pool:members",
@@ -1356,7 +1356,7 @@
           "type": "number"
         },
         {
-          "aliases": ["ratio"],
+          "aliases": ["aaaa pool members ratio"],
           "anchor": "schema-aaaa_pool--members--ratio",
           "description": "Used if the pool’s load balancing mode is set to Ratio-Member.",
           "document_id": "xcsh-docs:resources:dns_lb_pool:properties:aaaa_pool:members",
@@ -1393,7 +1393,7 @@
         "xcsh-docs:resources:dns_lb_pool:properties:cname_pool:members"
       ],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -1440,7 +1440,7 @@
       "schema_path": ["cname_pool"],
       "sections": [
         {
-          "aliases": ["disable health check"],
+          "aliases": ["cname pool disable health check"],
           "anchor": "section",
           "description": "This can be used for messages where no values are needed.",
           "document_id": "xcsh-docs:resources:dns_lb_pool:properties:cname_pool:disable_health_check",
@@ -1454,7 +1454,7 @@
           "type": "object"
         },
         {
-          "aliases": ["health check"],
+          "aliases": ["cname pool health check"],
           "anchor": "section",
           "description": "This type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name.",
           "document_id": "xcsh-docs:resources:dns_lb_pool:properties:cname_pool:health_check",
@@ -1477,7 +1477,7 @@
           "type": "object"
         },
         {
-          "aliases": ["members"],
+          "aliases": ["cname pool members"],
           "anchor": "section",
           "description": "Configuration parameter for members",
           "document_id": "xcsh-docs:resources:dns_lb_pool:properties:cname_pool:members",
@@ -1519,7 +1519,7 @@
       "category": "dns",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -1559,7 +1559,7 @@
       "category": "dns",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -1590,7 +1590,7 @@
       "schema_path": ["cname_pool", "health_check"],
       "sections": [
         {
-          "aliases": ["name"],
+          "aliases": ["cname pool health check name"],
           "anchor": "schema-cname_pool--health_check--name",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.",
           "document_id": "xcsh-docs:resources:dns_lb_pool:properties:cname_pool:health_check",
@@ -1604,7 +1604,7 @@
           "type": "string"
         },
         {
-          "aliases": ["namespace"],
+          "aliases": ["cname pool health check namespace"],
           "anchor": "schema-cname_pool--health_check--namespace",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace.",
           "document_id": "xcsh-docs:resources:dns_lb_pool:properties:cname_pool:health_check",
@@ -1618,7 +1618,7 @@
           "type": "string"
         },
         {
-          "aliases": ["tenant"],
+          "aliases": ["cname pool health check tenant"],
           "anchor": "schema-cname_pool--health_check--tenant",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant.",
           "document_id": "xcsh-docs:resources:dns_lb_pool:properties:cname_pool:health_check",
@@ -1651,7 +1651,7 @@
       "category": "dns",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -1682,7 +1682,7 @@
       "schema_path": ["cname_pool", "members"],
       "sections": [
         {
-          "aliases": ["domain"],
+          "aliases": ["cname pool members domain"],
           "anchor": "schema-cname_pool--members--domain",
           "description": "Specifies the fully qualified domain name.",
           "document_id": "xcsh-docs:resources:dns_lb_pool:properties:cname_pool:members",
@@ -1696,7 +1696,7 @@
           "type": "string"
         },
         {
-          "aliases": ["final translation"],
+          "aliases": ["cname pool members final translation"],
           "anchor": "schema-cname_pool--members--final_translation",
           "description": "If this flag is true, the CNAME record will not be translated further.",
           "document_id": "xcsh-docs:resources:dns_lb_pool:properties:cname_pool:members",
@@ -1710,7 +1710,7 @@
           "type": "bool"
         },
         {
-          "aliases": ["name"],
+          "aliases": ["cname pool members name"],
           "anchor": "schema-cname_pool--members--name",
           "description": "Pool member name.",
           "document_id": "xcsh-docs:resources:dns_lb_pool:properties:cname_pool:members",
@@ -1724,7 +1724,7 @@
           "type": "string"
         },
         {
-          "aliases": ["priority"],
+          "aliases": ["cname pool members priority"],
           "anchor": "schema-cname_pool--members--priority",
           "description": "Used if the pool’s load balancing mode is set to Priority. Determines the order in which traffic is routed to pool members. The lower the number, the higher the priority, making those members active while higher-numbered members act as backups.",
           "document_id": "xcsh-docs:resources:dns_lb_pool:properties:cname_pool:members",
@@ -1738,7 +1738,7 @@
           "type": "number"
         },
         {
-          "aliases": ["ratio"],
+          "aliases": ["cname pool members ratio"],
           "anchor": "schema-cname_pool--members--ratio",
           "description": "Used if the pool’s load balancing mode is set to Ratio-Member.",
           "document_id": "xcsh-docs:resources:dns_lb_pool:properties:cname_pool:members",
@@ -1771,7 +1771,7 @@
       "category": "dns",
       "child_ids": ["xcsh-docs:resources:dns_lb_pool:properties:mx_pool:members"],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -1810,7 +1810,7 @@
       "schema_path": ["mx_pool"],
       "sections": [
         {
-          "aliases": ["max answers"],
+          "aliases": ["mx pool max answers"],
           "anchor": "schema-mx_pool--max_answers",
           "description": "Limit on number of Resource Records to be included in the response to query.",
           "document_id": "xcsh-docs:resources:dns_lb_pool:properties:mx_pool",
@@ -1824,7 +1824,7 @@
           "type": "number"
         },
         {
-          "aliases": ["members"],
+          "aliases": ["mx pool members"],
           "anchor": "section",
           "description": "Configuration parameter for members",
           "document_id": "xcsh-docs:resources:dns_lb_pool:properties:mx_pool:members",
@@ -1866,7 +1866,7 @@
       "category": "dns",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -1897,7 +1897,7 @@
       "schema_path": ["mx_pool", "members"],
       "sections": [
         {
-          "aliases": ["domain"],
+          "aliases": ["mx pool members domain"],
           "anchor": "schema-mx_pool--members--domain",
           "description": "Domain name for routing and identification",
           "document_id": "xcsh-docs:resources:dns_lb_pool:properties:mx_pool:members",
@@ -1911,7 +1911,7 @@
           "type": "string"
         },
         {
-          "aliases": ["name"],
+          "aliases": ["mx pool members name"],
           "anchor": "schema-mx_pool--members--name",
           "description": "Pool member name.",
           "document_id": "xcsh-docs:resources:dns_lb_pool:properties:mx_pool:members",
@@ -1925,7 +1925,7 @@
           "type": "string"
         },
         {
-          "aliases": ["priority"],
+          "aliases": ["mx pool members priority"],
           "anchor": "schema-mx_pool--members--priority",
           "description": "MX Record priority.",
           "document_id": "xcsh-docs:resources:dns_lb_pool:properties:mx_pool:members",
@@ -1939,7 +1939,7 @@
           "type": "number"
         },
         {
-          "aliases": ["ratio"],
+          "aliases": ["mx pool members ratio"],
           "anchor": "schema-mx_pool--members--ratio",
           "description": "Load Balancing Ratio.",
           "document_id": "xcsh-docs:resources:dns_lb_pool:properties:mx_pool:members",
@@ -1972,7 +1972,7 @@
       "category": "dns",
       "child_ids": ["xcsh-docs:resources:dns_lb_pool:properties:srv_pool:members"],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -2011,7 +2011,7 @@
       "schema_path": ["srv_pool"],
       "sections": [
         {
-          "aliases": ["max answers"],
+          "aliases": ["srv pool max answers"],
           "anchor": "schema-srv_pool--max_answers",
           "description": "Limit on number of Resource Records to be included in the response to query.",
           "document_id": "xcsh-docs:resources:dns_lb_pool:properties:srv_pool",
@@ -2025,7 +2025,7 @@
           "type": "number"
         },
         {
-          "aliases": ["members"],
+          "aliases": ["srv pool members"],
           "anchor": "section",
           "description": "Configuration parameter for members",
           "document_id": "xcsh-docs:resources:dns_lb_pool:properties:srv_pool:members",
@@ -2091,7 +2091,7 @@
       "category": "dns",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -2146,7 +2146,7 @@
       "schema_path": ["srv_pool", "members"],
       "sections": [
         {
-          "aliases": ["final translation"],
+          "aliases": ["srv pool members final translation"],
           "anchor": "schema-srv_pool--members--final_translation",
           "description": "If this flag is true, the SRV record will not be translated further.",
           "document_id": "xcsh-docs:resources:dns_lb_pool:properties:srv_pool:members",
@@ -2160,7 +2160,7 @@
           "type": "bool"
         },
         {
-          "aliases": ["name"],
+          "aliases": ["srv pool members name"],
           "anchor": "schema-srv_pool--members--name",
           "description": "Pool member name.",
           "document_id": "xcsh-docs:resources:dns_lb_pool:properties:srv_pool:members",
@@ -2174,7 +2174,7 @@
           "type": "string"
         },
         {
-          "aliases": ["port"],
+          "aliases": ["srv pool members port"],
           "anchor": "schema-srv_pool--members--port",
           "description": "Port on which the service can be found.",
           "document_id": "xcsh-docs:resources:dns_lb_pool:properties:srv_pool:members",
@@ -2188,7 +2188,7 @@
           "type": "number"
         },
         {
-          "aliases": ["priority"],
+          "aliases": ["srv pool members priority"],
           "anchor": "schema-srv_pool--members--priority",
           "description": "Priority of the target. A lower number indicates a higher preference.",
           "document_id": "xcsh-docs:resources:dns_lb_pool:properties:srv_pool:members",
@@ -2202,7 +2202,7 @@
           "type": "number"
         },
         {
-          "aliases": ["ratio"],
+          "aliases": ["srv pool members ratio"],
           "anchor": "schema-srv_pool--members--ratio",
           "description": "Configuration parameter for ratio",
           "document_id": "xcsh-docs:resources:dns_lb_pool:properties:srv_pool:members",
@@ -2216,7 +2216,7 @@
           "type": "number"
         },
         {
-          "aliases": ["target"],
+          "aliases": ["srv pool members target"],
           "anchor": "schema-srv_pool--members--target",
           "description": "Domain name of the machine providing the service.",
           "document_id": "xcsh-docs:resources:dns_lb_pool:properties:srv_pool:members",
@@ -2230,7 +2230,7 @@
           "type": "string"
         },
         {
-          "aliases": ["weight"],
+          "aliases": ["srv pool members weight"],
           "anchor": "schema-srv_pool--members--weight",
           "description": "Weight of the target. A higher number indicates a higher preference.",
           "document_id": "xcsh-docs:resources:dns_lb_pool:properties:srv_pool:members",
@@ -2256,14 +2256,14 @@
       }
     },
     {
-      "aliases": ["duration", "operation timeout", "timeouts"],
+      "aliases": ["duration", "lifecycle timeout", "operation timeout", "timeouts"],
       "body_bytes": 2225,
       "body_sha256": "sha256:9e73df0fca3bed90a3b2444d167ba76b89271ec9acab9f8d9674b1a44830b1e4",
       "capabilities": ["dns"],
       "category": "dns",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -2285,9 +2285,17 @@
       "schema_path": ["timeouts"],
       "sections": [
         {
-          "aliases": ["create"],
+          "aliases": [
+            "create operation timeout",
+            "create timeout",
+            "creation duration",
+            "duration",
+            "lifecycle timeout",
+            "operation timeout",
+            "timeouts create"
+          ],
           "anchor": "schema-timeouts--create",
-          "description": "A string that can be (https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as \"30s\" or \"2h45m\". Valid time units are \"s\" (seconds), \"m\" (minutes), \"h\" (hours).",
+          "description": "Configures the timeout duration for resource creation.",
           "document_id": "xcsh-docs:resources:dns_lb_pool:properties:timeouts",
           "flags": ["optional"],
           "max_items": null,
@@ -2299,9 +2307,18 @@
           "type": "string"
         },
         {
-          "aliases": ["delete", "duration", "operation timeout"],
+          "aliases": [
+            "delete operation timeout",
+            "delete timeout",
+            "deletion duration",
+            "destroy timeout",
+            "duration",
+            "lifecycle timeout",
+            "operation timeout",
+            "timeouts delete"
+          ],
           "anchor": "schema-timeouts--delete",
-          "description": "A string that can be (https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as \"30s\" or \"2h45m\". Valid time units are \"s\" (seconds), \"m\" (minutes), \"h\" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.",
+          "description": "Configures the timeout duration for resource deletion, applicable only if changes are saved into state before destroy.",
           "document_id": "xcsh-docs:resources:dns_lb_pool:properties:timeouts",
           "flags": ["optional"],
           "max_items": null,
@@ -2313,9 +2330,18 @@
           "type": "string"
         },
         {
-          "aliases": ["read"],
+          "aliases": [
+            "duration",
+            "lifecycle timeout",
+            "operation timeout",
+            "read duration",
+            "read operation timeout",
+            "read timeout",
+            "refresh timeout",
+            "timeouts read"
+          ],
           "anchor": "schema-timeouts--read",
-          "description": "A string that can be (https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as \"30s\" or \"2h45m\". Valid time units are \"s\" (seconds), \"m\" (minutes), \"h\" (hours). Read operations occur during any refresh or planning operation when refresh is enabled.",
+          "description": "Configures the timeout duration for read operations during refresh or planning.",
           "document_id": "xcsh-docs:resources:dns_lb_pool:properties:timeouts",
           "flags": ["optional"],
           "max_items": null,
@@ -2327,9 +2353,18 @@
           "type": "string"
         },
         {
-          "aliases": ["update"],
+          "aliases": [
+            "duration",
+            "lifecycle timeout",
+            "modification timeout",
+            "operation timeout",
+            "timeouts update",
+            "update duration",
+            "update operation timeout",
+            "update timeout"
+          ],
           "anchor": "schema-timeouts--update",
-          "description": "A string that can be (https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as \"30s\" or \"2h45m\". Valid time units are \"s\" (seconds), \"m\" (minutes), \"h\" (hours).",
+          "description": "Configures the timeout duration for resource update operations.",
           "document_id": "xcsh-docs:resources:dns_lb_pool:properties:timeouts",
           "flags": ["optional"],
           "max_items": null,
@@ -2360,7 +2395,7 @@
       "category": "dns",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -2400,7 +2435,7 @@
       "category": "dns",
       "child_ids": ["xcsh-docs:resources:dns_lb_pool:example:resource"],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -2440,7 +2475,7 @@
       "category": "dns",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -2487,7 +2522,7 @@
       "category": "dns",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -2528,7 +2563,7 @@
       "category": "dns",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"

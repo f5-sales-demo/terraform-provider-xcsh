@@ -499,7 +499,7 @@
         "xcsh-docs:data-sources:code_base_integration:examples"
       ],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -540,7 +540,7 @@
       "category": null,
       "child_ids": ["xcsh-docs:data-sources:code_base_integration:properties:code_base_integration"],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -687,7 +687,7 @@
         "xcsh-docs:data-sources:code_base_integration:properties:code_base_integration:gitlab_enterprise"
       ],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -709,7 +709,7 @@
       "schema_path": ["code_base_integration"],
       "sections": [
         {
-          "aliases": ["azure repos"],
+          "aliases": ["code base integration azure repos"],
           "anchor": "section",
           "description": "Configuration parameter for azure repos.",
           "document_id": "xcsh-docs:data-sources:code_base_integration:properties:code_base_integration:azure_repos",
@@ -723,7 +723,7 @@
           "type": "object"
         },
         {
-          "aliases": ["bitbucket"],
+          "aliases": ["code base integration bitbucket"],
           "anchor": "section",
           "description": "BitBucket Cloud Integration.",
           "document_id": "xcsh-docs:data-sources:code_base_integration:properties:code_base_integration:bitbucket",
@@ -737,7 +737,7 @@
           "type": "object"
         },
         {
-          "aliases": ["bitbucket server"],
+          "aliases": ["code base integration bitbucket server"],
           "anchor": "section",
           "description": "Configuration parameter for bitbucket server.",
           "document_id": "xcsh-docs:data-sources:code_base_integration:properties:code_base_integration:bitbucket_server",
@@ -751,7 +751,7 @@
           "type": "object"
         },
         {
-          "aliases": ["github"],
+          "aliases": ["code base integration github"],
           "anchor": "section",
           "description": "Github Integration.",
           "document_id": "xcsh-docs:data-sources:code_base_integration:properties:code_base_integration:github",
@@ -765,7 +765,7 @@
           "type": "object"
         },
         {
-          "aliases": ["github enterprise"],
+          "aliases": ["code base integration github enterprise"],
           "anchor": "section",
           "description": "Configuration parameter for github enterprise.",
           "document_id": "xcsh-docs:data-sources:code_base_integration:properties:code_base_integration:github_enterprise",
@@ -779,7 +779,7 @@
           "type": "object"
         },
         {
-          "aliases": ["gitlab"],
+          "aliases": ["code base integration gitlab"],
           "anchor": "section",
           "description": "GitLab Cloud Integration.",
           "document_id": "xcsh-docs:data-sources:code_base_integration:properties:code_base_integration:gitlab",
@@ -793,7 +793,7 @@
           "type": "object"
         },
         {
-          "aliases": ["gitlab enterprise"],
+          "aliases": ["code base integration gitlab enterprise"],
           "anchor": "section",
           "description": "Configuration parameter for gitlab enterprise.",
           "document_id": "xcsh-docs:data-sources:code_base_integration:properties:code_base_integration:gitlab_enterprise",
@@ -828,7 +828,7 @@
         "xcsh-docs:data-sources:code_base_integration:properties:code_base_integration:azure_repos:access_token"
       ],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -850,7 +850,7 @@
       "schema_path": ["code_base_integration", "azure_repos"],
       "sections": [
         {
-          "aliases": ["access token"],
+          "aliases": ["code base integration azure repos access token"],
           "anchor": "section",
           "description": "SecretType is used in an object to indicate a sensitive/confidential field.",
           "document_id": "xcsh-docs:data-sources:code_base_integration:properties:code_base_integration:azure_repos:access_token",
@@ -886,7 +886,7 @@
         "xcsh-docs:data-sources:code_base_integration:properties:code_base_integration:azure_repos:access_token:clear_secret_info"
       ],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -908,7 +908,7 @@
       "schema_path": ["code_base_integration", "azure_repos", "access_token"],
       "sections": [
         {
-          "aliases": ["blindfold secret info"],
+          "aliases": ["code base integration azure repos access token blindfold secret info"],
           "anchor": "section",
           "description": "BlindfoldSecretInfoType specifies information about the Secret managed by F5XC Secret Management.",
           "document_id": "xcsh-docs:data-sources:code_base_integration:properties:code_base_integration:azure_repos:access_token:blindfold_secret_info",
@@ -922,7 +922,7 @@
           "type": "object"
         },
         {
-          "aliases": ["clear secret info"],
+          "aliases": ["code base integration azure repos access token clear secret info"],
           "anchor": "section",
           "description": "ClearSecretInfoType specifies information about the Secret that is not encrypted.",
           "document_id": "xcsh-docs:data-sources:code_base_integration:properties:code_base_integration:azure_repos:access_token:clear_secret_info",
@@ -955,7 +955,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -977,7 +977,7 @@
       "schema_path": ["code_base_integration", "azure_repos", "access_token", "blindfold_secret_info"],
       "sections": [
         {
-          "aliases": ["decryption provider"],
+          "aliases": ["code base integration azure repos access token blindfold secret info decryption provider"],
           "anchor": "schema-code_base_integration--azure_repos--access_token--blindfold_secret_info--decryption_provider",
           "description": "Name of the Secret Management Access object that contains information about the backend Secret Management service.",
           "document_id": "xcsh-docs:data-sources:code_base_integration:properties:code_base_integration:azure_repos:access_token:blindfold_secret_info",
@@ -997,7 +997,7 @@
           "type": "string"
         },
         {
-          "aliases": ["location"],
+          "aliases": ["code base integration azure repos access token blindfold secret info location"],
           "anchor": "schema-code_base_integration--azure_repos--access_token--blindfold_secret_info--location",
           "description": "Location is the uri_ref. It could be in URL format for string:/// Or it could be a path if the store provider is an HTTP/HTTPS location.",
           "document_id": "xcsh-docs:data-sources:code_base_integration:properties:code_base_integration:azure_repos:access_token:blindfold_secret_info",
@@ -1011,7 +1011,7 @@
           "type": "string"
         },
         {
-          "aliases": ["store provider"],
+          "aliases": ["code base integration azure repos access token blindfold secret info store provider"],
           "anchor": "schema-code_base_integration--azure_repos--access_token--blindfold_secret_info--store_provider",
           "description": "Name of the Secret Management Access object that contains information about the store to GET encrypted bytes This field needs to be provided only if the URL scheme is not string:///.",
           "document_id": "xcsh-docs:data-sources:code_base_integration:properties:code_base_integration:azure_repos:access_token:blindfold_secret_info",
@@ -1050,7 +1050,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -1072,7 +1072,7 @@
       "schema_path": ["code_base_integration", "azure_repos", "access_token", "clear_secret_info"],
       "sections": [
         {
-          "aliases": ["provider ref"],
+          "aliases": ["code base integration azure repos access token clear secret info provider ref"],
           "anchor": "schema-code_base_integration--azure_repos--access_token--clear_secret_info--provider_ref",
           "description": "Name of the Secret Management Access object that contains information about the store to GET encrypted bytes This field needs to be provided only if the URL scheme is not string:///.",
           "document_id": "xcsh-docs:data-sources:code_base_integration:properties:code_base_integration:azure_repos:access_token:clear_secret_info",
@@ -1086,7 +1086,7 @@
           "type": "string"
         },
         {
-          "aliases": ["url"],
+          "aliases": ["code base integration azure repos access token clear secret info url"],
           "anchor": "schema-code_base_integration--azure_repos--access_token--clear_secret_info--url",
           "description": "URL of the secret. Currently supported URL schemes is string:///. For string:/// scheme, Secret needs to be encoded Base64 format. When asked for this secret, caller will GET Secret bytes after Base64 decoding.",
           "document_id": "xcsh-docs:data-sources:code_base_integration:properties:code_base_integration:azure_repos:access_token:clear_secret_info",
@@ -1119,7 +1119,7 @@
       "category": null,
       "child_ids": ["xcsh-docs:data-sources:code_base_integration:properties:code_base_integration:bitbucket:passwd"],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -1141,7 +1141,7 @@
       "schema_path": ["code_base_integration", "bitbucket"],
       "sections": [
         {
-          "aliases": ["passwd"],
+          "aliases": ["code base integration bitbucket passwd"],
           "anchor": "section",
           "description": "SecretType is used in an object to indicate a sensitive/confidential field.",
           "document_id": "xcsh-docs:data-sources:code_base_integration:properties:code_base_integration:bitbucket:passwd",
@@ -1155,7 +1155,7 @@
           "type": "object"
         },
         {
-          "aliases": ["username"],
+          "aliases": ["code base integration bitbucket username"],
           "anchor": "schema-code_base_integration--bitbucket--username",
           "description": "Human-readable name for the resource",
           "document_id": "xcsh-docs:data-sources:code_base_integration:properties:code_base_integration:bitbucket",
@@ -1191,7 +1191,7 @@
         "xcsh-docs:data-sources:code_base_integration:properties:code_base_integration:bitbucket:passwd:clear_secret_info"
       ],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -1213,7 +1213,7 @@
       "schema_path": ["code_base_integration", "bitbucket", "passwd"],
       "sections": [
         {
-          "aliases": ["blindfold secret info"],
+          "aliases": ["code base integration bitbucket passwd blindfold secret info"],
           "anchor": "section",
           "description": "BlindfoldSecretInfoType specifies information about the Secret managed by F5XC Secret Management.",
           "document_id": "xcsh-docs:data-sources:code_base_integration:properties:code_base_integration:bitbucket:passwd:blindfold_secret_info",
@@ -1227,7 +1227,7 @@
           "type": "object"
         },
         {
-          "aliases": ["clear secret info"],
+          "aliases": ["code base integration bitbucket passwd clear secret info"],
           "anchor": "section",
           "description": "ClearSecretInfoType specifies information about the Secret that is not encrypted.",
           "document_id": "xcsh-docs:data-sources:code_base_integration:properties:code_base_integration:bitbucket:passwd:clear_secret_info",
@@ -1260,7 +1260,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -1282,7 +1282,7 @@
       "schema_path": ["code_base_integration", "bitbucket", "passwd", "blindfold_secret_info"],
       "sections": [
         {
-          "aliases": ["decryption provider"],
+          "aliases": ["code base integration bitbucket passwd blindfold secret info decryption provider"],
           "anchor": "schema-code_base_integration--bitbucket--passwd--blindfold_secret_info--decryption_provider",
           "description": "Name of the Secret Management Access object that contains information about the backend Secret Management service.",
           "document_id": "xcsh-docs:data-sources:code_base_integration:properties:code_base_integration:bitbucket:passwd:blindfold_secret_info",
@@ -1302,7 +1302,7 @@
           "type": "string"
         },
         {
-          "aliases": ["location"],
+          "aliases": ["code base integration bitbucket passwd blindfold secret info location"],
           "anchor": "schema-code_base_integration--bitbucket--passwd--blindfold_secret_info--location",
           "description": "Location is the uri_ref. It could be in URL format for string:/// Or it could be a path if the store provider is an HTTP/HTTPS location.",
           "document_id": "xcsh-docs:data-sources:code_base_integration:properties:code_base_integration:bitbucket:passwd:blindfold_secret_info",
@@ -1316,7 +1316,7 @@
           "type": "string"
         },
         {
-          "aliases": ["store provider"],
+          "aliases": ["code base integration bitbucket passwd blindfold secret info store provider"],
           "anchor": "schema-code_base_integration--bitbucket--passwd--blindfold_secret_info--store_provider",
           "description": "Name of the Secret Management Access object that contains information about the store to GET encrypted bytes This field needs to be provided only if the URL scheme is not string:///.",
           "document_id": "xcsh-docs:data-sources:code_base_integration:properties:code_base_integration:bitbucket:passwd:blindfold_secret_info",
@@ -1349,7 +1349,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -1371,7 +1371,7 @@
       "schema_path": ["code_base_integration", "bitbucket", "passwd", "clear_secret_info"],
       "sections": [
         {
-          "aliases": ["provider ref"],
+          "aliases": ["code base integration bitbucket passwd clear secret info provider ref"],
           "anchor": "schema-code_base_integration--bitbucket--passwd--clear_secret_info--provider_ref",
           "description": "Name of the Secret Management Access object that contains information about the store to GET encrypted bytes This field needs to be provided only if the URL scheme is not string:///.",
           "document_id": "xcsh-docs:data-sources:code_base_integration:properties:code_base_integration:bitbucket:passwd:clear_secret_info",
@@ -1385,7 +1385,7 @@
           "type": "string"
         },
         {
-          "aliases": ["url"],
+          "aliases": ["code base integration bitbucket passwd clear secret info url"],
           "anchor": "schema-code_base_integration--bitbucket--passwd--clear_secret_info--url",
           "description": "URL of the secret. Currently supported URL schemes is string:///. For string:/// scheme, Secret needs to be encoded Base64 format. When asked for this secret, caller will GET Secret bytes after Base64 decoding.",
           "document_id": "xcsh-docs:data-sources:code_base_integration:properties:code_base_integration:bitbucket:passwd:clear_secret_info",
@@ -1420,7 +1420,7 @@
         "xcsh-docs:data-sources:code_base_integration:properties:code_base_integration:bitbucket_server:passwd"
       ],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -1442,7 +1442,7 @@
       "schema_path": ["code_base_integration", "bitbucket_server"],
       "sections": [
         {
-          "aliases": ["passwd"],
+          "aliases": ["code base integration bitbucket server passwd"],
           "anchor": "section",
           "description": "SecretType is used in an object to indicate a sensitive/confidential field.",
           "document_id": "xcsh-docs:data-sources:code_base_integration:properties:code_base_integration:bitbucket_server:passwd",
@@ -1456,7 +1456,7 @@
           "type": "object"
         },
         {
-          "aliases": ["url"],
+          "aliases": ["code base integration bitbucket server url"],
           "anchor": "schema-code_base_integration--bitbucket_server--url",
           "description": "URL or URI reference",
           "document_id": "xcsh-docs:data-sources:code_base_integration:properties:code_base_integration:bitbucket_server",
@@ -1470,7 +1470,7 @@
           "type": "string"
         },
         {
-          "aliases": ["username"],
+          "aliases": ["code base integration bitbucket server username"],
           "anchor": "schema-code_base_integration--bitbucket_server--username",
           "description": "Human-readable name for the resource",
           "document_id": "xcsh-docs:data-sources:code_base_integration:properties:code_base_integration:bitbucket_server",
@@ -1484,7 +1484,7 @@
           "type": "string"
         },
         {
-          "aliases": ["verify ssl"],
+          "aliases": ["code base integration bitbucket server verify ssl"],
           "anchor": "schema-code_base_integration--bitbucket_server--verify_ssl",
           "description": "Configuration parameter for verify ssl",
           "document_id": "xcsh-docs:data-sources:code_base_integration:properties:code_base_integration:bitbucket_server",
@@ -1520,7 +1520,7 @@
         "xcsh-docs:data-sources:code_base_integration:properties:code_base_integration:bitbucket_server:passwd:clear_secret_info"
       ],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -1542,7 +1542,7 @@
       "schema_path": ["code_base_integration", "bitbucket_server", "passwd"],
       "sections": [
         {
-          "aliases": ["blindfold secret info"],
+          "aliases": ["code base integration bitbucket server passwd blindfold secret info"],
           "anchor": "section",
           "description": "BlindfoldSecretInfoType specifies information about the Secret managed by F5XC Secret Management.",
           "document_id": "xcsh-docs:data-sources:code_base_integration:properties:code_base_integration:bitbucket_server:passwd:blindfold_secret_info",
@@ -1556,7 +1556,7 @@
           "type": "object"
         },
         {
-          "aliases": ["clear secret info"],
+          "aliases": ["code base integration bitbucket server passwd clear secret info"],
           "anchor": "section",
           "description": "ClearSecretInfoType specifies information about the Secret that is not encrypted.",
           "document_id": "xcsh-docs:data-sources:code_base_integration:properties:code_base_integration:bitbucket_server:passwd:clear_secret_info",
@@ -1589,7 +1589,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -1611,7 +1611,7 @@
       "schema_path": ["code_base_integration", "bitbucket_server", "passwd", "blindfold_secret_info"],
       "sections": [
         {
-          "aliases": ["decryption provider"],
+          "aliases": ["code base integration bitbucket server passwd blindfold secret info decryption provider"],
           "anchor": "schema-code_base_integration--bitbucket_server--passwd--blindfold_secret_info--decryption_provider",
           "description": "Name of the Secret Management Access object that contains information about the backend Secret Management service.",
           "document_id": "xcsh-docs:data-sources:code_base_integration:properties:code_base_integration:bitbucket_server:passwd:blindfold_secret_info",
@@ -1631,7 +1631,7 @@
           "type": "string"
         },
         {
-          "aliases": ["location"],
+          "aliases": ["code base integration bitbucket server passwd blindfold secret info location"],
           "anchor": "schema-code_base_integration--bitbucket_server--passwd--blindfold_secret_info--location",
           "description": "Location is the uri_ref. It could be in URL format for string:/// Or it could be a path if the store provider is an HTTP/HTTPS location.",
           "document_id": "xcsh-docs:data-sources:code_base_integration:properties:code_base_integration:bitbucket_server:passwd:blindfold_secret_info",
@@ -1645,7 +1645,7 @@
           "type": "string"
         },
         {
-          "aliases": ["store provider"],
+          "aliases": ["code base integration bitbucket server passwd blindfold secret info store provider"],
           "anchor": "schema-code_base_integration--bitbucket_server--passwd--blindfold_secret_info--store_provider",
           "description": "Name of the Secret Management Access object that contains information about the store to GET encrypted bytes This field needs to be provided only if the URL scheme is not string:///.",
           "document_id": "xcsh-docs:data-sources:code_base_integration:properties:code_base_integration:bitbucket_server:passwd:blindfold_secret_info",
@@ -1684,7 +1684,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -1706,7 +1706,7 @@
       "schema_path": ["code_base_integration", "bitbucket_server", "passwd", "clear_secret_info"],
       "sections": [
         {
-          "aliases": ["provider ref"],
+          "aliases": ["code base integration bitbucket server passwd clear secret info provider ref"],
           "anchor": "schema-code_base_integration--bitbucket_server--passwd--clear_secret_info--provider_ref",
           "description": "Name of the Secret Management Access object that contains information about the store to GET encrypted bytes This field needs to be provided only if the URL scheme is not string:///.",
           "document_id": "xcsh-docs:data-sources:code_base_integration:properties:code_base_integration:bitbucket_server:passwd:clear_secret_info",
@@ -1720,7 +1720,7 @@
           "type": "string"
         },
         {
-          "aliases": ["url"],
+          "aliases": ["code base integration bitbucket server passwd clear secret info url"],
           "anchor": "schema-code_base_integration--bitbucket_server--passwd--clear_secret_info--url",
           "description": "URL of the secret. Currently supported URL schemes is string:///. For string:/// scheme, Secret needs to be encoded Base64 format. When asked for this secret, caller will GET Secret bytes after Base64 decoding.",
           "document_id": "xcsh-docs:data-sources:code_base_integration:properties:code_base_integration:bitbucket_server:passwd:clear_secret_info",
@@ -1755,7 +1755,7 @@
         "xcsh-docs:data-sources:code_base_integration:properties:code_base_integration:github:access_token"
       ],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -1777,7 +1777,7 @@
       "schema_path": ["code_base_integration", "github"],
       "sections": [
         {
-          "aliases": ["access token"],
+          "aliases": ["code base integration github access token"],
           "anchor": "section",
           "description": "SecretType is used in an object to indicate a sensitive/confidential field.",
           "document_id": "xcsh-docs:data-sources:code_base_integration:properties:code_base_integration:github:access_token",
@@ -1791,7 +1791,7 @@
           "type": "object"
         },
         {
-          "aliases": ["username"],
+          "aliases": ["code base integration github username"],
           "anchor": "schema-code_base_integration--github--username",
           "description": "Human-readable name for the resource",
           "document_id": "xcsh-docs:data-sources:code_base_integration:properties:code_base_integration:github",
@@ -1805,7 +1805,7 @@
           "type": "string"
         },
         {
-          "aliases": ["verify ssl"],
+          "aliases": ["code base integration github verify ssl"],
           "anchor": "schema-code_base_integration--github--verify_ssl",
           "description": "Configuration parameter for verify ssl",
           "document_id": "xcsh-docs:data-sources:code_base_integration:properties:code_base_integration:github",
@@ -1841,7 +1841,7 @@
         "xcsh-docs:data-sources:code_base_integration:properties:code_base_integration:github:access_token:clear_secret_info"
       ],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -1863,7 +1863,7 @@
       "schema_path": ["code_base_integration", "github", "access_token"],
       "sections": [
         {
-          "aliases": ["blindfold secret info"],
+          "aliases": ["code base integration github access token blindfold secret info"],
           "anchor": "section",
           "description": "BlindfoldSecretInfoType specifies information about the Secret managed by F5XC Secret Management.",
           "document_id": "xcsh-docs:data-sources:code_base_integration:properties:code_base_integration:github:access_token:blindfold_secret_info",
@@ -1877,7 +1877,7 @@
           "type": "object"
         },
         {
-          "aliases": ["clear secret info"],
+          "aliases": ["code base integration github access token clear secret info"],
           "anchor": "section",
           "description": "ClearSecretInfoType specifies information about the Secret that is not encrypted.",
           "document_id": "xcsh-docs:data-sources:code_base_integration:properties:code_base_integration:github:access_token:clear_secret_info",
@@ -1910,7 +1910,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -1932,7 +1932,7 @@
       "schema_path": ["code_base_integration", "github", "access_token", "blindfold_secret_info"],
       "sections": [
         {
-          "aliases": ["decryption provider"],
+          "aliases": ["code base integration github access token blindfold secret info decryption provider"],
           "anchor": "schema-code_base_integration--github--access_token--blindfold_secret_info--decryption_provider",
           "description": "Name of the Secret Management Access object that contains information about the backend Secret Management service.",
           "document_id": "xcsh-docs:data-sources:code_base_integration:properties:code_base_integration:github:access_token:blindfold_secret_info",
@@ -1952,7 +1952,7 @@
           "type": "string"
         },
         {
-          "aliases": ["location"],
+          "aliases": ["code base integration github access token blindfold secret info location"],
           "anchor": "schema-code_base_integration--github--access_token--blindfold_secret_info--location",
           "description": "Location is the uri_ref. It could be in URL format for string:/// Or it could be a path if the store provider is an HTTP/HTTPS location.",
           "document_id": "xcsh-docs:data-sources:code_base_integration:properties:code_base_integration:github:access_token:blindfold_secret_info",
@@ -1966,7 +1966,7 @@
           "type": "string"
         },
         {
-          "aliases": ["store provider"],
+          "aliases": ["code base integration github access token blindfold secret info store provider"],
           "anchor": "schema-code_base_integration--github--access_token--blindfold_secret_info--store_provider",
           "description": "Name of the Secret Management Access object that contains information about the store to GET encrypted bytes This field needs to be provided only if the URL scheme is not string:///.",
           "document_id": "xcsh-docs:data-sources:code_base_integration:properties:code_base_integration:github:access_token:blindfold_secret_info",
@@ -1999,7 +1999,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -2021,7 +2021,7 @@
       "schema_path": ["code_base_integration", "github", "access_token", "clear_secret_info"],
       "sections": [
         {
-          "aliases": ["provider ref"],
+          "aliases": ["code base integration github access token clear secret info provider ref"],
           "anchor": "schema-code_base_integration--github--access_token--clear_secret_info--provider_ref",
           "description": "Name of the Secret Management Access object that contains information about the store to GET encrypted bytes This field needs to be provided only if the URL scheme is not string:///.",
           "document_id": "xcsh-docs:data-sources:code_base_integration:properties:code_base_integration:github:access_token:clear_secret_info",
@@ -2035,7 +2035,7 @@
           "type": "string"
         },
         {
-          "aliases": ["url"],
+          "aliases": ["code base integration github access token clear secret info url"],
           "anchor": "schema-code_base_integration--github--access_token--clear_secret_info--url",
           "description": "URL of the secret. Currently supported URL schemes is string:///. For string:/// scheme, Secret needs to be encoded Base64 format. When asked for this secret, caller will GET Secret bytes after Base64 decoding.",
           "document_id": "xcsh-docs:data-sources:code_base_integration:properties:code_base_integration:github:access_token:clear_secret_info",
@@ -2070,7 +2070,7 @@
         "xcsh-docs:data-sources:code_base_integration:properties:code_base_integration:github_enterprise:access_token"
       ],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -2092,7 +2092,7 @@
       "schema_path": ["code_base_integration", "github_enterprise"],
       "sections": [
         {
-          "aliases": ["access token"],
+          "aliases": ["code base integration github enterprise access token"],
           "anchor": "section",
           "description": "SecretType is used in an object to indicate a sensitive/confidential field.",
           "document_id": "xcsh-docs:data-sources:code_base_integration:properties:code_base_integration:github_enterprise:access_token",
@@ -2106,7 +2106,7 @@
           "type": "object"
         },
         {
-          "aliases": ["hostname"],
+          "aliases": ["code base integration github enterprise hostname"],
           "anchor": "schema-code_base_integration--github_enterprise--hostname",
           "description": "Human-readable name for the resource",
           "document_id": "xcsh-docs:data-sources:code_base_integration:properties:code_base_integration:github_enterprise",
@@ -2120,7 +2120,7 @@
           "type": "string"
         },
         {
-          "aliases": ["username"],
+          "aliases": ["code base integration github enterprise username"],
           "anchor": "schema-code_base_integration--github_enterprise--username",
           "description": "Human-readable name for the resource",
           "document_id": "xcsh-docs:data-sources:code_base_integration:properties:code_base_integration:github_enterprise",
@@ -2156,7 +2156,7 @@
         "xcsh-docs:data-sources:code_base_integration:properties:code_base_integration:github_enterprise:access_token:clear_secret_info"
       ],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -2178,7 +2178,7 @@
       "schema_path": ["code_base_integration", "github_enterprise", "access_token"],
       "sections": [
         {
-          "aliases": ["blindfold secret info"],
+          "aliases": ["code base integration github enterprise access token blindfold secret info"],
           "anchor": "section",
           "description": "BlindfoldSecretInfoType specifies information about the Secret managed by F5XC Secret Management.",
           "document_id": "xcsh-docs:data-sources:code_base_integration:properties:code_base_integration:github_enterprise:access_token:blindfold_secret_info",
@@ -2192,7 +2192,7 @@
           "type": "object"
         },
         {
-          "aliases": ["clear secret info"],
+          "aliases": ["code base integration github enterprise access token clear secret info"],
           "anchor": "section",
           "description": "ClearSecretInfoType specifies information about the Secret that is not encrypted.",
           "document_id": "xcsh-docs:data-sources:code_base_integration:properties:code_base_integration:github_enterprise:access_token:clear_secret_info",
@@ -2225,7 +2225,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -2247,7 +2247,7 @@
       "schema_path": ["code_base_integration", "github_enterprise", "access_token", "blindfold_secret_info"],
       "sections": [
         {
-          "aliases": ["decryption provider"],
+          "aliases": ["code base integration github enterprise access token blindfold secret info decryption provider"],
           "anchor": "schema-code_base_integration--github_enterprise--access_token--blindfold_secret_info--decryption_provider",
           "description": "Name of the Secret Management Access object that contains information about the backend Secret Management service.",
           "document_id": "xcsh-docs:data-sources:code_base_integration:properties:code_base_integration:github_enterprise:access_token:blindfold_secret_info",
@@ -2267,7 +2267,7 @@
           "type": "string"
         },
         {
-          "aliases": ["location"],
+          "aliases": ["code base integration github enterprise access token blindfold secret info location"],
           "anchor": "schema-code_base_integration--github_enterprise--access_token--blindfold_secret_info--location",
           "description": "Location is the uri_ref. It could be in URL format for string:/// Or it could be a path if the store provider is an HTTP/HTTPS location.",
           "document_id": "xcsh-docs:data-sources:code_base_integration:properties:code_base_integration:github_enterprise:access_token:blindfold_secret_info",
@@ -2287,7 +2287,7 @@
           "type": "string"
         },
         {
-          "aliases": ["store provider"],
+          "aliases": ["code base integration github enterprise access token blindfold secret info store provider"],
           "anchor": "schema-code_base_integration--github_enterprise--access_token--blindfold_secret_info--store_provider",
           "description": "Name of the Secret Management Access object that contains information about the store to GET encrypted bytes This field needs to be provided only if the URL scheme is not string:///.",
           "document_id": "xcsh-docs:data-sources:code_base_integration:properties:code_base_integration:github_enterprise:access_token:blindfold_secret_info",
@@ -2326,7 +2326,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -2348,7 +2348,7 @@
       "schema_path": ["code_base_integration", "github_enterprise", "access_token", "clear_secret_info"],
       "sections": [
         {
-          "aliases": ["provider ref"],
+          "aliases": ["code base integration github enterprise access token clear secret info provider ref"],
           "anchor": "schema-code_base_integration--github_enterprise--access_token--clear_secret_info--provider_ref",
           "description": "Name of the Secret Management Access object that contains information about the store to GET encrypted bytes This field needs to be provided only if the URL scheme is not string:///.",
           "document_id": "xcsh-docs:data-sources:code_base_integration:properties:code_base_integration:github_enterprise:access_token:clear_secret_info",
@@ -2368,7 +2368,7 @@
           "type": "string"
         },
         {
-          "aliases": ["url"],
+          "aliases": ["code base integration github enterprise access token clear secret info url"],
           "anchor": "schema-code_base_integration--github_enterprise--access_token--clear_secret_info--url",
           "description": "URL of the secret. Currently supported URL schemes is string:///. For string:/// scheme, Secret needs to be encoded Base64 format. When asked for this secret, caller will GET Secret bytes after Base64 decoding.",
           "document_id": "xcsh-docs:data-sources:code_base_integration:properties:code_base_integration:github_enterprise:access_token:clear_secret_info",
@@ -2403,7 +2403,7 @@
         "xcsh-docs:data-sources:code_base_integration:properties:code_base_integration:gitlab:access_token"
       ],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -2425,7 +2425,7 @@
       "schema_path": ["code_base_integration", "gitlab"],
       "sections": [
         {
-          "aliases": ["access token"],
+          "aliases": ["code base integration gitlab access token"],
           "anchor": "section",
           "description": "SecretType is used in an object to indicate a sensitive/confidential field.",
           "document_id": "xcsh-docs:data-sources:code_base_integration:properties:code_base_integration:gitlab:access_token",
@@ -2461,7 +2461,7 @@
         "xcsh-docs:data-sources:code_base_integration:properties:code_base_integration:gitlab:access_token:clear_secret_info"
       ],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -2483,7 +2483,7 @@
       "schema_path": ["code_base_integration", "gitlab", "access_token"],
       "sections": [
         {
-          "aliases": ["blindfold secret info"],
+          "aliases": ["code base integration gitlab access token blindfold secret info"],
           "anchor": "section",
           "description": "BlindfoldSecretInfoType specifies information about the Secret managed by F5XC Secret Management.",
           "document_id": "xcsh-docs:data-sources:code_base_integration:properties:code_base_integration:gitlab:access_token:blindfold_secret_info",
@@ -2497,7 +2497,7 @@
           "type": "object"
         },
         {
-          "aliases": ["clear secret info"],
+          "aliases": ["code base integration gitlab access token clear secret info"],
           "anchor": "section",
           "description": "ClearSecretInfoType specifies information about the Secret that is not encrypted.",
           "document_id": "xcsh-docs:data-sources:code_base_integration:properties:code_base_integration:gitlab:access_token:clear_secret_info",
@@ -2530,7 +2530,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -2552,7 +2552,7 @@
       "schema_path": ["code_base_integration", "gitlab", "access_token", "blindfold_secret_info"],
       "sections": [
         {
-          "aliases": ["decryption provider"],
+          "aliases": ["code base integration gitlab access token blindfold secret info decryption provider"],
           "anchor": "schema-code_base_integration--gitlab--access_token--blindfold_secret_info--decryption_provider",
           "description": "Name of the Secret Management Access object that contains information about the backend Secret Management service.",
           "document_id": "xcsh-docs:data-sources:code_base_integration:properties:code_base_integration:gitlab:access_token:blindfold_secret_info",
@@ -2572,7 +2572,7 @@
           "type": "string"
         },
         {
-          "aliases": ["location"],
+          "aliases": ["code base integration gitlab access token blindfold secret info location"],
           "anchor": "schema-code_base_integration--gitlab--access_token--blindfold_secret_info--location",
           "description": "Location is the uri_ref. It could be in URL format for string:/// Or it could be a path if the store provider is an HTTP/HTTPS location.",
           "document_id": "xcsh-docs:data-sources:code_base_integration:properties:code_base_integration:gitlab:access_token:blindfold_secret_info",
@@ -2586,7 +2586,7 @@
           "type": "string"
         },
         {
-          "aliases": ["store provider"],
+          "aliases": ["code base integration gitlab access token blindfold secret info store provider"],
           "anchor": "schema-code_base_integration--gitlab--access_token--blindfold_secret_info--store_provider",
           "description": "Name of the Secret Management Access object that contains information about the store to GET encrypted bytes This field needs to be provided only if the URL scheme is not string:///.",
           "document_id": "xcsh-docs:data-sources:code_base_integration:properties:code_base_integration:gitlab:access_token:blindfold_secret_info",
@@ -2619,7 +2619,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -2641,7 +2641,7 @@
       "schema_path": ["code_base_integration", "gitlab", "access_token", "clear_secret_info"],
       "sections": [
         {
-          "aliases": ["provider ref"],
+          "aliases": ["code base integration gitlab access token clear secret info provider ref"],
           "anchor": "schema-code_base_integration--gitlab--access_token--clear_secret_info--provider_ref",
           "description": "Name of the Secret Management Access object that contains information about the store to GET encrypted bytes This field needs to be provided only if the URL scheme is not string:///.",
           "document_id": "xcsh-docs:data-sources:code_base_integration:properties:code_base_integration:gitlab:access_token:clear_secret_info",
@@ -2655,7 +2655,7 @@
           "type": "string"
         },
         {
-          "aliases": ["url"],
+          "aliases": ["code base integration gitlab access token clear secret info url"],
           "anchor": "schema-code_base_integration--gitlab--access_token--clear_secret_info--url",
           "description": "URL of the secret. Currently supported URL schemes is string:///. For string:/// scheme, Secret needs to be encoded Base64 format. When asked for this secret, caller will GET Secret bytes after Base64 decoding.",
           "document_id": "xcsh-docs:data-sources:code_base_integration:properties:code_base_integration:gitlab:access_token:clear_secret_info",
@@ -2690,7 +2690,7 @@
         "xcsh-docs:data-sources:code_base_integration:properties:code_base_integration:gitlab_enterprise:access_token"
       ],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -2712,7 +2712,7 @@
       "schema_path": ["code_base_integration", "gitlab_enterprise"],
       "sections": [
         {
-          "aliases": ["access token"],
+          "aliases": ["code base integration gitlab enterprise access token"],
           "anchor": "section",
           "description": "SecretType is used in an object to indicate a sensitive/confidential field.",
           "document_id": "xcsh-docs:data-sources:code_base_integration:properties:code_base_integration:gitlab_enterprise:access_token",
@@ -2726,7 +2726,7 @@
           "type": "object"
         },
         {
-          "aliases": ["url"],
+          "aliases": ["code base integration gitlab enterprise url"],
           "anchor": "schema-code_base_integration--gitlab_enterprise--url",
           "description": "URL or URI reference",
           "document_id": "xcsh-docs:data-sources:code_base_integration:properties:code_base_integration:gitlab_enterprise",
@@ -2762,7 +2762,7 @@
         "xcsh-docs:data-sources:code_base_integration:properties:code_base_integration:gitlab_enterprise:access_token:clear_secret_info"
       ],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -2784,7 +2784,7 @@
       "schema_path": ["code_base_integration", "gitlab_enterprise", "access_token"],
       "sections": [
         {
-          "aliases": ["blindfold secret info"],
+          "aliases": ["code base integration gitlab enterprise access token blindfold secret info"],
           "anchor": "section",
           "description": "BlindfoldSecretInfoType specifies information about the Secret managed by F5XC Secret Management.",
           "document_id": "xcsh-docs:data-sources:code_base_integration:properties:code_base_integration:gitlab_enterprise:access_token:blindfold_secret_info",
@@ -2798,7 +2798,7 @@
           "type": "object"
         },
         {
-          "aliases": ["clear secret info"],
+          "aliases": ["code base integration gitlab enterprise access token clear secret info"],
           "anchor": "section",
           "description": "ClearSecretInfoType specifies information about the Secret that is not encrypted.",
           "document_id": "xcsh-docs:data-sources:code_base_integration:properties:code_base_integration:gitlab_enterprise:access_token:clear_secret_info",
@@ -2831,7 +2831,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -2853,7 +2853,7 @@
       "schema_path": ["code_base_integration", "gitlab_enterprise", "access_token", "blindfold_secret_info"],
       "sections": [
         {
-          "aliases": ["decryption provider"],
+          "aliases": ["code base integration gitlab enterprise access token blindfold secret info decryption provider"],
           "anchor": "schema-code_base_integration--gitlab_enterprise--access_token--blindfold_secret_info--decryption_provider",
           "description": "Name of the Secret Management Access object that contains information about the backend Secret Management service.",
           "document_id": "xcsh-docs:data-sources:code_base_integration:properties:code_base_integration:gitlab_enterprise:access_token:blindfold_secret_info",
@@ -2873,7 +2873,7 @@
           "type": "string"
         },
         {
-          "aliases": ["location"],
+          "aliases": ["code base integration gitlab enterprise access token blindfold secret info location"],
           "anchor": "schema-code_base_integration--gitlab_enterprise--access_token--blindfold_secret_info--location",
           "description": "Location is the uri_ref. It could be in URL format for string:/// Or it could be a path if the store provider is an HTTP/HTTPS location.",
           "document_id": "xcsh-docs:data-sources:code_base_integration:properties:code_base_integration:gitlab_enterprise:access_token:blindfold_secret_info",
@@ -2893,7 +2893,7 @@
           "type": "string"
         },
         {
-          "aliases": ["store provider"],
+          "aliases": ["code base integration gitlab enterprise access token blindfold secret info store provider"],
           "anchor": "schema-code_base_integration--gitlab_enterprise--access_token--blindfold_secret_info--store_provider",
           "description": "Name of the Secret Management Access object that contains information about the store to GET encrypted bytes This field needs to be provided only if the URL scheme is not string:///.",
           "document_id": "xcsh-docs:data-sources:code_base_integration:properties:code_base_integration:gitlab_enterprise:access_token:blindfold_secret_info",
@@ -2932,7 +2932,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -2954,7 +2954,7 @@
       "schema_path": ["code_base_integration", "gitlab_enterprise", "access_token", "clear_secret_info"],
       "sections": [
         {
-          "aliases": ["provider ref"],
+          "aliases": ["code base integration gitlab enterprise access token clear secret info provider ref"],
           "anchor": "schema-code_base_integration--gitlab_enterprise--access_token--clear_secret_info--provider_ref",
           "description": "Name of the Secret Management Access object that contains information about the store to GET encrypted bytes This field needs to be provided only if the URL scheme is not string:///.",
           "document_id": "xcsh-docs:data-sources:code_base_integration:properties:code_base_integration:gitlab_enterprise:access_token:clear_secret_info",
@@ -2974,7 +2974,7 @@
           "type": "string"
         },
         {
-          "aliases": ["url"],
+          "aliases": ["code base integration gitlab enterprise access token clear secret info url"],
           "anchor": "schema-code_base_integration--gitlab_enterprise--access_token--clear_secret_info--url",
           "description": "URL of the secret. Currently supported URL schemes is string:///. For string:/// scheme, Secret needs to be encoded Base64 format. When asked for this secret, caller will GET Secret bytes after Base64 decoding.",
           "document_id": "xcsh-docs:data-sources:code_base_integration:properties:code_base_integration:gitlab_enterprise:access_token:clear_secret_info",
@@ -3007,7 +3007,7 @@
       "category": null,
       "child_ids": ["xcsh-docs:data-sources:code_base_integration:example:data-source"],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -3047,7 +3047,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"

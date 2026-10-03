@@ -130,7 +130,7 @@
         "xcsh-docs:data-sources:user_identification:examples"
       ],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -171,7 +171,7 @@
       "category": "security",
       "child_ids": ["xcsh-docs:data-sources:user_identification:properties:rules"],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -321,7 +321,7 @@
         "xcsh-docs:data-sources:user_identification:properties:rules:tls_fingerprint"
       ],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -343,7 +343,7 @@
       "schema_path": ["rules"],
       "sections": [
         {
-          "aliases": ["client asn"],
+          "aliases": ["rules client asn"],
           "anchor": "section",
           "description": "This can be used for messages where no values are needed.",
           "document_id": "xcsh-docs:data-sources:user_identification:properties:rules:client_asn",
@@ -357,7 +357,7 @@
           "type": "object"
         },
         {
-          "aliases": ["client city"],
+          "aliases": ["rules client city"],
           "anchor": "section",
           "description": "This can be used for messages where no values are needed.",
           "document_id": "xcsh-docs:data-sources:user_identification:properties:rules:client_city",
@@ -371,7 +371,7 @@
           "type": "object"
         },
         {
-          "aliases": ["client country"],
+          "aliases": ["rules client country"],
           "anchor": "section",
           "description": "This can be used for messages where no values are needed.",
           "document_id": "xcsh-docs:data-sources:user_identification:properties:rules:client_country",
@@ -385,7 +385,7 @@
           "type": "object"
         },
         {
-          "aliases": ["client ip"],
+          "aliases": ["rules client ip"],
           "anchor": "section",
           "description": "This can be used for messages where no values are needed.",
           "document_id": "xcsh-docs:data-sources:user_identification:properties:rules:client_ip",
@@ -399,7 +399,7 @@
           "type": "object"
         },
         {
-          "aliases": ["client region"],
+          "aliases": ["rules client region"],
           "anchor": "section",
           "description": "This can be used for messages where no values are needed.",
           "document_id": "xcsh-docs:data-sources:user_identification:properties:rules:client_region",
@@ -413,7 +413,7 @@
           "type": "object"
         },
         {
-          "aliases": ["cookie name"],
+          "aliases": ["rules cookie name"],
           "anchor": "schema-rules--cookie_name",
           "description": "Exclusive with Use the HTTP cookie value for the given name as user identifier.",
           "document_id": "xcsh-docs:data-sources:user_identification:properties:rules",
@@ -427,7 +427,7 @@
           "type": "string"
         },
         {
-          "aliases": ["http header name"],
+          "aliases": ["rules http header name"],
           "anchor": "schema-rules--http_header_name",
           "description": "Exclusive with Use the HTTP header value for the given name as user identifier.",
           "document_id": "xcsh-docs:data-sources:user_identification:properties:rules",
@@ -441,7 +441,7 @@
           "type": "string"
         },
         {
-          "aliases": ["ip and http header name"],
+          "aliases": ["rules ip and http header name"],
           "anchor": "schema-rules--ip_and_http_header_name",
           "description": "Exclusive with Name of HTTP header from which the value should be extracted.",
           "document_id": "xcsh-docs:data-sources:user_identification:properties:rules",
@@ -455,7 +455,7 @@
           "type": "string"
         },
         {
-          "aliases": ["ip and ja4 tls fingerprint"],
+          "aliases": ["rules ip and ja4 tls fingerprint"],
           "anchor": "section",
           "description": "This can be used for messages where no values are needed.",
           "document_id": "xcsh-docs:data-sources:user_identification:properties:rules:ip_and_ja4_tls_fingerprint",
@@ -469,7 +469,7 @@
           "type": "object"
         },
         {
-          "aliases": ["ip and tls fingerprint"],
+          "aliases": ["rules ip and tls fingerprint"],
           "anchor": "section",
           "description": "This can be used for messages where no values are needed.",
           "document_id": "xcsh-docs:data-sources:user_identification:properties:rules:ip_and_tls_fingerprint",
@@ -483,7 +483,7 @@
           "type": "object"
         },
         {
-          "aliases": ["ja4 tls fingerprint"],
+          "aliases": ["rules ja4 tls fingerprint"],
           "anchor": "section",
           "description": "This can be used for messages where no values are needed.",
           "document_id": "xcsh-docs:data-sources:user_identification:properties:rules:ja4_tls_fingerprint",
@@ -497,7 +497,7 @@
           "type": "object"
         },
         {
-          "aliases": ["jwt claim name"],
+          "aliases": ["rules jwt claim name"],
           "anchor": "schema-rules--jwt_claim_name",
           "description": "Exclusive with Use the JWT claim value as user identifier.",
           "document_id": "xcsh-docs:data-sources:user_identification:properties:rules",
@@ -511,7 +511,7 @@
           "type": "string"
         },
         {
-          "aliases": ["none"],
+          "aliases": ["rules none"],
           "anchor": "section",
           "description": "This can be used for messages where no values are needed.",
           "document_id": "xcsh-docs:data-sources:user_identification:properties:rules:none",
@@ -525,7 +525,7 @@
           "type": "object"
         },
         {
-          "aliases": ["query param key"],
+          "aliases": ["rules query param key"],
           "anchor": "schema-rules--query_param_key",
           "description": "Exclusive with Use the query parameter value for the given key as user identifier.",
           "document_id": "xcsh-docs:data-sources:user_identification:properties:rules",
@@ -539,7 +539,7 @@
           "type": "string"
         },
         {
-          "aliases": ["tls fingerprint"],
+          "aliases": ["rules tls fingerprint"],
           "anchor": "section",
           "description": "This can be used for messages where no values are needed.",
           "document_id": "xcsh-docs:data-sources:user_identification:properties:rules:tls_fingerprint",
@@ -572,7 +572,7 @@
       "category": "security",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -612,7 +612,7 @@
       "category": "security",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -652,7 +652,7 @@
       "category": "security",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -692,7 +692,7 @@
       "category": "security",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -732,7 +732,7 @@
       "category": "security",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -772,7 +772,7 @@
       "category": "security",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -812,7 +812,7 @@
       "category": "security",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -852,7 +852,7 @@
       "category": "security",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -892,7 +892,7 @@
       "category": "security",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -932,7 +932,7 @@
       "category": "security",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -972,7 +972,7 @@
       "category": "security",
       "child_ids": ["xcsh-docs:data-sources:user_identification:example:data-source"],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -1012,7 +1012,7 @@
       "category": "security",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"

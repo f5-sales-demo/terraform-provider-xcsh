@@ -392,7 +392,7 @@
       "category": "security",
       "child_ids": ["xcsh-docs:data-sources:app_firewall:reference", "xcsh-docs:data-sources:app_firewall:examples"],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -457,7 +457,7 @@
         "xcsh-docs:data-sources:app_firewall:properties:use_default_blocking_page"
       ],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -792,7 +792,7 @@
       "category": "security",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -832,7 +832,7 @@
       "category": "security",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -854,7 +854,7 @@
       "schema_path": ["allowed_response_codes"],
       "sections": [
         {
-          "aliases": ["response code"],
+          "aliases": ["allowed response codes response code"],
           "anchor": "schema-allowed_response_codes--response_code",
           "description": "List of HTTP response status codes that are allowed.",
           "document_id": "xcsh-docs:data-sources:app_firewall:properties:allowed_response_codes",
@@ -887,7 +887,7 @@
       "category": "security",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -927,7 +927,7 @@
       "category": "security",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -949,7 +949,7 @@
       "schema_path": ["blocking_page"],
       "sections": [
         {
-          "aliases": ["blocking page"],
+          "aliases": ["blocking page blocking page"],
           "anchor": "schema-blocking_page--blocking_page",
           "description": "Define the content of the response page (e.g., an HTML document or a JSON object), use the {{request_id}} placeholder to provide users with a unique identifier to be able to trace the blocked request in the logs. The maximum allowed size of response body is 4096 bytes after base64 encoding, which would be about 3070",
           "document_id": "xcsh-docs:data-sources:app_firewall:properties:blocking_page",
@@ -963,7 +963,7 @@
           "type": "string"
         },
         {
-          "aliases": ["duration", "operation timeout", "response code"],
+          "aliases": ["blocking page response code", "duration"],
           "anchor": "schema-blocking_page--response_code",
           "description": "HTTP response status codes EmptyStatusCode response codes means it is not specified Continue status code OK status code Created status code Accepted status code Non Authoritative Information status code No Content status code Reset Content status code Partial Content status code Multi Status status code Already",
           "document_id": "xcsh-docs:data-sources:app_firewall:properties:blocking_page",
@@ -996,7 +996,7 @@
       "category": "security",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -1018,7 +1018,7 @@
       "schema_path": ["bot_protection_setting"],
       "sections": [
         {
-          "aliases": ["good bot action"],
+          "aliases": ["bot protection setting good bot action"],
           "anchor": "schema-bot_protection_setting--good_bot_action",
           "description": "Action to be performed on the request Log and block Log only Disable detection.",
           "document_id": "xcsh-docs:data-sources:app_firewall:properties:bot_protection_setting",
@@ -1032,7 +1032,7 @@
           "type": "string"
         },
         {
-          "aliases": ["malicious bot action"],
+          "aliases": ["bot protection setting malicious bot action"],
           "anchor": "schema-bot_protection_setting--malicious_bot_action",
           "description": "Action to be performed on the request Log and block Log only Disable detection.",
           "document_id": "xcsh-docs:data-sources:app_firewall:properties:bot_protection_setting",
@@ -1046,7 +1046,7 @@
           "type": "string"
         },
         {
-          "aliases": ["suspicious bot action"],
+          "aliases": ["bot protection setting suspicious bot action"],
           "anchor": "schema-bot_protection_setting--suspicious_bot_action",
           "description": "Action to be performed on the request Log and block Log only Disable detection.",
           "document_id": "xcsh-docs:data-sources:app_firewall:properties:bot_protection_setting",
@@ -1079,7 +1079,7 @@
       "category": "security",
       "child_ids": ["xcsh-docs:data-sources:app_firewall:properties:custom_anonymization:anonymization_config"],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -1101,7 +1101,7 @@
       "schema_path": ["custom_anonymization"],
       "sections": [
         {
-          "aliases": ["anonymization config"],
+          "aliases": ["custom anonymization anonymization config"],
           "anchor": "section",
           "description": "List of HTTP headers, cookies and query parameters whose values will be masked.",
           "document_id": "xcsh-docs:data-sources:app_firewall:properties:custom_anonymization:anonymization_config",
@@ -1138,7 +1138,7 @@
         "xcsh-docs:data-sources:app_firewall:properties:custom_anonymization:anonymization_config:query_parameter"
       ],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -1160,7 +1160,7 @@
       "schema_path": ["custom_anonymization", "anonymization_config"],
       "sections": [
         {
-          "aliases": ["cookie"],
+          "aliases": ["custom anonymization anonymization config cookie"],
           "anchor": "section",
           "description": "Configure anonymization for HTTP Cookies.",
           "document_id": "xcsh-docs:data-sources:app_firewall:properties:custom_anonymization:anonymization_config:cookie",
@@ -1174,7 +1174,7 @@
           "type": "object"
         },
         {
-          "aliases": ["http header"],
+          "aliases": ["custom anonymization anonymization config http header"],
           "anchor": "section",
           "description": "Configure anonymization for HTTP Headers.",
           "document_id": "xcsh-docs:data-sources:app_firewall:properties:custom_anonymization:anonymization_config:http_header",
@@ -1188,7 +1188,7 @@
           "type": "object"
         },
         {
-          "aliases": ["query parameter"],
+          "aliases": ["custom anonymization anonymization config query parameter"],
           "anchor": "section",
           "description": "Configure anonymization for HTTP Parameters.",
           "document_id": "xcsh-docs:data-sources:app_firewall:properties:custom_anonymization:anonymization_config:query_parameter",
@@ -1221,7 +1221,7 @@
       "category": "security",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -1243,7 +1243,7 @@
       "schema_path": ["custom_anonymization", "anonymization_config", "cookie"],
       "sections": [
         {
-          "aliases": ["cookie name"],
+          "aliases": ["custom anonymization anonymization config cookie cookie name"],
           "anchor": "schema-custom_anonymization--anonymization_config--cookie--cookie_name",
           "description": "Masks the cookie value. The setting does not mask the cookie name. Wildcard matching can be used by prefixing or suffixing the cookie name with a wildcard asterisk (*), or by using only an asterisk to match any cookie name.",
           "document_id": "xcsh-docs:data-sources:app_firewall:properties:custom_anonymization:anonymization_config:cookie",
@@ -1276,7 +1276,7 @@
       "category": "security",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -1298,7 +1298,7 @@
       "schema_path": ["custom_anonymization", "anonymization_config", "http_header"],
       "sections": [
         {
-          "aliases": ["header name"],
+          "aliases": ["custom anonymization anonymization config http header header name"],
           "anchor": "schema-custom_anonymization--anonymization_config--http_header--header_name",
           "description": "Masks the HTTP header value. The setting does not mask the HTTP header name. Wildcard matching can be used by prefixing or suffixing the HTTP header name with a wildcard asterisk (*), or by using only an asterisk to match any HTTP header name.",
           "document_id": "xcsh-docs:data-sources:app_firewall:properties:custom_anonymization:anonymization_config:http_header",
@@ -1331,7 +1331,7 @@
       "category": "security",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -1353,7 +1353,7 @@
       "schema_path": ["custom_anonymization", "anonymization_config", "query_parameter"],
       "sections": [
         {
-          "aliases": ["query param name"],
+          "aliases": ["custom anonymization anonymization config query parameter query param name"],
           "anchor": "schema-custom_anonymization--anonymization_config--query_parameter--query_param_name",
           "description": "Masks the query parameter value. The setting does not mask the query parameter name. Wildcard matching can be used by prefixing or suffixing the query parameter name with a wildcard asterisk (*), or by using only an asterisk to match any query parameter name.",
           "document_id": "xcsh-docs:data-sources:app_firewall:properties:custom_anonymization:anonymization_config:query_parameter",
@@ -1386,7 +1386,7 @@
       "category": "security",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -1426,7 +1426,7 @@
       "category": "security",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -1466,7 +1466,7 @@
       "category": "security",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -1520,7 +1520,7 @@
         "xcsh-docs:data-sources:app_firewall:properties:detection_settings:violations_view"
       ],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -1542,7 +1542,7 @@
       "schema_path": ["detection_settings"],
       "sections": [
         {
-          "aliases": ["bot protection setting"],
+          "aliases": ["detection settings bot protection setting"],
           "anchor": "section",
           "description": "Configuration of WAF Bot Protection.",
           "document_id": "xcsh-docs:data-sources:app_firewall:properties:detection_settings:bot_protection_setting",
@@ -1556,7 +1556,7 @@
           "type": "object"
         },
         {
-          "aliases": ["default bot setting"],
+          "aliases": ["detection settings default bot setting"],
           "anchor": "section",
           "description": "This can be used for messages where no values are needed.",
           "document_id": "xcsh-docs:data-sources:app_firewall:properties:detection_settings:default_bot_setting",
@@ -1570,7 +1570,7 @@
           "type": "object"
         },
         {
-          "aliases": ["default violation settings"],
+          "aliases": ["detection settings default violation settings"],
           "anchor": "section",
           "description": "This can be used for messages where no values are needed.",
           "document_id": "xcsh-docs:data-sources:app_firewall:properties:detection_settings:default_violation_settings",
@@ -1584,7 +1584,7 @@
           "type": "object"
         },
         {
-          "aliases": ["disable staging"],
+          "aliases": ["detection settings disable staging"],
           "anchor": "section",
           "description": "This can be used for messages where no values are needed.",
           "document_id": "xcsh-docs:data-sources:app_firewall:properties:detection_settings:disable_staging",
@@ -1598,7 +1598,7 @@
           "type": "object"
         },
         {
-          "aliases": ["disable suppression"],
+          "aliases": ["detection settings disable suppression"],
           "anchor": "section",
           "description": "This can be used for messages where no values are needed.",
           "document_id": "xcsh-docs:data-sources:app_firewall:properties:detection_settings:disable_suppression",
@@ -1612,7 +1612,7 @@
           "type": "object"
         },
         {
-          "aliases": ["disable threat campaigns"],
+          "aliases": ["detection settings disable threat campaigns"],
           "anchor": "section",
           "description": "This can be used for messages where no values are needed.",
           "document_id": "xcsh-docs:data-sources:app_firewall:properties:detection_settings:disable_threat_campaigns",
@@ -1626,7 +1626,7 @@
           "type": "object"
         },
         {
-          "aliases": ["enable suppression"],
+          "aliases": ["detection settings enable suppression"],
           "anchor": "section",
           "description": "This can be used for messages where no values are needed.",
           "document_id": "xcsh-docs:data-sources:app_firewall:properties:detection_settings:enable_suppression",
@@ -1640,7 +1640,7 @@
           "type": "object"
         },
         {
-          "aliases": ["enable threat campaigns"],
+          "aliases": ["detection settings enable threat campaigns"],
           "anchor": "section",
           "description": "This can be used for messages where no values are needed.",
           "document_id": "xcsh-docs:data-sources:app_firewall:properties:detection_settings:enable_threat_campaigns",
@@ -1654,7 +1654,7 @@
           "type": "object"
         },
         {
-          "aliases": ["signature selection setting"],
+          "aliases": ["detection settings signature selection setting"],
           "anchor": "section",
           "description": "Attack Signatures are patterns that identify attacks on a web application and its components.",
           "document_id": "xcsh-docs:data-sources:app_firewall:properties:detection_settings:signature_selection_setting",
@@ -1668,7 +1668,7 @@
           "type": "object"
         },
         {
-          "aliases": ["stage new and updated signatures"],
+          "aliases": ["detection settings stage new and updated signatures"],
           "anchor": "section",
           "description": "Attack Signatures staging configuration.",
           "document_id": "xcsh-docs:data-sources:app_firewall:properties:detection_settings:stage_new_and_updated_signatures",
@@ -1682,7 +1682,7 @@
           "type": "object"
         },
         {
-          "aliases": ["stage new signatures"],
+          "aliases": ["detection settings stage new signatures"],
           "anchor": "section",
           "description": "Attack Signatures staging configuration.",
           "document_id": "xcsh-docs:data-sources:app_firewall:properties:detection_settings:stage_new_signatures",
@@ -1696,7 +1696,7 @@
           "type": "object"
         },
         {
-          "aliases": ["violation settings"],
+          "aliases": ["detection settings violation settings"],
           "anchor": "section",
           "description": "Specifies violation settings to be used by WAF.",
           "document_id": "xcsh-docs:data-sources:app_firewall:properties:detection_settings:violation_settings",
@@ -1710,7 +1710,7 @@
           "type": "object"
         },
         {
-          "aliases": ["violations view"],
+          "aliases": ["detection settings violations view"],
           "anchor": "section",
           "description": "List of violation checks that are performed on HTTP request to ensure the requests are properly formatted, detection of evasion techniques and other violations.",
           "document_id": "xcsh-docs:data-sources:app_firewall:properties:detection_settings:violations_view",
@@ -1743,7 +1743,7 @@
       "category": "security",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -1765,7 +1765,7 @@
       "schema_path": ["detection_settings", "bot_protection_setting"],
       "sections": [
         {
-          "aliases": ["good bot action"],
+          "aliases": ["detection settings bot protection setting good bot action"],
           "anchor": "schema-detection_settings--bot_protection_setting--good_bot_action",
           "description": "Action to be performed on the request Log and block Log only Disable detection.",
           "document_id": "xcsh-docs:data-sources:app_firewall:properties:detection_settings:bot_protection_setting",
@@ -1779,7 +1779,7 @@
           "type": "string"
         },
         {
-          "aliases": ["malicious bot action"],
+          "aliases": ["detection settings bot protection setting malicious bot action"],
           "anchor": "schema-detection_settings--bot_protection_setting--malicious_bot_action",
           "description": "Action to be performed on the request Log and block Log only Disable detection.",
           "document_id": "xcsh-docs:data-sources:app_firewall:properties:detection_settings:bot_protection_setting",
@@ -1793,7 +1793,7 @@
           "type": "string"
         },
         {
-          "aliases": ["suspicious bot action"],
+          "aliases": ["detection settings bot protection setting suspicious bot action"],
           "anchor": "schema-detection_settings--bot_protection_setting--suspicious_bot_action",
           "description": "Action to be performed on the request Log and block Log only Disable detection.",
           "document_id": "xcsh-docs:data-sources:app_firewall:properties:detection_settings:bot_protection_setting",
@@ -1826,7 +1826,7 @@
       "category": "security",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -1866,7 +1866,7 @@
       "category": "security",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -1906,7 +1906,7 @@
       "category": "security",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -1946,7 +1946,7 @@
       "category": "security",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -1986,7 +1986,7 @@
       "category": "security",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -2026,7 +2026,7 @@
       "category": "security",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -2066,7 +2066,7 @@
       "category": "security",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -2114,7 +2114,7 @@
         "xcsh-docs:data-sources:app_firewall:properties:detection_settings:signature_selection_setting:signature_settings_by_accuracy"
       ],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -2136,7 +2136,7 @@
       "schema_path": ["detection_settings", "signature_selection_setting"],
       "sections": [
         {
-          "aliases": ["attack type settings"],
+          "aliases": ["detection settings signature selection setting attack type settings"],
           "anchor": "section",
           "description": "Specifies attack-type settings to be used by WAF.",
           "document_id": "xcsh-docs:data-sources:app_firewall:properties:detection_settings:signature_selection_setting:attack_type_settings",
@@ -2150,7 +2150,7 @@
           "type": "object"
         },
         {
-          "aliases": ["default attack type settings"],
+          "aliases": ["detection settings signature selection setting default attack type settings"],
           "anchor": "section",
           "description": "This can be used for messages where no values are needed.",
           "document_id": "xcsh-docs:data-sources:app_firewall:properties:detection_settings:signature_selection_setting:default_attack_type_settings",
@@ -2164,7 +2164,7 @@
           "type": "object"
         },
         {
-          "aliases": ["default signature setting"],
+          "aliases": ["detection settings signature selection setting default signature setting"],
           "anchor": "section",
           "description": "This can be used for messages where no values are needed.",
           "document_id": "xcsh-docs:data-sources:app_firewall:properties:detection_settings:signature_selection_setting:default_signature_setting",
@@ -2178,7 +2178,7 @@
           "type": "object"
         },
         {
-          "aliases": ["high medium accuracy signatures"],
+          "aliases": ["detection settings signature selection setting high medium accuracy signatures"],
           "anchor": "section",
           "description": "This can be used for messages where no values are needed.",
           "document_id": "xcsh-docs:data-sources:app_firewall:properties:detection_settings:signature_selection_setting:high_medium_accuracy_signatures",
@@ -2192,7 +2192,7 @@
           "type": "object"
         },
         {
-          "aliases": ["high medium low accuracy signatures"],
+          "aliases": ["detection settings signature selection setting high medium low accuracy signatures"],
           "anchor": "section",
           "description": "This can be used for messages where no values are needed.",
           "document_id": "xcsh-docs:data-sources:app_firewall:properties:detection_settings:signature_selection_setting:high_medium_low_accuracy_signatures",
@@ -2206,7 +2206,7 @@
           "type": "object"
         },
         {
-          "aliases": ["only high accuracy signatures"],
+          "aliases": ["detection settings signature selection setting only high accuracy signatures"],
           "anchor": "section",
           "description": "This can be used for messages where no values are needed.",
           "document_id": "xcsh-docs:data-sources:app_firewall:properties:detection_settings:signature_selection_setting:only_high_accuracy_signatures",
@@ -2220,7 +2220,7 @@
           "type": "object"
         },
         {
-          "aliases": ["signature settings by accuracy"],
+          "aliases": ["detection settings signature selection setting signature settings by accuracy"],
           "anchor": "section",
           "description": "Configuration of WAF Signature Protection.",
           "document_id": "xcsh-docs:data-sources:app_firewall:properties:detection_settings:signature_selection_setting:signature_settings_by_accuracy",
@@ -2253,7 +2253,7 @@
       "category": "security",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -2275,7 +2275,7 @@
       "schema_path": ["detection_settings", "signature_selection_setting", "attack_type_settings"],
       "sections": [
         {
-          "aliases": ["disabled attack types"],
+          "aliases": ["detection settings signature selection setting attack type settings disabled attack types"],
           "anchor": "schema-detection_settings--signature_selection_setting--attack_type_settings--disabled_attack_types",
           "description": "List of Attack Types that will be ignored and not trigger a detection.",
           "document_id": "xcsh-docs:data-sources:app_firewall:properties:detection_settings:signature_selection_setting:attack_type_settings",
@@ -2313,7 +2313,7 @@
       "category": "security",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -2353,7 +2353,7 @@
       "category": "security",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -2393,7 +2393,7 @@
       "category": "security",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -2433,7 +2433,7 @@
       "category": "security",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -2473,7 +2473,7 @@
       "category": "security",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -2513,7 +2513,7 @@
       "category": "security",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -2535,7 +2535,9 @@
       "schema_path": ["detection_settings", "signature_selection_setting", "signature_settings_by_accuracy"],
       "sections": [
         {
-          "aliases": ["high accuracy action"],
+          "aliases": [
+            "detection settings signature selection setting signature settings by accuracy high accuracy action"
+          ],
           "anchor": "schema-detection_settings--signature_selection_setting--signature_settings_by_accuracy--high_accuracy_action",
           "description": "Action to be performed on the request Log and block Log only Disable detection.",
           "document_id": "xcsh-docs:data-sources:app_firewall:properties:detection_settings:signature_selection_setting:signature_settings_by_accuracy",
@@ -2554,7 +2556,9 @@
           "type": "string"
         },
         {
-          "aliases": ["low accuracy action"],
+          "aliases": [
+            "detection settings signature selection setting signature settings by accuracy low accuracy action"
+          ],
           "anchor": "schema-detection_settings--signature_selection_setting--signature_settings_by_accuracy--low_accuracy_action",
           "description": "Action to be performed on the request Log and block Log only Disable detection.",
           "document_id": "xcsh-docs:data-sources:app_firewall:properties:detection_settings:signature_selection_setting:signature_settings_by_accuracy",
@@ -2573,7 +2577,9 @@
           "type": "string"
         },
         {
-          "aliases": ["medium accuracy action"],
+          "aliases": [
+            "detection settings signature selection setting signature settings by accuracy medium accuracy action"
+          ],
           "anchor": "schema-detection_settings--signature_selection_setting--signature_settings_by_accuracy--medium_accuracy_action",
           "description": "Action to be performed on the request Log and block Log only Disable detection.",
           "document_id": "xcsh-docs:data-sources:app_firewall:properties:detection_settings:signature_selection_setting:signature_settings_by_accuracy",
@@ -2611,7 +2617,7 @@
       "category": "security",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -2633,7 +2639,7 @@
       "schema_path": ["detection_settings", "stage_new_and_updated_signatures"],
       "sections": [
         {
-          "aliases": ["staging period"],
+          "aliases": ["detection settings stage new and updated signatures staging period"],
           "anchor": "schema-detection_settings--stage_new_and_updated_signatures--staging_period",
           "description": "Define staging period in days. The default staging period is 7 days and the max supported staging period is 20 days.",
           "document_id": "xcsh-docs:data-sources:app_firewall:properties:detection_settings:stage_new_and_updated_signatures",
@@ -2666,7 +2672,7 @@
       "category": "security",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -2688,7 +2694,7 @@
       "schema_path": ["detection_settings", "stage_new_signatures"],
       "sections": [
         {
-          "aliases": ["staging period"],
+          "aliases": ["detection settings stage new signatures staging period"],
           "anchor": "schema-detection_settings--stage_new_signatures--staging_period",
           "description": "Define staging period in days. The default staging period is 7 days and the max supported staging period is 20 days.",
           "document_id": "xcsh-docs:data-sources:app_firewall:properties:detection_settings:stage_new_signatures",
@@ -2721,7 +2727,7 @@
       "category": "security",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -2743,7 +2749,7 @@
       "schema_path": ["detection_settings", "violation_settings"],
       "sections": [
         {
-          "aliases": ["disabled violation types"],
+          "aliases": ["detection settings violation settings disabled violation types"],
           "anchor": "schema-detection_settings--violation_settings--disabled_violation_types",
           "description": "List of violations to be excluded.",
           "document_id": "xcsh-docs:data-sources:app_firewall:properties:detection_settings:violation_settings",
@@ -2776,7 +2782,7 @@
       "category": "security",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -2798,7 +2804,7 @@
       "schema_path": ["detection_settings", "violations_view"],
       "sections": [
         {
-          "aliases": ["description spec"],
+          "aliases": ["detection settings violations view description spec"],
           "anchor": "schema-detection_settings--violations_view--description_spec",
           "description": "Description. Human-readable description text",
           "document_id": "xcsh-docs:data-sources:app_firewall:properties:detection_settings:violations_view",
@@ -2812,7 +2818,7 @@
           "type": "string"
         },
         {
-          "aliases": ["enabled"],
+          "aliases": ["detection settings violations view enabled"],
           "anchor": "schema-detection_settings--violations_view--enabled",
           "description": "Enable or disable the feature",
           "document_id": "xcsh-docs:data-sources:app_firewall:properties:detection_settings:violations_view",
@@ -2826,7 +2832,7 @@
           "type": "bool"
         },
         {
-          "aliases": ["enabled by default"],
+          "aliases": ["detection settings violations view enabled by default"],
           "anchor": "schema-detection_settings--violations_view--enabled_by_default",
           "description": "Violations that are enabled by default by F5 are advisable to leave enabled.",
           "document_id": "xcsh-docs:data-sources:app_firewall:properties:detection_settings:violations_view",
@@ -2840,7 +2846,7 @@
           "type": "string"
         },
         {
-          "aliases": ["name"],
+          "aliases": ["detection settings violations view name"],
           "anchor": "schema-detection_settings--violations_view--name",
           "description": "Human-readable name for the resource",
           "document_id": "xcsh-docs:data-sources:app_firewall:properties:detection_settings:violations_view",
@@ -2854,7 +2860,7 @@
           "type": "string"
         },
         {
-          "aliases": ["title"],
+          "aliases": ["detection settings violations view title"],
           "anchor": "schema-detection_settings--violations_view--title",
           "description": "Human-readable title for the resource",
           "document_id": "xcsh-docs:data-sources:app_firewall:properties:detection_settings:violations_view",
@@ -2887,7 +2893,7 @@
       "category": "security",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -2927,7 +2933,7 @@
       "category": "security",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -2970,7 +2976,7 @@
         "xcsh-docs:data-sources:app_firewall:properties:enable_ai_enhancements:mitigate_high_risk_action"
       ],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -2992,7 +2998,7 @@
       "schema_path": ["enable_ai_enhancements"],
       "sections": [
         {
-          "aliases": ["mitigate high medium risk action"],
+          "aliases": ["enable ai enhancements mitigate high medium risk action"],
           "anchor": "section",
           "description": "This can be used for messages where no values are needed.",
           "document_id": "xcsh-docs:data-sources:app_firewall:properties:enable_ai_enhancements:mitigate_high_medium_risk_action",
@@ -3006,7 +3012,7 @@
           "type": "object"
         },
         {
-          "aliases": ["mitigate high risk action"],
+          "aliases": ["enable ai enhancements mitigate high risk action"],
           "anchor": "section",
           "description": "This can be used for messages where no values are needed.",
           "document_id": "xcsh-docs:data-sources:app_firewall:properties:enable_ai_enhancements:mitigate_high_risk_action",
@@ -3039,7 +3045,7 @@
       "category": "security",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -3079,7 +3085,7 @@
       "category": "security",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -3119,7 +3125,7 @@
       "category": "security",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -3159,7 +3165,7 @@
       "category": "security",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -3199,7 +3205,7 @@
       "category": "security",
       "child_ids": ["xcsh-docs:data-sources:app_firewall:example:data-source"],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -3239,7 +3245,7 @@
       "category": "security",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"

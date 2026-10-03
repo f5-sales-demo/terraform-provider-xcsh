@@ -82,7 +82,7 @@
       "category": null,
       "child_ids": ["xcsh-docs:data-sources:usb_policy:reference", "xcsh-docs:data-sources:usb_policy:examples"],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -123,7 +123,7 @@
       "category": null,
       "child_ids": ["xcsh-docs:data-sources:usb_policy:properties:allowed_devices"],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -262,7 +262,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -284,7 +284,7 @@
       "schema_path": ["allowed_devices"],
       "sections": [
         {
-          "aliases": ["b device class"],
+          "aliases": ["allowed devices b device class"],
           "anchor": "schema-allowed_devices--b_device_class",
           "description": "The class of this device.",
           "document_id": "xcsh-docs:data-sources:usb_policy:properties:allowed_devices",
@@ -298,7 +298,7 @@
           "type": "string"
         },
         {
-          "aliases": ["b device protocol"],
+          "aliases": ["allowed devices b device protocol"],
           "anchor": "schema-allowed_devices--b_device_protocol",
           "description": "The protocol (within the sub-class) of this device.",
           "document_id": "xcsh-docs:data-sources:usb_policy:properties:allowed_devices",
@@ -312,7 +312,7 @@
           "type": "string"
         },
         {
-          "aliases": ["b device sub class"],
+          "aliases": ["allowed devices b device sub class"],
           "anchor": "schema-allowed_devices--b_device_sub_class",
           "description": "The sub-class (within the class) of this device.",
           "document_id": "xcsh-docs:data-sources:usb_policy:properties:allowed_devices",
@@ -326,7 +326,7 @@
           "type": "string"
         },
         {
-          "aliases": ["i serial"],
+          "aliases": ["allowed devices i serial"],
           "anchor": "schema-allowed_devices--i_serial",
           "description": "Index of Serial Number String Descriptor.",
           "document_id": "xcsh-docs:data-sources:usb_policy:properties:allowed_devices",
@@ -340,7 +340,7 @@
           "type": "string"
         },
         {
-          "aliases": ["id product"],
+          "aliases": ["allowed devices id product"],
           "anchor": "schema-allowed_devices--id_product",
           "description": "Product ID (Assigned by Manufacturer) in hex.",
           "document_id": "xcsh-docs:data-sources:usb_policy:properties:allowed_devices",
@@ -354,7 +354,7 @@
           "type": "string"
         },
         {
-          "aliases": ["id vendor"],
+          "aliases": ["allowed devices id vendor"],
           "anchor": "schema-allowed_devices--id_vendor",
           "description": "Vendor ID (Assigned by USB Org) in hex.",
           "document_id": "xcsh-docs:data-sources:usb_policy:properties:allowed_devices",
@@ -387,7 +387,7 @@
       "category": null,
       "child_ids": ["xcsh-docs:data-sources:usb_policy:example:data-source"],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -427,7 +427,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"

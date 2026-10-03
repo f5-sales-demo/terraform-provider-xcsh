@@ -87,7 +87,7 @@
       "category": null,
       "child_ids": ["xcsh-docs:data-sources:public_ip:reference", "xcsh-docs:data-sources:public_ip:examples"],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -128,7 +128,7 @@
       "category": null,
       "child_ids": ["xcsh-docs:data-sources:public_ip:properties:virtual_sites"],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -295,7 +295,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -317,7 +317,7 @@
       "schema_path": ["virtual_sites"],
       "sections": [
         {
-          "aliases": ["kind"],
+          "aliases": ["virtual sites kind"],
           "anchor": "schema-virtual_sites--kind",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then kind will hold the referred object's kind (e.g. 'route').",
           "document_id": "xcsh-docs:data-sources:public_ip:properties:virtual_sites",
@@ -331,7 +331,7 @@
           "type": "string"
         },
         {
-          "aliases": ["name"],
+          "aliases": ["virtual sites name"],
           "anchor": "schema-virtual_sites--name",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.",
           "document_id": "xcsh-docs:data-sources:public_ip:properties:virtual_sites",
@@ -345,7 +345,7 @@
           "type": "string"
         },
         {
-          "aliases": ["namespace"],
+          "aliases": ["virtual sites namespace"],
           "anchor": "schema-virtual_sites--namespace",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace.",
           "document_id": "xcsh-docs:data-sources:public_ip:properties:virtual_sites",
@@ -359,7 +359,7 @@
           "type": "string"
         },
         {
-          "aliases": ["tenant"],
+          "aliases": ["virtual sites tenant"],
           "anchor": "schema-virtual_sites--tenant",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant.",
           "document_id": "xcsh-docs:data-sources:public_ip:properties:virtual_sites",
@@ -373,7 +373,7 @@
           "type": "string"
         },
         {
-          "aliases": ["uid"],
+          "aliases": ["virtual sites uid"],
           "anchor": "schema-virtual_sites--uid",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then uid will hold the referred object's(e.g. Route's) uid.",
           "document_id": "xcsh-docs:data-sources:public_ip:properties:virtual_sites",
@@ -406,7 +406,7 @@
       "category": null,
       "child_ids": ["xcsh-docs:data-sources:public_ip:example:data-source"],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -446,7 +446,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"

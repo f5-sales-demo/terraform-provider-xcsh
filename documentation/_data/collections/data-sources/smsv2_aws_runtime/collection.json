@@ -105,7 +105,7 @@
         "xcsh-docs:data-sources:smsv2_aws_runtime:examples"
       ],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -149,7 +149,7 @@
         "xcsh-docs:data-sources:smsv2_aws_runtime:properties:nodes"
       ],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -269,7 +269,7 @@
           "type": "string"
         },
         {
-          "aliases": ["duration", "operation timeout", "timeout seconds"],
+          "aliases": ["duration", "timeout seconds"],
           "anchor": "schema-timeout_seconds",
           "description": "timeout seconds",
           "document_id": "xcsh-docs:data-sources:smsv2_aws_runtime:reference",
@@ -302,7 +302,7 @@
       "category": "infrastructure",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -324,7 +324,7 @@
       "schema_path": ["interfaces"],
       "sections": [
         {
-          "aliases": ["healthy"],
+          "aliases": ["interfaces healthy"],
           "anchor": "schema-interfaces--healthy",
           "description": "healthy",
           "document_id": "xcsh-docs:data-sources:smsv2_aws_runtime:properties:interfaces",
@@ -338,7 +338,7 @@
           "type": "bool"
         },
         {
-          "aliases": ["interface name"],
+          "aliases": ["interfaces interface name"],
           "anchor": "schema-interfaces--interface_name",
           "description": "interface name",
           "document_id": "xcsh-docs:data-sources:smsv2_aws_runtime:properties:interfaces",
@@ -352,7 +352,7 @@
           "type": "string"
         },
         {
-          "aliases": ["mac"],
+          "aliases": ["interfaces mac"],
           "anchor": "schema-interfaces--mac",
           "description": "mac",
           "document_id": "xcsh-docs:data-sources:smsv2_aws_runtime:properties:interfaces",
@@ -366,7 +366,7 @@
           "type": "string"
         },
         {
-          "aliases": ["mtu"],
+          "aliases": ["interfaces mtu"],
           "anchor": "schema-interfaces--mtu",
           "description": "mtu",
           "document_id": "xcsh-docs:data-sources:smsv2_aws_runtime:properties:interfaces",
@@ -380,7 +380,7 @@
           "type": "number"
         },
         {
-          "aliases": ["node"],
+          "aliases": ["interfaces node"],
           "anchor": "schema-interfaces--node",
           "description": "node",
           "document_id": "xcsh-docs:data-sources:smsv2_aws_runtime:properties:interfaces",
@@ -394,7 +394,7 @@
           "type": "string"
         },
         {
-          "aliases": ["role"],
+          "aliases": ["interfaces role"],
           "anchor": "schema-interfaces--role",
           "description": "role",
           "document_id": "xcsh-docs:data-sources:smsv2_aws_runtime:properties:interfaces",
@@ -427,7 +427,7 @@
       "category": "infrastructure",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -449,7 +449,7 @@
       "schema_path": ["nodes"],
       "sections": [
         {
-          "aliases": ["mac"],
+          "aliases": ["nodes mac"],
           "anchor": "schema-nodes--mac",
           "description": "mac",
           "document_id": "xcsh-docs:data-sources:smsv2_aws_runtime:properties:nodes",
@@ -463,7 +463,7 @@
           "type": "string"
         },
         {
-          "aliases": ["node"],
+          "aliases": ["nodes node"],
           "anchor": "schema-nodes--node",
           "description": "node",
           "document_id": "xcsh-docs:data-sources:smsv2_aws_runtime:properties:nodes",
@@ -477,7 +477,7 @@
           "type": "string"
         },
         {
-          "aliases": ["role"],
+          "aliases": ["nodes role"],
           "anchor": "schema-nodes--role",
           "description": "role",
           "document_id": "xcsh-docs:data-sources:smsv2_aws_runtime:properties:nodes",
@@ -510,7 +510,7 @@
       "category": "infrastructure",
       "child_ids": ["xcsh-docs:data-sources:smsv2_aws_runtime:example:data-source"],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -550,7 +550,7 @@
       "category": "infrastructure",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"

@@ -142,7 +142,7 @@
       "category": "load-balancing",
       "child_ids": ["xcsh-docs:data-sources:healthcheck:reference", "xcsh-docs:data-sources:healthcheck:examples"],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -188,7 +188,7 @@
         "xcsh-docs:data-sources:healthcheck:properties:udp_icmp_health_check"
       ],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -378,7 +378,7 @@
           "type": "object"
         },
         {
-          "aliases": ["duration", "operation timeout", "succeeded", "success", "successful", "timeout"],
+          "aliases": ["duration", "succeeded", "success", "successful", "timeout"],
           "anchor": "schema-timeout",
           "description": "Timeout in seconds to wait for successful response. In other words, it is the time to wait for a health check response. If the timeout is reached the health check attempt will be considered a failure.",
           "document_id": "xcsh-docs:data-sources:healthcheck:reference",
@@ -439,7 +439,7 @@
       "category": "load-balancing",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -479,7 +479,7 @@
       "category": "load-balancing",
       "child_ids": ["xcsh-docs:data-sources:healthcheck:properties:http_health_check:use_origin_server_name"],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -501,7 +501,7 @@
       "schema_path": ["http_health_check"],
       "sections": [
         {
-          "aliases": ["expected response"],
+          "aliases": ["http health check expected response"],
           "anchor": "schema-http_health_check--expected_response",
           "description": "Raw bytes expected in the response of HTTP health check. Input is to be given in Hex encoded format. If left empty, then response body is not considered for evaluating health check status.",
           "document_id": "xcsh-docs:data-sources:healthcheck:properties:http_health_check",
@@ -515,7 +515,7 @@
           "type": "string"
         },
         {
-          "aliases": ["expected status codes"],
+          "aliases": ["http health check expected status codes"],
           "anchor": "schema-http_health_check--expected_status_codes",
           "description": "Specifies a list of HTTP response status codes considered healthy. To treat default HTTP expected status code 200 as healthy, user has to configure it explicitly. This is a list of strings, each of which is single HTTP status code or a range with start and end values separated by \"-\".",
           "document_id": "xcsh-docs:data-sources:healthcheck:properties:http_health_check",
@@ -529,7 +529,7 @@
           "type": "list"
         },
         {
-          "aliases": ["headers"],
+          "aliases": ["http health check headers"],
           "anchor": "schema-http_health_check--headers",
           "description": "Specifies a list of HTTP headers that should be added to each request that is sent to the health checked cluster. This is a list of key-value pairs.",
           "document_id": "xcsh-docs:data-sources:healthcheck:properties:http_health_check",
@@ -543,7 +543,7 @@
           "type": "map"
         },
         {
-          "aliases": ["host header"],
+          "aliases": ["http health check host header"],
           "anchor": "schema-http_health_check--host_header",
           "description": "Exclusive with The value of the host header.",
           "document_id": "xcsh-docs:data-sources:healthcheck:properties:http_health_check",
@@ -557,7 +557,7 @@
           "type": "string"
         },
         {
-          "aliases": ["path"],
+          "aliases": ["http health check path"],
           "anchor": "schema-http_health_check--path",
           "description": "Specifies the HTTP path that will be requested during health checking.",
           "document_id": "xcsh-docs:data-sources:healthcheck:properties:http_health_check",
@@ -571,7 +571,7 @@
           "type": "string"
         },
         {
-          "aliases": ["request headers to remove"],
+          "aliases": ["http health check request headers to remove"],
           "anchor": "schema-http_health_check--request_headers_to_remove",
           "description": "Specifies a list of HTTP headers that should be removed from each request that is sent to the health checked cluster. This is a list of keys of headers.",
           "document_id": "xcsh-docs:data-sources:healthcheck:properties:http_health_check",
@@ -585,7 +585,7 @@
           "type": "list"
         },
         {
-          "aliases": ["use http2"],
+          "aliases": ["http health check use http2"],
           "anchor": "schema-http_health_check--use_http2",
           "description": "If set, health checks will be made using HTTP/2.",
           "document_id": "xcsh-docs:data-sources:healthcheck:properties:http_health_check",
@@ -599,7 +599,12 @@
           "type": "bool"
         },
         {
-          "aliases": ["backend servers", "origin servers", "upstream servers", "use origin server name"],
+          "aliases": [
+            "backend servers",
+            "http health check use origin server name",
+            "origin servers",
+            "upstream servers"
+          ],
           "anchor": "section",
           "description": "This can be used for messages where no values are needed.",
           "document_id": "xcsh-docs:data-sources:healthcheck:properties:http_health_check:use_origin_server_name",
@@ -632,7 +637,7 @@
       "category": "load-balancing",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -672,7 +677,7 @@
       "category": "load-balancing",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -694,7 +699,7 @@
       "schema_path": ["tcp_health_check"],
       "sections": [
         {
-          "aliases": ["expected response"],
+          "aliases": ["tcp health check expected response"],
           "anchor": "schema-tcp_health_check--expected_response",
           "description": "Raw bytes expected in the request. Describes the encoding of the payload bytes in the payload. Hex encoded payload.",
           "document_id": "xcsh-docs:data-sources:healthcheck:properties:tcp_health_check",
@@ -708,7 +713,7 @@
           "type": "string"
         },
         {
-          "aliases": ["send payload"],
+          "aliases": ["tcp health check send payload"],
           "anchor": "schema-tcp_health_check--send_payload",
           "description": "Raw bytes sent in the request. Empty payloads imply a connect-only health check. Describes the encoding of the payload bytes in the payload. Hex encoded payload.",
           "document_id": "xcsh-docs:data-sources:healthcheck:properties:tcp_health_check",
@@ -741,7 +746,7 @@
       "category": "load-balancing",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -781,7 +786,7 @@
       "category": "load-balancing",
       "child_ids": ["xcsh-docs:data-sources:healthcheck:example:data-source"],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -821,7 +826,7 @@
       "category": "load-balancing",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"

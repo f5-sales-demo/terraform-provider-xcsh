@@ -128,7 +128,7 @@
       "category": "networking",
       "child_ids": ["xcsh-docs:data-sources:subnet:reference", "xcsh-docs:data-sources:subnet:examples"],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -174,7 +174,7 @@
         "xcsh-docs:data-sources:subnet:properties:site_subnet_params"
       ],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -355,7 +355,7 @@
       "category": "networking",
       "child_ids": ["xcsh-docs:data-sources:subnet:properties:connect_to_layer2:layer2_intf_ref"],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -377,7 +377,7 @@
       "schema_path": ["connect_to_layer2"],
       "sections": [
         {
-          "aliases": ["layer2 intf ref"],
+          "aliases": ["connect to layer2 layer2 intf ref"],
           "anchor": "section",
           "description": "This type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name.",
           "document_id": "xcsh-docs:data-sources:subnet:properties:connect_to_layer2:layer2_intf_ref",
@@ -410,7 +410,7 @@
       "category": "networking",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -432,7 +432,7 @@
       "schema_path": ["connect_to_layer2", "layer2_intf_ref"],
       "sections": [
         {
-          "aliases": ["name"],
+          "aliases": ["connect to layer2 layer2 intf ref name"],
           "anchor": "schema-connect_to_layer2--layer2_intf_ref--name",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.",
           "document_id": "xcsh-docs:data-sources:subnet:properties:connect_to_layer2:layer2_intf_ref",
@@ -446,7 +446,7 @@
           "type": "string"
         },
         {
-          "aliases": ["namespace"],
+          "aliases": ["connect to layer2 layer2 intf ref namespace"],
           "anchor": "schema-connect_to_layer2--layer2_intf_ref--namespace",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace.",
           "document_id": "xcsh-docs:data-sources:subnet:properties:connect_to_layer2:layer2_intf_ref",
@@ -460,7 +460,7 @@
           "type": "string"
         },
         {
-          "aliases": ["tenant"],
+          "aliases": ["connect to layer2 layer2 intf ref tenant"],
           "anchor": "schema-connect_to_layer2--layer2_intf_ref--tenant",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant.",
           "document_id": "xcsh-docs:data-sources:subnet:properties:connect_to_layer2:layer2_intf_ref",
@@ -493,7 +493,7 @@
       "category": "networking",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -533,7 +533,7 @@
       "category": "networking",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -578,7 +578,7 @@
         "xcsh-docs:data-sources:subnet:properties:site_subnet_params:subnet_dhcp_server_params"
       ],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -600,7 +600,7 @@
       "schema_path": ["site_subnet_params"],
       "sections": [
         {
-          "aliases": ["dhcp"],
+          "aliases": ["site subnet params dhcp"],
           "anchor": "section",
           "description": "This can be used for messages where no values are needed.",
           "document_id": "xcsh-docs:data-sources:subnet:properties:site_subnet_params:dhcp",
@@ -614,7 +614,7 @@
           "type": "object"
         },
         {
-          "aliases": ["site"],
+          "aliases": ["site subnet params site"],
           "anchor": "section",
           "description": "This type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name.",
           "document_id": "xcsh-docs:data-sources:subnet:properties:site_subnet_params:site",
@@ -628,7 +628,7 @@
           "type": "object"
         },
         {
-          "aliases": ["static ip"],
+          "aliases": ["site subnet params static ip"],
           "anchor": "section",
           "description": "This can be used for messages where no values are needed.",
           "document_id": "xcsh-docs:data-sources:subnet:properties:site_subnet_params:static_ip",
@@ -642,7 +642,7 @@
           "type": "object"
         },
         {
-          "aliases": ["subnet dhcp server params"],
+          "aliases": ["site subnet params subnet dhcp server params"],
           "anchor": "section",
           "description": "Subnet DHCP parameters will be a subset of network_interface.dhcpserverparameterstype as all features in network_interface.dhcpserverparameterstype may not be supported in a subnet.",
           "document_id": "xcsh-docs:data-sources:subnet:properties:site_subnet_params:subnet_dhcp_server_params",
@@ -675,7 +675,7 @@
       "category": "networking",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -715,7 +715,7 @@
       "category": "networking",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -737,7 +737,7 @@
       "schema_path": ["site_subnet_params", "site"],
       "sections": [
         {
-          "aliases": ["name"],
+          "aliases": ["site subnet params site name"],
           "anchor": "schema-site_subnet_params--site--name",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.",
           "document_id": "xcsh-docs:data-sources:subnet:properties:site_subnet_params:site",
@@ -751,7 +751,7 @@
           "type": "string"
         },
         {
-          "aliases": ["namespace"],
+          "aliases": ["site subnet params site namespace"],
           "anchor": "schema-site_subnet_params--site--namespace",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace.",
           "document_id": "xcsh-docs:data-sources:subnet:properties:site_subnet_params:site",
@@ -765,7 +765,7 @@
           "type": "string"
         },
         {
-          "aliases": ["tenant"],
+          "aliases": ["site subnet params site tenant"],
           "anchor": "schema-site_subnet_params--site--tenant",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant.",
           "document_id": "xcsh-docs:data-sources:subnet:properties:site_subnet_params:site",
@@ -798,7 +798,7 @@
       "category": "networking",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -840,7 +840,7 @@
         "xcsh-docs:data-sources:subnet:properties:site_subnet_params:subnet_dhcp_server_params:dhcp_networks"
       ],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -862,7 +862,7 @@
       "schema_path": ["site_subnet_params", "subnet_dhcp_server_params"],
       "sections": [
         {
-          "aliases": ["dhcp networks"],
+          "aliases": ["site subnet params subnet dhcp server params dhcp networks"],
           "anchor": "section",
           "description": "List of networks from which DHCP server can allocate IP addresses.",
           "document_id": "xcsh-docs:data-sources:subnet:properties:site_subnet_params:subnet_dhcp_server_params:dhcp_networks",
@@ -895,7 +895,7 @@
       "category": "networking",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -917,7 +917,7 @@
       "schema_path": ["site_subnet_params", "subnet_dhcp_server_params", "dhcp_networks"],
       "sections": [
         {
-          "aliases": ["network prefix"],
+          "aliases": ["site subnet params subnet dhcp server params dhcp networks network prefix"],
           "anchor": "schema-site_subnet_params--subnet_dhcp_server_params--dhcp_networks--network_prefix",
           "description": "Exclusive with Network prefix for subnet.",
           "document_id": "xcsh-docs:data-sources:subnet:properties:site_subnet_params:subnet_dhcp_server_params:dhcp_networks",
@@ -950,7 +950,7 @@
       "category": "networking",
       "child_ids": ["xcsh-docs:data-sources:subnet:example:data-source"],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -990,7 +990,7 @@
       "category": "networking",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"

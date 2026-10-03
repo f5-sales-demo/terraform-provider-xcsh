@@ -115,7 +115,7 @@
         "xcsh-docs:data-sources:bot_allowlist_policy:examples"
       ],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -156,7 +156,7 @@
       "category": null,
       "child_ids": ["xcsh-docs:data-sources:bot_allowlist_policy:properties:allowlist_policy_content"],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -312,7 +312,7 @@
         "xcsh-docs:data-sources:bot_allowlist_policy:properties:allowlist_policy_content:ip_range_allowlist"
       ],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -334,7 +334,7 @@
       "schema_path": ["allowlist_policy_content"],
       "sections": [
         {
-          "aliases": ["ip allowlist"],
+          "aliases": ["allowlist policy content ip allowlist"],
           "anchor": "section",
           "description": "IP & IP Prefix. Allowlist or permitted items",
           "document_id": "xcsh-docs:data-sources:bot_allowlist_policy:properties:allowlist_policy_content:ip_allowlist",
@@ -348,7 +348,7 @@
           "type": "object"
         },
         {
-          "aliases": ["ip range allowlist"],
+          "aliases": ["allowlist policy content ip range allowlist"],
           "anchor": "section",
           "description": "IP Range. Allowlist or permitted items",
           "document_id": "xcsh-docs:data-sources:bot_allowlist_policy:properties:allowlist_policy_content:ip_range_allowlist",
@@ -384,7 +384,7 @@
         "xcsh-docs:data-sources:bot_allowlist_policy:properties:allowlist_policy_content:ip_allowlist:ip_prefix_detail"
       ],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -406,7 +406,7 @@
       "schema_path": ["allowlist_policy_content", "ip_allowlist"],
       "sections": [
         {
-          "aliases": ["ip detail"],
+          "aliases": ["allowlist policy content ip allowlist ip detail"],
           "anchor": "section",
           "description": "IP Detail. Support the single IP value.",
           "document_id": "xcsh-docs:data-sources:bot_allowlist_policy:properties:allowlist_policy_content:ip_allowlist:ip_detail",
@@ -420,7 +420,7 @@
           "type": "object"
         },
         {
-          "aliases": ["ip prefix detail"],
+          "aliases": ["allowlist policy content ip allowlist ip prefix detail"],
           "anchor": "section",
           "description": "IP Prefix Detail. Support the IP prefix value.",
           "document_id": "xcsh-docs:data-sources:bot_allowlist_policy:properties:allowlist_policy_content:ip_allowlist:ip_prefix_detail",
@@ -453,7 +453,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -475,7 +475,7 @@
       "schema_path": ["allowlist_policy_content", "ip_allowlist", "ip_detail"],
       "sections": [
         {
-          "aliases": ["ip description"],
+          "aliases": ["allowlist policy content ip allowlist ip detail ip description"],
           "anchor": "schema-allowlist_policy_content--ip_allowlist--ip_detail--ip_description",
           "description": "Description. The description for IP address.",
           "document_id": "xcsh-docs:data-sources:bot_allowlist_policy:properties:allowlist_policy_content:ip_allowlist:ip_detail",
@@ -489,7 +489,7 @@
           "type": "string"
         },
         {
-          "aliases": ["ip value"],
+          "aliases": ["allowlist policy content ip allowlist ip detail ip value"],
           "anchor": "schema-allowlist_policy_content--ip_allowlist--ip_detail--ip_value",
           "description": "Value. A single IP address.",
           "document_id": "xcsh-docs:data-sources:bot_allowlist_policy:properties:allowlist_policy_content:ip_allowlist:ip_detail",
@@ -522,7 +522,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -544,7 +544,7 @@
       "schema_path": ["allowlist_policy_content", "ip_allowlist", "ip_prefix_detail"],
       "sections": [
         {
-          "aliases": ["ip description"],
+          "aliases": ["allowlist policy content ip allowlist ip prefix detail ip description"],
           "anchor": "schema-allowlist_policy_content--ip_allowlist--ip_prefix_detail--ip_description",
           "description": "Description. The description for IP prefix.",
           "document_id": "xcsh-docs:data-sources:bot_allowlist_policy:properties:allowlist_policy_content:ip_allowlist:ip_prefix_detail",
@@ -558,7 +558,7 @@
           "type": "string"
         },
         {
-          "aliases": ["ip value"],
+          "aliases": ["allowlist policy content ip allowlist ip prefix detail ip value"],
           "anchor": "schema-allowlist_policy_content--ip_allowlist--ip_prefix_detail--ip_value",
           "description": "Value. IP prefix e.g. 192.0.2.0/24.",
           "document_id": "xcsh-docs:data-sources:bot_allowlist_policy:properties:allowlist_policy_content:ip_allowlist:ip_prefix_detail",
@@ -591,7 +591,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -613,7 +613,7 @@
       "schema_path": ["allowlist_policy_content", "ip_range_allowlist"],
       "sections": [
         {
-          "aliases": ["end with"],
+          "aliases": ["allowlist policy content ip range allowlist end with"],
           "anchor": "schema-allowlist_policy_content--ip_range_allowlist--end_with",
           "description": "End With. IP range end with.",
           "document_id": "xcsh-docs:data-sources:bot_allowlist_policy:properties:allowlist_policy_content:ip_range_allowlist",
@@ -627,7 +627,7 @@
           "type": "string"
         },
         {
-          "aliases": ["ip description"],
+          "aliases": ["allowlist policy content ip range allowlist ip description"],
           "anchor": "schema-allowlist_policy_content--ip_range_allowlist--ip_description",
           "description": "Description. The description for IP range.",
           "document_id": "xcsh-docs:data-sources:bot_allowlist_policy:properties:allowlist_policy_content:ip_range_allowlist",
@@ -641,7 +641,7 @@
           "type": "string"
         },
         {
-          "aliases": ["start with"],
+          "aliases": ["allowlist policy content ip range allowlist start with"],
           "anchor": "schema-allowlist_policy_content--ip_range_allowlist--start_with",
           "description": "Start With. IP range start with.",
           "document_id": "xcsh-docs:data-sources:bot_allowlist_policy:properties:allowlist_policy_content:ip_range_allowlist",
@@ -674,7 +674,7 @@
       "category": null,
       "child_ids": ["xcsh-docs:data-sources:bot_allowlist_policy:example:data-source"],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -714,7 +714,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"

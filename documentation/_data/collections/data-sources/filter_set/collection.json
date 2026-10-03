@@ -107,7 +107,7 @@
       "category": null,
       "child_ids": ["xcsh-docs:data-sources:filter_set:reference", "xcsh-docs:data-sources:filter_set:examples"],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -148,7 +148,7 @@
       "category": null,
       "child_ids": ["xcsh-docs:data-sources:filter_set:properties:filter_fields"],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -305,7 +305,7 @@
         "xcsh-docs:data-sources:filter_set:properties:filter_fields:string_field"
       ],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -327,7 +327,7 @@
       "schema_path": ["filter_fields"],
       "sections": [
         {
-          "aliases": ["date field"],
+          "aliases": ["filter fields date field"],
           "anchor": "section",
           "description": "Either an absolute time range or a relative time interval.",
           "document_id": "xcsh-docs:data-sources:filter_set:properties:filter_fields:date_field",
@@ -341,7 +341,7 @@
           "type": "object"
         },
         {
-          "aliases": ["field id"],
+          "aliases": ["filter fields field id"],
           "anchor": "schema-filter_fields--field_id",
           "description": "An identifier for the field that maps to some UI filter component.",
           "document_id": "xcsh-docs:data-sources:filter_set:properties:filter_fields",
@@ -355,7 +355,7 @@
           "type": "string"
         },
         {
-          "aliases": ["filter expression field"],
+          "aliases": ["filter fields filter expression field"],
           "anchor": "section",
           "description": "Filter Expression Field.",
           "document_id": "xcsh-docs:data-sources:filter_set:properties:filter_fields:filter_expression_field",
@@ -369,7 +369,7 @@
           "type": "object"
         },
         {
-          "aliases": ["string field"],
+          "aliases": ["filter fields string field"],
           "anchor": "section",
           "description": "Filter String Field.",
           "document_id": "xcsh-docs:data-sources:filter_set:properties:filter_fields:string_field",
@@ -402,7 +402,7 @@
       "category": null,
       "child_ids": ["xcsh-docs:data-sources:filter_set:properties:filter_fields:date_field:absolute"],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -424,7 +424,7 @@
       "schema_path": ["filter_fields", "date_field"],
       "sections": [
         {
-          "aliases": ["absolute"],
+          "aliases": ["filter fields date field absolute"],
           "anchor": "section",
           "description": "Date range is for selecting a date range.",
           "document_id": "xcsh-docs:data-sources:filter_set:properties:filter_fields:date_field:absolute",
@@ -438,7 +438,7 @@
           "type": "object"
         },
         {
-          "aliases": ["relative"],
+          "aliases": ["filter fields date field relative"],
           "anchor": "schema-filter_fields--date_field--relative",
           "description": "Exclusive with relative time duration.",
           "document_id": "xcsh-docs:data-sources:filter_set:properties:filter_fields:date_field",
@@ -471,7 +471,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -493,7 +493,7 @@
       "schema_path": ["filter_fields", "date_field", "absolute"],
       "sections": [
         {
-          "aliases": ["end date"],
+          "aliases": ["filter fields date field absolute end date"],
           "anchor": "schema-filter_fields--date_field--absolute--end_date",
           "description": "Contains end date.",
           "document_id": "xcsh-docs:data-sources:filter_set:properties:filter_fields:date_field:absolute",
@@ -507,7 +507,7 @@
           "type": "string"
         },
         {
-          "aliases": ["start date"],
+          "aliases": ["filter fields date field absolute start date"],
           "anchor": "schema-filter_fields--date_field--absolute--start_date",
           "description": "Contains start date.",
           "document_id": "xcsh-docs:data-sources:filter_set:properties:filter_fields:date_field:absolute",
@@ -540,7 +540,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -562,7 +562,7 @@
       "schema_path": ["filter_fields", "filter_expression_field"],
       "sections": [
         {
-          "aliases": ["expression"],
+          "aliases": ["filter fields filter expression field expression"],
           "anchor": "schema-filter_fields--filter_expression_field--expression",
           "description": "Expression is a Kubernetes style label expression for selections, but differs in that it allows special characters in the keys and values.",
           "document_id": "xcsh-docs:data-sources:filter_set:properties:filter_fields:filter_expression_field",
@@ -595,7 +595,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -617,7 +617,7 @@
       "schema_path": ["filter_fields", "string_field"],
       "sections": [
         {
-          "aliases": ["field values"],
+          "aliases": ["filter fields string field field values"],
           "anchor": "schema-filter_fields--string_field--field_values",
           "description": "Field specification or configuration",
           "document_id": "xcsh-docs:data-sources:filter_set:properties:filter_fields:string_field",
@@ -650,7 +650,7 @@
       "category": null,
       "child_ids": ["xcsh-docs:data-sources:filter_set:example:data-source"],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -690,7 +690,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"

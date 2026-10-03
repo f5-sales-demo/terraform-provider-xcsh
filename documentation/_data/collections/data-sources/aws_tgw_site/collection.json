@@ -1785,7 +1785,7 @@
       "category": "infrastructure",
       "child_ids": ["xcsh-docs:data-sources:aws_tgw_site:reference", "xcsh-docs:data-sources:aws_tgw_site:examples"],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -1847,7 +1847,7 @@
         "xcsh-docs:data-sources:aws_tgw_site:properties:waf_signatures"
       ],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -2282,7 +2282,7 @@
         "xcsh-docs:data-sources:aws_tgw_site:properties:aws_parameters:tgw_cidr"
       ],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -2304,7 +2304,7 @@
       "schema_path": ["aws_parameters"],
       "sections": [
         {
-          "aliases": ["admin password"],
+          "aliases": ["aws parameters admin password"],
           "anchor": "section",
           "description": "SecretType is used in an object to indicate a sensitive/confidential field.",
           "document_id": "xcsh-docs:data-sources:aws_tgw_site:properties:aws_parameters:admin_password",
@@ -2318,7 +2318,7 @@
           "type": "object"
         },
         {
-          "aliases": ["aws cred"],
+          "aliases": ["aws parameters aws cred"],
           "anchor": "section",
           "description": "This type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name.",
           "document_id": "xcsh-docs:data-sources:aws_tgw_site:properties:aws_parameters:aws_cred",
@@ -2332,7 +2332,7 @@
           "type": "object"
         },
         {
-          "aliases": ["aws region"],
+          "aliases": ["aws parameters aws region"],
           "anchor": "schema-aws_parameters--aws_region",
           "description": "AWS Region of your services VPC, where F5XC site will be deployed.",
           "document_id": "xcsh-docs:data-sources:aws_tgw_site:properties:aws_parameters",
@@ -2346,7 +2346,7 @@
           "type": "string"
         },
         {
-          "aliases": ["az nodes"],
+          "aliases": ["aws parameters az nodes"],
           "anchor": "section",
           "description": "Only Single AZ or Three AZ(s) nodes are supported currently.",
           "document_id": "xcsh-docs:data-sources:aws_tgw_site:properties:aws_parameters:az_nodes",
@@ -2360,7 +2360,7 @@
           "type": "object"
         },
         {
-          "aliases": ["custom security group"],
+          "aliases": ["aws parameters custom security group"],
           "anchor": "section",
           "description": "Enter pre created security groups for slo(Site Local Outside) and sli(Site Local Inside) interface. Supported only for sites deployed on existing VPC.",
           "document_id": "xcsh-docs:data-sources:aws_tgw_site:properties:aws_parameters:custom_security_group",
@@ -2374,7 +2374,7 @@
           "type": "object"
         },
         {
-          "aliases": ["disable encryption"],
+          "aliases": ["aws parameters disable encryption"],
           "anchor": "section",
           "description": "This can be used for messages where no values are needed.",
           "document_id": "xcsh-docs:data-sources:aws_tgw_site:properties:aws_parameters:disable_encryption",
@@ -2388,7 +2388,7 @@
           "type": "object"
         },
         {
-          "aliases": ["disable internet vip"],
+          "aliases": ["aws parameters disable internet vip"],
           "anchor": "section",
           "description": "This can be used for messages where no values are needed.",
           "document_id": "xcsh-docs:data-sources:aws_tgw_site:properties:aws_parameters:disable_internet_vip",
@@ -2402,7 +2402,7 @@
           "type": "object"
         },
         {
-          "aliases": ["disk size"],
+          "aliases": ["aws parameters disk size"],
           "anchor": "schema-aws_parameters--disk_size",
           "description": "Node disk size for all node in the F5XC site. Unit is GiB.",
           "document_id": "xcsh-docs:data-sources:aws_tgw_site:properties:aws_parameters",
@@ -2416,7 +2416,7 @@
           "type": "number"
         },
         {
-          "aliases": ["enable encryption"],
+          "aliases": ["aws parameters enable encryption"],
           "anchor": "section",
           "description": "Information related to disk encryption.",
           "document_id": "xcsh-docs:data-sources:aws_tgw_site:properties:aws_parameters:enable_encryption",
@@ -2430,7 +2430,7 @@
           "type": "object"
         },
         {
-          "aliases": ["enable internet vip"],
+          "aliases": ["aws parameters enable internet vip"],
           "anchor": "section",
           "description": "This can be used for messages where no values are needed.",
           "document_id": "xcsh-docs:data-sources:aws_tgw_site:properties:aws_parameters:enable_internet_vip",
@@ -2444,7 +2444,7 @@
           "type": "object"
         },
         {
-          "aliases": ["existing tgw"],
+          "aliases": ["aws parameters existing tgw"],
           "anchor": "section",
           "description": "Information needed for existing TGW.",
           "document_id": "xcsh-docs:data-sources:aws_tgw_site:properties:aws_parameters:existing_tgw",
@@ -2458,7 +2458,7 @@
           "type": "object"
         },
         {
-          "aliases": ["f5xc security group"],
+          "aliases": ["aws parameters f5xc security group"],
           "anchor": "section",
           "description": "This can be used for messages where no values are needed.",
           "document_id": "xcsh-docs:data-sources:aws_tgw_site:properties:aws_parameters:f5xc_security_group",
@@ -2472,7 +2472,7 @@
           "type": "object"
         },
         {
-          "aliases": ["instance type"],
+          "aliases": ["aws parameters instance type"],
           "anchor": "schema-aws_parameters--instance_type",
           "description": "Instance size based on the performance.",
           "document_id": "xcsh-docs:data-sources:aws_tgw_site:properties:aws_parameters",
@@ -2486,7 +2486,7 @@
           "type": "string"
         },
         {
-          "aliases": ["new tgw"],
+          "aliases": ["aws parameters new tgw"],
           "anchor": "section",
           "description": "TGWParamsType.",
           "document_id": "xcsh-docs:data-sources:aws_tgw_site:properties:aws_parameters:new_tgw",
@@ -2500,7 +2500,7 @@
           "type": "object"
         },
         {
-          "aliases": ["new vpc"],
+          "aliases": ["aws parameters new vpc"],
           "anchor": "section",
           "description": "Parameters to create new AWS VPC.",
           "document_id": "xcsh-docs:data-sources:aws_tgw_site:properties:aws_parameters:new_vpc",
@@ -2514,7 +2514,7 @@
           "type": "object"
         },
         {
-          "aliases": ["no worker nodes"],
+          "aliases": ["aws parameters no worker nodes"],
           "anchor": "section",
           "description": "This can be used for messages where no values are needed.",
           "document_id": "xcsh-docs:data-sources:aws_tgw_site:properties:aws_parameters:no_worker_nodes",
@@ -2528,7 +2528,7 @@
           "type": "object"
         },
         {
-          "aliases": ["nodes per az"],
+          "aliases": ["aws parameters nodes per az"],
           "anchor": "schema-aws_parameters--nodes_per_az",
           "description": "Exclusive with Desired Worker Nodes Per AZ. Max limit is up to 21.",
           "document_id": "xcsh-docs:data-sources:aws_tgw_site:properties:aws_parameters",
@@ -2542,7 +2542,7 @@
           "type": "number"
         },
         {
-          "aliases": ["reserved tgw cidr"],
+          "aliases": ["aws parameters reserved tgw cidr"],
           "anchor": "section",
           "description": "This can be used for messages where no values are needed.",
           "document_id": "xcsh-docs:data-sources:aws_tgw_site:properties:aws_parameters:reserved_tgw_cidr",
@@ -2556,7 +2556,7 @@
           "type": "object"
         },
         {
-          "aliases": ["ssh key"],
+          "aliases": ["aws parameters ssh key"],
           "anchor": "schema-aws_parameters--ssh_key",
           "description": "Public SSH key for accessing nodes of the site.",
           "document_id": "xcsh-docs:data-sources:aws_tgw_site:properties:aws_parameters",
@@ -2570,7 +2570,7 @@
           "type": "string"
         },
         {
-          "aliases": ["tgw cidr"],
+          "aliases": ["aws parameters tgw cidr"],
           "anchor": "section",
           "description": "Parameters for creating a new cloud subnet.",
           "document_id": "xcsh-docs:data-sources:aws_tgw_site:properties:aws_parameters:tgw_cidr",
@@ -2584,7 +2584,7 @@
           "type": "object"
         },
         {
-          "aliases": ["total nodes"],
+          "aliases": ["aws parameters total nodes"],
           "anchor": "schema-aws_parameters--total_nodes",
           "description": "Exclusive with Total number of worker nodes to be deployed across all AZ's used in the Site.",
           "document_id": "xcsh-docs:data-sources:aws_tgw_site:properties:aws_parameters",
@@ -2598,7 +2598,7 @@
           "type": "number"
         },
         {
-          "aliases": ["vpc id"],
+          "aliases": ["aws parameters vpc id"],
           "anchor": "schema-aws_parameters--vpc_id",
           "description": "Exclusive with Existing VPC ID.",
           "document_id": "xcsh-docs:data-sources:aws_tgw_site:properties:aws_parameters",
@@ -2634,7 +2634,7 @@
         "xcsh-docs:data-sources:aws_tgw_site:properties:aws_parameters:admin_password:clear_secret_info"
       ],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -2656,7 +2656,7 @@
       "schema_path": ["aws_parameters", "admin_password"],
       "sections": [
         {
-          "aliases": ["blindfold secret info"],
+          "aliases": ["aws parameters admin password blindfold secret info"],
           "anchor": "section",
           "description": "BlindfoldSecretInfoType specifies information about the Secret managed by F5XC Secret Management.",
           "document_id": "xcsh-docs:data-sources:aws_tgw_site:properties:aws_parameters:admin_password:blindfold_secret_info",
@@ -2670,7 +2670,7 @@
           "type": "object"
         },
         {
-          "aliases": ["clear secret info"],
+          "aliases": ["aws parameters admin password clear secret info"],
           "anchor": "section",
           "description": "ClearSecretInfoType specifies information about the Secret that is not encrypted.",
           "document_id": "xcsh-docs:data-sources:aws_tgw_site:properties:aws_parameters:admin_password:clear_secret_info",
@@ -2703,7 +2703,7 @@
       "category": "infrastructure",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -2725,7 +2725,7 @@
       "schema_path": ["aws_parameters", "admin_password", "blindfold_secret_info"],
       "sections": [
         {
-          "aliases": ["decryption provider"],
+          "aliases": ["aws parameters admin password blindfold secret info decryption provider"],
           "anchor": "schema-aws_parameters--admin_password--blindfold_secret_info--decryption_provider",
           "description": "Name of the Secret Management Access object that contains information about the backend Secret Management service.",
           "document_id": "xcsh-docs:data-sources:aws_tgw_site:properties:aws_parameters:admin_password:blindfold_secret_info",
@@ -2739,7 +2739,7 @@
           "type": "string"
         },
         {
-          "aliases": ["location"],
+          "aliases": ["aws parameters admin password blindfold secret info location"],
           "anchor": "schema-aws_parameters--admin_password--blindfold_secret_info--location",
           "description": "Location is the uri_ref. It could be in URL format for string:/// Or it could be a path if the store provider is an HTTP/HTTPS location.",
           "document_id": "xcsh-docs:data-sources:aws_tgw_site:properties:aws_parameters:admin_password:blindfold_secret_info",
@@ -2753,7 +2753,7 @@
           "type": "string"
         },
         {
-          "aliases": ["store provider"],
+          "aliases": ["aws parameters admin password blindfold secret info store provider"],
           "anchor": "schema-aws_parameters--admin_password--blindfold_secret_info--store_provider",
           "description": "Name of the Secret Management Access object that contains information about the store to GET encrypted bytes This field needs to be provided only if the URL scheme is not string:///.",
           "document_id": "xcsh-docs:data-sources:aws_tgw_site:properties:aws_parameters:admin_password:blindfold_secret_info",
@@ -2786,7 +2786,7 @@
       "category": "infrastructure",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -2808,7 +2808,7 @@
       "schema_path": ["aws_parameters", "admin_password", "clear_secret_info"],
       "sections": [
         {
-          "aliases": ["provider ref"],
+          "aliases": ["aws parameters admin password clear secret info provider ref"],
           "anchor": "schema-aws_parameters--admin_password--clear_secret_info--provider_ref",
           "description": "Name of the Secret Management Access object that contains information about the store to GET encrypted bytes This field needs to be provided only if the URL scheme is not string:///.",
           "document_id": "xcsh-docs:data-sources:aws_tgw_site:properties:aws_parameters:admin_password:clear_secret_info",
@@ -2822,7 +2822,7 @@
           "type": "string"
         },
         {
-          "aliases": ["url"],
+          "aliases": ["aws parameters admin password clear secret info url"],
           "anchor": "schema-aws_parameters--admin_password--clear_secret_info--url",
           "description": "URL of the secret. Currently supported URL schemes is string:///. For string:/// scheme, Secret needs to be encoded Base64 format. When asked for this secret, caller will GET Secret bytes after Base64 decoding.",
           "document_id": "xcsh-docs:data-sources:aws_tgw_site:properties:aws_parameters:admin_password:clear_secret_info",
@@ -2855,7 +2855,7 @@
       "category": "infrastructure",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -2877,7 +2877,7 @@
       "schema_path": ["aws_parameters", "aws_cred"],
       "sections": [
         {
-          "aliases": ["name"],
+          "aliases": ["aws parameters aws cred name"],
           "anchor": "schema-aws_parameters--aws_cred--name",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.",
           "document_id": "xcsh-docs:data-sources:aws_tgw_site:properties:aws_parameters:aws_cred",
@@ -2891,7 +2891,7 @@
           "type": "string"
         },
         {
-          "aliases": ["namespace"],
+          "aliases": ["aws parameters aws cred namespace"],
           "anchor": "schema-aws_parameters--aws_cred--namespace",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace.",
           "document_id": "xcsh-docs:data-sources:aws_tgw_site:properties:aws_parameters:aws_cred",
@@ -2905,7 +2905,7 @@
           "type": "string"
         },
         {
-          "aliases": ["tenant"],
+          "aliases": ["aws parameters aws cred tenant"],
           "anchor": "schema-aws_parameters--aws_cred--tenant",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant.",
           "document_id": "xcsh-docs:data-sources:aws_tgw_site:properties:aws_parameters:aws_cred",
@@ -2943,7 +2943,7 @@
         "xcsh-docs:data-sources:aws_tgw_site:properties:aws_parameters:az_nodes:workload_subnet"
       ],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -2965,7 +2965,7 @@
       "schema_path": ["aws_parameters", "az_nodes"],
       "sections": [
         {
-          "aliases": ["aws az name"],
+          "aliases": ["aws parameters az nodes aws az name"],
           "anchor": "schema-aws_parameters--az_nodes--aws_az_name",
           "description": "AWS availability zone, must be consistent with the selected AWS region.",
           "document_id": "xcsh-docs:data-sources:aws_tgw_site:properties:aws_parameters:az_nodes",
@@ -2979,7 +2979,7 @@
           "type": "string"
         },
         {
-          "aliases": ["inside subnet"],
+          "aliases": ["aws parameters az nodes inside subnet"],
           "anchor": "section",
           "description": "Parameters for AWS subnet.",
           "document_id": "xcsh-docs:data-sources:aws_tgw_site:properties:aws_parameters:az_nodes:inside_subnet",
@@ -2993,7 +2993,7 @@
           "type": "object"
         },
         {
-          "aliases": ["outside subnet"],
+          "aliases": ["aws parameters az nodes outside subnet"],
           "anchor": "section",
           "description": "Parameters for AWS subnet.",
           "document_id": "xcsh-docs:data-sources:aws_tgw_site:properties:aws_parameters:az_nodes:outside_subnet",
@@ -3007,7 +3007,7 @@
           "type": "object"
         },
         {
-          "aliases": ["reserved inside subnet"],
+          "aliases": ["aws parameters az nodes reserved inside subnet"],
           "anchor": "section",
           "description": "This can be used for messages where no values are needed.",
           "document_id": "xcsh-docs:data-sources:aws_tgw_site:properties:aws_parameters:az_nodes:reserved_inside_subnet",
@@ -3021,7 +3021,7 @@
           "type": "object"
         },
         {
-          "aliases": ["workload subnet"],
+          "aliases": ["aws parameters az nodes workload subnet"],
           "anchor": "section",
           "description": "Parameters for AWS subnet.",
           "document_id": "xcsh-docs:data-sources:aws_tgw_site:properties:aws_parameters:az_nodes:workload_subnet",
@@ -3056,7 +3056,7 @@
         "xcsh-docs:data-sources:aws_tgw_site:properties:aws_parameters:az_nodes:inside_subnet:subnet_param"
       ],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -3078,7 +3078,7 @@
       "schema_path": ["aws_parameters", "az_nodes", "inside_subnet"],
       "sections": [
         {
-          "aliases": ["existing subnet id"],
+          "aliases": ["aws parameters az nodes inside subnet existing subnet id"],
           "anchor": "schema-aws_parameters--az_nodes--inside_subnet--existing_subnet_id",
           "description": "Exclusive with Information about existing subnet ID.",
           "document_id": "xcsh-docs:data-sources:aws_tgw_site:properties:aws_parameters:az_nodes:inside_subnet",
@@ -3092,7 +3092,7 @@
           "type": "string"
         },
         {
-          "aliases": ["subnet param"],
+          "aliases": ["aws parameters az nodes inside subnet subnet param"],
           "anchor": "section",
           "description": "Parameters for creating a new cloud subnet.",
           "document_id": "xcsh-docs:data-sources:aws_tgw_site:properties:aws_parameters:az_nodes:inside_subnet:subnet_param",
@@ -3125,7 +3125,7 @@
       "category": "infrastructure",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -3147,7 +3147,7 @@
       "schema_path": ["aws_parameters", "az_nodes", "inside_subnet", "subnet_param"],
       "sections": [
         {
-          "aliases": ["ipv4"],
+          "aliases": ["aws parameters az nodes inside subnet subnet param ipv4"],
           "anchor": "schema-aws_parameters--az_nodes--inside_subnet--subnet_param--ipv4",
           "description": "IPv4 subnet prefix for this subnet.",
           "document_id": "xcsh-docs:data-sources:aws_tgw_site:properties:aws_parameters:az_nodes:inside_subnet:subnet_param",
@@ -3182,7 +3182,7 @@
         "xcsh-docs:data-sources:aws_tgw_site:properties:aws_parameters:az_nodes:outside_subnet:subnet_param"
       ],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -3204,7 +3204,7 @@
       "schema_path": ["aws_parameters", "az_nodes", "outside_subnet"],
       "sections": [
         {
-          "aliases": ["existing subnet id"],
+          "aliases": ["aws parameters az nodes outside subnet existing subnet id"],
           "anchor": "schema-aws_parameters--az_nodes--outside_subnet--existing_subnet_id",
           "description": "Exclusive with Information about existing subnet ID.",
           "document_id": "xcsh-docs:data-sources:aws_tgw_site:properties:aws_parameters:az_nodes:outside_subnet",
@@ -3218,7 +3218,7 @@
           "type": "string"
         },
         {
-          "aliases": ["subnet param"],
+          "aliases": ["aws parameters az nodes outside subnet subnet param"],
           "anchor": "section",
           "description": "Parameters for creating a new cloud subnet.",
           "document_id": "xcsh-docs:data-sources:aws_tgw_site:properties:aws_parameters:az_nodes:outside_subnet:subnet_param",
@@ -3251,7 +3251,7 @@
       "category": "infrastructure",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -3273,7 +3273,7 @@
       "schema_path": ["aws_parameters", "az_nodes", "outside_subnet", "subnet_param"],
       "sections": [
         {
-          "aliases": ["ipv4"],
+          "aliases": ["aws parameters az nodes outside subnet subnet param ipv4"],
           "anchor": "schema-aws_parameters--az_nodes--outside_subnet--subnet_param--ipv4",
           "description": "IPv4 subnet prefix for this subnet.",
           "document_id": "xcsh-docs:data-sources:aws_tgw_site:properties:aws_parameters:az_nodes:outside_subnet:subnet_param",
@@ -3306,7 +3306,7 @@
       "category": "infrastructure",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -3348,7 +3348,7 @@
         "xcsh-docs:data-sources:aws_tgw_site:properties:aws_parameters:az_nodes:workload_subnet:subnet_param"
       ],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -3370,7 +3370,7 @@
       "schema_path": ["aws_parameters", "az_nodes", "workload_subnet"],
       "sections": [
         {
-          "aliases": ["existing subnet id"],
+          "aliases": ["aws parameters az nodes workload subnet existing subnet id"],
           "anchor": "schema-aws_parameters--az_nodes--workload_subnet--existing_subnet_id",
           "description": "Exclusive with Information about existing subnet ID.",
           "document_id": "xcsh-docs:data-sources:aws_tgw_site:properties:aws_parameters:az_nodes:workload_subnet",
@@ -3384,7 +3384,7 @@
           "type": "string"
         },
         {
-          "aliases": ["subnet param"],
+          "aliases": ["aws parameters az nodes workload subnet subnet param"],
           "anchor": "section",
           "description": "Parameters for creating a new cloud subnet.",
           "document_id": "xcsh-docs:data-sources:aws_tgw_site:properties:aws_parameters:az_nodes:workload_subnet:subnet_param",
@@ -3417,7 +3417,7 @@
       "category": "infrastructure",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -3439,7 +3439,7 @@
       "schema_path": ["aws_parameters", "az_nodes", "workload_subnet", "subnet_param"],
       "sections": [
         {
-          "aliases": ["ipv4"],
+          "aliases": ["aws parameters az nodes workload subnet subnet param ipv4"],
           "anchor": "schema-aws_parameters--az_nodes--workload_subnet--subnet_param--ipv4",
           "description": "IPv4 subnet prefix for this subnet.",
           "document_id": "xcsh-docs:data-sources:aws_tgw_site:properties:aws_parameters:az_nodes:workload_subnet:subnet_param",
@@ -3472,7 +3472,7 @@
       "category": "infrastructure",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -3494,7 +3494,7 @@
       "schema_path": ["aws_parameters", "custom_security_group"],
       "sections": [
         {
-          "aliases": ["inside security group id"],
+          "aliases": ["aws parameters custom security group inside security group id"],
           "anchor": "schema-aws_parameters--custom_security_group--inside_security_group_id",
           "description": "Security Group ID to be attached to SLI(Site Local Inside) Interface.",
           "document_id": "xcsh-docs:data-sources:aws_tgw_site:properties:aws_parameters:custom_security_group",
@@ -3508,7 +3508,7 @@
           "type": "string"
         },
         {
-          "aliases": ["outside security group id"],
+          "aliases": ["aws parameters custom security group outside security group id"],
           "anchor": "schema-aws_parameters--custom_security_group--outside_security_group_id",
           "description": "Security Group ID to be attached to SLO(Site Local Outside) Interface.",
           "document_id": "xcsh-docs:data-sources:aws_tgw_site:properties:aws_parameters:custom_security_group",
@@ -3541,7 +3541,7 @@
       "category": "infrastructure",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -3581,7 +3581,7 @@
       "category": "infrastructure",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -3621,7 +3621,7 @@
       "category": "infrastructure",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -3643,7 +3643,7 @@
       "schema_path": ["aws_parameters", "enable_encryption"],
       "sections": [
         {
-          "aliases": ["kms key id"],
+          "aliases": ["aws parameters enable encryption kms key id"],
           "anchor": "schema-aws_parameters--enable_encryption--kms_key_id",
           "description": "AWS KMS Key to be used to encrypt the disk attached to the VM.",
           "document_id": "xcsh-docs:data-sources:aws_tgw_site:properties:aws_parameters:enable_encryption",
@@ -3676,7 +3676,7 @@
       "category": "infrastructure",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -3716,7 +3716,7 @@
       "category": "infrastructure",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -3738,7 +3738,7 @@
       "schema_path": ["aws_parameters", "existing_tgw"],
       "sections": [
         {
-          "aliases": ["tgw asn"],
+          "aliases": ["aws parameters existing tgw tgw asn"],
           "anchor": "schema-aws_parameters--existing_tgw--tgw_asn",
           "description": "TGW ASN.",
           "document_id": "xcsh-docs:data-sources:aws_tgw_site:properties:aws_parameters:existing_tgw",
@@ -3752,7 +3752,7 @@
           "type": "number"
         },
         {
-          "aliases": ["tgw id"],
+          "aliases": ["aws parameters existing tgw tgw id"],
           "anchor": "schema-aws_parameters--existing_tgw--tgw_id",
           "description": "Existing TGW ID.",
           "document_id": "xcsh-docs:data-sources:aws_tgw_site:properties:aws_parameters:existing_tgw",
@@ -3766,7 +3766,7 @@
           "type": "string"
         },
         {
-          "aliases": ["volterra site asn"],
+          "aliases": ["aws parameters existing tgw volterra site asn"],
           "anchor": "schema-aws_parameters--existing_tgw--volterra_site_asn",
           "description": "F5XC Site ASN.",
           "document_id": "xcsh-docs:data-sources:aws_tgw_site:properties:aws_parameters:existing_tgw",
@@ -3799,7 +3799,7 @@
       "category": "infrastructure",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -3842,7 +3842,7 @@
         "xcsh-docs:data-sources:aws_tgw_site:properties:aws_parameters:new_tgw:user_assigned"
       ],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -3864,7 +3864,7 @@
       "schema_path": ["aws_parameters", "new_tgw"],
       "sections": [
         {
-          "aliases": ["system generated"],
+          "aliases": ["aws parameters new tgw system generated"],
           "anchor": "section",
           "description": "This can be used for messages where no values are needed.",
           "document_id": "xcsh-docs:data-sources:aws_tgw_site:properties:aws_parameters:new_tgw:system_generated",
@@ -3878,7 +3878,7 @@
           "type": "object"
         },
         {
-          "aliases": ["user assigned"],
+          "aliases": ["aws parameters new tgw user assigned"],
           "anchor": "section",
           "description": "Information needed when ASNs are assigned by the user.",
           "document_id": "xcsh-docs:data-sources:aws_tgw_site:properties:aws_parameters:new_tgw:user_assigned",
@@ -3911,7 +3911,7 @@
       "category": "infrastructure",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -3951,7 +3951,7 @@
       "category": "infrastructure",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -3973,7 +3973,7 @@
       "schema_path": ["aws_parameters", "new_tgw", "user_assigned"],
       "sections": [
         {
-          "aliases": ["tgw asn"],
+          "aliases": ["aws parameters new tgw user assigned tgw asn"],
           "anchor": "schema-aws_parameters--new_tgw--user_assigned--tgw_asn",
           "description": "TGW ASN. Allowed range for 16-bit private ASNs include 64512 to 65534.",
           "document_id": "xcsh-docs:data-sources:aws_tgw_site:properties:aws_parameters:new_tgw:user_assigned",
@@ -3987,7 +3987,7 @@
           "type": "number"
         },
         {
-          "aliases": ["volterra site asn"],
+          "aliases": ["aws parameters new tgw user assigned volterra site asn"],
           "anchor": "schema-aws_parameters--new_tgw--user_assigned--volterra_site_asn",
           "description": "F5XC Site ASN.",
           "document_id": "xcsh-docs:data-sources:aws_tgw_site:properties:aws_parameters:new_tgw:user_assigned",
@@ -4020,7 +4020,7 @@
       "category": "infrastructure",
       "child_ids": ["xcsh-docs:data-sources:aws_tgw_site:properties:aws_parameters:new_vpc:autogenerate"],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -4042,7 +4042,7 @@
       "schema_path": ["aws_parameters", "new_vpc"],
       "sections": [
         {
-          "aliases": ["autogenerate"],
+          "aliases": ["aws parameters new vpc autogenerate"],
           "anchor": "section",
           "description": "This can be used for messages where no values are needed.",
           "document_id": "xcsh-docs:data-sources:aws_tgw_site:properties:aws_parameters:new_vpc:autogenerate",
@@ -4056,7 +4056,7 @@
           "type": "object"
         },
         {
-          "aliases": ["name tag"],
+          "aliases": ["aws parameters new vpc name tag"],
           "anchor": "schema-aws_parameters--new_vpc--name_tag",
           "description": "Exclusive with Specify the VPC Name.",
           "document_id": "xcsh-docs:data-sources:aws_tgw_site:properties:aws_parameters:new_vpc",
@@ -4070,7 +4070,7 @@
           "type": "string"
         },
         {
-          "aliases": ["primary ipv4"],
+          "aliases": ["aws parameters new vpc primary ipv4"],
           "anchor": "schema-aws_parameters--new_vpc--primary_ipv4",
           "description": "IPv4 CIDR block for this VPC. It has to be private address space. The Primary IPv4 block cannot be modified. All subnets prefixes in this VPC must be part of this CIDR block.",
           "document_id": "xcsh-docs:data-sources:aws_tgw_site:properties:aws_parameters:new_vpc",
@@ -4103,7 +4103,7 @@
       "category": "infrastructure",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -4143,7 +4143,7 @@
       "category": "infrastructure",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -4183,7 +4183,7 @@
       "category": "infrastructure",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -4223,7 +4223,7 @@
       "category": "infrastructure",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -4245,7 +4245,7 @@
       "schema_path": ["aws_parameters", "tgw_cidr"],
       "sections": [
         {
-          "aliases": ["ipv4"],
+          "aliases": ["aws parameters tgw cidr ipv4"],
           "anchor": "schema-aws_parameters--tgw_cidr--ipv4",
           "description": "IPv4 subnet prefix for this subnet.",
           "document_id": "xcsh-docs:data-sources:aws_tgw_site:properties:aws_parameters:tgw_cidr",
@@ -4278,7 +4278,7 @@
       "category": "infrastructure",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -4318,7 +4318,7 @@
       "category": "infrastructure",
       "child_ids": ["xcsh-docs:data-sources:aws_tgw_site:properties:blocked_services:blocked_service"],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -4340,7 +4340,7 @@
       "schema_path": ["blocked_services"],
       "sections": [
         {
-          "aliases": ["blocked service"],
+          "aliases": ["blocked services blocked service"],
           "anchor": "section",
           "description": "Blocking or denial configuration",
           "document_id": "xcsh-docs:data-sources:aws_tgw_site:properties:blocked_services:blocked_service",
@@ -4377,7 +4377,7 @@
         "xcsh-docs:data-sources:aws_tgw_site:properties:blocked_services:blocked_service:web_user_interface"
       ],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -4399,7 +4399,7 @@
       "schema_path": ["blocked_services", "blocked_service"],
       "sections": [
         {
-          "aliases": ["dns"],
+          "aliases": ["blocked services blocked service dns"],
           "anchor": "section",
           "description": "This can be used for messages where no values are needed.",
           "document_id": "xcsh-docs:data-sources:aws_tgw_site:properties:blocked_services:blocked_service:dns",
@@ -4413,7 +4413,7 @@
           "type": "object"
         },
         {
-          "aliases": ["network type"],
+          "aliases": ["blocked services blocked service network type"],
           "anchor": "schema-blocked_services--blocked_service--network_type",
           "description": "Different types of virtual networks understood by the system Virtual-network of type VIRTUAL_NETWORK_SITE_LOCAL provides connectivity to public (outside) network. This is an insecure network and is connected to public internet via NAT Gateways/firwalls Virtual-network of this type is local to every site. Two virtual",
           "document_id": "xcsh-docs:data-sources:aws_tgw_site:properties:blocked_services:blocked_service",
@@ -4427,7 +4427,7 @@
           "type": "string"
         },
         {
-          "aliases": ["ssh"],
+          "aliases": ["blocked services blocked service ssh"],
           "anchor": "section",
           "description": "This can be used for messages where no values are needed.",
           "document_id": "xcsh-docs:data-sources:aws_tgw_site:properties:blocked_services:blocked_service:ssh",
@@ -4441,7 +4441,7 @@
           "type": "object"
         },
         {
-          "aliases": ["web user interface"],
+          "aliases": ["blocked services blocked service web user interface"],
           "anchor": "section",
           "description": "This can be used for messages where no values are needed.",
           "document_id": "xcsh-docs:data-sources:aws_tgw_site:properties:blocked_services:blocked_service:web_user_interface",
@@ -4474,7 +4474,7 @@
       "category": "infrastructure",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -4514,7 +4514,7 @@
       "category": "infrastructure",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -4554,7 +4554,7 @@
       "category": "infrastructure",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -4594,7 +4594,7 @@
       "category": "infrastructure",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -4616,7 +4616,7 @@
       "schema_path": ["coordinates"],
       "sections": [
         {
-          "aliases": ["latitude"],
+          "aliases": ["coordinates latitude"],
           "anchor": "schema-coordinates--latitude",
           "description": "Latitude of the site location.",
           "document_id": "xcsh-docs:data-sources:aws_tgw_site:properties:coordinates",
@@ -4630,7 +4630,7 @@
           "type": "number"
         },
         {
-          "aliases": ["longitude"],
+          "aliases": ["coordinates longitude"],
           "anchor": "schema-coordinates--longitude",
           "description": "Longitude of site location.",
           "document_id": "xcsh-docs:data-sources:aws_tgw_site:properties:coordinates",
@@ -4663,7 +4663,7 @@
       "category": "infrastructure",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -4685,7 +4685,7 @@
       "schema_path": ["custom_dns"],
       "sections": [
         {
-          "aliases": ["inside nameserver"],
+          "aliases": ["custom dns inside nameserver"],
           "anchor": "schema-custom_dns--inside_nameserver",
           "description": "Optional DNS server IP to be used for name resolution in inside network.",
           "document_id": "xcsh-docs:data-sources:aws_tgw_site:properties:custom_dns",
@@ -4699,7 +4699,7 @@
           "type": "string"
         },
         {
-          "aliases": ["outside nameserver"],
+          "aliases": ["custom dns outside nameserver"],
           "anchor": "schema-custom_dns--outside_nameserver",
           "description": "Optional DNS server IP to be used for name resolution in outside network.",
           "document_id": "xcsh-docs:data-sources:aws_tgw_site:properties:custom_dns",
@@ -4732,7 +4732,7 @@
       "category": "infrastructure",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -4772,7 +4772,7 @@
       "category": "infrastructure",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -4816,7 +4816,7 @@
         "xcsh-docs:data-sources:aws_tgw_site:properties:direct_connect_enabled:standard_vifs"
       ],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -4838,7 +4838,7 @@
       "schema_path": ["direct_connect_enabled"],
       "sections": [
         {
-          "aliases": ["auto asn"],
+          "aliases": ["direct connect enabled auto asn"],
           "anchor": "section",
           "description": "This can be used for messages where no values are needed.",
           "document_id": "xcsh-docs:data-sources:aws_tgw_site:properties:direct_connect_enabled:auto_asn",
@@ -4852,7 +4852,7 @@
           "type": "object"
         },
         {
-          "aliases": ["custom asn"],
+          "aliases": ["direct connect enabled custom asn"],
           "anchor": "schema-direct_connect_enabled--custom_asn",
           "description": "Exclusive with Custom Autonomous System Number.",
           "document_id": "xcsh-docs:data-sources:aws_tgw_site:properties:direct_connect_enabled",
@@ -4866,7 +4866,7 @@
           "type": "number"
         },
         {
-          "aliases": ["hosted vifs"],
+          "aliases": ["direct connect enabled hosted vifs"],
           "anchor": "section",
           "description": "AWS Direct Connect Hosted VIF Configuration.",
           "document_id": "xcsh-docs:data-sources:aws_tgw_site:properties:direct_connect_enabled:hosted_vifs",
@@ -4880,7 +4880,7 @@
           "type": "object"
         },
         {
-          "aliases": ["standard vifs"],
+          "aliases": ["direct connect enabled standard vifs"],
           "anchor": "section",
           "description": "This can be used for messages where no values are needed.",
           "document_id": "xcsh-docs:data-sources:aws_tgw_site:properties:direct_connect_enabled:standard_vifs",
@@ -4913,7 +4913,7 @@
       "category": "infrastructure",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -4957,7 +4957,7 @@
         "xcsh-docs:data-sources:aws_tgw_site:properties:direct_connect_enabled:hosted_vifs:vif_list"
       ],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -4979,7 +4979,7 @@
       "schema_path": ["direct_connect_enabled", "hosted_vifs"],
       "sections": [
         {
-          "aliases": ["site registration over direct connect"],
+          "aliases": ["direct connect enabled hosted vifs site registration over direct connect"],
           "anchor": "section",
           "description": "CloudLink ADN Network Config.",
           "document_id": "xcsh-docs:data-sources:aws_tgw_site:properties:direct_connect_enabled:hosted_vifs:site_registration_over_direct_connect",
@@ -4993,7 +4993,7 @@
           "type": "object"
         },
         {
-          "aliases": ["site registration over internet"],
+          "aliases": ["direct connect enabled hosted vifs site registration over internet"],
           "anchor": "section",
           "description": "This can be used for messages where no values are needed.",
           "document_id": "xcsh-docs:data-sources:aws_tgw_site:properties:direct_connect_enabled:hosted_vifs:site_registration_over_internet",
@@ -5007,7 +5007,7 @@
           "type": "object"
         },
         {
-          "aliases": ["vif list"],
+          "aliases": ["direct connect enabled hosted vifs vif list"],
           "anchor": "section",
           "description": "List of Hosted VIF Config.",
           "document_id": "xcsh-docs:data-sources:aws_tgw_site:properties:direct_connect_enabled:hosted_vifs:vif_list",
@@ -5040,7 +5040,7 @@
       "category": "infrastructure",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -5062,7 +5062,9 @@
       "schema_path": ["direct_connect_enabled", "hosted_vifs", "site_registration_over_direct_connect"],
       "sections": [
         {
-          "aliases": ["cloudlink network name"],
+          "aliases": [
+            "direct connect enabled hosted vifs site registration over direct connect cloudlink network name"
+          ],
           "anchor": "schema-direct_connect_enabled--hosted_vifs--site_registration_over_direct_connect--cloudlink_network_name",
           "description": "Establish private connectivity with the F5 Distributed Cloud Global Network using a Private ADN network. To provision a Private ADN network, please contact F5 Distributed Cloud support.",
           "document_id": "xcsh-docs:data-sources:aws_tgw_site:properties:direct_connect_enabled:hosted_vifs:site_registration_over_direct_connect",
@@ -5100,7 +5102,7 @@
       "category": "infrastructure",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -5142,7 +5144,7 @@
         "xcsh-docs:data-sources:aws_tgw_site:properties:direct_connect_enabled:hosted_vifs:vif_list:same_as_site_region"
       ],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -5164,7 +5166,7 @@
       "schema_path": ["direct_connect_enabled", "hosted_vifs", "vif_list"],
       "sections": [
         {
-          "aliases": ["other region"],
+          "aliases": ["direct connect enabled hosted vifs vif list other region"],
           "anchor": "schema-direct_connect_enabled--hosted_vifs--vif_list--other_region",
           "description": "Exclusive with Other Region.",
           "document_id": "xcsh-docs:data-sources:aws_tgw_site:properties:direct_connect_enabled:hosted_vifs:vif_list",
@@ -5178,7 +5180,7 @@
           "type": "string"
         },
         {
-          "aliases": ["same as site region"],
+          "aliases": ["direct connect enabled hosted vifs vif list same as site region"],
           "anchor": "section",
           "description": "This can be used for messages where no values are needed.",
           "document_id": "xcsh-docs:data-sources:aws_tgw_site:properties:direct_connect_enabled:hosted_vifs:vif_list:same_as_site_region",
@@ -5192,7 +5194,7 @@
           "type": "object"
         },
         {
-          "aliases": ["vif id"],
+          "aliases": ["direct connect enabled hosted vifs vif list vif id"],
           "anchor": "schema-direct_connect_enabled--hosted_vifs--vif_list--vif_id",
           "description": "AWS Direct Connect VIF ID that needs to be connected to the site.",
           "document_id": "xcsh-docs:data-sources:aws_tgw_site:properties:direct_connect_enabled:hosted_vifs:vif_list",
@@ -5225,7 +5227,7 @@
       "category": "infrastructure",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -5265,7 +5267,7 @@
       "category": "infrastructure",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -5308,7 +5310,7 @@
         "xcsh-docs:data-sources:aws_tgw_site:properties:kubernetes_upgrade_drain:enable_upgrade_drain"
       ],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -5330,7 +5332,7 @@
       "schema_path": ["kubernetes_upgrade_drain"],
       "sections": [
         {
-          "aliases": ["disable upgrade drain"],
+          "aliases": ["kubernetes upgrade drain disable upgrade drain"],
           "anchor": "section",
           "description": "This can be used for messages where no values are needed.",
           "document_id": "xcsh-docs:data-sources:aws_tgw_site:properties:kubernetes_upgrade_drain:disable_upgrade_drain",
@@ -5344,7 +5346,7 @@
           "type": "object"
         },
         {
-          "aliases": ["enable upgrade drain"],
+          "aliases": ["kubernetes upgrade drain enable upgrade drain"],
           "anchor": "section",
           "description": "Specify batch upgrade settings for worker nodes within a site.",
           "document_id": "xcsh-docs:data-sources:aws_tgw_site:properties:kubernetes_upgrade_drain:enable_upgrade_drain",
@@ -5377,7 +5379,7 @@
       "category": "infrastructure",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -5420,7 +5422,7 @@
         "xcsh-docs:data-sources:aws_tgw_site:properties:kubernetes_upgrade_drain:enable_upgrade_drain:enable_vega_upgrade_mode"
       ],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -5442,7 +5444,7 @@
       "schema_path": ["kubernetes_upgrade_drain", "enable_upgrade_drain"],
       "sections": [
         {
-          "aliases": ["disable vega upgrade mode"],
+          "aliases": ["kubernetes upgrade drain enable upgrade drain disable vega upgrade mode"],
           "anchor": "section",
           "description": "This can be used for messages where no values are needed.",
           "document_id": "xcsh-docs:data-sources:aws_tgw_site:properties:kubernetes_upgrade_drain:enable_upgrade_drain:disable_vega_upgrade_mode",
@@ -5456,7 +5458,7 @@
           "type": "object"
         },
         {
-          "aliases": ["drain max unavailable node count"],
+          "aliases": ["kubernetes upgrade drain enable upgrade drain drain max unavailable node count"],
           "anchor": "schema-kubernetes_upgrade_drain--enable_upgrade_drain--drain_max_unavailable_node_count",
           "description": "Exclusive with",
           "document_id": "xcsh-docs:data-sources:aws_tgw_site:properties:kubernetes_upgrade_drain:enable_upgrade_drain",
@@ -5470,7 +5472,7 @@
           "type": "number"
         },
         {
-          "aliases": ["drain max unavailable node percentage"],
+          "aliases": ["kubernetes upgrade drain enable upgrade drain drain max unavailable node percentage"],
           "anchor": "schema-kubernetes_upgrade_drain--enable_upgrade_drain--drain_max_unavailable_node_percentage",
           "description": "Maximum percentage of nodes unavailable during upgrade draining.",
           "document_id": "xcsh-docs:data-sources:aws_tgw_site:properties:kubernetes_upgrade_drain:enable_upgrade_drain",
@@ -5484,7 +5486,7 @@
           "type": "number"
         },
         {
-          "aliases": ["drain node timeout", "duration", "operation timeout"],
+          "aliases": ["duration", "kubernetes upgrade drain enable upgrade drain drain node timeout"],
           "anchor": "schema-kubernetes_upgrade_drain--enable_upgrade_drain--drain_node_timeout",
           "description": "Seconds to wait before initiating upgrade on the next set of nodes. Setting it to 0 will wait indefinitely for all services on nodes to be upgraded gracefully before proceeding to the next set of nodes. (Warning: It may block upgrade if services on a node cannot be gracefully upgraded. It is recommended to use the",
           "document_id": "xcsh-docs:data-sources:aws_tgw_site:properties:kubernetes_upgrade_drain:enable_upgrade_drain",
@@ -5498,7 +5500,7 @@
           "type": "number"
         },
         {
-          "aliases": ["enable vega upgrade mode"],
+          "aliases": ["kubernetes upgrade drain enable upgrade drain enable vega upgrade mode"],
           "anchor": "section",
           "description": "This can be used for messages where no values are needed.",
           "document_id": "xcsh-docs:data-sources:aws_tgw_site:properties:kubernetes_upgrade_drain:enable_upgrade_drain:enable_vega_upgrade_mode",
@@ -5531,7 +5533,7 @@
       "category": "infrastructure",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -5571,7 +5573,7 @@
       "category": "infrastructure",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -5611,7 +5613,7 @@
       "category": "infrastructure",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -5633,7 +5635,7 @@
       "schema_path": ["log_receiver"],
       "sections": [
         {
-          "aliases": ["name"],
+          "aliases": ["log receiver name"],
           "anchor": "schema-log_receiver--name",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.",
           "document_id": "xcsh-docs:data-sources:aws_tgw_site:properties:log_receiver",
@@ -5647,7 +5649,7 @@
           "type": "string"
         },
         {
-          "aliases": ["namespace"],
+          "aliases": ["log receiver namespace"],
           "anchor": "schema-log_receiver--namespace",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace.",
           "document_id": "xcsh-docs:data-sources:aws_tgw_site:properties:log_receiver",
@@ -5661,7 +5663,7 @@
           "type": "string"
         },
         {
-          "aliases": ["tenant"],
+          "aliases": ["log receiver tenant"],
           "anchor": "schema-log_receiver--tenant",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant.",
           "document_id": "xcsh-docs:data-sources:aws_tgw_site:properties:log_receiver",
@@ -5694,7 +5696,7 @@
       "category": "infrastructure",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -5737,7 +5739,7 @@
         "xcsh-docs:data-sources:aws_tgw_site:properties:offline_survivability_mode:no_offline_survivability_mode"
       ],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -5759,7 +5761,7 @@
       "schema_path": ["offline_survivability_mode"],
       "sections": [
         {
-          "aliases": ["enable offline survivability mode"],
+          "aliases": ["offline survivability mode enable offline survivability mode"],
           "anchor": "section",
           "description": "This can be used for messages where no values are needed.",
           "document_id": "xcsh-docs:data-sources:aws_tgw_site:properties:offline_survivability_mode:enable_offline_survivability_mode",
@@ -5773,7 +5775,7 @@
           "type": "object"
         },
         {
-          "aliases": ["no offline survivability mode"],
+          "aliases": ["offline survivability mode no offline survivability mode"],
           "anchor": "section",
           "description": "This can be used for messages where no values are needed.",
           "document_id": "xcsh-docs:data-sources:aws_tgw_site:properties:offline_survivability_mode:no_offline_survivability_mode",
@@ -5806,7 +5808,7 @@
       "category": "infrastructure",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -5846,7 +5848,7 @@
       "category": "infrastructure",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -5886,7 +5888,7 @@
       "category": "infrastructure",
       "child_ids": ["xcsh-docs:data-sources:aws_tgw_site:properties:os:default_os_version"],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -5908,7 +5910,7 @@
       "schema_path": ["os"],
       "sections": [
         {
-          "aliases": ["default os version"],
+          "aliases": ["os default os version"],
           "anchor": "section",
           "description": "This can be used for messages where no values are needed.",
           "document_id": "xcsh-docs:data-sources:aws_tgw_site:properties:os:default_os_version",
@@ -5922,7 +5924,7 @@
           "type": "object"
         },
         {
-          "aliases": ["operating system version"],
+          "aliases": ["os operating system version"],
           "anchor": "schema-os--operating_system_version",
           "description": "Exclusive with Specify a OS version to be used e.g. 9.2024.6.",
           "document_id": "xcsh-docs:data-sources:aws_tgw_site:properties:os",
@@ -5955,7 +5957,7 @@
       "category": "infrastructure",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -5998,7 +6000,7 @@
         "xcsh-docs:data-sources:aws_tgw_site:properties:performance_enhancement_mode:perf_mode_l7_enhanced"
       ],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -6020,7 +6022,7 @@
       "schema_path": ["performance_enhancement_mode"],
       "sections": [
         {
-          "aliases": ["perf mode l3 enhanced"],
+          "aliases": ["performance enhancement mode perf mode l3 enhanced"],
           "anchor": "section",
           "description": "L3 enhanced performance mode OPTIONS.",
           "document_id": "xcsh-docs:data-sources:aws_tgw_site:properties:performance_enhancement_mode:perf_mode_l3_enhanced",
@@ -6034,7 +6036,7 @@
           "type": "object"
         },
         {
-          "aliases": ["perf mode l7 enhanced"],
+          "aliases": ["performance enhancement mode perf mode l7 enhanced"],
           "anchor": "section",
           "description": "L7 enhanced performance mode OPTIONS.",
           "document_id": "xcsh-docs:data-sources:aws_tgw_site:properties:performance_enhancement_mode:perf_mode_l7_enhanced",
@@ -6070,7 +6072,7 @@
         "xcsh-docs:data-sources:aws_tgw_site:properties:performance_enhancement_mode:perf_mode_l3_enhanced:no_jumbo"
       ],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -6092,7 +6094,7 @@
       "schema_path": ["performance_enhancement_mode", "perf_mode_l3_enhanced"],
       "sections": [
         {
-          "aliases": ["jumbo"],
+          "aliases": ["performance enhancement mode perf mode l3 enhanced jumbo"],
           "anchor": "section",
           "description": "This can be used for messages where no values are needed.",
           "document_id": "xcsh-docs:data-sources:aws_tgw_site:properties:performance_enhancement_mode:perf_mode_l3_enhanced:jumbo",
@@ -6106,7 +6108,7 @@
           "type": "object"
         },
         {
-          "aliases": ["no jumbo"],
+          "aliases": ["performance enhancement mode perf mode l3 enhanced no jumbo"],
           "anchor": "section",
           "description": "This can be used for messages where no values are needed.",
           "document_id": "xcsh-docs:data-sources:aws_tgw_site:properties:performance_enhancement_mode:perf_mode_l3_enhanced:no_jumbo",
@@ -6139,7 +6141,7 @@
       "category": "infrastructure",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -6179,7 +6181,7 @@
       "category": "infrastructure",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -6222,7 +6224,7 @@
         "xcsh-docs:data-sources:aws_tgw_site:properties:performance_enhancement_mode:perf_mode_l7_enhanced:jumbo_enabled"
       ],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -6244,7 +6246,7 @@
       "schema_path": ["performance_enhancement_mode", "perf_mode_l7_enhanced"],
       "sections": [
         {
-          "aliases": ["jumbo disabled"],
+          "aliases": ["performance enhancement mode perf mode l7 enhanced jumbo disabled"],
           "anchor": "section",
           "description": "This can be used for messages where no values are needed.",
           "document_id": "xcsh-docs:data-sources:aws_tgw_site:properties:performance_enhancement_mode:perf_mode_l7_enhanced:jumbo_disabled",
@@ -6258,7 +6260,7 @@
           "type": "object"
         },
         {
-          "aliases": ["jumbo enabled"],
+          "aliases": ["performance enhancement mode perf mode l7 enhanced jumbo enabled"],
           "anchor": "section",
           "description": "This can be used for messages where no values are needed.",
           "document_id": "xcsh-docs:data-sources:aws_tgw_site:properties:performance_enhancement_mode:perf_mode_l7_enhanced:jumbo_enabled",
@@ -6291,7 +6293,7 @@
       "category": "infrastructure",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -6331,7 +6333,7 @@
       "category": "infrastructure",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -6375,7 +6377,7 @@
         "xcsh-docs:data-sources:aws_tgw_site:properties:private_connectivity:outside"
       ],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -6397,7 +6399,7 @@
       "schema_path": ["private_connectivity"],
       "sections": [
         {
-          "aliases": ["cloud link"],
+          "aliases": ["private connectivity cloud link"],
           "anchor": "section",
           "description": "This type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name.",
           "document_id": "xcsh-docs:data-sources:aws_tgw_site:properties:private_connectivity:cloud_link",
@@ -6411,7 +6413,7 @@
           "type": "object"
         },
         {
-          "aliases": ["inside"],
+          "aliases": ["private connectivity inside"],
           "anchor": "section",
           "description": "This can be used for messages where no values are needed.",
           "document_id": "xcsh-docs:data-sources:aws_tgw_site:properties:private_connectivity:inside",
@@ -6425,7 +6427,7 @@
           "type": "object"
         },
         {
-          "aliases": ["outside"],
+          "aliases": ["private connectivity outside"],
           "anchor": "section",
           "description": "This can be used for messages where no values are needed.",
           "document_id": "xcsh-docs:data-sources:aws_tgw_site:properties:private_connectivity:outside",
@@ -6458,7 +6460,7 @@
       "category": "infrastructure",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -6480,7 +6482,7 @@
       "schema_path": ["private_connectivity", "cloud_link"],
       "sections": [
         {
-          "aliases": ["name"],
+          "aliases": ["private connectivity cloud link name"],
           "anchor": "schema-private_connectivity--cloud_link--name",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.",
           "document_id": "xcsh-docs:data-sources:aws_tgw_site:properties:private_connectivity:cloud_link",
@@ -6494,7 +6496,7 @@
           "type": "string"
         },
         {
-          "aliases": ["namespace"],
+          "aliases": ["private connectivity cloud link namespace"],
           "anchor": "schema-private_connectivity--cloud_link--namespace",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace.",
           "document_id": "xcsh-docs:data-sources:aws_tgw_site:properties:private_connectivity:cloud_link",
@@ -6508,7 +6510,7 @@
           "type": "string"
         },
         {
-          "aliases": ["tenant"],
+          "aliases": ["private connectivity cloud link tenant"],
           "anchor": "schema-private_connectivity--cloud_link--tenant",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant.",
           "document_id": "xcsh-docs:data-sources:aws_tgw_site:properties:private_connectivity:cloud_link",
@@ -6541,7 +6543,7 @@
       "category": "infrastructure",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -6581,7 +6583,7 @@
       "category": "infrastructure",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -6621,7 +6623,7 @@
       "category": "infrastructure",
       "child_ids": ["xcsh-docs:data-sources:aws_tgw_site:properties:sw:default_sw_version"],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -6643,7 +6645,7 @@
       "schema_path": ["sw"],
       "sections": [
         {
-          "aliases": ["default sw version"],
+          "aliases": ["sw default sw version"],
           "anchor": "section",
           "description": "This can be used for messages where no values are needed.",
           "document_id": "xcsh-docs:data-sources:aws_tgw_site:properties:sw:default_sw_version",
@@ -6657,7 +6659,7 @@
           "type": "object"
         },
         {
-          "aliases": ["volterra software version"],
+          "aliases": ["sw volterra software version"],
           "anchor": "schema-sw--volterra_software_version",
           "description": "Exclusive with Specify a F5XC Software Version to be used e.g. Crt-20210329-1002.",
           "document_id": "xcsh-docs:data-sources:aws_tgw_site:properties:sw",
@@ -6690,7 +6692,7 @@
       "category": "infrastructure",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -6740,7 +6742,7 @@
         "xcsh-docs:data-sources:aws_tgw_site:properties:tgw_security:no_network_policy"
       ],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -6762,7 +6764,7 @@
       "schema_path": ["tgw_security"],
       "sections": [
         {
-          "aliases": ["active east west service policies"],
+          "aliases": ["tgw security active east west service policies"],
           "anchor": "section",
           "description": "Active service policies for the east-west proxy.",
           "document_id": "xcsh-docs:data-sources:aws_tgw_site:properties:tgw_security:active_east_west_service_policies",
@@ -6776,7 +6778,7 @@
           "type": "object"
         },
         {
-          "aliases": ["active enhanced firewall policies"],
+          "aliases": ["tgw security active enhanced firewall policies"],
           "anchor": "section",
           "description": "List of Enhanced Firewall Policies These policies use session-based rules and provide all OPTIONS available under firewall policies with an additional option for service insertion.",
           "document_id": "xcsh-docs:data-sources:aws_tgw_site:properties:tgw_security:active_enhanced_firewall_policies",
@@ -6790,7 +6792,7 @@
           "type": "object"
         },
         {
-          "aliases": ["active forward proxy policies"],
+          "aliases": ["tgw security active forward proxy policies"],
           "anchor": "section",
           "description": "Ordered List of Forward Proxy Policies active.",
           "document_id": "xcsh-docs:data-sources:aws_tgw_site:properties:tgw_security:active_forward_proxy_policies",
@@ -6804,7 +6806,7 @@
           "type": "object"
         },
         {
-          "aliases": ["active network policies"],
+          "aliases": ["tgw security active network policies"],
           "anchor": "section",
           "description": "List of firewall policy views.",
           "document_id": "xcsh-docs:data-sources:aws_tgw_site:properties:tgw_security:active_network_policies",
@@ -6818,7 +6820,7 @@
           "type": "object"
         },
         {
-          "aliases": ["east west service policy allow all"],
+          "aliases": ["tgw security east west service policy allow all"],
           "anchor": "section",
           "description": "This can be used for messages where no values are needed.",
           "document_id": "xcsh-docs:data-sources:aws_tgw_site:properties:tgw_security:east_west_service_policy_allow_all",
@@ -6832,7 +6834,7 @@
           "type": "object"
         },
         {
-          "aliases": ["forward proxy allow all"],
+          "aliases": ["tgw security forward proxy allow all"],
           "anchor": "section",
           "description": "This can be used for messages where no values are needed.",
           "document_id": "xcsh-docs:data-sources:aws_tgw_site:properties:tgw_security:forward_proxy_allow_all",
@@ -6846,7 +6848,7 @@
           "type": "object"
         },
         {
-          "aliases": ["no east west policy"],
+          "aliases": ["tgw security no east west policy"],
           "anchor": "section",
           "description": "This can be used for messages where no values are needed.",
           "document_id": "xcsh-docs:data-sources:aws_tgw_site:properties:tgw_security:no_east_west_policy",
@@ -6860,7 +6862,7 @@
           "type": "object"
         },
         {
-          "aliases": ["no forward proxy"],
+          "aliases": ["tgw security no forward proxy"],
           "anchor": "section",
           "description": "This can be used for messages where no values are needed.",
           "document_id": "xcsh-docs:data-sources:aws_tgw_site:properties:tgw_security:no_forward_proxy",
@@ -6874,7 +6876,7 @@
           "type": "object"
         },
         {
-          "aliases": ["no network policy"],
+          "aliases": ["tgw security no network policy"],
           "anchor": "section",
           "description": "This can be used for messages where no values are needed.",
           "document_id": "xcsh-docs:data-sources:aws_tgw_site:properties:tgw_security:no_network_policy",
@@ -6909,7 +6911,7 @@
         "xcsh-docs:data-sources:aws_tgw_site:properties:tgw_security:active_east_west_service_policies:service_policies"
       ],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -6931,7 +6933,7 @@
       "schema_path": ["tgw_security", "active_east_west_service_policies"],
       "sections": [
         {
-          "aliases": ["service policies"],
+          "aliases": ["tgw security active east west service policies service policies"],
           "anchor": "section",
           "description": "A list of references to service_policy objects.",
           "document_id": "xcsh-docs:data-sources:aws_tgw_site:properties:tgw_security:active_east_west_service_policies:service_policies",
@@ -6964,7 +6966,7 @@
       "category": "infrastructure",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -6986,7 +6988,7 @@
       "schema_path": ["tgw_security", "active_east_west_service_policies", "service_policies"],
       "sections": [
         {
-          "aliases": ["name"],
+          "aliases": ["tgw security active east west service policies service policies name"],
           "anchor": "schema-tgw_security--active_east_west_service_policies--service_policies--name",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.",
           "document_id": "xcsh-docs:data-sources:aws_tgw_site:properties:tgw_security:active_east_west_service_policies:service_policies",
@@ -7000,7 +7002,7 @@
           "type": "string"
         },
         {
-          "aliases": ["namespace"],
+          "aliases": ["tgw security active east west service policies service policies namespace"],
           "anchor": "schema-tgw_security--active_east_west_service_policies--service_policies--namespace",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace.",
           "document_id": "xcsh-docs:data-sources:aws_tgw_site:properties:tgw_security:active_east_west_service_policies:service_policies",
@@ -7014,7 +7016,7 @@
           "type": "string"
         },
         {
-          "aliases": ["tenant"],
+          "aliases": ["tgw security active east west service policies service policies tenant"],
           "anchor": "schema-tgw_security--active_east_west_service_policies--service_policies--tenant",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant.",
           "document_id": "xcsh-docs:data-sources:aws_tgw_site:properties:tgw_security:active_east_west_service_policies:service_policies",
@@ -7049,7 +7051,7 @@
         "xcsh-docs:data-sources:aws_tgw_site:properties:tgw_security:active_enhanced_firewall_policies:enhanced_firewall_policies"
       ],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -7071,7 +7073,7 @@
       "schema_path": ["tgw_security", "active_enhanced_firewall_policies"],
       "sections": [
         {
-          "aliases": ["enhanced firewall policies"],
+          "aliases": ["tgw security active enhanced firewall policies enhanced firewall policies"],
           "anchor": "section",
           "description": "Ordered List of Enhanced Firewall Policies active.",
           "document_id": "xcsh-docs:data-sources:aws_tgw_site:properties:tgw_security:active_enhanced_firewall_policies:enhanced_firewall_policies",
@@ -7104,7 +7106,7 @@
       "category": "infrastructure",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -7126,7 +7128,7 @@
       "schema_path": ["tgw_security", "active_enhanced_firewall_policies", "enhanced_firewall_policies"],
       "sections": [
         {
-          "aliases": ["name"],
+          "aliases": ["tgw security active enhanced firewall policies enhanced firewall policies name"],
           "anchor": "schema-tgw_security--active_enhanced_firewall_policies--enhanced_firewall_policies--name",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.",
           "document_id": "xcsh-docs:data-sources:aws_tgw_site:properties:tgw_security:active_enhanced_firewall_policies:enhanced_firewall_policies",
@@ -7140,7 +7142,7 @@
           "type": "string"
         },
         {
-          "aliases": ["namespace"],
+          "aliases": ["tgw security active enhanced firewall policies enhanced firewall policies namespace"],
           "anchor": "schema-tgw_security--active_enhanced_firewall_policies--enhanced_firewall_policies--namespace",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace.",
           "document_id": "xcsh-docs:data-sources:aws_tgw_site:properties:tgw_security:active_enhanced_firewall_policies:enhanced_firewall_policies",
@@ -7159,7 +7161,7 @@
           "type": "string"
         },
         {
-          "aliases": ["tenant"],
+          "aliases": ["tgw security active enhanced firewall policies enhanced firewall policies tenant"],
           "anchor": "schema-tgw_security--active_enhanced_firewall_policies--enhanced_firewall_policies--tenant",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant.",
           "document_id": "xcsh-docs:data-sources:aws_tgw_site:properties:tgw_security:active_enhanced_firewall_policies:enhanced_firewall_policies",
@@ -7194,7 +7196,7 @@
         "xcsh-docs:data-sources:aws_tgw_site:properties:tgw_security:active_forward_proxy_policies:forward_proxy_policies"
       ],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -7216,7 +7218,7 @@
       "schema_path": ["tgw_security", "active_forward_proxy_policies"],
       "sections": [
         {
-          "aliases": ["forward proxy policies"],
+          "aliases": ["tgw security active forward proxy policies forward proxy policies"],
           "anchor": "section",
           "description": "Ordered List of Forward Proxy Policies active.",
           "document_id": "xcsh-docs:data-sources:aws_tgw_site:properties:tgw_security:active_forward_proxy_policies:forward_proxy_policies",
@@ -7249,7 +7251,7 @@
       "category": "infrastructure",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -7271,7 +7273,7 @@
       "schema_path": ["tgw_security", "active_forward_proxy_policies", "forward_proxy_policies"],
       "sections": [
         {
-          "aliases": ["name"],
+          "aliases": ["tgw security active forward proxy policies forward proxy policies name"],
           "anchor": "schema-tgw_security--active_forward_proxy_policies--forward_proxy_policies--name",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.",
           "document_id": "xcsh-docs:data-sources:aws_tgw_site:properties:tgw_security:active_forward_proxy_policies:forward_proxy_policies",
@@ -7285,7 +7287,7 @@
           "type": "string"
         },
         {
-          "aliases": ["namespace"],
+          "aliases": ["tgw security active forward proxy policies forward proxy policies namespace"],
           "anchor": "schema-tgw_security--active_forward_proxy_policies--forward_proxy_policies--namespace",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace.",
           "document_id": "xcsh-docs:data-sources:aws_tgw_site:properties:tgw_security:active_forward_proxy_policies:forward_proxy_policies",
@@ -7299,7 +7301,7 @@
           "type": "string"
         },
         {
-          "aliases": ["tenant"],
+          "aliases": ["tgw security active forward proxy policies forward proxy policies tenant"],
           "anchor": "schema-tgw_security--active_forward_proxy_policies--forward_proxy_policies--tenant",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant.",
           "document_id": "xcsh-docs:data-sources:aws_tgw_site:properties:tgw_security:active_forward_proxy_policies:forward_proxy_policies",
@@ -7334,7 +7336,7 @@
         "xcsh-docs:data-sources:aws_tgw_site:properties:tgw_security:active_network_policies:network_policies"
       ],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -7356,7 +7358,7 @@
       "schema_path": ["tgw_security", "active_network_policies"],
       "sections": [
         {
-          "aliases": ["network policies"],
+          "aliases": ["tgw security active network policies network policies"],
           "anchor": "section",
           "description": "Ordered List of Firewall Policies active for this network firewall.",
           "document_id": "xcsh-docs:data-sources:aws_tgw_site:properties:tgw_security:active_network_policies:network_policies",
@@ -7389,7 +7391,7 @@
       "category": "infrastructure",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -7411,7 +7413,7 @@
       "schema_path": ["tgw_security", "active_network_policies", "network_policies"],
       "sections": [
         {
-          "aliases": ["name"],
+          "aliases": ["tgw security active network policies network policies name"],
           "anchor": "schema-tgw_security--active_network_policies--network_policies--name",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.",
           "document_id": "xcsh-docs:data-sources:aws_tgw_site:properties:tgw_security:active_network_policies:network_policies",
@@ -7425,7 +7427,7 @@
           "type": "string"
         },
         {
-          "aliases": ["namespace"],
+          "aliases": ["tgw security active network policies network policies namespace"],
           "anchor": "schema-tgw_security--active_network_policies--network_policies--namespace",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace.",
           "document_id": "xcsh-docs:data-sources:aws_tgw_site:properties:tgw_security:active_network_policies:network_policies",
@@ -7439,7 +7441,7 @@
           "type": "string"
         },
         {
-          "aliases": ["tenant"],
+          "aliases": ["tgw security active network policies network policies tenant"],
           "anchor": "schema-tgw_security--active_network_policies--network_policies--tenant",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant.",
           "document_id": "xcsh-docs:data-sources:aws_tgw_site:properties:tgw_security:active_network_policies:network_policies",
@@ -7472,7 +7474,7 @@
       "category": "infrastructure",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -7512,7 +7514,7 @@
       "category": "infrastructure",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -7552,7 +7554,7 @@
       "category": "infrastructure",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -7592,7 +7594,7 @@
       "category": "infrastructure",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -7632,7 +7634,7 @@
       "category": "infrastructure",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -7686,7 +7688,7 @@
         "xcsh-docs:data-sources:aws_tgw_site:properties:vn_config:sm_connection_pvt_ip"
       ],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -7708,7 +7710,7 @@
       "schema_path": ["vn_config"],
       "sections": [
         {
-          "aliases": ["allowed vip port"],
+          "aliases": ["vn config allowed vip port"],
           "anchor": "section",
           "description": "This defines the TCP port(s) which will be opened on the cloud loadbalancer. Such that the client can use the cloud VIP IP and port combination to reach TCP/HTTP LB configured on the F5XC Site.",
           "document_id": "xcsh-docs:data-sources:aws_tgw_site:properties:vn_config:allowed_vip_port",
@@ -7722,7 +7724,7 @@
           "type": "object"
         },
         {
-          "aliases": ["allowed vip port sli"],
+          "aliases": ["vn config allowed vip port sli"],
           "anchor": "section",
           "description": "This defines the TCP port(s) which will be opened on the cloud loadbalancer. Such that the client can use the cloud VIP IP and port combination to reach TCP/HTTP LB configured on the F5XC Site.",
           "document_id": "xcsh-docs:data-sources:aws_tgw_site:properties:vn_config:allowed_vip_port_sli",
@@ -7736,7 +7738,7 @@
           "type": "object"
         },
         {
-          "aliases": ["dc cluster group inside vn"],
+          "aliases": ["vn config dc cluster group inside vn"],
           "anchor": "section",
           "description": "This type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name.",
           "document_id": "xcsh-docs:data-sources:aws_tgw_site:properties:vn_config:dc_cluster_group_inside_vn",
@@ -7750,7 +7752,7 @@
           "type": "object"
         },
         {
-          "aliases": ["dc cluster group outside vn"],
+          "aliases": ["vn config dc cluster group outside vn"],
           "anchor": "section",
           "description": "This type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name.",
           "document_id": "xcsh-docs:data-sources:aws_tgw_site:properties:vn_config:dc_cluster_group_outside_vn",
@@ -7764,7 +7766,7 @@
           "type": "object"
         },
         {
-          "aliases": ["global network list"],
+          "aliases": ["vn config global network list"],
           "anchor": "section",
           "description": "List of global network connections.",
           "document_id": "xcsh-docs:data-sources:aws_tgw_site:properties:vn_config:global_network_list",
@@ -7778,7 +7780,7 @@
           "type": "object"
         },
         {
-          "aliases": ["inside static routes"],
+          "aliases": ["vn config inside static routes"],
           "anchor": "section",
           "description": "List of static routes.",
           "document_id": "xcsh-docs:data-sources:aws_tgw_site:properties:vn_config:inside_static_routes",
@@ -7792,7 +7794,7 @@
           "type": "object"
         },
         {
-          "aliases": ["no dc cluster group"],
+          "aliases": ["vn config no dc cluster group"],
           "anchor": "section",
           "description": "This can be used for messages where no values are needed.",
           "document_id": "xcsh-docs:data-sources:aws_tgw_site:properties:vn_config:no_dc_cluster_group",
@@ -7806,7 +7808,7 @@
           "type": "object"
         },
         {
-          "aliases": ["no global network"],
+          "aliases": ["vn config no global network"],
           "anchor": "section",
           "description": "This can be used for messages where no values are needed.",
           "document_id": "xcsh-docs:data-sources:aws_tgw_site:properties:vn_config:no_global_network",
@@ -7820,7 +7822,7 @@
           "type": "object"
         },
         {
-          "aliases": ["no inside static routes"],
+          "aliases": ["vn config no inside static routes"],
           "anchor": "section",
           "description": "This can be used for messages where no values are needed.",
           "document_id": "xcsh-docs:data-sources:aws_tgw_site:properties:vn_config:no_inside_static_routes",
@@ -7834,7 +7836,7 @@
           "type": "object"
         },
         {
-          "aliases": ["no outside static routes"],
+          "aliases": ["vn config no outside static routes"],
           "anchor": "section",
           "description": "This can be used for messages where no values are needed.",
           "document_id": "xcsh-docs:data-sources:aws_tgw_site:properties:vn_config:no_outside_static_routes",
@@ -7848,7 +7850,7 @@
           "type": "object"
         },
         {
-          "aliases": ["outside static routes"],
+          "aliases": ["vn config outside static routes"],
           "anchor": "section",
           "description": "List of static routes.",
           "document_id": "xcsh-docs:data-sources:aws_tgw_site:properties:vn_config:outside_static_routes",
@@ -7862,7 +7864,7 @@
           "type": "object"
         },
         {
-          "aliases": ["sm connection public ip"],
+          "aliases": ["vn config sm connection public ip"],
           "anchor": "section",
           "description": "This can be used for messages where no values are needed.",
           "document_id": "xcsh-docs:data-sources:aws_tgw_site:properties:vn_config:sm_connection_public_ip",
@@ -7876,7 +7878,7 @@
           "type": "object"
         },
         {
-          "aliases": ["sm connection pvt ip"],
+          "aliases": ["vn config sm connection pvt ip"],
           "anchor": "section",
           "description": "This can be used for messages where no values are needed.",
           "document_id": "xcsh-docs:data-sources:aws_tgw_site:properties:vn_config:sm_connection_pvt_ip",
@@ -7915,7 +7917,7 @@
         "xcsh-docs:data-sources:aws_tgw_site:properties:vn_config:allowed_vip_port:use_https_port"
       ],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -7937,7 +7939,7 @@
       "schema_path": ["vn_config", "allowed_vip_port"],
       "sections": [
         {
-          "aliases": ["custom ports"],
+          "aliases": ["vn config allowed vip port custom ports"],
           "anchor": "section",
           "description": "List of Custom port.",
           "document_id": "xcsh-docs:data-sources:aws_tgw_site:properties:vn_config:allowed_vip_port:custom_ports",
@@ -7951,7 +7953,7 @@
           "type": "object"
         },
         {
-          "aliases": ["disable allowed vip port"],
+          "aliases": ["vn config allowed vip port disable allowed vip port"],
           "anchor": "section",
           "description": "This can be used for messages where no values are needed.",
           "document_id": "xcsh-docs:data-sources:aws_tgw_site:properties:vn_config:allowed_vip_port:disable_allowed_vip_port",
@@ -7965,7 +7967,7 @@
           "type": "object"
         },
         {
-          "aliases": ["use http https port"],
+          "aliases": ["vn config allowed vip port use http https port"],
           "anchor": "section",
           "description": "This can be used for messages where no values are needed.",
           "document_id": "xcsh-docs:data-sources:aws_tgw_site:properties:vn_config:allowed_vip_port:use_http_https_port",
@@ -7979,7 +7981,7 @@
           "type": "object"
         },
         {
-          "aliases": ["use http port"],
+          "aliases": ["vn config allowed vip port use http port"],
           "anchor": "section",
           "description": "This can be used for messages where no values are needed.",
           "document_id": "xcsh-docs:data-sources:aws_tgw_site:properties:vn_config:allowed_vip_port:use_http_port",
@@ -7993,7 +7995,7 @@
           "type": "object"
         },
         {
-          "aliases": ["use https port"],
+          "aliases": ["vn config allowed vip port use https port"],
           "anchor": "section",
           "description": "This can be used for messages where no values are needed.",
           "document_id": "xcsh-docs:data-sources:aws_tgw_site:properties:vn_config:allowed_vip_port:use_https_port",
@@ -8026,7 +8028,7 @@
       "category": "infrastructure",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -8048,7 +8050,7 @@
       "schema_path": ["vn_config", "allowed_vip_port", "custom_ports"],
       "sections": [
         {
-          "aliases": ["port ranges"],
+          "aliases": ["vn config allowed vip port custom ports port ranges"],
           "anchor": "schema-vn_config--allowed_vip_port--custom_ports--port_ranges",
           "description": "Port Ranges.",
           "document_id": "xcsh-docs:data-sources:aws_tgw_site:properties:vn_config:allowed_vip_port:custom_ports",
@@ -8081,7 +8083,7 @@
       "category": "infrastructure",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -8121,7 +8123,7 @@
       "category": "infrastructure",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -8161,7 +8163,7 @@
       "category": "infrastructure",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -8201,7 +8203,7 @@
       "category": "infrastructure",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -8247,7 +8249,7 @@
         "xcsh-docs:data-sources:aws_tgw_site:properties:vn_config:allowed_vip_port_sli:use_https_port"
       ],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -8269,7 +8271,7 @@
       "schema_path": ["vn_config", "allowed_vip_port_sli"],
       "sections": [
         {
-          "aliases": ["custom ports"],
+          "aliases": ["vn config allowed vip port sli custom ports"],
           "anchor": "section",
           "description": "List of Custom port.",
           "document_id": "xcsh-docs:data-sources:aws_tgw_site:properties:vn_config:allowed_vip_port_sli:custom_ports",
@@ -8283,7 +8285,7 @@
           "type": "object"
         },
         {
-          "aliases": ["disable allowed vip port"],
+          "aliases": ["vn config allowed vip port sli disable allowed vip port"],
           "anchor": "section",
           "description": "This can be used for messages where no values are needed.",
           "document_id": "xcsh-docs:data-sources:aws_tgw_site:properties:vn_config:allowed_vip_port_sli:disable_allowed_vip_port",
@@ -8297,7 +8299,7 @@
           "type": "object"
         },
         {
-          "aliases": ["use http https port"],
+          "aliases": ["vn config allowed vip port sli use http https port"],
           "anchor": "section",
           "description": "This can be used for messages where no values are needed.",
           "document_id": "xcsh-docs:data-sources:aws_tgw_site:properties:vn_config:allowed_vip_port_sli:use_http_https_port",
@@ -8311,7 +8313,7 @@
           "type": "object"
         },
         {
-          "aliases": ["use http port"],
+          "aliases": ["vn config allowed vip port sli use http port"],
           "anchor": "section",
           "description": "This can be used for messages where no values are needed.",
           "document_id": "xcsh-docs:data-sources:aws_tgw_site:properties:vn_config:allowed_vip_port_sli:use_http_port",
@@ -8325,7 +8327,7 @@
           "type": "object"
         },
         {
-          "aliases": ["use https port"],
+          "aliases": ["vn config allowed vip port sli use https port"],
           "anchor": "section",
           "description": "This can be used for messages where no values are needed.",
           "document_id": "xcsh-docs:data-sources:aws_tgw_site:properties:vn_config:allowed_vip_port_sli:use_https_port",
@@ -8358,7 +8360,7 @@
       "category": "infrastructure",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -8380,7 +8382,7 @@
       "schema_path": ["vn_config", "allowed_vip_port_sli", "custom_ports"],
       "sections": [
         {
-          "aliases": ["port ranges"],
+          "aliases": ["vn config allowed vip port sli custom ports port ranges"],
           "anchor": "schema-vn_config--allowed_vip_port_sli--custom_ports--port_ranges",
           "description": "Port Ranges.",
           "document_id": "xcsh-docs:data-sources:aws_tgw_site:properties:vn_config:allowed_vip_port_sli:custom_ports",
@@ -8413,7 +8415,7 @@
       "category": "infrastructure",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -8453,7 +8455,7 @@
       "category": "infrastructure",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -8493,7 +8495,7 @@
       "category": "infrastructure",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -8533,7 +8535,7 @@
       "category": "infrastructure",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -8573,7 +8575,7 @@
       "category": "infrastructure",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -8595,7 +8597,7 @@
       "schema_path": ["vn_config", "dc_cluster_group_inside_vn"],
       "sections": [
         {
-          "aliases": ["name"],
+          "aliases": ["vn config dc cluster group inside vn name"],
           "anchor": "schema-vn_config--dc_cluster_group_inside_vn--name",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.",
           "document_id": "xcsh-docs:data-sources:aws_tgw_site:properties:vn_config:dc_cluster_group_inside_vn",
@@ -8609,7 +8611,7 @@
           "type": "string"
         },
         {
-          "aliases": ["namespace"],
+          "aliases": ["vn config dc cluster group inside vn namespace"],
           "anchor": "schema-vn_config--dc_cluster_group_inside_vn--namespace",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace.",
           "document_id": "xcsh-docs:data-sources:aws_tgw_site:properties:vn_config:dc_cluster_group_inside_vn",
@@ -8623,7 +8625,7 @@
           "type": "string"
         },
         {
-          "aliases": ["tenant"],
+          "aliases": ["vn config dc cluster group inside vn tenant"],
           "anchor": "schema-vn_config--dc_cluster_group_inside_vn--tenant",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant.",
           "document_id": "xcsh-docs:data-sources:aws_tgw_site:properties:vn_config:dc_cluster_group_inside_vn",
@@ -8656,7 +8658,7 @@
       "category": "infrastructure",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -8678,7 +8680,7 @@
       "schema_path": ["vn_config", "dc_cluster_group_outside_vn"],
       "sections": [
         {
-          "aliases": ["name"],
+          "aliases": ["vn config dc cluster group outside vn name"],
           "anchor": "schema-vn_config--dc_cluster_group_outside_vn--name",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.",
           "document_id": "xcsh-docs:data-sources:aws_tgw_site:properties:vn_config:dc_cluster_group_outside_vn",
@@ -8692,7 +8694,7 @@
           "type": "string"
         },
         {
-          "aliases": ["namespace"],
+          "aliases": ["vn config dc cluster group outside vn namespace"],
           "anchor": "schema-vn_config--dc_cluster_group_outside_vn--namespace",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace.",
           "document_id": "xcsh-docs:data-sources:aws_tgw_site:properties:vn_config:dc_cluster_group_outside_vn",
@@ -8706,7 +8708,7 @@
           "type": "string"
         },
         {
-          "aliases": ["tenant"],
+          "aliases": ["vn config dc cluster group outside vn tenant"],
           "anchor": "schema-vn_config--dc_cluster_group_outside_vn--tenant",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant.",
           "document_id": "xcsh-docs:data-sources:aws_tgw_site:properties:vn_config:dc_cluster_group_outside_vn",
@@ -8741,7 +8743,7 @@
         "xcsh-docs:data-sources:aws_tgw_site:properties:vn_config:global_network_list:global_network_connections"
       ],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -8763,7 +8765,7 @@
       "schema_path": ["vn_config", "global_network_list"],
       "sections": [
         {
-          "aliases": ["global network connections"],
+          "aliases": ["vn config global network list global network connections"],
           "anchor": "section",
           "description": "Global network connections.",
           "document_id": "xcsh-docs:data-sources:aws_tgw_site:properties:vn_config:global_network_list:global_network_connections",
@@ -8799,7 +8801,7 @@
         "xcsh-docs:data-sources:aws_tgw_site:properties:vn_config:global_network_list:global_network_connections:slo_to_global_dr"
       ],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -8821,7 +8823,7 @@
       "schema_path": ["vn_config", "global_network_list", "global_network_connections"],
       "sections": [
         {
-          "aliases": ["sli to global dr"],
+          "aliases": ["vn config global network list global network connections sli to global dr"],
           "anchor": "section",
           "description": "Global network reference for direct connection.",
           "document_id": "xcsh-docs:data-sources:aws_tgw_site:properties:vn_config:global_network_list:global_network_connections:sli_to_global_dr",
@@ -8835,7 +8837,7 @@
           "type": "object"
         },
         {
-          "aliases": ["slo to global dr"],
+          "aliases": ["vn config global network list global network connections slo to global dr"],
           "anchor": "section",
           "description": "Global network reference for direct connection.",
           "document_id": "xcsh-docs:data-sources:aws_tgw_site:properties:vn_config:global_network_list:global_network_connections:slo_to_global_dr",
@@ -8870,7 +8872,7 @@
         "xcsh-docs:data-sources:aws_tgw_site:properties:vn_config:global_network_list:global_network_connections:sli_to_global_dr:global_vn"
       ],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -8892,7 +8894,7 @@
       "schema_path": ["vn_config", "global_network_list", "global_network_connections", "sli_to_global_dr"],
       "sections": [
         {
-          "aliases": ["global vn"],
+          "aliases": ["vn config global network list global network connections sli to global dr global vn"],
           "anchor": "section",
           "description": "This type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name.",
           "document_id": "xcsh-docs:data-sources:aws_tgw_site:properties:vn_config:global_network_list:global_network_connections:sli_to_global_dr:global_vn",
@@ -8931,7 +8933,7 @@
       "category": "infrastructure",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -8959,7 +8961,7 @@
       ],
       "sections": [
         {
-          "aliases": ["name"],
+          "aliases": ["vn config global network list global network connections sli to global dr global vn name"],
           "anchor": "schema-vn_config--global_network_list--global_network_connections--sli_to_global_dr--global_vn--name",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.",
           "document_id": "xcsh-docs:data-sources:aws_tgw_site:properties:vn_config:global_network_list:global_network_connections:sli_to_global_dr:global_vn",
@@ -8980,7 +8982,7 @@
           "type": "string"
         },
         {
-          "aliases": ["namespace"],
+          "aliases": ["vn config global network list global network connections sli to global dr global vn namespace"],
           "anchor": "schema-vn_config--global_network_list--global_network_connections--sli_to_global_dr--global_vn--namespace",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace.",
           "document_id": "xcsh-docs:data-sources:aws_tgw_site:properties:vn_config:global_network_list:global_network_connections:sli_to_global_dr:global_vn",
@@ -9001,7 +9003,7 @@
           "type": "string"
         },
         {
-          "aliases": ["tenant"],
+          "aliases": ["vn config global network list global network connections sli to global dr global vn tenant"],
           "anchor": "schema-vn_config--global_network_list--global_network_connections--sli_to_global_dr--global_vn--tenant",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant.",
           "document_id": "xcsh-docs:data-sources:aws_tgw_site:properties:vn_config:global_network_list:global_network_connections:sli_to_global_dr:global_vn",
@@ -9043,7 +9045,7 @@
         "xcsh-docs:data-sources:aws_tgw_site:properties:vn_config:global_network_list:global_network_connections:slo_to_global_dr:global_vn"
       ],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -9065,7 +9067,7 @@
       "schema_path": ["vn_config", "global_network_list", "global_network_connections", "slo_to_global_dr"],
       "sections": [
         {
-          "aliases": ["global vn"],
+          "aliases": ["vn config global network list global network connections slo to global dr global vn"],
           "anchor": "section",
           "description": "This type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name.",
           "document_id": "xcsh-docs:data-sources:aws_tgw_site:properties:vn_config:global_network_list:global_network_connections:slo_to_global_dr:global_vn",
@@ -9104,7 +9106,7 @@
       "category": "infrastructure",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -9132,7 +9134,7 @@
       ],
       "sections": [
         {
-          "aliases": ["name"],
+          "aliases": ["vn config global network list global network connections slo to global dr global vn name"],
           "anchor": "schema-vn_config--global_network_list--global_network_connections--slo_to_global_dr--global_vn--name",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.",
           "document_id": "xcsh-docs:data-sources:aws_tgw_site:properties:vn_config:global_network_list:global_network_connections:slo_to_global_dr:global_vn",
@@ -9153,7 +9155,7 @@
           "type": "string"
         },
         {
-          "aliases": ["namespace"],
+          "aliases": ["vn config global network list global network connections slo to global dr global vn namespace"],
           "anchor": "schema-vn_config--global_network_list--global_network_connections--slo_to_global_dr--global_vn--namespace",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace.",
           "document_id": "xcsh-docs:data-sources:aws_tgw_site:properties:vn_config:global_network_list:global_network_connections:slo_to_global_dr:global_vn",
@@ -9174,7 +9176,7 @@
           "type": "string"
         },
         {
-          "aliases": ["tenant"],
+          "aliases": ["vn config global network list global network connections slo to global dr global vn tenant"],
           "anchor": "schema-vn_config--global_network_list--global_network_connections--slo_to_global_dr--global_vn--tenant",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant.",
           "document_id": "xcsh-docs:data-sources:aws_tgw_site:properties:vn_config:global_network_list:global_network_connections:slo_to_global_dr:global_vn",
@@ -9214,7 +9216,7 @@
       "category": "infrastructure",
       "child_ids": ["xcsh-docs:data-sources:aws_tgw_site:properties:vn_config:inside_static_routes:static_route_list"],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -9236,7 +9238,7 @@
       "schema_path": ["vn_config", "inside_static_routes"],
       "sections": [
         {
-          "aliases": ["static route list"],
+          "aliases": ["vn config inside static routes static route list"],
           "anchor": "section",
           "description": "List of Static routes.",
           "document_id": "xcsh-docs:data-sources:aws_tgw_site:properties:vn_config:inside_static_routes:static_route_list",
@@ -9271,7 +9273,7 @@
         "xcsh-docs:data-sources:aws_tgw_site:properties:vn_config:inside_static_routes:static_route_list:custom_static_route"
       ],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -9293,7 +9295,7 @@
       "schema_path": ["vn_config", "inside_static_routes", "static_route_list"],
       "sections": [
         {
-          "aliases": ["custom static route"],
+          "aliases": ["vn config inside static routes static route list custom static route"],
           "anchor": "section",
           "description": "Defines a static route, configuring a list of prefixes and a next-hop to be used for them.",
           "document_id": "xcsh-docs:data-sources:aws_tgw_site:properties:vn_config:inside_static_routes:static_route_list:custom_static_route",
@@ -9307,7 +9309,7 @@
           "type": "object"
         },
         {
-          "aliases": ["simple static route"],
+          "aliases": ["vn config inside static routes static route list simple static route"],
           "anchor": "schema-vn_config--inside_static_routes--static_route_list--simple_static_route",
           "description": "Exclusive with Use simple static route for prefix pointing to single interface in the network.",
           "document_id": "xcsh-docs:data-sources:aws_tgw_site:properties:vn_config:inside_static_routes:static_route_list",
@@ -9344,7 +9346,7 @@
         "xcsh-docs:data-sources:aws_tgw_site:properties:vn_config:inside_static_routes:static_route_list:custom_static_route:subnets"
       ],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -9366,7 +9368,7 @@
       "schema_path": ["vn_config", "inside_static_routes", "static_route_list", "custom_static_route"],
       "sections": [
         {
-          "aliases": ["attrs"],
+          "aliases": ["vn config inside static routes static route list custom static route attrs"],
           "anchor": "schema-vn_config--inside_static_routes--static_route_list--custom_static_route--attrs",
           "description": "List of route attributes associated with the static route.",
           "document_id": "xcsh-docs:data-sources:aws_tgw_site:properties:vn_config:inside_static_routes:static_route_list:custom_static_route",
@@ -9380,7 +9382,7 @@
           "type": "list"
         },
         {
-          "aliases": ["labels"],
+          "aliases": ["vn config inside static routes static route list custom static route labels"],
           "anchor": "section",
           "description": "Add Labels for this Static Route, these labels can be used in network policy.",
           "document_id": "xcsh-docs:data-sources:aws_tgw_site:properties:vn_config:inside_static_routes:static_route_list:custom_static_route:labels",
@@ -9394,7 +9396,7 @@
           "type": "object"
         },
         {
-          "aliases": ["nexthop"],
+          "aliases": ["vn config inside static routes static route list custom static route nexthop"],
           "anchor": "section",
           "description": "Identifies the next-hop for a route.",
           "document_id": "xcsh-docs:data-sources:aws_tgw_site:properties:vn_config:inside_static_routes:static_route_list:custom_static_route:nexthop",
@@ -9408,7 +9410,7 @@
           "type": "object"
         },
         {
-          "aliases": ["subnets"],
+          "aliases": ["vn config inside static routes static route list custom static route subnets"],
           "anchor": "section",
           "description": "List of route prefixes.",
           "document_id": "xcsh-docs:data-sources:aws_tgw_site:properties:vn_config:inside_static_routes:static_route_list:custom_static_route:subnets",
@@ -9441,7 +9443,7 @@
       "category": "infrastructure",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -9484,7 +9486,7 @@
         "xcsh-docs:data-sources:aws_tgw_site:properties:vn_config:inside_static_routes:static_route_list:custom_static_route:nexthop:nexthop_address"
       ],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -9506,7 +9508,7 @@
       "schema_path": ["vn_config", "inside_static_routes", "static_route_list", "custom_static_route", "nexthop"],
       "sections": [
         {
-          "aliases": ["interface"],
+          "aliases": ["vn config inside static routes static route list custom static route nexthop interface"],
           "anchor": "section",
           "description": "Nexthop is network interface when type is \"Network-Interface\"",
           "document_id": "xcsh-docs:data-sources:aws_tgw_site:properties:vn_config:inside_static_routes:static_route_list:custom_static_route:nexthop:interface",
@@ -9527,7 +9529,7 @@
           "type": "object"
         },
         {
-          "aliases": ["nexthop address"],
+          "aliases": ["vn config inside static routes static route list custom static route nexthop nexthop address"],
           "anchor": "section",
           "description": "IP Address used to specify an IPv4 or IPv6 address.",
           "document_id": "xcsh-docs:data-sources:aws_tgw_site:properties:vn_config:inside_static_routes:static_route_list:custom_static_route:nexthop:nexthop_address",
@@ -9548,7 +9550,7 @@
           "type": "object"
         },
         {
-          "aliases": ["type"],
+          "aliases": ["vn config inside static routes static route list custom static route nexthop type"],
           "anchor": "schema-vn_config--inside_static_routes--static_route_list--custom_static_route--nexthop--type",
           "description": "Defines types of next-hop Use default gateway on the local interface as gateway for route. Assumes there is only one local interface on the virtual network. Use the specified address as nexthop Use the network interface as nexthop Discard nexthop, used when attr type is Advertise Used in VoltADN private virtual",
           "document_id": "xcsh-docs:data-sources:aws_tgw_site:properties:vn_config:inside_static_routes:static_route_list:custom_static_route:nexthop",
@@ -9588,7 +9590,7 @@
       "category": "infrastructure",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -9617,7 +9619,7 @@
       ],
       "sections": [
         {
-          "aliases": ["kind"],
+          "aliases": ["vn config inside static routes static route list custom static route nexthop interface kind"],
           "anchor": "schema-vn_config--inside_static_routes--static_route_list--custom_static_route--nexthop--interface--kind",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then kind will hold the referred object's kind (e.g. \"route\")",
           "document_id": "xcsh-docs:data-sources:aws_tgw_site:properties:vn_config:inside_static_routes:static_route_list:custom_static_route:nexthop:interface",
@@ -9639,7 +9641,7 @@
           "type": "string"
         },
         {
-          "aliases": ["name"],
+          "aliases": ["vn config inside static routes static route list custom static route nexthop interface name"],
           "anchor": "schema-vn_config--inside_static_routes--static_route_list--custom_static_route--nexthop--interface--name",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.",
           "document_id": "xcsh-docs:data-sources:aws_tgw_site:properties:vn_config:inside_static_routes:static_route_list:custom_static_route:nexthop:interface",
@@ -9661,7 +9663,9 @@
           "type": "string"
         },
         {
-          "aliases": ["namespace"],
+          "aliases": [
+            "vn config inside static routes static route list custom static route nexthop interface namespace"
+          ],
           "anchor": "schema-vn_config--inside_static_routes--static_route_list--custom_static_route--nexthop--interface--namespace",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace.",
           "document_id": "xcsh-docs:data-sources:aws_tgw_site:properties:vn_config:inside_static_routes:static_route_list:custom_static_route:nexthop:interface",
@@ -9683,7 +9687,7 @@
           "type": "string"
         },
         {
-          "aliases": ["tenant"],
+          "aliases": ["vn config inside static routes static route list custom static route nexthop interface tenant"],
           "anchor": "schema-vn_config--inside_static_routes--static_route_list--custom_static_route--nexthop--interface--tenant",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant.",
           "document_id": "xcsh-docs:data-sources:aws_tgw_site:properties:vn_config:inside_static_routes:static_route_list:custom_static_route:nexthop:interface",
@@ -9705,7 +9709,7 @@
           "type": "string"
         },
         {
-          "aliases": ["uid"],
+          "aliases": ["vn config inside static routes static route list custom static route nexthop interface uid"],
           "anchor": "schema-vn_config--inside_static_routes--static_route_list--custom_static_route--nexthop--interface--uid",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then uid will hold the referred object's(e.g. Route's) uid.",
           "document_id": "xcsh-docs:data-sources:aws_tgw_site:properties:vn_config:inside_static_routes:static_route_list:custom_static_route:nexthop:interface",
@@ -9750,7 +9754,7 @@
         "xcsh-docs:data-sources:aws_tgw_site:properties:vn_config:inside_static_routes:static_route_list:custom_static_route:nexthop:nexthop_address:ipv6"
       ],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -9779,7 +9783,9 @@
       ],
       "sections": [
         {
-          "aliases": ["dual stack"],
+          "aliases": [
+            "vn config inside static routes static route list custom static route nexthop nexthop address dual stack"
+          ],
           "anchor": "section",
           "description": "DualStackAddressType represents both IPv4 and IPv6 together.",
           "document_id": "xcsh-docs:data-sources:aws_tgw_site:properties:vn_config:inside_static_routes:static_route_list:custom_static_route:nexthop:nexthop_address:dual_stack",
@@ -9801,7 +9807,9 @@
           "type": "object"
         },
         {
-          "aliases": ["ipv4"],
+          "aliases": [
+            "vn config inside static routes static route list custom static route nexthop nexthop address ipv4"
+          ],
           "anchor": "section",
           "description": "IPv4 Address in dot-decimal notation.",
           "document_id": "xcsh-docs:data-sources:aws_tgw_site:properties:vn_config:inside_static_routes:static_route_list:custom_static_route:nexthop:nexthop_address:ipv4",
@@ -9823,7 +9831,9 @@
           "type": "object"
         },
         {
-          "aliases": ["ipv6"],
+          "aliases": [
+            "vn config inside static routes static route list custom static route nexthop nexthop address ipv6"
+          ],
           "anchor": "section",
           "description": "IPv6 Address specified as hexadecimal numbers separated by ':'",
           "document_id": "xcsh-docs:data-sources:aws_tgw_site:properties:vn_config:inside_static_routes:static_route_list:custom_static_route:nexthop:nexthop_address:ipv6",
@@ -9869,7 +9879,7 @@
         "xcsh-docs:data-sources:aws_tgw_site:properties:vn_config:inside_static_routes:static_route_list:custom_static_route:nexthop:nexthop_address:dual_stack:ipv6"
       ],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -9899,7 +9909,9 @@
       ],
       "sections": [
         {
-          "aliases": ["ipv4"],
+          "aliases": [
+            "vn config inside static routes static route list custom static route nexthop nexthop address dual stack ipv4"
+          ],
           "anchor": "section",
           "description": "IPv4 Address in dot-decimal notation.",
           "document_id": "xcsh-docs:data-sources:aws_tgw_site:properties:vn_config:inside_static_routes:static_route_list:custom_static_route:nexthop:nexthop_address:dual_stack:ipv4",
@@ -9922,7 +9934,9 @@
           "type": "object"
         },
         {
-          "aliases": ["ipv6"],
+          "aliases": [
+            "vn config inside static routes static route list custom static route nexthop nexthop address dual stack ipv6"
+          ],
           "anchor": "section",
           "description": "IPv6 Address specified as hexadecimal numbers separated by ':'",
           "document_id": "xcsh-docs:data-sources:aws_tgw_site:properties:vn_config:inside_static_routes:static_route_list:custom_static_route:nexthop:nexthop_address:dual_stack:ipv6",
@@ -9966,7 +9980,7 @@
       "category": "infrastructure",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -9997,7 +10011,9 @@
       ],
       "sections": [
         {
-          "aliases": ["addr"],
+          "aliases": [
+            "vn config inside static routes static route list custom static route nexthop nexthop address dual stack ipv4 addr"
+          ],
           "anchor": "schema-vn_config--inside_static_routes--static_route_list--custom_static_route--nexthop--nexthop_address--dual_stack--ipv4--addr",
           "description": "IPv4 Address in string form with dot-decimal notation.",
           "document_id": "xcsh-docs:data-sources:aws_tgw_site:properties:vn_config:inside_static_routes:static_route_list:custom_static_route:nexthop:nexthop_address:dual_stack:ipv4",
@@ -10042,7 +10058,7 @@
       "category": "infrastructure",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -10073,7 +10089,9 @@
       ],
       "sections": [
         {
-          "aliases": ["addr"],
+          "aliases": [
+            "vn config inside static routes static route list custom static route nexthop nexthop address dual stack ipv6 addr"
+          ],
           "anchor": "schema-vn_config--inside_static_routes--static_route_list--custom_static_route--nexthop--nexthop_address--dual_stack--ipv6--addr",
           "description": "IPv6 Address in form of string. IPv6 address must be specified as hexadecimal numbers separated by ':' The address can be compacted by suppressing zeros e.g. '2001:db8:0:0:0:0:2:1' becomes '2001:db8::2:1' or '2001:db8:0:0:0:2:0:0' becomes '2001:db8::2::'",
           "document_id": "xcsh-docs:data-sources:aws_tgw_site:properties:vn_config:inside_static_routes:static_route_list:custom_static_route:nexthop:nexthop_address:dual_stack:ipv6",
@@ -10116,7 +10134,7 @@
       "category": "infrastructure",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -10146,7 +10164,9 @@
       ],
       "sections": [
         {
-          "aliases": ["addr"],
+          "aliases": [
+            "vn config inside static routes static route list custom static route nexthop nexthop address ipv4 addr"
+          ],
           "anchor": "schema-vn_config--inside_static_routes--static_route_list--custom_static_route--nexthop--nexthop_address--ipv4--addr",
           "description": "IPv4 Address in string form with dot-decimal notation.",
           "document_id": "xcsh-docs:data-sources:aws_tgw_site:properties:vn_config:inside_static_routes:static_route_list:custom_static_route:nexthop:nexthop_address:ipv4",
@@ -10188,7 +10208,7 @@
       "category": "infrastructure",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -10218,7 +10238,9 @@
       ],
       "sections": [
         {
-          "aliases": ["addr"],
+          "aliases": [
+            "vn config inside static routes static route list custom static route nexthop nexthop address ipv6 addr"
+          ],
           "anchor": "schema-vn_config--inside_static_routes--static_route_list--custom_static_route--nexthop--nexthop_address--ipv6--addr",
           "description": "IPv6 Address in form of string. IPv6 address must be specified as hexadecimal numbers separated by ':' The address can be compacted by suppressing zeros e.g. '2001:db8:0:0:0:0:2:1' becomes '2001:db8::2:1' or '2001:db8:0:0:0:2:0:0' becomes '2001:db8::2::'",
           "document_id": "xcsh-docs:data-sources:aws_tgw_site:properties:vn_config:inside_static_routes:static_route_list:custom_static_route:nexthop:nexthop_address:ipv6",
@@ -10263,7 +10285,7 @@
         "xcsh-docs:data-sources:aws_tgw_site:properties:vn_config:inside_static_routes:static_route_list:custom_static_route:subnets:ipv6"
       ],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -10285,7 +10307,7 @@
       "schema_path": ["vn_config", "inside_static_routes", "static_route_list", "custom_static_route", "subnets"],
       "sections": [
         {
-          "aliases": ["ipv4"],
+          "aliases": ["vn config inside static routes static route list custom static route subnets ipv4"],
           "anchor": "section",
           "description": "IPv4 subnets specified as prefix and prefix-length. Prefix length must be <= 32.",
           "document_id": "xcsh-docs:data-sources:aws_tgw_site:properties:vn_config:inside_static_routes:static_route_list:custom_static_route:subnets:ipv4",
@@ -10306,7 +10328,7 @@
           "type": "object"
         },
         {
-          "aliases": ["ipv6"],
+          "aliases": ["vn config inside static routes static route list custom static route subnets ipv6"],
           "anchor": "section",
           "description": "IPv6 subnets specified as prefix and prefix-length. Prefix-legnth must be <= 128.",
           "document_id": "xcsh-docs:data-sources:aws_tgw_site:properties:vn_config:inside_static_routes:static_route_list:custom_static_route:subnets:ipv6",
@@ -10346,7 +10368,7 @@
       "category": "infrastructure",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -10375,7 +10397,7 @@
       ],
       "sections": [
         {
-          "aliases": ["plen"],
+          "aliases": ["vn config inside static routes static route list custom static route subnets ipv4 plen"],
           "anchor": "schema-vn_config--inside_static_routes--static_route_list--custom_static_route--subnets--ipv4--plen",
           "description": "Prefix-length of the IPv4 subnet. Must be <= 32.",
           "document_id": "xcsh-docs:data-sources:aws_tgw_site:properties:vn_config:inside_static_routes:static_route_list:custom_static_route:subnets:ipv4",
@@ -10397,7 +10419,7 @@
           "type": "number"
         },
         {
-          "aliases": ["prefix"],
+          "aliases": ["vn config inside static routes static route list custom static route subnets ipv4 prefix"],
           "anchor": "schema-vn_config--inside_static_routes--static_route_list--custom_static_route--subnets--ipv4--prefix",
           "description": "Prefix part of the IPv4 subnet in string form with dot-decimal notation.",
           "document_id": "xcsh-docs:data-sources:aws_tgw_site:properties:vn_config:inside_static_routes:static_route_list:custom_static_route:subnets:ipv4",
@@ -10438,7 +10460,7 @@
       "category": "infrastructure",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -10467,7 +10489,7 @@
       ],
       "sections": [
         {
-          "aliases": ["plen"],
+          "aliases": ["vn config inside static routes static route list custom static route subnets ipv6 plen"],
           "anchor": "schema-vn_config--inside_static_routes--static_route_list--custom_static_route--subnets--ipv6--plen",
           "description": "Prefix length of the IPv6 subnet. Must be <= 128.",
           "document_id": "xcsh-docs:data-sources:aws_tgw_site:properties:vn_config:inside_static_routes:static_route_list:custom_static_route:subnets:ipv6",
@@ -10489,7 +10511,7 @@
           "type": "number"
         },
         {
-          "aliases": ["prefix"],
+          "aliases": ["vn config inside static routes static route list custom static route subnets ipv6 prefix"],
           "anchor": "schema-vn_config--inside_static_routes--static_route_list--custom_static_route--subnets--ipv6--prefix",
           "description": "Prefix part of the IPv6 subnet given in form of string. IPv6 address must be specified as hexadecimal numbers separated by ':' e.g. \"2001:db8:0:0:0:2:0:0\" The address can be compacted by suppressing zeros e.g. \"2001:db8::2::\"",
           "document_id": "xcsh-docs:data-sources:aws_tgw_site:properties:vn_config:inside_static_routes:static_route_list:custom_static_route:subnets:ipv6",
@@ -10530,7 +10552,7 @@
       "category": "infrastructure",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -10570,7 +10592,7 @@
       "category": "infrastructure",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -10610,7 +10632,7 @@
       "category": "infrastructure",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -10650,7 +10672,7 @@
       "category": "infrastructure",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -10690,7 +10712,7 @@
       "category": "infrastructure",
       "child_ids": ["xcsh-docs:data-sources:aws_tgw_site:properties:vn_config:outside_static_routes:static_route_list"],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -10712,7 +10734,7 @@
       "schema_path": ["vn_config", "outside_static_routes"],
       "sections": [
         {
-          "aliases": ["static route list"],
+          "aliases": ["vn config outside static routes static route list"],
           "anchor": "section",
           "description": "List of Static routes.",
           "document_id": "xcsh-docs:data-sources:aws_tgw_site:properties:vn_config:outside_static_routes:static_route_list",
@@ -10747,7 +10769,7 @@
         "xcsh-docs:data-sources:aws_tgw_site:properties:vn_config:outside_static_routes:static_route_list:custom_static_route"
       ],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -10769,7 +10791,7 @@
       "schema_path": ["vn_config", "outside_static_routes", "static_route_list"],
       "sections": [
         {
-          "aliases": ["custom static route"],
+          "aliases": ["vn config outside static routes static route list custom static route"],
           "anchor": "section",
           "description": "Defines a static route, configuring a list of prefixes and a next-hop to be used for them.",
           "document_id": "xcsh-docs:data-sources:aws_tgw_site:properties:vn_config:outside_static_routes:static_route_list:custom_static_route",
@@ -10783,7 +10805,7 @@
           "type": "object"
         },
         {
-          "aliases": ["simple static route"],
+          "aliases": ["vn config outside static routes static route list simple static route"],
           "anchor": "schema-vn_config--outside_static_routes--static_route_list--simple_static_route",
           "description": "Exclusive with Use simple static route for prefix pointing to single interface in the network.",
           "document_id": "xcsh-docs:data-sources:aws_tgw_site:properties:vn_config:outside_static_routes:static_route_list",
@@ -10820,7 +10842,7 @@
         "xcsh-docs:data-sources:aws_tgw_site:properties:vn_config:outside_static_routes:static_route_list:custom_static_route:subnets"
       ],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -10842,7 +10864,7 @@
       "schema_path": ["vn_config", "outside_static_routes", "static_route_list", "custom_static_route"],
       "sections": [
         {
-          "aliases": ["attrs"],
+          "aliases": ["vn config outside static routes static route list custom static route attrs"],
           "anchor": "schema-vn_config--outside_static_routes--static_route_list--custom_static_route--attrs",
           "description": "List of route attributes associated with the static route.",
           "document_id": "xcsh-docs:data-sources:aws_tgw_site:properties:vn_config:outside_static_routes:static_route_list:custom_static_route",
@@ -10856,7 +10878,7 @@
           "type": "list"
         },
         {
-          "aliases": ["labels"],
+          "aliases": ["vn config outside static routes static route list custom static route labels"],
           "anchor": "section",
           "description": "Add Labels for this Static Route, these labels can be used in network policy.",
           "document_id": "xcsh-docs:data-sources:aws_tgw_site:properties:vn_config:outside_static_routes:static_route_list:custom_static_route:labels",
@@ -10870,7 +10892,7 @@
           "type": "object"
         },
         {
-          "aliases": ["nexthop"],
+          "aliases": ["vn config outside static routes static route list custom static route nexthop"],
           "anchor": "section",
           "description": "Identifies the next-hop for a route.",
           "document_id": "xcsh-docs:data-sources:aws_tgw_site:properties:vn_config:outside_static_routes:static_route_list:custom_static_route:nexthop",
@@ -10884,7 +10906,7 @@
           "type": "object"
         },
         {
-          "aliases": ["subnets"],
+          "aliases": ["vn config outside static routes static route list custom static route subnets"],
           "anchor": "section",
           "description": "List of route prefixes.",
           "document_id": "xcsh-docs:data-sources:aws_tgw_site:properties:vn_config:outside_static_routes:static_route_list:custom_static_route:subnets",
@@ -10917,7 +10939,7 @@
       "category": "infrastructure",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -10960,7 +10982,7 @@
         "xcsh-docs:data-sources:aws_tgw_site:properties:vn_config:outside_static_routes:static_route_list:custom_static_route:nexthop:nexthop_address"
       ],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -10982,7 +11004,7 @@
       "schema_path": ["vn_config", "outside_static_routes", "static_route_list", "custom_static_route", "nexthop"],
       "sections": [
         {
-          "aliases": ["interface"],
+          "aliases": ["vn config outside static routes static route list custom static route nexthop interface"],
           "anchor": "section",
           "description": "Nexthop is network interface when type is \"Network-Interface\"",
           "document_id": "xcsh-docs:data-sources:aws_tgw_site:properties:vn_config:outside_static_routes:static_route_list:custom_static_route:nexthop:interface",
@@ -11003,7 +11025,7 @@
           "type": "object"
         },
         {
-          "aliases": ["nexthop address"],
+          "aliases": ["vn config outside static routes static route list custom static route nexthop nexthop address"],
           "anchor": "section",
           "description": "IP Address used to specify an IPv4 or IPv6 address.",
           "document_id": "xcsh-docs:data-sources:aws_tgw_site:properties:vn_config:outside_static_routes:static_route_list:custom_static_route:nexthop:nexthop_address",
@@ -11024,7 +11046,7 @@
           "type": "object"
         },
         {
-          "aliases": ["type"],
+          "aliases": ["vn config outside static routes static route list custom static route nexthop type"],
           "anchor": "schema-vn_config--outside_static_routes--static_route_list--custom_static_route--nexthop--type",
           "description": "Defines types of next-hop Use default gateway on the local interface as gateway for route. Assumes there is only one local interface on the virtual network. Use the specified address as nexthop Use the network interface as nexthop Discard nexthop, used when attr type is Advertise Used in VoltADN private virtual",
           "document_id": "xcsh-docs:data-sources:aws_tgw_site:properties:vn_config:outside_static_routes:static_route_list:custom_static_route:nexthop",
@@ -11064,7 +11086,7 @@
       "category": "infrastructure",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -11093,7 +11115,7 @@
       ],
       "sections": [
         {
-          "aliases": ["kind"],
+          "aliases": ["vn config outside static routes static route list custom static route nexthop interface kind"],
           "anchor": "schema-vn_config--outside_static_routes--static_route_list--custom_static_route--nexthop--interface--kind",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then kind will hold the referred object's kind (e.g. \"route\")",
           "document_id": "xcsh-docs:data-sources:aws_tgw_site:properties:vn_config:outside_static_routes:static_route_list:custom_static_route:nexthop:interface",
@@ -11115,7 +11137,7 @@
           "type": "string"
         },
         {
-          "aliases": ["name"],
+          "aliases": ["vn config outside static routes static route list custom static route nexthop interface name"],
           "anchor": "schema-vn_config--outside_static_routes--static_route_list--custom_static_route--nexthop--interface--name",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.",
           "document_id": "xcsh-docs:data-sources:aws_tgw_site:properties:vn_config:outside_static_routes:static_route_list:custom_static_route:nexthop:interface",
@@ -11137,7 +11159,9 @@
           "type": "string"
         },
         {
-          "aliases": ["namespace"],
+          "aliases": [
+            "vn config outside static routes static route list custom static route nexthop interface namespace"
+          ],
           "anchor": "schema-vn_config--outside_static_routes--static_route_list--custom_static_route--nexthop--interface--namespace",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace.",
           "document_id": "xcsh-docs:data-sources:aws_tgw_site:properties:vn_config:outside_static_routes:static_route_list:custom_static_route:nexthop:interface",
@@ -11159,7 +11183,7 @@
           "type": "string"
         },
         {
-          "aliases": ["tenant"],
+          "aliases": ["vn config outside static routes static route list custom static route nexthop interface tenant"],
           "anchor": "schema-vn_config--outside_static_routes--static_route_list--custom_static_route--nexthop--interface--tenant",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant.",
           "document_id": "xcsh-docs:data-sources:aws_tgw_site:properties:vn_config:outside_static_routes:static_route_list:custom_static_route:nexthop:interface",
@@ -11181,7 +11205,7 @@
           "type": "string"
         },
         {
-          "aliases": ["uid"],
+          "aliases": ["vn config outside static routes static route list custom static route nexthop interface uid"],
           "anchor": "schema-vn_config--outside_static_routes--static_route_list--custom_static_route--nexthop--interface--uid",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then uid will hold the referred object's(e.g. Route's) uid.",
           "document_id": "xcsh-docs:data-sources:aws_tgw_site:properties:vn_config:outside_static_routes:static_route_list:custom_static_route:nexthop:interface",
@@ -11226,7 +11250,7 @@
         "xcsh-docs:data-sources:aws_tgw_site:properties:vn_config:outside_static_routes:static_route_list:custom_static_route:nexthop:nexthop_address:ipv6"
       ],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -11255,7 +11279,9 @@
       ],
       "sections": [
         {
-          "aliases": ["dual stack"],
+          "aliases": [
+            "vn config outside static routes static route list custom static route nexthop nexthop address dual stack"
+          ],
           "anchor": "section",
           "description": "DualStackAddressType represents both IPv4 and IPv6 together.",
           "document_id": "xcsh-docs:data-sources:aws_tgw_site:properties:vn_config:outside_static_routes:static_route_list:custom_static_route:nexthop:nexthop_address:dual_stack",
@@ -11277,7 +11303,9 @@
           "type": "object"
         },
         {
-          "aliases": ["ipv4"],
+          "aliases": [
+            "vn config outside static routes static route list custom static route nexthop nexthop address ipv4"
+          ],
           "anchor": "section",
           "description": "IPv4 Address in dot-decimal notation.",
           "document_id": "xcsh-docs:data-sources:aws_tgw_site:properties:vn_config:outside_static_routes:static_route_list:custom_static_route:nexthop:nexthop_address:ipv4",
@@ -11299,7 +11327,9 @@
           "type": "object"
         },
         {
-          "aliases": ["ipv6"],
+          "aliases": [
+            "vn config outside static routes static route list custom static route nexthop nexthop address ipv6"
+          ],
           "anchor": "section",
           "description": "IPv6 Address specified as hexadecimal numbers separated by ':'",
           "document_id": "xcsh-docs:data-sources:aws_tgw_site:properties:vn_config:outside_static_routes:static_route_list:custom_static_route:nexthop:nexthop_address:ipv6",
@@ -11345,7 +11375,7 @@
         "xcsh-docs:data-sources:aws_tgw_site:properties:vn_config:outside_static_routes:static_route_list:custom_static_route:nexthop:nexthop_address:dual_stack:ipv6"
       ],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -11375,7 +11405,9 @@
       ],
       "sections": [
         {
-          "aliases": ["ipv4"],
+          "aliases": [
+            "vn config outside static routes static route list custom static route nexthop nexthop address dual stack ipv4"
+          ],
           "anchor": "section",
           "description": "IPv4 Address in dot-decimal notation.",
           "document_id": "xcsh-docs:data-sources:aws_tgw_site:properties:vn_config:outside_static_routes:static_route_list:custom_static_route:nexthop:nexthop_address:dual_stack:ipv4",
@@ -11398,7 +11430,9 @@
           "type": "object"
         },
         {
-          "aliases": ["ipv6"],
+          "aliases": [
+            "vn config outside static routes static route list custom static route nexthop nexthop address dual stack ipv6"
+          ],
           "anchor": "section",
           "description": "IPv6 Address specified as hexadecimal numbers separated by ':'",
           "document_id": "xcsh-docs:data-sources:aws_tgw_site:properties:vn_config:outside_static_routes:static_route_list:custom_static_route:nexthop:nexthop_address:dual_stack:ipv6",
@@ -11442,7 +11476,7 @@
       "category": "infrastructure",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -11473,7 +11507,9 @@
       ],
       "sections": [
         {
-          "aliases": ["addr"],
+          "aliases": [
+            "vn config outside static routes static route list custom static route nexthop nexthop address dual stack ipv4 addr"
+          ],
           "anchor": "schema-vn_config--outside_static_routes--static_route_list--custom_static_route--nexthop--nexthop_address--dual_stack--ipv4--addr",
           "description": "IPv4 Address in string form with dot-decimal notation.",
           "document_id": "xcsh-docs:data-sources:aws_tgw_site:properties:vn_config:outside_static_routes:static_route_list:custom_static_route:nexthop:nexthop_address:dual_stack:ipv4",
@@ -11518,7 +11554,7 @@
       "category": "infrastructure",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -11549,7 +11585,9 @@
       ],
       "sections": [
         {
-          "aliases": ["addr"],
+          "aliases": [
+            "vn config outside static routes static route list custom static route nexthop nexthop address dual stack ipv6 addr"
+          ],
           "anchor": "schema-vn_config--outside_static_routes--static_route_list--custom_static_route--nexthop--nexthop_address--dual_stack--ipv6--addr",
           "description": "IPv6 Address in form of string. IPv6 address must be specified as hexadecimal numbers separated by ':' The address can be compacted by suppressing zeros e.g. '2001:db8:0:0:0:0:2:1' becomes '2001:db8::2:1' or '2001:db8:0:0:0:2:0:0' becomes '2001:db8::2::'",
           "document_id": "xcsh-docs:data-sources:aws_tgw_site:properties:vn_config:outside_static_routes:static_route_list:custom_static_route:nexthop:nexthop_address:dual_stack:ipv6",
@@ -11592,7 +11630,7 @@
       "category": "infrastructure",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -11622,7 +11660,9 @@
       ],
       "sections": [
         {
-          "aliases": ["addr"],
+          "aliases": [
+            "vn config outside static routes static route list custom static route nexthop nexthop address ipv4 addr"
+          ],
           "anchor": "schema-vn_config--outside_static_routes--static_route_list--custom_static_route--nexthop--nexthop_address--ipv4--addr",
           "description": "IPv4 Address in string form with dot-decimal notation.",
           "document_id": "xcsh-docs:data-sources:aws_tgw_site:properties:vn_config:outside_static_routes:static_route_list:custom_static_route:nexthop:nexthop_address:ipv4",
@@ -11664,7 +11704,7 @@
       "category": "infrastructure",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -11694,7 +11734,9 @@
       ],
       "sections": [
         {
-          "aliases": ["addr"],
+          "aliases": [
+            "vn config outside static routes static route list custom static route nexthop nexthop address ipv6 addr"
+          ],
           "anchor": "schema-vn_config--outside_static_routes--static_route_list--custom_static_route--nexthop--nexthop_address--ipv6--addr",
           "description": "IPv6 Address in form of string. IPv6 address must be specified as hexadecimal numbers separated by ':' The address can be compacted by suppressing zeros e.g. '2001:db8:0:0:0:0:2:1' becomes '2001:db8::2:1' or '2001:db8:0:0:0:2:0:0' becomes '2001:db8::2::'",
           "document_id": "xcsh-docs:data-sources:aws_tgw_site:properties:vn_config:outside_static_routes:static_route_list:custom_static_route:nexthop:nexthop_address:ipv6",
@@ -11739,7 +11781,7 @@
         "xcsh-docs:data-sources:aws_tgw_site:properties:vn_config:outside_static_routes:static_route_list:custom_static_route:subnets:ipv6"
       ],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -11761,7 +11803,7 @@
       "schema_path": ["vn_config", "outside_static_routes", "static_route_list", "custom_static_route", "subnets"],
       "sections": [
         {
-          "aliases": ["ipv4"],
+          "aliases": ["vn config outside static routes static route list custom static route subnets ipv4"],
           "anchor": "section",
           "description": "IPv4 subnets specified as prefix and prefix-length. Prefix length must be <= 32.",
           "document_id": "xcsh-docs:data-sources:aws_tgw_site:properties:vn_config:outside_static_routes:static_route_list:custom_static_route:subnets:ipv4",
@@ -11782,7 +11824,7 @@
           "type": "object"
         },
         {
-          "aliases": ["ipv6"],
+          "aliases": ["vn config outside static routes static route list custom static route subnets ipv6"],
           "anchor": "section",
           "description": "IPv6 subnets specified as prefix and prefix-length. Prefix-legnth must be <= 128.",
           "document_id": "xcsh-docs:data-sources:aws_tgw_site:properties:vn_config:outside_static_routes:static_route_list:custom_static_route:subnets:ipv6",
@@ -11822,7 +11864,7 @@
       "category": "infrastructure",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -11851,7 +11893,7 @@
       ],
       "sections": [
         {
-          "aliases": ["plen"],
+          "aliases": ["vn config outside static routes static route list custom static route subnets ipv4 plen"],
           "anchor": "schema-vn_config--outside_static_routes--static_route_list--custom_static_route--subnets--ipv4--plen",
           "description": "Prefix-length of the IPv4 subnet. Must be <= 32.",
           "document_id": "xcsh-docs:data-sources:aws_tgw_site:properties:vn_config:outside_static_routes:static_route_list:custom_static_route:subnets:ipv4",
@@ -11873,7 +11915,7 @@
           "type": "number"
         },
         {
-          "aliases": ["prefix"],
+          "aliases": ["vn config outside static routes static route list custom static route subnets ipv4 prefix"],
           "anchor": "schema-vn_config--outside_static_routes--static_route_list--custom_static_route--subnets--ipv4--prefix",
           "description": "Prefix part of the IPv4 subnet in string form with dot-decimal notation.",
           "document_id": "xcsh-docs:data-sources:aws_tgw_site:properties:vn_config:outside_static_routes:static_route_list:custom_static_route:subnets:ipv4",
@@ -11914,7 +11956,7 @@
       "category": "infrastructure",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -11943,7 +11985,7 @@
       ],
       "sections": [
         {
-          "aliases": ["plen"],
+          "aliases": ["vn config outside static routes static route list custom static route subnets ipv6 plen"],
           "anchor": "schema-vn_config--outside_static_routes--static_route_list--custom_static_route--subnets--ipv6--plen",
           "description": "Prefix length of the IPv6 subnet. Must be <= 128.",
           "document_id": "xcsh-docs:data-sources:aws_tgw_site:properties:vn_config:outside_static_routes:static_route_list:custom_static_route:subnets:ipv6",
@@ -11965,7 +12007,7 @@
           "type": "number"
         },
         {
-          "aliases": ["prefix"],
+          "aliases": ["vn config outside static routes static route list custom static route subnets ipv6 prefix"],
           "anchor": "schema-vn_config--outside_static_routes--static_route_list--custom_static_route--subnets--ipv6--prefix",
           "description": "Prefix part of the IPv6 subnet given in form of string. IPv6 address must be specified as hexadecimal numbers separated by ':' e.g. \"2001:db8:0:0:0:2:0:0\" The address can be compacted by suppressing zeros e.g. \"2001:db8::2::\"",
           "document_id": "xcsh-docs:data-sources:aws_tgw_site:properties:vn_config:outside_static_routes:static_route_list:custom_static_route:subnets:ipv6",
@@ -12006,7 +12048,7 @@
       "category": "infrastructure",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -12046,7 +12088,7 @@
       "category": "infrastructure",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -12086,7 +12128,7 @@
       "category": "infrastructure",
       "child_ids": ["xcsh-docs:data-sources:aws_tgw_site:properties:vpc_attachments:vpc_list"],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -12108,7 +12150,7 @@
       "schema_path": ["vpc_attachments"],
       "sections": [
         {
-          "aliases": ["vpc list"],
+          "aliases": ["vpc attachments vpc list"],
           "anchor": "section",
           "description": "List of VPC attachments to transit gateway.",
           "document_id": "xcsh-docs:data-sources:aws_tgw_site:properties:vpc_attachments:vpc_list",
@@ -12141,7 +12183,7 @@
       "category": "infrastructure",
       "child_ids": ["xcsh-docs:data-sources:aws_tgw_site:properties:vpc_attachments:vpc_list:labels"],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -12163,7 +12205,7 @@
       "schema_path": ["vpc_attachments", "vpc_list"],
       "sections": [
         {
-          "aliases": ["labels"],
+          "aliases": ["vpc attachments vpc list labels"],
           "anchor": "section",
           "description": "Add labels for the VPC attachment. These labels can then be used in policies such as enhanced firewall.",
           "document_id": "xcsh-docs:data-sources:aws_tgw_site:properties:vpc_attachments:vpc_list:labels",
@@ -12177,7 +12219,7 @@
           "type": "object"
         },
         {
-          "aliases": ["vpc id"],
+          "aliases": ["vpc attachments vpc list vpc id"],
           "anchor": "schema-vpc_attachments--vpc_list--vpc_id",
           "description": "Information about existing VPC.",
           "document_id": "xcsh-docs:data-sources:aws_tgw_site:properties:vpc_attachments:vpc_list",
@@ -12210,7 +12252,7 @@
       "category": "infrastructure",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -12253,7 +12295,7 @@
         "xcsh-docs:data-sources:aws_tgw_site:properties:waf_signatures:manual"
       ],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -12275,7 +12317,7 @@
       "schema_path": ["waf_signatures"],
       "sections": [
         {
-          "aliases": ["automatic"],
+          "aliases": ["waf signatures automatic"],
           "anchor": "section",
           "description": "This can be used for messages where no values are needed.",
           "document_id": "xcsh-docs:data-sources:aws_tgw_site:properties:waf_signatures:automatic",
@@ -12289,7 +12331,7 @@
           "type": "object"
         },
         {
-          "aliases": ["manual"],
+          "aliases": ["waf signatures manual"],
           "anchor": "section",
           "description": "This can be used for messages where no values are needed.",
           "document_id": "xcsh-docs:data-sources:aws_tgw_site:properties:waf_signatures:manual",
@@ -12322,7 +12364,7 @@
       "category": "infrastructure",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -12362,7 +12404,7 @@
       "category": "infrastructure",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -12402,7 +12444,7 @@
       "category": "infrastructure",
       "child_ids": ["xcsh-docs:data-sources:aws_tgw_site:example:data-source"],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -12442,7 +12484,7 @@
       "category": "infrastructure",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"

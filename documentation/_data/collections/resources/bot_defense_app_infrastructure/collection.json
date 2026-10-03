@@ -192,7 +192,7 @@
         "xcsh-docs:resources:bot_defense_app_infrastructure:timeouts"
       ],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -237,7 +237,7 @@
         "xcsh-docs:resources:bot_defense_app_infrastructure:properties:timeouts"
       ],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -449,7 +449,7 @@
           "type": "string"
         },
         {
-          "aliases": ["duration", "operation timeout", "timeouts"],
+          "aliases": ["duration", "lifecycle timeout", "operation timeout", "timeouts"],
           "anchor": "section",
           "description": "timeouts",
           "document_id": "xcsh-docs:resources:bot_defense_app_infrastructure:properties:timeouts",
@@ -499,7 +499,7 @@
         "xcsh-docs:resources:bot_defense_app_infrastructure:properties:cloud_hosted:ingress"
       ],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -546,7 +546,7 @@
       "schema_path": ["cloud_hosted"],
       "sections": [
         {
-          "aliases": ["egress"],
+          "aliases": ["cloud hosted egress"],
           "anchor": "section",
           "description": "Egress",
           "document_id": "xcsh-docs:resources:bot_defense_app_infrastructure:properties:cloud_hosted:egress",
@@ -569,7 +569,7 @@
           "type": "object"
         },
         {
-          "aliases": ["infra host name"],
+          "aliases": ["cloud hosted infra host name"],
           "anchor": "schema-cloud_hosted--infra_host_name",
           "description": "Infra Host Name.",
           "document_id": "xcsh-docs:resources:bot_defense_app_infrastructure:properties:cloud_hosted",
@@ -583,7 +583,7 @@
           "type": "string"
         },
         {
-          "aliases": ["ingress"],
+          "aliases": ["cloud hosted ingress"],
           "anchor": "section",
           "description": "Ingress",
           "document_id": "xcsh-docs:resources:bot_defense_app_infrastructure:properties:cloud_hosted:ingress",
@@ -614,7 +614,7 @@
           "type": "object"
         },
         {
-          "aliases": ["region"],
+          "aliases": ["cloud hosted region"],
           "anchor": "schema-cloud_hosted--region",
           "description": "Defines a selection for Bot Defense Advanced region - US: US US region - EU: EU European Union region - ASIA: ASIA Asia region.",
           "document_id": "xcsh-docs:resources:bot_defense_app_infrastructure:properties:cloud_hosted",
@@ -647,7 +647,7 @@
       "category": "security",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -678,7 +678,7 @@
       "schema_path": ["cloud_hosted", "egress"],
       "sections": [
         {
-          "aliases": ["ip address"],
+          "aliases": ["cloud hosted egress ip address"],
           "anchor": "schema-cloud_hosted--egress--ip_address",
           "description": "Egress IP address.",
           "document_id": "xcsh-docs:resources:bot_defense_app_infrastructure:properties:cloud_hosted:egress",
@@ -692,7 +692,7 @@
           "type": "string"
         },
         {
-          "aliases": ["location"],
+          "aliases": ["cloud hosted egress location"],
           "anchor": "schema-cloud_hosted--egress--location",
           "description": "Region location AWS_AP_NORTHEAST_1 AWS_AP_NORTHEAST_3 AWS_AP_SOUTH_1 AWS_AP_SOUTH_2 AWS_AP_SOUTHEAST_1 AWS_AP_SOUTHEAST_2 AWS_AP_SOUTHEAST_3 AWS_EU_CENTRAL_1 AWS_EU_NORTH_1 AWS_EU_WEST_1 AWS_ME_SOUTH_1 AWS_SA_EAST_1 AWS_US_EAST_1 AWS_US_EAST_2 AWS_US_WEST_1 AWS_US_WEST_2 GCP_ASIA_EAST_1 GCP_ASIA_EAST_2",
           "document_id": "xcsh-docs:resources:bot_defense_app_infrastructure:properties:cloud_hosted:egress",
@@ -725,7 +725,7 @@
       "category": "security",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -764,7 +764,7 @@
       "schema_path": ["cloud_hosted", "ingress"],
       "sections": [
         {
-          "aliases": ["host name"],
+          "aliases": ["cloud hosted ingress host name"],
           "anchor": "schema-cloud_hosted--ingress--host_name",
           "description": "Exclusive with Ingress Host Name.",
           "document_id": "xcsh-docs:resources:bot_defense_app_infrastructure:properties:cloud_hosted:ingress",
@@ -778,7 +778,7 @@
           "type": "string"
         },
         {
-          "aliases": ["ip address"],
+          "aliases": ["cloud hosted ingress ip address"],
           "anchor": "schema-cloud_hosted--ingress--ip_address",
           "description": "Exclusive with Ingress IP Address.",
           "document_id": "xcsh-docs:resources:bot_defense_app_infrastructure:properties:cloud_hosted:ingress",
@@ -792,7 +792,7 @@
           "type": "string"
         },
         {
-          "aliases": ["location"],
+          "aliases": ["cloud hosted ingress location"],
           "anchor": "schema-cloud_hosted--ingress--location",
           "description": "Region location AWS_AP_NORTHEAST_1 AWS_AP_NORTHEAST_3 AWS_AP_SOUTH_1 AWS_AP_SOUTH_2 AWS_AP_SOUTHEAST_1 AWS_AP_SOUTHEAST_2 AWS_AP_SOUTHEAST_3 AWS_EU_CENTRAL_1 AWS_EU_NORTH_1 AWS_EU_WEST_1 AWS_ME_SOUTH_1 AWS_SA_EAST_1 AWS_US_EAST_1 AWS_US_EAST_2 AWS_US_WEST_1 AWS_US_WEST_2 GCP_ASIA_EAST_1 GCP_ASIA_EAST_2",
           "document_id": "xcsh-docs:resources:bot_defense_app_infrastructure:properties:cloud_hosted:ingress",
@@ -828,7 +828,7 @@
         "xcsh-docs:resources:bot_defense_app_infrastructure:properties:data_center_hosted:ingress"
       ],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -875,7 +875,7 @@
       "schema_path": ["data_center_hosted"],
       "sections": [
         {
-          "aliases": ["egress"],
+          "aliases": ["data center hosted egress"],
           "anchor": "section",
           "description": "Egress",
           "document_id": "xcsh-docs:resources:bot_defense_app_infrastructure:properties:data_center_hosted:egress",
@@ -898,7 +898,7 @@
           "type": "object"
         },
         {
-          "aliases": ["infra host name"],
+          "aliases": ["data center hosted infra host name"],
           "anchor": "schema-data_center_hosted--infra_host_name",
           "description": "Infra Host Name.",
           "document_id": "xcsh-docs:resources:bot_defense_app_infrastructure:properties:data_center_hosted",
@@ -912,7 +912,7 @@
           "type": "string"
         },
         {
-          "aliases": ["ingress"],
+          "aliases": ["data center hosted ingress"],
           "anchor": "section",
           "description": "Ingress",
           "document_id": "xcsh-docs:resources:bot_defense_app_infrastructure:properties:data_center_hosted:ingress",
@@ -943,7 +943,7 @@
           "type": "object"
         },
         {
-          "aliases": ["region"],
+          "aliases": ["data center hosted region"],
           "anchor": "schema-data_center_hosted--region",
           "description": "Defines a selection for Bot Defense Advanced region - US: US US region - EU: EU European Union region - ASIA: ASIA Asia region.",
           "document_id": "xcsh-docs:resources:bot_defense_app_infrastructure:properties:data_center_hosted",
@@ -976,7 +976,7 @@
       "category": "security",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -1007,7 +1007,7 @@
       "schema_path": ["data_center_hosted", "egress"],
       "sections": [
         {
-          "aliases": ["ip address"],
+          "aliases": ["data center hosted egress ip address"],
           "anchor": "schema-data_center_hosted--egress--ip_address",
           "description": "Egress IP address.",
           "document_id": "xcsh-docs:resources:bot_defense_app_infrastructure:properties:data_center_hosted:egress",
@@ -1021,7 +1021,7 @@
           "type": "string"
         },
         {
-          "aliases": ["location"],
+          "aliases": ["data center hosted egress location"],
           "anchor": "schema-data_center_hosted--egress--location",
           "description": "Region location AWS_AP_NORTHEAST_1 AWS_AP_NORTHEAST_3 AWS_AP_SOUTH_1 AWS_AP_SOUTH_2 AWS_AP_SOUTHEAST_1 AWS_AP_SOUTHEAST_2 AWS_AP_SOUTHEAST_3 AWS_EU_CENTRAL_1 AWS_EU_NORTH_1 AWS_EU_WEST_1 AWS_ME_SOUTH_1 AWS_SA_EAST_1 AWS_US_EAST_1 AWS_US_EAST_2 AWS_US_WEST_1 AWS_US_WEST_2 GCP_ASIA_EAST_1 GCP_ASIA_EAST_2",
           "document_id": "xcsh-docs:resources:bot_defense_app_infrastructure:properties:data_center_hosted:egress",
@@ -1054,7 +1054,7 @@
       "category": "security",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -1093,7 +1093,7 @@
       "schema_path": ["data_center_hosted", "ingress"],
       "sections": [
         {
-          "aliases": ["host name"],
+          "aliases": ["data center hosted ingress host name"],
           "anchor": "schema-data_center_hosted--ingress--host_name",
           "description": "Exclusive with Ingress Host Name.",
           "document_id": "xcsh-docs:resources:bot_defense_app_infrastructure:properties:data_center_hosted:ingress",
@@ -1107,7 +1107,7 @@
           "type": "string"
         },
         {
-          "aliases": ["ip address"],
+          "aliases": ["data center hosted ingress ip address"],
           "anchor": "schema-data_center_hosted--ingress--ip_address",
           "description": "Exclusive with Ingress IP Address.",
           "document_id": "xcsh-docs:resources:bot_defense_app_infrastructure:properties:data_center_hosted:ingress",
@@ -1121,7 +1121,7 @@
           "type": "string"
         },
         {
-          "aliases": ["location"],
+          "aliases": ["data center hosted ingress location"],
           "anchor": "schema-data_center_hosted--ingress--location",
           "description": "Region location AWS_AP_NORTHEAST_1 AWS_AP_NORTHEAST_3 AWS_AP_SOUTH_1 AWS_AP_SOUTH_2 AWS_AP_SOUTHEAST_1 AWS_AP_SOUTHEAST_2 AWS_AP_SOUTHEAST_3 AWS_EU_CENTRAL_1 AWS_EU_NORTH_1 AWS_EU_WEST_1 AWS_ME_SOUTH_1 AWS_SA_EAST_1 AWS_US_EAST_1 AWS_US_EAST_2 AWS_US_WEST_1 AWS_US_WEST_2 GCP_ASIA_EAST_1 GCP_ASIA_EAST_2",
           "document_id": "xcsh-docs:resources:bot_defense_app_infrastructure:properties:data_center_hosted:ingress",
@@ -1147,14 +1147,14 @@
       }
     },
     {
-      "aliases": ["duration", "operation timeout", "timeouts"],
+      "aliases": ["duration", "lifecycle timeout", "operation timeout", "timeouts"],
       "body_bytes": 2339,
       "body_sha256": "sha256:9f9e8254a14ca31d9620064bb6758b6a8fb0bb3882c5b1e67d840dab7f156aed",
       "capabilities": ["security"],
       "category": "security",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -1176,9 +1176,17 @@
       "schema_path": ["timeouts"],
       "sections": [
         {
-          "aliases": ["create"],
+          "aliases": [
+            "create operation timeout",
+            "create timeout",
+            "creation duration",
+            "duration",
+            "lifecycle timeout",
+            "operation timeout",
+            "timeouts create"
+          ],
           "anchor": "schema-timeouts--create",
-          "description": "A string that can be (https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as \"30s\" or \"2h45m\". Valid time units are \"s\" (seconds), \"m\" (minutes), \"h\" (hours).",
+          "description": "Configures the timeout duration for resource creation.",
           "document_id": "xcsh-docs:resources:bot_defense_app_infrastructure:properties:timeouts",
           "flags": ["optional"],
           "max_items": null,
@@ -1190,9 +1198,18 @@
           "type": "string"
         },
         {
-          "aliases": ["delete", "duration", "operation timeout"],
+          "aliases": [
+            "delete operation timeout",
+            "delete timeout",
+            "deletion duration",
+            "destroy timeout",
+            "duration",
+            "lifecycle timeout",
+            "operation timeout",
+            "timeouts delete"
+          ],
           "anchor": "schema-timeouts--delete",
-          "description": "A string that can be (https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as \"30s\" or \"2h45m\". Valid time units are \"s\" (seconds), \"m\" (minutes), \"h\" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.",
+          "description": "Configures the timeout duration for resource deletion, applicable only if changes are saved into state before destroy.",
           "document_id": "xcsh-docs:resources:bot_defense_app_infrastructure:properties:timeouts",
           "flags": ["optional"],
           "max_items": null,
@@ -1204,9 +1221,18 @@
           "type": "string"
         },
         {
-          "aliases": ["read"],
+          "aliases": [
+            "duration",
+            "lifecycle timeout",
+            "operation timeout",
+            "read duration",
+            "read operation timeout",
+            "read timeout",
+            "refresh timeout",
+            "timeouts read"
+          ],
           "anchor": "schema-timeouts--read",
-          "description": "A string that can be (https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as \"30s\" or \"2h45m\". Valid time units are \"s\" (seconds), \"m\" (minutes), \"h\" (hours). Read operations occur during any refresh or planning operation when refresh is enabled.",
+          "description": "Configures the timeout duration for read operations during refresh or planning.",
           "document_id": "xcsh-docs:resources:bot_defense_app_infrastructure:properties:timeouts",
           "flags": ["optional"],
           "max_items": null,
@@ -1218,9 +1244,18 @@
           "type": "string"
         },
         {
-          "aliases": ["update"],
+          "aliases": [
+            "duration",
+            "lifecycle timeout",
+            "modification timeout",
+            "operation timeout",
+            "timeouts update",
+            "update duration",
+            "update operation timeout",
+            "update timeout"
+          ],
           "anchor": "schema-timeouts--update",
-          "description": "A string that can be (https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as \"30s\" or \"2h45m\". Valid time units are \"s\" (seconds), \"m\" (minutes), \"h\" (hours).",
+          "description": "Configures the timeout duration for resource update operations.",
           "document_id": "xcsh-docs:resources:bot_defense_app_infrastructure:properties:timeouts",
           "flags": ["optional"],
           "max_items": null,
@@ -1251,7 +1286,7 @@
       "category": "security",
       "child_ids": ["xcsh-docs:resources:bot_defense_app_infrastructure:example:resource"],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -1291,7 +1326,7 @@
       "category": "security",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -1338,7 +1373,7 @@
       "category": "security",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -1379,7 +1414,7 @@
       "category": "security",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"

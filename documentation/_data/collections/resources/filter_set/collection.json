@@ -138,7 +138,7 @@
         "xcsh-docs:resources:filter_set:timeouts"
       ],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -182,7 +182,7 @@
         "xcsh-docs:resources:filter_set:properties:timeouts"
       ],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -387,7 +387,7 @@
           "type": "string"
         },
         {
-          "aliases": ["duration", "operation timeout", "timeouts"],
+          "aliases": ["duration", "lifecycle timeout", "operation timeout", "timeouts"],
           "anchor": "section",
           "description": "timeouts",
           "document_id": "xcsh-docs:resources:filter_set:properties:timeouts",
@@ -424,7 +424,7 @@
         "xcsh-docs:resources:filter_set:properties:filter_fields:string_field"
       ],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -503,7 +503,7 @@
       "schema_path": ["filter_fields"],
       "sections": [
         {
-          "aliases": ["date field"],
+          "aliases": ["filter fields date field"],
           "anchor": "section",
           "description": "Either an absolute time range or a relative time interval.",
           "document_id": "xcsh-docs:resources:filter_set:properties:filter_fields:date_field",
@@ -534,7 +534,7 @@
           "type": "object"
         },
         {
-          "aliases": ["field id"],
+          "aliases": ["filter fields field id"],
           "anchor": "schema-filter_fields--field_id",
           "description": "An identifier for the field that maps to some UI filter component.",
           "document_id": "xcsh-docs:resources:filter_set:properties:filter_fields",
@@ -548,7 +548,7 @@
           "type": "string"
         },
         {
-          "aliases": ["filter expression field"],
+          "aliases": ["filter fields filter expression field"],
           "anchor": "section",
           "description": "Filter Expression Field.",
           "document_id": "xcsh-docs:resources:filter_set:properties:filter_fields:filter_expression_field",
@@ -571,7 +571,7 @@
           "type": "object"
         },
         {
-          "aliases": ["string field"],
+          "aliases": ["filter fields string field"],
           "anchor": "section",
           "description": "Filter String Field.",
           "document_id": "xcsh-docs:resources:filter_set:properties:filter_fields:string_field",
@@ -613,7 +613,7 @@
       "category": null,
       "child_ids": ["xcsh-docs:resources:filter_set:properties:filter_fields:date_field:absolute"],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -652,7 +652,7 @@
       "schema_path": ["filter_fields", "date_field"],
       "sections": [
         {
-          "aliases": ["absolute"],
+          "aliases": ["filter fields date field absolute"],
           "anchor": "section",
           "description": "Date range is for selecting a date range.",
           "document_id": "xcsh-docs:resources:filter_set:properties:filter_fields:date_field:absolute",
@@ -683,7 +683,7 @@
           "type": "object"
         },
         {
-          "aliases": ["relative"],
+          "aliases": ["filter fields date field relative"],
           "anchor": "schema-filter_fields--date_field--relative",
           "description": "Exclusive with relative time duration.",
           "document_id": "xcsh-docs:resources:filter_set:properties:filter_fields:date_field",
@@ -716,7 +716,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -755,7 +755,7 @@
       "schema_path": ["filter_fields", "date_field", "absolute"],
       "sections": [
         {
-          "aliases": ["end date"],
+          "aliases": ["filter fields date field absolute end date"],
           "anchor": "schema-filter_fields--date_field--absolute--end_date",
           "description": "Contains end date.",
           "document_id": "xcsh-docs:resources:filter_set:properties:filter_fields:date_field:absolute",
@@ -769,7 +769,7 @@
           "type": "string"
         },
         {
-          "aliases": ["start date"],
+          "aliases": ["filter fields date field absolute start date"],
           "anchor": "schema-filter_fields--date_field--absolute--start_date",
           "description": "Contains start date.",
           "document_id": "xcsh-docs:resources:filter_set:properties:filter_fields:date_field:absolute",
@@ -802,7 +802,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -833,7 +833,7 @@
       "schema_path": ["filter_fields", "filter_expression_field"],
       "sections": [
         {
-          "aliases": ["expression"],
+          "aliases": ["filter fields filter expression field expression"],
           "anchor": "schema-filter_fields--filter_expression_field--expression",
           "description": "Expression is a Kubernetes style label expression for selections, but differs in that it allows special characters in the keys and values.",
           "document_id": "xcsh-docs:resources:filter_set:properties:filter_fields:filter_expression_field",
@@ -866,7 +866,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -897,7 +897,7 @@
       "schema_path": ["filter_fields", "string_field"],
       "sections": [
         {
-          "aliases": ["field values"],
+          "aliases": ["filter fields string field field values"],
           "anchor": "schema-filter_fields--string_field--field_values",
           "description": "Field specification or configuration",
           "document_id": "xcsh-docs:resources:filter_set:properties:filter_fields:string_field",
@@ -923,14 +923,14 @@
       }
     },
     {
-      "aliases": ["duration", "operation timeout", "timeouts"],
+      "aliases": ["duration", "lifecycle timeout", "operation timeout", "timeouts"],
       "body_bytes": 2219,
       "body_sha256": "sha256:430a66b4784d6dfe0b2ae6f2d5d3e00deb166f90e093746fd01e5060bd71c2c8",
       "capabilities": [],
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -952,9 +952,17 @@
       "schema_path": ["timeouts"],
       "sections": [
         {
-          "aliases": ["create"],
+          "aliases": [
+            "create operation timeout",
+            "create timeout",
+            "creation duration",
+            "duration",
+            "lifecycle timeout",
+            "operation timeout",
+            "timeouts create"
+          ],
           "anchor": "schema-timeouts--create",
-          "description": "A string that can be (https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as \"30s\" or \"2h45m\". Valid time units are \"s\" (seconds), \"m\" (minutes), \"h\" (hours).",
+          "description": "Configures the timeout duration for resource creation.",
           "document_id": "xcsh-docs:resources:filter_set:properties:timeouts",
           "flags": ["optional"],
           "max_items": null,
@@ -966,9 +974,18 @@
           "type": "string"
         },
         {
-          "aliases": ["delete", "duration", "operation timeout"],
+          "aliases": [
+            "delete operation timeout",
+            "delete timeout",
+            "deletion duration",
+            "destroy timeout",
+            "duration",
+            "lifecycle timeout",
+            "operation timeout",
+            "timeouts delete"
+          ],
           "anchor": "schema-timeouts--delete",
-          "description": "A string that can be (https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as \"30s\" or \"2h45m\". Valid time units are \"s\" (seconds), \"m\" (minutes), \"h\" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.",
+          "description": "Configures the timeout duration for resource deletion, applicable only if changes are saved into state before destroy.",
           "document_id": "xcsh-docs:resources:filter_set:properties:timeouts",
           "flags": ["optional"],
           "max_items": null,
@@ -980,9 +997,18 @@
           "type": "string"
         },
         {
-          "aliases": ["read"],
+          "aliases": [
+            "duration",
+            "lifecycle timeout",
+            "operation timeout",
+            "read duration",
+            "read operation timeout",
+            "read timeout",
+            "refresh timeout",
+            "timeouts read"
+          ],
           "anchor": "schema-timeouts--read",
-          "description": "A string that can be (https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as \"30s\" or \"2h45m\". Valid time units are \"s\" (seconds), \"m\" (minutes), \"h\" (hours). Read operations occur during any refresh or planning operation when refresh is enabled.",
+          "description": "Configures the timeout duration for read operations during refresh or planning.",
           "document_id": "xcsh-docs:resources:filter_set:properties:timeouts",
           "flags": ["optional"],
           "max_items": null,
@@ -994,9 +1020,18 @@
           "type": "string"
         },
         {
-          "aliases": ["update"],
+          "aliases": [
+            "duration",
+            "lifecycle timeout",
+            "modification timeout",
+            "operation timeout",
+            "timeouts update",
+            "update duration",
+            "update operation timeout",
+            "update timeout"
+          ],
           "anchor": "schema-timeouts--update",
-          "description": "A string that can be (https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as \"30s\" or \"2h45m\". Valid time units are \"s\" (seconds), \"m\" (minutes), \"h\" (hours).",
+          "description": "Configures the timeout duration for resource update operations.",
           "document_id": "xcsh-docs:resources:filter_set:properties:timeouts",
           "flags": ["optional"],
           "max_items": null,
@@ -1027,7 +1062,7 @@
       "category": null,
       "child_ids": ["xcsh-docs:resources:filter_set:example:resource"],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -1067,7 +1102,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -1114,7 +1149,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -1155,7 +1190,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"

@@ -187,7 +187,7 @@
         "xcsh-docs:resources:rate_limiter:timeouts"
       ],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["receipt-pinned-upstream"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -240,7 +240,7 @@
         "xcsh-docs:resources:rate_limiter:properties:user_identification"
       ],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["receipt-pinned-upstream"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -415,7 +415,7 @@
           "type": "string"
         },
         {
-          "aliases": ["duration", "operation timeout", "timeouts"],
+          "aliases": ["duration", "lifecycle timeout", "operation timeout", "timeouts"],
           "anchor": "section",
           "description": "timeouts",
           "document_id": "xcsh-docs:resources:rate_limiter:properties:timeouts",
@@ -467,7 +467,7 @@
         "xcsh-docs:resources:rate_limiter:properties:limits:token_bucket"
       ],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["receipt-pinned-upstream"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -530,7 +530,7 @@
       "schema_path": ["limits"],
       "sections": [
         {
-          "aliases": ["action block"],
+          "aliases": ["limits action block"],
           "anchor": "section",
           "description": "Action where a user is blocked from making further requests after exceeding rate limit threshold.",
           "document_id": "xcsh-docs:resources:rate_limiter:properties:limits:action_block",
@@ -593,7 +593,7 @@
           "type": "object"
         },
         {
-          "aliases": ["burst multiplier"],
+          "aliases": ["limits burst multiplier"],
           "anchor": "schema-limits--burst_multiplier",
           "description": "The maximum burst of requests to accommodate, expressed as a multiple of the rate.",
           "document_id": "xcsh-docs:resources:rate_limiter:properties:limits",
@@ -607,7 +607,7 @@
           "type": "number"
         },
         {
-          "aliases": ["disabled"],
+          "aliases": ["limits disabled"],
           "anchor": "section",
           "description": "This can be used for messages where no values are needed.",
           "document_id": "xcsh-docs:resources:rate_limiter:properties:limits:disabled",
@@ -621,7 +621,7 @@
           "type": "object"
         },
         {
-          "aliases": ["leaky bucket"],
+          "aliases": ["limits leaky bucket"],
           "anchor": "section",
           "description": "Leaky-Bucket is the default rate limiter algorithm for F5.",
           "document_id": "xcsh-docs:resources:rate_limiter:properties:limits:leaky_bucket",
@@ -635,7 +635,7 @@
           "type": "object"
         },
         {
-          "aliases": ["period multiplier"],
+          "aliases": ["limits period multiplier"],
           "anchor": "schema-limits--period_multiplier",
           "description": "This setting, combined with Per Period units, provides a duration.",
           "document_id": "xcsh-docs:resources:rate_limiter:properties:limits",
@@ -649,7 +649,7 @@
           "type": "number"
         },
         {
-          "aliases": ["token bucket"],
+          "aliases": ["limits token bucket"],
           "anchor": "section",
           "description": "Token-Bucket is a rate limiter algorithm that is stricter with enforcing limits.",
           "document_id": "xcsh-docs:resources:rate_limiter:properties:limits:token_bucket",
@@ -663,7 +663,7 @@
           "type": "object"
         },
         {
-          "aliases": ["total number"],
+          "aliases": ["limits total number"],
           "anchor": "schema-limits--total_number",
           "description": "The total number of allowed requests per rate-limiting period.",
           "document_id": "xcsh-docs:resources:rate_limiter:properties:limits",
@@ -677,7 +677,7 @@
           "type": "number"
         },
         {
-          "aliases": ["unit"],
+          "aliases": ["limits unit"],
           "anchor": "schema-limits--unit",
           "description": "Unit for the period per which the rate limit is applied. - SECOND: Second Rate limit period unit is seconds - MINUTE: Minute Rate limit period unit is minutes - HOUR: Hour Rate limit period unit is hours - DAY: Day Rate limit period unit is days.",
           "document_id": "xcsh-docs:resources:rate_limiter:properties:limits",
@@ -714,7 +714,7 @@
         "xcsh-docs:resources:rate_limiter:properties:limits:action_block:seconds"
       ],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["receipt-pinned-upstream"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -785,7 +785,7 @@
       "schema_path": ["limits", "action_block"],
       "sections": [
         {
-          "aliases": ["hours"],
+          "aliases": ["limits action block hours"],
           "anchor": "section",
           "description": "Input Duration Hours.",
           "document_id": "xcsh-docs:resources:rate_limiter:properties:limits:action_block:hours",
@@ -799,7 +799,7 @@
           "type": "object"
         },
         {
-          "aliases": ["minutes"],
+          "aliases": ["limits action block minutes"],
           "anchor": "section",
           "description": "Input Duration Minutes.",
           "document_id": "xcsh-docs:resources:rate_limiter:properties:limits:action_block:minutes",
@@ -813,7 +813,7 @@
           "type": "object"
         },
         {
-          "aliases": ["seconds"],
+          "aliases": ["limits action block seconds"],
           "anchor": "section",
           "description": "Input Duration Seconds.",
           "document_id": "xcsh-docs:resources:rate_limiter:properties:limits:action_block:seconds",
@@ -846,7 +846,7 @@
       "category": "security",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["receipt-pinned-upstream"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -868,7 +868,7 @@
       "schema_path": ["limits", "action_block", "hours"],
       "sections": [
         {
-          "aliases": ["duration"],
+          "aliases": ["limits action block hours duration"],
           "anchor": "schema-limits--action_block--hours--duration",
           "description": "Configuration parameter for duration",
           "document_id": "xcsh-docs:resources:rate_limiter:properties:limits:action_block:hours",
@@ -901,7 +901,7 @@
       "category": "security",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["receipt-pinned-upstream"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -923,7 +923,7 @@
       "schema_path": ["limits", "action_block", "minutes"],
       "sections": [
         {
-          "aliases": ["duration"],
+          "aliases": ["limits action block minutes duration"],
           "anchor": "schema-limits--action_block--minutes--duration",
           "description": "Configuration parameter for duration",
           "document_id": "xcsh-docs:resources:rate_limiter:properties:limits:action_block:minutes",
@@ -956,7 +956,7 @@
       "category": "security",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["receipt-pinned-upstream"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -978,7 +978,7 @@
       "schema_path": ["limits", "action_block", "seconds"],
       "sections": [
         {
-          "aliases": ["duration"],
+          "aliases": ["limits action block seconds duration"],
           "anchor": "schema-limits--action_block--seconds--duration",
           "description": "Configuration parameter for duration",
           "document_id": "xcsh-docs:resources:rate_limiter:properties:limits:action_block:seconds",
@@ -1011,7 +1011,7 @@
       "category": "security",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["receipt-pinned-upstream"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -1051,7 +1051,7 @@
       "category": "security",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["receipt-pinned-upstream"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -1091,7 +1091,7 @@
       "category": "security",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["receipt-pinned-upstream"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -1124,14 +1124,14 @@
       }
     },
     {
-      "aliases": ["duration", "operation timeout", "timeouts"],
+      "aliases": ["duration", "lifecycle timeout", "operation timeout", "timeouts"],
       "body_bytes": 2231,
       "body_sha256": "sha256:326480e8ef3447f6a1e25156c218709c07d3cc14201a50565d41c0f70d713127",
       "capabilities": ["security"],
       "category": "security",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["receipt-pinned-upstream"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -1153,9 +1153,17 @@
       "schema_path": ["timeouts"],
       "sections": [
         {
-          "aliases": ["create"],
+          "aliases": [
+            "create operation timeout",
+            "create timeout",
+            "creation duration",
+            "duration",
+            "lifecycle timeout",
+            "operation timeout",
+            "timeouts create"
+          ],
           "anchor": "schema-timeouts--create",
-          "description": "A string that can be (https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as \"30s\" or \"2h45m\". Valid time units are \"s\" (seconds), \"m\" (minutes), \"h\" (hours).",
+          "description": "Configures the timeout duration for resource creation.",
           "document_id": "xcsh-docs:resources:rate_limiter:properties:timeouts",
           "flags": ["optional"],
           "max_items": null,
@@ -1167,9 +1175,18 @@
           "type": "string"
         },
         {
-          "aliases": ["delete", "duration", "operation timeout"],
+          "aliases": [
+            "delete operation timeout",
+            "delete timeout",
+            "deletion duration",
+            "destroy timeout",
+            "duration",
+            "lifecycle timeout",
+            "operation timeout",
+            "timeouts delete"
+          ],
           "anchor": "schema-timeouts--delete",
-          "description": "A string that can be (https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as \"30s\" or \"2h45m\". Valid time units are \"s\" (seconds), \"m\" (minutes), \"h\" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.",
+          "description": "Configures the timeout duration for resource deletion, applicable only if changes are saved into state before destroy.",
           "document_id": "xcsh-docs:resources:rate_limiter:properties:timeouts",
           "flags": ["optional"],
           "max_items": null,
@@ -1181,9 +1198,18 @@
           "type": "string"
         },
         {
-          "aliases": ["read"],
+          "aliases": [
+            "duration",
+            "lifecycle timeout",
+            "operation timeout",
+            "read duration",
+            "read operation timeout",
+            "read timeout",
+            "refresh timeout",
+            "timeouts read"
+          ],
           "anchor": "schema-timeouts--read",
-          "description": "A string that can be (https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as \"30s\" or \"2h45m\". Valid time units are \"s\" (seconds), \"m\" (minutes), \"h\" (hours). Read operations occur during any refresh or planning operation when refresh is enabled.",
+          "description": "Configures the timeout duration for read operations during refresh or planning.",
           "document_id": "xcsh-docs:resources:rate_limiter:properties:timeouts",
           "flags": ["optional"],
           "max_items": null,
@@ -1195,9 +1221,18 @@
           "type": "string"
         },
         {
-          "aliases": ["update"],
+          "aliases": [
+            "duration",
+            "lifecycle timeout",
+            "modification timeout",
+            "operation timeout",
+            "timeouts update",
+            "update duration",
+            "update operation timeout",
+            "update timeout"
+          ],
           "anchor": "schema-timeouts--update",
-          "description": "A string that can be (https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as \"30s\" or \"2h45m\". Valid time units are \"s\" (seconds), \"m\" (minutes), \"h\" (hours).",
+          "description": "Configures the timeout duration for resource update operations.",
           "document_id": "xcsh-docs:resources:rate_limiter:properties:timeouts",
           "flags": ["optional"],
           "max_items": null,
@@ -1228,7 +1263,7 @@
       "category": "security",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["receipt-pinned-upstream"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -1250,7 +1285,7 @@
       "schema_path": ["user_identification"],
       "sections": [
         {
-          "aliases": ["kind"],
+          "aliases": ["user identification kind"],
           "anchor": "schema-user_identification--kind",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then kind will hold the referred object's kind (e.g. \"route\")",
           "document_id": "xcsh-docs:resources:rate_limiter:properties:user_identification",
@@ -1264,7 +1299,7 @@
           "type": "string"
         },
         {
-          "aliases": ["name"],
+          "aliases": ["user identification name"],
           "anchor": "schema-user_identification--name",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.",
           "document_id": "xcsh-docs:resources:rate_limiter:properties:user_identification",
@@ -1278,7 +1313,7 @@
           "type": "string"
         },
         {
-          "aliases": ["namespace"],
+          "aliases": ["user identification namespace"],
           "anchor": "schema-user_identification--namespace",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace.",
           "document_id": "xcsh-docs:resources:rate_limiter:properties:user_identification",
@@ -1292,7 +1327,7 @@
           "type": "string"
         },
         {
-          "aliases": ["tenant"],
+          "aliases": ["user identification tenant"],
           "anchor": "schema-user_identification--tenant",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant.",
           "document_id": "xcsh-docs:resources:rate_limiter:properties:user_identification",
@@ -1306,7 +1341,7 @@
           "type": "string"
         },
         {
-          "aliases": ["uid"],
+          "aliases": ["user identification uid"],
           "anchor": "schema-user_identification--uid",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then uid will hold the referred object's(e.g. Route's) uid.",
           "document_id": "xcsh-docs:resources:rate_limiter:properties:user_identification",
@@ -1348,7 +1383,7 @@
         "xcsh-docs:resources:rate_limiter:example:with-limits"
       ],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["receipt-pinned-upstream"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -1388,7 +1423,7 @@
       "category": "security",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["receipt-pinned-upstream"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -1435,7 +1470,7 @@
       "category": "security",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["receipt-pinned-upstream"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -1482,7 +1517,7 @@
       "category": "security",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["receipt-pinned-upstream"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -1529,7 +1564,7 @@
       "category": "security",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["receipt-pinned-upstream"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -1576,7 +1611,7 @@
       "category": "security",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["receipt-pinned-upstream"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -1623,7 +1658,7 @@
       "category": "security",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["receipt-pinned-upstream"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -1670,7 +1705,7 @@
       "category": "security",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["receipt-pinned-upstream"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -1717,7 +1752,7 @@
       "category": "security",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["receipt-pinned-upstream"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -1764,7 +1799,7 @@
       "category": "security",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["receipt-pinned-upstream"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -1805,7 +1840,7 @@
       "category": "security",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["receipt-pinned-upstream"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"

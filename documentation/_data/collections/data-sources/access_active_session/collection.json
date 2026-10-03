@@ -90,7 +90,7 @@
         "xcsh-docs:data-sources:access_active_session:examples"
       ],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -131,7 +131,7 @@
       "category": null,
       "child_ids": ["xcsh-docs:data-sources:access_active_session:properties:variables"],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -340,7 +340,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -362,7 +362,7 @@
       "schema_path": ["variables"],
       "sections": [
         {
-          "aliases": ["value"],
+          "aliases": ["variables value"],
           "anchor": "schema-variables--value",
           "description": "Variable Value. The value of the session variable.",
           "document_id": "xcsh-docs:data-sources:access_active_session:properties:variables",
@@ -376,7 +376,7 @@
           "type": "string"
         },
         {
-          "aliases": ["variable"],
+          "aliases": ["variables variable"],
           "anchor": "schema-variables--variable",
           "description": "Variable Name. The name of the session variable.",
           "document_id": "xcsh-docs:data-sources:access_active_session:properties:variables",
@@ -409,7 +409,7 @@
       "category": null,
       "child_ids": ["xcsh-docs:data-sources:access_active_session:example:data-source"],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -449,7 +449,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"

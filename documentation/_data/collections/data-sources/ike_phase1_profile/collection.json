@@ -120,7 +120,7 @@
         "xcsh-docs:data-sources:ike_phase1_profile:examples"
       ],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -168,7 +168,7 @@
         "xcsh-docs:data-sources:ike_phase1_profile:properties:use_default_keylifetime"
       ],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -372,7 +372,7 @@
           "type": "object"
         },
         {
-          "aliases": ["duration", "operation timeout", "reauth timeout days"],
+          "aliases": ["duration", "reauth timeout days"],
           "anchor": "section",
           "description": "Set Duration in days.",
           "document_id": "xcsh-docs:data-sources:ike_phase1_profile:properties:reauth_timeout_days",
@@ -386,7 +386,7 @@
           "type": "object"
         },
         {
-          "aliases": ["duration", "operation timeout", "reauth timeout hours"],
+          "aliases": ["duration", "reauth timeout hours"],
           "anchor": "section",
           "description": "Input Hours.",
           "document_id": "xcsh-docs:data-sources:ike_phase1_profile:properties:reauth_timeout_hours",
@@ -433,7 +433,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -455,7 +455,7 @@
       "schema_path": ["ike_keylifetime_hours"],
       "sections": [
         {
-          "aliases": ["duration"],
+          "aliases": ["ike keylifetime hours duration"],
           "anchor": "schema-ike_keylifetime_hours--duration",
           "description": "Configuration parameter for duration",
           "document_id": "xcsh-docs:data-sources:ike_phase1_profile:properties:ike_keylifetime_hours",
@@ -488,7 +488,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -510,7 +510,7 @@
       "schema_path": ["ike_keylifetime_minutes"],
       "sections": [
         {
-          "aliases": ["duration"],
+          "aliases": ["ike keylifetime minutes duration"],
           "anchor": "schema-ike_keylifetime_minutes--duration",
           "description": "Configuration parameter for duration",
           "document_id": "xcsh-docs:data-sources:ike_phase1_profile:properties:ike_keylifetime_minutes",
@@ -543,7 +543,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -576,14 +576,14 @@
       }
     },
     {
-      "aliases": ["duration", "operation timeout", "reauth timeout days"],
+      "aliases": ["duration", "reauth timeout days"],
       "body_bytes": 1910,
       "body_sha256": "sha256:1f8da5b36da8b065ff94b1f2879e96fb60a0f488a51623651e7f9cfef84188df",
       "capabilities": [],
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -605,7 +605,7 @@
       "schema_path": ["reauth_timeout_days"],
       "sections": [
         {
-          "aliases": ["duration"],
+          "aliases": ["duration", "reauth timeout days duration"],
           "anchor": "schema-reauth_timeout_days--duration",
           "description": "Configuration parameter for duration",
           "document_id": "xcsh-docs:data-sources:ike_phase1_profile:properties:reauth_timeout_days",
@@ -631,14 +631,14 @@
       }
     },
     {
-      "aliases": ["duration", "operation timeout", "reauth timeout hours"],
+      "aliases": ["duration", "reauth timeout hours"],
       "body_bytes": 1902,
       "body_sha256": "sha256:68f99778dd10873b15cf9968e9dad6246bf383dbcd298909a16b486a7013c0d1",
       "capabilities": [],
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -660,7 +660,7 @@
       "schema_path": ["reauth_timeout_hours"],
       "sections": [
         {
-          "aliases": ["duration"],
+          "aliases": ["duration", "reauth timeout hours duration"],
           "anchor": "schema-reauth_timeout_hours--duration",
           "description": "Configuration parameter for duration",
           "document_id": "xcsh-docs:data-sources:ike_phase1_profile:properties:reauth_timeout_hours",
@@ -693,7 +693,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -733,7 +733,7 @@
       "category": null,
       "child_ids": ["xcsh-docs:data-sources:ike_phase1_profile:example:data-source"],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -773,7 +773,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"

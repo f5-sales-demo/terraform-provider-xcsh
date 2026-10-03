@@ -110,7 +110,7 @@
         "xcsh-docs:data-sources:api_definition:examples"
       ],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -157,7 +157,7 @@
         "xcsh-docs:data-sources:api_definition:properties:strict_schema_origin"
       ],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -366,7 +366,7 @@
       "category": "api-management",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -388,7 +388,7 @@
       "schema_path": ["api_inventory_exclusion_list"],
       "sections": [
         {
-          "aliases": ["method"],
+          "aliases": ["api inventory exclusion list method"],
           "anchor": "schema-api_inventory_exclusion_list--method",
           "description": "Specifies the HTTP method used to access a resource. Any HTTP Method.",
           "document_id": "xcsh-docs:data-sources:api_definition:properties:api_inventory_exclusion_list",
@@ -402,7 +402,7 @@
           "type": "string"
         },
         {
-          "aliases": ["path"],
+          "aliases": ["api inventory exclusion list path"],
           "anchor": "schema-api_inventory_exclusion_list--path",
           "description": "An endpoint path, as specified in OpenAPI, including parameters. The path should comply with RFC 3986 and may have parameters according to OpenAPI specification.",
           "document_id": "xcsh-docs:data-sources:api_definition:properties:api_inventory_exclusion_list",
@@ -435,7 +435,7 @@
       "category": "api-management",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -457,7 +457,7 @@
       "schema_path": ["api_inventory_inclusion_list"],
       "sections": [
         {
-          "aliases": ["method"],
+          "aliases": ["api inventory inclusion list method"],
           "anchor": "schema-api_inventory_inclusion_list--method",
           "description": "Specifies the HTTP method used to access a resource. Any HTTP Method.",
           "document_id": "xcsh-docs:data-sources:api_definition:properties:api_inventory_inclusion_list",
@@ -471,7 +471,7 @@
           "type": "string"
         },
         {
-          "aliases": ["path"],
+          "aliases": ["api inventory inclusion list path"],
           "anchor": "schema-api_inventory_inclusion_list--path",
           "description": "An endpoint path, as specified in OpenAPI, including parameters. The path should comply with RFC 3986 and may have parameters according to OpenAPI specification.",
           "document_id": "xcsh-docs:data-sources:api_definition:properties:api_inventory_inclusion_list",
@@ -504,7 +504,7 @@
       "category": "api-management",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -544,7 +544,7 @@
       "category": "api-management",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -566,7 +566,7 @@
       "schema_path": ["non_api_endpoints"],
       "sections": [
         {
-          "aliases": ["method"],
+          "aliases": ["non api endpoints method"],
           "anchor": "schema-non_api_endpoints--method",
           "description": "Specifies the HTTP method used to access a resource. Any HTTP Method.",
           "document_id": "xcsh-docs:data-sources:api_definition:properties:non_api_endpoints",
@@ -580,7 +580,7 @@
           "type": "string"
         },
         {
-          "aliases": ["path"],
+          "aliases": ["non api endpoints path"],
           "anchor": "schema-non_api_endpoints--path",
           "description": "An endpoint path, as specified in OpenAPI, including parameters. The path should comply with RFC 3986 and may have parameters according to OpenAPI specification.",
           "document_id": "xcsh-docs:data-sources:api_definition:properties:non_api_endpoints",
@@ -613,7 +613,7 @@
       "category": "api-management",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -653,7 +653,7 @@
       "category": "api-management",
       "child_ids": ["xcsh-docs:data-sources:api_definition:example:data-source"],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -693,7 +693,7 @@
       "category": "api-management",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"

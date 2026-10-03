@@ -170,7 +170,7 @@
         "xcsh-docs:data-sources:access_active_sessions:examples"
       ],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -211,7 +211,7 @@
       "category": null,
       "child_ids": ["xcsh-docs:data-sources:access_active_sessions:properties:items"],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -532,7 +532,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -554,7 +554,7 @@
       "schema_path": ["items"],
       "sections": [
         {
-          "aliases": ["client ip"],
+          "aliases": ["items client ip"],
           "anchor": "schema-items--client_ip",
           "description": "Client IP of the user that connected via the session.",
           "document_id": "xcsh-docs:data-sources:access_active_sessions:properties:items",
@@ -568,7 +568,7 @@
           "type": "string"
         },
         {
-          "aliases": ["expiration time"],
+          "aliases": ["items expiration time"],
           "anchor": "schema-items--expiration_time",
           "description": "Expiration time of the session in RFC 3339 format.",
           "document_id": "xcsh-docs:data-sources:access_active_sessions:properties:items",
@@ -582,7 +582,7 @@
           "type": "string"
         },
         {
-          "aliases": ["id"],
+          "aliases": ["items id"],
           "anchor": "schema-items--id",
           "description": "Session ID. ID of the session.",
           "document_id": "xcsh-docs:data-sources:access_active_sessions:properties:items",
@@ -596,7 +596,7 @@
           "type": "string"
         },
         {
-          "aliases": ["last activity time"],
+          "aliases": ["items last activity time"],
           "anchor": "schema-items--last_activity_time",
           "description": "Last activity time of the session in RFC 3339 format.",
           "document_id": "xcsh-docs:data-sources:access_active_sessions:properties:items",
@@ -610,7 +610,7 @@
           "type": "string"
         },
         {
-          "aliases": ["policy"],
+          "aliases": ["items policy"],
           "anchor": "schema-items--policy",
           "description": "Policy. Policy associated with the session.",
           "document_id": "xcsh-docs:data-sources:access_active_sessions:properties:items",
@@ -624,7 +624,7 @@
           "type": "string"
         },
         {
-          "aliases": ["site"],
+          "aliases": ["items site"],
           "anchor": "schema-items--site",
           "description": "Site. Site where the session is created.",
           "document_id": "xcsh-docs:data-sources:access_active_sessions:properties:items",
@@ -638,7 +638,7 @@
           "type": "string"
         },
         {
-          "aliases": ["start time"],
+          "aliases": ["items start time"],
           "anchor": "schema-items--start_time",
           "description": "Start time of the session in RFC 3339 format.",
           "document_id": "xcsh-docs:data-sources:access_active_sessions:properties:items",
@@ -652,7 +652,7 @@
           "type": "string"
         },
         {
-          "aliases": ["status"],
+          "aliases": ["items status"],
           "anchor": "schema-items--status",
           "description": "The actual status of an active session Session status is pending Session status is established. Possible values are `PENDING`, `ESTABLISHED`. Defaults to `PENDING`.",
           "document_id": "xcsh-docs:data-sources:access_active_sessions:properties:items",
@@ -666,7 +666,7 @@
           "type": "string"
         },
         {
-          "aliases": ["username"],
+          "aliases": ["items username"],
           "anchor": "schema-items--username",
           "description": "Username used in authentication of this session.",
           "document_id": "xcsh-docs:data-sources:access_active_sessions:properties:items",
@@ -680,7 +680,7 @@
           "type": "string"
         },
         {
-          "aliases": ["virtual server"],
+          "aliases": ["items virtual server"],
           "anchor": "schema-items--virtual_server",
           "description": "Virtual server associated with the session.",
           "document_id": "xcsh-docs:data-sources:access_active_sessions:properties:items",
@@ -713,7 +713,7 @@
       "category": null,
       "child_ids": ["xcsh-docs:data-sources:access_active_sessions:example:data-source"],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -753,7 +753,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"

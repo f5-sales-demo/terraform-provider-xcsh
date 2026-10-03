@@ -202,7 +202,7 @@
         "xcsh-docs:resources:tenant_configuration:timeouts"
       ],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -249,7 +249,7 @@
         "xcsh-docs:resources:tenant_configuration:properties:user_session_expiration"
       ],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -429,7 +429,7 @@
           "type": "object"
         },
         {
-          "aliases": ["duration", "operation timeout", "timeouts"],
+          "aliases": ["duration", "lifecycle timeout", "operation timeout", "timeouts"],
           "anchor": "section",
           "description": "timeouts",
           "document_id": "xcsh-docs:resources:tenant_configuration:properties:timeouts",
@@ -443,7 +443,7 @@
           "type": "object"
         },
         {
-          "aliases": ["duration", "operation timeout", "user session expiration"],
+          "aliases": ["duration", "user session expiration"],
           "anchor": "section",
           "description": "Defines all session-related expiration for user sessions within a tenant's environment. Relationship between session_expiry and cookie_expiry: - session_expiry defines the 'absolute maximum duration' of a session and enforces RE-authentication after this time. - cookie_expiry defines the 'inactivity timeout', which",
           "document_id": "xcsh-docs:resources:tenant_configuration:properties:user_session_expiration",
@@ -476,7 +476,7 @@
       "category": "administration",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -498,7 +498,7 @@
       "schema_path": ["brute_force_detection"],
       "sections": [
         {
-          "aliases": ["login", "login result", "max login failures", "sign in"],
+          "aliases": ["brute force detection max login failures", "login", "login result", "sign in"],
           "anchor": "schema-brute_force_detection--max_login_failures",
           "description": "How many failures before wait is triggered. When login failure count is hit, user will be temporarily locked for a max duration of 15 minutes.",
           "document_id": "xcsh-docs:resources:tenant_configuration:properties:brute_force_detection",
@@ -531,7 +531,7 @@
       "category": "administration",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -562,7 +562,7 @@
       "schema_path": ["password_policy"],
       "sections": [
         {
-          "aliases": ["digits"],
+          "aliases": ["password policy digits"],
           "anchor": "schema-password_policy--digits",
           "description": "The number of digits required to be in the password string.",
           "document_id": "xcsh-docs:resources:tenant_configuration:properties:password_policy",
@@ -576,7 +576,7 @@
           "type": "number"
         },
         {
-          "aliases": ["expire password"],
+          "aliases": ["password policy expire password"],
           "anchor": "schema-password_policy--expire_password",
           "description": "The number of days for which the password is valid. After the number of days has expired, the user is required to change their password.",
           "document_id": "xcsh-docs:resources:tenant_configuration:properties:password_policy",
@@ -590,7 +590,7 @@
           "type": "number"
         },
         {
-          "aliases": ["lowercase characters"],
+          "aliases": ["password policy lowercase characters"],
           "anchor": "schema-password_policy--lowercase_characters",
           "description": "The number of lower case letters required to be in the password string.",
           "document_id": "xcsh-docs:resources:tenant_configuration:properties:password_policy",
@@ -604,7 +604,7 @@
           "type": "number"
         },
         {
-          "aliases": ["minimum length"],
+          "aliases": ["password policy minimum length"],
           "anchor": "schema-password_policy--minimum_length",
           "description": "Minimum length of password.",
           "document_id": "xcsh-docs:resources:tenant_configuration:properties:password_policy",
@@ -618,7 +618,7 @@
           "type": "number"
         },
         {
-          "aliases": ["not recently used"],
+          "aliases": ["password policy not recently used"],
           "anchor": "schema-password_policy--not_recently_used",
           "description": "This policy is used to restrict user from using previously used passwords. Number that's set determines number of last passwords which user cannot use as new password.",
           "document_id": "xcsh-docs:resources:tenant_configuration:properties:password_policy",
@@ -632,7 +632,7 @@
           "type": "number"
         },
         {
-          "aliases": ["not username"],
+          "aliases": ["password policy not username"],
           "anchor": "schema-password_policy--not_username",
           "description": "When set, the password is not allowed to be the same as the username.",
           "document_id": "xcsh-docs:resources:tenant_configuration:properties:password_policy",
@@ -646,7 +646,7 @@
           "type": "bool"
         },
         {
-          "aliases": ["special characters"],
+          "aliases": ["password policy special characters"],
           "anchor": "schema-password_policy--special_characters",
           "description": "The number of special characters like '?!#%$' required to be in the password string.",
           "document_id": "xcsh-docs:resources:tenant_configuration:properties:password_policy",
@@ -660,7 +660,7 @@
           "type": "number"
         },
         {
-          "aliases": ["uppercase characters"],
+          "aliases": ["password policy uppercase characters"],
           "anchor": "schema-password_policy--uppercase_characters",
           "description": "The number of upper case letters required to be in the password string.",
           "document_id": "xcsh-docs:resources:tenant_configuration:properties:password_policy",
@@ -693,7 +693,7 @@
       "category": "administration",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -724,7 +724,7 @@
       "schema_path": ["tenant_details"],
       "sections": [
         {
-          "aliases": ["display name", "login", "login result", "sign in"],
+          "aliases": ["login", "login result", "sign in", "tenant details display name"],
           "anchor": "schema-tenant_details--display_name",
           "description": "Changes the tenant name displayed during login without affecting your company’s domain name.",
           "document_id": "xcsh-docs:resources:tenant_configuration:properties:tenant_details",
@@ -750,14 +750,14 @@
       }
     },
     {
-      "aliases": ["duration", "operation timeout", "timeouts"],
+      "aliases": ["duration", "lifecycle timeout", "operation timeout", "timeouts"],
       "body_bytes": 2279,
       "body_sha256": "sha256:e6a33b15fe186cc2012cee5e928f2c7abd5fbea0d6420d6985c303b9ccf294ae",
       "capabilities": ["administration"],
       "category": "administration",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -779,9 +779,17 @@
       "schema_path": ["timeouts"],
       "sections": [
         {
-          "aliases": ["create"],
+          "aliases": [
+            "create operation timeout",
+            "create timeout",
+            "creation duration",
+            "duration",
+            "lifecycle timeout",
+            "operation timeout",
+            "timeouts create"
+          ],
           "anchor": "schema-timeouts--create",
-          "description": "A string that can be (https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as \"30s\" or \"2h45m\". Valid time units are \"s\" (seconds), \"m\" (minutes), \"h\" (hours).",
+          "description": "Configures the timeout duration for resource creation.",
           "document_id": "xcsh-docs:resources:tenant_configuration:properties:timeouts",
           "flags": ["optional"],
           "max_items": null,
@@ -793,9 +801,18 @@
           "type": "string"
         },
         {
-          "aliases": ["delete", "duration", "operation timeout"],
+          "aliases": [
+            "delete operation timeout",
+            "delete timeout",
+            "deletion duration",
+            "destroy timeout",
+            "duration",
+            "lifecycle timeout",
+            "operation timeout",
+            "timeouts delete"
+          ],
           "anchor": "schema-timeouts--delete",
-          "description": "A string that can be (https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as \"30s\" or \"2h45m\". Valid time units are \"s\" (seconds), \"m\" (minutes), \"h\" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.",
+          "description": "Configures the timeout duration for resource deletion, applicable only if changes are saved into state before destroy.",
           "document_id": "xcsh-docs:resources:tenant_configuration:properties:timeouts",
           "flags": ["optional"],
           "max_items": null,
@@ -807,9 +824,18 @@
           "type": "string"
         },
         {
-          "aliases": ["read"],
+          "aliases": [
+            "duration",
+            "lifecycle timeout",
+            "operation timeout",
+            "read duration",
+            "read operation timeout",
+            "read timeout",
+            "refresh timeout",
+            "timeouts read"
+          ],
           "anchor": "schema-timeouts--read",
-          "description": "A string that can be (https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as \"30s\" or \"2h45m\". Valid time units are \"s\" (seconds), \"m\" (minutes), \"h\" (hours). Read operations occur during any refresh or planning operation when refresh is enabled.",
+          "description": "Configures the timeout duration for read operations during refresh or planning.",
           "document_id": "xcsh-docs:resources:tenant_configuration:properties:timeouts",
           "flags": ["optional"],
           "max_items": null,
@@ -821,9 +847,18 @@
           "type": "string"
         },
         {
-          "aliases": ["update"],
+          "aliases": [
+            "duration",
+            "lifecycle timeout",
+            "modification timeout",
+            "operation timeout",
+            "timeouts update",
+            "update duration",
+            "update operation timeout",
+            "update timeout"
+          ],
           "anchor": "schema-timeouts--update",
-          "description": "A string that can be (https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as \"30s\" or \"2h45m\". Valid time units are \"s\" (seconds), \"m\" (minutes), \"h\" (hours).",
+          "description": "Configures the timeout duration for resource update operations.",
           "document_id": "xcsh-docs:resources:tenant_configuration:properties:timeouts",
           "flags": ["optional"],
           "max_items": null,
@@ -847,7 +882,7 @@
       }
     },
     {
-      "aliases": ["duration", "operation timeout", "user session expiration"],
+      "aliases": ["duration", "user session expiration"],
       "body_bytes": 2647,
       "body_sha256": "sha256:fdc644056c8682d048b652b0d489907748cf1e3807dfcbbf067f919db938c53f",
       "capabilities": ["administration"],
@@ -857,7 +892,7 @@
         "xcsh-docs:resources:tenant_configuration:properties:user_session_expiration:idle_timeout"
       ],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -879,7 +914,7 @@
       "schema_path": ["user_session_expiration"],
       "sections": [
         {
-          "aliases": ["absolute timeout", "duration", "operation timeout"],
+          "aliases": ["duration", "user session expiration absolute timeout"],
           "anchor": "section",
           "description": "Represents the session expiration duration.",
           "document_id": "xcsh-docs:resources:tenant_configuration:properties:user_session_expiration:absolute_timeout",
@@ -910,7 +945,7 @@
           "type": "object"
         },
         {
-          "aliases": ["duration", "idle timeout", "operation timeout"],
+          "aliases": ["duration", "user session expiration idle timeout"],
           "anchor": "section",
           "description": "Represents the cookie expiration duration.",
           "document_id": "xcsh-docs:resources:tenant_configuration:properties:user_session_expiration:idle_timeout",
@@ -953,7 +988,7 @@
       }
     },
     {
-      "aliases": ["duration", "operation timeout", "user session expiration absolute timeout"],
+      "aliases": ["duration", "user session expiration absolute timeout"],
       "body_bytes": 2308,
       "body_sha256": "sha256:7f292e969b351c2c7c3b8766e93043dbffdb6722062d53b10b2329ad0b122bf4",
       "capabilities": ["administration"],
@@ -963,7 +998,7 @@
         "xcsh-docs:resources:tenant_configuration:properties:user_session_expiration:absolute_timeout:minutes"
       ],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -1002,7 +1037,7 @@
       "schema_path": ["user_session_expiration", "absolute_timeout"],
       "sections": [
         {
-          "aliases": ["hours"],
+          "aliases": ["duration", "user session expiration absolute timeout hours"],
           "anchor": "section",
           "description": "Represents the session duration in hours.",
           "document_id": "xcsh-docs:resources:tenant_configuration:properties:user_session_expiration:absolute_timeout:hours",
@@ -1025,7 +1060,7 @@
           "type": "object"
         },
         {
-          "aliases": ["minutes"],
+          "aliases": ["duration", "user session expiration absolute timeout minutes"],
           "anchor": "section",
           "description": "Represents the session duration in minutes.",
           "document_id": "xcsh-docs:resources:tenant_configuration:properties:user_session_expiration:absolute_timeout:minutes",
@@ -1060,14 +1095,14 @@
       }
     },
     {
-      "aliases": ["duration", "operation timeout", "user session expiration absolute timeout hours"],
+      "aliases": ["duration", "user session expiration absolute timeout hours"],
       "body_bytes": 2843,
       "body_sha256": "sha256:0f72eedc5c7660c4b94a541a367a0da9f9ed0c801be77451de55588acd4dc401",
       "capabilities": ["administration"],
       "category": "administration",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -1098,7 +1133,7 @@
       "schema_path": ["user_session_expiration", "absolute_timeout", "hours"],
       "sections": [
         {
-          "aliases": ["duration"],
+          "aliases": ["duration", "user session expiration absolute timeout hours duration"],
           "anchor": "schema-user_session_expiration--absolute_timeout--hours--duration",
           "description": "Configuration parameter for duration",
           "document_id": "xcsh-docs:resources:tenant_configuration:properties:user_session_expiration:absolute_timeout:hours",
@@ -1124,14 +1159,14 @@
       }
     },
     {
-      "aliases": ["duration", "operation timeout", "user session expiration absolute timeout minutes"],
+      "aliases": ["duration", "user session expiration absolute timeout minutes"],
       "body_bytes": 2861,
       "body_sha256": "sha256:36e043f970c0fefd65db357c42c31e2804355926ee664ec2735f3ebf93093863",
       "capabilities": ["administration"],
       "category": "administration",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -1162,7 +1197,7 @@
       "schema_path": ["user_session_expiration", "absolute_timeout", "minutes"],
       "sections": [
         {
-          "aliases": ["duration"],
+          "aliases": ["duration", "user session expiration absolute timeout minutes duration"],
           "anchor": "schema-user_session_expiration--absolute_timeout--minutes--duration",
           "description": "Configuration parameter for duration",
           "document_id": "xcsh-docs:resources:tenant_configuration:properties:user_session_expiration:absolute_timeout:minutes",
@@ -1188,7 +1223,7 @@
       }
     },
     {
-      "aliases": ["duration", "operation timeout", "user session expiration idle timeout"],
+      "aliases": ["duration", "user session expiration idle timeout"],
       "body_bytes": 2271,
       "body_sha256": "sha256:ce31779039c24464a739593e16614f0d515a7b165526a55a4798f95994412d91",
       "capabilities": ["administration"],
@@ -1198,7 +1233,7 @@
         "xcsh-docs:resources:tenant_configuration:properties:user_session_expiration:idle_timeout:minutes"
       ],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -1237,9 +1272,15 @@
       "schema_path": ["user_session_expiration", "idle_timeout"],
       "sections": [
         {
-          "aliases": ["hours"],
+          "aliases": [
+            "cookie expiration hours",
+            "duration",
+            "idle duration hours",
+            "session idle timeout hours",
+            "user session expiration idle timeout hours"
+          ],
           "anchor": "section",
-          "description": "Represents the cookie duration in hours.",
+          "description": "Specifies tenant user idle session expiration duration in hours (allowed range: 1 to 720 hours).",
           "document_id": "xcsh-docs:resources:tenant_configuration:properties:user_session_expiration:idle_timeout:hours",
           "flags": [],
           "max_items": null,
@@ -1260,7 +1301,7 @@
           "type": "object"
         },
         {
-          "aliases": ["minutes"],
+          "aliases": ["duration", "user session expiration idle timeout minutes"],
           "anchor": "section",
           "description": "Represents the cookie duration in minutes.",
           "document_id": "xcsh-docs:resources:tenant_configuration:properties:user_session_expiration:idle_timeout:minutes",
@@ -1295,15 +1336,21 @@
       }
     },
     {
-      "aliases": ["duration", "operation timeout", "user session expiration idle timeout hours"],
+      "aliases": [
+        "cookie expiration hours",
+        "duration",
+        "idle duration hours",
+        "session idle timeout hours",
+        "user session expiration idle timeout hours"
+      ],
       "body_bytes": 2814,
       "body_sha256": "sha256:e3e161efd96cbd176639b9fe67376c8b78af6222e797da09d71363d886dc4509",
       "capabilities": ["administration"],
       "category": "administration",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
-        "sources": ["reviewed-rule"],
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
+        "sources": ["reviewed-rule", "reviewed-summary"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
       },
@@ -1333,7 +1380,7 @@
       "schema_path": ["user_session_expiration", "idle_timeout", "hours"],
       "sections": [
         {
-          "aliases": ["duration"],
+          "aliases": ["duration", "user session expiration idle timeout hours duration"],
           "anchor": "schema-user_session_expiration--idle_timeout--hours--duration",
           "description": "Configuration parameter for duration",
           "document_id": "xcsh-docs:resources:tenant_configuration:properties:user_session_expiration:idle_timeout:hours",
@@ -1349,7 +1396,7 @@
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/tenant_configuration/properties/user_session_expiration/idle_timeout/hours/index.txt",
       "spec_pin_digest": "sha256:442a6f7ed6e6f9010cd38e0a636e997c70358deccd3ce493d233d9ed86c49d27",
-      "summary": "Represents the cookie duration in hours.",
+      "summary": "Specifies tenant user idle session expiration duration in hours (allowed range: 1 to 720 hours).",
       "tasks": ["configuration"],
       "title": "user_session_expiration.idle_timeout.hours",
       "upstream_identity": {
@@ -1359,14 +1406,14 @@
       }
     },
     {
-      "aliases": ["duration", "operation timeout", "user session expiration idle timeout minutes"],
+      "aliases": ["duration", "user session expiration idle timeout minutes"],
       "body_bytes": 2832,
       "body_sha256": "sha256:3e1ea42cd787ab38e88a49ba9552bc48c85e55290921f5f13acd3154468f6c8c",
       "capabilities": ["administration"],
       "category": "administration",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -1397,7 +1444,7 @@
       "schema_path": ["user_session_expiration", "idle_timeout", "minutes"],
       "sections": [
         {
-          "aliases": ["duration"],
+          "aliases": ["duration", "user session expiration idle timeout minutes duration"],
           "anchor": "schema-user_session_expiration--idle_timeout--minutes--duration",
           "description": "Configuration parameter for duration",
           "document_id": "xcsh-docs:resources:tenant_configuration:properties:user_session_expiration:idle_timeout:minutes",
@@ -1430,7 +1477,7 @@
       "category": "administration",
       "child_ids": ["xcsh-docs:resources:tenant_configuration:example:resource"],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -1470,7 +1517,7 @@
       "category": "administration",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -1517,7 +1564,7 @@
       "category": "administration",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -1558,7 +1605,7 @@
       "category": "administration",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-domain"

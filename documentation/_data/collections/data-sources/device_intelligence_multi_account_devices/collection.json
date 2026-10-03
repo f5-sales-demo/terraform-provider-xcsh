@@ -80,7 +80,7 @@
         "xcsh-docs:data-sources:device_intelligence_multi_account_devices:examples"
       ],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -124,7 +124,7 @@
         "xcsh-docs:data-sources:device_intelligence_multi_account_devices:properties:multi_account_devices"
       ],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -237,7 +237,7 @@
         "xcsh-docs:data-sources:device_intelligence_multi_account_devices:properties:filters:global_filters"
       ],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -259,7 +259,7 @@
       "schema_path": ["filters"],
       "sections": [
         {
-          "aliases": ["global filters"],
+          "aliases": ["filters global filters"],
           "anchor": "section",
           "description": "Global Filters. List of global filters.",
           "document_id": "xcsh-docs:data-sources:device_intelligence_multi_account_devices:properties:filters:global_filters",
@@ -273,7 +273,7 @@
           "type": "object"
         },
         {
-          "aliases": ["region filter"],
+          "aliases": ["filters region filter"],
           "anchor": "schema-filters--region_filter",
           "description": "Defines a selection for Bot Defense region - US: US United States of America - EU: EU European Union - ASIA: ASIA Asia - CA: CA Canada. Possible values are `US`, `EU`, `ASIA`, `CA`. Defaults to `US`.",
           "document_id": "xcsh-docs:data-sources:device_intelligence_multi_account_devices:properties:filters",
@@ -306,7 +306,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -328,7 +328,7 @@
       "schema_path": ["filters", "global_filters"],
       "sections": [
         {
-          "aliases": ["key"],
+          "aliases": ["filters global filters key"],
           "anchor": "schema-filters--global_filters--key",
           "description": "Key for query filter - TIMESTAMP: Timestamp Filter Key Use Timestamp as key to query. Possible values are `TIMESTAMP`, `USERNAME`, `CLIENT_TOKEN`, `IP_ADDRESS`, `ASN`, `AS_ORGANIZATION`, `COUNTRY`, `METHOD`, `HOST`, `PATH`, `URL`, `REFERER`, `TRAFFIC_CHANNEL`, `IS_ATTACK`, `BOT_REASON`, `TRAFFIC_TYPE`, `THREAT_TYPE`,",
           "document_id": "xcsh-docs:data-sources:device_intelligence_multi_account_devices:properties:filters:global_filters",
@@ -342,7 +342,7 @@
           "type": "string"
         },
         {
-          "aliases": ["op"],
+          "aliases": ["filters global filters op"],
           "anchor": "schema-filters--global_filters--op",
           "description": "Operator for query filter - IN: Filter Operator Specifies that query result includes filter values - NOT_IN: Filter Operator Specifies that query result excludes filter values - MATCHES_REGEX: Filter Operator Specifies that query result matches filter regex - DOES_NOT_MATCH_REGEX: Filter.. Possible values are `IN`,",
           "document_id": "xcsh-docs:data-sources:device_intelligence_multi_account_devices:properties:filters:global_filters",
@@ -356,7 +356,7 @@
           "type": "string"
         },
         {
-          "aliases": ["values"],
+          "aliases": ["filters global filters values"],
           "anchor": "schema-filters--global_filters--values",
           "description": "Values. An unordered list of filter strings.",
           "document_id": "xcsh-docs:data-sources:device_intelligence_multi_account_devices:properties:filters:global_filters",
@@ -389,7 +389,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -411,7 +411,7 @@
       "schema_path": ["multi_account_devices"],
       "sections": [
         {
-          "aliases": ["account range"],
+          "aliases": ["multi account devices account range"],
           "anchor": "schema-multi_account_devices--account_range",
           "description": "Bucket representing the number of accounts linked to a device (e.g., '1', '2-3', '10+').",
           "document_id": "xcsh-docs:data-sources:device_intelligence_multi_account_devices:properties:multi_account_devices",
@@ -425,7 +425,7 @@
           "type": "string"
         },
         {
-          "aliases": ["device count"],
+          "aliases": ["multi account devices device count"],
           "anchor": "schema-multi_account_devices--device_count",
           "description": "Number of devices in this account range.",
           "document_id": "xcsh-docs:data-sources:device_intelligence_multi_account_devices:properties:multi_account_devices",
@@ -458,7 +458,7 @@
       "category": null,
       "child_ids": ["xcsh-docs:data-sources:device_intelligence_multi_account_devices:example:data-source"],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -498,7 +498,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"

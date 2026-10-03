@@ -373,7 +373,7 @@
       "category": null,
       "child_ids": ["xcsh-docs:data-sources:app_setting:reference", "xcsh-docs:data-sources:app_setting:examples"],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -414,7 +414,7 @@
       "category": null,
       "child_ids": ["xcsh-docs:data-sources:app_setting:properties:app_type_settings"],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -558,7 +558,7 @@
         "xcsh-docs:data-sources:app_setting:properties:app_type_settings:user_behavior_analysis_setting"
       ],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -580,7 +580,7 @@
       "schema_path": ["app_type_settings"],
       "sections": [
         {
-          "aliases": ["app type ref"],
+          "aliases": ["app type settings app type ref"],
           "anchor": "section",
           "description": "The AppType of App instance in current Namespace. Associating an AppType reference, will enable analysis on this instance's generated data.",
           "document_id": "xcsh-docs:data-sources:app_setting:properties:app_type_settings:app_type_ref",
@@ -594,7 +594,7 @@
           "type": "object"
         },
         {
-          "aliases": ["business logic markup setting"],
+          "aliases": ["app type settings business logic markup setting"],
           "anchor": "section",
           "description": "Settings specifying how API Discovery will be performed.",
           "document_id": "xcsh-docs:data-sources:app_setting:properties:app_type_settings:business_logic_markup_setting",
@@ -608,7 +608,7 @@
           "type": "object"
         },
         {
-          "aliases": ["timeseries analyses setting"],
+          "aliases": ["app type settings timeseries analyses setting"],
           "anchor": "section",
           "description": "Configuration for DDoS Detection.",
           "document_id": "xcsh-docs:data-sources:app_setting:properties:app_type_settings:timeseries_analyses_setting",
@@ -622,7 +622,7 @@
           "type": "object"
         },
         {
-          "aliases": ["user behavior analysis setting"],
+          "aliases": ["app type settings user behavior analysis setting"],
           "anchor": "section",
           "description": "Configuration for user behavior analysis.",
           "document_id": "xcsh-docs:data-sources:app_setting:properties:app_type_settings:user_behavior_analysis_setting",
@@ -655,7 +655,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -677,7 +677,7 @@
       "schema_path": ["app_type_settings", "app_type_ref"],
       "sections": [
         {
-          "aliases": ["kind"],
+          "aliases": ["app type settings app type ref kind"],
           "anchor": "schema-app_type_settings--app_type_ref--kind",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then kind will hold the referred object's kind (e.g. \"route\")",
           "document_id": "xcsh-docs:data-sources:app_setting:properties:app_type_settings:app_type_ref",
@@ -691,7 +691,7 @@
           "type": "string"
         },
         {
-          "aliases": ["name"],
+          "aliases": ["app type settings app type ref name"],
           "anchor": "schema-app_type_settings--app_type_ref--name",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.",
           "document_id": "xcsh-docs:data-sources:app_setting:properties:app_type_settings:app_type_ref",
@@ -705,7 +705,7 @@
           "type": "string"
         },
         {
-          "aliases": ["namespace"],
+          "aliases": ["app type settings app type ref namespace"],
           "anchor": "schema-app_type_settings--app_type_ref--namespace",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace.",
           "document_id": "xcsh-docs:data-sources:app_setting:properties:app_type_settings:app_type_ref",
@@ -719,7 +719,7 @@
           "type": "string"
         },
         {
-          "aliases": ["tenant"],
+          "aliases": ["app type settings app type ref tenant"],
           "anchor": "schema-app_type_settings--app_type_ref--tenant",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant.",
           "document_id": "xcsh-docs:data-sources:app_setting:properties:app_type_settings:app_type_ref",
@@ -733,7 +733,7 @@
           "type": "string"
         },
         {
-          "aliases": ["uid"],
+          "aliases": ["app type settings app type ref uid"],
           "anchor": "schema-app_type_settings--app_type_ref--uid",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then uid will hold the referred object's(e.g. Route's) uid.",
           "document_id": "xcsh-docs:data-sources:app_setting:properties:app_type_settings:app_type_ref",
@@ -769,7 +769,7 @@
         "xcsh-docs:data-sources:app_setting:properties:app_type_settings:business_logic_markup_setting:enable"
       ],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -791,7 +791,7 @@
       "schema_path": ["app_type_settings", "business_logic_markup_setting"],
       "sections": [
         {
-          "aliases": ["disable spec"],
+          "aliases": ["app type settings business logic markup setting disable spec"],
           "anchor": "section",
           "description": "Enable this option",
           "document_id": "xcsh-docs:data-sources:app_setting:properties:app_type_settings:business_logic_markup_setting:disable_spec",
@@ -805,7 +805,7 @@
           "type": "object"
         },
         {
-          "aliases": ["enable"],
+          "aliases": ["app type settings business logic markup setting enable"],
           "anchor": "section",
           "description": "This can be used for messages where no values are needed.",
           "document_id": "xcsh-docs:data-sources:app_setting:properties:app_type_settings:business_logic_markup_setting:enable",
@@ -838,7 +838,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -878,7 +878,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -920,7 +920,7 @@
         "xcsh-docs:data-sources:app_setting:properties:app_type_settings:timeseries_analyses_setting:metric_selectors"
       ],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -942,7 +942,7 @@
       "schema_path": ["app_type_settings", "timeseries_analyses_setting"],
       "sections": [
         {
-          "aliases": ["metric selectors"],
+          "aliases": ["app type settings timeseries analyses setting metric selectors"],
           "anchor": "section",
           "description": "Define the metric selection criteria, i.e. The metrics source and the actual metrics that should be included in the detection logic.",
           "document_id": "xcsh-docs:data-sources:app_setting:properties:app_type_settings:timeseries_analyses_setting:metric_selectors",
@@ -975,7 +975,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -997,7 +997,7 @@
       "schema_path": ["app_type_settings", "timeseries_analyses_setting", "metric_selectors"],
       "sections": [
         {
-          "aliases": ["metric"],
+          "aliases": ["app type settings timeseries analyses setting metric selectors metric"],
           "anchor": "schema-app_type_settings--timeseries_analyses_setting--metric_selectors--metric",
           "description": "Choose one or more metrics to be included in the detection logic.",
           "document_id": "xcsh-docs:data-sources:app_setting:properties:app_type_settings:timeseries_analyses_setting:metric_selectors",
@@ -1011,7 +1011,7 @@
           "type": "list"
         },
         {
-          "aliases": ["metrics source"],
+          "aliases": ["app type settings timeseries analyses setting metric selectors metrics source"],
           "anchor": "schema-app_type_settings--timeseries_analyses_setting--metric_selectors--metrics_source",
           "description": "Supported sources from which Metrics can be analyzed All edges in the service mesh graph. Metrics are analyzed separately between all source and destination service combinations.",
           "document_id": "xcsh-docs:data-sources:app_setting:properties:app_type_settings:timeseries_analyses_setting:metric_selectors",
@@ -1049,7 +1049,7 @@
         "xcsh-docs:data-sources:app_setting:properties:app_type_settings:user_behavior_analysis_setting:enable_learning"
       ],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -1071,7 +1071,7 @@
       "schema_path": ["app_type_settings", "user_behavior_analysis_setting"],
       "sections": [
         {
-          "aliases": ["disable detection"],
+          "aliases": ["app type settings user behavior analysis setting disable detection"],
           "anchor": "section",
           "description": "This can be used for messages where no values are needed.",
           "document_id": "xcsh-docs:data-sources:app_setting:properties:app_type_settings:user_behavior_analysis_setting:disable_detection",
@@ -1085,7 +1085,7 @@
           "type": "object"
         },
         {
-          "aliases": ["disable learning"],
+          "aliases": ["app type settings user behavior analysis setting disable learning"],
           "anchor": "section",
           "description": "This can be used for messages where no values are needed.",
           "document_id": "xcsh-docs:data-sources:app_setting:properties:app_type_settings:user_behavior_analysis_setting:disable_learning",
@@ -1099,7 +1099,7 @@
           "type": "object"
         },
         {
-          "aliases": ["enable detection"],
+          "aliases": ["app type settings user behavior analysis setting enable detection"],
           "anchor": "section",
           "description": "Various factors about user activity are monitored and analysed to determine malicious users. These settings allow tuning those factors used by the system to detect malicious users.",
           "document_id": "xcsh-docs:data-sources:app_setting:properties:app_type_settings:user_behavior_analysis_setting:enable_detection",
@@ -1113,7 +1113,7 @@
           "type": "object"
         },
         {
-          "aliases": ["enable learning"],
+          "aliases": ["app type settings user behavior analysis setting enable learning"],
           "anchor": "section",
           "description": "This can be used for messages where no values are needed.",
           "document_id": "xcsh-docs:data-sources:app_setting:properties:app_type_settings:user_behavior_analysis_setting:enable_learning",
@@ -1146,7 +1146,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -1186,7 +1186,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -1244,7 +1244,7 @@
         "xcsh-docs:data-sources:app_setting:properties:app_type_settings:user_behavior_analysis_setting:enable_detection:include_waf_activity"
       ],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -1266,7 +1266,7 @@
       "schema_path": ["app_type_settings", "user_behavior_analysis_setting", "enable_detection"],
       "sections": [
         {
-          "aliases": ["bola detection automatic"],
+          "aliases": ["app type settings user behavior analysis setting enable detection bola detection automatic"],
           "anchor": "section",
           "description": "This can be used for messages where no values are needed.",
           "document_id": "xcsh-docs:data-sources:app_setting:properties:app_type_settings:user_behavior_analysis_setting:enable_detection:bola_detection_automatic",
@@ -1285,7 +1285,7 @@
           "type": "object"
         },
         {
-          "aliases": ["cooling off period"],
+          "aliases": ["app type settings user behavior analysis setting enable detection cooling off period"],
           "anchor": "schema-app_type_settings--user_behavior_analysis_setting--enable_detection--cooling_off_period",
           "description": "Exclusive with Malicious user detection assigns a threat level to each user based on their activity. Once a threat level is assigned, the system continues tracking activity from this user and if no further malicious activity is seen, it gradually reduces the threat assessment to lower levels. This field specifies the",
           "document_id": "xcsh-docs:data-sources:app_setting:properties:app_type_settings:user_behavior_analysis_setting:enable_detection",
@@ -1304,7 +1304,7 @@
           "type": "number"
         },
         {
-          "aliases": ["exclude bola detection"],
+          "aliases": ["app type settings user behavior analysis setting enable detection exclude bola detection"],
           "anchor": "section",
           "description": "This can be used for messages where no values are needed.",
           "document_id": "xcsh-docs:data-sources:app_setting:properties:app_type_settings:user_behavior_analysis_setting:enable_detection:exclude_bola_detection",
@@ -1323,7 +1323,7 @@
           "type": "object"
         },
         {
-          "aliases": ["exclude bot defense activity"],
+          "aliases": ["app type settings user behavior analysis setting enable detection exclude bot defense activity"],
           "anchor": "section",
           "description": "This can be used for messages where no values are needed.",
           "document_id": "xcsh-docs:data-sources:app_setting:properties:app_type_settings:user_behavior_analysis_setting:enable_detection:exclude_bot_defense_activity",
@@ -1342,7 +1342,12 @@
           "type": "object"
         },
         {
-          "aliases": ["exclude failed login activity", "login", "login result", "sign in"],
+          "aliases": [
+            "app type settings user behavior analysis setting enable detection exclude failed login activity",
+            "login",
+            "login result",
+            "sign in"
+          ],
           "anchor": "section",
           "description": "This can be used for messages where no values are needed.",
           "document_id": "xcsh-docs:data-sources:app_setting:properties:app_type_settings:user_behavior_analysis_setting:enable_detection:exclude_failed_login_activity",
@@ -1361,7 +1366,7 @@
           "type": "object"
         },
         {
-          "aliases": ["exclude forbidden activity"],
+          "aliases": ["app type settings user behavior analysis setting enable detection exclude forbidden activity"],
           "anchor": "section",
           "description": "This can be used for messages where no values are needed.",
           "document_id": "xcsh-docs:data-sources:app_setting:properties:app_type_settings:user_behavior_analysis_setting:enable_detection:exclude_forbidden_activity",
@@ -1380,7 +1385,7 @@
           "type": "object"
         },
         {
-          "aliases": ["exclude ip reputation"],
+          "aliases": ["app type settings user behavior analysis setting enable detection exclude ip reputation"],
           "anchor": "section",
           "description": "This can be used for messages where no values are needed.",
           "document_id": "xcsh-docs:data-sources:app_setting:properties:app_type_settings:user_behavior_analysis_setting:enable_detection:exclude_ip_reputation",
@@ -1399,7 +1404,9 @@
           "type": "object"
         },
         {
-          "aliases": ["exclude non existent url activity"],
+          "aliases": [
+            "app type settings user behavior analysis setting enable detection exclude non existent url activity"
+          ],
           "anchor": "section",
           "description": "This can be used for messages where no values are needed.",
           "document_id": "xcsh-docs:data-sources:app_setting:properties:app_type_settings:user_behavior_analysis_setting:enable_detection:exclude_non_existent_url_activity",
@@ -1418,7 +1425,7 @@
           "type": "object"
         },
         {
-          "aliases": ["exclude rate limit"],
+          "aliases": ["app type settings user behavior analysis setting enable detection exclude rate limit"],
           "anchor": "section",
           "description": "This can be used for messages where no values are needed.",
           "document_id": "xcsh-docs:data-sources:app_setting:properties:app_type_settings:user_behavior_analysis_setting:enable_detection:exclude_rate_limit",
@@ -1437,7 +1444,7 @@
           "type": "object"
         },
         {
-          "aliases": ["exclude waf activity"],
+          "aliases": ["app type settings user behavior analysis setting enable detection exclude waf activity"],
           "anchor": "section",
           "description": "This can be used for messages where no values are needed.",
           "document_id": "xcsh-docs:data-sources:app_setting:properties:app_type_settings:user_behavior_analysis_setting:enable_detection:exclude_waf_activity",
@@ -1456,7 +1463,7 @@
           "type": "object"
         },
         {
-          "aliases": ["include bot defense activity"],
+          "aliases": ["app type settings user behavior analysis setting enable detection include bot defense activity"],
           "anchor": "section",
           "description": "This can be used for messages where no values are needed.",
           "document_id": "xcsh-docs:data-sources:app_setting:properties:app_type_settings:user_behavior_analysis_setting:enable_detection:include_bot_defense_activity",
@@ -1475,7 +1482,12 @@
           "type": "object"
         },
         {
-          "aliases": ["include failed login activity", "login", "login result", "sign in"],
+          "aliases": [
+            "app type settings user behavior analysis setting enable detection include failed login activity",
+            "login",
+            "login result",
+            "sign in"
+          ],
           "anchor": "section",
           "description": "When enabled, the system monitors persistent failed login attempts from a user. A failed login is detected if a request results in a response code of 401. These settings specify how to use failed login activity to determine suspicious behavior.",
           "document_id": "xcsh-docs:data-sources:app_setting:properties:app_type_settings:user_behavior_analysis_setting:enable_detection:include_failed_login_activity",
@@ -1494,7 +1506,7 @@
           "type": "object"
         },
         {
-          "aliases": ["include forbidden activity"],
+          "aliases": ["app type settings user behavior analysis setting enable detection include forbidden activity"],
           "anchor": "section",
           "description": "When L7 policy rules are set up to disallow certain types of requests, the system monitors persistent attempts from a user to send requests which result in policy denies. These settings specify how to use disallowed request activity from a user to determine suspicious behavior.",
           "document_id": "xcsh-docs:data-sources:app_setting:properties:app_type_settings:user_behavior_analysis_setting:enable_detection:include_forbidden_activity",
@@ -1513,7 +1525,7 @@
           "type": "object"
         },
         {
-          "aliases": ["include ip reputation"],
+          "aliases": ["app type settings user behavior analysis setting enable detection include ip reputation"],
           "anchor": "section",
           "description": "This can be used for messages where no values are needed.",
           "document_id": "xcsh-docs:data-sources:app_setting:properties:app_type_settings:user_behavior_analysis_setting:enable_detection:include_ip_reputation",
@@ -1532,7 +1544,9 @@
           "type": "object"
         },
         {
-          "aliases": ["include non existent url activity automatic"],
+          "aliases": [
+            "app type settings user behavior analysis setting enable detection include non existent url activity automatic"
+          ],
           "anchor": "section",
           "description": "Non-existent URL Automatic Activity Settings.",
           "document_id": "xcsh-docs:data-sources:app_setting:properties:app_type_settings:user_behavior_analysis_setting:enable_detection:include_non_existent_url_activity_automatic",
@@ -1551,7 +1565,9 @@
           "type": "object"
         },
         {
-          "aliases": ["include non existent url activity custom"],
+          "aliases": [
+            "app type settings user behavior analysis setting enable detection include non existent url activity custom"
+          ],
           "anchor": "section",
           "description": "Non-existent URL Custom Activity Setting.",
           "document_id": "xcsh-docs:data-sources:app_setting:properties:app_type_settings:user_behavior_analysis_setting:enable_detection:include_non_existent_url_activity_custom",
@@ -1570,7 +1586,7 @@
           "type": "object"
         },
         {
-          "aliases": ["include rate limit"],
+          "aliases": ["app type settings user behavior analysis setting enable detection include rate limit"],
           "anchor": "section",
           "description": "This can be used for messages where no values are needed.",
           "document_id": "xcsh-docs:data-sources:app_setting:properties:app_type_settings:user_behavior_analysis_setting:enable_detection:include_rate_limit",
@@ -1589,7 +1605,7 @@
           "type": "object"
         },
         {
-          "aliases": ["include waf activity"],
+          "aliases": ["app type settings user behavior analysis setting enable detection include waf activity"],
           "anchor": "section",
           "description": "This can be used for messages where no values are needed.",
           "document_id": "xcsh-docs:data-sources:app_setting:properties:app_type_settings:user_behavior_analysis_setting:enable_detection:include_waf_activity",
@@ -1627,7 +1643,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -1672,7 +1688,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -1717,7 +1733,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -1767,7 +1783,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -1812,7 +1828,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -1857,7 +1873,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -1904,7 +1920,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -1949,7 +1965,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -1989,7 +2005,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -2034,7 +2050,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -2084,7 +2100,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -2111,7 +2127,12 @@
       ],
       "sections": [
         {
-          "aliases": ["login", "login failures threshold", "login result", "sign in"],
+          "aliases": [
+            "app type settings user behavior analysis setting enable detection include failed login activity login failures threshold",
+            "login",
+            "login result",
+            "sign in"
+          ],
           "anchor": "schema-app_type_settings--user_behavior_analysis_setting--enable_detection--include_failed_login_activity--login_failures_threshold",
           "description": "The number of failed logins beyond which the system will flag this user as malicious.",
           "document_id": "xcsh-docs:data-sources:app_setting:properties:app_type_settings:user_behavior_analysis_setting:enable_detection:include_failed_login_activity",
@@ -2150,7 +2171,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -2177,7 +2198,9 @@
       ],
       "sections": [
         {
-          "aliases": ["forbidden requests threshold"],
+          "aliases": [
+            "app type settings user behavior analysis setting enable detection include forbidden activity forbidden requests threshold"
+          ],
           "anchor": "schema-app_type_settings--user_behavior_analysis_setting--enable_detection--include_forbidden_activity--forbidden_requests_threshold",
           "description": "The number of forbidden requests beyond which the system will flag this user as malicious.",
           "document_id": "xcsh-docs:data-sources:app_setting:properties:app_type_settings:user_behavior_analysis_setting:enable_detection:include_forbidden_activity",
@@ -2216,7 +2239,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -2267,7 +2290,7 @@
         "xcsh-docs:data-sources:app_setting:properties:app_type_settings:user_behavior_analysis_setting:enable_detection:include_non_existent_url_activity_automatic:medium"
       ],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -2294,7 +2317,9 @@
       ],
       "sections": [
         {
-          "aliases": ["high"],
+          "aliases": [
+            "app type settings user behavior analysis setting enable detection include non existent url activity automatic high"
+          ],
           "anchor": "section",
           "description": "This can be used for messages where no values are needed.",
           "document_id": "xcsh-docs:data-sources:app_setting:properties:app_type_settings:user_behavior_analysis_setting:enable_detection:include_non_existent_url_activity_automatic:high",
@@ -2314,7 +2339,9 @@
           "type": "object"
         },
         {
-          "aliases": ["low"],
+          "aliases": [
+            "app type settings user behavior analysis setting enable detection include non existent url activity automatic low"
+          ],
           "anchor": "section",
           "description": "This can be used for messages where no values are needed.",
           "document_id": "xcsh-docs:data-sources:app_setting:properties:app_type_settings:user_behavior_analysis_setting:enable_detection:include_non_existent_url_activity_automatic:low",
@@ -2334,7 +2361,9 @@
           "type": "object"
         },
         {
-          "aliases": ["medium"],
+          "aliases": [
+            "app type settings user behavior analysis setting enable detection include non existent url activity automatic medium"
+          ],
           "anchor": "section",
           "description": "This can be used for messages where no values are needed.",
           "document_id": "xcsh-docs:data-sources:app_setting:properties:app_type_settings:user_behavior_analysis_setting:enable_detection:include_non_existent_url_activity_automatic:medium",
@@ -2375,7 +2404,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -2423,7 +2452,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -2471,7 +2500,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -2519,7 +2548,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -2546,7 +2575,9 @@
       ],
       "sections": [
         {
-          "aliases": ["nonexistent requests threshold"],
+          "aliases": [
+            "app type settings user behavior analysis setting enable detection include non existent url activity custom nonexistent requests threshold"
+          ],
           "anchor": "schema-app_type_settings--user_behavior_analysis_setting--enable_detection--include_non_existent_url_activity_custom--nonexistent_requests_threshold",
           "description": "The percentage of non-existent requests beyond which the system will flag this user as malicious.",
           "document_id": "xcsh-docs:data-sources:app_setting:properties:app_type_settings:user_behavior_analysis_setting:enable_detection:include_non_existent_url_activity_custom",
@@ -2585,7 +2616,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -2625,7 +2656,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -2670,7 +2701,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -2710,7 +2741,7 @@
       "category": null,
       "child_ids": ["xcsh-docs:data-sources:app_setting:example:data-source"],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -2750,7 +2781,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"

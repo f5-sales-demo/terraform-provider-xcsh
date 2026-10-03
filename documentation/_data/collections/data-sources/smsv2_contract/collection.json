@@ -130,7 +130,7 @@
         "xcsh-docs:data-sources:smsv2_contract:examples"
       ],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -171,7 +171,7 @@
       "category": null,
       "child_ids": ["xcsh-docs:data-sources:smsv2_contract:properties:azure_route_server_ebgp_multihop"],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -394,7 +394,7 @@
       "category": null,
       "child_ids": ["xcsh-docs:data-sources:smsv2_contract:properties:azure_route_server_ebgp_multihop:source"],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -416,7 +416,7 @@
       "schema_path": ["azure_route_server_ebgp_multihop"],
       "sections": [
         {
-          "aliases": ["availability"],
+          "aliases": ["azure route server ebgp multihop availability"],
           "anchor": "schema-azure_route_server_ebgp_multihop--availability",
           "description": "availability",
           "document_id": "xcsh-docs:data-sources:smsv2_contract:properties:azure_route_server_ebgp_multihop",
@@ -430,7 +430,7 @@
           "type": "string"
         },
         {
-          "aliases": ["enforcement"],
+          "aliases": ["azure route server ebgp multihop enforcement"],
           "anchor": "schema-azure_route_server_ebgp_multihop--enforcement",
           "description": "enforcement",
           "document_id": "xcsh-docs:data-sources:smsv2_contract:properties:azure_route_server_ebgp_multihop",
@@ -444,7 +444,7 @@
           "type": "string"
         },
         {
-          "aliases": ["reason"],
+          "aliases": ["azure route server ebgp multihop reason"],
           "anchor": "schema-azure_route_server_ebgp_multihop--reason",
           "description": "reason",
           "document_id": "xcsh-docs:data-sources:smsv2_contract:properties:azure_route_server_ebgp_multihop",
@@ -458,7 +458,7 @@
           "type": "string"
         },
         {
-          "aliases": ["source"],
+          "aliases": ["azure route server ebgp multihop source"],
           "anchor": "section",
           "description": "source",
           "document_id": "xcsh-docs:data-sources:smsv2_contract:properties:azure_route_server_ebgp_multihop:source",
@@ -491,7 +491,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -513,7 +513,7 @@
       "schema_path": ["azure_route_server_ebgp_multihop", "source"],
       "sections": [
         {
-          "aliases": ["asset path"],
+          "aliases": ["azure route server ebgp multihop source asset path"],
           "anchor": "schema-azure_route_server_ebgp_multihop--source--asset_path",
           "description": "asset path",
           "document_id": "xcsh-docs:data-sources:smsv2_contract:properties:azure_route_server_ebgp_multihop:source",
@@ -527,7 +527,7 @@
           "type": "string"
         },
         {
-          "aliases": ["asset sha256"],
+          "aliases": ["azure route server ebgp multihop source asset sha256"],
           "anchor": "schema-azure_route_server_ebgp_multihop--source--asset_sha256",
           "description": "asset sha256",
           "document_id": "xcsh-docs:data-sources:smsv2_contract:properties:azure_route_server_ebgp_multihop:source",
@@ -541,7 +541,7 @@
           "type": "string"
         },
         {
-          "aliases": ["commit"],
+          "aliases": ["azure route server ebgp multihop source commit"],
           "anchor": "schema-azure_route_server_ebgp_multihop--source--commit",
           "description": "commit",
           "document_id": "xcsh-docs:data-sources:smsv2_contract:properties:azure_route_server_ebgp_multihop:source",
@@ -555,7 +555,7 @@
           "type": "string"
         },
         {
-          "aliases": ["repository"],
+          "aliases": ["azure route server ebgp multihop source repository"],
           "anchor": "schema-azure_route_server_ebgp_multihop--source--repository",
           "description": "repository",
           "document_id": "xcsh-docs:data-sources:smsv2_contract:properties:azure_route_server_ebgp_multihop:source",
@@ -569,7 +569,7 @@
           "type": "string"
         },
         {
-          "aliases": ["schema paths"],
+          "aliases": ["azure route server ebgp multihop source schema paths"],
           "anchor": "schema-azure_route_server_ebgp_multihop--source--schema_paths",
           "description": "schema paths",
           "document_id": "xcsh-docs:data-sources:smsv2_contract:properties:azure_route_server_ebgp_multihop:source",
@@ -602,7 +602,7 @@
       "category": null,
       "child_ids": ["xcsh-docs:data-sources:smsv2_contract:example:data-source"],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -642,7 +642,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"

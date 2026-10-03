@@ -203,7 +203,7 @@
         "xcsh-docs:resources:data_type:timeouts"
       ],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -247,7 +247,7 @@
         "xcsh-docs:resources:data_type:properties:timeouts"
       ],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -472,7 +472,7 @@
           "type": "object"
         },
         {
-          "aliases": ["duration", "operation timeout", "timeouts"],
+          "aliases": ["duration", "lifecycle timeout", "operation timeout", "timeouts"],
           "anchor": "section",
           "description": "timeouts",
           "document_id": "xcsh-docs:resources:data_type:properties:timeouts",
@@ -509,7 +509,7 @@
         "xcsh-docs:resources:data_type:properties:rules:value_pattern"
       ],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -580,7 +580,7 @@
       "schema_path": ["rules"],
       "sections": [
         {
-          "aliases": ["key pattern"],
+          "aliases": ["rules key pattern"],
           "anchor": "section",
           "description": "Test",
           "document_id": "xcsh-docs:resources:data_type:properties:rules:key_pattern",
@@ -643,7 +643,7 @@
           "type": "object"
         },
         {
-          "aliases": ["key value pattern"],
+          "aliases": ["rules key value pattern"],
           "anchor": "section",
           "description": "Search for specific key & value patterns in the specified sections.",
           "document_id": "xcsh-docs:resources:data_type:properties:rules:key_value_pattern",
@@ -657,7 +657,7 @@
           "type": "object"
         },
         {
-          "aliases": ["value pattern"],
+          "aliases": ["rules value pattern"],
           "anchor": "section",
           "description": "Test",
           "document_id": "xcsh-docs:resources:data_type:properties:rules:value_pattern",
@@ -739,7 +739,7 @@
       "category": null,
       "child_ids": ["xcsh-docs:resources:data_type:properties:rules:key_pattern:exact_values"],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -810,7 +810,7 @@
       "schema_path": ["rules", "key_pattern"],
       "sections": [
         {
-          "aliases": ["exact values"],
+          "aliases": ["rules key pattern exact values"],
           "anchor": "section",
           "description": "List of exact values to match.",
           "document_id": "xcsh-docs:resources:data_type:properties:rules:key_pattern:exact_values",
@@ -833,7 +833,7 @@
           "type": "object"
         },
         {
-          "aliases": ["regex value"],
+          "aliases": ["rules key pattern regex value"],
           "anchor": "schema-rules--key_pattern--regex_value",
           "description": "Exclusive with Search for values matching this regular expression.",
           "document_id": "xcsh-docs:resources:data_type:properties:rules:key_pattern",
@@ -847,7 +847,7 @@
           "type": "string"
         },
         {
-          "aliases": ["substring value"],
+          "aliases": ["rules key pattern substring value"],
           "anchor": "schema-rules--key_pattern--substring_value",
           "description": "Exclusive with Search for values that include this substring.",
           "document_id": "xcsh-docs:resources:data_type:properties:rules:key_pattern",
@@ -880,7 +880,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -911,7 +911,7 @@
       "schema_path": ["rules", "key_pattern", "exact_values"],
       "sections": [
         {
-          "aliases": ["exact values"],
+          "aliases": ["rules key pattern exact values exact values"],
           "anchor": "schema-rules--key_pattern--exact_values--exact_values",
           "description": "List of exact values to match.",
           "document_id": "xcsh-docs:resources:data_type:properties:rules:key_pattern:exact_values",
@@ -947,7 +947,7 @@
         "xcsh-docs:resources:data_type:properties:rules:key_value_pattern:value_pattern"
       ],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -969,7 +969,7 @@
       "schema_path": ["rules", "key_value_pattern"],
       "sections": [
         {
-          "aliases": ["key pattern"],
+          "aliases": ["rules key value pattern key pattern"],
           "anchor": "section",
           "description": "Test",
           "document_id": "xcsh-docs:resources:data_type:properties:rules:key_value_pattern:key_pattern",
@@ -1032,7 +1032,7 @@
           "type": "object"
         },
         {
-          "aliases": ["value pattern"],
+          "aliases": ["rules key value pattern value pattern"],
           "anchor": "section",
           "description": "Test",
           "document_id": "xcsh-docs:resources:data_type:properties:rules:key_value_pattern:value_pattern",
@@ -1114,7 +1114,7 @@
       "category": null,
       "child_ids": ["xcsh-docs:resources:data_type:properties:rules:key_value_pattern:key_pattern:exact_values"],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -1185,7 +1185,7 @@
       "schema_path": ["rules", "key_value_pattern", "key_pattern"],
       "sections": [
         {
-          "aliases": ["exact values"],
+          "aliases": ["rules key value pattern key pattern exact values"],
           "anchor": "section",
           "description": "List of exact values to match.",
           "document_id": "xcsh-docs:resources:data_type:properties:rules:key_value_pattern:key_pattern:exact_values",
@@ -1208,7 +1208,7 @@
           "type": "object"
         },
         {
-          "aliases": ["regex value"],
+          "aliases": ["rules key value pattern key pattern regex value"],
           "anchor": "schema-rules--key_value_pattern--key_pattern--regex_value",
           "description": "Exclusive with Search for values matching this regular expression.",
           "document_id": "xcsh-docs:resources:data_type:properties:rules:key_value_pattern:key_pattern",
@@ -1222,7 +1222,7 @@
           "type": "string"
         },
         {
-          "aliases": ["substring value"],
+          "aliases": ["rules key value pattern key pattern substring value"],
           "anchor": "schema-rules--key_value_pattern--key_pattern--substring_value",
           "description": "Exclusive with Search for values that include this substring.",
           "document_id": "xcsh-docs:resources:data_type:properties:rules:key_value_pattern:key_pattern",
@@ -1255,7 +1255,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -1286,7 +1286,7 @@
       "schema_path": ["rules", "key_value_pattern", "key_pattern", "exact_values"],
       "sections": [
         {
-          "aliases": ["exact values"],
+          "aliases": ["rules key value pattern key pattern exact values exact values"],
           "anchor": "schema-rules--key_value_pattern--key_pattern--exact_values--exact_values",
           "description": "List of exact values to match.",
           "document_id": "xcsh-docs:resources:data_type:properties:rules:key_value_pattern:key_pattern:exact_values",
@@ -1319,7 +1319,7 @@
       "category": null,
       "child_ids": ["xcsh-docs:resources:data_type:properties:rules:key_value_pattern:value_pattern:exact_values"],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -1390,7 +1390,7 @@
       "schema_path": ["rules", "key_value_pattern", "value_pattern"],
       "sections": [
         {
-          "aliases": ["exact values"],
+          "aliases": ["rules key value pattern value pattern exact values"],
           "anchor": "section",
           "description": "List of exact values to match.",
           "document_id": "xcsh-docs:resources:data_type:properties:rules:key_value_pattern:value_pattern:exact_values",
@@ -1413,7 +1413,7 @@
           "type": "object"
         },
         {
-          "aliases": ["regex value"],
+          "aliases": ["rules key value pattern value pattern regex value"],
           "anchor": "schema-rules--key_value_pattern--value_pattern--regex_value",
           "description": "Exclusive with Search for values matching this regular expression.",
           "document_id": "xcsh-docs:resources:data_type:properties:rules:key_value_pattern:value_pattern",
@@ -1427,7 +1427,7 @@
           "type": "string"
         },
         {
-          "aliases": ["substring value"],
+          "aliases": ["rules key value pattern value pattern substring value"],
           "anchor": "schema-rules--key_value_pattern--value_pattern--substring_value",
           "description": "Exclusive with Search for values that include this substring.",
           "document_id": "xcsh-docs:resources:data_type:properties:rules:key_value_pattern:value_pattern",
@@ -1460,7 +1460,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -1491,7 +1491,7 @@
       "schema_path": ["rules", "key_value_pattern", "value_pattern", "exact_values"],
       "sections": [
         {
-          "aliases": ["exact values"],
+          "aliases": ["rules key value pattern value pattern exact values exact values"],
           "anchor": "schema-rules--key_value_pattern--value_pattern--exact_values--exact_values",
           "description": "List of exact values to match.",
           "document_id": "xcsh-docs:resources:data_type:properties:rules:key_value_pattern:value_pattern:exact_values",
@@ -1524,7 +1524,7 @@
       "category": null,
       "child_ids": ["xcsh-docs:resources:data_type:properties:rules:value_pattern:exact_values"],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -1595,7 +1595,7 @@
       "schema_path": ["rules", "value_pattern"],
       "sections": [
         {
-          "aliases": ["exact values"],
+          "aliases": ["rules value pattern exact values"],
           "anchor": "section",
           "description": "List of exact values to match.",
           "document_id": "xcsh-docs:resources:data_type:properties:rules:value_pattern:exact_values",
@@ -1618,7 +1618,7 @@
           "type": "object"
         },
         {
-          "aliases": ["regex value"],
+          "aliases": ["rules value pattern regex value"],
           "anchor": "schema-rules--value_pattern--regex_value",
           "description": "Exclusive with Search for values matching this regular expression.",
           "document_id": "xcsh-docs:resources:data_type:properties:rules:value_pattern",
@@ -1632,7 +1632,7 @@
           "type": "string"
         },
         {
-          "aliases": ["substring value"],
+          "aliases": ["rules value pattern substring value"],
           "anchor": "schema-rules--value_pattern--substring_value",
           "description": "Exclusive with Search for values that include this substring.",
           "document_id": "xcsh-docs:resources:data_type:properties:rules:value_pattern",
@@ -1665,7 +1665,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -1696,7 +1696,7 @@
       "schema_path": ["rules", "value_pattern", "exact_values"],
       "sections": [
         {
-          "aliases": ["exact values"],
+          "aliases": ["rules value pattern exact values exact values"],
           "anchor": "schema-rules--value_pattern--exact_values--exact_values",
           "description": "List of exact values to match.",
           "document_id": "xcsh-docs:resources:data_type:properties:rules:value_pattern:exact_values",
@@ -1722,14 +1722,14 @@
       }
     },
     {
-      "aliases": ["duration", "operation timeout", "timeouts"],
+      "aliases": ["duration", "lifecycle timeout", "operation timeout", "timeouts"],
       "body_bytes": 2213,
       "body_sha256": "sha256:2f10b5172c1f370544157d24cc9676536c079b84269466fcb9e04113df7be262",
       "capabilities": [],
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -1751,9 +1751,17 @@
       "schema_path": ["timeouts"],
       "sections": [
         {
-          "aliases": ["create"],
+          "aliases": [
+            "create operation timeout",
+            "create timeout",
+            "creation duration",
+            "duration",
+            "lifecycle timeout",
+            "operation timeout",
+            "timeouts create"
+          ],
           "anchor": "schema-timeouts--create",
-          "description": "A string that can be (https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as \"30s\" or \"2h45m\". Valid time units are \"s\" (seconds), \"m\" (minutes), \"h\" (hours).",
+          "description": "Configures the timeout duration for resource creation.",
           "document_id": "xcsh-docs:resources:data_type:properties:timeouts",
           "flags": ["optional"],
           "max_items": null,
@@ -1765,9 +1773,18 @@
           "type": "string"
         },
         {
-          "aliases": ["delete", "duration", "operation timeout"],
+          "aliases": [
+            "delete operation timeout",
+            "delete timeout",
+            "deletion duration",
+            "destroy timeout",
+            "duration",
+            "lifecycle timeout",
+            "operation timeout",
+            "timeouts delete"
+          ],
           "anchor": "schema-timeouts--delete",
-          "description": "A string that can be (https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as \"30s\" or \"2h45m\". Valid time units are \"s\" (seconds), \"m\" (minutes), \"h\" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.",
+          "description": "Configures the timeout duration for resource deletion, applicable only if changes are saved into state before destroy.",
           "document_id": "xcsh-docs:resources:data_type:properties:timeouts",
           "flags": ["optional"],
           "max_items": null,
@@ -1779,9 +1796,18 @@
           "type": "string"
         },
         {
-          "aliases": ["read"],
+          "aliases": [
+            "duration",
+            "lifecycle timeout",
+            "operation timeout",
+            "read duration",
+            "read operation timeout",
+            "read timeout",
+            "refresh timeout",
+            "timeouts read"
+          ],
           "anchor": "schema-timeouts--read",
-          "description": "A string that can be (https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as \"30s\" or \"2h45m\". Valid time units are \"s\" (seconds), \"m\" (minutes), \"h\" (hours). Read operations occur during any refresh or planning operation when refresh is enabled.",
+          "description": "Configures the timeout duration for read operations during refresh or planning.",
           "document_id": "xcsh-docs:resources:data_type:properties:timeouts",
           "flags": ["optional"],
           "max_items": null,
@@ -1793,9 +1819,18 @@
           "type": "string"
         },
         {
-          "aliases": ["update"],
+          "aliases": [
+            "duration",
+            "lifecycle timeout",
+            "modification timeout",
+            "operation timeout",
+            "timeouts update",
+            "update duration",
+            "update operation timeout",
+            "update timeout"
+          ],
           "anchor": "schema-timeouts--update",
-          "description": "A string that can be (https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as \"30s\" or \"2h45m\". Valid time units are \"s\" (seconds), \"m\" (minutes), \"h\" (hours).",
+          "description": "Configures the timeout duration for resource update operations.",
           "document_id": "xcsh-docs:resources:data_type:properties:timeouts",
           "flags": ["optional"],
           "max_items": null,
@@ -1826,7 +1861,7 @@
       "category": null,
       "child_ids": ["xcsh-docs:resources:data_type:example:resource"],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -1866,7 +1901,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -1913,7 +1948,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -1954,7 +1989,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"

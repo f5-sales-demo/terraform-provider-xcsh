@@ -307,7 +307,7 @@
         "xcsh-docs:resources:dns_load_balancer:timeouts"
       ],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -361,7 +361,7 @@
         "xcsh-docs:resources:dns_load_balancer:properties:timeouts"
       ],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -604,7 +604,7 @@
           "type": "object"
         },
         {
-          "aliases": ["duration", "operation timeout", "timeouts"],
+          "aliases": ["duration", "lifecycle timeout", "operation timeout", "timeouts"],
           "anchor": "section",
           "description": "timeouts",
           "document_id": "xcsh-docs:resources:dns_load_balancer:properties:timeouts",
@@ -637,7 +637,7 @@
       "category": "dns",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -668,7 +668,7 @@
       "schema_path": ["fallback_pool"],
       "sections": [
         {
-          "aliases": ["name"],
+          "aliases": ["fallback pool name"],
           "anchor": "schema-fallback_pool--name",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.",
           "document_id": "xcsh-docs:resources:dns_load_balancer:properties:fallback_pool",
@@ -682,7 +682,7 @@
           "type": "string"
         },
         {
-          "aliases": ["namespace"],
+          "aliases": ["fallback pool namespace"],
           "anchor": "schema-fallback_pool--namespace",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace.",
           "document_id": "xcsh-docs:resources:dns_load_balancer:properties:fallback_pool",
@@ -696,7 +696,7 @@
           "type": "string"
         },
         {
-          "aliases": ["tenant"],
+          "aliases": ["fallback pool tenant"],
           "anchor": "schema-fallback_pool--tenant",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant.",
           "document_id": "xcsh-docs:resources:dns_load_balancer:properties:fallback_pool",
@@ -733,7 +733,7 @@
         "xcsh-docs:resources:dns_load_balancer:properties:response_cache:response_cache_parameters"
       ],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -804,7 +804,7 @@
       "schema_path": ["response_cache"],
       "sections": [
         {
-          "aliases": ["default response cache parameters"],
+          "aliases": ["response cache default response cache parameters"],
           "anchor": "section",
           "description": "This can be used for messages where no values are needed.",
           "document_id": "xcsh-docs:resources:dns_load_balancer:properties:response_cache:default_response_cache_parameters",
@@ -818,7 +818,7 @@
           "type": "object"
         },
         {
-          "aliases": ["disable spec"],
+          "aliases": ["response cache disable spec"],
           "anchor": "section",
           "description": "Enable this option",
           "document_id": "xcsh-docs:resources:dns_load_balancer:properties:response_cache:disable_spec",
@@ -832,7 +832,7 @@
           "type": "object"
         },
         {
-          "aliases": ["response cache parameters"],
+          "aliases": ["response cache response cache parameters"],
           "anchor": "section",
           "description": "Configuration parameter for response cache parameters.",
           "document_id": "xcsh-docs:resources:dns_load_balancer:properties:response_cache:response_cache_parameters",
@@ -874,7 +874,7 @@
       "category": "dns",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -914,7 +914,7 @@
       "category": "dns",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -954,7 +954,7 @@
       "category": "dns",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -985,7 +985,7 @@
       "schema_path": ["response_cache", "response_cache_parameters"],
       "sections": [
         {
-          "aliases": ["cache cidr ipv4"],
+          "aliases": ["response cache response cache parameters cache cidr ipv4"],
           "anchor": "schema-response_cache--response_cache_parameters--cache_cidr_ipv4",
           "description": "Length of CIDR masks used to group IPv4 clients.",
           "document_id": "xcsh-docs:resources:dns_load_balancer:properties:response_cache:response_cache_parameters",
@@ -999,7 +999,7 @@
           "type": "number"
         },
         {
-          "aliases": ["cache cidr ipv6"],
+          "aliases": ["response cache response cache parameters cache cidr ipv6"],
           "anchor": "schema-response_cache--response_cache_parameters--cache_cidr_ipv6",
           "description": "Length of CIDR masks used to group IPv6 clients.",
           "document_id": "xcsh-docs:resources:dns_load_balancer:properties:response_cache:response_cache_parameters",
@@ -1013,7 +1013,7 @@
           "type": "number"
         },
         {
-          "aliases": ["cache ttl"],
+          "aliases": ["response cache response cache parameters cache ttl"],
           "anchor": "schema-response_cache--response_cache_parameters--cache_ttl",
           "description": "TTL for response cache.",
           "document_id": "xcsh-docs:resources:dns_load_balancer:properties:response_cache:response_cache_parameters",
@@ -1046,7 +1046,7 @@
       "category": "dns",
       "child_ids": ["xcsh-docs:resources:dns_load_balancer:properties:rule_list:rules"],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -1077,7 +1077,7 @@
       "schema_path": ["rule_list"],
       "sections": [
         {
-          "aliases": ["rules"],
+          "aliases": ["rule list rules"],
           "anchor": "section",
           "description": "Rules to perform load balancing.",
           "document_id": "xcsh-docs:resources:dns_load_balancer:properties:rule_list:rules",
@@ -1367,7 +1367,7 @@
         "xcsh-docs:resources:dns_load_balancer:properties:rule_list:rules:pool"
       ],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -1638,7 +1638,7 @@
       "schema_path": ["rule_list", "rules"],
       "sections": [
         {
-          "aliases": ["asn list"],
+          "aliases": ["rule list rules asn list"],
           "anchor": "section",
           "description": "An unordered set of RFC 6793 defined 4-byte AS numbers that can be used to create allow or deny lists for use in network policy or service policy. It can be used to create the allow list only for DNS Load Balancer.",
           "document_id": "xcsh-docs:resources:dns_load_balancer:properties:rule_list:rules:asn_list",
@@ -1661,7 +1661,7 @@
           "type": "object"
         },
         {
-          "aliases": ["asn matcher"],
+          "aliases": ["rule list rules asn matcher"],
           "anchor": "section",
           "description": "Match any AS number contained in the list of bgp_asn_sets.",
           "document_id": "xcsh-docs:resources:dns_load_balancer:properties:rule_list:rules:asn_matcher",
@@ -1684,7 +1684,7 @@
           "type": "object"
         },
         {
-          "aliases": ["geo location label selector"],
+          "aliases": ["rule list rules geo location label selector"],
           "anchor": "section",
           "description": "This type can be used to establish a 'selector reference' from one object(called selector) to a set of other objects(called selectees) based on the value of expressions. A label selector is a label query over a set of resources. An empty label selector matches all objects. A null label selector matches no objects.",
           "document_id": "xcsh-docs:resources:dns_load_balancer:properties:rule_list:rules:geo_location_label_selector",
@@ -1707,7 +1707,7 @@
           "type": "object"
         },
         {
-          "aliases": ["geo location set"],
+          "aliases": ["rule list rules geo location set"],
           "anchor": "section",
           "description": "This type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name.",
           "document_id": "xcsh-docs:resources:dns_load_balancer:properties:rule_list:rules:geo_location_set",
@@ -1730,7 +1730,7 @@
           "type": "object"
         },
         {
-          "aliases": ["ip prefix list"],
+          "aliases": ["rule list rules ip prefix list"],
           "anchor": "section",
           "description": "List of IP Prefix strings to match against.",
           "document_id": "xcsh-docs:resources:dns_load_balancer:properties:rule_list:rules:ip_prefix_list",
@@ -1744,7 +1744,7 @@
           "type": "object"
         },
         {
-          "aliases": ["ip prefix set"],
+          "aliases": ["rule list rules ip prefix set"],
           "anchor": "section",
           "description": "Match any IP prefix contained in the list of ip_prefix_sets. The result of the match is inverted if invert_matcher is true.",
           "document_id": "xcsh-docs:resources:dns_load_balancer:properties:rule_list:rules:ip_prefix_set",
@@ -1767,7 +1767,7 @@
           "type": "object"
         },
         {
-          "aliases": ["pool"],
+          "aliases": ["rule list rules pool"],
           "anchor": "section",
           "description": "This type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name.",
           "document_id": "xcsh-docs:resources:dns_load_balancer:properties:rule_list:rules:pool",
@@ -1790,7 +1790,7 @@
           "type": "object"
         },
         {
-          "aliases": ["score"],
+          "aliases": ["rule list rules score"],
           "anchor": "schema-rule_list--rules--score",
           "description": "When multiple load balancing rules match a query, the one with the highest score is chosen.",
           "document_id": "xcsh-docs:resources:dns_load_balancer:properties:rule_list:rules",
@@ -1823,7 +1823,7 @@
       "category": "dns",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -1854,7 +1854,7 @@
       "schema_path": ["rule_list", "rules", "asn_list"],
       "sections": [
         {
-          "aliases": ["as numbers"],
+          "aliases": ["rule list rules asn list as numbers"],
           "anchor": "schema-rule_list--rules--asn_list--as_numbers",
           "description": "An unordered set of RFC 6793 defined 4-byte AS numbers that can be used to create allow or deny lists for use in network policy or service policy. It can be used to create the allow list only for DNS Load Balancer.",
           "document_id": "xcsh-docs:resources:dns_load_balancer:properties:rule_list:rules:asn_list",
@@ -1887,7 +1887,7 @@
       "category": "dns",
       "child_ids": ["xcsh-docs:resources:dns_load_balancer:properties:rule_list:rules:asn_matcher:asn_sets"],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -1918,7 +1918,7 @@
       "schema_path": ["rule_list", "rules", "asn_matcher"],
       "sections": [
         {
-          "aliases": ["asn sets"],
+          "aliases": ["rule list rules asn matcher asn sets"],
           "anchor": "section",
           "description": "A list of references to bgp_asn_set objects.",
           "document_id": "xcsh-docs:resources:dns_load_balancer:properties:rule_list:rules:asn_matcher:asn_sets",
@@ -1951,7 +1951,7 @@
       "category": "dns",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -1973,7 +1973,7 @@
       "schema_path": ["rule_list", "rules", "asn_matcher", "asn_sets"],
       "sections": [
         {
-          "aliases": ["kind"],
+          "aliases": ["rule list rules asn matcher asn sets kind"],
           "anchor": "schema-rule_list--rules--asn_matcher--asn_sets--kind",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then kind will hold the referred object's kind (e.g. \"route\")",
           "document_id": "xcsh-docs:resources:dns_load_balancer:properties:rule_list:rules:asn_matcher:asn_sets",
@@ -1987,7 +1987,7 @@
           "type": "string"
         },
         {
-          "aliases": ["name"],
+          "aliases": ["rule list rules asn matcher asn sets name"],
           "anchor": "schema-rule_list--rules--asn_matcher--asn_sets--name",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.",
           "document_id": "xcsh-docs:resources:dns_load_balancer:properties:rule_list:rules:asn_matcher:asn_sets",
@@ -2001,7 +2001,7 @@
           "type": "string"
         },
         {
-          "aliases": ["namespace"],
+          "aliases": ["rule list rules asn matcher asn sets namespace"],
           "anchor": "schema-rule_list--rules--asn_matcher--asn_sets--namespace",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace.",
           "document_id": "xcsh-docs:resources:dns_load_balancer:properties:rule_list:rules:asn_matcher:asn_sets",
@@ -2015,7 +2015,7 @@
           "type": "string"
         },
         {
-          "aliases": ["tenant"],
+          "aliases": ["rule list rules asn matcher asn sets tenant"],
           "anchor": "schema-rule_list--rules--asn_matcher--asn_sets--tenant",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant.",
           "document_id": "xcsh-docs:resources:dns_load_balancer:properties:rule_list:rules:asn_matcher:asn_sets",
@@ -2029,7 +2029,7 @@
           "type": "string"
         },
         {
-          "aliases": ["uid"],
+          "aliases": ["rule list rules asn matcher asn sets uid"],
           "anchor": "schema-rule_list--rules--asn_matcher--asn_sets--uid",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then uid will hold the referred object's(e.g. Route's) uid.",
           "document_id": "xcsh-docs:resources:dns_load_balancer:properties:rule_list:rules:asn_matcher:asn_sets",
@@ -2062,7 +2062,7 @@
       "category": "dns",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -2093,7 +2093,7 @@
       "schema_path": ["rule_list", "rules", "geo_location_label_selector"],
       "sections": [
         {
-          "aliases": ["expressions"],
+          "aliases": ["rule list rules geo location label selector expressions"],
           "anchor": "schema-rule_list--rules--geo_location_label_selector--expressions",
           "description": "Expressions contains the Kubernetes style label expression for selections.",
           "document_id": "xcsh-docs:resources:dns_load_balancer:properties:rule_list:rules:geo_location_label_selector",
@@ -2126,7 +2126,7 @@
       "category": "dns",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -2157,7 +2157,7 @@
       "schema_path": ["rule_list", "rules", "geo_location_set"],
       "sections": [
         {
-          "aliases": ["name"],
+          "aliases": ["rule list rules geo location set name"],
           "anchor": "schema-rule_list--rules--geo_location_set--name",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.",
           "document_id": "xcsh-docs:resources:dns_load_balancer:properties:rule_list:rules:geo_location_set",
@@ -2171,7 +2171,7 @@
           "type": "string"
         },
         {
-          "aliases": ["namespace"],
+          "aliases": ["rule list rules geo location set namespace"],
           "anchor": "schema-rule_list--rules--geo_location_set--namespace",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace.",
           "document_id": "xcsh-docs:resources:dns_load_balancer:properties:rule_list:rules:geo_location_set",
@@ -2185,7 +2185,7 @@
           "type": "string"
         },
         {
-          "aliases": ["tenant"],
+          "aliases": ["rule list rules geo location set tenant"],
           "anchor": "schema-rule_list--rules--geo_location_set--tenant",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant.",
           "document_id": "xcsh-docs:resources:dns_load_balancer:properties:rule_list:rules:geo_location_set",
@@ -2218,7 +2218,7 @@
       "category": "dns",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -2240,7 +2240,7 @@
       "schema_path": ["rule_list", "rules", "ip_prefix_list"],
       "sections": [
         {
-          "aliases": ["invert match"],
+          "aliases": ["rule list rules ip prefix list invert match"],
           "anchor": "schema-rule_list--rules--ip_prefix_list--invert_match",
           "description": "Invert the match result.",
           "document_id": "xcsh-docs:resources:dns_load_balancer:properties:rule_list:rules:ip_prefix_list",
@@ -2254,7 +2254,7 @@
           "type": "bool"
         },
         {
-          "aliases": ["ip prefixes"],
+          "aliases": ["rule list rules ip prefix list ip prefixes"],
           "anchor": "schema-rule_list--rules--ip_prefix_list--ip_prefixes",
           "description": "List of IPv4 prefix strings.",
           "document_id": "xcsh-docs:resources:dns_load_balancer:properties:rule_list:rules:ip_prefix_list",
@@ -2287,7 +2287,7 @@
       "category": "dns",
       "child_ids": ["xcsh-docs:resources:dns_load_balancer:properties:rule_list:rules:ip_prefix_set:prefix_sets"],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -2318,7 +2318,7 @@
       "schema_path": ["rule_list", "rules", "ip_prefix_set"],
       "sections": [
         {
-          "aliases": ["invert matcher"],
+          "aliases": ["rule list rules ip prefix set invert matcher"],
           "anchor": "schema-rule_list--rules--ip_prefix_set--invert_matcher",
           "description": "Invert the match result.",
           "document_id": "xcsh-docs:resources:dns_load_balancer:properties:rule_list:rules:ip_prefix_set",
@@ -2332,7 +2332,7 @@
           "type": "bool"
         },
         {
-          "aliases": ["prefix sets"],
+          "aliases": ["rule list rules ip prefix set prefix sets"],
           "anchor": "section",
           "description": "A list of references to ip_prefix_set objects.",
           "document_id": "xcsh-docs:resources:dns_load_balancer:properties:rule_list:rules:ip_prefix_set:prefix_sets",
@@ -2365,7 +2365,7 @@
       "category": "dns",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -2387,7 +2387,7 @@
       "schema_path": ["rule_list", "rules", "ip_prefix_set", "prefix_sets"],
       "sections": [
         {
-          "aliases": ["kind"],
+          "aliases": ["rule list rules ip prefix set prefix sets kind"],
           "anchor": "schema-rule_list--rules--ip_prefix_set--prefix_sets--kind",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then kind will hold the referred object's kind (e.g. \"route\")",
           "document_id": "xcsh-docs:resources:dns_load_balancer:properties:rule_list:rules:ip_prefix_set:prefix_sets",
@@ -2401,7 +2401,7 @@
           "type": "string"
         },
         {
-          "aliases": ["name"],
+          "aliases": ["rule list rules ip prefix set prefix sets name"],
           "anchor": "schema-rule_list--rules--ip_prefix_set--prefix_sets--name",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.",
           "document_id": "xcsh-docs:resources:dns_load_balancer:properties:rule_list:rules:ip_prefix_set:prefix_sets",
@@ -2415,7 +2415,7 @@
           "type": "string"
         },
         {
-          "aliases": ["namespace"],
+          "aliases": ["rule list rules ip prefix set prefix sets namespace"],
           "anchor": "schema-rule_list--rules--ip_prefix_set--prefix_sets--namespace",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace.",
           "document_id": "xcsh-docs:resources:dns_load_balancer:properties:rule_list:rules:ip_prefix_set:prefix_sets",
@@ -2429,7 +2429,7 @@
           "type": "string"
         },
         {
-          "aliases": ["tenant"],
+          "aliases": ["rule list rules ip prefix set prefix sets tenant"],
           "anchor": "schema-rule_list--rules--ip_prefix_set--prefix_sets--tenant",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant.",
           "document_id": "xcsh-docs:resources:dns_load_balancer:properties:rule_list:rules:ip_prefix_set:prefix_sets",
@@ -2443,7 +2443,7 @@
           "type": "string"
         },
         {
-          "aliases": ["uid"],
+          "aliases": ["rule list rules ip prefix set prefix sets uid"],
           "anchor": "schema-rule_list--rules--ip_prefix_set--prefix_sets--uid",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then uid will hold the referred object's(e.g. Route's) uid.",
           "document_id": "xcsh-docs:resources:dns_load_balancer:properties:rule_list:rules:ip_prefix_set:prefix_sets",
@@ -2476,7 +2476,7 @@
       "category": "dns",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -2507,7 +2507,7 @@
       "schema_path": ["rule_list", "rules", "pool"],
       "sections": [
         {
-          "aliases": ["name"],
+          "aliases": ["rule list rules pool name"],
           "anchor": "schema-rule_list--rules--pool--name",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.",
           "document_id": "xcsh-docs:resources:dns_load_balancer:properties:rule_list:rules:pool",
@@ -2521,7 +2521,7 @@
           "type": "string"
         },
         {
-          "aliases": ["namespace"],
+          "aliases": ["rule list rules pool namespace"],
           "anchor": "schema-rule_list--rules--pool--namespace",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace.",
           "document_id": "xcsh-docs:resources:dns_load_balancer:properties:rule_list:rules:pool",
@@ -2535,7 +2535,7 @@
           "type": "string"
         },
         {
-          "aliases": ["tenant"],
+          "aliases": ["rule list rules pool tenant"],
           "anchor": "schema-rule_list--rules--pool--tenant",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant.",
           "document_id": "xcsh-docs:resources:dns_load_balancer:properties:rule_list:rules:pool",
@@ -2561,14 +2561,14 @@
       }
     },
     {
-      "aliases": ["duration", "operation timeout", "timeouts"],
+      "aliases": ["duration", "lifecycle timeout", "operation timeout", "timeouts"],
       "body_bytes": 2261,
       "body_sha256": "sha256:cf24688a0f3993f4a2d13681f2d71216b148ff4085fb96ab7c9d171c5aaf7f74",
       "capabilities": ["dns"],
       "category": "dns",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -2590,9 +2590,17 @@
       "schema_path": ["timeouts"],
       "sections": [
         {
-          "aliases": ["create"],
+          "aliases": [
+            "create operation timeout",
+            "create timeout",
+            "creation duration",
+            "duration",
+            "lifecycle timeout",
+            "operation timeout",
+            "timeouts create"
+          ],
           "anchor": "schema-timeouts--create",
-          "description": "A string that can be (https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as \"30s\" or \"2h45m\". Valid time units are \"s\" (seconds), \"m\" (minutes), \"h\" (hours).",
+          "description": "Configures the timeout duration for resource creation.",
           "document_id": "xcsh-docs:resources:dns_load_balancer:properties:timeouts",
           "flags": ["optional"],
           "max_items": null,
@@ -2604,9 +2612,18 @@
           "type": "string"
         },
         {
-          "aliases": ["delete", "duration", "operation timeout"],
+          "aliases": [
+            "delete operation timeout",
+            "delete timeout",
+            "deletion duration",
+            "destroy timeout",
+            "duration",
+            "lifecycle timeout",
+            "operation timeout",
+            "timeouts delete"
+          ],
           "anchor": "schema-timeouts--delete",
-          "description": "A string that can be (https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as \"30s\" or \"2h45m\". Valid time units are \"s\" (seconds), \"m\" (minutes), \"h\" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.",
+          "description": "Configures the timeout duration for resource deletion, applicable only if changes are saved into state before destroy.",
           "document_id": "xcsh-docs:resources:dns_load_balancer:properties:timeouts",
           "flags": ["optional"],
           "max_items": null,
@@ -2618,9 +2635,18 @@
           "type": "string"
         },
         {
-          "aliases": ["read"],
+          "aliases": [
+            "duration",
+            "lifecycle timeout",
+            "operation timeout",
+            "read duration",
+            "read operation timeout",
+            "read timeout",
+            "refresh timeout",
+            "timeouts read"
+          ],
           "anchor": "schema-timeouts--read",
-          "description": "A string that can be (https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as \"30s\" or \"2h45m\". Valid time units are \"s\" (seconds), \"m\" (minutes), \"h\" (hours). Read operations occur during any refresh or planning operation when refresh is enabled.",
+          "description": "Configures the timeout duration for read operations during refresh or planning.",
           "document_id": "xcsh-docs:resources:dns_load_balancer:properties:timeouts",
           "flags": ["optional"],
           "max_items": null,
@@ -2632,9 +2658,18 @@
           "type": "string"
         },
         {
-          "aliases": ["update"],
+          "aliases": [
+            "duration",
+            "lifecycle timeout",
+            "modification timeout",
+            "operation timeout",
+            "timeouts update",
+            "update duration",
+            "update operation timeout",
+            "update timeout"
+          ],
           "anchor": "schema-timeouts--update",
-          "description": "A string that can be (https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as \"30s\" or \"2h45m\". Valid time units are \"s\" (seconds), \"m\" (minutes), \"h\" (hours).",
+          "description": "Configures the timeout duration for resource update operations.",
           "document_id": "xcsh-docs:resources:dns_load_balancer:properties:timeouts",
           "flags": ["optional"],
           "max_items": null,
@@ -2665,7 +2700,7 @@
       "category": "dns",
       "child_ids": ["xcsh-docs:resources:dns_load_balancer:example:resource"],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -2705,7 +2740,7 @@
       "category": "dns",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -2752,7 +2787,7 @@
       "category": "dns",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -2793,7 +2828,7 @@
       "category": "dns",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"

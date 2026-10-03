@@ -172,7 +172,7 @@
       "category": null,
       "child_ids": ["xcsh-docs:data-sources:data_type:reference", "xcsh-docs:data-sources:data_type:examples"],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -213,7 +213,7 @@
       "category": null,
       "child_ids": ["xcsh-docs:data-sources:data_type:properties:rules"],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -398,7 +398,7 @@
         "xcsh-docs:data-sources:data_type:properties:rules:value_pattern"
       ],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -420,7 +420,7 @@
       "schema_path": ["rules"],
       "sections": [
         {
-          "aliases": ["key pattern"],
+          "aliases": ["rules key pattern"],
           "anchor": "section",
           "description": "Test",
           "document_id": "xcsh-docs:data-sources:data_type:properties:rules:key_pattern",
@@ -434,7 +434,7 @@
           "type": "object"
         },
         {
-          "aliases": ["key value pattern"],
+          "aliases": ["rules key value pattern"],
           "anchor": "section",
           "description": "Search for specific key & value patterns in the specified sections.",
           "document_id": "xcsh-docs:data-sources:data_type:properties:rules:key_value_pattern",
@@ -448,7 +448,7 @@
           "type": "object"
         },
         {
-          "aliases": ["value pattern"],
+          "aliases": ["rules value pattern"],
           "anchor": "section",
           "description": "Test",
           "document_id": "xcsh-docs:data-sources:data_type:properties:rules:value_pattern",
@@ -481,7 +481,7 @@
       "category": null,
       "child_ids": ["xcsh-docs:data-sources:data_type:properties:rules:key_pattern:exact_values"],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -503,7 +503,7 @@
       "schema_path": ["rules", "key_pattern"],
       "sections": [
         {
-          "aliases": ["exact values"],
+          "aliases": ["rules key pattern exact values"],
           "anchor": "section",
           "description": "List of exact values to match.",
           "document_id": "xcsh-docs:data-sources:data_type:properties:rules:key_pattern:exact_values",
@@ -517,7 +517,7 @@
           "type": "object"
         },
         {
-          "aliases": ["regex value"],
+          "aliases": ["rules key pattern regex value"],
           "anchor": "schema-rules--key_pattern--regex_value",
           "description": "Exclusive with Search for values matching this regular expression.",
           "document_id": "xcsh-docs:data-sources:data_type:properties:rules:key_pattern",
@@ -531,7 +531,7 @@
           "type": "string"
         },
         {
-          "aliases": ["substring value"],
+          "aliases": ["rules key pattern substring value"],
           "anchor": "schema-rules--key_pattern--substring_value",
           "description": "Exclusive with Search for values that include this substring.",
           "document_id": "xcsh-docs:data-sources:data_type:properties:rules:key_pattern",
@@ -564,7 +564,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -586,7 +586,7 @@
       "schema_path": ["rules", "key_pattern", "exact_values"],
       "sections": [
         {
-          "aliases": ["exact values"],
+          "aliases": ["rules key pattern exact values exact values"],
           "anchor": "schema-rules--key_pattern--exact_values--exact_values",
           "description": "List of exact values to match.",
           "document_id": "xcsh-docs:data-sources:data_type:properties:rules:key_pattern:exact_values",
@@ -622,7 +622,7 @@
         "xcsh-docs:data-sources:data_type:properties:rules:key_value_pattern:value_pattern"
       ],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -644,7 +644,7 @@
       "schema_path": ["rules", "key_value_pattern"],
       "sections": [
         {
-          "aliases": ["key pattern"],
+          "aliases": ["rules key value pattern key pattern"],
           "anchor": "section",
           "description": "Test",
           "document_id": "xcsh-docs:data-sources:data_type:properties:rules:key_value_pattern:key_pattern",
@@ -658,7 +658,7 @@
           "type": "object"
         },
         {
-          "aliases": ["value pattern"],
+          "aliases": ["rules key value pattern value pattern"],
           "anchor": "section",
           "description": "Test",
           "document_id": "xcsh-docs:data-sources:data_type:properties:rules:key_value_pattern:value_pattern",
@@ -691,7 +691,7 @@
       "category": null,
       "child_ids": ["xcsh-docs:data-sources:data_type:properties:rules:key_value_pattern:key_pattern:exact_values"],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -713,7 +713,7 @@
       "schema_path": ["rules", "key_value_pattern", "key_pattern"],
       "sections": [
         {
-          "aliases": ["exact values"],
+          "aliases": ["rules key value pattern key pattern exact values"],
           "anchor": "section",
           "description": "List of exact values to match.",
           "document_id": "xcsh-docs:data-sources:data_type:properties:rules:key_value_pattern:key_pattern:exact_values",
@@ -727,7 +727,7 @@
           "type": "object"
         },
         {
-          "aliases": ["regex value"],
+          "aliases": ["rules key value pattern key pattern regex value"],
           "anchor": "schema-rules--key_value_pattern--key_pattern--regex_value",
           "description": "Exclusive with Search for values matching this regular expression.",
           "document_id": "xcsh-docs:data-sources:data_type:properties:rules:key_value_pattern:key_pattern",
@@ -741,7 +741,7 @@
           "type": "string"
         },
         {
-          "aliases": ["substring value"],
+          "aliases": ["rules key value pattern key pattern substring value"],
           "anchor": "schema-rules--key_value_pattern--key_pattern--substring_value",
           "description": "Exclusive with Search for values that include this substring.",
           "document_id": "xcsh-docs:data-sources:data_type:properties:rules:key_value_pattern:key_pattern",
@@ -774,7 +774,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -796,7 +796,7 @@
       "schema_path": ["rules", "key_value_pattern", "key_pattern", "exact_values"],
       "sections": [
         {
-          "aliases": ["exact values"],
+          "aliases": ["rules key value pattern key pattern exact values exact values"],
           "anchor": "schema-rules--key_value_pattern--key_pattern--exact_values--exact_values",
           "description": "List of exact values to match.",
           "document_id": "xcsh-docs:data-sources:data_type:properties:rules:key_value_pattern:key_pattern:exact_values",
@@ -829,7 +829,7 @@
       "category": null,
       "child_ids": ["xcsh-docs:data-sources:data_type:properties:rules:key_value_pattern:value_pattern:exact_values"],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -851,7 +851,7 @@
       "schema_path": ["rules", "key_value_pattern", "value_pattern"],
       "sections": [
         {
-          "aliases": ["exact values"],
+          "aliases": ["rules key value pattern value pattern exact values"],
           "anchor": "section",
           "description": "List of exact values to match.",
           "document_id": "xcsh-docs:data-sources:data_type:properties:rules:key_value_pattern:value_pattern:exact_values",
@@ -865,7 +865,7 @@
           "type": "object"
         },
         {
-          "aliases": ["regex value"],
+          "aliases": ["rules key value pattern value pattern regex value"],
           "anchor": "schema-rules--key_value_pattern--value_pattern--regex_value",
           "description": "Exclusive with Search for values matching this regular expression.",
           "document_id": "xcsh-docs:data-sources:data_type:properties:rules:key_value_pattern:value_pattern",
@@ -879,7 +879,7 @@
           "type": "string"
         },
         {
-          "aliases": ["substring value"],
+          "aliases": ["rules key value pattern value pattern substring value"],
           "anchor": "schema-rules--key_value_pattern--value_pattern--substring_value",
           "description": "Exclusive with Search for values that include this substring.",
           "document_id": "xcsh-docs:data-sources:data_type:properties:rules:key_value_pattern:value_pattern",
@@ -912,7 +912,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -934,7 +934,7 @@
       "schema_path": ["rules", "key_value_pattern", "value_pattern", "exact_values"],
       "sections": [
         {
-          "aliases": ["exact values"],
+          "aliases": ["rules key value pattern value pattern exact values exact values"],
           "anchor": "schema-rules--key_value_pattern--value_pattern--exact_values--exact_values",
           "description": "List of exact values to match.",
           "document_id": "xcsh-docs:data-sources:data_type:properties:rules:key_value_pattern:value_pattern:exact_values",
@@ -967,7 +967,7 @@
       "category": null,
       "child_ids": ["xcsh-docs:data-sources:data_type:properties:rules:value_pattern:exact_values"],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -989,7 +989,7 @@
       "schema_path": ["rules", "value_pattern"],
       "sections": [
         {
-          "aliases": ["exact values"],
+          "aliases": ["rules value pattern exact values"],
           "anchor": "section",
           "description": "List of exact values to match.",
           "document_id": "xcsh-docs:data-sources:data_type:properties:rules:value_pattern:exact_values",
@@ -1003,7 +1003,7 @@
           "type": "object"
         },
         {
-          "aliases": ["regex value"],
+          "aliases": ["rules value pattern regex value"],
           "anchor": "schema-rules--value_pattern--regex_value",
           "description": "Exclusive with Search for values matching this regular expression.",
           "document_id": "xcsh-docs:data-sources:data_type:properties:rules:value_pattern",
@@ -1017,7 +1017,7 @@
           "type": "string"
         },
         {
-          "aliases": ["substring value"],
+          "aliases": ["rules value pattern substring value"],
           "anchor": "schema-rules--value_pattern--substring_value",
           "description": "Exclusive with Search for values that include this substring.",
           "document_id": "xcsh-docs:data-sources:data_type:properties:rules:value_pattern",
@@ -1050,7 +1050,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -1072,7 +1072,7 @@
       "schema_path": ["rules", "value_pattern", "exact_values"],
       "sections": [
         {
-          "aliases": ["exact values"],
+          "aliases": ["rules value pattern exact values exact values"],
           "anchor": "schema-rules--value_pattern--exact_values--exact_values",
           "description": "List of exact values to match.",
           "document_id": "xcsh-docs:data-sources:data_type:properties:rules:value_pattern:exact_values",
@@ -1105,7 +1105,7 @@
       "category": null,
       "child_ids": ["xcsh-docs:data-sources:data_type:example:data-source"],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"
@@ -1145,7 +1145,7 @@
       "category": null,
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": [],
         "status": "unresolved",
         "upstream_category_source": "receipt-pinned-domain"

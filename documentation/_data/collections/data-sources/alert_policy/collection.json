@@ -272,7 +272,7 @@
       "category": "monitoring",
       "child_ids": ["xcsh-docs:data-sources:alert_policy:reference", "xcsh-docs:data-sources:alert_policy:examples"],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -317,7 +317,7 @@
         "xcsh-docs:data-sources:alert_policy:properties:routes"
       ],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -489,7 +489,7 @@
         "xcsh-docs:data-sources:alert_policy:properties:notification_parameters:ves_io_group"
       ],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -511,7 +511,7 @@
       "schema_path": ["notification_parameters"],
       "sections": [
         {
-          "aliases": ["custom"],
+          "aliases": ["notification parameters custom"],
           "anchor": "section",
           "description": "Specify list of custom labels to group/aggregate the alerts.",
           "document_id": "xcsh-docs:data-sources:alert_policy:properties:notification_parameters:custom",
@@ -525,7 +525,7 @@
           "type": "object"
         },
         {
-          "aliases": ["default"],
+          "aliases": ["notification parameters default"],
           "anchor": "section",
           "description": "This can be used for messages where no values are needed.",
           "document_id": "xcsh-docs:data-sources:alert_policy:properties:notification_parameters:default",
@@ -539,7 +539,7 @@
           "type": "object"
         },
         {
-          "aliases": ["group interval"],
+          "aliases": ["notification parameters group interval"],
           "anchor": "schema-notification_parameters--group_interval",
           "description": "Group Interval is used to specify how long to wait before sending a notification about new alerts that are added to the group for which an initial notification has already been sent. Format: , where s - seconds, m - minutes, h - hours, d - days If not specified, group_interval defaults to \"1m\"",
           "document_id": "xcsh-docs:data-sources:alert_policy:properties:notification_parameters",
@@ -553,7 +553,7 @@
           "type": "string"
         },
         {
-          "aliases": ["group wait"],
+          "aliases": ["notification parameters group wait"],
           "anchor": "schema-notification_parameters--group_wait",
           "description": "Time value used to specify how long to initially wait for an inhibiting alert to arrive or collect more alerts for the same group. Format: , where s - seconds, m - minutes, h - hours, d - days If not specified, group_wait defaults to \"30s\"",
           "document_id": "xcsh-docs:data-sources:alert_policy:properties:notification_parameters",
@@ -567,7 +567,7 @@
           "type": "string"
         },
         {
-          "aliases": ["individual"],
+          "aliases": ["notification parameters individual"],
           "anchor": "section",
           "description": "This can be used for messages where no values are needed.",
           "document_id": "xcsh-docs:data-sources:alert_policy:properties:notification_parameters:individual",
@@ -581,7 +581,7 @@
           "type": "object"
         },
         {
-          "aliases": ["repeat interval", "succeeded", "success", "successful"],
+          "aliases": ["notification parameters repeat interval", "succeeded", "success", "successful"],
           "anchor": "schema-notification_parameters--repeat_interval",
           "description": "Repeat Interval is used to specify how long to wait before sending a notification again if it has already been sent successfully. Format: , where s - seconds, m - minutes, h - hours, d - days If not specified, group_interval defaults to \"4h\"",
           "document_id": "xcsh-docs:data-sources:alert_policy:properties:notification_parameters",
@@ -595,7 +595,7 @@
           "type": "string"
         },
         {
-          "aliases": ["ves io group"],
+          "aliases": ["notification parameters ves io group"],
           "anchor": "section",
           "description": "This can be used for messages where no values are needed.",
           "document_id": "xcsh-docs:data-sources:alert_policy:properties:notification_parameters:ves_io_group",
@@ -628,7 +628,7 @@
       "category": "monitoring",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -650,7 +650,7 @@
       "schema_path": ["notification_parameters", "custom"],
       "sections": [
         {
-          "aliases": ["labels"],
+          "aliases": ["notification parameters custom labels"],
           "anchor": "schema-notification_parameters--custom--labels",
           "description": "Name of labels to group/aggregate the alerts.",
           "document_id": "xcsh-docs:data-sources:alert_policy:properties:notification_parameters:custom",
@@ -683,7 +683,7 @@
       "category": "monitoring",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -723,7 +723,7 @@
       "category": "monitoring",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -763,7 +763,7 @@
       "category": "monitoring",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -803,7 +803,7 @@
       "category": "monitoring",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -825,7 +825,7 @@
       "schema_path": ["receivers"],
       "sections": [
         {
-          "aliases": ["kind"],
+          "aliases": ["receivers kind"],
           "anchor": "schema-receivers--kind",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then kind will hold the referred object's kind (e.g. \"route\")",
           "document_id": "xcsh-docs:data-sources:alert_policy:properties:receivers",
@@ -839,7 +839,7 @@
           "type": "string"
         },
         {
-          "aliases": ["name"],
+          "aliases": ["receivers name"],
           "anchor": "schema-receivers--name",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then name will hold the referred object's(e.g. Route's) name.",
           "document_id": "xcsh-docs:data-sources:alert_policy:properties:receivers",
@@ -853,7 +853,7 @@
           "type": "string"
         },
         {
-          "aliases": ["namespace"],
+          "aliases": ["receivers namespace"],
           "anchor": "schema-receivers--namespace",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then namespace will hold the referred object's(e.g. Route's) namespace.",
           "document_id": "xcsh-docs:data-sources:alert_policy:properties:receivers",
@@ -867,7 +867,7 @@
           "type": "string"
         },
         {
-          "aliases": ["tenant"],
+          "aliases": ["receivers tenant"],
           "anchor": "schema-receivers--tenant",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then tenant will hold the referred object's(e.g. Route's) tenant.",
           "document_id": "xcsh-docs:data-sources:alert_policy:properties:receivers",
@@ -881,7 +881,7 @@
           "type": "string"
         },
         {
-          "aliases": ["uid"],
+          "aliases": ["receivers uid"],
           "anchor": "schema-receivers--uid",
           "description": "When a configuration object(e.g. Virtual_host) refers to another(e.g route) then uid will hold the referred object's(e.g. Route's) uid.",
           "document_id": "xcsh-docs:data-sources:alert_policy:properties:receivers",
@@ -922,7 +922,7 @@
         "xcsh-docs:data-sources:alert_policy:properties:routes:severity"
       ],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -944,7 +944,7 @@
       "schema_path": ["routes"],
       "sections": [
         {
-          "aliases": ["alertname"],
+          "aliases": ["routes alertname"],
           "anchor": "schema-routes--alertname",
           "description": "List of Alert Names Customer tunnel interface down Physical Interface down Tunnel Interfaces to Customer Site Down Virtual Host server error Virtual Host client error Service Health Low Service Unavailable Virtual Host server error Virtual Host client error Endpoint Healthcheck failure Synthetic monitor health",
           "document_id": "xcsh-docs:data-sources:alert_policy:properties:routes",
@@ -958,7 +958,7 @@
           "type": "string"
         },
         {
-          "aliases": ["alertname regex"],
+          "aliases": ["routes alertname regex"],
           "anchor": "schema-routes--alertname_regex",
           "description": "Exclusive with Regular Expression match for the alertname.",
           "document_id": "xcsh-docs:data-sources:alert_policy:properties:routes",
@@ -972,7 +972,7 @@
           "type": "string"
         },
         {
-          "aliases": ["any"],
+          "aliases": ["routes any"],
           "anchor": "section",
           "description": "This can be used for messages where no values are needed.",
           "document_id": "xcsh-docs:data-sources:alert_policy:properties:routes:any",
@@ -986,7 +986,7 @@
           "type": "object"
         },
         {
-          "aliases": ["custom"],
+          "aliases": ["routes custom"],
           "anchor": "section",
           "description": "A set of matchers an alert has to fulfill to match the route.",
           "document_id": "xcsh-docs:data-sources:alert_policy:properties:routes:custom",
@@ -1000,7 +1000,7 @@
           "type": "object"
         },
         {
-          "aliases": ["dont send"],
+          "aliases": ["routes dont send"],
           "anchor": "section",
           "description": "This can be used for messages where no values are needed.",
           "document_id": "xcsh-docs:data-sources:alert_policy:properties:routes:dont_send",
@@ -1014,7 +1014,7 @@
           "type": "object"
         },
         {
-          "aliases": ["group"],
+          "aliases": ["routes group"],
           "anchor": "section",
           "description": "Select one or more known group names to match the incoming alert.",
           "document_id": "xcsh-docs:data-sources:alert_policy:properties:routes:group",
@@ -1028,7 +1028,7 @@
           "type": "object"
         },
         {
-          "aliases": ["notification parameters"],
+          "aliases": ["routes notification parameters"],
           "anchor": "section",
           "description": "Set of notification parameters to decide how and when the alert notifications should be sent to the receivers.",
           "document_id": "xcsh-docs:data-sources:alert_policy:properties:routes:notification_parameters",
@@ -1042,7 +1042,7 @@
           "type": "object"
         },
         {
-          "aliases": ["send"],
+          "aliases": ["routes send"],
           "anchor": "section",
           "description": "This can be used for messages where no values are needed.",
           "document_id": "xcsh-docs:data-sources:alert_policy:properties:routes:send",
@@ -1056,7 +1056,7 @@
           "type": "object"
         },
         {
-          "aliases": ["severity"],
+          "aliases": ["routes severity"],
           "anchor": "section",
           "description": "Select one or more severity levels to match the incoming alert.",
           "document_id": "xcsh-docs:data-sources:alert_policy:properties:routes:severity",
@@ -1089,7 +1089,7 @@
       "category": "monitoring",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -1134,7 +1134,7 @@
         "xcsh-docs:data-sources:alert_policy:properties:routes:custom:severity"
       ],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -1156,7 +1156,7 @@
       "schema_path": ["routes", "custom"],
       "sections": [
         {
-          "aliases": ["alertlabel"],
+          "aliases": ["routes custom alertlabel"],
           "anchor": "section",
           "description": "AlertLabel to configure the alert policy rule.",
           "document_id": "xcsh-docs:data-sources:alert_policy:properties:routes:custom:alertlabel",
@@ -1170,7 +1170,7 @@
           "type": "object"
         },
         {
-          "aliases": ["alertname"],
+          "aliases": ["routes custom alertname"],
           "anchor": "section",
           "description": "Label Matcher.",
           "document_id": "xcsh-docs:data-sources:alert_policy:properties:routes:custom:alertname",
@@ -1184,7 +1184,7 @@
           "type": "object"
         },
         {
-          "aliases": ["group"],
+          "aliases": ["routes custom group"],
           "anchor": "section",
           "description": "Label Matcher.",
           "document_id": "xcsh-docs:data-sources:alert_policy:properties:routes:custom:group",
@@ -1198,7 +1198,7 @@
           "type": "object"
         },
         {
-          "aliases": ["severity"],
+          "aliases": ["routes custom severity"],
           "anchor": "section",
           "description": "Label Matcher.",
           "document_id": "xcsh-docs:data-sources:alert_policy:properties:routes:custom:severity",
@@ -1231,7 +1231,7 @@
       "category": "monitoring",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -1271,7 +1271,7 @@
       "category": "monitoring",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -1293,7 +1293,7 @@
       "schema_path": ["routes", "custom", "alertname"],
       "sections": [
         {
-          "aliases": ["exact match"],
+          "aliases": ["routes custom alertname exact match"],
           "anchor": "schema-routes--custom--alertname--exact_match",
           "description": "Exclusive with Equality match value for the label.",
           "document_id": "xcsh-docs:data-sources:alert_policy:properties:routes:custom:alertname",
@@ -1307,7 +1307,7 @@
           "type": "string"
         },
         {
-          "aliases": ["regex match"],
+          "aliases": ["routes custom alertname regex match"],
           "anchor": "schema-routes--custom--alertname--regex_match",
           "description": "Exclusive with Regular expression match value for the label.",
           "document_id": "xcsh-docs:data-sources:alert_policy:properties:routes:custom:alertname",
@@ -1340,7 +1340,7 @@
       "category": "monitoring",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -1362,7 +1362,7 @@
       "schema_path": ["routes", "custom", "group"],
       "sections": [
         {
-          "aliases": ["exact match"],
+          "aliases": ["routes custom group exact match"],
           "anchor": "schema-routes--custom--group--exact_match",
           "description": "Exclusive with Equality match value for the label.",
           "document_id": "xcsh-docs:data-sources:alert_policy:properties:routes:custom:group",
@@ -1376,7 +1376,7 @@
           "type": "string"
         },
         {
-          "aliases": ["regex match"],
+          "aliases": ["routes custom group regex match"],
           "anchor": "schema-routes--custom--group--regex_match",
           "description": "Exclusive with Regular expression match value for the label.",
           "document_id": "xcsh-docs:data-sources:alert_policy:properties:routes:custom:group",
@@ -1409,7 +1409,7 @@
       "category": "monitoring",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -1431,7 +1431,7 @@
       "schema_path": ["routes", "custom", "severity"],
       "sections": [
         {
-          "aliases": ["exact match"],
+          "aliases": ["routes custom severity exact match"],
           "anchor": "schema-routes--custom--severity--exact_match",
           "description": "Exclusive with Equality match value for the label.",
           "document_id": "xcsh-docs:data-sources:alert_policy:properties:routes:custom:severity",
@@ -1445,7 +1445,7 @@
           "type": "string"
         },
         {
-          "aliases": ["regex match"],
+          "aliases": ["routes custom severity regex match"],
           "anchor": "schema-routes--custom--severity--regex_match",
           "description": "Exclusive with Regular expression match value for the label.",
           "document_id": "xcsh-docs:data-sources:alert_policy:properties:routes:custom:severity",
@@ -1478,7 +1478,7 @@
       "category": "monitoring",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -1518,7 +1518,7 @@
       "category": "monitoring",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -1540,7 +1540,7 @@
       "schema_path": ["routes", "group"],
       "sections": [
         {
-          "aliases": ["groups"],
+          "aliases": ["routes group groups"],
           "anchor": "schema-routes--group--groups",
           "description": "Name of groups to match the alert.",
           "document_id": "xcsh-docs:data-sources:alert_policy:properties:routes:group",
@@ -1578,7 +1578,7 @@
         "xcsh-docs:data-sources:alert_policy:properties:routes:notification_parameters:ves_io_group"
       ],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -1600,7 +1600,7 @@
       "schema_path": ["routes", "notification_parameters"],
       "sections": [
         {
-          "aliases": ["custom"],
+          "aliases": ["routes notification parameters custom"],
           "anchor": "section",
           "description": "Specify list of custom labels to group/aggregate the alerts.",
           "document_id": "xcsh-docs:data-sources:alert_policy:properties:routes:notification_parameters:custom",
@@ -1614,7 +1614,7 @@
           "type": "object"
         },
         {
-          "aliases": ["default"],
+          "aliases": ["routes notification parameters default"],
           "anchor": "section",
           "description": "This can be used for messages where no values are needed.",
           "document_id": "xcsh-docs:data-sources:alert_policy:properties:routes:notification_parameters:default",
@@ -1628,7 +1628,7 @@
           "type": "object"
         },
         {
-          "aliases": ["group interval"],
+          "aliases": ["routes notification parameters group interval"],
           "anchor": "schema-routes--notification_parameters--group_interval",
           "description": "Group Interval is used to specify how long to wait before sending a notification about new alerts that are added to the group for which an initial notification has already been sent. Format: , where s - seconds, m - minutes, h - hours, d - days If not specified, group_interval defaults to \"1m\"",
           "document_id": "xcsh-docs:data-sources:alert_policy:properties:routes:notification_parameters",
@@ -1642,7 +1642,7 @@
           "type": "string"
         },
         {
-          "aliases": ["group wait"],
+          "aliases": ["routes notification parameters group wait"],
           "anchor": "schema-routes--notification_parameters--group_wait",
           "description": "Time value used to specify how long to initially wait for an inhibiting alert to arrive or collect more alerts for the same group. Format: , where s - seconds, m - minutes, h - hours, d - days If not specified, group_wait defaults to \"30s\"",
           "document_id": "xcsh-docs:data-sources:alert_policy:properties:routes:notification_parameters",
@@ -1656,7 +1656,7 @@
           "type": "string"
         },
         {
-          "aliases": ["individual"],
+          "aliases": ["routes notification parameters individual"],
           "anchor": "section",
           "description": "This can be used for messages where no values are needed.",
           "document_id": "xcsh-docs:data-sources:alert_policy:properties:routes:notification_parameters:individual",
@@ -1670,7 +1670,7 @@
           "type": "object"
         },
         {
-          "aliases": ["repeat interval", "succeeded", "success", "successful"],
+          "aliases": ["routes notification parameters repeat interval", "succeeded", "success", "successful"],
           "anchor": "schema-routes--notification_parameters--repeat_interval",
           "description": "Repeat Interval is used to specify how long to wait before sending a notification again if it has already been sent successfully. Format: , where s - seconds, m - minutes, h - hours, d - days If not specified, group_interval defaults to \"4h\"",
           "document_id": "xcsh-docs:data-sources:alert_policy:properties:routes:notification_parameters",
@@ -1684,7 +1684,7 @@
           "type": "string"
         },
         {
-          "aliases": ["ves io group"],
+          "aliases": ["routes notification parameters ves io group"],
           "anchor": "section",
           "description": "This can be used for messages where no values are needed.",
           "document_id": "xcsh-docs:data-sources:alert_policy:properties:routes:notification_parameters:ves_io_group",
@@ -1717,7 +1717,7 @@
       "category": "monitoring",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -1739,7 +1739,7 @@
       "schema_path": ["routes", "notification_parameters", "custom"],
       "sections": [
         {
-          "aliases": ["labels"],
+          "aliases": ["routes notification parameters custom labels"],
           "anchor": "schema-routes--notification_parameters--custom--labels",
           "description": "Name of labels to group/aggregate the alerts.",
           "document_id": "xcsh-docs:data-sources:alert_policy:properties:routes:notification_parameters:custom",
@@ -1772,7 +1772,7 @@
       "category": "monitoring",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -1812,7 +1812,7 @@
       "category": "monitoring",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -1852,7 +1852,7 @@
       "category": "monitoring",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -1892,7 +1892,7 @@
       "category": "monitoring",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -1932,7 +1932,7 @@
       "category": "monitoring",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -1954,7 +1954,7 @@
       "schema_path": ["routes", "severity"],
       "sections": [
         {
-          "aliases": ["severities"],
+          "aliases": ["routes severity severities"],
           "anchor": "schema-routes--severity--severities",
           "description": "List of severity levels.",
           "document_id": "xcsh-docs:data-sources:alert_policy:properties:routes:severity",
@@ -1987,7 +1987,7 @@
       "category": "monitoring",
       "child_ids": ["xcsh-docs:data-sources:alert_policy:example:data-source"],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
@@ -2027,7 +2027,7 @@
       "category": "monitoring",
       "child_ids": [],
       "classification": {
-        "rules_sha256": "sha256:9636a66231d73f64c001eb778c187ea542d4b4c342eb731c651d4b3b89fd2764",
+        "rules_sha256": "sha256:789b2828af1d6a9f69d7c06f4cdc4bbc58a3b1dbac4a676da8d43bc0f312b2a0",
         "sources": ["receipt-pinned-upstream", "reviewed-rule"],
         "status": "resolved",
         "upstream_category_source": "receipt-pinned-resource"
