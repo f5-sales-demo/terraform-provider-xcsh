@@ -394,21 +394,21 @@
       "schema_path": [],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/network_connector/index.txt",
-      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
+      "spec_pin_digest": "sha256:0e278b4afb598ac8628ac74dca6a1b2831cd8607de1d26f56e72e3461a7440c7",
       "summary": "Manages a Network Connector resource in F5 Distributed Cloud for network connector is created by users in system namespace. configuration.",
       "tasks": ["configuration"],
       "title": "xcsh_network_connector",
       "unresolved_relationships": [],
       "upstream_identity": {
-        "release_tag": "v9.0.2",
+        "release_tag": "v10.0.0",
         "schema_components": ["network_connectorCreateRequest"],
-        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
+        "target_commit": "ac024ccbfb8b9f84412813f3e2ab9f5821937ef2"
       }
     },
     {
       "aliases": ["network connector"],
-      "body_bytes": 23479,
-      "body_sha256": "sha256:a794955403630555c21f67011116cbd85aeaba98b317bbc4fed9c9139421b0d5",
+      "body_bytes": 24045,
+      "body_sha256": "sha256:7a770b3a13fd2b7d8a23a463aad216b999390411eb35964f16c73d5a5900447d",
       "capabilities": ["networking"],
       "category": "networking",
       "child_ids": [
@@ -596,14 +596,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/network_connector/properties/index.txt",
-      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
+      "spec_pin_digest": "sha256:0e278b4afb598ac8628ac74dca6a1b2831cd8607de1d26f56e72e3461a7440c7",
       "summary": "Property reference for xcsh_network_connector.",
       "tasks": ["configuration"],
       "title": "Property reference",
       "upstream_identity": {
-        "release_tag": "v9.0.2",
+        "release_tag": "v10.0.0",
         "schema_components": ["network_connectorCreateRequest"],
-        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
+        "target_commit": "ac024ccbfb8b9f84412813f3e2ab9f5821937ef2"
       }
     },
     {
@@ -636,14 +636,14 @@
       "schema_path": ["disable_forward_proxy"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/network_connector/properties/disable_forward_proxy/index.txt",
-      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
+      "spec_pin_digest": "sha256:0e278b4afb598ac8628ac74dca6a1b2831cd8607de1d26f56e72e3461a7440c7",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "disable_forward_proxy",
       "upstream_identity": {
-        "release_tag": "v9.0.2",
+        "release_tag": "v10.0.0",
         "schema_components": ["network_connectorCreateRequest"],
-        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
+        "target_commit": "ac024ccbfb8b9f84412813f3e2ab9f5821937ef2"
       }
     },
     {
@@ -764,14 +764,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/network_connector/properties/enable_forward_proxy/index.txt",
-      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
+      "spec_pin_digest": "sha256:0e278b4afb598ac8628ac74dca6a1b2831cd8607de1d26f56e72e3461a7440c7",
       "summary": "Fine tune forward proxy behavior Few configurations allowed are White listed ports and IP prefixes: Forward proxy does application protocol detection and server name(SNI) detection by peeking into the traffic on the incoming downstream connection. Few protocols doesn't have client sending the first data. In such",
       "tasks": ["configuration"],
       "title": "enable_forward_proxy",
       "upstream_identity": {
-        "release_tag": "v9.0.2",
+        "release_tag": "v10.0.0",
         "schema_components": ["network_connectorCreateRequest"],
-        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
+        "target_commit": "ac024ccbfb8b9f84412813f3e2ab9f5821937ef2"
       }
     },
     {
@@ -804,14 +804,14 @@
       "schema_path": ["enable_forward_proxy", "no_interception"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/network_connector/properties/enable_forward_proxy/no_interception/index.txt",
-      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
+      "spec_pin_digest": "sha256:0e278b4afb598ac8628ac74dca6a1b2831cd8607de1d26f56e72e3461a7440c7",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "enable_forward_proxy.no_interception",
       "upstream_identity": {
-        "release_tag": "v9.0.2",
+        "release_tag": "v10.0.0",
         "schema_components": ["network_connectorCreateRequest"],
-        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
+        "target_commit": "ac024ccbfb8b9f84412813f3e2ab9f5821937ef2"
       }
     },
     {
@@ -935,14 +935,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/network_connector/properties/enable_forward_proxy/tls_intercept/index.txt",
-      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
+      "spec_pin_digest": "sha256:0e278b4afb598ac8628ac74dca6a1b2831cd8607de1d26f56e72e3461a7440c7",
       "summary": "Configuration to enable TLS interception.",
       "tasks": ["configuration"],
       "title": "enable_forward_proxy.tls_intercept",
       "upstream_identity": {
-        "release_tag": "v9.0.2",
+        "release_tag": "v10.0.0",
         "schema_components": ["network_connectorCreateRequest"],
-        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
+        "target_commit": "ac024ccbfb8b9f84412813f3e2ab9f5821937ef2"
       }
     },
     {
@@ -1071,14 +1071,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/network_connector/properties/enable_forward_proxy/tls_intercept/custom_certificate/index.txt",
-      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
+      "spec_pin_digest": "sha256:0e278b4afb598ac8628ac74dca6a1b2831cd8607de1d26f56e72e3461a7440c7",
       "summary": "Handle to fetch certificate and key.",
       "tasks": ["configuration"],
       "title": "enable_forward_proxy.tls_intercept.custom_certificate",
       "upstream_identity": {
-        "release_tag": "v9.0.2",
+        "release_tag": "v10.0.0",
         "schema_components": ["network_connectorCreateRequest"],
-        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
+        "target_commit": "ac024ccbfb8b9f84412813f3e2ab9f5821937ef2"
       }
     },
     {
@@ -1132,14 +1132,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/network_connector/properties/enable_forward_proxy/tls_intercept/custom_certificate/custom_hash_algorithms/index.txt",
-      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
+      "spec_pin_digest": "sha256:0e278b4afb598ac8628ac74dca6a1b2831cd8607de1d26f56e72e3461a7440c7",
       "summary": "Specifies the hash algorithms to be used.",
       "tasks": ["configuration"],
       "title": "enable_forward_proxy.tls_intercept.custom_certificate.custom_hash_algorithms",
       "upstream_identity": {
-        "release_tag": "v9.0.2",
+        "release_tag": "v10.0.0",
         "schema_components": ["network_connectorCreateRequest"],
-        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
+        "target_commit": "ac024ccbfb8b9f84412813f3e2ab9f5821937ef2"
       }
     },
     {
@@ -1172,14 +1172,14 @@
       "schema_path": ["enable_forward_proxy", "tls_intercept", "custom_certificate", "disable_ocsp_stapling"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/network_connector/properties/enable_forward_proxy/tls_intercept/custom_certificate/disable_ocsp_stapling/index.txt",
-      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
+      "spec_pin_digest": "sha256:0e278b4afb598ac8628ac74dca6a1b2831cd8607de1d26f56e72e3461a7440c7",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "enable_forward_proxy.tls_intercept.custom_certificate.disable_ocsp_stapling",
       "upstream_identity": {
-        "release_tag": "v9.0.2",
+        "release_tag": "v10.0.0",
         "schema_components": ["network_connectorCreateRequest"],
-        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
+        "target_commit": "ac024ccbfb8b9f84412813f3e2ab9f5821937ef2"
       }
     },
     {
@@ -1256,14 +1256,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/network_connector/properties/enable_forward_proxy/tls_intercept/custom_certificate/private_key/index.txt",
-      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
+      "spec_pin_digest": "sha256:0e278b4afb598ac8628ac74dca6a1b2831cd8607de1d26f56e72e3461a7440c7",
       "summary": "SecretType is used in an object to indicate a sensitive/confidential field.",
       "tasks": ["configuration"],
       "title": "enable_forward_proxy.tls_intercept.custom_certificate.private_key",
       "upstream_identity": {
-        "release_tag": "v9.0.2",
+        "release_tag": "v10.0.0",
         "schema_components": ["network_connectorCreateRequest"],
-        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
+        "target_commit": "ac024ccbfb8b9f84412813f3e2ab9f5821937ef2"
       }
     },
     {
@@ -1372,14 +1372,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/network_connector/properties/enable_forward_proxy/tls_intercept/custom_certificate/private_key/blindfold_secret_info/index.txt",
-      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
+      "spec_pin_digest": "sha256:0e278b4afb598ac8628ac74dca6a1b2831cd8607de1d26f56e72e3461a7440c7",
       "summary": "BlindfoldSecretInfoType specifies information about the Secret managed by F5XC Secret Management.",
       "tasks": ["configuration"],
       "title": "enable_forward_proxy.tls_intercept.custom_certificate.private_key.blindfold_secret_info",
       "upstream_identity": {
-        "release_tag": "v9.0.2",
+        "release_tag": "v10.0.0",
         "schema_components": ["network_connectorCreateRequest"],
-        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
+        "target_commit": "ac024ccbfb8b9f84412813f3e2ab9f5821937ef2"
       }
     },
     {
@@ -1463,14 +1463,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/network_connector/properties/enable_forward_proxy/tls_intercept/custom_certificate/private_key/clear_secret_info/index.txt",
-      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
+      "spec_pin_digest": "sha256:0e278b4afb598ac8628ac74dca6a1b2831cd8607de1d26f56e72e3461a7440c7",
       "summary": "ClearSecretInfoType specifies information about the Secret that is not encrypted.",
       "tasks": ["configuration"],
       "title": "enable_forward_proxy.tls_intercept.custom_certificate.private_key.clear_secret_info",
       "upstream_identity": {
-        "release_tag": "v9.0.2",
+        "release_tag": "v10.0.0",
         "schema_components": ["network_connectorCreateRequest"],
-        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
+        "target_commit": "ac024ccbfb8b9f84412813f3e2ab9f5821937ef2"
       }
     },
     {
@@ -1503,14 +1503,14 @@
       "schema_path": ["enable_forward_proxy", "tls_intercept", "custom_certificate", "use_system_defaults"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/network_connector/properties/enable_forward_proxy/tls_intercept/custom_certificate/use_system_defaults/index.txt",
-      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
+      "spec_pin_digest": "sha256:0e278b4afb598ac8628ac74dca6a1b2831cd8607de1d26f56e72e3461a7440c7",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "enable_forward_proxy.tls_intercept.custom_certificate.use_system_defaults",
       "upstream_identity": {
-        "release_tag": "v9.0.2",
+        "release_tag": "v10.0.0",
         "schema_components": ["network_connectorCreateRequest"],
-        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
+        "target_commit": "ac024ccbfb8b9f84412813f3e2ab9f5821937ef2"
       }
     },
     {
@@ -1543,14 +1543,14 @@
       "schema_path": ["enable_forward_proxy", "tls_intercept", "enable_for_all_domains"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/network_connector/properties/enable_forward_proxy/tls_intercept/enable_for_all_domains/index.txt",
-      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
+      "spec_pin_digest": "sha256:0e278b4afb598ac8628ac74dca6a1b2831cd8607de1d26f56e72e3461a7440c7",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "enable_forward_proxy.tls_intercept.enable_for_all_domains",
       "upstream_identity": {
-        "release_tag": "v9.0.2",
+        "release_tag": "v10.0.0",
         "schema_components": ["network_connectorCreateRequest"],
-        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
+        "target_commit": "ac024ccbfb8b9f84412813f3e2ab9f5821937ef2"
       }
     },
     {
@@ -1600,14 +1600,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/network_connector/properties/enable_forward_proxy/tls_intercept/policy/index.txt",
-      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
+      "spec_pin_digest": "sha256:0e278b4afb598ac8628ac74dca6a1b2831cd8607de1d26f56e72e3461a7440c7",
       "summary": "Policy to enable or disable TLS interception.",
       "tasks": ["configuration"],
       "title": "enable_forward_proxy.tls_intercept.policy",
       "upstream_identity": {
-        "release_tag": "v9.0.2",
+        "release_tag": "v10.0.0",
         "schema_components": ["network_connectorCreateRequest"],
-        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
+        "target_commit": "ac024ccbfb8b9f84412813f3e2ab9f5821937ef2"
       }
     },
     {
@@ -1699,14 +1699,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/network_connector/properties/enable_forward_proxy/tls_intercept/policy/interception_rules/index.txt",
-      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
+      "spec_pin_digest": "sha256:0e278b4afb598ac8628ac74dca6a1b2831cd8607de1d26f56e72e3461a7440c7",
       "summary": "List of ordered rules to enable or disable for TLS interception.",
       "tasks": ["configuration"],
       "title": "enable_forward_proxy.tls_intercept.policy.interception_rules",
       "upstream_identity": {
-        "release_tag": "v9.0.2",
+        "release_tag": "v10.0.0",
         "schema_components": ["network_connectorCreateRequest"],
-        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
+        "target_commit": "ac024ccbfb8b9f84412813f3e2ab9f5821937ef2"
       }
     },
     {
@@ -1739,14 +1739,14 @@
       "schema_path": ["enable_forward_proxy", "tls_intercept", "policy", "interception_rules", "disable_interception"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/network_connector/properties/enable_forward_proxy/tls_intercept/policy/interception_rules/disable_interception/index.txt",
-      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
+      "spec_pin_digest": "sha256:0e278b4afb598ac8628ac74dca6a1b2831cd8607de1d26f56e72e3461a7440c7",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "enable_forward_proxy.tls_intercept.policy.interception_rules.disable_interception",
       "upstream_identity": {
-        "release_tag": "v9.0.2",
+        "release_tag": "v10.0.0",
         "schema_components": ["network_connectorCreateRequest"],
-        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
+        "target_commit": "ac024ccbfb8b9f84412813f3e2ab9f5821937ef2"
       }
     },
     {
@@ -1843,14 +1843,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/network_connector/properties/enable_forward_proxy/tls_intercept/policy/interception_rules/domain_match/index.txt",
-      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
+      "spec_pin_digest": "sha256:0e278b4afb598ac8628ac74dca6a1b2831cd8607de1d26f56e72e3461a7440c7",
       "summary": "Domains names.",
       "tasks": ["configuration"],
       "title": "enable_forward_proxy.tls_intercept.policy.interception_rules.domain_match",
       "upstream_identity": {
-        "release_tag": "v9.0.2",
+        "release_tag": "v10.0.0",
         "schema_components": ["network_connectorCreateRequest"],
-        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
+        "target_commit": "ac024ccbfb8b9f84412813f3e2ab9f5821937ef2"
       }
     },
     {
@@ -1883,14 +1883,14 @@
       "schema_path": ["enable_forward_proxy", "tls_intercept", "policy", "interception_rules", "enable_interception"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/network_connector/properties/enable_forward_proxy/tls_intercept/policy/interception_rules/enable_interception/index.txt",
-      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
+      "spec_pin_digest": "sha256:0e278b4afb598ac8628ac74dca6a1b2831cd8607de1d26f56e72e3461a7440c7",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "enable_forward_proxy.tls_intercept.policy.interception_rules.enable_interception",
       "upstream_identity": {
-        "release_tag": "v9.0.2",
+        "release_tag": "v10.0.0",
         "schema_components": ["network_connectorCreateRequest"],
-        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
+        "target_commit": "ac024ccbfb8b9f84412813f3e2ab9f5821937ef2"
       }
     },
     {
@@ -1923,14 +1923,14 @@
       "schema_path": ["enable_forward_proxy", "tls_intercept", "volterra_certificate"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/network_connector/properties/enable_forward_proxy/tls_intercept/volterra_certificate/index.txt",
-      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
+      "spec_pin_digest": "sha256:0e278b4afb598ac8628ac74dca6a1b2831cd8607de1d26f56e72e3461a7440c7",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "enable_forward_proxy.tls_intercept.volterra_certificate",
       "upstream_identity": {
-        "release_tag": "v9.0.2",
+        "release_tag": "v10.0.0",
         "schema_components": ["network_connectorCreateRequest"],
-        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
+        "target_commit": "ac024ccbfb8b9f84412813f3e2ab9f5821937ef2"
       }
     },
     {
@@ -1963,14 +1963,14 @@
       "schema_path": ["enable_forward_proxy", "tls_intercept", "volterra_trusted_ca"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/network_connector/properties/enable_forward_proxy/tls_intercept/volterra_trusted_ca/index.txt",
-      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
+      "spec_pin_digest": "sha256:0e278b4afb598ac8628ac74dca6a1b2831cd8607de1d26f56e72e3461a7440c7",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "enable_forward_proxy.tls_intercept.volterra_trusted_ca",
       "upstream_identity": {
-        "release_tag": "v9.0.2",
+        "release_tag": "v10.0.0",
         "schema_components": ["network_connectorCreateRequest"],
-        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
+        "target_commit": "ac024ccbfb8b9f84412813f3e2ab9f5821937ef2"
       }
     },
     {
@@ -2018,14 +2018,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/network_connector/properties/sli_to_global_dr/index.txt",
-      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
+      "spec_pin_digest": "sha256:0e278b4afb598ac8628ac74dca6a1b2831cd8607de1d26f56e72e3461a7440c7",
       "summary": "Global network reference for direct connection.",
       "tasks": ["configuration"],
       "title": "sli_to_global_dr",
       "upstream_identity": {
-        "release_tag": "v9.0.2",
+        "release_tag": "v10.0.0",
         "schema_components": ["network_connectorCreateRequest"],
-        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
+        "target_commit": "ac024ccbfb8b9f84412813f3e2ab9f5821937ef2"
       }
     },
     {
@@ -2101,14 +2101,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/network_connector/properties/sli_to_global_dr/global_vn/index.txt",
-      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
+      "spec_pin_digest": "sha256:0e278b4afb598ac8628ac74dca6a1b2831cd8607de1d26f56e72e3461a7440c7",
       "summary": "This type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name.",
       "tasks": ["configuration"],
       "title": "sli_to_global_dr.global_vn",
       "upstream_identity": {
-        "release_tag": "v9.0.2",
+        "release_tag": "v10.0.0",
         "schema_components": ["network_connectorCreateRequest"],
-        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
+        "target_commit": "ac024ccbfb8b9f84412813f3e2ab9f5821937ef2"
       }
     },
     {
@@ -2173,14 +2173,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/network_connector/properties/sli_to_slo_snat/index.txt",
-      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
+      "spec_pin_digest": "sha256:0e278b4afb598ac8628ac74dca6a1b2831cd8607de1d26f56e72e3461a7440c7",
       "summary": "X-example: \"\" description.",
       "tasks": ["configuration"],
       "title": "sli_to_slo_snat",
       "upstream_identity": {
-        "release_tag": "v9.0.2",
+        "release_tag": "v10.0.0",
         "schema_components": ["network_connectorCreateRequest"],
-        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
+        "target_commit": "ac024ccbfb8b9f84412813f3e2ab9f5821937ef2"
       }
     },
     {
@@ -2213,14 +2213,14 @@
       "schema_path": ["sli_to_slo_snat", "default_gw_snat"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/network_connector/properties/sli_to_slo_snat/default_gw_snat/index.txt",
-      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
+      "spec_pin_digest": "sha256:0e278b4afb598ac8628ac74dca6a1b2831cd8607de1d26f56e72e3461a7440c7",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "sli_to_slo_snat.default_gw_snat",
       "upstream_identity": {
-        "release_tag": "v9.0.2",
+        "release_tag": "v10.0.0",
         "schema_components": ["network_connectorCreateRequest"],
-        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
+        "target_commit": "ac024ccbfb8b9f84412813f3e2ab9f5821937ef2"
       }
     },
     {
@@ -2253,14 +2253,14 @@
       "schema_path": ["sli_to_slo_snat", "interface_ip"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/network_connector/properties/sli_to_slo_snat/interface_ip/index.txt",
-      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
+      "spec_pin_digest": "sha256:0e278b4afb598ac8628ac74dca6a1b2831cd8607de1d26f56e72e3461a7440c7",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "sli_to_slo_snat.interface_ip",
       "upstream_identity": {
-        "release_tag": "v9.0.2",
+        "release_tag": "v10.0.0",
         "schema_components": ["network_connectorCreateRequest"],
-        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
+        "target_commit": "ac024ccbfb8b9f84412813f3e2ab9f5821937ef2"
       }
     },
     {
@@ -2308,14 +2308,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/network_connector/properties/slo_to_global_dr/index.txt",
-      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
+      "spec_pin_digest": "sha256:0e278b4afb598ac8628ac74dca6a1b2831cd8607de1d26f56e72e3461a7440c7",
       "summary": "Global network reference for direct connection.",
       "tasks": ["configuration"],
       "title": "slo_to_global_dr",
       "upstream_identity": {
-        "release_tag": "v9.0.2",
+        "release_tag": "v10.0.0",
         "schema_components": ["network_connectorCreateRequest"],
-        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
+        "target_commit": "ac024ccbfb8b9f84412813f3e2ab9f5821937ef2"
       }
     },
     {
@@ -2391,14 +2391,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/network_connector/properties/slo_to_global_dr/global_vn/index.txt",
-      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
+      "spec_pin_digest": "sha256:0e278b4afb598ac8628ac74dca6a1b2831cd8607de1d26f56e72e3461a7440c7",
       "summary": "This type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name.",
       "tasks": ["configuration"],
       "title": "slo_to_global_dr.global_vn",
       "upstream_identity": {
-        "release_tag": "v9.0.2",
+        "release_tag": "v10.0.0",
         "schema_components": ["network_connectorCreateRequest"],
-        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
+        "target_commit": "ac024ccbfb8b9f84412813f3e2ab9f5821937ef2"
       }
     },
     {
@@ -2431,14 +2431,14 @@
       "schema_path": [],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/network_connector/examples/index.txt",
-      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
+      "spec_pin_digest": "sha256:0e278b4afb598ac8628ac74dca6a1b2831cd8607de1d26f56e72e3461a7440c7",
       "summary": "Examples for xcsh_network_connector.",
       "tasks": ["configuration"],
       "title": "Examples",
       "upstream_identity": {
-        "release_tag": "v9.0.2",
+        "release_tag": "v10.0.0",
         "schema_components": ["network_connectorCreateRequest"],
-        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
+        "target_commit": "ac024ccbfb8b9f84412813f3e2ab9f5821937ef2"
       }
     },
     {
@@ -2478,14 +2478,14 @@
       "schema_path": ["data-source"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/network_connector/examples/data-source/index.txt",
-      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
+      "spec_pin_digest": "sha256:0e278b4afb598ac8628ac74dca6a1b2831cd8607de1d26f56e72e3461a7440c7",
       "summary": "Data source for xcsh_network_connector.",
       "tasks": ["configuration"],
       "title": "Data source",
       "upstream_identity": {
-        "release_tag": "v9.0.2",
+        "release_tag": "v10.0.0",
         "schema_components": ["network_connectorCreateRequest"],
-        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
+        "target_commit": "ac024ccbfb8b9f84412813f3e2ab9f5821937ef2"
       }
     }
   ],

@@ -47,6 +47,27 @@ Receipt-pinned upstream constraints:
 
 ```json
 {
+  "x-f5xc-constraints": {
+    "category": "discovery",
+    "constraintType": "map",
+    "deterministic": true,
+    "keys": {
+      "maxLength": 64,
+      "minLength": 1,
+      "type": "string"
+    },
+    "originalRules": {
+      "ves.io.schema.rules.map.keys.string.max_len": "64",
+      "ves.io.schema.rules.map.keys.string.min_len": "1",
+      "ves.io.schema.rules.map.values.string.max_len": "1024",
+      "ves.io.schema.rules.map.values.string.min_len": "1"
+    },
+    "values": {
+      "maxLength": 1024,
+      "minLength": 1,
+      "type": "string"
+    }
+  },
   "x-f5xc-required-for": {
     "create": false,
     "minimum_config": false,
@@ -3116,7 +3137,7 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-- [metadata](data-sources--protected_application--reference--group-001.md#canonical-2131322001210311-0202030113003201-2222112121200211-3230202002032221-0023301332002232-1133303113201130-0113011221002032-3030101301131033): complete subsection reference.
+- [metadata](data-sources--protected_application--reference--group-002.md#canonical-2131322001210311-0202030113003201-2222112121200211-3230202002032221-0023301332002232-1133303113201130-0113011221002032-3030101301131033): complete subsection reference.
 
 - [mobile_client](data-sources--protected_application--reference--group-002.md#canonical-2030023030101010-1310113333033102-1013023003332100-3233211203312330-0033001100311212-2030010200302302-1023220213200122-0223130313132223): complete subsection reference.
 
@@ -3179,7 +3200,7 @@ Receipt-pinned upstream constraints:
 
 - [cloudflare.protected_endpoints.any_domain](data-sources--protected_application--reference--group-001.md#canonical-2000001131223120-0013112331203310-2110320202001101-0212131123213002-1012213233001130-3012220233001032-2030222303230110-2233132012021331)
 - [cloudflare.protected_endpoints.domain](data-sources--protected_application--reference--group-001.md#canonical-0033332310100122-0322200200230013-2030323113223301-0021302301302103-3020223102303100-2213213210232323-0212111121130312-2123020012012311)
-- [cloudflare.protected_endpoints.metadata](data-sources--protected_application--reference--group-001.md#canonical-2131322001210311-0202030113003201-2222112121200211-3230202002032221-0023301332002232-1133303113201130-0113011221002032-3030101301131033)
+- [cloudflare.protected_endpoints.metadata](data-sources--protected_application--reference--group-002.md#canonical-2131322001210311-0202030113003201-2222112121200211-3230202002032221-0023301332002232-1133303113201130-0113011221002032-3030101301131033)
 - [cloudflare.protected_endpoints.mobile_client](data-sources--protected_application--reference--group-002.md#canonical-2030023030101010-1310113333033102-1013023003332100-3233211203312330-0033001100311212-2030010200302302-1023220213200122-0223130313132223)
 - [cloudflare.protected_endpoints.path](data-sources--protected_application--reference--group-002.md#canonical-3232201300123231-0223201311223113-1102002220010310-1220002021030023-0202033222102033-0032122023100220-2313102223310321-3310323301001221)
 - [cloudflare.protected_endpoints.web_client](data-sources--protected_application--reference--group-002.md#canonical-3230221231323110-2000013213332023-3011112223321020-1023203303123102-3000330332112310-3132023301231112-0121133032331033-1331200011200311)
@@ -3443,16 +3464,3 @@ Receipt-pinned upstream constraints:
   }
 }
 ```
-
-<a id="canonical-1303310013302232-2221132302313330-3333223101211312-0032233303010100-0031120023303213-2022312330122310-3321213113002131-2310001321003332"></a>
-
-## Next pages — domain / 022120233313 / 7
-
-- [cloudflare.protected_endpoints](data-sources--protected_application--reference--group-001.md#canonical-1030220202111001-1103110111301100-1322102231233131-0123103313030303-2233000102020131-3103322313321020-0122132330233112-1300111122001122)
-- [xcsh_protected_application](../data-sources/protected_application.md#canonical-0321101133212112-2213200303020213-3012101103330221-0200320313210231-2310313032122133-1332031112223203-2302102031333233-2230021122320022)
-
-<a id="canonical-2131322001210311-0202030113003201-2222112121200211-3230202002032221-0023301332002232-1133303113201130-0113011221002032-3030101301131033"></a>
-
-<!-- Exact provider and upstream contract identifiers. -->
-
-<!-- textlint-disable terminology -->

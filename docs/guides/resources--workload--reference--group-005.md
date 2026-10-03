@@ -6,6 +6,59 @@ description: "Complete grouped canonical reference for xcsh_workload reference."
 
 # xcsh_workload reference
 
+<a id="canonical-2001023102132332-0002021331201030-3013113213230032-1120211100311210-2302302311303112-2310112013122020-2022110123102130-0120220102333312"></a>
+
+## sub_path property — mount / 202000032332 / 6
+
+Type: `"string"`. Optional.
+
+Path within the volume from which the workload's volume should be mounted. Defaults to '' (volume's
+root).
+
+Upstream description:
+
+Path within the volume from which the workload's volume should be mounted. Defaults to "" (volume's
+root).
+
+Provider validators and defaults (from schema source):
+
+```go
+Validators: []validator.String{
+  stringvalidator.LengthAtMost(256),
+}
+```
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "maxLength": 256,
+  "x-f5xc-constraints": {
+    "category": "discovery",
+    "constraintType": "string",
+    "deterministic": true,
+    "maxLength": 256,
+    "metadata": {
+      "confidence": 0.99,
+      "source": "discovery",
+      "validatedAt": "2026-10-03T05:10:26+00:00"
+    }
+  },
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  },
+  "x-validation-rules": {
+    "ves.io.schema.rules.string.max_len": "256"
+  },
+  "x-ves-validation-rules": {
+    "ves.io.schema.rules.string.max_len": "256"
+  }
+}
+```
+
 <a id="canonical-0233203120000012-0002112011202212-3323022223133011-2220003213110132-2012122110120013-2120030133123020-1132120321012232-2220230032030233"></a>
 
 ## Next pages — mount / 202000032332 / 7

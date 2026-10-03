@@ -1289,18 +1289,39 @@ Add labels to select one or more origin servers. Note: The pre-requisite setting
 in the origin pool are: &#8203;1. Add labels to origin servers &#8203;2. Enable subset load
 balancing in the Origin Server Subsets section and configure keys in origin server subsets classes.
 
+Provider validators and defaults (from schema source):
+
+```go
+Validators: []validator.Map{validators.MapConstraintsValidator("{\"cardinality\":{\"maxProperties\":16},\"category\":\"discovery\",\"constraintType\":\"map\",\"deterministic\":true,\"keys\":{\"maxLength\":128,\"minLength\":1,\"type\":\"string\"},\"originalRules\":{\"ves.io.schema.rules.map.keys.string.max_len\":\"128\",\"ves.io.schema.rules.map.keys.string.min_len\":\"1\",\"ves.io.schema.rules.map.max_pairs\":\"16\",\"ves.io.schema.rules.map.values.string.max_len\":\"128\",\"ves.io.schema.rules.map.values.string.min_len\":\"1\"},\"values\":{\"maxLength\":128,\"minLength\":1,\"type\":\"string\"}}")}
+```
+
 Receipt-pinned upstream constraints:
 
 ```json
 {
   "x-f5xc-constraints": {
-    "category": "general",
-    "constraintType": "object",
-    "maxProperties": 16,
-    "metadata": {
-      "confidence": 0.75,
-      "source": "inferred",
-      "validatedAt": "2026-10-03T05:10:26+00:00"
+    "cardinality": {
+      "maxProperties": 16
+    },
+    "category": "discovery",
+    "constraintType": "map",
+    "deterministic": true,
+    "keys": {
+      "maxLength": 128,
+      "minLength": 1,
+      "type": "string"
+    },
+    "originalRules": {
+      "ves.io.schema.rules.map.keys.string.max_len": "128",
+      "ves.io.schema.rules.map.keys.string.min_len": "1",
+      "ves.io.schema.rules.map.max_pairs": "16",
+      "ves.io.schema.rules.map.values.string.max_len": "128",
+      "ves.io.schema.rules.map.values.string.min_len": "1"
+    },
+    "values": {
+      "maxLength": 128,
+      "minLength": 1,
+      "type": "string"
     }
   },
   "x-f5xc-required-for": {
@@ -4587,7 +4608,7 @@ spec {
 
 - [asn_matcher](resources--http_loadbalancer--reference--group-022.md#canonical-2330232220313013-2120000211302223-3012212202222313-1113232301013021-3231202321121233-0332211110312023-1013001211321310-2012322132110120): complete subsection reference.
 
-- [body_matcher](resources--http_loadbalancer--reference--group-022.md#canonical-1322031002303310-1111010110113010-3010000120211223-0112031202323033-3213001011000120-0032032230230101-3220223203111233-0023030020301031): complete subsection reference.
+- [body_matcher](resources--http_loadbalancer--reference--group-023.md#canonical-1322031002303310-1111010110113010-3010000120211223-0112031202323033-3213001011000120-0032032230230101-3220223203111233-0023030020301031): complete subsection reference.
 
 - [client_selector](resources--http_loadbalancer--reference--group-023.md#canonical-3301001033202231-2133133323213110-2321233202103301-1310201321100023-1302201121201002-3200232221023023-0110031303001223-0212313222223133): complete subsection reference.
 
@@ -4667,7 +4688,7 @@ Receipt-pinned upstream constraints:
 - [policy_based_challenge.rule_list.rules.spec.arg_matchers](resources--http_loadbalancer--reference--group-022.md#canonical-1101313011001300-1031201312333332-2301022020220121-1201202331311323-3022013032203330-1000001113112111-2300012330010303-3001011233020023)
 - [policy_based_challenge.rule_list.rules.spec.asn_list](resources--http_loadbalancer--reference--group-022.md#canonical-0003301213131101-1312033131333213-2101303001113021-1023212221120031-1331213111320113-3131102321210212-0323000011233200-3231112332221032)
 - [policy_based_challenge.rule_list.rules.spec.asn_matcher](resources--http_loadbalancer--reference--group-022.md#canonical-2330232220313013-2120000211302223-3012212202222313-1113232301013021-3231202321121233-0332211110312023-1013001211321310-2012322132110120)
-- [policy_based_challenge.rule_list.rules.spec.body_matcher](resources--http_loadbalancer--reference--group-022.md#canonical-1322031002303310-1111010110113010-3010000120211223-0112031202323033-3213001011000120-0032032230230101-3220223203111233-0023030020301031)
+- [policy_based_challenge.rule_list.rules.spec.body_matcher](resources--http_loadbalancer--reference--group-023.md#canonical-1322031002303310-1111010110113010-3010000120211223-0112031202323033-3213001011000120-0032032230230101-3220223203111233-0023030020301031)
 - [policy_based_challenge.rule_list.rules.spec.client_selector](resources--http_loadbalancer--reference--group-023.md#canonical-3301001033202231-2133133323213110-2321233202103301-1310201321100023-1302201121201002-3200232221023023-0110031303001223-0212313222223133)
 - [policy_based_challenge.rule_list.rules.spec.cookie_matchers](resources--http_loadbalancer--reference--group-023.md#canonical-1112223030321202-2310131032330100-2302103332230131-0001200330203221-2212303302110122-3033121110232100-1130300130302113-3232330311033030)
 - [policy_based_challenge.rule_list.rules.spec.disable_challenge](resources--http_loadbalancer--reference--group-023.md#canonical-0202302323030031-0332332132022130-1301100023003233-2302201010011300-1300320313311232-3332303233323013-2021332220011213-0032313121021322)
@@ -5952,16 +5973,3 @@ Receipt-pinned upstream constraints:
   }
 }
 ```
-
-<a id="canonical-3231303300303020-0111003331202311-3113303011120021-2031113323121111-1112122312101300-2031121010022022-2123232002122211-1123001313102131"></a>
-
-## Next pages — asn_sets / 301131010220 / 9
-
-- [policy_based_challenge.rule_list.rules.spec.asn_matcher](resources--http_loadbalancer--reference--group-022.md#canonical-2330232220313013-2120000211302223-3012212202222313-1113232301013021-3231202321121233-0332211110312023-1013001211321310-2012322132110120)
-- [xcsh_http_loadbalancer](../resources/http_loadbalancer.md#canonical-1323101131323213-1200201313300133-0300111301103013-3131213012211311-3010002202001122-3231033222023323-2111000220211131-3013003223311203)
-
-<a id="canonical-1322031002303310-1111010110113010-3010000120211223-0112031202323033-3213001011000120-0032032230230101-3220223203111233-0023030020301031"></a>
-
-<!-- Exact provider and upstream contract identifiers. -->
-
-<!-- textlint-disable terminology -->

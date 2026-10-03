@@ -503,15 +503,15 @@
       "schema_path": [],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/site/index.txt",
-      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
+      "spec_pin_digest": "sha256:0e278b4afb598ac8628ac74dca6a1b2831cd8607de1d26f56e72e3461a7440c7",
       "summary": "Manages a Site resource in F5 Distributed Cloud for get of site. configuration. (read-only data source)",
       "tasks": ["configuration"],
       "title": "xcsh_site",
       "unresolved_relationships": [],
       "upstream_identity": {
-        "release_tag": "v9.0.2",
+        "release_tag": "v10.0.0",
         "schema_components": [],
-        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
+        "target_commit": "ac024ccbfb8b9f84412813f3e2ab9f5821937ef2"
       }
     },
     {
@@ -1158,14 +1158,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/site/properties/index.txt",
-      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
+      "spec_pin_digest": "sha256:0e278b4afb598ac8628ac74dca6a1b2831cd8607de1d26f56e72e3461a7440c7",
       "summary": "Property reference for xcsh_site.",
       "tasks": ["configuration"],
       "title": "Property reference",
       "upstream_identity": {
-        "release_tag": "v9.0.2",
+        "release_tag": "v10.0.0",
         "schema_components": [],
-        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
+        "target_commit": "ac024ccbfb8b9f84412813f3e2ab9f5821937ef2"
       }
     },
     {
@@ -1227,14 +1227,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/site/properties/admin_user_credentials/index.txt",
-      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
+      "spec_pin_digest": "sha256:0e278b4afb598ac8628ac74dca6a1b2831cd8607de1d26f56e72e3461a7440c7",
       "summary": "Setup user credentials to manage access to nodes belonging to the site. When configured, 'admin' user will be setup and customers can access these nodes via either the node local WebUI or via SSH to access shell/CLI Ensure 'Node Local Services' are enabled to allow for required access.",
       "tasks": ["configuration"],
       "title": "admin_user_credentials",
       "upstream_identity": {
-        "release_tag": "v9.0.2",
+        "release_tag": "v10.0.0",
         "schema_components": [],
-        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
+        "target_commit": "ac024ccbfb8b9f84412813f3e2ab9f5821937ef2"
       }
     },
     {
@@ -1299,14 +1299,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/site/properties/admin_user_credentials/admin_password/index.txt",
-      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
+      "spec_pin_digest": "sha256:0e278b4afb598ac8628ac74dca6a1b2831cd8607de1d26f56e72e3461a7440c7",
       "summary": "SecretType is used in an object to indicate a sensitive/confidential field.",
       "tasks": ["configuration"],
       "title": "admin_user_credentials.admin_password",
       "upstream_identity": {
-        "release_tag": "v9.0.2",
+        "release_tag": "v10.0.0",
         "schema_components": [],
-        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
+        "target_commit": "ac024ccbfb8b9f84412813f3e2ab9f5821937ef2"
       }
     },
     {
@@ -1382,14 +1382,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/site/properties/admin_user_credentials/admin_password/blindfold_secret_info/index.txt",
-      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
+      "spec_pin_digest": "sha256:0e278b4afb598ac8628ac74dca6a1b2831cd8607de1d26f56e72e3461a7440c7",
       "summary": "BlindfoldSecretInfoType specifies information about the Secret managed by F5XC Secret Management.",
       "tasks": ["configuration"],
       "title": "admin_user_credentials.admin_password.blindfold_secret_info",
       "upstream_identity": {
-        "release_tag": "v9.0.2",
+        "release_tag": "v10.0.0",
         "schema_components": [],
-        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
+        "target_commit": "ac024ccbfb8b9f84412813f3e2ab9f5821937ef2"
       }
     },
     {
@@ -1451,14 +1451,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/site/properties/admin_user_credentials/admin_password/clear_secret_info/index.txt",
-      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
+      "spec_pin_digest": "sha256:0e278b4afb598ac8628ac74dca6a1b2831cd8607de1d26f56e72e3461a7440c7",
       "summary": "ClearSecretInfoType specifies information about the Secret that is not encrypted.",
       "tasks": ["configuration"],
       "title": "admin_user_credentials.admin_password.clear_secret_info",
       "upstream_identity": {
-        "release_tag": "v9.0.2",
+        "release_tag": "v10.0.0",
         "schema_components": [],
-        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
+        "target_commit": "ac024ccbfb8b9f84412813f3e2ab9f5821937ef2"
       }
     },
     {
@@ -1562,14 +1562,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/site/properties/connected_re/index.txt",
-      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
+      "spec_pin_digest": "sha256:0e278b4afb598ac8628ac74dca6a1b2831cd8607de1d26f56e72e3461a7440c7",
       "summary": "Following fields are only for customer edge sites List of REs to which to which this CE initiates IPsec/SSL connection to.",
       "tasks": ["configuration"],
       "title": "connected_re",
       "upstream_identity": {
-        "release_tag": "v9.0.2",
+        "release_tag": "v10.0.0",
         "schema_components": [],
-        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
+        "target_commit": "ac024ccbfb8b9f84412813f3e2ab9f5821937ef2"
       }
     },
     {
@@ -1673,14 +1673,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/site/properties/connected_re_for_config/index.txt",
-      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
+      "spec_pin_digest": "sha256:0e278b4afb598ac8628ac74dca6a1b2831cd8607de1d26f56e72e3461a7440c7",
       "summary": "Valid only for CE site object List of REs which can send config to this CE site.",
       "tasks": ["configuration"],
       "title": "connected_re_for_config",
       "upstream_identity": {
-        "release_tag": "v9.0.2",
+        "release_tag": "v10.0.0",
         "schema_components": [],
-        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
+        "target_commit": "ac024ccbfb8b9f84412813f3e2ab9f5821937ef2"
       }
     },
     {
@@ -1742,14 +1742,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/site/properties/coordinates/index.txt",
-      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
+      "spec_pin_digest": "sha256:0e278b4afb598ac8628ac74dca6a1b2831cd8607de1d26f56e72e3461a7440c7",
       "summary": "Coordinates of the site which provides the site physical location.",
       "tasks": ["configuration"],
       "title": "coordinates",
       "upstream_identity": {
-        "release_tag": "v9.0.2",
+        "release_tag": "v10.0.0",
         "schema_components": [],
-        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
+        "target_commit": "ac024ccbfb8b9f84412813f3e2ab9f5821937ef2"
       }
     },
     {
@@ -1814,14 +1814,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/site/properties/default_underlay_network/index.txt",
-      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
+      "spec_pin_digest": "sha256:0e278b4afb598ac8628ac74dca6a1b2831cd8607de1d26f56e72e3461a7440c7",
       "summary": "Optional, virtual network to be used as underlay for different overlay protocols (SRv6, IP-in-IP tunnels for DC Cluster Group) Default is site-local-outside network.",
       "tasks": ["configuration"],
       "title": "default_underlay_network",
       "upstream_identity": {
-        "release_tag": "v9.0.2",
+        "release_tag": "v10.0.0",
         "schema_components": [],
-        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
+        "target_commit": "ac024ccbfb8b9f84412813f3e2ab9f5821937ef2"
       }
     },
     {
@@ -1854,14 +1854,14 @@
       "schema_path": ["default_underlay_network", "site_local_inside"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/site/properties/default_underlay_network/site_local_inside/index.txt",
-      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
+      "spec_pin_digest": "sha256:0e278b4afb598ac8628ac74dca6a1b2831cd8607de1d26f56e72e3461a7440c7",
       "summary": "Enable this option",
       "tasks": ["configuration"],
       "title": "default_underlay_network.site_local_inside",
       "upstream_identity": {
-        "release_tag": "v9.0.2",
+        "release_tag": "v10.0.0",
         "schema_components": [],
-        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
+        "target_commit": "ac024ccbfb8b9f84412813f3e2ab9f5821937ef2"
       }
     },
     {
@@ -1894,14 +1894,14 @@
       "schema_path": ["default_underlay_network", "site_local_outside"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/site/properties/default_underlay_network/site_local_outside/index.txt",
-      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
+      "spec_pin_digest": "sha256:0e278b4afb598ac8628ac74dca6a1b2831cd8607de1d26f56e72e3461a7440c7",
       "summary": "Enable this option",
       "tasks": ["configuration"],
       "title": "default_underlay_network.site_local_outside",
       "upstream_identity": {
-        "release_tag": "v9.0.2",
+        "release_tag": "v10.0.0",
         "schema_components": [],
-        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
+        "target_commit": "ac024ccbfb8b9f84412813f3e2ab9f5821937ef2"
       }
     },
     {
@@ -1966,14 +1966,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/site/properties/kubernetes_upgrade_drain/index.txt",
-      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
+      "spec_pin_digest": "sha256:0e278b4afb598ac8628ac74dca6a1b2831cd8607de1d26f56e72e3461a7440c7",
       "summary": "Specify how worker nodes within a site will be upgraded.",
       "tasks": ["configuration"],
       "title": "kubernetes_upgrade_drain",
       "upstream_identity": {
-        "release_tag": "v9.0.2",
+        "release_tag": "v10.0.0",
         "schema_components": [],
-        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
+        "target_commit": "ac024ccbfb8b9f84412813f3e2ab9f5821937ef2"
       }
     },
     {
@@ -2006,14 +2006,14 @@
       "schema_path": ["kubernetes_upgrade_drain", "disable_upgrade_drain"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/site/properties/kubernetes_upgrade_drain/disable_upgrade_drain/index.txt",
-      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
+      "spec_pin_digest": "sha256:0e278b4afb598ac8628ac74dca6a1b2831cd8607de1d26f56e72e3461a7440c7",
       "summary": "Configuration parameter for disable upgrade drain.",
       "tasks": ["configuration"],
       "title": "kubernetes_upgrade_drain.disable_upgrade_drain",
       "upstream_identity": {
-        "release_tag": "v9.0.2",
+        "release_tag": "v10.0.0",
         "schema_components": [],
-        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
+        "target_commit": "ac024ccbfb8b9f84412813f3e2ab9f5821937ef2"
       }
     },
     {
@@ -2120,14 +2120,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/site/properties/kubernetes_upgrade_drain/enable_upgrade_drain/index.txt",
-      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
+      "spec_pin_digest": "sha256:0e278b4afb598ac8628ac74dca6a1b2831cd8607de1d26f56e72e3461a7440c7",
       "summary": "Specify batch upgrade settings for worker nodes within a site.",
       "tasks": ["configuration"],
       "title": "kubernetes_upgrade_drain.enable_upgrade_drain",
       "upstream_identity": {
-        "release_tag": "v9.0.2",
+        "release_tag": "v10.0.0",
         "schema_components": [],
-        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
+        "target_commit": "ac024ccbfb8b9f84412813f3e2ab9f5821937ef2"
       }
     },
     {
@@ -2160,14 +2160,14 @@
       "schema_path": ["kubernetes_upgrade_drain", "enable_upgrade_drain", "disable_vega_upgrade_mode"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/site/properties/kubernetes_upgrade_drain/enable_upgrade_drain/disable_vega_upgrade_mode/index.txt",
-      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
+      "spec_pin_digest": "sha256:0e278b4afb598ac8628ac74dca6a1b2831cd8607de1d26f56e72e3461a7440c7",
       "summary": "Configuration parameter for disable vega upgrade mode.",
       "tasks": ["configuration"],
       "title": "kubernetes_upgrade_drain.enable_upgrade_drain.disable_vega_upgrade_mode",
       "upstream_identity": {
-        "release_tag": "v9.0.2",
+        "release_tag": "v10.0.0",
         "schema_components": [],
-        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
+        "target_commit": "ac024ccbfb8b9f84412813f3e2ab9f5821937ef2"
       }
     },
     {
@@ -2200,14 +2200,14 @@
       "schema_path": ["kubernetes_upgrade_drain", "enable_upgrade_drain", "enable_vega_upgrade_mode"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/site/properties/kubernetes_upgrade_drain/enable_upgrade_drain/enable_vega_upgrade_mode/index.txt",
-      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
+      "spec_pin_digest": "sha256:0e278b4afb598ac8628ac74dca6a1b2831cd8607de1d26f56e72e3461a7440c7",
       "summary": "Configuration parameter for enable vega upgrade mode.",
       "tasks": ["configuration"],
       "title": "kubernetes_upgrade_drain.enable_upgrade_drain.enable_vega_upgrade_mode",
       "upstream_identity": {
-        "release_tag": "v9.0.2",
+        "release_tag": "v10.0.0",
         "schema_components": [],
-        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
+        "target_commit": "ac024ccbfb8b9f84412813f3e2ab9f5821937ef2"
       }
     },
     {
@@ -2283,14 +2283,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/site/properties/main_nodes/index.txt",
-      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
+      "spec_pin_digest": "sha256:0e278b4afb598ac8628ac74dca6a1b2831cd8607de1d26f56e72e3461a7440c7",
       "summary": "Connectivity information of main/master nodes to create a full mesh of Phobos services across all CEs in a site-mesh-group or dc-cluster-group.",
       "tasks": ["configuration"],
       "title": "main_nodes",
       "upstream_identity": {
-        "release_tag": "v9.0.2",
+        "release_tag": "v10.0.0",
         "schema_components": [],
-        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
+        "target_commit": "ac024ccbfb8b9f84412813f3e2ab9f5821937ef2"
       }
     },
     {
@@ -2352,14 +2352,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/site/properties/private_connectivity/index.txt",
-      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
+      "spec_pin_digest": "sha256:0e278b4afb598ac8628ac74dca6a1b2831cd8607de1d26f56e72e3461a7440c7",
       "summary": "Private Connectivity Information like ADN network name and cloud link information.",
       "tasks": ["configuration"],
       "title": "private_connectivity",
       "upstream_identity": {
-        "release_tag": "v9.0.2",
+        "release_tag": "v10.0.0",
         "schema_components": [],
-        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
+        "target_commit": "ac024ccbfb8b9f84412813f3e2ab9f5821937ef2"
       }
     },
     {
@@ -2421,14 +2421,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/site/properties/private_connectivity/cloud_link/index.txt",
-      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
+      "spec_pin_digest": "sha256:0e278b4afb598ac8628ac74dca6a1b2831cd8607de1d26f56e72e3461a7440c7",
       "summary": "Information related to cloud link used by the site.",
       "tasks": ["configuration"],
       "title": "private_connectivity.cloud_link",
       "upstream_identity": {
-        "release_tag": "v9.0.2",
+        "release_tag": "v10.0.0",
         "schema_components": [],
-        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
+        "target_commit": "ac024ccbfb8b9f84412813f3e2ab9f5821937ef2"
       }
     },
     {
@@ -2507,14 +2507,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/site/properties/re_select/index.txt",
-      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
+      "spec_pin_digest": "sha256:0e278b4afb598ac8628ac74dca6a1b2831cd8607de1d26f56e72e3461a7440c7",
       "summary": "Selection criteria to connect the site with F5 Distributed Cloud Regional Edge(s).",
       "tasks": ["configuration"],
       "title": "re_select",
       "upstream_identity": {
-        "release_tag": "v9.0.2",
+        "release_tag": "v10.0.0",
         "schema_components": [],
-        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
+        "target_commit": "ac024ccbfb8b9f84412813f3e2ab9f5821937ef2"
       }
     },
     {
@@ -2547,14 +2547,14 @@
       "schema_path": ["re_select", "geo_proximity"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/site/properties/re_select/geo_proximity/index.txt",
-      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
+      "spec_pin_digest": "sha256:0e278b4afb598ac8628ac74dca6a1b2831cd8607de1d26f56e72e3461a7440c7",
       "summary": "Configuration parameter for geo proximity.",
       "tasks": ["configuration"],
       "title": "re_select.geo_proximity",
       "upstream_identity": {
-        "release_tag": "v9.0.2",
+        "release_tag": "v10.0.0",
         "schema_components": [],
-        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
+        "target_commit": "ac024ccbfb8b9f84412813f3e2ab9f5821937ef2"
       }
     },
     {
@@ -2616,14 +2616,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/site/properties/re_select/specific_re/index.txt",
-      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
+      "spec_pin_digest": "sha256:0e278b4afb598ac8628ac74dca6a1b2831cd8607de1d26f56e72e3461a7440c7",
       "summary": "Select specific REs. This is useful when a site needs to deterministically connect to a set of REs. A site will always be connected to 2 REs.",
       "tasks": ["configuration"],
       "title": "re_select.specific_re",
       "upstream_identity": {
-        "release_tag": "v9.0.2",
+        "release_tag": "v10.0.0",
         "schema_components": [],
-        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
+        "target_commit": "ac024ccbfb8b9f84412813f3e2ab9f5821937ef2"
       }
     },
     {
@@ -2755,14 +2755,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/site/properties/vip_params_per_az/index.txt",
-      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
+      "spec_pin_digest": "sha256:0e278b4afb598ac8628ac74dca6a1b2831cd8607de1d26f56e72e3461a7440c7",
       "summary": "Optional Publish VIP Parameters Per AZ for public cloud sites. See documentation for 'VIP' in advertise policy to see when Inside VIP or Outside VIP is used. When configured, the VIP(s) defined will be used to publish to external systems like K8s, Consul.",
       "tasks": ["configuration"],
       "title": "vip_params_per_az",
       "upstream_identity": {
-        "release_tag": "v9.0.2",
+        "release_tag": "v10.0.0",
         "schema_components": [],
-        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
+        "target_commit": "ac024ccbfb8b9f84412813f3e2ab9f5821937ef2"
       }
     },
     {
@@ -2795,14 +2795,14 @@
       "schema_path": [],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/site/examples/index.txt",
-      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
+      "spec_pin_digest": "sha256:0e278b4afb598ac8628ac74dca6a1b2831cd8607de1d26f56e72e3461a7440c7",
       "summary": "Examples for xcsh_site.",
       "tasks": ["configuration"],
       "title": "Examples",
       "upstream_identity": {
-        "release_tag": "v9.0.2",
+        "release_tag": "v10.0.0",
         "schema_components": [],
-        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
+        "target_commit": "ac024ccbfb8b9f84412813f3e2ab9f5821937ef2"
       }
     },
     {
@@ -2842,14 +2842,14 @@
       "schema_path": ["data-source"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/site/examples/data-source/index.txt",
-      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
+      "spec_pin_digest": "sha256:0e278b4afb598ac8628ac74dca6a1b2831cd8607de1d26f56e72e3461a7440c7",
       "summary": "Data source for xcsh_site.",
       "tasks": ["configuration"],
       "title": "Data source",
       "upstream_identity": {
-        "release_tag": "v9.0.2",
+        "release_tag": "v10.0.0",
         "schema_components": [],
-        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
+        "target_commit": "ac024ccbfb8b9f84412813f3e2ab9f5821937ef2"
       }
     }
   ],

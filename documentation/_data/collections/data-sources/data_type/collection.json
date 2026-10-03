@@ -194,21 +194,21 @@
       "schema_path": [],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/data_type/index.txt",
-      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
+      "spec_pin_digest": "sha256:0e278b4afb598ac8628ac74dca6a1b2831cd8607de1d26f56e72e3461a7440c7",
       "summary": "Manages data_type creates a new object in the storage backend for metadata.namespace in F5 Distributed Cloud.",
       "tasks": ["configuration"],
       "title": "xcsh_data_type",
       "unresolved_relationships": [],
       "upstream_identity": {
-        "release_tag": "v9.0.2",
+        "release_tag": "v10.0.0",
         "schema_components": ["data_typeCreateRequest"],
-        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
+        "target_commit": "ac024ccbfb8b9f84412813f3e2ab9f5821937ef2"
       }
     },
     {
       "aliases": ["data type"],
-      "body_bytes": 15734,
-      "body_sha256": "sha256:5682a2e1975bd3ef2567bd65ccda55ddfccf5024b25172265dced88f2703f3ef",
+      "body_bytes": 16300,
+      "body_sha256": "sha256:fd7784aee1e83481f035872a0cf570b8702b3194f70014fd598741c69c53e691",
       "capabilities": [],
       "category": null,
       "child_ids": ["xcsh-docs:data-sources:data_type:properties:rules"],
@@ -376,14 +376,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/data_type/properties/index.txt",
-      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
+      "spec_pin_digest": "sha256:0e278b4afb598ac8628ac74dca6a1b2831cd8607de1d26f56e72e3461a7440c7",
       "summary": "Property reference for xcsh_data_type.",
       "tasks": ["configuration"],
       "title": "Property reference",
       "upstream_identity": {
-        "release_tag": "v9.0.2",
+        "release_tag": "v10.0.0",
         "schema_components": ["data_typeCreateRequest"],
-        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
+        "target_commit": "ac024ccbfb8b9f84412813f3e2ab9f5821937ef2"
       }
     },
     {
@@ -463,14 +463,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/data_type/properties/rules/index.txt",
-      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
+      "spec_pin_digest": "sha256:0e278b4afb598ac8628ac74dca6a1b2831cd8607de1d26f56e72e3461a7440c7",
       "summary": "Configure key/value or regex match rules to enable the platform to detect this custom data type in the API request or response.",
       "tasks": ["configuration"],
       "title": "rules",
       "upstream_identity": {
-        "release_tag": "v9.0.2",
+        "release_tag": "v10.0.0",
         "schema_components": ["data_typeCreateRequest"],
-        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
+        "target_commit": "ac024ccbfb8b9f84412813f3e2ab9f5821937ef2"
       }
     },
     {
@@ -546,14 +546,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/data_type/properties/rules/key_pattern/index.txt",
-      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
+      "spec_pin_digest": "sha256:0e278b4afb598ac8628ac74dca6a1b2831cd8607de1d26f56e72e3461a7440c7",
       "summary": "Test",
       "tasks": ["configuration"],
       "title": "rules.key_pattern",
       "upstream_identity": {
-        "release_tag": "v9.0.2",
+        "release_tag": "v10.0.0",
         "schema_components": ["data_typeCreateRequest"],
-        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
+        "target_commit": "ac024ccbfb8b9f84412813f3e2ab9f5821937ef2"
       }
     },
     {
@@ -601,14 +601,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/data_type/properties/rules/key_pattern/exact_values/index.txt",
-      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
+      "spec_pin_digest": "sha256:0e278b4afb598ac8628ac74dca6a1b2831cd8607de1d26f56e72e3461a7440c7",
       "summary": "List of exact values to match.",
       "tasks": ["configuration"],
       "title": "rules.key_pattern.exact_values",
       "upstream_identity": {
-        "release_tag": "v9.0.2",
+        "release_tag": "v10.0.0",
         "schema_components": ["data_typeCreateRequest"],
-        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
+        "target_commit": "ac024ccbfb8b9f84412813f3e2ab9f5821937ef2"
       }
     },
     {
@@ -673,14 +673,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/data_type/properties/rules/key_value_pattern/index.txt",
-      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
+      "spec_pin_digest": "sha256:0e278b4afb598ac8628ac74dca6a1b2831cd8607de1d26f56e72e3461a7440c7",
       "summary": "Search for specific key & value patterns in the specified sections.",
       "tasks": ["configuration"],
       "title": "rules.key_value_pattern",
       "upstream_identity": {
-        "release_tag": "v9.0.2",
+        "release_tag": "v10.0.0",
         "schema_components": ["data_typeCreateRequest"],
-        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
+        "target_commit": "ac024ccbfb8b9f84412813f3e2ab9f5821937ef2"
       }
     },
     {
@@ -756,14 +756,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/data_type/properties/rules/key_value_pattern/key_pattern/index.txt",
-      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
+      "spec_pin_digest": "sha256:0e278b4afb598ac8628ac74dca6a1b2831cd8607de1d26f56e72e3461a7440c7",
       "summary": "Test",
       "tasks": ["configuration"],
       "title": "rules.key_value_pattern.key_pattern",
       "upstream_identity": {
-        "release_tag": "v9.0.2",
+        "release_tag": "v10.0.0",
         "schema_components": ["data_typeCreateRequest"],
-        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
+        "target_commit": "ac024ccbfb8b9f84412813f3e2ab9f5821937ef2"
       }
     },
     {
@@ -811,14 +811,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/data_type/properties/rules/key_value_pattern/key_pattern/exact_values/index.txt",
-      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
+      "spec_pin_digest": "sha256:0e278b4afb598ac8628ac74dca6a1b2831cd8607de1d26f56e72e3461a7440c7",
       "summary": "List of exact values to match.",
       "tasks": ["configuration"],
       "title": "rules.key_value_pattern.key_pattern.exact_values",
       "upstream_identity": {
-        "release_tag": "v9.0.2",
+        "release_tag": "v10.0.0",
         "schema_components": ["data_typeCreateRequest"],
-        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
+        "target_commit": "ac024ccbfb8b9f84412813f3e2ab9f5821937ef2"
       }
     },
     {
@@ -894,14 +894,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/data_type/properties/rules/key_value_pattern/value_pattern/index.txt",
-      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
+      "spec_pin_digest": "sha256:0e278b4afb598ac8628ac74dca6a1b2831cd8607de1d26f56e72e3461a7440c7",
       "summary": "Test",
       "tasks": ["configuration"],
       "title": "rules.key_value_pattern.value_pattern",
       "upstream_identity": {
-        "release_tag": "v9.0.2",
+        "release_tag": "v10.0.0",
         "schema_components": ["data_typeCreateRequest"],
-        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
+        "target_commit": "ac024ccbfb8b9f84412813f3e2ab9f5821937ef2"
       }
     },
     {
@@ -949,14 +949,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/data_type/properties/rules/key_value_pattern/value_pattern/exact_values/index.txt",
-      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
+      "spec_pin_digest": "sha256:0e278b4afb598ac8628ac74dca6a1b2831cd8607de1d26f56e72e3461a7440c7",
       "summary": "List of exact values to match.",
       "tasks": ["configuration"],
       "title": "rules.key_value_pattern.value_pattern.exact_values",
       "upstream_identity": {
-        "release_tag": "v9.0.2",
+        "release_tag": "v10.0.0",
         "schema_components": ["data_typeCreateRequest"],
-        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
+        "target_commit": "ac024ccbfb8b9f84412813f3e2ab9f5821937ef2"
       }
     },
     {
@@ -1032,14 +1032,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/data_type/properties/rules/value_pattern/index.txt",
-      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
+      "spec_pin_digest": "sha256:0e278b4afb598ac8628ac74dca6a1b2831cd8607de1d26f56e72e3461a7440c7",
       "summary": "Test",
       "tasks": ["configuration"],
       "title": "rules.value_pattern",
       "upstream_identity": {
-        "release_tag": "v9.0.2",
+        "release_tag": "v10.0.0",
         "schema_components": ["data_typeCreateRequest"],
-        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
+        "target_commit": "ac024ccbfb8b9f84412813f3e2ab9f5821937ef2"
       }
     },
     {
@@ -1087,14 +1087,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/data_type/properties/rules/value_pattern/exact_values/index.txt",
-      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
+      "spec_pin_digest": "sha256:0e278b4afb598ac8628ac74dca6a1b2831cd8607de1d26f56e72e3461a7440c7",
       "summary": "List of exact values to match.",
       "tasks": ["configuration"],
       "title": "rules.value_pattern.exact_values",
       "upstream_identity": {
-        "release_tag": "v9.0.2",
+        "release_tag": "v10.0.0",
         "schema_components": ["data_typeCreateRequest"],
-        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
+        "target_commit": "ac024ccbfb8b9f84412813f3e2ab9f5821937ef2"
       }
     },
     {
@@ -1127,14 +1127,14 @@
       "schema_path": [],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/data_type/examples/index.txt",
-      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
+      "spec_pin_digest": "sha256:0e278b4afb598ac8628ac74dca6a1b2831cd8607de1d26f56e72e3461a7440c7",
       "summary": "Examples for xcsh_data_type.",
       "tasks": ["configuration"],
       "title": "Examples",
       "upstream_identity": {
-        "release_tag": "v9.0.2",
+        "release_tag": "v10.0.0",
         "schema_components": ["data_typeCreateRequest"],
-        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
+        "target_commit": "ac024ccbfb8b9f84412813f3e2ab9f5821937ef2"
       }
     },
     {
@@ -1174,14 +1174,14 @@
       "schema_path": ["data-source"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/data-sources/data_type/examples/data-source/index.txt",
-      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
+      "spec_pin_digest": "sha256:0e278b4afb598ac8628ac74dca6a1b2831cd8607de1d26f56e72e3461a7440c7",
       "summary": "Data source for xcsh_data_type.",
       "tasks": ["configuration"],
       "title": "Data source",
       "upstream_identity": {
-        "release_tag": "v9.0.2",
+        "release_tag": "v10.0.0",
         "schema_components": ["data_typeCreateRequest"],
-        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
+        "target_commit": "ac024ccbfb8b9f84412813f3e2ab9f5821937ef2"
       }
     }
   ],

@@ -6,6 +6,805 @@ description: "Complete grouped canonical reference for xcsh_securemesh_site_v2 r
 
 # xcsh_securemesh_site_v2 reference
 
+<a id="canonical-1323033031133112-2031000003333201-0112333203122211-1002000233021010-3023031113013033-0010112223300331-1301213033233131-3333321110031320"></a>
+
+## openshift_virtualization — openshift_virtualization / 021002222210 / 2
+
+Breadcrumbs:
+
+- [xcsh_securemesh_site_v2](../resources/securemesh_site_v2.md#canonical-3000200222223112-2121123210332232-3331131023113311-0101321102313201-1230101233301033-1102230312220221-1020100000200232-0100112322233120)
+- [Property reference](resources--securemesh_site_v2--reference--group-001.md#canonical-2301010111101201-2220210123001232-1330030231123103-3121113232112322-0131203200320021-3021122122123123-2102102121133210-3220303330323302)
+- openshift_virtualization
+
+<a id="canonical-3003123030210310-0301231331323231-0021331202123232-3303321030311102-3012130232302131-0202020101313000-2300110212321333-3123322121330230"></a>
+
+Type: `"object"`. single nested block, Optional.
+
+Configuration parameter for openshift virtualization.
+
+Upstream description:
+
+OpenShift Provider Type.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  },
+  "x-ves-oneof-field-orchestration_choice": "[\"not_managed\"]"
+}
+```
+
+Terraform syntax:
+
+```terraform
+openshift_virtualization {
+  # Configure direct properties listed below.
+}
+```
+
+<a id="canonical-2020201312311203-0133022313211111-1000212330222332-0201131223302113-0002123010030033-3001302003121300-1031210301233100-1312003113102312"></a>
+
+## Direct properties — openshift_virtualization / 021002222210 / 3
+
+- [not_managed](resources--securemesh_site_v2--reference--group-015.md#canonical-3312123010201223-0322231331231113-1001303330031101-0333001011110002-2013203012023212-3302312220022210-0233131332122310-2310031033301013): complete subsection reference.
+
+<a id="canonical-2111322322013300-1013101332122201-0123013100131102-1321322210011022-0100323113223033-1320322012103221-3311030112333012-1223320312213023"></a>
+
+## Next pages — openshift_virtualization / 021002222210 / 4
+
+- [openshift_virtualization.not_managed](resources--securemesh_site_v2--reference--group-015.md#canonical-3312123010201223-0322231331231113-1001303330031101-0333001011110002-2013203012023212-3302312220022210-0233131332122310-2310031033301013)
+- [Property reference](resources--securemesh_site_v2--reference--group-001.md#canonical-2301010111101201-2220210123001232-1330030231123103-3121113232112322-0131203200320021-3021122122123123-2102102121133210-3220303330323302)
+- [xcsh_securemesh_site_v2](../resources/securemesh_site_v2.md#canonical-3000200222223112-2121123210332232-3331131023113311-0101321102313201-1230101233301033-1102230312220221-1020100000200232-0100112322233120)
+
+<a id="canonical-3312123010201223-0322231331231113-1001303330031101-0333001011110002-2013203012023212-3302312220022210-0233131332122310-2310031033301013"></a>
+
+<!-- Exact provider and upstream contract identifiers. -->
+
+<!-- textlint-disable terminology -->
+
+<a id="canonical-1123111132301111-2121230102133212-0332232133211210-1333003111020133-2213200003231301-3310220333220332-0100011321103001-3232212321012111"></a>
+
+## openshift_virtualization.not_managed — not_managed / 322033333011 / 2
+
+Breadcrumbs:
+
+- [xcsh_securemesh_site_v2](../resources/securemesh_site_v2.md#canonical-3000200222223112-2121123210332232-3331131023113311-0101321102313201-1230101233301033-1102230312220221-1020100000200232-0100112322233120)
+- [Property reference](resources--securemesh_site_v2--reference--group-001.md#canonical-2301010111101201-2220210123001232-1330030231123103-3121113232112322-0131203200320021-3021122122123123-2102102121133210-3220303330323302)
+- [openshift_virtualization](resources--securemesh_site_v2--reference--group-014.md#canonical-0121302321233330-0012112200322203-1301113300000200-3112222001032003-2331112123023303-3200031230001123-2210131121011110-1303130031122213)
+- openshift_virtualization.not_managed
+
+<a id="canonical-1121312132013120-3113222101223331-3002202122110303-2211232102202131-0012003030001303-1102032220323023-0200332313201131-1322213033230103"></a>
+
+Type: `"object"`. single nested block, Optional.
+
+Section will show nodes associated with this site.
+
+Upstream description:
+
+This section will show nodes associated with this site. Note: For sites that are not orchestrated by
+F5XC, create nodes in the chosen provider. Once a node is created and registers with the site, it
+will be shown in this section.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  }
+}
+```
+
+Terraform syntax:
+
+```terraform
+not_managed {
+  # Configure direct properties listed below.
+}
+```
+
+<a id="canonical-2320103020230220-3232311301211000-1023013200321032-3323122021300320-0230233110012323-1223233123312212-3301122120010121-3023002131122103"></a>
+
+## Direct properties — not_managed / 322033333011 / 3
+
+- [node_list](resources--securemesh_site_v2--reference--group-015.md#canonical-0132300131131032-2021130132112331-0312003011233211-2101210212103030-1211222230002213-3032312132223331-0301102321220023-0333221223201213): complete subsection reference.
+
+<a id="canonical-0020223021011321-3103233000000332-1302323103213301-3113011000310013-2221131031033130-3133302332320320-3303300000112322-0120130033201012"></a>
+
+## Next pages — not_managed / 322033333011 / 4
+
+- [openshift_virtualization.not_managed.node_list](resources--securemesh_site_v2--reference--group-015.md#canonical-0132300131131032-2021130132112331-0312003011233211-2101210212103030-1211222230002213-3032312132223331-0301102321220023-0333221223201213)
+- [openshift_virtualization](resources--securemesh_site_v2--reference--group-014.md#canonical-0121302321233330-0012112200322203-1301113300000200-3112222001032003-2331112123023303-3200031230001123-2210131121011110-1303130031122213)
+- [xcsh_securemesh_site_v2](../resources/securemesh_site_v2.md#canonical-3000200222223112-2121123210332232-3331131023113311-0101321102313201-1230101233301033-1102230312220221-1020100000200232-0100112322233120)
+
+<a id="canonical-0132300131131032-2021130132112331-0312003011233211-2101210212103030-1211222230002213-3032312132223331-0301102321220023-0333221223201213"></a>
+
+<!-- Exact provider and upstream contract identifiers. -->
+
+<!-- textlint-disable terminology -->
+
+<a id="canonical-1032033101232011-0032001003033323-3112311100011310-2113330310122003-3112202330232313-0303012013323101-3213013220102311-1331311331110230"></a>
+
+## openshift_virtualization.not_managed.node_list — node_list / 212130302021 / 2
+
+Breadcrumbs:
+
+- [xcsh_securemesh_site_v2](../resources/securemesh_site_v2.md#canonical-3000200222223112-2121123210332232-3331131023113311-0101321102313201-1230101233301033-1102230312220221-1020100000200232-0100112322233120)
+- [Property reference](resources--securemesh_site_v2--reference--group-001.md#canonical-2301010111101201-2220210123001232-1330030231123103-3121113232112322-0131203200320021-3021122122123123-2102102121133210-3220303330323302)
+- [openshift_virtualization](resources--securemesh_site_v2--reference--group-014.md#canonical-0121302321233330-0012112200322203-1301113300000200-3112222001032003-2331112123023303-3200031230001123-2210131121011110-1303130031122213)
+- [openshift_virtualization.not_managed](resources--securemesh_site_v2--reference--group-015.md#canonical-3312123010201223-0322231331231113-1001303330031101-0333001011110002-2013203012023212-3302312220022210-0233131332122310-2310031033301013)
+- openshift_virtualization.not_managed.node_list
+
+<a id="canonical-3323103211230202-1203223332203131-0110121212010110-0230020122331221-3133312211301102-1011120121203103-3032230130222200-3332033113132300"></a>
+
+Type: `"object"`. list nested block, Optional.
+
+Section will show nodes associated with this site.
+
+Upstream description:
+
+This section will show nodes associated with this site. Note: For sites that are not orchestrated by
+F5XC, create nodes in the chosen provider. Once a node is created and registers with the site, it
+will be shown in this section.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "maxItems": 128,
+  "x-f5xc-constraints": {
+    "category": "discovery",
+    "constraintType": "array",
+    "deterministic": true,
+    "maxItems": 128,
+    "metadata": {
+      "confidence": 0.99,
+      "source": "discovery",
+      "validatedAt": "2026-10-03T05:10:26+00:00"
+    },
+    "uniqueItems": true
+  },
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  },
+  "x-validation-rules": {
+    "ves.io.schema.rules.repeated.max_items": "128",
+    "ves.io.schema.rules.repeated.unique": "true"
+  },
+  "x-ves-validation-rules": {
+    "ves.io.schema.rules.repeated.max_items": "128",
+    "ves.io.schema.rules.repeated.unique": "true"
+  }
+}
+```
+
+Terraform syntax:
+
+```terraform
+node_list {
+  # Configure direct properties listed below.
+}
+```
+
+<a id="canonical-0030220033122123-1000313223021332-1122130330103210-3203021013223102-3100000022031130-0301131020133111-3113303123200133-3232332330333130"></a>
+
+## Direct properties — node_list / 212130302021 / 3
+
+<a id="canonical-2103011133220100-0010331233012221-2333233221013220-2102110030031330-1230130322233322-2232211110221322-0320211131120120-3302330322122103"></a>
+
+<a id="canonical-2311313123033232-2223103100323032-2003003030123300-3233212203220201-1102330330200231-3121330231210030-2321200201302301-1100103310133300"></a>
+
+## hostname property — node_list / 212130302021 / 4
+
+Type: `"string"`. Optional.
+
+Hostname. Hostname for this Node.
+
+Upstream description:
+
+Hostname for this Node.
+
+Provider validators and defaults (from schema source):
+
+```go
+Validators: []validator.String{
+  stringvalidator.LengthBetween(1, 256),
+}
+```
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "maxLength": 256,
+  "x-f5xc-constraints": {
+    "category": "discovery",
+    "constraintType": "string",
+    "deterministic": true,
+    "format": "fqdn",
+    "maxLength": 256,
+    "metadata": {
+      "confidence": 0.99,
+      "source": "discovery",
+      "validatedAt": "2026-10-03T05:10:26+00:00"
+    },
+    "minLength": 1,
+    "pattern": "^([a-z0-9]([a-z0-9-]{0,61}[a-z0-9])?\\.)*[a-z0-9]([a-z0-9-]{0,61}[a-z0-9])?$",
+    "validation": {
+      "rfc": "RFC 1123"
+    }
+  },
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  },
+  "x-validation-rules": {
+    "ves.io.schema.rules.string.max_len": "256"
+  },
+  "x-ves-validation-rules": {
+    "ves.io.schema.rules.string.max_len": "256"
+  }
+}
+```
+
+- [interface_list](resources--securemesh_site_v2--reference--group-015.md#canonical-2310102100123101-1311022222003201-2300021203211133-0123212010313320-0200223222033202-2121330212012032-0013031012001213-2101320202001012): complete subsection reference.
+
+<a id="canonical-1122323122103313-1103220222201012-0320332131230112-2300230112030133-0213003200331003-3011003211200311-1020131113312101-3131112001311112"></a>
+
+<a id="canonical-1302130200310223-1213303112120131-3212300221002233-0203302321333021-0121030233131200-2320023233231122-0323202223223330-1321022323122020"></a>
+
+## public_ip property — node_list / 212130302021 / 5
+
+Type: `"string"`. Optional.
+
+Public IP. Public IP for this Node.
+
+Upstream description:
+
+Public IP for this Node.
+
+Provider validators and defaults (from schema source):
+
+```go
+Validators: []validator.String{
+  stringvalidator.LengthAtMost(256),
+}
+```
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "maxLength": 256,
+  "x-f5xc-constraints": {
+    "category": "discovery",
+    "constraintType": "string",
+    "deterministic": true,
+    "maxLength": 256,
+    "metadata": {
+      "confidence": 0.99,
+      "source": "discovery",
+      "validatedAt": "2026-10-03T05:10:26+00:00"
+    }
+  },
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  },
+  "x-validation-rules": {
+    "ves.io.schema.rules.string.max_len": "256"
+  },
+  "x-ves-validation-rules": {
+    "ves.io.schema.rules.string.max_len": "256"
+  }
+}
+```
+
+<a id="canonical-1022132103330223-0333033301223111-0330001000203012-0321222331211311-1331213330132200-3331102032032230-1320123221213232-0130332032112012"></a>
+
+<a id="canonical-2331002212113103-0120123001322013-2003100332221323-0232000220133220-0112323303330211-1330002312113221-2331001122231331-0130032310333232"></a>
+
+## type property — node_list / 212130302021 / 6
+
+Type: `"string"`. Optional.
+
+\[Enum: Control|Worker\] Type for this Node, can be Control or Worker. Possible values are
+\`Control\`, \`Worker\`.
+
+Upstream description:
+
+Type for this Node, can be Control or Worker.
+
+Provider validators and defaults (from schema source):
+
+```go
+Validators: []validator.String{
+  stringvalidator.OneOf("Control",
+    "Worker"),
+}
+```
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "enum": [
+    "Control",
+    "Worker"
+  ],
+  "x-f5xc-constraints": {
+    "category": "general",
+    "constraintType": "string",
+    "maxLength": 1024,
+    "metadata": {
+      "confidence": 0.85,
+      "source": "inferred",
+      "validatedAt": "2026-10-03T05:10:26+00:00"
+    }
+  },
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  },
+  "x-validation-rules": {
+    "ves.io.schema.rules.string.in": "[\\\"Control\\\",\\\"Worker\\\"]"
+  },
+  "x-ves-validation-rules": {
+    "ves.io.schema.rules.string.in": "[\\\"Control\\\",\\\"Worker\\\"]"
+  }
+}
+```
+
+<a id="canonical-3121201323033221-3133202313332000-1312202031320022-2311322232131123-2001112103231213-3112030213220202-3001011100230213-0100131232300232"></a>
+
+## Next pages — node_list / 212130302021 / 7
+
+- [openshift_virtualization.not_managed.node_list.interface_list](resources--securemesh_site_v2--reference--group-015.md#canonical-2310102100123101-1311022222003201-2300021203211133-0123212010313320-0200223222033202-2121330212012032-0013031012001213-2101320202001012)
+- [openshift_virtualization.not_managed](resources--securemesh_site_v2--reference--group-015.md#canonical-3312123010201223-0322231331231113-1001303330031101-0333001011110002-2013203012023212-3302312220022210-0233131332122310-2310031033301013)
+- [xcsh_securemesh_site_v2](../resources/securemesh_site_v2.md#canonical-3000200222223112-2121123210332232-3331131023113311-0101321102313201-1230101233301033-1102230312220221-1020100000200232-0100112322233120)
+
+<a id="canonical-2310102100123101-1311022222003201-2300021203211133-0123212010313320-0200223222033202-2121330212012032-0013031012001213-2101320202001012"></a>
+
+<!-- Exact provider and upstream contract identifiers. -->
+
+<!-- textlint-disable terminology -->
+
+<a id="canonical-3032222202132200-0321202213100332-3000201313113211-2332300121213023-0003310130030021-0313133301330033-1201303103031322-3111130111110131"></a>
+
+## openshift_virtualization.not_managed.node_list.interface_list — interface_list / 031210011032 / 2
+
+Breadcrumbs:
+
+- [xcsh_securemesh_site_v2](../resources/securemesh_site_v2.md#canonical-3000200222223112-2121123210332232-3331131023113311-0101321102313201-1230101233301033-1102230312220221-1020100000200232-0100112322233120)
+- [Property reference](resources--securemesh_site_v2--reference--group-001.md#canonical-2301010111101201-2220210123001232-1330030231123103-3121113232112322-0131203200320021-3021122122123123-2102102121133210-3220303330323302)
+- [openshift_virtualization](resources--securemesh_site_v2--reference--group-014.md#canonical-0121302321233330-0012112200322203-1301113300000200-3112222001032003-2331112123023303-3200031230001123-2210131121011110-1303130031122213)
+- [openshift_virtualization.not_managed](resources--securemesh_site_v2--reference--group-015.md#canonical-3312123010201223-0322231331231113-1001303330031101-0333001011110002-2013203012023212-3302312220022210-0233131332122310-2310031033301013)
+- [openshift_virtualization.not_managed.node_list](resources--securemesh_site_v2--reference--group-015.md#canonical-0132300131131032-2021130132112331-0312003011233211-2101210212103030-1211222230002213-3032312132223331-0301102321220023-0333221223201213)
+- openshift_virtualization.not_managed.node_list.interface_list
+
+<a id="canonical-0133110031123132-0212113111332303-3320112132233213-3030032132313101-0213102111111313-2320120200032021-1032300103230212-3303133030232300"></a>
+
+Type: `"object"`. list nested block, Optional.
+
+Manage interfaces belonging to this node.
+
+Provider validators and defaults (from schema source):
+
+```go
+Validators: []validator.List{validators.ConflictingListObjectAttributes("bond_interface",
+    "ethernet_interface"),
+  validators.ConflictingListObjectAttributes("bond_interface",
+    "vlan_interface"),
+  validators.ConflictingListObjectAttributes("dhcp_client",
+    "dhcp_server"),
+  validators.ConflictingListObjectAttributes("dhcp_client",
+    "no_ipv4_address"),
+  validators.ConflictingListObjectAttributes("dhcp_client",
+    "static_ip"),
+  validators.ConflictingListObjectAttributes("dhcp_server",
+    "no_ipv4_address"),
+  validators.ConflictingListObjectAttributes("dhcp_server",
+    "static_ip"),
+  validators.ConflictingListObjectAttributes("ethernet_interface",
+    "vlan_interface"),
+  validators.ConflictingListObjectAttributes("ipv6_auto_config",
+    "no_ipv6_address"),
+  validators.ConflictingListObjectAttributes("ipv6_auto_config",
+    "static_ipv6_address"),
+  validators.ConflictingListObjectAttributes("monitor",
+    "monitor_disabled"),
+  validators.ConflictingListObjectAttributes("no_ipv4_address",
+    "static_ip"),
+  validators.ConflictingListObjectAttributes("no_ipv6_address",
+    "static_ipv6_address"),
+  validators.ConflictingListObjectAttributes("site_to_site_connectivity_interface_disabled",
+    "site_to_site_connectivity_interface_enabled")}
+```
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "maxItems": 128,
+  "x-f5xc-constraints": {
+    "category": "discovery",
+    "constraintType": "array",
+    "deterministic": true,
+    "maxItems": 128,
+    "metadata": {
+      "confidence": 0.99,
+      "source": "discovery",
+      "validatedAt": "2026-10-03T05:10:26+00:00"
+    },
+    "uniqueItems": true
+  },
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  },
+  "x-validation-rules": {
+    "ves.io.schema.rules.repeated.max_items": "128",
+    "ves.io.schema.rules.repeated.unique": "true"
+  },
+  "x-ves-validation-rules": {
+    "ves.io.schema.rules.repeated.max_items": "128",
+    "ves.io.schema.rules.repeated.unique": "true"
+  }
+}
+```
+
+Terraform syntax:
+
+```terraform
+interface_list {
+  # Configure direct properties listed below.
+}
+```
+
+<a id="canonical-3111030200210103-2233033331103000-3010233111203223-3011213231230311-3111332201122111-3131233211031231-0311232030001111-2101331130232022"></a>
+
+## Direct properties — interface_list / 031210011032 / 3
+
+- [bond_interface](resources--securemesh_site_v2--reference--group-015.md#canonical-1000202111323010-0123302031331221-2033012212102233-1100122013000231-1012020033020123-2123302312000032-0021030203022220-3031222111302322): complete subsection reference.
+
+<a id="canonical-0312133301131232-3312302233001110-2113110100133021-2330202232213312-3321003230003103-1113023221011310-1121312332300133-0200331133120230"></a>
+
+<a id="canonical-2003121231102131-1312312121333103-1102300303121102-1101002200310210-3313100132310111-3223111220120010-0213121111222101-3132202113220032"></a>
+
+## description_spec property — interface_list / 031210011032 / 4
+
+Type: `"string"`. Optional.
+
+Interface Description. Description for this Interface.
+
+Provider validators and defaults (from schema source):
+
+```go
+Validators: []validator.String{
+  stringvalidator.LengthAtMost(256),
+}
+```
+
+- [dhcp_client](resources--securemesh_site_v2--reference--group-015.md#canonical-3120030010211121-3020323231113103-2102330210201023-0020121233001020-3123302220131333-0031310222210310-2222121123112312-3023231322012233): complete subsection reference.
+
+- [dhcp_server](resources--securemesh_site_v2--reference--group-015.md#canonical-3200300233110011-0000303003113101-3010131112010221-3101033013112120-3102203120012200-0032323121322130-3222211331331202-1030121203113333): complete subsection reference.
+
+- [ethernet_interface](resources--securemesh_site_v2--reference--group-015.md#canonical-3211030230302131-3130002303002032-2001210201122113-0231133232100330-0113210301133023-2310223332332022-1330130120201221-2303012321020312): complete subsection reference.
+
+- [ipv6_auto_config](resources--securemesh_site_v2--reference--group-015.md#canonical-1021303021330233-1310222233202012-0303020131021233-0113101333102111-2330200333113230-3322201022220300-3110322330010312-2323232002023200): complete subsection reference.
+
+<a id="canonical-1333100131021021-3122011310000102-2331213120322001-3030111101231112-1033300010220110-0130203100002201-2233300000230011-0012202123201013"></a>
+
+<a id="canonical-0322102101202123-3110032221010130-0122322311031202-1021302023303212-3113221230031003-2232010032321011-0030320313213230-1113122223000322"></a>
+
+## is_management property — interface_list / 031210011032 / 5
+
+Type: `"bool"`. Computed.
+
+Configuration for is\_management.
+
+<a id="canonical-2331223002322300-3213310331210003-2213100322300112-3320021020020211-3130020023313233-3332023203230131-1220121201003211-2023021310212333"></a>
+
+<a id="canonical-3210131233032323-3202112122032312-0021032333330333-1121112101132201-1313230331200233-0312123311313313-0002302301303023-0112323222321003"></a>
+
+## is_primary property — interface_list / 031210011032 / 6
+
+Type: `"bool"`. Computed.
+
+Configuration for is\_primary.
+
+<a id="canonical-2230323123311012-1012110222111132-0220010203122131-0203302202012020-1230212310203131-2223313231131202-0020222022323010-3103102122112320"></a>
+
+<a id="canonical-1212332031202201-0302323301103101-1233120202030212-2000201120202220-1110022130320032-3301011102300321-3232110113112330-1132220303331213"></a>
+
+## labels property — interface_list / 031210011032 / 7
+
+Type: `["map", "string"]`. Optional.
+
+Add Labels for this Interface, these labels can be used in firewall policy.
+
+Provider validators and defaults (from schema source):
+
+```go
+Validators: []validator.Map{validators.MapConstraintsValidator("{\"cardinality\":{\"maxProperties\":16},\"category\":\"discovery\",\"constraintType\":\"map\",\"deterministic\":true,\"keys\":{\"maxLength\":64,\"minLength\":1,\"type\":\"string\"},\"originalRules\":{\"ves.io.schema.rules.map.keys.string.max_len\":\"64\",\"ves.io.schema.rules.map.keys.string.min_len\":\"1\",\"ves.io.schema.rules.map.max_pairs\":\"16\",\"ves.io.schema.rules.map.values.string.max_len\":\"64\",\"ves.io.schema.rules.map.values.string.min_len\":\"1\"},\"values\":{\"maxLength\":64,\"minLength\":1,\"type\":\"string\"}}")}
+```
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-constraints": {
+    "cardinality": {
+      "maxProperties": 16
+    },
+    "category": "discovery",
+    "constraintType": "map",
+    "deterministic": true,
+    "keys": {
+      "maxLength": 64,
+      "minLength": 1,
+      "type": "string"
+    },
+    "originalRules": {
+      "ves.io.schema.rules.map.keys.string.max_len": "64",
+      "ves.io.schema.rules.map.keys.string.min_len": "1",
+      "ves.io.schema.rules.map.max_pairs": "16",
+      "ves.io.schema.rules.map.values.string.max_len": "64",
+      "ves.io.schema.rules.map.values.string.min_len": "1"
+    },
+    "values": {
+      "maxLength": 64,
+      "minLength": 1,
+      "type": "string"
+    }
+  },
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  },
+  "x-validation-rules": {
+    "ves.io.schema.rules.map.keys.string.max_len": "64",
+    "ves.io.schema.rules.map.keys.string.min_len": "1",
+    "ves.io.schema.rules.map.max_pairs": "16",
+    "ves.io.schema.rules.map.values.string.max_len": "64",
+    "ves.io.schema.rules.map.values.string.min_len": "1"
+  },
+  "x-ves-validation-rules": {
+    "ves.io.schema.rules.map.keys.string.max_len": "64",
+    "ves.io.schema.rules.map.keys.string.min_len": "1",
+    "ves.io.schema.rules.map.max_pairs": "16",
+    "ves.io.schema.rules.map.values.string.max_len": "64",
+    "ves.io.schema.rules.map.values.string.min_len": "1"
+  }
+}
+```
+
+- [monitor](resources--securemesh_site_v2--reference--group-015.md#canonical-1213022213322102-3303133001122212-1230310310003310-3120313120012322-1033111331100220-3021211102013112-0233331131030233-1333203312131030): complete subsection reference.
+
+- [monitor_disabled](resources--securemesh_site_v2--reference--group-015.md#canonical-3323211302312000-3232023112321122-3023321012011011-1110301230322200-2331101002310313-0300011001120332-2221211310033210-0131321302233012): complete subsection reference.
+
+<a id="canonical-3230303021101323-3201302220211110-2321132003100202-1133003223001330-2312231131111030-3032233303232111-3113302010121300-2201300131212322"></a>
+
+<a id="canonical-0320202000233202-1200200131212232-0323212300303311-0201211010033130-2012302122011331-3001332310011302-1222201220220111-3321023330102122"></a>
+
+## mtu property — interface_list / 031210011032 / 8
+
+Type: `"number"`. Optional.
+
+Maximum packet size (Maximum Transfer Unit) of the interface When configured, MTU must be between
+512 and 8000.
+
+Upstream description:
+
+Maximum packet size (Maximum Transfer Unit) of the interface When configured, MTU must be between
+512 and 8000.
+
+Provider validators and defaults (from schema source):
+
+```go
+Validators: []validator.Int64{
+  validators.Int64RangeSetValidator(
+    validators.Int64Range{Minimum: 0, Maximum: 0},
+    validators.Int64Range{Minimum: 512, Maximum: 8000},
+  ),
+}
+```
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-constraints": {
+    "category": "discovery",
+    "constraintType": "number",
+    "deterministic": true,
+    "maximum": 8000,
+    "metadata": {
+      "confidence": 0.99,
+      "source": "api-probed",
+      "validatedAt": "2026-10-03T05:10:26+00:00"
+    }
+  },
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  },
+  "x-validation-rules": {
+    "ves.io.schema.rules.uint32.ranges": "0,512-8000"
+  },
+  "x-ves-validation-rules": {
+    "ves.io.schema.rules.uint32.ranges": "0,512-8000"
+  }
+}
+```
+
+<a id="canonical-0211033211121133-2312110313311223-3331232021333300-1212010223230322-1132311133123323-1103232303211003-1200010113331203-2002130111302133"></a>
+
+<a id="canonical-0000310011030003-1022000312120032-1103132121030030-1021110031121023-1020312313222023-2300010022112211-2201231303103112-3332233101013133"></a>
+
+## name property — interface_list / 031210011032 / 9
+
+Type: `"string"`. Optional.
+
+Interface Name. Name of this Interface.
+
+Upstream description:
+
+Name of this Interface.
+
+Provider validators and defaults (from schema source):
+
+```go
+Validators: []validator.String{
+  stringvalidator.LengthBetween(1, 256),
+}
+```
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "maxLength": 256,
+  "x-f5xc-constraints": {
+    "category": "discovery",
+    "characterSet": {
+      "allowed": "[a-z0-9-]",
+      "description": "Lowercase letter start, alphanumeric with hyphens, alphanumeric end",
+      "required": "[a-z0-9]",
+      "restricted": "[^a-z0-9-]"
+    },
+    "constraintType": "string",
+    "deterministic": true,
+    "format": "dns-label",
+    "formatDescription": "DNS-1035 label: must start with a lowercase letter, may contain lowercase alphanumeric and hyphens, must end with alphanumeric",
+    "maxLength": 256,
+    "metadata": {
+      "confidence": 0.99,
+      "source": "discovery",
+      "validatedAt": "2026-10-03T05:10:26+00:00"
+    },
+    "minLength": 1,
+    "pattern": "^[a-z]([-a-z0-9]*[a-z0-9])?$",
+    "validation": {
+      "rfc": "RFC 1035",
+      "standard": "DNS-1035 label (alpha-first)"
+    }
+  },
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  },
+  "x-validation-rules": {
+    "ves.io.schema.rules.string.max_len": "256"
+  },
+  "x-ves-validation-rules": {
+    "ves.io.schema.rules.string.max_len": "256"
+  }
+}
+```
+
+- [network_option](resources--securemesh_site_v2--reference--group-015.md#canonical-0001231101221021-0233231122130012-2122031032023322-1210233023122311-1001201103030032-0323123012023203-3032321332110103-3020123301321211): complete subsection reference.
+
+- [no_ipv4_address](resources--securemesh_site_v2--reference--group-015.md#canonical-1011011213323210-3122010003102300-0330331301102032-3333301223303111-1201212112100210-3332111231323310-3202020132312321-3022102002123201): complete subsection reference.
+
+- [no_ipv6_address](resources--securemesh_site_v2--reference--group-015.md#canonical-3000222332330022-2133212331113332-3312321101221300-3212001103011211-3331313203222203-3013001232002331-3301220303332120-3023210001123102): complete subsection reference.
+
+<a id="canonical-2103023311312232-1321312103233020-3133230202101012-3330130323233030-2312113133300311-3220331133231122-1200123000200200-0300001220332200"></a>
+
+<a id="canonical-1130211131132231-1102331022112231-0232333102331001-3203330200131021-1023230330320223-2232323000332011-0233203000121313-0223300013312001"></a>
+
+## priority property — interface_list / 031210011032 / 10
+
+Type: `"number"`. Optional.
+
+For a node, if multiple interfaces are configured in a VRF, interfaces with highest priority will be
+used as active and interfaces with lower priority will be used as backup. If multiple interfaces
+have the same priority, ECMP will be used. Greater the value, higher the priority.
+
+Upstream description:
+
+For a node, if multiple interfaces are configured in a VRF, interfaces with highest priority will be
+used as active and interfaces with lower priority will be used as backup. If multiple interfaces
+have the same priority, ECMP will be used. Greater the value, higher the priority.
+
+Provider validators and defaults (from schema source):
+
+```go
+Validators: []validator.Int64{
+  int64validator.Between(0, 255),
+}
+```
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-constraints": {
+    "category": "discovery",
+    "constraintType": "number",
+    "deterministic": true,
+    "maximum": 255,
+    "metadata": {
+      "confidence": 0.99,
+      "source": "api-probed",
+      "validatedAt": "2026-10-03T05:10:26+00:00"
+    },
+    "minimum": 0,
+    "multipleOf": 1
+  },
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  },
+  "x-validation-rules": {
+    "ves.io.schema.rules.uint32.gte": "0",
+    "ves.io.schema.rules.uint32.lte": "255"
+  },
+  "x-ves-validation-rules": {
+    "ves.io.schema.rules.uint32.gte": "0",
+    "ves.io.schema.rules.uint32.lte": "255"
+  }
+}
+```
+
+- [site_to_site_connectivity_interface_disabled](resources--securemesh_site_v2--reference--group-015.md#canonical-1021203102231201-0231333013111010-1313030332200030-3022331203000230-3220220010313110-2231223230203220-1123111001231323-1033123310230230): complete subsection reference.
+
+- [site_to_site_connectivity_interface_enabled](resources--securemesh_site_v2--reference--group-016.md#canonical-0330203123013021-2220332110311313-1132132123211300-3302302130110331-2120002110212333-0101220202112101-0333103021012030-3022221021223113): complete subsection reference.
+
+- [static_ip](resources--securemesh_site_v2--reference--group-016.md#canonical-2011222002031302-3200302122333032-3123332200133332-1213200011123210-2110002011322231-3321210212222320-3231013110330213-3131112113021112): complete subsection reference.
+
+- [static_ipv6_address](resources--securemesh_site_v2--reference--group-016.md#canonical-0121232330223030-1033213222121310-1330203213131333-0330121003032131-2102322013231232-3002323223301322-1012012001213201-3010033021333203): complete subsection reference.
+
+- [vlan_interface](resources--securemesh_site_v2--reference--group-016.md#canonical-0030030233110130-3213101333223331-3101211022101203-1022313322122110-2223021203331030-2030210001231300-2333232113003101-1103112122103212): complete subsection reference.
+
 <a id="canonical-3312320313312031-2013133112222213-2121303313313133-2202320112230232-0321020330012322-0330301003221311-2332011202332331-0103002121030121"></a>
 
 ## Next pages — interface_list / 031210011032 / 11
@@ -21,11 +820,11 @@ description: "Complete grouped canonical reference for xcsh_securemesh_site_v2 r
 - [openshift_virtualization.not_managed.node_list.interface_list.no_ipv4_address](resources--securemesh_site_v2--reference--group-015.md#canonical-1011011213323210-3122010003102300-0330331301102032-3333301223303111-1201212112100210-3332111231323310-3202020132312321-3022102002123201)
 - [openshift_virtualization.not_managed.node_list.interface_list.no_ipv6_address](resources--securemesh_site_v2--reference--group-015.md#canonical-3000222332330022-2133212331113332-3312321101221300-3212001103011211-3331313203222203-3013001232002331-3301220303332120-3023210001123102)
 - [openshift_virtualization.not_managed.node_list.interface_list.site_to_site_connectivity_interface_disabled](resources--securemesh_site_v2--reference--group-015.md#canonical-1021203102231201-0231333013111010-1313030332200030-3022331203000230-3220220010313110-2231223230203220-1123111001231323-1033123310230230)
-- [openshift_virtualization.not_managed.node_list.interface_list.site_to_site_connectivity_interface_enabled](resources--securemesh_site_v2--reference--group-015.md#canonical-0330203123013021-2220332110311313-1132132123211300-3302302130110331-2120002110212333-0101220202112101-0333103021012030-3022221021223113)
-- [openshift_virtualization.not_managed.node_list.interface_list.static_ip](resources--securemesh_site_v2--reference--group-015.md#canonical-2011222002031302-3200302122333032-3123332200133332-1213200011123210-2110002011322231-3321210212222320-3231013110330213-3131112113021112)
-- [openshift_virtualization.not_managed.node_list.interface_list.static_ipv6_address](resources--securemesh_site_v2--reference--group-015.md#canonical-0121232330223030-1033213222121310-1330203213131333-0330121003032131-2102322013231232-3002323223301322-1012012001213201-3010033021333203)
-- [openshift_virtualization.not_managed.node_list.interface_list.vlan_interface](resources--securemesh_site_v2--reference--group-015.md#canonical-0030030233110130-3213101333223331-3101211022101203-1022313322122110-2223021203331030-2030210001231300-2333232113003101-1103112122103212)
-- [openshift_virtualization.not_managed.node_list](resources--securemesh_site_v2--reference--group-014.md#canonical-0132300131131032-2021130132112331-0312003011233211-2101210212103030-1211222230002213-3032312132223331-0301102321220023-0333221223201213)
+- [openshift_virtualization.not_managed.node_list.interface_list.site_to_site_connectivity_interface_enabled](resources--securemesh_site_v2--reference--group-016.md#canonical-0330203123013021-2220332110311313-1132132123211300-3302302130110331-2120002110212333-0101220202112101-0333103021012030-3022221021223113)
+- [openshift_virtualization.not_managed.node_list.interface_list.static_ip](resources--securemesh_site_v2--reference--group-016.md#canonical-2011222002031302-3200302122333032-3123332200133332-1213200011123210-2110002011322231-3321210212222320-3231013110330213-3131112113021112)
+- [openshift_virtualization.not_managed.node_list.interface_list.static_ipv6_address](resources--securemesh_site_v2--reference--group-016.md#canonical-0121232330223030-1033213222121310-1330203213131333-0330121003032131-2102322013231232-3002323223301322-1012012001213201-3010033021333203)
+- [openshift_virtualization.not_managed.node_list.interface_list.vlan_interface](resources--securemesh_site_v2--reference--group-016.md#canonical-0030030233110130-3213101333223331-3101211022101203-1022313322122110-2223021203331030-2030210001231300-2333232113003101-1103112122103212)
+- [openshift_virtualization.not_managed.node_list](resources--securemesh_site_v2--reference--group-015.md#canonical-0132300131131032-2021130132112331-0312003011233211-2101210212103030-1211222230002213-3032312132223331-0301102321220023-0333221223201213)
 - [xcsh_securemesh_site_v2](../resources/securemesh_site_v2.md#canonical-3000200222223112-2121123210332232-3331131023113311-0101321102313201-1230101233301033-1102230312220221-1020100000200232-0100112322233120)
 
 <a id="canonical-1000202111323010-0123302031331221-2033012212102233-1100122013000231-1012020033020123-2123302312000032-0021030203022220-3031222111302322"></a>
@@ -43,9 +842,9 @@ Breadcrumbs:
 - [xcsh_securemesh_site_v2](../resources/securemesh_site_v2.md#canonical-3000200222223112-2121123210332232-3331131023113311-0101321102313201-1230101233301033-1102230312220221-1020100000200232-0100112322233120)
 - [Property reference](resources--securemesh_site_v2--reference--group-001.md#canonical-2301010111101201-2220210123001232-1330030231123103-3121113232112322-0131203200320021-3021122122123123-2102102121133210-3220303330323302)
 - [openshift_virtualization](resources--securemesh_site_v2--reference--group-014.md#canonical-0121302321233330-0012112200322203-1301113300000200-3112222001032003-2331112123023303-3200031230001123-2210131121011110-1303130031122213)
-- [openshift_virtualization.not_managed](resources--securemesh_site_v2--reference--group-014.md#canonical-3312123010201223-0322231331231113-1001303330031101-0333001011110002-2013203012023212-3302312220022210-0233131332122310-2310031033301013)
-- [openshift_virtualization.not_managed.node_list](resources--securemesh_site_v2--reference--group-014.md#canonical-0132300131131032-2021130132112331-0312003011233211-2101210212103030-1211222230002213-3032312132223331-0301102321220023-0333221223201213)
-- [openshift_virtualization.not_managed.node_list.interface_list](resources--securemesh_site_v2--reference--group-014.md#canonical-2310102100123101-1311022222003201-2300021203211133-0123212010313320-0200223222033202-2121330212012032-0013031012001213-2101320202001012)
+- [openshift_virtualization.not_managed](resources--securemesh_site_v2--reference--group-015.md#canonical-3312123010201223-0322231331231113-1001303330031101-0333001011110002-2013203012023212-3302312220022210-0233131332122310-2310031033301013)
+- [openshift_virtualization.not_managed.node_list](resources--securemesh_site_v2--reference--group-015.md#canonical-0132300131131032-2021130132112331-0312003011233211-2101210212103030-1211222230002213-3032312132223331-0301102321220023-0333221223201213)
+- [openshift_virtualization.not_managed.node_list.interface_list](resources--securemesh_site_v2--reference--group-015.md#canonical-2310102100123101-1311022222003201-2300021203211133-0123212010313320-0200223222033202-2121330212012032-0013031012001213-2101320202001012)
 - openshift_virtualization.not_managed.node_list.interface_list.bond_interface
 
 <a id="canonical-2122012313313212-0103233320222101-0020011223010311-3011111132002330-2021033111301113-2203210210013133-1133232213131103-1103123103310120"></a>
@@ -344,7 +1143,7 @@ Receipt-pinned upstream constraints:
 
 - [openshift_virtualization.not_managed.node_list.interface_list.bond_interface.active_backup](resources--securemesh_site_v2--reference--group-015.md#canonical-2033310201130303-2332210213321010-1000222221121002-1200130210032320-2312232023311131-0221303022331110-3310230003202133-0303301213112131)
 - [openshift_virtualization.not_managed.node_list.interface_list.bond_interface.lacp](resources--securemesh_site_v2--reference--group-015.md#canonical-3210132312220113-0202310201202011-2301210123103023-0133323331330202-2210201022023300-3103313033312102-1000021131102300-3122313302223021)
-- [openshift_virtualization.not_managed.node_list.interface_list](resources--securemesh_site_v2--reference--group-014.md#canonical-2310102100123101-1311022222003201-2300021203211133-0123212010313320-0200223222033202-2121330212012032-0013031012001213-2101320202001012)
+- [openshift_virtualization.not_managed.node_list.interface_list](resources--securemesh_site_v2--reference--group-015.md#canonical-2310102100123101-1311022222003201-2300021203211133-0123212010313320-0200223222033202-2121330212012032-0013031012001213-2101320202001012)
 - [xcsh_securemesh_site_v2](../resources/securemesh_site_v2.md#canonical-3000200222223112-2121123210332232-3331131023113311-0101321102313201-1230101233301033-1102230312220221-1020100000200232-0100112322233120)
 
 <a id="canonical-2033310201130303-2332210213321010-1000222221121002-1200130210032320-2312232023311131-0221303022331110-3310230003202133-0303301213112131"></a>
@@ -362,9 +1161,9 @@ Breadcrumbs:
 - [xcsh_securemesh_site_v2](../resources/securemesh_site_v2.md#canonical-3000200222223112-2121123210332232-3331131023113311-0101321102313201-1230101233301033-1102230312220221-1020100000200232-0100112322233120)
 - [Property reference](resources--securemesh_site_v2--reference--group-001.md#canonical-2301010111101201-2220210123001232-1330030231123103-3121113232112322-0131203200320021-3021122122123123-2102102121133210-3220303330323302)
 - [openshift_virtualization](resources--securemesh_site_v2--reference--group-014.md#canonical-0121302321233330-0012112200322203-1301113300000200-3112222001032003-2331112123023303-3200031230001123-2210131121011110-1303130031122213)
-- [openshift_virtualization.not_managed](resources--securemesh_site_v2--reference--group-014.md#canonical-3312123010201223-0322231331231113-1001303330031101-0333001011110002-2013203012023212-3302312220022210-0233131332122310-2310031033301013)
-- [openshift_virtualization.not_managed.node_list](resources--securemesh_site_v2--reference--group-014.md#canonical-0132300131131032-2021130132112331-0312003011233211-2101210212103030-1211222230002213-3032312132223331-0301102321220023-0333221223201213)
-- [openshift_virtualization.not_managed.node_list.interface_list](resources--securemesh_site_v2--reference--group-014.md#canonical-2310102100123101-1311022222003201-2300021203211133-0123212010313320-0200223222033202-2121330212012032-0013031012001213-2101320202001012)
+- [openshift_virtualization.not_managed](resources--securemesh_site_v2--reference--group-015.md#canonical-3312123010201223-0322231331231113-1001303330031101-0333001011110002-2013203012023212-3302312220022210-0233131332122310-2310031033301013)
+- [openshift_virtualization.not_managed.node_list](resources--securemesh_site_v2--reference--group-015.md#canonical-0132300131131032-2021130132112331-0312003011233211-2101210212103030-1211222230002213-3032312132223331-0301102321220023-0333221223201213)
+- [openshift_virtualization.not_managed.node_list.interface_list](resources--securemesh_site_v2--reference--group-015.md#canonical-2310102100123101-1311022222003201-2300021203211133-0123212010313320-0200223222033202-2121330212012032-0013031012001213-2101320202001012)
 - [openshift_virtualization.not_managed.node_list.interface_list.bond_interface](resources--securemesh_site_v2--reference--group-015.md#canonical-1000202111323010-0123302031331221-2033012212102233-1100122013000231-1012020033020123-2123302312000032-0021030203022220-3031222111302322)
 - openshift_virtualization.not_managed.node_list.interface_list.bond_interface.active_backup
 
@@ -425,9 +1224,9 @@ Breadcrumbs:
 - [xcsh_securemesh_site_v2](../resources/securemesh_site_v2.md#canonical-3000200222223112-2121123210332232-3331131023113311-0101321102313201-1230101233301033-1102230312220221-1020100000200232-0100112322233120)
 - [Property reference](resources--securemesh_site_v2--reference--group-001.md#canonical-2301010111101201-2220210123001232-1330030231123103-3121113232112322-0131203200320021-3021122122123123-2102102121133210-3220303330323302)
 - [openshift_virtualization](resources--securemesh_site_v2--reference--group-014.md#canonical-0121302321233330-0012112200322203-1301113300000200-3112222001032003-2331112123023303-3200031230001123-2210131121011110-1303130031122213)
-- [openshift_virtualization.not_managed](resources--securemesh_site_v2--reference--group-014.md#canonical-3312123010201223-0322231331231113-1001303330031101-0333001011110002-2013203012023212-3302312220022210-0233131332122310-2310031033301013)
-- [openshift_virtualization.not_managed.node_list](resources--securemesh_site_v2--reference--group-014.md#canonical-0132300131131032-2021130132112331-0312003011233211-2101210212103030-1211222230002213-3032312132223331-0301102321220023-0333221223201213)
-- [openshift_virtualization.not_managed.node_list.interface_list](resources--securemesh_site_v2--reference--group-014.md#canonical-2310102100123101-1311022222003201-2300021203211133-0123212010313320-0200223222033202-2121330212012032-0013031012001213-2101320202001012)
+- [openshift_virtualization.not_managed](resources--securemesh_site_v2--reference--group-015.md#canonical-3312123010201223-0322231331231113-1001303330031101-0333001011110002-2013203012023212-3302312220022210-0233131332122310-2310031033301013)
+- [openshift_virtualization.not_managed.node_list](resources--securemesh_site_v2--reference--group-015.md#canonical-0132300131131032-2021130132112331-0312003011233211-2101210212103030-1211222230002213-3032312132223331-0301102321220023-0333221223201213)
+- [openshift_virtualization.not_managed.node_list.interface_list](resources--securemesh_site_v2--reference--group-015.md#canonical-2310102100123101-1311022222003201-2300021203211133-0123212010313320-0200223222033202-2121330212012032-0013031012001213-2101320202001012)
 - [openshift_virtualization.not_managed.node_list.interface_list.bond_interface](resources--securemesh_site_v2--reference--group-015.md#canonical-1000202111323010-0123302031331221-2033012212102233-1100122013000231-1012020033020123-2123302312000032-0021030203022220-3031222111302322)
 - openshift_virtualization.not_managed.node_list.interface_list.bond_interface.lacp
 
@@ -545,9 +1344,9 @@ Breadcrumbs:
 - [xcsh_securemesh_site_v2](../resources/securemesh_site_v2.md#canonical-3000200222223112-2121123210332232-3331131023113311-0101321102313201-1230101233301033-1102230312220221-1020100000200232-0100112322233120)
 - [Property reference](resources--securemesh_site_v2--reference--group-001.md#canonical-2301010111101201-2220210123001232-1330030231123103-3121113232112322-0131203200320021-3021122122123123-2102102121133210-3220303330323302)
 - [openshift_virtualization](resources--securemesh_site_v2--reference--group-014.md#canonical-0121302321233330-0012112200322203-1301113300000200-3112222001032003-2331112123023303-3200031230001123-2210131121011110-1303130031122213)
-- [openshift_virtualization.not_managed](resources--securemesh_site_v2--reference--group-014.md#canonical-3312123010201223-0322231331231113-1001303330031101-0333001011110002-2013203012023212-3302312220022210-0233131332122310-2310031033301013)
-- [openshift_virtualization.not_managed.node_list](resources--securemesh_site_v2--reference--group-014.md#canonical-0132300131131032-2021130132112331-0312003011233211-2101210212103030-1211222230002213-3032312132223331-0301102321220023-0333221223201213)
-- [openshift_virtualization.not_managed.node_list.interface_list](resources--securemesh_site_v2--reference--group-014.md#canonical-2310102100123101-1311022222003201-2300021203211133-0123212010313320-0200223222033202-2121330212012032-0013031012001213-2101320202001012)
+- [openshift_virtualization.not_managed](resources--securemesh_site_v2--reference--group-015.md#canonical-3312123010201223-0322231331231113-1001303330031101-0333001011110002-2013203012023212-3302312220022210-0233131332122310-2310031033301013)
+- [openshift_virtualization.not_managed.node_list](resources--securemesh_site_v2--reference--group-015.md#canonical-0132300131131032-2021130132112331-0312003011233211-2101210212103030-1211222230002213-3032312132223331-0301102321220023-0333221223201213)
+- [openshift_virtualization.not_managed.node_list.interface_list](resources--securemesh_site_v2--reference--group-015.md#canonical-2310102100123101-1311022222003201-2300021203211133-0123212010313320-0200223222033202-2121330212012032-0013031012001213-2101320202001012)
 - openshift_virtualization.not_managed.node_list.interface_list.dhcp_client
 
 <a id="canonical-0222212231303101-0121300112310310-3203033003230011-3300310123230113-0100332223103301-3132031300203300-2002220133233133-2202311303202232"></a>
@@ -589,7 +1388,7 @@ This is an empty object or choice marker. It has no direct properties.
 
 ## Next pages — dhcp_client / 033021201320 / 4
 
-- [openshift_virtualization.not_managed.node_list.interface_list](resources--securemesh_site_v2--reference--group-014.md#canonical-2310102100123101-1311022222003201-2300021203211133-0123212010313320-0200223222033202-2121330212012032-0013031012001213-2101320202001012)
+- [openshift_virtualization.not_managed.node_list.interface_list](resources--securemesh_site_v2--reference--group-015.md#canonical-2310102100123101-1311022222003201-2300021203211133-0123212010313320-0200223222033202-2121330212012032-0013031012001213-2101320202001012)
 - [xcsh_securemesh_site_v2](../resources/securemesh_site_v2.md#canonical-3000200222223112-2121123210332232-3331131023113311-0101321102313201-1230101233301033-1102230312220221-1020100000200232-0100112322233120)
 
 <a id="canonical-3200300233110011-0000303003113101-3010131112010221-3101033013112120-3102203120012200-0032323121322130-3222211331331202-1030121203113333"></a>
@@ -607,9 +1406,9 @@ Breadcrumbs:
 - [xcsh_securemesh_site_v2](../resources/securemesh_site_v2.md#canonical-3000200222223112-2121123210332232-3331131023113311-0101321102313201-1230101233301033-1102230312220221-1020100000200232-0100112322233120)
 - [Property reference](resources--securemesh_site_v2--reference--group-001.md#canonical-2301010111101201-2220210123001232-1330030231123103-3121113232112322-0131203200320021-3021122122123123-2102102121133210-3220303330323302)
 - [openshift_virtualization](resources--securemesh_site_v2--reference--group-014.md#canonical-0121302321233330-0012112200322203-1301113300000200-3112222001032003-2331112123023303-3200031230001123-2210131121011110-1303130031122213)
-- [openshift_virtualization.not_managed](resources--securemesh_site_v2--reference--group-014.md#canonical-3312123010201223-0322231331231113-1001303330031101-0333001011110002-2013203012023212-3302312220022210-0233131332122310-2310031033301013)
-- [openshift_virtualization.not_managed.node_list](resources--securemesh_site_v2--reference--group-014.md#canonical-0132300131131032-2021130132112331-0312003011233211-2101210212103030-1211222230002213-3032312132223331-0301102321220023-0333221223201213)
-- [openshift_virtualization.not_managed.node_list.interface_list](resources--securemesh_site_v2--reference--group-014.md#canonical-2310102100123101-1311022222003201-2300021203211133-0123212010313320-0200223222033202-2121330212012032-0013031012001213-2101320202001012)
+- [openshift_virtualization.not_managed](resources--securemesh_site_v2--reference--group-015.md#canonical-3312123010201223-0322231331231113-1001303330031101-0333001011110002-2013203012023212-3302312220022210-0233131332122310-2310031033301013)
+- [openshift_virtualization.not_managed.node_list](resources--securemesh_site_v2--reference--group-015.md#canonical-0132300131131032-2021130132112331-0312003011233211-2101210212103030-1211222230002213-3032312132223331-0301102321220023-0333221223201213)
+- [openshift_virtualization.not_managed.node_list.interface_list](resources--securemesh_site_v2--reference--group-015.md#canonical-2310102100123101-1311022222003201-2300021203211133-0123212010313320-0200223222033202-2121330212012032-0013031012001213-2101320202001012)
 - openshift_virtualization.not_managed.node_list.interface_list.dhcp_server
 
 <a id="canonical-2000220210211231-3120302311332311-3000213233332031-2132303320130123-3132321212032202-0203231230020123-2111220220002321-0210100112331210"></a>
@@ -680,18 +1479,39 @@ Type: `["map", "string"]`. Optional.
 
 Assign fixed IPv4 addresses based on the MAC Address of the DHCP Client.
 
+Provider validators and defaults (from schema source):
+
+```go
+Validators: []validator.Map{validators.MapConstraintsValidator("{\"cardinality\":{\"maxProperties\":128},\"category\":\"discovery\",\"constraintType\":\"map\",\"crossEntry\":{\"uniqueValues\":true},\"deterministic\":true,\"keys\":{\"format\":\"mac-address\",\"type\":\"string\"},\"originalRules\":{\"ves.io.schema.rules.map.keys.string.mac\":\"true\",\"ves.io.schema.rules.map.max_pairs\":\"128\",\"ves.io.schema.rules.map.unique_values\":\"true\",\"ves.io.schema.rules.map.values.string.ipv4\":\"true\"},\"values\":{\"format\":\"ipv4\",\"type\":\"string\"}}")}
+```
+
 Receipt-pinned upstream constraints:
 
 ```json
 {
   "x-f5xc-constraints": {
-    "category": "general",
-    "constraintType": "object",
-    "maxProperties": 128,
-    "metadata": {
-      "confidence": 0.75,
-      "source": "inferred",
-      "validatedAt": "2026-10-03T05:10:26+00:00"
+    "cardinality": {
+      "maxProperties": 128
+    },
+    "category": "discovery",
+    "constraintType": "map",
+    "crossEntry": {
+      "uniqueValues": true
+    },
+    "deterministic": true,
+    "keys": {
+      "format": "mac-address",
+      "type": "string"
+    },
+    "originalRules": {
+      "ves.io.schema.rules.map.keys.string.mac": "true",
+      "ves.io.schema.rules.map.max_pairs": "128",
+      "ves.io.schema.rules.map.unique_values": "true",
+      "ves.io.schema.rules.map.values.string.ipv4": "true"
+    },
+    "values": {
+      "format": "ipv4",
+      "type": "string"
     }
   },
   "x-f5xc-required-for": {
@@ -725,7 +1545,7 @@ Receipt-pinned upstream constraints:
 - [openshift_virtualization.not_managed.node_list.interface_list.dhcp_server.automatic_from_start](resources--securemesh_site_v2--reference--group-015.md#canonical-2021221123033000-3232132230203103-1201011301313320-1003020232200313-0113210202113232-2110010001023313-1103110310122113-2320112301010032)
 - [openshift_virtualization.not_managed.node_list.interface_list.dhcp_server.dhcp_networks](resources--securemesh_site_v2--reference--group-015.md#canonical-0031222121131213-3231222020033331-2332223033221233-2112202330200101-1203230033330231-1001012031111331-3000323110213223-0322311002012133)
 - [openshift_virtualization.not_managed.node_list.interface_list.dhcp_server.interface_ip_map](resources--securemesh_site_v2--reference--group-015.md#canonical-2223230122102210-2333032312101132-2211310112202313-1203223211311122-0021030230323003-3332101001331233-2020320223212330-3103111020323011)
-- [openshift_virtualization.not_managed.node_list.interface_list](resources--securemesh_site_v2--reference--group-014.md#canonical-2310102100123101-1311022222003201-2300021203211133-0123212010313320-0200223222033202-2121330212012032-0013031012001213-2101320202001012)
+- [openshift_virtualization.not_managed.node_list.interface_list](resources--securemesh_site_v2--reference--group-015.md#canonical-2310102100123101-1311022222003201-2300021203211133-0123212010313320-0200223222033202-2121330212012032-0013031012001213-2101320202001012)
 - [xcsh_securemesh_site_v2](../resources/securemesh_site_v2.md#canonical-3000200222223112-2121123210332232-3331131023113311-0101321102313201-1230101233301033-1102230312220221-1020100000200232-0100112322233120)
 
 <a id="canonical-0323210112011302-3333133111330013-1311303320022201-1011322122200100-0021221110131111-3112111200203023-1103202220220033-0220310012233213"></a>
@@ -743,9 +1563,9 @@ Breadcrumbs:
 - [xcsh_securemesh_site_v2](../resources/securemesh_site_v2.md#canonical-3000200222223112-2121123210332232-3331131023113311-0101321102313201-1230101233301033-1102230312220221-1020100000200232-0100112322233120)
 - [Property reference](resources--securemesh_site_v2--reference--group-001.md#canonical-2301010111101201-2220210123001232-1330030231123103-3121113232112322-0131203200320021-3021122122123123-2102102121133210-3220303330323302)
 - [openshift_virtualization](resources--securemesh_site_v2--reference--group-014.md#canonical-0121302321233330-0012112200322203-1301113300000200-3112222001032003-2331112123023303-3200031230001123-2210131121011110-1303130031122213)
-- [openshift_virtualization.not_managed](resources--securemesh_site_v2--reference--group-014.md#canonical-3312123010201223-0322231331231113-1001303330031101-0333001011110002-2013203012023212-3302312220022210-0233131332122310-2310031033301013)
-- [openshift_virtualization.not_managed.node_list](resources--securemesh_site_v2--reference--group-014.md#canonical-0132300131131032-2021130132112331-0312003011233211-2101210212103030-1211222230002213-3032312132223331-0301102321220023-0333221223201213)
-- [openshift_virtualization.not_managed.node_list.interface_list](resources--securemesh_site_v2--reference--group-014.md#canonical-2310102100123101-1311022222003201-2300021203211133-0123212010313320-0200223222033202-2121330212012032-0013031012001213-2101320202001012)
+- [openshift_virtualization.not_managed](resources--securemesh_site_v2--reference--group-015.md#canonical-3312123010201223-0322231331231113-1001303330031101-0333001011110002-2013203012023212-3302312220022210-0233131332122310-2310031033301013)
+- [openshift_virtualization.not_managed.node_list](resources--securemesh_site_v2--reference--group-015.md#canonical-0132300131131032-2021130132112331-0312003011233211-2101210212103030-1211222230002213-3032312132223331-0301102321220023-0333221223201213)
+- [openshift_virtualization.not_managed.node_list.interface_list](resources--securemesh_site_v2--reference--group-015.md#canonical-2310102100123101-1311022222003201-2300021203211133-0123212010313320-0200223222033202-2121330212012032-0013031012001213-2101320202001012)
 - [openshift_virtualization.not_managed.node_list.interface_list.dhcp_server](resources--securemesh_site_v2--reference--group-015.md#canonical-3200300233110011-0000303003113101-3010131112010221-3101033013112120-3102203120012200-0032323121322130-3222211331331202-1030121203113333)
 - openshift_virtualization.not_managed.node_list.interface_list.dhcp_server.automatic_from_end
 
@@ -806,9 +1626,9 @@ Breadcrumbs:
 - [xcsh_securemesh_site_v2](../resources/securemesh_site_v2.md#canonical-3000200222223112-2121123210332232-3331131023113311-0101321102313201-1230101233301033-1102230312220221-1020100000200232-0100112322233120)
 - [Property reference](resources--securemesh_site_v2--reference--group-001.md#canonical-2301010111101201-2220210123001232-1330030231123103-3121113232112322-0131203200320021-3021122122123123-2102102121133210-3220303330323302)
 - [openshift_virtualization](resources--securemesh_site_v2--reference--group-014.md#canonical-0121302321233330-0012112200322203-1301113300000200-3112222001032003-2331112123023303-3200031230001123-2210131121011110-1303130031122213)
-- [openshift_virtualization.not_managed](resources--securemesh_site_v2--reference--group-014.md#canonical-3312123010201223-0322231331231113-1001303330031101-0333001011110002-2013203012023212-3302312220022210-0233131332122310-2310031033301013)
-- [openshift_virtualization.not_managed.node_list](resources--securemesh_site_v2--reference--group-014.md#canonical-0132300131131032-2021130132112331-0312003011233211-2101210212103030-1211222230002213-3032312132223331-0301102321220023-0333221223201213)
-- [openshift_virtualization.not_managed.node_list.interface_list](resources--securemesh_site_v2--reference--group-014.md#canonical-2310102100123101-1311022222003201-2300021203211133-0123212010313320-0200223222033202-2121330212012032-0013031012001213-2101320202001012)
+- [openshift_virtualization.not_managed](resources--securemesh_site_v2--reference--group-015.md#canonical-3312123010201223-0322231331231113-1001303330031101-0333001011110002-2013203012023212-3302312220022210-0233131332122310-2310031033301013)
+- [openshift_virtualization.not_managed.node_list](resources--securemesh_site_v2--reference--group-015.md#canonical-0132300131131032-2021130132112331-0312003011233211-2101210212103030-1211222230002213-3032312132223331-0301102321220023-0333221223201213)
+- [openshift_virtualization.not_managed.node_list.interface_list](resources--securemesh_site_v2--reference--group-015.md#canonical-2310102100123101-1311022222003201-2300021203211133-0123212010313320-0200223222033202-2121330212012032-0013031012001213-2101320202001012)
 - [openshift_virtualization.not_managed.node_list.interface_list.dhcp_server](resources--securemesh_site_v2--reference--group-015.md#canonical-3200300233110011-0000303003113101-3010131112010221-3101033013112120-3102203120012200-0032323121322130-3222211331331202-1030121203113333)
 - openshift_virtualization.not_managed.node_list.interface_list.dhcp_server.automatic_from_start
 
@@ -869,9 +1689,9 @@ Breadcrumbs:
 - [xcsh_securemesh_site_v2](../resources/securemesh_site_v2.md#canonical-3000200222223112-2121123210332232-3331131023113311-0101321102313201-1230101233301033-1102230312220221-1020100000200232-0100112322233120)
 - [Property reference](resources--securemesh_site_v2--reference--group-001.md#canonical-2301010111101201-2220210123001232-1330030231123103-3121113232112322-0131203200320021-3021122122123123-2102102121133210-3220303330323302)
 - [openshift_virtualization](resources--securemesh_site_v2--reference--group-014.md#canonical-0121302321233330-0012112200322203-1301113300000200-3112222001032003-2331112123023303-3200031230001123-2210131121011110-1303130031122213)
-- [openshift_virtualization.not_managed](resources--securemesh_site_v2--reference--group-014.md#canonical-3312123010201223-0322231331231113-1001303330031101-0333001011110002-2013203012023212-3302312220022210-0233131332122310-2310031033301013)
-- [openshift_virtualization.not_managed.node_list](resources--securemesh_site_v2--reference--group-014.md#canonical-0132300131131032-2021130132112331-0312003011233211-2101210212103030-1211222230002213-3032312132223331-0301102321220023-0333221223201213)
-- [openshift_virtualization.not_managed.node_list.interface_list](resources--securemesh_site_v2--reference--group-014.md#canonical-2310102100123101-1311022222003201-2300021203211133-0123212010313320-0200223222033202-2121330212012032-0013031012001213-2101320202001012)
+- [openshift_virtualization.not_managed](resources--securemesh_site_v2--reference--group-015.md#canonical-3312123010201223-0322231331231113-1001303330031101-0333001011110002-2013203012023212-3302312220022210-0233131332122310-2310031033301013)
+- [openshift_virtualization.not_managed.node_list](resources--securemesh_site_v2--reference--group-015.md#canonical-0132300131131032-2021130132112331-0312003011233211-2101210212103030-1211222230002213-3032312132223331-0301102321220023-0333221223201213)
+- [openshift_virtualization.not_managed.node_list.interface_list](resources--securemesh_site_v2--reference--group-015.md#canonical-2310102100123101-1311022222003201-2300021203211133-0123212010313320-0200223222033202-2121330212012032-0013031012001213-2101320202001012)
 - [openshift_virtualization.not_managed.node_list.interface_list.dhcp_server](resources--securemesh_site_v2--reference--group-015.md#canonical-3200300233110011-0000303003113101-3010131112010221-3101033013112120-3102203120012200-0032323121322130-3222211331331202-1030121203113333)
 - openshift_virtualization.not_managed.node_list.interface_list.dhcp_server.dhcp_networks
 
@@ -1184,9 +2004,9 @@ Breadcrumbs:
 - [xcsh_securemesh_site_v2](../resources/securemesh_site_v2.md#canonical-3000200222223112-2121123210332232-3331131023113311-0101321102313201-1230101233301033-1102230312220221-1020100000200232-0100112322233120)
 - [Property reference](resources--securemesh_site_v2--reference--group-001.md#canonical-2301010111101201-2220210123001232-1330030231123103-3121113232112322-0131203200320021-3021122122123123-2102102121133210-3220303330323302)
 - [openshift_virtualization](resources--securemesh_site_v2--reference--group-014.md#canonical-0121302321233330-0012112200322203-1301113300000200-3112222001032003-2331112123023303-3200031230001123-2210131121011110-1303130031122213)
-- [openshift_virtualization.not_managed](resources--securemesh_site_v2--reference--group-014.md#canonical-3312123010201223-0322231331231113-1001303330031101-0333001011110002-2013203012023212-3302312220022210-0233131332122310-2310031033301013)
-- [openshift_virtualization.not_managed.node_list](resources--securemesh_site_v2--reference--group-014.md#canonical-0132300131131032-2021130132112331-0312003011233211-2101210212103030-1211222230002213-3032312132223331-0301102321220023-0333221223201213)
-- [openshift_virtualization.not_managed.node_list.interface_list](resources--securemesh_site_v2--reference--group-014.md#canonical-2310102100123101-1311022222003201-2300021203211133-0123212010313320-0200223222033202-2121330212012032-0013031012001213-2101320202001012)
+- [openshift_virtualization.not_managed](resources--securemesh_site_v2--reference--group-015.md#canonical-3312123010201223-0322231331231113-1001303330031101-0333001011110002-2013203012023212-3302312220022210-0233131332122310-2310031033301013)
+- [openshift_virtualization.not_managed.node_list](resources--securemesh_site_v2--reference--group-015.md#canonical-0132300131131032-2021130132112331-0312003011233211-2101210212103030-1211222230002213-3032312132223331-0301102321220023-0333221223201213)
+- [openshift_virtualization.not_managed.node_list.interface_list](resources--securemesh_site_v2--reference--group-015.md#canonical-2310102100123101-1311022222003201-2300021203211133-0123212010313320-0200223222033202-2121330212012032-0013031012001213-2101320202001012)
 - [openshift_virtualization.not_managed.node_list.interface_list.dhcp_server](resources--securemesh_site_v2--reference--group-015.md#canonical-3200300233110011-0000303003113101-3010131112010221-3101033013112120-3102203120012200-0032323121322130-3222211331331202-1030121203113333)
 - [openshift_virtualization.not_managed.node_list.interface_list.dhcp_server.dhcp_networks](resources--securemesh_site_v2--reference--group-015.md#canonical-0031222121131213-3231222020033331-2332223033221233-2112202330200101-1203230033330231-1001012031111331-3000323110213223-0322311002012133)
 - openshift_virtualization.not_managed.node_list.interface_list.dhcp_server.dhcp_networks.first_address
@@ -1248,9 +2068,9 @@ Breadcrumbs:
 - [xcsh_securemesh_site_v2](../resources/securemesh_site_v2.md#canonical-3000200222223112-2121123210332232-3331131023113311-0101321102313201-1230101233301033-1102230312220221-1020100000200232-0100112322233120)
 - [Property reference](resources--securemesh_site_v2--reference--group-001.md#canonical-2301010111101201-2220210123001232-1330030231123103-3121113232112322-0131203200320021-3021122122123123-2102102121133210-3220303330323302)
 - [openshift_virtualization](resources--securemesh_site_v2--reference--group-014.md#canonical-0121302321233330-0012112200322203-1301113300000200-3112222001032003-2331112123023303-3200031230001123-2210131121011110-1303130031122213)
-- [openshift_virtualization.not_managed](resources--securemesh_site_v2--reference--group-014.md#canonical-3312123010201223-0322231331231113-1001303330031101-0333001011110002-2013203012023212-3302312220022210-0233131332122310-2310031033301013)
-- [openshift_virtualization.not_managed.node_list](resources--securemesh_site_v2--reference--group-014.md#canonical-0132300131131032-2021130132112331-0312003011233211-2101210212103030-1211222230002213-3032312132223331-0301102321220023-0333221223201213)
-- [openshift_virtualization.not_managed.node_list.interface_list](resources--securemesh_site_v2--reference--group-014.md#canonical-2310102100123101-1311022222003201-2300021203211133-0123212010313320-0200223222033202-2121330212012032-0013031012001213-2101320202001012)
+- [openshift_virtualization.not_managed](resources--securemesh_site_v2--reference--group-015.md#canonical-3312123010201223-0322231331231113-1001303330031101-0333001011110002-2013203012023212-3302312220022210-0233131332122310-2310031033301013)
+- [openshift_virtualization.not_managed.node_list](resources--securemesh_site_v2--reference--group-015.md#canonical-0132300131131032-2021130132112331-0312003011233211-2101210212103030-1211222230002213-3032312132223331-0301102321220023-0333221223201213)
+- [openshift_virtualization.not_managed.node_list.interface_list](resources--securemesh_site_v2--reference--group-015.md#canonical-2310102100123101-1311022222003201-2300021203211133-0123212010313320-0200223222033202-2121330212012032-0013031012001213-2101320202001012)
 - [openshift_virtualization.not_managed.node_list.interface_list.dhcp_server](resources--securemesh_site_v2--reference--group-015.md#canonical-3200300233110011-0000303003113101-3010131112010221-3101033013112120-3102203120012200-0032323121322130-3222211331331202-1030121203113333)
 - [openshift_virtualization.not_managed.node_list.interface_list.dhcp_server.dhcp_networks](resources--securemesh_site_v2--reference--group-015.md#canonical-0031222121131213-3231222020033331-2332223033221233-2112202330200101-1203230033330231-1001012031111331-3000323110213223-0322311002012133)
 - openshift_virtualization.not_managed.node_list.interface_list.dhcp_server.dhcp_networks.last_address
@@ -1312,9 +2132,9 @@ Breadcrumbs:
 - [xcsh_securemesh_site_v2](../resources/securemesh_site_v2.md#canonical-3000200222223112-2121123210332232-3331131023113311-0101321102313201-1230101233301033-1102230312220221-1020100000200232-0100112322233120)
 - [Property reference](resources--securemesh_site_v2--reference--group-001.md#canonical-2301010111101201-2220210123001232-1330030231123103-3121113232112322-0131203200320021-3021122122123123-2102102121133210-3220303330323302)
 - [openshift_virtualization](resources--securemesh_site_v2--reference--group-014.md#canonical-0121302321233330-0012112200322203-1301113300000200-3112222001032003-2331112123023303-3200031230001123-2210131121011110-1303130031122213)
-- [openshift_virtualization.not_managed](resources--securemesh_site_v2--reference--group-014.md#canonical-3312123010201223-0322231331231113-1001303330031101-0333001011110002-2013203012023212-3302312220022210-0233131332122310-2310031033301013)
-- [openshift_virtualization.not_managed.node_list](resources--securemesh_site_v2--reference--group-014.md#canonical-0132300131131032-2021130132112331-0312003011233211-2101210212103030-1211222230002213-3032312132223331-0301102321220023-0333221223201213)
-- [openshift_virtualization.not_managed.node_list.interface_list](resources--securemesh_site_v2--reference--group-014.md#canonical-2310102100123101-1311022222003201-2300021203211133-0123212010313320-0200223222033202-2121330212012032-0013031012001213-2101320202001012)
+- [openshift_virtualization.not_managed](resources--securemesh_site_v2--reference--group-015.md#canonical-3312123010201223-0322231331231113-1001303330031101-0333001011110002-2013203012023212-3302312220022210-0233131332122310-2310031033301013)
+- [openshift_virtualization.not_managed.node_list](resources--securemesh_site_v2--reference--group-015.md#canonical-0132300131131032-2021130132112331-0312003011233211-2101210212103030-1211222230002213-3032312132223331-0301102321220023-0333221223201213)
+- [openshift_virtualization.not_managed.node_list.interface_list](resources--securemesh_site_v2--reference--group-015.md#canonical-2310102100123101-1311022222003201-2300021203211133-0123212010313320-0200223222033202-2121330212012032-0013031012001213-2101320202001012)
 - [openshift_virtualization.not_managed.node_list.interface_list.dhcp_server](resources--securemesh_site_v2--reference--group-015.md#canonical-3200300233110011-0000303003113101-3010131112010221-3101033013112120-3102203120012200-0032323121322130-3222211331331202-1030121203113333)
 - [openshift_virtualization.not_managed.node_list.interface_list.dhcp_server.dhcp_networks](resources--securemesh_site_v2--reference--group-015.md#canonical-0031222121131213-3231222020033331-2332223033221233-2112202330200101-1203230033330231-1001012031111331-3000323110213223-0322311002012133)
 - openshift_virtualization.not_managed.node_list.interface_list.dhcp_server.dhcp_networks.pools
@@ -1516,9 +2336,9 @@ Breadcrumbs:
 - [xcsh_securemesh_site_v2](../resources/securemesh_site_v2.md#canonical-3000200222223112-2121123210332232-3331131023113311-0101321102313201-1230101233301033-1102230312220221-1020100000200232-0100112322233120)
 - [Property reference](resources--securemesh_site_v2--reference--group-001.md#canonical-2301010111101201-2220210123001232-1330030231123103-3121113232112322-0131203200320021-3021122122123123-2102102121133210-3220303330323302)
 - [openshift_virtualization](resources--securemesh_site_v2--reference--group-014.md#canonical-0121302321233330-0012112200322203-1301113300000200-3112222001032003-2331112123023303-3200031230001123-2210131121011110-1303130031122213)
-- [openshift_virtualization.not_managed](resources--securemesh_site_v2--reference--group-014.md#canonical-3312123010201223-0322231331231113-1001303330031101-0333001011110002-2013203012023212-3302312220022210-0233131332122310-2310031033301013)
-- [openshift_virtualization.not_managed.node_list](resources--securemesh_site_v2--reference--group-014.md#canonical-0132300131131032-2021130132112331-0312003011233211-2101210212103030-1211222230002213-3032312132223331-0301102321220023-0333221223201213)
-- [openshift_virtualization.not_managed.node_list.interface_list](resources--securemesh_site_v2--reference--group-014.md#canonical-2310102100123101-1311022222003201-2300021203211133-0123212010313320-0200223222033202-2121330212012032-0013031012001213-2101320202001012)
+- [openshift_virtualization.not_managed](resources--securemesh_site_v2--reference--group-015.md#canonical-3312123010201223-0322231331231113-1001303330031101-0333001011110002-2013203012023212-3302312220022210-0233131332122310-2310031033301013)
+- [openshift_virtualization.not_managed.node_list](resources--securemesh_site_v2--reference--group-015.md#canonical-0132300131131032-2021130132112331-0312003011233211-2101210212103030-1211222230002213-3032312132223331-0301102321220023-0333221223201213)
+- [openshift_virtualization.not_managed.node_list.interface_list](resources--securemesh_site_v2--reference--group-015.md#canonical-2310102100123101-1311022222003201-2300021203211133-0123212010313320-0200223222033202-2121330212012032-0013031012001213-2101320202001012)
 - [openshift_virtualization.not_managed.node_list.interface_list.dhcp_server](resources--securemesh_site_v2--reference--group-015.md#canonical-3200300233110011-0000303003113101-3010131112010221-3101033013112120-3102203120012200-0032323121322130-3222211331331202-1030121203113333)
 - [openshift_virtualization.not_managed.node_list.interface_list.dhcp_server.dhcp_networks](resources--securemesh_site_v2--reference--group-015.md#canonical-0031222121131213-3231222020033331-2332223033221233-2112202330200101-1203230033330231-1001012031111331-3000323110213223-0322311002012133)
 - openshift_virtualization.not_managed.node_list.interface_list.dhcp_server.dhcp_networks.same_as_dgw
@@ -1580,9 +2400,9 @@ Breadcrumbs:
 - [xcsh_securemesh_site_v2](../resources/securemesh_site_v2.md#canonical-3000200222223112-2121123210332232-3331131023113311-0101321102313201-1230101233301033-1102230312220221-1020100000200232-0100112322233120)
 - [Property reference](resources--securemesh_site_v2--reference--group-001.md#canonical-2301010111101201-2220210123001232-1330030231123103-3121113232112322-0131203200320021-3021122122123123-2102102121133210-3220303330323302)
 - [openshift_virtualization](resources--securemesh_site_v2--reference--group-014.md#canonical-0121302321233330-0012112200322203-1301113300000200-3112222001032003-2331112123023303-3200031230001123-2210131121011110-1303130031122213)
-- [openshift_virtualization.not_managed](resources--securemesh_site_v2--reference--group-014.md#canonical-3312123010201223-0322231331231113-1001303330031101-0333001011110002-2013203012023212-3302312220022210-0233131332122310-2310031033301013)
-- [openshift_virtualization.not_managed.node_list](resources--securemesh_site_v2--reference--group-014.md#canonical-0132300131131032-2021130132112331-0312003011233211-2101210212103030-1211222230002213-3032312132223331-0301102321220023-0333221223201213)
-- [openshift_virtualization.not_managed.node_list.interface_list](resources--securemesh_site_v2--reference--group-014.md#canonical-2310102100123101-1311022222003201-2300021203211133-0123212010313320-0200223222033202-2121330212012032-0013031012001213-2101320202001012)
+- [openshift_virtualization.not_managed](resources--securemesh_site_v2--reference--group-015.md#canonical-3312123010201223-0322231331231113-1001303330031101-0333001011110002-2013203012023212-3302312220022210-0233131332122310-2310031033301013)
+- [openshift_virtualization.not_managed.node_list](resources--securemesh_site_v2--reference--group-015.md#canonical-0132300131131032-2021130132112331-0312003011233211-2101210212103030-1211222230002213-3032312132223331-0301102321220023-0333221223201213)
+- [openshift_virtualization.not_managed.node_list.interface_list](resources--securemesh_site_v2--reference--group-015.md#canonical-2310102100123101-1311022222003201-2300021203211133-0123212010313320-0200223222033202-2121330212012032-0013031012001213-2101320202001012)
 - [openshift_virtualization.not_managed.node_list.interface_list.dhcp_server](resources--securemesh_site_v2--reference--group-015.md#canonical-3200300233110011-0000303003113101-3010131112010221-3101033013112120-3102203120012200-0032323121322130-3222211331331202-1030121203113333)
 - openshift_virtualization.not_managed.node_list.interface_list.dhcp_server.interface_ip_map
 
@@ -1631,18 +2451,37 @@ Type: `["map", "string"]`. Optional.
 
 Specify static IPv4 addresses per site:node.
 
+Provider validators and defaults (from schema source):
+
+```go
+Validators: []validator.Map{validators.MapConstraintsValidator("{\"cardinality\":{\"maxProperties\":64},\"category\":\"discovery\",\"constraintType\":\"map\",\"deterministic\":true,\"keys\":{\"maxLength\":128,\"minLength\":1,\"type\":\"string\"},\"originalRules\":{\"ves.io.schema.rules.map.keys.string.max_len\":\"128\",\"ves.io.schema.rules.map.keys.string.min_len\":\"1\",\"ves.io.schema.rules.map.max_pairs\":\"64\",\"ves.io.schema.rules.map.values.string.ipv4\":\"true\"},\"values\":{\"format\":\"ipv4\",\"type\":\"string\"}}")}
+```
+
 Receipt-pinned upstream constraints:
 
 ```json
 {
   "x-f5xc-constraints": {
-    "category": "general",
-    "constraintType": "object",
-    "maxProperties": 64,
-    "metadata": {
-      "confidence": 0.75,
-      "source": "inferred",
-      "validatedAt": "2026-10-03T05:10:26+00:00"
+    "cardinality": {
+      "maxProperties": 64
+    },
+    "category": "discovery",
+    "constraintType": "map",
+    "deterministic": true,
+    "keys": {
+      "maxLength": 128,
+      "minLength": 1,
+      "type": "string"
+    },
+    "originalRules": {
+      "ves.io.schema.rules.map.keys.string.max_len": "128",
+      "ves.io.schema.rules.map.keys.string.min_len": "1",
+      "ves.io.schema.rules.map.max_pairs": "64",
+      "ves.io.schema.rules.map.values.string.ipv4": "true"
+    },
+    "values": {
+      "format": "ipv4",
+      "type": "string"
     }
   },
   "x-f5xc-required-for": {
@@ -1688,9 +2527,9 @@ Breadcrumbs:
 - [xcsh_securemesh_site_v2](../resources/securemesh_site_v2.md#canonical-3000200222223112-2121123210332232-3331131023113311-0101321102313201-1230101233301033-1102230312220221-1020100000200232-0100112322233120)
 - [Property reference](resources--securemesh_site_v2--reference--group-001.md#canonical-2301010111101201-2220210123001232-1330030231123103-3121113232112322-0131203200320021-3021122122123123-2102102121133210-3220303330323302)
 - [openshift_virtualization](resources--securemesh_site_v2--reference--group-014.md#canonical-0121302321233330-0012112200322203-1301113300000200-3112222001032003-2331112123023303-3200031230001123-2210131121011110-1303130031122213)
-- [openshift_virtualization.not_managed](resources--securemesh_site_v2--reference--group-014.md#canonical-3312123010201223-0322231331231113-1001303330031101-0333001011110002-2013203012023212-3302312220022210-0233131332122310-2310031033301013)
-- [openshift_virtualization.not_managed.node_list](resources--securemesh_site_v2--reference--group-014.md#canonical-0132300131131032-2021130132112331-0312003011233211-2101210212103030-1211222230002213-3032312132223331-0301102321220023-0333221223201213)
-- [openshift_virtualization.not_managed.node_list.interface_list](resources--securemesh_site_v2--reference--group-014.md#canonical-2310102100123101-1311022222003201-2300021203211133-0123212010313320-0200223222033202-2121330212012032-0013031012001213-2101320202001012)
+- [openshift_virtualization.not_managed](resources--securemesh_site_v2--reference--group-015.md#canonical-3312123010201223-0322231331231113-1001303330031101-0333001011110002-2013203012023212-3302312220022210-0233131332122310-2310031033301013)
+- [openshift_virtualization.not_managed.node_list](resources--securemesh_site_v2--reference--group-015.md#canonical-0132300131131032-2021130132112331-0312003011233211-2101210212103030-1211222230002213-3032312132223331-0301102321220023-0333221223201213)
+- [openshift_virtualization.not_managed.node_list.interface_list](resources--securemesh_site_v2--reference--group-015.md#canonical-2310102100123101-1311022222003201-2300021203211133-0123212010313320-0200223222033202-2121330212012032-0013031012001213-2101320202001012)
 - openshift_virtualization.not_managed.node_list.interface_list.ethernet_interface
 
 <a id="canonical-1110202022021132-2013321232002121-3233011101321102-3111101223332012-1220200112133220-2323203022223211-1000330010132010-0230232010233100"></a>
@@ -1847,7 +2686,7 @@ Receipt-pinned upstream constraints:
 
 ## Next pages — ethernet_interface / 220013201022 / 6
 
-- [openshift_virtualization.not_managed.node_list.interface_list](resources--securemesh_site_v2--reference--group-014.md#canonical-2310102100123101-1311022222003201-2300021203211133-0123212010313320-0200223222033202-2121330212012032-0013031012001213-2101320202001012)
+- [openshift_virtualization.not_managed.node_list.interface_list](resources--securemesh_site_v2--reference--group-015.md#canonical-2310102100123101-1311022222003201-2300021203211133-0123212010313320-0200223222033202-2121330212012032-0013031012001213-2101320202001012)
 - [xcsh_securemesh_site_v2](../resources/securemesh_site_v2.md#canonical-3000200222223112-2121123210332232-3331131023113311-0101321102313201-1230101233301033-1102230312220221-1020100000200232-0100112322233120)
 
 <a id="canonical-1021303021330233-1310222233202012-0303020131021233-0113101333102111-2330200333113230-3322201022220300-3110322330010312-2323232002023200"></a>
@@ -1865,9 +2704,9 @@ Breadcrumbs:
 - [xcsh_securemesh_site_v2](../resources/securemesh_site_v2.md#canonical-3000200222223112-2121123210332232-3331131023113311-0101321102313201-1230101233301033-1102230312220221-1020100000200232-0100112322233120)
 - [Property reference](resources--securemesh_site_v2--reference--group-001.md#canonical-2301010111101201-2220210123001232-1330030231123103-3121113232112322-0131203200320021-3021122122123123-2102102121133210-3220303330323302)
 - [openshift_virtualization](resources--securemesh_site_v2--reference--group-014.md#canonical-0121302321233330-0012112200322203-1301113300000200-3112222001032003-2331112123023303-3200031230001123-2210131121011110-1303130031122213)
-- [openshift_virtualization.not_managed](resources--securemesh_site_v2--reference--group-014.md#canonical-3312123010201223-0322231331231113-1001303330031101-0333001011110002-2013203012023212-3302312220022210-0233131332122310-2310031033301013)
-- [openshift_virtualization.not_managed.node_list](resources--securemesh_site_v2--reference--group-014.md#canonical-0132300131131032-2021130132112331-0312003011233211-2101210212103030-1211222230002213-3032312132223331-0301102321220023-0333221223201213)
-- [openshift_virtualization.not_managed.node_list.interface_list](resources--securemesh_site_v2--reference--group-014.md#canonical-2310102100123101-1311022222003201-2300021203211133-0123212010313320-0200223222033202-2121330212012032-0013031012001213-2101320202001012)
+- [openshift_virtualization.not_managed](resources--securemesh_site_v2--reference--group-015.md#canonical-3312123010201223-0322231331231113-1001303330031101-0333001011110002-2013203012023212-3302312220022210-0233131332122310-2310031033301013)
+- [openshift_virtualization.not_managed.node_list](resources--securemesh_site_v2--reference--group-015.md#canonical-0132300131131032-2021130132112331-0312003011233211-2101210212103030-1211222230002213-3032312132223331-0301102321220023-0333221223201213)
+- [openshift_virtualization.not_managed.node_list.interface_list](resources--securemesh_site_v2--reference--group-015.md#canonical-2310102100123101-1311022222003201-2300021203211133-0123212010313320-0200223222033202-2121330212012032-0013031012001213-2101320202001012)
 - openshift_virtualization.not_managed.node_list.interface_list.ipv6_auto_config
 
 <a id="canonical-1032311020103023-3133121330130220-0303323201212030-3231022323013321-1032201012231030-2112111201133101-2012122303123123-2102330000321231"></a>
@@ -1919,7 +2758,7 @@ ipv6_auto_config {
 
 - [openshift_virtualization.not_managed.node_list.interface_list.ipv6_auto_config.host](resources--securemesh_site_v2--reference--group-015.md#canonical-0100011021021321-2033021100023100-1232021332200320-2032012310211123-1213023333123121-2001032022231122-1212312230002132-0202210201203020)
 - [openshift_virtualization.not_managed.node_list.interface_list.ipv6_auto_config.router](resources--securemesh_site_v2--reference--group-015.md#canonical-2020211020001012-0101121103312233-0203333101133021-0001230033132022-3032213320133321-3112201020220120-3101033011111211-3202010120103010)
-- [openshift_virtualization.not_managed.node_list.interface_list](resources--securemesh_site_v2--reference--group-014.md#canonical-2310102100123101-1311022222003201-2300021203211133-0123212010313320-0200223222033202-2121330212012032-0013031012001213-2101320202001012)
+- [openshift_virtualization.not_managed.node_list.interface_list](resources--securemesh_site_v2--reference--group-015.md#canonical-2310102100123101-1311022222003201-2300021203211133-0123212010313320-0200223222033202-2121330212012032-0013031012001213-2101320202001012)
 - [xcsh_securemesh_site_v2](../resources/securemesh_site_v2.md#canonical-3000200222223112-2121123210332232-3331131023113311-0101321102313201-1230101233301033-1102230312220221-1020100000200232-0100112322233120)
 
 <a id="canonical-0100011021021321-2033021100023100-1232021332200320-2032012310211123-1213023333123121-2001032022231122-1212312230002132-0202210201203020"></a>
@@ -1937,9 +2776,9 @@ Breadcrumbs:
 - [xcsh_securemesh_site_v2](../resources/securemesh_site_v2.md#canonical-3000200222223112-2121123210332232-3331131023113311-0101321102313201-1230101233301033-1102230312220221-1020100000200232-0100112322233120)
 - [Property reference](resources--securemesh_site_v2--reference--group-001.md#canonical-2301010111101201-2220210123001232-1330030231123103-3121113232112322-0131203200320021-3021122122123123-2102102121133210-3220303330323302)
 - [openshift_virtualization](resources--securemesh_site_v2--reference--group-014.md#canonical-0121302321233330-0012112200322203-1301113300000200-3112222001032003-2331112123023303-3200031230001123-2210131121011110-1303130031122213)
-- [openshift_virtualization.not_managed](resources--securemesh_site_v2--reference--group-014.md#canonical-3312123010201223-0322231331231113-1001303330031101-0333001011110002-2013203012023212-3302312220022210-0233131332122310-2310031033301013)
-- [openshift_virtualization.not_managed.node_list](resources--securemesh_site_v2--reference--group-014.md#canonical-0132300131131032-2021130132112331-0312003011233211-2101210212103030-1211222230002213-3032312132223331-0301102321220023-0333221223201213)
-- [openshift_virtualization.not_managed.node_list.interface_list](resources--securemesh_site_v2--reference--group-014.md#canonical-2310102100123101-1311022222003201-2300021203211133-0123212010313320-0200223222033202-2121330212012032-0013031012001213-2101320202001012)
+- [openshift_virtualization.not_managed](resources--securemesh_site_v2--reference--group-015.md#canonical-3312123010201223-0322231331231113-1001303330031101-0333001011110002-2013203012023212-3302312220022210-0233131332122310-2310031033301013)
+- [openshift_virtualization.not_managed.node_list](resources--securemesh_site_v2--reference--group-015.md#canonical-0132300131131032-2021130132112331-0312003011233211-2101210212103030-1211222230002213-3032312132223331-0301102321220023-0333221223201213)
+- [openshift_virtualization.not_managed.node_list.interface_list](resources--securemesh_site_v2--reference--group-015.md#canonical-2310102100123101-1311022222003201-2300021203211133-0123212010313320-0200223222033202-2121330212012032-0013031012001213-2101320202001012)
 - [openshift_virtualization.not_managed.node_list.interface_list.ipv6_auto_config](resources--securemesh_site_v2--reference--group-015.md#canonical-1021303021330233-1310222233202012-0303020131021233-0113101333102111-2330200333113230-3322201022220300-3110322330010312-2323232002023200)
 - openshift_virtualization.not_managed.node_list.interface_list.ipv6_auto_config.host
 
@@ -2000,9 +2839,9 @@ Breadcrumbs:
 - [xcsh_securemesh_site_v2](../resources/securemesh_site_v2.md#canonical-3000200222223112-2121123210332232-3331131023113311-0101321102313201-1230101233301033-1102230312220221-1020100000200232-0100112322233120)
 - [Property reference](resources--securemesh_site_v2--reference--group-001.md#canonical-2301010111101201-2220210123001232-1330030231123103-3121113232112322-0131203200320021-3021122122123123-2102102121133210-3220303330323302)
 - [openshift_virtualization](resources--securemesh_site_v2--reference--group-014.md#canonical-0121302321233330-0012112200322203-1301113300000200-3112222001032003-2331112123023303-3200031230001123-2210131121011110-1303130031122213)
-- [openshift_virtualization.not_managed](resources--securemesh_site_v2--reference--group-014.md#canonical-3312123010201223-0322231331231113-1001303330031101-0333001011110002-2013203012023212-3302312220022210-0233131332122310-2310031033301013)
-- [openshift_virtualization.not_managed.node_list](resources--securemesh_site_v2--reference--group-014.md#canonical-0132300131131032-2021130132112331-0312003011233211-2101210212103030-1211222230002213-3032312132223331-0301102321220023-0333221223201213)
-- [openshift_virtualization.not_managed.node_list.interface_list](resources--securemesh_site_v2--reference--group-014.md#canonical-2310102100123101-1311022222003201-2300021203211133-0123212010313320-0200223222033202-2121330212012032-0013031012001213-2101320202001012)
+- [openshift_virtualization.not_managed](resources--securemesh_site_v2--reference--group-015.md#canonical-3312123010201223-0322231331231113-1001303330031101-0333001011110002-2013203012023212-3302312220022210-0233131332122310-2310031033301013)
+- [openshift_virtualization.not_managed.node_list](resources--securemesh_site_v2--reference--group-015.md#canonical-0132300131131032-2021130132112331-0312003011233211-2101210212103030-1211222230002213-3032312132223331-0301102321220023-0333221223201213)
+- [openshift_virtualization.not_managed.node_list.interface_list](resources--securemesh_site_v2--reference--group-015.md#canonical-2310102100123101-1311022222003201-2300021203211133-0123212010313320-0200223222033202-2121330212012032-0013031012001213-2101320202001012)
 - [openshift_virtualization.not_managed.node_list.interface_list.ipv6_auto_config](resources--securemesh_site_v2--reference--group-015.md#canonical-1021303021330233-1310222233202012-0303020131021233-0113101333102111-2330200333113230-3322201022220300-3110322330010312-2323232002023200)
 - openshift_virtualization.not_managed.node_list.interface_list.ipv6_auto_config.router
 
@@ -2130,9 +2969,9 @@ Breadcrumbs:
 - [xcsh_securemesh_site_v2](../resources/securemesh_site_v2.md#canonical-3000200222223112-2121123210332232-3331131023113311-0101321102313201-1230101233301033-1102230312220221-1020100000200232-0100112322233120)
 - [Property reference](resources--securemesh_site_v2--reference--group-001.md#canonical-2301010111101201-2220210123001232-1330030231123103-3121113232112322-0131203200320021-3021122122123123-2102102121133210-3220303330323302)
 - [openshift_virtualization](resources--securemesh_site_v2--reference--group-014.md#canonical-0121302321233330-0012112200322203-1301113300000200-3112222001032003-2331112123023303-3200031230001123-2210131121011110-1303130031122213)
-- [openshift_virtualization.not_managed](resources--securemesh_site_v2--reference--group-014.md#canonical-3312123010201223-0322231331231113-1001303330031101-0333001011110002-2013203012023212-3302312220022210-0233131332122310-2310031033301013)
-- [openshift_virtualization.not_managed.node_list](resources--securemesh_site_v2--reference--group-014.md#canonical-0132300131131032-2021130132112331-0312003011233211-2101210212103030-1211222230002213-3032312132223331-0301102321220023-0333221223201213)
-- [openshift_virtualization.not_managed.node_list.interface_list](resources--securemesh_site_v2--reference--group-014.md#canonical-2310102100123101-1311022222003201-2300021203211133-0123212010313320-0200223222033202-2121330212012032-0013031012001213-2101320202001012)
+- [openshift_virtualization.not_managed](resources--securemesh_site_v2--reference--group-015.md#canonical-3312123010201223-0322231331231113-1001303330031101-0333001011110002-2013203012023212-3302312220022210-0233131332122310-2310031033301013)
+- [openshift_virtualization.not_managed.node_list](resources--securemesh_site_v2--reference--group-015.md#canonical-0132300131131032-2021130132112331-0312003011233211-2101210212103030-1211222230002213-3032312132223331-0301102321220023-0333221223201213)
+- [openshift_virtualization.not_managed.node_list.interface_list](resources--securemesh_site_v2--reference--group-015.md#canonical-2310102100123101-1311022222003201-2300021203211133-0123212010313320-0200223222033202-2121330212012032-0013031012001213-2101320202001012)
 - [openshift_virtualization.not_managed.node_list.interface_list.ipv6_auto_config](resources--securemesh_site_v2--reference--group-015.md#canonical-1021303021330233-1310222233202012-0303020131021233-0113101333102111-2330200333113230-3322201022220300-3110322330010312-2323232002023200)
 - [openshift_virtualization.not_managed.node_list.interface_list.ipv6_auto_config.router](resources--securemesh_site_v2--reference--group-015.md#canonical-2020211020001012-0101121103312233-0203333101133021-0001230033132022-3032213320133321-3112201020220120-3101033011111211-3202010120103010)
 - openshift_virtualization.not_managed.node_list.interface_list.ipv6_auto_config.router.dns_config
@@ -2204,9 +3043,9 @@ Breadcrumbs:
 - [xcsh_securemesh_site_v2](../resources/securemesh_site_v2.md#canonical-3000200222223112-2121123210332232-3331131023113311-0101321102313201-1230101233301033-1102230312220221-1020100000200232-0100112322233120)
 - [Property reference](resources--securemesh_site_v2--reference--group-001.md#canonical-2301010111101201-2220210123001232-1330030231123103-3121113232112322-0131203200320021-3021122122123123-2102102121133210-3220303330323302)
 - [openshift_virtualization](resources--securemesh_site_v2--reference--group-014.md#canonical-0121302321233330-0012112200322203-1301113300000200-3112222001032003-2331112123023303-3200031230001123-2210131121011110-1303130031122213)
-- [openshift_virtualization.not_managed](resources--securemesh_site_v2--reference--group-014.md#canonical-3312123010201223-0322231331231113-1001303330031101-0333001011110002-2013203012023212-3302312220022210-0233131332122310-2310031033301013)
-- [openshift_virtualization.not_managed.node_list](resources--securemesh_site_v2--reference--group-014.md#canonical-0132300131131032-2021130132112331-0312003011233211-2101210212103030-1211222230002213-3032312132223331-0301102321220023-0333221223201213)
-- [openshift_virtualization.not_managed.node_list.interface_list](resources--securemesh_site_v2--reference--group-014.md#canonical-2310102100123101-1311022222003201-2300021203211133-0123212010313320-0200223222033202-2121330212012032-0013031012001213-2101320202001012)
+- [openshift_virtualization.not_managed](resources--securemesh_site_v2--reference--group-015.md#canonical-3312123010201223-0322231331231113-1001303330031101-0333001011110002-2013203012023212-3302312220022210-0233131332122310-2310031033301013)
+- [openshift_virtualization.not_managed.node_list](resources--securemesh_site_v2--reference--group-015.md#canonical-0132300131131032-2021130132112331-0312003011233211-2101210212103030-1211222230002213-3032312132223331-0301102321220023-0333221223201213)
+- [openshift_virtualization.not_managed.node_list.interface_list](resources--securemesh_site_v2--reference--group-015.md#canonical-2310102100123101-1311022222003201-2300021203211133-0123212010313320-0200223222033202-2121330212012032-0013031012001213-2101320202001012)
 - [openshift_virtualization.not_managed.node_list.interface_list.ipv6_auto_config](resources--securemesh_site_v2--reference--group-015.md#canonical-1021303021330233-1310222233202012-0303020131021233-0113101333102111-2330200333113230-3322201022220300-3110322330010312-2323232002023200)
 - [openshift_virtualization.not_managed.node_list.interface_list.ipv6_auto_config.router](resources--securemesh_site_v2--reference--group-015.md#canonical-2020211020001012-0101121103312233-0203333101133021-0001230033132022-3032213320133321-3112201020220120-3101033011111211-3202010120103010)
 - [openshift_virtualization.not_managed.node_list.interface_list.ipv6_auto_config.router.dns_config](resources--securemesh_site_v2--reference--group-015.md#canonical-2332233121201002-1012123221021323-3123123231113301-0111000023212000-2110230030120000-2203202220333131-1330021002302200-3013312011020120)
@@ -2331,9 +3170,9 @@ Breadcrumbs:
 - [xcsh_securemesh_site_v2](../resources/securemesh_site_v2.md#canonical-3000200222223112-2121123210332232-3331131023113311-0101321102313201-1230101233301033-1102230312220221-1020100000200232-0100112322233120)
 - [Property reference](resources--securemesh_site_v2--reference--group-001.md#canonical-2301010111101201-2220210123001232-1330030231123103-3121113232112322-0131203200320021-3021122122123123-2102102121133210-3220303330323302)
 - [openshift_virtualization](resources--securemesh_site_v2--reference--group-014.md#canonical-0121302321233330-0012112200322203-1301113300000200-3112222001032003-2331112123023303-3200031230001123-2210131121011110-1303130031122213)
-- [openshift_virtualization.not_managed](resources--securemesh_site_v2--reference--group-014.md#canonical-3312123010201223-0322231331231113-1001303330031101-0333001011110002-2013203012023212-3302312220022210-0233131332122310-2310031033301013)
-- [openshift_virtualization.not_managed.node_list](resources--securemesh_site_v2--reference--group-014.md#canonical-0132300131131032-2021130132112331-0312003011233211-2101210212103030-1211222230002213-3032312132223331-0301102321220023-0333221223201213)
-- [openshift_virtualization.not_managed.node_list.interface_list](resources--securemesh_site_v2--reference--group-014.md#canonical-2310102100123101-1311022222003201-2300021203211133-0123212010313320-0200223222033202-2121330212012032-0013031012001213-2101320202001012)
+- [openshift_virtualization.not_managed](resources--securemesh_site_v2--reference--group-015.md#canonical-3312123010201223-0322231331231113-1001303330031101-0333001011110002-2013203012023212-3302312220022210-0233131332122310-2310031033301013)
+- [openshift_virtualization.not_managed.node_list](resources--securemesh_site_v2--reference--group-015.md#canonical-0132300131131032-2021130132112331-0312003011233211-2101210212103030-1211222230002213-3032312132223331-0301102321220023-0333221223201213)
+- [openshift_virtualization.not_managed.node_list.interface_list](resources--securemesh_site_v2--reference--group-015.md#canonical-2310102100123101-1311022222003201-2300021203211133-0123212010313320-0200223222033202-2121330212012032-0013031012001213-2101320202001012)
 - [openshift_virtualization.not_managed.node_list.interface_list.ipv6_auto_config](resources--securemesh_site_v2--reference--group-015.md#canonical-1021303021330233-1310222233202012-0303020131021233-0113101333102111-2330200333113230-3322201022220300-3110322330010312-2323232002023200)
 - [openshift_virtualization.not_managed.node_list.interface_list.ipv6_auto_config.router](resources--securemesh_site_v2--reference--group-015.md#canonical-2020211020001012-0101121103312233-0203333101133021-0001230033132022-3032213320133321-3112201020220120-3101033011111211-3202010120103010)
 - [openshift_virtualization.not_managed.node_list.interface_list.ipv6_auto_config.router.dns_config](resources--securemesh_site_v2--reference--group-015.md#canonical-2332233121201002-1012123221021323-3123123231113301-0111000023212000-2110230030120000-2203202220333131-1330021002302200-3013312011020120)
@@ -2466,9 +3305,9 @@ Breadcrumbs:
 - [xcsh_securemesh_site_v2](../resources/securemesh_site_v2.md#canonical-3000200222223112-2121123210332232-3331131023113311-0101321102313201-1230101233301033-1102230312220221-1020100000200232-0100112322233120)
 - [Property reference](resources--securemesh_site_v2--reference--group-001.md#canonical-2301010111101201-2220210123001232-1330030231123103-3121113232112322-0131203200320021-3021122122123123-2102102121133210-3220303330323302)
 - [openshift_virtualization](resources--securemesh_site_v2--reference--group-014.md#canonical-0121302321233330-0012112200322203-1301113300000200-3112222001032003-2331112123023303-3200031230001123-2210131121011110-1303130031122213)
-- [openshift_virtualization.not_managed](resources--securemesh_site_v2--reference--group-014.md#canonical-3312123010201223-0322231331231113-1001303330031101-0333001011110002-2013203012023212-3302312220022210-0233131332122310-2310031033301013)
-- [openshift_virtualization.not_managed.node_list](resources--securemesh_site_v2--reference--group-014.md#canonical-0132300131131032-2021130132112331-0312003011233211-2101210212103030-1211222230002213-3032312132223331-0301102321220023-0333221223201213)
-- [openshift_virtualization.not_managed.node_list.interface_list](resources--securemesh_site_v2--reference--group-014.md#canonical-2310102100123101-1311022222003201-2300021203211133-0123212010313320-0200223222033202-2121330212012032-0013031012001213-2101320202001012)
+- [openshift_virtualization.not_managed](resources--securemesh_site_v2--reference--group-015.md#canonical-3312123010201223-0322231331231113-1001303330031101-0333001011110002-2013203012023212-3302312220022210-0233131332122310-2310031033301013)
+- [openshift_virtualization.not_managed.node_list](resources--securemesh_site_v2--reference--group-015.md#canonical-0132300131131032-2021130132112331-0312003011233211-2101210212103030-1211222230002213-3032312132223331-0301102321220023-0333221223201213)
+- [openshift_virtualization.not_managed.node_list.interface_list](resources--securemesh_site_v2--reference--group-015.md#canonical-2310102100123101-1311022222003201-2300021203211133-0123212010313320-0200223222033202-2121330212012032-0013031012001213-2101320202001012)
 - [openshift_virtualization.not_managed.node_list.interface_list.ipv6_auto_config](resources--securemesh_site_v2--reference--group-015.md#canonical-1021303021330233-1310222233202012-0303020131021233-0113101333102111-2330200333113230-3322201022220300-3110322330010312-2323232002023200)
 - [openshift_virtualization.not_managed.node_list.interface_list.ipv6_auto_config.router](resources--securemesh_site_v2--reference--group-015.md#canonical-2020211020001012-0101121103312233-0203333101133021-0001230033132022-3032213320133321-3112201020220120-3101033011111211-3202010120103010)
 - [openshift_virtualization.not_managed.node_list.interface_list.ipv6_auto_config.router.dns_config](resources--securemesh_site_v2--reference--group-015.md#canonical-2332233121201002-1012123221021323-3123123231113301-0111000023212000-2110230030120000-2203202220333131-1330021002302200-3013312011020120)
@@ -2532,9 +3371,9 @@ Breadcrumbs:
 - [xcsh_securemesh_site_v2](../resources/securemesh_site_v2.md#canonical-3000200222223112-2121123210332232-3331131023113311-0101321102313201-1230101233301033-1102230312220221-1020100000200232-0100112322233120)
 - [Property reference](resources--securemesh_site_v2--reference--group-001.md#canonical-2301010111101201-2220210123001232-1330030231123103-3121113232112322-0131203200320021-3021122122123123-2102102121133210-3220303330323302)
 - [openshift_virtualization](resources--securemesh_site_v2--reference--group-014.md#canonical-0121302321233330-0012112200322203-1301113300000200-3112222001032003-2331112123023303-3200031230001123-2210131121011110-1303130031122213)
-- [openshift_virtualization.not_managed](resources--securemesh_site_v2--reference--group-014.md#canonical-3312123010201223-0322231331231113-1001303330031101-0333001011110002-2013203012023212-3302312220022210-0233131332122310-2310031033301013)
-- [openshift_virtualization.not_managed.node_list](resources--securemesh_site_v2--reference--group-014.md#canonical-0132300131131032-2021130132112331-0312003011233211-2101210212103030-1211222230002213-3032312132223331-0301102321220023-0333221223201213)
-- [openshift_virtualization.not_managed.node_list.interface_list](resources--securemesh_site_v2--reference--group-014.md#canonical-2310102100123101-1311022222003201-2300021203211133-0123212010313320-0200223222033202-2121330212012032-0013031012001213-2101320202001012)
+- [openshift_virtualization.not_managed](resources--securemesh_site_v2--reference--group-015.md#canonical-3312123010201223-0322231331231113-1001303330031101-0333001011110002-2013203012023212-3302312220022210-0233131332122310-2310031033301013)
+- [openshift_virtualization.not_managed.node_list](resources--securemesh_site_v2--reference--group-015.md#canonical-0132300131131032-2021130132112331-0312003011233211-2101210212103030-1211222230002213-3032312132223331-0301102321220023-0333221223201213)
+- [openshift_virtualization.not_managed.node_list.interface_list](resources--securemesh_site_v2--reference--group-015.md#canonical-2310102100123101-1311022222003201-2300021203211133-0123212010313320-0200223222033202-2121330212012032-0013031012001213-2101320202001012)
 - [openshift_virtualization.not_managed.node_list.interface_list.ipv6_auto_config](resources--securemesh_site_v2--reference--group-015.md#canonical-1021303021330233-1310222233202012-0303020131021233-0113101333102111-2330200333113230-3322201022220300-3110322330010312-2323232002023200)
 - [openshift_virtualization.not_managed.node_list.interface_list.ipv6_auto_config.router](resources--securemesh_site_v2--reference--group-015.md#canonical-2020211020001012-0101121103312233-0203333101133021-0001230033132022-3032213320133321-3112201020220120-3101033011111211-3202010120103010)
 - [openshift_virtualization.not_managed.node_list.interface_list.ipv6_auto_config.router.dns_config](resources--securemesh_site_v2--reference--group-015.md#canonical-2332233121201002-1012123221021323-3123123231113301-0111000023212000-2110230030120000-2203202220333131-1330021002302200-3013312011020120)
@@ -2598,9 +3437,9 @@ Breadcrumbs:
 - [xcsh_securemesh_site_v2](../resources/securemesh_site_v2.md#canonical-3000200222223112-2121123210332232-3331131023113311-0101321102313201-1230101233301033-1102230312220221-1020100000200232-0100112322233120)
 - [Property reference](resources--securemesh_site_v2--reference--group-001.md#canonical-2301010111101201-2220210123001232-1330030231123103-3121113232112322-0131203200320021-3021122122123123-2102102121133210-3220303330323302)
 - [openshift_virtualization](resources--securemesh_site_v2--reference--group-014.md#canonical-0121302321233330-0012112200322203-1301113300000200-3112222001032003-2331112123023303-3200031230001123-2210131121011110-1303130031122213)
-- [openshift_virtualization.not_managed](resources--securemesh_site_v2--reference--group-014.md#canonical-3312123010201223-0322231331231113-1001303330031101-0333001011110002-2013203012023212-3302312220022210-0233131332122310-2310031033301013)
-- [openshift_virtualization.not_managed.node_list](resources--securemesh_site_v2--reference--group-014.md#canonical-0132300131131032-2021130132112331-0312003011233211-2101210212103030-1211222230002213-3032312132223331-0301102321220023-0333221223201213)
-- [openshift_virtualization.not_managed.node_list.interface_list](resources--securemesh_site_v2--reference--group-014.md#canonical-2310102100123101-1311022222003201-2300021203211133-0123212010313320-0200223222033202-2121330212012032-0013031012001213-2101320202001012)
+- [openshift_virtualization.not_managed](resources--securemesh_site_v2--reference--group-015.md#canonical-3312123010201223-0322231331231113-1001303330031101-0333001011110002-2013203012023212-3302312220022210-0233131332122310-2310031033301013)
+- [openshift_virtualization.not_managed.node_list](resources--securemesh_site_v2--reference--group-015.md#canonical-0132300131131032-2021130132112331-0312003011233211-2101210212103030-1211222230002213-3032312132223331-0301102321220023-0333221223201213)
+- [openshift_virtualization.not_managed.node_list.interface_list](resources--securemesh_site_v2--reference--group-015.md#canonical-2310102100123101-1311022222003201-2300021203211133-0123212010313320-0200223222033202-2121330212012032-0013031012001213-2101320202001012)
 - [openshift_virtualization.not_managed.node_list.interface_list.ipv6_auto_config](resources--securemesh_site_v2--reference--group-015.md#canonical-1021303021330233-1310222233202012-0303020131021233-0113101333102111-2330200333113230-3322201022220300-3110322330010312-2323232002023200)
 - [openshift_virtualization.not_managed.node_list.interface_list.ipv6_auto_config.router](resources--securemesh_site_v2--reference--group-015.md#canonical-2020211020001012-0101121103312233-0203333101133021-0001230033132022-3032213320133321-3112201020220120-3101033011111211-3202010120103010)
 - openshift_virtualization.not_managed.node_list.interface_list.ipv6_auto_config.router.stateful
@@ -2671,18 +3510,39 @@ Upstream description:
 Fixed MAC address to IPv6 assignments, Key: MAC address, Value: IPv6 Address Assign fixed IPv6
 addresses based on the MAC Address of the DHCP Client.
 
+Provider validators and defaults (from schema source):
+
+```go
+Validators: []validator.Map{validators.MapConstraintsValidator("{\"cardinality\":{\"maxProperties\":128},\"category\":\"discovery\",\"constraintType\":\"map\",\"crossEntry\":{\"uniqueValues\":true},\"deterministic\":true,\"keys\":{\"format\":\"mac-address\",\"type\":\"string\"},\"originalRules\":{\"ves.io.schema.rules.map.keys.string.mac\":\"true\",\"ves.io.schema.rules.map.max_pairs\":\"128\",\"ves.io.schema.rules.map.unique_values\":\"true\",\"ves.io.schema.rules.map.values.string.ipv6\":\"true\"},\"values\":{\"format\":\"ipv6\",\"type\":\"string\"}}")}
+```
+
 Receipt-pinned upstream constraints:
 
 ```json
 {
   "x-f5xc-constraints": {
-    "category": "general",
-    "constraintType": "object",
-    "maxProperties": 128,
-    "metadata": {
-      "confidence": 0.75,
-      "source": "inferred",
-      "validatedAt": "2026-10-03T05:10:26+00:00"
+    "cardinality": {
+      "maxProperties": 128
+    },
+    "category": "discovery",
+    "constraintType": "map",
+    "crossEntry": {
+      "uniqueValues": true
+    },
+    "deterministic": true,
+    "keys": {
+      "format": "mac-address",
+      "type": "string"
+    },
+    "originalRules": {
+      "ves.io.schema.rules.map.keys.string.mac": "true",
+      "ves.io.schema.rules.map.max_pairs": "128",
+      "ves.io.schema.rules.map.unique_values": "true",
+      "ves.io.schema.rules.map.values.string.ipv6": "true"
+    },
+    "values": {
+      "format": "ipv6",
+      "type": "string"
     }
   },
   "x-f5xc-required-for": {
@@ -2734,9 +3594,9 @@ Breadcrumbs:
 - [xcsh_securemesh_site_v2](../resources/securemesh_site_v2.md#canonical-3000200222223112-2121123210332232-3331131023113311-0101321102313201-1230101233301033-1102230312220221-1020100000200232-0100112322233120)
 - [Property reference](resources--securemesh_site_v2--reference--group-001.md#canonical-2301010111101201-2220210123001232-1330030231123103-3121113232112322-0131203200320021-3021122122123123-2102102121133210-3220303330323302)
 - [openshift_virtualization](resources--securemesh_site_v2--reference--group-014.md#canonical-0121302321233330-0012112200322203-1301113300000200-3112222001032003-2331112123023303-3200031230001123-2210131121011110-1303130031122213)
-- [openshift_virtualization.not_managed](resources--securemesh_site_v2--reference--group-014.md#canonical-3312123010201223-0322231331231113-1001303330031101-0333001011110002-2013203012023212-3302312220022210-0233131332122310-2310031033301013)
-- [openshift_virtualization.not_managed.node_list](resources--securemesh_site_v2--reference--group-014.md#canonical-0132300131131032-2021130132112331-0312003011233211-2101210212103030-1211222230002213-3032312132223331-0301102321220023-0333221223201213)
-- [openshift_virtualization.not_managed.node_list.interface_list](resources--securemesh_site_v2--reference--group-014.md#canonical-2310102100123101-1311022222003201-2300021203211133-0123212010313320-0200223222033202-2121330212012032-0013031012001213-2101320202001012)
+- [openshift_virtualization.not_managed](resources--securemesh_site_v2--reference--group-015.md#canonical-3312123010201223-0322231331231113-1001303330031101-0333001011110002-2013203012023212-3302312220022210-0233131332122310-2310031033301013)
+- [openshift_virtualization.not_managed.node_list](resources--securemesh_site_v2--reference--group-015.md#canonical-0132300131131032-2021130132112331-0312003011233211-2101210212103030-1211222230002213-3032312132223331-0301102321220023-0333221223201213)
+- [openshift_virtualization.not_managed.node_list.interface_list](resources--securemesh_site_v2--reference--group-015.md#canonical-2310102100123101-1311022222003201-2300021203211133-0123212010313320-0200223222033202-2121330212012032-0013031012001213-2101320202001012)
 - [openshift_virtualization.not_managed.node_list.interface_list.ipv6_auto_config](resources--securemesh_site_v2--reference--group-015.md#canonical-1021303021330233-1310222233202012-0303020131021233-0113101333102111-2330200333113230-3322201022220300-3110322330010312-2323232002023200)
 - [openshift_virtualization.not_managed.node_list.interface_list.ipv6_auto_config.router](resources--securemesh_site_v2--reference--group-015.md#canonical-2020211020001012-0101121103312233-0203333101133021-0001230033132022-3032213320133321-3112201020220120-3101033011111211-3202010120103010)
 - [openshift_virtualization.not_managed.node_list.interface_list.ipv6_auto_config.router.stateful](resources--securemesh_site_v2--reference--group-015.md#canonical-0010001013200021-1020010101111002-0003212312223112-2302010022000230-0122022231301311-0133010221211021-1011310303120313-3010033111113200)
@@ -2799,9 +3659,9 @@ Breadcrumbs:
 - [xcsh_securemesh_site_v2](../resources/securemesh_site_v2.md#canonical-3000200222223112-2121123210332232-3331131023113311-0101321102313201-1230101233301033-1102230312220221-1020100000200232-0100112322233120)
 - [Property reference](resources--securemesh_site_v2--reference--group-001.md#canonical-2301010111101201-2220210123001232-1330030231123103-3121113232112322-0131203200320021-3021122122123123-2102102121133210-3220303330323302)
 - [openshift_virtualization](resources--securemesh_site_v2--reference--group-014.md#canonical-0121302321233330-0012112200322203-1301113300000200-3112222001032003-2331112123023303-3200031230001123-2210131121011110-1303130031122213)
-- [openshift_virtualization.not_managed](resources--securemesh_site_v2--reference--group-014.md#canonical-3312123010201223-0322231331231113-1001303330031101-0333001011110002-2013203012023212-3302312220022210-0233131332122310-2310031033301013)
-- [openshift_virtualization.not_managed.node_list](resources--securemesh_site_v2--reference--group-014.md#canonical-0132300131131032-2021130132112331-0312003011233211-2101210212103030-1211222230002213-3032312132223331-0301102321220023-0333221223201213)
-- [openshift_virtualization.not_managed.node_list.interface_list](resources--securemesh_site_v2--reference--group-014.md#canonical-2310102100123101-1311022222003201-2300021203211133-0123212010313320-0200223222033202-2121330212012032-0013031012001213-2101320202001012)
+- [openshift_virtualization.not_managed](resources--securemesh_site_v2--reference--group-015.md#canonical-3312123010201223-0322231331231113-1001303330031101-0333001011110002-2013203012023212-3302312220022210-0233131332122310-2310031033301013)
+- [openshift_virtualization.not_managed.node_list](resources--securemesh_site_v2--reference--group-015.md#canonical-0132300131131032-2021130132112331-0312003011233211-2101210212103030-1211222230002213-3032312132223331-0301102321220023-0333221223201213)
+- [openshift_virtualization.not_managed.node_list.interface_list](resources--securemesh_site_v2--reference--group-015.md#canonical-2310102100123101-1311022222003201-2300021203211133-0123212010313320-0200223222033202-2121330212012032-0013031012001213-2101320202001012)
 - [openshift_virtualization.not_managed.node_list.interface_list.ipv6_auto_config](resources--securemesh_site_v2--reference--group-015.md#canonical-1021303021330233-1310222233202012-0303020131021233-0113101333102111-2330200333113230-3322201022220300-3110322330010312-2323232002023200)
 - [openshift_virtualization.not_managed.node_list.interface_list.ipv6_auto_config.router](resources--securemesh_site_v2--reference--group-015.md#canonical-2020211020001012-0101121103312233-0203333101133021-0001230033132022-3032213320133321-3112201020220120-3101033011111211-3202010120103010)
 - [openshift_virtualization.not_managed.node_list.interface_list.ipv6_auto_config.router.stateful](resources--securemesh_site_v2--reference--group-015.md#canonical-0010001013200021-1020010101111002-0003212312223112-2302010022000230-0122022231301311-0133010221211021-1011310303120313-3010033111113200)
@@ -2864,9 +3724,9 @@ Breadcrumbs:
 - [xcsh_securemesh_site_v2](../resources/securemesh_site_v2.md#canonical-3000200222223112-2121123210332232-3331131023113311-0101321102313201-1230101233301033-1102230312220221-1020100000200232-0100112322233120)
 - [Property reference](resources--securemesh_site_v2--reference--group-001.md#canonical-2301010111101201-2220210123001232-1330030231123103-3121113232112322-0131203200320021-3021122122123123-2102102121133210-3220303330323302)
 - [openshift_virtualization](resources--securemesh_site_v2--reference--group-014.md#canonical-0121302321233330-0012112200322203-1301113300000200-3112222001032003-2331112123023303-3200031230001123-2210131121011110-1303130031122213)
-- [openshift_virtualization.not_managed](resources--securemesh_site_v2--reference--group-014.md#canonical-3312123010201223-0322231331231113-1001303330031101-0333001011110002-2013203012023212-3302312220022210-0233131332122310-2310031033301013)
-- [openshift_virtualization.not_managed.node_list](resources--securemesh_site_v2--reference--group-014.md#canonical-0132300131131032-2021130132112331-0312003011233211-2101210212103030-1211222230002213-3032312132223331-0301102321220023-0333221223201213)
-- [openshift_virtualization.not_managed.node_list.interface_list](resources--securemesh_site_v2--reference--group-014.md#canonical-2310102100123101-1311022222003201-2300021203211133-0123212010313320-0200223222033202-2121330212012032-0013031012001213-2101320202001012)
+- [openshift_virtualization.not_managed](resources--securemesh_site_v2--reference--group-015.md#canonical-3312123010201223-0322231331231113-1001303330031101-0333001011110002-2013203012023212-3302312220022210-0233131332122310-2310031033301013)
+- [openshift_virtualization.not_managed.node_list](resources--securemesh_site_v2--reference--group-015.md#canonical-0132300131131032-2021130132112331-0312003011233211-2101210212103030-1211222230002213-3032312132223331-0301102321220023-0333221223201213)
+- [openshift_virtualization.not_managed.node_list.interface_list](resources--securemesh_site_v2--reference--group-015.md#canonical-2310102100123101-1311022222003201-2300021203211133-0123212010313320-0200223222033202-2121330212012032-0013031012001213-2101320202001012)
 - [openshift_virtualization.not_managed.node_list.interface_list.ipv6_auto_config](resources--securemesh_site_v2--reference--group-015.md#canonical-1021303021330233-1310222233202012-0303020131021233-0113101333102111-2330200333113230-3322201022220300-3110322330010312-2323232002023200)
 - [openshift_virtualization.not_managed.node_list.interface_list.ipv6_auto_config.router](resources--securemesh_site_v2--reference--group-015.md#canonical-2020211020001012-0101121103312233-0203333101133021-0001230033132022-3032213320133321-3112201020220120-3101033011111211-3202010120103010)
 - [openshift_virtualization.not_managed.node_list.interface_list.ipv6_auto_config.router.stateful](resources--securemesh_site_v2--reference--group-015.md#canonical-0010001013200021-1020010101111002-0003212312223112-2302010022000230-0122022231301311-0133010221211021-1011310303120313-3010033111113200)
@@ -3047,9 +3907,9 @@ Breadcrumbs:
 - [xcsh_securemesh_site_v2](../resources/securemesh_site_v2.md#canonical-3000200222223112-2121123210332232-3331131023113311-0101321102313201-1230101233301033-1102230312220221-1020100000200232-0100112322233120)
 - [Property reference](resources--securemesh_site_v2--reference--group-001.md#canonical-2301010111101201-2220210123001232-1330030231123103-3121113232112322-0131203200320021-3021122122123123-2102102121133210-3220303330323302)
 - [openshift_virtualization](resources--securemesh_site_v2--reference--group-014.md#canonical-0121302321233330-0012112200322203-1301113300000200-3112222001032003-2331112123023303-3200031230001123-2210131121011110-1303130031122213)
-- [openshift_virtualization.not_managed](resources--securemesh_site_v2--reference--group-014.md#canonical-3312123010201223-0322231331231113-1001303330031101-0333001011110002-2013203012023212-3302312220022210-0233131332122310-2310031033301013)
-- [openshift_virtualization.not_managed.node_list](resources--securemesh_site_v2--reference--group-014.md#canonical-0132300131131032-2021130132112331-0312003011233211-2101210212103030-1211222230002213-3032312132223331-0301102321220023-0333221223201213)
-- [openshift_virtualization.not_managed.node_list.interface_list](resources--securemesh_site_v2--reference--group-014.md#canonical-2310102100123101-1311022222003201-2300021203211133-0123212010313320-0200223222033202-2121330212012032-0013031012001213-2101320202001012)
+- [openshift_virtualization.not_managed](resources--securemesh_site_v2--reference--group-015.md#canonical-3312123010201223-0322231331231113-1001303330031101-0333001011110002-2013203012023212-3302312220022210-0233131332122310-2310031033301013)
+- [openshift_virtualization.not_managed.node_list](resources--securemesh_site_v2--reference--group-015.md#canonical-0132300131131032-2021130132112331-0312003011233211-2101210212103030-1211222230002213-3032312132223331-0301102321220023-0333221223201213)
+- [openshift_virtualization.not_managed.node_list.interface_list](resources--securemesh_site_v2--reference--group-015.md#canonical-2310102100123101-1311022222003201-2300021203211133-0123212010313320-0200223222033202-2121330212012032-0013031012001213-2101320202001012)
 - [openshift_virtualization.not_managed.node_list.interface_list.ipv6_auto_config](resources--securemesh_site_v2--reference--group-015.md#canonical-1021303021330233-1310222233202012-0303020131021233-0113101333102111-2330200333113230-3322201022220300-3110322330010312-2323232002023200)
 - [openshift_virtualization.not_managed.node_list.interface_list.ipv6_auto_config.router](resources--securemesh_site_v2--reference--group-015.md#canonical-2020211020001012-0101121103312233-0203333101133021-0001230033132022-3032213320133321-3112201020220120-3101033011111211-3202010120103010)
 - [openshift_virtualization.not_managed.node_list.interface_list.ipv6_auto_config.router.stateful](resources--securemesh_site_v2--reference--group-015.md#canonical-0010001013200021-1020010101111002-0003212312223112-2302010022000230-0122022231301311-0133010221211021-1011310303120313-3010033111113200)
@@ -3243,9 +4103,9 @@ Breadcrumbs:
 - [xcsh_securemesh_site_v2](../resources/securemesh_site_v2.md#canonical-3000200222223112-2121123210332232-3331131023113311-0101321102313201-1230101233301033-1102230312220221-1020100000200232-0100112322233120)
 - [Property reference](resources--securemesh_site_v2--reference--group-001.md#canonical-2301010111101201-2220210123001232-1330030231123103-3121113232112322-0131203200320021-3021122122123123-2102102121133210-3220303330323302)
 - [openshift_virtualization](resources--securemesh_site_v2--reference--group-014.md#canonical-0121302321233330-0012112200322203-1301113300000200-3112222001032003-2331112123023303-3200031230001123-2210131121011110-1303130031122213)
-- [openshift_virtualization.not_managed](resources--securemesh_site_v2--reference--group-014.md#canonical-3312123010201223-0322231331231113-1001303330031101-0333001011110002-2013203012023212-3302312220022210-0233131332122310-2310031033301013)
-- [openshift_virtualization.not_managed.node_list](resources--securemesh_site_v2--reference--group-014.md#canonical-0132300131131032-2021130132112331-0312003011233211-2101210212103030-1211222230002213-3032312132223331-0301102321220023-0333221223201213)
-- [openshift_virtualization.not_managed.node_list.interface_list](resources--securemesh_site_v2--reference--group-014.md#canonical-2310102100123101-1311022222003201-2300021203211133-0123212010313320-0200223222033202-2121330212012032-0013031012001213-2101320202001012)
+- [openshift_virtualization.not_managed](resources--securemesh_site_v2--reference--group-015.md#canonical-3312123010201223-0322231331231113-1001303330031101-0333001011110002-2013203012023212-3302312220022210-0233131332122310-2310031033301013)
+- [openshift_virtualization.not_managed.node_list](resources--securemesh_site_v2--reference--group-015.md#canonical-0132300131131032-2021130132112331-0312003011233211-2101210212103030-1211222230002213-3032312132223331-0301102321220023-0333221223201213)
+- [openshift_virtualization.not_managed.node_list.interface_list](resources--securemesh_site_v2--reference--group-015.md#canonical-2310102100123101-1311022222003201-2300021203211133-0123212010313320-0200223222033202-2121330212012032-0013031012001213-2101320202001012)
 - [openshift_virtualization.not_managed.node_list.interface_list.ipv6_auto_config](resources--securemesh_site_v2--reference--group-015.md#canonical-1021303021330233-1310222233202012-0303020131021233-0113101333102111-2330200333113230-3322201022220300-3110322330010312-2323232002023200)
 - [openshift_virtualization.not_managed.node_list.interface_list.ipv6_auto_config.router](resources--securemesh_site_v2--reference--group-015.md#canonical-2020211020001012-0101121103312233-0203333101133021-0001230033132022-3032213320133321-3112201020220120-3101033011111211-3202010120103010)
 - [openshift_virtualization.not_managed.node_list.interface_list.ipv6_auto_config.router.stateful](resources--securemesh_site_v2--reference--group-015.md#canonical-0010001013200021-1020010101111002-0003212312223112-2302010022000230-0122022231301311-0133010221211021-1011310303120313-3010033111113200)
@@ -3296,18 +4156,37 @@ Upstream description:
 
 Map of Site:Node to IPv6 address.
 
+Provider validators and defaults (from schema source):
+
+```go
+Validators: []validator.Map{validators.MapConstraintsValidator("{\"cardinality\":{\"maxProperties\":64},\"category\":\"discovery\",\"constraintType\":\"map\",\"deterministic\":true,\"keys\":{\"maxLength\":128,\"minLength\":1,\"type\":\"string\"},\"originalRules\":{\"ves.io.schema.rules.map.keys.string.max_len\":\"128\",\"ves.io.schema.rules.map.keys.string.min_len\":\"1\",\"ves.io.schema.rules.map.max_pairs\":\"64\",\"ves.io.schema.rules.map.values.string.ipv6\":\"true\"},\"values\":{\"format\":\"ipv6\",\"type\":\"string\"}}")}
+```
+
 Receipt-pinned upstream constraints:
 
 ```json
 {
   "x-f5xc-constraints": {
-    "category": "general",
-    "constraintType": "object",
-    "maxProperties": 64,
-    "metadata": {
-      "confidence": 0.75,
-      "source": "inferred",
-      "validatedAt": "2026-10-03T05:10:26+00:00"
+    "cardinality": {
+      "maxProperties": 64
+    },
+    "category": "discovery",
+    "constraintType": "map",
+    "deterministic": true,
+    "keys": {
+      "maxLength": 128,
+      "minLength": 1,
+      "type": "string"
+    },
+    "originalRules": {
+      "ves.io.schema.rules.map.keys.string.max_len": "128",
+      "ves.io.schema.rules.map.keys.string.min_len": "1",
+      "ves.io.schema.rules.map.max_pairs": "64",
+      "ves.io.schema.rules.map.values.string.ipv6": "true"
+    },
+    "values": {
+      "format": "ipv6",
+      "type": "string"
     }
   },
   "x-f5xc-required-for": {
@@ -3353,9 +4232,9 @@ Breadcrumbs:
 - [xcsh_securemesh_site_v2](../resources/securemesh_site_v2.md#canonical-3000200222223112-2121123210332232-3331131023113311-0101321102313201-1230101233301033-1102230312220221-1020100000200232-0100112322233120)
 - [Property reference](resources--securemesh_site_v2--reference--group-001.md#canonical-2301010111101201-2220210123001232-1330030231123103-3121113232112322-0131203200320021-3021122122123123-2102102121133210-3220303330323302)
 - [openshift_virtualization](resources--securemesh_site_v2--reference--group-014.md#canonical-0121302321233330-0012112200322203-1301113300000200-3112222001032003-2331112123023303-3200031230001123-2210131121011110-1303130031122213)
-- [openshift_virtualization.not_managed](resources--securemesh_site_v2--reference--group-014.md#canonical-3312123010201223-0322231331231113-1001303330031101-0333001011110002-2013203012023212-3302312220022210-0233131332122310-2310031033301013)
-- [openshift_virtualization.not_managed.node_list](resources--securemesh_site_v2--reference--group-014.md#canonical-0132300131131032-2021130132112331-0312003011233211-2101210212103030-1211222230002213-3032312132223331-0301102321220023-0333221223201213)
-- [openshift_virtualization.not_managed.node_list.interface_list](resources--securemesh_site_v2--reference--group-014.md#canonical-2310102100123101-1311022222003201-2300021203211133-0123212010313320-0200223222033202-2121330212012032-0013031012001213-2101320202001012)
+- [openshift_virtualization.not_managed](resources--securemesh_site_v2--reference--group-015.md#canonical-3312123010201223-0322231331231113-1001303330031101-0333001011110002-2013203012023212-3302312220022210-0233131332122310-2310031033301013)
+- [openshift_virtualization.not_managed.node_list](resources--securemesh_site_v2--reference--group-015.md#canonical-0132300131131032-2021130132112331-0312003011233211-2101210212103030-1211222230002213-3032312132223331-0301102321220023-0333221223201213)
+- [openshift_virtualization.not_managed.node_list.interface_list](resources--securemesh_site_v2--reference--group-015.md#canonical-2310102100123101-1311022222003201-2300021203211133-0123212010313320-0200223222033202-2121330212012032-0013031012001213-2101320202001012)
 - openshift_virtualization.not_managed.node_list.interface_list.monitor
 
 <a id="canonical-3031111122310211-3302310023020210-2311313021023323-0202111322222101-1003333103103222-1223000301323122-0200200313311032-2220201121222130"></a>
@@ -3393,7 +4272,7 @@ This is an empty object or choice marker. It has no direct properties.
 
 ## Next pages — monitor / 013311313103 / 4
 
-- [openshift_virtualization.not_managed.node_list.interface_list](resources--securemesh_site_v2--reference--group-014.md#canonical-2310102100123101-1311022222003201-2300021203211133-0123212010313320-0200223222033202-2121330212012032-0013031012001213-2101320202001012)
+- [openshift_virtualization.not_managed.node_list.interface_list](resources--securemesh_site_v2--reference--group-015.md#canonical-2310102100123101-1311022222003201-2300021203211133-0123212010313320-0200223222033202-2121330212012032-0013031012001213-2101320202001012)
 - [xcsh_securemesh_site_v2](../resources/securemesh_site_v2.md#canonical-3000200222223112-2121123210332232-3331131023113311-0101321102313201-1230101233301033-1102230312220221-1020100000200232-0100112322233120)
 
 <a id="canonical-3323211302312000-3232023112321122-3023321012011011-1110301230322200-2331101002310313-0300011001120332-2221211310033210-0131321302233012"></a>
@@ -3411,9 +4290,9 @@ Breadcrumbs:
 - [xcsh_securemesh_site_v2](../resources/securemesh_site_v2.md#canonical-3000200222223112-2121123210332232-3331131023113311-0101321102313201-1230101233301033-1102230312220221-1020100000200232-0100112322233120)
 - [Property reference](resources--securemesh_site_v2--reference--group-001.md#canonical-2301010111101201-2220210123001232-1330030231123103-3121113232112322-0131203200320021-3021122122123123-2102102121133210-3220303330323302)
 - [openshift_virtualization](resources--securemesh_site_v2--reference--group-014.md#canonical-0121302321233330-0012112200322203-1301113300000200-3112222001032003-2331112123023303-3200031230001123-2210131121011110-1303130031122213)
-- [openshift_virtualization.not_managed](resources--securemesh_site_v2--reference--group-014.md#canonical-3312123010201223-0322231331231113-1001303330031101-0333001011110002-2013203012023212-3302312220022210-0233131332122310-2310031033301013)
-- [openshift_virtualization.not_managed.node_list](resources--securemesh_site_v2--reference--group-014.md#canonical-0132300131131032-2021130132112331-0312003011233211-2101210212103030-1211222230002213-3032312132223331-0301102321220023-0333221223201213)
-- [openshift_virtualization.not_managed.node_list.interface_list](resources--securemesh_site_v2--reference--group-014.md#canonical-2310102100123101-1311022222003201-2300021203211133-0123212010313320-0200223222033202-2121330212012032-0013031012001213-2101320202001012)
+- [openshift_virtualization.not_managed](resources--securemesh_site_v2--reference--group-015.md#canonical-3312123010201223-0322231331231113-1001303330031101-0333001011110002-2013203012023212-3302312220022210-0233131332122310-2310031033301013)
+- [openshift_virtualization.not_managed.node_list](resources--securemesh_site_v2--reference--group-015.md#canonical-0132300131131032-2021130132112331-0312003011233211-2101210212103030-1211222230002213-3032312132223331-0301102321220023-0333221223201213)
+- [openshift_virtualization.not_managed.node_list.interface_list](resources--securemesh_site_v2--reference--group-015.md#canonical-2310102100123101-1311022222003201-2300021203211133-0123212010313320-0200223222033202-2121330212012032-0013031012001213-2101320202001012)
 - openshift_virtualization.not_managed.node_list.interface_list.monitor_disabled
 
 <a id="canonical-3333113010210320-0033330300013112-1032111100222230-3200321110031102-0003333323203131-0121100130202311-3333113333121210-3000303300232210"></a>
@@ -3455,7 +4334,7 @@ This is an empty object or choice marker. It has no direct properties.
 
 ## Next pages — monitor_disabled / 123302120233 / 4
 
-- [openshift_virtualization.not_managed.node_list.interface_list](resources--securemesh_site_v2--reference--group-014.md#canonical-2310102100123101-1311022222003201-2300021203211133-0123212010313320-0200223222033202-2121330212012032-0013031012001213-2101320202001012)
+- [openshift_virtualization.not_managed.node_list.interface_list](resources--securemesh_site_v2--reference--group-015.md#canonical-2310102100123101-1311022222003201-2300021203211133-0123212010313320-0200223222033202-2121330212012032-0013031012001213-2101320202001012)
 - [xcsh_securemesh_site_v2](../resources/securemesh_site_v2.md#canonical-3000200222223112-2121123210332232-3331131023113311-0101321102313201-1230101233301033-1102230312220221-1020100000200232-0100112322233120)
 
 <a id="canonical-0001231101221021-0233231122130012-2122031032023322-1210233023122311-1001201103030032-0323123012023203-3032321332110103-3020123301321211"></a>
@@ -3473,9 +4352,9 @@ Breadcrumbs:
 - [xcsh_securemesh_site_v2](../resources/securemesh_site_v2.md#canonical-3000200222223112-2121123210332232-3331131023113311-0101321102313201-1230101233301033-1102230312220221-1020100000200232-0100112322233120)
 - [Property reference](resources--securemesh_site_v2--reference--group-001.md#canonical-2301010111101201-2220210123001232-1330030231123103-3121113232112322-0131203200320021-3021122122123123-2102102121133210-3220303330323302)
 - [openshift_virtualization](resources--securemesh_site_v2--reference--group-014.md#canonical-0121302321233330-0012112200322203-1301113300000200-3112222001032003-2331112123023303-3200031230001123-2210131121011110-1303130031122213)
-- [openshift_virtualization.not_managed](resources--securemesh_site_v2--reference--group-014.md#canonical-3312123010201223-0322231331231113-1001303330031101-0333001011110002-2013203012023212-3302312220022210-0233131332122310-2310031033301013)
-- [openshift_virtualization.not_managed.node_list](resources--securemesh_site_v2--reference--group-014.md#canonical-0132300131131032-2021130132112331-0312003011233211-2101210212103030-1211222230002213-3032312132223331-0301102321220023-0333221223201213)
-- [openshift_virtualization.not_managed.node_list.interface_list](resources--securemesh_site_v2--reference--group-014.md#canonical-2310102100123101-1311022222003201-2300021203211133-0123212010313320-0200223222033202-2121330212012032-0013031012001213-2101320202001012)
+- [openshift_virtualization.not_managed](resources--securemesh_site_v2--reference--group-015.md#canonical-3312123010201223-0322231331231113-1001303330031101-0333001011110002-2013203012023212-3302312220022210-0233131332122310-2310031033301013)
+- [openshift_virtualization.not_managed.node_list](resources--securemesh_site_v2--reference--group-015.md#canonical-0132300131131032-2021130132112331-0312003011233211-2101210212103030-1211222230002213-3032312132223331-0301102321220023-0333221223201213)
+- [openshift_virtualization.not_managed.node_list.interface_list](resources--securemesh_site_v2--reference--group-015.md#canonical-2310102100123101-1311022222003201-2300021203211133-0123212010313320-0200223222033202-2121330212012032-0013031012001213-2101320202001012)
 - openshift_virtualization.not_managed.node_list.interface_list.network_option
 
 <a id="canonical-1301032021211102-1213331211122003-1303320213313313-3020030301220200-3201300323310332-2323232330000122-0130212321222200-3303213032020312"></a>
@@ -3538,7 +4417,7 @@ network_option {
 
 - [openshift_virtualization.not_managed.node_list.interface_list.network_option.site_local_inside_network](resources--securemesh_site_v2--reference--group-015.md#canonical-1203311300332013-2200303332030210-1223311321323021-2130302111211220-0213013012330212-2120112212100221-1230231131201220-0320011001121103)
 - [openshift_virtualization.not_managed.node_list.interface_list.network_option.site_local_network](resources--securemesh_site_v2--reference--group-015.md#canonical-0203123203103313-1122110333123123-1023231222022003-2010033112013230-0301020022023132-2310201213001300-3301023000020313-3201133103311311)
-- [openshift_virtualization.not_managed.node_list.interface_list](resources--securemesh_site_v2--reference--group-014.md#canonical-2310102100123101-1311022222003201-2300021203211133-0123212010313320-0200223222033202-2121330212012032-0013031012001213-2101320202001012)
+- [openshift_virtualization.not_managed.node_list.interface_list](resources--securemesh_site_v2--reference--group-015.md#canonical-2310102100123101-1311022222003201-2300021203211133-0123212010313320-0200223222033202-2121330212012032-0013031012001213-2101320202001012)
 - [xcsh_securemesh_site_v2](../resources/securemesh_site_v2.md#canonical-3000200222223112-2121123210332232-3331131023113311-0101321102313201-1230101233301033-1102230312220221-1020100000200232-0100112322233120)
 
 <a id="canonical-1203311300332013-2200303332030210-1223311321323021-2130302111211220-0213013012330212-2120112212100221-1230231131201220-0320011001121103"></a>
@@ -3556,9 +4435,9 @@ Breadcrumbs:
 - [xcsh_securemesh_site_v2](../resources/securemesh_site_v2.md#canonical-3000200222223112-2121123210332232-3331131023113311-0101321102313201-1230101233301033-1102230312220221-1020100000200232-0100112322233120)
 - [Property reference](resources--securemesh_site_v2--reference--group-001.md#canonical-2301010111101201-2220210123001232-1330030231123103-3121113232112322-0131203200320021-3021122122123123-2102102121133210-3220303330323302)
 - [openshift_virtualization](resources--securemesh_site_v2--reference--group-014.md#canonical-0121302321233330-0012112200322203-1301113300000200-3112222001032003-2331112123023303-3200031230001123-2210131121011110-1303130031122213)
-- [openshift_virtualization.not_managed](resources--securemesh_site_v2--reference--group-014.md#canonical-3312123010201223-0322231331231113-1001303330031101-0333001011110002-2013203012023212-3302312220022210-0233131332122310-2310031033301013)
-- [openshift_virtualization.not_managed.node_list](resources--securemesh_site_v2--reference--group-014.md#canonical-0132300131131032-2021130132112331-0312003011233211-2101210212103030-1211222230002213-3032312132223331-0301102321220023-0333221223201213)
-- [openshift_virtualization.not_managed.node_list.interface_list](resources--securemesh_site_v2--reference--group-014.md#canonical-2310102100123101-1311022222003201-2300021203211133-0123212010313320-0200223222033202-2121330212012032-0013031012001213-2101320202001012)
+- [openshift_virtualization.not_managed](resources--securemesh_site_v2--reference--group-015.md#canonical-3312123010201223-0322231331231113-1001303330031101-0333001011110002-2013203012023212-3302312220022210-0233131332122310-2310031033301013)
+- [openshift_virtualization.not_managed.node_list](resources--securemesh_site_v2--reference--group-015.md#canonical-0132300131131032-2021130132112331-0312003011233211-2101210212103030-1211222230002213-3032312132223331-0301102321220023-0333221223201213)
+- [openshift_virtualization.not_managed.node_list.interface_list](resources--securemesh_site_v2--reference--group-015.md#canonical-2310102100123101-1311022222003201-2300021203211133-0123212010313320-0200223222033202-2121330212012032-0013031012001213-2101320202001012)
 - [openshift_virtualization.not_managed.node_list.interface_list.network_option](resources--securemesh_site_v2--reference--group-015.md#canonical-0001231101221021-0233231122130012-2122031032023322-1210233023122311-1001201103030032-0323123012023203-3032321332110103-3020123301321211)
 - openshift_virtualization.not_managed.node_list.interface_list.network_option.site_local_inside_network
 
@@ -3619,9 +4498,9 @@ Breadcrumbs:
 - [xcsh_securemesh_site_v2](../resources/securemesh_site_v2.md#canonical-3000200222223112-2121123210332232-3331131023113311-0101321102313201-1230101233301033-1102230312220221-1020100000200232-0100112322233120)
 - [Property reference](resources--securemesh_site_v2--reference--group-001.md#canonical-2301010111101201-2220210123001232-1330030231123103-3121113232112322-0131203200320021-3021122122123123-2102102121133210-3220303330323302)
 - [openshift_virtualization](resources--securemesh_site_v2--reference--group-014.md#canonical-0121302321233330-0012112200322203-1301113300000200-3112222001032003-2331112123023303-3200031230001123-2210131121011110-1303130031122213)
-- [openshift_virtualization.not_managed](resources--securemesh_site_v2--reference--group-014.md#canonical-3312123010201223-0322231331231113-1001303330031101-0333001011110002-2013203012023212-3302312220022210-0233131332122310-2310031033301013)
-- [openshift_virtualization.not_managed.node_list](resources--securemesh_site_v2--reference--group-014.md#canonical-0132300131131032-2021130132112331-0312003011233211-2101210212103030-1211222230002213-3032312132223331-0301102321220023-0333221223201213)
-- [openshift_virtualization.not_managed.node_list.interface_list](resources--securemesh_site_v2--reference--group-014.md#canonical-2310102100123101-1311022222003201-2300021203211133-0123212010313320-0200223222033202-2121330212012032-0013031012001213-2101320202001012)
+- [openshift_virtualization.not_managed](resources--securemesh_site_v2--reference--group-015.md#canonical-3312123010201223-0322231331231113-1001303330031101-0333001011110002-2013203012023212-3302312220022210-0233131332122310-2310031033301013)
+- [openshift_virtualization.not_managed.node_list](resources--securemesh_site_v2--reference--group-015.md#canonical-0132300131131032-2021130132112331-0312003011233211-2101210212103030-1211222230002213-3032312132223331-0301102321220023-0333221223201213)
+- [openshift_virtualization.not_managed.node_list.interface_list](resources--securemesh_site_v2--reference--group-015.md#canonical-2310102100123101-1311022222003201-2300021203211133-0123212010313320-0200223222033202-2121330212012032-0013031012001213-2101320202001012)
 - [openshift_virtualization.not_managed.node_list.interface_list.network_option](resources--securemesh_site_v2--reference--group-015.md#canonical-0001231101221021-0233231122130012-2122031032023322-1210233023122311-1001201103030032-0323123012023203-3032321332110103-3020123301321211)
 - openshift_virtualization.not_managed.node_list.interface_list.network_option.site_local_network
 
@@ -3682,9 +4561,9 @@ Breadcrumbs:
 - [xcsh_securemesh_site_v2](../resources/securemesh_site_v2.md#canonical-3000200222223112-2121123210332232-3331131023113311-0101321102313201-1230101233301033-1102230312220221-1020100000200232-0100112322233120)
 - [Property reference](resources--securemesh_site_v2--reference--group-001.md#canonical-2301010111101201-2220210123001232-1330030231123103-3121113232112322-0131203200320021-3021122122123123-2102102121133210-3220303330323302)
 - [openshift_virtualization](resources--securemesh_site_v2--reference--group-014.md#canonical-0121302321233330-0012112200322203-1301113300000200-3112222001032003-2331112123023303-3200031230001123-2210131121011110-1303130031122213)
-- [openshift_virtualization.not_managed](resources--securemesh_site_v2--reference--group-014.md#canonical-3312123010201223-0322231331231113-1001303330031101-0333001011110002-2013203012023212-3302312220022210-0233131332122310-2310031033301013)
-- [openshift_virtualization.not_managed.node_list](resources--securemesh_site_v2--reference--group-014.md#canonical-0132300131131032-2021130132112331-0312003011233211-2101210212103030-1211222230002213-3032312132223331-0301102321220023-0333221223201213)
-- [openshift_virtualization.not_managed.node_list.interface_list](resources--securemesh_site_v2--reference--group-014.md#canonical-2310102100123101-1311022222003201-2300021203211133-0123212010313320-0200223222033202-2121330212012032-0013031012001213-2101320202001012)
+- [openshift_virtualization.not_managed](resources--securemesh_site_v2--reference--group-015.md#canonical-3312123010201223-0322231331231113-1001303330031101-0333001011110002-2013203012023212-3302312220022210-0233131332122310-2310031033301013)
+- [openshift_virtualization.not_managed.node_list](resources--securemesh_site_v2--reference--group-015.md#canonical-0132300131131032-2021130132112331-0312003011233211-2101210212103030-1211222230002213-3032312132223331-0301102321220023-0333221223201213)
+- [openshift_virtualization.not_managed.node_list.interface_list](resources--securemesh_site_v2--reference--group-015.md#canonical-2310102100123101-1311022222003201-2300021203211133-0123212010313320-0200223222033202-2121330212012032-0013031012001213-2101320202001012)
 - openshift_virtualization.not_managed.node_list.interface_list.no_ipv4_address
 
 <a id="canonical-0031331331223330-3310203030223333-3133022200211231-1010210101122001-1132111013012322-0323020002001231-3200012230232202-2333102210303012"></a>
@@ -3726,7 +4605,7 @@ This is an empty object or choice marker. It has no direct properties.
 
 ## Next pages — no_ipv4_address / 012013201101 / 4
 
-- [openshift_virtualization.not_managed.node_list.interface_list](resources--securemesh_site_v2--reference--group-014.md#canonical-2310102100123101-1311022222003201-2300021203211133-0123212010313320-0200223222033202-2121330212012032-0013031012001213-2101320202001012)
+- [openshift_virtualization.not_managed.node_list.interface_list](resources--securemesh_site_v2--reference--group-015.md#canonical-2310102100123101-1311022222003201-2300021203211133-0123212010313320-0200223222033202-2121330212012032-0013031012001213-2101320202001012)
 - [xcsh_securemesh_site_v2](../resources/securemesh_site_v2.md#canonical-3000200222223112-2121123210332232-3331131023113311-0101321102313201-1230101233301033-1102230312220221-1020100000200232-0100112322233120)
 
 <a id="canonical-3000222332330022-2133212331113332-3312321101221300-3212001103011211-3331313203222203-3013001232002331-3301220303332120-3023210001123102"></a>
@@ -3744,9 +4623,9 @@ Breadcrumbs:
 - [xcsh_securemesh_site_v2](../resources/securemesh_site_v2.md#canonical-3000200222223112-2121123210332232-3331131023113311-0101321102313201-1230101233301033-1102230312220221-1020100000200232-0100112322233120)
 - [Property reference](resources--securemesh_site_v2--reference--group-001.md#canonical-2301010111101201-2220210123001232-1330030231123103-3121113232112322-0131203200320021-3021122122123123-2102102121133210-3220303330323302)
 - [openshift_virtualization](resources--securemesh_site_v2--reference--group-014.md#canonical-0121302321233330-0012112200322203-1301113300000200-3112222001032003-2331112123023303-3200031230001123-2210131121011110-1303130031122213)
-- [openshift_virtualization.not_managed](resources--securemesh_site_v2--reference--group-014.md#canonical-3312123010201223-0322231331231113-1001303330031101-0333001011110002-2013203012023212-3302312220022210-0233131332122310-2310031033301013)
-- [openshift_virtualization.not_managed.node_list](resources--securemesh_site_v2--reference--group-014.md#canonical-0132300131131032-2021130132112331-0312003011233211-2101210212103030-1211222230002213-3032312132223331-0301102321220023-0333221223201213)
-- [openshift_virtualization.not_managed.node_list.interface_list](resources--securemesh_site_v2--reference--group-014.md#canonical-2310102100123101-1311022222003201-2300021203211133-0123212010313320-0200223222033202-2121330212012032-0013031012001213-2101320202001012)
+- [openshift_virtualization.not_managed](resources--securemesh_site_v2--reference--group-015.md#canonical-3312123010201223-0322231331231113-1001303330031101-0333001011110002-2013203012023212-3302312220022210-0233131332122310-2310031033301013)
+- [openshift_virtualization.not_managed.node_list](resources--securemesh_site_v2--reference--group-015.md#canonical-0132300131131032-2021130132112331-0312003011233211-2101210212103030-1211222230002213-3032312132223331-0301102321220023-0333221223201213)
+- [openshift_virtualization.not_managed.node_list.interface_list](resources--securemesh_site_v2--reference--group-015.md#canonical-2310102100123101-1311022222003201-2300021203211133-0123212010313320-0200223222033202-2121330212012032-0013031012001213-2101320202001012)
 - openshift_virtualization.not_managed.node_list.interface_list.no_ipv6_address
 
 <a id="canonical-1322212300030203-3201131303130233-3322103321033223-3102211100323202-1033313210033002-1301332321320203-3323332100103103-2100001100030320"></a>
@@ -3788,7 +4667,7 @@ This is an empty object or choice marker. It has no direct properties.
 
 ## Next pages — no_ipv6_address / 003222320333 / 4
 
-- [openshift_virtualization.not_managed.node_list.interface_list](resources--securemesh_site_v2--reference--group-014.md#canonical-2310102100123101-1311022222003201-2300021203211133-0123212010313320-0200223222033202-2121330212012032-0013031012001213-2101320202001012)
+- [openshift_virtualization.not_managed.node_list.interface_list](resources--securemesh_site_v2--reference--group-015.md#canonical-2310102100123101-1311022222003201-2300021203211133-0123212010313320-0200223222033202-2121330212012032-0013031012001213-2101320202001012)
 - [xcsh_securemesh_site_v2](../resources/securemesh_site_v2.md#canonical-3000200222223112-2121123210332232-3331131023113311-0101321102313201-1230101233301033-1102230312220221-1020100000200232-0100112322233120)
 
 <a id="canonical-1021203102231201-0231333013111010-1313030332200030-3022331203000230-3220220010313110-2231223230203220-1123111001231323-1033123310230230"></a>
@@ -3806,9 +4685,9 @@ Breadcrumbs:
 - [xcsh_securemesh_site_v2](../resources/securemesh_site_v2.md#canonical-3000200222223112-2121123210332232-3331131023113311-0101321102313201-1230101233301033-1102230312220221-1020100000200232-0100112322233120)
 - [Property reference](resources--securemesh_site_v2--reference--group-001.md#canonical-2301010111101201-2220210123001232-1330030231123103-3121113232112322-0131203200320021-3021122122123123-2102102121133210-3220303330323302)
 - [openshift_virtualization](resources--securemesh_site_v2--reference--group-014.md#canonical-0121302321233330-0012112200322203-1301113300000200-3112222001032003-2331112123023303-3200031230001123-2210131121011110-1303130031122213)
-- [openshift_virtualization.not_managed](resources--securemesh_site_v2--reference--group-014.md#canonical-3312123010201223-0322231331231113-1001303330031101-0333001011110002-2013203012023212-3302312220022210-0233131332122310-2310031033301013)
-- [openshift_virtualization.not_managed.node_list](resources--securemesh_site_v2--reference--group-014.md#canonical-0132300131131032-2021130132112331-0312003011233211-2101210212103030-1211222230002213-3032312132223331-0301102321220023-0333221223201213)
-- [openshift_virtualization.not_managed.node_list.interface_list](resources--securemesh_site_v2--reference--group-014.md#canonical-2310102100123101-1311022222003201-2300021203211133-0123212010313320-0200223222033202-2121330212012032-0013031012001213-2101320202001012)
+- [openshift_virtualization.not_managed](resources--securemesh_site_v2--reference--group-015.md#canonical-3312123010201223-0322231331231113-1001303330031101-0333001011110002-2013203012023212-3302312220022210-0233131332122310-2310031033301013)
+- [openshift_virtualization.not_managed.node_list](resources--securemesh_site_v2--reference--group-015.md#canonical-0132300131131032-2021130132112331-0312003011233211-2101210212103030-1211222230002213-3032312132223331-0301102321220023-0333221223201213)
+- [openshift_virtualization.not_managed.node_list.interface_list](resources--securemesh_site_v2--reference--group-015.md#canonical-2310102100123101-1311022222003201-2300021203211133-0123212010313320-0200223222033202-2121330212012032-0013031012001213-2101320202001012)
 - openshift_virtualization.not_managed.node_list.interface_list.site_to_site_connectivity_interface_disabled
 
 <a id="canonical-2333122203200021-3222111312203312-3210222002312120-2001313102112223-0221131112311110-3231130220011220-2103331022131100-2002101111201031"></a>
@@ -3845,677 +4724,3 @@ site_to_site_connectivity_interface_disabled = {}
 ## Direct properties — site_to_site_connectivity_interface_disabled / 213130230100 / 3
 
 This is an empty object or choice marker. It has no direct properties.
-
-<a id="canonical-1000023113031001-1002123133301121-1030032133333210-1332311231120300-2003120210102023-2120111031013311-0012122222221213-0310220121121013"></a>
-
-## Next pages — site_to_site_connectivity_interface_disabled / 213130230100 / 4
-
-- [openshift_virtualization.not_managed.node_list.interface_list](resources--securemesh_site_v2--reference--group-014.md#canonical-2310102100123101-1311022222003201-2300021203211133-0123212010313320-0200223222033202-2121330212012032-0013031012001213-2101320202001012)
-- [xcsh_securemesh_site_v2](../resources/securemesh_site_v2.md#canonical-3000200222223112-2121123210332232-3331131023113311-0101321102313201-1230101233301033-1102230312220221-1020100000200232-0100112322233120)
-
-<a id="canonical-0330203123013021-2220332110311313-1132132123211300-3302302130110331-2120002110212333-0101220202112101-0333103021012030-3022221021223113"></a>
-
-<!-- Exact provider and upstream contract identifiers. -->
-
-<!-- textlint-disable terminology -->
-
-<a id="canonical-1003332202220233-3020303020031321-1230020022303130-2330131303212200-3310031313101133-2201220030001313-2331100121302111-3310201112100023"></a>
-
-## openshift_virtualization.not_managed.node_list.interface_list.site_to_site_connectivity_interface_enabled — site_to_site_connectivity_interface_enabled / 031122220010 / 2
-
-Breadcrumbs:
-
-- [xcsh_securemesh_site_v2](../resources/securemesh_site_v2.md#canonical-3000200222223112-2121123210332232-3331131023113311-0101321102313201-1230101233301033-1102230312220221-1020100000200232-0100112322233120)
-- [Property reference](resources--securemesh_site_v2--reference--group-001.md#canonical-2301010111101201-2220210123001232-1330030231123103-3121113232112322-0131203200320021-3021122122123123-2102102121133210-3220303330323302)
-- [openshift_virtualization](resources--securemesh_site_v2--reference--group-014.md#canonical-0121302321233330-0012112200322203-1301113300000200-3112222001032003-2331112123023303-3200031230001123-2210131121011110-1303130031122213)
-- [openshift_virtualization.not_managed](resources--securemesh_site_v2--reference--group-014.md#canonical-3312123010201223-0322231331231113-1001303330031101-0333001011110002-2013203012023212-3302312220022210-0233131332122310-2310031033301013)
-- [openshift_virtualization.not_managed.node_list](resources--securemesh_site_v2--reference--group-014.md#canonical-0132300131131032-2021130132112331-0312003011233211-2101210212103030-1211222230002213-3032312132223331-0301102321220023-0333221223201213)
-- [openshift_virtualization.not_managed.node_list.interface_list](resources--securemesh_site_v2--reference--group-014.md#canonical-2310102100123101-1311022222003201-2300021203211133-0123212010313320-0200223222033202-2121330212012032-0013031012001213-2101320202001012)
-- openshift_virtualization.not_managed.node_list.interface_list.site_to_site_connectivity_interface_enabled
-
-<a id="canonical-3000200211111120-2310231031112303-3001213033030001-0221121321121233-1223021300001203-3001222302202212-0131232300212223-0020022021000310"></a>
-
-Type: `["object", {}]`. Optional.
-
-Enable this option
-
-Upstream description:
-
-This can be used for messages where no values are needed.
-
-Receipt-pinned upstream constraints:
-
-```json
-{
-  "x-f5xc-required-for": {
-    "create": false,
-    "minimum_config": false,
-    "read": false,
-    "update": false
-  }
-}
-```
-
-Terraform syntax:
-
-```terraform
-site_to_site_connectivity_interface_enabled = {}
-```
-
-<a id="canonical-2002112303012010-3211220103311033-2313321023223123-0302210230332202-2223303002031133-1000010210001313-3130101301221033-2330211023122221"></a>
-
-## Direct properties — site_to_site_connectivity_interface_enabled / 031122220010 / 3
-
-This is an empty object or choice marker. It has no direct properties.
-
-<a id="canonical-3112002231312333-3331030303002302-3021220311331320-2320031101101013-0013232022202312-1220002313022020-0213220202022201-1130103001313312"></a>
-
-## Next pages — site_to_site_connectivity_interface_enabled / 031122220010 / 4
-
-- [openshift_virtualization.not_managed.node_list.interface_list](resources--securemesh_site_v2--reference--group-014.md#canonical-2310102100123101-1311022222003201-2300021203211133-0123212010313320-0200223222033202-2121330212012032-0013031012001213-2101320202001012)
-- [xcsh_securemesh_site_v2](../resources/securemesh_site_v2.md#canonical-3000200222223112-2121123210332232-3331131023113311-0101321102313201-1230101233301033-1102230312220221-1020100000200232-0100112322233120)
-
-<a id="canonical-2011222002031302-3200302122333032-3123332200133332-1213200011123210-2110002011322231-3321210212222320-3231013110330213-3131112113021112"></a>
-
-<!-- Exact provider and upstream contract identifiers. -->
-
-<!-- textlint-disable terminology -->
-
-<a id="canonical-2321032311223333-2331020302313313-1333202222310001-2301033100012233-3103321033011132-2230101230323312-0021001011302100-0033221321111021"></a>
-
-## openshift_virtualization.not_managed.node_list.interface_list.static_ip — static_ip / 221230013132 / 2
-
-Breadcrumbs:
-
-- [xcsh_securemesh_site_v2](../resources/securemesh_site_v2.md#canonical-3000200222223112-2121123210332232-3331131023113311-0101321102313201-1230101233301033-1102230312220221-1020100000200232-0100112322233120)
-- [Property reference](resources--securemesh_site_v2--reference--group-001.md#canonical-2301010111101201-2220210123001232-1330030231123103-3121113232112322-0131203200320021-3021122122123123-2102102121133210-3220303330323302)
-- [openshift_virtualization](resources--securemesh_site_v2--reference--group-014.md#canonical-0121302321233330-0012112200322203-1301113300000200-3112222001032003-2331112123023303-3200031230001123-2210131121011110-1303130031122213)
-- [openshift_virtualization.not_managed](resources--securemesh_site_v2--reference--group-014.md#canonical-3312123010201223-0322231331231113-1001303330031101-0333001011110002-2013203012023212-3302312220022210-0233131332122310-2310031033301013)
-- [openshift_virtualization.not_managed.node_list](resources--securemesh_site_v2--reference--group-014.md#canonical-0132300131131032-2021130132112331-0312003011233211-2101210212103030-1211222230002213-3032312132223331-0301102321220023-0333221223201213)
-- [openshift_virtualization.not_managed.node_list.interface_list](resources--securemesh_site_v2--reference--group-014.md#canonical-2310102100123101-1311022222003201-2300021203211133-0123212010313320-0200223222033202-2121330212012032-0013031012001213-2101320202001012)
-- openshift_virtualization.not_managed.node_list.interface_list.static_ip
-
-<a id="canonical-3223010202101321-1123111002213223-1302102203130230-3231332122332021-0012320103302122-1211201312002133-3000222133232010-2102110330003202"></a>
-
-Type: `"object"`. single nested block, Optional.
-
-Configure Static IP parameters for a node.
-
-Provider validators and defaults (from schema source):
-
-```go
-Validators: []validator.Object{validators.RequiredObjectAttributes("ip_address")}
-```
-
-Receipt-pinned upstream constraints:
-
-```json
-{
-  "x-f5xc-required-for": {
-    "create": false,
-    "minimum_config": false,
-    "read": false,
-    "update": false
-  }
-}
-```
-
-Terraform syntax:
-
-```terraform
-static_ip {
-  # Configure direct properties listed below.
-}
-```
-
-<a id="canonical-3212223200203221-2212312311311203-2132321111131100-3030112331111333-1212201222302133-3033332132022100-1123010122232131-2100333313331130"></a>
-
-## Direct properties — static_ip / 221230013132 / 3
-
-<a id="canonical-1313112221303302-2222323012120101-3010210220101033-1021130221331030-0303132133113310-1101230012230123-2333302021322122-1300310103110022"></a>
-
-<a id="canonical-1032323203110030-1001312332121110-2101002332323111-2121200110222132-0221232010101030-1013023332021303-0312232211220003-2122131030102111"></a>
-
-## default_gw property — static_ip / 221230013132 / 4
-
-Type: `"string"`. Optional.
-
-Default Gateway. IP address of the default gateway.
-
-Upstream description:
-
-IP address of the default gateway.
-
-Provider validators and defaults (from schema source):
-
-```go
-Validators: []validator.String{
-  stringvalidator.LengthAtMost(1024),
-  validators.IPValidator(),
-}
-```
-
-Receipt-pinned upstream constraints:
-
-```json
-{
-  "x-f5xc-constraints": {
-    "category": "discovery",
-    "constraintType": "string",
-    "deterministic": true,
-    "format": "ip",
-    "maxLength": 1024,
-    "metadata": {
-      "confidence": 0.99,
-      "source": "discovery",
-      "validatedAt": "2026-10-03T05:10:26+00:00"
-    }
-  },
-  "x-f5xc-required-for": {
-    "create": false,
-    "minimum_config": false,
-    "read": false,
-    "update": false
-  },
-  "x-validation-rules": {
-    "ves.io.schema.rules.string.ip": "true"
-  },
-  "x-ves-validation-rules": {
-    "ves.io.schema.rules.string.ip": "true"
-  }
-}
-```
-
-<a id="canonical-1030131023322311-2101102321000012-3023320101000311-1232012131231013-2102130333110000-0320102310033011-3223011220022311-0120202220223303"></a>
-
-<a id="canonical-0001220213010323-3223310300311322-1122323303320002-1022201331311121-0101200131322231-2132131230103212-2330310122300102-0313130231022213"></a>
-
-## dns_server property — static_ip / 221230013132 / 5
-
-Type: `"string"`. Optional.
-
-DNS server address for the static interface configuration.
-
-<a id="canonical-0030031200313312-3012233221003021-3222122030211312-0121321231230033-1032202321313013-0101200303331323-1003131301023011-1012001130111101"></a>
-
-<a id="canonical-0101331122021312-3202132232200022-1031302013101032-1221222320022231-0212033013302211-2323311220333323-3232103002121200-1323123013003001"></a>
-
-## ip_address property — static_ip / 221230013132 / 6
-
-Type: `"string"`. Optional.
-
-IP address of the interface and prefix length.
-
-Provider validators and defaults (from schema source):
-
-```go
-Validators: []validator.String{
-  stringvalidator.LengthBetween(7, 1024),
-  validators.CIDRValidator(),
-}
-```
-
-Receipt-pinned upstream constraints:
-
-```json
-{
-  "x-f5xc-constraints": {
-    "category": "discovery",
-    "constraintType": "string",
-    "deterministic": true,
-    "format": "cidr",
-    "formatDescription": "IPv4 dotted-decimal notation (e.g., 192.168.1.1)",
-    "maxLength": 1024,
-    "metadata": {
-      "confidence": 0.99,
-      "source": "discovery",
-      "validatedAt": "2026-10-03T05:10:26+00:00"
-    },
-    "minLength": 7,
-    "pattern": "^((25[0-5]|(2[0-4]|1\\d|[1-9]|)\\d)\\.?\\b){4}$"
-  },
-  "x-f5xc-required-for": {
-    "create": true,
-    "minimum_config": true,
-    "read": false,
-    "update": false
-  },
-  "x-validation-rules": {
-    "ves.io.schema.rules.message.required": "true",
-    "ves.io.schema.rules.string.ip_prefix": "true"
-  },
-  "x-ves-validation-rules": {
-    "ves.io.schema.rules.message.required": "true",
-    "ves.io.schema.rules.string.ip_prefix": "true"
-  }
-}
-```
-
-<a id="canonical-1320120200031301-0113333110132130-0220313012232223-3332031222123311-1000100333223102-2023023210011323-1221313130223130-3203323223232302"></a>
-
-## Next pages — static_ip / 221230013132 / 7
-
-- [openshift_virtualization.not_managed.node_list.interface_list](resources--securemesh_site_v2--reference--group-014.md#canonical-2310102100123101-1311022222003201-2300021203211133-0123212010313320-0200223222033202-2121330212012032-0013031012001213-2101320202001012)
-- [xcsh_securemesh_site_v2](../resources/securemesh_site_v2.md#canonical-3000200222223112-2121123210332232-3331131023113311-0101321102313201-1230101233301033-1102230312220221-1020100000200232-0100112322233120)
-
-<a id="canonical-0121232330223030-1033213222121310-1330203213131333-0330121003032131-2102322013231232-3002323223301322-1012012001213201-3010033021333203"></a>
-
-<!-- Exact provider and upstream contract identifiers. -->
-
-<!-- textlint-disable terminology -->
-
-<a id="canonical-2011203330022311-3313031213321322-1121132113001312-1111203113320031-3112223233201123-3131011023022002-3132112313303320-2232213303121021"></a>
-
-## openshift_virtualization.not_managed.node_list.interface_list.static_ipv6_address — static_ipv6_address / 323303110312 / 2
-
-Breadcrumbs:
-
-- [xcsh_securemesh_site_v2](../resources/securemesh_site_v2.md#canonical-3000200222223112-2121123210332232-3331131023113311-0101321102313201-1230101233301033-1102230312220221-1020100000200232-0100112322233120)
-- [Property reference](resources--securemesh_site_v2--reference--group-001.md#canonical-2301010111101201-2220210123001232-1330030231123103-3121113232112322-0131203200320021-3021122122123123-2102102121133210-3220303330323302)
-- [openshift_virtualization](resources--securemesh_site_v2--reference--group-014.md#canonical-0121302321233330-0012112200322203-1301113300000200-3112222001032003-2331112123023303-3200031230001123-2210131121011110-1303130031122213)
-- [openshift_virtualization.not_managed](resources--securemesh_site_v2--reference--group-014.md#canonical-3312123010201223-0322231331231113-1001303330031101-0333001011110002-2013203012023212-3302312220022210-0233131332122310-2310031033301013)
-- [openshift_virtualization.not_managed.node_list](resources--securemesh_site_v2--reference--group-014.md#canonical-0132300131131032-2021130132112331-0312003011233211-2101210212103030-1211222230002213-3032312132223331-0301102321220023-0333221223201213)
-- [openshift_virtualization.not_managed.node_list.interface_list](resources--securemesh_site_v2--reference--group-014.md#canonical-2310102100123101-1311022222003201-2300021203211133-0123212010313320-0200223222033202-2121330212012032-0013031012001213-2101320202001012)
-- openshift_virtualization.not_managed.node_list.interface_list.static_ipv6_address
-
-<a id="canonical-3000011220012321-0120100022313311-2323300310312031-3211003301011202-2322232032101211-2130001233232313-3331113031132100-3023102311330213"></a>
-
-Type: `"object"`. single nested block, Optional.
-
-Static IP Parameters. Configure Static IP parameters.
-
-Upstream description:
-
-Configure Static IP parameters.
-
-Provider validators and defaults (from schema source):
-
-```go
-Validators: []validator.Object{validators.ConflictingObjectAttributes("cluster_static_ip",
-    "node_static_ip")}
-```
-
-Receipt-pinned upstream constraints:
-
-```json
-{
-  "x-f5xc-required-for": {
-    "create": false,
-    "minimum_config": false,
-    "read": false,
-    "update": false
-  },
-  "x-ves-oneof-field-network_prefix_choice": "[\"cluster_static_ip\",\"node_static_ip\"]"
-}
-```
-
-Terraform syntax:
-
-```terraform
-static_ipv6_address {
-  # Configure direct properties listed below.
-}
-```
-
-<a id="canonical-0212011333122300-3113312222000231-2230230330300102-1023021323312023-3202023113203102-0321002002011001-2120301112213120-2002030101031031"></a>
-
-## Direct properties — static_ipv6_address / 323303110312 / 3
-
-- [cluster_static_ip](resources--securemesh_site_v2--reference--group-015.md#canonical-3220011103312033-0132120323300332-2223101102302120-0013033000022120-2011211112032100-0112320312300001-3210122022112312-3002122132123013): complete subsection reference.
-
-- [node_static_ip](resources--securemesh_site_v2--reference--group-015.md#canonical-2220312333300111-0223021033223300-0222200111230011-3030331223022220-0103202313122203-1203332030322331-1103011122001100-3233320130330010): complete subsection reference.
-
-<a id="canonical-0033311113301231-3210323122013222-1332330233201122-3321331033131320-2122200003313231-2000221110023302-2022013301002212-3222311102112301"></a>
-
-## Next pages — static_ipv6_address / 323303110312 / 4
-
-- [openshift_virtualization.not_managed.node_list.interface_list.static_ipv6_address.cluster_static_ip](resources--securemesh_site_v2--reference--group-015.md#canonical-3220011103312033-0132120323300332-2223101102302120-0013033000022120-2011211112032100-0112320312300001-3210122022112312-3002122132123013)
-- [openshift_virtualization.not_managed.node_list.interface_list.static_ipv6_address.node_static_ip](resources--securemesh_site_v2--reference--group-015.md#canonical-2220312333300111-0223021033223300-0222200111230011-3030331223022220-0103202313122203-1203332030322331-1103011122001100-3233320130330010)
-- [openshift_virtualization.not_managed.node_list.interface_list](resources--securemesh_site_v2--reference--group-014.md#canonical-2310102100123101-1311022222003201-2300021203211133-0123212010313320-0200223222033202-2121330212012032-0013031012001213-2101320202001012)
-- [xcsh_securemesh_site_v2](../resources/securemesh_site_v2.md#canonical-3000200222223112-2121123210332232-3331131023113311-0101321102313201-1230101233301033-1102230312220221-1020100000200232-0100112322233120)
-
-<a id="canonical-3220011103312033-0132120323300332-2223101102302120-0013033000022120-2011211112032100-0112320312300001-3210122022112312-3002122132123013"></a>
-
-<!-- Exact provider and upstream contract identifiers. -->
-
-<!-- textlint-disable terminology -->
-
-<a id="canonical-2301122210021211-2200311001123330-0321323220302231-0301022033311212-2010221313301302-0313303002212122-0310221121323122-1123020300122020"></a>
-
-## openshift_virtualization.not_managed.node_list.interface_list.static_ipv6_address.cluster_static_ip — cluster_static_ip / 003113333201 / 2
-
-Breadcrumbs:
-
-- [xcsh_securemesh_site_v2](../resources/securemesh_site_v2.md#canonical-3000200222223112-2121123210332232-3331131023113311-0101321102313201-1230101233301033-1102230312220221-1020100000200232-0100112322233120)
-- [Property reference](resources--securemesh_site_v2--reference--group-001.md#canonical-2301010111101201-2220210123001232-1330030231123103-3121113232112322-0131203200320021-3021122122123123-2102102121133210-3220303330323302)
-- [openshift_virtualization](resources--securemesh_site_v2--reference--group-014.md#canonical-0121302321233330-0012112200322203-1301113300000200-3112222001032003-2331112123023303-3200031230001123-2210131121011110-1303130031122213)
-- [openshift_virtualization.not_managed](resources--securemesh_site_v2--reference--group-014.md#canonical-3312123010201223-0322231331231113-1001303330031101-0333001011110002-2013203012023212-3302312220022210-0233131332122310-2310031033301013)
-- [openshift_virtualization.not_managed.node_list](resources--securemesh_site_v2--reference--group-014.md#canonical-0132300131131032-2021130132112331-0312003011233211-2101210212103030-1211222230002213-3032312132223331-0301102321220023-0333221223201213)
-- [openshift_virtualization.not_managed.node_list.interface_list](resources--securemesh_site_v2--reference--group-014.md#canonical-2310102100123101-1311022222003201-2300021203211133-0123212010313320-0200223222033202-2121330212012032-0013031012001213-2101320202001012)
-- [openshift_virtualization.not_managed.node_list.interface_list.static_ipv6_address](resources--securemesh_site_v2--reference--group-015.md#canonical-0121232330223030-1033213222121310-1330203213131333-0330121003032131-2102322013231232-3002323223301322-1012012001213201-3010033021333203)
-- openshift_virtualization.not_managed.node_list.interface_list.static_ipv6_address.cluster_static_ip
-
-<a id="canonical-2101331232212213-2232310202222133-0101011120321210-2312011221113332-1031320012323202-0011031131233211-2300121333300320-1100233211321213"></a>
-
-Type: `"object"`. single nested block, Optional.
-
-Configure Static IP parameters for cluster.
-
-Receipt-pinned upstream constraints:
-
-```json
-{
-  "x-f5xc-required-for": {
-    "create": false,
-    "minimum_config": false,
-    "read": false,
-    "update": false
-  }
-}
-```
-
-Terraform syntax:
-
-```terraform
-cluster_static_ip {
-  # Configure direct properties listed below.
-}
-```
-
-<a id="canonical-0223213131213130-1031003000103303-1300110101300011-1113023000122223-1101313013003113-3002100020133000-0100120232122321-0022023032132023"></a>
-
-## Direct properties — cluster_static_ip / 003113333201 / 3
-
-<a id="canonical-0023131211312100-2113022123202033-3203231331032301-2230201203212211-0203210312301210-1103213222201332-0112101222323121-2322332222210032"></a>
-
-<a id="canonical-3333111212322022-1322323231121122-2103300033223120-0001123213132320-3212233133310010-2201333030003330-0211010303211220-1230123110111101"></a>
-
-## interface_ip_map property — cluster_static_ip / 003113333201 / 4
-
-Type: `["map", "string"]`. Optional.
-
-Map of Node to Static IP configuration value, Key:Node, Value:IP Address.
-
-Receipt-pinned upstream constraints:
-
-```json
-{
-  "x-f5xc-constraints": {
-    "category": "general",
-    "constraintType": "object",
-    "maxProperties": 128,
-    "metadata": {
-      "confidence": 0.75,
-      "source": "inferred",
-      "validatedAt": "2026-10-03T05:10:26+00:00"
-    }
-  },
-  "x-f5xc-required-for": {
-    "create": false,
-    "minimum_config": false,
-    "read": false,
-    "update": false
-  },
-  "x-validation-rules": {
-    "ves.io.schema.rules.map.keys.string.max_len": "128",
-    "ves.io.schema.rules.map.keys.string.min_len": "1",
-    "ves.io.schema.rules.map.max_pairs": "128"
-  },
-  "x-ves-validation-rules": {
-    "ves.io.schema.rules.map.keys.string.max_len": "128",
-    "ves.io.schema.rules.map.keys.string.min_len": "1",
-    "ves.io.schema.rules.map.max_pairs": "128"
-  }
-}
-```
-
-<a id="canonical-3213120123130102-0230222220313013-3000233222023212-3232301111233103-0221001230123113-2230213212031311-1331231131233033-2223030303212200"></a>
-
-## Next pages — cluster_static_ip / 003113333201 / 5
-
-- [openshift_virtualization.not_managed.node_list.interface_list.static_ipv6_address](resources--securemesh_site_v2--reference--group-015.md#canonical-0121232330223030-1033213222121310-1330203213131333-0330121003032131-2102322013231232-3002323223301322-1012012001213201-3010033021333203)
-- [xcsh_securemesh_site_v2](../resources/securemesh_site_v2.md#canonical-3000200222223112-2121123210332232-3331131023113311-0101321102313201-1230101233301033-1102230312220221-1020100000200232-0100112322233120)
-
-<a id="canonical-2220312333300111-0223021033223300-0222200111230011-3030331223022220-0103202313122203-1203332030322331-1103011122001100-3233320130330010"></a>
-
-<!-- Exact provider and upstream contract identifiers. -->
-
-<!-- textlint-disable terminology -->
-
-<a id="canonical-1230021303123030-3310012011330013-3322031012130110-3012123312312032-1133000310120033-3202321130102011-3222323211133203-0323132103133021"></a>
-
-## openshift_virtualization.not_managed.node_list.interface_list.static_ipv6_address.node_static_ip — node_static_ip / 301333332322 / 2
-
-Breadcrumbs:
-
-- [xcsh_securemesh_site_v2](../resources/securemesh_site_v2.md#canonical-3000200222223112-2121123210332232-3331131023113311-0101321102313201-1230101233301033-1102230312220221-1020100000200232-0100112322233120)
-- [Property reference](resources--securemesh_site_v2--reference--group-001.md#canonical-2301010111101201-2220210123001232-1330030231123103-3121113232112322-0131203200320021-3021122122123123-2102102121133210-3220303330323302)
-- [openshift_virtualization](resources--securemesh_site_v2--reference--group-014.md#canonical-0121302321233330-0012112200322203-1301113300000200-3112222001032003-2331112123023303-3200031230001123-2210131121011110-1303130031122213)
-- [openshift_virtualization.not_managed](resources--securemesh_site_v2--reference--group-014.md#canonical-3312123010201223-0322231331231113-1001303330031101-0333001011110002-2013203012023212-3302312220022210-0233131332122310-2310031033301013)
-- [openshift_virtualization.not_managed.node_list](resources--securemesh_site_v2--reference--group-014.md#canonical-0132300131131032-2021130132112331-0312003011233211-2101210212103030-1211222230002213-3032312132223331-0301102321220023-0333221223201213)
-- [openshift_virtualization.not_managed.node_list.interface_list](resources--securemesh_site_v2--reference--group-014.md#canonical-2310102100123101-1311022222003201-2300021203211133-0123212010313320-0200223222033202-2121330212012032-0013031012001213-2101320202001012)
-- [openshift_virtualization.not_managed.node_list.interface_list.static_ipv6_address](resources--securemesh_site_v2--reference--group-015.md#canonical-0121232330223030-1033213222121310-1330203213131333-0330121003032131-2102322013231232-3002323223301322-1012012001213201-3010033021333203)
-- openshift_virtualization.not_managed.node_list.interface_list.static_ipv6_address.node_static_ip
-
-<a id="canonical-2012013121133210-2030202002320222-2022130130311223-3111221011211301-2133322131122302-0001203123213211-3133110121203030-2300202102130003"></a>
-
-Type: `"object"`. single nested block, Optional.
-
-Configure Static IP parameters for a node.
-
-Provider validators and defaults (from schema source):
-
-```go
-Validators: []validator.Object{validators.RequiredObjectAttributes("ip_address")}
-```
-
-Receipt-pinned upstream constraints:
-
-```json
-{
-  "x-f5xc-required-for": {
-    "create": false,
-    "minimum_config": false,
-    "read": false,
-    "update": false
-  }
-}
-```
-
-Terraform syntax:
-
-```terraform
-node_static_ip {
-  # Configure direct properties listed below.
-}
-```
-
-<a id="canonical-2112031320021113-0003331102110122-2333211220123303-1320122032330311-3322323032131100-0122203102012132-0211220100122300-1110331121010130"></a>
-
-## Direct properties — node_static_ip / 301333332322 / 3
-
-<a id="canonical-3013012112012031-1001203233103031-2330231032201223-2331213210312022-2020213031303033-3130012213131123-2110211120131002-2300301122211220"></a>
-
-<a id="canonical-2333100210032201-1320130133120121-1200331003230121-0011220122301020-0202310001331130-2110211002113230-0001312201230220-0303220211113303"></a>
-
-## default_gw property — node_static_ip / 301333332322 / 4
-
-Type: `"string"`. Optional.
-
-Default Gateway. IP address of the default gateway.
-
-Upstream description:
-
-IP address of the default gateway.
-
-Provider validators and defaults (from schema source):
-
-```go
-Validators: []validator.String{
-  stringvalidator.LengthAtMost(1024),
-  validators.IPValidator(),
-}
-```
-
-Receipt-pinned upstream constraints:
-
-```json
-{
-  "x-f5xc-constraints": {
-    "category": "discovery",
-    "constraintType": "string",
-    "deterministic": true,
-    "format": "ip",
-    "maxLength": 1024,
-    "metadata": {
-      "confidence": 0.99,
-      "source": "discovery",
-      "validatedAt": "2026-10-03T05:10:26+00:00"
-    }
-  },
-  "x-f5xc-required-for": {
-    "create": false,
-    "minimum_config": false,
-    "read": false,
-    "update": false
-  },
-  "x-validation-rules": {
-    "ves.io.schema.rules.string.ip": "true"
-  },
-  "x-ves-validation-rules": {
-    "ves.io.schema.rules.string.ip": "true"
-  }
-}
-```
-
-<a id="canonical-3202101122112320-0323002200033011-0110330003130000-0100130102131010-0230013310030133-3302203310022000-1222021021210221-0130233210023200"></a>
-
-<a id="canonical-1313010210333203-3012223202220122-3013023122310012-3202330220323130-0310322301203320-3201012200213201-1201312123022301-1111113313200011"></a>
-
-## dns_server property — node_static_ip / 301333332322 / 5
-
-Type: `"string"`. Optional.
-
-DNS server address for the static interface configuration.
-
-<a id="canonical-1320132013303111-2301300221003020-1330330032011122-1332101113101331-2232003200213212-2031233021332101-0313030112313012-3302023110310333"></a>
-
-<a id="canonical-3133232012023030-2212302322332102-1110100002330202-1012003023200103-3032022031030101-3032332203113321-3130133010211021-0212113001201033"></a>
-
-## ip_address property — node_static_ip / 301333332322 / 6
-
-Type: `"string"`. Optional.
-
-IP address of the interface and prefix length.
-
-Provider validators and defaults (from schema source):
-
-```go
-Validators: []validator.String{
-  stringvalidator.LengthBetween(7, 1024),
-  validators.CIDRValidator(),
-}
-```
-
-Receipt-pinned upstream constraints:
-
-```json
-{
-  "x-f5xc-constraints": {
-    "category": "discovery",
-    "constraintType": "string",
-    "deterministic": true,
-    "format": "cidr",
-    "formatDescription": "IPv4 dotted-decimal notation (e.g., 192.168.1.1)",
-    "maxLength": 1024,
-    "metadata": {
-      "confidence": 0.99,
-      "source": "discovery",
-      "validatedAt": "2026-10-03T05:10:26+00:00"
-    },
-    "minLength": 7,
-    "pattern": "^((25[0-5]|(2[0-4]|1\\d|[1-9]|)\\d)\\.?\\b){4}$"
-  },
-  "x-f5xc-required-for": {
-    "create": true,
-    "minimum_config": true,
-    "read": false,
-    "update": false
-  },
-  "x-validation-rules": {
-    "ves.io.schema.rules.message.required": "true",
-    "ves.io.schema.rules.string.ip_prefix": "true"
-  },
-  "x-ves-validation-rules": {
-    "ves.io.schema.rules.message.required": "true",
-    "ves.io.schema.rules.string.ip_prefix": "true"
-  }
-}
-```
-
-<a id="canonical-0212133022133102-3211300012332222-0100222011113102-2212223011301100-3021222202301202-2110033233013033-3002030002120320-2120000122101232"></a>
-
-## Next pages — node_static_ip / 301333332322 / 7
-
-- [openshift_virtualization.not_managed.node_list.interface_list.static_ipv6_address](resources--securemesh_site_v2--reference--group-015.md#canonical-0121232330223030-1033213222121310-1330203213131333-0330121003032131-2102322013231232-3002323223301322-1012012001213201-3010033021333203)
-- [xcsh_securemesh_site_v2](../resources/securemesh_site_v2.md#canonical-3000200222223112-2121123210332232-3331131023113311-0101321102313201-1230101233301033-1102230312220221-1020100000200232-0100112322233120)
-
-<a id="canonical-0030030233110130-3213101333223331-3101211022101203-1022313322122110-2223021203331030-2030210001231300-2333232113003101-1103112122103212"></a>
-
-<!-- Exact provider and upstream contract identifiers. -->
-
-<!-- textlint-disable terminology -->
-
-<a id="canonical-0331031210101311-3202133321231202-2032332010330132-3113103331300120-1123303002201300-3210101332330010-2130022003023311-3223010001221022"></a>
-
-## openshift_virtualization.not_managed.node_list.interface_list.vlan_interface — vlan_interface / 320113000030 / 2
-
-Breadcrumbs:
-
-- [xcsh_securemesh_site_v2](../resources/securemesh_site_v2.md#canonical-3000200222223112-2121123210332232-3331131023113311-0101321102313201-1230101233301033-1102230312220221-1020100000200232-0100112322233120)
-- [Property reference](resources--securemesh_site_v2--reference--group-001.md#canonical-2301010111101201-2220210123001232-1330030231123103-3121113232112322-0131203200320021-3021122122123123-2102102121133210-3220303330323302)
-- [openshift_virtualization](resources--securemesh_site_v2--reference--group-014.md#canonical-0121302321233330-0012112200322203-1301113300000200-3112222001032003-2331112123023303-3200031230001123-2210131121011110-1303130031122213)
-- [openshift_virtualization.not_managed](resources--securemesh_site_v2--reference--group-014.md#canonical-3312123010201223-0322231331231113-1001303330031101-0333001011110002-2013203012023212-3302312220022210-0233131332122310-2310031033301013)
-- [openshift_virtualization.not_managed.node_list](resources--securemesh_site_v2--reference--group-014.md#canonical-0132300131131032-2021130132112331-0312003011233211-2101210212103030-1211222230002213-3032312132223331-0301102321220023-0333221223201213)
-- [openshift_virtualization.not_managed.node_list.interface_list](resources--securemesh_site_v2--reference--group-014.md#canonical-2310102100123101-1311022222003201-2300021203211133-0123212010313320-0200223222033202-2121330212012032-0013031012001213-2101320202001012)
-- openshift_virtualization.not_managed.node_list.interface_list.vlan_interface
-
-<a id="canonical-1301020203021233-0020112222331322-1213201023333012-2123323220011322-1021210121321220-0321021230013301-1233303330011133-0002022130003131"></a>
-
-Type: `"object"`. single nested block, Optional.
-
-Configuration parameter for vlan interface.
-
-Provider validators and defaults (from schema source):
-
-```go
-Validators: []validator.Object{validators.RequiredObjectAttributes("device",
-    "vlan_id")}
-```
-
-Receipt-pinned upstream constraints:
-
-```json
-{
-  "x-f5xc-required-for": {
-    "create": false,
-    "minimum_config": false,
-    "read": false,
-    "update": false
-  }
-}
-```
-
-Terraform syntax:
-
-```terraform
-vlan_interface {
-  # Configure direct properties listed below.
-}
-```
-
-<a id="canonical-1133121030301232-2022230113230302-1200032332133221-0010331003210123-1132332331022122-2020030131113132-2210020220100111-1232222020320021"></a>
-
-## Direct properties — vlan_interface / 320113000030 / 3
-
-<a id="canonical-0031332221123023-0023112210210131-2002022032123210-3332022123133322-2013030113332331-1020111222321310-3210323311310122-1100111021021120"></a>

@@ -154,21 +154,21 @@
       "schema_path": [],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/protocol_inspection/index.txt",
-      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
+      "spec_pin_digest": "sha256:0e278b4afb598ac8628ac74dca6a1b2831cd8607de1d26f56e72e3461a7440c7",
       "summary": "Manages Protocol Inspection Specification in a given namespace. If one already exists it will give an error in F5 Distributed Cloud.",
       "tasks": ["configuration"],
       "title": "xcsh_protocol_inspection",
       "unresolved_relationships": [],
       "upstream_identity": {
-        "release_tag": "v9.0.2",
+        "release_tag": "v10.0.0",
         "schema_components": ["protocol_inspectionCreateRequest"],
-        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
+        "target_commit": "ac024ccbfb8b9f84412813f3e2ab9f5821937ef2"
       }
     },
     {
       "aliases": ["protocol inspection"],
-      "body_bytes": 13433,
-      "body_sha256": "sha256:1ac7af73b81cb4f0724710b20a40e32fc9625f243d9aeea97f9ad49ddc72e4ed",
+      "body_bytes": 13999,
+      "body_sha256": "sha256:b8c1c261a514860d195386331482fae3d3c444447c1d0a47d14a5b1c31470219",
       "capabilities": [],
       "category": null,
       "child_ids": [
@@ -388,14 +388,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/protocol_inspection/properties/index.txt",
-      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
+      "spec_pin_digest": "sha256:0e278b4afb598ac8628ac74dca6a1b2831cd8607de1d26f56e72e3461a7440c7",
       "summary": "Property reference for xcsh_protocol_inspection.",
       "tasks": ["configuration"],
       "title": "Property reference",
       "upstream_identity": {
-        "release_tag": "v9.0.2",
+        "release_tag": "v10.0.0",
         "schema_components": ["protocol_inspectionCreateRequest"],
-        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
+        "target_commit": "ac024ccbfb8b9f84412813f3e2ab9f5821937ef2"
       }
     },
     {
@@ -486,14 +486,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/protocol_inspection/properties/enable_disable_compliance_checks/index.txt",
-      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
+      "spec_pin_digest": "sha256:0e278b4afb598ac8628ac74dca6a1b2831cd8607de1d26f56e72e3461a7440c7",
       "summary": "Enable Disable Compliance Checks Choice.",
       "tasks": ["configuration"],
       "title": "enable_disable_compliance_checks",
       "upstream_identity": {
-        "release_tag": "v9.0.2",
+        "release_tag": "v10.0.0",
         "schema_components": ["protocol_inspectionCreateRequest"],
-        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
+        "target_commit": "ac024ccbfb8b9f84412813f3e2ab9f5821937ef2"
       }
     },
     {
@@ -526,14 +526,14 @@
       "schema_path": ["enable_disable_compliance_checks", "disable_compliance_checks"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/protocol_inspection/properties/enable_disable_compliance_checks/disable_compliance_checks/index.txt",
-      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
+      "spec_pin_digest": "sha256:0e278b4afb598ac8628ac74dca6a1b2831cd8607de1d26f56e72e3461a7440c7",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "enable_disable_compliance_checks.disable_compliance_checks",
       "upstream_identity": {
-        "release_tag": "v9.0.2",
+        "release_tag": "v10.0.0",
         "schema_components": ["protocol_inspectionCreateRequest"],
-        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
+        "target_commit": "ac024ccbfb8b9f84412813f3e2ab9f5821937ef2"
       }
     },
     {
@@ -618,14 +618,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/protocol_inspection/properties/enable_disable_compliance_checks/enable_compliance_checks/index.txt",
-      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
+      "spec_pin_digest": "sha256:0e278b4afb598ac8628ac74dca6a1b2831cd8607de1d26f56e72e3461a7440c7",
       "summary": "This type establishes a direct reference from one object(the referrer) to another(the referred). Such a reference is in form of tenant/namespace/name.",
       "tasks": ["configuration"],
       "title": "enable_disable_compliance_checks.enable_compliance_checks",
       "upstream_identity": {
-        "release_tag": "v9.0.2",
+        "release_tag": "v10.0.0",
         "schema_components": ["protocol_inspectionCreateRequest"],
-        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
+        "target_commit": "ac024ccbfb8b9f84412813f3e2ab9f5821937ef2"
       }
     },
     {
@@ -707,14 +707,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/protocol_inspection/properties/enable_disable_signatures/index.txt",
-      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
+      "spec_pin_digest": "sha256:0e278b4afb598ac8628ac74dca6a1b2831cd8607de1d26f56e72e3461a7440c7",
       "summary": "Enable Disable Signature Choice.",
       "tasks": ["configuration"],
       "title": "enable_disable_signatures",
       "upstream_identity": {
-        "release_tag": "v9.0.2",
+        "release_tag": "v10.0.0",
         "schema_components": ["protocol_inspectionCreateRequest"],
-        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
+        "target_commit": "ac024ccbfb8b9f84412813f3e2ab9f5821937ef2"
       }
     },
     {
@@ -747,14 +747,14 @@
       "schema_path": ["enable_disable_signatures", "disable_signature"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/protocol_inspection/properties/enable_disable_signatures/disable_signature/index.txt",
-      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
+      "spec_pin_digest": "sha256:0e278b4afb598ac8628ac74dca6a1b2831cd8607de1d26f56e72e3461a7440c7",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "enable_disable_signatures.disable_signature",
       "upstream_identity": {
-        "release_tag": "v9.0.2",
+        "release_tag": "v10.0.0",
         "schema_components": ["protocol_inspectionCreateRequest"],
-        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
+        "target_commit": "ac024ccbfb8b9f84412813f3e2ab9f5821937ef2"
       }
     },
     {
@@ -787,14 +787,14 @@
       "schema_path": ["enable_disable_signatures", "enable_signature"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/protocol_inspection/properties/enable_disable_signatures/enable_signature/index.txt",
-      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
+      "spec_pin_digest": "sha256:0e278b4afb598ac8628ac74dca6a1b2831cd8607de1d26f56e72e3461a7440c7",
       "summary": "This can be used for messages where no values are needed.",
       "tasks": ["configuration"],
       "title": "enable_disable_signatures.enable_signature",
       "upstream_identity": {
-        "release_tag": "v9.0.2",
+        "release_tag": "v10.0.0",
         "schema_components": ["protocol_inspectionCreateRequest"],
-        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
+        "target_commit": "ac024ccbfb8b9f84412813f3e2ab9f5821937ef2"
       }
     },
     {
@@ -919,14 +919,14 @@
         }
       ],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/protocol_inspection/properties/timeouts/index.txt",
-      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
+      "spec_pin_digest": "sha256:0e278b4afb598ac8628ac74dca6a1b2831cd8607de1d26f56e72e3461a7440c7",
       "summary": "timeouts for xcsh_protocol_inspection.",
       "tasks": ["configuration"],
       "title": "timeouts",
       "upstream_identity": {
-        "release_tag": "v9.0.2",
+        "release_tag": "v10.0.0",
         "schema_components": ["protocol_inspectionCreateRequest"],
-        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
+        "target_commit": "ac024ccbfb8b9f84412813f3e2ab9f5821937ef2"
       }
     },
     {
@@ -959,14 +959,14 @@
       "schema_path": [],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/protocol_inspection/examples/index.txt",
-      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
+      "spec_pin_digest": "sha256:0e278b4afb598ac8628ac74dca6a1b2831cd8607de1d26f56e72e3461a7440c7",
       "summary": "Examples for xcsh_protocol_inspection.",
       "tasks": ["configuration"],
       "title": "Examples",
       "upstream_identity": {
-        "release_tag": "v9.0.2",
+        "release_tag": "v10.0.0",
         "schema_components": ["protocol_inspectionCreateRequest"],
-        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
+        "target_commit": "ac024ccbfb8b9f84412813f3e2ab9f5821937ef2"
       }
     },
     {
@@ -1006,14 +1006,14 @@
       "schema_path": ["resource"],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/protocol_inspection/examples/resource/index.txt",
-      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
+      "spec_pin_digest": "sha256:0e278b4afb598ac8628ac74dca6a1b2831cd8607de1d26f56e72e3461a7440c7",
       "summary": "Resource for xcsh_protocol_inspection.",
       "tasks": ["configuration"],
       "title": "Resource",
       "upstream_identity": {
-        "release_tag": "v9.0.2",
+        "release_tag": "v10.0.0",
         "schema_components": ["protocol_inspectionCreateRequest"],
-        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
+        "target_commit": "ac024ccbfb8b9f84412813f3e2ab9f5821937ef2"
       }
     },
     {
@@ -1047,14 +1047,14 @@
       "schema_path": [],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/protocol_inspection/lifecycle/import/index.txt",
-      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
+      "spec_pin_digest": "sha256:0e278b4afb598ac8628ac74dca6a1b2831cd8607de1d26f56e72e3461a7440c7",
       "summary": "Import for xcsh_protocol_inspection.",
       "tasks": ["import"],
       "title": "Import",
       "upstream_identity": {
-        "release_tag": "v9.0.2",
+        "release_tag": "v10.0.0",
         "schema_components": ["protocol_inspectionCreateRequest"],
-        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
+        "target_commit": "ac024ccbfb8b9f84412813f3e2ab9f5821937ef2"
       }
     },
     {
@@ -1087,14 +1087,14 @@
       "schema_path": [],
       "sections": [],
       "source_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/_data/pages/resources/protocol_inspection/lifecycle/timeouts/index.txt",
-      "spec_pin_digest": "sha256:62f71ec22260bc99f65753ef4581eb9e0dec1b65c506bb0d53099db73a05e19e",
+      "spec_pin_digest": "sha256:0e278b4afb598ac8628ac74dca6a1b2831cd8607de1d26f56e72e3461a7440c7",
       "summary": "Timeouts for xcsh_protocol_inspection.",
       "tasks": ["lifecycle"],
       "title": "Timeouts",
       "upstream_identity": {
-        "release_tag": "v9.0.2",
+        "release_tag": "v10.0.0",
         "schema_components": ["protocol_inspectionCreateRequest"],
-        "target_commit": "1a0b5141f4589ffaf7bb696a4369a16ee74ae2ff"
+        "target_commit": "ac024ccbfb8b9f84412813f3e2ab9f5821937ef2"
       }
     }
   ],

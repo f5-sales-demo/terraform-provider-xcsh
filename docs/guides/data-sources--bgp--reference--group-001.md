@@ -45,6 +45,27 @@ Receipt-pinned upstream constraints:
 
 ```json
 {
+  "x-f5xc-constraints": {
+    "category": "discovery",
+    "constraintType": "map",
+    "deterministic": true,
+    "keys": {
+      "maxLength": 64,
+      "minLength": 1,
+      "type": "string"
+    },
+    "originalRules": {
+      "ves.io.schema.rules.map.keys.string.max_len": "64",
+      "ves.io.schema.rules.map.keys.string.min_len": "1",
+      "ves.io.schema.rules.map.values.string.max_len": "1024",
+      "ves.io.schema.rules.map.values.string.min_len": "1"
+    },
+    "values": {
+      "maxLength": 1024,
+      "minLength": 1,
+      "type": "string"
+    }
+  },
   "x-f5xc-required-for": {
     "create": false,
     "minimum_config": false,
@@ -5078,10 +5099,3 @@ Receipt-pinned upstream constraints:
   }
 }
 ```
-
-<a id="canonical-0003313033312203-2200122213333303-3011111112333001-2201032010201210-1321032102210021-0031331031120031-3300213200332232-0330232131211320"></a>
-
-## Next pages — ref / 320331330001 / 9
-
-- [where.virtual_site](data-sources--bgp--reference--group-001.md#canonical-0001123113232320-2133112103332320-3121101122131111-3032121101310020-3002331132301230-3231303333120301-1120100023033233-2010330120222110)
-- [xcsh_bgp](../data-sources/bgp.md#canonical-0330230310333303-2102033020231123-2303123101223012-3213333103231032-1203320012331320-3031311033301202-3020310230132101-0011223030112231)

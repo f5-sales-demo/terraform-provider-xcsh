@@ -6,6 +6,65 @@ description: "Complete grouped canonical reference for xcsh_network_interface re
 
 # xcsh_network_interface reference
 
+<a id="canonical-0321001213111223-2121032320103030-0020213101311311-0133302212110203-1111133201322201-0221320132212123-1230020030102302-3021001333012012"></a>
+
+## ethernet_interface.no_ipv6_address — no_ipv6_address / 031001222133 / 2
+
+Breadcrumbs:
+
+- [xcsh_network_interface](../resources/network_interface.md#canonical-3303002200232320-3331233131000231-2111111223023013-2313310022210202-2333223030322133-2311103000000220-1221101012132133-2022200333323310)
+- [Property reference](resources--network_interface--reference--group-001.md#canonical-2322022123030133-3000312103003333-0310202220121330-0310123030213020-3022333010321131-3222303201013302-0200010223022132-2000311123301212)
+- [ethernet_interface](resources--network_interface--reference--group-001.md#canonical-0212013301302220-1201200231123120-0000000232201111-2330233033122002-2203013033101202-2132013330003201-1213023112010321-1203321102031221)
+- ethernet_interface.no_ipv6_address
+
+<a id="canonical-2001322023313200-3011100222320010-1220210030303113-2312302221132330-2133103012133230-1033000003002110-2323333202332011-1201003111200123"></a>
+
+Type: `["object", {}]`. Optional.
+
+Enable this option
+
+Upstream description:
+
+This can be used for messages where no values are needed.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  }
+}
+```
+
+Terraform syntax:
+
+```terraform
+no_ipv6_address = {}
+```
+
+<a id="canonical-1221232301020331-1103111321020111-0222301110103302-3020302010021112-3211230233302313-0220301103012113-3222113330202202-2233322312023101"></a>
+
+## Direct properties — no_ipv6_address / 031001222133 / 3
+
+This is an empty object or choice marker. It has no direct properties.
+
+<a id="canonical-2030030120030111-1312020201001100-2203033012022000-3003131030322301-1332312212023130-1202030312202031-2033222312303301-3233333221012203"></a>
+
+## Next pages — no_ipv6_address / 031001222133 / 4
+
+- [ethernet_interface](resources--network_interface--reference--group-001.md#canonical-0212013301302220-1201200231123120-0000000232201111-2330233033122002-2203013033101202-2132013330003201-1213023112010321-1203321102031221)
+- [xcsh_network_interface](../resources/network_interface.md#canonical-3303002200232320-3331233131000231-2111111223023013-2313310022210202-2333223030322133-2311103000000220-1221101012132133-2022200333323310)
+
+<a id="canonical-1200321013310102-0032232013131303-0313231101032121-1032013113332222-3302320311120331-1320212223013321-0302331230222102-0102032230203100"></a>
+
+<!-- Exact provider and upstream contract identifiers. -->
+
+<!-- textlint-disable terminology -->
+
 <a id="canonical-2212101123112110-3132200330323020-2001230333012123-1000112000320023-2123302320011001-2000123203032233-3332222100132030-2333023012232220"></a>
 
 ## ethernet_interface.not_primary — not_primary / 123223200100 / 2
@@ -309,18 +368,32 @@ Type: `["map", "string"]`. Optional.
 
 Map of Node to Static IP configuration value, Key:Node, Value:IP Address.
 
+Provider validators and defaults (from schema source):
+
+```go
+Validators: []validator.Map{validators.MapConstraintsValidator("{\"cardinality\":{\"maxProperties\":128},\"category\":\"discovery\",\"constraintType\":\"map\",\"deterministic\":true,\"keys\":{\"maxLength\":128,\"minLength\":1,\"type\":\"string\"},\"originalRules\":{\"ves.io.schema.rules.map.keys.string.max_len\":\"128\",\"ves.io.schema.rules.map.keys.string.min_len\":\"1\",\"ves.io.schema.rules.map.max_pairs\":\"128\"}}")}
+```
+
 Receipt-pinned upstream constraints:
 
 ```json
 {
   "x-f5xc-constraints": {
-    "category": "general",
-    "constraintType": "object",
-    "maxProperties": 128,
-    "metadata": {
-      "confidence": 0.75,
-      "source": "inferred",
-      "validatedAt": "2026-10-03T05:10:26+00:00"
+    "cardinality": {
+      "maxProperties": 128
+    },
+    "category": "discovery",
+    "constraintType": "map",
+    "deterministic": true,
+    "keys": {
+      "maxLength": 128,
+      "minLength": 1,
+      "type": "string"
+    },
+    "originalRules": {
+      "ves.io.schema.rules.map.keys.string.max_len": "128",
+      "ves.io.schema.rules.map.keys.string.min_len": "1",
+      "ves.io.schema.rules.map.max_pairs": "128"
     }
   },
   "x-f5xc-required-for": {
@@ -662,18 +735,32 @@ Type: `["map", "string"]`. Optional.
 
 Map of Node to Static IP configuration value, Key:Node, Value:IP Address.
 
+Provider validators and defaults (from schema source):
+
+```go
+Validators: []validator.Map{validators.MapConstraintsValidator("{\"cardinality\":{\"maxProperties\":128},\"category\":\"discovery\",\"constraintType\":\"map\",\"deterministic\":true,\"keys\":{\"maxLength\":128,\"minLength\":1,\"type\":\"string\"},\"originalRules\":{\"ves.io.schema.rules.map.keys.string.max_len\":\"128\",\"ves.io.schema.rules.map.keys.string.min_len\":\"1\",\"ves.io.schema.rules.map.max_pairs\":\"128\"}}")}
+```
+
 Receipt-pinned upstream constraints:
 
 ```json
 {
   "x-f5xc-constraints": {
-    "category": "general",
-    "constraintType": "object",
-    "maxProperties": 128,
-    "metadata": {
-      "confidence": 0.75,
-      "source": "inferred",
-      "validatedAt": "2026-10-03T05:10:26+00:00"
+    "cardinality": {
+      "maxProperties": 128
+    },
+    "category": "discovery",
+    "constraintType": "map",
+    "deterministic": true,
+    "keys": {
+      "maxLength": 128,
+      "minLength": 1,
+      "type": "string"
+    },
+    "originalRules": {
+      "ves.io.schema.rules.map.keys.string.max_len": "128",
+      "ves.io.schema.rules.map.keys.string.min_len": "1",
+      "ves.io.schema.rules.map.max_pairs": "128"
     }
   },
   "x-f5xc-required-for": {
@@ -2218,18 +2305,32 @@ Type: `["map", "string"]`. Optional.
 
 Map of Node to Static IP configuration value, Key:Node, Value:IP Address.
 
+Provider validators and defaults (from schema source):
+
+```go
+Validators: []validator.Map{validators.MapConstraintsValidator("{\"cardinality\":{\"maxProperties\":128},\"category\":\"discovery\",\"constraintType\":\"map\",\"deterministic\":true,\"keys\":{\"maxLength\":128,\"minLength\":1,\"type\":\"string\"},\"originalRules\":{\"ves.io.schema.rules.map.keys.string.max_len\":\"128\",\"ves.io.schema.rules.map.keys.string.min_len\":\"1\",\"ves.io.schema.rules.map.max_pairs\":\"128\"}}")}
+```
+
 Receipt-pinned upstream constraints:
 
 ```json
 {
   "x-f5xc-constraints": {
-    "category": "general",
-    "constraintType": "object",
-    "maxProperties": 128,
-    "metadata": {
-      "confidence": 0.75,
-      "source": "inferred",
-      "validatedAt": "2026-10-03T05:10:26+00:00"
+    "cardinality": {
+      "maxProperties": 128
+    },
+    "category": "discovery",
+    "constraintType": "map",
+    "deterministic": true,
+    "keys": {
+      "maxLength": 128,
+      "minLength": 1,
+      "type": "string"
+    },
+    "originalRules": {
+      "ves.io.schema.rules.map.keys.string.max_len": "128",
+      "ves.io.schema.rules.map.keys.string.min_len": "1",
+      "ves.io.schema.rules.map.max_pairs": "128"
     }
   },
   "x-f5xc-required-for": {

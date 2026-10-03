@@ -6,6 +6,19 @@ description: "Complete grouped canonical reference for xcsh_voltstack_site refer
 
 # xcsh_voltstack_site reference
 
+<a id="canonical-2022331022023221-2022020221301211-3301332210010121-2033202301100030-3301212031333100-2011202220321213-1303223323100113-2303120032032203"></a>
+
+## Next pages — blindfold_secret_info / 130230311222 / 7
+
+- [custom_storage_config.storage_device_list.storage_devices.netapp_trident.netapp_backend_ontap_san.client_private_key](data-sources--voltstack_site--reference--group-006.md#canonical-0031221320012122-2002233213121101-3003200313031331-2212223302113100-2313302033333122-2032231231331013-0221000231001003-2110023331211220)
+- [xcsh_voltstack_site](../data-sources/voltstack_site.md#canonical-3011021120121122-1120101211211330-2030121003211010-0212132020130223-0212111100103011-3003130023302333-3021021330130133-1133312111123000)
+
+<a id="canonical-0223330300130022-0012123333120000-1011000003112310-3110211020323233-3111311202233031-3310030221212333-2212202123032122-2010322330313223"></a>
+
+<!-- Exact provider and upstream contract identifiers. -->
+
+<!-- textlint-disable terminology -->
+
 <a id="canonical-3210121201203222-3003213313033131-0102123013200031-0211033323223022-1221301021313032-1312110113333231-3311211101100001-1103313312323213"></a>
 
 ## custom_storage_config.storage_device_list.storage_devices.netapp_trident.netapp_backend_ontap_san.client_private_key.clear_secret_info — clear_secret_info / 033023203021 / 2
@@ -629,13 +642,28 @@ Receipt-pinned upstream constraints:
 ```json
 {
   "x-f5xc-constraints": {
-    "category": "general",
-    "constraintType": "object",
-    "maxProperties": 20,
-    "metadata": {
-      "confidence": 0.75,
-      "source": "inferred",
-      "validatedAt": "2026-10-03T05:10:26+00:00"
+    "cardinality": {
+      "maxProperties": 20
+    },
+    "category": "discovery",
+    "constraintType": "map",
+    "deterministic": true,
+    "keys": {
+      "maxLength": 128,
+      "minLength": 1,
+      "type": "string"
+    },
+    "originalRules": {
+      "ves.io.schema.rules.map.keys.string.max_len": "128",
+      "ves.io.schema.rules.map.keys.string.min_len": "1",
+      "ves.io.schema.rules.map.max_pairs": "20",
+      "ves.io.schema.rules.map.values.string.max_len": "128",
+      "ves.io.schema.rules.map.values.string.min_len": "1"
+    },
+    "values": {
+      "maxLength": 128,
+      "minLength": 1,
+      "type": "string"
     }
   },
   "x-f5xc-required-for": {
@@ -3316,13 +3344,28 @@ Receipt-pinned upstream constraints:
 ```json
 {
   "x-f5xc-constraints": {
-    "category": "general",
-    "constraintType": "object",
-    "maxProperties": 20,
-    "metadata": {
-      "confidence": 0.75,
-      "source": "inferred",
-      "validatedAt": "2026-10-03T05:10:26+00:00"
+    "cardinality": {
+      "maxProperties": 20
+    },
+    "category": "discovery",
+    "constraintType": "map",
+    "deterministic": true,
+    "keys": {
+      "maxLength": 128,
+      "minLength": 1,
+      "type": "string"
+    },
+    "originalRules": {
+      "ves.io.schema.rules.map.keys.string.max_len": "128",
+      "ves.io.schema.rules.map.keys.string.min_len": "1",
+      "ves.io.schema.rules.map.max_pairs": "20",
+      "ves.io.schema.rules.map.values.string.max_len": "128",
+      "ves.io.schema.rules.map.values.string.min_len": "1"
+    },
+    "values": {
+      "maxLength": 128,
+      "minLength": 1,
+      "type": "string"
     }
   },
   "x-f5xc-required-for": {
@@ -4047,13 +4090,28 @@ Receipt-pinned upstream constraints:
 ```json
 {
   "x-f5xc-constraints": {
-    "category": "general",
-    "constraintType": "object",
-    "maxProperties": 20,
-    "metadata": {
-      "confidence": 0.75,
-      "source": "inferred",
-      "validatedAt": "2026-10-03T05:10:26+00:00"
+    "cardinality": {
+      "maxProperties": 20
+    },
+    "category": "discovery",
+    "constraintType": "map",
+    "deterministic": true,
+    "keys": {
+      "maxLength": 128,
+      "minLength": 1,
+      "type": "string"
+    },
+    "originalRules": {
+      "ves.io.schema.rules.map.keys.string.max_len": "128",
+      "ves.io.schema.rules.map.keys.string.min_len": "1",
+      "ves.io.schema.rules.map.max_pairs": "20",
+      "ves.io.schema.rules.map.values.string.max_len": "128",
+      "ves.io.schema.rules.map.values.string.min_len": "1"
+    },
+    "values": {
+      "maxLength": 128,
+      "minLength": 1,
+      "type": "string"
     }
   },
   "x-f5xc-required-for": {
@@ -5188,40 +5246,3 @@ Receipt-pinned upstream constraints:
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
-
-<a id="canonical-2311232322121033-0030333231311311-0123113220121233-0323110321121131-0311223203013300-2012112200013001-2103130010200230-2111012301030211"></a>
-
-## custom_storage_config.storage_interface_list.storage_interfaces.storage_interface.cluster — cluster / 230321120100 / 2
-
-Breadcrumbs:
-
-- [xcsh_voltstack_site](../data-sources/voltstack_site.md#canonical-3011021120121122-1120101211211330-2030121003211010-0212132020130223-0212111100103011-3003130023302333-3021021330130133-1133312111123000)
-- [Property reference](data-sources--voltstack_site--reference--group-001.md#canonical-3210130022101001-3112232101022102-2032333031300013-3112003110021012-3222001330012233-0002330230030031-3201232233001313-3100032330211031)
-- [custom_storage_config](data-sources--voltstack_site--reference--group-005.md#canonical-1322330111022022-1222331222013311-0203320011033023-1312120310031232-0021011331210300-1111322303223100-1320332332030123-1110131212333020)
-- [custom_storage_config.storage_interface_list](data-sources--voltstack_site--reference--group-007.md#canonical-0323230103311210-3030023003220002-0001300310102332-3012322001200113-3233220113213113-2233320301323200-0222321232211121-0022031220011321)
-- [custom_storage_config.storage_interface_list.storage_interfaces](data-sources--voltstack_site--reference--group-007.md#canonical-3101323032130103-0121313201200303-2002022323010113-1102101211210302-2112003000320221-3030232310022110-3103100221111001-3303131231011132)
-- [custom_storage_config.storage_interface_list.storage_interfaces.storage_interface](data-sources--voltstack_site--reference--group-007.md#canonical-0002211011223120-1231223332232103-0203300100110000-1331122231310032-2300033200220211-3002003132003021-2100311231203031-2030230331233112)
-- custom_storage_config.storage_interface_list.storage_interfaces.storage_interface.cluster
-
-<a id="canonical-2121010221302232-3033233012120321-2330031102033223-2130120331001200-1301312333132022-3112100332231132-2020010313331023-1123100310001122"></a>
-
-Type: `["object", {}]`. Computed.
-
-Enable this option
-
-Upstream description:
-
-This can be used for messages where no values are needed.
-
-Receipt-pinned upstream constraints:
-
-```json
-{
-  "x-f5xc-required-for": {
-    "create": false,
-    "minimum_config": false,
-    "read": false,
-    "update": false
-  }
-}
-```

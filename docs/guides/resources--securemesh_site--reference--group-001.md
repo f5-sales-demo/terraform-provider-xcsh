@@ -95,6 +95,27 @@ Receipt-pinned upstream constraints:
 
 ```json
 {
+  "x-f5xc-constraints": {
+    "category": "discovery",
+    "constraintType": "map",
+    "deterministic": true,
+    "keys": {
+      "maxLength": 64,
+      "minLength": 1,
+      "type": "string"
+    },
+    "originalRules": {
+      "ves.io.schema.rules.map.keys.string.max_len": "64",
+      "ves.io.schema.rules.map.keys.string.min_len": "1",
+      "ves.io.schema.rules.map.values.string.max_len": "1024",
+      "ves.io.schema.rules.map.values.string.min_len": "1"
+    },
+    "values": {
+      "maxLength": 1024,
+      "minLength": 1,
+      "type": "string"
+    }
+  },
   "x-f5xc-required-for": {
     "create": false,
     "minimum_config": false,
@@ -546,7 +567,7 @@ Each exact path has one authoritative reference destination. Collection element 
 | `custom_network_config.active_forward_proxy_policies.forward_proxy_policies.tenant` | [custom_network_config.active_forward_proxy_policies.forward_proxy_policies.tenant](resources--securemesh_site--reference--group-001.md#canonical-2303123212221233-3012220231323300-0131321333131321-0010223312113130-0030210301203232-2221203103030101-2003210013301212-1121103103213130) |
 | `custom_network_config.active_network_policies` | [custom_network_config.active_network_policies](resources--securemesh_site--reference--group-001.md#canonical-2113313301002330-1121203111303013-0133313302021112-0110023221130023-2231202231230210-2121212331221122-2320321132302111-0230302321230112) |
 | `custom_network_config.active_network_policies.network_policies` | [custom_network_config.active_network_policies.network_policies](resources--securemesh_site--reference--group-001.md#canonical-1012030130033103-1113321221300112-3001312323123133-3331031201312333-0002210332002031-2131020333220223-3321001203321003-1033302003132012) |
-| `custom_network_config.active_network_policies.network_policies.name` | [custom_network_config.active_network_policies.network_policies.name](resources--securemesh_site--reference--group-001.md#canonical-3021003330011311-1333303212001111-2212311033210032-0322000022020120-2210331323310132-2022230310111201-3030002101031112-3133231022132211) |
+| `custom_network_config.active_network_policies.network_policies.name` | [custom_network_config.active_network_policies.network_policies.name](resources--securemesh_site--reference--group-002.md#canonical-3021003330011311-1333303212001111-2212311033210032-0322000022020120-2210331323310132-2022230310111201-3030002101031112-3133231022132211) |
 | `custom_network_config.active_network_policies.network_policies.namespace` | [custom_network_config.active_network_policies.network_policies.namespace](resources--securemesh_site--reference--group-002.md#canonical-0303201310031031-2323102001221311-3002030221031101-3110221232010120-3011303132222200-2031020103202213-3000233313230313-3320102323310231) |
 | `custom_network_config.active_network_policies.network_policies.tenant` | [custom_network_config.active_network_policies.network_policies.tenant](resources--securemesh_site--reference--group-002.md#canonical-2010102330302122-2133321020013333-0023311313301131-3133013012022310-2313000203231010-2223102121032133-3121213101002113-3123322303113011) |
 | `custom_network_config.default_config` | [custom_network_config.default_config](resources--securemesh_site--reference--group-002.md#canonical-0132110310222130-3311203300231032-3201323020201333-1202321122103233-1203330130233232-2100130003210300-1323110131102001-3332312212033011) |
@@ -619,7 +640,7 @@ Each exact path has one authoritative reference destination. Collection element 
 | `custom_network_config.interface_list.interfaces.ethernet_interface.ipv6_auto_config.router.dns_config.local_dns.first_address` | [custom_network_config.interface_list.interfaces.ethernet_interface.ipv6_auto_config.router.dns_config.local_dns.first_address](resources--securemesh_site--reference--group-002.md#canonical-2110230330110231-2233131100101202-2213300101322102-1322330100203230-3310330111113000-0033031330131232-3332332022201302-0132102002220321) |
 | `custom_network_config.interface_list.interfaces.ethernet_interface.ipv6_auto_config.router.dns_config.local_dns.last_address` | [custom_network_config.interface_list.interfaces.ethernet_interface.ipv6_auto_config.router.dns_config.local_dns.last_address](resources--securemesh_site--reference--group-002.md#canonical-0321031132221123-0132231221330120-0030101322320221-2003031330300131-1222030003211131-2121231300013231-3311021333013221-1313300031121320) |
 | `custom_network_config.interface_list.interfaces.ethernet_interface.ipv6_auto_config.router.network_prefix` | [custom_network_config.interface_list.interfaces.ethernet_interface.ipv6_auto_config.router.network_prefix](resources--securemesh_site--reference--group-002.md#canonical-3010001202013200-0231331333020133-1310210233202112-3102230101011033-1311131321130310-2212332011300302-2022301320030212-0333211312233200) |
-| `custom_network_config.interface_list.interfaces.ethernet_interface.ipv6_auto_config.router.stateful` | [custom_network_config.interface_list.interfaces.ethernet_interface.ipv6_auto_config.router.stateful](resources--securemesh_site--reference--group-002.md#canonical-0112113122003223-3232120223310300-2122331202030123-1120110020323212-0210202301003021-0203212201010232-1132012121131020-3103020200332320) |
+| `custom_network_config.interface_list.interfaces.ethernet_interface.ipv6_auto_config.router.stateful` | [custom_network_config.interface_list.interfaces.ethernet_interface.ipv6_auto_config.router.stateful](resources--securemesh_site--reference--group-003.md#canonical-0112113122003223-3232120223310300-2122331202030123-1120110020323212-0210202301003021-0203212201010232-1132012121131020-3103020200332320) |
 | `custom_network_config.interface_list.interfaces.ethernet_interface.ipv6_auto_config.router.stateful.automatic_from_end` | [custom_network_config.interface_list.interfaces.ethernet_interface.ipv6_auto_config.router.stateful.automatic_from_end](resources--securemesh_site--reference--group-003.md#canonical-3200323330022333-0333323130310022-3111203112120220-3333032330231333-3323001330033113-3002332321203333-3302113301131223-3223211032320122) |
 | `custom_network_config.interface_list.interfaces.ethernet_interface.ipv6_auto_config.router.stateful.automatic_from_start` | [custom_network_config.interface_list.interfaces.ethernet_interface.ipv6_auto_config.router.stateful.automatic_from_start](resources--securemesh_site--reference--group-003.md#canonical-1330031220101333-2222133233022330-2200111110313313-3030123302230321-2130332310030320-1122312131231321-1031112212311003-3031120322123302) |
 | `custom_network_config.interface_list.interfaces.ethernet_interface.ipv6_auto_config.router.stateful.dhcp_networks` | [custom_network_config.interface_list.interfaces.ethernet_interface.ipv6_auto_config.router.stateful.dhcp_networks](resources--securemesh_site--reference--group-003.md#canonical-0032213200201323-2300121003320303-1121020321323331-1121103131132230-1233321030201322-3123021113102110-2332101202010331-0111001120010113) |
@@ -714,10 +735,10 @@ Each exact path has one authoritative reference destination. Collection element 
 | `custom_network_config.slo_config.no_static_routes` | [custom_network_config.slo_config.no_static_routes](resources--securemesh_site--reference--group-003.md#canonical-0312222212133232-2123321103323020-3330121001122021-0001102032203021-0123321103120321-0011301312220203-0203201202110102-3303323202223010) |
 | `custom_network_config.slo_config.no_v6_static_routes` | [custom_network_config.slo_config.no_v6_static_routes](resources--securemesh_site--reference--group-003.md#canonical-2001020220310202-0332033311232313-1111003110231220-0021132100301201-0022310320121002-1011101213332111-0033023031220323-1022313031010001) |
 | `custom_network_config.slo_config.static_routes` | [custom_network_config.slo_config.static_routes](resources--securemesh_site--reference--group-003.md#canonical-1033003123123002-1102020233203110-1313031031331002-0322323003333131-1300332303130320-3012023130030333-3010021032232231-0213030130031233) |
-| `custom_network_config.slo_config.static_routes.static_routes` | [custom_network_config.slo_config.static_routes.static_routes](resources--securemesh_site--reference--group-003.md#canonical-3300301301210202-2310233101311223-0321103200232031-2133022300120131-1313020203311123-2330323022113303-0202210033020100-1310203330202000) |
-| `custom_network_config.slo_config.static_routes.static_routes.attrs` | [custom_network_config.slo_config.static_routes.static_routes.attrs](resources--securemesh_site--reference--group-003.md#canonical-3330300221000233-2333212101202312-3113230120313133-2201323121322102-1202111300302303-1322231223132103-0102103010331210-0332010120012230) |
+| `custom_network_config.slo_config.static_routes.static_routes` | [custom_network_config.slo_config.static_routes.static_routes](resources--securemesh_site--reference--group-004.md#canonical-3300301301210202-2310233101311223-0321103200232031-2133022300120131-1313020203311123-2330323022113303-0202210033020100-1310203330202000) |
+| `custom_network_config.slo_config.static_routes.static_routes.attrs` | [custom_network_config.slo_config.static_routes.static_routes.attrs](resources--securemesh_site--reference--group-004.md#canonical-3330300221000233-2333212101202312-3113230120313133-2201323121322102-1202111300302303-1322231223132103-0102103010331210-0332010120012230) |
 | `custom_network_config.slo_config.static_routes.static_routes.default_gateway` | [custom_network_config.slo_config.static_routes.static_routes.default_gateway](resources--securemesh_site--reference--group-004.md#canonical-2331333102320030-0331112222021011-3102023033130030-2302321130201123-3100112002032322-2200002211300233-3311102321311121-1221021023230111) |
-| `custom_network_config.slo_config.static_routes.static_routes.ip_address` | [custom_network_config.slo_config.static_routes.static_routes.ip_address](resources--securemesh_site--reference--group-003.md#canonical-2133113301212101-2020223000330200-1202223100301122-0012001310023033-3000123002220212-1320220330131303-0323233132030133-2323322300222110) |
+| `custom_network_config.slo_config.static_routes.static_routes.ip_address` | [custom_network_config.slo_config.static_routes.static_routes.ip_address](resources--securemesh_site--reference--group-004.md#canonical-2133113301212101-2020223000330200-1202223100301122-0012001310023033-3000123002220212-1320220330131303-0323233132030133-2323322300222110) |
 | `custom_network_config.slo_config.static_routes.static_routes.ip_prefixes` | [custom_network_config.slo_config.static_routes.static_routes.ip_prefixes](resources--securemesh_site--reference--group-004.md#canonical-3331020132133122-1201131023321200-2020212311022112-2222130033331311-3032311003010031-0123210000103101-0323033123000032-3301101231032113) |
 | `custom_network_config.slo_config.static_routes.static_routes.node_interface` | [custom_network_config.slo_config.static_routes.static_routes.node_interface](resources--securemesh_site--reference--group-004.md#canonical-1031030230221131-0110111022003123-2030003113212320-1221232301102330-1321300020332223-2303321301033310-1122201010000200-3220102032323032) |
 | `custom_network_config.slo_config.static_routes.static_routes.node_interface.list` | [custom_network_config.slo_config.static_routes.static_routes.node_interface.list](resources--securemesh_site--reference--group-004.md#canonical-3131312112320111-3111310011003123-3313010322303233-3323213012031320-0013232100233002-0112311010000021-3031311100202312-0012222011312211) |
@@ -3096,9 +3117,3 @@ network_policies {
   # Configure direct properties listed below.
 }
 ```
-
-<a id="canonical-1333202223300220-0222101301032332-0322201223130122-1113132201333100-3000100211323010-1130300102130210-3113300101010310-3021133202013001"></a>
-
-## Direct properties — network_policies / 012303233312 / 3
-
-<a id="canonical-3021003330011311-1333303212001111-2212311033210032-0322000022020120-2210331323310132-2022230310111201-3030002101031112-3133231022132211"></a>

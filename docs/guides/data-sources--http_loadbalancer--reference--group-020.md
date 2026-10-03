@@ -4247,13 +4247,43 @@ Receipt-pinned upstream constraints:
 ```json
 {
   "x-f5xc-constraints": {
-    "category": "general",
-    "constraintType": "object",
-    "maxProperties": 16,
-    "metadata": {
-      "confidence": 0.75,
-      "source": "inferred",
-      "validatedAt": "2026-10-03T05:10:26+00:00"
+    "cardinality": {
+      "maxProperties": 16
+    },
+    "category": "discovery",
+    "constraintType": "map",
+    "deterministic": true,
+    "keys": {
+      "ranges": [
+        [
+          3,
+          3
+        ],
+        [
+          4,
+          4
+        ],
+        [
+          5,
+          5
+        ],
+        [
+          300,
+          599
+        ]
+      ],
+      "type": "uint32-string"
+    },
+    "originalRules": {
+      "ves.io.schema.rules.map.keys.uint32.ranges": "3,4,5,300-599",
+      "ves.io.schema.rules.map.max_pairs": "16",
+      "ves.io.schema.rules.map.values.string.max_len": "65536",
+      "ves.io.schema.rules.map.values.string.uri_ref": "true"
+    },
+    "values": {
+      "format": "uri-reference",
+      "maxLength": 65536,
+      "type": "string"
     }
   },
   "x-f5xc-required-for": {

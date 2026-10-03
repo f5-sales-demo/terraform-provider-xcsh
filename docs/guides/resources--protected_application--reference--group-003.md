@@ -6,6 +6,86 @@ description: "Complete grouped canonical reference for xcsh_protected_applicatio
 
 # xcsh_protected_application reference
 
+<a id="canonical-3301101000223210-0020112331320221-0130300032302213-0313333133101000-0332311210112011-3003323031010020-2311313212101113-0111203200223100"></a>
+
+## CloudFront.js_insertion_rules.rules.metadata — metadata / 223202103302 / 2
+
+Breadcrumbs:
+
+- [xcsh_protected_application](../resources/protected_application.md#canonical-0002322312001300-2321122230000322-1132302132120131-2310022322102121-3300111330013030-3223012202311310-1021020212202332-0020010133311002)
+- [Property reference](resources--protected_application--reference--group-001.md#canonical-1112011310232010-1130212322220320-1323121033211100-0313202312023232-3332212122311300-1331303332321012-0100301021312031-1320300331013311)
+- [CloudFront](resources--protected_application--reference--group-002.md#canonical-3023230230223213-0113310010212111-0023030201111012-2212202220232211-0013230310132300-3132331133230002-2331013021302322-2211302231010320)
+- [cloudfront.js_insertion_rules](resources--protected_application--reference--group-002.md#canonical-0231330302202122-3333330110232010-0233303200130220-0301122123331132-2200201002333200-2020222112331210-1313021231112202-3002213230012210)
+- [cloudfront.js_insertion_rules.rules](resources--protected_application--reference--group-002.md#canonical-1111120223012133-1010232232112011-0002033223202121-2202200003200333-0330223310201233-0110011213302203-0110111123233202-0232200123131110)
+- CloudFront.js_insertion_rules.rules.metadata
+
+<a id="canonical-1031010132131112-1022320021232131-3131213322032030-1122331330333012-2122113332003112-2220333131220202-0022122112001111-3303133012331302"></a>
+
+Type: `"object"`. single nested block, Optional.
+
+MessageMetaType is metadata (common attributes) of a message that only certain messages have. This
+information is propagated to the metadata of a child object that gets created from the containing
+message during view processing. The information in this type can be specified by user during
+create..
+
+Upstream description:
+
+MessageMetaType is metadata (common attributes) of a message that only certain messages have. This
+information is propagated to the metadata of a child object that gets created from the containing
+message during view processing. The information in this type can be specified by user during create
+and replace APIs.
+
+Provider validators and defaults (from schema source):
+
+```go
+Validators: []validator.Object{validators.RequiredObjectAttributes("name")}
+```
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  }
+}
+```
+
+Terraform syntax:
+
+```terraform
+metadata {
+  # Configure direct properties listed below.
+}
+```
+
+<a id="canonical-0330030032123311-0113001112321121-2101302133120203-3201200132101021-2100000010030023-3223232020002321-0133130320013221-1003202132231020"></a>
+
+## Direct properties — metadata / 223202103302 / 3
+
+<a id="canonical-1012322111320232-0210033131222102-3113200102233330-3221112010312322-1123233302313332-1200001101020331-2231022303312001-2101130001202201"></a>
+
+<a id="canonical-3321101333030232-1030221022331131-1030010101313013-3030233232102302-0011200101231233-0222001130301312-0003331000012233-0132013202312323"></a>
+
+## description_spec property — metadata / 223202103302 / 4
+
+Type: `"string"`. Optional.
+
+Description. Human readable description.
+
+Provider validators and defaults (from schema source):
+
+```go
+Validators: []validator.String{
+  stringvalidator.LengthAtMost(256),
+}
+```
+
+<a id="canonical-1101222332210323-2303302130210230-0113003103232131-0330223020030202-3200221223103311-3303020310000332-3212333020211031-0221311202310323"></a>
+
 <a id="canonical-0130220212323001-3203032213333001-1231023302322010-2003120130330022-2233233030112331-0130100300221300-2032003001321333-2131321222000331"></a>
 
 ## name property — metadata / 223202103302 / 5
@@ -4096,7 +4176,7 @@ shopping_gift_cards {
 
 - [shop_promo_code_validation](resources--protected_application--reference--group-003.md#canonical-1130100110130001-1312332013300100-0211030011002200-2202102212232001-0131102320020033-2010311230213022-3102113133113010-1023212100303111): complete subsection reference.
 
-- [shop_purchase_gift_card](resources--protected_application--reference--group-003.md#canonical-0023110333210212-1012020102233112-1311311023032233-2020213001333003-2030012213031301-3203002203030133-1001311010222330-0302110102302201): complete subsection reference.
+- [shop_purchase_gift_card](resources--protected_application--reference--group-004.md#canonical-0023110333210212-1012020102233112-1311311023032233-2020213001333003-2030012213031301-3203002203030133-1001311010222330-0302110102302201): complete subsection reference.
 
 - [shop_update_quantity](resources--protected_application--reference--group-004.md#canonical-2312112312301300-0313211201121023-2222332212221230-2122020003310213-2122033101132113-2020320021120032-2201312120300031-3011303213113303): complete subsection reference.
 
@@ -4114,7 +4194,7 @@ shopping_gift_cards {
 - [cloudfront.protected_endpoints.flow_label.shopping_gift_cards.shop_order](resources--protected_application--reference--group-003.md#canonical-0011213111221013-2100013223312023-3020012303323230-2220033102001002-1331103022210111-1221001020032200-1233110301023232-3113330322021100)
 - [cloudfront.protected_endpoints.flow_label.shopping_gift_cards.shop_price_inquiry](resources--protected_application--reference--group-003.md#canonical-1110300023112033-1013101033311200-1311322021330322-2012200323001223-2300000312031120-0310022301323221-3311223311300022-1012311111122002)
 - [cloudfront.protected_endpoints.flow_label.shopping_gift_cards.shop_promo_code_validation](resources--protected_application--reference--group-003.md#canonical-1130100110130001-1312332013300100-0211030011002200-2202102212232001-0131102320020033-2010311230213022-3102113133113010-1023212100303111)
-- [cloudfront.protected_endpoints.flow_label.shopping_gift_cards.shop_purchase_gift_card](resources--protected_application--reference--group-003.md#canonical-0023110333210212-1012020102233112-1311311023032233-2020213001333003-2030012213031301-3203002203030133-1001311010222330-0302110102302201)
+- [cloudfront.protected_endpoints.flow_label.shopping_gift_cards.shop_purchase_gift_card](resources--protected_application--reference--group-004.md#canonical-0023110333210212-1012020102233112-1311311023032233-2020213001333003-2030012213031301-3203002203030133-1001311010222330-0302110102302201)
 - [cloudfront.protected_endpoints.flow_label.shopping_gift_cards.shop_update_quantity](resources--protected_application--reference--group-004.md#canonical-2312112312301300-0313211201121023-2222332212221230-2122020003310213-2122033101132113-2020320021120032-2201312120300031-3011303213113303)
 - [cloudfront.protected_endpoints.flow_label](resources--protected_application--reference--group-003.md#canonical-2003301112323021-1003101203221303-3200130031112010-1113223021202211-0112323031302303-0233032001012210-3211303300322001-1101322113022321)
 - [xcsh_protected_application](../resources/protected_application.md#canonical-0002322312001300-2321122230000322-1132302132120131-2310022322102121-3300111330013030-3223012202311310-1021020212202332-0020010133311002)
@@ -4725,22 +4805,3 @@ Terraform syntax:
 ```terraform
 shop_promo_code_validation = {}
 ```
-
-<a id="canonical-1231101310221233-3111330022000232-2231213132203010-3331021101020030-3332000222301323-2111212113231310-1133333321200301-2310313221100211"></a>
-
-## Direct properties — shop_promo_code_validation / 021121120113 / 3
-
-This is an empty object or choice marker. It has no direct properties.
-
-<a id="canonical-1110321313323331-3230223231120323-3203210133333133-0331130312222103-0223331103110032-2323211121021213-0012033201001310-3301120231001012"></a>
-
-## Next pages — shop_promo_code_validation / 021121120113 / 4
-
-- [cloudfront.protected_endpoints.flow_label.shopping_gift_cards](resources--protected_application--reference--group-003.md#canonical-0303211230231300-2003111202022220-3313000233300133-0120313112201012-1221202223231121-0123123120133032-1312011231322232-1111310130000223)
-- [xcsh_protected_application](../resources/protected_application.md#canonical-0002322312001300-2321122230000322-1132302132120131-2310022322102121-3300111330013030-3223012202311310-1021020212202332-0020010133311002)
-
-<a id="canonical-0023110333210212-1012020102233112-1311311023032233-2020213001333003-2030012213031301-3203002203030133-1001311010222330-0302110102302201"></a>
-
-<!-- Exact provider and upstream contract identifiers. -->
-
-<!-- textlint-disable terminology -->

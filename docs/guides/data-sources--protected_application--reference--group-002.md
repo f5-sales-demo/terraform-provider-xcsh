@@ -6,6 +6,19 @@ description: "Complete grouped canonical reference for xcsh_protected_applicatio
 
 # xcsh_protected_application reference
 
+<a id="canonical-1303310013302232-2221132302313330-3333223101211312-0032233303010100-0031120023303213-2022312330122310-3321213113002131-2310001321003332"></a>
+
+## Next pages — domain / 022120233313 / 7
+
+- [cloudflare.protected_endpoints](data-sources--protected_application--reference--group-001.md#canonical-1030220202111001-1103110111301100-1322102231233131-0123103313030303-2233000102020131-3103322313321020-0122132330233112-1300111122001122)
+- [xcsh_protected_application](../data-sources/protected_application.md#canonical-0321101133212112-2213200303020213-3012101103330221-0200320313210231-2310313032122133-1332031112223203-2302102031333233-2230021122320022)
+
+<a id="canonical-2131322001210311-0202030113003201-2222112121200211-3230202002032221-0023301332002232-1133303113201130-0113011221002032-3030101301131033"></a>
+
+<!-- Exact provider and upstream contract identifiers. -->
+
+<!-- textlint-disable terminology -->
+
 <a id="canonical-0201031313232311-3220121303010230-2211133102231031-0222312301021132-0332220331002203-2103122101232200-3100332121110222-3220123332121131"></a>
 
 ## Cloudflare.protected_endpoints.metadata — metadata / 332323102122 / 2
@@ -3641,15 +3654,33 @@ Receipt-pinned upstream constraints:
 ```json
 {
   "x-f5xc-constraints": {
-    "category": "general",
-    "constraintType": "object",
-    "maxProperties": 20,
-    "metadata": {
-      "confidence": 0.75,
-      "source": "inferred",
-      "validatedAt": "2026-10-03T05:10:26+00:00"
+    "cardinality": {
+      "maxProperties": 20,
+      "minProperties": 1
     },
-    "minProperties": 1
+    "category": "discovery",
+    "constraintType": "map",
+    "deterministic": true,
+    "keys": {
+      "maxLength": 64,
+      "minLength": 1,
+      "type": "string"
+    },
+    "originalRules": {
+      "ves.io.schema.rules.map.keys.string.max_len": "64",
+      "ves.io.schema.rules.map.keys.string.min_len": "1",
+      "ves.io.schema.rules.map.max_pairs": "20",
+      "ves.io.schema.rules.map.min_pairs": "1",
+      "ves.io.schema.rules.map.values.string.max_len": "256",
+      "ves.io.schema.rules.map.values.string.min_len": "1",
+      "ves.io.schema.rules.map.values.string.regex": "true"
+    },
+    "values": {
+      "format": "regex",
+      "maxLength": 256,
+      "minLength": 1,
+      "type": "string"
+    }
   },
   "x-f5xc-required-for": {
     "create": true,

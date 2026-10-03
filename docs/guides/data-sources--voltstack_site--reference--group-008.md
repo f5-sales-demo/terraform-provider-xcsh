@@ -6,6 +6,43 @@ description: "Complete grouped canonical reference for xcsh_voltstack_site refer
 
 # xcsh_voltstack_site reference
 
+<a id="canonical-2311232322121033-0030333231311311-0123113220121233-0323110321121131-0311223203013300-2012112200013001-2103130010200230-2111012301030211"></a>
+
+## custom_storage_config.storage_interface_list.storage_interfaces.storage_interface.cluster — cluster / 230321120100 / 2
+
+Breadcrumbs:
+
+- [xcsh_voltstack_site](../data-sources/voltstack_site.md#canonical-3011021120121122-1120101211211330-2030121003211010-0212132020130223-0212111100103011-3003130023302333-3021021330130133-1133312111123000)
+- [Property reference](data-sources--voltstack_site--reference--group-001.md#canonical-3210130022101001-3112232101022102-2032333031300013-3112003110021012-3222001330012233-0002330230030031-3201232233001313-3100032330211031)
+- [custom_storage_config](data-sources--voltstack_site--reference--group-005.md#canonical-1322330111022022-1222331222013311-0203320011033023-1312120310031232-0021011331210300-1111322303223100-1320332332030123-1110131212333020)
+- [custom_storage_config.storage_interface_list](data-sources--voltstack_site--reference--group-007.md#canonical-0323230103311210-3030023003220002-0001300310102332-3012322001200113-3233220113213113-2233320301323200-0222321232211121-0022031220011321)
+- [custom_storage_config.storage_interface_list.storage_interfaces](data-sources--voltstack_site--reference--group-007.md#canonical-3101323032130103-0121313201200303-2002022323010113-1102101211210302-2112003000320221-3030232310022110-3103100221111001-3303131231011132)
+- [custom_storage_config.storage_interface_list.storage_interfaces.storage_interface](data-sources--voltstack_site--reference--group-007.md#canonical-0002211011223120-1231223332232103-0203300100110000-1331122231310032-2300033200220211-3002003132003021-2100311231203031-2030230331233112)
+- custom_storage_config.storage_interface_list.storage_interfaces.storage_interface.cluster
+
+<a id="canonical-2121010221302232-3033233012120321-2330031102033223-2130120331001200-1301312333132022-3112100332231132-2020010313331023-1123100310001122"></a>
+
+Type: `["object", {}]`. Computed.
+
+Enable this option
+
+Upstream description:
+
+This can be used for messages where no values are needed.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  }
+}
+```
+
 <a id="canonical-2321113201212012-2210312311313331-1231222113312003-2100212002130112-3013300222231023-0012110033333200-0202103000002313-2100101111110021"></a>
 
 ## Direct properties — cluster / 230321120100 / 3
@@ -150,13 +187,28 @@ Receipt-pinned upstream constraints:
 ```json
 {
   "x-f5xc-constraints": {
-    "category": "general",
-    "constraintType": "object",
-    "maxProperties": 128,
-    "metadata": {
-      "confidence": 0.75,
-      "source": "inferred",
-      "validatedAt": "2026-10-03T05:10:26+00:00"
+    "cardinality": {
+      "maxProperties": 128
+    },
+    "category": "discovery",
+    "constraintType": "map",
+    "crossEntry": {
+      "uniqueValues": true
+    },
+    "deterministic": true,
+    "keys": {
+      "format": "mac-address",
+      "type": "string"
+    },
+    "originalRules": {
+      "ves.io.schema.rules.map.keys.string.mac": "true",
+      "ves.io.schema.rules.map.max_pairs": "128",
+      "ves.io.schema.rules.map.unique_values": "true",
+      "ves.io.schema.rules.map.values.string.ipv4": "true"
+    },
+    "values": {
+      "format": "ipv4",
+      "type": "string"
     }
   },
   "x-f5xc-required-for": {
@@ -989,13 +1041,26 @@ Receipt-pinned upstream constraints:
 ```json
 {
   "x-f5xc-constraints": {
-    "category": "general",
-    "constraintType": "object",
-    "maxProperties": 64,
-    "metadata": {
-      "confidence": 0.75,
-      "source": "inferred",
-      "validatedAt": "2026-10-03T05:10:26+00:00"
+    "cardinality": {
+      "maxProperties": 64
+    },
+    "category": "discovery",
+    "constraintType": "map",
+    "deterministic": true,
+    "keys": {
+      "maxLength": 128,
+      "minLength": 1,
+      "type": "string"
+    },
+    "originalRules": {
+      "ves.io.schema.rules.map.keys.string.max_len": "128",
+      "ves.io.schema.rules.map.keys.string.min_len": "1",
+      "ves.io.schema.rules.map.max_pairs": "64",
+      "ves.io.schema.rules.map.values.string.ipv4": "true"
+    },
+    "values": {
+      "format": "ipv4",
+      "type": "string"
     }
   },
   "x-f5xc-required-for": {
@@ -1711,13 +1776,28 @@ Receipt-pinned upstream constraints:
 ```json
 {
   "x-f5xc-constraints": {
-    "category": "general",
-    "constraintType": "object",
-    "maxProperties": 128,
-    "metadata": {
-      "confidence": 0.75,
-      "source": "inferred",
-      "validatedAt": "2026-10-03T05:10:26+00:00"
+    "cardinality": {
+      "maxProperties": 128
+    },
+    "category": "discovery",
+    "constraintType": "map",
+    "crossEntry": {
+      "uniqueValues": true
+    },
+    "deterministic": true,
+    "keys": {
+      "format": "mac-address",
+      "type": "string"
+    },
+    "originalRules": {
+      "ves.io.schema.rules.map.keys.string.mac": "true",
+      "ves.io.schema.rules.map.max_pairs": "128",
+      "ves.io.schema.rules.map.unique_values": "true",
+      "ves.io.schema.rules.map.values.string.ipv6": "true"
+    },
+    "values": {
+      "format": "ipv6",
+      "type": "string"
     }
   },
   "x-f5xc-required-for": {
@@ -2273,13 +2353,26 @@ Receipt-pinned upstream constraints:
 ```json
 {
   "x-f5xc-constraints": {
-    "category": "general",
-    "constraintType": "object",
-    "maxProperties": 64,
-    "metadata": {
-      "confidence": 0.75,
-      "source": "inferred",
-      "validatedAt": "2026-10-03T05:10:26+00:00"
+    "cardinality": {
+      "maxProperties": 64
+    },
+    "category": "discovery",
+    "constraintType": "map",
+    "deterministic": true,
+    "keys": {
+      "maxLength": 128,
+      "minLength": 1,
+      "type": "string"
+    },
+    "originalRules": {
+      "ves.io.schema.rules.map.keys.string.max_len": "128",
+      "ves.io.schema.rules.map.keys.string.min_len": "1",
+      "ves.io.schema.rules.map.max_pairs": "64",
+      "ves.io.schema.rules.map.values.string.ipv6": "true"
+    },
+    "values": {
+      "format": "ipv6",
+      "type": "string"
     }
   },
   "x-f5xc-required-for": {
@@ -2818,13 +2911,21 @@ Receipt-pinned upstream constraints:
 ```json
 {
   "x-f5xc-constraints": {
-    "category": "general",
-    "constraintType": "object",
-    "maxProperties": 128,
-    "metadata": {
-      "confidence": 0.75,
-      "source": "inferred",
-      "validatedAt": "2026-10-03T05:10:26+00:00"
+    "cardinality": {
+      "maxProperties": 128
+    },
+    "category": "discovery",
+    "constraintType": "map",
+    "deterministic": true,
+    "keys": {
+      "maxLength": 128,
+      "minLength": 1,
+      "type": "string"
+    },
+    "originalRules": {
+      "ves.io.schema.rules.map.keys.string.max_len": "128",
+      "ves.io.schema.rules.map.keys.string.min_len": "1",
+      "ves.io.schema.rules.map.max_pairs": "128"
     }
   },
   "x-f5xc-required-for": {
@@ -3125,13 +3226,21 @@ Receipt-pinned upstream constraints:
 ```json
 {
   "x-f5xc-constraints": {
-    "category": "general",
-    "constraintType": "object",
-    "maxProperties": 128,
-    "metadata": {
-      "confidence": 0.75,
-      "source": "inferred",
-      "validatedAt": "2026-10-03T05:10:26+00:00"
+    "cardinality": {
+      "maxProperties": 128
+    },
+    "category": "discovery",
+    "constraintType": "map",
+    "deterministic": true,
+    "keys": {
+      "maxLength": 128,
+      "minLength": 1,
+      "type": "string"
+    },
+    "originalRules": {
+      "ves.io.schema.rules.map.keys.string.max_len": "128",
+      "ves.io.schema.rules.map.keys.string.min_len": "1",
+      "ves.io.schema.rules.map.max_pairs": "128"
     }
   },
   "x-f5xc-required-for": {
@@ -3795,7 +3904,7 @@ Receipt-pinned upstream constraints:
 OneOf alternatives in this subsection:
 
 - [disable_vm](data-sources--voltstack_site--reference--group-008.md#canonical-0303003110001212-3120322010101101-1321122030330112-2323221223101302-1000031111023032-0103101101001232-3301223220030200-2101030133322000)
-- [enable_vm](data-sources--voltstack_site--reference--group-008.md#canonical-2020200311313011-3232123011223033-3323320322331112-0103113121133303-2213221102313321-3312230011021111-2200133132202212-2332020333122130)
+- [enable_vm](data-sources--voltstack_site--reference--group-009.md#canonical-2020200311313011-3232123011223033-3323320322331112-0103113121133303-2213221102313321-3312230011021111-2200133132202212-2332020333122130)
 
 Select alternatives according to the provider validators above.
 
@@ -3904,182 +4013,3 @@ Receipt-pinned upstream constraints:
 ## Direct properties — enable_vgpu / 302003122012 / 3
 
 <a id="canonical-2332322213000012-2122133133010221-1031223120332333-2203220312323132-3030303033132130-1322302233010302-0230232320032023-3133011301011101"></a>
-
-<a id="canonical-0100323132300312-3022012220221003-3031033201233311-1023013232031210-0313101231033331-0000302321013333-2012110030002312-3302021031132220"></a>
-
-## feature_type property — enable_vgpu / 302003122012 / 4
-
-Type: `"string"`. Computed.
-
-\[Enum: UNLICENSED|VGPU|VWS|VCS\] Set feature to be enabled Operate with a degraded vGPU performance
-Enable NVIDIA vGPU Enable NVIDIA RTX Virtual Workstation Enable NVIDIA Virtual Compute Server.
-Possible values are \`UNLICENSED\`, \`VGPU\`, \`VWS\`, \`VCS\`. Defaults to \`UNLICENSED\`.
-
-Upstream description:
-
-Set feature to be enabled
-
-Operate with a degraded vGPU performance Enable NVIDIA vGPU Enable NVIDIA RTX Virtual Workstation
-Enable NVIDIA Virtual Compute Server.
-
-Receipt-pinned upstream constraints:
-
-```json
-{
-  "default": "UNLICENSED",
-  "enum": [
-    "UNLICENSED",
-    "VGPU",
-    "VWS",
-    "VCS"
-  ],
-  "x-f5xc-required-for": {
-    "create": false,
-    "minimum_config": false,
-    "read": false,
-    "update": false
-  }
-}
-```
-
-<a id="canonical-1212020303113111-0113022022330121-2322313002030130-3312202110100230-2232011303001312-2210311302323300-1223130201322113-2003011023201030"></a>
-
-<a id="canonical-3101333312201231-2332222221232102-1213332100202320-2112210133022331-0132020002210010-3020201010110033-2100023010020332-1330110200003301"></a>
-
-## server_address property — enable_vgpu / 302003122012 / 5
-
-Type: `"string"`. Computed.
-
-License Server Address. Set License Server Address.
-
-Upstream description:
-
-Set License Server Address.
-
-Receipt-pinned upstream constraints:
-
-```json
-{
-  "x-f5xc-constraints": {
-    "category": "general",
-    "constraintType": "string",
-    "maxLength": 1024,
-    "metadata": {
-      "confidence": 0.85,
-      "source": "inferred",
-      "validatedAt": "2026-10-03T05:10:26+00:00"
-    }
-  },
-  "x-f5xc-required-for": {
-    "create": false,
-    "minimum_config": false,
-    "read": false,
-    "update": false
-  },
-  "x-validation-rules": {
-    "ves.io.schema.rules.string.hostname_or_ip": "true"
-  },
-  "x-ves-validation-rules": {
-    "ves.io.schema.rules.string.hostname_or_ip": "true"
-  }
-}
-```
-
-<a id="canonical-2031100103103321-0100103100221231-1213213213322202-1202002101130012-1331102013122302-2323110100232320-1020210002310202-0001122230230222"></a>
-
-<a id="canonical-1321221120003012-0221132200223310-2023130030030030-2211202232212213-3321222003131013-1300033022230131-2331323031232111-0332023011022013"></a>
-
-## server_port property — enable_vgpu / 302003122012 / 6
-
-Type: `"number"`. Computed.
-
-License Server Port Number. Set License Server port number.
-
-Upstream description:
-
-Set License Server port number.
-
-Receipt-pinned upstream constraints:
-
-```json
-{
-  "x-f5xc-constraints": {
-    "category": "discovery",
-    "constraintType": "number",
-    "deterministic": true,
-    "maximum": 65535,
-    "metadata": {
-      "confidence": 0.99,
-      "source": "api-probed",
-      "validatedAt": "2026-10-03T05:10:26+00:00"
-    },
-    "minimum": 1
-  },
-  "x-f5xc-required-for": {
-    "create": true,
-    "minimum_config": true,
-    "read": false,
-    "update": false
-  },
-  "x-validation-rules": {
-    "ves.io.schema.rules.uint32.gte": "1",
-    "ves.io.schema.rules.uint32.lte": "65535"
-  },
-  "x-ves-validation-rules": {
-    "ves.io.schema.rules.uint32.gte": "1",
-    "ves.io.schema.rules.uint32.lte": "65535"
-  }
-}
-```
-
-<a id="canonical-1332131133333333-2010321320202212-0311033211211032-0221313213203132-3020323300221320-2310331333212323-0221113203210120-1223110011332112"></a>
-
-## Next pages — enable_vgpu / 302003122012 / 7
-
-- [Property reference](data-sources--voltstack_site--reference--group-001.md#canonical-3210130022101001-3112232101022102-2032333031300013-3112003110021012-3222001330012233-0002330230030031-3201232233001313-3100032330211031)
-- [xcsh_voltstack_site](../data-sources/voltstack_site.md#canonical-3011021120121122-1120101211211330-2030121003211010-0212132020130223-0212111100103011-3003130023302333-3021021330130133-1133312111123000)
-
-<a id="canonical-2120033220230201-3201323001000303-2300010003321030-1322013303121300-1311012110311000-2112222220331213-2322312333333022-2023330301130102"></a>
-
-<!-- Exact provider and upstream contract identifiers. -->
-
-<!-- textlint-disable terminology -->
-
-<a id="canonical-1003201321300102-3103311022200203-1123032313100232-3010101032013211-1121311333322323-3230221112220231-0132120221221303-3012122222302032"></a>
-
-## enable_vm — enable_vm / 212222322202 / 2
-
-Breadcrumbs:
-
-- [xcsh_voltstack_site](../data-sources/voltstack_site.md#canonical-3011021120121122-1120101211211330-2030121003211010-0212132020130223-0212111100103011-3003130023302333-3021021330130133-1133312111123000)
-- [Property reference](data-sources--voltstack_site--reference--group-001.md#canonical-3210130022101001-3112232101022102-2032333031300013-3112003110021012-3222001330012233-0002330230030031-3201232233001313-3100032330211031)
-- enable_vm
-
-<a id="canonical-2020200311313011-3232123011223033-3323320322331112-0103113121133303-2213221102313321-3312230011021111-2200133132202212-2332020333122130"></a>
-
-Type: `["object", {}]`. Computed.
-
-VM Configuration. VMs support configuration.
-
-Upstream description:
-
-VMs support configuration.
-
-Receipt-pinned upstream constraints:
-
-```json
-{
-  "x-f5xc-required-for": {
-    "create": false,
-    "minimum_config": false,
-    "read": false,
-    "update": false
-  }
-}
-```
-
-<a id="canonical-2102130221220100-2130331131223233-3232323033221310-1133033221121333-1103233312203333-0201021230133230-2111332010110102-3222123322301203"></a>
-
-## Direct properties — enable_vm / 212222322202 / 3
-
-This is an empty object or choice marker. It has no direct properties.

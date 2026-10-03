@@ -46,6 +46,27 @@ Receipt-pinned upstream constraints:
 
 ```json
 {
+  "x-f5xc-constraints": {
+    "category": "discovery",
+    "constraintType": "map",
+    "deterministic": true,
+    "keys": {
+      "maxLength": 64,
+      "minLength": 1,
+      "type": "string"
+    },
+    "originalRules": {
+      "ves.io.schema.rules.map.keys.string.max_len": "64",
+      "ves.io.schema.rules.map.keys.string.min_len": "1",
+      "ves.io.schema.rules.map.values.string.max_len": "1024",
+      "ves.io.schema.rules.map.values.string.min_len": "1"
+    },
+    "values": {
+      "maxLength": 1024,
+      "minLength": 1,
+      "type": "string"
+    }
+  },
   "x-f5xc-required-for": {
     "create": false,
     "minimum_config": false,
@@ -398,7 +419,7 @@ Each exact path has one authoritative reference destination. Collection element 
 | `ethernet_interface.monitor` | [ethernet_interface.monitor](resources--network_interface--reference--group-001.md#canonical-0230023222211001-1001311133113012-0301131201202113-2310201320103332-3322121211130303-3012031321310000-2213221032112312-1012331221302133) |
 | `ethernet_interface.monitor_disabled` | [ethernet_interface.monitor_disabled](resources--network_interface--reference--group-001.md#canonical-0000230123130100-1020033121000221-0212002311321130-1211301011321031-1230313023010213-3321310120210202-3301021330121321-1202020133321323) |
 | `ethernet_interface.mtu` | [ethernet_interface.mtu](resources--network_interface--reference--group-001.md#canonical-0103333211203321-3222311312203233-1330130203322013-0101021033110013-0303201203131102-2302200133200021-0133023222133232-1132312130031202) |
-| `ethernet_interface.no_ipv6_address` | [ethernet_interface.no_ipv6_address](resources--network_interface--reference--group-001.md#canonical-2001322023313200-3011100222320010-1220210030303113-2312302221132330-2133103012133230-1033000003002110-2323333202332011-1201003111200123) |
+| `ethernet_interface.no_ipv6_address` | [ethernet_interface.no_ipv6_address](resources--network_interface--reference--group-002.md#canonical-2001322023313200-3011100222320010-1220210030303113-2312302221132330-2133103012133230-1033000003002110-2323333202332011-1201003111200123) |
 | `ethernet_interface.node` | [ethernet_interface.node](resources--network_interface--reference--group-001.md#canonical-0030020301233212-3023311302300223-1330212002102102-1010033222001332-1110322213132231-1011101313322333-1031120200131121-3201102200223323) |
 | `ethernet_interface.not_primary` | [ethernet_interface.not_primary](resources--network_interface--reference--group-002.md#canonical-3112333223012231-1022003312312220-0033011131101320-0030032022210330-0311103120233113-1002311311301223-2023132331313032-1313023230333211) |
 | `ethernet_interface.priority` | [ethernet_interface.priority](resources--network_interface--reference--group-001.md#canonical-2310220202133120-3101221230123030-0230311003103210-2203330211033220-0122230101112221-0300232203032223-1013220012021201-2002302131322023) |
@@ -1660,7 +1681,7 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-- [not_primary](resources--network_interface--reference--group-001.md#canonical-1200321013310102-0032232013131303-0313231101032121-1032013113332222-3302320311120331-1320212223013321-0302331230222102-0102032230203100): complete subsection reference.
+- [not_primary](resources--network_interface--reference--group-002.md#canonical-1200321013310102-0032232013131303-0313231101032121-1032013113332222-3302320311120331-1320212223013321-0302331230222102-0102032230203100): complete subsection reference.
 
 <a id="canonical-2310220202133120-3101221230123030-0230311003103210-2203330211033220-0122230101112221-0300232203032223-1013220012021201-2002302131322023"></a>
 
@@ -1800,7 +1821,7 @@ Receipt-pinned upstream constraints:
 - [ethernet_interface.monitor](resources--network_interface--reference--group-001.md#canonical-1202200001221233-2202210301333102-2313310311302020-0113332023001130-0331031123021032-2313232302313220-1030023031111110-2103113103111213)
 - [ethernet_interface.monitor_disabled](resources--network_interface--reference--group-001.md#canonical-1012000310230201-3031310213013132-3001301202120013-0102310113031200-1300230302030222-3033021303212131-1012210313123122-3103102222102113)
 - [ethernet_interface.no_ipv6_address](resources--network_interface--reference--group-001.md#canonical-1333032111011330-0031133113021320-3311010213022003-0330032310232013-0203001200201102-0021320311032100-3220302232131331-2200200132331213)
-- [ethernet_interface.not_primary](resources--network_interface--reference--group-001.md#canonical-1200321013310102-0032232013131303-0313231101032121-1032013113332222-3302320311120331-1320212223013321-0302331230222102-0102032230203100)
+- [ethernet_interface.not_primary](resources--network_interface--reference--group-002.md#canonical-1200321013310102-0032232013131303-0313231101032121-1032013113332222-3302320311120331-1320212223013321-0302331230222102-0102032230203100)
 - [ethernet_interface.site_local_inside_network](resources--network_interface--reference--group-002.md#canonical-0130021031001123-3103100331301201-3001310300213201-0220222112333033-1032212013313102-1032013030013102-0323300222121123-0313002332320133)
 - [ethernet_interface.site_local_network](resources--network_interface--reference--group-002.md#canonical-1202003031332121-0320100021220100-0021231331001321-2313003211300332-3131230330132130-1100122212021011-3213120032122123-3021232101032213)
 - [ethernet_interface.static_ip](resources--network_interface--reference--group-002.md#canonical-3022232102130132-0113030032123321-1012123313020210-2230003031231301-1032311210332033-2222203030010301-2030212000100303-0203232233101020)
@@ -2015,18 +2036,39 @@ Type: `["map", "string"]`. Optional.
 
 Assign fixed IPv4 addresses based on the MAC Address of the DHCP Client.
 
+Provider validators and defaults (from schema source):
+
+```go
+Validators: []validator.Map{validators.MapConstraintsValidator("{\"cardinality\":{\"maxProperties\":128},\"category\":\"discovery\",\"constraintType\":\"map\",\"crossEntry\":{\"uniqueValues\":true},\"deterministic\":true,\"keys\":{\"format\":\"mac-address\",\"type\":\"string\"},\"originalRules\":{\"ves.io.schema.rules.map.keys.string.mac\":\"true\",\"ves.io.schema.rules.map.max_pairs\":\"128\",\"ves.io.schema.rules.map.unique_values\":\"true\",\"ves.io.schema.rules.map.values.string.ipv4\":\"true\"},\"values\":{\"format\":\"ipv4\",\"type\":\"string\"}}")}
+```
+
 Receipt-pinned upstream constraints:
 
 ```json
 {
   "x-f5xc-constraints": {
-    "category": "general",
-    "constraintType": "object",
-    "maxProperties": 128,
-    "metadata": {
-      "confidence": 0.75,
-      "source": "inferred",
-      "validatedAt": "2026-10-03T05:10:26+00:00"
+    "cardinality": {
+      "maxProperties": 128
+    },
+    "category": "discovery",
+    "constraintType": "map",
+    "crossEntry": {
+      "uniqueValues": true
+    },
+    "deterministic": true,
+    "keys": {
+      "format": "mac-address",
+      "type": "string"
+    },
+    "originalRules": {
+      "ves.io.schema.rules.map.keys.string.mac": "true",
+      "ves.io.schema.rules.map.max_pairs": "128",
+      "ves.io.schema.rules.map.unique_values": "true",
+      "ves.io.schema.rules.map.values.string.ipv4": "true"
+    },
+    "values": {
+      "format": "ipv4",
+      "type": "string"
     }
   },
   "x-f5xc-required-for": {
@@ -2942,18 +2984,37 @@ Type: `["map", "string"]`. Optional.
 
 Specify static IPv4 addresses per site:node.
 
+Provider validators and defaults (from schema source):
+
+```go
+Validators: []validator.Map{validators.MapConstraintsValidator("{\"cardinality\":{\"maxProperties\":64},\"category\":\"discovery\",\"constraintType\":\"map\",\"deterministic\":true,\"keys\":{\"maxLength\":128,\"minLength\":1,\"type\":\"string\"},\"originalRules\":{\"ves.io.schema.rules.map.keys.string.max_len\":\"128\",\"ves.io.schema.rules.map.keys.string.min_len\":\"1\",\"ves.io.schema.rules.map.max_pairs\":\"64\",\"ves.io.schema.rules.map.values.string.ipv4\":\"true\"},\"values\":{\"format\":\"ipv4\",\"type\":\"string\"}}")}
+```
+
 Receipt-pinned upstream constraints:
 
 ```json
 {
   "x-f5xc-constraints": {
-    "category": "general",
-    "constraintType": "object",
-    "maxProperties": 64,
-    "metadata": {
-      "confidence": 0.75,
-      "source": "inferred",
-      "validatedAt": "2026-10-03T05:10:26+00:00"
+    "cardinality": {
+      "maxProperties": 64
+    },
+    "category": "discovery",
+    "constraintType": "map",
+    "deterministic": true,
+    "keys": {
+      "maxLength": 128,
+      "minLength": 1,
+      "type": "string"
+    },
+    "originalRules": {
+      "ves.io.schema.rules.map.keys.string.max_len": "128",
+      "ves.io.schema.rules.map.keys.string.min_len": "1",
+      "ves.io.schema.rules.map.max_pairs": "64",
+      "ves.io.schema.rules.map.values.string.ipv4": "true"
+    },
+    "values": {
+      "format": "ipv4",
+      "type": "string"
     }
   },
   "x-f5xc-required-for": {
@@ -3778,18 +3839,39 @@ Upstream description:
 Fixed MAC address to IPv6 assignments, Key: MAC address, Value: IPv6 Address Assign fixed IPv6
 addresses based on the MAC Address of the DHCP Client.
 
+Provider validators and defaults (from schema source):
+
+```go
+Validators: []validator.Map{validators.MapConstraintsValidator("{\"cardinality\":{\"maxProperties\":128},\"category\":\"discovery\",\"constraintType\":\"map\",\"crossEntry\":{\"uniqueValues\":true},\"deterministic\":true,\"keys\":{\"format\":\"mac-address\",\"type\":\"string\"},\"originalRules\":{\"ves.io.schema.rules.map.keys.string.mac\":\"true\",\"ves.io.schema.rules.map.max_pairs\":\"128\",\"ves.io.schema.rules.map.unique_values\":\"true\",\"ves.io.schema.rules.map.values.string.ipv6\":\"true\"},\"values\":{\"format\":\"ipv6\",\"type\":\"string\"}}")}
+```
+
 Receipt-pinned upstream constraints:
 
 ```json
 {
   "x-f5xc-constraints": {
-    "category": "general",
-    "constraintType": "object",
-    "maxProperties": 128,
-    "metadata": {
-      "confidence": 0.75,
-      "source": "inferred",
-      "validatedAt": "2026-10-03T05:10:26+00:00"
+    "cardinality": {
+      "maxProperties": 128
+    },
+    "category": "discovery",
+    "constraintType": "map",
+    "crossEntry": {
+      "uniqueValues": true
+    },
+    "deterministic": true,
+    "keys": {
+      "format": "mac-address",
+      "type": "string"
+    },
+    "originalRules": {
+      "ves.io.schema.rules.map.keys.string.mac": "true",
+      "ves.io.schema.rules.map.max_pairs": "128",
+      "ves.io.schema.rules.map.unique_values": "true",
+      "ves.io.schema.rules.map.values.string.ipv6": "true"
+    },
+    "values": {
+      "format": "ipv6",
+      "type": "string"
     }
   },
   "x-f5xc-required-for": {
@@ -4388,18 +4470,37 @@ Upstream description:
 
 Map of Site:Node to IPv6 address.
 
+Provider validators and defaults (from schema source):
+
+```go
+Validators: []validator.Map{validators.MapConstraintsValidator("{\"cardinality\":{\"maxProperties\":64},\"category\":\"discovery\",\"constraintType\":\"map\",\"deterministic\":true,\"keys\":{\"maxLength\":128,\"minLength\":1,\"type\":\"string\"},\"originalRules\":{\"ves.io.schema.rules.map.keys.string.max_len\":\"128\",\"ves.io.schema.rules.map.keys.string.min_len\":\"1\",\"ves.io.schema.rules.map.max_pairs\":\"64\",\"ves.io.schema.rules.map.values.string.ipv6\":\"true\"},\"values\":{\"format\":\"ipv6\",\"type\":\"string\"}}")}
+```
+
 Receipt-pinned upstream constraints:
 
 ```json
 {
   "x-f5xc-constraints": {
-    "category": "general",
-    "constraintType": "object",
-    "maxProperties": 64,
-    "metadata": {
-      "confidence": 0.75,
-      "source": "inferred",
-      "validatedAt": "2026-10-03T05:10:26+00:00"
+    "cardinality": {
+      "maxProperties": 64
+    },
+    "category": "discovery",
+    "constraintType": "map",
+    "deterministic": true,
+    "keys": {
+      "maxLength": 128,
+      "minLength": 1,
+      "type": "string"
+    },
+    "originalRules": {
+      "ves.io.schema.rules.map.keys.string.max_len": "128",
+      "ves.io.schema.rules.map.keys.string.min_len": "1",
+      "ves.io.schema.rules.map.max_pairs": "64",
+      "ves.io.schema.rules.map.values.string.ipv6": "true"
+    },
+    "values": {
+      "format": "ipv6",
+      "type": "string"
     }
   },
   "x-f5xc-required-for": {
@@ -4604,65 +4705,6 @@ This is an empty object or choice marker. It has no direct properties.
 - [xcsh_network_interface](../resources/network_interface.md#canonical-3303002200232320-3331233131000231-2111111223023013-2313310022210202-2333223030322133-2311103000000220-1221101012132133-2022200333323310)
 
 <a id="canonical-1333032111011330-0031133113021320-3311010213022003-0330032310232013-0203001200201102-0021320311032100-3220302232131331-2200200132331213"></a>
-
-<!-- Exact provider and upstream contract identifiers. -->
-
-<!-- textlint-disable terminology -->
-
-<a id="canonical-0321001213111223-2121032320103030-0020213101311311-0133302212110203-1111133201322201-0221320132212123-1230020030102302-3021001333012012"></a>
-
-## ethernet_interface.no_ipv6_address — no_ipv6_address / 031001222133 / 2
-
-Breadcrumbs:
-
-- [xcsh_network_interface](../resources/network_interface.md#canonical-3303002200232320-3331233131000231-2111111223023013-2313310022210202-2333223030322133-2311103000000220-1221101012132133-2022200333323310)
-- [Property reference](resources--network_interface--reference--group-001.md#canonical-2322022123030133-3000312103003333-0310202220121330-0310123030213020-3022333010321131-3222303201013302-0200010223022132-2000311123301212)
-- [ethernet_interface](resources--network_interface--reference--group-001.md#canonical-0212013301302220-1201200231123120-0000000232201111-2330233033122002-2203013033101202-2132013330003201-1213023112010321-1203321102031221)
-- ethernet_interface.no_ipv6_address
-
-<a id="canonical-2001322023313200-3011100222320010-1220210030303113-2312302221132330-2133103012133230-1033000003002110-2323333202332011-1201003111200123"></a>
-
-Type: `["object", {}]`. Optional.
-
-Enable this option
-
-Upstream description:
-
-This can be used for messages where no values are needed.
-
-Receipt-pinned upstream constraints:
-
-```json
-{
-  "x-f5xc-required-for": {
-    "create": false,
-    "minimum_config": false,
-    "read": false,
-    "update": false
-  }
-}
-```
-
-Terraform syntax:
-
-```terraform
-no_ipv6_address = {}
-```
-
-<a id="canonical-1221232301020331-1103111321020111-0222301110103302-3020302010021112-3211230233302313-0220301103012113-3222113330202202-2233322312023101"></a>
-
-## Direct properties — no_ipv6_address / 031001222133 / 3
-
-This is an empty object or choice marker. It has no direct properties.
-
-<a id="canonical-2030030120030111-1312020201001100-2203033012022000-3003131030322301-1332312212023130-1202030312202031-2033222312303301-3233333221012203"></a>
-
-## Next pages — no_ipv6_address / 031001222133 / 4
-
-- [ethernet_interface](resources--network_interface--reference--group-001.md#canonical-0212013301302220-1201200231123120-0000000232201111-2330233033122002-2203013033101202-2132013330003201-1213023112010321-1203321102031221)
-- [xcsh_network_interface](../resources/network_interface.md#canonical-3303002200232320-3331233131000231-2111111223023013-2313310022210202-2333223030322133-2311103000000220-1221101012132133-2022200333323310)
-
-<a id="canonical-1200321013310102-0032232013131303-0313231101032121-1032013113332222-3302320311120331-1320212223013321-0302331230222102-0102032230203100"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 

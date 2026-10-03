@@ -6,6 +6,42 @@ description: "Complete grouped canonical reference for xcsh_voltstack_site refer
 
 # xcsh_voltstack_site reference
 
+<a id="canonical-3221002110012130-3332301023100121-0301121331202123-1233300110001012-0022222022332221-3131200301011131-3022220312302022-0202112200111230"></a>
+
+## custom_storage_config.storage_class_list — storage_class_list / 331302022300 / 2
+
+Breadcrumbs:
+
+- [xcsh_voltstack_site](../data-sources/voltstack_site.md#canonical-3011021120121122-1120101211211330-2030121003211010-0212132020130223-0212111100103011-3003130023302333-3021021330130133-1133312111123000)
+- [Property reference](data-sources--voltstack_site--reference--group-001.md#canonical-3210130022101001-3112232101022102-2032333031300013-3112003110021012-3222001330012233-0002330230030031-3201232233001313-3100032330211031)
+- [custom_storage_config](data-sources--voltstack_site--reference--group-005.md#canonical-1322330111022022-1222331222013311-0203320011033023-1312120310031232-0021011331210300-1111322303223100-1320332332030123-1110131212333020)
+- custom_storage_config.storage_class_list
+
+<a id="canonical-3333232223232121-3322020001131233-0201112023111313-0230302322031111-1313213331121131-2132230320302002-3223221231203202-0022012310100331"></a>
+
+Type: `"single"`. Computed.
+
+Add additional custom storage classes in Kubernetes for this fleet.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  }
+}
+```
+
+<a id="canonical-1102022302331222-1302000022321033-2301133210022031-3220032201033023-1231131133310030-0023032312021131-0110033020130210-3301321233331213"></a>
+
+## Direct properties — storage_class_list / 331302022300 / 3
+
+- [storage_classes](data-sources--voltstack_site--reference--group-006.md#canonical-2310120202333033-1102122022233230-0203312132320232-0120230001210010-1202232103101111-1231121222201002-3123003130120232-1201133030100332): complete subsection reference.
+
 <a id="canonical-0213310300330200-1110203033212102-2011111133123130-0322000131303310-1023132303130321-1231322120310112-2002302031203322-3310320110213320"></a>
 
 ## Next pages — storage_class_list / 331302022300 / 4
@@ -99,13 +135,28 @@ Receipt-pinned upstream constraints:
 ```json
 {
   "x-f5xc-constraints": {
-    "category": "general",
-    "constraintType": "object",
-    "maxProperties": 64,
-    "metadata": {
-      "confidence": 0.75,
-      "source": "inferred",
-      "validatedAt": "2026-10-03T05:10:26+00:00"
+    "cardinality": {
+      "maxProperties": 64
+    },
+    "category": "discovery",
+    "constraintType": "map",
+    "deterministic": true,
+    "keys": {
+      "maxLength": 128,
+      "minLength": 1,
+      "type": "string"
+    },
+    "originalRules": {
+      "ves.io.schema.rules.map.keys.string.max_len": "128",
+      "ves.io.schema.rules.map.keys.string.min_len": "1",
+      "ves.io.schema.rules.map.max_pairs": "64",
+      "ves.io.schema.rules.map.values.string.max_len": "128",
+      "ves.io.schema.rules.map.values.string.min_len": "1"
+    },
+    "values": {
+      "maxLength": 128,
+      "minLength": 1,
+      "type": "string"
     }
   },
   "x-f5xc-required-for": {
@@ -1518,13 +1569,28 @@ Receipt-pinned upstream constraints:
 ```json
 {
   "x-f5xc-constraints": {
-    "category": "general",
-    "constraintType": "object",
-    "maxProperties": 64,
-    "metadata": {
-      "confidence": 0.75,
-      "source": "inferred",
-      "validatedAt": "2026-10-03T05:10:26+00:00"
+    "cardinality": {
+      "maxProperties": 64
+    },
+    "category": "discovery",
+    "constraintType": "map",
+    "deterministic": true,
+    "keys": {
+      "maxLength": 128,
+      "minLength": 1,
+      "type": "string"
+    },
+    "originalRules": {
+      "ves.io.schema.rules.map.keys.string.max_len": "128",
+      "ves.io.schema.rules.map.keys.string.min_len": "1",
+      "ves.io.schema.rules.map.max_pairs": "64",
+      "ves.io.schema.rules.map.values.string.max_len": "128",
+      "ves.io.schema.rules.map.values.string.min_len": "1"
+    },
+    "values": {
+      "maxLength": 128,
+      "minLength": 1,
+      "type": "string"
     }
   },
   "x-f5xc-required-for": {
@@ -3014,13 +3080,28 @@ Receipt-pinned upstream constraints:
 ```json
 {
   "x-f5xc-constraints": {
-    "category": "general",
-    "constraintType": "object",
-    "maxProperties": 20,
-    "metadata": {
-      "confidence": 0.75,
-      "source": "inferred",
-      "validatedAt": "2026-10-03T05:10:26+00:00"
+    "cardinality": {
+      "maxProperties": 20
+    },
+    "category": "discovery",
+    "constraintType": "map",
+    "deterministic": true,
+    "keys": {
+      "maxLength": 128,
+      "minLength": 1,
+      "type": "string"
+    },
+    "originalRules": {
+      "ves.io.schema.rules.map.keys.string.max_len": "128",
+      "ves.io.schema.rules.map.keys.string.min_len": "1",
+      "ves.io.schema.rules.map.max_pairs": "20",
+      "ves.io.schema.rules.map.values.string.max_len": "128",
+      "ves.io.schema.rules.map.values.string.min_len": "1"
+    },
+    "values": {
+      "maxLength": 128,
+      "minLength": 1,
+      "type": "string"
     }
   },
   "x-f5xc-required-for": {
@@ -4434,13 +4515,28 @@ Receipt-pinned upstream constraints:
 ```json
 {
   "x-f5xc-constraints": {
-    "category": "general",
-    "constraintType": "object",
-    "maxProperties": 20,
-    "metadata": {
-      "confidence": 0.75,
-      "source": "inferred",
-      "validatedAt": "2026-10-03T05:10:26+00:00"
+    "cardinality": {
+      "maxProperties": 20
+    },
+    "category": "discovery",
+    "constraintType": "map",
+    "deterministic": true,
+    "keys": {
+      "maxLength": 128,
+      "minLength": 1,
+      "type": "string"
+    },
+    "originalRules": {
+      "ves.io.schema.rules.map.keys.string.max_len": "128",
+      "ves.io.schema.rules.map.keys.string.min_len": "1",
+      "ves.io.schema.rules.map.max_pairs": "20",
+      "ves.io.schema.rules.map.values.string.max_len": "128",
+      "ves.io.schema.rules.map.values.string.min_len": "1"
+    },
+    "values": {
+      "maxLength": 128,
+      "minLength": 1,
+      "type": "string"
     }
   },
   "x-f5xc-required-for": {
@@ -5851,13 +5947,28 @@ Receipt-pinned upstream constraints:
 ```json
 {
   "x-f5xc-constraints": {
-    "category": "general",
-    "constraintType": "object",
-    "maxProperties": 20,
-    "metadata": {
-      "confidence": 0.75,
-      "source": "inferred",
-      "validatedAt": "2026-10-03T05:10:26+00:00"
+    "cardinality": {
+      "maxProperties": 20
+    },
+    "category": "discovery",
+    "constraintType": "map",
+    "deterministic": true,
+    "keys": {
+      "maxLength": 128,
+      "minLength": 1,
+      "type": "string"
+    },
+    "originalRules": {
+      "ves.io.schema.rules.map.keys.string.max_len": "128",
+      "ves.io.schema.rules.map.keys.string.min_len": "1",
+      "ves.io.schema.rules.map.max_pairs": "20",
+      "ves.io.schema.rules.map.values.string.max_len": "128",
+      "ves.io.schema.rules.map.values.string.min_len": "1"
+    },
+    "values": {
+      "maxLength": 128,
+      "minLength": 1,
+      "type": "string"
     }
   },
   "x-f5xc-required-for": {
@@ -6397,14 +6508,14 @@ Receipt-pinned upstream constraints:
 
 - [blindfold_secret_info](data-sources--voltstack_site--reference--group-006.md#canonical-1023323103301012-2313103212302323-2223102022332232-0113012100322333-1113300122112302-3020003211203221-3113130333302022-0200200103031200): complete subsection reference.
 
-- [clear_secret_info](data-sources--voltstack_site--reference--group-006.md#canonical-0223330300130022-0012123333120000-1011000003112310-3110211020323233-3111311202233031-3310030221212333-2212202123032122-2010322330313223): complete subsection reference.
+- [clear_secret_info](data-sources--voltstack_site--reference--group-007.md#canonical-0223330300130022-0012123333120000-1011000003112310-3110211020323233-3111311202233031-3310030221212333-2212202123032122-2010322330313223): complete subsection reference.
 
 <a id="canonical-2031003030222221-3222101321331232-2002201312303022-0033001010023303-0010201303231011-1210012203002133-3110202220313122-0032121030311132"></a>
 
 ## Next pages — client_private_key / 120121330301 / 4
 
 - [custom_storage_config.storage_device_list.storage_devices.netapp_trident.netapp_backend_ontap_san.client_private_key.blindfold_secret_info](data-sources--voltstack_site--reference--group-006.md#canonical-1023323103301012-2313103212302323-2223102022332232-0113012100322333-1113300122112302-3020003211203221-3113130333302022-0200200103031200)
-- [custom_storage_config.storage_device_list.storage_devices.netapp_trident.netapp_backend_ontap_san.client_private_key.clear_secret_info](data-sources--voltstack_site--reference--group-006.md#canonical-0223330300130022-0012123333120000-1011000003112310-3110211020323233-3111311202233031-3310030221212333-2212202123032122-2010322330313223)
+- [custom_storage_config.storage_device_list.storage_devices.netapp_trident.netapp_backend_ontap_san.client_private_key.clear_secret_info](data-sources--voltstack_site--reference--group-007.md#canonical-0223330300130022-0012123333120000-1011000003112310-3110211020323233-3111311202233031-3310030221212333-2212202123032122-2010322330313223)
 - [custom_storage_config.storage_device_list.storage_devices.netapp_trident.netapp_backend_ontap_san](data-sources--voltstack_site--reference--group-006.md#canonical-1223002030203333-1121000122302200-2230010303202300-3121233302003303-2133030131021103-2010131113031110-0023022010021231-1033211212023103)
 - [xcsh_voltstack_site](../data-sources/voltstack_site.md#canonical-3011021120121122-1120101211211330-2030121003211010-0212132020130223-0212111100103011-3003130023302333-3021021330130133-1133312111123000)
 
@@ -6578,16 +6689,3 @@ Receipt-pinned upstream constraints:
   }
 }
 ```
-
-<a id="canonical-2022331022023221-2022020221301211-3301332210010121-2033202301100030-3301212031333100-2011202220321213-1303223323100113-2303120032032203"></a>
-
-## Next pages — blindfold_secret_info / 130230311222 / 7
-
-- [custom_storage_config.storage_device_list.storage_devices.netapp_trident.netapp_backend_ontap_san.client_private_key](data-sources--voltstack_site--reference--group-006.md#canonical-0031221320012122-2002233213121101-3003200313031331-2212223302113100-2313302033333122-2032231231331013-0221000231001003-2110023331211220)
-- [xcsh_voltstack_site](../data-sources/voltstack_site.md#canonical-3011021120121122-1120101211211330-2030121003211010-0212132020130223-0212111100103011-3003130023302333-3021021330130133-1133312111123000)
-
-<a id="canonical-0223330300130022-0012123333120000-1011000003112310-3110211020323233-3111311202233031-3310030221212333-2212202123032122-2010322330313223"></a>
-
-<!-- Exact provider and upstream contract identifiers. -->
-
-<!-- textlint-disable terminology -->

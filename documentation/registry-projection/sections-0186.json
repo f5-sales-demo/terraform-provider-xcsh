@@ -86,7 +86,7 @@
         ]
       ],
       "mode": "embedded",
-      "registry_path": "docs/guides/data-sources--voltstack_site--reference--group-008.md"
+      "registry_path": "docs/guides/data-sources--voltstack_site--reference--group-009.md"
     },
     {
       "canonical_id": "xcsh-docs:data-sources:voltstack_site:properties:enable_vgpu",
@@ -103,7 +103,7 @@
         ]
       ],
       "mode": "embedded",
-      "registry_path": "docs/guides/data-sources--voltstack_site--reference--group-008.md"
+      "registry_path": "docs/guides/data-sources--voltstack_site--reference--group-009.md"
     },
     {
       "canonical_id": "xcsh-docs:data-sources:voltstack_site:properties:enable_vgpu",
@@ -115,7 +115,7 @@
       "anchor": "canonical-1321221120003012-0221132200223310-2023130030030030-2211202232212213-3321222003131013-1300033022230131-2331323031232111-0332023011022013",
       "anchor_map": [],
       "mode": "embedded",
-      "registry_path": "docs/guides/data-sources--voltstack_site--reference--group-008.md"
+      "registry_path": "docs/guides/data-sources--voltstack_site--reference--group-009.md"
     },
     {
       "canonical_id": "xcsh-docs:data-sources:voltstack_site:properties:enable_vgpu",
@@ -127,7 +127,7 @@
       "anchor": "canonical-1332131133333333-2010321320202212-0311033211211032-0221313213203132-3020323300221320-2310331333212323-0221113203210120-1223110011332112",
       "anchor_map": [],
       "mode": "embedded",
-      "registry_path": "docs/guides/data-sources--voltstack_site--reference--group-008.md"
+      "registry_path": "docs/guides/data-sources--voltstack_site--reference--group-009.md"
     },
     {
       "canonical_id": "xcsh-docs:data-sources:voltstack_site:properties:enable_vm",
@@ -139,7 +139,7 @@
       "anchor": "canonical-2120033220230201-3201323001000303-2300010003321030-1322013303121300-1311012110311000-2112222220331213-2322312333333022-2023330301130102",
       "anchor_map": [],
       "mode": "embedded",
-      "registry_path": "docs/guides/data-sources--voltstack_site--reference--group-008.md"
+      "registry_path": "docs/guides/data-sources--voltstack_site--reference--group-009.md"
     },
     {
       "canonical_id": "xcsh-docs:data-sources:voltstack_site:properties:enable_vm",
@@ -156,7 +156,7 @@
         ]
       ],
       "mode": "embedded",
-      "registry_path": "docs/guides/data-sources--voltstack_site--reference--group-008.md"
+      "registry_path": "docs/guides/data-sources--voltstack_site--reference--group-009.md"
     },
     {
       "canonical_id": "xcsh-docs:data-sources:voltstack_site:properties:enable_vm",
@@ -168,7 +168,7 @@
       "anchor": "canonical-2102130221220100-2130331131223233-3232323033221310-1133033221121333-1103233312203333-0201021230133230-2111332010110102-3222123322301203",
       "anchor_map": [],
       "mode": "embedded",
-      "registry_path": "docs/guides/data-sources--voltstack_site--reference--group-008.md"
+      "registry_path": "docs/guides/data-sources--voltstack_site--reference--group-009.md"
     },
     {
       "canonical_id": "xcsh-docs:data-sources:voltstack_site:properties:enable_vm",
@@ -3563,7 +3563,7 @@
       "anchor": "canonical-1212001303202122-3133101131301031-0130312101120333-0100030133221102-2021221321030221-2313022201221010-3313301013131112-1332213030323100",
       "anchor_map": [],
       "mode": "embedded",
-      "registry_path": "docs/guides/data-sources--voltstack_site--reference--group-009.md"
+      "registry_path": "docs/guides/data-sources--voltstack_site--reference--group-010.md"
     },
     {
       "canonical_id": "xcsh-docs:data-sources:voltstack_site:properties:offline_survivability_mode:enable_offline_survivability_mode",
@@ -3575,7 +3575,7 @@
       "anchor": "canonical-1331030231322120-0212323100303100-2112223232321001-1110003311110112-3122001210210001-3223101222110003-1321132123012221-1023012013213012",
       "anchor_map": [],
       "mode": "embedded",
-      "registry_path": "docs/guides/data-sources--voltstack_site--reference--group-009.md"
+      "registry_path": "docs/guides/data-sources--voltstack_site--reference--group-010.md"
     },
     {
       "canonical_id": "xcsh-docs:data-sources:voltstack_site:properties:offline_survivability_mode:enable_offline_survivability_mode",
@@ -3592,7 +3592,7 @@
         ]
       ],
       "mode": "embedded",
-      "registry_path": "docs/guides/data-sources--voltstack_site--reference--group-009.md"
+      "registry_path": "docs/guides/data-sources--voltstack_site--reference--group-010.md"
     },
     {
       "canonical_id": "xcsh-docs:data-sources:voltstack_site:properties:offline_survivability_mode:enable_offline_survivability_mode",
@@ -3604,7 +3604,7 @@
       "anchor": "canonical-2310330020121310-1323332010221100-3121123020003021-0320033021002020-0113310201302323-3220312031323303-1200203321301220-3121310023330112",
       "anchor_map": [],
       "mode": "embedded",
-      "registry_path": "docs/guides/data-sources--voltstack_site--reference--group-009.md"
+      "registry_path": "docs/guides/data-sources--voltstack_site--reference--group-010.md"
     },
     {
       "canonical_id": "xcsh-docs:data-sources:voltstack_site:properties:offline_survivability_mode:enable_offline_survivability_mode",
@@ -3616,7 +3616,7 @@
       "anchor": "canonical-0320020323332222-2231123020133312-1101103223113123-1332223331033010-0330120010231012-0322002320202331-0100111222322212-2002001120330333",
       "anchor_map": [],
       "mode": "embedded",
-      "registry_path": "docs/guides/data-sources--voltstack_site--reference--group-009.md"
+      "registry_path": "docs/guides/data-sources--voltstack_site--reference--group-010.md"
     },
     {
       "canonical_id": "xcsh-docs:data-sources:voltstack_site:properties:offline_survivability_mode:no_offline_survivability_mode",
@@ -5427,7 +5427,7 @@
       "section_id": "xcsh-docs:data-sources:waf_exclusion_policy:reference:section:0",
       "source_sha256": "sha256:197d41522a9dd286cb9805a03d8a5bd782cc3f3fd95ea854bf2dfc326e83e50c",
       "source_bytes": 99,
-      "canonical_source_sha256": "sha256:64cfb8f4e0be350320b2f5bf30520c3b7b21d00eff217fb3b841e8f08f141716",
+      "canonical_source_sha256": "sha256:47a62eb659e82574a52b19a6c5eb939732f79f8cfef7cd792cd1b79a95acfeda",
       "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/waf_exclusion_policy/properties/",
       "anchor": "canonical-3020311023020023-3232003230320301-1322203311203211-2020223132023101-2231320232012112-0103201103323111-3033312300021222-0203023101301112",
       "anchor_map": [],
@@ -5439,7 +5439,7 @@
       "section_id": "xcsh-docs:data-sources:waf_exclusion_policy:reference:section:1",
       "source_sha256": "sha256:570036ae89b6c8f0e82631cf83b2cb8e4f6c2168224ad65c1df136edb13ebe1b",
       "source_bytes": 180,
-      "canonical_source_sha256": "sha256:64cfb8f4e0be350320b2f5bf30520c3b7b21d00eff217fb3b841e8f08f141716",
+      "canonical_source_sha256": "sha256:47a62eb659e82574a52b19a6c5eb939732f79f8cfef7cd792cd1b79a95acfeda",
       "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/waf_exclusion_policy/properties/",
       "anchor": "canonical-1132222131032033-3132302010202233-2023120211330033-3213300211131111-2311331002323133-2201323321200001-3323031031100102-1101321230131203",
       "anchor_map": [],
@@ -5451,7 +5451,7 @@
       "section_id": "xcsh-docs:data-sources:waf_exclusion_policy:reference:section:2",
       "source_sha256": "sha256:5e24c1769a2780906b19611af5e2de45d01c51b1225450dc1c3372d5f82c79e9",
       "source_bytes": 55,
-      "canonical_source_sha256": "sha256:64cfb8f4e0be350320b2f5bf30520c3b7b21d00eff217fb3b841e8f08f141716",
+      "canonical_source_sha256": "sha256:47a62eb659e82574a52b19a6c5eb939732f79f8cfef7cd792cd1b79a95acfeda",
       "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/waf_exclusion_policy/properties/",
       "anchor": "canonical-0200332112221320-3322323011023101-2232113233203121-3033332322213302-1001100103230212-0001320203200021-0121120120130333-0233210001032122",
       "anchor_map": [
@@ -5466,9 +5466,9 @@
     {
       "canonical_id": "xcsh-docs:data-sources:waf_exclusion_policy:reference",
       "section_id": "xcsh-docs:data-sources:waf_exclusion_policy:reference:section:3",
-      "source_sha256": "sha256:4eb0909622bbedb7f3b3b2b021c3791da9fc7124e2186bca7c7d4e32e1e6dae0",
-      "source_bytes": 1078,
-      "canonical_source_sha256": "sha256:64cfb8f4e0be350320b2f5bf30520c3b7b21d00eff217fb3b841e8f08f141716",
+      "source_sha256": "sha256:7b430fae8d6a1cd9fad2bb673a168676239f6ebb6c434fc17670c251fae5b109",
+      "source_bytes": 1644,
+      "canonical_source_sha256": "sha256:47a62eb659e82574a52b19a6c5eb939732f79f8cfef7cd792cd1b79a95acfeda",
       "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/waf_exclusion_policy/properties/",
       "anchor": "canonical-1330210003221000-1320302011122200-1301233330212212-1320031310011333-3300233333200332-1331230132102102-0302213010311200-2121201313021311",
       "anchor_map": [
@@ -5485,7 +5485,7 @@
       "section_id": "xcsh-docs:data-sources:waf_exclusion_policy:reference:section:4",
       "source_sha256": "sha256:624895cb0dda91a12b3a616fe21cabc2540bcbe6d9f97d007e08372b08413e51",
       "source_bytes": 966,
-      "canonical_source_sha256": "sha256:64cfb8f4e0be350320b2f5bf30520c3b7b21d00eff217fb3b841e8f08f141716",
+      "canonical_source_sha256": "sha256:47a62eb659e82574a52b19a6c5eb939732f79f8cfef7cd792cd1b79a95acfeda",
       "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/waf_exclusion_policy/properties/",
       "anchor": "canonical-3212301030223230-0032000201313330-1023333330303212-1201003333333123-1210032323320103-0230231332323321-1102211020013302-2000201302313103",
       "anchor_map": [
@@ -5502,7 +5502,7 @@
       "section_id": "xcsh-docs:data-sources:waf_exclusion_policy:reference:section:5",
       "source_sha256": "sha256:33cc7a13e6890eccaab91442cb9e22a1948d2218dbdad32c1472ae170c849fa1",
       "source_bytes": 111,
-      "canonical_source_sha256": "sha256:64cfb8f4e0be350320b2f5bf30520c3b7b21d00eff217fb3b841e8f08f141716",
+      "canonical_source_sha256": "sha256:47a62eb659e82574a52b19a6c5eb939732f79f8cfef7cd792cd1b79a95acfeda",
       "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/waf_exclusion_policy/properties/",
       "anchor": "canonical-1002033000300003-2323231313000322-2100302212113133-3002013203331033-1220103130331012-2031303312310002-2201322132323232-1101132002113113",
       "anchor_map": [
@@ -5519,7 +5519,7 @@
       "section_id": "xcsh-docs:data-sources:waf_exclusion_policy:reference:section:6",
       "source_sha256": "sha256:473ec19ee190cc9edd80edcce0ba345e0114023da604483bb94b992b23391623",
       "source_bytes": 501,
-      "canonical_source_sha256": "sha256:64cfb8f4e0be350320b2f5bf30520c3b7b21d00eff217fb3b841e8f08f141716",
+      "canonical_source_sha256": "sha256:47a62eb659e82574a52b19a6c5eb939732f79f8cfef7cd792cd1b79a95acfeda",
       "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/waf_exclusion_policy/properties/",
       "anchor": "canonical-1300022203220323-0212033021231332-2210001232200312-2103000122232303-3313312020020313-0112300122213133-0133030111021030-3313231111221301",
       "anchor_map": [
@@ -5536,7 +5536,7 @@
       "section_id": "xcsh-docs:data-sources:waf_exclusion_policy:reference:section:7",
       "source_sha256": "sha256:c2d3a046da9701711160ade1cf64d82fd87e5dbe53417e3c84ca34b531fb2dda",
       "source_bytes": 1523,
-      "canonical_source_sha256": "sha256:64cfb8f4e0be350320b2f5bf30520c3b7b21d00eff217fb3b841e8f08f141716",
+      "canonical_source_sha256": "sha256:47a62eb659e82574a52b19a6c5eb939732f79f8cfef7cd792cd1b79a95acfeda",
       "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/waf_exclusion_policy/properties/",
       "anchor": "canonical-0301333030101201-2033030102312113-0311012233031000-2122332111302013-2231221230110102-3001330201223021-0331312032233031-1001222110232122",
       "anchor_map": [
@@ -5553,7 +5553,7 @@
       "section_id": "xcsh-docs:data-sources:waf_exclusion_policy:reference:section:8",
       "source_sha256": "sha256:d8af5124de03c003607c56f72d6cbd6c64103a0894f70c0caf002555b6258b96",
       "source_bytes": 1407,
-      "canonical_source_sha256": "sha256:64cfb8f4e0be350320b2f5bf30520c3b7b21d00eff217fb3b841e8f08f141716",
+      "canonical_source_sha256": "sha256:47a62eb659e82574a52b19a6c5eb939732f79f8cfef7cd792cd1b79a95acfeda",
       "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/waf_exclusion_policy/properties/",
       "anchor": "canonical-2302320020133001-1011122123001133-1112222133203223-1301321133321000-2301230300331330-1210322132332313-3211303230121023-0010100031030121",
       "anchor_map": [],
@@ -5565,7 +5565,7 @@
       "section_id": "xcsh-docs:data-sources:waf_exclusion_policy:reference:section:9",
       "source_sha256": "sha256:08b9b56d40d1f8befe668d014f73287e6c2b87596c28045ab2634e80655649a1",
       "source_bytes": 10553,
-      "canonical_source_sha256": "sha256:64cfb8f4e0be350320b2f5bf30520c3b7b21d00eff217fb3b841e8f08f141716",
+      "canonical_source_sha256": "sha256:47a62eb659e82574a52b19a6c5eb939732f79f8cfef7cd792cd1b79a95acfeda",
       "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/waf_exclusion_policy/properties/",
       "anchor": "canonical-2100112303311011-1202203320100300-3030200000010322-2000211333031011-2200332323200313-2031212033033032-1110011310302023-2211230120321030",
       "anchor_map": [],
@@ -5577,7 +5577,7 @@
       "section_id": "xcsh-docs:data-sources:waf_exclusion_policy:reference:section:10",
       "source_sha256": "sha256:7e6678f368eadca7d5e71bfc658125b2207b6d91185f30a0be387206c64c0dbb",
       "source_bytes": 284,
-      "canonical_source_sha256": "sha256:64cfb8f4e0be350320b2f5bf30520c3b7b21d00eff217fb3b841e8f08f141716",
+      "canonical_source_sha256": "sha256:47a62eb659e82574a52b19a6c5eb939732f79f8cfef7cd792cd1b79a95acfeda",
       "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/waf_exclusion_policy/properties/",
       "anchor": "canonical-0313232222133300-3313120310223213-3220033112133131-3100032302332330-2020020233232031-0032123113023300-3102312031201100-3332303122323302",
       "anchor_map": [],

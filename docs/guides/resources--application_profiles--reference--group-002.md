@@ -6,6 +6,12 @@ description: "Complete grouped canonical reference for xcsh_application_profiles
 
 # xcsh_application_profiles reference
 
+<a id="canonical-2200221323112111-1121120032212010-1212100101222202-2331322211133230-2130323031123313-0203133121011123-1130303231121110-1020131302300332"></a>
+
+## Direct properties — address_translation_enable / 321203012100 / 3
+
+This is an empty object or choice marker. It has no direct properties.
+
 <a id="canonical-3010211220233111-1223213230310132-3221311032021320-1300002121232223-3213203331331111-0210320031003301-3100023013112313-1130313020233231"></a>
 
 ## Next pages — address_translation_enable / 321203012100 / 4

@@ -45,6 +45,27 @@ Receipt-pinned upstream constraints:
 
 ```json
 {
+  "x-f5xc-constraints": {
+    "category": "discovery",
+    "constraintType": "map",
+    "deterministic": true,
+    "keys": {
+      "maxLength": 64,
+      "minLength": 1,
+      "type": "string"
+    },
+    "originalRules": {
+      "ves.io.schema.rules.map.keys.string.max_len": "64",
+      "ves.io.schema.rules.map.keys.string.min_len": "1",
+      "ves.io.schema.rules.map.values.string.max_len": "1024",
+      "ves.io.schema.rules.map.values.string.min_len": "1"
+    },
+    "values": {
+      "maxLength": 1024,
+      "minLength": 1,
+      "type": "string"
+    }
+  },
   "x-f5xc-required-for": {
     "create": false,
     "minimum_config": false,
@@ -331,7 +352,7 @@ Each exact path has one authoritative reference destination. Collection element 
 | `f5_big_ip_aws_service.endpoint_service.https_port` | [f5_big_ip_aws_service.endpoint_service.https_port](data-sources--nfv_service--reference--group-001.md#canonical-2031102231123010-0030111011112002-3103023001012110-1131303301121101-3232103213202001-3321132132233202-2300200033011323-1223212302232233) |
 | `f5_big_ip_aws_service.endpoint_service.no_tcp_ports` | [f5_big_ip_aws_service.endpoint_service.no_tcp_ports](data-sources--nfv_service--reference--group-001.md#canonical-3301111110211233-2032030200120103-0001202120131113-0333212211023003-1111003200131230-2021121030111331-1311302132210012-1002333331132130) |
 | `f5_big_ip_aws_service.endpoint_service.no_udp_ports` | [f5_big_ip_aws_service.endpoint_service.no_udp_ports](data-sources--nfv_service--reference--group-001.md#canonical-3132223311022000-1302212113332033-2312101113201202-3012012302022033-3303122020331102-1330101113122120-0033123111123323-0330302021032232) |
-| `f5_big_ip_aws_service.market_place_image` | [f5_big_ip_aws_service.market_place_image](data-sources--nfv_service--reference--group-001.md#canonical-1230320202121112-2210332203231211-1311220012032233-3011113003020230-0131303213211021-2302212122000003-1322131212121302-3003022001123313) |
+| `f5_big_ip_aws_service.market_place_image` | [f5_big_ip_aws_service.market_place_image](data-sources--nfv_service--reference--group-002.md#canonical-1230320202121112-2210332203231211-1311220012032233-3011113003020230-0131303213211021-2302212122000003-1322131212121302-3003022001123313) |
 | `f5_big_ip_aws_service.market_place_image.awafpay_g200_mbps` | [f5_big_ip_aws_service.market_place_image.awafpay_g200_mbps](data-sources--nfv_service--reference--group-002.md#canonical-2023103103032113-2233100103000332-2100113030023103-2310202201033013-1133032201021000-3203232200332312-2002311001001000-1103212031110000) |
 | `f5_big_ip_aws_service.market_place_image.awafpay_g3_gbps` | [f5_big_ip_aws_service.market_place_image.awafpay_g3_gbps](data-sources--nfv_service--reference--group-002.md#canonical-3020211211011321-1202101033121111-0132202313332202-3300332111101302-1222302323320211-3233131313323111-0101323220232120-0103311300030323) |
 | `f5_big_ip_aws_service.nodes` | [f5_big_ip_aws_service.nodes](data-sources--nfv_service--reference--group-002.md#canonical-3033221013330113-0111102030012021-1203332011032233-0013223120022233-1110100331123321-3011032322222123-0002130033213331-3221302233322132) |
@@ -1319,13 +1340,24 @@ Receipt-pinned upstream constraints:
 ```json
 {
   "x-f5xc-constraints": {
-    "category": "general",
-    "constraintType": "object",
-    "maxProperties": 40,
-    "metadata": {
-      "confidence": 0.75,
-      "source": "inferred",
-      "validatedAt": "2026-10-03T05:10:26+00:00"
+    "cardinality": {
+      "maxProperties": 40
+    },
+    "category": "discovery",
+    "constraintType": "map",
+    "deterministic": true,
+    "keys": {
+      "maxLength": 127,
+      "type": "string"
+    },
+    "originalRules": {
+      "ves.io.schema.rules.map.keys.string.max_len": "127",
+      "ves.io.schema.rules.map.max_pairs": "40",
+      "ves.io.schema.rules.map.values.string.max_len": "255"
+    },
+    "values": {
+      "maxLength": 255,
+      "type": "string"
     }
   },
   "x-f5xc-required-for": {
@@ -2811,34 +2843,3 @@ This is an empty object or choice marker. It has no direct properties.
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
-
-<a id="canonical-2131300201131332-2332201223113002-3001330321113023-3123022213131200-1222322323100321-2312103202020012-2303033120111201-1330032010311000"></a>
-
-## f5_big_ip_aws_service.market_place_image — market_place_image / 133201330123 / 2
-
-Breadcrumbs:
-
-- [xcsh_nfv_service](../data-sources/nfv_service.md#canonical-2212320103310132-2221300222221032-1233031123200120-3022110322311231-3301003023302233-3133232120201022-0322021211220213-1332311000003300)
-- [Property reference](data-sources--nfv_service--reference--group-001.md#canonical-2313010333323131-3010030231311121-2301323120300012-0122321020201331-3020223211220022-0100121100023011-2323321311300323-0122100132003020)
-- [f5_big_ip_aws_service](data-sources--nfv_service--reference--group-001.md#canonical-3121203202232102-3301112102333133-2103303100231002-1321223111220201-3103311113020000-0303332002322201-3021331113310133-2201221310222221)
-- f5_big_ip_aws_service.market_place_image
-
-<a id="canonical-1230320202121112-2210332203231211-1311220012032233-3011113003020230-0131303213211021-2302212122000003-1322131212121302-3003022001123313"></a>
-
-Type: `"single"`. Computed.
-
-BIG-IP AWS Pay as You Go Image Selection.
-
-Receipt-pinned upstream constraints:
-
-```json
-{
-  "x-f5xc-required-for": {
-    "create": false,
-    "minimum_config": false,
-    "read": false,
-    "update": false
-  },
-  "x-ves-oneof-field-ami_choice": "[\"AWAFPayG200Mbps\",\"AWAFPayG3Gbps\",\"BestPlusPayG200Mbps\",\"best_plus_payg_1gbps\"]"
-}
-```

@@ -4896,20 +4896,44 @@ Upstream description:
 List contains the CloudFront distribution selection by tags key is a AWS tag name, and the value is
 regular expression to match.
 
+Provider validators and defaults (from schema source):
+
+```go
+Validators: []validator.Map{validators.MapConstraintsValidator("{\"cardinality\":{\"maxProperties\":20,\"minProperties\":1},\"category\":\"discovery\",\"constraintType\":\"map\",\"deterministic\":true,\"keys\":{\"maxLength\":64,\"minLength\":1,\"type\":\"string\"},\"originalRules\":{\"ves.io.schema.rules.map.keys.string.max_len\":\"64\",\"ves.io.schema.rules.map.keys.string.min_len\":\"1\",\"ves.io.schema.rules.map.max_pairs\":\"20\",\"ves.io.schema.rules.map.min_pairs\":\"1\",\"ves.io.schema.rules.map.values.string.max_len\":\"256\",\"ves.io.schema.rules.map.values.string.min_len\":\"1\",\"ves.io.schema.rules.map.values.string.regex\":\"true\"},\"values\":{\"format\":\"regex\",\"maxLength\":256,\"minLength\":1,\"type\":\"string\"}}")}
+```
+
 Receipt-pinned upstream constraints:
 
 ```json
 {
   "x-f5xc-constraints": {
-    "category": "general",
-    "constraintType": "object",
-    "maxProperties": 20,
-    "metadata": {
-      "confidence": 0.75,
-      "source": "inferred",
-      "validatedAt": "2026-10-03T05:10:26+00:00"
+    "cardinality": {
+      "maxProperties": 20,
+      "minProperties": 1
     },
-    "minProperties": 1
+    "category": "discovery",
+    "constraintType": "map",
+    "deterministic": true,
+    "keys": {
+      "maxLength": 64,
+      "minLength": 1,
+      "type": "string"
+    },
+    "originalRules": {
+      "ves.io.schema.rules.map.keys.string.max_len": "64",
+      "ves.io.schema.rules.map.keys.string.min_len": "1",
+      "ves.io.schema.rules.map.max_pairs": "20",
+      "ves.io.schema.rules.map.min_pairs": "1",
+      "ves.io.schema.rules.map.values.string.max_len": "256",
+      "ves.io.schema.rules.map.values.string.min_len": "1",
+      "ves.io.schema.rules.map.values.string.regex": "true"
+    },
+    "values": {
+      "format": "regex",
+      "maxLength": 256,
+      "minLength": 1,
+      "type": "string"
+    }
   },
   "x-f5xc-required-for": {
     "create": true,
@@ -6772,83 +6796,3 @@ Receipt-pinned upstream constraints:
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
-
-<a id="canonical-3301101000223210-0020112331320221-0130300032302213-0313333133101000-0332311210112011-3003323031010020-2311313212101113-0111203200223100"></a>
-
-## CloudFront.js_insertion_rules.rules.metadata — metadata / 223202103302 / 2
-
-Breadcrumbs:
-
-- [xcsh_protected_application](../resources/protected_application.md#canonical-0002322312001300-2321122230000322-1132302132120131-2310022322102121-3300111330013030-3223012202311310-1021020212202332-0020010133311002)
-- [Property reference](resources--protected_application--reference--group-001.md#canonical-1112011310232010-1130212322220320-1323121033211100-0313202312023232-3332212122311300-1331303332321012-0100301021312031-1320300331013311)
-- [CloudFront](resources--protected_application--reference--group-002.md#canonical-3023230230223213-0113310010212111-0023030201111012-2212202220232211-0013230310132300-3132331133230002-2331013021302322-2211302231010320)
-- [cloudfront.js_insertion_rules](resources--protected_application--reference--group-002.md#canonical-0231330302202122-3333330110232010-0233303200130220-0301122123331132-2200201002333200-2020222112331210-1313021231112202-3002213230012210)
-- [cloudfront.js_insertion_rules.rules](resources--protected_application--reference--group-002.md#canonical-1111120223012133-1010232232112011-0002033223202121-2202200003200333-0330223310201233-0110011213302203-0110111123233202-0232200123131110)
-- CloudFront.js_insertion_rules.rules.metadata
-
-<a id="canonical-1031010132131112-1022320021232131-3131213322032030-1122331330333012-2122113332003112-2220333131220202-0022122112001111-3303133012331302"></a>
-
-Type: `"object"`. single nested block, Optional.
-
-MessageMetaType is metadata (common attributes) of a message that only certain messages have. This
-information is propagated to the metadata of a child object that gets created from the containing
-message during view processing. The information in this type can be specified by user during
-create..
-
-Upstream description:
-
-MessageMetaType is metadata (common attributes) of a message that only certain messages have. This
-information is propagated to the metadata of a child object that gets created from the containing
-message during view processing. The information in this type can be specified by user during create
-and replace APIs.
-
-Provider validators and defaults (from schema source):
-
-```go
-Validators: []validator.Object{validators.RequiredObjectAttributes("name")}
-```
-
-Receipt-pinned upstream constraints:
-
-```json
-{
-  "x-f5xc-required-for": {
-    "create": false,
-    "minimum_config": false,
-    "read": false,
-    "update": false
-  }
-}
-```
-
-Terraform syntax:
-
-```terraform
-metadata {
-  # Configure direct properties listed below.
-}
-```
-
-<a id="canonical-0330030032123311-0113001112321121-2101302133120203-3201200132101021-2100000010030023-3223232020002321-0133130320013221-1003202132231020"></a>
-
-## Direct properties — metadata / 223202103302 / 3
-
-<a id="canonical-1012322111320232-0210033131222102-3113200102233330-3221112010312322-1123233302313332-1200001101020331-2231022303312001-2101130001202201"></a>
-
-<a id="canonical-3321101333030232-1030221022331131-1030010101313013-3030233232102302-0011200101231233-0222001130301312-0003331000012233-0132013202312323"></a>
-
-## description_spec property — metadata / 223202103302 / 4
-
-Type: `"string"`. Optional.
-
-Description. Human readable description.
-
-Provider validators and defaults (from schema source):
-
-```go
-Validators: []validator.String{
-  stringvalidator.LengthAtMost(256),
-}
-```
-
-<a id="canonical-1101222332210323-2303302130210230-0113003103232131-0330223020030202-3200221223103311-3303020310000332-3212333020211031-0221311202310323"></a>

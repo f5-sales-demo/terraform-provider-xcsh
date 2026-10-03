@@ -2819,13 +2819,14 @@ Receipt-pinned upstream constraints:
 ```json
 {
   "x-f5xc-constraints": {
-    "category": "general",
-    "constraintType": "object",
-    "maxProperties": 32,
-    "metadata": {
-      "confidence": 0.75,
-      "source": "inferred",
-      "validatedAt": "2026-10-03T05:10:26+00:00"
+    "cardinality": {
+      "maxProperties": 32
+    },
+    "category": "discovery",
+    "constraintType": "map",
+    "deterministic": true,
+    "originalRules": {
+      "ves.io.schema.rules.map.max_pairs": "32"
     }
   },
   "x-f5xc-required-for": {

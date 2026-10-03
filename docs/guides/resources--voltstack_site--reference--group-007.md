@@ -6,6 +6,133 @@ description: "Complete grouped canonical reference for xcsh_voltstack_site refer
 
 # xcsh_voltstack_site reference
 
+<a id="canonical-2323323132103032-1232220320003201-3002220020013030-1223131203233031-1323021110222323-0203221103001113-0022132300022111-1212322110221133"></a>
+
+## custom_storage_config.storage_device_list.storage_devices.netapp_trident.netapp_backend_ontap_nas.volume_defaults.no_qos — no_qos / 002032221302 / 2
+
+Breadcrumbs:
+
+- [xcsh_voltstack_site](../resources/voltstack_site.md#canonical-2321122020020113-3300101223021223-1330033011121200-0102203210311033-2301300201121233-3102120211011323-1113113111112000-2313011002230113)
+- [Property reference](resources--voltstack_site--reference--group-001.md#canonical-2303313130303000-1321333232312030-2110222133201202-1121003303213312-0221012033213113-0321333012001121-3323103113212202-1012112312220111)
+- [custom_storage_config](resources--voltstack_site--reference--group-005.md#canonical-1130033323232323-2312320032102120-2230002101333233-0122122333223330-0120123302300302-0320200333230230-3313321101003303-0102021002223303)
+- [custom_storage_config.storage_device_list](resources--voltstack_site--reference--group-006.md#canonical-3000120020011123-1022230333313213-0001000321031121-1203122203230213-2330200222212203-3333200100302030-1111002032202022-1131133200121321)
+- [custom_storage_config.storage_device_list.storage_devices](resources--voltstack_site--reference--group-006.md#canonical-1131100102033112-2001212202303112-3112202123332303-0020133102302002-2003030303020101-2333230030103021-0230002120220201-0311201313132323)
+- [custom_storage_config.storage_device_list.storage_devices.netapp_trident](resources--voltstack_site--reference--group-006.md#canonical-2320103020333102-1021022013301311-0131221310202231-1112221003301021-0300321100322133-0201110031211000-3323031032010313-1110131030020123)
+- [custom_storage_config.storage_device_list.storage_devices.netapp_trident.netapp_backend_ontap_nas](resources--voltstack_site--reference--group-006.md#canonical-3033222101303330-1011123222310233-1330220110033121-3331113222323101-3201110213321220-1120133323300233-1122122130112111-0131320210221213)
+- [custom_storage_config.storage_device_list.storage_devices.netapp_trident.netapp_backend_ontap_nas.volume_defaults](resources--voltstack_site--reference--group-006.md#canonical-2113210123032330-2220213133030132-0302222012203211-0333131032213120-0232121001321012-1121201012031013-3033112013220010-2332201222201032)
+- custom_storage_config.storage_device_list.storage_devices.netapp_trident.netapp_backend_ontap_nas.volume_defaults.no_qos
+
+<a id="canonical-0033122322323100-1023302002220220-0121213102222223-2022322132233323-3012213213233222-1110002211323030-3130211310103023-3303011203001001"></a>
+
+Type: `["object", {}]`. Optional.
+
+Enable this option
+
+Upstream description:
+
+This can be used for messages where no values are needed.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  }
+}
+```
+
+Terraform syntax:
+
+```terraform
+no_qos = {}
+```
+
+<a id="canonical-1232302012213011-3233302021113222-3111331132310223-1001102022112201-2111111021030100-2223130221023300-2332212221301332-3012130112212101"></a>
+
+## Direct properties — no_qos / 002032221302 / 3
+
+This is an empty object or choice marker. It has no direct properties.
+
+<a id="canonical-2003133021303102-0100031122013133-3100021223302013-3332000332312321-3130231200120303-1031113212113100-3030133113231223-2230330113231130"></a>
+
+## Next pages — no_qos / 002032221302 / 4
+
+- [custom_storage_config.storage_device_list.storage_devices.netapp_trident.netapp_backend_ontap_nas.volume_defaults](resources--voltstack_site--reference--group-006.md#canonical-2113210123032330-2220213133030132-0302222012203211-0333131032213120-0232121001321012-1121201012031013-3033112013220010-2332201222201032)
+- [xcsh_voltstack_site](../resources/voltstack_site.md#canonical-2321122020020113-3300101223021223-1330033011121200-0102203210311033-2301300201121233-3102120211011323-1113113111112000-2313011002230113)
+
+<a id="canonical-1203012223231023-2200220231023303-1122331312230001-0301322022031201-3022110023213232-3320210312013231-2131323210013121-0000231310220010"></a>
+
+<!-- Exact provider and upstream contract identifiers. -->
+
+<!-- textlint-disable terminology -->
+
+<a id="canonical-1320022031310133-1120233120230133-2123102322210110-1313022001030213-2011223313023311-3010020321202001-3300102320103111-2122311120002132"></a>
+
+## custom_storage_config.storage_device_list.storage_devices.netapp_trident.netapp_backend_ontap_san — netapp_backend_ontap_san / 222032030112 / 2
+
+Breadcrumbs:
+
+- [xcsh_voltstack_site](../resources/voltstack_site.md#canonical-2321122020020113-3300101223021223-1330033011121200-0102203210311033-2301300201121233-3102120211011323-1113113111112000-2313011002230113)
+- [Property reference](resources--voltstack_site--reference--group-001.md#canonical-2303313130303000-1321333232312030-2110222133201202-1121003303213312-0221012033213113-0321333012001121-3323103113212202-1012112312220111)
+- [custom_storage_config](resources--voltstack_site--reference--group-005.md#canonical-1130033323232323-2312320032102120-2230002101333233-0122122333223330-0120123302300302-0320200333230230-3313321101003303-0102021002223303)
+- [custom_storage_config.storage_device_list](resources--voltstack_site--reference--group-006.md#canonical-3000120020011123-1022230333313213-0001000321031121-1203122203230213-2330200222212203-3333200100302030-1111002032202022-1131133200121321)
+- [custom_storage_config.storage_device_list.storage_devices](resources--voltstack_site--reference--group-006.md#canonical-1131100102033112-2001212202303112-3112202123332303-0020133102302002-2003030303020101-2333230030103021-0230002120220201-0311201313132323)
+- [custom_storage_config.storage_device_list.storage_devices.netapp_trident](resources--voltstack_site--reference--group-006.md#canonical-2320103020333102-1021022013301311-0131221310202231-1112221003301021-0300321100322133-0201110031211000-3323031032010313-1110131030020123)
+- custom_storage_config.storage_device_list.storage_devices.netapp_trident.netapp_backend_ontap_san
+
+<a id="canonical-3222131021330302-0030011220033221-0102322103030010-2032122331001332-1102131130122132-0112001303013130-0310300310201331-2220310213201030"></a>
+
+Type: `"object"`. single nested block, Optional.
+
+Configuration of storage backend for NetApp ONTAP SAN.
+
+Provider validators and defaults (from schema source):
+
+```go
+Validators: []validator.Object{validators.RequiredObjectAttributes("storage_driver_name",
+    "username"),
+  validators.ConflictingObjectAttributes("data_lif_dns_name",
+    "data_lif_ip"),
+  validators.ConflictingObjectAttributes("management_lif_dns_name",
+    "management_lif_ip"),
+  validators.ConflictingObjectAttributes("no_chap",
+    "use_chap")}
+```
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  },
+  "x-ves-oneof-field-chap_choice": "[\"no_chap\",\"use_chap\"]",
+  "x-ves-oneof-field-data_lif": "[\"data_lif_dns_name\",\"data_lif_ip\"]",
+  "x-ves-oneof-field-management_lif": "[\"management_lif_dns_name\",\"management_lif_ip\"]"
+}
+```
+
+Terraform syntax:
+
+```terraform
+netapp_backend_ontap_san {
+  # Configure direct properties listed below.
+}
+```
+
+<a id="canonical-2122322221013202-3030301230133301-2320212132032013-2303012310311030-2122302012003221-3023312323110122-3010233002110103-2323131301011231"></a>
+
+## Direct properties — netapp_backend_ontap_san / 222032030112 / 3
+
+<a id="canonical-1012303302332232-2322332110003202-3131020313131212-0011030331302113-0012333233310131-1021222121203212-2002012110330120-0030110332223302"></a>
+
 <a id="canonical-1003010011001303-3201233200302322-0022221310310310-0221330320030111-3321310032010103-1021033130021222-2302113133222112-1022310203123210"></a>
 
 ## client_certificate property — netapp_backend_ontap_san / 222032030112 / 4
@@ -232,18 +359,39 @@ Type: `["map", "string"]`. Optional.
 
 List of labels for Storage Device used in NetApp ONTAP. It is used for storage class selection.
 
+Provider validators and defaults (from schema source):
+
+```go
+Validators: []validator.Map{validators.MapConstraintsValidator("{\"cardinality\":{\"maxProperties\":20},\"category\":\"discovery\",\"constraintType\":\"map\",\"deterministic\":true,\"keys\":{\"maxLength\":128,\"minLength\":1,\"type\":\"string\"},\"originalRules\":{\"ves.io.schema.rules.map.keys.string.max_len\":\"128\",\"ves.io.schema.rules.map.keys.string.min_len\":\"1\",\"ves.io.schema.rules.map.max_pairs\":\"20\",\"ves.io.schema.rules.map.values.string.max_len\":\"128\",\"ves.io.schema.rules.map.values.string.min_len\":\"1\"},\"values\":{\"maxLength\":128,\"minLength\":1,\"type\":\"string\"}}")}
+```
+
 Receipt-pinned upstream constraints:
 
 ```json
 {
   "x-f5xc-constraints": {
-    "category": "general",
-    "constraintType": "object",
-    "maxProperties": 20,
-    "metadata": {
-      "confidence": 0.75,
-      "source": "inferred",
-      "validatedAt": "2026-10-03T05:10:26+00:00"
+    "cardinality": {
+      "maxProperties": 20
+    },
+    "category": "discovery",
+    "constraintType": "map",
+    "deterministic": true,
+    "keys": {
+      "maxLength": 128,
+      "minLength": 1,
+      "type": "string"
+    },
+    "originalRules": {
+      "ves.io.schema.rules.map.keys.string.max_len": "128",
+      "ves.io.schema.rules.map.keys.string.min_len": "1",
+      "ves.io.schema.rules.map.max_pairs": "20",
+      "ves.io.schema.rules.map.values.string.max_len": "128",
+      "ves.io.schema.rules.map.values.string.min_len": "1"
+    },
+    "values": {
+      "maxLength": 128,
+      "minLength": 1,
+      "type": "string"
     }
   },
   "x-f5xc-required-for": {
@@ -821,7 +969,7 @@ Breadcrumbs:
 - [custom_storage_config.storage_device_list](resources--voltstack_site--reference--group-006.md#canonical-3000120020011123-1022230333313213-0001000321031121-1203122203230213-2330200222212203-3333200100302030-1111002032202022-1131133200121321)
 - [custom_storage_config.storage_device_list.storage_devices](resources--voltstack_site--reference--group-006.md#canonical-1131100102033112-2001212202303112-3112202123332303-0020133102302002-2003030303020101-2333230030103021-0230002120220201-0311201313132323)
 - [custom_storage_config.storage_device_list.storage_devices.netapp_trident](resources--voltstack_site--reference--group-006.md#canonical-2320103020333102-1021022013301311-0131221310202231-1112221003301021-0300321100322133-0201110031211000-3323031032010313-1110131030020123)
-- [custom_storage_config.storage_device_list.storage_devices.netapp_trident.netapp_backend_ontap_san](resources--voltstack_site--reference--group-006.md#canonical-1203012223231023-2200220231023303-1122331312230001-0301322022031201-3022110023213232-3320210312013231-2131323210013121-0000231310220010)
+- [custom_storage_config.storage_device_list.storage_devices.netapp_trident.netapp_backend_ontap_san](resources--voltstack_site--reference--group-007.md#canonical-1203012223231023-2200220231023303-1122331312230001-0301322022031201-3022110023213232-3320210312013231-2131323210013121-0000231310220010)
 - custom_storage_config.storage_device_list.storage_devices.netapp_trident.netapp_backend_ontap_san.client_private_key
 
 <a id="canonical-1002003112110332-1102221102302003-1000203221032112-0300221012113200-1010112032002210-1331231022202122-1222302100332310-1003231232003003"></a>
@@ -873,7 +1021,7 @@ client_private_key {
 
 - [custom_storage_config.storage_device_list.storage_devices.netapp_trident.netapp_backend_ontap_san.client_private_key.blindfold_secret_info](resources--voltstack_site--reference--group-007.md#canonical-3003212232102112-0131000030131313-0113102210223222-3213332333032132-2320122200033333-2101210311313122-2211102133003223-2303301001301011)
 - [custom_storage_config.storage_device_list.storage_devices.netapp_trident.netapp_backend_ontap_san.client_private_key.clear_secret_info](resources--voltstack_site--reference--group-007.md#canonical-1232030302212100-1030212110302011-3301330200212002-0031010230032033-3111230231212012-2303131230003220-3320230303103321-2000200221103102)
-- [custom_storage_config.storage_device_list.storage_devices.netapp_trident.netapp_backend_ontap_san](resources--voltstack_site--reference--group-006.md#canonical-1203012223231023-2200220231023303-1122331312230001-0301322022031201-3022110023213232-3320210312013231-2131323210013121-0000231310220010)
+- [custom_storage_config.storage_device_list.storage_devices.netapp_trident.netapp_backend_ontap_san](resources--voltstack_site--reference--group-007.md#canonical-1203012223231023-2200220231023303-1122331312230001-0301322022031201-3022110023213232-3320210312013231-2131323210013121-0000231310220010)
 - [xcsh_voltstack_site](../resources/voltstack_site.md#canonical-2321122020020113-3300101223021223-1330033011121200-0102203210311033-2301300201121233-3102120211011323-1113113111112000-2313011002230113)
 
 <a id="canonical-3003212232102112-0131000030131313-0113102210223222-3213332333032132-2320122200033333-2101210311313122-2211102133003223-2303301001301011"></a>
@@ -894,7 +1042,7 @@ Breadcrumbs:
 - [custom_storage_config.storage_device_list](resources--voltstack_site--reference--group-006.md#canonical-3000120020011123-1022230333313213-0001000321031121-1203122203230213-2330200222212203-3333200100302030-1111002032202022-1131133200121321)
 - [custom_storage_config.storage_device_list.storage_devices](resources--voltstack_site--reference--group-006.md#canonical-1131100102033112-2001212202303112-3112202123332303-0020133102302002-2003030303020101-2333230030103021-0230002120220201-0311201313132323)
 - [custom_storage_config.storage_device_list.storage_devices.netapp_trident](resources--voltstack_site--reference--group-006.md#canonical-2320103020333102-1021022013301311-0131221310202231-1112221003301021-0300321100322133-0201110031211000-3323031032010313-1110131030020123)
-- [custom_storage_config.storage_device_list.storage_devices.netapp_trident.netapp_backend_ontap_san](resources--voltstack_site--reference--group-006.md#canonical-1203012223231023-2200220231023303-1122331312230001-0301322022031201-3022110023213232-3320210312013231-2131323210013121-0000231310220010)
+- [custom_storage_config.storage_device_list.storage_devices.netapp_trident.netapp_backend_ontap_san](resources--voltstack_site--reference--group-007.md#canonical-1203012223231023-2200220231023303-1122331312230001-0301322022031201-3022110023213232-3320210312013231-2131323210013121-0000231310220010)
 - [custom_storage_config.storage_device_list.storage_devices.netapp_trident.netapp_backend_ontap_san.client_private_key](resources--voltstack_site--reference--group-007.md#canonical-2330200031312131-1002311220021131-0032301231013212-1100130321323122-2210200011122022-1300012033011022-1320010332203010-1131002203123322)
 - custom_storage_config.storage_device_list.storage_devices.netapp_trident.netapp_backend_ontap_san.client_private_key.blindfold_secret_info
 
@@ -1094,7 +1242,7 @@ Breadcrumbs:
 - [custom_storage_config.storage_device_list](resources--voltstack_site--reference--group-006.md#canonical-3000120020011123-1022230333313213-0001000321031121-1203122203230213-2330200222212203-3333200100302030-1111002032202022-1131133200121321)
 - [custom_storage_config.storage_device_list.storage_devices](resources--voltstack_site--reference--group-006.md#canonical-1131100102033112-2001212202303112-3112202123332303-0020133102302002-2003030303020101-2333230030103021-0230002120220201-0311201313132323)
 - [custom_storage_config.storage_device_list.storage_devices.netapp_trident](resources--voltstack_site--reference--group-006.md#canonical-2320103020333102-1021022013301311-0131221310202231-1112221003301021-0300321100322133-0201110031211000-3323031032010313-1110131030020123)
-- [custom_storage_config.storage_device_list.storage_devices.netapp_trident.netapp_backend_ontap_san](resources--voltstack_site--reference--group-006.md#canonical-1203012223231023-2200220231023303-1122331312230001-0301322022031201-3022110023213232-3320210312013231-2131323210013121-0000231310220010)
+- [custom_storage_config.storage_device_list.storage_devices.netapp_trident.netapp_backend_ontap_san](resources--voltstack_site--reference--group-007.md#canonical-1203012223231023-2200220231023303-1122331312230001-0301322022031201-3022110023213232-3320210312013231-2131323210013121-0000231310220010)
 - [custom_storage_config.storage_device_list.storage_devices.netapp_trident.netapp_backend_ontap_san.client_private_key](resources--voltstack_site--reference--group-007.md#canonical-2330200031312131-1002311220021131-0032301231013212-1100130321323122-2210200011122022-1300012033011022-1320010332203010-1131002203123322)
 - custom_storage_config.storage_device_list.storage_devices.netapp_trident.netapp_backend_ontap_san.client_private_key.clear_secret_info
 
@@ -1243,7 +1391,7 @@ Breadcrumbs:
 - [custom_storage_config.storage_device_list](resources--voltstack_site--reference--group-006.md#canonical-3000120020011123-1022230333313213-0001000321031121-1203122203230213-2330200222212203-3333200100302030-1111002032202022-1131133200121321)
 - [custom_storage_config.storage_device_list.storage_devices](resources--voltstack_site--reference--group-006.md#canonical-1131100102033112-2001212202303112-3112202123332303-0020133102302002-2003030303020101-2333230030103021-0230002120220201-0311201313132323)
 - [custom_storage_config.storage_device_list.storage_devices.netapp_trident](resources--voltstack_site--reference--group-006.md#canonical-2320103020333102-1021022013301311-0131221310202231-1112221003301021-0300321100322133-0201110031211000-3323031032010313-1110131030020123)
-- [custom_storage_config.storage_device_list.storage_devices.netapp_trident.netapp_backend_ontap_san](resources--voltstack_site--reference--group-006.md#canonical-1203012223231023-2200220231023303-1122331312230001-0301322022031201-3022110023213232-3320210312013231-2131323210013121-0000231310220010)
+- [custom_storage_config.storage_device_list.storage_devices.netapp_trident.netapp_backend_ontap_san](resources--voltstack_site--reference--group-007.md#canonical-1203012223231023-2200220231023303-1122331312230001-0301322022031201-3022110023213232-3320210312013231-2131323210013121-0000231310220010)
 - custom_storage_config.storage_device_list.storage_devices.netapp_trident.netapp_backend_ontap_san.no_chap
 
 <a id="canonical-0111223113202320-1130010322102301-0323110123031323-1332020211310011-1033002122101332-2030200311023102-1000003003311311-3120213002013212"></a>
@@ -1285,7 +1433,7 @@ This is an empty object or choice marker. It has no direct properties.
 
 ## Next pages — no_chap / 111302111012 / 4
 
-- [custom_storage_config.storage_device_list.storage_devices.netapp_trident.netapp_backend_ontap_san](resources--voltstack_site--reference--group-006.md#canonical-1203012223231023-2200220231023303-1122331312230001-0301322022031201-3022110023213232-3320210312013231-2131323210013121-0000231310220010)
+- [custom_storage_config.storage_device_list.storage_devices.netapp_trident.netapp_backend_ontap_san](resources--voltstack_site--reference--group-007.md#canonical-1203012223231023-2200220231023303-1122331312230001-0301322022031201-3022110023213232-3320210312013231-2131323210013121-0000231310220010)
 - [xcsh_voltstack_site](../resources/voltstack_site.md#canonical-2321122020020113-3300101223021223-1330033011121200-0102203210311033-2301300201121233-3102120211011323-1113113111112000-2313011002230113)
 
 <a id="canonical-2132312232120213-3221102302000033-2120222311312033-2100131220202112-0121322011003112-3330331203031231-2222003101331323-2131303022331231"></a>
@@ -1306,7 +1454,7 @@ Breadcrumbs:
 - [custom_storage_config.storage_device_list](resources--voltstack_site--reference--group-006.md#canonical-3000120020011123-1022230333313213-0001000321031121-1203122203230213-2330200222212203-3333200100302030-1111002032202022-1131133200121321)
 - [custom_storage_config.storage_device_list.storage_devices](resources--voltstack_site--reference--group-006.md#canonical-1131100102033112-2001212202303112-3112202123332303-0020133102302002-2003030303020101-2333230030103021-0230002120220201-0311201313132323)
 - [custom_storage_config.storage_device_list.storage_devices.netapp_trident](resources--voltstack_site--reference--group-006.md#canonical-2320103020333102-1021022013301311-0131221310202231-1112221003301021-0300321100322133-0201110031211000-3323031032010313-1110131030020123)
-- [custom_storage_config.storage_device_list.storage_devices.netapp_trident.netapp_backend_ontap_san](resources--voltstack_site--reference--group-006.md#canonical-1203012223231023-2200220231023303-1122331312230001-0301322022031201-3022110023213232-3320210312013231-2131323210013121-0000231310220010)
+- [custom_storage_config.storage_device_list.storage_devices.netapp_trident.netapp_backend_ontap_san](resources--voltstack_site--reference--group-007.md#canonical-1203012223231023-2200220231023303-1122331312230001-0301322022031201-3022110023213232-3320210312013231-2131323210013121-0000231310220010)
 - custom_storage_config.storage_device_list.storage_devices.netapp_trident.netapp_backend_ontap_san.password
 
 <a id="canonical-2321311333130012-3101230112210220-0132032331220113-1303103030333323-0011232002020211-3011021000231310-3011303233032013-0301203101021132"></a>
@@ -1358,7 +1506,7 @@ password {
 
 - [custom_storage_config.storage_device_list.storage_devices.netapp_trident.netapp_backend_ontap_san.password.blindfold_secret_info](resources--voltstack_site--reference--group-007.md#canonical-0020210303001211-0000001331310210-2021031023303322-3210203111332000-1111233023131132-3031323100213313-0120303111102312-1032231200012311)
 - [custom_storage_config.storage_device_list.storage_devices.netapp_trident.netapp_backend_ontap_san.password.clear_secret_info](resources--voltstack_site--reference--group-007.md#canonical-3231112120030320-0213132310303121-3002120321202210-0232001021112031-2023132231333322-1102031030310302-0312332221210311-0220122230230123)
-- [custom_storage_config.storage_device_list.storage_devices.netapp_trident.netapp_backend_ontap_san](resources--voltstack_site--reference--group-006.md#canonical-1203012223231023-2200220231023303-1122331312230001-0301322022031201-3022110023213232-3320210312013231-2131323210013121-0000231310220010)
+- [custom_storage_config.storage_device_list.storage_devices.netapp_trident.netapp_backend_ontap_san](resources--voltstack_site--reference--group-007.md#canonical-1203012223231023-2200220231023303-1122331312230001-0301322022031201-3022110023213232-3320210312013231-2131323210013121-0000231310220010)
 - [xcsh_voltstack_site](../resources/voltstack_site.md#canonical-2321122020020113-3300101223021223-1330033011121200-0102203210311033-2301300201121233-3102120211011323-1113113111112000-2313011002230113)
 
 <a id="canonical-0020210303001211-0000001331310210-2021031023303322-3210203111332000-1111233023131132-3031323100213313-0120303111102312-1032231200012311"></a>
@@ -1379,7 +1527,7 @@ Breadcrumbs:
 - [custom_storage_config.storage_device_list](resources--voltstack_site--reference--group-006.md#canonical-3000120020011123-1022230333313213-0001000321031121-1203122203230213-2330200222212203-3333200100302030-1111002032202022-1131133200121321)
 - [custom_storage_config.storage_device_list.storage_devices](resources--voltstack_site--reference--group-006.md#canonical-1131100102033112-2001212202303112-3112202123332303-0020133102302002-2003030303020101-2333230030103021-0230002120220201-0311201313132323)
 - [custom_storage_config.storage_device_list.storage_devices.netapp_trident](resources--voltstack_site--reference--group-006.md#canonical-2320103020333102-1021022013301311-0131221310202231-1112221003301021-0300321100322133-0201110031211000-3323031032010313-1110131030020123)
-- [custom_storage_config.storage_device_list.storage_devices.netapp_trident.netapp_backend_ontap_san](resources--voltstack_site--reference--group-006.md#canonical-1203012223231023-2200220231023303-1122331312230001-0301322022031201-3022110023213232-3320210312013231-2131323210013121-0000231310220010)
+- [custom_storage_config.storage_device_list.storage_devices.netapp_trident.netapp_backend_ontap_san](resources--voltstack_site--reference--group-007.md#canonical-1203012223231023-2200220231023303-1122331312230001-0301322022031201-3022110023213232-3320210312013231-2131323210013121-0000231310220010)
 - [custom_storage_config.storage_device_list.storage_devices.netapp_trident.netapp_backend_ontap_san.password](resources--voltstack_site--reference--group-007.md#canonical-2132312232120213-3221102302000033-2120222311312033-2100131220202112-0121322011003112-3330331203031231-2222003101331323-2131303022331231)
 - custom_storage_config.storage_device_list.storage_devices.netapp_trident.netapp_backend_ontap_san.password.blindfold_secret_info
 
@@ -1579,7 +1727,7 @@ Breadcrumbs:
 - [custom_storage_config.storage_device_list](resources--voltstack_site--reference--group-006.md#canonical-3000120020011123-1022230333313213-0001000321031121-1203122203230213-2330200222212203-3333200100302030-1111002032202022-1131133200121321)
 - [custom_storage_config.storage_device_list.storage_devices](resources--voltstack_site--reference--group-006.md#canonical-1131100102033112-2001212202303112-3112202123332303-0020133102302002-2003030303020101-2333230030103021-0230002120220201-0311201313132323)
 - [custom_storage_config.storage_device_list.storage_devices.netapp_trident](resources--voltstack_site--reference--group-006.md#canonical-2320103020333102-1021022013301311-0131221310202231-1112221003301021-0300321100322133-0201110031211000-3323031032010313-1110131030020123)
-- [custom_storage_config.storage_device_list.storage_devices.netapp_trident.netapp_backend_ontap_san](resources--voltstack_site--reference--group-006.md#canonical-1203012223231023-2200220231023303-1122331312230001-0301322022031201-3022110023213232-3320210312013231-2131323210013121-0000231310220010)
+- [custom_storage_config.storage_device_list.storage_devices.netapp_trident.netapp_backend_ontap_san](resources--voltstack_site--reference--group-007.md#canonical-1203012223231023-2200220231023303-1122331312230001-0301322022031201-3022110023213232-3320210312013231-2131323210013121-0000231310220010)
 - [custom_storage_config.storage_device_list.storage_devices.netapp_trident.netapp_backend_ontap_san.password](resources--voltstack_site--reference--group-007.md#canonical-2132312232120213-3221102302000033-2120222311312033-2100131220202112-0121322011003112-3330331203031231-2222003101331323-2131303022331231)
 - custom_storage_config.storage_device_list.storage_devices.netapp_trident.netapp_backend_ontap_san.password.clear_secret_info
 
@@ -1728,7 +1876,7 @@ Breadcrumbs:
 - [custom_storage_config.storage_device_list](resources--voltstack_site--reference--group-006.md#canonical-3000120020011123-1022230333313213-0001000321031121-1203122203230213-2330200222212203-3333200100302030-1111002032202022-1131133200121321)
 - [custom_storage_config.storage_device_list.storage_devices](resources--voltstack_site--reference--group-006.md#canonical-1131100102033112-2001212202303112-3112202123332303-0020133102302002-2003030303020101-2333230030103021-0230002120220201-0311201313132323)
 - [custom_storage_config.storage_device_list.storage_devices.netapp_trident](resources--voltstack_site--reference--group-006.md#canonical-2320103020333102-1021022013301311-0131221310202231-1112221003301021-0300321100322133-0201110031211000-3323031032010313-1110131030020123)
-- [custom_storage_config.storage_device_list.storage_devices.netapp_trident.netapp_backend_ontap_san](resources--voltstack_site--reference--group-006.md#canonical-1203012223231023-2200220231023303-1122331312230001-0301322022031201-3022110023213232-3320210312013231-2131323210013121-0000231310220010)
+- [custom_storage_config.storage_device_list.storage_devices.netapp_trident.netapp_backend_ontap_san](resources--voltstack_site--reference--group-007.md#canonical-1203012223231023-2200220231023303-1122331312230001-0301322022031201-3022110023213232-3320210312013231-2131323210013121-0000231310220010)
 - custom_storage_config.storage_device_list.storage_devices.netapp_trident.netapp_backend_ontap_san.storage
 
 <a id="canonical-3023233132101222-3313033133123231-0302213023302223-2021231123131032-2221120112120101-1030121322202222-2233312100230012-2110100331130213"></a>
@@ -1795,18 +1943,39 @@ Type: `["map", "string"]`. Optional.
 List of labels for Storage Device used in NetApp ONTAP. It is used for storage class label match
 selection.
 
+Provider validators and defaults (from schema source):
+
+```go
+Validators: []validator.Map{validators.MapConstraintsValidator("{\"cardinality\":{\"maxProperties\":20},\"category\":\"discovery\",\"constraintType\":\"map\",\"deterministic\":true,\"keys\":{\"maxLength\":128,\"minLength\":1,\"type\":\"string\"},\"originalRules\":{\"ves.io.schema.rules.map.keys.string.max_len\":\"128\",\"ves.io.schema.rules.map.keys.string.min_len\":\"1\",\"ves.io.schema.rules.map.max_pairs\":\"20\",\"ves.io.schema.rules.map.values.string.max_len\":\"128\",\"ves.io.schema.rules.map.values.string.min_len\":\"1\"},\"values\":{\"maxLength\":128,\"minLength\":1,\"type\":\"string\"}}")}
+```
+
 Receipt-pinned upstream constraints:
 
 ```json
 {
   "x-f5xc-constraints": {
-    "category": "general",
-    "constraintType": "object",
-    "maxProperties": 20,
-    "metadata": {
-      "confidence": 0.75,
-      "source": "inferred",
-      "validatedAt": "2026-10-03T05:10:26+00:00"
+    "cardinality": {
+      "maxProperties": 20
+    },
+    "category": "discovery",
+    "constraintType": "map",
+    "deterministic": true,
+    "keys": {
+      "maxLength": 128,
+      "minLength": 1,
+      "type": "string"
+    },
+    "originalRules": {
+      "ves.io.schema.rules.map.keys.string.max_len": "128",
+      "ves.io.schema.rules.map.keys.string.min_len": "1",
+      "ves.io.schema.rules.map.max_pairs": "20",
+      "ves.io.schema.rules.map.values.string.max_len": "128",
+      "ves.io.schema.rules.map.values.string.min_len": "1"
+    },
+    "values": {
+      "maxLength": 128,
+      "minLength": 1,
+      "type": "string"
     }
   },
   "x-f5xc-required-for": {
@@ -1876,7 +2045,7 @@ Receipt-pinned upstream constraints:
 ## Next pages — storage / 220201031001 / 6
 
 - [custom_storage_config.storage_device_list.storage_devices.netapp_trident.netapp_backend_ontap_san.storage.volume_defaults](resources--voltstack_site--reference--group-007.md#canonical-1202210112233333-1101003113022321-0303331021102131-1303210211011302-0230210030131133-3102221313032020-3003000301311113-0233310333213002)
-- [custom_storage_config.storage_device_list.storage_devices.netapp_trident.netapp_backend_ontap_san](resources--voltstack_site--reference--group-006.md#canonical-1203012223231023-2200220231023303-1122331312230001-0301322022031201-3022110023213232-3320210312013231-2131323210013121-0000231310220010)
+- [custom_storage_config.storage_device_list.storage_devices.netapp_trident.netapp_backend_ontap_san](resources--voltstack_site--reference--group-007.md#canonical-1203012223231023-2200220231023303-1122331312230001-0301322022031201-3022110023213232-3320210312013231-2131323210013121-0000231310220010)
 - [xcsh_voltstack_site](../resources/voltstack_site.md#canonical-2321122020020113-3300101223021223-1330033011121200-0102203210311033-2301300201121233-3102120211011323-1113113111112000-2313011002230113)
 
 <a id="canonical-1202210112233333-1101003113022321-0303331021102131-1303210211011302-0230210030131133-3102221313032020-3003000301311113-0233310333213002"></a>
@@ -1897,7 +2066,7 @@ Breadcrumbs:
 - [custom_storage_config.storage_device_list](resources--voltstack_site--reference--group-006.md#canonical-3000120020011123-1022230333313213-0001000321031121-1203122203230213-2330200222212203-3333200100302030-1111002032202022-1131133200121321)
 - [custom_storage_config.storage_device_list.storage_devices](resources--voltstack_site--reference--group-006.md#canonical-1131100102033112-2001212202303112-3112202123332303-0020133102302002-2003030303020101-2333230030103021-0230002120220201-0311201313132323)
 - [custom_storage_config.storage_device_list.storage_devices.netapp_trident](resources--voltstack_site--reference--group-006.md#canonical-2320103020333102-1021022013301311-0131221310202231-1112221003301021-0300321100322133-0201110031211000-3323031032010313-1110131030020123)
-- [custom_storage_config.storage_device_list.storage_devices.netapp_trident.netapp_backend_ontap_san](resources--voltstack_site--reference--group-006.md#canonical-1203012223231023-2200220231023303-1122331312230001-0301322022031201-3022110023213232-3320210312013231-2131323210013121-0000231310220010)
+- [custom_storage_config.storage_device_list.storage_devices.netapp_trident.netapp_backend_ontap_san](resources--voltstack_site--reference--group-007.md#canonical-1203012223231023-2200220231023303-1122331312230001-0301322022031201-3022110023213232-3320210312013231-2131323210013121-0000231310220010)
 - [custom_storage_config.storage_device_list.storage_devices.netapp_trident.netapp_backend_ontap_san.storage](resources--voltstack_site--reference--group-007.md#canonical-2021201323131230-0123032311133332-3132023020103310-1103300113210013-3332210303333201-3223303121220023-3222013232121103-1030113122101222)
 - custom_storage_config.storage_device_list.storage_devices.netapp_trident.netapp_backend_ontap_san.storage.volume_defaults
 
@@ -2429,7 +2598,7 @@ Breadcrumbs:
 - [custom_storage_config.storage_device_list](resources--voltstack_site--reference--group-006.md#canonical-3000120020011123-1022230333313213-0001000321031121-1203122203230213-2330200222212203-3333200100302030-1111002032202022-1131133200121321)
 - [custom_storage_config.storage_device_list.storage_devices](resources--voltstack_site--reference--group-006.md#canonical-1131100102033112-2001212202303112-3112202123332303-0020133102302002-2003030303020101-2333230030103021-0230002120220201-0311201313132323)
 - [custom_storage_config.storage_device_list.storage_devices.netapp_trident](resources--voltstack_site--reference--group-006.md#canonical-2320103020333102-1021022013301311-0131221310202231-1112221003301021-0300321100322133-0201110031211000-3323031032010313-1110131030020123)
-- [custom_storage_config.storage_device_list.storage_devices.netapp_trident.netapp_backend_ontap_san](resources--voltstack_site--reference--group-006.md#canonical-1203012223231023-2200220231023303-1122331312230001-0301322022031201-3022110023213232-3320210312013231-2131323210013121-0000231310220010)
+- [custom_storage_config.storage_device_list.storage_devices.netapp_trident.netapp_backend_ontap_san](resources--voltstack_site--reference--group-007.md#canonical-1203012223231023-2200220231023303-1122331312230001-0301322022031201-3022110023213232-3320210312013231-2131323210013121-0000231310220010)
 - [custom_storage_config.storage_device_list.storage_devices.netapp_trident.netapp_backend_ontap_san.storage](resources--voltstack_site--reference--group-007.md#canonical-2021201323131230-0123032311133332-3132023020103310-1103300113210013-3332210303333201-3223303121220023-3222013232121103-1030113122101222)
 - [custom_storage_config.storage_device_list.storage_devices.netapp_trident.netapp_backend_ontap_san.storage.volume_defaults](resources--voltstack_site--reference--group-007.md#canonical-1202210112233333-1101003113022321-0303331021102131-1303210211011302-0230210030131133-3102221313032020-3003000301311113-0233310333213002)
 - custom_storage_config.storage_device_list.storage_devices.netapp_trident.netapp_backend_ontap_san.storage.volume_defaults.no_qos
@@ -2494,7 +2663,7 @@ Breadcrumbs:
 - [custom_storage_config.storage_device_list](resources--voltstack_site--reference--group-006.md#canonical-3000120020011123-1022230333313213-0001000321031121-1203122203230213-2330200222212203-3333200100302030-1111002032202022-1131133200121321)
 - [custom_storage_config.storage_device_list.storage_devices](resources--voltstack_site--reference--group-006.md#canonical-1131100102033112-2001212202303112-3112202123332303-0020133102302002-2003030303020101-2333230030103021-0230002120220201-0311201313132323)
 - [custom_storage_config.storage_device_list.storage_devices.netapp_trident](resources--voltstack_site--reference--group-006.md#canonical-2320103020333102-1021022013301311-0131221310202231-1112221003301021-0300321100322133-0201110031211000-3323031032010313-1110131030020123)
-- [custom_storage_config.storage_device_list.storage_devices.netapp_trident.netapp_backend_ontap_san](resources--voltstack_site--reference--group-006.md#canonical-1203012223231023-2200220231023303-1122331312230001-0301322022031201-3022110023213232-3320210312013231-2131323210013121-0000231310220010)
+- [custom_storage_config.storage_device_list.storage_devices.netapp_trident.netapp_backend_ontap_san](resources--voltstack_site--reference--group-007.md#canonical-1203012223231023-2200220231023303-1122331312230001-0301322022031201-3022110023213232-3320210312013231-2131323210013121-0000231310220010)
 - custom_storage_config.storage_device_list.storage_devices.netapp_trident.netapp_backend_ontap_san.use_chap
 
 <a id="canonical-0220011213021123-3111330013002003-0322030220122021-2313003110020200-0000033122332222-2321112113113203-1101220212022020-1310233233333333"></a>
@@ -2644,7 +2813,7 @@ Receipt-pinned upstream constraints:
 
 - [custom_storage_config.storage_device_list.storage_devices.netapp_trident.netapp_backend_ontap_san.use_chap.chap_initiator_secret](resources--voltstack_site--reference--group-007.md#canonical-1202332322330233-3110112302231232-3321232211312230-3222103310300001-0302213331231203-0311301133312330-2001323300100231-2003233033232332)
 - [custom_storage_config.storage_device_list.storage_devices.netapp_trident.netapp_backend_ontap_san.use_chap.chap_target_initiator_secret](resources--voltstack_site--reference--group-007.md#canonical-2000300310112033-3030231233323110-3323023330302310-3233101212130303-0102130230101200-0200331031123300-2321222020002201-0321302101301323)
-- [custom_storage_config.storage_device_list.storage_devices.netapp_trident.netapp_backend_ontap_san](resources--voltstack_site--reference--group-006.md#canonical-1203012223231023-2200220231023303-1122331312230001-0301322022031201-3022110023213232-3320210312013231-2131323210013121-0000231310220010)
+- [custom_storage_config.storage_device_list.storage_devices.netapp_trident.netapp_backend_ontap_san](resources--voltstack_site--reference--group-007.md#canonical-1203012223231023-2200220231023303-1122331312230001-0301322022031201-3022110023213232-3320210312013231-2131323210013121-0000231310220010)
 - [xcsh_voltstack_site](../resources/voltstack_site.md#canonical-2321122020020113-3300101223021223-1330033011121200-0102203210311033-2301300201121233-3102120211011323-1113113111112000-2313011002230113)
 
 <a id="canonical-1202332322330233-3110112302231232-3321232211312230-3222103310300001-0302213331231203-0311301133312330-2001323300100231-2003233033232332"></a>
@@ -2665,7 +2834,7 @@ Breadcrumbs:
 - [custom_storage_config.storage_device_list](resources--voltstack_site--reference--group-006.md#canonical-3000120020011123-1022230333313213-0001000321031121-1203122203230213-2330200222212203-3333200100302030-1111002032202022-1131133200121321)
 - [custom_storage_config.storage_device_list.storage_devices](resources--voltstack_site--reference--group-006.md#canonical-1131100102033112-2001212202303112-3112202123332303-0020133102302002-2003030303020101-2333230030103021-0230002120220201-0311201313132323)
 - [custom_storage_config.storage_device_list.storage_devices.netapp_trident](resources--voltstack_site--reference--group-006.md#canonical-2320103020333102-1021022013301311-0131221310202231-1112221003301021-0300321100322133-0201110031211000-3323031032010313-1110131030020123)
-- [custom_storage_config.storage_device_list.storage_devices.netapp_trident.netapp_backend_ontap_san](resources--voltstack_site--reference--group-006.md#canonical-1203012223231023-2200220231023303-1122331312230001-0301322022031201-3022110023213232-3320210312013231-2131323210013121-0000231310220010)
+- [custom_storage_config.storage_device_list.storage_devices.netapp_trident.netapp_backend_ontap_san](resources--voltstack_site--reference--group-007.md#canonical-1203012223231023-2200220231023303-1122331312230001-0301322022031201-3022110023213232-3320210312013231-2131323210013121-0000231310220010)
 - [custom_storage_config.storage_device_list.storage_devices.netapp_trident.netapp_backend_ontap_san.use_chap](resources--voltstack_site--reference--group-007.md#canonical-1302210300022100-0320123323331122-1013313122202331-2023320333011131-3331131330203113-2233112132012323-1330223010303130-1000302021033221)
 - custom_storage_config.storage_device_list.storage_devices.netapp_trident.netapp_backend_ontap_san.use_chap.chap_initiator_secret
 
@@ -2739,7 +2908,7 @@ Breadcrumbs:
 - [custom_storage_config.storage_device_list](resources--voltstack_site--reference--group-006.md#canonical-3000120020011123-1022230333313213-0001000321031121-1203122203230213-2330200222212203-3333200100302030-1111002032202022-1131133200121321)
 - [custom_storage_config.storage_device_list.storage_devices](resources--voltstack_site--reference--group-006.md#canonical-1131100102033112-2001212202303112-3112202123332303-0020133102302002-2003030303020101-2333230030103021-0230002120220201-0311201313132323)
 - [custom_storage_config.storage_device_list.storage_devices.netapp_trident](resources--voltstack_site--reference--group-006.md#canonical-2320103020333102-1021022013301311-0131221310202231-1112221003301021-0300321100322133-0201110031211000-3323031032010313-1110131030020123)
-- [custom_storage_config.storage_device_list.storage_devices.netapp_trident.netapp_backend_ontap_san](resources--voltstack_site--reference--group-006.md#canonical-1203012223231023-2200220231023303-1122331312230001-0301322022031201-3022110023213232-3320210312013231-2131323210013121-0000231310220010)
+- [custom_storage_config.storage_device_list.storage_devices.netapp_trident.netapp_backend_ontap_san](resources--voltstack_site--reference--group-007.md#canonical-1203012223231023-2200220231023303-1122331312230001-0301322022031201-3022110023213232-3320210312013231-2131323210013121-0000231310220010)
 - [custom_storage_config.storage_device_list.storage_devices.netapp_trident.netapp_backend_ontap_san.use_chap](resources--voltstack_site--reference--group-007.md#canonical-1302210300022100-0320123323331122-1013313122202331-2023320333011131-3331131330203113-2233112132012323-1330223010303130-1000302021033221)
 - [custom_storage_config.storage_device_list.storage_devices.netapp_trident.netapp_backend_ontap_san.use_chap.chap_initiator_secret](resources--voltstack_site--reference--group-007.md#canonical-1202332322330233-3110112302231232-3321232211312230-3222103310300001-0302213331231203-0311301133312330-2001323300100231-2003233033232332)
 - custom_storage_config.storage_device_list.storage_devices.netapp_trident.netapp_backend_ontap_san.use_chap.chap_initiator_secret.blindfold_secret_info
@@ -2940,7 +3109,7 @@ Breadcrumbs:
 - [custom_storage_config.storage_device_list](resources--voltstack_site--reference--group-006.md#canonical-3000120020011123-1022230333313213-0001000321031121-1203122203230213-2330200222212203-3333200100302030-1111002032202022-1131133200121321)
 - [custom_storage_config.storage_device_list.storage_devices](resources--voltstack_site--reference--group-006.md#canonical-1131100102033112-2001212202303112-3112202123332303-0020133102302002-2003030303020101-2333230030103021-0230002120220201-0311201313132323)
 - [custom_storage_config.storage_device_list.storage_devices.netapp_trident](resources--voltstack_site--reference--group-006.md#canonical-2320103020333102-1021022013301311-0131221310202231-1112221003301021-0300321100322133-0201110031211000-3323031032010313-1110131030020123)
-- [custom_storage_config.storage_device_list.storage_devices.netapp_trident.netapp_backend_ontap_san](resources--voltstack_site--reference--group-006.md#canonical-1203012223231023-2200220231023303-1122331312230001-0301322022031201-3022110023213232-3320210312013231-2131323210013121-0000231310220010)
+- [custom_storage_config.storage_device_list.storage_devices.netapp_trident.netapp_backend_ontap_san](resources--voltstack_site--reference--group-007.md#canonical-1203012223231023-2200220231023303-1122331312230001-0301322022031201-3022110023213232-3320210312013231-2131323210013121-0000231310220010)
 - [custom_storage_config.storage_device_list.storage_devices.netapp_trident.netapp_backend_ontap_san.use_chap](resources--voltstack_site--reference--group-007.md#canonical-1302210300022100-0320123323331122-1013313122202331-2023320333011131-3331131330203113-2233112132012323-1330223010303130-1000302021033221)
 - [custom_storage_config.storage_device_list.storage_devices.netapp_trident.netapp_backend_ontap_san.use_chap.chap_initiator_secret](resources--voltstack_site--reference--group-007.md#canonical-1202332322330233-3110112302231232-3321232211312230-3222103310300001-0302213331231203-0311301133312330-2001323300100231-2003233033232332)
 - custom_storage_config.storage_device_list.storage_devices.netapp_trident.netapp_backend_ontap_san.use_chap.chap_initiator_secret.clear_secret_info
@@ -3090,7 +3259,7 @@ Breadcrumbs:
 - [custom_storage_config.storage_device_list](resources--voltstack_site--reference--group-006.md#canonical-3000120020011123-1022230333313213-0001000321031121-1203122203230213-2330200222212203-3333200100302030-1111002032202022-1131133200121321)
 - [custom_storage_config.storage_device_list.storage_devices](resources--voltstack_site--reference--group-006.md#canonical-1131100102033112-2001212202303112-3112202123332303-0020133102302002-2003030303020101-2333230030103021-0230002120220201-0311201313132323)
 - [custom_storage_config.storage_device_list.storage_devices.netapp_trident](resources--voltstack_site--reference--group-006.md#canonical-2320103020333102-1021022013301311-0131221310202231-1112221003301021-0300321100322133-0201110031211000-3323031032010313-1110131030020123)
-- [custom_storage_config.storage_device_list.storage_devices.netapp_trident.netapp_backend_ontap_san](resources--voltstack_site--reference--group-006.md#canonical-1203012223231023-2200220231023303-1122331312230001-0301322022031201-3022110023213232-3320210312013231-2131323210013121-0000231310220010)
+- [custom_storage_config.storage_device_list.storage_devices.netapp_trident.netapp_backend_ontap_san](resources--voltstack_site--reference--group-007.md#canonical-1203012223231023-2200220231023303-1122331312230001-0301322022031201-3022110023213232-3320210312013231-2131323210013121-0000231310220010)
 - [custom_storage_config.storage_device_list.storage_devices.netapp_trident.netapp_backend_ontap_san.use_chap](resources--voltstack_site--reference--group-007.md#canonical-1302210300022100-0320123323331122-1013313122202331-2023320333011131-3331131330203113-2233112132012323-1330223010303130-1000302021033221)
 - custom_storage_config.storage_device_list.storage_devices.netapp_trident.netapp_backend_ontap_san.use_chap.chap_target_initiator_secret
 
@@ -3164,7 +3333,7 @@ Breadcrumbs:
 - [custom_storage_config.storage_device_list](resources--voltstack_site--reference--group-006.md#canonical-3000120020011123-1022230333313213-0001000321031121-1203122203230213-2330200222212203-3333200100302030-1111002032202022-1131133200121321)
 - [custom_storage_config.storage_device_list.storage_devices](resources--voltstack_site--reference--group-006.md#canonical-1131100102033112-2001212202303112-3112202123332303-0020133102302002-2003030303020101-2333230030103021-0230002120220201-0311201313132323)
 - [custom_storage_config.storage_device_list.storage_devices.netapp_trident](resources--voltstack_site--reference--group-006.md#canonical-2320103020333102-1021022013301311-0131221310202231-1112221003301021-0300321100322133-0201110031211000-3323031032010313-1110131030020123)
-- [custom_storage_config.storage_device_list.storage_devices.netapp_trident.netapp_backend_ontap_san](resources--voltstack_site--reference--group-006.md#canonical-1203012223231023-2200220231023303-1122331312230001-0301322022031201-3022110023213232-3320210312013231-2131323210013121-0000231310220010)
+- [custom_storage_config.storage_device_list.storage_devices.netapp_trident.netapp_backend_ontap_san](resources--voltstack_site--reference--group-007.md#canonical-1203012223231023-2200220231023303-1122331312230001-0301322022031201-3022110023213232-3320210312013231-2131323210013121-0000231310220010)
 - [custom_storage_config.storage_device_list.storage_devices.netapp_trident.netapp_backend_ontap_san.use_chap](resources--voltstack_site--reference--group-007.md#canonical-1302210300022100-0320123323331122-1013313122202331-2023320333011131-3331131330203113-2233112132012323-1330223010303130-1000302021033221)
 - [custom_storage_config.storage_device_list.storage_devices.netapp_trident.netapp_backend_ontap_san.use_chap.chap_target_initiator_secret](resources--voltstack_site--reference--group-007.md#canonical-2000300310112033-3030231233323110-3323023330302310-3233101212130303-0102130230101200-0200331031123300-2321222020002201-0321302101301323)
 - custom_storage_config.storage_device_list.storage_devices.netapp_trident.netapp_backend_ontap_san.use_chap.chap_target_initiator_secret.blindfold_secret_info
@@ -3365,7 +3534,7 @@ Breadcrumbs:
 - [custom_storage_config.storage_device_list](resources--voltstack_site--reference--group-006.md#canonical-3000120020011123-1022230333313213-0001000321031121-1203122203230213-2330200222212203-3333200100302030-1111002032202022-1131133200121321)
 - [custom_storage_config.storage_device_list.storage_devices](resources--voltstack_site--reference--group-006.md#canonical-1131100102033112-2001212202303112-3112202123332303-0020133102302002-2003030303020101-2333230030103021-0230002120220201-0311201313132323)
 - [custom_storage_config.storage_device_list.storage_devices.netapp_trident](resources--voltstack_site--reference--group-006.md#canonical-2320103020333102-1021022013301311-0131221310202231-1112221003301021-0300321100322133-0201110031211000-3323031032010313-1110131030020123)
-- [custom_storage_config.storage_device_list.storage_devices.netapp_trident.netapp_backend_ontap_san](resources--voltstack_site--reference--group-006.md#canonical-1203012223231023-2200220231023303-1122331312230001-0301322022031201-3022110023213232-3320210312013231-2131323210013121-0000231310220010)
+- [custom_storage_config.storage_device_list.storage_devices.netapp_trident.netapp_backend_ontap_san](resources--voltstack_site--reference--group-007.md#canonical-1203012223231023-2200220231023303-1122331312230001-0301322022031201-3022110023213232-3320210312013231-2131323210013121-0000231310220010)
 - [custom_storage_config.storage_device_list.storage_devices.netapp_trident.netapp_backend_ontap_san.use_chap](resources--voltstack_site--reference--group-007.md#canonical-1302210300022100-0320123323331122-1013313122202331-2023320333011131-3331131330203113-2233112132012323-1330223010303130-1000302021033221)
 - [custom_storage_config.storage_device_list.storage_devices.netapp_trident.netapp_backend_ontap_san.use_chap.chap_target_initiator_secret](resources--voltstack_site--reference--group-007.md#canonical-2000300310112033-3030231233323110-3323023330302310-3233101212130303-0102130230101200-0200331031123300-2321222020002201-0321302101301323)
 - custom_storage_config.storage_device_list.storage_devices.netapp_trident.netapp_backend_ontap_san.use_chap.chap_target_initiator_secret.clear_secret_info
@@ -3515,7 +3684,7 @@ Breadcrumbs:
 - [custom_storage_config.storage_device_list](resources--voltstack_site--reference--group-006.md#canonical-3000120020011123-1022230333313213-0001000321031121-1203122203230213-2330200222212203-3333200100302030-1111002032202022-1131133200121321)
 - [custom_storage_config.storage_device_list.storage_devices](resources--voltstack_site--reference--group-006.md#canonical-1131100102033112-2001212202303112-3112202123332303-0020133102302002-2003030303020101-2333230030103021-0230002120220201-0311201313132323)
 - [custom_storage_config.storage_device_list.storage_devices.netapp_trident](resources--voltstack_site--reference--group-006.md#canonical-2320103020333102-1021022013301311-0131221310202231-1112221003301021-0300321100322133-0201110031211000-3323031032010313-1110131030020123)
-- [custom_storage_config.storage_device_list.storage_devices.netapp_trident.netapp_backend_ontap_san](resources--voltstack_site--reference--group-006.md#canonical-1203012223231023-2200220231023303-1122331312230001-0301322022031201-3022110023213232-3320210312013231-2131323210013121-0000231310220010)
+- [custom_storage_config.storage_device_list.storage_devices.netapp_trident.netapp_backend_ontap_san](resources--voltstack_site--reference--group-007.md#canonical-1203012223231023-2200220231023303-1122331312230001-0301322022031201-3022110023213232-3320210312013231-2131323210013121-0000231310220010)
 - custom_storage_config.storage_device_list.storage_devices.netapp_trident.netapp_backend_ontap_san.volume_defaults
 
 <a id="canonical-3010030102031323-1030221113212023-3010130210102321-3203232322121102-1110230121000113-0101033210023030-1301100300211133-1121111233321020"></a>
@@ -4025,7 +4194,7 @@ Receipt-pinned upstream constraints:
 ## Next pages — volume_defaults / 302311301001 / 16
 
 - [custom_storage_config.storage_device_list.storage_devices.netapp_trident.netapp_backend_ontap_san.volume_defaults.no_qos](resources--voltstack_site--reference--group-007.md#canonical-2032231111203001-0101021010111211-3210232311311103-1102113222303221-0132303120120233-0213230122230003-0221102003103200-2132330121202331)
-- [custom_storage_config.storage_device_list.storage_devices.netapp_trident.netapp_backend_ontap_san](resources--voltstack_site--reference--group-006.md#canonical-1203012223231023-2200220231023303-1122331312230001-0301322022031201-3022110023213232-3320210312013231-2131323210013121-0000231310220010)
+- [custom_storage_config.storage_device_list.storage_devices.netapp_trident.netapp_backend_ontap_san](resources--voltstack_site--reference--group-007.md#canonical-1203012223231023-2200220231023303-1122331312230001-0301322022031201-3022110023213232-3320210312013231-2131323210013121-0000231310220010)
 - [xcsh_voltstack_site](../resources/voltstack_site.md#canonical-2321122020020113-3300101223021223-1330033011121200-0102203210311033-2301300201121233-3102120211011323-1113113111112000-2313011002230113)
 
 <a id="canonical-2032231111203001-0101021010111211-3210232311311103-1102113222303221-0132303120120233-0213230122230003-0221102003103200-2132330121202331"></a>
@@ -4046,7 +4215,7 @@ Breadcrumbs:
 - [custom_storage_config.storage_device_list](resources--voltstack_site--reference--group-006.md#canonical-3000120020011123-1022230333313213-0001000321031121-1203122203230213-2330200222212203-3333200100302030-1111002032202022-1131133200121321)
 - [custom_storage_config.storage_device_list.storage_devices](resources--voltstack_site--reference--group-006.md#canonical-1131100102033112-2001212202303112-3112202123332303-0020133102302002-2003030303020101-2333230030103021-0230002120220201-0311201313132323)
 - [custom_storage_config.storage_device_list.storage_devices.netapp_trident](resources--voltstack_site--reference--group-006.md#canonical-2320103020333102-1021022013301311-0131221310202231-1112221003301021-0300321100322133-0201110031211000-3323031032010313-1110131030020123)
-- [custom_storage_config.storage_device_list.storage_devices.netapp_trident.netapp_backend_ontap_san](resources--voltstack_site--reference--group-006.md#canonical-1203012223231023-2200220231023303-1122331312230001-0301322022031201-3022110023213232-3320210312013231-2131323210013121-0000231310220010)
+- [custom_storage_config.storage_device_list.storage_devices.netapp_trident.netapp_backend_ontap_san](resources--voltstack_site--reference--group-007.md#canonical-1203012223231023-2200220231023303-1122331312230001-0301322022031201-3022110023213232-3320210312013231-2131323210013121-0000231310220010)
 - [custom_storage_config.storage_device_list.storage_devices.netapp_trident.netapp_backend_ontap_san.volume_defaults](resources--voltstack_site--reference--group-007.md#canonical-1113012300123231-0230130213102123-2222113203222300-0231133123010033-2003312131131202-2321303021133030-3102013322103330-2102023110321222)
 - custom_storage_config.storage_device_list.storage_devices.netapp_trident.netapp_backend_ontap_san.volume_defaults.no_qos
 
@@ -4828,18 +4997,39 @@ Upstream description:
 
 The labels are optional, and can be any key-value pair for use with the PSO "fleet" provisioner.
 
+Provider validators and defaults (from schema source):
+
+```go
+Validators: []validator.Map{validators.MapConstraintsValidator("{\"cardinality\":{\"maxProperties\":20},\"category\":\"discovery\",\"constraintType\":\"map\",\"deterministic\":true,\"keys\":{\"maxLength\":128,\"minLength\":1,\"type\":\"string\"},\"originalRules\":{\"ves.io.schema.rules.map.keys.string.max_len\":\"128\",\"ves.io.schema.rules.map.keys.string.min_len\":\"1\",\"ves.io.schema.rules.map.max_pairs\":\"20\",\"ves.io.schema.rules.map.values.string.max_len\":\"128\",\"ves.io.schema.rules.map.values.string.min_len\":\"1\"},\"values\":{\"maxLength\":128,\"minLength\":1,\"type\":\"string\"}}")}
+```
+
 Receipt-pinned upstream constraints:
 
 ```json
 {
   "x-f5xc-constraints": {
-    "category": "general",
-    "constraintType": "object",
-    "maxProperties": 20,
-    "metadata": {
-      "confidence": 0.75,
-      "source": "inferred",
-      "validatedAt": "2026-10-03T05:10:26+00:00"
+    "cardinality": {
+      "maxProperties": 20
+    },
+    "category": "discovery",
+    "constraintType": "map",
+    "deterministic": true,
+    "keys": {
+      "maxLength": 128,
+      "minLength": 1,
+      "type": "string"
+    },
+    "originalRules": {
+      "ves.io.schema.rules.map.keys.string.max_len": "128",
+      "ves.io.schema.rules.map.keys.string.min_len": "1",
+      "ves.io.schema.rules.map.max_pairs": "20",
+      "ves.io.schema.rules.map.values.string.max_len": "128",
+      "ves.io.schema.rules.map.values.string.min_len": "1"
+    },
+    "values": {
+      "maxLength": 128,
+      "minLength": 1,
+      "type": "string"
     }
   },
   "x-f5xc-required-for": {
@@ -5674,18 +5864,39 @@ Upstream description:
 
 The labels are optional, and can be any key-value pair for use with the PSO "fleet" provisioner.
 
+Provider validators and defaults (from schema source):
+
+```go
+Validators: []validator.Map{validators.MapConstraintsValidator("{\"cardinality\":{\"maxProperties\":20},\"category\":\"discovery\",\"constraintType\":\"map\",\"deterministic\":true,\"keys\":{\"maxLength\":128,\"minLength\":1,\"type\":\"string\"},\"originalRules\":{\"ves.io.schema.rules.map.keys.string.max_len\":\"128\",\"ves.io.schema.rules.map.keys.string.min_len\":\"1\",\"ves.io.schema.rules.map.max_pairs\":\"20\",\"ves.io.schema.rules.map.values.string.max_len\":\"128\",\"ves.io.schema.rules.map.values.string.min_len\":\"1\"},\"values\":{\"maxLength\":128,\"minLength\":1,\"type\":\"string\"}}")}
+```
+
 Receipt-pinned upstream constraints:
 
 ```json
 {
   "x-f5xc-constraints": {
-    "category": "general",
-    "constraintType": "object",
-    "maxProperties": 20,
-    "metadata": {
-      "confidence": 0.75,
-      "source": "inferred",
-      "validatedAt": "2026-10-03T05:10:26+00:00"
+    "cardinality": {
+      "maxProperties": 20
+    },
+    "category": "discovery",
+    "constraintType": "map",
+    "deterministic": true,
+    "keys": {
+      "maxLength": 128,
+      "minLength": 1,
+      "type": "string"
+    },
+    "originalRules": {
+      "ves.io.schema.rules.map.keys.string.max_len": "128",
+      "ves.io.schema.rules.map.keys.string.min_len": "1",
+      "ves.io.schema.rules.map.max_pairs": "20",
+      "ves.io.schema.rules.map.values.string.max_len": "128",
+      "ves.io.schema.rules.map.values.string.min_len": "1"
+    },
+    "values": {
+      "maxLength": 128,
+      "minLength": 1,
+      "type": "string"
     }
   },
   "x-f5xc-required-for": {
@@ -6007,14 +6218,14 @@ api_token {
 
 - [blindfold_secret_info](resources--voltstack_site--reference--group-007.md#canonical-1132222321331001-0310231321100311-2332322201202223-3332222011113111-2211201123202031-0233330122330310-2211303200012121-1312321112012121): complete subsection reference.
 
-- [clear_secret_info](resources--voltstack_site--reference--group-007.md#canonical-0323113033023303-1021113121101010-2121302021033213-1200003320123031-2023113230021231-0120100013330230-3100121221312003-3323122222103230): complete subsection reference.
+- [clear_secret_info](resources--voltstack_site--reference--group-008.md#canonical-0323113033023303-1021113121101010-2121302021033213-1200003320123031-2023113230021231-0120100013330230-3100121221312003-3323122222103230): complete subsection reference.
 
 <a id="canonical-3332113010130011-2233103100200320-0312121201310310-1333210333331030-3110022132331130-0030023310121031-0213210113330202-2210323100321322"></a>
 
 ## Next pages — api_token / 111200331322 / 4
 
 - [custom_storage_config.storage_device_list.storage_devices.pure_service_orchestrator.arrays.flash_blade.flash_blades.api_token.blindfold_secret_info](resources--voltstack_site--reference--group-007.md#canonical-1132222321331001-0310231321100311-2332322201202223-3332222011113111-2211201123202031-0233330122330310-2211303200012121-1312321112012121)
-- [custom_storage_config.storage_device_list.storage_devices.pure_service_orchestrator.arrays.flash_blade.flash_blades.api_token.clear_secret_info](resources--voltstack_site--reference--group-007.md#canonical-0323113033023303-1021113121101010-2121302021033213-1200003320123031-2023113230021231-0120100013330230-3100121221312003-3323122222103230)
+- [custom_storage_config.storage_device_list.storage_devices.pure_service_orchestrator.arrays.flash_blade.flash_blades.api_token.clear_secret_info](resources--voltstack_site--reference--group-008.md#canonical-0323113033023303-1021113121101010-2121302021033213-1200003320123031-2023113230021231-0120100013330230-3100121221312003-3323122222103230)
 - [custom_storage_config.storage_device_list.storage_devices.pure_service_orchestrator.arrays.flash_blade.flash_blades](resources--voltstack_site--reference--group-007.md#canonical-2101231320132023-0302202321030132-3003003113231321-3120030023303303-2133200320321303-1321220210022222-3331013302312220-1113220301101121)
 - [xcsh_voltstack_site](../resources/voltstack_site.md#canonical-2321122020020113-3300101223021223-1330033011121200-0102203210311033-2301300201121233-3102120211011323-1113113111112000-2313011002230113)
 
@@ -6023,262 +6234,3 @@ api_token {
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
-
-<a id="canonical-2310102331133131-2002321333121223-0100031223020111-0132200032213301-3001111012211122-3320112133023232-1002102023233322-0213130132013332"></a>
-
-## custom_storage_config.storage_device_list.storage_devices.pure_service_orchestrator.arrays.flash_blade.flash_blades.api_token.blindfold_secret_info — blindfold_secret_info / 233333133031 / 2
-
-Breadcrumbs:
-
-- [xcsh_voltstack_site](../resources/voltstack_site.md#canonical-2321122020020113-3300101223021223-1330033011121200-0102203210311033-2301300201121233-3102120211011323-1113113111112000-2313011002230113)
-- [Property reference](resources--voltstack_site--reference--group-001.md#canonical-2303313130303000-1321333232312030-2110222133201202-1121003303213312-0221012033213113-0321333012001121-3323103113212202-1012112312220111)
-- [custom_storage_config](resources--voltstack_site--reference--group-005.md#canonical-1130033323232323-2312320032102120-2230002101333233-0122122333223330-0120123302300302-0320200333230230-3313321101003303-0102021002223303)
-- [custom_storage_config.storage_device_list](resources--voltstack_site--reference--group-006.md#canonical-3000120020011123-1022230333313213-0001000321031121-1203122203230213-2330200222212203-3333200100302030-1111002032202022-1131133200121321)
-- [custom_storage_config.storage_device_list.storage_devices](resources--voltstack_site--reference--group-006.md#canonical-1131100102033112-2001212202303112-3112202123332303-0020133102302002-2003030303020101-2333230030103021-0230002120220201-0311201313132323)
-- [custom_storage_config.storage_device_list.storage_devices.pure_service_orchestrator](resources--voltstack_site--reference--group-007.md#canonical-3132213030333223-1013111232200333-3312303011012223-0311332321032113-1021201312322202-1000002031033130-3100030332232231-2131112101022100)
-- [custom_storage_config.storage_device_list.storage_devices.pure_service_orchestrator.arrays](resources--voltstack_site--reference--group-007.md#canonical-0100321132011122-1132132203331030-3001013113022302-3112120333030233-3032003101201120-0222320033322030-3010211220120020-1130332211231211)
-- [custom_storage_config.storage_device_list.storage_devices.pure_service_orchestrator.arrays.flash_blade](resources--voltstack_site--reference--group-007.md#canonical-3211133003223322-1122130310321330-3231131012111020-0322220301303133-1220201030302232-1301302211320032-3310003301333221-3113222120032113)
-- [custom_storage_config.storage_device_list.storage_devices.pure_service_orchestrator.arrays.flash_blade.flash_blades](resources--voltstack_site--reference--group-007.md#canonical-2101231320132023-0302202321030132-3003003113231321-3120030023303303-2133200320321303-1321220210022222-3331013302312220-1113220301101121)
-- [custom_storage_config.storage_device_list.storage_devices.pure_service_orchestrator.arrays.flash_blade.flash_blades.api_token](resources--voltstack_site--reference--group-007.md#canonical-1331201220120101-0231302101001011-1111031302133231-2032331223220320-2233102032132032-2210323011310300-1000000223320012-3000111203123111)
-- custom_storage_config.storage_device_list.storage_devices.pure_service_orchestrator.arrays.flash_blade.flash_blades.api_token.blindfold_secret_info
-
-<a id="canonical-3333221312020202-3330331321203203-2122211120232310-1101100232222203-1102220110323221-0101221131201301-0002113111032033-1023210333303230"></a>
-
-Type: `"object"`. single nested block, Optional.
-
-BlindfoldSecretInfoType specifies information about the Secret managed by F5XC Secret Management.
-
-Provider validators and defaults (from schema source):
-
-```go
-Validators: []validator.Object{validators.RequiredObjectAttributes("location")}
-```
-
-Receipt-pinned upstream constraints:
-
-```json
-{
-  "x-f5xc-required-for": {
-    "create": false,
-    "minimum_config": false,
-    "read": false,
-    "update": false
-  }
-}
-```
-
-Terraform syntax:
-
-```terraform
-blindfold_secret_info {
-  # Configure direct properties listed below.
-}
-```
-
-<a id="canonical-2323331122002332-2300320033303000-0221113201330031-3121210111001111-0222200220001100-2023012021313022-0012120021000011-0102330111310223"></a>
-
-## Direct properties — blindfold_secret_info / 233333133031 / 3
-
-<a id="canonical-0303312113231020-0322303210132303-3031310303221212-2122202031332211-2331210023030031-3313231213221011-0010230201301022-3320032233133120"></a>
-
-<a id="canonical-3311231301223120-2301020321033300-3303203131230301-2330110300301023-3230312231023110-3332102222310133-0311000012211120-0332300312212011"></a>
-
-## decryption_provider property — blindfold_secret_info / 233333133031 / 4
-
-Type: `"string"`. Optional.
-
-Name of the Secret Management Access object that contains information about the backend Secret
-Management service.
-
-Receipt-pinned upstream constraints:
-
-```json
-{
-  "x-f5xc-constraints": {
-    "category": "general",
-    "constraintType": "string",
-    "maxLength": 1024,
-    "metadata": {
-      "confidence": 0.85,
-      "source": "inferred",
-      "validatedAt": "2026-10-03T05:10:26+00:00"
-    }
-  },
-  "x-f5xc-required-for": {
-    "create": false,
-    "minimum_config": false,
-    "read": false,
-    "update": false
-  }
-}
-```
-
-<a id="canonical-3202020302013332-0031202301002303-2303320002111001-3121033332320332-3333332010311030-1021302122131301-3210131333123021-3233310210323331"></a>
-
-<a id="canonical-3010231103023011-2130303212122003-1233122113232021-0113002102303112-1032211022303203-2200012332331323-0121223101001031-1300022332102333"></a>
-
-## location property — blindfold_secret_info / 233333133031 / 5
-
-Type: `"string"`. Optional, Sensitive.
-
-Location is the URI\_ref. It could be in URL format for string:/// Or it could be a path if the
-store provider is an HTTP/HTTPS location.
-
-Upstream description:
-
-Location is the URI\_ref. It could be in URL format for string:/// Or it could be a path if the
-store provider is an HTTP/HTTPS location.
-
-Provider validators and defaults (from schema source):
-
-```go
-Validators: []validator.String{
-  stringvalidator.LengthBetween(4, 131072),
-}
-```
-
-Receipt-pinned upstream constraints:
-
-```json
-{
-  "x-f5xc-constraints": {
-    "category": "content",
-    "constraintType": "string",
-    "deterministic": true,
-    "format": "uri",
-    "maxLength": 131072,
-    "metadata": {
-      "category": "content",
-      "confidence": 1.0,
-      "note": "Blindfold envelope encryption (AES-256-GCM + RSA-OAEP) of an RSA-2048 TLS private key produces ~3700 char string:/// URL. 128KB max secret size = ~175KB base64. Discovery reported 1024 which is incorrect.",
-      "source": "manual-override",
-      "validatedAt": "2026-10-03T05:10:26+00:00"
-    },
-    "minLength": 4
-  },
-  "x-f5xc-required-for": {
-    "create": true,
-    "minimum_config": true,
-    "read": false,
-    "update": false
-  },
-  "x-f5xc-sensitive": true,
-  "x-validation-rules": {
-    "ves.io.schema.rules.message.required": "true",
-    "ves.io.schema.rules.string.uri_ref": "true"
-  },
-  "x-ves-validation-rules": {
-    "ves.io.schema.rules.message.required": "true",
-    "ves.io.schema.rules.string.uri_ref": "true"
-  }
-}
-```
-
-<a id="canonical-1000332123212030-0221211012122223-2131323201311103-3211322032322001-1210312333211323-3320302300110103-0120221210300111-3210113110123323"></a>
-
-<a id="canonical-3020103321212100-0200321033120230-0303130020111302-3213303203201222-0210031223012101-3032102132201332-3031002113030121-0011211031013113"></a>
-
-## store_provider property — blindfold_secret_info / 233333133031 / 6
-
-Type: `"string"`. Optional.
-
-Name of the Secret Management Access object that contains information about the store to GET
-encrypted bytes This field needs to be provided only if the URL scheme is not string:///.
-
-Upstream description:
-
-Name of the Secret Management Access object that contains information about the store to GET
-encrypted bytes This field needs to be provided only if the URL scheme is not string:///.
-
-Receipt-pinned upstream constraints:
-
-```json
-{
-  "x-f5xc-constraints": {
-    "category": "general",
-    "constraintType": "string",
-    "maxLength": 1024,
-    "metadata": {
-      "confidence": 0.85,
-      "source": "inferred",
-      "validatedAt": "2026-10-03T05:10:26+00:00"
-    }
-  },
-  "x-f5xc-required-for": {
-    "create": false,
-    "minimum_config": false,
-    "read": false,
-    "update": false
-  }
-}
-```
-
-<a id="canonical-1013021022013032-2211112233201122-0212001021030000-1003323220120212-0313213123212211-0301010330112212-3303010013001330-3321001203200130"></a>
-
-## Next pages — blindfold_secret_info / 233333133031 / 7
-
-- [custom_storage_config.storage_device_list.storage_devices.pure_service_orchestrator.arrays.flash_blade.flash_blades.api_token](resources--voltstack_site--reference--group-007.md#canonical-1331201220120101-0231302101001011-1111031302133231-2032331223220320-2233102032132032-2210323011310300-1000000223320012-3000111203123111)
-- [xcsh_voltstack_site](../resources/voltstack_site.md#canonical-2321122020020113-3300101223021223-1330033011121200-0102203210311033-2301300201121233-3102120211011323-1113113111112000-2313011002230113)
-
-<a id="canonical-0323113033023303-1021113121101010-2121302021033213-1200003320123031-2023113230021231-0120100013330230-3100121221312003-3323122222103230"></a>
-
-<!-- Exact provider and upstream contract identifiers. -->
-
-<!-- textlint-disable terminology -->
-
-<a id="canonical-0133021223302113-2302310202213300-0311230220320110-1320232322232223-0311310000232310-2322010300321323-0030200130002013-2131131133100220"></a>
-
-## custom_storage_config.storage_device_list.storage_devices.pure_service_orchestrator.arrays.flash_blade.flash_blades.api_token.clear_secret_info — clear_secret_info / 212132010212 / 2
-
-Breadcrumbs:
-
-- [xcsh_voltstack_site](../resources/voltstack_site.md#canonical-2321122020020113-3300101223021223-1330033011121200-0102203210311033-2301300201121233-3102120211011323-1113113111112000-2313011002230113)
-- [Property reference](resources--voltstack_site--reference--group-001.md#canonical-2303313130303000-1321333232312030-2110222133201202-1121003303213312-0221012033213113-0321333012001121-3323103113212202-1012112312220111)
-- [custom_storage_config](resources--voltstack_site--reference--group-005.md#canonical-1130033323232323-2312320032102120-2230002101333233-0122122333223330-0120123302300302-0320200333230230-3313321101003303-0102021002223303)
-- [custom_storage_config.storage_device_list](resources--voltstack_site--reference--group-006.md#canonical-3000120020011123-1022230333313213-0001000321031121-1203122203230213-2330200222212203-3333200100302030-1111002032202022-1131133200121321)
-- [custom_storage_config.storage_device_list.storage_devices](resources--voltstack_site--reference--group-006.md#canonical-1131100102033112-2001212202303112-3112202123332303-0020133102302002-2003030303020101-2333230030103021-0230002120220201-0311201313132323)
-- [custom_storage_config.storage_device_list.storage_devices.pure_service_orchestrator](resources--voltstack_site--reference--group-007.md#canonical-3132213030333223-1013111232200333-3312303011012223-0311332321032113-1021201312322202-1000002031033130-3100030332232231-2131112101022100)
-- [custom_storage_config.storage_device_list.storage_devices.pure_service_orchestrator.arrays](resources--voltstack_site--reference--group-007.md#canonical-0100321132011122-1132132203331030-3001013113022302-3112120333030233-3032003101201120-0222320033322030-3010211220120020-1130332211231211)
-- [custom_storage_config.storage_device_list.storage_devices.pure_service_orchestrator.arrays.flash_blade](resources--voltstack_site--reference--group-007.md#canonical-3211133003223322-1122130310321330-3231131012111020-0322220301303133-1220201030302232-1301302211320032-3310003301333221-3113222120032113)
-- [custom_storage_config.storage_device_list.storage_devices.pure_service_orchestrator.arrays.flash_blade.flash_blades](resources--voltstack_site--reference--group-007.md#canonical-2101231320132023-0302202321030132-3003003113231321-3120030023303303-2133200320321303-1321220210022222-3331013302312220-1113220301101121)
-- [custom_storage_config.storage_device_list.storage_devices.pure_service_orchestrator.arrays.flash_blade.flash_blades.api_token](resources--voltstack_site--reference--group-007.md#canonical-1331201220120101-0231302101001011-1111031302133231-2032331223220320-2233102032132032-2210323011310300-1000000223320012-3000111203123111)
-- custom_storage_config.storage_device_list.storage_devices.pure_service_orchestrator.arrays.flash_blade.flash_blades.api_token.clear_secret_info
-
-<a id="canonical-1033010120223013-2000233200133100-1330212112122221-0322311321112120-0230012232131133-1220001103013022-2133122033013012-0312230121332002"></a>
-
-Type: `"object"`. single nested block, Optional.
-
-ClearSecretInfoType specifies information about the Secret that is not encrypted.
-
-Provider validators and defaults (from schema source):
-
-```go
-Validators: []validator.Object{validators.RequiredObjectAttributes("url")}
-```
-
-Receipt-pinned upstream constraints:
-
-```json
-{
-  "x-f5xc-required-for": {
-    "create": false,
-    "minimum_config": false,
-    "read": false,
-    "update": false
-  }
-}
-```
-
-Terraform syntax:
-
-```terraform
-clear_secret_info {
-  # Configure direct properties listed below.
-}
-```
-
-<a id="canonical-1311311210100311-1032231333012031-0303201202100112-3331013321110331-1012213011133110-0202320121320023-1031331223303103-3031023210311010"></a>
-
-## Direct properties — clear_secret_info / 212132010212 / 3
-
-<a id="canonical-2103010312212130-3033101321213201-1222110100323210-3203110102032102-3230201002001322-3003230022022310-3121011221202111-3031033221211332"></a>

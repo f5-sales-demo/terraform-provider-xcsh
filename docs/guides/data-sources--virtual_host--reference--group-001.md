@@ -76,6 +76,27 @@ Receipt-pinned upstream constraints:
 
 ```json
 {
+  "x-f5xc-constraints": {
+    "category": "discovery",
+    "constraintType": "map",
+    "deterministic": true,
+    "keys": {
+      "maxLength": 64,
+      "minLength": 1,
+      "type": "string"
+    },
+    "originalRules": {
+      "ves.io.schema.rules.map.keys.string.max_len": "64",
+      "ves.io.schema.rules.map.keys.string.min_len": "1",
+      "ves.io.schema.rules.map.values.string.max_len": "1024",
+      "ves.io.schema.rules.map.values.string.min_len": "1"
+    },
+    "values": {
+      "maxLength": 1024,
+      "minLength": 1,
+      "type": "string"
+    }
+  },
   "x-f5xc-required-for": {
     "create": false,
     "minimum_config": false,
@@ -253,13 +274,28 @@ Receipt-pinned upstream constraints:
 ```json
 {
   "x-f5xc-constraints": {
-    "category": "general",
-    "constraintType": "object",
-    "maxProperties": 16,
-    "metadata": {
-      "confidence": 0.75,
-      "source": "inferred",
-      "validatedAt": "2026-10-03T05:10:26+00:00"
+    "cardinality": {
+      "maxProperties": 16
+    },
+    "category": "discovery",
+    "constraintType": "map",
+    "deterministic": true,
+    "keys": {
+      "maximum": 599,
+      "minimum": 3,
+      "type": "uint32-string"
+    },
+    "originalRules": {
+      "ves.io.schema.rules.map.keys.uint32.gte": "3",
+      "ves.io.schema.rules.map.keys.uint32.lte": "599",
+      "ves.io.schema.rules.map.max_pairs": "16",
+      "ves.io.schema.rules.map.values.string.max_len": "65536",
+      "ves.io.schema.rules.map.values.string.uri_ref": "true"
+    },
+    "values": {
+      "format": "uri-reference",
+      "maxLength": 65536,
+      "type": "string"
     }
   },
   "x-f5xc-required-for": {
@@ -1204,7 +1240,7 @@ Each exact path has one authoritative reference destination. Collection element 
 | `authentication.use_auth_object_config` | [authentication.use_auth_object_config](data-sources--virtual_host--reference--group-001.md#canonical-3210031121102023-1030002222002333-1220122030001210-1221212223232231-0102131303200000-3033112230303022-2313220122111000-0323301323103211) |
 | `buffer_policy` | [buffer_policy](data-sources--virtual_host--reference--group-001.md#canonical-1113013312331001-3120013012321211-3201312010013030-3223213111323031-3010323000321112-0003300310113023-2231303133033022-1212033301322100) |
 | `buffer_policy.disabled` | [buffer_policy.disabled](data-sources--virtual_host--reference--group-001.md#canonical-2230303132301303-2312003132031010-2033023210021112-0310223003331100-2233202323312113-2303300121200203-1122003302131031-1333200122002112) |
-| `buffer_policy.max_request_bytes` | [buffer_policy.max_request_bytes](data-sources--virtual_host--reference--group-001.md#canonical-2232003130112123-0003030132220332-0213212130032112-2222133321201230-2203211023033210-0213023033300032-2032301333021201-0310321032100313) |
+| `buffer_policy.max_request_bytes` | [buffer_policy.max_request_bytes](data-sources--virtual_host--reference--group-002.md#canonical-2232003130112123-0003030132220332-0213212130032112-2222133321201230-2203211023033210-0213023033300032-2032301333021201-0310321032100313) |
 | `captcha_challenge` | [captcha_challenge](data-sources--virtual_host--reference--group-002.md#canonical-0323333321111013-0223212113102021-0320213033023313-3002301101200322-2122100233212230-0130313033323212-2101021122013300-0032223213002013) |
 | `captcha_challenge.cookie_expiry` | [captcha_challenge.cookie_expiry](data-sources--virtual_host--reference--group-002.md#canonical-2313032031202002-2323131312322312-2012100013033132-0213022300212313-1011321123333012-0020300030213123-3101311313011100-2031113312310121) |
 | `captcha_challenge.custom_page` | [captcha_challenge.custom_page](data-sources--virtual_host--reference--group-002.md#canonical-1023303000202202-2310101312302113-1011223101331311-3010012200021300-3013231231232321-0113313113231313-0012331330211003-2203131202210321) |
@@ -1345,7 +1381,7 @@ Each exact path has one authoritative reference destination. Collection element 
 | `response_headers_to_add.secret_value` | [response_headers_to_add.secret_value](data-sources--virtual_host--reference--group-002.md#canonical-3100032201022001-2001120211311323-2303132030311023-1223333122211033-2111333132122321-0032110321210032-1303101313331301-0220323001111102) |
 | `response_headers_to_add.secret_value.blindfold_secret_info` | [response_headers_to_add.secret_value.blindfold_secret_info](data-sources--virtual_host--reference--group-002.md#canonical-0320122313112313-3331203313022000-0020013010012332-0133303123120012-0301223323113003-1323202202311113-0103112102302020-3111312210311233) |
 | `response_headers_to_add.secret_value.blindfold_secret_info.decryption_provider` | [response_headers_to_add.secret_value.blindfold_secret_info.decryption_provider](data-sources--virtual_host--reference--group-002.md#canonical-2321220203333331-1210133320202232-0003321312003130-3020101102233113-2330202230100231-2103013212232033-2220000302030330-1233011223003331) |
-| `response_headers_to_add.secret_value.blindfold_secret_info.location` | [response_headers_to_add.secret_value.blindfold_secret_info.location](data-sources--virtual_host--reference--group-002.md#canonical-3000332200020302-1200112232231112-2111231332323331-0213223100200310-0203001300120302-2032202130030311-1201102110132112-1032123023322310) |
+| `response_headers_to_add.secret_value.blindfold_secret_info.location` | [response_headers_to_add.secret_value.blindfold_secret_info.location](data-sources--virtual_host--reference--group-003.md#canonical-3000332200020302-1200112232231112-2111231332323331-0213223100200310-0203001300120302-2032202130030311-1201102110132112-1032123023322310) |
 | `response_headers_to_add.secret_value.blindfold_secret_info.store_provider` | [response_headers_to_add.secret_value.blindfold_secret_info.store_provider](data-sources--virtual_host--reference--group-003.md#canonical-1102310020100012-3102100223203311-3110012320302010-0123100022202212-0033032111133122-0103313212300302-3202100320123303-2101331100023100) |
 | `response_headers_to_add.secret_value.clear_secret_info` | [response_headers_to_add.secret_value.clear_secret_info](data-sources--virtual_host--reference--group-003.md#canonical-3130022021012020-2111013303010033-1333320203310213-1113300030300221-3010301303313032-0131000023311021-1311011231100022-0033220130331233) |
 | `response_headers_to_add.secret_value.clear_secret_info.provider_ref` | [response_headers_to_add.secret_value.clear_secret_info.provider_ref](data-sources--virtual_host--reference--group-003.md#canonical-3130311230122321-1302312201303300-2201333323000103-2221203213132300-1221320233200232-0202033103310201-1130033232123211-1020312201022013) |
@@ -3437,32 +3473,3 @@ Receipt-pinned upstream constraints:
 ## Direct properties — buffer_policy / 300213133121 / 3
 
 <a id="canonical-2230303132301303-2312003132031010-2033023210021112-0310223003331100-2233202323312113-2303300121200203-1122003302131031-1333200122002112"></a>
-
-<a id="canonical-1233301121123112-2200210311322023-3333120002110300-0222212112133131-1033133011202311-1312000300321102-3120000130230022-0221202333000233"></a>
-
-## disabled property — buffer_policy / 300213133121 / 4
-
-Type: `"bool"`. Computed.
-
-Disable buffering for a particular route. This is useful when virtual-host has buffering, but we
-need to disable it on a specific route. The value of this field is ignored for virtual-host.
-
-Upstream description:
-
-Disable buffering for a particular route. This is useful when virtual-host has buffering, but we
-need to disable it on a specific route. The value of this field is ignored for virtual-host.
-
-Receipt-pinned upstream constraints:
-
-```json
-{
-  "x-f5xc-required-for": {
-    "create": false,
-    "minimum_config": false,
-    "read": false,
-    "update": false
-  }
-}
-```
-
-<a id="canonical-2232003130112123-0003030132220332-0213212130032112-2222133321201230-2203211023033210-0213023033300032-2032301333021201-0310321032100313"></a>

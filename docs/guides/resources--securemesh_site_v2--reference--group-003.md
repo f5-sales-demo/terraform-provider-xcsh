@@ -59,24 +59,24 @@ Each exact path has one authoritative reference destination. Collection element 
 | `software_settings.waf_signatures` | [software_settings.waf_signatures](resources--securemesh_site_v2--reference--group-017.md#canonical-2123333211201220-1021203012100232-0221321230021311-3110233330322110-3200332000212330-1013002101200320-2333132212230221-2013331233320202) |
 | `software_settings.waf_signatures.automatic` | [software_settings.waf_signatures.automatic](resources--securemesh_site_v2--reference--group-017.md#canonical-0212033110121121-2221203031112002-2220323311203110-0030030011131000-3111101323112121-0232233032330133-3310101210113132-0223222330203000) |
 | `software_settings.waf_signatures.manual` | [software_settings.waf_signatures.manual](resources--securemesh_site_v2--reference--group-017.md#canonical-3221332221221101-0102121321103320-3211111203002301-0020222103103013-0212322131112023-2102311100231210-3223200221222230-3321213001123032) |
-| `timeouts` | [timeouts](resources--securemesh_site_v2--reference--group-017.md#canonical-0123232131001300-0011323332301222-1331300031113011-1313301030310003-1101033221200021-3320311312021033-0002021220231213-3010101123210223) |
-| `timeouts.create` | [timeouts.create](resources--securemesh_site_v2--reference--group-017.md#canonical-1110023132023112-1100103232120003-2233121122233201-3102321030123121-2111201002203301-0010022121120230-1321131213311030-0102133312300210) |
-| `timeouts.delete` | [timeouts.delete](resources--securemesh_site_v2--reference--group-017.md#canonical-3130133011022332-2230123123000100-2021330331212132-1122103310110301-1102211033201131-1022213332002323-3032001030113000-2101002021101032) |
-| `timeouts.read` | [timeouts.read](resources--securemesh_site_v2--reference--group-017.md#canonical-2213013133300101-2020313200320200-3012022211113211-2233211130000331-2213130010313222-2230123120212320-3231211022000323-1002223123231322) |
-| `timeouts.update` | [timeouts.update](resources--securemesh_site_v2--reference--group-017.md#canonical-0003313021213233-2220003330111102-0010200221002312-3332230211002222-1001101301312301-2030130303103123-2203003122030000-2303003002323021) |
+| `timeouts` | [timeouts](resources--securemesh_site_v2--reference--group-018.md#canonical-0123232131001300-0011323332301222-1331300031113011-1313301030310003-1101033221200021-3320311312021033-0002021220231213-3010101123210223) |
+| `timeouts.create` | [timeouts.create](resources--securemesh_site_v2--reference--group-018.md#canonical-1110023132023112-1100103232120003-2233121122233201-3102321030123121-2111201002203301-0010022121120230-1321131213311030-0102133312300210) |
+| `timeouts.delete` | [timeouts.delete](resources--securemesh_site_v2--reference--group-018.md#canonical-3130133011022332-2230123123000100-2021330331212132-1122103310110301-1102211033201131-1022213332002323-3032001030113000-2101002021101032) |
+| `timeouts.read` | [timeouts.read](resources--securemesh_site_v2--reference--group-018.md#canonical-2213013133300101-2020313200320200-3012022211113211-2233211130000331-2213130010313222-2230123120212320-3231211022000323-1002223123231322) |
+| `timeouts.update` | [timeouts.update](resources--securemesh_site_v2--reference--group-018.md#canonical-0003313021213233-2220003330111102-0010200221002312-3332230211002222-1001101301312301-2030130303103123-2203003122030000-2303003002323021) |
 | `tunnel_dead_timeout` | [tunnel_dead_timeout](resources--securemesh_site_v2--reference--group-001.md#canonical-3133122210320312-0132331031011200-0312000330010012-1233002100001302-0221201332103112-0231302311020222-0122300213201231-2210113013013120) |
 | `tunnel_type` | [tunnel_type](resources--securemesh_site_v2--reference--group-001.md#canonical-0021201232320123-0313020001313211-0113113100301020-0231113202121110-1220220301322111-1202013213220111-1322121002210033-1201233000120133) |
-| `upgrade_settings` | [upgrade_settings](resources--securemesh_site_v2--reference--group-017.md#canonical-1012300130023020-3121103011122011-3200231111011031-1132302032012101-1022231300310311-1322000133202211-3332113131103223-3020202230200002) |
-| `upgrade_settings.kubernetes_upgrade_drain` | [upgrade_settings.kubernetes_upgrade_drain](resources--securemesh_site_v2--reference--group-017.md#canonical-3220131333120013-2202322022131000-1000010222103213-2013222300320010-2122210011001020-3001103121202113-0103222211322232-1121002031102322) |
-| `upgrade_settings.kubernetes_upgrade_drain.disable_upgrade_drain` | [upgrade_settings.kubernetes_upgrade_drain.disable_upgrade_drain](resources--securemesh_site_v2--reference--group-017.md#canonical-2321012113022223-1013233322221032-2113023113030230-2001203212122013-2011023203033332-0222230313023003-1203131123300310-2120212331312303) |
-| `upgrade_settings.kubernetes_upgrade_drain.enable_upgrade_drain` | [upgrade_settings.kubernetes_upgrade_drain.enable_upgrade_drain](resources--securemesh_site_v2--reference--group-017.md#canonical-1230100330002323-0110122001332122-1021203213231021-3221200310110203-1033300111021200-0012331102201322-1221222030211313-0331001023233011) |
-| `upgrade_settings.kubernetes_upgrade_drain.enable_upgrade_drain.disable_vega_upgrade_mode` | [upgrade_settings.kubernetes_upgrade_drain.enable_upgrade_drain.disable_vega_upgrade_mode](resources--securemesh_site_v2--reference--group-017.md#canonical-3102022031121003-1323013230331033-2222213102030110-2003103132303331-0312302233301213-1113000221111210-3201010320331001-0021110130020230) |
-| `upgrade_settings.kubernetes_upgrade_drain.enable_upgrade_drain.drain_max_unavailable_node_count` | [upgrade_settings.kubernetes_upgrade_drain.enable_upgrade_drain.drain_max_unavailable_node_count](resources--securemesh_site_v2--reference--group-017.md#canonical-0301130333233111-3220210110033323-1111202321111333-0031212120321321-3021121210313002-0211300001100023-3020301101123012-1130123320001132) |
-| `upgrade_settings.kubernetes_upgrade_drain.enable_upgrade_drain.drain_max_unavailable_node_percentage` | [upgrade_settings.kubernetes_upgrade_drain.enable_upgrade_drain.drain_max_unavailable_node_percentage](resources--securemesh_site_v2--reference--group-017.md#canonical-2032210002330002-1330002321132010-2012221131221013-1303010103223013-3331213222211230-3333021232103212-2020101321123123-0202030321330320) |
-| `upgrade_settings.kubernetes_upgrade_drain.enable_upgrade_drain.drain_node_timeout` | [upgrade_settings.kubernetes_upgrade_drain.enable_upgrade_drain.drain_node_timeout](resources--securemesh_site_v2--reference--group-017.md#canonical-3320032100232312-3031311210022132-0222313022022211-0331213102230030-0300103210203120-3100122111030010-0031300323002322-3101233312001331) |
-| `upgrade_settings.kubernetes_upgrade_drain.enable_upgrade_drain.enable_vega_upgrade_mode` | [upgrade_settings.kubernetes_upgrade_drain.enable_upgrade_drain.enable_vega_upgrade_mode](resources--securemesh_site_v2--reference--group-017.md#canonical-1013033301121202-1312030331131013-1222303323220300-0002030002232133-0131001133211203-0322110002310211-3132322030130112-1233320312203302) |
-| `vmware` | [vmware](resources--securemesh_site_v2--reference--group-017.md#canonical-0013121331333101-0110031232203120-1332123300101323-0213331300203303-3102322233201100-0101131220111322-2213230000203031-1133112232132230) |
-| `vmware.not_managed` | [vmware.not_managed](resources--securemesh_site_v2--reference--group-017.md#canonical-3212320032322213-2211221212101101-0030112233232122-3121231223331210-1111233221202320-1300010012113133-0321233132100213-3211203131021331) |
+| `upgrade_settings` | [upgrade_settings](resources--securemesh_site_v2--reference--group-018.md#canonical-1012300130023020-3121103011122011-3200231111011031-1132302032012101-1022231300310311-1322000133202211-3332113131103223-3020202230200002) |
+| `upgrade_settings.kubernetes_upgrade_drain` | [upgrade_settings.kubernetes_upgrade_drain](resources--securemesh_site_v2--reference--group-018.md#canonical-3220131333120013-2202322022131000-1000010222103213-2013222300320010-2122210011001020-3001103121202113-0103222211322232-1121002031102322) |
+| `upgrade_settings.kubernetes_upgrade_drain.disable_upgrade_drain` | [upgrade_settings.kubernetes_upgrade_drain.disable_upgrade_drain](resources--securemesh_site_v2--reference--group-018.md#canonical-2321012113022223-1013233322221032-2113023113030230-2001203212122013-2011023203033332-0222230313023003-1203131123300310-2120212331312303) |
+| `upgrade_settings.kubernetes_upgrade_drain.enable_upgrade_drain` | [upgrade_settings.kubernetes_upgrade_drain.enable_upgrade_drain](resources--securemesh_site_v2--reference--group-018.md#canonical-1230100330002323-0110122001332122-1021203213231021-3221200310110203-1033300111021200-0012331102201322-1221222030211313-0331001023233011) |
+| `upgrade_settings.kubernetes_upgrade_drain.enable_upgrade_drain.disable_vega_upgrade_mode` | [upgrade_settings.kubernetes_upgrade_drain.enable_upgrade_drain.disable_vega_upgrade_mode](resources--securemesh_site_v2--reference--group-018.md#canonical-3102022031121003-1323013230331033-2222213102030110-2003103132303331-0312302233301213-1113000221111210-3201010320331001-0021110130020230) |
+| `upgrade_settings.kubernetes_upgrade_drain.enable_upgrade_drain.drain_max_unavailable_node_count` | [upgrade_settings.kubernetes_upgrade_drain.enable_upgrade_drain.drain_max_unavailable_node_count](resources--securemesh_site_v2--reference--group-018.md#canonical-0301130333233111-3220210110033323-1111202321111333-0031212120321321-3021121210313002-0211300001100023-3020301101123012-1130123320001132) |
+| `upgrade_settings.kubernetes_upgrade_drain.enable_upgrade_drain.drain_max_unavailable_node_percentage` | [upgrade_settings.kubernetes_upgrade_drain.enable_upgrade_drain.drain_max_unavailable_node_percentage](resources--securemesh_site_v2--reference--group-018.md#canonical-2032210002330002-1330002321132010-2012221131221013-1303010103223013-3331213222211230-3333021232103212-2020101321123123-0202030321330320) |
+| `upgrade_settings.kubernetes_upgrade_drain.enable_upgrade_drain.drain_node_timeout` | [upgrade_settings.kubernetes_upgrade_drain.enable_upgrade_drain.drain_node_timeout](resources--securemesh_site_v2--reference--group-018.md#canonical-3320032100232312-3031311210022132-0222313022022211-0331213102230030-0300103210203120-3100122111030010-0031300323002322-3101233312001331) |
+| `upgrade_settings.kubernetes_upgrade_drain.enable_upgrade_drain.enable_vega_upgrade_mode` | [upgrade_settings.kubernetes_upgrade_drain.enable_upgrade_drain.enable_vega_upgrade_mode](resources--securemesh_site_v2--reference--group-018.md#canonical-1013033301121202-1312030331131013-1222303323220300-0002030002232133-0131001133211203-0322110002310211-3132322030130112-1233320312203302) |
+| `vmware` | [vmware](resources--securemesh_site_v2--reference--group-018.md#canonical-0013121331333101-0110031232203120-1332123300101323-0213331300203303-3102322233201100-0101131220111322-2213230000203031-1133112232132230) |
+| `vmware.not_managed` | [vmware.not_managed](resources--securemesh_site_v2--reference--group-018.md#canonical-3212320032322213-2211221212101101-0030112233232122-3121231223331210-1111233221202320-1300010012113133-0321233132100213-3211203131021331) |
 | `vmware.not_managed.node_list` | [vmware.not_managed.node_list](resources--securemesh_site_v2--reference--group-018.md#canonical-3111310102022223-1121023200313030-3113003033112012-3021002310213101-1321121112301203-1213322213010122-2133023122331111-2323112331313313) |
 | `vmware.not_managed.node_list.hostname` | [vmware.not_managed.node_list.hostname](resources--securemesh_site_v2--reference--group-018.md#canonical-2132130101123001-0023330122030000-2322203231332312-2033102312011221-1232332201123013-3110223221201131-3210300302102203-3200111313003101) |
 | `vmware.not_managed.node_list.interface_list` | [vmware.not_managed.node_list.interface_list](resources--securemesh_site_v2--reference--group-018.md#canonical-0310021211332003-0313231311233220-2031032300012221-0202032331000311-1203001010000022-0103323123002001-3123133100310310-0203301322211133) |
@@ -142,19 +142,19 @@ Each exact path has one authoritative reference destination. Collection element 
 | `vmware.not_managed.node_list.interface_list.monitor_disabled` | [vmware.not_managed.node_list.interface_list.monitor_disabled](resources--securemesh_site_v2--reference--group-018.md#canonical-1100012213300002-0021010020302331-0103220002022303-2203112110220232-3010232302211203-0122000310123232-1013032012230322-1103203011212332) |
 | `vmware.not_managed.node_list.interface_list.mtu` | [vmware.not_managed.node_list.interface_list.mtu](resources--securemesh_site_v2--reference--group-018.md#canonical-1030202202133032-3203222321301022-0212332031103021-1212231210013302-0223202313030221-0201230123011002-1113003011101212-2121322312212123) |
 | `vmware.not_managed.node_list.interface_list.name` | [vmware.not_managed.node_list.interface_list.name](resources--securemesh_site_v2--reference--group-018.md#canonical-2100322201123332-3133122032321203-2030200031310002-3020213030233102-3201213113010321-2201133301122010-0220021122111101-0103330131230222) |
-| `vmware.not_managed.node_list.interface_list.network_option` | [vmware.not_managed.node_list.interface_list.network_option](resources--securemesh_site_v2--reference--group-018.md#canonical-0000110010300103-1001310000023333-3230222020231030-0123030022312233-0022330013232221-2330000323011101-0101113022213011-0002013122012123) |
-| `vmware.not_managed.node_list.interface_list.network_option.site_local_inside_network` | [vmware.not_managed.node_list.interface_list.network_option.site_local_inside_network](resources--securemesh_site_v2--reference--group-018.md#canonical-0021332210202012-3323031302101032-3322011323100302-0221032112021230-3012211230033021-0020022010122230-3230030033111202-0310332013033332) |
-| `vmware.not_managed.node_list.interface_list.network_option.site_local_network` | [vmware.not_managed.node_list.interface_list.network_option.site_local_network](resources--securemesh_site_v2--reference--group-018.md#canonical-0112333032000011-2211320102031221-2222030220310002-0311211231221010-3211220320202003-2032212132102110-0321201232323023-0220213000320313) |
-| `vmware.not_managed.node_list.interface_list.no_ipv4_address` | [vmware.not_managed.node_list.interface_list.no_ipv4_address](resources--securemesh_site_v2--reference--group-018.md#canonical-3220332231331012-2221310003003010-1323111102311003-2131113312211320-2202202332223010-3021302001212230-2031222123212332-3300001003110101) |
-| `vmware.not_managed.node_list.interface_list.no_ipv6_address` | [vmware.not_managed.node_list.interface_list.no_ipv6_address](resources--securemesh_site_v2--reference--group-018.md#canonical-0303221212303102-3032012032020231-2133232133100023-3003122000331202-1010132332032203-1001300003232003-0022113331213121-0123031002313111) |
+| `vmware.not_managed.node_list.interface_list.network_option` | [vmware.not_managed.node_list.interface_list.network_option](resources--securemesh_site_v2--reference--group-019.md#canonical-0000110010300103-1001310000023333-3230222020231030-0123030022312233-0022330013232221-2330000323011101-0101113022213011-0002013122012123) |
+| `vmware.not_managed.node_list.interface_list.network_option.site_local_inside_network` | [vmware.not_managed.node_list.interface_list.network_option.site_local_inside_network](resources--securemesh_site_v2--reference--group-019.md#canonical-0021332210202012-3323031302101032-3322011323100302-0221032112021230-3012211230033021-0020022010122230-3230030033111202-0310332013033332) |
+| `vmware.not_managed.node_list.interface_list.network_option.site_local_network` | [vmware.not_managed.node_list.interface_list.network_option.site_local_network](resources--securemesh_site_v2--reference--group-019.md#canonical-0112333032000011-2211320102031221-2222030220310002-0311211231221010-3211220320202003-2032212132102110-0321201232323023-0220213000320313) |
+| `vmware.not_managed.node_list.interface_list.no_ipv4_address` | [vmware.not_managed.node_list.interface_list.no_ipv4_address](resources--securemesh_site_v2--reference--group-019.md#canonical-3220332231331012-2221310003003010-1323111102311003-2131113312211320-2202202332223010-3021302001212230-2031222123212332-3300001003110101) |
+| `vmware.not_managed.node_list.interface_list.no_ipv6_address` | [vmware.not_managed.node_list.interface_list.no_ipv6_address](resources--securemesh_site_v2--reference--group-019.md#canonical-0303221212303102-3032012032020231-2133232133100023-3003122000331202-1010132332032203-1001300003232003-0022113331213121-0123031002313111) |
 | `vmware.not_managed.node_list.interface_list.priority` | [vmware.not_managed.node_list.interface_list.priority](resources--securemesh_site_v2--reference--group-018.md#canonical-1231300102003220-3223200311023233-1013123111100101-3313333311013023-1032232202313123-0332301030311123-3000112123133100-2130311221023300) |
-| `vmware.not_managed.node_list.interface_list.site_to_site_connectivity_interface_disabled` | [vmware.not_managed.node_list.interface_list.site_to_site_connectivity_interface_disabled](resources--securemesh_site_v2--reference--group-018.md#canonical-1322321123011233-3012311300311111-3102111312131031-3113313031033033-1032022230010022-2302011133010120-1222232131102311-0023321122302233) |
-| `vmware.not_managed.node_list.interface_list.site_to_site_connectivity_interface_enabled` | [vmware.not_managed.node_list.interface_list.site_to_site_connectivity_interface_enabled](resources--securemesh_site_v2--reference--group-018.md#canonical-0201203123030221-3312023020123121-3102331031320013-2230302121033103-3121031101033101-2210003212130320-3212301020122013-0101113133033033) |
-| `vmware.not_managed.node_list.interface_list.static_ip` | [vmware.not_managed.node_list.interface_list.static_ip](resources--securemesh_site_v2--reference--group-018.md#canonical-0321323012033110-0130002002320113-0023221021200032-2022300001330200-2132301012303011-2120120330223323-0333002032103200-3320111300233213) |
-| `vmware.not_managed.node_list.interface_list.static_ip.default_gw` | [vmware.not_managed.node_list.interface_list.static_ip.default_gw](resources--securemesh_site_v2--reference--group-018.md#canonical-3032310032211133-0121302203132211-0121131332003333-2331310133020222-3003120202331010-1202330122203202-3103331132013103-2301122333122303) |
-| `vmware.not_managed.node_list.interface_list.static_ip.dns_server` | [vmware.not_managed.node_list.interface_list.static_ip.dns_server](resources--securemesh_site_v2--reference--group-018.md#canonical-0121013012310121-2300301231320211-0320221222301012-2123033311122032-1030000132302333-0001333311332210-1100310322011113-1000011300032223) |
-| `vmware.not_managed.node_list.interface_list.static_ip.ip_address` | [vmware.not_managed.node_list.interface_list.static_ip.ip_address](resources--securemesh_site_v2--reference--group-018.md#canonical-0313222311032030-1133332203322010-0333122321002000-3313231221323320-1322101102300223-0131110201101322-1032032022031302-0232020012300003) |
-| `vmware.not_managed.node_list.interface_list.static_ipv6_address` | [vmware.not_managed.node_list.interface_list.static_ipv6_address](resources--securemesh_site_v2--reference--group-018.md#canonical-1210012201220010-1122313132100032-3202000232113200-0210133321320020-0111132302331030-0100202232322131-0201213310210013-2302130010302031) |
+| `vmware.not_managed.node_list.interface_list.site_to_site_connectivity_interface_disabled` | [vmware.not_managed.node_list.interface_list.site_to_site_connectivity_interface_disabled](resources--securemesh_site_v2--reference--group-019.md#canonical-1322321123011233-3012311300311111-3102111312131031-3113313031033033-1032022230010022-2302011133010120-1222232131102311-0023321122302233) |
+| `vmware.not_managed.node_list.interface_list.site_to_site_connectivity_interface_enabled` | [vmware.not_managed.node_list.interface_list.site_to_site_connectivity_interface_enabled](resources--securemesh_site_v2--reference--group-019.md#canonical-0201203123030221-3312023020123121-3102331031320013-2230302121033103-3121031101033101-2210003212130320-3212301020122013-0101113133033033) |
+| `vmware.not_managed.node_list.interface_list.static_ip` | [vmware.not_managed.node_list.interface_list.static_ip](resources--securemesh_site_v2--reference--group-019.md#canonical-0321323012033110-0130002002320113-0023221021200032-2022300001330200-2132301012303011-2120120330223323-0333002032103200-3320111300233213) |
+| `vmware.not_managed.node_list.interface_list.static_ip.default_gw` | [vmware.not_managed.node_list.interface_list.static_ip.default_gw](resources--securemesh_site_v2--reference--group-019.md#canonical-3032310032211133-0121302203132211-0121131332003333-2331310133020222-3003120202331010-1202330122203202-3103331132013103-2301122333122303) |
+| `vmware.not_managed.node_list.interface_list.static_ip.dns_server` | [vmware.not_managed.node_list.interface_list.static_ip.dns_server](resources--securemesh_site_v2--reference--group-019.md#canonical-0121013012310121-2300301231320211-0320221222301012-2123033311122032-1030000132302333-0001333311332210-1100310322011113-1000011300032223) |
+| `vmware.not_managed.node_list.interface_list.static_ip.ip_address` | [vmware.not_managed.node_list.interface_list.static_ip.ip_address](resources--securemesh_site_v2--reference--group-019.md#canonical-0313222311032030-1133332203322010-0333122321002000-3313231221323320-1322101102300223-0131110201101322-1032032022031302-0232020012300003) |
+| `vmware.not_managed.node_list.interface_list.static_ipv6_address` | [vmware.not_managed.node_list.interface_list.static_ipv6_address](resources--securemesh_site_v2--reference--group-019.md#canonical-1210012201220010-1122313132100032-3202000232113200-0210133321320020-0111132302331030-0100202232322131-0201213310210013-2302130010302031) |
 | `vmware.not_managed.node_list.interface_list.static_ipv6_address.cluster_static_ip` | [vmware.not_managed.node_list.interface_list.static_ipv6_address.cluster_static_ip](resources--securemesh_site_v2--reference--group-019.md#canonical-1121020030103121-0011012302201011-0111110121000002-1301032122120020-0011211213122232-3002130330100323-1203330320313330-2330321030310112) |
 | `vmware.not_managed.node_list.interface_list.static_ipv6_address.cluster_static_ip.interface_ip_map` | [vmware.not_managed.node_list.interface_list.static_ipv6_address.cluster_static_ip.interface_ip_map](resources--securemesh_site_v2--reference--group-019.md#canonical-3133311110032300-3111020202211223-3120312131311010-3301112333301000-3310102011113310-0033311002112321-2101221321231211-0131020321033023) |
 | `vmware.not_managed.node_list.interface_list.static_ipv6_address.node_static_ip` | [vmware.not_managed.node_list.interface_list.static_ipv6_address.node_static_ip](resources--securemesh_site_v2--reference--group-019.md#canonical-2001232022213220-0212320021003220-1203212311232032-3331333302023320-3013312331222210-0230301110301220-0020102332002012-0103133331321300) |
@@ -222,8 +222,8 @@ Each exact path has one authoritative reference destination. Collection element 
 - [site_mesh_group_on_slo](resources--securemesh_site_v2--reference--group-017.md#canonical-1132320030201122-0222122012131332-0210322212020301-1032300301203333-3202102311232202-3000202023203231-1030101202313102-0300121202300311)
 - [software_settings](resources--securemesh_site_v2--reference--group-017.md#canonical-0022231303311111-0320032323222122-1103000112000213-1212111100333213-2111302213021020-3313130203211320-3301133033221310-2322002021330133)
 - [timeouts](resources--securemesh_site_v2--reference--group-017.md#canonical-2131133220012220-0222312200312320-2332131230210133-2323001331232302-0312012222021021-0213223112001210-2110313123231232-3312321032110030)
-- [upgrade_settings](resources--securemesh_site_v2--reference--group-017.md#canonical-2122031130011121-2120222320030031-2032103312220112-3121002222230322-2332133023022103-2321103112123110-2013202113333333-2203321000331223)
-- [vmware](resources--securemesh_site_v2--reference--group-017.md#canonical-3001113303001011-1123231131321110-2233021103112320-0312233101131000-3202313121020020-3301002030023001-2131231233033311-1330001031200330)
+- [upgrade_settings](resources--securemesh_site_v2--reference--group-018.md#canonical-2122031130011121-2120222320030031-2032103312220112-3121002222230322-2332133023022103-2321103112123110-2013202113333333-2203321000331223)
+- [vmware](resources--securemesh_site_v2--reference--group-018.md#canonical-3001113303001011-1123231131321110-2233021103112320-0312233101131000-3202313121020020-3301002030023001-2131231233033311-1330001031200330)
 - [xcsh_securemesh_site_v2](../resources/securemesh_site_v2.md#canonical-3000200222223112-2121123210332232-3331131023113311-0101321102313201-1230101233301033-1102230312220221-1020100000200232-0100112322233120)
 
 <a id="canonical-3310233122203010-0332320002300320-2331123231131321-0313313323121201-1111200133001032-0002303100331000-3011120302021001-1133033311121312"></a>
@@ -1520,9 +1520,9 @@ OneOf alternatives in this subsection:
 - [kvm](resources--securemesh_site_v2--reference--group-010.md#canonical-3200011220002023-3002321213101032-3320012101030001-0002211010233312-1133321102002011-0013220032121103-1330120002111201-1130031202103111)
 - [nutanix](resources--securemesh_site_v2--reference--group-012.md#canonical-1210012123223033-3213322002010300-1021212010202320-1123300232210200-2332210120200203-3222221311223100-3020212001233310-2032320102120102)
 - [oci](resources--securemesh_site_v2--reference--group-013.md#canonical-2201132123330101-1202132101032121-3211232123013100-2201213331013122-1203112031100031-2310320333103212-3013300202203221-0202021112102331)
-- [openshift_virtualization](resources--securemesh_site_v2--reference--group-014.md#canonical-3003123030210310-0301231331323231-0021331202123232-3303321030311102-3012130232302131-0202020101313000-2300110212321333-3123322121330230)
+- [openshift_virtualization](resources--securemesh_site_v2--reference--group-015.md#canonical-3003123030210310-0301231331323231-0021331202123232-3303321030311102-3012130232302131-0202020101313000-2300110212321333-3123322121330230)
 - [openstack](resources--securemesh_site_v2--reference--group-016.md#canonical-2201321203200030-2221013332323000-2322311113130010-2100020321100012-2121310021131033-1123013102021223-1310301202122112-3313312103100001)
-- [vmware](resources--securemesh_site_v2--reference--group-017.md#canonical-0013121331333101-0110031232203120-1332123300101323-0213331300203303-3102322233201100-0101131220111322-2213230000203031-1133112232132230)
+- [vmware](resources--securemesh_site_v2--reference--group-018.md#canonical-0013121331333101-0110031232203120-1332123300101323-0213331300203303-3102322233201100-0101131220111322-2213230000203031-1133112232132230)
 
 Select alternatives according to the provider validators above.
 
@@ -2029,18 +2029,39 @@ Type: `["map", "string"]`. Optional.
 
 Add Labels for this Interface, these labels can be used in firewall policy.
 
+Provider validators and defaults (from schema source):
+
+```go
+Validators: []validator.Map{validators.MapConstraintsValidator("{\"cardinality\":{\"maxProperties\":16},\"category\":\"discovery\",\"constraintType\":\"map\",\"deterministic\":true,\"keys\":{\"maxLength\":64,\"minLength\":1,\"type\":\"string\"},\"originalRules\":{\"ves.io.schema.rules.map.keys.string.max_len\":\"64\",\"ves.io.schema.rules.map.keys.string.min_len\":\"1\",\"ves.io.schema.rules.map.max_pairs\":\"16\",\"ves.io.schema.rules.map.values.string.max_len\":\"64\",\"ves.io.schema.rules.map.values.string.min_len\":\"1\"},\"values\":{\"maxLength\":64,\"minLength\":1,\"type\":\"string\"}}")}
+```
+
 Receipt-pinned upstream constraints:
 
 ```json
 {
   "x-f5xc-constraints": {
-    "category": "general",
-    "constraintType": "object",
-    "maxProperties": 16,
-    "metadata": {
-      "confidence": 0.75,
-      "source": "inferred",
-      "validatedAt": "2026-10-03T05:10:26+00:00"
+    "cardinality": {
+      "maxProperties": 16
+    },
+    "category": "discovery",
+    "constraintType": "map",
+    "deterministic": true,
+    "keys": {
+      "maxLength": 64,
+      "minLength": 1,
+      "type": "string"
+    },
+    "originalRules": {
+      "ves.io.schema.rules.map.keys.string.max_len": "64",
+      "ves.io.schema.rules.map.keys.string.min_len": "1",
+      "ves.io.schema.rules.map.max_pairs": "16",
+      "ves.io.schema.rules.map.values.string.max_len": "64",
+      "ves.io.schema.rules.map.values.string.min_len": "1"
+    },
+    "values": {
+      "maxLength": 64,
+      "minLength": 1,
+      "type": "string"
     }
   },
   "x-f5xc-required-for": {
@@ -2944,18 +2965,39 @@ Type: `["map", "string"]`. Optional.
 
 Assign fixed IPv4 addresses based on the MAC Address of the DHCP Client.
 
+Provider validators and defaults (from schema source):
+
+```go
+Validators: []validator.Map{validators.MapConstraintsValidator("{\"cardinality\":{\"maxProperties\":128},\"category\":\"discovery\",\"constraintType\":\"map\",\"crossEntry\":{\"uniqueValues\":true},\"deterministic\":true,\"keys\":{\"format\":\"mac-address\",\"type\":\"string\"},\"originalRules\":{\"ves.io.schema.rules.map.keys.string.mac\":\"true\",\"ves.io.schema.rules.map.max_pairs\":\"128\",\"ves.io.schema.rules.map.unique_values\":\"true\",\"ves.io.schema.rules.map.values.string.ipv4\":\"true\"},\"values\":{\"format\":\"ipv4\",\"type\":\"string\"}}")}
+```
+
 Receipt-pinned upstream constraints:
 
 ```json
 {
   "x-f5xc-constraints": {
-    "category": "general",
-    "constraintType": "object",
-    "maxProperties": 128,
-    "metadata": {
-      "confidence": 0.75,
-      "source": "inferred",
-      "validatedAt": "2026-10-03T05:10:26+00:00"
+    "cardinality": {
+      "maxProperties": 128
+    },
+    "category": "discovery",
+    "constraintType": "map",
+    "crossEntry": {
+      "uniqueValues": true
+    },
+    "deterministic": true,
+    "keys": {
+      "format": "mac-address",
+      "type": "string"
+    },
+    "originalRules": {
+      "ves.io.schema.rules.map.keys.string.mac": "true",
+      "ves.io.schema.rules.map.max_pairs": "128",
+      "ves.io.schema.rules.map.unique_values": "true",
+      "ves.io.schema.rules.map.values.string.ipv4": "true"
+    },
+    "values": {
+      "format": "ipv4",
+      "type": "string"
     }
   },
   "x-f5xc-required-for": {
@@ -3895,18 +3937,37 @@ Type: `["map", "string"]`. Optional.
 
 Specify static IPv4 addresses per site:node.
 
+Provider validators and defaults (from schema source):
+
+```go
+Validators: []validator.Map{validators.MapConstraintsValidator("{\"cardinality\":{\"maxProperties\":64},\"category\":\"discovery\",\"constraintType\":\"map\",\"deterministic\":true,\"keys\":{\"maxLength\":128,\"minLength\":1,\"type\":\"string\"},\"originalRules\":{\"ves.io.schema.rules.map.keys.string.max_len\":\"128\",\"ves.io.schema.rules.map.keys.string.min_len\":\"1\",\"ves.io.schema.rules.map.max_pairs\":\"64\",\"ves.io.schema.rules.map.values.string.ipv4\":\"true\"},\"values\":{\"format\":\"ipv4\",\"type\":\"string\"}}")}
+```
+
 Receipt-pinned upstream constraints:
 
 ```json
 {
   "x-f5xc-constraints": {
-    "category": "general",
-    "constraintType": "object",
-    "maxProperties": 64,
-    "metadata": {
-      "confidence": 0.75,
-      "source": "inferred",
-      "validatedAt": "2026-10-03T05:10:26+00:00"
+    "cardinality": {
+      "maxProperties": 64
+    },
+    "category": "discovery",
+    "constraintType": "map",
+    "deterministic": true,
+    "keys": {
+      "maxLength": 128,
+      "minLength": 1,
+      "type": "string"
+    },
+    "originalRules": {
+      "ves.io.schema.rules.map.keys.string.max_len": "128",
+      "ves.io.schema.rules.map.keys.string.min_len": "1",
+      "ves.io.schema.rules.map.max_pairs": "64",
+      "ves.io.schema.rules.map.values.string.ipv4": "true"
+    },
+    "values": {
+      "format": "ipv4",
+      "type": "string"
     }
   },
   "x-f5xc-required-for": {

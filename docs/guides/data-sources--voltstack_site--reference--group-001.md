@@ -88,6 +88,27 @@ Receipt-pinned upstream constraints:
 
 ```json
 {
+  "x-f5xc-constraints": {
+    "category": "discovery",
+    "constraintType": "map",
+    "deterministic": true,
+    "keys": {
+      "maxLength": 64,
+      "minLength": 1,
+      "type": "string"
+    },
+    "originalRules": {
+      "ves.io.schema.rules.map.keys.string.max_len": "64",
+      "ves.io.schema.rules.map.keys.string.min_len": "1",
+      "ves.io.schema.rules.map.values.string.max_len": "1024",
+      "ves.io.schema.rules.map.values.string.min_len": "1"
+    },
+    "values": {
+      "maxLength": 1024,
+      "minLength": 1,
+      "type": "string"
+    }
+  },
   "x-f5xc-required-for": {
     "create": false,
     "minimum_config": false,
@@ -191,7 +212,7 @@ Receipt-pinned upstream constraints:
 
 - [enable_vgpu](data-sources--voltstack_site--reference--group-008.md#canonical-1131330000323001-2000332111122333-3330122310233213-2112201320320113-3011213113023220-1211302100220022-2031013022001131-1002210211033323): complete subsection reference.
 
-- [enable_vm](data-sources--voltstack_site--reference--group-008.md#canonical-2120033220230201-3201323001000303-2300010003321030-1322013303121300-1311012110311000-2112222220331213-2322312333333022-2023330301130102): complete subsection reference.
+- [enable_vm](data-sources--voltstack_site--reference--group-009.md#canonical-2120033220230201-3201323001000303-2300010003321030-1322013303121300-1311012110311000-2112222220331213-2322312333333022-2023330301130102): complete subsection reference.
 
 <a id="canonical-0120001012211001-2132003111030330-3110213113121033-2103112023111013-2132013232300212-0122200121103031-0312221002313111-1123133333133021"></a>
 

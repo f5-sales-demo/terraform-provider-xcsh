@@ -245,7 +245,7 @@
       "section_id": "xcsh-docs:resources:securemesh_site_v2:properties:nutanix:not_managed:node_list:interface_list:ipv6_auto_config:router:stateful:interface_ip_map:section:0",
       "source_sha256": "sha256:197d41522a9dd286cb9805a03d8a5bd782cc3f3fd95ea854bf2dfc326e83e50c",
       "source_bytes": 99,
-      "canonical_source_sha256": "sha256:06360a7b3aace458b0b536bba98920ae20f17c23c5644440c50a13d920e1c0bd",
+      "canonical_source_sha256": "sha256:150dfcd82a16c1ee659df8ae3aa500f68968384eb32b769b08ac137d9a5be2fa",
       "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/resources/securemesh_site_v2/properties/nutanix/not_managed/node_list/interface_list/ipv6_auto_config/router/stateful/interface_ip_map/",
       "anchor": "canonical-2223032132132023-2333110001300313-3232022020101133-1220102002001232-1000303023033321-1111222032312301-2231110132312132-1001321031102100",
       "anchor_map": [],
@@ -257,7 +257,7 @@
       "section_id": "xcsh-docs:resources:securemesh_site_v2:properties:nutanix:not_managed:node_list:interface_list:ipv6_auto_config:router:stateful:interface_ip_map:section:1",
       "source_sha256": "sha256:3982ee6654f15b3b273c1e96c7f879060d4940155ffe7f43db3af2a1fca8d866",
       "source_bytes": 2180,
-      "canonical_source_sha256": "sha256:06360a7b3aace458b0b536bba98920ae20f17c23c5644440c50a13d920e1c0bd",
+      "canonical_source_sha256": "sha256:150dfcd82a16c1ee659df8ae3aa500f68968384eb32b769b08ac137d9a5be2fa",
       "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/resources/securemesh_site_v2/properties/nutanix/not_managed/node_list/interface_list/ipv6_auto_config/router/stateful/interface_ip_map/",
       "anchor": "canonical-3331212003302120-1022002012330033-0231211212323003-2232313331300030-1102332323132113-3120232223022320-1031222111102123-1013101020201213",
       "anchor_map": [
@@ -274,7 +274,7 @@
       "section_id": "xcsh-docs:resources:securemesh_site_v2:properties:nutanix:not_managed:node_list:interface_list:ipv6_auto_config:router:stateful:interface_ip_map:section:2",
       "source_sha256": "sha256:cd4ad79039a0029316f98bed691fa3051575bf5be25b1f67e4e8b844310e2729",
       "source_bytes": 163,
-      "canonical_source_sha256": "sha256:06360a7b3aace458b0b536bba98920ae20f17c23c5644440c50a13d920e1c0bd",
+      "canonical_source_sha256": "sha256:150dfcd82a16c1ee659df8ae3aa500f68968384eb32b769b08ac137d9a5be2fa",
       "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/resources/securemesh_site_v2/properties/nutanix/not_managed/node_list/interface_list/ipv6_auto_config/router/stateful/interface_ip_map/",
       "anchor": "canonical-0200111320131333-1000220323020233-1231301232031230-1223212231322231-1320011122100313-1322232031223330-3232131301131103-3323022210111033",
       "anchor_map": [
@@ -289,9 +289,9 @@
     {
       "canonical_id": "xcsh-docs:resources:securemesh_site_v2:properties:nutanix:not_managed:node_list:interface_list:ipv6_auto_config:router:stateful:interface_ip_map",
       "section_id": "xcsh-docs:resources:securemesh_site_v2:properties:nutanix:not_managed:node_list:interface_list:ipv6_auto_config:router:stateful:interface_ip_map:section:3",
-      "source_sha256": "sha256:e862363040c00c64b88756b1255bdd4015285ad49ea7910f3628375d4379171f",
-      "source_bytes": 1108,
-      "canonical_source_sha256": "sha256:06360a7b3aace458b0b536bba98920ae20f17c23c5644440c50a13d920e1c0bd",
+      "source_sha256": "sha256:cae05dfc3c01c71a356fe0861b987c92c5bdb0d1150b15ef0d8fdaa4c1b3f438",
+      "source_bytes": 2052,
+      "canonical_source_sha256": "sha256:150dfcd82a16c1ee659df8ae3aa500f68968384eb32b769b08ac137d9a5be2fa",
       "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/resources/securemesh_site_v2/properties/nutanix/not_managed/node_list/interface_list/ipv6_auto_config/router/stateful/interface_ip_map/",
       "anchor": "canonical-0033213230302011-1222033330021330-1330331002210232-0110312123223000-1333000022000023-0130100133210312-1220033311202121-2101201122220033",
       "anchor_map": [],
@@ -303,7 +303,7 @@
       "section_id": "xcsh-docs:resources:securemesh_site_v2:properties:nutanix:not_managed:node_list:interface_list:ipv6_auto_config:router:stateful:interface_ip_map:section:4",
       "source_sha256": "sha256:d5e07eeece202db8be79d6cee667e1d21e517215fd46b87f584a32ee3e7e8e22",
       "source_bytes": 388,
-      "canonical_source_sha256": "sha256:06360a7b3aace458b0b536bba98920ae20f17c23c5644440c50a13d920e1c0bd",
+      "canonical_source_sha256": "sha256:150dfcd82a16c1ee659df8ae3aa500f68968384eb32b769b08ac137d9a5be2fa",
       "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/resources/securemesh_site_v2/properties/nutanix/not_managed/node_list/interface_list/ipv6_auto_config/router/stateful/interface_ip_map/",
       "anchor": "canonical-1132030301112023-2313313013133310-1210200210130131-3210202002232312-2303122120212032-3132331331332122-2030023313303120-0233312033013233",
       "anchor_map": [],
@@ -949,7 +949,7 @@
       "section_id": "xcsh-docs:resources:securemesh_site_v2:properties:nutanix:not_managed:node_list:interface_list:static_ipv6_address:cluster_static_ip:section:0",
       "source_sha256": "sha256:197d41522a9dd286cb9805a03d8a5bd782cc3f3fd95ea854bf2dfc326e83e50c",
       "source_bytes": 99,
-      "canonical_source_sha256": "sha256:5a91451247a12668b7a3104b615bc2cc0cf2e0cb177ddaf333a92f424f12d7a0",
+      "canonical_source_sha256": "sha256:23cee01958460a3e06d083df7d00330a525c0d6fd2b066e0f1fcbea88ea5fa10",
       "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/resources/securemesh_site_v2/properties/nutanix/not_managed/node_list/interface_list/static_ipv6_address/cluster_static_ip/",
       "anchor": "canonical-2102032130303323-0323002203023103-0033001333320102-1001323333312302-2011123323232233-0200031001102321-3331120320120122-1032022203331022",
       "anchor_map": [],
@@ -961,7 +961,7 @@
       "section_id": "xcsh-docs:resources:securemesh_site_v2:properties:nutanix:not_managed:node_list:interface_list:static_ipv6_address:cluster_static_ip:section:1",
       "source_sha256": "sha256:ae7657f29414424ab320391fd3bd143e01a6ee3ee7e0714fe59da81f9466d81b",
       "source_bytes": 1665,
-      "canonical_source_sha256": "sha256:5a91451247a12668b7a3104b615bc2cc0cf2e0cb177ddaf333a92f424f12d7a0",
+      "canonical_source_sha256": "sha256:23cee01958460a3e06d083df7d00330a525c0d6fd2b066e0f1fcbea88ea5fa10",
       "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/resources/securemesh_site_v2/properties/nutanix/not_managed/node_list/interface_list/static_ipv6_address/cluster_static_ip/",
       "anchor": "canonical-1022310113332200-2111002112020212-0211032310321301-1021133212322221-1020220102320210-3111311021321002-0002331330000201-0212233101022132",
       "anchor_map": [
@@ -978,7 +978,7 @@
       "section_id": "xcsh-docs:resources:securemesh_site_v2:properties:nutanix:not_managed:node_list:interface_list:static_ipv6_address:cluster_static_ip:section:2",
       "source_sha256": "sha256:18ecf554e5b288825a19c815c931f81510ce804c8138e86961c0d4ccb922b399",
       "source_bytes": 149,
-      "canonical_source_sha256": "sha256:5a91451247a12668b7a3104b615bc2cc0cf2e0cb177ddaf333a92f424f12d7a0",
+      "canonical_source_sha256": "sha256:23cee01958460a3e06d083df7d00330a525c0d6fd2b066e0f1fcbea88ea5fa10",
       "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/resources/securemesh_site_v2/properties/nutanix/not_managed/node_list/interface_list/static_ipv6_address/cluster_static_ip/",
       "anchor": "canonical-1223122131020001-0022123313110012-3230322202100131-1212302223022233-2321331210303230-3221120313200223-2000312100333233-0300203013332020",
       "anchor_map": [
@@ -993,9 +993,9 @@
     {
       "canonical_id": "xcsh-docs:resources:securemesh_site_v2:properties:nutanix:not_managed:node_list:interface_list:static_ipv6_address:cluster_static_ip",
       "section_id": "xcsh-docs:resources:securemesh_site_v2:properties:nutanix:not_managed:node_list:interface_list:static_ipv6_address:cluster_static_ip:section:3",
-      "source_sha256": "sha256:d967d49c520019fbdf920b77a60ef500e5e19d4d94d8844d95c8912b839a2bd3",
-      "source_bytes": 950,
-      "canonical_source_sha256": "sha256:5a91451247a12668b7a3104b615bc2cc0cf2e0cb177ddaf333a92f424f12d7a0",
+      "source_sha256": "sha256:c000f4bcc8ee1ed04761b194f89f11ed7054dfb0f7caf597000ef5c262731fb5",
+      "source_bytes": 1658,
+      "canonical_source_sha256": "sha256:23cee01958460a3e06d083df7d00330a525c0d6fd2b066e0f1fcbea88ea5fa10",
       "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/resources/securemesh_site_v2/properties/nutanix/not_managed/node_list/interface_list/static_ipv6_address/cluster_static_ip/",
       "anchor": "canonical-3000133320020303-0021020312303313-3030133033122033-0100323322221222-2012203210013323-3032120100202000-0221222101033023-2112333012033330",
       "anchor_map": [],
@@ -1007,7 +1007,7 @@
       "section_id": "xcsh-docs:resources:securemesh_site_v2:properties:nutanix:not_managed:node_list:interface_list:static_ipv6_address:cluster_static_ip:section:4",
       "source_sha256": "sha256:643e2e9e7b33aae22bf7314bf7c75511bb934ddc9ad2c8793333c5089c53f419",
       "source_bytes": 362,
-      "canonical_source_sha256": "sha256:5a91451247a12668b7a3104b615bc2cc0cf2e0cb177ddaf333a92f424f12d7a0",
+      "canonical_source_sha256": "sha256:23cee01958460a3e06d083df7d00330a525c0d6fd2b066e0f1fcbea88ea5fa10",
       "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/resources/securemesh_site_v2/properties/nutanix/not_managed/node_list/interface_list/static_ipv6_address/cluster_static_ip/",
       "anchor": "canonical-1123130333312012-2111331330023312-0200031102123032-3201122330300301-2033310220213320-0101022230221103-0020302212010020-0222003021123311",
       "anchor_map": [],
@@ -1420,7 +1420,7 @@
       "section_id": "xcsh-docs:resources:securemesh_site_v2:properties:oci:not_managed:node_list:interface_list:section:0",
       "source_sha256": "sha256:197d41522a9dd286cb9805a03d8a5bd782cc3f3fd95ea854bf2dfc326e83e50c",
       "source_bytes": 99,
-      "canonical_source_sha256": "sha256:532817588b427b259d85d507e87a29a0cc5f9cb82b691a50ae4ad70d2e3f5f28",
+      "canonical_source_sha256": "sha256:34a95ac66f9227dda669f57c55cf9c55f44fbc97b6c1cc5974d08e483fc1e070",
       "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/resources/securemesh_site_v2/properties/oci/not_managed/node_list/interface_list/",
       "anchor": "canonical-2030321032330302-1313133321122210-0010211101110131-1031132303202202-2113132123303120-2231223003113312-2113012020212120-0302301211121311",
       "anchor_map": [],
@@ -1432,7 +1432,7 @@
       "section_id": "xcsh-docs:resources:securemesh_site_v2:properties:oci:not_managed:node_list:interface_list:section:1",
       "source_sha256": "sha256:d3c579ed0fa0c57da71e4990a501fa8bfbcc7882d5f46b87e35c5ade76ffc655",
       "source_bytes": 3055,
-      "canonical_source_sha256": "sha256:532817588b427b259d85d507e87a29a0cc5f9cb82b691a50ae4ad70d2e3f5f28",
+      "canonical_source_sha256": "sha256:34a95ac66f9227dda669f57c55cf9c55f44fbc97b6c1cc5974d08e483fc1e070",
       "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/resources/securemesh_site_v2/properties/oci/not_managed/node_list/interface_list/",
       "anchor": "canonical-2121110303301201-0132021003020000-0030203321100102-3100011023222021-2010000233322213-3300003033300303-2022310312112200-2232301303323010",
       "anchor_map": [
@@ -1449,7 +1449,7 @@
       "section_id": "xcsh-docs:resources:securemesh_site_v2:properties:oci:not_managed:node_list:interface_list:section:2",
       "source_sha256": "sha256:f3359a8d000c410d6fa29addba724b014b550a30b06ada53b5f94eabf5faf9af",
       "source_bytes": 311,
-      "canonical_source_sha256": "sha256:532817588b427b259d85d507e87a29a0cc5f9cb82b691a50ae4ad70d2e3f5f28",
+      "canonical_source_sha256": "sha256:34a95ac66f9227dda669f57c55cf9c55f44fbc97b6c1cc5974d08e483fc1e070",
       "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/resources/securemesh_site_v2/properties/oci/not_managed/node_list/interface_list/",
       "anchor": "canonical-2030312301103230-0032003031031320-2020122203213021-1323302123133233-3113202210032010-0330232102033130-2003232123010002-0102002301013030",
       "anchor_map": [
@@ -1466,7 +1466,7 @@
       "section_id": "xcsh-docs:resources:securemesh_site_v2:properties:oci:not_managed:node_list:interface_list:section:3",
       "source_sha256": "sha256:3fc922c1299d399a03a8d119d590c7c0a25775e73b3905e292177eadbcf46b2f",
       "source_bytes": 1158,
-      "canonical_source_sha256": "sha256:532817588b427b259d85d507e87a29a0cc5f9cb82b691a50ae4ad70d2e3f5f28",
+      "canonical_source_sha256": "sha256:34a95ac66f9227dda669f57c55cf9c55f44fbc97b6c1cc5974d08e483fc1e070",
       "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/resources/securemesh_site_v2/properties/oci/not_managed/node_list/interface_list/",
       "anchor": "canonical-0201132321201122-2022232310303000-0120012120231300-2001331001000212-0330110031011033-1203212112232122-2313211003321211-1323023230220301",
       "anchor_map": [
@@ -1483,7 +1483,7 @@
       "section_id": "xcsh-docs:resources:securemesh_site_v2:properties:oci:not_managed:node_list:interface_list:section:4",
       "source_sha256": "sha256:d45dd5be11e055077b81add977eaec2b27fd01cc23ec7778b63f242bda285391",
       "source_bytes": 167,
-      "canonical_source_sha256": "sha256:532817588b427b259d85d507e87a29a0cc5f9cb82b691a50ae4ad70d2e3f5f28",
+      "canonical_source_sha256": "sha256:34a95ac66f9227dda669f57c55cf9c55f44fbc97b6c1cc5974d08e483fc1e070",
       "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/resources/securemesh_site_v2/properties/oci/not_managed/node_list/interface_list/",
       "anchor": "canonical-2110003111200030-0302212311233330-2001103032100023-1233333310231232-2320201203213132-0311333021322230-1012002313321103-1233200133233122",
       "anchor_map": [
@@ -1500,7 +1500,7 @@
       "section_id": "xcsh-docs:resources:securemesh_site_v2:properties:oci:not_managed:node_list:interface_list:section:5",
       "source_sha256": "sha256:3e6af5e4d60c17e78dacf5900ea855fa185d592640b30be0b983e99838cca279",
       "source_bytes": 157,
-      "canonical_source_sha256": "sha256:532817588b427b259d85d507e87a29a0cc5f9cb82b691a50ae4ad70d2e3f5f28",
+      "canonical_source_sha256": "sha256:34a95ac66f9227dda669f57c55cf9c55f44fbc97b6c1cc5974d08e483fc1e070",
       "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/resources/securemesh_site_v2/properties/oci/not_managed/node_list/interface_list/",
       "anchor": "canonical-2313302310201002-0130020311313113-1033102100230032-2131013331031320-2210200203222021-2300002010000322-2030332200232110-0300000332112200",
       "anchor_map": [
@@ -1515,9 +1515,9 @@
     {
       "canonical_id": "xcsh-docs:resources:securemesh_site_v2:properties:oci:not_managed:node_list:interface_list",
       "section_id": "xcsh-docs:resources:securemesh_site_v2:properties:oci:not_managed:node_list:interface_list:section:6",
-      "source_sha256": "sha256:1814e83cb9f3a128d30903d638ea9ec9fc6852c5c06f0882502048fd9e8b5600",
-      "source_bytes": 1643,
-      "canonical_source_sha256": "sha256:532817588b427b259d85d507e87a29a0cc5f9cb82b691a50ae4ad70d2e3f5f28",
+      "source_sha256": "sha256:c8ab54a7d990166af5e340f5eb216a8a745c2acd655af8a69daa6e7749a8fcbf",
+      "source_bytes": 2735,
+      "canonical_source_sha256": "sha256:34a95ac66f9227dda669f57c55cf9c55f44fbc97b6c1cc5974d08e483fc1e070",
       "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/resources/securemesh_site_v2/properties/oci/not_managed/node_list/interface_list/",
       "anchor": "canonical-1303230223032223-1122110221221111-3120313020130321-0310312213233122-1122312130021130-1233321303230021-1320320200311210-0130032212113030",
       "anchor_map": [
@@ -1534,7 +1534,7 @@
       "section_id": "xcsh-docs:resources:securemesh_site_v2:properties:oci:not_managed:node_list:interface_list:section:7",
       "source_sha256": "sha256:3cd2c4da6e20cb728fea2fbeebefa2ef77e485dc651425c0ce4f342b0551632c",
       "source_bytes": 1234,
-      "canonical_source_sha256": "sha256:532817588b427b259d85d507e87a29a0cc5f9cb82b691a50ae4ad70d2e3f5f28",
+      "canonical_source_sha256": "sha256:34a95ac66f9227dda669f57c55cf9c55f44fbc97b6c1cc5974d08e483fc1e070",
       "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/resources/securemesh_site_v2/properties/oci/not_managed/node_list/interface_list/",
       "anchor": "canonical-1211311310021133-3031232200321102-2001320213023000-0111302320312011-0200003231121221-1202230201122111-1033233230031033-0203102311130020",
       "anchor_map": [
@@ -1551,7 +1551,7 @@
       "section_id": "xcsh-docs:resources:securemesh_site_v2:properties:oci:not_managed:node_list:interface_list:section:8",
       "source_sha256": "sha256:f5865ca78cf15a7e74a990e2ec9a81ee60c9ad455e4845a24734c3f8ef05265b",
       "source_bytes": 2166,
-      "canonical_source_sha256": "sha256:532817588b427b259d85d507e87a29a0cc5f9cb82b691a50ae4ad70d2e3f5f28",
+      "canonical_source_sha256": "sha256:34a95ac66f9227dda669f57c55cf9c55f44fbc97b6c1cc5974d08e483fc1e070",
       "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/resources/securemesh_site_v2/properties/oci/not_managed/node_list/interface_list/",
       "anchor": "canonical-1100211013003230-2111102001032231-2100232010202000-0011103321231001-2022332021111332-1112302221311000-2031111212320000-0002013123312231",
       "anchor_map": [
@@ -1568,7 +1568,7 @@
       "section_id": "xcsh-docs:resources:securemesh_site_v2:properties:oci:not_managed:node_list:interface_list:section:9",
       "source_sha256": "sha256:d7ad78323e91c05158774557879fa05fc3cf71aa5321d5a1a0f825ad524aa7bd",
       "source_bytes": 2643,
-      "canonical_source_sha256": "sha256:532817588b427b259d85d507e87a29a0cc5f9cb82b691a50ae4ad70d2e3f5f28",
+      "canonical_source_sha256": "sha256:34a95ac66f9227dda669f57c55cf9c55f44fbc97b6c1cc5974d08e483fc1e070",
       "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/resources/securemesh_site_v2/properties/oci/not_managed/node_list/interface_list/",
       "anchor": "canonical-1120013210303300-0221201001302023-0303030013011002-3113213301311221-1113320332010320-3213300302212220-1031001223200310-3333203223121112",
       "anchor_map": [],
@@ -1580,7 +1580,7 @@
       "section_id": "xcsh-docs:resources:securemesh_site_v2:properties:oci:not_managed:node_list:interface_list:section:10",
       "source_sha256": "sha256:66fe62fcaafbae97bc527b48467a3a8721d8b4955bc8547e854d841aa31dba34",
       "source_bytes": 3606,
-      "canonical_source_sha256": "sha256:532817588b427b259d85d507e87a29a0cc5f9cb82b691a50ae4ad70d2e3f5f28",
+      "canonical_source_sha256": "sha256:34a95ac66f9227dda669f57c55cf9c55f44fbc97b6c1cc5974d08e483fc1e070",
       "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/resources/securemesh_site_v2/properties/oci/not_managed/node_list/interface_list/",
       "anchor": "canonical-0213031121212330-2012031310002310-1110222130022332-1032322331201102-2232231012030013-1102120301022032-0102010321103032-3130011230132230",
       "anchor_map": [],
@@ -1614,7 +1614,7 @@
         ]
       ],
       "mode": "embedded",
-      "registry_path": "docs/guides/resources--securemesh_site_v2--reference--group-013.md"
+      "registry_path": "docs/guides/resources--securemesh_site_v2--reference--group-014.md"
     },
     {
       "canonical_id": "xcsh-docs:resources:securemesh_site_v2:properties:oci:not_managed:node_list:interface_list:bond_interface",
@@ -1631,7 +1631,7 @@
         ]
       ],
       "mode": "embedded",
-      "registry_path": "docs/guides/resources--securemesh_site_v2--reference--group-013.md"
+      "registry_path": "docs/guides/resources--securemesh_site_v2--reference--group-014.md"
     },
     {
       "canonical_id": "xcsh-docs:resources:securemesh_site_v2:properties:oci:not_managed:node_list:interface_list:bond_interface",
@@ -1648,7 +1648,7 @@
         ]
       ],
       "mode": "embedded",
-      "registry_path": "docs/guides/resources--securemesh_site_v2--reference--group-013.md"
+      "registry_path": "docs/guides/resources--securemesh_site_v2--reference--group-014.md"
     },
     {
       "canonical_id": "xcsh-docs:resources:securemesh_site_v2:properties:oci:not_managed:node_list:interface_list:bond_interface",
@@ -1665,7 +1665,7 @@
         ]
       ],
       "mode": "embedded",
-      "registry_path": "docs/guides/resources--securemesh_site_v2--reference--group-013.md"
+      "registry_path": "docs/guides/resources--securemesh_site_v2--reference--group-014.md"
     },
     {
       "canonical_id": "xcsh-docs:resources:securemesh_site_v2:properties:oci:not_managed:node_list:interface_list:bond_interface",
@@ -1682,7 +1682,7 @@
         ]
       ],
       "mode": "embedded",
-      "registry_path": "docs/guides/resources--securemesh_site_v2--reference--group-013.md"
+      "registry_path": "docs/guides/resources--securemesh_site_v2--reference--group-014.md"
     },
     {
       "canonical_id": "xcsh-docs:resources:securemesh_site_v2:properties:oci:not_managed:node_list:interface_list:bond_interface",
@@ -1694,7 +1694,7 @@
       "anchor": "canonical-1112231112123123-2231131101312012-0021313132202313-3012231230233001-0003302232303333-1203230210333220-2001320022112303-3030202310111003",
       "anchor_map": [],
       "mode": "embedded",
-      "registry_path": "docs/guides/resources--securemesh_site_v2--reference--group-013.md"
+      "registry_path": "docs/guides/resources--securemesh_site_v2--reference--group-014.md"
     },
     {
       "canonical_id": "xcsh-docs:resources:securemesh_site_v2:properties:oci:not_managed:node_list:interface_list:bond_interface",
@@ -1706,7 +1706,7 @@
       "anchor": "canonical-2302031230220122-2111112223301023-3311220130230202-2331101103031221-0121211312012230-2022212222101200-3223011131021302-3121333331113312",
       "anchor_map": [],
       "mode": "embedded",
-      "registry_path": "docs/guides/resources--securemesh_site_v2--reference--group-013.md"
+      "registry_path": "docs/guides/resources--securemesh_site_v2--reference--group-014.md"
     },
     {
       "canonical_id": "xcsh-docs:resources:securemesh_site_v2:properties:oci:not_managed:node_list:interface_list:bond_interface:active_backup",
@@ -1718,7 +1718,7 @@
       "anchor": "canonical-1312220333003022-3312113001020101-2102000230110130-0212200203032332-3300123303100132-1230131230112131-3133103313331001-2212312203111321",
       "anchor_map": [],
       "mode": "embedded",
-      "registry_path": "docs/guides/resources--securemesh_site_v2--reference--group-013.md"
+      "registry_path": "docs/guides/resources--securemesh_site_v2--reference--group-014.md"
     },
     {
       "canonical_id": "xcsh-docs:resources:securemesh_site_v2:properties:oci:not_managed:node_list:interface_list:bond_interface:active_backup",
@@ -1735,7 +1735,7 @@
         ]
       ],
       "mode": "embedded",
-      "registry_path": "docs/guides/resources--securemesh_site_v2--reference--group-013.md"
+      "registry_path": "docs/guides/resources--securemesh_site_v2--reference--group-014.md"
     },
     {
       "canonical_id": "xcsh-docs:resources:securemesh_site_v2:properties:oci:not_managed:node_list:interface_list:bond_interface:active_backup",
@@ -1747,7 +1747,7 @@
       "anchor": "canonical-2010311020220323-3120110223033202-0323133103310301-2033220021032101-1210100330313300-1122031320003323-1203310012222110-1102232212113021",
       "anchor_map": [],
       "mode": "embedded",
-      "registry_path": "docs/guides/resources--securemesh_site_v2--reference--group-013.md"
+      "registry_path": "docs/guides/resources--securemesh_site_v2--reference--group-014.md"
     },
     {
       "canonical_id": "xcsh-docs:resources:securemesh_site_v2:properties:oci:not_managed:node_list:interface_list:bond_interface:active_backup",
@@ -1759,7 +1759,7 @@
       "anchor": "canonical-3021000230112222-3010203132201322-0321122012311231-3230111320031120-3003313100212323-0011130313111233-0300113332321122-0020333320321200",
       "anchor_map": [],
       "mode": "embedded",
-      "registry_path": "docs/guides/resources--securemesh_site_v2--reference--group-013.md"
+      "registry_path": "docs/guides/resources--securemesh_site_v2--reference--group-014.md"
     },
     {
       "canonical_id": "xcsh-docs:resources:securemesh_site_v2:properties:oci:not_managed:node_list:interface_list:bond_interface:lacp",
@@ -1771,7 +1771,7 @@
       "anchor": "canonical-3022121003032122-2302013221030012-0322223010130310-1333013320010000-2002112302011111-0220101300321313-1321221301233333-1322321102131103",
       "anchor_map": [],
       "mode": "embedded",
-      "registry_path": "docs/guides/resources--securemesh_site_v2--reference--group-013.md"
+      "registry_path": "docs/guides/resources--securemesh_site_v2--reference--group-014.md"
     },
     {
       "canonical_id": "xcsh-docs:resources:securemesh_site_v2:properties:oci:not_managed:node_list:interface_list:bond_interface:lacp",
@@ -1788,7 +1788,7 @@
         ]
       ],
       "mode": "embedded",
-      "registry_path": "docs/guides/resources--securemesh_site_v2--reference--group-013.md"
+      "registry_path": "docs/guides/resources--securemesh_site_v2--reference--group-014.md"
     },
     {
       "canonical_id": "xcsh-docs:resources:securemesh_site_v2:properties:oci:not_managed:node_list:interface_list:bond_interface:lacp",
@@ -1805,7 +1805,7 @@
         ]
       ],
       "mode": "embedded",
-      "registry_path": "docs/guides/resources--securemesh_site_v2--reference--group-013.md"
+      "registry_path": "docs/guides/resources--securemesh_site_v2--reference--group-014.md"
     },
     {
       "canonical_id": "xcsh-docs:resources:securemesh_site_v2:properties:oci:not_managed:node_list:interface_list:bond_interface:lacp",
@@ -1817,7 +1817,7 @@
       "anchor": "canonical-0212312300000031-0203231223110332-0103213302022111-2021312010202302-1101012303031130-0111212100122000-1110112121313221-2310011100100310",
       "anchor_map": [],
       "mode": "embedded",
-      "registry_path": "docs/guides/resources--securemesh_site_v2--reference--group-013.md"
+      "registry_path": "docs/guides/resources--securemesh_site_v2--reference--group-014.md"
     },
     {
       "canonical_id": "xcsh-docs:resources:securemesh_site_v2:properties:oci:not_managed:node_list:interface_list:bond_interface:lacp",
@@ -1829,7 +1829,7 @@
       "anchor": "canonical-2313220223120021-3320311020310222-3011300100103232-3200321332320220-0132220212020202-2201212320032200-2103311112320121-0230203311331102",
       "anchor_map": [],
       "mode": "embedded",
-      "registry_path": "docs/guides/resources--securemesh_site_v2--reference--group-013.md"
+      "registry_path": "docs/guides/resources--securemesh_site_v2--reference--group-014.md"
     },
     {
       "canonical_id": "xcsh-docs:resources:securemesh_site_v2:properties:oci:not_managed:node_list:interface_list:dhcp_client",
@@ -1841,7 +1841,7 @@
       "anchor": "canonical-3303112303003202-1100003211213131-3310213300320131-2233002220331030-1021200322022103-1022003023201330-0013122010113333-0312111100301001",
       "anchor_map": [],
       "mode": "embedded",
-      "registry_path": "docs/guides/resources--securemesh_site_v2--reference--group-013.md"
+      "registry_path": "docs/guides/resources--securemesh_site_v2--reference--group-014.md"
     },
     {
       "canonical_id": "xcsh-docs:resources:securemesh_site_v2:properties:oci:not_managed:node_list:interface_list:dhcp_client",
@@ -1858,7 +1858,7 @@
         ]
       ],
       "mode": "embedded",
-      "registry_path": "docs/guides/resources--securemesh_site_v2--reference--group-013.md"
+      "registry_path": "docs/guides/resources--securemesh_site_v2--reference--group-014.md"
     },
     {
       "canonical_id": "xcsh-docs:resources:securemesh_site_v2:properties:oci:not_managed:node_list:interface_list:dhcp_client",
@@ -1870,7 +1870,7 @@
       "anchor": "canonical-0021233302202020-2001210103310113-3020222313132133-3131203113123312-1023123000120103-2022021222110330-2321032310320131-3332231103110012",
       "anchor_map": [],
       "mode": "embedded",
-      "registry_path": "docs/guides/resources--securemesh_site_v2--reference--group-013.md"
+      "registry_path": "docs/guides/resources--securemesh_site_v2--reference--group-014.md"
     },
     {
       "canonical_id": "xcsh-docs:resources:securemesh_site_v2:properties:oci:not_managed:node_list:interface_list:dhcp_client",
@@ -1882,26 +1882,26 @@
       "anchor": "canonical-0111313121322133-0021133321123002-3302233331111120-0120021101130120-0102010013320210-1132200322312120-1332221320032012-3230103202102213",
       "anchor_map": [],
       "mode": "embedded",
-      "registry_path": "docs/guides/resources--securemesh_site_v2--reference--group-013.md"
+      "registry_path": "docs/guides/resources--securemesh_site_v2--reference--group-014.md"
     },
     {
       "canonical_id": "xcsh-docs:resources:securemesh_site_v2:properties:oci:not_managed:node_list:interface_list:dhcp_server",
       "section_id": "xcsh-docs:resources:securemesh_site_v2:properties:oci:not_managed:node_list:interface_list:dhcp_server:section:0",
       "source_sha256": "sha256:197d41522a9dd286cb9805a03d8a5bd782cc3f3fd95ea854bf2dfc326e83e50c",
       "source_bytes": 99,
-      "canonical_source_sha256": "sha256:3b48201d127a4bddb753a4ab05ff0ca2d005b29841fc7c7f9da69167ae44b9f0",
+      "canonical_source_sha256": "sha256:5ef6989de9bbd40aec478005c4f85fe80834f2e271f0ab37fd11e7a512308512",
       "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/resources/securemesh_site_v2/properties/oci/not_managed/node_list/interface_list/dhcp_server/",
       "anchor": "canonical-1221133003201201-0332321131311023-1311111300013323-0303333000031331-3012103321021231-2230020311132002-0032320311333013-1321312221001013",
       "anchor_map": [],
       "mode": "embedded",
-      "registry_path": "docs/guides/resources--securemesh_site_v2--reference--group-013.md"
+      "registry_path": "docs/guides/resources--securemesh_site_v2--reference--group-014.md"
     },
     {
       "canonical_id": "xcsh-docs:resources:securemesh_site_v2:properties:oci:not_managed:node_list:interface_list:dhcp_server",
       "section_id": "xcsh-docs:resources:securemesh_site_v2:properties:oci:not_managed:node_list:interface_list:dhcp_server:section:1",
       "source_sha256": "sha256:9d1028153d7d543193ff6857b548f2bebc1798bb77e5be6342d3fb4bf153cffd",
       "source_bytes": 1814,
-      "canonical_source_sha256": "sha256:3b48201d127a4bddb753a4ab05ff0ca2d005b29841fc7c7f9da69167ae44b9f0",
+      "canonical_source_sha256": "sha256:5ef6989de9bbd40aec478005c4f85fe80834f2e271f0ab37fd11e7a512308512",
       "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/resources/securemesh_site_v2/properties/oci/not_managed/node_list/interface_list/dhcp_server/",
       "anchor": "canonical-2333102120323212-0212221002013003-3113013221133210-3203130233200120-1320220032222221-3002321132203111-1030020001232301-2131010013101130",
       "anchor_map": [
@@ -1911,14 +1911,14 @@
         ]
       ],
       "mode": "embedded",
-      "registry_path": "docs/guides/resources--securemesh_site_v2--reference--group-013.md"
+      "registry_path": "docs/guides/resources--securemesh_site_v2--reference--group-014.md"
     },
     {
       "canonical_id": "xcsh-docs:resources:securemesh_site_v2:properties:oci:not_managed:node_list:interface_list:dhcp_server",
       "section_id": "xcsh-docs:resources:securemesh_site_v2:properties:oci:not_managed:node_list:interface_list:dhcp_server:section:2",
       "source_sha256": "sha256:d26a5ec71ea6902932bf1369dfbbdd0ad4874eec65841525d4bd1258f45fed57",
       "source_bytes": 791,
-      "canonical_source_sha256": "sha256:3b48201d127a4bddb753a4ab05ff0ca2d005b29841fc7c7f9da69167ae44b9f0",
+      "canonical_source_sha256": "sha256:5ef6989de9bbd40aec478005c4f85fe80834f2e271f0ab37fd11e7a512308512",
       "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/resources/securemesh_site_v2/properties/oci/not_managed/node_list/interface_list/dhcp_server/",
       "anchor": "canonical-2231103313022031-3023313330302331-3230311203123231-2112212200100133-3220321231003122-2203233230323011-2111203031201333-2211001112112133",
       "anchor_map": [
@@ -1928,14 +1928,14 @@
         ]
       ],
       "mode": "embedded",
-      "registry_path": "docs/guides/resources--securemesh_site_v2--reference--group-013.md"
+      "registry_path": "docs/guides/resources--securemesh_site_v2--reference--group-014.md"
     },
     {
       "canonical_id": "xcsh-docs:resources:securemesh_site_v2:properties:oci:not_managed:node_list:interface_list:dhcp_server",
       "section_id": "xcsh-docs:resources:securemesh_site_v2:properties:oci:not_managed:node_list:interface_list:dhcp_server:section:3",
       "source_sha256": "sha256:7e95f9d7d9661aecfccf3c5621ed10f14e507b30ddd1518efda190e4923b68de",
       "source_bytes": 174,
-      "canonical_source_sha256": "sha256:3b48201d127a4bddb753a4ab05ff0ca2d005b29841fc7c7f9da69167ae44b9f0",
+      "canonical_source_sha256": "sha256:5ef6989de9bbd40aec478005c4f85fe80834f2e271f0ab37fd11e7a512308512",
       "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/resources/securemesh_site_v2/properties/oci/not_managed/node_list/interface_list/dhcp_server/",
       "anchor": "canonical-3300032033312322-1200030330133200-0222102111013023-1033322333011000-2000313131331221-1120201000112020-0232323030222001-3010132023303210",
       "anchor_map": [
@@ -1945,31 +1945,31 @@
         ]
       ],
       "mode": "embedded",
-      "registry_path": "docs/guides/resources--securemesh_site_v2--reference--group-013.md"
+      "registry_path": "docs/guides/resources--securemesh_site_v2--reference--group-014.md"
     },
     {
       "canonical_id": "xcsh-docs:resources:securemesh_site_v2:properties:oci:not_managed:node_list:interface_list:dhcp_server",
       "section_id": "xcsh-docs:resources:securemesh_site_v2:properties:oci:not_managed:node_list:interface_list:dhcp_server:section:4",
-      "source_sha256": "sha256:59ea55c3f4ad7ad1fd4f40f0bb685775d6da65aa3fac6198d58d35e61f409d71",
-      "source_bytes": 1271,
-      "canonical_source_sha256": "sha256:3b48201d127a4bddb753a4ab05ff0ca2d005b29841fc7c7f9da69167ae44b9f0",
+      "source_sha256": "sha256:05481d1ebb506bf0f121981ae12f81d2395c57526d9b480357178c41e6af3276",
+      "source_bytes": 2277,
+      "canonical_source_sha256": "sha256:5ef6989de9bbd40aec478005c4f85fe80834f2e271f0ab37fd11e7a512308512",
       "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/resources/securemesh_site_v2/properties/oci/not_managed/node_list/interface_list/dhcp_server/",
       "anchor": "canonical-3201212321033033-2102222110323312-2202210332230013-1123320102122302-2233123010121313-3120301311011233-1131202010102110-1322010023001230",
       "anchor_map": [],
       "mode": "embedded",
-      "registry_path": "docs/guides/resources--securemesh_site_v2--reference--group-013.md"
+      "registry_path": "docs/guides/resources--securemesh_site_v2--reference--group-014.md"
     },
     {
       "canonical_id": "xcsh-docs:resources:securemesh_site_v2:properties:oci:not_managed:node_list:interface_list:dhcp_server",
       "section_id": "xcsh-docs:resources:securemesh_site_v2:properties:oci:not_managed:node_list:interface_list:dhcp_server:section:5",
       "source_sha256": "sha256:a77154ef6be0adfbf109e8acaaa6282e8eb72020c1b266699d4ab8af98a4e2ab",
       "source_bytes": 1288,
-      "canonical_source_sha256": "sha256:3b48201d127a4bddb753a4ab05ff0ca2d005b29841fc7c7f9da69167ae44b9f0",
+      "canonical_source_sha256": "sha256:5ef6989de9bbd40aec478005c4f85fe80834f2e271f0ab37fd11e7a512308512",
       "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/resources/securemesh_site_v2/properties/oci/not_managed/node_list/interface_list/dhcp_server/",
       "anchor": "canonical-0021120321332111-1213323113130100-2231201123220211-3011110221301001-1212122130130212-2323333330321233-1033113230102223-3032301132332333",
       "anchor_map": [],
       "mode": "embedded",
-      "registry_path": "docs/guides/resources--securemesh_site_v2--reference--group-013.md"
+      "registry_path": "docs/guides/resources--securemesh_site_v2--reference--group-014.md"
     },
     {
       "canonical_id": "xcsh-docs:resources:securemesh_site_v2:properties:oci:not_managed:node_list:interface_list:dhcp_server:automatic_from_end",
@@ -1981,7 +1981,7 @@
       "anchor": "canonical-2303000213222023-1003313320223021-0000001233221111-2102312301113313-0120012231212310-2302100030212233-0103313222013230-3011321001203130",
       "anchor_map": [],
       "mode": "embedded",
-      "registry_path": "docs/guides/resources--securemesh_site_v2--reference--group-013.md"
+      "registry_path": "docs/guides/resources--securemesh_site_v2--reference--group-014.md"
     },
     {
       "canonical_id": "xcsh-docs:resources:securemesh_site_v2:properties:oci:not_managed:node_list:interface_list:dhcp_server:automatic_from_end",
@@ -2466,7 +2466,7 @@
       "section_id": "xcsh-docs:resources:securemesh_site_v2:properties:oci:not_managed:node_list:interface_list:dhcp_server:interface_ip_map:section:0",
       "source_sha256": "sha256:197d41522a9dd286cb9805a03d8a5bd782cc3f3fd95ea854bf2dfc326e83e50c",
       "source_bytes": 99,
-      "canonical_source_sha256": "sha256:869e3bf72814a04759e4bf07882b9aca3a27fbb932945667ece97feb32a7cd8d",
+      "canonical_source_sha256": "sha256:e3df75dc6467002d1362e4ec9175d7603a095d2cf775fa5f31f7339920c8eec3",
       "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/resources/securemesh_site_v2/properties/oci/not_managed/node_list/interface_list/dhcp_server/interface_ip_map/",
       "anchor": "canonical-2323022122021103-2102101223130012-2102022220321102-1211031332122313-2232233011233122-1110010000322221-0202321131301223-2230321120333113",
       "anchor_map": [],
@@ -2478,7 +2478,7 @@
       "section_id": "xcsh-docs:resources:securemesh_site_v2:properties:oci:not_managed:node_list:interface_list:dhcp_server:interface_ip_map:section:1",
       "source_sha256": "sha256:7496a2cd861a297ea950a1b5f6bb8fedc177b9f8a68128660c4f25a1db27e200",
       "source_bytes": 1670,
-      "canonical_source_sha256": "sha256:869e3bf72814a04759e4bf07882b9aca3a27fbb932945667ece97feb32a7cd8d",
+      "canonical_source_sha256": "sha256:e3df75dc6467002d1362e4ec9175d7603a095d2cf775fa5f31f7339920c8eec3",
       "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/resources/securemesh_site_v2/properties/oci/not_managed/node_list/interface_list/dhcp_server/interface_ip_map/",
       "anchor": "canonical-0031133331213113-2321123220111300-0023123213013211-3213023331313002-2001001002030003-3330200133312330-1002332232012022-1300301303203131",
       "anchor_map": [
@@ -2495,7 +2495,7 @@
       "section_id": "xcsh-docs:resources:securemesh_site_v2:properties:oci:not_managed:node_list:interface_list:dhcp_server:interface_ip_map:section:2",
       "source_sha256": "sha256:e24c53d72e0482520418fb01da158b533715ad4d50a645a8688af9cc73684d50",
       "source_bytes": 136,
-      "canonical_source_sha256": "sha256:869e3bf72814a04759e4bf07882b9aca3a27fbb932945667ece97feb32a7cd8d",
+      "canonical_source_sha256": "sha256:e3df75dc6467002d1362e4ec9175d7603a095d2cf775fa5f31f7339920c8eec3",
       "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/resources/securemesh_site_v2/properties/oci/not_managed/node_list/interface_list/dhcp_server/interface_ip_map/",
       "anchor": "canonical-2323103220203332-3312220213321202-2122311031021030-1322002101013313-1220221131100023-1121212231332230-1200013300023022-0203123103333330",
       "anchor_map": [
@@ -2510,9 +2510,9 @@
     {
       "canonical_id": "xcsh-docs:resources:securemesh_site_v2:properties:oci:not_managed:node_list:interface_list:dhcp_server:interface_ip_map",
       "section_id": "xcsh-docs:resources:securemesh_site_v2:properties:oci:not_managed:node_list:interface_list:dhcp_server:interface_ip_map:section:3",
-      "source_sha256": "sha256:33c4101e12409f85b3e5f997d3f452cde8fa74b065fd49352f67886cc064e72f",
-      "source_bytes": 1034,
-      "canonical_source_sha256": "sha256:869e3bf72814a04759e4bf07882b9aca3a27fbb932945667ece97feb32a7cd8d",
+      "source_sha256": "sha256:765d52ac396c04ed48a8c9c30729c14d66e6ecc96f846ca87db05c8cba1c49c1",
+      "source_bytes": 1978,
+      "canonical_source_sha256": "sha256:e3df75dc6467002d1362e4ec9175d7603a095d2cf775fa5f31f7339920c8eec3",
       "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/resources/securemesh_site_v2/properties/oci/not_managed/node_list/interface_list/dhcp_server/interface_ip_map/",
       "anchor": "canonical-1013221112122211-3030230320022111-1332012312002132-3023132331030213-1232233221331031-1312022310103002-3332212300002222-2120232213322133",
       "anchor_map": [],
@@ -2524,7 +2524,7 @@
       "section_id": "xcsh-docs:resources:securemesh_site_v2:properties:oci:not_managed:node_list:interface_list:dhcp_server:interface_ip_map:section:4",
       "source_sha256": "sha256:4731daea635b247ba0a006436df3496798a1415594cb27c5b2db1cfc229c6ee1",
       "source_bytes": 338,
-      "canonical_source_sha256": "sha256:869e3bf72814a04759e4bf07882b9aca3a27fbb932945667ece97feb32a7cd8d",
+      "canonical_source_sha256": "sha256:e3df75dc6467002d1362e4ec9175d7603a095d2cf775fa5f31f7339920c8eec3",
       "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/resources/securemesh_site_v2/properties/oci/not_managed/node_list/interface_list/dhcp_server/interface_ip_map/",
       "anchor": "canonical-0202232033012202-2112133023102030-3120030032123000-2112300111002010-2333030331132030-0310002011032132-1331021032223013-0121133200223130",
       "anchor_map": [],
@@ -3098,7 +3098,7 @@
       "section_id": "xcsh-docs:resources:securemesh_site_v2:properties:oci:not_managed:node_list:interface_list:ipv6_auto_config:router:stateful:section:0",
       "source_sha256": "sha256:197d41522a9dd286cb9805a03d8a5bd782cc3f3fd95ea854bf2dfc326e83e50c",
       "source_bytes": 99,
-      "canonical_source_sha256": "sha256:fb42304b84053b093e8b7cd3acc5aeafbe7baad5972c2f0fdba71f03b273beda",
+      "canonical_source_sha256": "sha256:a172a28fa3b3c4a56044ed77da26311897481ff687d906853a27b1bcf3d9c78d",
       "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/resources/securemesh_site_v2/properties/oci/not_managed/node_list/interface_list/ipv6_auto_config/router/stateful/",
       "anchor": "canonical-1312122030232112-3031100013032102-1222232223122002-0020003332312321-2332012311132231-0300311031221231-1002330010131101-3033313033300022",
       "anchor_map": [],
@@ -3110,7 +3110,7 @@
       "section_id": "xcsh-docs:resources:securemesh_site_v2:properties:oci:not_managed:node_list:interface_list:ipv6_auto_config:router:stateful:section:1",
       "source_sha256": "sha256:ce6c682c75384bf6bb97366ccaf345a3c589a430976e91391c801a25de7e69d4",
       "source_bytes": 2354,
-      "canonical_source_sha256": "sha256:fb42304b84053b093e8b7cd3acc5aeafbe7baad5972c2f0fdba71f03b273beda",
+      "canonical_source_sha256": "sha256:a172a28fa3b3c4a56044ed77da26311897481ff687d906853a27b1bcf3d9c78d",
       "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/resources/securemesh_site_v2/properties/oci/not_managed/node_list/interface_list/ipv6_auto_config/router/stateful/",
       "anchor": "canonical-3221231013030311-1232210012010310-3130113323230223-1322130310130310-3220231002120300-1202123212231113-2120303021233302-2012001200122003",
       "anchor_map": [
@@ -3127,7 +3127,7 @@
       "section_id": "xcsh-docs:resources:securemesh_site_v2:properties:oci:not_managed:node_list:interface_list:ipv6_auto_config:router:stateful:section:2",
       "source_sha256": "sha256:5c84acaad83166ca8c5a8e00c7b85d4de218581f340f6dcae8e1bf7612babd1f",
       "source_bytes": 872,
-      "canonical_source_sha256": "sha256:fb42304b84053b093e8b7cd3acc5aeafbe7baad5972c2f0fdba71f03b273beda",
+      "canonical_source_sha256": "sha256:a172a28fa3b3c4a56044ed77da26311897481ff687d906853a27b1bcf3d9c78d",
       "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/resources/securemesh_site_v2/properties/oci/not_managed/node_list/interface_list/ipv6_auto_config/router/stateful/",
       "anchor": "canonical-1001313102033133-3313030320212323-2032003021123003-1111333030031102-2323100321201220-3210003201222122-3123231131032121-2000332231203332",
       "anchor_map": [
@@ -3142,9 +3142,9 @@
     {
       "canonical_id": "xcsh-docs:resources:securemesh_site_v2:properties:oci:not_managed:node_list:interface_list:ipv6_auto_config:router:stateful",
       "section_id": "xcsh-docs:resources:securemesh_site_v2:properties:oci:not_managed:node_list:interface_list:ipv6_auto_config:router:stateful:section:3",
-      "source_sha256": "sha256:4e9a6daf11396f8e4c2b99ff76f449c263087b2a97b52792bd9196d625c0f413",
-      "source_bytes": 1543,
-      "canonical_source_sha256": "sha256:fb42304b84053b093e8b7cd3acc5aeafbe7baad5972c2f0fdba71f03b273beda",
+      "source_sha256": "sha256:212945c358cf8795cf9eec52721bb5aba10ec643f694d26399e216b6b0fbdc0c",
+      "source_bytes": 2549,
+      "canonical_source_sha256": "sha256:a172a28fa3b3c4a56044ed77da26311897481ff687d906853a27b1bcf3d9c78d",
       "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/resources/securemesh_site_v2/properties/oci/not_managed/node_list/interface_list/ipv6_auto_config/router/stateful/",
       "anchor": "canonical-0322013210010110-1233213213103030-3110223020220302-0301213302032332-0001223021300321-0302231122312131-3312102220011111-2132301201201100",
       "anchor_map": [],
@@ -3156,7 +3156,7 @@
       "section_id": "xcsh-docs:resources:securemesh_site_v2:properties:oci:not_managed:node_list:interface_list:ipv6_auto_config:router:stateful:section:4",
       "source_sha256": "sha256:84732c4487856926be42f3d33afe146bead872ff98649d97ef5f774a26370cd6",
       "source_bytes": 1504,
-      "canonical_source_sha256": "sha256:fb42304b84053b093e8b7cd3acc5aeafbe7baad5972c2f0fdba71f03b273beda",
+      "canonical_source_sha256": "sha256:a172a28fa3b3c4a56044ed77da26311897481ff687d906853a27b1bcf3d9c78d",
       "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/resources/securemesh_site_v2/properties/oci/not_managed/node_list/interface_list/ipv6_auto_config/router/stateful/",
       "anchor": "canonical-1333321101223230-3200131223022222-3113101123103330-3131031333302022-3133000033023200-3003200200311210-3223111211013220-0112022011123323",
       "anchor_map": [],
@@ -3448,7 +3448,7 @@
       "section_id": "xcsh-docs:resources:securemesh_site_v2:properties:oci:not_managed:node_list:interface_list:ipv6_auto_config:router:stateful:interface_ip_map:section:0",
       "source_sha256": "sha256:197d41522a9dd286cb9805a03d8a5bd782cc3f3fd95ea854bf2dfc326e83e50c",
       "source_bytes": 99,
-      "canonical_source_sha256": "sha256:fc6964b69ce181cf1ec35089d8ce37f1b319dcaab3bf8794ded5d9047696ff36",
+      "canonical_source_sha256": "sha256:a20df4e9262076f2bf04f33d8c10877ac49b0e7338a69a8e4174d34cf9678038",
       "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/resources/securemesh_site_v2/properties/oci/not_managed/node_list/interface_list/ipv6_auto_config/router/stateful/interface_ip_map/",
       "anchor": "canonical-3232320222301203-2321001231001012-3212122121323001-1133023211320223-0310023021030111-0133210202230221-3020221122300220-2221011210331013",
       "anchor_map": [],
@@ -3460,7 +3460,7 @@
       "section_id": "xcsh-docs:resources:securemesh_site_v2:properties:oci:not_managed:node_list:interface_list:ipv6_auto_config:router:stateful:interface_ip_map:section:1",
       "source_sha256": "sha256:027cba577b6c3de08985cd4d5a947651b1f261fc0062d023b5a17a5bc76b468b",
       "source_bytes": 2116,
-      "canonical_source_sha256": "sha256:fc6964b69ce181cf1ec35089d8ce37f1b319dcaab3bf8794ded5d9047696ff36",
+      "canonical_source_sha256": "sha256:a20df4e9262076f2bf04f33d8c10877ac49b0e7338a69a8e4174d34cf9678038",
       "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/resources/securemesh_site_v2/properties/oci/not_managed/node_list/interface_list/ipv6_auto_config/router/stateful/interface_ip_map/",
       "anchor": "canonical-0112031320002221-1110221203122023-1213000031230120-0213330133021000-2221210023231332-0021332100022003-3202223112000121-1031203323310210",
       "anchor_map": [
@@ -3477,7 +3477,7 @@
       "section_id": "xcsh-docs:resources:securemesh_site_v2:properties:oci:not_managed:node_list:interface_list:ipv6_auto_config:router:stateful:interface_ip_map:section:2",
       "source_sha256": "sha256:aef1814ab15ee91c48e3a616fb82b7101bb6ca8f3082527abf470978ea0a8f9a",
       "source_bytes": 159,
-      "canonical_source_sha256": "sha256:fc6964b69ce181cf1ec35089d8ce37f1b319dcaab3bf8794ded5d9047696ff36",
+      "canonical_source_sha256": "sha256:a20df4e9262076f2bf04f33d8c10877ac49b0e7338a69a8e4174d34cf9678038",
       "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/resources/securemesh_site_v2/properties/oci/not_managed/node_list/interface_list/ipv6_auto_config/router/stateful/interface_ip_map/",
       "anchor": "canonical-1112233120313333-1020033010201001-0013320320021120-1331110302023133-3232330220312030-0001212330301211-0203213310020123-1031301232220332",
       "anchor_map": [
@@ -3492,9 +3492,9 @@
     {
       "canonical_id": "xcsh-docs:resources:securemesh_site_v2:properties:oci:not_managed:node_list:interface_list:ipv6_auto_config:router:stateful:interface_ip_map",
       "section_id": "xcsh-docs:resources:securemesh_site_v2:properties:oci:not_managed:node_list:interface_list:ipv6_auto_config:router:stateful:interface_ip_map:section:3",
-      "source_sha256": "sha256:e862363040c00c64b88756b1255bdd4015285ad49ea7910f3628375d4379171f",
-      "source_bytes": 1108,
-      "canonical_source_sha256": "sha256:fc6964b69ce181cf1ec35089d8ce37f1b319dcaab3bf8794ded5d9047696ff36",
+      "source_sha256": "sha256:cae05dfc3c01c71a356fe0861b987c92c5bdb0d1150b15ef0d8fdaa4c1b3f438",
+      "source_bytes": 2052,
+      "canonical_source_sha256": "sha256:a20df4e9262076f2bf04f33d8c10877ac49b0e7338a69a8e4174d34cf9678038",
       "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/resources/securemesh_site_v2/properties/oci/not_managed/node_list/interface_list/ipv6_auto_config/router/stateful/interface_ip_map/",
       "anchor": "canonical-1311012120220200-0010310002310131-3220202302303331-1202121322030332-1232313011331331-3020220012000030-1231100320131120-3310200103020130",
       "anchor_map": [],
@@ -3506,7 +3506,7 @@
       "section_id": "xcsh-docs:resources:securemesh_site_v2:properties:oci:not_managed:node_list:interface_list:ipv6_auto_config:router:stateful:interface_ip_map:section:4",
       "source_sha256": "sha256:ac9b8d2dbfe979439ff8448ccf510dc20990353cbc3e1aac02b8560cf5fc4134",
       "source_bytes": 380,
-      "canonical_source_sha256": "sha256:fc6964b69ce181cf1ec35089d8ce37f1b319dcaab3bf8794ded5d9047696ff36",
+      "canonical_source_sha256": "sha256:a20df4e9262076f2bf04f33d8c10877ac49b0e7338a69a8e4174d34cf9678038",
       "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/resources/securemesh_site_v2/properties/oci/not_managed/node_list/interface_list/ipv6_auto_config/router/stateful/interface_ip_map/",
       "anchor": "canonical-3223113212101233-2023312233232112-1211321121123332-2023020031131021-1100311212011202-1311121232301200-2223302021132202-3200321032112223",
       "anchor_map": [],
@@ -4152,7 +4152,7 @@
       "section_id": "xcsh-docs:resources:securemesh_site_v2:properties:oci:not_managed:node_list:interface_list:static_ipv6_address:cluster_static_ip:section:0",
       "source_sha256": "sha256:197d41522a9dd286cb9805a03d8a5bd782cc3f3fd95ea854bf2dfc326e83e50c",
       "source_bytes": 99,
-      "canonical_source_sha256": "sha256:8ea737d269604cca30112e211dc5187479efad25f4f1c6054833036c895b0056",
+      "canonical_source_sha256": "sha256:64706bdf45e790982a31e904db6f907aae430f84aa80c2e7cd37ed923c29beb4",
       "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/resources/securemesh_site_v2/properties/oci/not_managed/node_list/interface_list/static_ipv6_address/cluster_static_ip/",
       "anchor": "canonical-2233311221131210-2331210130100231-3212122312233112-1131211101101023-2223300303110101-0303301133010110-3102012113013020-0223201001212122",
       "anchor_map": [],
@@ -4164,7 +4164,7 @@
       "section_id": "xcsh-docs:resources:securemesh_site_v2:properties:oci:not_managed:node_list:interface_list:static_ipv6_address:cluster_static_ip:section:1",
       "source_sha256": "sha256:92c93c8efa543749e113c0127a258a619594e97e047f551577a811fb7f7e8764",
       "source_bytes": 1617,
-      "canonical_source_sha256": "sha256:8ea737d269604cca30112e211dc5187479efad25f4f1c6054833036c895b0056",
+      "canonical_source_sha256": "sha256:64706bdf45e790982a31e904db6f907aae430f84aa80c2e7cd37ed923c29beb4",
       "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/resources/securemesh_site_v2/properties/oci/not_managed/node_list/interface_list/static_ipv6_address/cluster_static_ip/",
       "anchor": "canonical-0310300202310210-2322223111213021-1010130323131312-1102333303202300-2213310002320131-3331313121201022-2020311220232302-1232123000022221",
       "anchor_map": [
@@ -4181,7 +4181,7 @@
       "section_id": "xcsh-docs:resources:securemesh_site_v2:properties:oci:not_managed:node_list:interface_list:static_ipv6_address:cluster_static_ip:section:2",
       "source_sha256": "sha256:fa2c0fb900726165c560ee80e05e24a999aa7f2de8c79b2165eabaebf88927b3",
       "source_bytes": 145,
-      "canonical_source_sha256": "sha256:8ea737d269604cca30112e211dc5187479efad25f4f1c6054833036c895b0056",
+      "canonical_source_sha256": "sha256:64706bdf45e790982a31e904db6f907aae430f84aa80c2e7cd37ed923c29beb4",
       "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/resources/securemesh_site_v2/properties/oci/not_managed/node_list/interface_list/static_ipv6_address/cluster_static_ip/",
       "anchor": "canonical-0310013011133123-3231133310112233-1322103332101032-3101213320130002-0002000123321230-0012220000333011-3333330210003331-3302133000023310",
       "anchor_map": [
@@ -4196,9 +4196,9 @@
     {
       "canonical_id": "xcsh-docs:resources:securemesh_site_v2:properties:oci:not_managed:node_list:interface_list:static_ipv6_address:cluster_static_ip",
       "section_id": "xcsh-docs:resources:securemesh_site_v2:properties:oci:not_managed:node_list:interface_list:static_ipv6_address:cluster_static_ip:section:3",
-      "source_sha256": "sha256:d967d49c520019fbdf920b77a60ef500e5e19d4d94d8844d95c8912b839a2bd3",
-      "source_bytes": 950,
-      "canonical_source_sha256": "sha256:8ea737d269604cca30112e211dc5187479efad25f4f1c6054833036c895b0056",
+      "source_sha256": "sha256:c000f4bcc8ee1ed04761b194f89f11ed7054dfb0f7caf597000ef5c262731fb5",
+      "source_bytes": 1658,
+      "canonical_source_sha256": "sha256:64706bdf45e790982a31e904db6f907aae430f84aa80c2e7cd37ed923c29beb4",
       "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/resources/securemesh_site_v2/properties/oci/not_managed/node_list/interface_list/static_ipv6_address/cluster_static_ip/",
       "anchor": "canonical-2121100021033320-2021312112002330-0033033313012211-0011133110323313-0330000220322120-2203131122310221-2122121202002320-0312010002221223",
       "anchor_map": [],
@@ -4210,7 +4210,7 @@
       "section_id": "xcsh-docs:resources:securemesh_site_v2:properties:oci:not_managed:node_list:interface_list:static_ipv6_address:cluster_static_ip:section:4",
       "source_sha256": "sha256:15c8bcffad3b681f123c2633b5bc848a64be66a81f515a53d321ba27f7ad8991",
       "source_bytes": 354,
-      "canonical_source_sha256": "sha256:8ea737d269604cca30112e211dc5187479efad25f4f1c6054833036c895b0056",
+      "canonical_source_sha256": "sha256:64706bdf45e790982a31e904db6f907aae430f84aa80c2e7cd37ed923c29beb4",
       "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/resources/securemesh_site_v2/properties/oci/not_managed/node_list/interface_list/static_ipv6_address/cluster_static_ip/",
       "anchor": "canonical-1101100001202331-1020313220201101-2133211111302110-2232021231030232-2030121203201203-2210231012012110-2333302333101010-3100020130001211",
       "anchor_map": [],
@@ -4594,7 +4594,7 @@
         ]
       ],
       "mode": "embedded",
-      "registry_path": "docs/guides/resources--securemesh_site_v2--reference--group-014.md"
+      "registry_path": "docs/guides/resources--securemesh_site_v2--reference--group-015.md"
     },
     {
       "canonical_id": "xcsh-docs:resources:securemesh_site_v2:properties:openshift_virtualization",
@@ -4606,7 +4606,7 @@
       "anchor": "canonical-2020201312311203-0133022313211111-1000212330222332-0201131223302113-0002123010030033-3001302003121300-1031210301233100-1312003113102312",
       "anchor_map": [],
       "mode": "embedded",
-      "registry_path": "docs/guides/resources--securemesh_site_v2--reference--group-014.md"
+      "registry_path": "docs/guides/resources--securemesh_site_v2--reference--group-015.md"
     },
     {
       "canonical_id": "xcsh-docs:resources:securemesh_site_v2:properties:openshift_virtualization",
@@ -4618,7 +4618,7 @@
       "anchor": "canonical-2111322322013300-1013101332122201-0123013100131102-1321322210011022-0100323113223033-1320322012103221-3311030112333012-1223320312213023",
       "anchor_map": [],
       "mode": "embedded",
-      "registry_path": "docs/guides/resources--securemesh_site_v2--reference--group-014.md"
+      "registry_path": "docs/guides/resources--securemesh_site_v2--reference--group-015.md"
     },
     {
       "canonical_id": "xcsh-docs:resources:securemesh_site_v2:properties:openshift_virtualization:not_managed",
@@ -4630,7 +4630,7 @@
       "anchor": "canonical-3312123010201223-0322231331231113-1001303330031101-0333001011110002-2013203012023212-3302312220022210-0233131332122310-2310031033301013",
       "anchor_map": [],
       "mode": "embedded",
-      "registry_path": "docs/guides/resources--securemesh_site_v2--reference--group-014.md"
+      "registry_path": "docs/guides/resources--securemesh_site_v2--reference--group-015.md"
     },
     {
       "canonical_id": "xcsh-docs:resources:securemesh_site_v2:properties:openshift_virtualization:not_managed",
@@ -4647,7 +4647,7 @@
         ]
       ],
       "mode": "embedded",
-      "registry_path": "docs/guides/resources--securemesh_site_v2--reference--group-014.md"
+      "registry_path": "docs/guides/resources--securemesh_site_v2--reference--group-015.md"
     },
     {
       "canonical_id": "xcsh-docs:resources:securemesh_site_v2:properties:openshift_virtualization:not_managed",
@@ -4659,7 +4659,7 @@
       "anchor": "canonical-2320103020230220-3232311301211000-1023013200321032-3323122021300320-0230233110012323-1223233123312212-3301122120010121-3023002131122103",
       "anchor_map": [],
       "mode": "embedded",
-      "registry_path": "docs/guides/resources--securemesh_site_v2--reference--group-014.md"
+      "registry_path": "docs/guides/resources--securemesh_site_v2--reference--group-015.md"
     },
     {
       "canonical_id": "xcsh-docs:resources:securemesh_site_v2:properties:openshift_virtualization:not_managed",
@@ -4671,7 +4671,7 @@
       "anchor": "canonical-0020223021011321-3103233000000332-1302323103213301-3113011000310013-2221131031033130-3133302332320320-3303300000112322-0120130033201012",
       "anchor_map": [],
       "mode": "embedded",
-      "registry_path": "docs/guides/resources--securemesh_site_v2--reference--group-014.md"
+      "registry_path": "docs/guides/resources--securemesh_site_v2--reference--group-015.md"
     },
     {
       "canonical_id": "xcsh-docs:resources:securemesh_site_v2:properties:openshift_virtualization:not_managed:node_list",
@@ -4683,7 +4683,7 @@
       "anchor": "canonical-0132300131131032-2021130132112331-0312003011233211-2101210212103030-1211222230002213-3032312132223331-0301102321220023-0333221223201213",
       "anchor_map": [],
       "mode": "embedded",
-      "registry_path": "docs/guides/resources--securemesh_site_v2--reference--group-014.md"
+      "registry_path": "docs/guides/resources--securemesh_site_v2--reference--group-015.md"
     },
     {
       "canonical_id": "xcsh-docs:resources:securemesh_site_v2:properties:openshift_virtualization:not_managed:node_list",
@@ -4700,7 +4700,7 @@
         ]
       ],
       "mode": "embedded",
-      "registry_path": "docs/guides/resources--securemesh_site_v2--reference--group-014.md"
+      "registry_path": "docs/guides/resources--securemesh_site_v2--reference--group-015.md"
     },
     {
       "canonical_id": "xcsh-docs:resources:securemesh_site_v2:properties:openshift_virtualization:not_managed:node_list",
@@ -4717,7 +4717,7 @@
         ]
       ],
       "mode": "embedded",
-      "registry_path": "docs/guides/resources--securemesh_site_v2--reference--group-014.md"
+      "registry_path": "docs/guides/resources--securemesh_site_v2--reference--group-015.md"
     },
     {
       "canonical_id": "xcsh-docs:resources:securemesh_site_v2:properties:openshift_virtualization:not_managed:node_list",
@@ -4734,7 +4734,7 @@
         ]
       ],
       "mode": "embedded",
-      "registry_path": "docs/guides/resources--securemesh_site_v2--reference--group-014.md"
+      "registry_path": "docs/guides/resources--securemesh_site_v2--reference--group-015.md"
     },
     {
       "canonical_id": "xcsh-docs:resources:securemesh_site_v2:properties:openshift_virtualization:not_managed:node_list",
@@ -4751,7 +4751,7 @@
         ]
       ],
       "mode": "embedded",
-      "registry_path": "docs/guides/resources--securemesh_site_v2--reference--group-014.md"
+      "registry_path": "docs/guides/resources--securemesh_site_v2--reference--group-015.md"
     },
     {
       "canonical_id": "xcsh-docs:resources:securemesh_site_v2:properties:openshift_virtualization:not_managed:node_list",
@@ -4763,7 +4763,7 @@
       "anchor": "canonical-2331002212113103-0120123001322013-2003100332221323-0232000220133220-0112323303330211-1330002312113221-2331001122231331-0130032310333232",
       "anchor_map": [],
       "mode": "embedded",
-      "registry_path": "docs/guides/resources--securemesh_site_v2--reference--group-014.md"
+      "registry_path": "docs/guides/resources--securemesh_site_v2--reference--group-015.md"
     },
     {
       "canonical_id": "xcsh-docs:resources:securemesh_site_v2:properties:openshift_virtualization:not_managed:node_list",
@@ -4775,26 +4775,26 @@
       "anchor": "canonical-3121201323033221-3133202313332000-1312202031320022-2311322232131123-2001112103231213-3112030213220202-3001011100230213-0100131232300232",
       "anchor_map": [],
       "mode": "embedded",
-      "registry_path": "docs/guides/resources--securemesh_site_v2--reference--group-014.md"
+      "registry_path": "docs/guides/resources--securemesh_site_v2--reference--group-015.md"
     },
     {
       "canonical_id": "xcsh-docs:resources:securemesh_site_v2:properties:openshift_virtualization:not_managed:node_list:interface_list",
       "section_id": "xcsh-docs:resources:securemesh_site_v2:properties:openshift_virtualization:not_managed:node_list:interface_list:section:0",
       "source_sha256": "sha256:197d41522a9dd286cb9805a03d8a5bd782cc3f3fd95ea854bf2dfc326e83e50c",
       "source_bytes": 99,
-      "canonical_source_sha256": "sha256:2d8aaad46f873166440d543085b1aef48b38a525287872b00fd87ef8f3622f91",
+      "canonical_source_sha256": "sha256:a2320b8165062826b95c7c0566f9df8e20a614dfe365d77d5f4f8ff071f2a0c7",
       "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/resources/securemesh_site_v2/properties/openshift_virtualization/not_managed/node_list/interface_list/",
       "anchor": "canonical-2310102100123101-1311022222003201-2300021203211133-0123212010313320-0200223222033202-2121330212012032-0013031012001213-2101320202001012",
       "anchor_map": [],
       "mode": "embedded",
-      "registry_path": "docs/guides/resources--securemesh_site_v2--reference--group-014.md"
+      "registry_path": "docs/guides/resources--securemesh_site_v2--reference--group-015.md"
     },
     {
       "canonical_id": "xcsh-docs:resources:securemesh_site_v2:properties:openshift_virtualization:not_managed:node_list:interface_list",
       "section_id": "xcsh-docs:resources:securemesh_site_v2:properties:openshift_virtualization:not_managed:node_list:interface_list:section:1",
       "source_sha256": "sha256:14f45da41ff08496719244adbfcbaf9aadf07534f1c17ab06188b23b29f2ca09",
       "source_bytes": 3223,
-      "canonical_source_sha256": "sha256:2d8aaad46f873166440d543085b1aef48b38a525287872b00fd87ef8f3622f91",
+      "canonical_source_sha256": "sha256:a2320b8165062826b95c7c0566f9df8e20a614dfe365d77d5f4f8ff071f2a0c7",
       "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/resources/securemesh_site_v2/properties/openshift_virtualization/not_managed/node_list/interface_list/",
       "anchor": "canonical-3032222202132200-0321202213100332-3000201313113211-2332300121213023-0003310130030021-0313133301330033-1201303103031322-3111130111110131",
       "anchor_map": [
@@ -4804,14 +4804,14 @@
         ]
       ],
       "mode": "embedded",
-      "registry_path": "docs/guides/resources--securemesh_site_v2--reference--group-014.md"
+      "registry_path": "docs/guides/resources--securemesh_site_v2--reference--group-015.md"
     },
     {
       "canonical_id": "xcsh-docs:resources:securemesh_site_v2:properties:openshift_virtualization:not_managed:node_list:interface_list",
       "section_id": "xcsh-docs:resources:securemesh_site_v2:properties:openshift_virtualization:not_managed:node_list:interface_list:section:2",
       "source_sha256": "sha256:26dd9c09f85087dbf492dc349c14bcacca1f0755b99496f76ab3017cb0b62cdd",
       "source_bytes": 353,
-      "canonical_source_sha256": "sha256:2d8aaad46f873166440d543085b1aef48b38a525287872b00fd87ef8f3622f91",
+      "canonical_source_sha256": "sha256:a2320b8165062826b95c7c0566f9df8e20a614dfe365d77d5f4f8ff071f2a0c7",
       "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/resources/securemesh_site_v2/properties/openshift_virtualization/not_managed/node_list/interface_list/",
       "anchor": "canonical-3111030200210103-2233033331103000-3010233111203223-3011213231230311-3111332201122111-3131233211031231-0311232030001111-2101331130232022",
       "anchor_map": [
@@ -4821,14 +4821,14 @@
         ]
       ],
       "mode": "embedded",
-      "registry_path": "docs/guides/resources--securemesh_site_v2--reference--group-014.md"
+      "registry_path": "docs/guides/resources--securemesh_site_v2--reference--group-015.md"
     },
     {
       "canonical_id": "xcsh-docs:resources:securemesh_site_v2:properties:openshift_virtualization:not_managed:node_list:interface_list",
       "section_id": "xcsh-docs:resources:securemesh_site_v2:properties:openshift_virtualization:not_managed:node_list:interface_list:section:3",
       "source_sha256": "sha256:6cc16b4e9dbdc500aae714ff569b38e42062ed81c32d180c87a9e8262bb882ce",
       "source_bytes": 1263,
-      "canonical_source_sha256": "sha256:2d8aaad46f873166440d543085b1aef48b38a525287872b00fd87ef8f3622f91",
+      "canonical_source_sha256": "sha256:a2320b8165062826b95c7c0566f9df8e20a614dfe365d77d5f4f8ff071f2a0c7",
       "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/resources/securemesh_site_v2/properties/openshift_virtualization/not_managed/node_list/interface_list/",
       "anchor": "canonical-2003121231102131-1312312121333103-1102300303121102-1101002200310210-3313100132310111-3223111220120010-0213121111222101-3132202113220032",
       "anchor_map": [
@@ -4838,14 +4838,14 @@
         ]
       ],
       "mode": "embedded",
-      "registry_path": "docs/guides/resources--securemesh_site_v2--reference--group-014.md"
+      "registry_path": "docs/guides/resources--securemesh_site_v2--reference--group-015.md"
     },
     {
       "canonical_id": "xcsh-docs:resources:securemesh_site_v2:properties:openshift_virtualization:not_managed:node_list:interface_list",
       "section_id": "xcsh-docs:resources:securemesh_site_v2:properties:openshift_virtualization:not_managed:node_list:interface_list:section:4",
       "source_sha256": "sha256:67188124c916528543ad3cc98289c7528ca508200f37fa292340d91e959fc370",
       "source_bytes": 188,
-      "canonical_source_sha256": "sha256:2d8aaad46f873166440d543085b1aef48b38a525287872b00fd87ef8f3622f91",
+      "canonical_source_sha256": "sha256:a2320b8165062826b95c7c0566f9df8e20a614dfe365d77d5f4f8ff071f2a0c7",
       "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/resources/securemesh_site_v2/properties/openshift_virtualization/not_managed/node_list/interface_list/",
       "anchor": "canonical-0322102101202123-3110032221010130-0122322311031202-1021302023303212-3113221230031003-2232010032321011-0030320313213230-1113122223000322",
       "anchor_map": [
@@ -4855,14 +4855,14 @@
         ]
       ],
       "mode": "embedded",
-      "registry_path": "docs/guides/resources--securemesh_site_v2--reference--group-014.md"
+      "registry_path": "docs/guides/resources--securemesh_site_v2--reference--group-015.md"
     },
     {
       "canonical_id": "xcsh-docs:resources:securemesh_site_v2:properties:openshift_virtualization:not_managed:node_list:interface_list",
       "section_id": "xcsh-docs:resources:securemesh_site_v2:properties:openshift_virtualization:not_managed:node_list:interface_list:section:5",
       "source_sha256": "sha256:fb06ca9f980422bd77eff46f506c656fcf77cb8490d014293356d233d76f9291",
       "source_bytes": 178,
-      "canonical_source_sha256": "sha256:2d8aaad46f873166440d543085b1aef48b38a525287872b00fd87ef8f3622f91",
+      "canonical_source_sha256": "sha256:a2320b8165062826b95c7c0566f9df8e20a614dfe365d77d5f4f8ff071f2a0c7",
       "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/resources/securemesh_site_v2/properties/openshift_virtualization/not_managed/node_list/interface_list/",
       "anchor": "canonical-3210131233032323-3202112122032312-0021032333330333-1121112101132201-1313230331200233-0312123311313313-0002302301303023-0112323222321003",
       "anchor_map": [
@@ -4872,14 +4872,14 @@
         ]
       ],
       "mode": "embedded",
-      "registry_path": "docs/guides/resources--securemesh_site_v2--reference--group-014.md"
+      "registry_path": "docs/guides/resources--securemesh_site_v2--reference--group-015.md"
     },
     {
       "canonical_id": "xcsh-docs:resources:securemesh_site_v2:properties:openshift_virtualization:not_managed:node_list:interface_list",
       "section_id": "xcsh-docs:resources:securemesh_site_v2:properties:openshift_virtualization:not_managed:node_list:interface_list:section:6",
-      "source_sha256": "sha256:d4dadec1f6e14749fcfa7ab6f0d91cb62a05cfdff12cc4bd9e49932ddbc6a1db",
-      "source_bytes": 1706,
-      "canonical_source_sha256": "sha256:2d8aaad46f873166440d543085b1aef48b38a525287872b00fd87ef8f3622f91",
+      "source_sha256": "sha256:7674d604d7fb2be15191a6c3d04f7fae11ac0b244e1796f893e4c7eab4902410",
+      "source_bytes": 2798,
+      "canonical_source_sha256": "sha256:a2320b8165062826b95c7c0566f9df8e20a614dfe365d77d5f4f8ff071f2a0c7",
       "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/resources/securemesh_site_v2/properties/openshift_virtualization/not_managed/node_list/interface_list/",
       "anchor": "canonical-1212332031202201-0302323301103101-1233120202030212-2000201120202220-1110022130320032-3301011102300321-3232110113112330-1132220303331213",
       "anchor_map": [
@@ -4889,14 +4889,14 @@
         ]
       ],
       "mode": "embedded",
-      "registry_path": "docs/guides/resources--securemesh_site_v2--reference--group-014.md"
+      "registry_path": "docs/guides/resources--securemesh_site_v2--reference--group-015.md"
     },
     {
       "canonical_id": "xcsh-docs:resources:securemesh_site_v2:properties:openshift_virtualization:not_managed:node_list:interface_list",
       "section_id": "xcsh-docs:resources:securemesh_site_v2:properties:openshift_virtualization:not_managed:node_list:interface_list:section:7",
       "source_sha256": "sha256:f7ae116250e5a7796e31b8b6fa771227dedd75e3a483a47ed50f6181c39800ff",
       "source_bytes": 1255,
-      "canonical_source_sha256": "sha256:2d8aaad46f873166440d543085b1aef48b38a525287872b00fd87ef8f3622f91",
+      "canonical_source_sha256": "sha256:a2320b8165062826b95c7c0566f9df8e20a614dfe365d77d5f4f8ff071f2a0c7",
       "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/resources/securemesh_site_v2/properties/openshift_virtualization/not_managed/node_list/interface_list/",
       "anchor": "canonical-0320202000233202-1200200131212232-0323212300303311-0201211010033130-2012302122011331-3001332310011302-1222201220220111-3321023330102122",
       "anchor_map": [
@@ -4906,14 +4906,14 @@
         ]
       ],
       "mode": "embedded",
-      "registry_path": "docs/guides/resources--securemesh_site_v2--reference--group-014.md"
+      "registry_path": "docs/guides/resources--securemesh_site_v2--reference--group-015.md"
     },
     {
       "canonical_id": "xcsh-docs:resources:securemesh_site_v2:properties:openshift_virtualization:not_managed:node_list:interface_list",
       "section_id": "xcsh-docs:resources:securemesh_site_v2:properties:openshift_virtualization:not_managed:node_list:interface_list:section:8",
       "source_sha256": "sha256:618f3280bdeeb17940b968a256d91208a80d429ef25ce8969ab1db4def161e7c",
       "source_bytes": 2250,
-      "canonical_source_sha256": "sha256:2d8aaad46f873166440d543085b1aef48b38a525287872b00fd87ef8f3622f91",
+      "canonical_source_sha256": "sha256:a2320b8165062826b95c7c0566f9df8e20a614dfe365d77d5f4f8ff071f2a0c7",
       "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/resources/securemesh_site_v2/properties/openshift_virtualization/not_managed/node_list/interface_list/",
       "anchor": "canonical-0000310011030003-1022000312120032-1103132121030030-1021110031121023-1020312313222023-2300010022112211-2201231303103112-3332233101013133",
       "anchor_map": [
@@ -4923,26 +4923,26 @@
         ]
       ],
       "mode": "embedded",
-      "registry_path": "docs/guides/resources--securemesh_site_v2--reference--group-014.md"
+      "registry_path": "docs/guides/resources--securemesh_site_v2--reference--group-015.md"
     },
     {
       "canonical_id": "xcsh-docs:resources:securemesh_site_v2:properties:openshift_virtualization:not_managed:node_list:interface_list",
       "section_id": "xcsh-docs:resources:securemesh_site_v2:properties:openshift_virtualization:not_managed:node_list:interface_list:section:9",
       "source_sha256": "sha256:ed7f60b6950f2827013c28e57afcd03fa5c3b6b25d5a1175c44a475d3eb22367",
       "source_bytes": 2748,
-      "canonical_source_sha256": "sha256:2d8aaad46f873166440d543085b1aef48b38a525287872b00fd87ef8f3622f91",
+      "canonical_source_sha256": "sha256:a2320b8165062826b95c7c0566f9df8e20a614dfe365d77d5f4f8ff071f2a0c7",
       "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/resources/securemesh_site_v2/properties/openshift_virtualization/not_managed/node_list/interface_list/",
       "anchor": "canonical-1130211131132231-1102331022112231-0232333102331001-3203330200131021-1023230330320223-2232323000332011-0233203000121313-0223300013312001",
       "anchor_map": [],
       "mode": "embedded",
-      "registry_path": "docs/guides/resources--securemesh_site_v2--reference--group-014.md"
+      "registry_path": "docs/guides/resources--securemesh_site_v2--reference--group-015.md"
     },
     {
       "canonical_id": "xcsh-docs:resources:securemesh_site_v2:properties:openshift_virtualization:not_managed:node_list:interface_list",
       "section_id": "xcsh-docs:resources:securemesh_site_v2:properties:openshift_virtualization:not_managed:node_list:interface_list:section:10",
       "source_sha256": "sha256:373b877f590d2ec54c7cb8f5a64b2fd5fb0b283129d848cdba5fc52042a9978b",
       "source_bytes": 4278,
-      "canonical_source_sha256": "sha256:2d8aaad46f873166440d543085b1aef48b38a525287872b00fd87ef8f3622f91",
+      "canonical_source_sha256": "sha256:a2320b8165062826b95c7c0566f9df8e20a614dfe365d77d5f4f8ff071f2a0c7",
       "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/resources/securemesh_site_v2/properties/openshift_virtualization/not_managed/node_list/interface_list/",
       "anchor": "canonical-3312320313312031-2013133112222213-2121303313313133-2202320112230232-0321020330012322-0330301003221311-2332011202332331-0103002121030121",
       "anchor_map": [],
@@ -5251,7 +5251,7 @@
       "section_id": "xcsh-docs:resources:securemesh_site_v2:properties:openshift_virtualization:not_managed:node_list:interface_list:dhcp_server:section:0",
       "source_sha256": "sha256:197d41522a9dd286cb9805a03d8a5bd782cc3f3fd95ea854bf2dfc326e83e50c",
       "source_bytes": 99,
-      "canonical_source_sha256": "sha256:90037309e813230b72a0b1cbea8d377a9b48ef6a5e1c8cc2b5084bc6e8930bcf",
+      "canonical_source_sha256": "sha256:161bcc06a7b6276e1e54c975760d54e8d6ce974db25304e74fdc0fa8e7b0dc8d",
       "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/resources/securemesh_site_v2/properties/openshift_virtualization/not_managed/node_list/interface_list/dhcp_server/",
       "anchor": "canonical-3200300233110011-0000303003113101-3010131112010221-3101033013112120-3102203120012200-0032323121322130-3222211331331202-1030121203113333",
       "anchor_map": [],
@@ -5263,7 +5263,7 @@
       "section_id": "xcsh-docs:resources:securemesh_site_v2:properties:openshift_virtualization:not_managed:node_list:interface_list:dhcp_server:section:1",
       "source_sha256": "sha256:94c7d79f52884c64c4ebcf5d33bb0bd7f8ead5f09c8f2bbcb9728db15488543d",
       "source_bytes": 2024,
-      "canonical_source_sha256": "sha256:90037309e813230b72a0b1cbea8d377a9b48ef6a5e1c8cc2b5084bc6e8930bcf",
+      "canonical_source_sha256": "sha256:161bcc06a7b6276e1e54c975760d54e8d6ce974db25304e74fdc0fa8e7b0dc8d",
       "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/resources/securemesh_site_v2/properties/openshift_virtualization/not_managed/node_list/interface_list/dhcp_server/",
       "anchor": "canonical-1300103202213202-3010311001212310-0311121203213201-1203231001233220-2301331320031203-3223222131202113-2011120300302010-2331302032033112",
       "anchor_map": [
@@ -5280,7 +5280,7 @@
       "section_id": "xcsh-docs:resources:securemesh_site_v2:properties:openshift_virtualization:not_managed:node_list:interface_list:dhcp_server:section:2",
       "source_sha256": "sha256:d6606be3f3831d59912ac329f18aff02b7ad1cbae622f6486979c23583bcca1e",
       "source_bytes": 875,
-      "canonical_source_sha256": "sha256:90037309e813230b72a0b1cbea8d377a9b48ef6a5e1c8cc2b5084bc6e8930bcf",
+      "canonical_source_sha256": "sha256:161bcc06a7b6276e1e54c975760d54e8d6ce974db25304e74fdc0fa8e7b0dc8d",
       "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/resources/securemesh_site_v2/properties/openshift_virtualization/not_managed/node_list/interface_list/dhcp_server/",
       "anchor": "canonical-1302221130112130-3133232113100032-2320223110122220-2212031103300003-3321020320113112-0331310111132113-1231221201002203-0322330020202122",
       "anchor_map": [
@@ -5297,7 +5297,7 @@
       "section_id": "xcsh-docs:resources:securemesh_site_v2:properties:openshift_virtualization:not_managed:node_list:interface_list:dhcp_server:section:3",
       "source_sha256": "sha256:faeb00e14d407626556e1cdfd5ce378ed182b542cc013b3578e8861ebe39b194",
       "source_bytes": 195,
-      "canonical_source_sha256": "sha256:90037309e813230b72a0b1cbea8d377a9b48ef6a5e1c8cc2b5084bc6e8930bcf",
+      "canonical_source_sha256": "sha256:161bcc06a7b6276e1e54c975760d54e8d6ce974db25304e74fdc0fa8e7b0dc8d",
       "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/resources/securemesh_site_v2/properties/openshift_virtualization/not_managed/node_list/interface_list/dhcp_server/",
       "anchor": "canonical-2132032211303001-2132231220111102-0212323232120021-1033101312123223-1021101011311232-3022230320323303-0033022231233011-0103033213312030",
       "anchor_map": [
@@ -5312,9 +5312,9 @@
     {
       "canonical_id": "xcsh-docs:resources:securemesh_site_v2:properties:openshift_virtualization:not_managed:node_list:interface_list:dhcp_server",
       "section_id": "xcsh-docs:resources:securemesh_site_v2:properties:openshift_virtualization:not_managed:node_list:interface_list:dhcp_server:section:4",
-      "source_sha256": "sha256:a87d71af592620ddb3a2244236218d9e2e7ff8ab7278047a004b5af63abbf37a",
-      "source_bytes": 1292,
-      "canonical_source_sha256": "sha256:90037309e813230b72a0b1cbea8d377a9b48ef6a5e1c8cc2b5084bc6e8930bcf",
+      "source_sha256": "sha256:e82aaf8745a5c2d9a24a6e1744a0b6c37be63f187af9cf3cac054fe94e713ce2",
+      "source_bytes": 2298,
+      "canonical_source_sha256": "sha256:161bcc06a7b6276e1e54c975760d54e8d6ce974db25304e74fdc0fa8e7b0dc8d",
       "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/resources/securemesh_site_v2/properties/openshift_virtualization/not_managed/node_list/interface_list/dhcp_server/",
       "anchor": "canonical-2311310002011023-1232230013112111-1120203103021300-1211330302322223-2321322021312022-0323023102133111-1130330002233012-0200103102032020",
       "anchor_map": [],
@@ -5326,7 +5326,7 @@
       "section_id": "xcsh-docs:resources:securemesh_site_v2:properties:openshift_virtualization:not_managed:node_list:interface_list:dhcp_server:section:5",
       "source_sha256": "sha256:b55efaa3c174181e2c997d6878949c5179238b18378bb7be18d04a8a9d1e0f68",
       "source_bytes": 1498,
-      "canonical_source_sha256": "sha256:90037309e813230b72a0b1cbea8d377a9b48ef6a5e1c8cc2b5084bc6e8930bcf",
+      "canonical_source_sha256": "sha256:161bcc06a7b6276e1e54c975760d54e8d6ce974db25304e74fdc0fa8e7b0dc8d",
       "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/resources/securemesh_site_v2/properties/openshift_virtualization/not_managed/node_list/interface_list/dhcp_server/",
       "anchor": "canonical-0033131123330123-0220023211303103-1210222012000331-3121000133303201-2131220323021212-3020332202302222-3021131023312123-1103323330221130",
       "anchor_map": [],
@@ -5828,7 +5828,7 @@
       "section_id": "xcsh-docs:resources:securemesh_site_v2:properties:openshift_virtualization:not_managed:node_list:interface_list:dhcp_server:interface_ip_map:section:0",
       "source_sha256": "sha256:197d41522a9dd286cb9805a03d8a5bd782cc3f3fd95ea854bf2dfc326e83e50c",
       "source_bytes": 99,
-      "canonical_source_sha256": "sha256:c1d060a29ab6087777e99a96f096206c95b8276b1886ff7de9d1e01044d02cd5",
+      "canonical_source_sha256": "sha256:50546ec17913393c05e6010102c2b0d1b030ac67103b8cfcc2c494eb6ab2a498",
       "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/resources/securemesh_site_v2/properties/openshift_virtualization/not_managed/node_list/interface_list/dhcp_server/interface_ip_map/",
       "anchor": "canonical-2223230122102210-2333032312101132-2211310112202313-1203223211311122-0021030230323003-3332101001331233-2020320223212330-3103111020323011",
       "anchor_map": [],
@@ -5840,7 +5840,7 @@
       "section_id": "xcsh-docs:resources:securemesh_site_v2:properties:openshift_virtualization:not_managed:node_list:interface_list:dhcp_server:interface_ip_map:section:1",
       "source_sha256": "sha256:87abeda8b23e18d2afdfd30a9e14f360eab216e0b6dde6215d3d2cdb55b65957",
       "source_bytes": 1922,
-      "canonical_source_sha256": "sha256:c1d060a29ab6087777e99a96f096206c95b8276b1886ff7de9d1e01044d02cd5",
+      "canonical_source_sha256": "sha256:50546ec17913393c05e6010102c2b0d1b030ac67103b8cfcc2c494eb6ab2a498",
       "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/resources/securemesh_site_v2/properties/openshift_virtualization/not_managed/node_list/interface_list/dhcp_server/interface_ip_map/",
       "anchor": "canonical-0000033111332300-3321200300200300-1032122132312020-0030001112121302-1321022030230112-2200102031113011-3122222030322001-1311020030333303",
       "anchor_map": [
@@ -5857,7 +5857,7 @@
       "section_id": "xcsh-docs:resources:securemesh_site_v2:properties:openshift_virtualization:not_managed:node_list:interface_list:dhcp_server:interface_ip_map:section:2",
       "source_sha256": "sha256:3c3ebad76b91683b0a53dbf7f644ffa8778f97a6427b6b1b6f6d99727e35014c",
       "source_bytes": 157,
-      "canonical_source_sha256": "sha256:c1d060a29ab6087777e99a96f096206c95b8276b1886ff7de9d1e01044d02cd5",
+      "canonical_source_sha256": "sha256:50546ec17913393c05e6010102c2b0d1b030ac67103b8cfcc2c494eb6ab2a498",
       "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/resources/securemesh_site_v2/properties/openshift_virtualization/not_managed/node_list/interface_list/dhcp_server/interface_ip_map/",
       "anchor": "canonical-2132221212100223-0202021230230202-1132323130220010-0101031221330212-2032231001110000-1012213103100121-1213311111320022-2332123331202303",
       "anchor_map": [
@@ -5872,9 +5872,9 @@
     {
       "canonical_id": "xcsh-docs:resources:securemesh_site_v2:properties:openshift_virtualization:not_managed:node_list:interface_list:dhcp_server:interface_ip_map",
       "section_id": "xcsh-docs:resources:securemesh_site_v2:properties:openshift_virtualization:not_managed:node_list:interface_list:dhcp_server:interface_ip_map:section:3",
-      "source_sha256": "sha256:33c4101e12409f85b3e5f997d3f452cde8fa74b065fd49352f67886cc064e72f",
-      "source_bytes": 1034,
-      "canonical_source_sha256": "sha256:c1d060a29ab6087777e99a96f096206c95b8276b1886ff7de9d1e01044d02cd5",
+      "source_sha256": "sha256:765d52ac396c04ed48a8c9c30729c14d66e6ecc96f846ca87db05c8cba1c49c1",
+      "source_bytes": 1978,
+      "canonical_source_sha256": "sha256:50546ec17913393c05e6010102c2b0d1b030ac67103b8cfcc2c494eb6ab2a498",
       "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/resources/securemesh_site_v2/properties/openshift_virtualization/not_managed/node_list/interface_list/dhcp_server/interface_ip_map/",
       "anchor": "canonical-2203133222132033-3132221230102110-1131312200103111-3132030121231331-0133202221121133-0123012311130030-1330020132300003-3212012101231110",
       "anchor_map": [],
@@ -5886,7 +5886,7 @@
       "section_id": "xcsh-docs:resources:securemesh_site_v2:properties:openshift_virtualization:not_managed:node_list:interface_list:dhcp_server:interface_ip_map:section:4",
       "source_sha256": "sha256:838b1f1c332128d71ba47428ffe1912d567d110da486fd243fb282d5cedb68be",
       "source_bytes": 380,
-      "canonical_source_sha256": "sha256:c1d060a29ab6087777e99a96f096206c95b8276b1886ff7de9d1e01044d02cd5",
+      "canonical_source_sha256": "sha256:50546ec17913393c05e6010102c2b0d1b030ac67103b8cfcc2c494eb6ab2a498",
       "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/resources/securemesh_site_v2/properties/openshift_virtualization/not_managed/node_list/interface_list/dhcp_server/interface_ip_map/",
       "anchor": "canonical-1201320123330321-0120111021200012-3113311101223203-1203210223003133-3031333003132120-0233013112123203-2123102320301231-2112322333321030",
       "anchor_map": [],
@@ -6460,7 +6460,7 @@
       "section_id": "xcsh-docs:resources:securemesh_site_v2:properties:openshift_virtualization:not_managed:node_list:interface_list:ipv6_auto_config:router:stateful:section:0",
       "source_sha256": "sha256:197d41522a9dd286cb9805a03d8a5bd782cc3f3fd95ea854bf2dfc326e83e50c",
       "source_bytes": 99,
-      "canonical_source_sha256": "sha256:852c767dfc03ccb6f2daaf672f2d3a7a92cc512a91832226aa12c5668b771c4e",
+      "canonical_source_sha256": "sha256:b4b0596b82cefc66b9ed52891c763af9e86ccc18d0520e247af6e642eb237cf0",
       "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/resources/securemesh_site_v2/properties/openshift_virtualization/not_managed/node_list/interface_list/ipv6_auto_config/router/stateful/",
       "anchor": "canonical-0010001013200021-1020010101111002-0003212312223112-2302010022000230-0122022231301311-0133010221211021-1011310303120313-3010033111113200",
       "anchor_map": [],
@@ -6472,7 +6472,7 @@
       "section_id": "xcsh-docs:resources:securemesh_site_v2:properties:openshift_virtualization:not_managed:node_list:interface_list:ipv6_auto_config:router:stateful:section:1",
       "source_sha256": "sha256:6fe6d1f053e4d8094e517a19714ef7050ffcb2b12603b9c8f708f98b4de546c4",
       "source_bytes": 2648,
-      "canonical_source_sha256": "sha256:852c767dfc03ccb6f2daaf672f2d3a7a92cc512a91832226aa12c5668b771c4e",
+      "canonical_source_sha256": "sha256:b4b0596b82cefc66b9ed52891c763af9e86ccc18d0520e247af6e642eb237cf0",
       "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/resources/securemesh_site_v2/properties/openshift_virtualization/not_managed/node_list/interface_list/ipv6_auto_config/router/stateful/",
       "anchor": "canonical-3312320133210211-2030122232212023-1001030010320111-3022302301331001-2323032100331132-2010110210122020-0201113132211302-3312133310130333",
       "anchor_map": [
@@ -6489,7 +6489,7 @@
       "section_id": "xcsh-docs:resources:securemesh_site_v2:properties:openshift_virtualization:not_managed:node_list:interface_list:ipv6_auto_config:router:stateful:section:2",
       "source_sha256": "sha256:30adf95533b87c81be07e9ab18e9e1fae3127e81826778815205393771e7e280",
       "source_bytes": 956,
-      "canonical_source_sha256": "sha256:852c767dfc03ccb6f2daaf672f2d3a7a92cc512a91832226aa12c5668b771c4e",
+      "canonical_source_sha256": "sha256:b4b0596b82cefc66b9ed52891c763af9e86ccc18d0520e247af6e642eb237cf0",
       "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/resources/securemesh_site_v2/properties/openshift_virtualization/not_managed/node_list/interface_list/ipv6_auto_config/router/stateful/",
       "anchor": "canonical-3210312010023002-2021203221310202-0211312320331133-2112102220011120-3003000333103001-1121100023320030-1001100021200201-3320333200131220",
       "anchor_map": [
@@ -6504,9 +6504,9 @@
     {
       "canonical_id": "xcsh-docs:resources:securemesh_site_v2:properties:openshift_virtualization:not_managed:node_list:interface_list:ipv6_auto_config:router:stateful",
       "section_id": "xcsh-docs:resources:securemesh_site_v2:properties:openshift_virtualization:not_managed:node_list:interface_list:ipv6_auto_config:router:stateful:section:3",
-      "source_sha256": "sha256:a16816e99c05cd0815e6bdf2db3e30ee63a25d51fd676e2d5c52f54342ce9abc",
-      "source_bytes": 1564,
-      "canonical_source_sha256": "sha256:852c767dfc03ccb6f2daaf672f2d3a7a92cc512a91832226aa12c5668b771c4e",
+      "source_sha256": "sha256:31a388c22a944dccbb18880ae860cd309ea94434cd7675f80e4e2a0eba148981",
+      "source_bytes": 2570,
+      "canonical_source_sha256": "sha256:b4b0596b82cefc66b9ed52891c763af9e86ccc18d0520e247af6e642eb237cf0",
       "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/resources/securemesh_site_v2/properties/openshift_virtualization/not_managed/node_list/interface_list/ipv6_auto_config/router/stateful/",
       "anchor": "canonical-0131302022322130-3123210111000302-3330021100122033-0113112122331021-3200313102213313-0200320220232002-3211321233013333-1213223121320113",
       "anchor_map": [],
@@ -6518,7 +6518,7 @@
       "section_id": "xcsh-docs:resources:securemesh_site_v2:properties:openshift_virtualization:not_managed:node_list:interface_list:ipv6_auto_config:router:stateful:section:4",
       "source_sha256": "sha256:b2346cc5cc73e082820d6fc178afc45a0c326352c7ee7946fbad4c94dc7f1f98",
       "source_bytes": 1714,
-      "canonical_source_sha256": "sha256:852c767dfc03ccb6f2daaf672f2d3a7a92cc512a91832226aa12c5668b771c4e",
+      "canonical_source_sha256": "sha256:b4b0596b82cefc66b9ed52891c763af9e86ccc18d0520e247af6e642eb237cf0",
       "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/resources/securemesh_site_v2/properties/openshift_virtualization/not_managed/node_list/interface_list/ipv6_auto_config/router/stateful/",
       "anchor": "canonical-2320032002303020-1111310100230113-2003123003001302-3203010232300010-1002100301333001-1120323110020200-0320211322102220-3000103320300220",
       "anchor_map": [],

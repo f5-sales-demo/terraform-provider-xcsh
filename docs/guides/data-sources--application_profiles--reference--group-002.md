@@ -6,6 +6,19 @@ description: "Complete grouped canonical reference for xcsh_application_profiles
 
 # xcsh_application_profiles reference
 
+<a id="canonical-1032023233313232-1021023103023111-0310303101010213-1213301122000312-2311100130211021-3212323002113300-2023212110301301-1223221023201323"></a>
+
+## Next pages — auto_last_hop_default / 203122210102 / 4
+
+- [virtual_server.auto_last_hop](data-sources--application_profiles--reference--group-001.md#canonical-1213231221312103-2101111203001231-0201213300231211-0313012112021033-1012200101220121-2101220302131103-3212333133311002-3200300331321033)
+- [xcsh_application_profiles](../data-sources/application_profiles.md#canonical-1311211203002323-2003223022233300-1230021211313022-0103300013312020-2232032102012103-1003213312301301-2022210332331102-2300323031031330)
+
+<a id="canonical-3023333310000330-2311322123300120-1330121020233003-1023110322110203-3230211030203320-3333121111331332-2330233202203201-1013122232123220"></a>
+
+<!-- Exact provider and upstream contract identifiers. -->
+
+<!-- textlint-disable terminology -->
+
 <a id="canonical-3032330023223302-0221123101320020-0320003003312032-0301001212112120-0223011232310203-3030302333223132-2332103012123020-2003122233011233"></a>
 
 ## virtual_server.auto_last_hop.auto_last_hop_disable — auto_last_hop_disable / 201323110131 / 2
@@ -8634,40 +8647,3 @@ Receipt-pinned upstream constraints:
 ```
 
 <a id="canonical-1231221011321021-3213212321120213-1011312332333333-3221100201313303-1320021001111033-3202003320012100-3112310302203103-1231022310231323"></a>
-
-<a id="canonical-1312200232032122-1102033010233113-0210102323013113-2201101213033313-3031323020222112-0300121231031123-2131000313000003-3330130311132203"></a>
-
-## uid property — udp_server_profile / 322112223122 / 8
-
-Type: `"string"`. Computed.
-
-When a configuration object(e.g. Virtual\_host) refers to another(e.g route) then uid will hold the
-referred object's(e.g. Route's) uid.
-
-Upstream description:
-
-When a configuration object(e.g. Virtual\_host) refers to another(e.g route) then uid will hold the
-referred object's(e.g. Route's) uid.
-
-Receipt-pinned upstream constraints:
-
-```json
-{
-  "x-f5xc-constraints": {
-    "category": "general",
-    "constraintType": "string",
-    "maxLength": 1024,
-    "metadata": {
-      "confidence": 0.85,
-      "source": "inferred",
-      "validatedAt": "2026-10-03T05:10:26+00:00"
-    }
-  },
-  "x-f5xc-required-for": {
-    "create": false,
-    "minimum_config": false,
-    "read": false,
-    "update": false
-  }
-}
-```

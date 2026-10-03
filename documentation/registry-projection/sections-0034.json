@@ -1763,7 +1763,7 @@
       "anchor": "canonical-2230130202203213-1313132030310102-2023110122002230-1303201332113202-3332301310323311-1220320320013232-1112110113332313-3203300023313221",
       "anchor_map": [],
       "mode": "embedded",
-      "registry_path": "docs/guides/resources--global_log_receiver--reference--group-002.md"
+      "registry_path": "docs/guides/resources--global_log_receiver--reference--group-003.md"
     },
     {
       "canonical_id": "xcsh-docs:resources:global_log_receiver:properties:http_receiver:auth_none",
@@ -1775,7 +1775,7 @@
       "anchor": "canonical-2112210310132221-0011201303320102-2221303221323130-2023322301302122-0132012310301301-3121312301103021-0003230033300112-2323303313232212",
       "anchor_map": [],
       "mode": "embedded",
-      "registry_path": "docs/guides/resources--global_log_receiver--reference--group-002.md"
+      "registry_path": "docs/guides/resources--global_log_receiver--reference--group-003.md"
     },
     {
       "canonical_id": "xcsh-docs:resources:global_log_receiver:properties:http_receiver:auth_token",
@@ -1787,7 +1787,7 @@
       "anchor": "canonical-3211110223222312-1122132110030223-3113232133213102-3013031131221331-1303210011032221-3303131311330213-2103031022323113-1102013133333303",
       "anchor_map": [],
       "mode": "embedded",
-      "registry_path": "docs/guides/resources--global_log_receiver--reference--group-002.md"
+      "registry_path": "docs/guides/resources--global_log_receiver--reference--group-003.md"
     },
     {
       "canonical_id": "xcsh-docs:resources:global_log_receiver:properties:http_receiver:auth_token",

@@ -1149,6 +1149,9 @@ func (r *VirtualHostResource) Schema(ctx context.Context, req resource.SchemaReq
 				MarkdownDescription: "Map of integer error codes as keys and string values that can be used to provide custom HTTP pages for each error code. Key of the map can be either response code class or HTTP Error code. Response code classes for key is configured as follows 3 -- for 3xx response code class 4 -- for 4xx..",
 				Optional:            true,
 				ElementType:         types.StringType,
+				Validators: []validator.Map{
+					validators.MapConstraintsValidator("{\"cardinality\":{\"maxProperties\":16},\"category\":\"discovery\",\"constraintType\":\"map\",\"deterministic\":true,\"keys\":{\"maximum\":599,\"minimum\":3,\"type\":\"uint32-string\"},\"originalRules\":{\"ves.io.schema.rules.map.keys.uint32.gte\":\"3\",\"ves.io.schema.rules.map.keys.uint32.lte\":\"599\",\"ves.io.schema.rules.map.max_pairs\":\"16\",\"ves.io.schema.rules.map.values.string.max_len\":\"65536\",\"ves.io.schema.rules.map.values.string.uri_ref\":\"true\"},\"values\":{\"format\":\"uri-reference\",\"maxLength\":65536,\"type\":\"string\"}}"),
+				},
 			},
 			"default_header": schema.ObjectAttribute{
 				MarkdownDescription: "Configuration parameter for default header.",

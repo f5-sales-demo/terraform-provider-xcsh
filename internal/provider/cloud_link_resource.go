@@ -424,6 +424,7 @@ func (r *CloudLinkResource) Schema(ctx context.Context, req resource.SchemaReque
 											MarkdownDescription: "AWS Tags is a label consisting of a user-defined key and value. It helps to manage, identify, organize, search for, and filter resources in AWS console. Specified tags will be added to Virtual interface along with any F5XC specific tags.",
 											Optional:            true,
 											ElementType:         types.StringType,
+											Validators:          []validator.Map{validators.MapConstraintsValidator("{\"cardinality\":{\"maxProperties\":40},\"category\":\"discovery\",\"constraintType\":\"map\",\"deterministic\":true,\"keys\":{\"maxLength\":128,\"minLength\":1,\"type\":\"string\"},\"originalRules\":{\"ves.io.schema.rules.map.keys.string.max_len\":\"128\",\"ves.io.schema.rules.map.keys.string.min_len\":\"1\",\"ves.io.schema.rules.map.max_pairs\":\"40\",\"ves.io.schema.rules.map.values.string.max_len\":\"256\",\"ves.io.schema.rules.map.values.string.min_len\":\"1\"},\"values\":{\"maxLength\":256,\"minLength\":1,\"type\":\"string\"}}")},
 										},
 										"user_assigned_name": schema.StringAttribute{
 											MarkdownDescription: "Exclusive with [system_generated_name] User is managing the AWS resource name.",

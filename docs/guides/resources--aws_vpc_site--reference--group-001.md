@@ -97,6 +97,27 @@ Receipt-pinned upstream constraints:
 
 ```json
 {
+  "x-f5xc-constraints": {
+    "category": "discovery",
+    "constraintType": "map",
+    "deterministic": true,
+    "keys": {
+      "maxLength": 64,
+      "minLength": 1,
+      "type": "string"
+    },
+    "originalRules": {
+      "ves.io.schema.rules.map.keys.string.max_len": "64",
+      "ves.io.schema.rules.map.keys.string.min_len": "1",
+      "ves.io.schema.rules.map.values.string.max_len": "1024",
+      "ves.io.schema.rules.map.values.string.min_len": "1"
+    },
+    "values": {
+      "maxLength": 1024,
+      "minLength": 1,
+      "type": "string"
+    }
+  },
   "x-f5xc-required-for": {
     "create": false,
     "minimum_config": false,
@@ -693,18 +714,37 @@ Upstream description:
 AWS Tags is a label consisting of a user-defined key and value. It helps to manage, identify,
 organize, search for, and filter resources in AWS console.
 
+Provider validators and defaults (from schema source):
+
+```go
+Validators: []validator.Map{
+  validators.MapConstraintsValidator("{\"cardinality\":{\"maxProperties\":40},\"category\":\"discovery\",\"constraintType\":\"map\",\"deterministic\":true,\"keys\":{\"maxLength\":127,\"type\":\"string\"},\"originalRules\":{\"ves.io.schema.rules.map.keys.string.max_len\":\"127\",\"ves.io.schema.rules.map.max_pairs\":\"40\",\"ves.io.schema.rules.map.values.string.max_len\":\"255\"},\"values\":{\"maxLength\":255,\"type\":\"string\"}}"),
+}
+```
+
 Receipt-pinned upstream constraints:
 
 ```json
 {
   "x-f5xc-constraints": {
-    "category": "general",
-    "constraintType": "object",
-    "maxProperties": 40,
-    "metadata": {
-      "confidence": 0.75,
-      "source": "inferred",
-      "validatedAt": "2026-10-03T05:10:26+00:00"
+    "cardinality": {
+      "maxProperties": 40
+    },
+    "category": "discovery",
+    "constraintType": "map",
+    "deterministic": true,
+    "keys": {
+      "maxLength": 127,
+      "type": "string"
+    },
+    "originalRules": {
+      "ves.io.schema.rules.map.keys.string.max_len": "127",
+      "ves.io.schema.rules.map.max_pairs": "40",
+      "ves.io.schema.rules.map.values.string.max_len": "255"
+    },
+    "values": {
+      "maxLength": 255,
+      "type": "string"
     }
   },
   "x-f5xc-required-for": {
@@ -920,7 +960,7 @@ Each exact path has one authoritative reference destination. Collection element 
 | `ingress_egress_gw.global_network_list.global_network_connections.sli_to_global_dr` | [ingress_egress_gw.global_network_list.global_network_connections.sli_to_global_dr](resources--aws_vpc_site--reference--group-002.md#canonical-1101333022333030-0121123212103002-2112223330232113-2300122301012321-1030112022120133-0012322013221232-0220022012333331-1230312100012223) |
 | `ingress_egress_gw.global_network_list.global_network_connections.sli_to_global_dr.global_vn` | [ingress_egress_gw.global_network_list.global_network_connections.sli_to_global_dr.global_vn](resources--aws_vpc_site--reference--group-002.md#canonical-0220201301001303-1003022013300213-1012313012110233-2231331200122103-0122221301330020-0320321220320020-1211210323210233-2302300000332330) |
 | `ingress_egress_gw.global_network_list.global_network_connections.sli_to_global_dr.global_vn.name` | [ingress_egress_gw.global_network_list.global_network_connections.sli_to_global_dr.global_vn.name](resources--aws_vpc_site--reference--group-002.md#canonical-0113032030220201-3330010102331213-0100333200232011-1023100320120211-0033300021102303-3121103131213103-0203103111132210-2010233200332001) |
-| `ingress_egress_gw.global_network_list.global_network_connections.sli_to_global_dr.global_vn.namespace` | [ingress_egress_gw.global_network_list.global_network_connections.sli_to_global_dr.global_vn.namespace](resources--aws_vpc_site--reference--group-002.md#canonical-2112103002012102-1131101103202123-3101103131102101-3213323223130321-2313100032312030-2030132113112331-2200100010210110-3202203230031302) |
+| `ingress_egress_gw.global_network_list.global_network_connections.sli_to_global_dr.global_vn.namespace` | [ingress_egress_gw.global_network_list.global_network_connections.sli_to_global_dr.global_vn.namespace](resources--aws_vpc_site--reference--group-003.md#canonical-2112103002012102-1131101103202123-3101103131102101-3213323223130321-2313100032312030-2030132113112331-2200100010210110-3202203230031302) |
 | `ingress_egress_gw.global_network_list.global_network_connections.sli_to_global_dr.global_vn.tenant` | [ingress_egress_gw.global_network_list.global_network_connections.sli_to_global_dr.global_vn.tenant](resources--aws_vpc_site--reference--group-003.md#canonical-1113222021111113-3102303102131233-0200300331120030-1113030321333030-1303031101130202-0120301021322020-1331320020320230-1030100330211311) |
 | `ingress_egress_gw.global_network_list.global_network_connections.slo_to_global_dr` | [ingress_egress_gw.global_network_list.global_network_connections.slo_to_global_dr](resources--aws_vpc_site--reference--group-003.md#canonical-1201302112113130-3321213332021112-3031103301023000-1023320011311021-2230331230203120-3211322130132001-2131101312002300-3113001033110121) |
 | `ingress_egress_gw.global_network_list.global_network_connections.slo_to_global_dr.global_vn` | [ingress_egress_gw.global_network_list.global_network_connections.slo_to_global_dr.global_vn](resources--aws_vpc_site--reference--group-003.md#canonical-2013321103011120-0232123132221100-1031303132213121-0201221230302330-1220012010030213-2313222101213222-0022010113110103-2203301210122010) |
@@ -2219,7 +2259,7 @@ Receipt-pinned upstream constraints:
 
 - [SSH](resources--aws_vpc_site--reference--group-001.md#canonical-2012223122113100-3010320001230313-1131221113323201-1133122300002322-2311022123133110-1310310313223000-3123222222003223-0221131220300023): complete subsection reference.
 
-- [web_user_interface](resources--aws_vpc_site--reference--group-001.md#canonical-2330332230332100-3130113332112023-3212301120231310-3232122113032212-3112320213102031-1021333200300212-3103201330330331-0222211030023223): complete subsection reference.
+- [web_user_interface](resources--aws_vpc_site--reference--group-002.md#canonical-2330332230332100-3130113332112023-3212301120231310-3232122113032212-3112320213102031-1021333200300212-3103201330330331-0222211030023223): complete subsection reference.
 
 <a id="canonical-0211220012231322-0301001132313033-0203210030010313-1302200310321112-1311211220311320-3103010130200331-0011120031022233-2112133200222312"></a>
 
@@ -2227,7 +2267,7 @@ Receipt-pinned upstream constraints:
 
 - [blocked_services.blocked_service.dns](resources--aws_vpc_site--reference--group-001.md#canonical-3302211022120303-3310020210201301-1310311112010112-2132303333212001-0330111323312131-0002120333010010-3130331231110332-0032020013230131)
 - [blocked_services.blocked_service.ssh](resources--aws_vpc_site--reference--group-001.md#canonical-2012223122113100-3010320001230313-1131221113323201-1133122300002322-2311022123133110-1310310313223000-3123222222003223-0221131220300023)
-- [blocked_services.blocked_service.web_user_interface](resources--aws_vpc_site--reference--group-001.md#canonical-2330332230332100-3130113332112023-3212301120231310-3232122113032212-3112320213102031-1021333200300212-3103201330330331-0222211030023223)
+- [blocked_services.blocked_service.web_user_interface](resources--aws_vpc_site--reference--group-002.md#canonical-2330332230332100-3130113332112023-3212301120231310-3232122113032212-3112320213102031-1021333200300212-3103201330330331-0222211030023223)
 - [blocked_services](resources--aws_vpc_site--reference--group-001.md#canonical-3323032222210001-3302120102203102-3210021101231303-3023332013331112-3200032312323130-3223301102110203-3100201032112113-1310123003122330)
 - [xcsh_aws_vpc_site](../resources/aws_vpc_site.md#canonical-1121120120112313-2031303113302001-3322310321202321-3023211110122101-0112222301201113-1120203320333230-0020311023113132-2302133101311311)
 
@@ -2343,16 +2383,3 @@ ssh = {}
 ## Direct properties — SSH / 222002301231 / 3
 
 This is an empty object or choice marker. It has no direct properties.
-
-<a id="canonical-3331100012023011-2211301300303230-0203231300222010-0222210302300323-1331332111220311-0301001012022311-1021012312120203-3200230001300311"></a>
-
-## Next pages — SSH / 222002301231 / 4
-
-- [blocked_services.blocked_service](resources--aws_vpc_site--reference--group-001.md#canonical-0102322030032221-1312020110103322-0312312320331312-2323203222312233-3130330322220220-3322320221222010-0311102231203132-2213033023012032)
-- [xcsh_aws_vpc_site](../resources/aws_vpc_site.md#canonical-1121120120112313-2031303113302001-3322310321202321-3023211110122101-0112222301201113-1120203320333230-0020311023113132-2302133101311311)
-
-<a id="canonical-2330332230332100-3130113332112023-3212301120231310-3232122113032212-3112320213102031-1021333200300212-3103201330330331-0222211030023223"></a>
-
-<!-- Exact provider and upstream contract identifiers. -->
-
-<!-- textlint-disable terminology -->

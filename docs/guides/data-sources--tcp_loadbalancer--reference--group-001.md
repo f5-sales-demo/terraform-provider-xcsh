@@ -29,7 +29,7 @@ Breadcrumbs:
 
 - [advertise_custom](data-sources--tcp_loadbalancer--reference--group-001.md#canonical-1103122122200012-0323032231201022-3322102311013312-2202220203012213-1202320222020200-1321110221030333-1103121003312213-2312332031200000): complete subsection reference.
 
-- [advertise_on_public](data-sources--tcp_loadbalancer--reference--group-001.md#canonical-1112201032021131-3221000132200333-3131001223100003-2232313233132313-2111023302121223-0310220211131233-2130013222232323-2223231123010031): complete subsection reference.
+- [advertise_on_public](data-sources--tcp_loadbalancer--reference--group-002.md#canonical-1112201032021131-3221000132200333-3131001223100003-2232313233132313-2111023302121223-0310220211131233-2130013222232323-2223231123010031): complete subsection reference.
 
 - [advertise_on_public_default_vip](data-sources--tcp_loadbalancer--reference--group-002.md#canonical-2103301002331000-0011121122110023-2213202121233302-1122011020100033-1201330300100321-3021121333233123-2002013133223103-3102121301033313): complete subsection reference.
 
@@ -53,6 +53,27 @@ Receipt-pinned upstream constraints:
 
 ```json
 {
+  "x-f5xc-constraints": {
+    "category": "discovery",
+    "constraintType": "map",
+    "deterministic": true,
+    "keys": {
+      "maxLength": 64,
+      "minLength": 1,
+      "type": "string"
+    },
+    "originalRules": {
+      "ves.io.schema.rules.map.keys.string.max_len": "64",
+      "ves.io.schema.rules.map.keys.string.min_len": "1",
+      "ves.io.schema.rules.map.values.string.max_len": "1024",
+      "ves.io.schema.rules.map.values.string.min_len": "1"
+    },
+    "values": {
+      "maxLength": 1024,
+      "minLength": 1,
+      "type": "string"
+    }
+  },
   "x-f5xc-required-for": {
     "create": false,
     "minimum_config": false,
@@ -775,7 +796,7 @@ Each exact path has one authoritative reference destination. Collection element 
 
 - [active_service_policies](data-sources--tcp_loadbalancer--reference--group-001.md#canonical-1011022010101003-1111012300021023-0113013102330111-3011230222012201-0130101131130322-2013322311103222-1122320332303032-2001122100033100)
 - [advertise_custom](data-sources--tcp_loadbalancer--reference--group-001.md#canonical-1103122122200012-0323032231201022-3322102311013312-2202220203012213-1202320222020200-1321110221030333-1103121003312213-2312332031200000)
-- [advertise_on_public](data-sources--tcp_loadbalancer--reference--group-001.md#canonical-1112201032021131-3221000132200333-3131001223100003-2232313233132313-2111023302121223-0310220211131233-2130013222232323-2223231123010031)
+- [advertise_on_public](data-sources--tcp_loadbalancer--reference--group-002.md#canonical-1112201032021131-3221000132200333-3131001223100003-2232313233132313-2111023302121223-0310220211131233-2130013222232323-2223231123010031)
 - [advertise_on_public_default_vip](data-sources--tcp_loadbalancer--reference--group-002.md#canonical-2103301002331000-0011121122110023-2213202121233302-1122011020100033-1201330300100321-3021121333233123-2002013133223103-3102121301033313)
 - [default_lb_with_sni](data-sources--tcp_loadbalancer--reference--group-002.md#canonical-1120310112113021-0011220322222102-0130122230032031-0102010320303202-0001311211211213-3321333330113130-2001230311133133-1322321301312102)
 - [do_not_advertise](data-sources--tcp_loadbalancer--reference--group-002.md#canonical-2301200001232003-2230220223123022-1031331131120332-3030120311113103-0010103000333222-3012312213013120-0313333310330302-1322122222220023)
@@ -4352,9 +4373,3 @@ Receipt-pinned upstream constraints:
 
 - [advertise_custom.advertise_where.vk8s_service](data-sources--tcp_loadbalancer--reference--group-001.md#canonical-0132122101013332-2002300333102030-3301212123122331-3230111111010301-2012311030311102-1231333202212000-0001103133211311-0101301312120333)
 - [xcsh_tcp_loadbalancer](../data-sources/tcp_loadbalancer.md#canonical-3333120121311030-1222210233221001-3312122111101220-3230032211310111-0320230000212310-0112221113320201-0312111221101202-2321212213311233)
-
-<a id="canonical-1112201032021131-3221000132200333-3131001223100003-2232313233132313-2111023302121223-0310220211131233-2130013222232323-2223231123010031"></a>
-
-<!-- Exact provider and upstream contract identifiers. -->
-
-<!-- textlint-disable terminology -->

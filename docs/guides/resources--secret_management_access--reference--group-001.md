@@ -48,6 +48,27 @@ Receipt-pinned upstream constraints:
 
 ```json
 {
+  "x-f5xc-constraints": {
+    "category": "discovery",
+    "constraintType": "map",
+    "deterministic": true,
+    "keys": {
+      "maxLength": 64,
+      "minLength": 1,
+      "type": "string"
+    },
+    "originalRules": {
+      "ves.io.schema.rules.map.keys.string.max_len": "64",
+      "ves.io.schema.rules.map.keys.string.min_len": "1",
+      "ves.io.schema.rules.map.values.string.max_len": "1024",
+      "ves.io.schema.rules.map.values.string.min_len": "1"
+    },
+    "values": {
+      "maxLength": 1024,
+      "minLength": 1,
+      "type": "string"
+    }
+  },
   "x-f5xc-required-for": {
     "create": false,
     "minimum_config": false,
@@ -1378,13 +1399,21 @@ Receipt-pinned upstream constraints:
 ```json
 {
   "x-f5xc-constraints": {
-    "category": "general",
-    "constraintType": "object",
-    "maxProperties": 16,
-    "metadata": {
-      "confidence": 0.75,
-      "source": "inferred",
-      "validatedAt": "2026-10-03T05:10:26+00:00"
+    "cardinality": {
+      "maxProperties": 16
+    },
+    "category": "discovery",
+    "constraintType": "map",
+    "deterministic": true,
+    "keys": {
+      "maxLength": 256,
+      "minLength": 1,
+      "type": "string"
+    },
+    "originalRules": {
+      "ves.io.schema.rules.map.keys.string.max_len": "256",
+      "ves.io.schema.rules.map.keys.string.min_len": "1",
+      "ves.io.schema.rules.map.max_pairs": "16"
     }
   },
   "x-f5xc-required-for": {
@@ -1514,13 +1543,21 @@ Receipt-pinned upstream constraints:
 ```json
 {
   "x-f5xc-constraints": {
-    "category": "general",
-    "constraintType": "object",
-    "maxProperties": 16,
-    "metadata": {
-      "confidence": 0.75,
-      "source": "inferred",
-      "validatedAt": "2026-10-03T05:10:26+00:00"
+    "cardinality": {
+      "maxProperties": 16
+    },
+    "category": "discovery",
+    "constraintType": "map",
+    "deterministic": true,
+    "keys": {
+      "maxLength": 256,
+      "minLength": 1,
+      "type": "string"
+    },
+    "originalRules": {
+      "ves.io.schema.rules.map.keys.string.max_len": "256",
+      "ves.io.schema.rules.map.keys.string.min_len": "1",
+      "ves.io.schema.rules.map.max_pairs": "16"
     }
   },
   "x-f5xc-required-for": {
@@ -1639,7 +1676,7 @@ tls_config {
 
 - [disable_session_key_caching](resources--secret_management_access--reference--group-001.md#canonical-2203002320210003-3112320211113020-1231121133010311-1233120131013313-3001311220012032-3222010112020103-2122300120312001-3113010110113312): complete subsection reference.
 
-- [disable_sni](resources--secret_management_access--reference--group-001.md#canonical-0332120001232113-3013023320312311-2102123303203030-3020002001020103-3033121211320030-0303331223210211-1231303302332132-2220202112120212): complete subsection reference.
+- [disable_sni](resources--secret_management_access--reference--group-002.md#canonical-0332120001232113-3013023320312311-2102123303203030-3020002001020103-3033121211320030-0303331223210211-1231303302332132-2220202112120212): complete subsection reference.
 
 <a id="canonical-2002310103121301-2132013300230000-0012121102211320-3332332203133023-0123111020021210-0300333323111020-1302203301022003-1122031230330231"></a>
 
@@ -1765,7 +1802,7 @@ Receipt-pinned upstream constraints:
 - [access_info.tls_config.common_params](resources--secret_management_access--reference--group-001.md#canonical-1232221100110203-0220321230020230-1210031211101202-2031231201030330-2300232010223312-0303013330022332-3201103220201031-2300322122300120)
 - [access_info.tls_config.default_session_key_caching](resources--secret_management_access--reference--group-001.md#canonical-1010002310111333-3331111312010000-2130000001223131-0121101203110301-1123333102202232-1230231311001011-2331030210020320-2212211003301212)
 - [access_info.tls_config.disable_session_key_caching](resources--secret_management_access--reference--group-001.md#canonical-2203002320210003-3112320211113020-1231121133010311-1233120131013313-3001311220012032-3222010112020103-2122300120312001-3113010110113312)
-- [access_info.tls_config.disable_sni](resources--secret_management_access--reference--group-001.md#canonical-0332120001232113-3013023320312311-2102123303203030-3020002001020103-3033121211320030-0303331223210211-1231303302332132-2220202112120212)
+- [access_info.tls_config.disable_sni](resources--secret_management_access--reference--group-002.md#canonical-0332120001232113-3013023320312311-2102123303203030-3020002001020103-3033121211320030-0303331223210211-1231303302332132-2220202112120212)
 - [access_info.tls_config.use_host_header_as_sni](resources--secret_management_access--reference--group-002.md#canonical-0131132312113121-0002111223100322-1223133230330302-0112001130111232-1022232200200232-2011331323211022-3003013122220221-0332220231132233)
 - [access_info](resources--secret_management_access--reference--group-001.md#canonical-2302030002201031-3031010213110200-2013100112131001-2333012320201231-1232103301212112-3331320111021012-0031323320220221-1211023031200100)
 - [xcsh_secret_management_access](../resources/secret_management_access.md#canonical-1223322133200022-0322132200020012-2200310323001030-1133012320033211-0202131012231312-3333312233130212-3222302310223221-0100000011223020)
@@ -4715,16 +4752,3 @@ disable_session_key_caching = {}
 ## Direct properties — disable_session_key_caching / 101110023112 / 3
 
 This is an empty object or choice marker. It has no direct properties.
-
-<a id="canonical-1131223103123002-1233010211133002-1011300230231233-1331132100131233-1311303030212201-0320303021333113-3221331102230103-1323331121330211"></a>
-
-## Next pages — disable_session_key_caching / 101110023112 / 4
-
-- [access_info.tls_config](resources--secret_management_access--reference--group-001.md#canonical-0303313332033223-1101113133210311-0132323103031210-1231020232003323-1331213201300200-1321212120203132-2300130113302022-0011232001322121)
-- [xcsh_secret_management_access](../resources/secret_management_access.md#canonical-1223322133200022-0322132200020012-2200310323001030-1133012320033211-0202131012231312-3333312233130212-3222302310223221-0100000011223020)
-
-<a id="canonical-0332120001232113-3013023320312311-2102123303203030-3020002001020103-3033121211320030-0303331223210211-1231303302332132-2220202112120212"></a>
-
-<!-- Exact provider and upstream contract identifiers. -->
-
-<!-- textlint-disable terminology -->

@@ -6,6 +6,40 @@ description: "Complete grouped canonical reference for xcsh_virtual_host referen
 
 # xcsh_virtual_host reference
 
+<a id="canonical-0302032300303031-1232202202320323-2023323023012213-2010031113121203-1000021013303232-0303220201330000-1223302003231221-2001221221303000"></a>
+
+## decryption_provider property — blindfold_secret_info / 100101203321 / 4
+
+Type: `"string"`. Computed.
+
+Name of the Secret Management Access object that contains information about the backend Secret
+Management service.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-constraints": {
+    "category": "general",
+    "constraintType": "string",
+    "maxLength": 1024,
+    "metadata": {
+      "confidence": 0.85,
+      "source": "inferred",
+      "validatedAt": "2026-10-03T05:10:26+00:00"
+    }
+  },
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  }
+}
+```
+
+<a id="canonical-3000332200020302-1200112232231112-2111231332323331-0213223100200310-0203001300120302-2032202130030311-1201102110132112-1032123023322310"></a>
+
 <a id="canonical-0212013011210010-0001123033110331-3200022302101133-2002200133001302-3211010333321310-0121111001213223-2202021330022033-1233211111211012"></a>
 
 ## location property — blindfold_secret_info / 100101203321 / 5

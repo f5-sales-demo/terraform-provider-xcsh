@@ -88,6 +88,27 @@ Receipt-pinned upstream constraints:
 
 ```json
 {
+  "x-f5xc-constraints": {
+    "category": "discovery",
+    "constraintType": "map",
+    "deterministic": true,
+    "keys": {
+      "maxLength": 64,
+      "minLength": 1,
+      "type": "string"
+    },
+    "originalRules": {
+      "ves.io.schema.rules.map.keys.string.max_len": "64",
+      "ves.io.schema.rules.map.keys.string.min_len": "1",
+      "ves.io.schema.rules.map.values.string.max_len": "1024",
+      "ves.io.schema.rules.map.values.string.min_len": "1"
+    },
+    "values": {
+      "maxLength": 1024,
+      "minLength": 1,
+      "type": "string"
+    }
+  },
   "x-f5xc-required-for": {
     "create": false,
     "minimum_config": false,
@@ -617,13 +638,24 @@ Receipt-pinned upstream constraints:
 ```json
 {
   "x-f5xc-constraints": {
-    "category": "general",
-    "constraintType": "object",
-    "maxProperties": 40,
-    "metadata": {
-      "confidence": 0.75,
-      "source": "inferred",
-      "validatedAt": "2026-10-03T05:10:26+00:00"
+    "cardinality": {
+      "maxProperties": 40
+    },
+    "category": "discovery",
+    "constraintType": "map",
+    "deterministic": true,
+    "keys": {
+      "maxLength": 127,
+      "type": "string"
+    },
+    "originalRules": {
+      "ves.io.schema.rules.map.keys.string.max_len": "127",
+      "ves.io.schema.rules.map.max_pairs": "40",
+      "ves.io.schema.rules.map.values.string.max_len": "255"
+    },
+    "values": {
+      "maxLength": 255,
+      "type": "string"
     }
   },
   "x-f5xc-required-for": {
@@ -2219,36 +2251,3 @@ Receipt-pinned upstream constraints:
 ```
 
 <a id="canonical-3310122100011313-1213030023302103-3002112230133002-2302000233210303-0133330313301202-3320231022121221-1323100022332221-1001301001020220"></a>
-
-<a id="canonical-3321200113031020-0223013120332122-2300200130123322-3213013120323003-3101132001120301-3220131310000211-3210203002203203-2011202030320132"></a>
-
-## longitude property — coordinates / 032210200303 / 5
-
-Type: `"number"`. Computed.
-
-Longitude. Longitude of site location.
-
-Upstream description:
-
-Longitude of site location.
-
-Receipt-pinned upstream constraints:
-
-```json
-{
-  "x-f5xc-required-for": {
-    "create": false,
-    "minimum_config": false,
-    "read": false,
-    "update": false
-  },
-  "x-validation-rules": {
-    "ves.io.schema.rules.float.gte": "-180.0",
-    "ves.io.schema.rules.float.lte": "180.0"
-  },
-  "x-ves-validation-rules": {
-    "ves.io.schema.rules.float.gte": "-180.0",
-    "ves.io.schema.rules.float.lte": "180.0"
-  }
-}
-```

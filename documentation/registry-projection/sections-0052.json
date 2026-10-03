@@ -5478,7 +5478,7 @@
       "section_id": "xcsh-docs:resources:nfv_service:properties:palo_alto_fw_service:section:0",
       "source_sha256": "sha256:197d41522a9dd286cb9805a03d8a5bd782cc3f3fd95ea854bf2dfc326e83e50c",
       "source_bytes": 99,
-      "canonical_source_sha256": "sha256:8ab1a36a6b0da070632ea2f31bfb2ebf9a55e3622011de7ad469612a4639db13",
+      "canonical_source_sha256": "sha256:ac38e592349be09a91776d2dad4df3b117d9644bee22ba953b0e9a6af13e2526",
       "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/resources/nfv_service/properties/palo_alto_fw_service/",
       "anchor": "canonical-1220032300320010-0322310310320112-3102020032000031-0230002231133113-1321103031132221-2112211003001211-2001103020013300-3102213200033033",
       "anchor_map": [],
@@ -5490,7 +5490,7 @@
       "section_id": "xcsh-docs:resources:nfv_service:properties:palo_alto_fw_service:section:1",
       "source_sha256": "sha256:08552b49d01032f530f22fbf6400b621245aece071f87cc602bfd2938bf15ee8",
       "source_bytes": 1275,
-      "canonical_source_sha256": "sha256:8ab1a36a6b0da070632ea2f31bfb2ebf9a55e3622011de7ad469612a4639db13",
+      "canonical_source_sha256": "sha256:ac38e592349be09a91776d2dad4df3b117d9644bee22ba953b0e9a6af13e2526",
       "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/resources/nfv_service/properties/palo_alto_fw_service/",
       "anchor": "canonical-1120101301121331-3020233232023021-3012110322321012-2311201301110132-3312323303130331-0030320012223323-3221303030022133-1200111320100322",
       "anchor_map": [
@@ -5507,7 +5507,7 @@
       "section_id": "xcsh-docs:resources:nfv_service:properties:palo_alto_fw_service:section:2",
       "source_sha256": "sha256:375b4fd4201c879cbb58861a249dea164ad711bdd2790173656de862df3e5fff",
       "source_bytes": 608,
-      "canonical_source_sha256": "sha256:8ab1a36a6b0da070632ea2f31bfb2ebf9a55e3622011de7ad469612a4639db13",
+      "canonical_source_sha256": "sha256:ac38e592349be09a91776d2dad4df3b117d9644bee22ba953b0e9a6af13e2526",
       "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/resources/nfv_service/properties/palo_alto_fw_service/",
       "anchor": "canonical-0223021102201021-1033330120223023-1221301333323222-3030013112110002-2301121203003230-0000330303002213-3321231003321031-0122013110231203",
       "anchor_map": [
@@ -5524,7 +5524,7 @@
       "section_id": "xcsh-docs:resources:nfv_service:properties:palo_alto_fw_service:section:3",
       "source_sha256": "sha256:f979f8c8b8fea531ccc9fe5f91b2ad49a0e2781a9276c6fb170bcac38daeb0eb",
       "source_bytes": 9777,
-      "canonical_source_sha256": "sha256:8ab1a36a6b0da070632ea2f31bfb2ebf9a55e3622011de7ad469612a4639db13",
+      "canonical_source_sha256": "sha256:ac38e592349be09a91776d2dad4df3b117d9644bee22ba953b0e9a6af13e2526",
       "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/resources/nfv_service/properties/palo_alto_fw_service/",
       "anchor": "canonical-3102012112330323-3103331312002333-1330021221013202-2110022132123321-3200122111311322-3200223232232222-2311000010220330-1313212210221303",
       "anchor_map": [
@@ -5541,7 +5541,7 @@
       "section_id": "xcsh-docs:resources:nfv_service:properties:palo_alto_fw_service:section:4",
       "source_sha256": "sha256:a470f7384e98a465602040e274d19645268385c9602369dee0050d74b7cdaf53",
       "source_bytes": 1333,
-      "canonical_source_sha256": "sha256:8ab1a36a6b0da070632ea2f31bfb2ebf9a55e3622011de7ad469612a4639db13",
+      "canonical_source_sha256": "sha256:ac38e592349be09a91776d2dad4df3b117d9644bee22ba953b0e9a6af13e2526",
       "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/resources/nfv_service/properties/palo_alto_fw_service/",
       "anchor": "canonical-2221133031333201-3033003102012113-2310100231131031-1013020220021111-2302000232102202-0130321231231122-2223102101012032-0112012300132231",
       "anchor_map": [
@@ -5556,9 +5556,9 @@
     {
       "canonical_id": "xcsh-docs:resources:nfv_service:properties:palo_alto_fw_service",
       "section_id": "xcsh-docs:resources:nfv_service:properties:palo_alto_fw_service:section:5",
-      "source_sha256": "sha256:692191bc0545b82f03f2dcd70851a05ddf7c114472e2bc5d28e7e6a90b1c71fb",
-      "source_bytes": 1250,
-      "canonical_source_sha256": "sha256:8ab1a36a6b0da070632ea2f31bfb2ebf9a55e3622011de7ad469612a4639db13",
+      "source_sha256": "sha256:dfe16158543f8a214b4868d07c28d34a4b340d8512c1ec20b59fab7792acfca5",
+      "source_bytes": 2046,
+      "canonical_source_sha256": "sha256:ac38e592349be09a91776d2dad4df3b117d9644bee22ba953b0e9a6af13e2526",
       "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/resources/nfv_service/properties/palo_alto_fw_service/",
       "anchor": "canonical-3012032133123332-3111113112100032-3002012100133032-0012231033232130-3023230303002103-3003002210221000-2222110012110233-1230021132001132",
       "anchor_map": [
@@ -5575,7 +5575,7 @@
       "section_id": "xcsh-docs:resources:nfv_service:properties:palo_alto_fw_service:section:6",
       "source_sha256": "sha256:761cbb36a53558aae1dbb55612cbc81d2cd7245a688ec38691e2dab51a4dae6a",
       "source_bytes": 946,
-      "canonical_source_sha256": "sha256:8ab1a36a6b0da070632ea2f31bfb2ebf9a55e3622011de7ad469612a4639db13",
+      "canonical_source_sha256": "sha256:ac38e592349be09a91776d2dad4df3b117d9644bee22ba953b0e9a6af13e2526",
       "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/resources/nfv_service/properties/palo_alto_fw_service/",
       "anchor": "canonical-1233113033310022-2302012211122022-2102011203100122-0332333323021321-3200320131211003-3033032112031222-3101133020011112-1121021012011230",
       "anchor_map": [],
@@ -5587,7 +5587,7 @@
       "section_id": "xcsh-docs:resources:nfv_service:properties:palo_alto_fw_service:section:7",
       "source_sha256": "sha256:56814cadf6537c6e578301f51344c5a2e74e885e365f70570df17b765a843213",
       "source_bytes": 1395,
-      "canonical_source_sha256": "sha256:8ab1a36a6b0da070632ea2f31bfb2ebf9a55e3622011de7ad469612a4639db13",
+      "canonical_source_sha256": "sha256:ac38e592349be09a91776d2dad4df3b117d9644bee22ba953b0e9a6af13e2526",
       "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/resources/nfv_service/properties/palo_alto_fw_service/",
       "anchor": "canonical-0101120131120010-2120013301210231-1023223103010112-2112321302321212-3213001322020200-0303320023212013-0210101130133103-0100233201200110",
       "anchor_map": [],
@@ -5650,7 +5650,7 @@
       "anchor": "canonical-2013301200211112-1100003032311320-0023112202120310-2332113221123213-0021032130023101-0103210313310210-1003120310012133-0111202121002221",
       "anchor_map": [],
       "mode": "embedded",
-      "registry_path": "docs/guides/resources--nfv_service--reference--group-003.md"
+      "registry_path": "docs/guides/resources--nfv_service--reference--group-004.md"
     },
     {
       "canonical_id": "xcsh-docs:resources:nfv_service:properties:palo_alto_fw_service:auto_setup",

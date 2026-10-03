@@ -51,6 +51,27 @@ Receipt-pinned upstream constraints:
 
 ```json
 {
+  "x-f5xc-constraints": {
+    "category": "discovery",
+    "constraintType": "map",
+    "deterministic": true,
+    "keys": {
+      "maxLength": 64,
+      "minLength": 1,
+      "type": "string"
+    },
+    "originalRules": {
+      "ves.io.schema.rules.map.keys.string.max_len": "64",
+      "ves.io.schema.rules.map.keys.string.min_len": "1",
+      "ves.io.schema.rules.map.values.string.max_len": "1024",
+      "ves.io.schema.rules.map.values.string.min_len": "1"
+    },
+    "values": {
+      "maxLength": 1024,
+      "minLength": 1,
+      "type": "string"
+    }
+  },
   "x-f5xc-required-for": {
     "create": false,
     "minimum_config": false,
@@ -142,7 +163,7 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-- [disable_advanced_delivery](data-sources--securemesh_site_v2--reference--group-006.md#canonical-1213023230210130-1032003120132101-2201122000211032-0322111123031323-3030102122310010-0013322302230131-1332131200210210-3120002013301322): complete subsection reference.
+- [disable_advanced_delivery](data-sources--securemesh_site_v2--reference--group-007.md#canonical-1213023230210130-1032003120132101-2201122000211032-0322111123031323-3030102122310010-0013322302230131-1332131200210210-3120002013301322): complete subsection reference.
 
 - [disable_ha](data-sources--securemesh_site_v2--reference--group-007.md#canonical-2013213202032232-1201030110001201-3020211321332212-2120302120002312-3223301330322102-1111020201033332-1202321012210330-1330223033112022): complete subsection reference.
 

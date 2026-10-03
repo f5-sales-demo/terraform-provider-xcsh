@@ -404,6 +404,7 @@ func (r *CloudCredentialsResource) Schema(ctx context.Context, req resource.Sche
 						MarkdownDescription: "Session tags are key-value pair attributes that you pass when you assume an IAM role.",
 						Optional:            true,
 						ElementType:         types.StringType,
+						Validators:          []validator.Map{validators.MapConstraintsValidator("{\"cardinality\":{\"maxProperties\":40},\"category\":\"discovery\",\"constraintType\":\"map\",\"deterministic\":true,\"keys\":{\"maxLength\":127,\"type\":\"string\"},\"originalRules\":{\"ves.io.schema.rules.map.keys.string.max_len\":\"127\",\"ves.io.schema.rules.map.max_pairs\":\"40\",\"ves.io.schema.rules.map.values.string.max_len\":\"255\"},\"values\":{\"maxLength\":255,\"type\":\"string\"}}")},
 					},
 				},
 			},

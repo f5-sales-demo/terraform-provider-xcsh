@@ -26,7 +26,7 @@ description: "Complete grouped canonical reference for xcsh_voltstack_site refer
 - [disable_vm](data-sources--voltstack_site--reference--group-008.md#canonical-1033000201210201-3132201233301200-1212311330301013-3030133000212021-3320323323311230-1211202021132213-3011000201300121-0321301200302120)
 - [enable_gpu](data-sources--voltstack_site--reference--group-008.md#canonical-3301023003030020-3333310331323132-3301311002332122-0011132321032203-1003232133133122-1220020221013232-2022011123101120-1230033021010322)
 - [enable_vgpu](data-sources--voltstack_site--reference--group-008.md#canonical-1131330000323001-2000332111122333-3330122310233213-2112201320320113-3011213113023220-1211302100220022-2031013022001131-1002210211033323)
-- [enable_vm](data-sources--voltstack_site--reference--group-008.md#canonical-2120033220230201-3201323001000303-2300010003321030-1322013303121300-1311012110311000-2112222220331213-2322312333333022-2023330301130102)
+- [enable_vm](data-sources--voltstack_site--reference--group-009.md#canonical-2120033220230201-3201323001000303-2300010003321030-1322013303121300-1311012110311000-2112222220331213-2322312333333022-2023330301130102)
 - [k8s_cluster](data-sources--voltstack_site--reference--group-009.md#canonical-1132230233133203-3131223100302000-2120313313123100-3220310332231001-0231212333120223-3101313210021001-1002131331120000-1311031032021230)
 - [kubernetes_upgrade_drain](data-sources--voltstack_site--reference--group-009.md#canonical-3320131330201111-2130101200102000-2332212122311310-2211301113232033-3130213303132011-2010111113113320-3322320132110020-1012320321211130)
 - [local_control_plane](data-sources--voltstack_site--reference--group-009.md#canonical-0013103332313000-3213203202333213-2320232030232220-1310031130101133-1101202000301222-0131131223112332-1322201131002100-1033110110022000)
@@ -5061,13 +5061,28 @@ Receipt-pinned upstream constraints:
 ```json
 {
   "x-f5xc-constraints": {
-    "category": "general",
-    "constraintType": "object",
-    "maxProperties": 128,
-    "metadata": {
-      "confidence": 0.75,
-      "source": "inferred",
-      "validatedAt": "2026-10-03T05:10:26+00:00"
+    "cardinality": {
+      "maxProperties": 128
+    },
+    "category": "discovery",
+    "constraintType": "map",
+    "crossEntry": {
+      "uniqueValues": true
+    },
+    "deterministic": true,
+    "keys": {
+      "format": "mac-address",
+      "type": "string"
+    },
+    "originalRules": {
+      "ves.io.schema.rules.map.keys.string.mac": "true",
+      "ves.io.schema.rules.map.max_pairs": "128",
+      "ves.io.schema.rules.map.unique_values": "true",
+      "ves.io.schema.rules.map.values.string.ipv4": "true"
+    },
+    "values": {
+      "format": "ipv4",
+      "type": "string"
     }
   },
   "x-f5xc-required-for": {

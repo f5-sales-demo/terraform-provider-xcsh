@@ -6,6 +6,98 @@ description: "Complete grouped canonical reference for xcsh_gcp_vpc_site referen
 
 # xcsh_gcp_vpc_site reference
 
+<a id="canonical-3333101103130300-0211322132101130-2012002030012120-2222323102212232-1123232321122222-0113002003211132-1022201321202231-1023122113131121"></a>
+
+## ingress_egress_gw.outside_static_routes.static_route_list.custom_static_route — custom_static_route / 213103212102 / 2
+
+Breadcrumbs:
+
+- [xcsh_gcp_vpc_site](../data-sources/gcp_vpc_site.md#canonical-1132222133321101-1232102200201102-2111112102132122-0010023221133123-2333213300031302-1001011022311003-3121103220313010-2103321200303202)
+- [Property reference](data-sources--gcp_vpc_site--reference--group-001.md#canonical-0023231003100101-1010210121112300-0303103132302303-0331000323201313-3003311210331022-3000312312212303-0030202320102022-1232013113103201)
+- [ingress_egress_gw](data-sources--gcp_vpc_site--reference--group-001.md#canonical-1123313330020103-2220202203231111-2113330331022333-0133213021020321-0303223331023010-1320133103131013-2322232313123200-2330220010011031)
+- [ingress_egress_gw.outside_static_routes](data-sources--gcp_vpc_site--reference--group-002.md#canonical-2222212203011002-0122100002033220-1003302221310103-3022130333223033-1321222030130012-0211202033021113-0330312012113010-2122030230011200)
+- [ingress_egress_gw.outside_static_routes.static_route_list](data-sources--gcp_vpc_site--reference--group-002.md#canonical-1303330302312132-1121332321030032-3232300201320322-2013232231301011-1000303123022011-0120133312103013-3212023032032211-3012112131110121)
+- ingress_egress_gw.outside_static_routes.static_route_list.custom_static_route
+
+<a id="canonical-2103200313332222-1131023303323121-2222313212320320-2303113331130031-1300031032303223-2112212011131213-3031301123323102-2200101331133010"></a>
+
+Type: `"single"`. Computed.
+
+Defines a static route, configuring a list of prefixes and a next-hop to be used for them.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  }
+}
+```
+
+<a id="canonical-1012222100322102-1111121032312303-0223202133100131-1013323113201330-2001300201312122-1133321032320130-1113133201122022-0013220131001322"></a>
+
+## Direct properties — custom_static_route / 213103212102 / 3
+
+<a id="canonical-1113021133222132-0233222330121200-0222023222131011-0303101213230232-2112320320012000-0032320310322333-2202322002203032-2000002032301032"></a>
+
+<a id="canonical-3212000300021020-3112220310021131-1010022123012212-1213210212320022-3023310020222311-2030131033110211-1303131330110011-1100330011323032"></a>
+
+## attrs property — custom_static_route / 213103212102 / 4
+
+Type: `["list", "string"]`. Computed.
+
+\[Enum:
+ROUTE\_ATTR\_NO\_OP|ROUTE\_ATTR\_ADVERTISE|ROUTE\_ATTR\_INSTALL\_HOST|ROUTE\_ATTR\_INSTALL\_FORWARDING|ROUTE\_ATTR\_MERGE\_ONLY\]
+List of route attributes associated with the static route. Possible values are
+\`ROUTE\_ATTR\_NO\_OP\`, \`ROUTE\_ATTR\_ADVERTISE\`, \`ROUTE\_ATTR\_INSTALL\_HOST\`,
+\`ROUTE\_ATTR\_INSTALL\_FORWARDING\`, \`ROUTE\_ATTR\_MERGE\_ONLY\`. Defaults to
+\`ROUTE\_ATTR\_NO\_OP\`.
+
+Upstream description:
+
+List of route attributes associated with the static route.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "maxItems": 4,
+  "x-f5xc-constraints": {
+    "category": "discovery",
+    "constraintType": "array",
+    "deterministic": true,
+    "maxItems": 4,
+    "metadata": {
+      "confidence": 0.99,
+      "source": "discovery",
+      "validatedAt": "2026-10-03T05:10:26+00:00"
+    }
+  },
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  },
+  "x-validation-rules": {
+    "ves.io.schema.rules.repeated.max_items": "4"
+  },
+  "x-ves-validation-rules": {
+    "ves.io.schema.rules.repeated.max_items": "4"
+  }
+}
+```
+
+- [labels](data-sources--gcp_vpc_site--reference--group-003.md#canonical-0322223121033130-3201331110102202-3323013213111212-1223222300100021-0130300132011311-3322320210310233-3331103011001222-2210023213113300): complete subsection reference.
+
+- [nexthop](data-sources--gcp_vpc_site--reference--group-003.md#canonical-0321020222123230-1311211201211220-3333320103332321-3332210131100313-2002203032333220-1002123221331321-1130203022113333-2323212121233330): complete subsection reference.
+
+- [subnets](data-sources--gcp_vpc_site--reference--group-003.md#canonical-2223102112003230-2120223010131011-3311220202110311-0321102303122130-2120231212223300-0313302303012100-0233120210103013-1013201130003200): complete subsection reference.
+
 <a id="canonical-2220313330023122-2001203310211213-1203221001202321-2322321101110003-0010232222101310-0121222220110121-3111210311301012-0022321202222133"></a>
 
 ## Next pages — custom_static_route / 213103212102 / 5
@@ -4788,109 +4880,6 @@ This is an empty object or choice marker. It has no direct properties.
 - [xcsh_gcp_vpc_site](../data-sources/gcp_vpc_site.md#canonical-1132222133321101-1232102200201102-2111112102132122-0010023221133123-2333213300031302-1001011022311003-3121103220313010-2103321200303202)
 
 <a id="canonical-0310330212021223-3303111001132333-2110220022330203-2030023332031212-0003311012011331-0210223302200113-1032100302211312-2001221222220020"></a>
-
-<!-- Exact provider and upstream contract identifiers. -->
-
-<!-- textlint-disable terminology -->
-
-<a id="canonical-0201320000120003-2111332102311321-0123210232102003-1002301011201213-3212322211321032-3123311332102101-2223030112012321-2022331311313313"></a>
-
-## sw — sw / 010030032222 / 2
-
-Breadcrumbs:
-
-- [xcsh_gcp_vpc_site](../data-sources/gcp_vpc_site.md#canonical-1132222133321101-1232102200201102-2111112102132122-0010023221133123-2333213300031302-1001011022311003-3121103220313010-2103321200303202)
-- [Property reference](data-sources--gcp_vpc_site--reference--group-001.md#canonical-0023231003100101-1010210121112300-0303103132302303-0331000323201313-3003311210331022-3000312312212303-0030202320102022-1232013113103201)
-- sw
-
-<a id="canonical-0231010130132301-3230223211201230-1131212221130330-0011311122031022-0120120303021111-2220120011022310-1011103233320012-0330322321331211"></a>
-
-Type: `"single"`. Computed.
-
-Select the F5XC Software Version for the site. By default, latest available F5XC Software Version
-will be used. Refer to release notes to find required released SW versions.
-
-Upstream description:
-
-Select the F5XC Software Version for the site. By default, latest available F5XC Software Version
-will be used. Refer to release notes to find required released SW versions.
-
-Receipt-pinned upstream constraints:
-
-```json
-{
-  "x-f5xc-required-for": {
-    "create": false,
-    "minimum_config": false,
-    "read": false,
-    "update": false
-  },
-  "x-ves-oneof-field-volterra_sw_version_choice": "[\"default_sw_version\",\"volterra_software_version\"]"
-}
-```
-
-<a id="canonical-2102233013011312-1333230002031202-1032323022130212-0220113132221013-2133033011121302-2330233320131132-1100221133301323-1133313311201321"></a>
-
-## Direct properties — sw / 010030032222 / 3
-
-- [default_sw_version](data-sources--gcp_vpc_site--reference--group-003.md#canonical-1322011031102300-0311310231323110-0003101121031322-1232120201210313-0002212110100210-0321322213120221-0102113210230112-0232021232123020): complete subsection reference.
-
-<a id="canonical-2203231232232023-1203321030310030-3103210020103020-3322022212330113-2223202122100212-2231102012032012-0203011100131001-1022200312222002"></a>
-
-<a id="canonical-3003111132102100-2003212110110020-0021313311120232-2312211131123023-2303111210003311-3132321103310100-0212311302111110-1112013313032310"></a>
-
-## volterra_software_version property — sw / 010030032222 / 4
-
-Type: `"string"`. Computed.
-
-Exclusive with \[default\_sw\_version\] Specify a F5XC Software Version to be used e.g.
-Crt-20210329-1002.
-
-Upstream description:
-
-Exclusive with \[default\_sw\_version\] Specify a F5XC Software Version to be used e.g.
-Crt-20210329-1002.
-
-Receipt-pinned upstream constraints:
-
-```json
-{
-  "maxLength": 20,
-  "x-f5xc-constraints": {
-    "category": "discovery",
-    "constraintType": "string",
-    "deterministic": true,
-    "maxLength": 20,
-    "metadata": {
-      "confidence": 0.99,
-      "source": "discovery",
-      "validatedAt": "2026-10-03T05:10:26+00:00"
-    }
-  },
-  "x-f5xc-required-for": {
-    "create": false,
-    "minimum_config": false,
-    "read": false,
-    "update": false
-  },
-  "x-validation-rules": {
-    "ves.io.schema.rules.string.max_len": "20"
-  },
-  "x-ves-validation-rules": {
-    "ves.io.schema.rules.string.max_len": "20"
-  }
-}
-```
-
-<a id="canonical-1312233100231301-2012012133013203-3210202011120123-3300222310321211-2010112122332323-3010122220110133-2123332002310223-2111332030313320"></a>
-
-## Next pages — sw / 010030032222 / 5
-
-- [sw.default_sw_version](data-sources--gcp_vpc_site--reference--group-003.md#canonical-1322011031102300-0311310231323110-0003101121031322-1232120201210313-0002212110100210-0321322213120221-0102113210230112-0232021232123020)
-- [Property reference](data-sources--gcp_vpc_site--reference--group-001.md#canonical-0023231003100101-1010210121112300-0303103132302303-0331000323201313-3003311210331022-3000312312212303-0030202320102022-1232013113103201)
-- [xcsh_gcp_vpc_site](../data-sources/gcp_vpc_site.md#canonical-1132222133321101-1232102200201102-2111112102132122-0010023221133123-2333213300031302-1001011022311003-3121103220313010-2103321200303202)
-
-<a id="canonical-1322011031102300-0311310231323110-0003101121031322-1232120201210313-0002212110100210-0321322213120221-0102113210230112-0232021232123020"></a>
 
 <!-- Exact provider and upstream contract identifiers. -->
 

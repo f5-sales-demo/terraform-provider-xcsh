@@ -6,6 +6,43 @@ description: "Complete grouped canonical reference for xcsh_application_profiles
 
 # xcsh_application_profiles reference
 
+<a id="canonical-1312200232032122-1102033010233113-0210102323013113-2201101213033313-3031323020222112-0300121231031123-2131000313000003-3330130311132203"></a>
+
+## uid property — udp_server_profile / 322112223122 / 8
+
+Type: `"string"`. Computed.
+
+When a configuration object(e.g. Virtual\_host) refers to another(e.g route) then uid will hold the
+referred object's(e.g. Route's) uid.
+
+Upstream description:
+
+When a configuration object(e.g. Virtual\_host) refers to another(e.g route) then uid will hold the
+referred object's(e.g. Route's) uid.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-constraints": {
+    "category": "general",
+    "constraintType": "string",
+    "maxLength": 1024,
+    "metadata": {
+      "confidence": 0.85,
+      "source": "inferred",
+      "validatedAt": "2026-10-03T05:10:26+00:00"
+    }
+  },
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  }
+}
+```
+
 <a id="canonical-2003212112102330-1200201200111132-3323323331211111-0310202322323233-1002111023221111-1130330201212232-1323231123032021-1013111013113111"></a>
 
 ## Next pages — udp_server_profile / 322112223122 / 9

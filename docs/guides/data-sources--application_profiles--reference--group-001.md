@@ -47,6 +47,27 @@ Receipt-pinned upstream constraints:
 
 ```json
 {
+  "x-f5xc-constraints": {
+    "category": "discovery",
+    "constraintType": "map",
+    "deterministic": true,
+    "keys": {
+      "maxLength": 64,
+      "minLength": 1,
+      "type": "string"
+    },
+    "originalRules": {
+      "ves.io.schema.rules.map.keys.string.max_len": "64",
+      "ves.io.schema.rules.map.keys.string.min_len": "1",
+      "ves.io.schema.rules.map.values.string.max_len": "1024",
+      "ves.io.schema.rules.map.values.string.min_len": "1"
+    },
+    "values": {
+      "maxLength": 1024,
+      "minLength": 1,
+      "type": "string"
+    }
+  },
   "x-f5xc-required-for": {
     "create": false,
     "minimum_config": false,
@@ -2059,7 +2080,7 @@ Receipt-pinned upstream constraints:
 
 - [auto_last_hop_default](data-sources--application_profiles--reference--group-001.md#canonical-2022202003321202-0000232233101313-1132023331313010-2010231221333133-3230131322101322-3033101310123031-3233122211121121-2210132301101013): complete subsection reference.
 
-- [auto_last_hop_disable](data-sources--application_profiles--reference--group-001.md#canonical-3023333310000330-2311322123300120-1330121020233003-1023110322110203-3230211030203320-3333121111331332-2330233202203201-1013122232123220): complete subsection reference.
+- [auto_last_hop_disable](data-sources--application_profiles--reference--group-002.md#canonical-3023333310000330-2311322123300120-1330121020233003-1023110322110203-3230211030203320-3333121111331332-2330233202203201-1013122232123220): complete subsection reference.
 
 - [auto_last_hop_enable](data-sources--application_profiles--reference--group-002.md#canonical-2010131201000311-3023001133332320-2011000031201313-0300000013003111-0133020120331113-2203133021110213-2010213130332333-1302102022032200): complete subsection reference.
 
@@ -2068,7 +2089,7 @@ Receipt-pinned upstream constraints:
 ## Next pages — auto_last_hop / 030303023232 / 4
 
 - [virtual_server.auto_last_hop.auto_last_hop_default](data-sources--application_profiles--reference--group-001.md#canonical-2022202003321202-0000232233101313-1132023331313010-2010231221333133-3230131322101322-3033101310123031-3233122211121121-2210132301101013)
-- [virtual_server.auto_last_hop.auto_last_hop_disable](data-sources--application_profiles--reference--group-001.md#canonical-3023333310000330-2311322123300120-1330121020233003-1023110322110203-3230211030203320-3333121111331332-2330233202203201-1013122232123220)
+- [virtual_server.auto_last_hop.auto_last_hop_disable](data-sources--application_profiles--reference--group-002.md#canonical-3023333310000330-2311322123300120-1330121020233003-1023110322110203-3230211030203320-3333121111331332-2330233202203201-1013122232123220)
 - [virtual_server.auto_last_hop.auto_last_hop_enable](data-sources--application_profiles--reference--group-002.md#canonical-2010131201000311-3023001133332320-2011000031201313-0300000013003111-0133020120331113-2203133021110213-2010213130332333-1302102022032200)
 - [virtual_server](data-sources--application_profiles--reference--group-001.md#canonical-2011012130233013-1021222233222201-1010303311001211-1001312100300300-2222221213013310-2022113133020232-2330233312111312-1320022121303130)
 - [xcsh_application_profiles](../data-sources/application_profiles.md#canonical-1311211203002323-2003223022233300-1230021211313022-0103300013312020-2232032102012103-1003213312301301-2022210332331102-2300323031031330)
@@ -2119,16 +2140,3 @@ Receipt-pinned upstream constraints:
 ## Direct properties — auto_last_hop_default / 203122210102 / 3
 
 This is an empty object or choice marker. It has no direct properties.
-
-<a id="canonical-1032023233313232-1021023103023111-0310303101010213-1213301122000312-2311100130211021-3212323002113300-2023212110301301-1223221023201323"></a>
-
-## Next pages — auto_last_hop_default / 203122210102 / 4
-
-- [virtual_server.auto_last_hop](data-sources--application_profiles--reference--group-001.md#canonical-1213231221312103-2101111203001231-0201213300231211-0313012112021033-1012200101220121-2101220302131103-3212333133311002-3200300331321033)
-- [xcsh_application_profiles](../data-sources/application_profiles.md#canonical-1311211203002323-2003223022233300-1230021211313022-0103300013312020-2232032102012103-1003213312301301-2022210332331102-2300323031031330)
-
-<a id="canonical-3023333310000330-2311322123300120-1330121020233003-1023110322110203-3230211030203320-3333121111331332-2330233202203201-1013122232123220"></a>
-
-<!-- Exact provider and upstream contract identifiers. -->
-
-<!-- textlint-disable terminology -->

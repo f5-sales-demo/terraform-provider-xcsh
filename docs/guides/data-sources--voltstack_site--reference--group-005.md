@@ -6,6 +6,63 @@ description: "Complete grouped canonical reference for xcsh_voltstack_site refer
 
 # xcsh_voltstack_site reference
 
+<a id="canonical-2200111122023230-3101211110213021-0121313011203031-1112321322122002-2333311232121133-3130032210000212-2201132302203331-2010012302230022"></a>
+
+## name property — tunnel / 212102031102 / 4
+
+Type: `"string"`. Computed.
+
+When a configuration object(e.g. Virtual\_host) refers to another(e.g route) then name will hold the
+referred object's(e.g. Route's) name.
+
+Upstream description:
+
+When a configuration object(e.g. Virtual\_host) refers to another(e.g route) then name will hold the
+referred object's(e.g. Route's) name.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "maxLength": 128,
+  "minLength": 1,
+  "x-f5xc-constraints": {
+    "byteLength": {
+      "max": 128,
+      "min": 1
+    },
+    "category": "discovery",
+    "constraintType": "string",
+    "deterministic": true,
+    "maxLength": 128,
+    "metadata": {
+      "confidence": 0.99,
+      "source": "discovery",
+      "validatedAt": "2026-10-03T05:10:26+00:00"
+    },
+    "minLength": 1
+  },
+  "x-f5xc-required-for": {
+    "create": true,
+    "minimum_config": true,
+    "read": false,
+    "update": false
+  },
+  "x-validation-rules": {
+    "ves.io.schema.rules.message.required": "true",
+    "ves.io.schema.rules.string.max_bytes": "128",
+    "ves.io.schema.rules.string.min_bytes": "1"
+  },
+  "x-ves-validation-rules": {
+    "ves.io.schema.rules.message.required": "true",
+    "ves.io.schema.rules.string.max_bytes": "128",
+    "ves.io.schema.rules.string.min_bytes": "1"
+  }
+}
+```
+
+<a id="canonical-0010223003001301-0001130203311303-0223213031220133-2301121210112001-0002020011103121-1332332111302331-1321001313032323-2233000311130132"></a>
+
 <a id="canonical-3132230200001111-0220021020123331-2020231020103323-0123021101220113-2001303011130313-3001230220002330-3110203202230301-0321333321022211"></a>
 
 ## namespace property — tunnel / 212102031102 / 5
@@ -5354,39 +5411,3 @@ Receipt-pinned upstream constraints:
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
-
-<a id="canonical-3221002110012130-3332301023100121-0301121331202123-1233300110001012-0022222022332221-3131200301011131-3022220312302022-0202112200111230"></a>
-
-## custom_storage_config.storage_class_list — storage_class_list / 331302022300 / 2
-
-Breadcrumbs:
-
-- [xcsh_voltstack_site](../data-sources/voltstack_site.md#canonical-3011021120121122-1120101211211330-2030121003211010-0212132020130223-0212111100103011-3003130023302333-3021021330130133-1133312111123000)
-- [Property reference](data-sources--voltstack_site--reference--group-001.md#canonical-3210130022101001-3112232101022102-2032333031300013-3112003110021012-3222001330012233-0002330230030031-3201232233001313-3100032330211031)
-- [custom_storage_config](data-sources--voltstack_site--reference--group-005.md#canonical-1322330111022022-1222331222013311-0203320011033023-1312120310031232-0021011331210300-1111322303223100-1320332332030123-1110131212333020)
-- custom_storage_config.storage_class_list
-
-<a id="canonical-3333232223232121-3322020001131233-0201112023111313-0230302322031111-1313213331121131-2132230320302002-3223221231203202-0022012310100331"></a>
-
-Type: `"single"`. Computed.
-
-Add additional custom storage classes in Kubernetes for this fleet.
-
-Receipt-pinned upstream constraints:
-
-```json
-{
-  "x-f5xc-required-for": {
-    "create": false,
-    "minimum_config": false,
-    "read": false,
-    "update": false
-  }
-}
-```
-
-<a id="canonical-1102022302331222-1302000022321033-2301133210022031-3220032201033023-1231131133310030-0023032312021131-0110033020130210-3301321233331213"></a>
-
-## Direct properties — storage_class_list / 331302022300 / 3
-
-- [storage_classes](data-sources--voltstack_site--reference--group-006.md#canonical-2310120202333033-1102122022233230-0203312132320232-0120230001210010-1202232103101111-1231121222201002-3123003130120232-1201133030100332): complete subsection reference.

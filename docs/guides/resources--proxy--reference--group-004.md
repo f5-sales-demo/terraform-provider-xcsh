@@ -1096,18 +1096,54 @@ code class 5 -- for 5xx response code class Value of the map is string which rep
 responses. Specific response code takes preference when both response code and response code class
 matches for a request.
 
+Provider validators and defaults (from schema source):
+
+```go
+Validators: []validator.Map{validators.MapConstraintsValidator("{\"cardinality\":{\"maxProperties\":16},\"category\":\"discovery\",\"constraintType\":\"map\",\"deterministic\":true,\"keys\":{\"ranges\":[[3,3],[4,4],[5,5],[300,599]],\"type\":\"uint32-string\"},\"originalRules\":{\"ves.io.schema.rules.map.keys.uint32.ranges\":\"3,4,5,300-599\",\"ves.io.schema.rules.map.max_pairs\":\"16\",\"ves.io.schema.rules.map.values.string.max_len\":\"65536\",\"ves.io.schema.rules.map.values.string.uri_ref\":\"true\"},\"values\":{\"format\":\"uri-reference\",\"maxLength\":65536,\"type\":\"string\"}}")}
+```
+
 Receipt-pinned upstream constraints:
 
 ```json
 {
   "x-f5xc-constraints": {
-    "category": "general",
-    "constraintType": "object",
-    "maxProperties": 16,
-    "metadata": {
-      "confidence": 0.75,
-      "source": "inferred",
-      "validatedAt": "2026-10-03T05:10:26+00:00"
+    "cardinality": {
+      "maxProperties": 16
+    },
+    "category": "discovery",
+    "constraintType": "map",
+    "deterministic": true,
+    "keys": {
+      "ranges": [
+        [
+          3,
+          3
+        ],
+        [
+          4,
+          4
+        ],
+        [
+          5,
+          5
+        ],
+        [
+          300,
+          599
+        ]
+      ],
+      "type": "uint32-string"
+    },
+    "originalRules": {
+      "ves.io.schema.rules.map.keys.uint32.ranges": "3,4,5,300-599",
+      "ves.io.schema.rules.map.max_pairs": "16",
+      "ves.io.schema.rules.map.values.string.max_len": "65536",
+      "ves.io.schema.rules.map.values.string.uri_ref": "true"
+    },
+    "values": {
+      "format": "uri-reference",
+      "maxLength": 65536,
+      "type": "string"
     }
   },
   "x-f5xc-required-for": {
@@ -6207,7 +6243,7 @@ Receipt-pinned upstream constraints:
 OneOf alternatives in this subsection:
 
 - [site_local_inside_network](resources--proxy--reference--group-004.md#canonical-3121123313321101-0001303002003321-2112130332133322-1102033212123313-1303202113031023-1012333112101221-2212211032231111-0323301233320300)
-- [site_local_network](resources--proxy--reference--group-004.md#canonical-3220322333321001-2032010012232201-0231323320030211-1123130120121020-2021030112012033-2213000303013330-0001000213111211-3213131133222023)
+- [site_local_network](resources--proxy--reference--group-005.md#canonical-3220322333321001-2032010012232201-0231323320030211-1123130120121020-2021030112012033-2213000303013330-0001000213111211-3213131133222023)
 
 Select alternatives according to the provider validators above.
 
@@ -6235,48 +6271,3 @@ This is an empty object or choice marker. It has no direct properties.
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
-
-<a id="canonical-1332031231130303-0311220330311130-1212332032113200-3011133311332302-2223131323121212-1121230212233233-2300300223213032-1120221302300111"></a>
-
-## site_local_network — site_local_network / 023111302111 / 2
-
-Breadcrumbs:
-
-- [xcsh_proxy](../resources/proxy.md#canonical-0132300111013030-3233132200202310-2233332113220102-2031222100321320-0203021302013323-3111102110130123-3333011301331210-2310111332313332)
-- [Property reference](resources--proxy--reference--group-001.md#canonical-1332312330112202-0302233320331232-2000013322011121-0003103202230221-3121132031010303-2222021012203301-0203131033201011-3322301300211003)
-- site_local_network
-
-<a id="canonical-3220322333321001-2032010012232201-0231323320030211-1123130120121020-2021030112012033-2213000303013330-0001000213111211-3213131133222023"></a>
-
-Type: `["object", {}]`. Optional.
-
-Enable this option
-
-Upstream description:
-
-This can be used for messages where no values are needed.
-
-Receipt-pinned upstream constraints:
-
-```json
-{
-  "x-f5xc-required-for": {
-    "create": false,
-    "minimum_config": false,
-    "read": false,
-    "update": false
-  }
-}
-```
-
-Terraform syntax:
-
-```terraform
-site_local_network = {}
-```
-
-<a id="canonical-2031233300100002-3003232313011130-1311211103133010-2332230320200012-1012333020123233-3020312120333103-1310022203112331-1201021300012300"></a>
-
-## Direct properties — site_local_network / 023111302111 / 3
-
-This is an empty object or choice marker. It has no direct properties.
