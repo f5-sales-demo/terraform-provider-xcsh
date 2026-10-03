@@ -6,6 +6,61 @@ description: "Complete grouped canonical reference for xcsh_nfv_service referenc
 
 # xcsh_nfv_service reference
 
+<a id="canonical-2013301200211112-1100003032311320-0023112202120310-2332113221123213-0021032130023101-0103210313310210-1003120310012133-0111202121002221"></a>
+
+## admin_username property — auto_setup / 021133313232 / 4
+
+Type: `"string"`. Optional.
+
+Firewall Admin Username. Firewall Admin Username.
+
+Upstream description:
+
+Firewall Admin Username.
+
+Provider validators and defaults (from schema source):
+
+```go
+Validators: []validator.String{
+  stringvalidator.LengthAtMost(256),
+}
+```
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "maxLength": 256,
+  "x-f5xc-constraints": {
+    "category": "discovery",
+    "constraintType": "string",
+    "deterministic": true,
+    "maxLength": 256,
+    "metadata": {
+      "confidence": 0.99,
+      "source": "discovery",
+      "validatedAt": "2026-10-03T05:10:26+00:00"
+    }
+  },
+  "x-f5xc-required-for": {
+    "create": true,
+    "minimum_config": true,
+    "read": false,
+    "update": false
+  },
+  "x-validation-rules": {
+    "ves.io.schema.rules.message.required": "true",
+    "ves.io.schema.rules.string.max_len": "256"
+  },
+  "x-ves-validation-rules": {
+    "ves.io.schema.rules.message.required": "true",
+    "ves.io.schema.rules.string.max_len": "256"
+  }
+}
+```
+
+- [manual_ssh_keys](resources--nfv_service--reference--group-004.md#canonical-0033320030010322-1202102231033331-2100333321203211-1002102220220222-2103103103300010-1013013232210101-3211202330031320-2120100320132201): complete subsection reference.
+
 <a id="canonical-0030230322312203-2330322303002013-2213213031103003-1311131321021131-0010231110132230-3300233333320233-0133210320102122-1211002301300033"></a>
 
 ## Next pages — auto_setup / 021133313232 / 5

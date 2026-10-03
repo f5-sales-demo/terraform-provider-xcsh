@@ -48,6 +48,27 @@ Receipt-pinned upstream constraints:
 
 ```json
 {
+  "x-f5xc-constraints": {
+    "category": "discovery",
+    "constraintType": "map",
+    "deterministic": true,
+    "keys": {
+      "maxLength": 64,
+      "minLength": 1,
+      "type": "string"
+    },
+    "originalRules": {
+      "ves.io.schema.rules.map.keys.string.max_len": "64",
+      "ves.io.schema.rules.map.keys.string.min_len": "1",
+      "ves.io.schema.rules.map.values.string.max_len": "1024",
+      "ves.io.schema.rules.map.values.string.min_len": "1"
+    },
+    "values": {
+      "maxLength": 1024,
+      "minLength": 1,
+      "type": "string"
+    }
+  },
   "x-f5xc-required-for": {
     "create": false,
     "minimum_config": false,
@@ -2296,9 +2317,3 @@ Terraform syntax:
 ```terraform
 address_translation_enable = {}
 ```
-
-<a id="canonical-2200221323112111-1121120032212010-1212100101222202-2331322211133230-2130323031123313-0203133121011123-1130303231121110-1020131302300332"></a>
-
-## Direct properties — address_translation_enable / 321203012100 / 3
-
-This is an empty object or choice marker. It has no direct properties.

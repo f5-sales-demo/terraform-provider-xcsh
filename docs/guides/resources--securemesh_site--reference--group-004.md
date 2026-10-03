@@ -6,6 +6,181 @@ description: "Complete grouped canonical reference for xcsh_securemesh_site refe
 
 # xcsh_securemesh_site reference
 
+<a id="canonical-3112220203321222-1232112020330003-2323202311023111-3110000230313131-3201212312333323-2103320012030010-3220332330231233-1032302023220023"></a>
+
+## Direct properties — static_routes / 033122002300 / 3
+
+- [static_routes](resources--securemesh_site--reference--group-004.md#canonical-2203332001031330-3033332130333023-1301201331130203-2303110021031222-2113002021131110-0313200302013213-3210211202022311-2220330321000303): complete subsection reference.
+
+<a id="canonical-2032133110213310-1331320032030230-2132213123332331-2030202220230030-2033003022311111-3221311032332320-1112302120120301-2131311313332121"></a>
+
+## Next pages — static_routes / 033122002300 / 4
+
+- [custom_network_config.slo_config.static_routes.static_routes](resources--securemesh_site--reference--group-004.md#canonical-2203332001031330-3033332130333023-1301201331130203-2303110021031222-2113002021131110-0313200302013213-3210211202022311-2220330321000303)
+- [custom_network_config.slo_config](resources--securemesh_site--reference--group-003.md#canonical-1032112231012201-0211322232030132-0302222020321232-2322231023000213-3102302203112121-2233121130211202-3310233301010120-0130020313303312)
+- [xcsh_securemesh_site](../resources/securemesh_site.md#canonical-0221210100300032-1323301000110203-0003200133200010-1121101320113033-1203000110031002-2332032100223330-3220112032322030-1011202210112330)
+
+<a id="canonical-2203332001031330-3033332130333023-1301201331130203-2303110021031222-2113002021131110-0313200302013213-3210211202022311-2220330321000303"></a>
+
+<!-- Exact provider and upstream contract identifiers. -->
+
+<!-- textlint-disable terminology -->
+
+<a id="canonical-3310001302213113-1303302311110131-0211332201330233-0032003202021313-1310331331020112-1101213010121103-2001002303103122-1220311033031202"></a>
+
+## custom_network_config.slo_config.static_routes.static_routes — static_routes / 033331021133 / 2
+
+Breadcrumbs:
+
+- [xcsh_securemesh_site](../resources/securemesh_site.md#canonical-0221210100300032-1323301000110203-0003200133200010-1121101320113033-1203000110031002-2332032100223330-3220112032322030-1011202210112330)
+- [Property reference](resources--securemesh_site--reference--group-001.md#canonical-0230321021201222-1111001300121312-3000300333211231-1100002333330020-1322112003322030-0300113022223332-3302330011112221-3302300032302122)
+- [custom_network_config](resources--securemesh_site--reference--group-001.md#canonical-0333201331313102-2002003312232331-2123110122101233-3032121221303003-3323310312332103-2230011000003222-1111013311021313-0232110102113230)
+- [custom_network_config.slo_config](resources--securemesh_site--reference--group-003.md#canonical-1032112231012201-0211322232030132-0302222020321232-2322231023000213-3102302203112121-2233121130211202-3310233301010120-0130020313303312)
+- [custom_network_config.slo_config.static_routes](resources--securemesh_site--reference--group-003.md#canonical-3010113203231221-3123220110230202-2113112333002310-2031202012033131-0200322211112112-1130010030313220-0013120321130120-0122012002320022)
+- custom_network_config.slo_config.static_routes.static_routes
+
+<a id="canonical-3300301301210202-2310233101311223-0321103200232031-2133022300120131-1313020203311123-2330323022113303-0202210033020100-1310203330202000"></a>
+
+Type: `"object"`. list nested block, Optional.
+
+Static Routes. List of static routes.
+
+Upstream description:
+
+List of static routes.
+
+Provider validators and defaults (from schema source):
+
+```go
+Validators: []validator.List{validators.RequiredListObjectAttributes("ip_prefixes"),
+  validators.RequiredOneOfListObjectAttributes("default_gateway",
+    "ip_address",
+    "node_interface"),
+  validators.ConflictingListObjectAttributes("default_gateway",
+    "ip_address"),
+  validators.ConflictingListObjectAttributes("default_gateway",
+    "node_interface"),
+  validators.ConflictingListObjectAttributes("ip_address",
+    "node_interface")}
+```
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "maxItems": 16,
+  "minItems": 1,
+  "x-f5xc-constraints": {
+    "category": "discovery",
+    "constraintType": "array",
+    "deterministic": true,
+    "maxItems": 16,
+    "metadata": {
+      "confidence": 0.99,
+      "source": "discovery",
+      "validatedAt": "2026-10-03T05:10:26+00:00"
+    },
+    "minItems": 1,
+    "uniqueItems": true
+  },
+  "x-f5xc-required-for": {
+    "create": true,
+    "minimum_config": true,
+    "read": false,
+    "update": false
+  },
+  "x-validation-rules": {
+    "ves.io.schema.rules.message.required": "true",
+    "ves.io.schema.rules.repeated.max_items": "16",
+    "ves.io.schema.rules.repeated.min_items": "1",
+    "ves.io.schema.rules.repeated.unique": "true"
+  },
+  "x-ves-validation-rules": {
+    "ves.io.schema.rules.message.required": "true",
+    "ves.io.schema.rules.repeated.max_items": "16",
+    "ves.io.schema.rules.repeated.min_items": "1",
+    "ves.io.schema.rules.repeated.unique": "true"
+  }
+}
+```
+
+Terraform syntax:
+
+```terraform
+static_routes {
+  # Configure direct properties listed below.
+}
+```
+
+<a id="canonical-1120222210202320-1321301221130100-2033212100203031-0231211111323102-3000100212203133-3222113203100320-0201220200223031-2322232002213110"></a>
+
+## Direct properties — static_routes / 033331021133 / 3
+
+<a id="canonical-3330300221000233-2333212101202312-3113230120313133-2201323121322102-1202111300302303-1322231223132103-0102103010331210-0332010120012230"></a>
+
+<a id="canonical-0303311100331120-2212133213030131-0222032123021133-1222013332323001-3131132301011011-1212120221303020-3022312000313332-3003133321330120"></a>
+
+## attrs property — static_routes / 033331021133 / 4
+
+Type: `["list", "string"]`. Optional.
+
+\[Enum:
+ROUTE\_ATTR\_NO\_OP|ROUTE\_ATTR\_ADVERTISE|ROUTE\_ATTR\_INSTALL\_HOST|ROUTE\_ATTR\_INSTALL\_FORWARDING|ROUTE\_ATTR\_MERGE\_ONLY\]
+List of attributes that control forwarding, dynamic routing and control plane (host) reachability.
+Possible values are \`ROUTE\_ATTR\_NO\_OP\`, \`ROUTE\_ATTR\_ADVERTISE\`,
+\`ROUTE\_ATTR\_INSTALL\_HOST\`, \`ROUTE\_ATTR\_INSTALL\_FORWARDING\`, \`ROUTE\_ATTR\_MERGE\_ONLY\`.
+Defaults to \`ROUTE\_ATTR\_NO\_OP\`.
+
+Upstream description:
+
+List of attributes that control forwarding, dynamic routing and control plane (host) reachability.
+
+Provider validators and defaults (from schema source):
+
+```go
+Validators: []validator.List{
+  listvalidator.SizeAtMost(4),
+}
+```
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "maxItems": 4,
+  "x-f5xc-constraints": {
+    "category": "discovery",
+    "constraintType": "array",
+    "deterministic": true,
+    "maxItems": 4,
+    "metadata": {
+      "confidence": 0.99,
+      "source": "discovery",
+      "validatedAt": "2026-10-03T05:10:26+00:00"
+    },
+    "uniqueItems": true
+  },
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  },
+  "x-validation-rules": {
+    "ves.io.schema.rules.repeated.max_items": "4",
+    "ves.io.schema.rules.repeated.unique": "true"
+  },
+  "x-ves-validation-rules": {
+    "ves.io.schema.rules.repeated.max_items": "4",
+    "ves.io.schema.rules.repeated.unique": "true"
+  }
+}
+```
+
+- [default_gateway](resources--securemesh_site--reference--group-004.md#canonical-0232033302003131-2133200320202210-3231031330323300-3102112302103022-0131031001300231-1032003203023131-3103003012202200-3023012310323122): complete subsection reference.
+
+<a id="canonical-2133113301212101-2020223000330200-1202223100301122-0012001310023033-3000123002220212-1320220330131303-0323233132030133-2323322300222110"></a>
+
 <a id="canonical-2032002203203332-0030201111030331-0021012030303123-3311111123230333-2001210210002102-2011020103021301-0201030021131301-2111231202313331"></a>
 
 ## ip_address property — static_routes / 033331021133 / 5
@@ -151,7 +326,7 @@ Breadcrumbs:
 - [custom_network_config](resources--securemesh_site--reference--group-001.md#canonical-0333201331313102-2002003312232331-2123110122101233-3032121221303003-3323310312332103-2230011000003222-1111013311021313-0232110102113230)
 - [custom_network_config.slo_config](resources--securemesh_site--reference--group-003.md#canonical-1032112231012201-0211322232030132-0302222020321232-2322231023000213-3102302203112121-2233121130211202-3310233301010120-0130020313303312)
 - [custom_network_config.slo_config.static_routes](resources--securemesh_site--reference--group-003.md#canonical-3010113203231221-3123220110230202-2113112333002310-2031202012033131-0200322211112112-1130010030313220-0013120321130120-0122012002320022)
-- [custom_network_config.slo_config.static_routes.static_routes](resources--securemesh_site--reference--group-003.md#canonical-2203332001031330-3033332130333023-1301201331130203-2303110021031222-2113002021131110-0313200302013213-3210211202022311-2220330321000303)
+- [custom_network_config.slo_config.static_routes.static_routes](resources--securemesh_site--reference--group-004.md#canonical-2203332001031330-3033332130333023-1301201331130203-2303110021031222-2113002021131110-0313200302013213-3210211202022311-2220330321000303)
 - custom_network_config.slo_config.static_routes.static_routes.default_gateway
 
 <a id="canonical-2331333102320030-0331112222021011-3102023033130030-2302321130201123-3100112002032322-2200002211300233-3311102321311121-1221021023230111"></a>
@@ -193,7 +368,7 @@ This is an empty object or choice marker. It has no direct properties.
 
 ## Next pages — default_gateway / 212011022301 / 4
 
-- [custom_network_config.slo_config.static_routes.static_routes](resources--securemesh_site--reference--group-003.md#canonical-2203332001031330-3033332130333023-1301201331130203-2303110021031222-2113002021131110-0313200302013213-3210211202022311-2220330321000303)
+- [custom_network_config.slo_config.static_routes.static_routes](resources--securemesh_site--reference--group-004.md#canonical-2203332001031330-3033332130333023-1301201331130203-2303110021031222-2113002021131110-0313200302013213-3210211202022311-2220330321000303)
 - [xcsh_securemesh_site](../resources/securemesh_site.md#canonical-0221210100300032-1323301000110203-0003200133200010-1121101320113033-1203000110031002-2332032100223330-3220112032322030-1011202210112330)
 
 <a id="canonical-0211221131320211-0232321300003031-0323010010030222-1331033010233230-1013221033211303-3211222111103322-3201301012122022-3221333303301002"></a>
@@ -213,7 +388,7 @@ Breadcrumbs:
 - [custom_network_config](resources--securemesh_site--reference--group-001.md#canonical-0333201331313102-2002003312232331-2123110122101233-3032121221303003-3323310312332103-2230011000003222-1111013311021313-0232110102113230)
 - [custom_network_config.slo_config](resources--securemesh_site--reference--group-003.md#canonical-1032112231012201-0211322232030132-0302222020321232-2322231023000213-3102302203112121-2233121130211202-3310233301010120-0130020313303312)
 - [custom_network_config.slo_config.static_routes](resources--securemesh_site--reference--group-003.md#canonical-3010113203231221-3123220110230202-2113112333002310-2031202012033131-0200322211112112-1130010030313220-0013120321130120-0122012002320022)
-- [custom_network_config.slo_config.static_routes.static_routes](resources--securemesh_site--reference--group-003.md#canonical-2203332001031330-3033332130333023-1301201331130203-2303110021031222-2113002021131110-0313200302013213-3210211202022311-2220330321000303)
+- [custom_network_config.slo_config.static_routes.static_routes](resources--securemesh_site--reference--group-004.md#canonical-2203332001031330-3033332130333023-1301201331130203-2303110021031222-2113002021131110-0313200302013213-3210211202022311-2220330321000303)
 - custom_network_config.slo_config.static_routes.static_routes.node_interface
 
 <a id="canonical-1031030230221131-0110111022003123-2030003113212320-1221232301102330-1321300020332223-2303321301033310-1122201010000200-3220102032323032"></a>
@@ -254,7 +429,7 @@ node_interface {
 ## Next pages — node_interface / 132023202112 / 4
 
 - [custom_network_config.slo_config.static_routes.static_routes.node_interface.list](resources--securemesh_site--reference--group-004.md#canonical-3223120221033220-1111210320002212-0212030022330133-3032123320313131-1132001102000310-1320232332231020-1200213121110300-3212021303003231)
-- [custom_network_config.slo_config.static_routes.static_routes](resources--securemesh_site--reference--group-003.md#canonical-2203332001031330-3033332130333023-1301201331130203-2303110021031222-2113002021131110-0313200302013213-3210211202022311-2220330321000303)
+- [custom_network_config.slo_config.static_routes.static_routes](resources--securemesh_site--reference--group-004.md#canonical-2203332001031330-3033332130333023-1301201331130203-2303110021031222-2113002021131110-0313200302013213-3210211202022311-2220330321000303)
 - [xcsh_securemesh_site](../resources/securemesh_site.md#canonical-0221210100300032-1323301000110203-0003200133200010-1121101320113033-1203000110031002-2332032100223330-3220112032322030-1011202210112330)
 
 <a id="canonical-3223120221033220-1111210320002212-0212030022330133-3032123320313131-1132001102000310-1320232332231020-1200213121110300-3212021303003231"></a>
@@ -274,7 +449,7 @@ Breadcrumbs:
 - [custom_network_config](resources--securemesh_site--reference--group-001.md#canonical-0333201331313102-2002003312232331-2123110122101233-3032121221303003-3323310312332103-2230011000003222-1111013311021313-0232110102113230)
 - [custom_network_config.slo_config](resources--securemesh_site--reference--group-003.md#canonical-1032112231012201-0211322232030132-0302222020321232-2322231023000213-3102302203112121-2233121130211202-3310233301010120-0130020313303312)
 - [custom_network_config.slo_config.static_routes](resources--securemesh_site--reference--group-003.md#canonical-3010113203231221-3123220110230202-2113112333002310-2031202012033131-0200322211112112-1130010030313220-0013120321130120-0122012002320022)
-- [custom_network_config.slo_config.static_routes.static_routes](resources--securemesh_site--reference--group-003.md#canonical-2203332001031330-3033332130333023-1301201331130203-2303110021031222-2113002021131110-0313200302013213-3210211202022311-2220330321000303)
+- [custom_network_config.slo_config.static_routes.static_routes](resources--securemesh_site--reference--group-004.md#canonical-2203332001031330-3033332130333023-1301201331130203-2303110021031222-2113002021131110-0313200302013213-3210211202022311-2220330321000303)
 - [custom_network_config.slo_config.static_routes.static_routes.node_interface](resources--securemesh_site--reference--group-004.md#canonical-0211221131320211-0232321300003031-0323010010030222-1331033010233230-1013221033211303-3211222111103322-3201301012122022-3221333303301002)
 - custom_network_config.slo_config.static_routes.static_routes.node_interface.list
 
@@ -391,7 +566,7 @@ Breadcrumbs:
 - [custom_network_config](resources--securemesh_site--reference--group-001.md#canonical-0333201331313102-2002003312232331-2123110122101233-3032121221303003-3323310312332103-2230011000003222-1111013311021313-0232110102113230)
 - [custom_network_config.slo_config](resources--securemesh_site--reference--group-003.md#canonical-1032112231012201-0211322232030132-0302222020321232-2322231023000213-3102302203112121-2233121130211202-3310233301010120-0130020313303312)
 - [custom_network_config.slo_config.static_routes](resources--securemesh_site--reference--group-003.md#canonical-3010113203231221-3123220110230202-2113112333002310-2031202012033131-0200322211112112-1130010030313220-0013120321130120-0122012002320022)
-- [custom_network_config.slo_config.static_routes.static_routes](resources--securemesh_site--reference--group-003.md#canonical-2203332001031330-3033332130333023-1301201331130203-2303110021031222-2113002021131110-0313200302013213-3210211202022311-2220330321000303)
+- [custom_network_config.slo_config.static_routes.static_routes](resources--securemesh_site--reference--group-004.md#canonical-2203332001031330-3033332130333023-1301201331130203-2303110021031222-2113002021131110-0313200302013213-3210211202022311-2220330321000303)
 - [custom_network_config.slo_config.static_routes.static_routes.node_interface](resources--securemesh_site--reference--group-004.md#canonical-0211221131320211-0232321300003031-0323010010030222-1331033010233230-1013221033211303-3211222111103322-3201301012122022-3221333303301002)
 - [custom_network_config.slo_config.static_routes.static_routes.node_interface.list](resources--securemesh_site--reference--group-004.md#canonical-3223120221033220-1111210320002212-0212030022330133-3032123320313131-1132001102000310-1320232332231020-1200213121110300-3212021303003231)
 - custom_network_config.slo_config.static_routes.static_routes.node_interface.list.interface

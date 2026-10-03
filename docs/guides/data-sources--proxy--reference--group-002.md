@@ -6,6 +6,50 @@ description: "Complete grouped canonical reference for xcsh_proxy reference."
 
 # xcsh_proxy reference
 
+<a id="canonical-3033031323121211-3120332320032200-3301330013023013-3020323133331301-3232131323331122-1332212103313331-2100322321000122-0200120021103123"></a>
+
+## content_length property — compression_params / 323110123301 / 4
+
+Type: `"number"`. Computed.
+
+Minimum response length, in bytes, which will trigger compression. The. Defaults to \`30\`.
+
+Upstream description:
+
+Minimum response length, in bytes, which will trigger compression. The default value is 30.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-constraints": {
+    "category": "discovery",
+    "constraintType": "number",
+    "deterministic": true,
+    "metadata": {
+      "confidence": 0.99,
+      "source": "api-probed",
+      "validatedAt": "2026-10-03T05:10:26+00:00"
+    },
+    "minimum": 30
+  },
+  "x-f5xc-required-for": {
+    "create": true,
+    "minimum_config": true,
+    "read": false,
+    "update": false
+  },
+  "x-validation-rules": {
+    "ves.io.schema.rules.uint32.gte": "30"
+  },
+  "x-ves-validation-rules": {
+    "ves.io.schema.rules.uint32.gte": "30"
+  }
+}
+```
+
+<a id="canonical-1203112102021003-1103012013331100-0212122112121301-2220302130233030-1122120203332323-3013311121202100-2300213011230321-1010301221303231"></a>
+
 <a id="canonical-1230023013312221-2100203202313011-1133130321112210-3310130213121101-3323301132311120-2031133111113021-3100313201231312-1033202030102133"></a>
 
 ## content_type property — compression_params / 323110123301 / 5
@@ -3802,13 +3846,43 @@ Receipt-pinned upstream constraints:
 ```json
 {
   "x-f5xc-constraints": {
-    "category": "general",
-    "constraintType": "object",
-    "maxProperties": 16,
-    "metadata": {
-      "confidence": 0.75,
-      "source": "inferred",
-      "validatedAt": "2026-10-03T05:10:26+00:00"
+    "cardinality": {
+      "maxProperties": 16
+    },
+    "category": "discovery",
+    "constraintType": "map",
+    "deterministic": true,
+    "keys": {
+      "ranges": [
+        [
+          3,
+          3
+        ],
+        [
+          4,
+          4
+        ],
+        [
+          5,
+          5
+        ],
+        [
+          300,
+          599
+        ]
+      ],
+      "type": "uint32-string"
+    },
+    "originalRules": {
+      "ves.io.schema.rules.map.keys.uint32.ranges": "3,4,5,300-599",
+      "ves.io.schema.rules.map.max_pairs": "16",
+      "ves.io.schema.rules.map.values.string.max_len": "65536",
+      "ves.io.schema.rules.map.values.string.uri_ref": "true"
+    },
+    "values": {
+      "format": "uri-reference",
+      "maxLength": 65536,
+      "type": "string"
     }
   },
   "x-f5xc-required-for": {

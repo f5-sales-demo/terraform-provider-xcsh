@@ -5845,18 +5845,35 @@ Upstream description:
 AWS Tags is a label consisting of a user-defined key and value. It helps to manage, identify,
 organize, search for, and filter resources in AWS console.
 
+Provider validators and defaults (from schema source):
+
+```go
+Validators: []validator.Map{validators.MapConstraintsValidator("{\"cardinality\":{\"maxProperties\":40},\"category\":\"discovery\",\"constraintType\":\"map\",\"deterministic\":true,\"keys\":{\"maxLength\":127,\"type\":\"string\"},\"originalRules\":{\"ves.io.schema.rules.map.keys.string.max_len\":\"127\",\"ves.io.schema.rules.map.max_pairs\":\"40\",\"ves.io.schema.rules.map.values.string.max_len\":\"255\"},\"values\":{\"maxLength\":255,\"type\":\"string\"}}")}
+```
+
 Receipt-pinned upstream constraints:
 
 ```json
 {
   "x-f5xc-constraints": {
-    "category": "general",
-    "constraintType": "object",
-    "maxProperties": 40,
-    "metadata": {
-      "confidence": 0.75,
-      "source": "inferred",
-      "validatedAt": "2026-10-03T05:10:26+00:00"
+    "cardinality": {
+      "maxProperties": 40
+    },
+    "category": "discovery",
+    "constraintType": "map",
+    "deterministic": true,
+    "keys": {
+      "maxLength": 127,
+      "type": "string"
+    },
+    "originalRules": {
+      "ves.io.schema.rules.map.keys.string.max_len": "127",
+      "ves.io.schema.rules.map.max_pairs": "40",
+      "ves.io.schema.rules.map.values.string.max_len": "255"
+    },
+    "values": {
+      "maxLength": 255,
+      "type": "string"
     }
   },
   "x-f5xc-required-for": {
@@ -6010,58 +6027,3 @@ auto_setup {
 - [admin_password](resources--nfv_service--reference--group-004.md#canonical-2021013202121333-0332132013033030-0130230331300102-0033212321212113-3001333312121030-0303203233003111-2123010300222022-0131120132110211): complete subsection reference.
 
 <a id="canonical-2000103103321101-3101320102231022-0310121132320223-2021323230002232-1301322031210000-3013100302223002-2032310312033030-2010023002232300"></a>
-
-<a id="canonical-2013301200211112-1100003032311320-0023112202120310-2332113221123213-0021032130023101-0103210313310210-1003120310012133-0111202121002221"></a>
-
-## admin_username property — auto_setup / 021133313232 / 4
-
-Type: `"string"`. Optional.
-
-Firewall Admin Username. Firewall Admin Username.
-
-Upstream description:
-
-Firewall Admin Username.
-
-Provider validators and defaults (from schema source):
-
-```go
-Validators: []validator.String{
-  stringvalidator.LengthAtMost(256),
-}
-```
-
-Receipt-pinned upstream constraints:
-
-```json
-{
-  "maxLength": 256,
-  "x-f5xc-constraints": {
-    "category": "discovery",
-    "constraintType": "string",
-    "deterministic": true,
-    "maxLength": 256,
-    "metadata": {
-      "confidence": 0.99,
-      "source": "discovery",
-      "validatedAt": "2026-10-03T05:10:26+00:00"
-    }
-  },
-  "x-f5xc-required-for": {
-    "create": true,
-    "minimum_config": true,
-    "read": false,
-    "update": false
-  },
-  "x-validation-rules": {
-    "ves.io.schema.rules.message.required": "true",
-    "ves.io.schema.rules.string.max_len": "256"
-  },
-  "x-ves-validation-rules": {
-    "ves.io.schema.rules.message.required": "true",
-    "ves.io.schema.rules.string.max_len": "256"
-  }
-}
-```
-
-- [manual_ssh_keys](resources--nfv_service--reference--group-004.md#canonical-0033320030010322-1202102231033331-2100333321203211-1002102220220222-2103103103300010-1013013232210101-3211202330031320-2120100320132201): complete subsection reference.

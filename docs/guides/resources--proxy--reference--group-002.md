@@ -6,6 +6,58 @@ description: "Complete grouped canonical reference for xcsh_proxy reference."
 
 # xcsh_proxy reference
 
+<a id="canonical-3320020203332213-0200213002103100-3312122313112331-3322023110230222-0330210021003032-0012233322300313-3110030313132223-1112211332212001"></a>
+
+## max_request_bytes property — buffer_policy / 320321103313 / 5
+
+Type: `"number"`. Optional.
+
+The maximum request size that the filter will buffer before the connection manager will stop
+buffering and return a RequestEntityTooLarge (413) response.
+
+Upstream description:
+
+The maximum request size that the filter will buffer before the connection manager will stop
+buffering and return a RequestEntityTooLarge (413) response.
+
+Provider validators and defaults (from schema source):
+
+```go
+Validators: []validator.Int64{
+  int64validator.AtMost(10485760),
+}
+```
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-constraints": {
+    "category": "discovery",
+    "constraintType": "number",
+    "deterministic": true,
+    "maximum": 10485760,
+    "metadata": {
+      "confidence": 0.99,
+      "source": "api-probed",
+      "validatedAt": "2026-10-03T05:10:26+00:00"
+    }
+  },
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  },
+  "x-validation-rules": {
+    "ves.io.schema.rules.uint32.lte": "10485760"
+  },
+  "x-ves-validation-rules": {
+    "ves.io.schema.rules.uint32.lte": "10485760"
+  }
+}
+```
+
 <a id="canonical-3010130202100113-3221230233033232-1222021013213332-2231021323111113-1231312230320332-1203220302203113-2221230300331132-0031321323103310"></a>
 
 ## Next pages — buffer_policy / 320321103313 / 6
@@ -4514,18 +4566,54 @@ code class 5 -- for 5xx response code class Value of the map is string which rep
 responses. Specific response code takes preference when both response code and response code class
 matches for a request.
 
+Provider validators and defaults (from schema source):
+
+```go
+Validators: []validator.Map{validators.MapConstraintsValidator("{\"cardinality\":{\"maxProperties\":16},\"category\":\"discovery\",\"constraintType\":\"map\",\"deterministic\":true,\"keys\":{\"ranges\":[[3,3],[4,4],[5,5],[300,599]],\"type\":\"uint32-string\"},\"originalRules\":{\"ves.io.schema.rules.map.keys.uint32.ranges\":\"3,4,5,300-599\",\"ves.io.schema.rules.map.max_pairs\":\"16\",\"ves.io.schema.rules.map.values.string.max_len\":\"65536\",\"ves.io.schema.rules.map.values.string.uri_ref\":\"true\"},\"values\":{\"format\":\"uri-reference\",\"maxLength\":65536,\"type\":\"string\"}}")}
+```
+
 Receipt-pinned upstream constraints:
 
 ```json
 {
   "x-f5xc-constraints": {
-    "category": "general",
-    "constraintType": "object",
-    "maxProperties": 16,
-    "metadata": {
-      "confidence": 0.75,
-      "source": "inferred",
-      "validatedAt": "2026-10-03T05:10:26+00:00"
+    "cardinality": {
+      "maxProperties": 16
+    },
+    "category": "discovery",
+    "constraintType": "map",
+    "deterministic": true,
+    "keys": {
+      "ranges": [
+        [
+          3,
+          3
+        ],
+        [
+          4,
+          4
+        ],
+        [
+          5,
+          5
+        ],
+        [
+          300,
+          599
+        ]
+      ],
+      "type": "uint32-string"
+    },
+    "originalRules": {
+      "ves.io.schema.rules.map.keys.uint32.ranges": "3,4,5,300-599",
+      "ves.io.schema.rules.map.max_pairs": "16",
+      "ves.io.schema.rules.map.values.string.max_len": "65536",
+      "ves.io.schema.rules.map.values.string.uri_ref": "true"
+    },
+    "values": {
+      "format": "uri-reference",
+      "maxLength": 65536,
+      "type": "string"
     }
   },
   "x-f5xc-required-for": {

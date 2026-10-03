@@ -6,6 +6,525 @@ description: "Complete grouped canonical reference for xcsh_securemesh_site_v2 r
 
 # xcsh_securemesh_site_v2 reference
 
+<a id="canonical-2102303000232121-3113321311131332-2211222011002022-1021203330200021-2110111101320021-3121231102331003-2300231002310133-2310112011020313"></a>
+
+## openstack.not_managed.node_list.interface_list.monitor_disabled — monitor_disabled / 321311322032 / 2
+
+Breadcrumbs:
+
+- [xcsh_securemesh_site_v2](../resources/securemesh_site_v2.md#canonical-3000200222223112-2121123210332232-3331131023113311-0101321102313201-1230101233301033-1102230312220221-1020100000200232-0100112322233120)
+- [Property reference](resources--securemesh_site_v2--reference--group-001.md#canonical-2301010111101201-2220210123001232-1330030231123103-3121113232112322-0131203200320021-3021122122123123-2102102121133210-3220303330323302)
+- [openstack](resources--securemesh_site_v2--reference--group-016.md#canonical-3103330221113213-1101002321121001-1323321202302031-0033322000331021-3233221231330113-2212103122303202-3302221330110020-0111211323131322)
+- [openstack.not_managed](resources--securemesh_site_v2--reference--group-016.md#canonical-0312033221102032-1100121330120132-2103020332012010-3111210221102130-0320102323211200-3311310000001322-0301130130001001-2213113021333211)
+- [openstack.not_managed.node_list](resources--securemesh_site_v2--reference--group-016.md#canonical-1110010322131320-2221002311300011-0022132301131322-0323121331112011-0212213332032002-2031000230123001-3201021000300133-0203213021231332)
+- [openstack.not_managed.node_list.interface_list](resources--securemesh_site_v2--reference--group-016.md#canonical-1131102132020103-0331213303112023-3300232213212020-0202202222312002-2212022002021011-1030210222131310-3312211020203212-1300033030310132)
+- openstack.not_managed.node_list.interface_list.monitor_disabled
+
+<a id="canonical-0102301002233113-3313121101120203-3002200232123313-1111001300200222-1210001200100320-1131220101312010-1313200230210002-3031011323211133"></a>
+
+Type: `["object", {}]`. Optional.
+
+Enable this option
+
+Upstream description:
+
+This can be used for messages where no values are needed.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  }
+}
+```
+
+Terraform syntax:
+
+```terraform
+monitor_disabled = {}
+```
+
+<a id="canonical-2112003222303122-1300302100212300-1212222121302301-0330321123203231-0323301230301302-2330111310330003-0210222111203010-2202032202333201"></a>
+
+## Direct properties — monitor_disabled / 321311322032 / 3
+
+This is an empty object or choice marker. It has no direct properties.
+
+<a id="canonical-3003130023311220-3310023310110101-1110233112313110-3032311312203100-1132011030032201-1323323201310233-2022002303110113-0323221302203023"></a>
+
+## Next pages — monitor_disabled / 321311322032 / 4
+
+- [openstack.not_managed.node_list.interface_list](resources--securemesh_site_v2--reference--group-016.md#canonical-1131102132020103-0331213303112023-3300232213212020-0202202222312002-2212022002021011-1030210222131310-3312211020203212-1300033030310132)
+- [xcsh_securemesh_site_v2](../resources/securemesh_site_v2.md#canonical-3000200222223112-2121123210332232-3331131023113311-0101321102313201-1230101233301033-1102230312220221-1020100000200232-0100112322233120)
+
+<a id="canonical-3023211112201130-1201110122221122-2300322103102332-2310233121202112-0120030230132112-1023123001333201-0132113301223201-1123330213022010"></a>
+
+<!-- Exact provider and upstream contract identifiers. -->
+
+<!-- textlint-disable terminology -->
+
+<a id="canonical-3311312311300223-0132330103031000-0013213011131023-3121131102003113-3321002200132201-1220231230311321-3220113200021132-1212230322331033"></a>
+
+## openstack.not_managed.node_list.interface_list.network_option — network_option / 310310100211 / 2
+
+Breadcrumbs:
+
+- [xcsh_securemesh_site_v2](../resources/securemesh_site_v2.md#canonical-3000200222223112-2121123210332232-3331131023113311-0101321102313201-1230101233301033-1102230312220221-1020100000200232-0100112322233120)
+- [Property reference](resources--securemesh_site_v2--reference--group-001.md#canonical-2301010111101201-2220210123001232-1330030231123103-3121113232112322-0131203200320021-3021122122123123-2102102121133210-3220303330323302)
+- [openstack](resources--securemesh_site_v2--reference--group-016.md#canonical-3103330221113213-1101002321121001-1323321202302031-0033322000331021-3233221231330113-2212103122303202-3302221330110020-0111211323131322)
+- [openstack.not_managed](resources--securemesh_site_v2--reference--group-016.md#canonical-0312033221102032-1100121330120132-2103020332012010-3111210221102130-0320102323211200-3311310000001322-0301130130001001-2213113021333211)
+- [openstack.not_managed.node_list](resources--securemesh_site_v2--reference--group-016.md#canonical-1110010322131320-2221002311300011-0022132301131322-0323121331112011-0212213332032002-2031000230123001-3201021000300133-0203213021231332)
+- [openstack.not_managed.node_list.interface_list](resources--securemesh_site_v2--reference--group-016.md#canonical-1131102132020103-0331213303112023-3300232213212020-0202202222312002-2212022002021011-1030210222131310-3312211020203212-1300033030310132)
+- openstack.not_managed.node_list.interface_list.network_option
+
+<a id="canonical-1221022311300321-1302203013101332-2003330120001330-2210102123031300-2033332021210133-1312230133210033-1313223301031113-2023220310201111"></a>
+
+Type: `"object"`. single nested block, Optional.
+
+Select virtual network (VRF) for this interface. There are 2 kinds of VRFs, local VRFs which are
+local to the site and global VRFs which extend into multiple sites. A site can have 2 Local VRFs,
+Site Local Outside (SLO), which is required for every site and Site Local Inside (SLI) which is
+optional.
+
+Upstream description:
+
+Select virtual network (VRF) for this interface. There are 2 kinds of VRFs, local VRFs which are
+local to the site and global VRFs which extend into multiple sites. A site can have 2 Local VRFs,
+Site Local Outside (SLO), which is required for every site and Site Local Inside (SLI) which is
+optional. Global VRFs are configured via Networking &gt; Segments. A site can have multiple Network
+Segments (global VRFs).
+
+Provider validators and defaults (from schema source):
+
+```go
+Validators: []validator.Object{validators.ConflictingObjectAttributes("site_local_inside_network",
+    "site_local_network")}
+```
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  },
+  "x-ves-oneof-field-network_choice": "[\"segment_network\",\"site_local_inside_network\",\"site_local_network\"]"
+}
+```
+
+Terraform syntax:
+
+```terraform
+network_option {
+  # Configure direct properties listed below.
+}
+```
+
+<a id="canonical-2201032332320122-2021302231103332-1130322022200312-1002230030120120-2103311330022213-2113231011000311-3022221310200212-0233022211201311"></a>
+
+## Direct properties — network_option / 310310100211 / 3
+
+- [site_local_inside_network](resources--securemesh_site_v2--reference--group-017.md#canonical-0032303011130121-0221223212220232-3032001112003222-3210312230001020-0123130031231220-0301113022022211-0111203021013101-2121013332011302): complete subsection reference.
+
+- [site_local_network](resources--securemesh_site_v2--reference--group-017.md#canonical-1121221200221011-0102213201120211-3113331233332011-2121300111333010-1310331032212121-3100032230120321-2101221333230302-3200112330103012): complete subsection reference.
+
+<a id="canonical-0310331102023232-1131232303113233-1202223033322230-0022011111021230-1303222003212222-3011121030232100-0320122010022102-2301100330333120"></a>
+
+## Next pages — network_option / 310310100211 / 4
+
+- [openstack.not_managed.node_list.interface_list.network_option.site_local_inside_network](resources--securemesh_site_v2--reference--group-017.md#canonical-0032303011130121-0221223212220232-3032001112003222-3210312230001020-0123130031231220-0301113022022211-0111203021013101-2121013332011302)
+- [openstack.not_managed.node_list.interface_list.network_option.site_local_network](resources--securemesh_site_v2--reference--group-017.md#canonical-1121221200221011-0102213201120211-3113331233332011-2121300111333010-1310331032212121-3100032230120321-2101221333230302-3200112330103012)
+- [openstack.not_managed.node_list.interface_list](resources--securemesh_site_v2--reference--group-016.md#canonical-1131102132020103-0331213303112023-3300232213212020-0202202222312002-2212022002021011-1030210222131310-3312211020203212-1300033030310132)
+- [xcsh_securemesh_site_v2](../resources/securemesh_site_v2.md#canonical-3000200222223112-2121123210332232-3331131023113311-0101321102313201-1230101233301033-1102230312220221-1020100000200232-0100112322233120)
+
+<a id="canonical-0032303011130121-0221223212220232-3032001112003222-3210312230001020-0123130031231220-0301113022022211-0111203021013101-2121013332011302"></a>
+
+<!-- Exact provider and upstream contract identifiers. -->
+
+<!-- textlint-disable terminology -->
+
+<a id="canonical-2322303113003112-1033332123212131-3100003003011013-0212212211200303-3231231023103231-1333303310133212-0020302230021112-2100333130013032"></a>
+
+## openstack.not_managed.node_list.interface_list.network_option.site_local_inside_network — site_local_inside_network / 221231112001 / 2
+
+Breadcrumbs:
+
+- [xcsh_securemesh_site_v2](../resources/securemesh_site_v2.md#canonical-3000200222223112-2121123210332232-3331131023113311-0101321102313201-1230101233301033-1102230312220221-1020100000200232-0100112322233120)
+- [Property reference](resources--securemesh_site_v2--reference--group-001.md#canonical-2301010111101201-2220210123001232-1330030231123103-3121113232112322-0131203200320021-3021122122123123-2102102121133210-3220303330323302)
+- [openstack](resources--securemesh_site_v2--reference--group-016.md#canonical-3103330221113213-1101002321121001-1323321202302031-0033322000331021-3233221231330113-2212103122303202-3302221330110020-0111211323131322)
+- [openstack.not_managed](resources--securemesh_site_v2--reference--group-016.md#canonical-0312033221102032-1100121330120132-2103020332012010-3111210221102130-0320102323211200-3311310000001322-0301130130001001-2213113021333211)
+- [openstack.not_managed.node_list](resources--securemesh_site_v2--reference--group-016.md#canonical-1110010322131320-2221002311300011-0022132301131322-0323121331112011-0212213332032002-2031000230123001-3201021000300133-0203213021231332)
+- [openstack.not_managed.node_list.interface_list](resources--securemesh_site_v2--reference--group-016.md#canonical-1131102132020103-0331213303112023-3300232213212020-0202202222312002-2212022002021011-1030210222131310-3312211020203212-1300033030310132)
+- [openstack.not_managed.node_list.interface_list.network_option](resources--securemesh_site_v2--reference--group-017.md#canonical-3023211112201130-1201110122221122-2300322103102332-2310233121202112-0120030230132112-1023123001333201-0132113301223201-1123330213022010)
+- openstack.not_managed.node_list.interface_list.network_option.site_local_inside_network
+
+<a id="canonical-0311002312212122-3111320231110010-3232231201222130-1103301232212110-2013212003032121-3320230210333001-2113301023322113-3203113021133112"></a>
+
+Type: `["object", {}]`. Optional.
+
+Enable this option
+
+Upstream description:
+
+This can be used for messages where no values are needed.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  }
+}
+```
+
+Terraform syntax:
+
+```terraform
+site_local_inside_network = {}
+```
+
+<a id="canonical-1300323231220110-3312001111231231-0301010103211210-0222030030000000-0231020232111300-2010023021122302-3331311112332320-1101210013231230"></a>
+
+## Direct properties — site_local_inside_network / 221231112001 / 3
+
+This is an empty object or choice marker. It has no direct properties.
+
+<a id="canonical-3330001012233131-3312131002220313-2013320310012023-0313202112100322-2012203003022023-2022223013331312-3001003112010211-0130330113332000"></a>
+
+## Next pages — site_local_inside_network / 221231112001 / 4
+
+- [openstack.not_managed.node_list.interface_list.network_option](resources--securemesh_site_v2--reference--group-017.md#canonical-3023211112201130-1201110122221122-2300322103102332-2310233121202112-0120030230132112-1023123001333201-0132113301223201-1123330213022010)
+- [xcsh_securemesh_site_v2](../resources/securemesh_site_v2.md#canonical-3000200222223112-2121123210332232-3331131023113311-0101321102313201-1230101233301033-1102230312220221-1020100000200232-0100112322233120)
+
+<a id="canonical-1121221200221011-0102213201120211-3113331233332011-2121300111333010-1310331032212121-3100032230120321-2101221333230302-3200112330103012"></a>
+
+<!-- Exact provider and upstream contract identifiers. -->
+
+<!-- textlint-disable terminology -->
+
+<a id="canonical-0333211211011221-2313203321212110-1321122012223230-2110133331133320-3011003333202001-3233231100322111-2103333330121031-3122332033001231"></a>
+
+## openstack.not_managed.node_list.interface_list.network_option.site_local_network — site_local_network / 231132130022 / 2
+
+Breadcrumbs:
+
+- [xcsh_securemesh_site_v2](../resources/securemesh_site_v2.md#canonical-3000200222223112-2121123210332232-3331131023113311-0101321102313201-1230101233301033-1102230312220221-1020100000200232-0100112322233120)
+- [Property reference](resources--securemesh_site_v2--reference--group-001.md#canonical-2301010111101201-2220210123001232-1330030231123103-3121113232112322-0131203200320021-3021122122123123-2102102121133210-3220303330323302)
+- [openstack](resources--securemesh_site_v2--reference--group-016.md#canonical-3103330221113213-1101002321121001-1323321202302031-0033322000331021-3233221231330113-2212103122303202-3302221330110020-0111211323131322)
+- [openstack.not_managed](resources--securemesh_site_v2--reference--group-016.md#canonical-0312033221102032-1100121330120132-2103020332012010-3111210221102130-0320102323211200-3311310000001322-0301130130001001-2213113021333211)
+- [openstack.not_managed.node_list](resources--securemesh_site_v2--reference--group-016.md#canonical-1110010322131320-2221002311300011-0022132301131322-0323121331112011-0212213332032002-2031000230123001-3201021000300133-0203213021231332)
+- [openstack.not_managed.node_list.interface_list](resources--securemesh_site_v2--reference--group-016.md#canonical-1131102132020103-0331213303112023-3300232213212020-0202202222312002-2212022002021011-1030210222131310-3312211020203212-1300033030310132)
+- [openstack.not_managed.node_list.interface_list.network_option](resources--securemesh_site_v2--reference--group-017.md#canonical-3023211112201130-1201110122221122-2300322103102332-2310233121202112-0120030230132112-1023123001333201-0132113301223201-1123330213022010)
+- openstack.not_managed.node_list.interface_list.network_option.site_local_network
+
+<a id="canonical-2022212123101203-1121021231131322-0122210030311202-1302000201333301-3330020300012222-0203210321012103-3203212000323323-3201023032333012"></a>
+
+Type: `["object", {}]`. Optional.
+
+Enable this option
+
+Upstream description:
+
+This can be used for messages where no values are needed.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  }
+}
+```
+
+Terraform syntax:
+
+```terraform
+site_local_network = {}
+```
+
+<a id="canonical-1012002320322023-2020020331211302-1000213021003011-1032032110332123-0021020323000130-1231321320101131-2232213131220223-2033122133011103"></a>
+
+## Direct properties — site_local_network / 231132130022 / 3
+
+This is an empty object or choice marker. It has no direct properties.
+
+<a id="canonical-1023330001000310-2022220030030301-1313133321121232-0232011021131121-0033021000231320-1133122233023313-3002301120121103-3132002220232201"></a>
+
+## Next pages — site_local_network / 231132130022 / 4
+
+- [openstack.not_managed.node_list.interface_list.network_option](resources--securemesh_site_v2--reference--group-017.md#canonical-3023211112201130-1201110122221122-2300322103102332-2310233121202112-0120030230132112-1023123001333201-0132113301223201-1123330213022010)
+- [xcsh_securemesh_site_v2](../resources/securemesh_site_v2.md#canonical-3000200222223112-2121123210332232-3331131023113311-0101321102313201-1230101233301033-1102230312220221-1020100000200232-0100112322233120)
+
+<a id="canonical-2332311111121233-1023200032232001-3122133030130130-1123313102323230-0200221122211002-3230133312201011-0122132200032030-0013213232231232"></a>
+
+<!-- Exact provider and upstream contract identifiers. -->
+
+<!-- textlint-disable terminology -->
+
+<a id="canonical-0231033311110103-2232121213021131-0233320311122222-3213212310213322-3332113310103101-2013033010223100-0020112113030330-3021011213010001"></a>
+
+## openstack.not_managed.node_list.interface_list.no_ipv4_address — no_ipv4_address / 323233332030 / 2
+
+Breadcrumbs:
+
+- [xcsh_securemesh_site_v2](../resources/securemesh_site_v2.md#canonical-3000200222223112-2121123210332232-3331131023113311-0101321102313201-1230101233301033-1102230312220221-1020100000200232-0100112322233120)
+- [Property reference](resources--securemesh_site_v2--reference--group-001.md#canonical-2301010111101201-2220210123001232-1330030231123103-3121113232112322-0131203200320021-3021122122123123-2102102121133210-3220303330323302)
+- [openstack](resources--securemesh_site_v2--reference--group-016.md#canonical-3103330221113213-1101002321121001-1323321202302031-0033322000331021-3233221231330113-2212103122303202-3302221330110020-0111211323131322)
+- [openstack.not_managed](resources--securemesh_site_v2--reference--group-016.md#canonical-0312033221102032-1100121330120132-2103020332012010-3111210221102130-0320102323211200-3311310000001322-0301130130001001-2213113021333211)
+- [openstack.not_managed.node_list](resources--securemesh_site_v2--reference--group-016.md#canonical-1110010322131320-2221002311300011-0022132301131322-0323121331112011-0212213332032002-2031000230123001-3201021000300133-0203213021231332)
+- [openstack.not_managed.node_list.interface_list](resources--securemesh_site_v2--reference--group-016.md#canonical-1131102132020103-0331213303112023-3300232213212020-0202202222312002-2212022002021011-1030210222131310-3312211020203212-1300033030310132)
+- openstack.not_managed.node_list.interface_list.no_ipv4_address
+
+<a id="canonical-3301210213120202-3113030232301101-0211310101031210-2101022233211000-2312113233013010-2111223012210331-2032032013032200-0003210012200330"></a>
+
+Type: `["object", {}]`. Optional.
+
+Enable this option
+
+Upstream description:
+
+This can be used for messages where no values are needed.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  }
+}
+```
+
+Terraform syntax:
+
+```terraform
+no_ipv4_address = {}
+```
+
+<a id="canonical-3303321310102101-2212333002231332-1233211312121202-3022210333131022-1032110103213030-0101003330102031-1010332103313222-0002212110030221"></a>
+
+## Direct properties — no_ipv4_address / 323233332030 / 3
+
+This is an empty object or choice marker. It has no direct properties.
+
+<a id="canonical-1212331133203332-0111000003131222-0320320111230210-3011323011232102-3201011002202300-0202200233333131-1031102233201133-0331020203010231"></a>
+
+## Next pages — no_ipv4_address / 323233332030 / 4
+
+- [openstack.not_managed.node_list.interface_list](resources--securemesh_site_v2--reference--group-016.md#canonical-1131102132020103-0331213303112023-3300232213212020-0202202222312002-2212022002021011-1030210222131310-3312211020203212-1300033030310132)
+- [xcsh_securemesh_site_v2](../resources/securemesh_site_v2.md#canonical-3000200222223112-2121123210332232-3331131023113311-0101321102313201-1230101233301033-1102230312220221-1020100000200232-0100112322233120)
+
+<a id="canonical-2110313201023123-2310200020000232-1311232001030303-2222100103031323-0211313131023030-2300033103012320-1233022303303331-0011200211020330"></a>
+
+<!-- Exact provider and upstream contract identifiers. -->
+
+<!-- textlint-disable terminology -->
+
+<a id="canonical-3210320003230211-2020102023323302-2022112332300012-0133300203021201-2011030102003323-2211032333210002-2001333233313121-2010003320330023"></a>
+
+## openstack.not_managed.node_list.interface_list.no_ipv6_address — no_ipv6_address / 032031003101 / 2
+
+Breadcrumbs:
+
+- [xcsh_securemesh_site_v2](../resources/securemesh_site_v2.md#canonical-3000200222223112-2121123210332232-3331131023113311-0101321102313201-1230101233301033-1102230312220221-1020100000200232-0100112322233120)
+- [Property reference](resources--securemesh_site_v2--reference--group-001.md#canonical-2301010111101201-2220210123001232-1330030231123103-3121113232112322-0131203200320021-3021122122123123-2102102121133210-3220303330323302)
+- [openstack](resources--securemesh_site_v2--reference--group-016.md#canonical-3103330221113213-1101002321121001-1323321202302031-0033322000331021-3233221231330113-2212103122303202-3302221330110020-0111211323131322)
+- [openstack.not_managed](resources--securemesh_site_v2--reference--group-016.md#canonical-0312033221102032-1100121330120132-2103020332012010-3111210221102130-0320102323211200-3311310000001322-0301130130001001-2213113021333211)
+- [openstack.not_managed.node_list](resources--securemesh_site_v2--reference--group-016.md#canonical-1110010322131320-2221002311300011-0022132301131322-0323121331112011-0212213332032002-2031000230123001-3201021000300133-0203213021231332)
+- [openstack.not_managed.node_list.interface_list](resources--securemesh_site_v2--reference--group-016.md#canonical-1131102132020103-0331213303112023-3300232213212020-0202202222312002-2212022002021011-1030210222131310-3312211020203212-1300033030310132)
+- openstack.not_managed.node_list.interface_list.no_ipv6_address
+
+<a id="canonical-3222332033122201-3211302030330232-3333123003212103-1021003121110323-3302101320112313-1020213222020001-0021013103130200-1210330011210311"></a>
+
+Type: `["object", {}]`. Optional.
+
+Enable this option
+
+Upstream description:
+
+This can be used for messages where no values are needed.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  }
+}
+```
+
+Terraform syntax:
+
+```terraform
+no_ipv6_address = {}
+```
+
+<a id="canonical-0020013103330212-2102310003001112-3322311201102120-2312323210130011-2211210120333203-1330203132133232-2030133103030112-1310302233310110"></a>
+
+## Direct properties — no_ipv6_address / 032031003101 / 3
+
+This is an empty object or choice marker. It has no direct properties.
+
+<a id="canonical-3332030302030013-0000200022323023-0130110202220002-2313103101220323-3311331213012230-1212110300210211-2322110000123322-0300130013201312"></a>
+
+## Next pages — no_ipv6_address / 032031003101 / 4
+
+- [openstack.not_managed.node_list.interface_list](resources--securemesh_site_v2--reference--group-016.md#canonical-1131102132020103-0331213303112023-3300232213212020-0202202222312002-2212022002021011-1030210222131310-3312211020203212-1300033030310132)
+- [xcsh_securemesh_site_v2](../resources/securemesh_site_v2.md#canonical-3000200222223112-2121123210332232-3331131023113311-0101321102313201-1230101233301033-1102230312220221-1020100000200232-0100112322233120)
+
+<a id="canonical-0210012301212222-0111212112333310-1312311313231131-0323100032010230-0030031102013120-1311123222203330-0103003211100302-2202220211100133"></a>
+
+<!-- Exact provider and upstream contract identifiers. -->
+
+<!-- textlint-disable terminology -->
+
+<a id="canonical-2110103023332131-3301132123331001-2330120222103031-3032230000210231-3311120110301000-2232300303003032-1020123203032212-1331220232330022"></a>
+
+## openstack.not_managed.node_list.interface_list.site_to_site_connectivity_interface_disabled — site_to_site_connectivity_interface_disabled / 133321212012 / 2
+
+Breadcrumbs:
+
+- [xcsh_securemesh_site_v2](../resources/securemesh_site_v2.md#canonical-3000200222223112-2121123210332232-3331131023113311-0101321102313201-1230101233301033-1102230312220221-1020100000200232-0100112322233120)
+- [Property reference](resources--securemesh_site_v2--reference--group-001.md#canonical-2301010111101201-2220210123001232-1330030231123103-3121113232112322-0131203200320021-3021122122123123-2102102121133210-3220303330323302)
+- [openstack](resources--securemesh_site_v2--reference--group-016.md#canonical-3103330221113213-1101002321121001-1323321202302031-0033322000331021-3233221231330113-2212103122303202-3302221330110020-0111211323131322)
+- [openstack.not_managed](resources--securemesh_site_v2--reference--group-016.md#canonical-0312033221102032-1100121330120132-2103020332012010-3111210221102130-0320102323211200-3311310000001322-0301130130001001-2213113021333211)
+- [openstack.not_managed.node_list](resources--securemesh_site_v2--reference--group-016.md#canonical-1110010322131320-2221002311300011-0022132301131322-0323121331112011-0212213332032002-2031000230123001-3201021000300133-0203213021231332)
+- [openstack.not_managed.node_list.interface_list](resources--securemesh_site_v2--reference--group-016.md#canonical-1131102132020103-0331213303112023-3300232213212020-0202202222312002-2212022002021011-1030210222131310-3312211020203212-1300033030310132)
+- openstack.not_managed.node_list.interface_list.site_to_site_connectivity_interface_disabled
+
+<a id="canonical-1221110132120232-3011130131213201-1200322023322102-2122000120133233-3322100003323301-1232222011133203-0330221211011300-3032213220230331"></a>
+
+Type: `["object", {}]`. Optional.
+
+Enable this option
+
+Upstream description:
+
+This can be used for messages where no values are needed.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  }
+}
+```
+
+Terraform syntax:
+
+```terraform
+site_to_site_connectivity_interface_disabled = {}
+```
+
+<a id="canonical-1003113001123103-3221320333000230-3303102032001110-3023201200320123-2130030221333023-2231210030230223-0131300120302210-2011311131211010"></a>
+
+## Direct properties — site_to_site_connectivity_interface_disabled / 133321212012 / 3
+
+This is an empty object or choice marker. It has no direct properties.
+
+<a id="canonical-0223231131232210-3110300103220333-0010313122233133-3301332312332011-1031331230031011-0333233233121111-1232301103101233-2013002123123133"></a>
+
+## Next pages — site_to_site_connectivity_interface_disabled / 133321212012 / 4
+
+- [openstack.not_managed.node_list.interface_list](resources--securemesh_site_v2--reference--group-016.md#canonical-1131102132020103-0331213303112023-3300232213212020-0202202222312002-2212022002021011-1030210222131310-3312211020203212-1300033030310132)
+- [xcsh_securemesh_site_v2](../resources/securemesh_site_v2.md#canonical-3000200222223112-2121123210332232-3331131023113311-0101321102313201-1230101233301033-1102230312220221-1020100000200232-0100112322233120)
+
+<a id="canonical-2031330202202022-3331000031001100-1200313120202122-3313120233311233-3322331012221303-0023120222112321-1130321210023233-3011313203321011"></a>
+
+<!-- Exact provider and upstream contract identifiers. -->
+
+<!-- textlint-disable terminology -->
+
+<a id="canonical-0122213000122230-3000023311003030-3130301203323102-1020131030233001-3111300101113321-3121031110320123-3311010320132223-2000222100222332"></a>
+
+## openstack.not_managed.node_list.interface_list.site_to_site_connectivity_interface_enabled — site_to_site_connectivity_interface_enabled / 313002213221 / 2
+
+Breadcrumbs:
+
+- [xcsh_securemesh_site_v2](../resources/securemesh_site_v2.md#canonical-3000200222223112-2121123210332232-3331131023113311-0101321102313201-1230101233301033-1102230312220221-1020100000200232-0100112322233120)
+- [Property reference](resources--securemesh_site_v2--reference--group-001.md#canonical-2301010111101201-2220210123001232-1330030231123103-3121113232112322-0131203200320021-3021122122123123-2102102121133210-3220303330323302)
+- [openstack](resources--securemesh_site_v2--reference--group-016.md#canonical-3103330221113213-1101002321121001-1323321202302031-0033322000331021-3233221231330113-2212103122303202-3302221330110020-0111211323131322)
+- [openstack.not_managed](resources--securemesh_site_v2--reference--group-016.md#canonical-0312033221102032-1100121330120132-2103020332012010-3111210221102130-0320102323211200-3311310000001322-0301130130001001-2213113021333211)
+- [openstack.not_managed.node_list](resources--securemesh_site_v2--reference--group-016.md#canonical-1110010322131320-2221002311300011-0022132301131322-0323121331112011-0212213332032002-2031000230123001-3201021000300133-0203213021231332)
+- [openstack.not_managed.node_list.interface_list](resources--securemesh_site_v2--reference--group-016.md#canonical-1131102132020103-0331213303112023-3300232213212020-0202202222312002-2212022002021011-1030210222131310-3312211020203212-1300033030310132)
+- openstack.not_managed.node_list.interface_list.site_to_site_connectivity_interface_enabled
+
+<a id="canonical-0130231101201023-0003213102020302-2220300023020211-0013323201310120-1313232332022233-3310130130001111-1102230113330032-3031221321100313"></a>
+
+Type: `["object", {}]`. Optional.
+
+Enable this option
+
+Upstream description:
+
+This can be used for messages where no values are needed.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  }
+}
+```
+
+Terraform syntax:
+
+```terraform
+site_to_site_connectivity_interface_enabled = {}
+```
+
+<a id="canonical-3223312203201122-3203023211033202-2212122203222232-0311021311221323-1213202101311021-3131023122003201-1211101013220132-3020022213331310"></a>
+
+## Direct properties — site_to_site_connectivity_interface_enabled / 313002213221 / 3
+
+This is an empty object or choice marker. It has no direct properties.
+
+<a id="canonical-1310010212121113-1031232012102312-1022102010202131-2132101201222330-0110013323011230-1211112000001213-1321310310000010-1323302011211332"></a>
+
+## Next pages — site_to_site_connectivity_interface_enabled / 313002213221 / 4
+
+- [openstack.not_managed.node_list.interface_list](resources--securemesh_site_v2--reference--group-016.md#canonical-1131102132020103-0331213303112023-3300232213212020-0202202222312002-2212022002021011-1030210222131310-3312211020203212-1300033030310132)
+- [xcsh_securemesh_site_v2](../resources/securemesh_site_v2.md#canonical-3000200222223112-2121123210332232-3331131023113311-0101321102313201-1230101233301033-1102230312220221-1020100000200232-0100112322233120)
+
+<a id="canonical-2112231302320012-3123103320233130-1022202103132302-0121321121313211-3111011202010200-2222311200010133-3021032133223331-0323330130002321"></a>
+
+<!-- Exact provider and upstream contract identifiers. -->
+
+<!-- textlint-disable terminology -->
+
 <a id="canonical-3133131112002020-2130102231103030-3001321121231032-2033311303012022-1220010002310213-3212333001322022-1030110133110001-0212012100333221"></a>
 
 ## openstack.not_managed.node_list.interface_list.static_ip — static_ip / 131202221311 / 2
@@ -321,18 +840,32 @@ Type: `["map", "string"]`. Optional.
 
 Map of Node to Static IP configuration value, Key:Node, Value:IP Address.
 
+Provider validators and defaults (from schema source):
+
+```go
+Validators: []validator.Map{validators.MapConstraintsValidator("{\"cardinality\":{\"maxProperties\":128},\"category\":\"discovery\",\"constraintType\":\"map\",\"deterministic\":true,\"keys\":{\"maxLength\":128,\"minLength\":1,\"type\":\"string\"},\"originalRules\":{\"ves.io.schema.rules.map.keys.string.max_len\":\"128\",\"ves.io.schema.rules.map.keys.string.min_len\":\"1\",\"ves.io.schema.rules.map.max_pairs\":\"128\"}}")}
+```
+
 Receipt-pinned upstream constraints:
 
 ```json
 {
   "x-f5xc-constraints": {
-    "category": "general",
-    "constraintType": "object",
-    "maxProperties": 128,
-    "metadata": {
-      "confidence": 0.75,
-      "source": "inferred",
-      "validatedAt": "2026-10-03T05:10:26+00:00"
+    "cardinality": {
+      "maxProperties": 128
+    },
+    "category": "discovery",
+    "constraintType": "map",
+    "deterministic": true,
+    "keys": {
+      "maxLength": 128,
+      "minLength": 1,
+      "type": "string"
+    },
+    "originalRules": {
+      "ves.io.schema.rules.map.keys.string.max_len": "128",
+      "ves.io.schema.rules.map.keys.string.min_len": "1",
+      "ves.io.schema.rules.map.max_pairs": "128"
     }
   },
   "x-f5xc-required-for": {
@@ -5195,712 +5728,3 @@ This is an empty object or choice marker. It has no direct properties.
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
-
-<a id="canonical-2021321101013023-0113201331010321-1223313213301203-1102122020330113-1301201111333122-0100102230121200-1102022310221121-2123111100031331"></a>
-
-## timeouts — timeouts / 322320321212 / 2
-
-Breadcrumbs:
-
-- [xcsh_securemesh_site_v2](../resources/securemesh_site_v2.md#canonical-3000200222223112-2121123210332232-3331131023113311-0101321102313201-1230101233301033-1102230312220221-1020100000200232-0100112322233120)
-- [Property reference](resources--securemesh_site_v2--reference--group-001.md#canonical-2301010111101201-2220210123001232-1330030231123103-3121113232112322-0131203200320021-3021122122123123-2102102121133210-3220303330323302)
-- timeouts
-
-<a id="canonical-0123232131001300-0011323332301222-1331300031113011-1313301030310003-1101033221200021-3320311312021033-0002021220231213-3010101123210223"></a>
-
-Type: `"object"`. single nested block, Optional.
-
-Terraform syntax:
-
-```terraform
-timeouts {
-  # Configure direct properties listed below.
-}
-```
-
-<a id="canonical-2210201022013022-3010101101010213-0321203021022011-0303021113330030-2223120120201123-0220122021311112-1320031202301311-2100203010002121"></a>
-
-## Direct properties — timeouts / 322320321212 / 3
-
-<a id="canonical-1110023132023112-1100103232120003-2233121122233201-3102321030123121-2111201002203301-0010022121120230-1321131213311030-0102133312300210"></a>
-
-<a id="canonical-2121232011321202-2203023312230112-3303230112222221-1230213322110100-3310010221010320-2100323100130101-3223312013132232-1113332030013223"></a>
-
-## create property — timeouts / 322320321212 / 4
-
-Type: `"string"`. Optional.
-
-A string that can be \[parsed as a duration\](https&#58;//pkg.go.dev/time\#ParseDuration) consisting
-of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m"
-(minutes), "h" (hours).
-
-<a id="canonical-3130133011022332-2230123123000100-2021330331212132-1122103310110301-1102211033201131-1022213332002323-3032001030113000-2101002021101032"></a>
-
-<a id="canonical-2203113031000212-0112123303133102-1223122313012112-3113313200030100-2121231321120220-1302230133321100-0120032323022320-0122330223201332"></a>
-
-## delete property — timeouts / 322320321212 / 5
-
-Type: `"string"`. Optional.
-
-A string that can be \[parsed as a duration\](https&#58;//pkg.go.dev/time\#ParseDuration) consisting
-of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m"
-(minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are
-saved into state before the destroy operation occurs.
-
-<a id="canonical-2213013133300101-2020313200320200-3012022211113211-2233211130000331-2213130010313222-2230123120212320-3231211022000323-1002223123231322"></a>
-
-<a id="canonical-0132231103132232-3122232312322012-2302013003030012-1210320221330230-2000032033023003-3003132313233103-2031010100321102-2211110300112103"></a>
-
-## read property — timeouts / 322320321212 / 6
-
-Type: `"string"`. Optional.
-
-A string that can be \[parsed as a duration\](https&#58;//pkg.go.dev/time\#ParseDuration) consisting
-of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m"
-(minutes), "h" (hours). Read operations occur during any refresh or planning operation when refresh
-is enabled.
-
-<a id="canonical-0003313021213233-2220003330111102-0010200221002312-3332230211002222-1001101301312301-2030130303103123-2203003122030000-2303003002323021"></a>
-
-<a id="canonical-3030130203203002-2032020321032231-2112122021211220-1203313333132202-0233331331333011-3203210013330102-0010331002203313-3202220002133230"></a>
-
-## update property — timeouts / 322320321212 / 7
-
-Type: `"string"`. Optional.
-
-A string that can be \[parsed as a duration\](https&#58;//pkg.go.dev/time\#ParseDuration) consisting
-of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m"
-(minutes), "h" (hours).
-
-<a id="canonical-1120230002220032-1013203123113332-2333122120102031-1202032303303110-2132023032110022-3112332032123010-3120110023203123-0020110222010123"></a>
-
-## Next pages — timeouts / 322320321212 / 8
-
-- [Property reference](resources--securemesh_site_v2--reference--group-001.md#canonical-2301010111101201-2220210123001232-1330030231123103-3121113232112322-0131203200320021-3021122122123123-2102102121133210-3220303330323302)
-- [xcsh_securemesh_site_v2](../resources/securemesh_site_v2.md#canonical-3000200222223112-2121123210332232-3331131023113311-0101321102313201-1230101233301033-1102230312220221-1020100000200232-0100112322233120)
-
-<a id="canonical-2122031130011121-2120222320030031-2032103312220112-3121002222230322-2332133023022103-2321103112123110-2013202113333333-2203321000331223"></a>
-
-<!-- Exact provider and upstream contract identifiers. -->
-
-<!-- textlint-disable terminology -->
-
-<a id="canonical-2122103030011130-1130031223203121-2310123120110211-3103203033131122-3303003100310103-2001220130103132-1220332013012012-1220133013020132"></a>
-
-## upgrade_settings — upgrade_settings / 020213210320 / 2
-
-Breadcrumbs:
-
-- [xcsh_securemesh_site_v2](../resources/securemesh_site_v2.md#canonical-3000200222223112-2121123210332232-3331131023113311-0101321102313201-1230101233301033-1102230312220221-1020100000200232-0100112322233120)
-- [Property reference](resources--securemesh_site_v2--reference--group-001.md#canonical-2301010111101201-2220210123001232-1330030231123103-3121113232112322-0131203200320021-3021122122123123-2102102121133210-3220303330323302)
-- upgrade_settings
-
-<a id="canonical-1012300130023020-3121103011122011-3200231111011031-1132302032012101-1022231300310311-1322000133202211-3332113131103223-3020202230200002"></a>
-
-Type: `"object"`. single nested block, Optional.
-
-Configuration parameter for upgrade settings.
-
-Upstream description:
-
-Specify how a site will be upgraded.
-
-Receipt-pinned upstream constraints:
-
-```json
-{
-  "x-f5xc-required-for": {
-    "create": false,
-    "minimum_config": false,
-    "read": false,
-    "update": false
-  }
-}
-```
-
-Terraform syntax:
-
-```terraform
-upgrade_settings {
-  # Configure direct properties listed below.
-}
-```
-
-<a id="canonical-2323132310222330-3020220110313010-1330231211233200-1310131203011302-3120221101230113-3111003310211012-1333313012233011-2100310110301323"></a>
-
-## Direct properties — upgrade_settings / 020213210320 / 3
-
-- [kubernetes_upgrade_drain](resources--securemesh_site_v2--reference--group-017.md#canonical-3003201331303031-0002000113122201-0302221010301213-1101030300000222-2123213100310030-0033201302130020-1110302002210301-3122103333230300): complete subsection reference.
-
-<a id="canonical-2213120032030313-2213212222022121-1300303113230013-0001231302113213-3103231133113130-0233330311331331-3212112130302233-0323011012222311"></a>
-
-## Next pages — upgrade_settings / 020213210320 / 4
-
-- [upgrade_settings.kubernetes_upgrade_drain](resources--securemesh_site_v2--reference--group-017.md#canonical-3003201331303031-0002000113122201-0302221010301213-1101030300000222-2123213100310030-0033201302130020-1110302002210301-3122103333230300)
-- [Property reference](resources--securemesh_site_v2--reference--group-001.md#canonical-2301010111101201-2220210123001232-1330030231123103-3121113232112322-0131203200320021-3021122122123123-2102102121133210-3220303330323302)
-- [xcsh_securemesh_site_v2](../resources/securemesh_site_v2.md#canonical-3000200222223112-2121123210332232-3331131023113311-0101321102313201-1230101233301033-1102230312220221-1020100000200232-0100112322233120)
-
-<a id="canonical-3003201331303031-0002000113122201-0302221010301213-1101030300000222-2123213100310030-0033201302130020-1110302002210301-3122103333230300"></a>
-
-<!-- Exact provider and upstream contract identifiers. -->
-
-<!-- textlint-disable terminology -->
-
-<a id="canonical-0101321200011100-1112313033210132-2002311330030222-2231031201011003-0200110130023201-3231111111102333-3212102122231321-3220231320113002"></a>
-
-## upgrade_settings.kubernetes_upgrade_drain — kubernetes_upgrade_drain / 320012020030 / 2
-
-Breadcrumbs:
-
-- [xcsh_securemesh_site_v2](../resources/securemesh_site_v2.md#canonical-3000200222223112-2121123210332232-3331131023113311-0101321102313201-1230101233301033-1102230312220221-1020100000200232-0100112322233120)
-- [Property reference](resources--securemesh_site_v2--reference--group-001.md#canonical-2301010111101201-2220210123001232-1330030231123103-3121113232112322-0131203200320021-3021122122123123-2102102121133210-3220303330323302)
-- [upgrade_settings](resources--securemesh_site_v2--reference--group-017.md#canonical-2122031130011121-2120222320030031-2032103312220112-3121002222230322-2332133023022103-2321103112123110-2013202113333333-2203321000331223)
-- upgrade_settings.kubernetes_upgrade_drain
-
-<a id="canonical-3220131333120013-2202322022131000-1000010222103213-2013222300320010-2122210011001020-3001103121202113-0103222211322232-1121002031102322"></a>
-
-Type: `"object"`. single nested block, Optional.
-
-Specify how worker nodes within a site will be upgraded.
-
-Provider validators and defaults (from schema source):
-
-```go
-Validators: []validator.Object{validators.ConflictingObjectAttributes("disable_upgrade_drain",
-    "enable_upgrade_drain")}
-```
-
-Receipt-pinned upstream constraints:
-
-```json
-{
-  "x-f5xc-required-for": {
-    "create": false,
-    "minimum_config": false,
-    "read": false,
-    "update": false
-  },
-  "x-ves-oneof-field-kubernetes_upgrade_drain_enable_choice": "[\"disable_upgrade_drain\",\"enable_upgrade_drain\"]"
-}
-```
-
-Terraform syntax:
-
-```terraform
-kubernetes_upgrade_drain {
-  # Configure direct properties listed below.
-}
-```
-
-<a id="canonical-2210210303132220-1233300022001301-1030133321001323-3112313231011303-1212333032231113-1023232132133122-0032123131022102-1320320302033233"></a>
-
-## Direct properties — kubernetes_upgrade_drain / 320012020030 / 3
-
-- [disable_upgrade_drain](resources--securemesh_site_v2--reference--group-017.md#canonical-3222130313222010-2113200000020330-2312232021233113-1330033220323210-2200321101300231-3032233121210023-1120230112112230-0000123202210303): complete subsection reference.
-
-- [enable_upgrade_drain](resources--securemesh_site_v2--reference--group-017.md#canonical-0213021020130133-1313221201012121-1030022210233023-0112033031122113-3032132103203320-0310101221001123-1001101132203311-2021023300213331): complete subsection reference.
-
-<a id="canonical-2222002000233332-3223100103212312-3322131211220131-2132020200132132-0102033213230103-0113233130322202-1102231202230320-3133110322200030"></a>
-
-## Next pages — kubernetes_upgrade_drain / 320012020030 / 4
-
-- [upgrade_settings.kubernetes_upgrade_drain.disable_upgrade_drain](resources--securemesh_site_v2--reference--group-017.md#canonical-3222130313222010-2113200000020330-2312232021233113-1330033220323210-2200321101300231-3032233121210023-1120230112112230-0000123202210303)
-- [upgrade_settings.kubernetes_upgrade_drain.enable_upgrade_drain](resources--securemesh_site_v2--reference--group-017.md#canonical-0213021020130133-1313221201012121-1030022210233023-0112033031122113-3032132103203320-0310101221001123-1001101132203311-2021023300213331)
-- [upgrade_settings](resources--securemesh_site_v2--reference--group-017.md#canonical-2122031130011121-2120222320030031-2032103312220112-3121002222230322-2332133023022103-2321103112123110-2013202113333333-2203321000331223)
-- [xcsh_securemesh_site_v2](../resources/securemesh_site_v2.md#canonical-3000200222223112-2121123210332232-3331131023113311-0101321102313201-1230101233301033-1102230312220221-1020100000200232-0100112322233120)
-
-<a id="canonical-3222130313222010-2113200000020330-2312232021233113-1330033220323210-2200321101300231-3032233121210023-1120230112112230-0000123202210303"></a>
-
-<!-- Exact provider and upstream contract identifiers. -->
-
-<!-- textlint-disable terminology -->
-
-<a id="canonical-2222110020213203-0232323010123321-2113233123100030-3311113321100322-1100003000310332-2200013031303313-0033223221220301-0120133320212023"></a>
-
-## upgrade_settings.kubernetes_upgrade_drain.disable_upgrade_drain — disable_upgrade_drain / 030001311332 / 2
-
-Breadcrumbs:
-
-- [xcsh_securemesh_site_v2](../resources/securemesh_site_v2.md#canonical-3000200222223112-2121123210332232-3331131023113311-0101321102313201-1230101233301033-1102230312220221-1020100000200232-0100112322233120)
-- [Property reference](resources--securemesh_site_v2--reference--group-001.md#canonical-2301010111101201-2220210123001232-1330030231123103-3121113232112322-0131203200320021-3021122122123123-2102102121133210-3220303330323302)
-- [upgrade_settings](resources--securemesh_site_v2--reference--group-017.md#canonical-2122031130011121-2120222320030031-2032103312220112-3121002222230322-2332133023022103-2321103112123110-2013202113333333-2203321000331223)
-- [upgrade_settings.kubernetes_upgrade_drain](resources--securemesh_site_v2--reference--group-017.md#canonical-3003201331303031-0002000113122201-0302221010301213-1101030300000222-2123213100310030-0033201302130020-1110302002210301-3122103333230300)
-- upgrade_settings.kubernetes_upgrade_drain.disable_upgrade_drain
-
-<a id="canonical-2321012113022223-1013233322221032-2113023113030230-2001203212122013-2011023203033332-0222230313023003-1203131123300310-2120212331312303"></a>
-
-Type: `["object", {}]`. Optional.
-
-Configuration parameter for disable upgrade drain.
-
-Upstream description:
-
-This can be used for messages where no values are needed.
-
-Receipt-pinned upstream constraints:
-
-```json
-{
-  "x-f5xc-required-for": {
-    "create": false,
-    "minimum_config": false,
-    "read": false,
-    "update": false
-  }
-}
-```
-
-Terraform syntax:
-
-```terraform
-disable_upgrade_drain = {}
-```
-
-<a id="canonical-3300212033211301-3312331112122001-1200103301330330-0010212010030113-0023112110310302-1123010003332011-3100332312222230-3313102333332011"></a>
-
-## Direct properties — disable_upgrade_drain / 030001311332 / 3
-
-This is an empty object or choice marker. It has no direct properties.
-
-<a id="canonical-2201223320102220-1221113200110133-3330120303323011-2221211302310223-3113331133330321-3030131301013232-3000100223303020-3113201132032111"></a>
-
-## Next pages — disable_upgrade_drain / 030001311332 / 4
-
-- [upgrade_settings.kubernetes_upgrade_drain](resources--securemesh_site_v2--reference--group-017.md#canonical-3003201331303031-0002000113122201-0302221010301213-1101030300000222-2123213100310030-0033201302130020-1110302002210301-3122103333230300)
-- [xcsh_securemesh_site_v2](../resources/securemesh_site_v2.md#canonical-3000200222223112-2121123210332232-3331131023113311-0101321102313201-1230101233301033-1102230312220221-1020100000200232-0100112322233120)
-
-<a id="canonical-0213021020130133-1313221201012121-1030022210233023-0112033031122113-3032132103203320-0310101221001123-1001101132203311-2021023300213331"></a>
-
-<!-- Exact provider and upstream contract identifiers. -->
-
-<!-- textlint-disable terminology -->
-
-<a id="canonical-0133031003022130-3230200220200113-2330220221333030-2333221222232301-3203113332112223-1302303123103101-3310331200132222-0203332033230330"></a>
-
-## upgrade_settings.kubernetes_upgrade_drain.enable_upgrade_drain — enable_upgrade_drain / 011022213121 / 2
-
-Breadcrumbs:
-
-- [xcsh_securemesh_site_v2](../resources/securemesh_site_v2.md#canonical-3000200222223112-2121123210332232-3331131023113311-0101321102313201-1230101233301033-1102230312220221-1020100000200232-0100112322233120)
-- [Property reference](resources--securemesh_site_v2--reference--group-001.md#canonical-2301010111101201-2220210123001232-1330030231123103-3121113232112322-0131203200320021-3021122122123123-2102102121133210-3220303330323302)
-- [upgrade_settings](resources--securemesh_site_v2--reference--group-017.md#canonical-2122031130011121-2120222320030031-2032103312220112-3121002222230322-2332133023022103-2321103112123110-2013202113333333-2203321000331223)
-- [upgrade_settings.kubernetes_upgrade_drain](resources--securemesh_site_v2--reference--group-017.md#canonical-3003201331303031-0002000113122201-0302221010301213-1101030300000222-2123213100310030-0033201302130020-1110302002210301-3122103333230300)
-- upgrade_settings.kubernetes_upgrade_drain.enable_upgrade_drain
-
-<a id="canonical-1230100330002323-0110122001332122-1021203213231021-3221200310110203-1033300111021200-0012331102201322-1221222030211313-0331001023233011"></a>
-
-Type: `"object"`. single nested block, Optional.
-
-Specify batch upgrade settings for worker nodes within a site.
-
-Provider validators and defaults (from schema source):
-
-```go
-Validators: []validator.Object{validators.RequiredObjectAttributes("drain_node_timeout"),
-  validators.ConflictingObjectAttributes("disable_vega_upgrade_mode",
-    "enable_vega_upgrade_mode"),
-  validators.ConflictingObjectAttributes("drain_max_unavailable_node_count",
-    "drain_max_unavailable_node_percentage")}
-```
-
-Receipt-pinned upstream constraints:
-
-```json
-{
-  "x-f5xc-required-for": {
-    "create": false,
-    "minimum_config": false,
-    "read": false,
-    "update": false
-  },
-  "x-ves-oneof-field-drain_max_unavailable_choice": "[\"drain_max_unavailable_node_count\", \"drain_max_unavailable_node_percentage\"]",
-  "x-ves-oneof-field-vega_upgrade_mode_toggle_choice": "[\"disable_vega_upgrade_mode\",\"enable_vega_upgrade_mode\"]"
-}
-```
-
-Terraform syntax:
-
-```terraform
-enable_upgrade_drain {
-  # Configure direct properties listed below.
-}
-```
-
-<a id="canonical-2300030022123013-0302213232301130-2200232312332323-0011123223011200-0303021232231011-2330122120132201-3332120110100121-0230300303301200"></a>
-
-## Direct properties — enable_upgrade_drain / 011022213121 / 3
-
-- [disable_vega_upgrade_mode](resources--securemesh_site_v2--reference--group-017.md#canonical-3112020123021302-3203002223103220-2301221002322203-3123211132101102-1030100001330230-2033323301101002-3032133031210311-0220323010030202): complete subsection reference.
-
-<a id="canonical-0301130333233111-3220210110033323-1111202321111333-0031212120321321-3021121210313002-0211300001100023-3020301101123012-1130123320001132"></a>
-
-<a id="canonical-3030323100203231-2331330210332002-0211130222122210-3020030121132113-1030221120121231-0001203102300022-2322000131123013-1301222122000330"></a>
-
-## drain_max_unavailable_node_count property — enable_upgrade_drain / 011022213121 / 4
-
-Type: `"number"`. Optional.
-
-Node Batch Size Count. Exclusive with \[\]
-
-Upstream description:
-
-Exclusive with \[\]
-
-Provider validators and defaults (from schema source):
-
-```go
-Validators: []validator.Int64{
-  int64validator.Between(1, 5000),
-}
-```
-
-Receipt-pinned upstream constraints:
-
-```json
-{
-  "x-f5xc-constraints": {
-    "category": "discovery",
-    "constraintType": "number",
-    "deterministic": true,
-    "maximum": 5000,
-    "metadata": {
-      "confidence": 0.99,
-      "source": "api-probed",
-      "validatedAt": "2026-10-03T05:10:26+00:00"
-    },
-    "minimum": 1
-  },
-  "x-f5xc-required-for": {
-    "create": false,
-    "minimum_config": false,
-    "read": false,
-    "update": false
-  },
-  "x-validation-rules": {
-    "ves.io.schema.rules.uint32.gte": "1",
-    "ves.io.schema.rules.uint32.lte": "5000"
-  },
-  "x-ves-validation-rules": {
-    "ves.io.schema.rules.uint32.gte": "1",
-    "ves.io.schema.rules.uint32.lte": "5000"
-  }
-}
-```
-
-<a id="canonical-2032210002330002-1330002321132010-2012221131221013-1303010103223013-3331213222211230-3333021232103212-2020101321123123-0202030321330320"></a>
-
-<a id="canonical-3332212003212102-3003032232202102-0313332211300031-0130112022000133-3230012300030002-3022221233111122-0300131012230123-3233013112023101"></a>
-
-## drain_max_unavailable_node_percentage property — enable_upgrade_drain / 011022213121 / 5
-
-Type: `"number"`. Optional.
-
-Maximum percentage of nodes unavailable during upgrade draining.
-
-<a id="canonical-3320032100232312-3031311210022132-0222313022022211-0331213102230030-0300103210203120-3100122111030010-0031300323002322-3101233312001331"></a>
-
-<a id="canonical-3212030001332301-2212310032130013-1220212203321012-0320332202303203-1313321311223333-0230122210113110-3232302211220031-3223213203003213"></a>
-
-## drain_node_timeout property — enable_upgrade_drain / 011022213121 / 6
-
-Type: `"number"`. Optional.
-
-Seconds to wait before initiating upgrade on the next set of nodes. Setting it to 0 will wait
-indefinitely for all services on nodes to be upgraded gracefully before proceeding to the next set
-of nodes. (Warning: It may block upgrade if services on a node cannot be gracefully upgraded. It
-is..
-
-Upstream description:
-
-Seconds to wait before initiating upgrade on the next set of nodes. Setting it to 0 will wait
-indefinitely for all services on nodes to be upgraded gracefully before proceeding to the next set
-of nodes. (Warning: It may block upgrade if services on a node cannot be gracefully upgraded. It is
-recommended to use the default value).
-
-Provider validators and defaults (from schema source):
-
-```go
-Validators: []validator.Int64{
-  int64validator.Between(0, 900),
-}
-```
-
-Receipt-pinned upstream constraints:
-
-```json
-{
-  "x-f5xc-constraints": {
-    "category": "discovery",
-    "constraintType": "number",
-    "deterministic": true,
-    "maximum": 900,
-    "metadata": {
-      "confidence": 0.99,
-      "source": "api-probed",
-      "validatedAt": "2026-10-03T05:10:26+00:00"
-    },
-    "minimum": 0
-  },
-  "x-f5xc-required-for": {
-    "create": true,
-    "minimum_config": true,
-    "read": false,
-    "update": false
-  },
-  "x-validation-rules": {
-    "ves.io.schema.rules.message.required": "true",
-    "ves.io.schema.rules.uint32.gte": "0",
-    "ves.io.schema.rules.uint32.lte": "900"
-  },
-  "x-ves-validation-rules": {
-    "ves.io.schema.rules.message.required": "true",
-    "ves.io.schema.rules.uint32.gte": "0",
-    "ves.io.schema.rules.uint32.lte": "900"
-  }
-}
-```
-
-- [enable_vega_upgrade_mode](resources--securemesh_site_v2--reference--group-017.md#canonical-2130101021010320-3202311123201221-3231221223003212-1033030023012101-2021121332113111-2233131230332330-3131002210023130-0321000131233100): complete subsection reference.
-
-<a id="canonical-3332311321201120-3022223300303220-0112200213321131-0023120011133213-3312212213210332-1131323233322213-2332211022133110-3321311200201201"></a>
-
-## Next pages — enable_upgrade_drain / 011022213121 / 7
-
-- [upgrade_settings.kubernetes_upgrade_drain.enable_upgrade_drain.disable_vega_upgrade_mode](resources--securemesh_site_v2--reference--group-017.md#canonical-3112020123021302-3203002223103220-2301221002322203-3123211132101102-1030100001330230-2033323301101002-3032133031210311-0220323010030202)
-- [upgrade_settings.kubernetes_upgrade_drain.enable_upgrade_drain.enable_vega_upgrade_mode](resources--securemesh_site_v2--reference--group-017.md#canonical-2130101021010320-3202311123201221-3231221223003212-1033030023012101-2021121332113111-2233131230332330-3131002210023130-0321000131233100)
-- [upgrade_settings.kubernetes_upgrade_drain](resources--securemesh_site_v2--reference--group-017.md#canonical-3003201331303031-0002000113122201-0302221010301213-1101030300000222-2123213100310030-0033201302130020-1110302002210301-3122103333230300)
-- [xcsh_securemesh_site_v2](../resources/securemesh_site_v2.md#canonical-3000200222223112-2121123210332232-3331131023113311-0101321102313201-1230101233301033-1102230312220221-1020100000200232-0100112322233120)
-
-<a id="canonical-3112020123021302-3203002223103220-2301221002322203-3123211132101102-1030100001330230-2033323301101002-3032133031210311-0220323010030202"></a>
-
-<!-- Exact provider and upstream contract identifiers. -->
-
-<!-- textlint-disable terminology -->
-
-<a id="canonical-2003211021111312-1223001131001333-0323011312221231-0201203233201011-0033200032303100-1222213300012310-2110323333201111-3303200301130212"></a>
-
-## upgrade_settings.kubernetes_upgrade_drain.enable_upgrade_drain.disable_vega_upgrade_mode — disable_vega_upgrade_mode / 021112312021 / 2
-
-Breadcrumbs:
-
-- [xcsh_securemesh_site_v2](../resources/securemesh_site_v2.md#canonical-3000200222223112-2121123210332232-3331131023113311-0101321102313201-1230101233301033-1102230312220221-1020100000200232-0100112322233120)
-- [Property reference](resources--securemesh_site_v2--reference--group-001.md#canonical-2301010111101201-2220210123001232-1330030231123103-3121113232112322-0131203200320021-3021122122123123-2102102121133210-3220303330323302)
-- [upgrade_settings](resources--securemesh_site_v2--reference--group-017.md#canonical-2122031130011121-2120222320030031-2032103312220112-3121002222230322-2332133023022103-2321103112123110-2013202113333333-2203321000331223)
-- [upgrade_settings.kubernetes_upgrade_drain](resources--securemesh_site_v2--reference--group-017.md#canonical-3003201331303031-0002000113122201-0302221010301213-1101030300000222-2123213100310030-0033201302130020-1110302002210301-3122103333230300)
-- [upgrade_settings.kubernetes_upgrade_drain.enable_upgrade_drain](resources--securemesh_site_v2--reference--group-017.md#canonical-0213021020130133-1313221201012121-1030022210233023-0112033031122113-3032132103203320-0310101221001123-1001101132203311-2021023300213331)
-- upgrade_settings.kubernetes_upgrade_drain.enable_upgrade_drain.disable_vega_upgrade_mode
-
-<a id="canonical-3102022031121003-1323013230331033-2222213102030110-2003103132303331-0312302233301213-1113000221111210-3201010320331001-0021110130020230"></a>
-
-Type: `["object", {}]`. Optional.
-
-Configuration parameter for disable vega upgrade mode.
-
-Upstream description:
-
-This can be used for messages where no values are needed.
-
-Receipt-pinned upstream constraints:
-
-```json
-{
-  "x-f5xc-required-for": {
-    "create": false,
-    "minimum_config": false,
-    "read": false,
-    "update": false
-  }
-}
-```
-
-Terraform syntax:
-
-```terraform
-disable_vega_upgrade_mode = {}
-```
-
-<a id="canonical-1100220130130020-1122023013311300-2301003211112321-1330032313002213-1201120330012033-0300010020013301-3103203320210310-0002012021031133"></a>
-
-## Direct properties — disable_vega_upgrade_mode / 021112312021 / 3
-
-This is an empty object or choice marker. It has no direct properties.
-
-<a id="canonical-2222203301303031-1102303301003002-2333102031132222-2333130112201011-0331001012030112-1203102231300213-3001013211130120-3013202130300320"></a>
-
-## Next pages — disable_vega_upgrade_mode / 021112312021 / 4
-
-- [upgrade_settings.kubernetes_upgrade_drain.enable_upgrade_drain](resources--securemesh_site_v2--reference--group-017.md#canonical-0213021020130133-1313221201012121-1030022210233023-0112033031122113-3032132103203320-0310101221001123-1001101132203311-2021023300213331)
-- [xcsh_securemesh_site_v2](../resources/securemesh_site_v2.md#canonical-3000200222223112-2121123210332232-3331131023113311-0101321102313201-1230101233301033-1102230312220221-1020100000200232-0100112322233120)
-
-<a id="canonical-2130101021010320-3202311123201221-3231221223003212-1033030023012101-2021121332113111-2233131230332330-3131002210023130-0321000131233100"></a>
-
-<!-- Exact provider and upstream contract identifiers. -->
-
-<!-- textlint-disable terminology -->
-
-<a id="canonical-3123331230202233-1110031020131100-3123003032111111-1220331221031202-0322323022333020-2202020332133201-2210212032312333-0031002022030131"></a>
-
-## upgrade_settings.kubernetes_upgrade_drain.enable_upgrade_drain.enable_vega_upgrade_mode — enable_vega_upgrade_mode / 113312120121 / 2
-
-Breadcrumbs:
-
-- [xcsh_securemesh_site_v2](../resources/securemesh_site_v2.md#canonical-3000200222223112-2121123210332232-3331131023113311-0101321102313201-1230101233301033-1102230312220221-1020100000200232-0100112322233120)
-- [Property reference](resources--securemesh_site_v2--reference--group-001.md#canonical-2301010111101201-2220210123001232-1330030231123103-3121113232112322-0131203200320021-3021122122123123-2102102121133210-3220303330323302)
-- [upgrade_settings](resources--securemesh_site_v2--reference--group-017.md#canonical-2122031130011121-2120222320030031-2032103312220112-3121002222230322-2332133023022103-2321103112123110-2013202113333333-2203321000331223)
-- [upgrade_settings.kubernetes_upgrade_drain](resources--securemesh_site_v2--reference--group-017.md#canonical-3003201331303031-0002000113122201-0302221010301213-1101030300000222-2123213100310030-0033201302130020-1110302002210301-3122103333230300)
-- [upgrade_settings.kubernetes_upgrade_drain.enable_upgrade_drain](resources--securemesh_site_v2--reference--group-017.md#canonical-0213021020130133-1313221201012121-1030022210233023-0112033031122113-3032132103203320-0310101221001123-1001101132203311-2021023300213331)
-- upgrade_settings.kubernetes_upgrade_drain.enable_upgrade_drain.enable_vega_upgrade_mode
-
-<a id="canonical-1013033301121202-1312030331131013-1222303323220300-0002030002232133-0131001133211203-0322110002310211-3132322030130112-1233320312203302"></a>
-
-Type: `["object", {}]`. Optional.
-
-Configuration parameter for enable vega upgrade mode.
-
-Upstream description:
-
-This can be used for messages where no values are needed.
-
-Receipt-pinned upstream constraints:
-
-```json
-{
-  "x-f5xc-required-for": {
-    "create": false,
-    "minimum_config": false,
-    "read": false,
-    "update": false
-  }
-}
-```
-
-Terraform syntax:
-
-```terraform
-enable_vega_upgrade_mode = {}
-```
-
-<a id="canonical-2232113311233333-2221323201023312-1032310111211203-2032220212102123-0302001213323130-1220230111033101-3333300131112212-0233321200013200"></a>
-
-## Direct properties — enable_vega_upgrade_mode / 113312120121 / 3
-
-This is an empty object or choice marker. It has no direct properties.
-
-<a id="canonical-2020331112202033-0013033012233011-2112211302230200-2030023111120212-2311033311121202-1101110020212201-2202202010230300-1212113130002211"></a>
-
-## Next pages — enable_vega_upgrade_mode / 113312120121 / 4
-
-- [upgrade_settings.kubernetes_upgrade_drain.enable_upgrade_drain](resources--securemesh_site_v2--reference--group-017.md#canonical-0213021020130133-1313221201012121-1030022210233023-0112033031122113-3032132103203320-0310101221001123-1001101132203311-2021023300213331)
-- [xcsh_securemesh_site_v2](../resources/securemesh_site_v2.md#canonical-3000200222223112-2121123210332232-3331131023113311-0101321102313201-1230101233301033-1102230312220221-1020100000200232-0100112322233120)
-
-<a id="canonical-3001113303001011-1123231131321110-2233021103112320-0312233101131000-3202313121020020-3301002030023001-2131231233033311-1330001031200330"></a>
-
-<!-- Exact provider and upstream contract identifiers. -->
-
-<!-- textlint-disable terminology -->
-
-<a id="canonical-0201033311323312-0112303311222322-1013233210001021-3303231332110320-2122111213120300-3233202232022202-0102310321012232-3031310122312312"></a>
-
-## vmware — vmware / 302220032103 / 2
-
-Breadcrumbs:
-
-- [xcsh_securemesh_site_v2](../resources/securemesh_site_v2.md#canonical-3000200222223112-2121123210332232-3331131023113311-0101321102313201-1230101233301033-1102230312220221-1020100000200232-0100112322233120)
-- [Property reference](resources--securemesh_site_v2--reference--group-001.md#canonical-2301010111101201-2220210123001232-1330030231123103-3121113232112322-0131203200320021-3021122122123123-2102102121133210-3220303330323302)
-- vmware
-
-<a id="canonical-0013121331333101-0110031232203120-1332123300101323-0213331300203303-3102322233201100-0101131220111322-2213230000203031-1133112232132230"></a>
-
-Type: `"object"`. single nested block, Optional.
-
-VMware Provider Type. VMware Provider Type.
-
-Upstream description:
-
-VMware Provider Type.
-
-Receipt-pinned upstream constraints:
-
-```json
-{
-  "x-f5xc-required-for": {
-    "create": false,
-    "minimum_config": false,
-    "read": false,
-    "update": false
-  },
-  "x-ves-oneof-field-orchestration_choice": "[\"not_managed\"]"
-}
-```
-
-Terraform syntax:
-
-```terraform
-vmware {
-  # Configure direct properties listed below.
-}
-```
-
-<a id="canonical-1212103331333212-0101231020101110-1310023312103311-1110222300322333-2301130230230103-1023200233203312-2023201001002120-3313301001232030"></a>
-
-## Direct properties — vmware / 302220032103 / 3
-
-- [not_managed](resources--securemesh_site_v2--reference--group-017.md#canonical-1030312232222330-1123312113121223-1333103322223102-0231022301200013-2012101123232213-0133223101033000-1121230211110023-2022120313101133): complete subsection reference.
-
-<a id="canonical-3323031103333013-0123313303121113-1100120322001333-0230100310033101-0003212133301120-1200313323011323-0001101201310023-3331011112021010"></a>
-
-## Next pages — vmware / 302220032103 / 4
-
-- [vmware.not_managed](resources--securemesh_site_v2--reference--group-017.md#canonical-1030312232222330-1123312113121223-1333103322223102-0231022301200013-2012101123232213-0133223101033000-1121230211110023-2022120313101133)
-- [Property reference](resources--securemesh_site_v2--reference--group-001.md#canonical-2301010111101201-2220210123001232-1330030231123103-3121113232112322-0131203200320021-3021122122123123-2102102121133210-3220303330323302)
-- [xcsh_securemesh_site_v2](../resources/securemesh_site_v2.md#canonical-3000200222223112-2121123210332232-3331131023113311-0101321102313201-1230101233301033-1102230312220221-1020100000200232-0100112322233120)
-
-<a id="canonical-1030312232222330-1123312113121223-1333103322223102-0231022301200013-2012101123232213-0133223101033000-1121230211110023-2022120313101133"></a>
-
-<!-- Exact provider and upstream contract identifiers. -->
-
-<!-- textlint-disable terminology -->
-
-<a id="canonical-0232110020133112-1030322100231002-0323310122210123-3122010001310110-3000330202000213-3322113111123221-1321003100113211-1021321231220111"></a>
-
-## vmware.not_managed — not_managed / 111302311112 / 2
-
-Breadcrumbs:
-
-- [xcsh_securemesh_site_v2](../resources/securemesh_site_v2.md#canonical-3000200222223112-2121123210332232-3331131023113311-0101321102313201-1230101233301033-1102230312220221-1020100000200232-0100112322233120)
-- [Property reference](resources--securemesh_site_v2--reference--group-001.md#canonical-2301010111101201-2220210123001232-1330030231123103-3121113232112322-0131203200320021-3021122122123123-2102102121133210-3220303330323302)
-- [vmware](resources--securemesh_site_v2--reference--group-017.md#canonical-3001113303001011-1123231131321110-2233021103112320-0312233101131000-3202313121020020-3301002030023001-2131231233033311-1330001031200330)
-- vmware.not_managed
-
-<a id="canonical-3212320032322213-2211221212101101-0030112233232122-3121231223331210-1111233221202320-1300010012113133-0321233132100213-3211203131021331"></a>
-
-Type: `"object"`. single nested block, Optional.
-
-Section will show nodes associated with this site.
-
-Upstream description:
-
-This section will show nodes associated with this site. Note: For sites that are not orchestrated by
-F5XC, create nodes in the chosen provider. Once a node is created and registers with the site, it
-will be shown in this section.
-
-Receipt-pinned upstream constraints:
-
-```json
-{
-  "x-f5xc-required-for": {
-    "create": false,
-    "minimum_config": false,
-    "read": false,
-    "update": false
-  }
-}
-```
-
-Terraform syntax:
-
-```terraform
-not_managed {
-  # Configure direct properties listed below.
-}
-```

@@ -48,6 +48,27 @@ Receipt-pinned upstream constraints:
 
 ```json
 {
+  "x-f5xc-constraints": {
+    "category": "discovery",
+    "constraintType": "map",
+    "deterministic": true,
+    "keys": {
+      "maxLength": 64,
+      "minLength": 1,
+      "type": "string"
+    },
+    "originalRules": {
+      "ves.io.schema.rules.map.keys.string.max_len": "64",
+      "ves.io.schema.rules.map.keys.string.min_len": "1",
+      "ves.io.schema.rules.map.values.string.max_len": "1024",
+      "ves.io.schema.rules.map.values.string.min_len": "1"
+    },
+    "values": {
+      "maxLength": 1024,
+      "minLength": 1,
+      "type": "string"
+    }
+  },
   "x-f5xc-required-for": {
     "create": false,
     "minimum_config": false,
@@ -725,7 +746,7 @@ Each exact path has one authoritative reference destination. Collection element 
 | `no_forward_proxy_policy` | [no_forward_proxy_policy](resources--proxy--reference--group-004.md#canonical-1302311121130102-2131203200103320-1303323313202210-0113023213112321-0121211321110201-2311112312303120-1201103232201010-1112001213313132) |
 | `no_interception` | [no_interception](resources--proxy--reference--group-004.md#canonical-3332023313312012-3012310221032321-3101200211301200-2222112211033303-1033311031230203-0102333033323201-3101321210231120-3233331221000130) |
 | `site_local_inside_network` | [site_local_inside_network](resources--proxy--reference--group-004.md#canonical-3121123313321101-0001303002003321-2112130332133322-1102033212123313-1303202113031023-1012333112101221-2212211032231111-0323301233320300) |
-| `site_local_network` | [site_local_network](resources--proxy--reference--group-004.md#canonical-3220322333321001-2032010012232201-0231323320030211-1123130120121020-2021030112012033-2213000303013330-0001000213111211-3213131133222023) |
+| `site_local_network` | [site_local_network](resources--proxy--reference--group-005.md#canonical-3220322333321001-2032010012232201-0231323320030211-1123130120121020-2021030112012033-2213000303013330-0001000213111211-3213131133222023) |
 | `site_virtual_sites` | [site_virtual_sites](resources--proxy--reference--group-005.md#canonical-0333011221000001-0111132130112111-0231020012230322-3301122013323311-0123011330302122-0120213032111302-3301221321211312-3112303021033110) |
 | `site_virtual_sites.advertise_where` | [site_virtual_sites.advertise_where](resources--proxy--reference--group-005.md#canonical-2100110201320221-3330213111022300-3111200010313311-0331110213021031-2123233022023023-3121012211012322-3222213131320121-0203133310233020) |
 | `site_virtual_sites.advertise_where.port` | [site_virtual_sites.advertise_where.port](resources--proxy--reference--group-005.md#canonical-2313331113002231-0223313032111320-2121123130113111-2112002101331020-3013211030130110-0320211001020010-0312303030130123-3100331002223113) |
@@ -1658,18 +1679,54 @@ code class 5 -- for 5xx response code class Value of the map is string which rep
 responses. Specific response code takes preference when both response code and response code class
 matches for a request.
 
+Provider validators and defaults (from schema source):
+
+```go
+Validators: []validator.Map{validators.MapConstraintsValidator("{\"cardinality\":{\"maxProperties\":16},\"category\":\"discovery\",\"constraintType\":\"map\",\"deterministic\":true,\"keys\":{\"ranges\":[[3,3],[4,4],[5,5],[300,599]],\"type\":\"uint32-string\"},\"originalRules\":{\"ves.io.schema.rules.map.keys.uint32.ranges\":\"3,4,5,300-599\",\"ves.io.schema.rules.map.max_pairs\":\"16\",\"ves.io.schema.rules.map.values.string.max_len\":\"65536\",\"ves.io.schema.rules.map.values.string.uri_ref\":\"true\"},\"values\":{\"format\":\"uri-reference\",\"maxLength\":65536,\"type\":\"string\"}}")}
+```
+
 Receipt-pinned upstream constraints:
 
 ```json
 {
   "x-f5xc-constraints": {
-    "category": "general",
-    "constraintType": "object",
-    "maxProperties": 16,
-    "metadata": {
-      "confidence": 0.75,
-      "source": "inferred",
-      "validatedAt": "2026-10-03T05:10:26+00:00"
+    "cardinality": {
+      "maxProperties": 16
+    },
+    "category": "discovery",
+    "constraintType": "map",
+    "deterministic": true,
+    "keys": {
+      "ranges": [
+        [
+          3,
+          3
+        ],
+        [
+          4,
+          4
+        ],
+        [
+          5,
+          5
+        ],
+        [
+          300,
+          599
+        ]
+      ],
+      "type": "uint32-string"
+    },
+    "originalRules": {
+      "ves.io.schema.rules.map.keys.uint32.ranges": "3,4,5,300-599",
+      "ves.io.schema.rules.map.max_pairs": "16",
+      "ves.io.schema.rules.map.values.string.max_len": "65536",
+      "ves.io.schema.rules.map.values.string.uri_ref": "true"
+    },
+    "values": {
+      "format": "uri-reference",
+      "maxLength": 65536,
+      "type": "string"
     }
   },
   "x-f5xc-required-for": {
@@ -2233,55 +2290,3 @@ Receipt-pinned upstream constraints:
 ```
 
 <a id="canonical-2221131131333130-2222313200030313-0313031123032023-3012102102113210-3002201023322331-2320211013330232-0301110121110113-1213030100003233"></a>
-
-<a id="canonical-3320020203332213-0200213002103100-3312122313112331-3322023110230222-0330210021003032-0012233322300313-3110030313132223-1112211332212001"></a>
-
-## max_request_bytes property — buffer_policy / 320321103313 / 5
-
-Type: `"number"`. Optional.
-
-The maximum request size that the filter will buffer before the connection manager will stop
-buffering and return a RequestEntityTooLarge (413) response.
-
-Upstream description:
-
-The maximum request size that the filter will buffer before the connection manager will stop
-buffering and return a RequestEntityTooLarge (413) response.
-
-Provider validators and defaults (from schema source):
-
-```go
-Validators: []validator.Int64{
-  int64validator.AtMost(10485760),
-}
-```
-
-Receipt-pinned upstream constraints:
-
-```json
-{
-  "x-f5xc-constraints": {
-    "category": "discovery",
-    "constraintType": "number",
-    "deterministic": true,
-    "maximum": 10485760,
-    "metadata": {
-      "confidence": 0.99,
-      "source": "api-probed",
-      "validatedAt": "2026-10-03T05:10:26+00:00"
-    }
-  },
-  "x-f5xc-required-for": {
-    "create": false,
-    "minimum_config": false,
-    "read": false,
-    "update": false
-  },
-  "x-validation-rules": {
-    "ves.io.schema.rules.uint32.lte": "10485760"
-  },
-  "x-ves-validation-rules": {
-    "ves.io.schema.rules.uint32.lte": "10485760"
-  }
-}
-```

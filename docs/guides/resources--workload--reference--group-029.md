@@ -6,6 +6,59 @@ description: "Complete grouped canonical reference for xcsh_workload reference."
 
 # xcsh_workload reference
 
+<a id="canonical-3302022201020131-2023030021032303-1130312222102232-1103301311130030-1132333033031123-1120133230022321-0003312300201322-0330113132212301"></a>
+
+## num property — port / 211021210023 / 5
+
+Type: `"number"`. Optional.
+
+Port Number. Exclusive with \[name\] Port number.
+
+Upstream description:
+
+Exclusive with \[name\] Port number.
+
+Provider validators and defaults (from schema source):
+
+```go
+Validators: []validator.Int64{
+  int64validator.Between(1, 65535),
+}
+```
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-constraints": {
+    "category": "discovery",
+    "constraintType": "number",
+    "deterministic": true,
+    "maximum": 65535,
+    "metadata": {
+      "confidence": 0.99,
+      "source": "api-probed",
+      "validatedAt": "2026-10-03T05:10:26+00:00"
+    },
+    "minimum": 1
+  },
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  },
+  "x-validation-rules": {
+    "ves.io.schema.rules.uint32.gte": "1",
+    "ves.io.schema.rules.uint32.lte": "65535"
+  },
+  "x-ves-validation-rules": {
+    "ves.io.schema.rules.uint32.gte": "1",
+    "ves.io.schema.rules.uint32.lte": "65535"
+  }
+}
+```
+
 <a id="canonical-3301223030313213-0231332003113202-0322113113301012-1222212323021020-0211200011232202-0213111010312033-2130033001032300-1120232300312103"></a>
 
 ## Next pages — port / 211021210023 / 6

@@ -6,6 +6,19 @@ description: "Complete grouped canonical reference for xcsh_nfv_service referenc
 
 # xcsh_nfv_service reference
 
+<a id="canonical-2132232131132003-3332323113310000-3112331121130101-1102203310220321-1111133131021203-1002312223210021-1203222303101102-3130210321321131"></a>
+
+## Next pages — xfcc_disabled / 303301303111 / 4
+
+- [https_management.advertise_on_slo_internet_vip.use_mtls](data-sources--nfv_service--reference--group-002.md#canonical-2133311313230323-2312031102220113-0231032111301301-2101330223210021-1220120303003222-0301102232300332-3233200231301001-0002100012111322)
+- [xcsh_nfv_service](../data-sources/nfv_service.md#canonical-2212320103310132-2221300222221032-1233031123200120-3022110322311231-3301003023302233-3133232120201022-0322021211220213-1332311000003300)
+
+<a id="canonical-3133220123300002-0032012031333210-1302212011031201-2301012310203002-0120210222030320-2013132212330100-3032333231330332-1313001023320203"></a>
+
+<!-- Exact provider and upstream contract identifiers. -->
+
+<!-- textlint-disable terminology -->
+
 <a id="canonical-3312201232222031-0313110003202330-2120303303020110-1230101202211110-0231222001103032-1030031010301132-1233112011211021-1032230232331212"></a>
 
 ## https_management.advertise_on_slo_internet_vip.use_mtls.xfcc_options — xfcc_options / 001030313021 / 2
@@ -4533,13 +4546,24 @@ Receipt-pinned upstream constraints:
 ```json
 {
   "x-f5xc-constraints": {
-    "category": "general",
-    "constraintType": "object",
-    "maxProperties": 40,
-    "metadata": {
-      "confidence": 0.75,
-      "source": "inferred",
-      "validatedAt": "2026-10-03T05:10:26+00:00"
+    "cardinality": {
+      "maxProperties": 40
+    },
+    "category": "discovery",
+    "constraintType": "map",
+    "deterministic": true,
+    "keys": {
+      "maxLength": 127,
+      "type": "string"
+    },
+    "originalRules": {
+      "ves.io.schema.rules.map.keys.string.max_len": "127",
+      "ves.io.schema.rules.map.max_pairs": "40",
+      "ves.io.schema.rules.map.values.string.max_len": "255"
+    },
+    "values": {
+      "maxLength": 255,
+      "type": "string"
     }
   },
   "x-f5xc-required-for": {
@@ -5227,11 +5251,3 @@ Receipt-pinned upstream constraints:
   "x-ves-oneof-field-secret_info_oneof": "[\"blindfold_secret_info\",\"clear_secret_info\"]"
 }
 ```
-
-<a id="canonical-1011213113222321-0200333200212001-1202112233013101-3132101332211123-3331203310332222-3013213302321320-0130221301222223-3113332130031231"></a>
-
-## Direct properties — private_key / 011213022110 / 3
-
-- [blindfold_secret_info](data-sources--nfv_service--reference--group-004.md#canonical-2002003200130322-3223321312321232-3113023310323022-2012131022123111-0022311101201101-2312033012223223-1213302232112300-0201320233032120): complete subsection reference.
-
-- [clear_secret_info](data-sources--nfv_service--reference--group-004.md#canonical-1102110202003220-1120303130223002-1021013031233113-1132102330322333-0032331121300030-3030020011000300-0033301323103302-1223110212033221): complete subsection reference.

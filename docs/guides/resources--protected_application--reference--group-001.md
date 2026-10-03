@@ -48,6 +48,27 @@ Receipt-pinned upstream constraints:
 
 ```json
 {
+  "x-f5xc-constraints": {
+    "category": "discovery",
+    "constraintType": "map",
+    "deterministic": true,
+    "keys": {
+      "maxLength": 64,
+      "minLength": 1,
+      "type": "string"
+    },
+    "originalRules": {
+      "ves.io.schema.rules.map.keys.string.max_len": "64",
+      "ves.io.schema.rules.map.keys.string.min_len": "1",
+      "ves.io.schema.rules.map.values.string.max_len": "1024",
+      "ves.io.schema.rules.map.values.string.min_len": "1"
+    },
+    "values": {
+      "maxLength": 1024,
+      "minLength": 1,
+      "type": "string"
+    }
+  },
   "x-f5xc-required-for": {
     "create": false,
     "minimum_config": false,
@@ -532,9 +553,9 @@ Each exact path has one authoritative reference destination. Collection element 
 | `cloudfront.js_insertion_rules.rules.domain.suffix_value` | [cloudfront.js_insertion_rules.rules.domain.suffix_value](resources--protected_application--reference--group-002.md#canonical-3210320010130001-0220111310231323-3000133310023222-0133103323012132-1122323030322200-1030012132302010-1020122231303030-2323210032031102) |
 | `cloudfront.js_insertion_rules.rules.exact_path` | [cloudfront.js_insertion_rules.rules.exact_path](resources--protected_application--reference--group-002.md#canonical-0323311013030222-3112110323330323-0233023332333221-2331300003222313-3013231300321133-2211110231220200-3103011023320312-1000212103101020) |
 | `cloudfront.js_insertion_rules.rules.glob` | [cloudfront.js_insertion_rules.rules.glob](resources--protected_application--reference--group-002.md#canonical-2023020032320232-1121333112011120-0031322303211220-1001303331022202-1133300331031122-2330202221130231-2123101233211112-1012213100011300) |
-| `cloudfront.js_insertion_rules.rules.metadata` | [cloudfront.js_insertion_rules.rules.metadata](resources--protected_application--reference--group-002.md#canonical-1031010132131112-1022320021232131-3131213322032030-1122331330333012-2122113332003112-2220333131220202-0022122112001111-3303133012331302) |
-| `cloudfront.js_insertion_rules.rules.metadata.description_spec` | [cloudfront.js_insertion_rules.rules.metadata.description_spec](resources--protected_application--reference--group-002.md#canonical-1012322111320232-0210033131222102-3113200102233330-3221112010312322-1123233302313332-1200001101020331-2231022303312001-2101130001202201) |
-| `cloudfront.js_insertion_rules.rules.metadata.name` | [cloudfront.js_insertion_rules.rules.metadata.name](resources--protected_application--reference--group-002.md#canonical-1101222332210323-2303302130210230-0113003103232131-0330223020030202-3200221223103311-3303020310000332-3212333020211031-0221311202310323) |
+| `cloudfront.js_insertion_rules.rules.metadata` | [cloudfront.js_insertion_rules.rules.metadata](resources--protected_application--reference--group-003.md#canonical-1031010132131112-1022320021232131-3131213322032030-1122331330333012-2122113332003112-2220333131220202-0022122112001111-3303133012331302) |
+| `cloudfront.js_insertion_rules.rules.metadata.description_spec` | [cloudfront.js_insertion_rules.rules.metadata.description_spec](resources--protected_application--reference--group-003.md#canonical-1012322111320232-0210033131222102-3113200102233330-3221112010312322-1123233302313332-1200001101020331-2231022303312001-2101130001202201) |
+| `cloudfront.js_insertion_rules.rules.metadata.name` | [cloudfront.js_insertion_rules.rules.metadata.name](resources--protected_application--reference--group-003.md#canonical-1101222332210323-2303302130210230-0113003103232131-0330223020030202-3200221223103311-3303020310000332-3212333020211031-0221311202310323) |
 | `cloudfront.js_insertion_rules.rules.prefix` | [cloudfront.js_insertion_rules.rules.prefix](resources--protected_application--reference--group-002.md#canonical-3223031203233032-2003012201202212-2232133100013233-3202123130232202-2330313013202000-1013211002131002-2302122321032232-0311121222322110) |
 | `cloudfront.loglevel` | [cloudfront.loglevel](resources--protected_application--reference--group-002.md#canonical-0200213222021013-2012212303233100-0013222033230112-2123103232303031-3332032132212033-2213310230003002-0123211310101320-2332102230131121) |
 | `cloudfront.manual_js_insert` | [cloudfront.manual_js_insert](resources--protected_application--reference--group-003.md#canonical-3111311000322030-0022100000021020-0232123211332032-3221310303123120-2102331112132202-3131330031332023-2332203032012203-2102001302122230) |

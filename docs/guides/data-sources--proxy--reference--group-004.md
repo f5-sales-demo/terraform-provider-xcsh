@@ -437,13 +437,43 @@ Receipt-pinned upstream constraints:
 ```json
 {
   "x-f5xc-constraints": {
-    "category": "general",
-    "constraintType": "object",
-    "maxProperties": 16,
-    "metadata": {
-      "confidence": 0.75,
-      "source": "inferred",
-      "validatedAt": "2026-10-03T05:10:26+00:00"
+    "cardinality": {
+      "maxProperties": 16
+    },
+    "category": "discovery",
+    "constraintType": "map",
+    "deterministic": true,
+    "keys": {
+      "ranges": [
+        [
+          3,
+          3
+        ],
+        [
+          4,
+          4
+        ],
+        [
+          5,
+          5
+        ],
+        [
+          300,
+          599
+        ]
+      ],
+      "type": "uint32-string"
+    },
+    "originalRules": {
+      "ves.io.schema.rules.map.keys.uint32.ranges": "3,4,5,300-599",
+      "ves.io.schema.rules.map.max_pairs": "16",
+      "ves.io.schema.rules.map.values.string.max_len": "65536",
+      "ves.io.schema.rules.map.values.string.uri_ref": "true"
+    },
+    "values": {
+      "format": "uri-reference",
+      "maxLength": 65536,
+      "type": "string"
     }
   },
   "x-f5xc-required-for": {
@@ -5582,46 +5612,3 @@ This is an empty object or choice marker. It has no direct properties.
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
-
-<a id="canonical-1231230311003321-3101223212231101-3022300303300321-0012001100030203-2003231312023300-0011213131230213-3303323301122300-1230233003232110"></a>
-
-## site_virtual_sites.advertise_where.virtual_site — virtual_site / 031331011302 / 2
-
-Breadcrumbs:
-
-- [xcsh_proxy](../data-sources/proxy.md#canonical-2122302220103020-0021013113111101-2022122303101203-3201232230333333-3301303113323330-1012000313313332-0200222300230012-1132013130320033)
-- [Property reference](data-sources--proxy--reference--group-001.md#canonical-2122303110233010-2221322023230131-1322001310220111-0301130320032201-0202331233311132-2000101111011020-3303123003020132-2031333021133303)
-- [site_virtual_sites](data-sources--proxy--reference--group-004.md#canonical-1012201322333030-2201110212121013-2012102101130230-0200303100213333-0202312022013300-2020101021021321-1320201313130100-3300013202221330)
-- [site_virtual_sites.advertise_where](data-sources--proxy--reference--group-004.md#canonical-1101311121310312-0200013102222131-0303021112013023-0200203203003231-1221230311001231-0230200233121202-1303302123221200-0111202023011311)
-- site_virtual_sites.advertise_where.virtual_site
-
-<a id="canonical-0122302112031312-2233031012313202-2222333322110221-1032100112002110-1223131202102313-2003322332112302-2011203233121300-0131010111020301"></a>
-
-Type: `"single"`. Computed.
-
-Defines a reference to a customer site virtual site along with network type where a load balancer
-could be advertised.
-
-Upstream description:
-
-This defines a reference to a customer site virtual site along with network type where a load
-balancer could be advertised.
-
-Receipt-pinned upstream constraints:
-
-```json
-{
-  "x-f5xc-required-for": {
-    "create": false,
-    "minimum_config": false,
-    "read": false,
-    "update": false
-  }
-}
-```
-
-<a id="canonical-0102003112221013-1102323130313031-3121100301121030-2021331023203021-1030002221133031-3002202113201302-1211300002101013-3121111323130012"></a>
-
-## Direct properties — virtual_site / 031331011302 / 3
-
-<a id="canonical-0222120033110300-0222120010010000-3112100331310022-0123123022321231-1022120003330213-2001010322213310-2212220103223230-3302330231222233"></a>

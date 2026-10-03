@@ -1771,6 +1771,7 @@ func (r *SecuremeshSiteResource) Schema(ctx context.Context, req resource.Schema
 											MarkdownDescription: "Add Labels for this Interface, these labels can be used in firewall policy.",
 											Optional:            true,
 											ElementType:         types.StringType,
+											Validators:          []validator.Map{validators.MapConstraintsValidator("{\"cardinality\":{\"maxProperties\":16},\"category\":\"discovery\",\"constraintType\":\"map\",\"deterministic\":true,\"keys\":{\"maxLength\":64,\"minLength\":1,\"type\":\"string\"},\"originalRules\":{\"ves.io.schema.rules.map.keys.string.max_len\":\"64\",\"ves.io.schema.rules.map.keys.string.min_len\":\"1\",\"ves.io.schema.rules.map.max_pairs\":\"16\",\"ves.io.schema.rules.map.values.string.max_len\":\"64\",\"ves.io.schema.rules.map.values.string.min_len\":\"1\"},\"values\":{\"maxLength\":64,\"minLength\":1,\"type\":\"string\"}}")},
 										},
 									},
 									Blocks: map[string]schema.Block{
@@ -1992,6 +1993,7 @@ func (r *SecuremeshSiteResource) Schema(ctx context.Context, req resource.Schema
 															MarkdownDescription: "Assign fixed IPv4 addresses based on the MAC Address of the DHCP Client.",
 															Optional:            true,
 															ElementType:         types.StringType,
+															Validators:          []validator.Map{validators.MapConstraintsValidator("{\"cardinality\":{\"maxProperties\":128},\"category\":\"discovery\",\"constraintType\":\"map\",\"crossEntry\":{\"uniqueValues\":true},\"deterministic\":true,\"keys\":{\"format\":\"mac-address\",\"type\":\"string\"},\"originalRules\":{\"ves.io.schema.rules.map.keys.string.mac\":\"true\",\"ves.io.schema.rules.map.max_pairs\":\"128\",\"ves.io.schema.rules.map.unique_values\":\"true\",\"ves.io.schema.rules.map.values.string.ipv4\":\"true\"},\"values\":{\"format\":\"ipv4\",\"type\":\"string\"}}")},
 														},
 													},
 													Blocks: map[string]schema.Block{
@@ -2081,6 +2083,7 @@ func (r *SecuremeshSiteResource) Schema(ctx context.Context, req resource.Schema
 																	MarkdownDescription: "Specify static IPv4 addresses per site:node.",
 																	Optional:            true,
 																	ElementType:         types.StringType,
+																	Validators:          []validator.Map{validators.MapConstraintsValidator("{\"cardinality\":{\"maxProperties\":64},\"category\":\"discovery\",\"constraintType\":\"map\",\"deterministic\":true,\"keys\":{\"maxLength\":128,\"minLength\":1,\"type\":\"string\"},\"originalRules\":{\"ves.io.schema.rules.map.keys.string.max_len\":\"128\",\"ves.io.schema.rules.map.keys.string.min_len\":\"1\",\"ves.io.schema.rules.map.max_pairs\":\"64\",\"ves.io.schema.rules.map.values.string.ipv4\":\"true\"},\"values\":{\"format\":\"ipv4\",\"type\":\"string\"}}")},
 																},
 															},
 														},
@@ -2173,6 +2176,7 @@ func (r *SecuremeshSiteResource) Schema(ctx context.Context, req resource.Schema
 																			MarkdownDescription: "Fixed MAC address to IPv6 assignments, Key: MAC address, Value: IPv6 Address Assign fixed IPv6 addresses based on the MAC Address of the DHCP Client.",
 																			Optional:            true,
 																			ElementType:         types.StringType,
+																			Validators:          []validator.Map{validators.MapConstraintsValidator("{\"cardinality\":{\"maxProperties\":128},\"category\":\"discovery\",\"constraintType\":\"map\",\"crossEntry\":{\"uniqueValues\":true},\"deterministic\":true,\"keys\":{\"format\":\"mac-address\",\"type\":\"string\"},\"originalRules\":{\"ves.io.schema.rules.map.keys.string.mac\":\"true\",\"ves.io.schema.rules.map.max_pairs\":\"128\",\"ves.io.schema.rules.map.unique_values\":\"true\",\"ves.io.schema.rules.map.values.string.ipv6\":\"true\"},\"values\":{\"format\":\"ipv6\",\"type\":\"string\"}}")},
 																		},
 																	},
 																	Blocks: map[string]schema.Block{
@@ -2226,6 +2230,7 @@ func (r *SecuremeshSiteResource) Schema(ctx context.Context, req resource.Schema
 																					MarkdownDescription: "Site:Node to IPv6 Mapping. Map of Site:Node to IPv6 address.",
 																					Optional:            true,
 																					ElementType:         types.StringType,
+																					Validators:          []validator.Map{validators.MapConstraintsValidator("{\"cardinality\":{\"maxProperties\":64},\"category\":\"discovery\",\"constraintType\":\"map\",\"deterministic\":true,\"keys\":{\"maxLength\":128,\"minLength\":1,\"type\":\"string\"},\"originalRules\":{\"ves.io.schema.rules.map.keys.string.max_len\":\"128\",\"ves.io.schema.rules.map.keys.string.min_len\":\"1\",\"ves.io.schema.rules.map.max_pairs\":\"64\",\"ves.io.schema.rules.map.values.string.ipv6\":\"true\"},\"values\":{\"format\":\"ipv6\",\"type\":\"string\"}}")},
 																				},
 																			},
 																		},
@@ -2247,6 +2252,7 @@ func (r *SecuremeshSiteResource) Schema(ctx context.Context, req resource.Schema
 																	MarkdownDescription: "Map of Node to Static IP configuration value, Key:Node, Value:IP Address.",
 																	Optional:            true,
 																	ElementType:         types.StringType,
+																	Validators:          []validator.Map{validators.MapConstraintsValidator("{\"cardinality\":{\"maxProperties\":128},\"category\":\"discovery\",\"constraintType\":\"map\",\"deterministic\":true,\"keys\":{\"maxLength\":128,\"minLength\":1,\"type\":\"string\"},\"originalRules\":{\"ves.io.schema.rules.map.keys.string.max_len\":\"128\",\"ves.io.schema.rules.map.keys.string.min_len\":\"1\",\"ves.io.schema.rules.map.max_pairs\":\"128\"}}")},
 																},
 															},
 														},
@@ -2290,6 +2296,7 @@ func (r *SecuremeshSiteResource) Schema(ctx context.Context, req resource.Schema
 																	MarkdownDescription: "Map of Node to Static IP configuration value, Key:Node, Value:IP Address.",
 																	Optional:            true,
 																	ElementType:         types.StringType,
+																	Validators:          []validator.Map{validators.MapConstraintsValidator("{\"cardinality\":{\"maxProperties\":128},\"category\":\"discovery\",\"constraintType\":\"map\",\"deterministic\":true,\"keys\":{\"maxLength\":128,\"minLength\":1,\"type\":\"string\"},\"originalRules\":{\"ves.io.schema.rules.map.keys.string.max_len\":\"128\",\"ves.io.schema.rules.map.keys.string.min_len\":\"1\",\"ves.io.schema.rules.map.max_pairs\":\"128\"}}")},
 																},
 															},
 														},
@@ -2336,6 +2343,7 @@ func (r *SecuremeshSiteResource) Schema(ctx context.Context, req resource.Schema
 								MarkdownDescription: "Add Labels for this network, these labels can be used in firewall policy.",
 								Optional:            true,
 								ElementType:         types.StringType,
+								Validators:          []validator.Map{validators.MapConstraintsValidator("{\"cardinality\":{\"maxProperties\":16},\"category\":\"discovery\",\"constraintType\":\"map\",\"deterministic\":true,\"keys\":{\"maxLength\":64,\"minLength\":1,\"type\":\"string\"},\"originalRules\":{\"ves.io.schema.rules.map.keys.string.max_len\":\"64\",\"ves.io.schema.rules.map.keys.string.min_len\":\"1\",\"ves.io.schema.rules.map.max_pairs\":\"16\",\"ves.io.schema.rules.map.values.string.max_len\":\"64\",\"ves.io.schema.rules.map.values.string.min_len\":\"1\"},\"values\":{\"maxLength\":64,\"minLength\":1,\"type\":\"string\"}}")},
 							},
 							"nameserver": schema.StringAttribute{
 								MarkdownDescription: "Optional DNS V4 server IP to be used for name resolution.",
@@ -2611,6 +2619,7 @@ func (r *SecuremeshSiteResource) Schema(ctx context.Context, req resource.Schema
 								MarkdownDescription: "Add Labels for this network, these labels can be used in firewall policy.",
 								Optional:            true,
 								ElementType:         types.StringType,
+								Validators:          []validator.Map{validators.MapConstraintsValidator("{\"cardinality\":{\"maxProperties\":16},\"category\":\"discovery\",\"constraintType\":\"map\",\"deterministic\":true,\"keys\":{\"maxLength\":64,\"minLength\":1,\"type\":\"string\"},\"originalRules\":{\"ves.io.schema.rules.map.keys.string.max_len\":\"64\",\"ves.io.schema.rules.map.keys.string.min_len\":\"1\",\"ves.io.schema.rules.map.max_pairs\":\"16\",\"ves.io.schema.rules.map.values.string.max_len\":\"64\",\"ves.io.schema.rules.map.values.string.min_len\":\"1\"},\"values\":{\"maxLength\":64,\"minLength\":1,\"type\":\"string\"}}")},
 							},
 							"nameserver": schema.StringAttribute{
 								MarkdownDescription: "Optional DNS V4 server IP to be used for name resolution.",

@@ -1030,7 +1030,7 @@
         ]
       ],
       "mode": "embedded",
-      "registry_path": "docs/guides/data-sources--gcp_vpc_site--reference--group-001.md"
+      "registry_path": "docs/guides/data-sources--gcp_vpc_site--reference--group-002.md"
     },
     {
       "canonical_id": "xcsh-docs:data-sources:gcp_vpc_site:properties:ingress_egress_gw",
@@ -4445,7 +4445,7 @@
         ]
       ],
       "mode": "embedded",
-      "registry_path": "docs/guides/data-sources--gcp_vpc_site--reference--group-002.md"
+      "registry_path": "docs/guides/data-sources--gcp_vpc_site--reference--group-003.md"
     },
     {
       "canonical_id": "xcsh-docs:data-sources:gcp_vpc_site:properties:ingress_egress_gw:outside_static_routes:static_route_list:custom_static_route",
@@ -4462,7 +4462,7 @@
         ]
       ],
       "mode": "embedded",
-      "registry_path": "docs/guides/data-sources--gcp_vpc_site--reference--group-002.md"
+      "registry_path": "docs/guides/data-sources--gcp_vpc_site--reference--group-003.md"
     },
     {
       "canonical_id": "xcsh-docs:data-sources:gcp_vpc_site:properties:ingress_egress_gw:outside_static_routes:static_route_list:custom_static_route",
@@ -4474,7 +4474,7 @@
       "anchor": "canonical-3212000300021020-3112220310021131-1010022123012212-1213210212320022-3023310020222311-2030131033110211-1303131330110011-1100330011323032",
       "anchor_map": [],
       "mode": "embedded",
-      "registry_path": "docs/guides/data-sources--gcp_vpc_site--reference--group-002.md"
+      "registry_path": "docs/guides/data-sources--gcp_vpc_site--reference--group-003.md"
     },
     {
       "canonical_id": "xcsh-docs:data-sources:gcp_vpc_site:properties:ingress_egress_gw:outside_static_routes:static_route_list:custom_static_route",

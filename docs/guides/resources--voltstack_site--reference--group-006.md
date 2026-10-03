@@ -6,6 +6,81 @@ description: "Complete grouped canonical reference for xcsh_voltstack_site refer
 
 # xcsh_voltstack_site reference
 
+<a id="canonical-0320021332132320-3322322101302000-0113321202130312-2130121323111122-2320312312000133-1032112301232320-2330032132330201-3203103023233031"></a>
+
+## ip_prefixes property — static_routes / 131122103332 / 6
+
+Type: `["list", "string"]`. Optional.
+
+List of route prefixes that have common next hop and attributes.
+
+Provider validators and defaults (from schema source):
+
+```go
+Validators: []validator.List{
+  listvalidator.SizeBetween(1, 256),
+}
+```
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "maxItems": 256,
+  "minItems": 1,
+  "x-f5xc-constraints": {
+    "category": "discovery",
+    "constraintType": "array",
+    "deterministic": true,
+    "maxItems": 256,
+    "metadata": {
+      "confidence": 0.99,
+      "source": "discovery",
+      "validatedAt": "2026-10-03T05:10:26+00:00"
+    },
+    "minItems": 1,
+    "uniqueItems": true
+  },
+  "x-f5xc-required-for": {
+    "create": true,
+    "minimum_config": true,
+    "read": false,
+    "update": false
+  },
+  "x-validation-rules": {
+    "ves.io.schema.rules.message.required": "true",
+    "ves.io.schema.rules.repeated.items.string.ipv4_prefix": "true",
+    "ves.io.schema.rules.repeated.max_items": "256",
+    "ves.io.schema.rules.repeated.min_items": "1",
+    "ves.io.schema.rules.repeated.unique": "true"
+  },
+  "x-ves-validation-rules": {
+    "ves.io.schema.rules.message.required": "true",
+    "ves.io.schema.rules.repeated.items.string.ipv4_prefix": "true",
+    "ves.io.schema.rules.repeated.max_items": "256",
+    "ves.io.schema.rules.repeated.min_items": "1",
+    "ves.io.schema.rules.repeated.unique": "true"
+  }
+}
+```
+
+- [node_interface](resources--voltstack_site--reference--group-006.md#canonical-2103010001332321-3000301122011331-2103133111021230-0301232203102112-3333122212301320-0010123301123323-1031033201333332-2031303213320033): complete subsection reference.
+
+<a id="canonical-0203002210301012-3113101232011231-0200010330310100-1233031233321103-3120032331213210-2221033323020301-0230113313233101-1121133201221110"></a>
+
+## Next pages — static_routes / 131122103332 / 7
+
+- [custom_storage_config.static_routes.static_routes.default_gateway](resources--voltstack_site--reference--group-006.md#canonical-0220110121113211-0123200320311213-2033231212131113-0101303012033002-0331200212333220-0100030201202310-0203300222031112-1212131332212032)
+- [custom_storage_config.static_routes.static_routes.node_interface](resources--voltstack_site--reference--group-006.md#canonical-2103010001332321-3000301122011331-2103133111021230-0301232203102112-3333122212301320-0010123301123323-1031033201333332-2031303213320033)
+- [custom_storage_config.static_routes](resources--voltstack_site--reference--group-005.md#canonical-0010013332203001-0113132310200201-1011031031323020-3130002332300123-3110122210200111-1330032111302123-2100222030001223-3213031122112122)
+- [xcsh_voltstack_site](../resources/voltstack_site.md#canonical-2321122020020113-3300101223021223-1330033011121200-0102203210311033-2301300201121233-3102120211011323-1113113111112000-2313011002230113)
+
+<a id="canonical-0220110121113211-0123200320311213-2033231212131113-0101303012033002-0331200212333220-0100030201202310-0203300222031112-1212131332212032"></a>
+
+<!-- Exact provider and upstream contract identifiers. -->
+
+<!-- textlint-disable terminology -->
+
 <a id="canonical-2302300023002311-3023312222021023-0013021232000331-0302103223333233-0332220010300202-3303131011222013-0103302022200133-0021212233311202"></a>
 
 ## custom_storage_config.static_routes.static_routes.default_gateway — default_gateway / 122020333100 / 2
@@ -703,18 +778,39 @@ Upstream description:
 
 Map of parameter name and string value.
 
+Provider validators and defaults (from schema source):
+
+```go
+Validators: []validator.Map{validators.MapConstraintsValidator("{\"cardinality\":{\"maxProperties\":64},\"category\":\"discovery\",\"constraintType\":\"map\",\"deterministic\":true,\"keys\":{\"maxLength\":128,\"minLength\":1,\"type\":\"string\"},\"originalRules\":{\"ves.io.schema.rules.map.keys.string.max_len\":\"128\",\"ves.io.schema.rules.map.keys.string.min_len\":\"1\",\"ves.io.schema.rules.map.max_pairs\":\"64\",\"ves.io.schema.rules.map.values.string.max_len\":\"128\",\"ves.io.schema.rules.map.values.string.min_len\":\"1\"},\"values\":{\"maxLength\":128,\"minLength\":1,\"type\":\"string\"}}")}
+```
+
 Receipt-pinned upstream constraints:
 
 ```json
 {
   "x-f5xc-constraints": {
-    "category": "general",
-    "constraintType": "object",
-    "maxProperties": 64,
-    "metadata": {
-      "confidence": 0.75,
-      "source": "inferred",
-      "validatedAt": "2026-10-03T05:10:26+00:00"
+    "cardinality": {
+      "maxProperties": 64
+    },
+    "category": "discovery",
+    "constraintType": "map",
+    "deterministic": true,
+    "keys": {
+      "maxLength": 128,
+      "minLength": 1,
+      "type": "string"
+    },
+    "originalRules": {
+      "ves.io.schema.rules.map.keys.string.max_len": "128",
+      "ves.io.schema.rules.map.keys.string.min_len": "1",
+      "ves.io.schema.rules.map.max_pairs": "64",
+      "ves.io.schema.rules.map.values.string.max_len": "128",
+      "ves.io.schema.rules.map.values.string.min_len": "1"
+    },
+    "values": {
+      "maxLength": 128,
+      "minLength": 1,
+      "type": "string"
     }
   },
   "x-f5xc-required-for": {
@@ -2342,18 +2438,39 @@ Upstream description:
 
 Map of parameter name and string value.
 
+Provider validators and defaults (from schema source):
+
+```go
+Validators: []validator.Map{validators.MapConstraintsValidator("{\"cardinality\":{\"maxProperties\":64},\"category\":\"discovery\",\"constraintType\":\"map\",\"deterministic\":true,\"keys\":{\"maxLength\":128,\"minLength\":1,\"type\":\"string\"},\"originalRules\":{\"ves.io.schema.rules.map.keys.string.max_len\":\"128\",\"ves.io.schema.rules.map.keys.string.min_len\":\"1\",\"ves.io.schema.rules.map.max_pairs\":\"64\",\"ves.io.schema.rules.map.values.string.max_len\":\"128\",\"ves.io.schema.rules.map.values.string.min_len\":\"1\"},\"values\":{\"maxLength\":128,\"minLength\":1,\"type\":\"string\"}}")}
+```
+
 Receipt-pinned upstream constraints:
 
 ```json
 {
   "x-f5xc-constraints": {
-    "category": "general",
-    "constraintType": "object",
-    "maxProperties": 64,
-    "metadata": {
-      "confidence": 0.75,
-      "source": "inferred",
-      "validatedAt": "2026-10-03T05:10:26+00:00"
+    "cardinality": {
+      "maxProperties": 64
+    },
+    "category": "discovery",
+    "constraintType": "map",
+    "deterministic": true,
+    "keys": {
+      "maxLength": 128,
+      "minLength": 1,
+      "type": "string"
+    },
+    "originalRules": {
+      "ves.io.schema.rules.map.keys.string.max_len": "128",
+      "ves.io.schema.rules.map.keys.string.min_len": "1",
+      "ves.io.schema.rules.map.max_pairs": "64",
+      "ves.io.schema.rules.map.values.string.max_len": "128",
+      "ves.io.schema.rules.map.values.string.min_len": "1"
+    },
+    "values": {
+      "maxLength": 128,
+      "minLength": 1,
+      "type": "string"
     }
   },
   "x-f5xc-required-for": {
@@ -3757,14 +3874,14 @@ netapp_trident {
 
 - [netapp_backend_ontap_nas](resources--voltstack_site--reference--group-006.md#canonical-3033222101303330-1011123222310233-1330220110033121-3331113222323101-3201110213321220-1120133323300233-1122122130112111-0131320210221213): complete subsection reference.
 
-- [netapp_backend_ontap_san](resources--voltstack_site--reference--group-006.md#canonical-1203012223231023-2200220231023303-1122331312230001-0301322022031201-3022110023213232-3320210312013231-2131323210013121-0000231310220010): complete subsection reference.
+- [netapp_backend_ontap_san](resources--voltstack_site--reference--group-007.md#canonical-1203012223231023-2200220231023303-1122331312230001-0301322022031201-3022110023213232-3320210312013231-2131323210013121-0000231310220010): complete subsection reference.
 
 <a id="canonical-1113033003033011-1213212300030002-1033121203102103-3210332222231032-1132210100330133-0100312223012001-1022123031033223-3231031232203100"></a>
 
 ## Next pages — netapp_trident / 013212231021 / 4
 
 - [custom_storage_config.storage_device_list.storage_devices.netapp_trident.netapp_backend_ontap_nas](resources--voltstack_site--reference--group-006.md#canonical-3033222101303330-1011123222310233-1330220110033121-3331113222323101-3201110213321220-1120133323300233-1122122130112111-0131320210221213)
-- [custom_storage_config.storage_device_list.storage_devices.netapp_trident.netapp_backend_ontap_san](resources--voltstack_site--reference--group-006.md#canonical-1203012223231023-2200220231023303-1122331312230001-0301322022031201-3022110023213232-3320210312013231-2131323210013121-0000231310220010)
+- [custom_storage_config.storage_device_list.storage_devices.netapp_trident.netapp_backend_ontap_san](resources--voltstack_site--reference--group-007.md#canonical-1203012223231023-2200220231023303-1122331312230001-0301322022031201-3022110023213232-3320210312013231-2131323210013121-0000231310220010)
 - [custom_storage_config.storage_device_list.storage_devices](resources--voltstack_site--reference--group-006.md#canonical-1131100102033112-2001212202303112-3112202123332303-0020133102302002-2003030303020101-2333230030103021-0230002120220201-0311201313132323)
 - [xcsh_voltstack_site](../resources/voltstack_site.md#canonical-2321122020020113-3300101223021223-1330033011121200-0102203210311033-2301300201121233-3102120211011323-1113113111112000-2313011002230113)
 
@@ -4093,18 +4210,39 @@ Type: `["map", "string"]`. Optional.
 
 List of labels for Storage Device used in NetApp ONTAP. It is used for storage class selection.
 
+Provider validators and defaults (from schema source):
+
+```go
+Validators: []validator.Map{validators.MapConstraintsValidator("{\"cardinality\":{\"maxProperties\":20},\"category\":\"discovery\",\"constraintType\":\"map\",\"deterministic\":true,\"keys\":{\"maxLength\":128,\"minLength\":1,\"type\":\"string\"},\"originalRules\":{\"ves.io.schema.rules.map.keys.string.max_len\":\"128\",\"ves.io.schema.rules.map.keys.string.min_len\":\"1\",\"ves.io.schema.rules.map.max_pairs\":\"20\",\"ves.io.schema.rules.map.values.string.max_len\":\"128\",\"ves.io.schema.rules.map.values.string.min_len\":\"1\"},\"values\":{\"maxLength\":128,\"minLength\":1,\"type\":\"string\"}}")}
+```
+
 Receipt-pinned upstream constraints:
 
 ```json
 {
   "x-f5xc-constraints": {
-    "category": "general",
-    "constraintType": "object",
-    "maxProperties": 20,
-    "metadata": {
-      "confidence": 0.75,
-      "source": "inferred",
-      "validatedAt": "2026-10-03T05:10:26+00:00"
+    "cardinality": {
+      "maxProperties": 20
+    },
+    "category": "discovery",
+    "constraintType": "map",
+    "deterministic": true,
+    "keys": {
+      "maxLength": 128,
+      "minLength": 1,
+      "type": "string"
+    },
+    "originalRules": {
+      "ves.io.schema.rules.map.keys.string.max_len": "128",
+      "ves.io.schema.rules.map.keys.string.min_len": "1",
+      "ves.io.schema.rules.map.max_pairs": "20",
+      "ves.io.schema.rules.map.values.string.max_len": "128",
+      "ves.io.schema.rules.map.values.string.min_len": "1"
+    },
+    "values": {
+      "maxLength": 128,
+      "minLength": 1,
+      "type": "string"
     }
   },
   "x-f5xc-required-for": {
@@ -5706,18 +5844,39 @@ Type: `["map", "string"]`. Optional.
 List of labels for Storage Device used in NetApp ONTAP. It is used for storage class label match
 selection.
 
+Provider validators and defaults (from schema source):
+
+```go
+Validators: []validator.Map{validators.MapConstraintsValidator("{\"cardinality\":{\"maxProperties\":20},\"category\":\"discovery\",\"constraintType\":\"map\",\"deterministic\":true,\"keys\":{\"maxLength\":128,\"minLength\":1,\"type\":\"string\"},\"originalRules\":{\"ves.io.schema.rules.map.keys.string.max_len\":\"128\",\"ves.io.schema.rules.map.keys.string.min_len\":\"1\",\"ves.io.schema.rules.map.max_pairs\":\"20\",\"ves.io.schema.rules.map.values.string.max_len\":\"128\",\"ves.io.schema.rules.map.values.string.min_len\":\"1\"},\"values\":{\"maxLength\":128,\"minLength\":1,\"type\":\"string\"}}")}
+```
+
 Receipt-pinned upstream constraints:
 
 ```json
 {
   "x-f5xc-constraints": {
-    "category": "general",
-    "constraintType": "object",
-    "maxProperties": 20,
-    "metadata": {
-      "confidence": 0.75,
-      "source": "inferred",
-      "validatedAt": "2026-10-03T05:10:26+00:00"
+    "cardinality": {
+      "maxProperties": 20
+    },
+    "category": "discovery",
+    "constraintType": "map",
+    "deterministic": true,
+    "keys": {
+      "maxLength": 128,
+      "minLength": 1,
+      "type": "string"
+    },
+    "originalRules": {
+      "ves.io.schema.rules.map.keys.string.max_len": "128",
+      "ves.io.schema.rules.map.keys.string.min_len": "1",
+      "ves.io.schema.rules.map.max_pairs": "20",
+      "ves.io.schema.rules.map.values.string.max_len": "128",
+      "ves.io.schema.rules.map.values.string.min_len": "1"
+    },
+    "values": {
+      "maxLength": 128,
+      "minLength": 1,
+      "type": "string"
     }
   },
   "x-f5xc-required-for": {
@@ -6923,130 +7082,3 @@ Receipt-pinned upstream constraints:
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
-
-<a id="canonical-2323323132103032-1232220320003201-3002220020013030-1223131203233031-1323021110222323-0203221103001113-0022132300022111-1212322110221133"></a>
-
-## custom_storage_config.storage_device_list.storage_devices.netapp_trident.netapp_backend_ontap_nas.volume_defaults.no_qos — no_qos / 002032221302 / 2
-
-Breadcrumbs:
-
-- [xcsh_voltstack_site](../resources/voltstack_site.md#canonical-2321122020020113-3300101223021223-1330033011121200-0102203210311033-2301300201121233-3102120211011323-1113113111112000-2313011002230113)
-- [Property reference](resources--voltstack_site--reference--group-001.md#canonical-2303313130303000-1321333232312030-2110222133201202-1121003303213312-0221012033213113-0321333012001121-3323103113212202-1012112312220111)
-- [custom_storage_config](resources--voltstack_site--reference--group-005.md#canonical-1130033323232323-2312320032102120-2230002101333233-0122122333223330-0120123302300302-0320200333230230-3313321101003303-0102021002223303)
-- [custom_storage_config.storage_device_list](resources--voltstack_site--reference--group-006.md#canonical-3000120020011123-1022230333313213-0001000321031121-1203122203230213-2330200222212203-3333200100302030-1111002032202022-1131133200121321)
-- [custom_storage_config.storage_device_list.storage_devices](resources--voltstack_site--reference--group-006.md#canonical-1131100102033112-2001212202303112-3112202123332303-0020133102302002-2003030303020101-2333230030103021-0230002120220201-0311201313132323)
-- [custom_storage_config.storage_device_list.storage_devices.netapp_trident](resources--voltstack_site--reference--group-006.md#canonical-2320103020333102-1021022013301311-0131221310202231-1112221003301021-0300321100322133-0201110031211000-3323031032010313-1110131030020123)
-- [custom_storage_config.storage_device_list.storage_devices.netapp_trident.netapp_backend_ontap_nas](resources--voltstack_site--reference--group-006.md#canonical-3033222101303330-1011123222310233-1330220110033121-3331113222323101-3201110213321220-1120133323300233-1122122130112111-0131320210221213)
-- [custom_storage_config.storage_device_list.storage_devices.netapp_trident.netapp_backend_ontap_nas.volume_defaults](resources--voltstack_site--reference--group-006.md#canonical-2113210123032330-2220213133030132-0302222012203211-0333131032213120-0232121001321012-1121201012031013-3033112013220010-2332201222201032)
-- custom_storage_config.storage_device_list.storage_devices.netapp_trident.netapp_backend_ontap_nas.volume_defaults.no_qos
-
-<a id="canonical-0033122322323100-1023302002220220-0121213102222223-2022322132233323-3012213213233222-1110002211323030-3130211310103023-3303011203001001"></a>
-
-Type: `["object", {}]`. Optional.
-
-Enable this option
-
-Upstream description:
-
-This can be used for messages where no values are needed.
-
-Receipt-pinned upstream constraints:
-
-```json
-{
-  "x-f5xc-required-for": {
-    "create": false,
-    "minimum_config": false,
-    "read": false,
-    "update": false
-  }
-}
-```
-
-Terraform syntax:
-
-```terraform
-no_qos = {}
-```
-
-<a id="canonical-1232302012213011-3233302021113222-3111331132310223-1001102022112201-2111111021030100-2223130221023300-2332212221301332-3012130112212101"></a>
-
-## Direct properties — no_qos / 002032221302 / 3
-
-This is an empty object or choice marker. It has no direct properties.
-
-<a id="canonical-2003133021303102-0100031122013133-3100021223302013-3332000332312321-3130231200120303-1031113212113100-3030133113231223-2230330113231130"></a>
-
-## Next pages — no_qos / 002032221302 / 4
-
-- [custom_storage_config.storage_device_list.storage_devices.netapp_trident.netapp_backend_ontap_nas.volume_defaults](resources--voltstack_site--reference--group-006.md#canonical-2113210123032330-2220213133030132-0302222012203211-0333131032213120-0232121001321012-1121201012031013-3033112013220010-2332201222201032)
-- [xcsh_voltstack_site](../resources/voltstack_site.md#canonical-2321122020020113-3300101223021223-1330033011121200-0102203210311033-2301300201121233-3102120211011323-1113113111112000-2313011002230113)
-
-<a id="canonical-1203012223231023-2200220231023303-1122331312230001-0301322022031201-3022110023213232-3320210312013231-2131323210013121-0000231310220010"></a>
-
-<!-- Exact provider and upstream contract identifiers. -->
-
-<!-- textlint-disable terminology -->
-
-<a id="canonical-1320022031310133-1120233120230133-2123102322210110-1313022001030213-2011223313023311-3010020321202001-3300102320103111-2122311120002132"></a>
-
-## custom_storage_config.storage_device_list.storage_devices.netapp_trident.netapp_backend_ontap_san — netapp_backend_ontap_san / 222032030112 / 2
-
-Breadcrumbs:
-
-- [xcsh_voltstack_site](../resources/voltstack_site.md#canonical-2321122020020113-3300101223021223-1330033011121200-0102203210311033-2301300201121233-3102120211011323-1113113111112000-2313011002230113)
-- [Property reference](resources--voltstack_site--reference--group-001.md#canonical-2303313130303000-1321333232312030-2110222133201202-1121003303213312-0221012033213113-0321333012001121-3323103113212202-1012112312220111)
-- [custom_storage_config](resources--voltstack_site--reference--group-005.md#canonical-1130033323232323-2312320032102120-2230002101333233-0122122333223330-0120123302300302-0320200333230230-3313321101003303-0102021002223303)
-- [custom_storage_config.storage_device_list](resources--voltstack_site--reference--group-006.md#canonical-3000120020011123-1022230333313213-0001000321031121-1203122203230213-2330200222212203-3333200100302030-1111002032202022-1131133200121321)
-- [custom_storage_config.storage_device_list.storage_devices](resources--voltstack_site--reference--group-006.md#canonical-1131100102033112-2001212202303112-3112202123332303-0020133102302002-2003030303020101-2333230030103021-0230002120220201-0311201313132323)
-- [custom_storage_config.storage_device_list.storage_devices.netapp_trident](resources--voltstack_site--reference--group-006.md#canonical-2320103020333102-1021022013301311-0131221310202231-1112221003301021-0300321100322133-0201110031211000-3323031032010313-1110131030020123)
-- custom_storage_config.storage_device_list.storage_devices.netapp_trident.netapp_backend_ontap_san
-
-<a id="canonical-3222131021330302-0030011220033221-0102322103030010-2032122331001332-1102131130122132-0112001303013130-0310300310201331-2220310213201030"></a>
-
-Type: `"object"`. single nested block, Optional.
-
-Configuration of storage backend for NetApp ONTAP SAN.
-
-Provider validators and defaults (from schema source):
-
-```go
-Validators: []validator.Object{validators.RequiredObjectAttributes("storage_driver_name",
-    "username"),
-  validators.ConflictingObjectAttributes("data_lif_dns_name",
-    "data_lif_ip"),
-  validators.ConflictingObjectAttributes("management_lif_dns_name",
-    "management_lif_ip"),
-  validators.ConflictingObjectAttributes("no_chap",
-    "use_chap")}
-```
-
-Receipt-pinned upstream constraints:
-
-```json
-{
-  "x-f5xc-required-for": {
-    "create": false,
-    "minimum_config": false,
-    "read": false,
-    "update": false
-  },
-  "x-ves-oneof-field-chap_choice": "[\"no_chap\",\"use_chap\"]",
-  "x-ves-oneof-field-data_lif": "[\"data_lif_dns_name\",\"data_lif_ip\"]",
-  "x-ves-oneof-field-management_lif": "[\"management_lif_dns_name\",\"management_lif_ip\"]"
-}
-```
-
-Terraform syntax:
-
-```terraform
-netapp_backend_ontap_san {
-  # Configure direct properties listed below.
-}
-```
-
-<a id="canonical-2122322221013202-3030301230133301-2320212132032013-2303012310311030-2122302012003221-3023312323110122-3010233002110103-2323131301011231"></a>
-
-## Direct properties — netapp_backend_ontap_san / 222032030112 / 3
-
-<a id="canonical-1012303302332232-2322332110003202-3131020313131212-0011030331302113-0012333233310131-1021222121203212-2002012110330120-0030110332223302"></a>

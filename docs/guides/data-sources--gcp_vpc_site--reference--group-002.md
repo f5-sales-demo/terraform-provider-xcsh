@@ -6,6 +6,78 @@ description: "Complete grouped canonical reference for xcsh_gcp_vpc_site referen
 
 # xcsh_gcp_vpc_site reference
 
+<a id="canonical-0202333111131320-2303303001023332-2312112220000333-1312133220220201-1030020123223123-2011331210110133-3021021031100200-2103333030022311"></a>
+
+## gcp_zone_names property — ingress_egress_gw / 211132000220 / 5
+
+Type: `["list", "string"]`. Computed.
+
+X-required List of zones when instances will be created, needs to match with region selected.
+
+Upstream description:
+
+X-required List of zones when instances will be created, needs to match with region selected.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "maxItems": 3,
+  "x-f5xc-constraints": {
+    "category": "discovery",
+    "constraintType": "array",
+    "deterministic": true,
+    "maxItems": 3,
+    "metadata": {
+      "confidence": 0.99,
+      "source": "discovery",
+      "validatedAt": "2026-10-03T05:10:26+00:00"
+    },
+    "uniqueItems": true
+  },
+  "x-f5xc-required-for": {
+    "create": true,
+    "minimum_config": true,
+    "read": false,
+    "update": false
+  },
+  "x-validation-rules": {
+    "ves.io.schema.rules.message.required": "true",
+    "ves.io.schema.rules.repeated.items.string.max_len": "64",
+    "ves.io.schema.rules.repeated.max_items": "3",
+    "ves.io.schema.rules.repeated.unique": "true"
+  },
+  "x-ves-validation-rules": {
+    "ves.io.schema.rules.message.required": "true",
+    "ves.io.schema.rules.repeated.items.string.max_len": "64",
+    "ves.io.schema.rules.repeated.max_items": "3",
+    "ves.io.schema.rules.repeated.unique": "true"
+  }
+}
+```
+
+- [global_network_list](data-sources--gcp_vpc_site--reference--group-002.md#canonical-1130312120203102-2122110323320300-1102233103300112-2022130100300120-2110022023011312-0123323310213232-0112231123131301-3101313020332221): complete subsection reference.
+
+- [inside_network](data-sources--gcp_vpc_site--reference--group-002.md#canonical-1103010332011311-1122120123211002-0313120122102101-1212112111232323-2002213301120131-2031023110130320-2332020000113011-2101203131100023): complete subsection reference.
+
+- [inside_static_routes](data-sources--gcp_vpc_site--reference--group-002.md#canonical-3200313310131232-0210110202101312-2021312210102120-1112102012331303-3023321133320033-3321213133200210-3120212332313312-1233223233330302): complete subsection reference.
+
+- [inside_subnet](data-sources--gcp_vpc_site--reference--group-002.md#canonical-3203003222300230-2112031310101033-3303130321221222-3231311000312033-1330123121120320-1222230233122203-2132222101023230-1023322133302111): complete subsection reference.
+
+- [no_dc_cluster_group](data-sources--gcp_vpc_site--reference--group-002.md#canonical-0202032310301232-3202321000020000-0210202121112010-2120030213110333-3332322130201230-2131302013000120-3331220230110321-1232320231201231): complete subsection reference.
+
+- [no_forward_proxy](data-sources--gcp_vpc_site--reference--group-002.md#canonical-0032301122112030-0230102021011322-1331221201233202-2310133101313001-3300103223100011-2101033003202031-3113223310023220-0023332112202012): complete subsection reference.
+
+- [no_global_network](data-sources--gcp_vpc_site--reference--group-002.md#canonical-1220311131221300-0120302031132331-1130330201130100-0013112232110113-3210123101120022-2312223312233301-1213032212023333-1001202002130112): complete subsection reference.
+
+- [no_inside_static_routes](data-sources--gcp_vpc_site--reference--group-002.md#canonical-3323101233232200-1121011001111111-2122331313313332-1103001110103122-3203022213321323-3303022232101131-3320313203232111-0001201212301111): complete subsection reference.
+
+- [no_network_policy](data-sources--gcp_vpc_site--reference--group-002.md#canonical-2321230320203023-2012002031123220-0211203302300320-0331010030233012-0113111022300021-1131233223230022-0203113021211023-0321203131330223): complete subsection reference.
+
+- [no_outside_static_routes](data-sources--gcp_vpc_site--reference--group-002.md#canonical-2121122223003320-1111002330210202-1113133312303121-3331201332000322-1210100303320031-3012330310320210-2111211301122021-3130310200112133): complete subsection reference.
+
+<a id="canonical-0233223010101003-2232200201322111-2011132001312231-0231200021103302-1321111023122121-1113313300311111-3222120012313021-1030112301231220"></a>
+
 <a id="canonical-2131230022001223-3133111212321212-0231230333203223-1333203132003120-0030021031303301-1212010223300001-3230023211110000-1113301023112322"></a>
 
 ## node_number property — ingress_egress_gw / 211132000220 / 6
@@ -5238,95 +5310,3 @@ Receipt-pinned upstream constraints:
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
-
-<a id="canonical-3333101103130300-0211322132101130-2012002030012120-2222323102212232-1123232321122222-0113002003211132-1022201321202231-1023122113131121"></a>
-
-## ingress_egress_gw.outside_static_routes.static_route_list.custom_static_route — custom_static_route / 213103212102 / 2
-
-Breadcrumbs:
-
-- [xcsh_gcp_vpc_site](../data-sources/gcp_vpc_site.md#canonical-1132222133321101-1232102200201102-2111112102132122-0010023221133123-2333213300031302-1001011022311003-3121103220313010-2103321200303202)
-- [Property reference](data-sources--gcp_vpc_site--reference--group-001.md#canonical-0023231003100101-1010210121112300-0303103132302303-0331000323201313-3003311210331022-3000312312212303-0030202320102022-1232013113103201)
-- [ingress_egress_gw](data-sources--gcp_vpc_site--reference--group-001.md#canonical-1123313330020103-2220202203231111-2113330331022333-0133213021020321-0303223331023010-1320133103131013-2322232313123200-2330220010011031)
-- [ingress_egress_gw.outside_static_routes](data-sources--gcp_vpc_site--reference--group-002.md#canonical-2222212203011002-0122100002033220-1003302221310103-3022130333223033-1321222030130012-0211202033021113-0330312012113010-2122030230011200)
-- [ingress_egress_gw.outside_static_routes.static_route_list](data-sources--gcp_vpc_site--reference--group-002.md#canonical-1303330302312132-1121332321030032-3232300201320322-2013232231301011-1000303123022011-0120133312103013-3212023032032211-3012112131110121)
-- ingress_egress_gw.outside_static_routes.static_route_list.custom_static_route
-
-<a id="canonical-2103200313332222-1131023303323121-2222313212320320-2303113331130031-1300031032303223-2112212011131213-3031301123323102-2200101331133010"></a>
-
-Type: `"single"`. Computed.
-
-Defines a static route, configuring a list of prefixes and a next-hop to be used for them.
-
-Receipt-pinned upstream constraints:
-
-```json
-{
-  "x-f5xc-required-for": {
-    "create": false,
-    "minimum_config": false,
-    "read": false,
-    "update": false
-  }
-}
-```
-
-<a id="canonical-1012222100322102-1111121032312303-0223202133100131-1013323113201330-2001300201312122-1133321032320130-1113133201122022-0013220131001322"></a>
-
-## Direct properties — custom_static_route / 213103212102 / 3
-
-<a id="canonical-1113021133222132-0233222330121200-0222023222131011-0303101213230232-2112320320012000-0032320310322333-2202322002203032-2000002032301032"></a>
-
-<a id="canonical-3212000300021020-3112220310021131-1010022123012212-1213210212320022-3023310020222311-2030131033110211-1303131330110011-1100330011323032"></a>
-
-## attrs property — custom_static_route / 213103212102 / 4
-
-Type: `["list", "string"]`. Computed.
-
-\[Enum:
-ROUTE\_ATTR\_NO\_OP|ROUTE\_ATTR\_ADVERTISE|ROUTE\_ATTR\_INSTALL\_HOST|ROUTE\_ATTR\_INSTALL\_FORWARDING|ROUTE\_ATTR\_MERGE\_ONLY\]
-List of route attributes associated with the static route. Possible values are
-\`ROUTE\_ATTR\_NO\_OP\`, \`ROUTE\_ATTR\_ADVERTISE\`, \`ROUTE\_ATTR\_INSTALL\_HOST\`,
-\`ROUTE\_ATTR\_INSTALL\_FORWARDING\`, \`ROUTE\_ATTR\_MERGE\_ONLY\`. Defaults to
-\`ROUTE\_ATTR\_NO\_OP\`.
-
-Upstream description:
-
-List of route attributes associated with the static route.
-
-Receipt-pinned upstream constraints:
-
-```json
-{
-  "maxItems": 4,
-  "x-f5xc-constraints": {
-    "category": "discovery",
-    "constraintType": "array",
-    "deterministic": true,
-    "maxItems": 4,
-    "metadata": {
-      "confidence": 0.99,
-      "source": "discovery",
-      "validatedAt": "2026-10-03T05:10:26+00:00"
-    }
-  },
-  "x-f5xc-required-for": {
-    "create": false,
-    "minimum_config": false,
-    "read": false,
-    "update": false
-  },
-  "x-validation-rules": {
-    "ves.io.schema.rules.repeated.max_items": "4"
-  },
-  "x-ves-validation-rules": {
-    "ves.io.schema.rules.repeated.max_items": "4"
-  }
-}
-```
-
-- [labels](data-sources--gcp_vpc_site--reference--group-003.md#canonical-0322223121033130-3201331110102202-3323013213111212-1223222300100021-0130300132011311-3322320210310233-3331103011001222-2210023213113300): complete subsection reference.
-
-- [nexthop](data-sources--gcp_vpc_site--reference--group-003.md#canonical-0321020222123230-1311211201211220-3333320103332321-3332210131100313-2002203032333220-1002123221331321-1130203022113333-2323212121233330): complete subsection reference.
-
-- [subnets](data-sources--gcp_vpc_site--reference--group-003.md#canonical-2223102112003230-2120223010131011-3311220202110311-0321102303122130-2120231212223300-0313302303012100-0233120210103013-1013201130003200): complete subsection reference.

@@ -496,7 +496,7 @@
       "anchor": "canonical-0130311320213320-2133101303120301-1122213123302210-2100223023101230-3113012113213132-2032202222311321-2311201112200200-3003000131210000",
       "anchor_map": [],
       "mode": "embedded",
-      "registry_path": "docs/guides/data-sources--aws_vpc_site--reference--group-002.md"
+      "registry_path": "docs/guides/data-sources--aws_vpc_site--reference--group-003.md"
     },
     {
       "canonical_id": "xcsh-docs:data-sources:aws_vpc_site:properties:ingress_egress_gw:inside_static_routes",

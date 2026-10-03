@@ -2081,6 +2081,7 @@ func (r *ProtectedApplicationResource) Schema(ctx context.Context, req resource.
 								MarkdownDescription: "List contains the Cloudfront distribution selection by tags key is a AWS tag name, and the value is regular expression to match.",
 								Optional:            true,
 								ElementType:         types.StringType,
+								Validators:          []validator.Map{validators.MapConstraintsValidator("{\"cardinality\":{\"maxProperties\":20,\"minProperties\":1},\"category\":\"discovery\",\"constraintType\":\"map\",\"deterministic\":true,\"keys\":{\"maxLength\":64,\"minLength\":1,\"type\":\"string\"},\"originalRules\":{\"ves.io.schema.rules.map.keys.string.max_len\":\"64\",\"ves.io.schema.rules.map.keys.string.min_len\":\"1\",\"ves.io.schema.rules.map.max_pairs\":\"20\",\"ves.io.schema.rules.map.min_pairs\":\"1\",\"ves.io.schema.rules.map.values.string.max_len\":\"256\",\"ves.io.schema.rules.map.values.string.min_len\":\"1\",\"ves.io.schema.rules.map.values.string.regex\":\"true\"},\"values\":{\"format\":\"regex\",\"maxLength\":256,\"minLength\":1,\"type\":\"string\"}}")},
 							},
 						},
 					},

@@ -47,6 +47,27 @@ Receipt-pinned upstream constraints:
 
 ```json
 {
+  "x-f5xc-constraints": {
+    "category": "discovery",
+    "constraintType": "map",
+    "deterministic": true,
+    "keys": {
+      "maxLength": 64,
+      "minLength": 1,
+      "type": "string"
+    },
+    "originalRules": {
+      "ves.io.schema.rules.map.keys.string.max_len": "64",
+      "ves.io.schema.rules.map.keys.string.min_len": "1",
+      "ves.io.schema.rules.map.values.string.max_len": "1024",
+      "ves.io.schema.rules.map.values.string.min_len": "1"
+    },
+    "values": {
+      "maxLength": 1024,
+      "minLength": 1,
+      "type": "string"
+    }
+  },
   "x-f5xc-required-for": {
     "create": false,
     "minimum_config": false,
@@ -363,7 +384,7 @@ Each exact path has one authoritative reference destination. Collection element 
 | `dynamic_proxy.http_proxy.more_option.buffer_policy.max_request_bytes` | [dynamic_proxy.http_proxy.more_option.buffer_policy.max_request_bytes](data-sources--proxy--reference--group-001.md#canonical-1322201233103223-3212321023013011-0201020010201022-3010300320111222-0301332113200312-0320011022031213-1331131110320202-1122130021321003) |
 | `dynamic_proxy.http_proxy.more_option.compression_params` | [dynamic_proxy.http_proxy.more_option.compression_params](data-sources--proxy--reference--group-001.md#canonical-3131231122122120-1311012232200231-0013223201213033-3132203112113013-2121102012312220-3122200200021102-1011311212113201-3221302133332203) |
 | `dynamic_proxy.http_proxy.more_option.compression_params.content_length` | [dynamic_proxy.http_proxy.more_option.compression_params.content_length](data-sources--proxy--reference--group-001.md#canonical-0120222323323200-0002230030123330-3102212131121033-0303221031221031-1010312321220102-1212121320312021-3022222131323313-1100031021021230) |
-| `dynamic_proxy.http_proxy.more_option.compression_params.content_type` | [dynamic_proxy.http_proxy.more_option.compression_params.content_type](data-sources--proxy--reference--group-001.md#canonical-1203112102021003-1103012013331100-0212122112121301-2220302130233030-1122120203332323-3013311121202100-2300213011230321-1010301221303231) |
+| `dynamic_proxy.http_proxy.more_option.compression_params.content_type` | [dynamic_proxy.http_proxy.more_option.compression_params.content_type](data-sources--proxy--reference--group-002.md#canonical-1203112102021003-1103012013331100-0212122112121301-2220302130233030-1122120203332323-3013311121202100-2300213011230321-1010301221303231) |
 | `dynamic_proxy.http_proxy.more_option.compression_params.disable_on_etag_header` | [dynamic_proxy.http_proxy.more_option.compression_params.disable_on_etag_header](data-sources--proxy--reference--group-002.md#canonical-1302031213300313-1013113230021212-3331032202031310-2001023212300000-2310210233111123-0312010313110220-0331322010220030-3122202102103033) |
 | `dynamic_proxy.http_proxy.more_option.compression_params.remove_accept_encoding_header` | [dynamic_proxy.http_proxy.more_option.compression_params.remove_accept_encoding_header](data-sources--proxy--reference--group-002.md#canonical-2111101123033202-0011333333221022-0030311000103111-3203303233133113-2331220323230102-1121303311210103-1201223120331231-2110002012303222) |
 | `dynamic_proxy.http_proxy.more_option.custom_errors` | [dynamic_proxy.http_proxy.more_option.custom_errors](data-sources--proxy--reference--group-001.md#canonical-1022133221122202-1212331330033211-1312211000001103-3013202201300323-1110300122111311-2030301113012030-0200301033331310-2333013322312331) |
@@ -685,8 +706,8 @@ Each exact path has one authoritative reference destination. Collection element 
 | `site_virtual_sites.advertise_where.site.site.namespace` | [site_virtual_sites.advertise_where.site.site.namespace](data-sources--proxy--reference--group-004.md#canonical-2033122221300231-0112332232003212-2221120000202000-0021303332001113-2101122323322311-2213310323313321-1023312001221300-2133320313010302) |
 | `site_virtual_sites.advertise_where.site.site.tenant` | [site_virtual_sites.advertise_where.site.site.tenant](data-sources--proxy--reference--group-004.md#canonical-1331132003120312-2310221101112021-3100333113333103-3313200330003332-2133322123333000-1312312121331031-2131222322020212-1001303131321030) |
 | `site_virtual_sites.advertise_where.use_default_port` | [site_virtual_sites.advertise_where.use_default_port](data-sources--proxy--reference--group-004.md#canonical-3113233331220322-3002231203202102-3112012102020323-3002010222031113-1020101312111023-3020322300132123-2232233003113231-1133211003031123) |
-| `site_virtual_sites.advertise_where.virtual_site` | [site_virtual_sites.advertise_where.virtual_site](data-sources--proxy--reference--group-004.md#canonical-0122302112031312-2233031012313202-2222333322110221-1032100112002110-1223131202102313-2003322332112302-2011203233121300-0131010111020301) |
-| `site_virtual_sites.advertise_where.virtual_site.network` | [site_virtual_sites.advertise_where.virtual_site.network](data-sources--proxy--reference--group-004.md#canonical-0222120033110300-0222120010010000-3112100331310022-0123123022321231-1022120003330213-2001010322213310-2212220103223230-3302330231222233) |
+| `site_virtual_sites.advertise_where.virtual_site` | [site_virtual_sites.advertise_where.virtual_site](data-sources--proxy--reference--group-005.md#canonical-0122302112031312-2233031012313202-2222333322110221-1032100112002110-1223131202102313-2003322332112302-2011203233121300-0131010111020301) |
+| `site_virtual_sites.advertise_where.virtual_site.network` | [site_virtual_sites.advertise_where.virtual_site.network](data-sources--proxy--reference--group-005.md#canonical-0222120033110300-0222120010010000-3112100331310022-0123123022321231-1022120003330213-2001010322213310-2212220103223230-3302330231222233) |
 | `site_virtual_sites.advertise_where.virtual_site.virtual_site` | [site_virtual_sites.advertise_where.virtual_site.virtual_site](data-sources--proxy--reference--group-005.md#canonical-3201133000030101-2111222220311312-1223130313233220-0003221131111102-3001333133233332-1111313322322230-2032222020330202-3202301320120331) |
 | `site_virtual_sites.advertise_where.virtual_site.virtual_site.name` | [site_virtual_sites.advertise_where.virtual_site.virtual_site.name](data-sources--proxy--reference--group-005.md#canonical-1201303031032001-1001122221023331-3320003123203113-1132120311222212-0322333312112103-0100123030300021-1300222133300112-3030230332331030) |
 | `site_virtual_sites.advertise_where.virtual_site.virtual_site.namespace` | [site_virtual_sites.advertise_where.virtual_site.virtual_site.namespace](data-sources--proxy--reference--group-005.md#canonical-2212033210031212-3310110313112022-3023000013120231-2133003010321322-0311122100133321-3321322031031220-2011330021220100-0011310223203122) |
@@ -1480,13 +1501,43 @@ Receipt-pinned upstream constraints:
 ```json
 {
   "x-f5xc-constraints": {
-    "category": "general",
-    "constraintType": "object",
-    "maxProperties": 16,
-    "metadata": {
-      "confidence": 0.75,
-      "source": "inferred",
-      "validatedAt": "2026-10-03T05:10:26+00:00"
+    "cardinality": {
+      "maxProperties": 16
+    },
+    "category": "discovery",
+    "constraintType": "map",
+    "deterministic": true,
+    "keys": {
+      "ranges": [
+        [
+          3,
+          3
+        ],
+        [
+          4,
+          4
+        ],
+        [
+          5,
+          5
+        ],
+        [
+          300,
+          599
+        ]
+      ],
+      "type": "uint32-string"
+    },
+    "originalRules": {
+      "ves.io.schema.rules.map.keys.uint32.ranges": "3,4,5,300-599",
+      "ves.io.schema.rules.map.max_pairs": "16",
+      "ves.io.schema.rules.map.values.string.max_len": "65536",
+      "ves.io.schema.rules.map.values.string.uri_ref": "true"
+    },
+    "values": {
+      "format": "uri-reference",
+      "maxLength": 65536,
+      "type": "string"
     }
   },
   "x-f5xc-required-for": {
@@ -2114,47 +2165,3 @@ Receipt-pinned upstream constraints:
 ## Direct properties — compression_params / 323110123301 / 3
 
 <a id="canonical-0120222323323200-0002230030123330-3102212131121033-0303221031221031-1010312321220102-1212121320312021-3022222131323313-1100031021021230"></a>
-
-<a id="canonical-3033031323121211-3120332320032200-3301330013023013-3020323133331301-3232131323331122-1332212103313331-2100322321000122-0200120021103123"></a>
-
-## content_length property — compression_params / 323110123301 / 4
-
-Type: `"number"`. Computed.
-
-Minimum response length, in bytes, which will trigger compression. The. Defaults to \`30\`.
-
-Upstream description:
-
-Minimum response length, in bytes, which will trigger compression. The default value is 30.
-
-Receipt-pinned upstream constraints:
-
-```json
-{
-  "x-f5xc-constraints": {
-    "category": "discovery",
-    "constraintType": "number",
-    "deterministic": true,
-    "metadata": {
-      "confidence": 0.99,
-      "source": "api-probed",
-      "validatedAt": "2026-10-03T05:10:26+00:00"
-    },
-    "minimum": 30
-  },
-  "x-f5xc-required-for": {
-    "create": true,
-    "minimum_config": true,
-    "read": false,
-    "update": false
-  },
-  "x-validation-rules": {
-    "ves.io.schema.rules.uint32.gte": "30"
-  },
-  "x-ves-validation-rules": {
-    "ves.io.schema.rules.uint32.gte": "30"
-  }
-}
-```
-
-<a id="canonical-1203112102021003-1103012013331100-0212122112121301-2220302130233030-1122120203332323-3013311121202100-2300213011230321-1010301221303231"></a>

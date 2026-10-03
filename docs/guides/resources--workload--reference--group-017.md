@@ -6,6 +6,61 @@ description: "Complete grouped canonical reference for xcsh_workload reference."
 
 # xcsh_workload reference
 
+<a id="canonical-2212202301123302-1222020002301220-2223321211233103-0032213100300201-2123021232211211-3022320312002203-3030303330331333-2001223010333302"></a>
+
+## Direct properties — container / 233033011010 / 3
+
+<a id="canonical-1320122102200012-0000332123203102-2100330202122002-1331133230000220-1323231203132120-1113111032322020-3300332101320233-0110002002331332"></a>
+
+<a id="canonical-3201102102112011-2131320300230310-1130102322010333-3202310323002030-1001310130312323-0103113002000202-1003003013021303-1121123022321303"></a>
+
+## args property — container / 233033011010 / 4
+
+Type: `["list", "string"]`. Optional.
+
+Arguments to the entrypoint. Overrides the Docker image's CMD.
+
+Provider validators and defaults (from schema source):
+
+```go
+Validators: []validator.List{
+  listvalidator.SizeAtMost(128),
+}
+```
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "maxItems": 128,
+  "x-f5xc-constraints": {
+    "category": "discovery",
+    "constraintType": "array",
+    "deterministic": true,
+    "maxItems": 128,
+    "metadata": {
+      "confidence": 0.99,
+      "source": "discovery",
+      "validatedAt": "2026-10-03T05:10:26+00:00"
+    }
+  },
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  },
+  "x-validation-rules": {
+    "ves.io.schema.rules.repeated.max_items": "128"
+  },
+  "x-ves-validation-rules": {
+    "ves.io.schema.rules.repeated.max_items": "128"
+  }
+}
+```
+
+<a id="canonical-1223111301003112-2002220311333111-3002231330301122-3211022012210103-1032210300312001-2322112323021120-1123010111130211-0220201310012133"></a>
+
 <a id="canonical-3020313233311232-3003032232302000-1213212013330321-1110123310111132-3021300022033010-3122201103113101-1131022310201232-1102223001002212"></a>
 
 ## command property — container / 233033011010 / 5
@@ -1665,18 +1720,39 @@ Upstream description:
 Specifies a list of HTTP headers that should be added to each request that is sent to the health
 checked container. This is a list of key-value pairs.
 
+Provider validators and defaults (from schema source):
+
+```go
+Validators: []validator.Map{validators.MapConstraintsValidator("{\"cardinality\":{\"maxProperties\":16},\"category\":\"discovery\",\"constraintType\":\"map\",\"deterministic\":true,\"keys\":{\"maxLength\":256,\"minLength\":1,\"type\":\"string\"},\"originalRules\":{\"ves.io.schema.rules.map.keys.string.max_len\":\"256\",\"ves.io.schema.rules.map.keys.string.min_len\":\"1\",\"ves.io.schema.rules.map.max_pairs\":\"16\",\"ves.io.schema.rules.map.values.string.max_len\":\"2048\",\"ves.io.schema.rules.map.values.string.min_len\":\"1\"},\"values\":{\"maxLength\":2048,\"minLength\":1,\"type\":\"string\"}}")}
+```
+
 Receipt-pinned upstream constraints:
 
 ```json
 {
   "x-f5xc-constraints": {
-    "category": "general",
-    "constraintType": "object",
-    "maxProperties": 16,
-    "metadata": {
-      "confidence": 0.75,
-      "source": "inferred",
-      "validatedAt": "2026-10-03T05:10:26+00:00"
+    "cardinality": {
+      "maxProperties": 16
+    },
+    "category": "discovery",
+    "constraintType": "map",
+    "deterministic": true,
+    "keys": {
+      "maxLength": 256,
+      "minLength": 1,
+      "type": "string"
+    },
+    "originalRules": {
+      "ves.io.schema.rules.map.keys.string.max_len": "256",
+      "ves.io.schema.rules.map.keys.string.min_len": "1",
+      "ves.io.schema.rules.map.max_pairs": "16",
+      "ves.io.schema.rules.map.values.string.max_len": "2048",
+      "ves.io.schema.rules.map.values.string.min_len": "1"
+    },
+    "values": {
+      "maxLength": 2048,
+      "minLength": 1,
+      "type": "string"
     }
   },
   "x-f5xc-required-for": {
@@ -2848,18 +2924,39 @@ Upstream description:
 Specifies a list of HTTP headers that should be added to each request that is sent to the health
 checked container. This is a list of key-value pairs.
 
+Provider validators and defaults (from schema source):
+
+```go
+Validators: []validator.Map{validators.MapConstraintsValidator("{\"cardinality\":{\"maxProperties\":16},\"category\":\"discovery\",\"constraintType\":\"map\",\"deterministic\":true,\"keys\":{\"maxLength\":256,\"minLength\":1,\"type\":\"string\"},\"originalRules\":{\"ves.io.schema.rules.map.keys.string.max_len\":\"256\",\"ves.io.schema.rules.map.keys.string.min_len\":\"1\",\"ves.io.schema.rules.map.max_pairs\":\"16\",\"ves.io.schema.rules.map.values.string.max_len\":\"2048\",\"ves.io.schema.rules.map.values.string.min_len\":\"1\"},\"values\":{\"maxLength\":2048,\"minLength\":1,\"type\":\"string\"}}")}
+```
+
 Receipt-pinned upstream constraints:
 
 ```json
 {
   "x-f5xc-constraints": {
-    "category": "general",
-    "constraintType": "object",
-    "maxProperties": 16,
-    "metadata": {
-      "confidence": 0.75,
-      "source": "inferred",
-      "validatedAt": "2026-10-03T05:10:26+00:00"
+    "cardinality": {
+      "maxProperties": 16
+    },
+    "category": "discovery",
+    "constraintType": "map",
+    "deterministic": true,
+    "keys": {
+      "maxLength": 256,
+      "minLength": 1,
+      "type": "string"
+    },
+    "originalRules": {
+      "ves.io.schema.rules.map.keys.string.max_len": "256",
+      "ves.io.schema.rules.map.keys.string.min_len": "1",
+      "ves.io.schema.rules.map.max_pairs": "16",
+      "ves.io.schema.rules.map.values.string.max_len": "2048",
+      "ves.io.schema.rules.map.values.string.min_len": "1"
+    },
+    "values": {
+      "maxLength": 2048,
+      "minLength": 1,
+      "type": "string"
     }
   },
   "x-f5xc-required-for": {
@@ -6681,7 +6778,7 @@ default_route {
 
 ## Direct properties — default_route / 103010212312 / 3
 
-- [auto_host_rewrite](resources--workload--reference--group-017.md#canonical-3102103313032210-0102301102011232-1303110012101212-3032312111101121-2212320022233233-2110332122303130-0322022331103012-2002002322210003): complete subsection reference.
+- [auto_host_rewrite](resources--workload--reference--group-018.md#canonical-3102103313032210-0102301102011232-1303110012101212-3032312111101121-2212320022233233-2110332122303130-0322022331103012-2002002322210003): complete subsection reference.
 
 - [disable_host_rewrite](resources--workload--reference--group-018.md#canonical-2233022211333231-1323213121201103-1312330322030123-0003203301103101-0332011031223232-2322233001313302-0312301223030330-1003213211032213): complete subsection reference.
 
@@ -6739,18 +6836,3 @@ Receipt-pinned upstream constraints:
   }
 }
 ```
-
-<a id="canonical-3312130013113202-3223221021303303-2002211321100330-2201113130200132-1100231231203312-3332022212100023-2010220200323103-1300003231333203"></a>
-
-## Next pages — default_route / 103010212312 / 5
-
-- [stateful_service.advertise_options.advertise_custom.ports.http_loadbalancer.default_route.auto_host_rewrite](resources--workload--reference--group-017.md#canonical-3102103313032210-0102301102011232-1303110012101212-3032312111101121-2212320022233233-2110332122303130-0322022331103012-2002002322210003)
-- [stateful_service.advertise_options.advertise_custom.ports.http_loadbalancer.default_route.disable_host_rewrite](resources--workload--reference--group-018.md#canonical-2233022211333231-1323213121201103-1312330322030123-0003203301103101-0332011031223232-2322233001313302-0312301223030330-1003213211032213)
-- [stateful_service.advertise_options.advertise_custom.ports.http_loadbalancer](resources--workload--reference--group-017.md#canonical-0313222022003221-2301103230203023-3120322210033100-2121220010332201-3133231021021220-1313001311100021-0313102021211212-0331322021202002)
-- [xcsh_workload](../resources/workload.md#canonical-0311312121011133-1003302211333333-2022302011300003-2003003101223313-0230001021323223-1120310231002123-2102002120200113-3003130201212322)
-
-<a id="canonical-3102103313032210-0102301102011232-1303110012101212-3032312111101121-2212320022233233-2110332122303130-0322022331103012-2002002322210003"></a>
-
-<!-- Exact provider and upstream contract identifiers. -->
-
-<!-- textlint-disable terminology -->

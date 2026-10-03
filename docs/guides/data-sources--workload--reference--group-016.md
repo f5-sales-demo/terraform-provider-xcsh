@@ -5113,13 +5113,28 @@ Receipt-pinned upstream constraints:
 ```json
 {
   "x-f5xc-constraints": {
-    "category": "general",
-    "constraintType": "object",
-    "maxProperties": 16,
-    "metadata": {
-      "confidence": 0.75,
-      "source": "inferred",
-      "validatedAt": "2026-10-03T05:10:26+00:00"
+    "cardinality": {
+      "maxProperties": 16
+    },
+    "category": "discovery",
+    "constraintType": "map",
+    "deterministic": true,
+    "keys": {
+      "maxLength": 256,
+      "minLength": 1,
+      "type": "string"
+    },
+    "originalRules": {
+      "ves.io.schema.rules.map.keys.string.max_len": "256",
+      "ves.io.schema.rules.map.keys.string.min_len": "1",
+      "ves.io.schema.rules.map.max_pairs": "16",
+      "ves.io.schema.rules.map.values.string.max_len": "2048",
+      "ves.io.schema.rules.map.values.string.min_len": "1"
+    },
+    "values": {
+      "maxLength": 2048,
+      "minLength": 1,
+      "type": "string"
     }
   },
   "x-f5xc-required-for": {
@@ -6107,13 +6122,28 @@ Receipt-pinned upstream constraints:
 ```json
 {
   "x-f5xc-constraints": {
-    "category": "general",
-    "constraintType": "object",
-    "maxProperties": 16,
-    "metadata": {
-      "confidence": 0.75,
-      "source": "inferred",
-      "validatedAt": "2026-10-03T05:10:26+00:00"
+    "cardinality": {
+      "maxProperties": 16
+    },
+    "category": "discovery",
+    "constraintType": "map",
+    "deterministic": true,
+    "keys": {
+      "maxLength": 256,
+      "minLength": 1,
+      "type": "string"
+    },
+    "originalRules": {
+      "ves.io.schema.rules.map.keys.string.max_len": "256",
+      "ves.io.schema.rules.map.keys.string.min_len": "1",
+      "ves.io.schema.rules.map.max_pairs": "16",
+      "ves.io.schema.rules.map.values.string.max_len": "2048",
+      "ves.io.schema.rules.map.values.string.min_len": "1"
+    },
+    "values": {
+      "maxLength": 2048,
+      "minLength": 1,
+      "type": "string"
     }
   },
   "x-f5xc-required-for": {
@@ -6446,11 +6476,3 @@ Receipt-pinned upstream constraints:
 ## Direct properties — tcp_health_check / 031331230103 / 3
 
 - [port](data-sources--workload--reference--group-017.md#canonical-3203032101212220-2130333301311320-1231003231210211-3011130133302331-1110300300030003-1233220323132332-2002112230133110-1233100000303333): complete subsection reference.
-
-<a id="canonical-1332331002330033-1333203030013320-2101100312101110-2032302201122033-1213221131330233-3320012130023011-0320003230221031-0322212013201031"></a>
-
-## Next pages — tcp_health_check / 031331230103 / 4
-
-- [simple_service.container.readiness_check.tcp_health_check.port](data-sources--workload--reference--group-017.md#canonical-3203032101212220-2130333301311320-1231003231210211-3011130133302331-1110300300030003-1233220323132332-2002112230133110-1233100000303333)
-- [simple_service.container.readiness_check](data-sources--workload--reference--group-016.md#canonical-0312322121032303-0120231311113002-3232323333022313-0313301223202010-0113120313112233-3202000230211322-1223203103333003-2223013222202203)
-- [xcsh_workload](../data-sources/workload.md#canonical-1002113323301123-1000231011222222-2130003220201313-1332320021201220-0322102223332102-3110303113322020-1203310220131002-3110013201311100)

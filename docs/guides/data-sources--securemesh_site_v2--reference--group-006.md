@@ -6,6 +6,62 @@ description: "Complete grouped canonical reference for xcsh_securemesh_site_v2 r
 
 # xcsh_securemesh_site_v2 reference
 
+<a id="canonical-3222012233030112-1221132103120301-1132011101203111-3203233131032221-2213103100320213-2301000200223020-1220022023021100-1203333303030021"></a>
+
+## Next pages — dhcp_networks / 121302100003 / 8
+
+- [baremetal.not_managed.node_list.interface_list.dhcp_server.dhcp_networks.first_address](data-sources--securemesh_site_v2--reference--group-006.md#canonical-2132211221011332-2223001203013030-1032232301223132-2110001220022102-2121220232123323-3010012311031133-0123101212000213-2213333232122333)
+- [baremetal.not_managed.node_list.interface_list.dhcp_server.dhcp_networks.last_address](data-sources--securemesh_site_v2--reference--group-006.md#canonical-2210211310301310-0102033023312331-3002020121131223-2133012132331331-1203103203323101-3101100233030013-0100322032100101-3301303021313001)
+- [baremetal.not_managed.node_list.interface_list.dhcp_server.dhcp_networks.pools](data-sources--securemesh_site_v2--reference--group-006.md#canonical-3111030310202231-1102030331113303-1002313122020132-2000223301022131-3233132020202320-2120012223022000-2303113313131032-3230311322201033)
+- [baremetal.not_managed.node_list.interface_list.dhcp_server.dhcp_networks.same_as_dgw](data-sources--securemesh_site_v2--reference--group-006.md#canonical-3320011303321110-0022011002032200-1110313302221331-2121013023303223-3231312202200021-0111122330311220-2000330211322121-0033032113022221)
+- [baremetal.not_managed.node_list.interface_list.dhcp_server](data-sources--securemesh_site_v2--reference--group-005.md#canonical-3032003333312220-1212223021301202-3210032033330331-3222120100021123-0032331310003302-3231122113133031-1013120210330110-2101032112221113)
+- [xcsh_securemesh_site_v2](../data-sources/securemesh_site_v2.md#canonical-3033010310220323-3110311010223102-2010022012201213-2220103303200101-2000302233012310-3113200002022231-1123012300200020-0003333330101001)
+
+<a id="canonical-2132211221011332-2223001203013030-1032232301223132-2110001220022102-2121220232123323-3010012311031133-0123101212000213-2213333232122333"></a>
+
+<!-- Exact provider and upstream contract identifiers. -->
+
+<!-- textlint-disable terminology -->
+
+<a id="canonical-2001122032131321-3201303202332202-3212332230001201-3203123121101300-3233321020001003-2123330231223321-3021123123310200-1122030021303230"></a>
+
+## baremetal.not_managed.node_list.interface_list.dhcp_server.dhcp_networks.first_address — first_address / 330112311120 / 2
+
+Breadcrumbs:
+
+- [xcsh_securemesh_site_v2](../data-sources/securemesh_site_v2.md#canonical-3033010310220323-3110311010223102-2010022012201213-2220103303200101-2000302233012310-3113200002022231-1123012300200020-0003333330101001)
+- [Property reference](data-sources--securemesh_site_v2--reference--group-001.md#canonical-1012223010032010-2203302200231202-3120001311232130-2102103100333033-3102211113031103-3332130330000122-0033200130112230-3010031233202002)
+- [baremetal](data-sources--securemesh_site_v2--reference--group-005.md#canonical-1123321011122102-0201133310320122-3113112022111023-0022010233222132-1221231211213321-0332120031323322-1001302031301121-3023321101013203)
+- [baremetal.not_managed](data-sources--securemesh_site_v2--reference--group-005.md#canonical-3112130220103321-0222301102012110-3130100021102020-3131100011331012-1033223021300130-2203021223122121-1203022230220231-1222321223133133)
+- [baremetal.not_managed.node_list](data-sources--securemesh_site_v2--reference--group-005.md#canonical-3203030210103330-2221020320313220-3333010131002320-2122021233123301-2212123113113323-0021210002002332-3100033101203003-2011213121111120)
+- [baremetal.not_managed.node_list.interface_list](data-sources--securemesh_site_v2--reference--group-005.md#canonical-2203000220210131-2022322210211232-3231132120223110-3001211000032111-1320010213302012-2012101233212111-1120100233231202-1230332003113102)
+- [baremetal.not_managed.node_list.interface_list.dhcp_server](data-sources--securemesh_site_v2--reference--group-005.md#canonical-3032003333312220-1212223021301202-3210032033330331-3222120100021123-0032331310003302-3231122113133031-1013120210330110-2101032112221113)
+- [baremetal.not_managed.node_list.interface_list.dhcp_server.dhcp_networks](data-sources--securemesh_site_v2--reference--group-005.md#canonical-1113112323012300-2100323210010331-0230213021023033-2131313231030122-2303213300211030-3311133210210213-2313120322230003-0102032221122213)
+- baremetal.not_managed.node_list.interface_list.dhcp_server.dhcp_networks.first_address
+
+<a id="canonical-2102231033300100-3122313112010223-2012030212023120-2121013112333120-3301323212201333-2212303020230232-3030301311001021-0133031102220211"></a>
+
+Type: `["object", {}]`. Computed.
+
+Enable this option
+
+Upstream description:
+
+This can be used for messages where no values are needed.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  }
+}
+```
+
 <a id="canonical-1203212332303100-2233100232133221-1321112010021100-2133300233101001-2222021233201203-3121231331022121-3232002011202023-0200110203012030"></a>
 
 ## Direct properties — first_address / 330112311120 / 3
@@ -376,13 +432,26 @@ Receipt-pinned upstream constraints:
 ```json
 {
   "x-f5xc-constraints": {
-    "category": "general",
-    "constraintType": "object",
-    "maxProperties": 64,
-    "metadata": {
-      "confidence": 0.75,
-      "source": "inferred",
-      "validatedAt": "2026-10-03T05:10:26+00:00"
+    "cardinality": {
+      "maxProperties": 64
+    },
+    "category": "discovery",
+    "constraintType": "map",
+    "deterministic": true,
+    "keys": {
+      "maxLength": 128,
+      "minLength": 1,
+      "type": "string"
+    },
+    "originalRules": {
+      "ves.io.schema.rules.map.keys.string.max_len": "128",
+      "ves.io.schema.rules.map.keys.string.min_len": "1",
+      "ves.io.schema.rules.map.max_pairs": "64",
+      "ves.io.schema.rules.map.values.string.ipv4": "true"
+    },
+    "values": {
+      "format": "ipv4",
+      "type": "string"
     }
   },
   "x-f5xc-required-for": {
@@ -1244,13 +1313,28 @@ Receipt-pinned upstream constraints:
 ```json
 {
   "x-f5xc-constraints": {
-    "category": "general",
-    "constraintType": "object",
-    "maxProperties": 128,
-    "metadata": {
-      "confidence": 0.75,
-      "source": "inferred",
-      "validatedAt": "2026-10-03T05:10:26+00:00"
+    "cardinality": {
+      "maxProperties": 128
+    },
+    "category": "discovery",
+    "constraintType": "map",
+    "crossEntry": {
+      "uniqueValues": true
+    },
+    "deterministic": true,
+    "keys": {
+      "format": "mac-address",
+      "type": "string"
+    },
+    "originalRules": {
+      "ves.io.schema.rules.map.keys.string.mac": "true",
+      "ves.io.schema.rules.map.max_pairs": "128",
+      "ves.io.schema.rules.map.unique_values": "true",
+      "ves.io.schema.rules.map.values.string.ipv6": "true"
+    },
+    "values": {
+      "format": "ipv6",
+      "type": "string"
     }
   },
   "x-f5xc-required-for": {
@@ -1806,13 +1890,26 @@ Receipt-pinned upstream constraints:
 ```json
 {
   "x-f5xc-constraints": {
-    "category": "general",
-    "constraintType": "object",
-    "maxProperties": 64,
-    "metadata": {
-      "confidence": 0.75,
-      "source": "inferred",
-      "validatedAt": "2026-10-03T05:10:26+00:00"
+    "cardinality": {
+      "maxProperties": 64
+    },
+    "category": "discovery",
+    "constraintType": "map",
+    "deterministic": true,
+    "keys": {
+      "maxLength": 128,
+      "minLength": 1,
+      "type": "string"
+    },
+    "originalRules": {
+      "ves.io.schema.rules.map.keys.string.max_len": "128",
+      "ves.io.schema.rules.map.keys.string.min_len": "1",
+      "ves.io.schema.rules.map.max_pairs": "64",
+      "ves.io.schema.rules.map.values.string.ipv6": "true"
+    },
+    "values": {
+      "format": "ipv6",
+      "type": "string"
     }
   },
   "x-f5xc-required-for": {
@@ -2628,13 +2725,21 @@ Receipt-pinned upstream constraints:
 ```json
 {
   "x-f5xc-constraints": {
-    "category": "general",
-    "constraintType": "object",
-    "maxProperties": 128,
-    "metadata": {
-      "confidence": 0.75,
-      "source": "inferred",
-      "validatedAt": "2026-10-03T05:10:26+00:00"
+    "cardinality": {
+      "maxProperties": 128
+    },
+    "category": "discovery",
+    "constraintType": "map",
+    "deterministic": true,
+    "keys": {
+      "maxLength": 128,
+      "minLength": 1,
+      "type": "string"
+    },
+    "originalRules": {
+      "ves.io.schema.rules.map.keys.string.max_len": "128",
+      "ves.io.schema.rules.map.keys.string.min_len": "1",
+      "ves.io.schema.rules.map.max_pairs": "128"
     }
   },
   "x-f5xc-required-for": {
@@ -4409,282 +4514,3 @@ Receipt-pinned upstream constraints:
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
-
-<a id="canonical-1203211323220020-3000233012331131-3201122331200001-3213321102010021-0221102312203100-1102113110323320-0102033301230203-3111113301103122"></a>
-
-## dc_cluster_group_slo — dc_cluster_group_slo / 121323230232 / 2
-
-Breadcrumbs:
-
-- [xcsh_securemesh_site_v2](../data-sources/securemesh_site_v2.md#canonical-3033010310220323-3110311010223102-2010022012201213-2220103303200101-2000302233012310-3113200002022231-1123012300200020-0003333330101001)
-- [Property reference](data-sources--securemesh_site_v2--reference--group-001.md#canonical-1012223010032010-2203302200231202-3120001311232130-2102103100333033-3102211113031103-3332130330000122-0033200130112230-3010031233202002)
-- dc_cluster_group_slo
-
-<a id="canonical-0103221310033221-1330113231202302-2301212033233130-0330313032202310-0102133223211300-0100222030003132-0113312210212031-2313120102230310"></a>
-
-Type: `"single"`. Computed.
-
-\[OneOf: dc\_cluster\_group\_slo, no\_s2s\_connectivity\_slo, site\_mesh\_group\_on\_slo; Default:
-no\_s2s\_connectivity\_slo\] Type establishes a direct reference from one object(the referrer) to
-another(the referred). Such a reference is in form of tenant/namespace/name.
-
-Upstream description:
-
-This type establishes a direct reference from one object(the referrer) to another(the referred).
-Such a reference is in form of tenant/namespace/name.
-
-Receipt-pinned upstream constraints:
-
-```json
-{
-  "x-f5xc-required-for": {
-    "create": false,
-    "minimum_config": false,
-    "read": false,
-    "update": false
-  }
-}
-```
-
-OneOf alternatives in this subsection:
-
-- [dc_cluster_group_slo](data-sources--securemesh_site_v2--reference--group-006.md#canonical-0103221310033221-1330113231202302-2301212033233130-0330313032202310-0102133223211300-0100222030003132-0113312210212031-2313120102230310)
-- [no_s2s_connectivity_slo](data-sources--securemesh_site_v2--reference--group-012.md#canonical-0230110110333031-0311111112012121-3303032310321332-0313321023302122-1120302120112112-0333332102333221-3131131213021211-3102303131313322)
-- [site_mesh_group_on_slo](data-sources--securemesh_site_v2--reference--group-017.md#canonical-3221121221012221-1120312011123103-2232231111100313-0130001022010320-2112303310110222-0231322011230011-1013121213110102-1122313133201011)
-
-Select alternatives according to the provider validators above.
-
-<a id="canonical-1311303330121113-0200312203231203-3231102033321233-3313100101320332-0021210013022101-3200222333113300-1321013312210210-2323321121020120"></a>
-
-## Direct properties — dc_cluster_group_slo / 121323230232 / 3
-
-<a id="canonical-3223332032121222-1323130212021211-2321212030112331-0311103112330322-3103021230033113-0021111312033231-3023320012230112-2130321012102021"></a>
-
-<a id="canonical-3302122021020111-0031232213032211-3022201023103112-1201030130333220-3031203120322112-0220033122201322-0023311000220132-0212102302230130"></a>
-
-## name property — dc_cluster_group_slo / 121323230232 / 4
-
-Type: `"string"`. Computed.
-
-When a configuration object(e.g. Virtual\_host) refers to another(e.g route) then name will hold the
-referred object's(e.g. Route's) name.
-
-Upstream description:
-
-When a configuration object(e.g. Virtual\_host) refers to another(e.g route) then name will hold the
-referred object's(e.g. Route's) name.
-
-Receipt-pinned upstream constraints:
-
-```json
-{
-  "maxLength": 128,
-  "minLength": 1,
-  "x-f5xc-constraints": {
-    "byteLength": {
-      "max": 128,
-      "min": 1
-    },
-    "category": "discovery",
-    "constraintType": "string",
-    "deterministic": true,
-    "maxLength": 128,
-    "metadata": {
-      "confidence": 0.99,
-      "source": "discovery",
-      "validatedAt": "2026-10-03T05:10:26+00:00"
-    },
-    "minLength": 1
-  },
-  "x-f5xc-required-for": {
-    "create": true,
-    "minimum_config": true,
-    "read": false,
-    "update": false
-  },
-  "x-validation-rules": {
-    "ves.io.schema.rules.message.required": "true",
-    "ves.io.schema.rules.string.max_bytes": "128",
-    "ves.io.schema.rules.string.min_bytes": "1"
-  },
-  "x-ves-validation-rules": {
-    "ves.io.schema.rules.message.required": "true",
-    "ves.io.schema.rules.string.max_bytes": "128",
-    "ves.io.schema.rules.string.min_bytes": "1"
-  }
-}
-```
-
-<a id="canonical-1330223220022000-1300130111300020-3320201031022231-0313300313111303-0231001101013131-2311330322102323-2210330221210311-1133301003103022"></a>
-
-<a id="canonical-0312022303131121-2132321131312023-1300132312332332-0230200313203102-0230322302130133-3021113023203120-2103320123212310-2211122310133031"></a>
-
-## namespace property — dc_cluster_group_slo / 121323230232 / 5
-
-Type: `"string"`. Computed.
-
-When a configuration object(e.g. Virtual\_host) refers to another(e.g route) then namespace will
-hold the referred object's(e.g. Route's) namespace.
-
-Upstream description:
-
-When a configuration object(e.g. Virtual\_host) refers to another(e.g route) then namespace will
-hold the referred object's(e.g. Route's) namespace.
-
-Receipt-pinned upstream constraints:
-
-```json
-{
-  "maxLength": 64,
-  "x-f5xc-constraints": {
-    "byteLength": {
-      "max": 64
-    },
-    "category": "discovery",
-    "characterSet": {
-      "allowed": "[a-z0-9-]",
-      "description": "Lowercase letter start, alphanumeric with hyphens, alphanumeric end",
-      "required": "[a-z0-9]",
-      "restricted": "[^a-z0-9-]"
-    },
-    "constraintType": "string",
-    "deterministic": true,
-    "format": "dns-label",
-    "formatDescription": "DNS-1035 label: must start with a lowercase letter",
-    "maxLength": 63,
-    "metadata": {
-      "confidence": 0.99,
-      "source": "discovery",
-      "validatedAt": "2026-10-03T05:10:26+00:00"
-    },
-    "minLength": 1,
-    "pattern": "^[a-z]([-a-z0-9]*[a-z0-9])?$",
-    "validation": {
-      "rfc": "RFC 1035",
-      "standard": "DNS-1035 label (alpha-first)"
-    }
-  },
-  "x-f5xc-required-for": {
-    "create": false,
-    "minimum_config": false,
-    "read": false,
-    "update": false
-  },
-  "x-validation-rules": {
-    "ves.io.schema.rules.string.max_bytes": "64"
-  },
-  "x-ves-validation-rules": {
-    "ves.io.schema.rules.string.max_bytes": "64"
-  }
-}
-```
-
-<a id="canonical-1303032001130122-2220133301131130-1012331310102221-3002010221201221-3332121312200121-0010232120221133-3023100230113001-1231331102023110"></a>
-
-<a id="canonical-2212222220320200-2000033011211222-3031321013111113-2203032322132221-1213210331232313-3020333003213230-0101030231002210-2122301033132210"></a>
-
-## tenant property — dc_cluster_group_slo / 121323230232 / 6
-
-Type: `"string"`. Computed.
-
-When a configuration object(e.g. Virtual\_host) refers to another(e.g route) then tenant will hold
-the referred object's(e.g. Route's) tenant.
-
-Upstream description:
-
-When a configuration object(e.g. Virtual\_host) refers to another(e.g route) then tenant will hold
-the referred object's(e.g. Route's) tenant.
-
-Receipt-pinned upstream constraints:
-
-```json
-{
-  "maxLength": 64,
-  "x-f5xc-constraints": {
-    "byteLength": {
-      "max": 64
-    },
-    "category": "discovery",
-    "constraintType": "string",
-    "deterministic": true,
-    "maxLength": 64,
-    "metadata": {
-      "confidence": 0.99,
-      "source": "discovery",
-      "validatedAt": "2026-10-03T05:10:26+00:00"
-    }
-  },
-  "x-f5xc-required-for": {
-    "create": false,
-    "minimum_config": false,
-    "read": false,
-    "update": false
-  },
-  "x-validation-rules": {
-    "ves.io.schema.rules.string.max_bytes": "64"
-  },
-  "x-ves-validation-rules": {
-    "ves.io.schema.rules.string.max_bytes": "64"
-  }
-}
-```
-
-<a id="canonical-0221212103301010-0232211112212322-2122311231233123-0323022121330220-3013032001210202-0232000223021030-3300230222332003-0012121131032221"></a>
-
-## Next pages — dc_cluster_group_slo / 121323230232 / 7
-
-- [Property reference](data-sources--securemesh_site_v2--reference--group-001.md#canonical-1012223010032010-2203302200231202-3120001311232130-2102103100333033-3102211113031103-3332130330000122-0033200130112230-3010031233202002)
-- [xcsh_securemesh_site_v2](../data-sources/securemesh_site_v2.md#canonical-3033010310220323-3110311010223102-2010022012201213-2220103303200101-2000302233012310-3113200002022231-1123012300200020-0003333330101001)
-
-<a id="canonical-1213023230210130-1032003120132101-2201122000211032-0322111123031323-3030102122310010-0013322302230131-1332131200210210-3120002013301322"></a>
-
-<!-- Exact provider and upstream contract identifiers. -->
-
-<!-- textlint-disable terminology -->
-
-<a id="canonical-3230233133032330-0330202303020312-1201302233223003-2020122033311121-0210311310003310-1302132031302011-3210032223202301-2333031032113001"></a>
-
-## disable_advanced_delivery — disable_advanced_delivery / 111012011230 / 2
-
-Breadcrumbs:
-
-- [xcsh_securemesh_site_v2](../data-sources/securemesh_site_v2.md#canonical-3033010310220323-3110311010223102-2010022012201213-2220103303200101-2000302233012310-3113200002022231-1123012300200020-0003333330101001)
-- [Property reference](data-sources--securemesh_site_v2--reference--group-001.md#canonical-1012223010032010-2203302200231202-3120001311232130-2102103100333033-3102211113031103-3332130330000122-0033200130112230-3010031233202002)
-- disable_advanced_delivery
-
-<a id="canonical-1132310110230022-2231322032001322-1012331222112031-3223221033110121-3320001112213310-2001000300200131-2002200022032112-0111222120310232"></a>
-
-Type: `["object", {}]`. Computed.
-
-\[OneOf: disable\_advanced\_delivery, enable\_advanced\_delivery; Default:
-disable\_advanced\_delivery\] Configuration parameter for disable advanced delivery.
-
-Upstream description:
-
-This can be used for messages where no values are needed.
-
-Receipt-pinned upstream constraints:
-
-```json
-{
-  "x-f5xc-required-for": {
-    "create": false,
-    "minimum_config": false,
-    "read": false,
-    "update": false
-  }
-}
-```
-
-OneOf alternatives in this subsection:
-
-- [disable_advanced_delivery](data-sources--securemesh_site_v2--reference--group-006.md#canonical-1132310110230022-2231322032001322-1012331222112031-3223221033110121-3320001112213310-2001000300200131-2002200022032112-0111222120310232)
-- [enable_advanced_delivery](data-sources--securemesh_site_v2--reference--group-008.md#canonical-0302100130023223-1112231011201132-1131202132231123-0322331131231201-2233323032102301-2213102200202021-2001233313323223-3130333101201220)
-
-Select alternatives according to the provider validators above.
-
-<a id="canonical-3110323322030221-3121102030221330-1301123221103332-1102000033033303-3131330200003121-2303302120012320-2002230231103332-3301101222103221"></a>
-
-## Direct properties — disable_advanced_delivery / 111012011230 / 3
-
-This is an empty object or choice marker. It has no direct properties.

@@ -6,6 +6,19 @@ description: "Complete grouped canonical reference for xcsh_aws_vpc_site referen
 
 # xcsh_aws_vpc_site reference
 
+<a id="canonical-3331100012023011-2211301300303230-0203231300222010-0222210302300323-1331332111220311-0301001012022311-1021012312120203-3200230001300311"></a>
+
+## Next pages — SSH / 222002301231 / 4
+
+- [blocked_services.blocked_service](resources--aws_vpc_site--reference--group-001.md#canonical-0102322030032221-1312020110103322-0312312320331312-2323203222312233-3130330322220220-3322320221222010-0311102231203132-2213033023012032)
+- [xcsh_aws_vpc_site](../resources/aws_vpc_site.md#canonical-1121120120112313-2031303113302001-3322310321202321-3023211110122101-0112222301201113-1120203320333230-0020311023113132-2302133101311311)
+
+<a id="canonical-2330332230332100-3130113332112023-3212301120231310-3232122113032212-3112320213102031-1021333200300212-3103201330330331-0222211030023223"></a>
+
+<!-- Exact provider and upstream contract identifiers. -->
+
+<!-- textlint-disable terminology -->
+
 <a id="canonical-3121313111230200-2320033110320033-2102332223122100-0330231311203321-0011311232331231-1001303121301113-1201023100223201-0123121312212012"></a>
 
 ## blocked_services.blocked_service.web_user_interface — web_user_interface / 132012210121 / 2
@@ -6125,68 +6138,3 @@ global_vn {
 ## Direct properties — global_vn / 321213021022 / 3
 
 <a id="canonical-0113032030220201-3330010102331213-0100333200232011-1023100320120211-0033300021102303-3121103131213103-0203103111132210-2010233200332001"></a>
-
-<a id="canonical-1200202221222111-0231121031022132-0000122000031231-3011200311331201-2213001031220020-3133203222002101-3212232031322331-2120330003021130"></a>
-
-## name property — global_vn / 321213021022 / 4
-
-Type: `"string"`. Optional.
-
-When a configuration object(e.g. Virtual\_host) refers to another(e.g route) then name will hold the
-referred object's(e.g. Route's) name.
-
-Upstream description:
-
-When a configuration object(e.g. Virtual\_host) refers to another(e.g route) then name will hold the
-referred object's(e.g. Route's) name.
-
-Provider validators and defaults (from schema source):
-
-```go
-Validators: []validator.String{
-  stringvalidator.LengthBetween(1, 128),
-}
-```
-
-Receipt-pinned upstream constraints:
-
-```json
-{
-  "maxLength": 128,
-  "minLength": 1,
-  "x-f5xc-constraints": {
-    "byteLength": {
-      "max": 128,
-      "min": 1
-    },
-    "category": "discovery",
-    "constraintType": "string",
-    "deterministic": true,
-    "maxLength": 128,
-    "metadata": {
-      "confidence": 0.99,
-      "source": "discovery",
-      "validatedAt": "2026-10-03T05:10:26+00:00"
-    },
-    "minLength": 1
-  },
-  "x-f5xc-required-for": {
-    "create": true,
-    "minimum_config": true,
-    "read": false,
-    "update": false
-  },
-  "x-validation-rules": {
-    "ves.io.schema.rules.message.required": "true",
-    "ves.io.schema.rules.string.max_bytes": "128",
-    "ves.io.schema.rules.string.min_bytes": "1"
-  },
-  "x-ves-validation-rules": {
-    "ves.io.schema.rules.message.required": "true",
-    "ves.io.schema.rules.string.max_bytes": "128",
-    "ves.io.schema.rules.string.min_bytes": "1"
-  }
-}
-```
-
-<a id="canonical-2112103002012102-1131101103202123-3101103131102101-3213323223130321-2313100032312030-2030132113112331-2200100010210110-3202203230031302"></a>

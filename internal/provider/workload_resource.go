@@ -8482,6 +8482,7 @@ func (r *WorkloadResource) Schema(ctx context.Context, req resource.SchemaReques
 													MarkdownDescription: "Specifies a list of HTTP headers that should be added to each request that is sent to the health checked container. This is a list of key-value pairs.",
 													Optional:            true,
 													ElementType:         types.StringType,
+													Validators:          []validator.Map{validators.MapConstraintsValidator("{\"cardinality\":{\"maxProperties\":16},\"category\":\"discovery\",\"constraintType\":\"map\",\"deterministic\":true,\"keys\":{\"maxLength\":256,\"minLength\":1,\"type\":\"string\"},\"originalRules\":{\"ves.io.schema.rules.map.keys.string.max_len\":\"256\",\"ves.io.schema.rules.map.keys.string.min_len\":\"1\",\"ves.io.schema.rules.map.max_pairs\":\"16\",\"ves.io.schema.rules.map.values.string.max_len\":\"2048\",\"ves.io.schema.rules.map.values.string.min_len\":\"1\"},\"values\":{\"maxLength\":2048,\"minLength\":1,\"type\":\"string\"}}")},
 												},
 												"host_header": schema.StringAttribute{
 													MarkdownDescription: "The value of the host header in the HTTP health check request.",
@@ -8614,6 +8615,7 @@ func (r *WorkloadResource) Schema(ctx context.Context, req resource.SchemaReques
 													MarkdownDescription: "Specifies a list of HTTP headers that should be added to each request that is sent to the health checked container. This is a list of key-value pairs.",
 													Optional:            true,
 													ElementType:         types.StringType,
+													Validators:          []validator.Map{validators.MapConstraintsValidator("{\"cardinality\":{\"maxProperties\":16},\"category\":\"discovery\",\"constraintType\":\"map\",\"deterministic\":true,\"keys\":{\"maxLength\":256,\"minLength\":1,\"type\":\"string\"},\"originalRules\":{\"ves.io.schema.rules.map.keys.string.max_len\":\"256\",\"ves.io.schema.rules.map.keys.string.min_len\":\"1\",\"ves.io.schema.rules.map.max_pairs\":\"16\",\"ves.io.schema.rules.map.values.string.max_len\":\"2048\",\"ves.io.schema.rules.map.values.string.min_len\":\"1\"},\"values\":{\"maxLength\":2048,\"minLength\":1,\"type\":\"string\"}}")},
 												},
 												"host_header": schema.StringAttribute{
 													MarkdownDescription: "The value of the host header in the HTTP health check request.",
@@ -13926,6 +13928,7 @@ func (r *WorkloadResource) Schema(ctx context.Context, req resource.SchemaReques
 													MarkdownDescription: "Specifies a list of HTTP headers that should be added to each request that is sent to the health checked container. This is a list of key-value pairs.",
 													Optional:            true,
 													ElementType:         types.StringType,
+													Validators:          []validator.Map{validators.MapConstraintsValidator("{\"cardinality\":{\"maxProperties\":16},\"category\":\"discovery\",\"constraintType\":\"map\",\"deterministic\":true,\"keys\":{\"maxLength\":256,\"minLength\":1,\"type\":\"string\"},\"originalRules\":{\"ves.io.schema.rules.map.keys.string.max_len\":\"256\",\"ves.io.schema.rules.map.keys.string.min_len\":\"1\",\"ves.io.schema.rules.map.max_pairs\":\"16\",\"ves.io.schema.rules.map.values.string.max_len\":\"2048\",\"ves.io.schema.rules.map.values.string.min_len\":\"1\"},\"values\":{\"maxLength\":2048,\"minLength\":1,\"type\":\"string\"}}")},
 												},
 												"host_header": schema.StringAttribute{
 													MarkdownDescription: "The value of the host header in the HTTP health check request.",
@@ -14058,6 +14061,7 @@ func (r *WorkloadResource) Schema(ctx context.Context, req resource.SchemaReques
 													MarkdownDescription: "Specifies a list of HTTP headers that should be added to each request that is sent to the health checked container. This is a list of key-value pairs.",
 													Optional:            true,
 													ElementType:         types.StringType,
+													Validators:          []validator.Map{validators.MapConstraintsValidator("{\"cardinality\":{\"maxProperties\":16},\"category\":\"discovery\",\"constraintType\":\"map\",\"deterministic\":true,\"keys\":{\"maxLength\":256,\"minLength\":1,\"type\":\"string\"},\"originalRules\":{\"ves.io.schema.rules.map.keys.string.max_len\":\"256\",\"ves.io.schema.rules.map.keys.string.min_len\":\"1\",\"ves.io.schema.rules.map.max_pairs\":\"16\",\"ves.io.schema.rules.map.values.string.max_len\":\"2048\",\"ves.io.schema.rules.map.values.string.min_len\":\"1\"},\"values\":{\"maxLength\":2048,\"minLength\":1,\"type\":\"string\"}}")},
 												},
 												"host_header": schema.StringAttribute{
 													MarkdownDescription: "The value of the host header in the HTTP health check request.",
@@ -14778,6 +14782,7 @@ func (r *WorkloadResource) Schema(ctx context.Context, req resource.SchemaReques
 												MarkdownDescription: "Specifies a list of HTTP headers that should be added to each request that is sent to the health checked container. This is a list of key-value pairs.",
 												Optional:            true,
 												ElementType:         types.StringType,
+												Validators:          []validator.Map{validators.MapConstraintsValidator("{\"cardinality\":{\"maxProperties\":16},\"category\":\"discovery\",\"constraintType\":\"map\",\"deterministic\":true,\"keys\":{\"maxLength\":256,\"minLength\":1,\"type\":\"string\"},\"originalRules\":{\"ves.io.schema.rules.map.keys.string.max_len\":\"256\",\"ves.io.schema.rules.map.keys.string.min_len\":\"1\",\"ves.io.schema.rules.map.max_pairs\":\"16\",\"ves.io.schema.rules.map.values.string.max_len\":\"2048\",\"ves.io.schema.rules.map.values.string.min_len\":\"1\"},\"values\":{\"maxLength\":2048,\"minLength\":1,\"type\":\"string\"}}")},
 											},
 											"host_header": schema.StringAttribute{
 												MarkdownDescription: "The value of the host header in the HTTP health check request.",
@@ -14910,6 +14915,7 @@ func (r *WorkloadResource) Schema(ctx context.Context, req resource.SchemaReques
 												MarkdownDescription: "Specifies a list of HTTP headers that should be added to each request that is sent to the health checked container. This is a list of key-value pairs.",
 												Optional:            true,
 												ElementType:         types.StringType,
+												Validators:          []validator.Map{validators.MapConstraintsValidator("{\"cardinality\":{\"maxProperties\":16},\"category\":\"discovery\",\"constraintType\":\"map\",\"deterministic\":true,\"keys\":{\"maxLength\":256,\"minLength\":1,\"type\":\"string\"},\"originalRules\":{\"ves.io.schema.rules.map.keys.string.max_len\":\"256\",\"ves.io.schema.rules.map.keys.string.min_len\":\"1\",\"ves.io.schema.rules.map.max_pairs\":\"16\",\"ves.io.schema.rules.map.values.string.max_len\":\"2048\",\"ves.io.schema.rules.map.values.string.min_len\":\"1\"},\"values\":{\"maxLength\":2048,\"minLength\":1,\"type\":\"string\"}}")},
 											},
 											"host_header": schema.StringAttribute{
 												MarkdownDescription: "The value of the host header in the HTTP health check request.",
@@ -19981,6 +19987,7 @@ func (r *WorkloadResource) Schema(ctx context.Context, req resource.SchemaReques
 													MarkdownDescription: "Specifies a list of HTTP headers that should be added to each request that is sent to the health checked container. This is a list of key-value pairs.",
 													Optional:            true,
 													ElementType:         types.StringType,
+													Validators:          []validator.Map{validators.MapConstraintsValidator("{\"cardinality\":{\"maxProperties\":16},\"category\":\"discovery\",\"constraintType\":\"map\",\"deterministic\":true,\"keys\":{\"maxLength\":256,\"minLength\":1,\"type\":\"string\"},\"originalRules\":{\"ves.io.schema.rules.map.keys.string.max_len\":\"256\",\"ves.io.schema.rules.map.keys.string.min_len\":\"1\",\"ves.io.schema.rules.map.max_pairs\":\"16\",\"ves.io.schema.rules.map.values.string.max_len\":\"2048\",\"ves.io.schema.rules.map.values.string.min_len\":\"1\"},\"values\":{\"maxLength\":2048,\"minLength\":1,\"type\":\"string\"}}")},
 												},
 												"host_header": schema.StringAttribute{
 													MarkdownDescription: "The value of the host header in the HTTP health check request.",
@@ -20113,6 +20120,7 @@ func (r *WorkloadResource) Schema(ctx context.Context, req resource.SchemaReques
 													MarkdownDescription: "Specifies a list of HTTP headers that should be added to each request that is sent to the health checked container. This is a list of key-value pairs.",
 													Optional:            true,
 													ElementType:         types.StringType,
+													Validators:          []validator.Map{validators.MapConstraintsValidator("{\"cardinality\":{\"maxProperties\":16},\"category\":\"discovery\",\"constraintType\":\"map\",\"deterministic\":true,\"keys\":{\"maxLength\":256,\"minLength\":1,\"type\":\"string\"},\"originalRules\":{\"ves.io.schema.rules.map.keys.string.max_len\":\"256\",\"ves.io.schema.rules.map.keys.string.min_len\":\"1\",\"ves.io.schema.rules.map.max_pairs\":\"16\",\"ves.io.schema.rules.map.values.string.max_len\":\"2048\",\"ves.io.schema.rules.map.values.string.min_len\":\"1\"},\"values\":{\"maxLength\":2048,\"minLength\":1,\"type\":\"string\"}}")},
 												},
 												"host_header": schema.StringAttribute{
 													MarkdownDescription: "The value of the host header in the HTTP health check request.",

@@ -6,6 +6,35 @@ description: "Complete grouped canonical reference for xcsh_virtual_host referen
 
 # xcsh_virtual_host reference
 
+<a id="canonical-1233301121123112-2200210311322023-3333120002110300-0222212112133131-1033133011202311-1312000300321102-3120000130230022-0221202333000233"></a>
+
+## disabled property — buffer_policy / 300213133121 / 4
+
+Type: `"bool"`. Computed.
+
+Disable buffering for a particular route. This is useful when virtual-host has buffering, but we
+need to disable it on a specific route. The value of this field is ignored for virtual-host.
+
+Upstream description:
+
+Disable buffering for a particular route. This is useful when virtual-host has buffering, but we
+need to disable it on a specific route. The value of this field is ignored for virtual-host.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  }
+}
+```
+
+<a id="canonical-2232003130112123-0003030132220332-0213212130032112-2222133321201230-2203211023033210-0213023033300032-2032301333021201-0310321032100313"></a>
+
 <a id="canonical-1021020120233213-1010232000223231-2222010333103231-0110212300030122-1323303133131322-1301103110121000-0030230313000022-2013003013321200"></a>
 
 ## max_request_bytes property — buffer_policy / 300213133121 / 5
@@ -6286,37 +6315,3 @@ Receipt-pinned upstream constraints:
 ## Direct properties — blindfold_secret_info / 100101203321 / 3
 
 <a id="canonical-2321220203333331-1210133320202232-0003321312003130-3020101102233113-2330202230100231-2103013212232033-2220000302030330-1233011223003331"></a>
-
-<a id="canonical-0302032300303031-1232202202320323-2023323023012213-2010031113121203-1000021013303232-0303220201330000-1223302003231221-2001221221303000"></a>
-
-## decryption_provider property — blindfold_secret_info / 100101203321 / 4
-
-Type: `"string"`. Computed.
-
-Name of the Secret Management Access object that contains information about the backend Secret
-Management service.
-
-Receipt-pinned upstream constraints:
-
-```json
-{
-  "x-f5xc-constraints": {
-    "category": "general",
-    "constraintType": "string",
-    "maxLength": 1024,
-    "metadata": {
-      "confidence": 0.85,
-      "source": "inferred",
-      "validatedAt": "2026-10-03T05:10:26+00:00"
-    }
-  },
-  "x-f5xc-required-for": {
-    "create": false,
-    "minimum_config": false,
-    "read": false,
-    "update": false
-  }
-}
-```
-
-<a id="canonical-3000332200020302-1200112232231112-2111231332323331-0213223100200310-0203001300120302-2032202130030311-1201102110132112-1032123023322310"></a>

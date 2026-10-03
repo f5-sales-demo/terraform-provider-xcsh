@@ -6,6 +6,109 @@ description: "Complete grouped canonical reference for xcsh_gcp_vpc_site referen
 
 # xcsh_gcp_vpc_site reference
 
+<a id="canonical-0201320000120003-2111332102311321-0123210232102003-1002301011201213-3212322211321032-3123311332102101-2223030112012321-2022331311313313"></a>
+
+## sw — sw / 010030032222 / 2
+
+Breadcrumbs:
+
+- [xcsh_gcp_vpc_site](../data-sources/gcp_vpc_site.md#canonical-1132222133321101-1232102200201102-2111112102132122-0010023221133123-2333213300031302-1001011022311003-3121103220313010-2103321200303202)
+- [Property reference](data-sources--gcp_vpc_site--reference--group-001.md#canonical-0023231003100101-1010210121112300-0303103132302303-0331000323201313-3003311210331022-3000312312212303-0030202320102022-1232013113103201)
+- sw
+
+<a id="canonical-0231010130132301-3230223211201230-1131212221130330-0011311122031022-0120120303021111-2220120011022310-1011103233320012-0330322321331211"></a>
+
+Type: `"single"`. Computed.
+
+Select the F5XC Software Version for the site. By default, latest available F5XC Software Version
+will be used. Refer to release notes to find required released SW versions.
+
+Upstream description:
+
+Select the F5XC Software Version for the site. By default, latest available F5XC Software Version
+will be used. Refer to release notes to find required released SW versions.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  },
+  "x-ves-oneof-field-volterra_sw_version_choice": "[\"default_sw_version\",\"volterra_software_version\"]"
+}
+```
+
+<a id="canonical-2102233013011312-1333230002031202-1032323022130212-0220113132221013-2133033011121302-2330233320131132-1100221133301323-1133313311201321"></a>
+
+## Direct properties — sw / 010030032222 / 3
+
+- [default_sw_version](data-sources--gcp_vpc_site--reference--group-004.md#canonical-1322011031102300-0311310231323110-0003101121031322-1232120201210313-0002212110100210-0321322213120221-0102113210230112-0232021232123020): complete subsection reference.
+
+<a id="canonical-2203231232232023-1203321030310030-3103210020103020-3322022212330113-2223202122100212-2231102012032012-0203011100131001-1022200312222002"></a>
+
+<a id="canonical-3003111132102100-2003212110110020-0021313311120232-2312211131123023-2303111210003311-3132321103310100-0212311302111110-1112013313032310"></a>
+
+## volterra_software_version property — sw / 010030032222 / 4
+
+Type: `"string"`. Computed.
+
+Exclusive with \[default\_sw\_version\] Specify a F5XC Software Version to be used e.g.
+Crt-20210329-1002.
+
+Upstream description:
+
+Exclusive with \[default\_sw\_version\] Specify a F5XC Software Version to be used e.g.
+Crt-20210329-1002.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "maxLength": 20,
+  "x-f5xc-constraints": {
+    "category": "discovery",
+    "constraintType": "string",
+    "deterministic": true,
+    "maxLength": 20,
+    "metadata": {
+      "confidence": 0.99,
+      "source": "discovery",
+      "validatedAt": "2026-10-03T05:10:26+00:00"
+    }
+  },
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  },
+  "x-validation-rules": {
+    "ves.io.schema.rules.string.max_len": "20"
+  },
+  "x-ves-validation-rules": {
+    "ves.io.schema.rules.string.max_len": "20"
+  }
+}
+```
+
+<a id="canonical-1312233100231301-2012012133013203-3210202011120123-3300222310321211-2010112122332323-3010122220110133-2123332002310223-2111332030313320"></a>
+
+## Next pages — sw / 010030032222 / 5
+
+- [sw.default_sw_version](data-sources--gcp_vpc_site--reference--group-004.md#canonical-1322011031102300-0311310231323110-0003101121031322-1232120201210313-0002212110100210-0321322213120221-0102113210230112-0232021232123020)
+- [Property reference](data-sources--gcp_vpc_site--reference--group-001.md#canonical-0023231003100101-1010210121112300-0303103132302303-0331000323201313-3003311210331022-3000312312212303-0030202320102022-1232013113103201)
+- [xcsh_gcp_vpc_site](../data-sources/gcp_vpc_site.md#canonical-1132222133321101-1232102200201102-2111112102132122-0010023221133123-2333213300031302-1001011022311003-3121103220313010-2103321200303202)
+
+<a id="canonical-1322011031102300-0311310231323110-0003101121031322-1232120201210313-0002212110100210-0321322213120221-0102113210230112-0232021232123020"></a>
+
+<!-- Exact provider and upstream contract identifiers. -->
+
+<!-- textlint-disable terminology -->
+
 <a id="canonical-0113130013311013-3111132033323120-2313100231130121-1321333020110332-1223002010033030-1022321300112011-2302320321313031-0230110033311012"></a>
 
 ## sw.default_sw_version — default_sw_version / 112322102302 / 2
@@ -5290,53 +5393,3 @@ Receipt-pinned upstream constraints:
 
 - [voltstack_cluster.storage_class_list](data-sources--gcp_vpc_site--reference--group-004.md#canonical-1012101330320212-0113133033002223-0210301022311211-3232000103330311-1233032112203232-2330201133011321-3021003023300101-0302002201010202)
 - [xcsh_gcp_vpc_site](../data-sources/gcp_vpc_site.md#canonical-1132222133321101-1232102200201102-2111112102132122-0010023221133123-2333213300031302-1001011022311003-3121103220313010-2103321200303202)
-
-<a id="canonical-0012012033031300-2110002220223133-3303202210233302-1331310110333111-3031100320201031-2130003013122113-0123330322110322-1011031331030122"></a>
-
-<!-- Exact provider and upstream contract identifiers. -->
-
-<!-- textlint-disable terminology -->
-
-<a id="canonical-3211133312322012-3030032121222311-0211002320312030-1323133230030233-2113301103101212-1313221022230321-1230313020113202-0221213202101113"></a>
-
-## waf_signatures — waf_signatures / 300231301202 / 2
-
-Breadcrumbs:
-
-- [xcsh_gcp_vpc_site](../data-sources/gcp_vpc_site.md#canonical-1132222133321101-1232102200201102-2111112102132122-0010023221133123-2333213300031302-1001011022311003-3121103220313010-2103321200303202)
-- [Property reference](data-sources--gcp_vpc_site--reference--group-001.md#canonical-0023231003100101-1010210121112300-0303103132302303-0331000323201313-3003311210331022-3000312312212303-0030202320102022-1232013113103201)
-- waf_signatures
-
-<a id="canonical-1332200232203221-0021133013311332-0302302031310200-2231200203011332-2120020021102201-1320223013002030-1302022313101313-3023333000322303"></a>
-
-Type: `"single"`. Computed.
-
-Select F5XC WAF Signatures update mode for the site. By default, new signatures will be applied
-manually. Refer to release notes for details about available Signatures update modes.
-
-Upstream description:
-
-Select F5XC WAF Signatures update mode for the site. By default, new signatures will be applied
-manually. Refer to release notes for details about available Signatures update modes.
-
-Receipt-pinned upstream constraints:
-
-```json
-{
-  "x-f5xc-required-for": {
-    "create": false,
-    "minimum_config": false,
-    "read": false,
-    "update": false
-  },
-  "x-ves-oneof-field-signatures_update_mode_choice": "[\"automatic\",\"manual\"]"
-}
-```
-
-<a id="canonical-2120100002313133-1110323023322312-1313231121333200-1312031130121111-2322102112010020-3230111001210030-3003011212301102-2000003202030113"></a>
-
-## Direct properties — waf_signatures / 300231301202 / 3
-
-- [automatic](data-sources--gcp_vpc_site--reference--group-005.md#canonical-3012131100333201-3301022220101113-3012012101203300-0222233012233232-1202011133021130-0221332122021222-1020333131132330-3001022302300313): complete subsection reference.
-
-- [manual](data-sources--gcp_vpc_site--reference--group-005.md#canonical-2311002210233302-2000230013003002-0011322313223130-3000201010223131-2131202222330002-2203313301312212-1331301201211030-3032002311031301): complete subsection reference.

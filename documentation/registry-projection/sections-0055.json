@@ -1942,7 +1942,7 @@
       "section_id": "xcsh-docs:resources:protected_application:properties:cloudfront:aws_configuration_tag_selector:section:0",
       "source_sha256": "sha256:197d41522a9dd286cb9805a03d8a5bd782cc3f3fd95ea854bf2dfc326e83e50c",
       "source_bytes": 99,
-      "canonical_source_sha256": "sha256:25ec1be1371915aeeeacf657f1c58f0639783a7d7c7636d7761eb0c13d4a2850",
+      "canonical_source_sha256": "sha256:39680dd453a0b9675f027a3e0db6e40a28373034280cb3d8d74f33e2d8393226",
       "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/resources/protected_application/properties/cloudfront/aws_configuration_tag_selector/",
       "anchor": "canonical-2301003033010132-2011002322022103-1032023300113333-3203030110102133-1233003321210103-1010302203112203-1332321303311222-0210232022202322",
       "anchor_map": [],
@@ -1954,7 +1954,7 @@
       "section_id": "xcsh-docs:resources:protected_application:properties:cloudfront:aws_configuration_tag_selector:section:1",
       "source_sha256": "sha256:7155ffe5e65b7a86b021198d088115cf66843241d2733f9f0d653e614c93d151",
       "source_bytes": 1100,
-      "canonical_source_sha256": "sha256:25ec1be1371915aeeeacf657f1c58f0639783a7d7c7636d7761eb0c13d4a2850",
+      "canonical_source_sha256": "sha256:39680dd453a0b9675f027a3e0db6e40a28373034280cb3d8d74f33e2d8393226",
       "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/resources/protected_application/properties/cloudfront/aws_configuration_tag_selector/",
       "anchor": "canonical-2013130111331212-3311012232100021-1021301022032202-0132133133120130-1113322303132123-1133210112323203-0131223000033313-0222131032113201",
       "anchor_map": [
@@ -1971,7 +1971,7 @@
       "section_id": "xcsh-docs:resources:protected_application:properties:cloudfront:aws_configuration_tag_selector:section:2",
       "source_sha256": "sha256:5ce5147c64bfec39a630b7b78d8e32b50191ce0b033c5a098efb41a7c029edef",
       "source_bytes": 92,
-      "canonical_source_sha256": "sha256:25ec1be1371915aeeeacf657f1c58f0639783a7d7c7636d7761eb0c13d4a2850",
+      "canonical_source_sha256": "sha256:39680dd453a0b9675f027a3e0db6e40a28373034280cb3d8d74f33e2d8393226",
       "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/resources/protected_application/properties/cloudfront/aws_configuration_tag_selector/",
       "anchor": "canonical-1200110110312201-2213113303201320-1213001203203332-2330300201230110-3322122022330200-0113102002022031-1001020323200323-0230123221003203",
       "anchor_map": [
@@ -1986,9 +1986,9 @@
     {
       "canonical_id": "xcsh-docs:resources:protected_application:properties:cloudfront:aws_configuration_tag_selector",
       "section_id": "xcsh-docs:resources:protected_application:properties:cloudfront:aws_configuration_tag_selector:section:3",
-      "source_sha256": "sha256:65ce414f2eb2d3f5bbb264785d27dd2fea96e3368619acbdc275acddb7f2e8ca",
-      "source_bytes": 1713,
-      "canonical_source_sha256": "sha256:25ec1be1371915aeeeacf657f1c58f0639783a7d7c7636d7761eb0c13d4a2850",
+      "source_sha256": "sha256:769b301b18ce75c43d20b5ae8fc683d824d1d6657c0d3bad301045e336cdbd25",
+      "source_bytes": 3087,
+      "canonical_source_sha256": "sha256:39680dd453a0b9675f027a3e0db6e40a28373034280cb3d8d74f33e2d8393226",
       "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/resources/protected_application/properties/cloudfront/aws_configuration_tag_selector/",
       "anchor": "canonical-0031112333131032-0311203322112231-0221012233020000-1222322301020233-3230220321132010-3120003222221102-3311103202133121-3021013300313322",
       "anchor_map": [],
@@ -2000,7 +2000,7 @@
       "section_id": "xcsh-docs:resources:protected_application:properties:cloudfront:aws_configuration_tag_selector:section:4",
       "source_sha256": "sha256:3798b6a57da8bda8d6a73242ab1fb0d4e07263e85da612f8c02eab3f94827031",
       "source_bytes": 263,
-      "canonical_source_sha256": "sha256:25ec1be1371915aeeeacf657f1c58f0639783a7d7c7636d7761eb0c13d4a2850",
+      "canonical_source_sha256": "sha256:39680dd453a0b9675f027a3e0db6e40a28373034280cb3d8d74f33e2d8393226",
       "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/resources/protected_application/properties/cloudfront/aws_configuration_tag_selector/",
       "anchor": "canonical-2211233002220123-1000232002121313-1000012121233002-0310103331121332-0120033332032001-0110212010300111-1133132313302212-3111301002203220",
       "anchor_map": [],
@@ -2959,7 +2959,7 @@
         ]
       ],
       "mode": "embedded",
-      "registry_path": "docs/guides/resources--protected_application--reference--group-002.md"
+      "registry_path": "docs/guides/resources--protected_application--reference--group-003.md"
     },
     {
       "canonical_id": "xcsh-docs:resources:protected_application:properties:cloudfront:js_insertion_rules:rules:metadata",
@@ -2976,7 +2976,7 @@
         ]
       ],
       "mode": "embedded",
-      "registry_path": "docs/guides/resources--protected_application--reference--group-002.md"
+      "registry_path": "docs/guides/resources--protected_application--reference--group-003.md"
     },
     {
       "canonical_id": "xcsh-docs:resources:protected_application:properties:cloudfront:js_insertion_rules:rules:metadata",
@@ -2993,7 +2993,7 @@
         ]
       ],
       "mode": "embedded",
-      "registry_path": "docs/guides/resources--protected_application--reference--group-002.md"
+      "registry_path": "docs/guides/resources--protected_application--reference--group-003.md"
     },
     {
       "canonical_id": "xcsh-docs:resources:protected_application:properties:cloudfront:js_insertion_rules:rules:metadata",
@@ -5732,7 +5732,7 @@
       "anchor": "canonical-1231101310221233-3111330022000232-2231213132203010-3331021101020030-3332000222301323-2111212113231310-1133333321200301-2310313221100211",
       "anchor_map": [],
       "mode": "embedded",
-      "registry_path": "docs/guides/resources--protected_application--reference--group-003.md"
+      "registry_path": "docs/guides/resources--protected_application--reference--group-004.md"
     },
     {
       "canonical_id": "xcsh-docs:resources:protected_application:properties:cloudfront:protected_endpoints:flow_label:shopping_gift_cards:shop_promo_code_validation",
@@ -5744,7 +5744,7 @@
       "anchor": "canonical-1110321313323331-3230223231120323-3203210133333133-0331130312222103-0223331103110032-2323211121021213-0012033201001310-3301120231001012",
       "anchor_map": [],
       "mode": "embedded",
-      "registry_path": "docs/guides/resources--protected_application--reference--group-003.md"
+      "registry_path": "docs/guides/resources--protected_application--reference--group-004.md"
     },
     {
       "canonical_id": "xcsh-docs:resources:protected_application:properties:cloudfront:protected_endpoints:flow_label:shopping_gift_cards:shop_purchase_gift_card",
@@ -5756,7 +5756,7 @@
       "anchor": "canonical-0023110333210212-1012020102233112-1311311023032233-2020213001333003-2030012213031301-3203002203030133-1001311010222330-0302110102302201",
       "anchor_map": [],
       "mode": "embedded",
-      "registry_path": "docs/guides/resources--protected_application--reference--group-003.md"
+      "registry_path": "docs/guides/resources--protected_application--reference--group-004.md"
     },
     {
       "canonical_id": "xcsh-docs:resources:protected_application:properties:cloudfront:protected_endpoints:flow_label:shopping_gift_cards:shop_purchase_gift_card",

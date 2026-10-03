@@ -6,6 +6,51 @@ description: "Complete grouped canonical reference for xcsh_proxy reference."
 
 # xcsh_proxy reference
 
+<a id="canonical-1332031231130303-0311220330311130-1212332032113200-3011133311332302-2223131323121212-1121230212233233-2300300223213032-1120221302300111"></a>
+
+## site_local_network — site_local_network / 023111302111 / 2
+
+Breadcrumbs:
+
+- [xcsh_proxy](../resources/proxy.md#canonical-0132300111013030-3233132200202310-2233332113220102-2031222100321320-0203021302013323-3111102110130123-3333011301331210-2310111332313332)
+- [Property reference](resources--proxy--reference--group-001.md#canonical-1332312330112202-0302233320331232-2000013322011121-0003103202230221-3121132031010303-2222021012203301-0203131033201011-3322301300211003)
+- site_local_network
+
+<a id="canonical-3220322333321001-2032010012232201-0231323320030211-1123130120121020-2021030112012033-2213000303013330-0001000213111211-3213131133222023"></a>
+
+Type: `["object", {}]`. Optional.
+
+Enable this option
+
+Upstream description:
+
+This can be used for messages where no values are needed.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  }
+}
+```
+
+Terraform syntax:
+
+```terraform
+site_local_network = {}
+```
+
+<a id="canonical-2031233300100002-3003232313011130-1311211103133010-2332230320200012-1012333020123233-3020312120333103-1310022203112331-1201021300012300"></a>
+
+## Direct properties — site_local_network / 023111302111 / 3
+
+This is an empty object or choice marker. It has no direct properties.
+
 <a id="canonical-0132300030132321-2203101323301222-1020033031122021-1333132213110120-3001233330013223-1211033230000233-2212103020332222-2301331132121311"></a>
 
 ## Next pages — site_local_network / 023111302111 / 4

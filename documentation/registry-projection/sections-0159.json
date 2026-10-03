@@ -3095,7 +3095,7 @@
       "section_id": "xcsh-docs:data-sources:proxy:properties:http_proxy:more_option:section:0",
       "source_sha256": "sha256:197d41522a9dd286cb9805a03d8a5bd782cc3f3fd95ea854bf2dfc326e83e50c",
       "source_bytes": 99,
-      "canonical_source_sha256": "sha256:3b3b456dd2e34f1988262925907b88f3ea3ac75fb27164f4b5b5de59773e6574",
+      "canonical_source_sha256": "sha256:c1106e967ee695132a20eff5112b9ef1322f0eada0a7e659b85295df0df8de53",
       "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/proxy/properties/http_proxy/more_option/",
       "anchor": "canonical-0021103321131333-0122023312212232-0212301101302001-0322110000213333-0001213120113031-1332312213132223-3321030310223032-3321120122023233",
       "anchor_map": [],
@@ -3107,7 +3107,7 @@
       "section_id": "xcsh-docs:data-sources:proxy:properties:http_proxy:more_option:section:1",
       "source_sha256": "sha256:303ba83a35018bffe9ff94ad55a8a935fab3d84cbdc0a2203e5e3d376722f110",
       "source_bytes": 1024,
-      "canonical_source_sha256": "sha256:3b3b456dd2e34f1988262925907b88f3ea3ac75fb27164f4b5b5de59773e6574",
+      "canonical_source_sha256": "sha256:c1106e967ee695132a20eff5112b9ef1322f0eada0a7e659b85295df0df8de53",
       "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/proxy/properties/http_proxy/more_option/",
       "anchor": "canonical-0133003301013001-1220212321303012-3131222131030202-0221021033120313-2030130020302131-1123310100230002-1110113212310003-0001102303322222",
       "anchor_map": [
@@ -3124,7 +3124,7 @@
       "section_id": "xcsh-docs:data-sources:proxy:properties:http_proxy:more_option:section:2",
       "source_sha256": "sha256:6981d3755546b8ba6f021f912e9a5a357bce51efe4f8db1b1d8805e6c5f02e6b",
       "source_bytes": 444,
-      "canonical_source_sha256": "sha256:3b3b456dd2e34f1988262925907b88f3ea3ac75fb27164f4b5b5de59773e6574",
+      "canonical_source_sha256": "sha256:c1106e967ee695132a20eff5112b9ef1322f0eada0a7e659b85295df0df8de53",
       "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/proxy/properties/http_proxy/more_option/",
       "anchor": "canonical-1133331001113321-1302110121011231-0333322200222123-2302101302200231-2003222132032220-1022133212002032-1112111103203122-2330113333333131",
       "anchor_map": [
@@ -3139,9 +3139,9 @@
     {
       "canonical_id": "xcsh-docs:data-sources:proxy:properties:http_proxy:more_option",
       "section_id": "xcsh-docs:data-sources:proxy:properties:http_proxy:more_option:section:3",
-      "source_sha256": "sha256:2e9a0708a5d0d9052483ad57237671e9c4d5d6fd3de5191b2111cd48a15052c4",
-      "source_bytes": 1933,
-      "canonical_source_sha256": "sha256:3b3b456dd2e34f1988262925907b88f3ea3ac75fb27164f4b5b5de59773e6574",
+      "source_sha256": "sha256:744e7e526e31db151aff1cc01e28157f67d00096eb65f5680607a387788a7554",
+      "source_bytes": 2504,
+      "canonical_source_sha256": "sha256:c1106e967ee695132a20eff5112b9ef1322f0eada0a7e659b85295df0df8de53",
       "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/proxy/properties/http_proxy/more_option/",
       "anchor": "canonical-0301033302001213-0233221001311333-1232133101003212-0301120112020231-1102322331123013-2213012030103121-0123001013300333-0032322120120021",
       "anchor_map": [
@@ -3158,7 +3158,7 @@
       "section_id": "xcsh-docs:data-sources:proxy:properties:http_proxy:more_option:section:4",
       "source_sha256": "sha256:7af5c0fb680d60126d8f048df557f06555cee17ba375f0754717de44923340fc",
       "source_bytes": 735,
-      "canonical_source_sha256": "sha256:3b3b456dd2e34f1988262925907b88f3ea3ac75fb27164f4b5b5de59773e6574",
+      "canonical_source_sha256": "sha256:c1106e967ee695132a20eff5112b9ef1322f0eada0a7e659b85295df0df8de53",
       "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/proxy/properties/http_proxy/more_option/",
       "anchor": "canonical-1100220233011020-1320103230303120-0320333012131232-0131301312030131-0101313210021102-0030320313101221-3032113202100320-2112210202002313",
       "anchor_map": [
@@ -3175,7 +3175,7 @@
       "section_id": "xcsh-docs:data-sources:proxy:properties:http_proxy:more_option:section:5",
       "source_sha256": "sha256:043d45414f252fc6d36bee50ee8b317c6e93b06ce9a9b833611d5721ca7bffb1",
       "source_bytes": 1264,
-      "canonical_source_sha256": "sha256:3b3b456dd2e34f1988262925907b88f3ea3ac75fb27164f4b5b5de59773e6574",
+      "canonical_source_sha256": "sha256:c1106e967ee695132a20eff5112b9ef1322f0eada0a7e659b85295df0df8de53",
       "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/proxy/properties/http_proxy/more_option/",
       "anchor": "canonical-2203230210230330-2212023322010120-1130332231212130-0301133101130321-1131222232002133-0330211320021332-0212233332312133-1003012323303313",
       "anchor_map": [
@@ -3192,7 +3192,7 @@
       "section_id": "xcsh-docs:data-sources:proxy:properties:http_proxy:more_option:section:6",
       "source_sha256": "sha256:20d058d7f75920d22a971e81c1416376b7bd0c734740672277241740588f3cfe",
       "source_bytes": 1397,
-      "canonical_source_sha256": "sha256:3b3b456dd2e34f1988262925907b88f3ea3ac75fb27164f4b5b5de59773e6574",
+      "canonical_source_sha256": "sha256:c1106e967ee695132a20eff5112b9ef1322f0eada0a7e659b85295df0df8de53",
       "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/proxy/properties/http_proxy/more_option/",
       "anchor": "canonical-3003301031012020-1132121332230012-3020201132112223-2212013003300120-3330131021303210-2200031021302223-2102322002122323-0013300332123313",
       "anchor_map": [
@@ -3209,7 +3209,7 @@
       "section_id": "xcsh-docs:data-sources:proxy:properties:http_proxy:more_option:section:7",
       "source_sha256": "sha256:5541726b776f4222acc3b42552db2b26e06edf67221daadc07644ced488b33bc",
       "source_bytes": 1605,
-      "canonical_source_sha256": "sha256:3b3b456dd2e34f1988262925907b88f3ea3ac75fb27164f4b5b5de59773e6574",
+      "canonical_source_sha256": "sha256:c1106e967ee695132a20eff5112b9ef1322f0eada0a7e659b85295df0df8de53",
       "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/proxy/properties/http_proxy/more_option/",
       "anchor": "canonical-2200230113101332-0311303121101030-3231331310310312-3120212322020312-0300112111332002-3331020101333230-3133031123211120-1103202123131123",
       "anchor_map": [
@@ -3226,7 +3226,7 @@
       "section_id": "xcsh-docs:data-sources:proxy:properties:http_proxy:more_option:section:8",
       "source_sha256": "sha256:a57c6c945d4e3bd19f678193ba3c3b897003f17e2224b8dd4198a684715dab0b",
       "source_bytes": 1449,
-      "canonical_source_sha256": "sha256:3b3b456dd2e34f1988262925907b88f3ea3ac75fb27164f4b5b5de59773e6574",
+      "canonical_source_sha256": "sha256:c1106e967ee695132a20eff5112b9ef1322f0eada0a7e659b85295df0df8de53",
       "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/proxy/properties/http_proxy/more_option/",
       "anchor": "canonical-3230120311122311-0213323132222012-1012332022101131-2230300122111133-1100102002220110-3300203232110010-1332303012123203-0200030031103030",
       "anchor_map": [
@@ -3243,7 +3243,7 @@
       "section_id": "xcsh-docs:data-sources:proxy:properties:http_proxy:more_option:section:9",
       "source_sha256": "sha256:241fd32f067130c21c456f454f08c4eea84d1add73af50d9031218c84a16a0ab",
       "source_bytes": 1452,
-      "canonical_source_sha256": "sha256:3b3b456dd2e34f1988262925907b88f3ea3ac75fb27164f4b5b5de59773e6574",
+      "canonical_source_sha256": "sha256:c1106e967ee695132a20eff5112b9ef1322f0eada0a7e659b85295df0df8de53",
       "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/proxy/properties/http_proxy/more_option/",
       "anchor": "canonical-2121000022231221-3303120312001300-0101311111110331-2130232112223122-3012330001122002-0020010100001010-2210303102023031-1301120031100111",
       "anchor_map": [
@@ -3260,7 +3260,7 @@
       "section_id": "xcsh-docs:data-sources:proxy:properties:http_proxy:more_option:section:10",
       "source_sha256": "sha256:40d8ccfe59b15eaafaf3db617ed7083e549d2aa1c361a2db29727f942d8c5270",
       "source_bytes": 1498,
-      "canonical_source_sha256": "sha256:3b3b456dd2e34f1988262925907b88f3ea3ac75fb27164f4b5b5de59773e6574",
+      "canonical_source_sha256": "sha256:c1106e967ee695132a20eff5112b9ef1322f0eada0a7e659b85295df0df8de53",
       "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/proxy/properties/http_proxy/more_option/",
       "anchor": "canonical-2033120121200023-0232233301201003-2103031111232202-0310112323232332-1310131323303131-1032010210010001-1202002010321231-2312020232120232",
       "anchor_map": [
@@ -3277,7 +3277,7 @@
       "section_id": "xcsh-docs:data-sources:proxy:properties:http_proxy:more_option:section:11",
       "source_sha256": "sha256:bc646fba81ef08a46ab65b5efa89be023898f97775da4e1bb2e3419e23987330",
       "source_bytes": 1187,
-      "canonical_source_sha256": "sha256:3b3b456dd2e34f1988262925907b88f3ea3ac75fb27164f4b5b5de59773e6574",
+      "canonical_source_sha256": "sha256:c1106e967ee695132a20eff5112b9ef1322f0eada0a7e659b85295df0df8de53",
       "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/proxy/properties/http_proxy/more_option/",
       "anchor": "canonical-0001301321030103-2220222100323330-0030032203003101-0012101133320232-0000210321023021-2210223000212303-0120112333133010-0003213211310231",
       "anchor_map": [],
@@ -3289,7 +3289,7 @@
       "section_id": "xcsh-docs:data-sources:proxy:properties:http_proxy:more_option:section:12",
       "source_sha256": "sha256:7fe5e63f52c26a498a18f04d276b955820c7245826044628663198fbedd7b0a5",
       "source_bytes": 1871,
-      "canonical_source_sha256": "sha256:3b3b456dd2e34f1988262925907b88f3ea3ac75fb27164f4b5b5de59773e6574",
+      "canonical_source_sha256": "sha256:c1106e967ee695132a20eff5112b9ef1322f0eada0a7e659b85295df0df8de53",
       "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/data-sources/proxy/properties/http_proxy/more_option/",
       "anchor": "canonical-1201031132310323-3131313200211003-1110201003321122-1332313211203020-0033111330002201-2110223110211030-0313110132333012-0223222132122011",
       "anchor_map": [],
@@ -6524,7 +6524,7 @@
         ]
       ],
       "mode": "embedded",
-      "registry_path": "docs/guides/data-sources--proxy--reference--group-004.md"
+      "registry_path": "docs/guides/data-sources--proxy--reference--group-005.md"
     },
     {
       "canonical_id": "xcsh-docs:data-sources:proxy:properties:site_virtual_sites:advertise_where:virtual_site",
@@ -6541,7 +6541,7 @@
         ]
       ],
       "mode": "embedded",
-      "registry_path": "docs/guides/data-sources--proxy--reference--group-004.md"
+      "registry_path": "docs/guides/data-sources--proxy--reference--group-005.md"
     },
     {
       "canonical_id": "xcsh-docs:data-sources:proxy:properties:site_virtual_sites:advertise_where:virtual_site",

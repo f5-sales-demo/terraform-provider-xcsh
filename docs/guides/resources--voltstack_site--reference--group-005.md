@@ -6,6 +6,29 @@ description: "Complete grouped canonical reference for xcsh_voltstack_site refer
 
 # xcsh_voltstack_site reference
 
+<a id="canonical-2132002312330110-3201222222100013-2230002210002012-0103202211221101-2320220003202030-3332032200011230-0330333203202010-1031112000202303"></a>
+
+## Direct properties — static_ip / 133121302101 / 3
+
+- [cluster_static_ip](resources--voltstack_site--reference--group-005.md#canonical-3030322031000002-0122332202232331-0000322122130332-0103113100301201-0332031320012203-1033223200030331-2100321333111133-0001110200113010): complete subsection reference.
+
+- [node_static_ip](resources--voltstack_site--reference--group-005.md#canonical-1310022322011031-1033323233223213-3310333231023311-3000233230332023-3311301311013330-0323210113010020-2013000203230123-3202101120120102): complete subsection reference.
+
+<a id="canonical-3021332332103133-3120303130000320-0313022303021103-2202312322302123-3031000010231320-3112203013201003-1201002332113103-1212100100113302"></a>
+
+## Next pages — static_ip / 133121302101 / 4
+
+- [custom_network_config.interface_list.interfaces.tunnel_interface.static_ip.cluster_static_ip](resources--voltstack_site--reference--group-005.md#canonical-3030322031000002-0122332202232331-0000322122130332-0103113100301201-0332031320012203-1033223200030331-2100321333111133-0001110200113010)
+- [custom_network_config.interface_list.interfaces.tunnel_interface.static_ip.node_static_ip](resources--voltstack_site--reference--group-005.md#canonical-1310022322011031-1033323233223213-3310333231023311-3000233230332023-3311301311013330-0323210113010020-2013000203230123-3202101120120102)
+- [custom_network_config.interface_list.interfaces.tunnel_interface](resources--voltstack_site--reference--group-004.md#canonical-1012322230030023-3000301300302131-3203221332301322-2103012002021321-0111030132311312-3313233303332202-2323030121333310-3100101233000101)
+- [xcsh_voltstack_site](../resources/voltstack_site.md#canonical-2321122020020113-3300101223021223-1330033011121200-0102203210311033-2301300201121233-3102120211011323-1113113111112000-2313011002230113)
+
+<a id="canonical-3030322031000002-0122332202232331-0000322122130332-0103113100301201-0332031320012203-1033223200030331-2100321333111133-0001110200113010"></a>
+
+<!-- Exact provider and upstream contract identifiers. -->
+
+<!-- textlint-disable terminology -->
+
 <a id="canonical-3210213020011333-0233323330210212-3201123302012310-2030221002121311-0221011310303203-1302222303120101-3203320011221121-3323202021332202"></a>
 
 ## custom_network_config.interface_list.interfaces.tunnel_interface.static_ip.cluster_static_ip — cluster_static_ip / 332130012232 / 2
@@ -62,18 +85,32 @@ Type: `["map", "string"]`. Optional.
 
 Map of Node to Static IP configuration value, Key:Node, Value:IP Address.
 
+Provider validators and defaults (from schema source):
+
+```go
+Validators: []validator.Map{validators.MapConstraintsValidator("{\"cardinality\":{\"maxProperties\":128},\"category\":\"discovery\",\"constraintType\":\"map\",\"deterministic\":true,\"keys\":{\"maxLength\":128,\"minLength\":1,\"type\":\"string\"},\"originalRules\":{\"ves.io.schema.rules.map.keys.string.max_len\":\"128\",\"ves.io.schema.rules.map.keys.string.min_len\":\"1\",\"ves.io.schema.rules.map.max_pairs\":\"128\"}}")}
+```
+
 Receipt-pinned upstream constraints:
 
 ```json
 {
   "x-f5xc-constraints": {
-    "category": "general",
-    "constraintType": "object",
-    "maxProperties": 128,
-    "metadata": {
-      "confidence": 0.75,
-      "source": "inferred",
-      "validatedAt": "2026-10-03T05:10:26+00:00"
+    "cardinality": {
+      "maxProperties": 128
+    },
+    "category": "discovery",
+    "constraintType": "map",
+    "deterministic": true,
+    "keys": {
+      "maxLength": 128,
+      "minLength": 1,
+      "type": "string"
+    },
+    "originalRules": {
+      "ves.io.schema.rules.map.keys.string.max_len": "128",
+      "ves.io.schema.rules.map.keys.string.min_len": "1",
+      "ves.io.schema.rules.map.max_pairs": "128"
     }
   },
   "x-f5xc-required-for": {
@@ -5800,7 +5837,7 @@ Receipt-pinned upstream constraints:
 }
 ```
 
-- [default_gateway](resources--voltstack_site--reference--group-005.md#canonical-0220110121113211-0123200320311213-2033231212131113-0101303012033002-0331200212333220-0100030201202310-0203300222031112-1212131332212032): complete subsection reference.
+- [default_gateway](resources--voltstack_site--reference--group-006.md#canonical-0220110121113211-0123200320311213-2033231212131113-0101303012033002-0331200212333220-0100030201202310-0203300222031112-1212131332212032): complete subsection reference.
 
 <a id="canonical-2000002110220110-2303202203021322-2132113332333201-0302002123321320-2010131223201032-0221022310011010-1303232031203111-2020213101333122"></a>
 
@@ -5862,78 +5899,3 @@ Receipt-pinned upstream constraints:
 ```
 
 <a id="canonical-0120132003321120-3020112030203232-3233012312133203-0222200131223130-0100322002020331-2223011221030213-2110010231330332-3211322132032220"></a>
-
-<a id="canonical-0320021332132320-3322322101302000-0113321202130312-2130121323111122-2320312312000133-1032112301232320-2330032132330201-3203103023233031"></a>
-
-## ip_prefixes property — static_routes / 131122103332 / 6
-
-Type: `["list", "string"]`. Optional.
-
-List of route prefixes that have common next hop and attributes.
-
-Provider validators and defaults (from schema source):
-
-```go
-Validators: []validator.List{
-  listvalidator.SizeBetween(1, 256),
-}
-```
-
-Receipt-pinned upstream constraints:
-
-```json
-{
-  "maxItems": 256,
-  "minItems": 1,
-  "x-f5xc-constraints": {
-    "category": "discovery",
-    "constraintType": "array",
-    "deterministic": true,
-    "maxItems": 256,
-    "metadata": {
-      "confidence": 0.99,
-      "source": "discovery",
-      "validatedAt": "2026-10-03T05:10:26+00:00"
-    },
-    "minItems": 1,
-    "uniqueItems": true
-  },
-  "x-f5xc-required-for": {
-    "create": true,
-    "minimum_config": true,
-    "read": false,
-    "update": false
-  },
-  "x-validation-rules": {
-    "ves.io.schema.rules.message.required": "true",
-    "ves.io.schema.rules.repeated.items.string.ipv4_prefix": "true",
-    "ves.io.schema.rules.repeated.max_items": "256",
-    "ves.io.schema.rules.repeated.min_items": "1",
-    "ves.io.schema.rules.repeated.unique": "true"
-  },
-  "x-ves-validation-rules": {
-    "ves.io.schema.rules.message.required": "true",
-    "ves.io.schema.rules.repeated.items.string.ipv4_prefix": "true",
-    "ves.io.schema.rules.repeated.max_items": "256",
-    "ves.io.schema.rules.repeated.min_items": "1",
-    "ves.io.schema.rules.repeated.unique": "true"
-  }
-}
-```
-
-- [node_interface](resources--voltstack_site--reference--group-006.md#canonical-2103010001332321-3000301122011331-2103133111021230-0301232203102112-3333122212301320-0010123301123323-1031033201333332-2031303213320033): complete subsection reference.
-
-<a id="canonical-0203002210301012-3113101232011231-0200010330310100-1233031233321103-3120032331213210-2221033323020301-0230113313233101-1121133201221110"></a>
-
-## Next pages — static_routes / 131122103332 / 7
-
-- [custom_storage_config.static_routes.static_routes.default_gateway](resources--voltstack_site--reference--group-005.md#canonical-0220110121113211-0123200320311213-2033231212131113-0101303012033002-0331200212333220-0100030201202310-0203300222031112-1212131332212032)
-- [custom_storage_config.static_routes.static_routes.node_interface](resources--voltstack_site--reference--group-006.md#canonical-2103010001332321-3000301122011331-2103133111021230-0301232203102112-3333122212301320-0010123301123323-1031033201333332-2031303213320033)
-- [custom_storage_config.static_routes](resources--voltstack_site--reference--group-005.md#canonical-0010013332203001-0113132310200201-1011031031323020-3130002332300123-3110122210200111-1330032111302123-2100222030001223-3213031122112122)
-- [xcsh_voltstack_site](../resources/voltstack_site.md#canonical-2321122020020113-3300101223021223-1330033011121200-0102203210311033-2301300201121233-3102120211011323-1113113111112000-2313011002230113)
-
-<a id="canonical-0220110121113211-0123200320311213-2033231212131113-0101303012033002-0331200212333220-0100030201202310-0203300222031112-1212131332212032"></a>
-
-<!-- Exact provider and upstream contract identifiers. -->
-
-<!-- textlint-disable terminology -->

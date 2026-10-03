@@ -46,6 +46,27 @@ Receipt-pinned upstream constraints:
 
 ```json
 {
+  "x-f5xc-constraints": {
+    "category": "discovery",
+    "constraintType": "map",
+    "deterministic": true,
+    "keys": {
+      "maxLength": 64,
+      "minLength": 1,
+      "type": "string"
+    },
+    "originalRules": {
+      "ves.io.schema.rules.map.keys.string.max_len": "64",
+      "ves.io.schema.rules.map.keys.string.min_len": "1",
+      "ves.io.schema.rules.map.values.string.max_len": "1024",
+      "ves.io.schema.rules.map.values.string.min_len": "1"
+    },
+    "values": {
+      "maxLength": 1024,
+      "minLength": 1,
+      "type": "string"
+    }
+  },
   "x-f5xc-required-for": {
     "create": false,
     "minimum_config": false,
@@ -391,7 +412,7 @@ Each exact path has one authoritative reference destination. Collection element 
 | `azure_event_hubs_receiver.instance` | [azure_event_hubs_receiver.instance](resources--global_log_receiver--reference--group-001.md#canonical-3030111010023323-2101332000131212-0000222320202313-3320301123031300-3320133003332330-2112330230210133-0112331221321220-0022020210002022) |
 | `azure_event_hubs_receiver.namespace` | [azure_event_hubs_receiver.namespace](resources--global_log_receiver--reference--group-001.md#canonical-2012113103313300-3310113010310322-2333213210112300-2000233330302210-3221022001030331-2220110121020230-1012112022332032-1023012012032022) |
 | `azure_receiver` | [azure_receiver](resources--global_log_receiver--reference--group-001.md#canonical-3013200231333020-1303012020320320-1001100130303121-3211010010010303-2320110321121200-1102123310122230-2100321311330302-1302111303311231) |
-| `azure_receiver.batch` | [azure_receiver.batch](resources--global_log_receiver--reference--group-001.md#canonical-0012020231111121-0203112023302002-3201223223301221-0110122201023320-0033311132200101-3121223302013232-1322223022210222-0003231110333030) |
+| `azure_receiver.batch` | [azure_receiver.batch](resources--global_log_receiver--reference--group-002.md#canonical-0012020231111121-0203112023302002-3201223223301221-0110122201023320-0033311132200101-3121223302013232-1322223022210222-0003231110333030) |
 | `azure_receiver.batch.max_bytes` | [azure_receiver.batch.max_bytes](resources--global_log_receiver--reference--group-002.md#canonical-3233300230003111-1002232321120212-1120131320330230-2230011200000220-0310011031311213-1032213212031012-3032301302222211-1033011200102003) |
 | `azure_receiver.batch.max_bytes_disabled` | [azure_receiver.batch.max_bytes_disabled](resources--global_log_receiver--reference--group-002.md#canonical-2201121010212221-3333130012202230-0310323003321221-3302103331010130-3001122022013112-1231031202112300-2300223100212021-0023330003303031) |
 | `azure_receiver.batch.max_events` | [azure_receiver.batch.max_events](resources--global_log_receiver--reference--group-002.md#canonical-2023133201123030-2200212013213212-3122333300012111-2220100300033212-0031303300101121-3112302011102000-2312023330311320-0213010330111331) |
@@ -2786,55 +2807,3 @@ Receipt-pinned upstream constraints:
 <!-- Exact provider and upstream contract identifiers. -->
 
 <!-- textlint-disable terminology -->
-
-<a id="canonical-1110132201000022-3222220222121330-1003201202211201-1212111121111213-0031221223010333-0312300010121212-3020221002320020-2023013030130131"></a>
-
-## azure_receiver.batch — batch / 322202131020 / 2
-
-Breadcrumbs:
-
-- [xcsh_global_log_receiver](../resources/global_log_receiver.md#canonical-0132202000321330-1323313301300101-2310111111111122-2110210002233013-1320333203212032-1331313321331132-2201202321220210-2322330330113211)
-- [Property reference](resources--global_log_receiver--reference--group-001.md#canonical-1322330330000012-0203110000231213-0031203023120323-1120213213023112-1123022010033101-0301112213201020-2213113031120201-3132330010200020)
-- [azure_receiver](resources--global_log_receiver--reference--group-001.md#canonical-3103303230212132-2010213002200222-1302002300121311-3323011111112102-2333203023000310-3220320102133222-1020130321112320-0303201103200031)
-- azure_receiver.batch
-
-<a id="canonical-0012020231111121-0203112023302002-3201223223301221-0110122201023320-0033311132200101-3121223302013232-1322223022210222-0003231110333030"></a>
-
-Type: `"object"`. single nested block, Optional.
-
-Batch OPTIONS allow tuning for how batches of logs are sent to an endpoint.
-
-Provider validators and defaults (from schema source):
-
-```go
-Validators: []validator.Object{validators.ConflictingObjectAttributes("max_bytes",
-    "max_bytes_disabled"),
-  validators.ConflictingObjectAttributes("max_events",
-    "max_events_disabled"),
-  validators.ConflictingObjectAttributes("timeout_seconds",
-    "timeout_seconds_default")}
-```
-
-Receipt-pinned upstream constraints:
-
-```json
-{
-  "x-f5xc-required-for": {
-    "create": false,
-    "minimum_config": false,
-    "read": false,
-    "update": false
-  },
-  "x-ves-oneof-field-batch_bytes": "[\"max_bytes\",\"max_bytes_disabled\"]",
-  "x-ves-oneof-field-batch_events": "[\"max_events\",\"max_events_disabled\"]",
-  "x-ves-oneof-field-batch_timeout": "[\"timeout_seconds\",\"timeout_seconds_default\"]"
-}
-```
-
-Terraform syntax:
-
-```terraform
-batch {
-  # Configure direct properties listed below.
-}
-```

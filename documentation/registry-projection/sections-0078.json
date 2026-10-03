@@ -120,7 +120,7 @@
         ]
       ],
       "mode": "embedded",
-      "registry_path": "docs/guides/resources--voltstack_site--reference--group-006.md"
+      "registry_path": "docs/guides/resources--voltstack_site--reference--group-007.md"
     },
     {
       "canonical_id": "xcsh-docs:resources:voltstack_site:properties:custom_storage_config:storage_device_list:storage_devices:netapp_trident:netapp_backend_ontap_nas:volume_defaults:no_qos",
@@ -132,7 +132,7 @@
       "anchor": "canonical-1232302012213011-3233302021113222-3111331132310223-1001102022112201-2111111021030100-2223130221023300-2332212221301332-3012130112212101",
       "anchor_map": [],
       "mode": "embedded",
-      "registry_path": "docs/guides/resources--voltstack_site--reference--group-006.md"
+      "registry_path": "docs/guides/resources--voltstack_site--reference--group-007.md"
     },
     {
       "canonical_id": "xcsh-docs:resources:voltstack_site:properties:custom_storage_config:storage_device_list:storage_devices:netapp_trident:netapp_backend_ontap_nas:volume_defaults:no_qos",
@@ -144,26 +144,26 @@
       "anchor": "canonical-2003133021303102-0100031122013133-3100021223302013-3332000332312321-3130231200120303-1031113212113100-3030133113231223-2230330113231130",
       "anchor_map": [],
       "mode": "embedded",
-      "registry_path": "docs/guides/resources--voltstack_site--reference--group-006.md"
+      "registry_path": "docs/guides/resources--voltstack_site--reference--group-007.md"
     },
     {
       "canonical_id": "xcsh-docs:resources:voltstack_site:properties:custom_storage_config:storage_device_list:storage_devices:netapp_trident:netapp_backend_ontap_san",
       "section_id": "xcsh-docs:resources:voltstack_site:properties:custom_storage_config:storage_device_list:storage_devices:netapp_trident:netapp_backend_ontap_san:section:0",
       "source_sha256": "sha256:197d41522a9dd286cb9805a03d8a5bd782cc3f3fd95ea854bf2dfc326e83e50c",
       "source_bytes": 99,
-      "canonical_source_sha256": "sha256:e46690fe33d8744500c6042ab4e0a9475c48a6a03a99dca506aa7e7d7d598045",
+      "canonical_source_sha256": "sha256:4480a66bed493f5c787481369f49dadcd6f63b939fde532248e1d002380a304d",
       "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/resources/voltstack_site/properties/custom_storage_config/storage_device_list/storage_devices/netapp_trident/netapp_backend_ontap_san/",
       "anchor": "canonical-1203012223231023-2200220231023303-1122331312230001-0301322022031201-3022110023213232-3320210312013231-2131323210013121-0000231310220010",
       "anchor_map": [],
       "mode": "embedded",
-      "registry_path": "docs/guides/resources--voltstack_site--reference--group-006.md"
+      "registry_path": "docs/guides/resources--voltstack_site--reference--group-007.md"
     },
     {
       "canonical_id": "xcsh-docs:resources:voltstack_site:properties:custom_storage_config:storage_device_list:storage_devices:netapp_trident:netapp_backend_ontap_san",
       "section_id": "xcsh-docs:resources:voltstack_site:properties:custom_storage_config:storage_device_list:storage_devices:netapp_trident:netapp_backend_ontap_san:section:1",
       "source_sha256": "sha256:0945b8a587a025da2348492aa63c222fb268c3cf1ad7b32a90b725df21016b2b",
       "source_bytes": 2289,
-      "canonical_source_sha256": "sha256:e46690fe33d8744500c6042ab4e0a9475c48a6a03a99dca506aa7e7d7d598045",
+      "canonical_source_sha256": "sha256:4480a66bed493f5c787481369f49dadcd6f63b939fde532248e1d002380a304d",
       "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/resources/voltstack_site/properties/custom_storage_config/storage_device_list/storage_devices/netapp_trident/netapp_backend_ontap_san/",
       "anchor": "canonical-1320022031310133-1120233120230133-2123102322210110-1313022001030213-2011223313023311-3010020321202001-3300102320103111-2122311120002132",
       "anchor_map": [
@@ -173,14 +173,14 @@
         ]
       ],
       "mode": "embedded",
-      "registry_path": "docs/guides/resources--voltstack_site--reference--group-006.md"
+      "registry_path": "docs/guides/resources--voltstack_site--reference--group-007.md"
     },
     {
       "canonical_id": "xcsh-docs:resources:voltstack_site:properties:custom_storage_config:storage_device_list:storage_devices:netapp_trident:netapp_backend_ontap_san",
       "section_id": "xcsh-docs:resources:voltstack_site:properties:custom_storage_config:storage_device_list:storage_devices:netapp_trident:netapp_backend_ontap_san:section:2",
       "source_sha256": "sha256:27a01f99b53ec654e061b2e050c5a4338381853cc55769085c198d0807db039e",
       "source_bytes": 165,
-      "canonical_source_sha256": "sha256:e46690fe33d8744500c6042ab4e0a9475c48a6a03a99dca506aa7e7d7d598045",
+      "canonical_source_sha256": "sha256:4480a66bed493f5c787481369f49dadcd6f63b939fde532248e1d002380a304d",
       "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/resources/voltstack_site/properties/custom_storage_config/storage_device_list/storage_devices/netapp_trident/netapp_backend_ontap_san/",
       "anchor": "canonical-2122322221013202-3030301230133301-2320212132032013-2303012310311030-2122302012003221-3023312323110122-3010233002110103-2323131301011231",
       "anchor_map": [
@@ -190,14 +190,14 @@
         ]
       ],
       "mode": "embedded",
-      "registry_path": "docs/guides/resources--voltstack_site--reference--group-006.md"
+      "registry_path": "docs/guides/resources--voltstack_site--reference--group-007.md"
     },
     {
       "canonical_id": "xcsh-docs:resources:voltstack_site:properties:custom_storage_config:storage_device_list:storage_devices:netapp_trident:netapp_backend_ontap_san",
       "section_id": "xcsh-docs:resources:voltstack_site:properties:custom_storage_config:storage_device_list:storage_devices:netapp_trident:netapp_backend_ontap_san:section:3",
       "source_sha256": "sha256:06068b2dca5c260607ce8697086ff16a71eae8401e44218781713a84d4774c62",
       "source_bytes": 1331,
-      "canonical_source_sha256": "sha256:e46690fe33d8744500c6042ab4e0a9475c48a6a03a99dca506aa7e7d7d598045",
+      "canonical_source_sha256": "sha256:4480a66bed493f5c787481369f49dadcd6f63b939fde532248e1d002380a304d",
       "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/resources/voltstack_site/properties/custom_storage_config/storage_device_list/storage_devices/netapp_trident/netapp_backend_ontap_san/",
       "anchor": "canonical-1003010011001303-3201233200302322-0022221310310310-0221330320030111-3321310032010103-1021033130021222-2302113133222112-1022310203123210",
       "anchor_map": [
@@ -214,7 +214,7 @@
       "section_id": "xcsh-docs:resources:voltstack_site:properties:custom_storage_config:storage_device_list:storage_devices:netapp_trident:netapp_backend_ontap_san:section:4",
       "source_sha256": "sha256:826d0b6d4c133f4a88716ec0b9c6487fc5a953a0bc81bfda6c874c7cb4ca0dda",
       "source_bytes": 1448,
-      "canonical_source_sha256": "sha256:e46690fe33d8744500c6042ab4e0a9475c48a6a03a99dca506aa7e7d7d598045",
+      "canonical_source_sha256": "sha256:4480a66bed493f5c787481369f49dadcd6f63b939fde532248e1d002380a304d",
       "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/resources/voltstack_site/properties/custom_storage_config/storage_device_list/storage_devices/netapp_trident/netapp_backend_ontap_san/",
       "anchor": "canonical-1233001102111021-0232012331113311-1203200031110312-2301102003013133-0302102223232222-0321010302310210-3310100000003032-0000001213330101",
       "anchor_map": [
@@ -231,7 +231,7 @@
       "section_id": "xcsh-docs:resources:voltstack_site:properties:custom_storage_config:storage_device_list:storage_devices:netapp_trident:netapp_backend_ontap_san:section:5",
       "source_sha256": "sha256:e4c00b6122f9c2251810c87e56ffa278012d5f45fe8f7e6bc31a945281f2af82",
       "source_bytes": 1214,
-      "canonical_source_sha256": "sha256:e46690fe33d8744500c6042ab4e0a9475c48a6a03a99dca506aa7e7d7d598045",
+      "canonical_source_sha256": "sha256:4480a66bed493f5c787481369f49dadcd6f63b939fde532248e1d002380a304d",
       "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/resources/voltstack_site/properties/custom_storage_config/storage_device_list/storage_devices/netapp_trident/netapp_backend_ontap_san/",
       "anchor": "canonical-3320030003032221-0121301020320132-3233102332030223-1231201203213102-1313122333311332-1003311001131303-1221113110100300-3112030002310102",
       "anchor_map": [
@@ -248,7 +248,7 @@
       "section_id": "xcsh-docs:resources:voltstack_site:properties:custom_storage_config:storage_device_list:storage_devices:netapp_trident:netapp_backend_ontap_san:section:6",
       "source_sha256": "sha256:1a456b30eeed8c8575510bb1bf61aeddb229a531300add9a467dcd0b3fc2fd6e",
       "source_bytes": 1130,
-      "canonical_source_sha256": "sha256:e46690fe33d8744500c6042ab4e0a9475c48a6a03a99dca506aa7e7d7d598045",
+      "canonical_source_sha256": "sha256:4480a66bed493f5c787481369f49dadcd6f63b939fde532248e1d002380a304d",
       "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/resources/voltstack_site/properties/custom_storage_config/storage_device_list/storage_devices/netapp_trident/netapp_backend_ontap_san/",
       "anchor": "canonical-0323012211100210-1023022020112033-2320013002321021-1100321203330013-1131132113132032-2330032031030300-0331202332332101-0012000002312311",
       "anchor_map": [
@@ -263,9 +263,9 @@
     {
       "canonical_id": "xcsh-docs:resources:voltstack_site:properties:custom_storage_config:storage_device_list:storage_devices:netapp_trident:netapp_backend_ontap_san",
       "section_id": "xcsh-docs:resources:voltstack_site:properties:custom_storage_config:storage_device_list:storage_devices:netapp_trident:netapp_backend_ontap_san:section:7",
-      "source_sha256": "sha256:0bbc6aeb6f151be2d67c68d321c16767f54f19da45a7c0a8973be12e3597e893",
-      "source_bytes": 1341,
-      "canonical_source_sha256": "sha256:e46690fe33d8744500c6042ab4e0a9475c48a6a03a99dca506aa7e7d7d598045",
+      "source_sha256": "sha256:bf4b71bf48f388392d16ed3c52055639c11e7d7035d87b7da1335359ded22e73",
+      "source_bytes": 2441,
+      "canonical_source_sha256": "sha256:4480a66bed493f5c787481369f49dadcd6f63b939fde532248e1d002380a304d",
       "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/resources/voltstack_site/properties/custom_storage_config/storage_device_list/storage_devices/netapp_trident/netapp_backend_ontap_san/",
       "anchor": "canonical-3023101030113332-1303213312003201-3020122001232221-2123321231210221-1213111001023222-0332200020101002-1012010211232202-2322230330301023",
       "anchor_map": [
@@ -282,7 +282,7 @@
       "section_id": "xcsh-docs:resources:voltstack_site:properties:custom_storage_config:storage_device_list:storage_devices:netapp_trident:netapp_backend_ontap_san:section:8",
       "source_sha256": "sha256:cb5cc525ac1fd242aca71157d644e0885e6d150cbe9c0095a44b6190264a503a",
       "source_bytes": 1121,
-      "canonical_source_sha256": "sha256:e46690fe33d8744500c6042ab4e0a9475c48a6a03a99dca506aa7e7d7d598045",
+      "canonical_source_sha256": "sha256:4480a66bed493f5c787481369f49dadcd6f63b939fde532248e1d002380a304d",
       "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/resources/voltstack_site/properties/custom_storage_config/storage_device_list/storage_devices/netapp_trident/netapp_backend_ontap_san/",
       "anchor": "canonical-3011130331211031-2033122020230012-0323233131213020-3202323000133113-2330233130330201-1111212122331021-0013021031102130-2030320000332312",
       "anchor_map": [
@@ -299,7 +299,7 @@
       "section_id": "xcsh-docs:resources:voltstack_site:properties:custom_storage_config:storage_device_list:storage_devices:netapp_trident:netapp_backend_ontap_san:section:9",
       "source_sha256": "sha256:a81e0b4bbc343f69085cfd574a1eea7c793b4e84ef05b7a64a8cb996ca77a722",
       "source_bytes": 481,
-      "canonical_source_sha256": "sha256:e46690fe33d8744500c6042ab4e0a9475c48a6a03a99dca506aa7e7d7d598045",
+      "canonical_source_sha256": "sha256:4480a66bed493f5c787481369f49dadcd6f63b939fde532248e1d002380a304d",
       "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/resources/voltstack_site/properties/custom_storage_config/storage_device_list/storage_devices/netapp_trident/netapp_backend_ontap_san/",
       "anchor": "canonical-1021011101132012-3121311223320232-2302131213100322-2223330131321223-3131120220021323-0311102211211000-1301011332333132-0020210221010121",
       "anchor_map": [
@@ -316,7 +316,7 @@
       "section_id": "xcsh-docs:resources:voltstack_site:properties:custom_storage_config:storage_device_list:storage_devices:netapp_trident:netapp_backend_ontap_san:section:10",
       "source_sha256": "sha256:ee137ef89a96dcf2c5f63bea1d66a5c302556a8a81ee103710b62935fa953123",
       "source_bytes": 1484,
-      "canonical_source_sha256": "sha256:e46690fe33d8744500c6042ab4e0a9475c48a6a03a99dca506aa7e7d7d598045",
+      "canonical_source_sha256": "sha256:4480a66bed493f5c787481369f49dadcd6f63b939fde532248e1d002380a304d",
       "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/resources/voltstack_site/properties/custom_storage_config/storage_device_list/storage_devices/netapp_trident/netapp_backend_ontap_san/",
       "anchor": "canonical-2302102203202111-1000300010331211-3101003111201301-3320000110023120-3133323012023223-2100101113220200-2300203121020221-0300303222022202",
       "anchor_map": [
@@ -333,7 +333,7 @@
       "section_id": "xcsh-docs:resources:voltstack_site:properties:custom_storage_config:storage_device_list:storage_devices:netapp_trident:netapp_backend_ontap_san:section:11",
       "source_sha256": "sha256:0d408997402b3c437b71a84475d05ebf0649aa5b7e8bcb0a17458d97410796e9",
       "source_bytes": 1731,
-      "canonical_source_sha256": "sha256:e46690fe33d8744500c6042ab4e0a9475c48a6a03a99dca506aa7e7d7d598045",
+      "canonical_source_sha256": "sha256:4480a66bed493f5c787481369f49dadcd6f63b939fde532248e1d002380a304d",
       "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/resources/voltstack_site/properties/custom_storage_config/storage_device_list/storage_devices/netapp_trident/netapp_backend_ontap_san/",
       "anchor": "canonical-1002013110232313-2102230311130102-3012112023011003-2310011101120132-0101131310210121-0032000100123033-0111230222132111-1332003202311101",
       "anchor_map": [
@@ -350,7 +350,7 @@
       "section_id": "xcsh-docs:resources:voltstack_site:properties:custom_storage_config:storage_device_list:storage_devices:netapp_trident:netapp_backend_ontap_san:section:12",
       "source_sha256": "sha256:459d364489891f9e3592d7c4d405dba0d2aa19bc9b73bfeabb05145acb11d68b",
       "source_bytes": 937,
-      "canonical_source_sha256": "sha256:e46690fe33d8744500c6042ab4e0a9475c48a6a03a99dca506aa7e7d7d598045",
+      "canonical_source_sha256": "sha256:4480a66bed493f5c787481369f49dadcd6f63b939fde532248e1d002380a304d",
       "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/resources/voltstack_site/properties/custom_storage_config/storage_device_list/storage_devices/netapp_trident/netapp_backend_ontap_san/",
       "anchor": "canonical-3301330030200000-2002010112100120-1233030011111211-2323223220010000-1001003113120320-0223322023112031-2111013010323120-1210332323102202",
       "anchor_map": [
@@ -367,7 +367,7 @@
       "section_id": "xcsh-docs:resources:voltstack_site:properties:custom_storage_config:storage_device_list:storage_devices:netapp_trident:netapp_backend_ontap_san:section:13",
       "source_sha256": "sha256:af9a52afebc0b8fe3656bb04ba5c066f0126f38ca2415a72100f46fffe944299",
       "source_bytes": 1539,
-      "canonical_source_sha256": "sha256:e46690fe33d8744500c6042ab4e0a9475c48a6a03a99dca506aa7e7d7d598045",
+      "canonical_source_sha256": "sha256:4480a66bed493f5c787481369f49dadcd6f63b939fde532248e1d002380a304d",
       "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/resources/voltstack_site/properties/custom_storage_config/storage_device_list/storage_devices/netapp_trident/netapp_backend_ontap_san/",
       "anchor": "canonical-0320101033123212-0021303023231333-2122032213300332-3020310302311310-3313232312211110-1001102333101233-2110223101311232-2010210221013122",
       "anchor_map": [
@@ -384,7 +384,7 @@
       "section_id": "xcsh-docs:resources:voltstack_site:properties:custom_storage_config:storage_device_list:storage_devices:netapp_trident:netapp_backend_ontap_san:section:14",
       "source_sha256": "sha256:efd8eceaf050bcff398636634582adaeedca36bd22f0fefbe6f27cd808a32160",
       "source_bytes": 1169,
-      "canonical_source_sha256": "sha256:e46690fe33d8744500c6042ab4e0a9475c48a6a03a99dca506aa7e7d7d598045",
+      "canonical_source_sha256": "sha256:4480a66bed493f5c787481369f49dadcd6f63b939fde532248e1d002380a304d",
       "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/resources/voltstack_site/properties/custom_storage_config/storage_device_list/storage_devices/netapp_trident/netapp_backend_ontap_san/",
       "anchor": "canonical-0123022220132122-3023030131110112-0123332212300231-2013032121323110-1021003110003331-3211230333213010-2202331011323230-3223310303330132",
       "anchor_map": [
@@ -401,7 +401,7 @@
       "section_id": "xcsh-docs:resources:voltstack_site:properties:custom_storage_config:storage_device_list:storage_devices:netapp_trident:netapp_backend_ontap_san:section:15",
       "source_sha256": "sha256:2ea2eb8ee86bc174a8a9e0beaee7958ebd315337340829c82fd6a0e4b9c49e17",
       "source_bytes": 1173,
-      "canonical_source_sha256": "sha256:e46690fe33d8744500c6042ab4e0a9475c48a6a03a99dca506aa7e7d7d598045",
+      "canonical_source_sha256": "sha256:4480a66bed493f5c787481369f49dadcd6f63b939fde532248e1d002380a304d",
       "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/resources/voltstack_site/properties/custom_storage_config/storage_device_list/storage_devices/netapp_trident/netapp_backend_ontap_san/",
       "anchor": "canonical-2233333102112213-1211131332333303-0010102333033110-2123322312323033-2002231233023220-0321101313023021-1011331112323201-1122322303033233",
       "anchor_map": [
@@ -418,7 +418,7 @@
       "section_id": "xcsh-docs:resources:voltstack_site:properties:custom_storage_config:storage_device_list:storage_devices:netapp_trident:netapp_backend_ontap_san:section:16",
       "source_sha256": "sha256:41fe07f796532cc91751fbe873979c31bbaf31b00992837727477edc6a738590",
       "source_bytes": 1449,
-      "canonical_source_sha256": "sha256:e46690fe33d8744500c6042ab4e0a9475c48a6a03a99dca506aa7e7d7d598045",
+      "canonical_source_sha256": "sha256:4480a66bed493f5c787481369f49dadcd6f63b939fde532248e1d002380a304d",
       "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/resources/voltstack_site/properties/custom_storage_config/storage_device_list/storage_devices/netapp_trident/netapp_backend_ontap_san/",
       "anchor": "canonical-1303032222111110-1113123333011001-1112102031031110-2130222221110323-3223133203223223-0203030300303322-0322000320312031-3320303302221333",
       "anchor_map": [
@@ -435,7 +435,7 @@
       "section_id": "xcsh-docs:resources:voltstack_site:properties:custom_storage_config:storage_device_list:storage_devices:netapp_trident:netapp_backend_ontap_san:section:17",
       "source_sha256": "sha256:2963e58536809a45f8fbf61d9876887a2d245d4746336f3308d7bab9b09f8784",
       "source_bytes": 1598,
-      "canonical_source_sha256": "sha256:e46690fe33d8744500c6042ab4e0a9475c48a6a03a99dca506aa7e7d7d598045",
+      "canonical_source_sha256": "sha256:4480a66bed493f5c787481369f49dadcd6f63b939fde532248e1d002380a304d",
       "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/resources/voltstack_site/properties/custom_storage_config/storage_device_list/storage_devices/netapp_trident/netapp_backend_ontap_san/",
       "anchor": "canonical-0112112200110301-0022003301123331-0020331022101331-3021321003330030-3023210322300211-2131233212033033-0200131312201132-1103101323120003",
       "anchor_map": [],
@@ -447,7 +447,7 @@
       "section_id": "xcsh-docs:resources:voltstack_site:properties:custom_storage_config:storage_device_list:storage_devices:netapp_trident:netapp_backend_ontap_san:section:18",
       "source_sha256": "sha256:354c670437ce2a99df2a2f3337bc747e3931e6ab331eec4cb6d6bbc1608e595b",
       "source_bytes": 2268,
-      "canonical_source_sha256": "sha256:e46690fe33d8744500c6042ab4e0a9475c48a6a03a99dca506aa7e7d7d598045",
+      "canonical_source_sha256": "sha256:4480a66bed493f5c787481369f49dadcd6f63b939fde532248e1d002380a304d",
       "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/resources/voltstack_site/properties/custom_storage_config/storage_device_list/storage_devices/netapp_trident/netapp_backend_ontap_san/",
       "anchor": "canonical-3012132100020111-3120211131203322-0211323201022131-1232233131202031-3330110203121013-2103103020123210-3133322003011032-3000001103113313",
       "anchor_map": [],
@@ -1000,7 +1000,7 @@
       "section_id": "xcsh-docs:resources:voltstack_site:properties:custom_storage_config:storage_device_list:storage_devices:netapp_trident:netapp_backend_ontap_san:storage:section:0",
       "source_sha256": "sha256:197d41522a9dd286cb9805a03d8a5bd782cc3f3fd95ea854bf2dfc326e83e50c",
       "source_bytes": 99,
-      "canonical_source_sha256": "sha256:36b23258e737b1319439d6c36d32ab20967ca577cf49c36e7ef74d63410b21db",
+      "canonical_source_sha256": "sha256:124987e98f35adc67dd843f0c2e04d0884e415b11f7e6d1abcfa0ed03603b0e7",
       "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/resources/voltstack_site/properties/custom_storage_config/storage_device_list/storage_devices/netapp_trident/netapp_backend_ontap_san/storage/",
       "anchor": "canonical-2021201323131230-0123032311133332-3132023020103310-1103300113210013-3332210303333201-3223303121220023-3222013232121103-1030113122101222",
       "anchor_map": [],
@@ -1012,7 +1012,7 @@
       "section_id": "xcsh-docs:resources:voltstack_site:properties:custom_storage_config:storage_device_list:storage_devices:netapp_trident:netapp_backend_ontap_san:storage:section:1",
       "source_sha256": "sha256:c64371a7ecf103233d1f54b32971d6ae6a3949014e6c53b5f764318a41e1ce80",
       "source_bytes": 2553,
-      "canonical_source_sha256": "sha256:36b23258e737b1319439d6c36d32ab20967ca577cf49c36e7ef74d63410b21db",
+      "canonical_source_sha256": "sha256:124987e98f35adc67dd843f0c2e04d0884e415b11f7e6d1abcfa0ed03603b0e7",
       "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/resources/voltstack_site/properties/custom_storage_config/storage_device_list/storage_devices/netapp_trident/netapp_backend_ontap_san/storage/",
       "anchor": "canonical-2130102300122302-3300130301123202-3220000102222211-1312011300322031-1032303202111203-1130102322212231-0132000133001001-2221223310210302",
       "anchor_map": [
@@ -1029,7 +1029,7 @@
       "section_id": "xcsh-docs:resources:voltstack_site:properties:custom_storage_config:storage_device_list:storage_devices:netapp_trident:netapp_backend_ontap_san:storage:section:2",
       "source_sha256": "sha256:af26d55a37cb1fee2bb84f471a4d5204a88ea39aa96437b9a8caa15740800b8d",
       "source_bytes": 162,
-      "canonical_source_sha256": "sha256:36b23258e737b1319439d6c36d32ab20967ca577cf49c36e7ef74d63410b21db",
+      "canonical_source_sha256": "sha256:124987e98f35adc67dd843f0c2e04d0884e415b11f7e6d1abcfa0ed03603b0e7",
       "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/resources/voltstack_site/properties/custom_storage_config/storage_device_list/storage_devices/netapp_trident/netapp_backend_ontap_san/storage/",
       "anchor": "canonical-2010333110210331-0202233023112100-2030332023212112-0112013223130332-2102312202120033-1313200332003320-1101113010103113-1221003111013301",
       "anchor_map": [
@@ -1044,9 +1044,9 @@
     {
       "canonical_id": "xcsh-docs:resources:voltstack_site:properties:custom_storage_config:storage_device_list:storage_devices:netapp_trident:netapp_backend_ontap_san:storage",
       "section_id": "xcsh-docs:resources:voltstack_site:properties:custom_storage_config:storage_device_list:storage_devices:netapp_trident:netapp_backend_ontap_san:storage:section:3",
-      "source_sha256": "sha256:1bc6f4b1fbd9ed409cf160ddf9ff75df01d388cad09e6473afcf807294742db7",
-      "source_bytes": 1614,
-      "canonical_source_sha256": "sha256:36b23258e737b1319439d6c36d32ab20967ca577cf49c36e7ef74d63410b21db",
+      "source_sha256": "sha256:93109ec49aadb2a5c45496c18cbfb168c0bb001f49455457c0f34d19d988389e",
+      "source_bytes": 2714,
+      "canonical_source_sha256": "sha256:124987e98f35adc67dd843f0c2e04d0884e415b11f7e6d1abcfa0ed03603b0e7",
       "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/resources/voltstack_site/properties/custom_storage_config/storage_device_list/storage_devices/netapp_trident/netapp_backend_ontap_san/storage/",
       "anchor": "canonical-2011013131011321-2333333222233033-1033211231323301-3130303213103221-3221110130131033-1131132333101330-0022331113311100-2030022011303230",
       "anchor_map": [
@@ -1063,7 +1063,7 @@
       "section_id": "xcsh-docs:resources:voltstack_site:properties:custom_storage_config:storage_device_list:storage_devices:netapp_trident:netapp_backend_ontap_san:storage:section:4",
       "source_sha256": "sha256:ff20d94a849213116c3a38a7ae2c83b14736af9b97f19bb3f03516a8799ef41b",
       "source_bytes": 583,
-      "canonical_source_sha256": "sha256:36b23258e737b1319439d6c36d32ab20967ca577cf49c36e7ef74d63410b21db",
+      "canonical_source_sha256": "sha256:124987e98f35adc67dd843f0c2e04d0884e415b11f7e6d1abcfa0ed03603b0e7",
       "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/resources/voltstack_site/properties/custom_storage_config/storage_device_list/storage_devices/netapp_trident/netapp_backend_ontap_san/storage/",
       "anchor": "canonical-3313300330020303-0231202323112000-1100231031000022-3111202012230210-0033001131103323-3112000203120320-2303332131133312-0032113032322023",
       "anchor_map": [],
@@ -1075,7 +1075,7 @@
       "section_id": "xcsh-docs:resources:voltstack_site:properties:custom_storage_config:storage_device_list:storage_devices:netapp_trident:netapp_backend_ontap_san:storage:section:5",
       "source_sha256": "sha256:faa243e3cd928ba5a53fca711ab93caaf4c05d71766f336ebc7f6c96cb572979",
       "source_bytes": 758,
-      "canonical_source_sha256": "sha256:36b23258e737b1319439d6c36d32ab20967ca577cf49c36e7ef74d63410b21db",
+      "canonical_source_sha256": "sha256:124987e98f35adc67dd843f0c2e04d0884e415b11f7e6d1abcfa0ed03603b0e7",
       "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/resources/voltstack_site/properties/custom_storage_config/storage_device_list/storage_devices/netapp_trident/netapp_backend_ontap_san/storage/",
       "anchor": "canonical-2232021202133010-3013231102303031-0200202033130322-0111222230201331-0221320100121101-3133111120222012-2002211000212120-0203112300111311",
       "anchor_map": [],
@@ -2594,7 +2594,7 @@
       "section_id": "xcsh-docs:resources:voltstack_site:properties:custom_storage_config:storage_device_list:storage_devices:pure_service_orchestrator:arrays:flash_array:flash_arrays:section:0",
       "source_sha256": "sha256:197d41522a9dd286cb9805a03d8a5bd782cc3f3fd95ea854bf2dfc326e83e50c",
       "source_bytes": 99,
-      "canonical_source_sha256": "sha256:61f340efd132b2baf14abfda28df543c7095e0f94e2aac7252acfcfeef31e181",
+      "canonical_source_sha256": "sha256:e23c1037e8befbf99db377870124f31ed40057378dd5b7fa0f333fc12836459c",
       "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/resources/voltstack_site/properties/custom_storage_config/storage_device_list/storage_devices/pure_service_orchestrator/arrays/flash_array/flash_arrays/",
       "anchor": "canonical-3330103103130232-2013231201213331-1002021200311320-0233022003110200-1221013311033312-3331300112012321-1213302233230032-2001102003120102",
       "anchor_map": [],
@@ -2606,7 +2606,7 @@
       "section_id": "xcsh-docs:resources:voltstack_site:properties:custom_storage_config:storage_device_list:storage_devices:pure_service_orchestrator:arrays:flash_array:flash_arrays:section:1",
       "source_sha256": "sha256:7413815cf15a550e2f9e40e68ada6517b7b4bdb353bdec59a2a07fd49c646eec",
       "source_bytes": 3356,
-      "canonical_source_sha256": "sha256:61f340efd132b2baf14abfda28df543c7095e0f94e2aac7252acfcfeef31e181",
+      "canonical_source_sha256": "sha256:e23c1037e8befbf99db377870124f31ed40057378dd5b7fa0f333fc12836459c",
       "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/resources/voltstack_site/properties/custom_storage_config/storage_device_list/storage_devices/pure_service_orchestrator/arrays/flash_array/flash_arrays/",
       "anchor": "canonical-0330322021213311-3221102112230230-0321112130120103-1010330013020133-0033100001301002-2112120210201210-2012031333000201-3020232323000233",
       "anchor_map": [
@@ -2623,7 +2623,7 @@
       "section_id": "xcsh-docs:resources:voltstack_site:properties:custom_storage_config:storage_device_list:storage_devices:pure_service_orchestrator:arrays:flash_array:flash_arrays:section:2",
       "source_sha256": "sha256:a32e34f596e918a96ee35d68a3b15bb62b902f28f0b2fe369494cf68c2d62003",
       "source_bytes": 440,
-      "canonical_source_sha256": "sha256:61f340efd132b2baf14abfda28df543c7095e0f94e2aac7252acfcfeef31e181",
+      "canonical_source_sha256": "sha256:e23c1037e8befbf99db377870124f31ed40057378dd5b7fa0f333fc12836459c",
       "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/resources/voltstack_site/properties/custom_storage_config/storage_device_list/storage_devices/pure_service_orchestrator/arrays/flash_array/flash_arrays/",
       "anchor": "canonical-1021333133101020-0222300223232232-0231131032110012-3310312321322323-2223110112001210-0000010130120001-2010131330030112-2113311301233101",
       "anchor_map": [
@@ -2638,9 +2638,9 @@
     {
       "canonical_id": "xcsh-docs:resources:voltstack_site:properties:custom_storage_config:storage_device_list:storage_devices:pure_service_orchestrator:arrays:flash_array:flash_arrays",
       "section_id": "xcsh-docs:resources:voltstack_site:properties:custom_storage_config:storage_device_list:storage_devices:pure_service_orchestrator:arrays:flash_array:flash_arrays:section:3",
-      "source_sha256": "sha256:36cbc36dc47060e78e883ec276870328fe6aec7ef24bd9a46d0b1bf0a583c2c3",
-      "source_bytes": 1477,
-      "canonical_source_sha256": "sha256:61f340efd132b2baf14abfda28df543c7095e0f94e2aac7252acfcfeef31e181",
+      "source_sha256": "sha256:01c54b38dfd5ed335248cf65a7e9cde157471bba639e4913a7a2b6703c0a4d5d",
+      "source_bytes": 2577,
+      "canonical_source_sha256": "sha256:e23c1037e8befbf99db377870124f31ed40057378dd5b7fa0f333fc12836459c",
       "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/resources/voltstack_site/properties/custom_storage_config/storage_device_list/storage_devices/pure_service_orchestrator/arrays/flash_array/flash_arrays/",
       "anchor": "canonical-1211123123331223-0120013201232102-1023221032002120-1110331301133331-3222303121032221-3111301211313333-2331220101221111-1121003123112013",
       "anchor_map": [
@@ -2657,7 +2657,7 @@
       "section_id": "xcsh-docs:resources:voltstack_site:properties:custom_storage_config:storage_device_list:storage_devices:pure_service_orchestrator:arrays:flash_array:flash_arrays:section:4",
       "source_sha256": "sha256:497918fa6c7b40d0e5e7521b8fdb3bef4362d28e70623118e2bc601f3cf8278f",
       "source_bytes": 1434,
-      "canonical_source_sha256": "sha256:61f340efd132b2baf14abfda28df543c7095e0f94e2aac7252acfcfeef31e181",
+      "canonical_source_sha256": "sha256:e23c1037e8befbf99db377870124f31ed40057378dd5b7fa0f333fc12836459c",
       "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/resources/voltstack_site/properties/custom_storage_config/storage_device_list/storage_devices/pure_service_orchestrator/arrays/flash_array/flash_arrays/",
       "anchor": "canonical-0312110121330213-2223202031011111-1302211300133131-1222113102300131-0231020213021213-3112123000320103-0130130020312201-1201330110030300",
       "anchor_map": [
@@ -2674,7 +2674,7 @@
       "section_id": "xcsh-docs:resources:voltstack_site:properties:custom_storage_config:storage_device_list:storage_devices:pure_service_orchestrator:arrays:flash_array:flash_arrays:section:5",
       "source_sha256": "sha256:fa4c740590c99e063d806da7ce3e0502cb919e73146d3261a401a6348088316d",
       "source_bytes": 1048,
-      "canonical_source_sha256": "sha256:61f340efd132b2baf14abfda28df543c7095e0f94e2aac7252acfcfeef31e181",
+      "canonical_source_sha256": "sha256:e23c1037e8befbf99db377870124f31ed40057378dd5b7fa0f333fc12836459c",
       "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/resources/voltstack_site/properties/custom_storage_config/storage_device_list/storage_devices/pure_service_orchestrator/arrays/flash_array/flash_arrays/",
       "anchor": "canonical-1020022203122031-3301012013102132-0331223013122320-3231202211102220-2030213301101313-2110002311020002-0023001032333313-2112100130222030",
       "anchor_map": [],
@@ -2686,7 +2686,7 @@
       "section_id": "xcsh-docs:resources:voltstack_site:properties:custom_storage_config:storage_device_list:storage_devices:pure_service_orchestrator:arrays:flash_array:flash_arrays:section:6",
       "source_sha256": "sha256:e6bc7f336141deecd175a73fd143b9d7c9cbadd6c398aa9937ce9c2785fe49b3",
       "source_bytes": 776,
-      "canonical_source_sha256": "sha256:61f340efd132b2baf14abfda28df543c7095e0f94e2aac7252acfcfeef31e181",
+      "canonical_source_sha256": "sha256:e23c1037e8befbf99db377870124f31ed40057378dd5b7fa0f333fc12836459c",
       "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/resources/voltstack_site/properties/custom_storage_config/storage_device_list/storage_devices/pure_service_orchestrator/arrays/flash_array/flash_arrays/",
       "anchor": "canonical-1020102131122222-1033332112030212-3101113102332330-1030222103220211-2112303030331233-1130233332031013-0330132312013312-2101022101210112",
       "anchor_map": [],
@@ -3029,7 +3029,7 @@
       "section_id": "xcsh-docs:resources:voltstack_site:properties:custom_storage_config:storage_device_list:storage_devices:pure_service_orchestrator:arrays:flash_blade:flash_blades:section:0",
       "source_sha256": "sha256:197d41522a9dd286cb9805a03d8a5bd782cc3f3fd95ea854bf2dfc326e83e50c",
       "source_bytes": 99,
-      "canonical_source_sha256": "sha256:7c72b31797b7018d83e85ac622cdbee3bed08b507fdfb999ba5e5057fb144c90",
+      "canonical_source_sha256": "sha256:c946b464883c3d2d89f9bf2bd79c67a297f7bb52bc158847d701dd95569d4c1d",
       "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/resources/voltstack_site/properties/custom_storage_config/storage_device_list/storage_devices/pure_service_orchestrator/arrays/flash_blade/flash_blades/",
       "anchor": "canonical-2101231320132023-0302202321030132-3003003113231321-3120030023303303-2133200320321303-1321220210022222-3331013302312220-1113220301101121",
       "anchor_map": [],
@@ -3041,7 +3041,7 @@
       "section_id": "xcsh-docs:resources:voltstack_site:properties:custom_storage_config:storage_device_list:storage_devices:pure_service_orchestrator:arrays:flash_blade:flash_blades:section:1",
       "source_sha256": "sha256:d4803568ec14fa8d29af0483769708ab12c744eb36a2dfac324cc6fcfac5127d",
       "source_bytes": 3481,
-      "canonical_source_sha256": "sha256:7c72b31797b7018d83e85ac622cdbee3bed08b507fdfb999ba5e5057fb144c90",
+      "canonical_source_sha256": "sha256:c946b464883c3d2d89f9bf2bd79c67a297f7bb52bc158847d701dd95569d4c1d",
       "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/resources/voltstack_site/properties/custom_storage_config/storage_device_list/storage_devices/pure_service_orchestrator/arrays/flash_blade/flash_blades/",
       "anchor": "canonical-0203020131301320-3313003113221003-2030100212312113-3311212222000020-1031102001113212-1212320330013320-1333223023202113-3300030130313030",
       "anchor_map": [
@@ -3058,7 +3058,7 @@
       "section_id": "xcsh-docs:resources:voltstack_site:properties:custom_storage_config:storage_device_list:storage_devices:pure_service_orchestrator:arrays:flash_blade:flash_blades:section:2",
       "source_sha256": "sha256:df84ef9bff7274138875b31280ae4e57e0acb46b2b7ce1cf49f5522b2e78c615",
       "source_bytes": 440,
-      "canonical_source_sha256": "sha256:7c72b31797b7018d83e85ac622cdbee3bed08b507fdfb999ba5e5057fb144c90",
+      "canonical_source_sha256": "sha256:c946b464883c3d2d89f9bf2bd79c67a297f7bb52bc158847d701dd95569d4c1d",
       "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/resources/voltstack_site/properties/custom_storage_config/storage_device_list/storage_devices/pure_service_orchestrator/arrays/flash_blade/flash_blades/",
       "anchor": "canonical-3233300220230022-0323201320333223-3303312333131001-1113031013121120-0220222133210033-0003232313133313-3221211110023023-2303013312200110",
       "anchor_map": [
@@ -3073,9 +3073,9 @@
     {
       "canonical_id": "xcsh-docs:resources:voltstack_site:properties:custom_storage_config:storage_device_list:storage_devices:pure_service_orchestrator:arrays:flash_blade:flash_blades",
       "section_id": "xcsh-docs:resources:voltstack_site:properties:custom_storage_config:storage_device_list:storage_devices:pure_service_orchestrator:arrays:flash_blade:flash_blades:section:3",
-      "source_sha256": "sha256:7d75cf6dae655cb2ebeaa5c4ebee853dff5ca30e8aac33865ab86c4a8f79db11",
-      "source_bytes": 1477,
-      "canonical_source_sha256": "sha256:7c72b31797b7018d83e85ac622cdbee3bed08b507fdfb999ba5e5057fb144c90",
+      "source_sha256": "sha256:991a8f6b2c33d4e23e8a60da6a465e1a174e9513fbd001098e153f2bdfd4e99e",
+      "source_bytes": 2577,
+      "canonical_source_sha256": "sha256:c946b464883c3d2d89f9bf2bd79c67a297f7bb52bc158847d701dd95569d4c1d",
       "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/resources/voltstack_site/properties/custom_storage_config/storage_device_list/storage_devices/pure_service_orchestrator/arrays/flash_blade/flash_blades/",
       "anchor": "canonical-3220212213233100-0122310321002003-3022033322130301-2303331311102223-0112013330020110-3301221312123311-1232202211223032-3033313102012303",
       "anchor_map": [
@@ -3092,7 +3092,7 @@
       "section_id": "xcsh-docs:resources:voltstack_site:properties:custom_storage_config:storage_device_list:storage_devices:pure_service_orchestrator:arrays:flash_blade:flash_blades:section:4",
       "source_sha256": "sha256:b21d0d314603e9256e68586a5ce5bdbfadd6e248900928bac89576ace3fde268",
       "source_bytes": 1434,
-      "canonical_source_sha256": "sha256:7c72b31797b7018d83e85ac622cdbee3bed08b507fdfb999ba5e5057fb144c90",
+      "canonical_source_sha256": "sha256:c946b464883c3d2d89f9bf2bd79c67a297f7bb52bc158847d701dd95569d4c1d",
       "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/resources/voltstack_site/properties/custom_storage_config/storage_device_list/storage_devices/pure_service_orchestrator/arrays/flash_blade/flash_blades/",
       "anchor": "canonical-0100210201111033-3322230020333303-2133010303213000-1330121311223021-2323211113001120-2012320333023322-3213212022132300-3013301131203003",
       "anchor_map": [
@@ -3109,7 +3109,7 @@
       "section_id": "xcsh-docs:resources:voltstack_site:properties:custom_storage_config:storage_device_list:storage_devices:pure_service_orchestrator:arrays:flash_blade:flash_blades:section:5",
       "source_sha256": "sha256:4559cd54572067cfdac430a8166a769de0bf2e37d95a08404545b223380c4444",
       "source_bytes": 1214,
-      "canonical_source_sha256": "sha256:7c72b31797b7018d83e85ac622cdbee3bed08b507fdfb999ba5e5057fb144c90",
+      "canonical_source_sha256": "sha256:c946b464883c3d2d89f9bf2bd79c67a297f7bb52bc158847d701dd95569d4c1d",
       "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/resources/voltstack_site/properties/custom_storage_config/storage_device_list/storage_devices/pure_service_orchestrator/arrays/flash_blade/flash_blades/",
       "anchor": "canonical-0032110003233112-3111112232100023-0031001323013311-2333011331032330-0322222321230231-0110201122313110-2323111032111110-1032332220210123",
       "anchor_map": [
@@ -3126,7 +3126,7 @@
       "section_id": "xcsh-docs:resources:voltstack_site:properties:custom_storage_config:storage_device_list:storage_devices:pure_service_orchestrator:arrays:flash_blade:flash_blades:section:6",
       "source_sha256": "sha256:3f7c3a24675ba047c41e7524abb9bb16aaebc48d8113586eca3af0530126f99c",
       "source_bytes": 1446,
-      "canonical_source_sha256": "sha256:7c72b31797b7018d83e85ac622cdbee3bed08b507fdfb999ba5e5057fb144c90",
+      "canonical_source_sha256": "sha256:c946b464883c3d2d89f9bf2bd79c67a297f7bb52bc158847d701dd95569d4c1d",
       "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/resources/voltstack_site/properties/custom_storage_config/storage_device_list/storage_devices/pure_service_orchestrator/arrays/flash_blade/flash_blades/",
       "anchor": "canonical-3002133132002021-3132321013003133-0022302000120001-3112031222332001-1132223201213311-0130032301301112-2030110303012321-1003331103201003",
       "anchor_map": [
@@ -3143,7 +3143,7 @@
       "section_id": "xcsh-docs:resources:voltstack_site:properties:custom_storage_config:storage_device_list:storage_devices:pure_service_orchestrator:arrays:flash_blade:flash_blades:section:7",
       "source_sha256": "sha256:aaf58d3f9e87314c8e7c55e9b3271cca6b6373f50c32410780329ece2adfadb7",
       "source_bytes": 1052,
-      "canonical_source_sha256": "sha256:7c72b31797b7018d83e85ac622cdbee3bed08b507fdfb999ba5e5057fb144c90",
+      "canonical_source_sha256": "sha256:c946b464883c3d2d89f9bf2bd79c67a297f7bb52bc158847d701dd95569d4c1d",
       "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/resources/voltstack_site/properties/custom_storage_config/storage_device_list/storage_devices/pure_service_orchestrator/arrays/flash_blade/flash_blades/",
       "anchor": "canonical-3201010320012131-0223121211123212-0212033022100103-2222201103111113-1332332131311302-2220131213203221-2303003320000100-2122221323000112",
       "anchor_map": [],
@@ -3155,7 +3155,7 @@
       "section_id": "xcsh-docs:resources:voltstack_site:properties:custom_storage_config:storage_device_list:storage_devices:pure_service_orchestrator:arrays:flash_blade:flash_blades:section:8",
       "source_sha256": "sha256:e4fed90714b626fd14690218777a8219ca9b9e6e28f11cb43ad322de450f0e05",
       "source_bytes": 776,
-      "canonical_source_sha256": "sha256:7c72b31797b7018d83e85ac622cdbee3bed08b507fdfb999ba5e5057fb144c90",
+      "canonical_source_sha256": "sha256:c946b464883c3d2d89f9bf2bd79c67a297f7bb52bc158847d701dd95569d4c1d",
       "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/resources/voltstack_site/properties/custom_storage_config/storage_device_list/storage_devices/pure_service_orchestrator/arrays/flash_blade/flash_blades/",
       "anchor": "canonical-0223320100101021-0133302121223113-2211013200311233-3213232312101303-0230331012222021-2232302201320232-2023011023331331-2023323111102232",
       "anchor_map": [],
@@ -3242,7 +3242,7 @@
         ]
       ],
       "mode": "embedded",
-      "registry_path": "docs/guides/resources--voltstack_site--reference--group-007.md"
+      "registry_path": "docs/guides/resources--voltstack_site--reference--group-008.md"
     },
     {
       "canonical_id": "xcsh-docs:resources:voltstack_site:properties:custom_storage_config:storage_device_list:storage_devices:pure_service_orchestrator:arrays:flash_blade:flash_blades:api_token:blindfold_secret_info",
@@ -3259,7 +3259,7 @@
         ]
       ],
       "mode": "embedded",
-      "registry_path": "docs/guides/resources--voltstack_site--reference--group-007.md"
+      "registry_path": "docs/guides/resources--voltstack_site--reference--group-008.md"
     },
     {
       "canonical_id": "xcsh-docs:resources:voltstack_site:properties:custom_storage_config:storage_device_list:storage_devices:pure_service_orchestrator:arrays:flash_blade:flash_blades:api_token:blindfold_secret_info",
@@ -3276,7 +3276,7 @@
         ]
       ],
       "mode": "embedded",
-      "registry_path": "docs/guides/resources--voltstack_site--reference--group-007.md"
+      "registry_path": "docs/guides/resources--voltstack_site--reference--group-008.md"
     },
     {
       "canonical_id": "xcsh-docs:resources:voltstack_site:properties:custom_storage_config:storage_device_list:storage_devices:pure_service_orchestrator:arrays:flash_blade:flash_blades:api_token:blindfold_secret_info",
@@ -3293,7 +3293,7 @@
         ]
       ],
       "mode": "embedded",
-      "registry_path": "docs/guides/resources--voltstack_site--reference--group-007.md"
+      "registry_path": "docs/guides/resources--voltstack_site--reference--group-008.md"
     },
     {
       "canonical_id": "xcsh-docs:resources:voltstack_site:properties:custom_storage_config:storage_device_list:storage_devices:pure_service_orchestrator:arrays:flash_blade:flash_blades:api_token:blindfold_secret_info",
@@ -3305,7 +3305,7 @@
       "anchor": "canonical-3020103321212100-0200321033120230-0303130020111302-3213303203201222-0210031223012101-3032102132201332-3031002113030121-0011211031013113",
       "anchor_map": [],
       "mode": "embedded",
-      "registry_path": "docs/guides/resources--voltstack_site--reference--group-007.md"
+      "registry_path": "docs/guides/resources--voltstack_site--reference--group-008.md"
     },
     {
       "canonical_id": "xcsh-docs:resources:voltstack_site:properties:custom_storage_config:storage_device_list:storage_devices:pure_service_orchestrator:arrays:flash_blade:flash_blades:api_token:blindfold_secret_info",
@@ -3317,7 +3317,7 @@
       "anchor": "canonical-1013021022013032-2211112233201122-0212001021030000-1003323220120212-0313213123212211-0301010330112212-3303010013001330-3321001203200130",
       "anchor_map": [],
       "mode": "embedded",
-      "registry_path": "docs/guides/resources--voltstack_site--reference--group-007.md"
+      "registry_path": "docs/guides/resources--voltstack_site--reference--group-008.md"
     },
     {
       "canonical_id": "xcsh-docs:resources:voltstack_site:properties:custom_storage_config:storage_device_list:storage_devices:pure_service_orchestrator:arrays:flash_blade:flash_blades:api_token:clear_secret_info",
@@ -3329,7 +3329,7 @@
       "anchor": "canonical-0323113033023303-1021113121101010-2121302021033213-1200003320123031-2023113230021231-0120100013330230-3100121221312003-3323122222103230",
       "anchor_map": [],
       "mode": "embedded",
-      "registry_path": "docs/guides/resources--voltstack_site--reference--group-007.md"
+      "registry_path": "docs/guides/resources--voltstack_site--reference--group-008.md"
     },
     {
       "canonical_id": "xcsh-docs:resources:voltstack_site:properties:custom_storage_config:storage_device_list:storage_devices:pure_service_orchestrator:arrays:flash_blade:flash_blades:api_token:clear_secret_info",
@@ -3346,7 +3346,7 @@
         ]
       ],
       "mode": "embedded",
-      "registry_path": "docs/guides/resources--voltstack_site--reference--group-007.md"
+      "registry_path": "docs/guides/resources--voltstack_site--reference--group-008.md"
     },
     {
       "canonical_id": "xcsh-docs:resources:voltstack_site:properties:custom_storage_config:storage_device_list:storage_devices:pure_service_orchestrator:arrays:flash_blade:flash_blades:api_token:clear_secret_info",
@@ -3363,7 +3363,7 @@
         ]
       ],
       "mode": "embedded",
-      "registry_path": "docs/guides/resources--voltstack_site--reference--group-007.md"
+      "registry_path": "docs/guides/resources--voltstack_site--reference--group-008.md"
     },
     {
       "canonical_id": "xcsh-docs:resources:voltstack_site:properties:custom_storage_config:storage_device_list:storage_devices:pure_service_orchestrator:arrays:flash_blade:flash_blades:api_token:clear_secret_info",
@@ -3831,7 +3831,7 @@
       "section_id": "xcsh-docs:resources:voltstack_site:properties:custom_storage_config:storage_interface_list:storage_interfaces:storage_interface:dhcp_server:section:0",
       "source_sha256": "sha256:197d41522a9dd286cb9805a03d8a5bd782cc3f3fd95ea854bf2dfc326e83e50c",
       "source_bytes": 99,
-      "canonical_source_sha256": "sha256:e9be006e8b91a99faab2100191f41c282b577c875bda2c2d7575ebc9cf81fd4a",
+      "canonical_source_sha256": "sha256:eb4d2e785452719cd50d16039564584f42ea71e80b59b20bdacd0ba6b7179b8e",
       "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/resources/voltstack_site/properties/custom_storage_config/storage_interface_list/storage_interfaces/storage_interface/dhcp_server/",
       "anchor": "canonical-1002031101222310-1031120003212032-0212122012010133-2223101011301020-0302130312231203-1220231230332100-2332202222033222-2303311021132221",
       "anchor_map": [],
@@ -3843,7 +3843,7 @@
       "section_id": "xcsh-docs:resources:voltstack_site:properties:custom_storage_config:storage_interface_list:storage_interfaces:storage_interface:dhcp_server:section:1",
       "source_sha256": "sha256:617ca067b8e6a4cd7a09b28f0b19c009247af7366f9b1492929a4e5ef8954530",
       "source_bytes": 2186,
-      "canonical_source_sha256": "sha256:e9be006e8b91a99faab2100191f41c282b577c875bda2c2d7575ebc9cf81fd4a",
+      "canonical_source_sha256": "sha256:eb4d2e785452719cd50d16039564584f42ea71e80b59b20bdacd0ba6b7179b8e",
       "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/resources/voltstack_site/properties/custom_storage_config/storage_interface_list/storage_interfaces/storage_interface/dhcp_server/",
       "anchor": "canonical-3113131221301303-2112233320032020-3113313010123310-1100000333211002-0121232000013131-0022120120010331-3330132200033321-0202310320003003",
       "anchor_map": [
@@ -3860,7 +3860,7 @@
       "section_id": "xcsh-docs:resources:voltstack_site:properties:custom_storage_config:storage_interface_list:storage_interfaces:storage_interface:dhcp_server:section:2",
       "source_sha256": "sha256:d8ea1dc144a20d3e87b43ac68a2df23ed7fb153a79d2e69553ed07846dd2f000",
       "source_bytes": 943,
-      "canonical_source_sha256": "sha256:e9be006e8b91a99faab2100191f41c282b577c875bda2c2d7575ebc9cf81fd4a",
+      "canonical_source_sha256": "sha256:eb4d2e785452719cd50d16039564584f42ea71e80b59b20bdacd0ba6b7179b8e",
       "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/resources/voltstack_site/properties/custom_storage_config/storage_interface_list/storage_interfaces/storage_interface/dhcp_server/",
       "anchor": "canonical-1121220101203020-3230332012201101-1310010033013002-1300123233003320-1122020011003301-0230103220303110-3201333133213113-1331203120203010",
       "anchor_map": [
@@ -3877,7 +3877,7 @@
       "section_id": "xcsh-docs:resources:voltstack_site:properties:custom_storage_config:storage_interface_list:storage_interfaces:storage_interface:dhcp_server:section:3",
       "source_sha256": "sha256:b843946869ddffee7c6c92a38ef2b0b5d71bfb2854760125befc81063c76e932",
       "source_bytes": 215,
-      "canonical_source_sha256": "sha256:e9be006e8b91a99faab2100191f41c282b577c875bda2c2d7575ebc9cf81fd4a",
+      "canonical_source_sha256": "sha256:eb4d2e785452719cd50d16039564584f42ea71e80b59b20bdacd0ba6b7179b8e",
       "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/resources/voltstack_site/properties/custom_storage_config/storage_interface_list/storage_interfaces/storage_interface/dhcp_server/",
       "anchor": "canonical-1122312330231110-1321023130200100-2201232002011003-2310203033003220-0000032211122220-0102001001302032-3322311322332130-1100301203123011",
       "anchor_map": [
@@ -3892,9 +3892,9 @@
     {
       "canonical_id": "xcsh-docs:resources:voltstack_site:properties:custom_storage_config:storage_interface_list:storage_interfaces:storage_interface:dhcp_server",
       "section_id": "xcsh-docs:resources:voltstack_site:properties:custom_storage_config:storage_interface_list:storage_interfaces:storage_interface:dhcp_server:section:4",
-      "source_sha256": "sha256:c81a4b6bea75824ff1e7ba1789a6886578261c1e65f4efcea784d3907877c6ae",
-      "source_bytes": 1308,
-      "canonical_source_sha256": "sha256:e9be006e8b91a99faab2100191f41c282b577c875bda2c2d7575ebc9cf81fd4a",
+      "source_sha256": "sha256:2ef525b52d9c41b178cb9a672fd9a8659b265203422386c2388e91f481507428",
+      "source_bytes": 2314,
+      "canonical_source_sha256": "sha256:eb4d2e785452719cd50d16039564584f42ea71e80b59b20bdacd0ba6b7179b8e",
       "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/resources/voltstack_site/properties/custom_storage_config/storage_interface_list/storage_interfaces/storage_interface/dhcp_server/",
       "anchor": "canonical-0000131110110031-3112201232330121-2311211331103200-3112102103113302-3322120301201321-2003101303020130-1130203333030011-0212101310100300",
       "anchor_map": [],
@@ -3906,7 +3906,7 @@
       "section_id": "xcsh-docs:resources:voltstack_site:properties:custom_storage_config:storage_interface_list:storage_interfaces:storage_interface:dhcp_server:section:5",
       "source_sha256": "sha256:72fa8b70a520d1ded42caa987ac1d10d5e29d6012d5a3f29ed3802b1dc5336e9",
       "source_bytes": 1670,
-      "canonical_source_sha256": "sha256:e9be006e8b91a99faab2100191f41c282b577c875bda2c2d7575ebc9cf81fd4a",
+      "canonical_source_sha256": "sha256:eb4d2e785452719cd50d16039564584f42ea71e80b59b20bdacd0ba6b7179b8e",
       "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/resources/voltstack_site/properties/custom_storage_config/storage_interface_list/storage_interfaces/storage_interface/dhcp_server/",
       "anchor": "canonical-3102032333023113-3203312321133303-3313213022333330-1230023120021112-0233130212330102-0302223103031002-3112132002203310-2330003132201012",
       "anchor_map": [],
@@ -4408,7 +4408,7 @@
       "section_id": "xcsh-docs:resources:voltstack_site:properties:custom_storage_config:storage_interface_list:storage_interfaces:storage_interface:dhcp_server:interface_ip_map:section:0",
       "source_sha256": "sha256:197d41522a9dd286cb9805a03d8a5bd782cc3f3fd95ea854bf2dfc326e83e50c",
       "source_bytes": 99,
-      "canonical_source_sha256": "sha256:5aa67b59bbe96944143cce0ba7ac4628d9f262022400cc8d7c316f408439eab5",
+      "canonical_source_sha256": "sha256:1ce8dac04d8ad13cb55004ad09d1bfcd61e6e3dbfecc9ec51ef61877a385fe6f",
       "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/resources/voltstack_site/properties/custom_storage_config/storage_interface_list/storage_interfaces/storage_interface/dhcp_server/interface_ip_map/",
       "anchor": "canonical-1110000210131331-0222211003000203-2323232230323312-0332322023200323-0300013122103330-0031301111323001-0120123303121031-3131001303100232",
       "anchor_map": [],
@@ -4420,7 +4420,7 @@
       "section_id": "xcsh-docs:resources:voltstack_site:properties:custom_storage_config:storage_interface_list:storage_interfaces:storage_interface:dhcp_server:interface_ip_map:section:1",
       "source_sha256": "sha256:fa290305dd7c155759713b02d58e85c55d3da2b06b17dd4c9d28b43113d865d8",
       "source_bytes": 2054,
-      "canonical_source_sha256": "sha256:5aa67b59bbe96944143cce0ba7ac4628d9f262022400cc8d7c316f408439eab5",
+      "canonical_source_sha256": "sha256:1ce8dac04d8ad13cb55004ad09d1bfcd61e6e3dbfecc9ec51ef61877a385fe6f",
       "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/resources/voltstack_site/properties/custom_storage_config/storage_interface_list/storage_interfaces/storage_interface/dhcp_server/interface_ip_map/",
       "anchor": "canonical-2123211110221210-3023212112010232-3330132212031010-2301300222100231-3310210012013222-2202220203212110-3131312221203130-2130012020221020",
       "anchor_map": [
@@ -4437,7 +4437,7 @@
       "section_id": "xcsh-docs:resources:voltstack_site:properties:custom_storage_config:storage_interface_list:storage_interfaces:storage_interface:dhcp_server:interface_ip_map:section:2",
       "source_sha256": "sha256:2f31bffb5098e4c0aafe50e2b0e2b817bdeee40de2204170b92df559dc5b06fc",
       "source_bytes": 177,
-      "canonical_source_sha256": "sha256:5aa67b59bbe96944143cce0ba7ac4628d9f262022400cc8d7c316f408439eab5",
+      "canonical_source_sha256": "sha256:1ce8dac04d8ad13cb55004ad09d1bfcd61e6e3dbfecc9ec51ef61877a385fe6f",
       "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/resources/voltstack_site/properties/custom_storage_config/storage_interface_list/storage_interfaces/storage_interface/dhcp_server/interface_ip_map/",
       "anchor": "canonical-1202211231133321-0221232210221101-1010212013311113-1110200201100021-1223233310201330-3311102002020223-1313013332222103-3100303321100311",
       "anchor_map": [
@@ -4452,9 +4452,9 @@
     {
       "canonical_id": "xcsh-docs:resources:voltstack_site:properties:custom_storage_config:storage_interface_list:storage_interfaces:storage_interface:dhcp_server:interface_ip_map",
       "section_id": "xcsh-docs:resources:voltstack_site:properties:custom_storage_config:storage_interface_list:storage_interfaces:storage_interface:dhcp_server:interface_ip_map:section:3",
-      "source_sha256": "sha256:33c4101e12409f85b3e5f997d3f452cde8fa74b065fd49352f67886cc064e72f",
-      "source_bytes": 1034,
-      "canonical_source_sha256": "sha256:5aa67b59bbe96944143cce0ba7ac4628d9f262022400cc8d7c316f408439eab5",
+      "source_sha256": "sha256:765d52ac396c04ed48a8c9c30729c14d66e6ecc96f846ca87db05c8cba1c49c1",
+      "source_bytes": 1978,
+      "canonical_source_sha256": "sha256:1ce8dac04d8ad13cb55004ad09d1bfcd61e6e3dbfecc9ec51ef61877a385fe6f",
       "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/resources/voltstack_site/properties/custom_storage_config/storage_interface_list/storage_interfaces/storage_interface/dhcp_server/interface_ip_map/",
       "anchor": "canonical-3030112110232113-3301320032011003-3003232013003122-1223012011032003-1111130103332310-2002020112133102-3220031101101000-0332202030322200",
       "anchor_map": [],
@@ -4466,7 +4466,7 @@
       "section_id": "xcsh-docs:resources:voltstack_site:properties:custom_storage_config:storage_interface_list:storage_interfaces:storage_interface:dhcp_server:interface_ip_map:section:4",
       "source_sha256": "sha256:1fc3d0b6b984d87fc6adffbfb1d5217a62fd13faa518d14d1cff9b397b7c0314",
       "source_bytes": 408,
-      "canonical_source_sha256": "sha256:5aa67b59bbe96944143cce0ba7ac4628d9f262022400cc8d7c316f408439eab5",
+      "canonical_source_sha256": "sha256:1ce8dac04d8ad13cb55004ad09d1bfcd61e6e3dbfecc9ec51ef61877a385fe6f",
       "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/resources/voltstack_site/properties/custom_storage_config/storage_interface_list/storage_interfaces/storage_interface/dhcp_server/interface_ip_map/",
       "anchor": "canonical-0333332122330311-3030212322030133-2333211033123130-2300032322311222-0032030003110033-2110213133011100-2020000331101331-1202331113311231",
       "anchor_map": [],
@@ -4953,7 +4953,7 @@
       "section_id": "xcsh-docs:resources:voltstack_site:properties:custom_storage_config:storage_interface_list:storage_interfaces:storage_interface:ipv6_auto_config:router:stateful:section:0",
       "source_sha256": "sha256:197d41522a9dd286cb9805a03d8a5bd782cc3f3fd95ea854bf2dfc326e83e50c",
       "source_bytes": 99,
-      "canonical_source_sha256": "sha256:48ba3f73e437d41236b40448e9225e57a4051aab93b76c543b0a58e882930598",
+      "canonical_source_sha256": "sha256:db40f615668996fb5ab7145e1bbffeb7d5e98ca6db2c89a2a7f21589817c29c7",
       "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/resources/voltstack_site/properties/custom_storage_config/storage_interface_list/storage_interfaces/storage_interface/ipv6_auto_config/router/stateful/",
       "anchor": "canonical-3300303013230331-2021231023101211-2011313323303332-2312312211221013-3223221103322122-0310201001202021-2320300200112230-2132311223023112",
       "anchor_map": [],
@@ -4965,7 +4965,7 @@
       "section_id": "xcsh-docs:resources:voltstack_site:properties:custom_storage_config:storage_interface_list:storage_interfaces:storage_interface:ipv6_auto_config:router:stateful:section:1",
       "source_sha256": "sha256:2bc2de4040d899ba3b6c0789ecc251bc6b2172a7d4ab890a1a63667284537569",
       "source_bytes": 2816,
-      "canonical_source_sha256": "sha256:48ba3f73e437d41236b40448e9225e57a4051aab93b76c543b0a58e882930598",
+      "canonical_source_sha256": "sha256:db40f615668996fb5ab7145e1bbffeb7d5e98ca6db2c89a2a7f21589817c29c7",
       "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/resources/voltstack_site/properties/custom_storage_config/storage_interface_list/storage_interfaces/storage_interface/ipv6_auto_config/router/stateful/",
       "anchor": "canonical-3003031301122011-3113001132110310-3033122132322312-1100001332123002-2120312033323302-0310223020131110-1321212012203003-0300102202330201",
       "anchor_map": [
@@ -4982,7 +4982,7 @@
       "section_id": "xcsh-docs:resources:voltstack_site:properties:custom_storage_config:storage_interface_list:storage_interfaces:storage_interface:ipv6_auto_config:router:stateful:section:2",
       "source_sha256": "sha256:ec9505c931260e9142748e38c498a33522ece453c8295d9a4623d91873383dc8",
       "source_bytes": 1024,
-      "canonical_source_sha256": "sha256:48ba3f73e437d41236b40448e9225e57a4051aab93b76c543b0a58e882930598",
+      "canonical_source_sha256": "sha256:db40f615668996fb5ab7145e1bbffeb7d5e98ca6db2c89a2a7f21589817c29c7",
       "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/resources/voltstack_site/properties/custom_storage_config/storage_interface_list/storage_interfaces/storage_interface/ipv6_auto_config/router/stateful/",
       "anchor": "canonical-3233232332033201-1311120022020211-3003211232002130-1231332130032031-1001011222220220-1321002020310101-2300020231003133-3132201023212302",
       "anchor_map": [
@@ -4997,9 +4997,9 @@
     {
       "canonical_id": "xcsh-docs:resources:voltstack_site:properties:custom_storage_config:storage_interface_list:storage_interfaces:storage_interface:ipv6_auto_config:router:stateful",
       "section_id": "xcsh-docs:resources:voltstack_site:properties:custom_storage_config:storage_interface_list:storage_interfaces:storage_interface:ipv6_auto_config:router:stateful:section:3",
-      "source_sha256": "sha256:6b7a94f0f62d8b9ce4e8e5f4b33e3e8a31a67c1c6e1b05b8f3e086495c11b36f",
-      "source_bytes": 1580,
-      "canonical_source_sha256": "sha256:48ba3f73e437d41236b40448e9225e57a4051aab93b76c543b0a58e882930598",
+      "source_sha256": "sha256:c2ca1ceb13085efcc446fc1dc33ad3c86346a1486a51e0b24e98f71899edee61",
+      "source_bytes": 2586,
+      "canonical_source_sha256": "sha256:db40f615668996fb5ab7145e1bbffeb7d5e98ca6db2c89a2a7f21589817c29c7",
       "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/resources/voltstack_site/properties/custom_storage_config/storage_interface_list/storage_interfaces/storage_interface/ipv6_auto_config/router/stateful/",
       "anchor": "canonical-1213202022013221-3101322231330013-0011212323013103-1200312321320331-3303211121222300-0202222000311223-3332223211201023-3111223223313011",
       "anchor_map": [],
@@ -5011,7 +5011,7 @@
       "section_id": "xcsh-docs:resources:voltstack_site:properties:custom_storage_config:storage_interface_list:storage_interfaces:storage_interface:ipv6_auto_config:router:stateful:section:4",
       "source_sha256": "sha256:f594fe9249603f320bec33761eda0178943be697c2edaff19dd7f46780774606",
       "source_bytes": 1886,
-      "canonical_source_sha256": "sha256:48ba3f73e437d41236b40448e9225e57a4051aab93b76c543b0a58e882930598",
+      "canonical_source_sha256": "sha256:db40f615668996fb5ab7145e1bbffeb7d5e98ca6db2c89a2a7f21589817c29c7",
       "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/resources/voltstack_site/properties/custom_storage_config/storage_interface_list/storage_interfaces/storage_interface/ipv6_auto_config/router/stateful/",
       "anchor": "canonical-0011220013321022-2100111221013330-3301233303103122-0132210300303320-1321111031121123-0210013320020132-3310222102232002-0222222333130010",
       "anchor_map": [],
@@ -5303,7 +5303,7 @@
       "section_id": "xcsh-docs:resources:voltstack_site:properties:custom_storage_config:storage_interface_list:storage_interfaces:storage_interface:ipv6_auto_config:router:stateful:interface_ip_map:section:0",
       "source_sha256": "sha256:197d41522a9dd286cb9805a03d8a5bd782cc3f3fd95ea854bf2dfc326e83e50c",
       "source_bytes": 99,
-      "canonical_source_sha256": "sha256:87ea02388bf6bf99fc001dc6008a7ffcb02cfac9b164e9ed62dde16e5a96aebd",
+      "canonical_source_sha256": "sha256:4a34f8b70fc20521c0a66fa14a4580c72e0068780939a964a4e4ac6e40c1ed01",
       "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/resources/voltstack_site/properties/custom_storage_config/storage_interface_list/storage_interfaces/storage_interface/ipv6_auto_config/router/stateful/interface_ip_map/",
       "anchor": "canonical-0300131331222301-0023230020222313-1211033000132120-2133323030132213-3013031230201102-3200211120020023-2001220032032113-1013031020213201",
       "anchor_map": [],
@@ -5315,7 +5315,7 @@
       "section_id": "xcsh-docs:resources:voltstack_site:properties:custom_storage_config:storage_interface_list:storage_interfaces:storage_interface:ipv6_auto_config:router:stateful:interface_ip_map:section:1",
       "source_sha256": "sha256:82bdf160ef8f348587931dfe3565712641f1a0106a8a91cd98ef895033d4281d",
       "source_bytes": 2656,
-      "canonical_source_sha256": "sha256:87ea02388bf6bf99fc001dc6008a7ffcb02cfac9b164e9ed62dde16e5a96aebd",
+      "canonical_source_sha256": "sha256:4a34f8b70fc20521c0a66fa14a4580c72e0068780939a964a4e4ac6e40c1ed01",
       "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/resources/voltstack_site/properties/custom_storage_config/storage_interface_list/storage_interfaces/storage_interface/ipv6_auto_config/router/stateful/interface_ip_map/",
       "anchor": "canonical-0013120132200120-1121002203232030-0221023103212131-3021202031033321-3233002013213103-2030011113312033-1320202100022232-1213030330213320",
       "anchor_map": [
@@ -5332,7 +5332,7 @@
       "section_id": "xcsh-docs:resources:voltstack_site:properties:custom_storage_config:storage_interface_list:storage_interfaces:storage_interface:ipv6_auto_config:router:stateful:interface_ip_map:section:2",
       "source_sha256": "sha256:79da273d5f84275a7aa3eae9d66b0488ed2c5eb69fa2de5cbb4344688f4f9fcc",
       "source_bytes": 200,
-      "canonical_source_sha256": "sha256:87ea02388bf6bf99fc001dc6008a7ffcb02cfac9b164e9ed62dde16e5a96aebd",
+      "canonical_source_sha256": "sha256:4a34f8b70fc20521c0a66fa14a4580c72e0068780939a964a4e4ac6e40c1ed01",
       "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/resources/voltstack_site/properties/custom_storage_config/storage_interface_list/storage_interfaces/storage_interface/ipv6_auto_config/router/stateful/interface_ip_map/",
       "anchor": "canonical-3113122201131123-1302331000032103-2111100330130200-0001121201313132-1220012113210002-2310102121233130-3121212213202021-1212033110211203",
       "anchor_map": [
@@ -5347,9 +5347,9 @@
     {
       "canonical_id": "xcsh-docs:resources:voltstack_site:properties:custom_storage_config:storage_interface_list:storage_interfaces:storage_interface:ipv6_auto_config:router:stateful:interface_ip_map",
       "section_id": "xcsh-docs:resources:voltstack_site:properties:custom_storage_config:storage_interface_list:storage_interfaces:storage_interface:ipv6_auto_config:router:stateful:interface_ip_map:section:3",
-      "source_sha256": "sha256:e862363040c00c64b88756b1255bdd4015285ad49ea7910f3628375d4379171f",
-      "source_bytes": 1108,
-      "canonical_source_sha256": "sha256:87ea02388bf6bf99fc001dc6008a7ffcb02cfac9b164e9ed62dde16e5a96aebd",
+      "source_sha256": "sha256:cae05dfc3c01c71a356fe0861b987c92c5bdb0d1150b15ef0d8fdaa4c1b3f438",
+      "source_bytes": 2052,
+      "canonical_source_sha256": "sha256:4a34f8b70fc20521c0a66fa14a4580c72e0068780939a964a4e4ac6e40c1ed01",
       "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/resources/voltstack_site/properties/custom_storage_config/storage_interface_list/storage_interfaces/storage_interface/ipv6_auto_config/router/stateful/interface_ip_map/",
       "anchor": "canonical-0212302111220012-2000332031101122-1132322212132020-0311212300311323-3220312212203310-0231003130023233-3133133301322002-3131302210230020",
       "anchor_map": [],
@@ -5361,7 +5361,7 @@
       "section_id": "xcsh-docs:resources:voltstack_site:properties:custom_storage_config:storage_interface_list:storage_interfaces:storage_interface:ipv6_auto_config:router:stateful:interface_ip_map:section:4",
       "source_sha256": "sha256:dc84dec2a65258094a8f4ecb1804064921443773514eb942222833bc17412433",
       "source_bytes": 450,
-      "canonical_source_sha256": "sha256:87ea02388bf6bf99fc001dc6008a7ffcb02cfac9b164e9ed62dde16e5a96aebd",
+      "canonical_source_sha256": "sha256:4a34f8b70fc20521c0a66fa14a4580c72e0068780939a964a4e4ac6e40c1ed01",
       "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/resources/voltstack_site/properties/custom_storage_config/storage_interface_list/storage_interfaces/storage_interface/ipv6_auto_config/router/stateful/interface_ip_map/",
       "anchor": "canonical-2223303102332113-3220200013010113-2112202310021232-3030213333011020-0000020331101220-0211300222012202-1110321110030213-1103232310320332",
       "anchor_map": [],
@@ -5797,7 +5797,7 @@
       "section_id": "xcsh-docs:resources:voltstack_site:properties:custom_storage_config:storage_interface_list:storage_interfaces:storage_interface:static_ip:cluster_static_ip:section:0",
       "source_sha256": "sha256:197d41522a9dd286cb9805a03d8a5bd782cc3f3fd95ea854bf2dfc326e83e50c",
       "source_bytes": 99,
-      "canonical_source_sha256": "sha256:c88525091281b5faad4113a4636443b532362d23319835ff6056199f61ba711a",
+      "canonical_source_sha256": "sha256:bee056f05982118f6dd4ee49cdc731c4f54cf9e9bbf1ccbe6d237a4f426e03af",
       "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/resources/voltstack_site/properties/custom_storage_config/storage_interface_list/storage_interfaces/storage_interface/static_ip/cluster_static_ip/",
       "anchor": "canonical-3310011330130321-1101330002000001-2002102232030320-1112201101230231-2011313322002022-1212322011112133-3131333102011230-1012332122233321",
       "anchor_map": [],
@@ -5809,7 +5809,7 @@
       "section_id": "xcsh-docs:resources:voltstack_site:properties:custom_storage_config:storage_interface_list:storage_interfaces:storage_interface:static_ip:cluster_static_ip:section:1",
       "source_sha256": "sha256:34bdea97e35bebbf98d1e9007ceb8de370d8ccd4064201a9694b6f13e6511e37",
       "source_bytes": 1961,
-      "canonical_source_sha256": "sha256:c88525091281b5faad4113a4636443b532362d23319835ff6056199f61ba711a",
+      "canonical_source_sha256": "sha256:bee056f05982118f6dd4ee49cdc731c4f54cf9e9bbf1ccbe6d237a4f426e03af",
       "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/resources/voltstack_site/properties/custom_storage_config/storage_interface_list/storage_interfaces/storage_interface/static_ip/cluster_static_ip/",
       "anchor": "canonical-2200001333202203-0131302020010303-1120112012330330-1121210212221321-1123030323300303-0330023133003101-2331021002232323-1311120312131212",
       "anchor_map": [
@@ -5826,7 +5826,7 @@
       "section_id": "xcsh-docs:resources:voltstack_site:properties:custom_storage_config:storage_interface_list:storage_interfaces:storage_interface:static_ip:cluster_static_ip:section:2",
       "source_sha256": "sha256:e3fbb1d5b931c24efc9576bfe419cc5d45d2d611579dab852fffd3967d7067d3",
       "source_bytes": 176,
-      "canonical_source_sha256": "sha256:c88525091281b5faad4113a4636443b532362d23319835ff6056199f61ba711a",
+      "canonical_source_sha256": "sha256:bee056f05982118f6dd4ee49cdc731c4f54cf9e9bbf1ccbe6d237a4f426e03af",
       "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/resources/voltstack_site/properties/custom_storage_config/storage_interface_list/storage_interfaces/storage_interface/static_ip/cluster_static_ip/",
       "anchor": "canonical-2031113322321033-0333021130323231-1002332310013322-0202033301013310-3120313222231302-3213233031230300-0030311231331120-1110210323110003",
       "anchor_map": [
@@ -5841,26 +5841,26 @@
     {
       "canonical_id": "xcsh-docs:resources:voltstack_site:properties:custom_storage_config:storage_interface_list:storage_interfaces:storage_interface:static_ip:cluster_static_ip",
       "section_id": "xcsh-docs:resources:voltstack_site:properties:custom_storage_config:storage_interface_list:storage_interfaces:storage_interface:static_ip:cluster_static_ip:section:3",
-      "source_sha256": "sha256:d967d49c520019fbdf920b77a60ef500e5e19d4d94d8844d95c8912b839a2bd3",
-      "source_bytes": 950,
-      "canonical_source_sha256": "sha256:c88525091281b5faad4113a4636443b532362d23319835ff6056199f61ba711a",
+      "source_sha256": "sha256:c000f4bcc8ee1ed04761b194f89f11ed7054dfb0f7caf597000ef5c262731fb5",
+      "source_bytes": 1658,
+      "canonical_source_sha256": "sha256:bee056f05982118f6dd4ee49cdc731c4f54cf9e9bbf1ccbe6d237a4f426e03af",
       "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/resources/voltstack_site/properties/custom_storage_config/storage_interface_list/storage_interfaces/storage_interface/static_ip/cluster_static_ip/",
       "anchor": "canonical-1102111310212230-1120200311322300-2030132202230313-3231012202033130-0023002233331331-1203113310131001-3203333130033223-2000300332010320",
       "anchor_map": [],
       "mode": "embedded",
-      "registry_path": "docs/guides/resources--voltstack_site--reference--group-008.md"
+      "registry_path": "docs/guides/resources--voltstack_site--reference--group-009.md"
     },
     {
       "canonical_id": "xcsh-docs:resources:voltstack_site:properties:custom_storage_config:storage_interface_list:storage_interfaces:storage_interface:static_ip:cluster_static_ip",
       "section_id": "xcsh-docs:resources:voltstack_site:properties:custom_storage_config:storage_interface_list:storage_interfaces:storage_interface:static_ip:cluster_static_ip:section:4",
       "source_sha256": "sha256:8841b91b45c424a4b3b8741bb3d97e2230d96e22f6161f18c5fa2a301aba1202",
       "source_bytes": 404,
-      "canonical_source_sha256": "sha256:c88525091281b5faad4113a4636443b532362d23319835ff6056199f61ba711a",
+      "canonical_source_sha256": "sha256:bee056f05982118f6dd4ee49cdc731c4f54cf9e9bbf1ccbe6d237a4f426e03af",
       "canonical_url": "https://f5-sales-demo.github.io/terraform-provider-xcsh/resources/voltstack_site/properties/custom_storage_config/storage_interface_list/storage_interfaces/storage_interface/static_ip/cluster_static_ip/",
       "anchor": "canonical-1331021313101100-2301111223211210-3202033302022023-1020110321003322-0133222302231223-1031023223022232-3332213012133322-2333222021230020",
       "anchor_map": [],
       "mode": "embedded",
-      "registry_path": "docs/guides/resources--voltstack_site--reference--group-008.md"
+      "registry_path": "docs/guides/resources--voltstack_site--reference--group-009.md"
     },
     {
       "canonical_id": "xcsh-docs:resources:voltstack_site:properties:custom_storage_config:storage_interface_list:storage_interfaces:storage_interface:static_ip:node_static_ip",
@@ -5872,7 +5872,7 @@
       "anchor": "canonical-2221013113030331-2130211221132001-1221323232301232-3020131121230033-1133112133220233-1030131112000232-0202211003112322-2032030203221122",
       "anchor_map": [],
       "mode": "embedded",
-      "registry_path": "docs/guides/resources--voltstack_site--reference--group-008.md"
+      "registry_path": "docs/guides/resources--voltstack_site--reference--group-009.md"
     },
     {
       "canonical_id": "xcsh-docs:resources:voltstack_site:properties:custom_storage_config:storage_interface_list:storage_interfaces:storage_interface:static_ip:node_static_ip",
@@ -5889,7 +5889,7 @@
         ]
       ],
       "mode": "embedded",
-      "registry_path": "docs/guides/resources--voltstack_site--reference--group-008.md"
+      "registry_path": "docs/guides/resources--voltstack_site--reference--group-009.md"
     },
     {
       "canonical_id": "xcsh-docs:resources:voltstack_site:properties:custom_storage_config:storage_interface_list:storage_interfaces:storage_interface:static_ip:node_static_ip",
@@ -5906,7 +5906,7 @@
         ]
       ],
       "mode": "embedded",
-      "registry_path": "docs/guides/resources--voltstack_site--reference--group-008.md"
+      "registry_path": "docs/guides/resources--voltstack_site--reference--group-009.md"
     },
     {
       "canonical_id": "xcsh-docs:resources:voltstack_site:properties:custom_storage_config:storage_interface_list:storage_interfaces:storage_interface:static_ip:node_static_ip",
@@ -5923,7 +5923,7 @@
         ]
       ],
       "mode": "embedded",
-      "registry_path": "docs/guides/resources--voltstack_site--reference--group-008.md"
+      "registry_path": "docs/guides/resources--voltstack_site--reference--group-009.md"
     }
   ]
 }

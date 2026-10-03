@@ -88,6 +88,27 @@ Receipt-pinned upstream constraints:
 
 ```json
 {
+  "x-f5xc-constraints": {
+    "category": "discovery",
+    "constraintType": "map",
+    "deterministic": true,
+    "keys": {
+      "maxLength": 64,
+      "minLength": 1,
+      "type": "string"
+    },
+    "originalRules": {
+      "ves.io.schema.rules.map.keys.string.max_len": "64",
+      "ves.io.schema.rules.map.keys.string.min_len": "1",
+      "ves.io.schema.rules.map.values.string.max_len": "1024",
+      "ves.io.schema.rules.map.values.string.min_len": "1"
+    },
+    "values": {
+      "maxLength": 1024,
+      "minLength": 1,
+      "type": "string"
+    }
+  },
   "x-f5xc-required-for": {
     "create": false,
     "minimum_config": false,
@@ -238,13 +259,24 @@ Receipt-pinned upstream constraints:
 ```json
 {
   "x-f5xc-constraints": {
-    "category": "general",
-    "constraintType": "object",
-    "maxProperties": 40,
-    "metadata": {
-      "confidence": 0.75,
-      "source": "inferred",
-      "validatedAt": "2026-10-03T05:10:26+00:00"
+    "cardinality": {
+      "maxProperties": 40
+    },
+    "category": "discovery",
+    "constraintType": "map",
+    "deterministic": true,
+    "keys": {
+      "maxLength": 127,
+      "type": "string"
+    },
+    "originalRules": {
+      "ves.io.schema.rules.map.keys.string.max_len": "127",
+      "ves.io.schema.rules.map.max_pairs": "40",
+      "ves.io.schema.rules.map.values.string.max_len": "255"
+    },
+    "values": {
+      "maxLength": 255,
+      "type": "string"
     }
   },
   "x-f5xc-required-for": {
@@ -580,7 +612,7 @@ Receipt-pinned upstream constraints:
 
 - [voltstack_cluster](data-sources--gcp_vpc_site--reference--group-004.md#canonical-2213313332313212-1230123320203012-3120121021331113-3210101220221000-1023022133330131-3023333003003323-2311003313332333-2203303111102220): complete subsection reference.
 
-- [waf_signatures](data-sources--gcp_vpc_site--reference--group-004.md#canonical-0012012033031300-2110002220223133-3303202210233302-1331310110333111-3031100320201031-2130003013122113-0123330322110322-1011031331030122): complete subsection reference.
+- [waf_signatures](data-sources--gcp_vpc_site--reference--group-005.md#canonical-0012012033031300-2110002220223133-3303202210233302-1331310110333111-3031100320201031-2130003013122113-0123330322110322-1011031331030122): complete subsection reference.
 
 <a id="canonical-1312330210333113-0130230133213230-1133300102120001-1000233200302313-0110231331200223-3120201333221302-0210321000110200-0101012030023233"></a>
 
@@ -715,7 +747,7 @@ Each exact path has one authoritative reference destination. Collection element 
 | `ingress_egress_gw.no_inside_static_routes` | [ingress_egress_gw.no_inside_static_routes](data-sources--gcp_vpc_site--reference--group-002.md#canonical-3221332002031313-2010131221011230-1230231202011312-0202013120103102-1333022113120120-0013320312002211-3102000313211302-2000331100123023) |
 | `ingress_egress_gw.no_network_policy` | [ingress_egress_gw.no_network_policy](data-sources--gcp_vpc_site--reference--group-002.md#canonical-0132122202101131-2020132123110110-2113003000123102-2223220313032212-0310133313030033-0100311313301110-0003133333001101-3133301121303302) |
 | `ingress_egress_gw.no_outside_static_routes` | [ingress_egress_gw.no_outside_static_routes](data-sources--gcp_vpc_site--reference--group-002.md#canonical-0333203110320330-1132120310113110-3332012300033200-1213033032112101-2211320123122222-1230301130333211-2230110310223013-1213101023032300) |
-| `ingress_egress_gw.node_number` | [ingress_egress_gw.node_number](data-sources--gcp_vpc_site--reference--group-001.md#canonical-0233223010101003-2232200201322111-2011132001312231-0231200021103302-1321111023122121-1113313300311111-3222120012313021-1030112301231220) |
+| `ingress_egress_gw.node_number` | [ingress_egress_gw.node_number](data-sources--gcp_vpc_site--reference--group-002.md#canonical-0233223010101003-2232200201322111-2011132001312231-0231200021103302-1321111023122121-1113313300311111-3222120012313021-1030112301231220) |
 | `ingress_egress_gw.outside_network` | [ingress_egress_gw.outside_network](data-sources--gcp_vpc_site--reference--group-002.md#canonical-0313202301100112-1001031023230231-3333101222012102-3202133211302210-3303133320333332-0112122323102331-1102101233320033-0121013330311312) |
 | `ingress_egress_gw.outside_network.existing_network` | [ingress_egress_gw.outside_network.existing_network](data-sources--gcp_vpc_site--reference--group-002.md#canonical-2110022110221201-2320022330033321-3110300110031332-0120013110220221-1200332320202100-0101031321000120-1211011132222203-0310120022223202) |
 | `ingress_egress_gw.outside_network.existing_network.name` | [ingress_egress_gw.outside_network.existing_network.name](data-sources--gcp_vpc_site--reference--group-002.md#canonical-1123202222333000-0021203322311032-3102302020102323-1030111000220003-3010302231213311-0032221010120321-2230131332010130-0201122221120112) |
@@ -724,8 +756,8 @@ Each exact path has one authoritative reference destination. Collection element 
 | `ingress_egress_gw.outside_network.new_network_autogenerate` | [ingress_egress_gw.outside_network.new_network_autogenerate](data-sources--gcp_vpc_site--reference--group-002.md#canonical-0031111213113013-0103010030232011-0003003202321103-3132010030011132-0231012221320112-0331300220032221-2120210112102030-0333030113032331) |
 | `ingress_egress_gw.outside_static_routes` | [ingress_egress_gw.outside_static_routes](data-sources--gcp_vpc_site--reference--group-002.md#canonical-0323023232303223-2121211210022131-3300033022311100-1032131332303230-3001120032220202-1321312121020112-1202102232031111-0312000212011101) |
 | `ingress_egress_gw.outside_static_routes.static_route_list` | [ingress_egress_gw.outside_static_routes.static_route_list](data-sources--gcp_vpc_site--reference--group-002.md#canonical-1032020001221203-3211103022330321-1111130120110231-2211301200131021-1000121011213311-3222012231020003-3103131101000310-1322333223202230) |
-| `ingress_egress_gw.outside_static_routes.static_route_list.custom_static_route` | [ingress_egress_gw.outside_static_routes.static_route_list.custom_static_route](data-sources--gcp_vpc_site--reference--group-002.md#canonical-2103200313332222-1131023303323121-2222313212320320-2303113331130031-1300031032303223-2112212011131213-3031301123323102-2200101331133010) |
-| `ingress_egress_gw.outside_static_routes.static_route_list.custom_static_route.attrs` | [ingress_egress_gw.outside_static_routes.static_route_list.custom_static_route.attrs](data-sources--gcp_vpc_site--reference--group-002.md#canonical-1113021133222132-0233222330121200-0222023222131011-0303101213230232-2112320320012000-0032320310322333-2202322002203032-2000002032301032) |
+| `ingress_egress_gw.outside_static_routes.static_route_list.custom_static_route` | [ingress_egress_gw.outside_static_routes.static_route_list.custom_static_route](data-sources--gcp_vpc_site--reference--group-003.md#canonical-2103200313332222-1131023303323121-2222313212320320-2303113331130031-1300031032303223-2112212011131213-3031301123323102-2200101331133010) |
+| `ingress_egress_gw.outside_static_routes.static_route_list.custom_static_route.attrs` | [ingress_egress_gw.outside_static_routes.static_route_list.custom_static_route.attrs](data-sources--gcp_vpc_site--reference--group-003.md#canonical-1113021133222132-0233222330121200-0222023222131011-0303101213230232-2112320320012000-0032320310322333-2202322002203032-2000002032301032) |
 | `ingress_egress_gw.outside_static_routes.static_route_list.custom_static_route.labels` | [ingress_egress_gw.outside_static_routes.static_route_list.custom_static_route.labels](data-sources--gcp_vpc_site--reference--group-003.md#canonical-2203111211123001-1302311011012203-0302303101021333-3013003113122111-0220031031331011-2333233023222203-3111332212100030-0230300130223113) |
 | `ingress_egress_gw.outside_static_routes.static_route_list.custom_static_route.nexthop` | [ingress_egress_gw.outside_static_routes.static_route_list.custom_static_route.nexthop](data-sources--gcp_vpc_site--reference--group-003.md#canonical-3312030212332122-0102121002311120-0301030210002220-1000213212223312-1213022022311223-1010033033313123-1122103012030111-0200222031303031) |
 | `ingress_egress_gw.outside_static_routes.static_route_list.custom_static_route.nexthop.interface` | [ingress_egress_gw.outside_static_routes.static_route_list.custom_static_route.nexthop.interface](data-sources--gcp_vpc_site--reference--group-003.md#canonical-3030101010031321-2022031021330132-1110202320301300-0332112331321312-0233220303000302-3302030233313111-2120131202212030-0222031011031303) |
@@ -823,9 +855,9 @@ Each exact path has one authoritative reference destination. Collection element 
 | `private_connectivity.inside` | [private_connectivity.inside](data-sources--gcp_vpc_site--reference--group-003.md#canonical-3001210001211311-2201220011232011-2121120310211102-2312000311030023-2213020300023123-1333322033133003-0300123310132312-1212121032132030) |
 | `private_connectivity.outside` | [private_connectivity.outside](data-sources--gcp_vpc_site--reference--group-003.md#canonical-3200032013200101-1013231120020332-0321321000230031-2313313112200113-0302202301323132-0321310202102102-0323002220330323-0203321021232012) |
 | `ssh_key` | [ssh_key](data-sources--gcp_vpc_site--reference--group-001.md#canonical-1131200321210212-0100100122002120-2311021313321002-1333101002100203-0130032133330011-1213231202000101-3222013031313032-0011020301132002) |
-| `sw` | [sw](data-sources--gcp_vpc_site--reference--group-003.md#canonical-0231010130132301-3230223211201230-1131212221130330-0011311122031022-0120120303021111-2220120011022310-1011103233320012-0330322321331211) |
+| `sw` | [sw](data-sources--gcp_vpc_site--reference--group-004.md#canonical-0231010130132301-3230223211201230-1131212221130330-0011311122031022-0120120303021111-2220120011022310-1011103233320012-0330322321331211) |
 | `sw.default_sw_version` | [sw.default_sw_version](data-sources--gcp_vpc_site--reference--group-004.md#canonical-0132233033323202-1310331310021111-2121232112202121-1202121333223203-2001033123100213-0200202030133023-3101210230330033-0333212311310302) |
-| `sw.volterra_software_version` | [sw.volterra_software_version](data-sources--gcp_vpc_site--reference--group-003.md#canonical-2203231232232023-1203321030310030-3103210020103020-3322022212330113-2223202122100212-2231102012032012-0203011100131001-1022200312222002) |
+| `sw.volterra_software_version` | [sw.volterra_software_version](data-sources--gcp_vpc_site--reference--group-004.md#canonical-2203231232232023-1203321030310030-3103210020103020-3322022212330113-2223202122100212-2231102012032012-0203011100131001-1022200312222002) |
 | `voltstack_cluster` | [voltstack_cluster](data-sources--gcp_vpc_site--reference--group-004.md#canonical-0203133203303222-3213130300030211-2023033333200210-0202320122220013-3100113312003032-1000031013121311-1032330000300302-1022103102203101) |
 | `voltstack_cluster.active_enhanced_firewall_policies` | [voltstack_cluster.active_enhanced_firewall_policies](data-sources--gcp_vpc_site--reference--group-004.md#canonical-1301310132132100-3120112033223003-2021010133032212-1232003133112021-2302100121300103-2120320013223220-2111310301313110-0130212003130212) |
 | `voltstack_cluster.active_enhanced_firewall_policies.enhanced_firewall_policies` | [voltstack_cluster.active_enhanced_firewall_policies.enhanced_firewall_policies](data-sources--gcp_vpc_site--reference--group-004.md#canonical-2333332221130203-2210321221022230-1312133312201032-0012201031123002-3223313300320233-0122120033331320-1122332113323020-1321222131101011) |
@@ -922,7 +954,7 @@ Each exact path has one authoritative reference destination. Collection element 
 | `voltstack_cluster.storage_class_list.storage_classes` | [voltstack_cluster.storage_class_list.storage_classes](data-sources--gcp_vpc_site--reference--group-004.md#canonical-0311303011230133-3312312201011010-2223020012222300-0313221020120323-1311312330312113-3230100312232030-3313031020312123-2313032132202133) |
 | `voltstack_cluster.storage_class_list.storage_classes.default_storage_class` | [voltstack_cluster.storage_class_list.storage_classes.default_storage_class](data-sources--gcp_vpc_site--reference--group-004.md#canonical-0222101230201113-0121011300203232-1330310301112230-2122001123011111-0323231212020321-1311203132330003-3321310320232331-1012220222312330) |
 | `voltstack_cluster.storage_class_list.storage_classes.storage_class_name` | [voltstack_cluster.storage_class_list.storage_classes.storage_class_name](data-sources--gcp_vpc_site--reference--group-004.md#canonical-0302111001000032-1022313333131312-3321201121133102-2223321021202222-1202211110032020-0002330101323232-3212103031111000-2030030113230133) |
-| `waf_signatures` | [waf_signatures](data-sources--gcp_vpc_site--reference--group-004.md#canonical-1332200232203221-0021133013311332-0302302031310200-2231200203011332-2120020021102201-1320223013002030-1302022313101313-3023333000322303) |
+| `waf_signatures` | [waf_signatures](data-sources--gcp_vpc_site--reference--group-005.md#canonical-1332200232203221-0021133013311332-0302302031310200-2231200203011332-2120020021102201-1320223013002030-1302022313101313-3023333000322303) |
 | `waf_signatures.automatic` | [waf_signatures.automatic](data-sources--gcp_vpc_site--reference--group-005.md#canonical-1133312313033201-1200003012001311-3020002011010231-1101311112301233-1330023213113131-2322023123200223-2112103201310212-1203210120220122) |
 | `waf_signatures.manual` | [waf_signatures.manual](data-sources--gcp_vpc_site--reference--group-005.md#canonical-2010300233313130-1023010211230311-3013001132203322-1011200020132302-0302200330310111-2123200323031102-3301301203211313-3201022110122212) |
 
@@ -950,7 +982,7 @@ Each exact path has one authoritative reference destination. Collection element 
 - [private_connectivity](data-sources--gcp_vpc_site--reference--group-003.md#canonical-1203003321300011-0223032211022011-1000102131312201-3122010333311010-1021023223222201-1131021212120001-3233201320331210-2110010200210122)
 - [sw](data-sources--gcp_vpc_site--reference--group-003.md#canonical-0310330212021223-3303111001132333-2110220022330203-2030023332031212-0003311012011331-0210223302200113-1032100302211312-2001221222220020)
 - [voltstack_cluster](data-sources--gcp_vpc_site--reference--group-004.md#canonical-2213313332313212-1230123320203012-3120121021331113-3210101220221000-1023022133330131-3023333003003323-2311003313332333-2203303111102220)
-- [waf_signatures](data-sources--gcp_vpc_site--reference--group-004.md#canonical-0012012033031300-2110002220223133-3303202210233302-1331310110333111-3031100320201031-2130003013122113-0123330322110322-1011031331030122)
+- [waf_signatures](data-sources--gcp_vpc_site--reference--group-005.md#canonical-0012012033031300-2110002220223133-3303202210233302-1331310110333111-3031100320201031-2130003013122113-0123330322110322-1011031331030122)
 - [xcsh_gcp_vpc_site](../data-sources/gcp_vpc_site.md#canonical-1132222133321101-1232102200201102-2111112102132122-0010023221133123-2333213300031302-1001011022311003-3121103220313010-2103321200303202)
 
 <a id="canonical-1122011033112013-0023030003113122-3210112130312312-1032332312323121-2102122211113223-1311220103313223-0301102033030320-0121032031032011"></a>
@@ -2589,75 +2621,3 @@ Receipt-pinned upstream constraints:
 ```
 
 <a id="canonical-0103031030102332-1302223121311220-1133313131223120-1123133110020130-0333210231121002-2132020112021133-2023210231012021-2012000202100223"></a>
-
-<a id="canonical-0202333111131320-2303303001023332-2312112220000333-1312133220220201-1030020123223123-2011331210110133-3021021031100200-2103333030022311"></a>
-
-## gcp_zone_names property — ingress_egress_gw / 211132000220 / 5
-
-Type: `["list", "string"]`. Computed.
-
-X-required List of zones when instances will be created, needs to match with region selected.
-
-Upstream description:
-
-X-required List of zones when instances will be created, needs to match with region selected.
-
-Receipt-pinned upstream constraints:
-
-```json
-{
-  "maxItems": 3,
-  "x-f5xc-constraints": {
-    "category": "discovery",
-    "constraintType": "array",
-    "deterministic": true,
-    "maxItems": 3,
-    "metadata": {
-      "confidence": 0.99,
-      "source": "discovery",
-      "validatedAt": "2026-10-03T05:10:26+00:00"
-    },
-    "uniqueItems": true
-  },
-  "x-f5xc-required-for": {
-    "create": true,
-    "minimum_config": true,
-    "read": false,
-    "update": false
-  },
-  "x-validation-rules": {
-    "ves.io.schema.rules.message.required": "true",
-    "ves.io.schema.rules.repeated.items.string.max_len": "64",
-    "ves.io.schema.rules.repeated.max_items": "3",
-    "ves.io.schema.rules.repeated.unique": "true"
-  },
-  "x-ves-validation-rules": {
-    "ves.io.schema.rules.message.required": "true",
-    "ves.io.schema.rules.repeated.items.string.max_len": "64",
-    "ves.io.schema.rules.repeated.max_items": "3",
-    "ves.io.schema.rules.repeated.unique": "true"
-  }
-}
-```
-
-- [global_network_list](data-sources--gcp_vpc_site--reference--group-002.md#canonical-1130312120203102-2122110323320300-1102233103300112-2022130100300120-2110022023011312-0123323310213232-0112231123131301-3101313020332221): complete subsection reference.
-
-- [inside_network](data-sources--gcp_vpc_site--reference--group-002.md#canonical-1103010332011311-1122120123211002-0313120122102101-1212112111232323-2002213301120131-2031023110130320-2332020000113011-2101203131100023): complete subsection reference.
-
-- [inside_static_routes](data-sources--gcp_vpc_site--reference--group-002.md#canonical-3200313310131232-0210110202101312-2021312210102120-1112102012331303-3023321133320033-3321213133200210-3120212332313312-1233223233330302): complete subsection reference.
-
-- [inside_subnet](data-sources--gcp_vpc_site--reference--group-002.md#canonical-3203003222300230-2112031310101033-3303130321221222-3231311000312033-1330123121120320-1222230233122203-2132222101023230-1023322133302111): complete subsection reference.
-
-- [no_dc_cluster_group](data-sources--gcp_vpc_site--reference--group-002.md#canonical-0202032310301232-3202321000020000-0210202121112010-2120030213110333-3332322130201230-2131302013000120-3331220230110321-1232320231201231): complete subsection reference.
-
-- [no_forward_proxy](data-sources--gcp_vpc_site--reference--group-002.md#canonical-0032301122112030-0230102021011322-1331221201233202-2310133101313001-3300103223100011-2101033003202031-3113223310023220-0023332112202012): complete subsection reference.
-
-- [no_global_network](data-sources--gcp_vpc_site--reference--group-002.md#canonical-1220311131221300-0120302031132331-1130330201130100-0013112232110113-3210123101120022-2312223312233301-1213032212023333-1001202002130112): complete subsection reference.
-
-- [no_inside_static_routes](data-sources--gcp_vpc_site--reference--group-002.md#canonical-3323101233232200-1121011001111111-2122331313313332-1103001110103122-3203022213321323-3303022232101131-3320313203232111-0001201212301111): complete subsection reference.
-
-- [no_network_policy](data-sources--gcp_vpc_site--reference--group-002.md#canonical-2321230320203023-2012002031123220-0211203302300320-0331010030233012-0113111022300021-1131233223230022-0203113021211023-0321203131330223): complete subsection reference.
-
-- [no_outside_static_routes](data-sources--gcp_vpc_site--reference--group-002.md#canonical-2121122223003320-1111002330210202-1113133312303121-3331201332000322-1210100303320031-3012330310320210-2111211301122021-3130310200112133): complete subsection reference.
-
-<a id="canonical-0233223010101003-2232200201322111-2011132001312231-0231200021103302-1321111023122121-1113313300311111-3222120012313021-1030112301231220"></a>

@@ -6,6 +6,185 @@ description: "Complete grouped canonical reference for xcsh_voltstack_site refer
 
 # xcsh_voltstack_site reference
 
+<a id="canonical-0100323132300312-3022012220221003-3031033201233311-1023013232031210-0313101231033331-0000302321013333-2012110030002312-3302021031132220"></a>
+
+## feature_type property — enable_vgpu / 302003122012 / 4
+
+Type: `"string"`. Computed.
+
+\[Enum: UNLICENSED|VGPU|VWS|VCS\] Set feature to be enabled Operate with a degraded vGPU performance
+Enable NVIDIA vGPU Enable NVIDIA RTX Virtual Workstation Enable NVIDIA Virtual Compute Server.
+Possible values are \`UNLICENSED\`, \`VGPU\`, \`VWS\`, \`VCS\`. Defaults to \`UNLICENSED\`.
+
+Upstream description:
+
+Set feature to be enabled
+
+Operate with a degraded vGPU performance Enable NVIDIA vGPU Enable NVIDIA RTX Virtual Workstation
+Enable NVIDIA Virtual Compute Server.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "default": "UNLICENSED",
+  "enum": [
+    "UNLICENSED",
+    "VGPU",
+    "VWS",
+    "VCS"
+  ],
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  }
+}
+```
+
+<a id="canonical-1212020303113111-0113022022330121-2322313002030130-3312202110100230-2232011303001312-2210311302323300-1223130201322113-2003011023201030"></a>
+
+<a id="canonical-3101333312201231-2332222221232102-1213332100202320-2112210133022331-0132020002210010-3020201010110033-2100023010020332-1330110200003301"></a>
+
+## server_address property — enable_vgpu / 302003122012 / 5
+
+Type: `"string"`. Computed.
+
+License Server Address. Set License Server Address.
+
+Upstream description:
+
+Set License Server Address.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-constraints": {
+    "category": "general",
+    "constraintType": "string",
+    "maxLength": 1024,
+    "metadata": {
+      "confidence": 0.85,
+      "source": "inferred",
+      "validatedAt": "2026-10-03T05:10:26+00:00"
+    }
+  },
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  },
+  "x-validation-rules": {
+    "ves.io.schema.rules.string.hostname_or_ip": "true"
+  },
+  "x-ves-validation-rules": {
+    "ves.io.schema.rules.string.hostname_or_ip": "true"
+  }
+}
+```
+
+<a id="canonical-2031100103103321-0100103100221231-1213213213322202-1202002101130012-1331102013122302-2323110100232320-1020210002310202-0001122230230222"></a>
+
+<a id="canonical-1321221120003012-0221132200223310-2023130030030030-2211202232212213-3321222003131013-1300033022230131-2331323031232111-0332023011022013"></a>
+
+## server_port property — enable_vgpu / 302003122012 / 6
+
+Type: `"number"`. Computed.
+
+License Server Port Number. Set License Server port number.
+
+Upstream description:
+
+Set License Server port number.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-constraints": {
+    "category": "discovery",
+    "constraintType": "number",
+    "deterministic": true,
+    "maximum": 65535,
+    "metadata": {
+      "confidence": 0.99,
+      "source": "api-probed",
+      "validatedAt": "2026-10-03T05:10:26+00:00"
+    },
+    "minimum": 1
+  },
+  "x-f5xc-required-for": {
+    "create": true,
+    "minimum_config": true,
+    "read": false,
+    "update": false
+  },
+  "x-validation-rules": {
+    "ves.io.schema.rules.uint32.gte": "1",
+    "ves.io.schema.rules.uint32.lte": "65535"
+  },
+  "x-ves-validation-rules": {
+    "ves.io.schema.rules.uint32.gte": "1",
+    "ves.io.schema.rules.uint32.lte": "65535"
+  }
+}
+```
+
+<a id="canonical-1332131133333333-2010321320202212-0311033211211032-0221313213203132-3020323300221320-2310331333212323-0221113203210120-1223110011332112"></a>
+
+## Next pages — enable_vgpu / 302003122012 / 7
+
+- [Property reference](data-sources--voltstack_site--reference--group-001.md#canonical-3210130022101001-3112232101022102-2032333031300013-3112003110021012-3222001330012233-0002330230030031-3201232233001313-3100032330211031)
+- [xcsh_voltstack_site](../data-sources/voltstack_site.md#canonical-3011021120121122-1120101211211330-2030121003211010-0212132020130223-0212111100103011-3003130023302333-3021021330130133-1133312111123000)
+
+<a id="canonical-2120033220230201-3201323001000303-2300010003321030-1322013303121300-1311012110311000-2112222220331213-2322312333333022-2023330301130102"></a>
+
+<!-- Exact provider and upstream contract identifiers. -->
+
+<!-- textlint-disable terminology -->
+
+<a id="canonical-1003201321300102-3103311022200203-1123032313100232-3010101032013211-1121311333322323-3230221112220231-0132120221221303-3012122222302032"></a>
+
+## enable_vm — enable_vm / 212222322202 / 2
+
+Breadcrumbs:
+
+- [xcsh_voltstack_site](../data-sources/voltstack_site.md#canonical-3011021120121122-1120101211211330-2030121003211010-0212132020130223-0212111100103011-3003130023302333-3021021330130133-1133312111123000)
+- [Property reference](data-sources--voltstack_site--reference--group-001.md#canonical-3210130022101001-3112232101022102-2032333031300013-3112003110021012-3222001330012233-0002330230030031-3201232233001313-3100032330211031)
+- enable_vm
+
+<a id="canonical-2020200311313011-3232123011223033-3323320322331112-0103113121133303-2213221102313321-3312230011021111-2200133132202212-2332020333122130"></a>
+
+Type: `["object", {}]`. Computed.
+
+VM Configuration. VMs support configuration.
+
+Upstream description:
+
+VMs support configuration.
+
+Receipt-pinned upstream constraints:
+
+```json
+{
+  "x-f5xc-required-for": {
+    "create": false,
+    "minimum_config": false,
+    "read": false,
+    "update": false
+  }
+}
+```
+
+<a id="canonical-2102130221220100-2130331131223233-3232323033221310-1133033221121333-1103233312203333-0201021230133230-2111332010110102-3222123322301203"></a>
+
+## Direct properties — enable_vm / 212222322202 / 3
+
+This is an empty object or choice marker. It has no direct properties.
+
 <a id="canonical-3331121021332202-3202102211212020-3120012102332132-3221133220202212-3230023231211301-3111003231010330-1201221210133231-2310331132033002"></a>
 
 ## Next pages — enable_vm / 212222322202 / 4
@@ -4904,68 +5083,6 @@ Receipt-pinned upstream constraints:
 
 ## Direct properties — offline_survivability_mode / 113030230113 / 3
 
-- [enable_offline_survivability_mode](data-sources--voltstack_site--reference--group-009.md#canonical-1331030231322120-0212323100303100-2112223232321001-1110003311110112-3122001210210001-3223101222110003-1321132123012221-1023012013213012): complete subsection reference.
+- [enable_offline_survivability_mode](data-sources--voltstack_site--reference--group-010.md#canonical-1331030231322120-0212323100303100-2112223232321001-1110003311110112-3122001210210001-3223101222110003-1321132123012221-1023012013213012): complete subsection reference.
 
 - [no_offline_survivability_mode](data-sources--voltstack_site--reference--group-010.md#canonical-2213313110020223-0011332022223020-3310200013233110-0012221031220221-1023011112213300-1203030003333122-0330220112113303-3330213112123223): complete subsection reference.
-
-<a id="canonical-1212001303202122-3133101131301031-0130312101120333-0100030133221102-2021221321030221-2313022201221010-3313301013131112-1332213030323100"></a>
-
-## Next pages — offline_survivability_mode / 113030230113 / 4
-
-- [offline_survivability_mode.enable_offline_survivability_mode](data-sources--voltstack_site--reference--group-009.md#canonical-1331030231322120-0212323100303100-2112223232321001-1110003311110112-3122001210210001-3223101222110003-1321132123012221-1023012013213012)
-- [offline_survivability_mode.no_offline_survivability_mode](data-sources--voltstack_site--reference--group-010.md#canonical-2213313110020223-0011332022223020-3310200013233110-0012221031220221-1023011112213300-1203030003333122-0330220112113303-3330213112123223)
-- [Property reference](data-sources--voltstack_site--reference--group-001.md#canonical-3210130022101001-3112232101022102-2032333031300013-3112003110021012-3222001330012233-0002330230030031-3201232233001313-3100032330211031)
-- [xcsh_voltstack_site](../data-sources/voltstack_site.md#canonical-3011021120121122-1120101211211330-2030121003211010-0212132020130223-0212111100103011-3003130023302333-3021021330130133-1133312111123000)
-
-<a id="canonical-1331030231322120-0212323100303100-2112223232321001-1110003311110112-3122001210210001-3223101222110003-1321132123012221-1023012013213012"></a>
-
-<!-- Exact provider and upstream contract identifiers. -->
-
-<!-- textlint-disable terminology -->
-
-<a id="canonical-3033322001012001-2101312311033303-0332011323120123-1023033021322203-2331030033322222-0011223322231101-1203101033321311-1210230310121111"></a>
-
-## offline_survivability_mode.enable_offline_survivability_mode — enable_offline_survivability_mode / 123302101233 / 2
-
-Breadcrumbs:
-
-- [xcsh_voltstack_site](../data-sources/voltstack_site.md#canonical-3011021120121122-1120101211211330-2030121003211010-0212132020130223-0212111100103011-3003130023302333-3021021330130133-1133312111123000)
-- [Property reference](data-sources--voltstack_site--reference--group-001.md#canonical-3210130022101001-3112232101022102-2032333031300013-3112003110021012-3222001330012233-0002330230030031-3201232233001313-3100032330211031)
-- [offline_survivability_mode](data-sources--voltstack_site--reference--group-009.md#canonical-3012201203013310-2202301221032113-3211212303232023-3001230312211120-0223122330211122-3321300212212230-1123030231222122-0310112232022022)
-- offline_survivability_mode.enable_offline_survivability_mode
-
-<a id="canonical-2202022310201203-0200133233103321-2321032232220213-3133322120133301-1212311320033121-0023203021210013-2202213031221020-1101232123213220"></a>
-
-Type: `["object", {}]`. Computed.
-
-Configuration parameter for enable offline survivability mode.
-
-Upstream description:
-
-This can be used for messages where no values are needed.
-
-Receipt-pinned upstream constraints:
-
-```json
-{
-  "x-f5xc-required-for": {
-    "create": false,
-    "minimum_config": false,
-    "read": false,
-    "update": false
-  }
-}
-```
-
-<a id="canonical-2310330020121310-1323332010221100-3121123020003021-0320033021002020-0113310201302323-3220312031323303-1200203321301220-3121310023330112"></a>
-
-## Direct properties — enable_offline_survivability_mode / 123302101233 / 3
-
-This is an empty object or choice marker. It has no direct properties.
-
-<a id="canonical-0320020323332222-2231123020133312-1101103223113123-1332223331033010-0330120010231012-0322002320202331-0100111222322212-2002001120330333"></a>
-
-## Next pages — enable_offline_survivability_mode / 123302101233 / 4
-
-- [offline_survivability_mode](data-sources--voltstack_site--reference--group-009.md#canonical-3012201203013310-2202301221032113-3211212303232023-3001230312211120-0223122330211122-3321300212212230-1123030231222122-0310112232022022)
-- [xcsh_voltstack_site](../data-sources/voltstack_site.md#canonical-3011021120121122-1120101211211330-2030121003211010-0212132020130223-0212111100103011-3003130023302333-3021021330130133-1133312111123000)
