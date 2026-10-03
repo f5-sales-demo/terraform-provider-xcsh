@@ -114,7 +114,7 @@ jq -e '
   (keys | sort) == ["assets", "release_tag", "target_commit", "version"] and
   .release_tag == ("v" + .version) and
   (.target_commit | test("^[0-9a-f]{40}$")) and
-  (.assets | keys | sort) == [
+  (.assets | keys | sort) == ([
     "api-catalog.json",
     "concurrency_contracts.json",
     ("f5xc-api-specs-" + .release_tag + ".zip"),
@@ -122,7 +122,7 @@ jq -e '
     "smsv2-contract-manifest.json", "smsv2-contract.json", "smsv2-evidence-receipt.json",
     "smsv2_parity_manifest.json", "upstream-contract-changes.json",
     "upstream-contract-removals.json"
-  ] and
+  ] + (if (.version | split(".")[0] | tonumber) >= 10 then ["enrichment-coverage.json"] else [] end) | sort) and
   ([.assets[] | test("^sha256:[0-9a-f]{64}$")] | all)
 ' "$pin" >/dev/null || fail "spec release pin is malformed"
 [ "$(tr -d '[:space:]' <tools/spec-version.txt)" = "$(jq -r '.release_tag' "$pin")" ] ||
