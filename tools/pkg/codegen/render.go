@@ -1416,6 +1416,10 @@ func RenderNestedAttributes(attrs []openapi.TerraformAttribute, indent string) s
 			sb.WriteString(fmt.Sprintf("%s\t\tAttributeTypes: map[string]attr.Type{},\n", indent))
 		}
 
+		if attr.Type == "map" && attr.MapConstraintsJSON != "" {
+			sb.WriteString(fmt.Sprintf("%s\t\tValidators: []validator.Map{validators.MapConstraintsValidator(%q)},\n", indent, attr.MapConstraintsJSON))
+		}
+
 		// Add string validators (LengthBetween/LengthAtMost/LengthAtLeast, RegexMatches, OneOf)
 		if attr.Type == "string" {
 			var stringValidators []string

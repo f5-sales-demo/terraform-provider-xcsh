@@ -94,6 +94,8 @@ runs:
         fi
         PIN_FILE="${GITHUB_WORKSPACE:-.}/tools/spec-release.json"
         BUNDLE_NAME="f5xc-api-specs-${RELEASE_TAG}.zip"
+        COVERAGE_ASSET=""
+        if [ "${EXPECTED_VERSION%%.*}" -ge 10 ]; then COVERAGE_ASSET="enrichment-coverage.json"; fi
         [ -f "$PIN_FILE" ] || { echo "::error::Tracked spec release pin is missing"; exit 1; }
         jq -e \
           --arg tag "$RELEASE_TAG" \
@@ -105,10 +107,10 @@ runs:
             .version == $version and
             (.target_commit | test("^[0-9a-f]{40}$")) and
             (.assets | keys | sort) ==
-              ["api-catalog.json", "concurrency_contracts.json", $bundle, "index.json", "minimal-export-defaults.json", "openapi.json",
+              (["api-catalog.json", "concurrency_contracts.json", $bundle, "index.json", "minimal-export-defaults.json", "openapi.json",
                "smsv2-contract-manifest.json", "smsv2-contract.json", "smsv2-evidence-receipt.json", "smsv2_parity_manifest.json",
                "upstream-contract-changes.json",
-               "upstream-contract-removals.json"] and
+               "upstream-contract-removals.json"] + (if ($version | split(".")[0] | tonumber) >= 10 then ["enrichment-coverage.json"] else [] end) | sort) and
             ([.assets[] | test("^sha256:[0-9a-f]{64}$")] | all)
           ' "$PIN_FILE" >/dev/null || {
           echo "::error::Tracked spec release pin is malformed or names another release"
@@ -165,6 +167,7 @@ runs:
           smsv2-evidence-receipt.json \
           smsv2_parity_manifest.json \
           upstream-contract-changes.json \
+          ${COVERAGE_ASSET:-} \
           upstream-contract-removals.json | sort)
         ACTUAL_ASSETS=$(jq -r '.assets[].name' "$RELEASE_METADATA" | sort)
         [ "$ACTUAL_ASSETS" = "$EXPECTED_ASSETS" ] || {
@@ -182,6 +185,7 @@ runs:
         RECEIPT=$(sed -n 's/^<!-- publication-receipt:\(.*\) -->$/\1/p' "$RELEASE_BODY")
         printf '%s' "$RECEIPT" | jq -e \
           --arg bundle "$BUNDLE_NAME" \
+          --arg version "$EXPECTED_VERSION" \
           --slurpfile pin "$PIN_FILE" '
             type == "object" and
             (keys | sort) == ["assets", "commit", "version"] and
@@ -189,10 +193,10 @@ runs:
             .version == $pin[0].version and
             .assets == $pin[0].assets and
             (.assets | keys | sort) ==
-              ["api-catalog.json", "concurrency_contracts.json", $bundle, "index.json", "minimal-export-defaults.json", "openapi.json",
+              (["api-catalog.json", "concurrency_contracts.json", $bundle, "index.json", "minimal-export-defaults.json", "openapi.json",
                "smsv2-contract-manifest.json", "smsv2-contract.json", "smsv2-evidence-receipt.json", "smsv2_parity_manifest.json",
                "upstream-contract-changes.json",
-               "upstream-contract-removals.json"] and
+               "upstream-contract-removals.json"] + (if ($version | split(".")[0] | tonumber) >= 10 then ["enrichment-coverage.json"] else [] end) | sort) and
             ([.assets[] | test("^sha256:[0-9a-f]{64}$")] | all)
           ' >/dev/null || {
           echo "::error::Publication receipt does not exactly match the tracked release pin"
@@ -255,6 +259,7 @@ runs:
         for asset in api-catalog.json concurrency_contracts.json index.json minimal-export-defaults.json openapi.json \
           smsv2-contract-manifest.json smsv2-contract.json smsv2-evidence-receipt.json smsv2_parity_manifest.json \
           upstream-contract-changes.json \
+          ${COVERAGE_ASSET:-} \
           upstream-contract-removals.json; do
           AID=$(jq -r --arg name "$asset" \
             '[.assets[] | select(.name == $name)] | if length == 1 then .[0].id else empty end' \

@@ -281,6 +281,8 @@ jobs:
           fi
 
           BUNDLE_NAME="f5xc-api-specs-${SPEC_VERSION}.zip"
+          COVERAGE_ASSET=""
+          if [ "${RELEASE_VERSION%%.*}" -ge 10 ]; then COVERAGE_ASSET="enrichment-coverage.json"; fi
           EXPECTED_ASSETS=$(printf '%s\n' \
             api-catalog.json \
             concurrency_contracts.json \
@@ -293,6 +295,7 @@ jobs:
             smsv2-evidence-receipt.json \
             smsv2_parity_manifest.json \
             upstream-contract-changes.json \
+          ${COVERAGE_ASSET:-} \
             upstream-contract-removals.json | sort)
           ACTUAL_ASSETS=$(jq -r '.assets[].name' "$RELEASE_METADATA" | sort)
           [ "$ACTUAL_ASSETS" = "$EXPECTED_ASSETS" ] || {
@@ -318,10 +321,10 @@ jobs:
               .version == $version and
               .commit == $commit and
               (.assets | keys | sort) ==
-                ["api-catalog.json", "concurrency_contracts.json", $bundle, "index.json", "minimal-export-defaults.json", "openapi.json",
+                (["api-catalog.json", "concurrency_contracts.json", $bundle, "index.json", "minimal-export-defaults.json", "openapi.json",
                  "smsv2-contract-manifest.json", "smsv2-contract.json", "smsv2-evidence-receipt.json", "smsv2_parity_manifest.json",
                  "upstream-contract-changes.json",
-                 "upstream-contract-removals.json"] and
+                 "upstream-contract-removals.json"] + (if ($version | split(".")[0] | tonumber) >= 10 then ["enrichment-coverage.json"] else [] end) | sort) and
               ([.assets[] | test("^sha256:[0-9a-f]{64}$")] | all)
             ' >/dev/null || {
             echo "::error::Publication receipt does not match the release identity"
@@ -376,6 +379,7 @@ jobs:
           for asset in api-catalog.json concurrency_contracts.json index.json minimal-export-defaults.json openapi.json \
             smsv2-contract-manifest.json smsv2-contract.json smsv2-evidence-receipt.json smsv2_parity_manifest.json \
             upstream-contract-changes.json \
+          ${COVERAGE_ASSET:-} \
             upstream-contract-removals.json; do
             AID=$(jq -r --arg name "$asset" \
               '[.assets[] | select(.name == $name)] | if length == 1 then .[0].id else empty end' \
