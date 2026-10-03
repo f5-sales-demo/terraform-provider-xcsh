@@ -154,7 +154,8 @@ def stage_publication_config(source: Path, destination: Path) -> None:
     config = source / "llms-config.json"
     value = json.loads(config.read_text())
     if not isinstance(value.get("canonicalCorpus"), dict):
-        raise ValueError("canonical publication configuration is required")
+        message = "canonical publication configuration is required"
+        raise TypeError(message)
     shutil.copyfile(config, destination / "llms-config.json")
 
 
