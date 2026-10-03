@@ -147,7 +147,7 @@ jq -e --slurpfile pending "$pending" '
   .target_commit == $pending[0].target_commit and
   .version == $pending[0].version and
   (.assets | type == "object") and
-  (.assets | keys | sort) == [
+  (.assets | keys | sort) == ([
     "api-catalog.json",
     "concurrency_contracts.json",
     ("f5xc-api-specs-" + $pending[0].release_tag + ".zip"),
@@ -160,7 +160,7 @@ jq -e --slurpfile pending "$pending" '
     "smsv2_parity_manifest.json",
     "upstream-contract-changes.json",
     "upstream-contract-removals.json"
-  ] and
+  ] + (if ($pending[0].version | split(".")[0] | tonumber) >= 10 then ["enrichment-coverage.json"] else [] end) | sort) and
   ([.assets[] | test("^sha256:[0-9a-f]{64}$")] | all)
 ' "$pin" >/dev/null || fail "Published release pin does not match pending delivery"
 pin_sha=$(shasum -a 256 "$pin" | awk '{print $1}')

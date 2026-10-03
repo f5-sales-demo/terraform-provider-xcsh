@@ -17,10 +17,10 @@ func TestOperationBaselineSurvivesSpecPatchDelta(t *testing.T) {
 	if err = os.WriteFile(report, []byte(`{"operations":{"additions":[],"removals":[]}}`), 0600); err != nil {
 		t.Fatal(err)
 	}
-	if _, err = LoadAndApply(filepath.Join(root, "operation-surface.json"), report, "v9.0.1", catalog); err != nil {
+	if _, err = LoadAndApply(filepath.Join(root, "operation-surface.json"), report, "v10.0.1", catalog); err != nil {
 		t.Fatal(err)
 	}
-	for _, release := range []string{"v8.0.9", "v10.0.0", "invalid"} {
+	for _, release := range []string{"v9.0.9", "v11.0.0", "invalid"} {
 		if _, err = LoadAndApply(filepath.Join(root, "operation-surface.json"), report, release, catalog); err == nil {
 			t.Fatalf("accepted %s", release)
 		}
@@ -32,7 +32,7 @@ func TestOperationBaselineSurvivesSpecPatchDelta(t *testing.T) {
 		if err = os.WriteFile(report, []byte(content), 0600); err != nil {
 			t.Fatal(err)
 		}
-		if _, err = LoadAndApply(filepath.Join(root, "operation-surface.json"), report, "v9.0.1", catalog); err == nil {
+		if _, err = LoadAndApply(filepath.Join(root, "operation-surface.json"), report, "v10.0.1", catalog); err == nil {
 			t.Fatal("accepted invalid patch contract")
 		}
 	}

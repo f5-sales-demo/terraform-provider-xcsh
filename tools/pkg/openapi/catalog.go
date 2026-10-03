@@ -82,6 +82,8 @@ type APIExclusion struct {
 // explicitly enriched response operations carry source-owned Terraform names
 // and roles.
 type OperationCatalog struct {
+	ConsoleNavigation map[string]interface{} `json:"consoleNavigation,omitempty"`
+
 	Version       string
 	APIOperations []APIOperationIdentity
 	APIExclusions []APIExclusion
@@ -104,6 +106,8 @@ type ResolvedResourceOperations struct {
 }
 
 type operationCatalogDocument struct {
+	ConsoleNavigation map[string]interface{} `json:"consoleNavigation,omitempty"`
+
 	Service       json.RawMessage    `json:"service"`
 	DisplayName   json.RawMessage    `json:"displayName"`
 	Version       *string            `json:"version"`
@@ -217,7 +221,7 @@ func ParseOperationCatalog(data []byte) (*OperationCatalog, error) {
 		return nil, fmt.Errorf("catalog apiExclusions must be present")
 	}
 
-	catalog := &OperationCatalog{
+	catalog := &OperationCatalog{ConsoleNavigation: document.ConsoleNavigation,
 		Version:       *document.Version,
 		APIOperations: make([]APIOperationIdentity, 0, len(*document.APIOperations)),
 		APIExclusions: make([]APIExclusion, 0, len(*document.APIExclusions)),
